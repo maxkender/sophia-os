@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o333",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9990132c-e99b-42fb-bc3d-b40d42e99b3f",
+ "titre": "the routine that fixed my messy life (save and try) #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "9990132c-e99b-42fb-bc3d-b40d42e99b3f"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 14 de la boîte (9990132c, nl 16,5 k) : accroche du parent mot pour mot, coupes gardées. Horaires et contenus neufs, aucune reprise du parent (pas de téléphone la 1re heure, eau, soleil, tâche dure, déjeuner protéiné, plan du lendemain).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "43be2efc-0463-4a4f-9b53-6f46e134d721",
+   "texte_overlay": "the routine that fixed my\nmessy life\n(save and try)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "7:00 wake up at the same time every day, weekends included. A fixed wake-up time fixes your sleep, your energy and your mood within two weeks.",
+   "media_id": "33e47231-b37d-4e4f-b5bd-30c490144a48"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "7:15 make your bed and open the windows. Fresh air and one finished task before breakfast set the tone for an organised day. Eat slowly and enjoy it.",
+   "media_id": "3409fac9-fe8a-474e-ab53-2b8383e226a6"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "12:30 eat lunch away from your desk. Fifteen minutes without screens resets your head for the afternoon. Outside if you can, even in winter, with good shoes and a warm jacket.",
+   "media_id": "3432200a-d135-497b-b92e-5e45cf6fa365"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "18:00 train or walk for 45 minutes. Moving after work clears the stress of the day and makes your evening much calmer. Movement is non-negotiable.",
+   "media_id": "347741a0-2f25-4abc-9920-5e56b9909b97"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "20:00 learn something. I do five minutes a day of history, art or science, and it replaced an hour of mindless scrolling. Small daily lessons add up.",
+   "texte_sophia": "20:00 I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It replaced an hour of mindless scrolling.",
+   "media_id": "bb51d08b-f459-40e9-8d5f-c7d792113103"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "21:00 ten-minute reset. Dishes done, clothes away, desk clear. Waking up to a tidy home makes the next day start right. It takes five minutes.",
+   "media_id": "348a1129-3327-4fbb-8006-92ef59d1fc46"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "22:30 lights out. Book instead of phone. A calm end to the day is what makes the whole routine work. Keep it simple, do it for two weeks, and adjust what doesn't fit your life.",
+   "media_id": "3d796647-97a6-4693-a205-555ae5a788d0"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o322",
+ "type_bleo": "full_test",
+ "titre": "Things that make a man easy to be around #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 3 à 6 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 6e full test. Accroches écrites : « Things that make a man easy to be around » (retenue), « Why people love spending time with some men » (écartée : plus long), « How to be good company » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2f853f97-0c24-4de3-9b8b-100ab7fe5a92",
+   "texte_overlay": "Things that make a man\neasy to be around",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "He doesn't complain much. Everyone has problems, but he doesn't make every conversation about them. People leave his company lighter.",
+   "media_id": "1eac5e50-a385-493e-85f3-04595b8f0728"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "He's easy to plan with. Flexible, on time and quick to reply. Making plans with him never feels like work. He respects people's time, which everyone notices.",
+   "media_id": "1edee614-1117-48cd-a26f-b3b389275f71"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "He laughs easily. At jokes, at himself, at little absurd moments. Shared laughter makes any time together better. He never makes people feel stupid, even when they're wrong.",
+   "media_id": "1f3815bb-784f-47fd-9aaf-245584f63ef1"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "He doesn't need to win every discussion. He shares his view, listens to yours and lets it go. Conversations stay fun. Being around him feels good.",
+   "media_id": "1fc3d4cb-ead9-405d-ae41-7da54e2d6e5e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I had little to add in group conversations. After: five minutes a day of history, art or science, and I always have something fun to share.",
+   "texte_sophia": "Before: I had little to add in group conversations. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have something fun to share.",
+   "media_id": "684c1083-9cc4-41e4-9b80-103df82d5b69"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "He notices what others need. A refill, a ride home, a quiet word to someone left out. Small attentions make people feel at ease.",
+   "media_id": "20676a1e-e162-4ef2-ac6c-d89adc152d66"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "He's the same every time. No sudden moods, no drama. People feel relaxed around someone they can predict. Calm, steady men are the ones people always want close by.",
+   "media_id": "20a4667f-7901-4516-9ce3-80b00c1344ce"
+  }
+ ]
+}

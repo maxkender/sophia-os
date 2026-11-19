@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o332",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9687d843-731b-4dbb-8c85-5ed55380eccb",
+ "titre": "how to be dangerously well educated #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "9687d843-731b-4dbb-8c85-5ed55380eccb"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 13 de la boîte (9687d843, en 752) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (débattre, chercher ce qu'on ne comprend pas, podcasts, journal) ni des déclinaisons de 86c14886.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42d2888e-0eb1-4cc5-be5a-6640d0995cb6",
+   "texte_overlay": "how to be dangerously\nwell educated",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn the big timeline of history. Ancient Egypt, Greece, Rome, the Middle Ages, the Renaissance, the World Wars. Everything else hangs on that structure.",
+   "media_id": "32b1ecf7-df14-492f-9985-112083ba4741"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Read one classic novel every season. Dostoevsky, Hemingway, Steinbeck. Great stories teach you about people in a way facts never will.",
+   "media_id": "32eef028-ba58-4236-a03f-fe568020e9fc"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learn basic economics. Inflation, interest rates, supply and demand. Understanding money makes the news and your own life much clearer.",
+   "media_id": "330da1c8-3d2f-4970-8695-3e2f306be055"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Visit museums with a plan. Pick one room or one artist and learn the story behind it. Depth beats rushing through ten rooms.",
+   "media_id": "330f72d1-1f8d-494a-a84b-075acb4ff656"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Make learning daily. I do five minutes a day of history, art or science, and over months it builds a real, wide education. Ten minutes a day is enough.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Over months it builds a real, wide education.",
+   "media_id": "b7ea3e2a-848e-42a7-ada4-c50cc7abb4d9"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Learn the basics of philosophy. Socrates, the Stoics, Descartes. Philosophy teaches you how to think, not just what to think.",
+   "media_id": "331aaf9b-3d89-4c87-a9dc-fa78b65d59ab"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Watch documentaries instead of random videos. Same couch, same time, but you end the evening knowing how the world works. One documentary a week adds up fast.",
+   "media_id": "3d67cb3c-c08f-4163-a09d-9961d26315ec"
+  }
+ ]
+}

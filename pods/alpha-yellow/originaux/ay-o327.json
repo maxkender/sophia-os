@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o327",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "81b924e4-5cce-4ac0-94aa-8248229ccede",
+ "titre": "Ce que tu dois comprendre sur la vie avant qu'il ne soit trop tard #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "81b924e4-5cce-4ac0-94aa-8248229ccede"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 8 de la boîte (81b924e4, fr 918), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot, coupes gardées. Idées neuves (aucune reprise : personne ne te sauvera, choisir sa souffrance, le temps, rien n'est permanent, ton propre jeu). Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3ce98251-c2ed-49a2-bf7e-ca0a8292b430",
+   "texte_overlay": "Ce que tu dois comprendre\nsur la vie avant qu'il ne soit\ntrop tard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Les gens que tu aimes ne seront pas là pour toujours. Appelle, rends visite, dis-leur ce qu'ils comptent pour toi. Ce sont les regrets les plus lourds.",
+   "media_id": "274ea353-0468-49ad-938f-e0e2ef00005e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ta santé passe avant tout. Sans elle, l'argent et la réussite ne valent presque rien. Dors, bouge, mange bien tant qu'il est facile de le faire.",
+   "media_id": "28058a05-7c23-495c-a93b-dd02976523f7"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Les petites habitudes décident de ta vie. Ce que tu fais chaque jour compte bien plus que ce que tu fais de temps en temps.",
+   "media_id": "285b0a2f-31da-4fad-a2d0-f2f338097bff"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "L'avis des autres pèse moins que tu ne le crois. Dans dix ans, personne ne se souviendra de tes erreurs. Ose essayer. Ose essayer ce qui te fait envie.",
+   "media_id": "28972857-0881-4e02-9caa-a0ef1cae9e8f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Apprendre rend la vie plus riche. Je fais cinq minutes d'histoire, d'art ou de science par jour, et chaque journée me paraît un peu plus pleine.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Chaque journée me paraît un peu plus pleine.",
+   "media_id": "72c7179b-ce7a-4409-ae91-9599fb3963a6"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Les moments simples sont les plus précieux. Un repas entre amis, une balade, un fou rire. Remarque-les pendant qu'ils arrivent.",
+   "media_id": "28ca8836-6215-4f93-8138-8216805618c0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Il n'est jamais trop tard pour changer de direction. Un métier, une ville, une habitude. Le meilleur moment pour commencer, c'est aujourd'hui.",
+   "media_id": "294491d7-25cf-40b5-812c-d2513297547c"
+  }
+ ]
+}

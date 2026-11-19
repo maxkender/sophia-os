@@ -1,5 +1,6 @@
-import { themeDuLabel, type ThemeLabel } from "./label_theme.ts";
-import { serviceClient } from "./supabase.ts";
+import { labelsFreres, type LabelPhoto } from "./avatar_application.ts";
+import { themeDuLabel, type Genre, type ThemeLabel } from "./label_theme.ts";
+import type { serviceClient } from "./supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -119,11 +120,62 @@ export async function choisirVisuelSansVisage(
 }
 
 /**
- * Photo de profil pour un compte :
- *   1) média du LABEL (puis labels du même thème — ex. clean_girl)
- *   2) avatar préparé de la source
- *   3) média de la source
- *   4) biblio globale
+ * Les labels qui servent une application (cases cochées : `label_applications`).
+ * Sans application connue : tous les labels, comme avant.
+ */
+async function labelsDeLApplication(
+  supabase: Supabase,
+  applicationId: string | null | undefined,
+): Promise<LabelPhoto[]> {
+  let ids: string[] | null = null;
+  if (applicationId) {
+    const { data: liens } = await supabase
+      .from("label_applications")
+      .select("label_id")
+      .eq("application_id", applicationId);
+    ids = [...new Set((liens ?? []).map((l) => l.label_id as string).filter(Boolean))];
+    if (ids.length === 0) return [];
+  }
+  let q = supabase.from("labels").select("id, nom, slug, genre");
+  if (ids) q = q.in("id", ids);
+  const { data } = await q;
+  return (data ?? []) as LabelPhoto[];
+}
+
+/**
+ * Une photo libre de ces labels : d'abord celles rangées sous l'application du
+ * compte, puis les autres photos des MÊMES labels. Le label fait la banque ;
+ * le rayon (`media_library.application_id`) n'est qu'une préférence : les
+ * photos des labels micabo sont rangées sous Sophia, celles de
+ * `clean_girl_run` sous Atala et sous Sophia.
+ */
+async function visuelDesLabels(
+  supabase: Supabase,
+  labelIds: string[],
+  applicationId: string | null | undefined,
+  pris: Set<string>,
+): Promise<VisuelAvatar | null> {
+  if (labelIds.length === 0) return null;
+  if (applicationId) {
+    const duRayon = premierLibre(await chercherVisuels(supabase, { applicationId, labelIds }), pris);
+    if (duRayon) return duRayon;
+  }
+  return premierLibre(await chercherVisuels(supabase, { labelIds }), pris);
+}
+
+/**
+ * Photo de profil pour un compte, dans la banque de SON application :
+ *   1) photos de son LABEL ;
+ *   2) photos des labels du même thème (ex. clean_girl) de son application ;
+ *   3) avatar préparé de sa source, puis photos de sa source (même application) ;
+ *   4) photos des autres labels du même genre de son application ;
+ *   5) le reste des photos rangées sous son application.
+ * Rien de libre : `null`. On ne prend jamais la photo d'une autre application
+ * (19/11) : la maintenance de nuit repassera sur le compte.
+ *
+ * `applicationId` est l'application que le compte promeut VRAIMENT
+ * (`applicationReelleDuCompte`, persona.ts), pas `comptes.application_id`,
+ * colonne historique qui vaut Sophia pour tous les comptes.
  */
 export async function avatarPourCompte(
   supabase: Supabase,
@@ -132,32 +184,29 @@ export async function avatarPourCompte(
     labelId?: string | null;
     labelNom?: string | null;
     applicationId?: string | null;
+    /** Le genre du compte (label, sinon source) : pour les labels frères. */
+    genre?: Genre | null;
   },
 ): Promise<VisuelAvatar | null> {
   const pris = await urlsDejaPrises(supabase);
-  const scope = { applicationId: opts.applicationId };
-  const themeIds = await labelIdsDuTheme(
-    supabase,
-    opts.labelId,
-    opts.labelNom,
-    opts.applicationId,
-  );
+  const applicationId = opts.applicationId ?? null;
 
   if (opts.labelId) {
-    const exact = premierLibre(
-      await chercherVisuels(supabase, { ...scope, labelIds: [opts.labelId] }),
-      pris,
-    );
+    const exact = await visuelDesLabels(supabase, [opts.labelId], applicationId, pris);
     if (exact) return exact;
   }
-  const autres = themeIds.filter((id) => id !== opts.labelId);
-  if (autres.length > 0) {
-    const parTheme = premierLibre(
-      await chercherVisuels(supabase, { ...scope, labelIds: autres }),
-      pris,
-    );
-    if (parTheme) return parTheme;
-  }
+
+  const freres = opts.labelId || opts.labelNom
+    ? labelsFreres({
+      labelId: opts.labelId,
+      labelNom: opts.labelNom,
+      genre: opts.genre,
+      labels: await labelsDeLApplication(supabase, applicationId),
+    })
+    : { memeTheme: [], memeGenre: [] };
+
+  const parTheme = await visuelDesLabels(supabase, freres.memeTheme, applicationId, pris);
+  if (parTheme) return parTheme;
 
   if (opts.compteReferenceId) {
     const { data: ref } = await supabase
@@ -165,22 +214,22 @@ export async function avatarPourCompte(
       .select("avatar_url, avatar_media_id, application_id")
       .eq("id", opts.compteReferenceId)
       .maybeSingle();
-    const memeApp =
-      !opts.applicationId ||
-      !ref?.application_id ||
-      ref.application_id === opts.applicationId;
+    const memeApp = !applicationId || !ref?.application_id || ref.application_id === applicationId;
     if (memeApp && ref?.avatar_url && !pris.has(ref.avatar_url)) {
       return { id: ref.avatar_media_id ?? "", url: ref.avatar_url, used_count: 0 };
     }
 
     const parSource = premierLibre(
-      await chercherVisuels(supabase, { ...scope, sourceId: opts.compteReferenceId }),
+      await chercherVisuels(supabase, { applicationId, sourceId: opts.compteReferenceId }),
       pris,
     );
     if (parSource) return parSource;
   }
 
-  return premierLibre(await chercherVisuels(supabase, scope), pris);
+  const parGenre = await visuelDesLabels(supabase, freres.memeGenre, applicationId, pris);
+  if (parGenre) return parGenre;
+
+  return premierLibre(await chercherVisuels(supabase, { applicationId }), pris);
 }
 
 /** @deprecated préférer avatarPourCompte — conservé pour maintenance. */

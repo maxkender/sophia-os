@@ -1,5 +1,6 @@
 import { avatarPourCompte } from "../_shared/avatar.ts";
 import {
+  applicationReelleDuCompte,
   appliquerIdentiteInstantanee,
   genererIdentite,
   genreDuLabel,
@@ -57,7 +58,7 @@ Deno.serve(async (request) => {
 
     const { data: compte, error } = await supabase
       .from("comptes")
-      .select("langue, compte_reference_id, application_id, comptes_reference(genre)")
+      .select("langue, compte_reference_id, application_id, parts_applications, comptes_reference(genre)")
       .eq("id", compteId)
       .single();
     if (error || !compte) return json({ error: "Compte introuvable" }, 404);
@@ -78,7 +79,8 @@ Deno.serve(async (request) => {
       compteReferenceId: compte.compte_reference_id,
       labelId,
       labelNom,
-      applicationId: (compte.application_id as string | null) ?? null,
+      applicationId: await applicationReelleDuCompte(supabase, compte, labelId),
+      genre,
     });
 
     return json({

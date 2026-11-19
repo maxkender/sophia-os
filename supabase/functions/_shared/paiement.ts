@@ -155,6 +155,12 @@ export interface LignePaieApi {
   nb_comptes?: number;
   /** Profil hors Upwork (pas de contrat, comptes en France) : jamais payé par l'API. */
   hors_upwork?: boolean;
+  /**
+   * 19/11 (Max) : cohorte décalée (paie_decalages). Ses milestones portent le nom de la semaine prévue :
+   * la financée de la semaine d'avant (`ecart` semaines plus tôt), sinon la première active, compte pour
+   * la semaine due. On ne bloque plus un paiement à cause du nom de la semaine.
+   */
+  decalage?: { ecart: number } | null;
 }
 
 /**
@@ -255,7 +261,13 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   const deLaSemaine = finances.filter((x) => semaineDe(x) === w);
   const sansNumero = finances.filter((x) => semaineDe(x) === null);
   if (deLaSemaine.length > 1) return vide("refuse", `${deLaSemaine.length} milestones « Week ${w} » financées : laquelle approuver ? à vérifier`);
-  const a = deLaSemaine[0] ?? (sansNumero.length === 1 ? sansNumero[0] : null);
+  let a: JalonUpwork | null = deLaSemaine[0] ?? (sansNumero.length === 1 ? sansNumero[0] : null);
+  // La milestone de la semaine est déjà payée (à la main) : jamais repayée.
+  const payeeDeLaSemaine = jalons.find((j) => PAYEES.includes(j.etat) && semaineDe(j) === w);
+  if (!a && payeeDeLaSemaine) {
+    return vide("deja_payee", `${payeeDeLaSemaine.nom} déjà payée sur Upwork`, { montant_trouve: payeeDeLaSemaine.paye ?? payeeDeLaSemaine.depot });
+  }
+  if (!a && l.decalage && l.decalage.ecart > 0) a = jalonDecale(finances, w, l.decalage.ecart);
   if (!a) {
     return sansNumero.length > 1
       ? vide("refuse", `${sansNumero.length} milestones financées sans numéro de semaine : laquelle approuver ? à vérifier`)
@@ -354,6 +366,17 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
  * financé : la milestone financée « Week w » sert la semaine suivante, elle
  * devient « Week n » (le reste du nom gardé, « (2 acc) » compris).
  */
+/**
+ * 19/11 (Max) : cohorte décalée : la milestone financée de la semaine d'avant (nom « Week w-ecart »), sinon la
+ * première active (par ordre de création) dont le nom n'est pas une semaine à venir. null : aucune.
+ */
+export function jalonDecale(finances: JalonUpwork[], w: number, ecart: number): JalonUpwork | null {
+  const avant = finances.filter((x) => semaineDe(x) === w - ecart);
+  if (avant.length === 1) return avant[0];
+  if (avant.length > 1) return null;
+  return [...finances].sort((x, y) => x.sequence - y.sequence).find((x) => (semaineDe(x) ?? 0) < w) ?? null;
+}
+
 export function planRenommer(jalons: JalonUpwork[], w: number, n: number): PlanPaiement {
   const finances = jalons.filter((j) => ETATS_FINANCES.includes(j.etat));
   const cible = finances.filter((j) => semaineDe(j) === w);
@@ -365,4 +388,30 @@ export function planRenommer(jalons: JalonUpwork[], w: number, n: number): PlanP
   if (finances.some((j) => semaineDe(j) === n)) return vide("rien", `0 post : Week ${n} déjà financée, rien à renommer`);
   if (finances.length === 0) return vide("rien", "0 post : aucune milestone financée, rien à renommer");
   return vide("refuse", `0 post : milestone financée « ${finances.map((j) => j.nom || j.id).join(", ")} » à renommer en Week ${n} à la main`);
+}
+
+/**
+ * 19/11 (Max) : cohorte décalée de `ecart` semaines (paie_decalages, statut « prevu ») : ce qu'il faut faire de ses
+ * milestones à partir de la semaine prévue (`depuis`). Pas financées : renommées (« Week 46 » → « Week 47 »), de la
+ * plus lointaine à la plus proche pour ne jamais créer deux fois le même nom. Financées ou payées (Upwork refuse de
+ * les renommer) : comptées pour leur nouvelle semaine (paie_jalons_semaine). `lundiDe` : le lundi d'un numéro ISO.
+ */
+export function planDecalage(
+  jalons: JalonUpwork[],
+  depuis: number,
+  ecart: number,
+  lundiDe: (n: number) => string,
+): { renommer: { jalon_id: string; de: string; vers: string }[]; compter: { jalon_id: string; nom: string; semaine: string }[] } {
+  const renommer: { jalon_id: string; de: string; vers: string; n: number }[] = [];
+  const compter: { jalon_id: string; nom: string; semaine: string }[] = [];
+  if (!(ecart > 0)) return { renommer: [], compter: [] };
+  for (const j of jalons) {
+    if (j.semaine !== undefined && j.semaine !== null) continue;
+    const n = semaineDuNom(j.nom);
+    if (n === null || n < depuis) continue;
+    if (j.etat === "NotFunded") renommer.push({ jalon_id: j.id, de: j.nom, vers: j.nom.replace(/week\s*\d{1,2}/i, `Week ${n + ecart}`), n });
+    else compter.push({ jalon_id: j.id, nom: j.nom, semaine: lundiDe(n + ecart) });
+  }
+  renommer.sort((a, b) => b.n - a.n);
+  return { renommer: renommer.map(({ n: _n, ...r }) => r), compter };
 }

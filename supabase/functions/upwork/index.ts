@@ -112,6 +112,7 @@ import {
   lireReglagesPaieApi,
   PAYEES,
   type PlanPaiement,
+  planDecalage,
   planPaiement,
   type ReglagesPaieApi,
   refusMode,
@@ -122,6 +123,7 @@ import { ajouterJours, maintenantParis, semaineIso as semaineIsoDe } from "../_s
 import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 import { posteurExistantDeErreur } from "../_shared/contrat_unique.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
+import { generateTextFast } from "../_shared/gemini.ts";
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, estCompteDeMax, lireCompte, UPWORK_USER_MAX } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
 import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
@@ -288,6 +290,13 @@ Deno.serve(async (request) => {
         return json(await paieAuto(supabase, par, { lancer: true }));
       case "paie_reconcilier":
         return json(await paieReconcilier(supabase, par));
+      case "rattrapage_executer":
+        // 19/11 (Max) : les lignes bloquées par le nom de la semaine des milestones : rien ne part sans son clic.
+        if (body.confirmer !== true || !par) return json({ ok: false, error: "confirmation de Max manquante" }, 400);
+        return json(await rattrapageExecuter(supabase, par, String(body.semaine ?? ""), Array.isArray(body.ids) ? body.ids.map(String) : null));
+      case "decalages_appliquer":
+        // 19/11 (Max) : cohorte décalée : ses milestones à venir renommées (cron du lundi, après decalages_noter).
+        return json(await decalagesAppliquer(supabase, par, body.simuler === true));
       case "paie_question":
         return json(await paieQuestion(supabase, par, String(body.poster_id ?? ""), body.simuler === true));
       case "paie_simulation":
@@ -1235,6 +1244,14 @@ async function chargerLignes(
     lireParLots(posteurs, "paie : comptes", (lot) => supabase.from("comptes").select("poster_id, pays").in("poster_id", lot).limit(900)),
   ]);
   const contratDe = new Map((profils ?? []).map((p) => [p.id as string, (p.upwork_contract_id as string | null) ?? null]));
+  // 19/11 (Max) : cohorte décalée (paie_decalages) : la milestone au nom de la semaine prévue compte pour la semaine due.
+  const decalages = await lireParLots(posteurs, "paie : décalages", (lot) =>
+    supabase.from("paie_decalages").select("poster_id, ecart_semaines, premiere_semaine").in("poster_id", lot).lte("premiere_semaine", semaine));
+  const decalageDe = new Map<string, { ecart: number }>();
+  for (const d of decalages ?? []) {
+    const ecart = Number(d.ecart_semaines ?? 0);
+    if (ecart > 0) decalageDe.set(String(d.poster_id), { ecart: Math.max(ecart, decalageDe.get(String(d.poster_id))?.ecart ?? 0) });
+  }
   // 0574 : les posteurs Ruul sont payés par le lot Ruul, jamais par l'API Upwork.
   const ruul = new Set((profils ?? []).filter((p) => p.canal_paie === "ruul").map((p) => p.id as string));
   const paysDe = new Map<string, (string | null)[]>();
@@ -1255,6 +1272,7 @@ async function chargerLignes(
     contrat_id: contratDe.get(brute.poster_id) ?? null,
     hors_upwork: ruul.has(brute.poster_id) || estHorsUpwork(contratDe.get(brute.poster_id) ?? null, paysDe.get(brute.poster_id) ?? []),
     nb_comptes: Number(brute.nb_comptes ?? 1),
+    decalage: decalageDe.get(brute.poster_id) ?? null,
     // deno-lint-ignore no-explicit-any
     moins6: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).filter((d: any) => d?.moins6 === true).length,
     // deno-lint-ignore no-explicit-any
@@ -1677,8 +1695,23 @@ async function executerRenommage(supabase: Supabase, par: string | null, semaine
     par, action: "paie_renommer_jalon", query: MUTATION_EDITER_JALON, tenant, contrat: ligne.contrat_id, montant: 0,
     variables: { input: { id: rn.jalon_id, description: rn.vers } },
   });
-  const etapes = [{ etape: "renommer", jalon: rn.jalon_id, de: rn.de, vers: rn.vers, erreur: edite.erreur }];
+  const etapes: Record<string, unknown>[] = [{ etape: "renommer", jalon: rn.jalon_id, de: rn.de, vers: rn.vers, erreur: edite.erreur }];
   if (edite.erreur || !edite.data?.editMilestone) {
+    // 19/11 (Max) : Upwork refuse de renommer une milestone active (« active or rejected milestones can be edited only by
+    // contract milestone proposals ») : l'OS la compte pour la semaine suivante (paie_jalons_semaine), sans bloquer.
+    const suivante = ajouterJours(semaine, 7);
+    const { error: eFixe } = await supabase.from("paie_jalons_semaine").upsert({
+      jalon_id: rn.jalon_id, contrat_id: ligne.contrat_id, nom: rn.de, semaine: suivante,
+      raison: `0 post, gardé : milestone active comptée pour la semaine du ${suivante} (renommage refusé par Upwork)`, cree_par: par, annule_at: null,
+    });
+    if (!eFixe) {
+      etapes.push({ etape: "compter_semaine_suivante", jalon: rn.jalon_id, semaine: suivante, erreur: null });
+      await supabase.from("paie_paiements_api").update({
+        statut: "paye", financement: "renomme_os", erreur: null, etapes, plan, lignes: ligne.ids, updated_at: new Date().toISOString(),
+      }).eq("id", id);
+      await marquerLignes(supabase, ligne.ids, par, "suivante");
+      return { resultat: "paye", plan };
+    }
     const raison = `0 post, gardé : ${rn.de} à renommer en « ${rn.vers} » à la main (${edite.erreur ?? "réponse vide"})`;
     await supabase.from("paie_paiements_api").update({ statut: "a_verifier", erreur: raison, etapes, plan, lignes: ligne.ids, updated_at: new Date().toISOString() }).eq("id", id);
     await aFaire(supabase, {
@@ -1692,6 +1725,223 @@ async function executerRenommage(supabase: Supabase, par: string | null, semaine
   }).eq("id", id);
   await marquerLignes(supabase, ligne.ids, par, "suivante");
   return { resultat: "paye", plan };
+}
+
+// ---------------------------------------------------------------------------
+// 19/11 (Max) : paie bloquée par le nom de la semaine des milestones (cohortes décalées).
+// ---------------------------------------------------------------------------
+
+interface Rattrapage {
+  id: string;
+  semaine: string;
+  poster_id: string;
+  paie_semaine_id: string;
+  paiement_api_id: string | null;
+  contrat_id: string | null;
+  action: string;
+  jalon_id: string | null;
+  jalon_nom: string | null;
+  semaine_jalon: string | null;
+  du: number;
+  faits: number;
+  statut: string;
+  montant_paye: number | null;
+  message_statut: string | null;
+}
+
+/** « 9 Nov ». */
+function jourCourt(jour: string): string {
+  return new Date(`${jour}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+}
+
+/** Traduit un texte court anglais dans la langue du posteur (l'anglais si la traduction échoue). */
+async function traduireCourt(texte: string, langue: string | null, cache: Map<string, string>): Promise<string> {
+  const l = (langue ?? "en").toLowerCase();
+  if (!l || l.startsWith("en")) return texte;
+  const cle = `${l}:${texte}`;
+  const deja = cache.get(cle);
+  if (deja) return deja;
+  let sortie = texte;
+  try {
+    const r = (await generateTextFast(
+      `Translate this short message into the language whose ISO code is "${l}". Keep the amount and the "$" exactly as they are. ` +
+        `Same meaning, natural, friendly and short, nothing added. Reply with the translation only.\n\n${texte}`,
+    )).trim().replace(/^["«“]+|["»”]+$/g, "");
+    if (r && r.length < texte.length * 3 && /\d/.test(r)) sortie = r;
+  } catch { /* l'anglais */ }
+  cache.set(cle, sortie);
+  return sortie;
+}
+
+/**
+ * Les lignes approuvées par Max (paie_rattrapages) : approuver la milestone financée telle quelle (le moteur de paie,
+ * verrou et plafonds compris, jamais deux fois), marquer payée celle déjà payée à la main sur Upwork, ou garder la
+ * milestone pour la semaine suivante (0 post). Rien n'est financé. Puis le message au posteur (une fois).
+ * Reprenable : un nouveau clic reprend les lignes pas encore faites et les messages pas encore partis.
+ */
+async function rattrapageExecuter(supabase: Supabase, par: string, semaine: string, ids: string[] | null) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(semaine)) return { ok: false, error: "semaine invalide" };
+  if (await bloquer(supabase, { fonction: "upwork", action: "rattrapage_executer", cible: semaine })) return { ok: false, error: PAUSE };
+  const debut = Date.now();
+  let q = supabase.from("paie_rattrapages").select("*").eq("semaine", semaine).in("statut", ["propose", "fait"]);
+  if (ids?.length) q = q.in("id", ids);
+  const { data, error } = await q;
+  if (error) throw error;
+  const lignesR = (data ?? []) as Rattrapage[];
+  const r = await reglagesPaieApi(supabase);
+  const { lignes, tenantDe } = await chargerLignes(supabase, semaine);
+  await jetonValide(supabase, par);
+  const bilan: Record<string, unknown>[] = [];
+  const maj = (id: string, champs: Record<string, unknown>) =>
+    supabase.from("paie_rattrapages").update({ ...champs, maj_at: new Date().toISOString() }).eq("id", id);
+  const compter = (x: Rattrapage) =>
+    supabase.from("paie_jalons_semaine").upsert({
+      jalon_id: x.jalon_id, contrat_id: x.contrat_id, nom: x.jalon_nom, semaine: x.semaine_jalon ?? x.semaine,
+      raison: `rattrapage du ${x.semaine} (nom de semaine décalé), validé par Max`, cree_par: par, annule_at: null,
+    });
+  const liberer = (x: Rattrapage, raison: string) =>
+    x.paiement_api_id
+      ? supabase.from("paie_paiements_api").update({ statut: "libere", libere_par: par, libere_raison: raison, updated_at: new Date().toISOString() })
+        .eq("id", x.paiement_api_id).eq("statut", "a_verifier")
+      : Promise.resolve(null);
+
+  for (const x of lignesR.filter((y) => y.statut === "propose")) {
+    if (Date.now() - debut > 90_000) break;
+    const decide = { decide_par: par, decide_at: new Date().toISOString() };
+    try {
+      if (x.action === "garder") {
+        const { error: e } = await compter(x);
+        if (e) throw e;
+        await liberer(x, "0 post : milestone gardée pour la semaine suivante (rattrapage)");
+        await maj(x.id, { ...decide, statut: "fait", resultat: `${x.jalon_nom} comptée pour la semaine du ${x.semaine_jalon}` });
+        bilan.push({ id: x.id, action: x.action, resultat: "fait" });
+        continue;
+      }
+      if (x.action !== "approuver" && x.action !== "marquer_payee") continue;
+      const ligne = lignes.find((l) => l.ids.includes(x.paie_semaine_id));
+      if (!ligne || !ligne.contrat_id) throw new Error("ligne de paie introuvable");
+      const tenant = tenantDe.get(ligne.contrat_id) ?? null;
+      if (x.action === "marquer_payee") {
+        const relu = await relireJalons(supabase, par, ligne.contrat_id, tenant, "rattrapage_relire");
+        const j = relu.jalons?.find((y) => y.id === x.jalon_id);
+        if (!j || !PAYEES.includes(j.etat)) throw new Error(`${x.jalon_nom} n'est pas payée sur Upwork (${j?.etat ?? relu.erreur ?? "introuvable"}) : rien n'est marqué`);
+        const { error: e } = await compter(x);
+        if (e) throw e;
+        const montant = j.paye ?? j.depot ?? x.du;
+        if (x.paiement_api_id) {
+          await supabase.from("paie_paiements_api").update({
+            statut: "deja_payee", montant_approuve: montant, jalon_approuve: x.jalon_id, erreur: `${x.jalon_nom} payée à la main sur Upwork`,
+            updated_at: new Date().toISOString(),
+          }).eq("id", x.paiement_api_id).eq("statut", "a_verifier");
+        }
+        await marquerLignes(supabase, ligne.ids, par, "paye");
+        await maj(x.id, { ...decide, statut: "fait", resultat: `déjà payée sur Upwork (${x.jalon_nom}, ${montant} $) : marquée payée`, montant_paye: montant });
+        bilan.push({ id: x.id, action: x.action, resultat: "fait", montant });
+        continue;
+      }
+      // Approuver : la milestone compte pour la semaine due, puis le moteur de paie (verrou, plafonds, jamais deux fois).
+      const { error: e } = await compter(x);
+      if (e) throw e;
+      await liberer(x, "rattrapage approuvé par Max : nouvel essai");
+      const p = await planLigne(supabase, par, semaine, ligne, tenant, r);
+      if (p.plan.statut !== "pret" || p.plan.approuver?.jalon_id !== x.jalon_id) {
+        throw new Error(`plan inattendu : ${p.plan.statut}${p.plan.raison ? ` (${p.plan.raison})` : ""}${p.plan.approuver ? `, milestone ${p.plan.approuver.nom}` : ""} : rien n'est payé`);
+      }
+      // Rien n'est financé ici : la semaine suivante suit le circuit normal du lundi.
+      const plan = { ...p.plan, financer: null, total: Math.round(((p.plan.approuver?.montant ?? 0) + (p.plan.complement?.montant ?? 0)) * 100) / 100 };
+      const issue = await executer(supabase, par, semaine, { ...p, plan }, null);
+      if (issue.resultat !== "paye") throw new Error(`${issue.resultat}${issue.raison ? ` : ${issue.raison}` : ""}`);
+      await maj(x.id, { ...decide, statut: "fait", resultat: `payée : ${plan.approuver!.nom} approuvée (${plan.approuver!.montant} $)`, montant_paye: plan.approuver!.montant });
+      bilan.push({ id: x.id, action: x.action, resultat: "fait", montant: plan.approuver!.montant });
+    } catch (err) {
+      await maj(x.id, { ...decide, statut: "erreur", resultat: messageErreur(err) });
+      bilan.push({ id: x.id, action: x.action, resultat: "erreur", raison: messageErreur(err) });
+    }
+  }
+
+  // Le message au posteur, une fois, dans sa langue (payée, ou déjà payée à la main avec du retard).
+  const { data: faites } = await supabase.from("paie_rattrapages").select("*").eq("semaine", semaine).eq("statut", "fait")
+    .in("action", ["approuver", "marquer_payee"]).is("message_statut", null);
+  const cache = new Map<string, string>();
+  let messages = 0;
+  for (const x of (faites ?? []) as Rattrapage[]) {
+    if (Date.now() - debut > 120_000) break;
+    if (!(Number(x.montant_paye ?? 0) > 0) || x.faits <= 0) {
+      await maj(x.id, { message_statut: "pas de message (rien à payer)" });
+      continue;
+    }
+    const { data: c } = await supabase.from("comptes").select("pays").eq("poster_id", x.poster_id).order("created_at").limit(1).maybeSingle();
+    const langue = c?.pays ? (LANGUE_DU_PAYS[String(c.pays).toUpperCase()] ?? null) : null;
+    const texte = await traduireCourt(`Your week of ${jourCourt(semaine)} (${Number(x.montant_paye)} $) has been paid. Sorry for the delay!`, langue, cache);
+    const envoi = await messagePosteur(supabase, par, x.poster_id, texte, "paie");
+    await maj(x.id, { message_statut: envoi.ok ? "envoye" : `erreur : ${"error" in envoi ? envoi.error : "non envoyé"}`, message_at: envoi.ok ? new Date().toISOString() : null });
+    if (envoi.ok) messages++;
+  }
+  const reste = lignesR.filter((y) => y.statut === "propose" && ["approuver", "marquer_payee", "garder"].includes(y.action)).length -
+    bilan.length;
+  return { ok: true, semaine, faits: bilan.filter((b) => b.resultat === "fait").length, erreurs: bilan.filter((b) => b.resultat === "erreur"), messages, reste, bilan };
+}
+
+/**
+ * Point 5 (Max, 19/11) : une cohorte décalée (paie_decalages, « prevu », noté cette semaine) : ses milestones
+ * à venir sont renommées sur Upwork (non financées) ou comptées pour leur nouvelle semaine (financées, qu'Upwork
+ * refuse de renommer). Le statut passe à « renomme » (ou « erreur » avec le détail). Hors mode « on » : simulation.
+ */
+async function decalagesAppliquer(supabase: Supabase, par: string | null, simulerDemande: boolean) {
+  const debut = Date.now();
+  const r = await reglagesPaieApi(supabase);
+  const simuler = simulerDemande || r.mode !== "on";
+  const p = maintenantParis();
+  const lundi = ajouterJours(p.jour, -(p.isoJour - 1));
+  const { data, error } = await supabase.from("paie_decalages").select("*").eq("statut", "prevu")
+    .gte("premiere_semaine", lundi).gte("cree_at", new Date(Date.now() - 8 * 86_400_000).toISOString()).not("contrat_id", "is", null);
+  if (error) throw error;
+  if (!simuler) await jetonValide(supabase, par);
+  const bilan: Record<string, unknown>[] = [];
+  for (const d of (data ?? []) as { poster_id: string; semaine_prevue: string; contrat_id: string; ecart_semaines: number }[]) {
+    if (Date.now() - debut > 200_000) break;
+    const { data: org } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", d.contrat_id).maybeSingle();
+    const tenant = (org?.organisation_id as string | null) ?? null;
+    if (!orgDeLOs(tenant)) {
+      bilan.push({ poster: d.poster_id, contrat: d.contrat_id, ignore: "contrat hors VIk Studios" });
+      continue;
+    }
+    const relu = await relireJalons(supabase, par, d.contrat_id, tenant, "decalage_relire");
+    if (!relu.jalons) {
+      bilan.push({ poster: d.poster_id, contrat: d.contrat_id, erreur: `milestones illisibles : ${relu.erreur}` });
+      continue;
+    }
+    const jalons = avecSemainesFixees(relu.jalons, await semainesFixees(supabase, [d.contrat_id]));
+    const plan = planDecalage(jalons, semaineIsoDe(d.semaine_prevue), Number(d.ecart_semaines), (n) => lundiDeSemaine(n));
+    if (simuler) {
+      bilan.push({ poster: d.poster_id, contrat: d.contrat_id, simulation: true, ...plan });
+      continue;
+    }
+    const erreurs: string[] = [];
+    for (const rn of plan.renommer) {
+      const edite = await ecrire(supabase, {
+        par, action: "decalage_renommer_jalon", query: MUTATION_EDITER_JALON, tenant, contrat: d.contrat_id, montant: 0,
+        variables: { input: { id: rn.jalon_id, description: rn.vers } },
+      });
+      if (edite.erreur || !edite.data?.editMilestone) erreurs.push(`${rn.de} → ${rn.vers} : ${edite.erreur ?? "réponse vide"}`);
+    }
+    for (const c of plan.compter) {
+      const { error: e } = await supabase.from("paie_jalons_semaine").upsert({
+        jalon_id: c.jalon_id, contrat_id: d.contrat_id, nom: c.nom, semaine: c.semaine,
+        raison: `cohorte décalée de ${d.ecart_semaines} semaine(s) : milestone financée comptée pour la semaine du ${c.semaine}`, cree_par: par, annule_at: null,
+      });
+      if (e) erreurs.push(`${c.nom} : ${e.message}`);
+    }
+    const detail = [
+      plan.renommer.length ? `renommées : ${plan.renommer.map((x) => `${x.de} → ${x.vers}`).join(", ")}` : null,
+      plan.compter.length ? `comptées : ${plan.compter.map((x) => `${x.nom} → ${x.semaine}`).join(", ")}` : null,
+      erreurs.length ? `erreurs : ${erreurs.join(" ; ")}` : null,
+    ].filter(Boolean).join(" · ") || "rien à renommer";
+    await supabase.from("paie_decalages").update({ statut: erreurs.length ? "erreur" : "renomme", detail, maj_at: new Date().toISOString() })
+      .eq("poster_id", d.poster_id).eq("semaine_prevue", d.semaine_prevue);
+    bilan.push({ poster: d.poster_id, contrat: d.contrat_id, renommees: plan.renommer.length, comptees: plan.compter.length, erreurs });
+  }
+  return { ok: true, simulation: simuler, decalages: (data ?? []).length, bilan };
 }
 
 /** Payer depuis la liste (bouton) : le même moteur que la paie automatique, ligne par ligne. */

@@ -12,6 +12,7 @@ import { ListePaie } from "./liste/ListePaie";
 import { semaineAPayer } from "./logique";
 import { ListeAFinancer } from "./api-upwork/ListeAFinancer";
 import { PaiementsManuels } from "./api-upwork/PaiementsManuels";
+import { RattrapagePaie } from "./api-upwork/RattrapagePaie";
 import { ReglagesPaiementApi } from "./api-upwork/ReglagesPaiementApi";
 import { ReglagesPaie } from "./ReglagesPaie";
 import { ZonesPaie } from "@/features/reglagesOs/ZonesPaie";
@@ -102,6 +103,7 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
             {recalculer.error && <span className="text-xs text-destructive">{(recalculer.error as Error).message}</span>}
           </div>
 
+          {!simulation && <RattrapagePaie />}
           {!simulation && <PaiementsManuels />}
           {!simulation && <ListeAFinancer />}
 

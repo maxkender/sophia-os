@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o329",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "868887ed-be51-4fa5-b7c0-b48949824404",
+ "titre": "4 vérités sur l'argent que personne ne t'enseigne à l'école #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "868887ed-be51-4fa5-b7c0-b48949824404"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 10 de la boîte (868887ed, fr 846), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot, coupes gardées. 4 vérités neuves (aucune reprise : impressionner, se payer en premier, liberté, actif et passif, richesse silencieuse). Conseils généraux, aucun produit cité.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3fee8551-282a-45b9-b31d-cf3094f07f6e",
+   "texte_overlay": "4 vérités sur l'argent que\npersonne ne t'enseigne à\nl'école",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672848309135920417/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "1. Tes revenus comptent moins que tes dépenses. Gagner plus ne sert à rien si tu dépenses tout. Ce que tu gardes compte plus que ce que tu gagnes.",
+   "media_id": "2ba89911-04be-4a66-92df-373315d660ad"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "2. Le temps est ton meilleur allié. Mettre un peu de côté chaque mois dès 20 ans vaut souvent plus que de grosses sommes commencées à 40 ans.",
+   "media_id": "2bf627a5-5adb-48fa-a2a6-422ebea0456f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "3. Les petites dépenses font les gros trous. Un café, une livraison, un abonnement oublié. Regarde tes comptes une fois par mois.",
+   "media_id": "2c14b7b0-4d61-4260-912b-b5086ddc3f47"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "4. Une compétence vaut plus qu'une économie. Apprendre un métier recherché ou une langue peut augmenter tes revenus pour toute ta vie.",
+   "media_id": "2d9afc07-fb7d-429e-b1b4-1647f59bf74b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bonus : cultive ta tête. Je fais cinq minutes d'histoire, d'art ou de science par jour, et apprendre est le placement qui ne perd jamais.",
+   "texte_sophia": "Bonus : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Apprendre est le placement qui ne perd jamais.",
+   "media_id": "8d2b3c12-d127-4513-b990-9941b51b9412"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "L'argent n'est pas un sujet tabou. Parles-en avec tes amis, tes parents, ton partenaire. On apprend beaucoup en partageant ses erreurs.",
+   "media_id": "2e3e7472-7c17-45fc-a5d1-bd0287add439"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Commence petit, mais commence. Un budget simple, une épargne automatique. Les bonnes habitudes d'argent se construisent tôt.",
+   "media_id": "2e474a5e-40ac-4aa5-a703-6557cf645015"
+  }
+ ]
+}

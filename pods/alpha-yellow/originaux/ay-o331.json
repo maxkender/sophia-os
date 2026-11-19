@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o331",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "925f5db3-ef4a-405d-bf81-39dee6de6cb4",
+ "titre": "how you make a better first impression #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "925f5db3-ef4a-405d-bf81-39dee6de6cb4"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 12 de la boîte (925f5db3, de 6 k r 3,22) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (compliments de choix, relance, une minute d'avance, mains occupées, place de passage, phrase d'ouverture) ni des déclinaisons de a03c4954.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "416f7724-90ec-4a16-9e26-f88a0fdd4d13",
+   "texte_overlay": "how you make a better\nfirst impression",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn something about them before you meet. A job interview, a friend's partner, a new colleague. A little research gives you natural things to ask.",
+   "media_id": "312d46d4-de27-4f51-9441-5594548ab153"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Mirror their energy at first. Calm with calm people, lively with lively ones. Matching the mood makes people feel comfortable with you.",
+   "media_id": "3137e7e7-7b6d-4f25-bca4-7f1b8eda82d4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Talk about what's good. Avoid complaining about traffic, work or weather. Positive people make better first impressions. Details show that you were genuinely listening.",
+   "media_id": "31fe6042-139f-484a-8f30-6580db04d9ed"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Remember one thing they said and mention it later. \"How was the concert you talked about?\" It shows real attention. Kind energy is contagious.",
+   "media_id": "3242eb5d-c556-4365-bd1b-e24e9c235518"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I struggled to keep first conversations going. After: five minutes a day of history, art or science, and I always have a story.",
+   "texte_sophia": "Before: I struggled to keep first conversations going. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have a story.",
+   "media_id": "9e2abc84-9e70-4bcb-aed5-f3b8d33d8829"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Be on time, or a little early. Arriving late tells people their time matters less than yours. Punctuality is an instant sign of respect.",
+   "media_id": "324df99a-2707-4f6c-a6bc-ad7ecdd02eca"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Thank them sincerely when you leave. \"Thanks for taking the time.\" Gratitude is a simple, memorable ending. A warm goodbye stays with people long after the meeting is over.",
+   "media_id": "32896225-07d4-4820-b697-9001d7f1ee4e"
+  }
+ ]
+}

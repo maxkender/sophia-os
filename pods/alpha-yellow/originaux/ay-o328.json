@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o328",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "847edcb2-96e8-405e-af0d-684df8f5abdb",
+ "titre": "how to improve your brain health #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "847edcb2-96e8-405e-af0d-684df8f5abdb"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 9 de la boîte (847edcb2, pl 5,9 k) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (marcher après manger, hydratation, livres, multitâche) ni d'ay-o313. Conseils généraux, sans promesse médicale.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3d185415-88e2-40e8-8e8c-fd0baed6a9f8",
+   "texte_overlay": "how to improve your brain\nhealth",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Sleep seven to nine hours. Sleep is when your brain recovers and stores memories. Short nights slowly make you slower, foggier and more irritable.",
+   "media_id": "294b7a9f-1792-4ed0-87a1-2d8bf78a02f5"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Train your body regularly. Running, lifting, swimming. Exercise boosts blood flow to the brain and helps your mood, focus and memory.",
+   "media_id": "2999f369-22ce-47a6-baed-9d334f21c7b2"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Eat more omega-3 foods. Salmon, sardines, walnuts, chia seeds. Your brain uses these healthy fats every day. Plan one real meetup every week, even a short coffee.",
+   "media_id": "2a07fb5a-9c55-40be-9736-395b18cf7dc6"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stay social. Real conversations with friends and family keep your mind active and protect you from stress and loneliness. Social time is brain time.",
+   "media_id": "2a1c329f-0ad7-455f-9bd4-d897f41407d3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: my brain only got short videos. After: five minutes a day of history, art or science, and it feels more awake and curious.",
+   "texte_sophia": "Before: my brain only got short videos. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It feels more awake and curious.",
+   "media_id": "81d5f019-77d0-4a0b-9dcd-16f3d1595c94"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Manage your stress. A walk, deep breathing, time in nature. Long-term stress is tiring for your brain, so build calm into your week.",
+   "media_id": "2a8af0ea-76ad-4412-9457-f0537d9a74a4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Protect your head. Wear a helmet on the bike, be careful in contact sports. Your brain has to last you a lifetime. Look after it like the most precious thing you own.",
+   "media_id": "2ba38130-183f-4147-b40c-6d7761331c11"
+  }
+ ]
+}

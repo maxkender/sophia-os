@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o321",
+ "type_bleo": "full_test",
+ "titre": "How to become someone your younger self would admire #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 3 à 6 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 6e full test. Accroches écrites : « How to become someone your younger self would admire » (retenue), « Make your 15 year old self proud » (écartée : vu partout), « Become the man you needed as a kid » (écartée : ton lourd).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2beb39c5-a6f9-4e76-80ad-b5238933e530",
+   "texte_overlay": "How to become someone\nyour younger self would admire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Be strong, physically and mentally. Every kid admires strength. Train your body, stay calm under pressure and protect the people you love.",
+   "media_id": "1d5f7d78-7a43-47b3-be1a-aae1f70f83e7"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Keep your sense of adventure. Remember how you wanted to explore everything? Travel, try new things, stay curious about the world.",
+   "media_id": "1d8aab11-64f0-43bd-b372-5bedf3a7aba8"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Be kind to people who are struggling. Your younger self knew what it felt like to be left out. Be the one who includes others. Start now.",
+   "media_id": "1d9e098b-efff-46a4-8d86-0eb7f87a32f4"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Do what you said you'd do when you grew up. Learn the instrument, see the country, build the thing. It's not too late. Write the list and start with one.",
+   "media_id": "1dd5bc46-f0bb-42a3-9006-b7fbbd9ac2fa"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Keep learning like a kid. I do five minutes a day of history, art or science, and it brings back the curiosity I had when I was young.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It brings back the curiosity I had when I was young.",
+   "media_id": "65ca768d-1cab-4992-b131-56bcc7398c51"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Have principles you don't trade. Honesty, loyalty, courage. Your younger self believed in them before life made them complicated.",
+   "media_id": "1e631631-1906-4ed9-af98-bb3e3f4a73c6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Have fun. Laugh a lot, play sports, joke with friends. Becoming an adult doesn't mean becoming boring. Keep a bit of the kid you were alive and let yourself enjoy things.",
+   "media_id": "1e8cb40f-de94-40cb-b293-580a47cb954d"
+  }
+ ]
+}

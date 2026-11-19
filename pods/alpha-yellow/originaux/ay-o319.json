@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o319",
+ "type_bleo": "full_test",
+ "titre": "Signs you're wasting your potential #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 3 à 6 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 6e full test. Accroches écrites : « Signs you're wasting your potential » (retenue), « You're capable of much more » (écartée : sans promesse), « How to stop wasting your talent » (écartée : plus faible).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "153e865c-c138-4355-ba96-2247ba39d496",
+   "texte_overlay": "Signs you're wasting\nyour potential",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "You keep saying \"one day.\" One day I'll train, one day I'll travel, one day I'll start. Potential gets wasted in the gap between plans and action.",
+   "media_id": "11ba73f7-6431-417c-a990-afe793b48301"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Your evenings disappear into your phone. Three hours a night is over a thousand hours a year. That's enough time to learn almost any skill.",
+   "media_id": "150d7dca-1ca8-486c-bbb7-2782e087d2a6"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You're the smartest person in your circle. If nobody around you pushes you, you stop growing. Find people who are a few steps ahead.",
+   "media_id": "16186061-dd76-4536-a353-d02d25c5f96a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "You avoid anything you might fail at. Fear of looking bad keeps you in safe, small routines. Growth always starts with being a beginner.",
+   "media_id": "163c60f3-c263-455f-b32c-597a0aa1c953"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I knew I could do more but did nothing. After: five minutes a day of history, art or science, and I finally feel myself growing again.",
+   "texte_sophia": "Before: I knew I could do more but did nothing. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I finally feel myself growing again.",
+   "media_id": "4d3a1468-d39f-44ee-a19f-2fee7a4c1abd"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You start things but never finish them. Ten half-done projects prove nothing. One finished project changes how you see yourself.",
+   "media_id": "1693b559-665a-4ec1-91f3-ec2d56e20902"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "You know exactly what you should do. That's the good news. Pick the first small step and do it today, not tomorrow. Small steps beat perfect plans.",
+   "media_id": "169fd8b1-fe7e-42c6-9747-bf13b8db512c"
+  }
+ ]
+}

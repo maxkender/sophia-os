@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o325",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cf0a0c60-7f7e-4bf3-958d-dc9b0bc243be",
+ "titre": "How to speak like a man people take seriously #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "cf0a0c60-7f7e-4bf3-958d-dc9b0bc243be"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (cf0a0c60, tr 3,6 k r 2,43), 3e et dernière déclinaison après ay-o293 et ay-o308. Même promesse, autres mots. Items neufs, aucun repris du parent, d'ay-o293 ni d'ay-o308.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b211679-bec4-443c-9a58-6b47f2000947",
+   "texte_overlay": "How to speak like a man\npeople take seriously",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Stop asking for permission to speak. Skip \"sorry, can I just say...\" and say it. Confident openings make people listen from the first word.",
+   "media_id": "24411395-5d15-4e1c-b248-e7c0a71b5fb0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Use fewer qualifiers. \"Kind of,\" \"maybe,\" \"I guess.\" Each one makes your point weaker. Say what you mean plainly. Clear words make strong points.",
+   "media_id": "248da642-4e21-4dff-8d74-8545785ddbe5"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Breathe from your belly. A voice supported by deep breathing sounds fuller and calmer than one squeezed from the throat. Your voice will sound deeper and more relaxed.",
+   "media_id": "249a977d-abb9-4d12-a315-2f710d77b097"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Make one point at a time. Finish one idea before starting the next. People follow you better and remember what you said. Pause between points.",
+   "media_id": "24f0b1ab-a038-4252-92e9-e1374d365125"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I spoke a lot but said little. After: five minutes a day of history, art or science, and now my ideas have more substance.",
+   "texte_sophia": "Before: I spoke a lot but said little. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now my ideas have more substance.",
+   "media_id": "6eef4d6c-eec8-4174-a6a1-3bc17f238e10"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keep your hands calm. Slow, open gestures support your words. Fidgeting distracts people from what you're saying. Keep your hands relaxed at your sides when you're not using them.",
+   "media_id": "2569c9e4-f9d2-4eac-a5de-3e231b437695"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Say \"I don't know\" when you don't. Honesty about the limits of your knowledge makes everything else you say more credible. People trust honest men.",
+   "media_id": "258126f3-e62c-4698-9492-94a58fd3db7f"
+  }
+ ]
+}

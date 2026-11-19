@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o324",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "577ccc7c-0576-47be-b035-cb2f494dd31f",
+ "titre": "5 ways to get seriously smarter this year #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "577ccc7c-0576-47be-b035-cb2f494dd31f"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 1 de la boîte (577ccc7c, tr 4 k r 2,27), 1re déclinaison. Même promesse, autres mots, sans « educated » pour ne pas toucher la ligne 13. Items neufs, aucun repris du parent (comment ça marche, argumenter contre soi, gens plus malins, expliquer, apprendre un peu, sommeil).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "31ff8e0a-e98a-4bb9-a02b-908d0be8d416",
+   "texte_overlay": "5 ways to get seriously\nsmarter this year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Way 1: read one difficult book a month. Something slightly above your level. Struggling a little with ideas is exactly what makes you smarter.",
+   "media_id": "2325f18a-3a89-46d3-b826-ac065403280e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Way 2: ask \"how do you know that?\" Of others and of yourself. Checking where beliefs come from makes your thinking sharper and harder to fool.",
+   "media_id": "235fe302-9a68-49d3-8904-c56a94cb3383"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Way 3: learn a new skill from zero. A language, an instrument, chess. Being a beginner forces your brain to build new connections.",
+   "media_id": "23888067-d189-42aa-93d3-bb8168567ac5"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Way 4: write to think. Ten minutes a day on one question. Writing shows you where your ideas are clear and where they're still confused.",
+   "media_id": "23c14bfa-916a-46a1-b47f-c67be9d4f950"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Way 5: learn something every day. I do five minutes a day of history, art or science, and over a year that becomes a surprising amount of knowledge.",
+   "texte_sophia": "Way 5: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Over a year that becomes a surprising amount of knowledge.",
+   "media_id": "6d6fb6af-33bc-4b7a-9eaf-bc6bae8435c3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Bonus: cut the noise. Fewer short videos, fewer notifications. A calmer mind has room to think deeply. Silence the phone for one focused hour a day and watch your thinking get deeper.",
+   "media_id": "2401633e-ee71-4cc5-809e-c12389e2611e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Being smart is not about talent. It's about habits. Start with one way this week and add another next month. Small habits, repeated, change everything over a year.",
+   "media_id": "242612da-659f-498c-99fe-44e4b5b33e0a"
+  }
+ ]
+}

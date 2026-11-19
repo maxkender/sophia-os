@@ -36,6 +36,7 @@ import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceCl
 import {
   casDeCategorie, type CasFixe, detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, etatDashboardTexte,
   ligneStatut, type Situation, situation, TEXTES, texteStatut,
+  ditPasRecu, estCodeRuul, estQuestionPaie, texteArret, texteCodeRuul, textePaieRuul,
 } from "../_shared/support_regles.ts";
 
 /**
@@ -460,7 +461,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     const b = await cerveau(db, f, questionProbleme(categorie, texte, v), ctx);
     brouillon = b.brouillon;
     niveau = v?.verdict === "probleme_confirme" ? "max" : v?.verdict === "pas_de_probleme" && b.sur ? "bot" : "adrien";
-    if (niveau === "bot") reponseBot = signer(b.reponse);
+    if (niveau === "bot") reponseBot = signer(b.reponse, (b as { langue?: string | null }).langue ?? null);
   } else {
     const r = await deciderBot(db, { message: `[${categorie}] ${texte}`, source: "help", poster, profil: null, canal: "help" });
     d = r.decision;
@@ -773,7 +774,7 @@ async function deciderBot(
   return {
     plan,
     decision: finale,
-    texte: signer(finale.reponse),
+    texte: signer(finale.reponse, finale.langue),
     regle_utilisee: regle,
     plateforme,
     action_prevue: finale.action ? { action: finale.action, valeur: finale.action_valeur, executee: false } : null,
@@ -799,7 +800,7 @@ async function deciderBot(
 
 /** Ce qui doit se passer après la réponse (écritures faites par apresDemande, jamais en simulation). */
 export interface PlanRegles {
-  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | null;
+  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | null;
   upwork: "demander" | "lien" | null;
   lien: string | null;
   doublon_de: string | null;
@@ -1074,21 +1075,57 @@ async function appliquerRegles(
   }
   if (cas && cas !== "pas_regle") plan.cas = cas;
 
+  // 19/11 (Max) : posteurs Ruul : le code à 6 chiffres (il vient de Ruul) et « quand serai-je payé ? » (le vrai statut).
+  const ruul = o.plateforme === "ruul" || o.etat?.canal_paie === "ruul";
+  const demandeArretMsg = estDemandeArret(o.message) || d.action === "arret" || (d.categorie === "arret" && !estQuestionStatut(o.message));
+  if (!plan.cas && ruul && !demandeArretMsg && (estCodeRuul(o.message) || estQuestionPaie(o.message))) {
+    const { data: pr } = o.poster ? await db.from("profiles").select("ruul_email").eq("id", o.poster).maybeSingle() : { data: null };
+    const emailRuul = (pr?.ruul_email as string | null | undefined) ?? null;
+    if (estCodeRuul(o.message)) {
+      fixe(texteCodeRuul(emailRuul), "ruul");
+      plan.cas = "code_ruul";
+      d.personnel = true;
+    } else if (o.etat) {
+      const pasRecu = ditPasRecu(o.message);
+      fixe(textePaieRuul(o.etat, new Date(), emailRuul), "paie");
+      plan.cas = "paie_ruul";
+      // Un montant ou une adresse : jamais dans un salon public (message privé).
+      d.personnel = true;
+      // Payé chez nous mais « pas reçu » : la réponse part, et Max regarde (jamais de litige sans lui).
+      if (pasRecu && o.etat.paie.some((p) => p.paye_at || p.ruul_statut === "PAID")) {
+        d.niveau = "max";
+        plan.resume = "Paiement Ruul marqué payé mais le posteur dit ne pas l'avoir reçu.";
+        plan.action_proposee = "vérifier le paiement sur Ruul";
+      }
+    }
+  }
+
   // 6. Arrêts et kills : la vraie situation, jamais supposée.
   if (!plan.cas && o.etat) {
     const dejaAnnonce = o.historique.some((h) => /\b(stopped|ended|terminated|no longer active)\b/i.test(h.bot_reponse ?? ""));
     const s = situation(o.etat, dejaAnnonce);
-    const demandeArret = estDemandeArret(o.message) || d.action === "arret";
+    const demandeArret = demandeArretMsg;
     const surLeStatut = demandeArret || estQuestionStatut(o.message) || d.categorie === "arret" || d.categorie === "statut";
+    // 19/11 (Max) : une demande d'arrêt déjà notée (demandes_arret, pas encore décidée) : le compte est encore actif
+    // jusqu'au samedi, mais on ne lui dit jamais « continue de poster ».
+    const arretDejaDemande = surLeStatut && s.statut === "actif" && !!o.poster && await arretEnAttente(db, o.poster);
     if (surLeStatut) {
       plan.incoherences = s.incoherences;
-      if (demandeArret && s.statut === "actif") {
+      if (arretDejaDemande) {
+        fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
+        plan.cas = "arret";
+      } else if (demandeArret && s.statut === "actif") {
         // 18/11 (Max) : la demande d'arrêt va directement au Kill du samedi (pré-coché), rien n'est fermé avant.
-        fixe(TEXTES.arret_recu, "arret");
+        // 19/11 (Max) : une réponse qui dit la vraie situation : traitée samedi, payée lundi, arrêter de poster samedi.
+        fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
         plan.cas = "arret";
         plan.arret = true;
         plan.resume = plan.resume ?? "Le posteur demande l'arrêt de son contrat.";
         plan.action_proposee = `exécuter l'arrêt (désactiver le compte${o.etat.canal_paie === "upwork" && o.etat.contrat_upwork?.actif ? `, fermer le contrat Upwork ${o.etat.contrat_upwork.id}` : ""})`;
+      } else if (s.statut === "arret_en_cours") {
+        // 19/11 (Max) : arrêt déjà demandé : la même réponse avec les dates, jamais « continue de poster ».
+        fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
+        plan.cas = "arret";
       } else {
         // 18/11 (Max) : exactement le texte de la page « collaboration terminée » / du bandeau du dashboard.
         const t = s.statut === "kill"
@@ -1126,6 +1163,12 @@ async function appliquerRegles(
   if (plan.cas || d.reponse === TEXTE_ON_VERIFIE) d.reponse = await traduire(d.reponse, d.langue);
   if (!d.reponse.trim()) d.reponse = await traduire(TEXTES.equipe, d.langue);
   return plan;
+}
+
+/** Une demande d'arrêt notée et pas encore décidée (le Kill du samedi la traite). */
+async function arretEnAttente(db: Db, poster: string): Promise<boolean> {
+  const { data } = await db.from("demandes_arret").select("id").eq("poster_id", poster).is("decision", null).limit(1);
+  return (data ?? []).length > 0;
 }
 
 /** Les écritures du plan, une fois la demande enregistrée. Ne lève pas. */
@@ -1241,7 +1284,7 @@ async function rouvrirSiPasRegle(db: Db, poster: string, texte: string, canal: s
     remonte_pourquoi: `Le posteur dit que ce n'est pas réglé (${canal}) : « ${texte.slice(0, 200)} »`,
   }).eq("id", d.id);
   await journaliser(db, { qui: "cerveau_support", quoi: "rouverte", poster_id: poster, canal, demande_id: d.id, resultat: "demande rouverte : pas réglée selon le posteur" });
-  return { id: d.id as string, reponse: signer(await traduire(TEXTES.rouverte, d.langue as string | null)) };
+  return { id: d.id as string, reponse: signer(await traduire(TEXTES.rouverte, d.langue as string | null), d.langue as string | null) };
 }
 
 /**
@@ -1281,7 +1324,7 @@ async function suiviSupport(db: Db) {
     if (!e) continue;
     const fait = e.comptes_actifs === 0 && !(e.canal_paie === "upwork" && e.contrat_upwork?.actif);
     if (!fait) continue;
-    const m = await messageCanal(db, { id: d.id, poster_id: d.poster_id, source: d.source }, signer(await traduire(TEXTES.arret_confirme, d.langue)));
+    const m = await messageCanal(db, { id: d.id, poster_id: d.poster_id, source: d.source }, signer(await traduire(TEXTES.arret_confirme, d.langue), d.langue));
     if (!m.ok) continue;
     await db.from("support_demandes").update({ suivi: "arret_confirme", statut: "resolu", resolu_at: maintenant, verdict_fermeture: "regle_equipe", maj_at: maintenant }).eq("id", d.id);
     bilan.arret_confirme++;

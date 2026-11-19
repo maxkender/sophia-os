@@ -261,8 +261,26 @@ export function appliquerGardeFous(
 }
 
 /** Le texte envoyé : la réponse, puis la signature (une fois). */
-export function signer(reponse: string): string {
-  return reponse.includes("Vik Studios team") ? reponse : `${reponse}\n\n${SIGNATURE}`;
+/** 19/11 (Max) : la signature dans la langue de la réponse (l'anglais sinon). */
+const SIGNATURES: Record<string, string> = {
+  fr: "— l'équipe Vik Studios", es: "— el equipo de Vik Studios", pt: "— a equipe Vik Studios", it: "— il team di Vik Studios",
+  de: "— das Vik Studios Team", nl: "— het Vik Studios-team", tr: "— Vik Studios ekibi", pl: "— zespół Vik Studios",
+  ro: "— echipa Vik Studios", hu: "— a Vik Studios csapata", cs: "— tým Vik Studios", sk: "— tím Vik Studios",
+  hr: "— tim Vik Studios", bs: "— tim Vik Studios", sr: "— tim Vik Studios", sl: "— ekipa Vik Studios",
+  sv: "— Vik Studios-teamet", no: "— Vik Studios-teamet", nb: "— Vik Studios-teamet", da: "— Vik Studios-teamet",
+  fi: "— Vik Studios -tiimi", el: "— η ομάδα της Vik Studios", bg: "— екипът на Vik Studios", ru: "— команда Vik Studios",
+  uk: "— команда Vik Studios", lv: "— Vik Studios komanda", lt: "— Vik Studios komanda", et: "— Vik Studios meeskond",
+  ar: "— فريق Vik Studios", he: "— צוות Vik Studios", id: "— tim Vik Studios", ms: "— pasukan Vik Studios",
+};
+
+export function signature(langue?: string | null): string {
+  const l = (langue ?? "").toLowerCase().slice(0, 2);
+  return SIGNATURES[l] ?? SIGNATURE;
+}
+
+export function signer(reponse: string, langue?: string | null): string {
+  if (/—\s*[^\n]*Vik Studios[^\n]*$/.test(reponse.trim()) || reponse.includes("Vik Studios team")) return reponse;
+  return `${reponse}\n\n${signature(langue)}`;
 }
 
 /** Un test : le niveau attendu et les mots attendus dans la réponse (insensible à la casse). */

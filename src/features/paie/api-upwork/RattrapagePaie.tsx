@@ -59,9 +59,9 @@ export function RattrapagePaie() {
                 <Badge variant="secondary">{ls.length} lignes</Badge>
               </CardTitle>
               <CardDescription data-testid="rattrapage-recap">
-                À payer : {r.a_payer} ({r.montant} $, milestones déjà financées) · déjà payées à la main sur Upwork : {r.deja_payees} (aucun
-                argent, l'OS les marque payées) · 0 post, milestone gardée : {r.gardees} · à faire à la main : {r.a_la_main}. Rien n'est
-                financé. Après le paiement, chaque posteur payé reçoit sur Upwork, dans sa langue : « Your week of {jjmm(semaine)} (X $)
+                À payer : {r.a_payer} ({r.montant} $ : milestones déjà financées, ou paiement direct du montant exact) · déjà payées à la main sur Upwork : {r.deja_payees} (aucun
+                argent, l'OS les marque payées) · 0 post, milestone gardée : {r.gardees} · à voir : {r.a_la_main}. Plafonds : 60 $ par posteur et par semaine, 600 $ en
+                tout. Après le paiement, chaque posteur payé reçoit sur Upwork, dans sa langue : « Your week of {jjmm(semaine)} (X $)
                 has been paid. Sorry for the delay! »
               </CardDescription>
             </CardHeader>

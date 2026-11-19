@@ -4032,7 +4032,7 @@ export const fr = {
       file: {
         titre: "File d'import des sources",
         description:
-          "Les imports s'étalent dans les jours. Chaque matin à 6 h 37 : jusqu'à {{lot}} mises à jour de la semaine, puis les sources neuves qui attendent (plus de limite par jour), une source à la fois. Une source neuve n'importe d'abord que ses {{essai}} meilleurs posts ; si elle tient sur nos comptes, la suite arrive par tranches de {{tranche}}, un lundi après l'autre.",
+          "Une source neuve part tout de suite, dès qu'elle est ajoutée : relevé de son profil, puis ses slideshows dans la file. Les mises à jour de la semaine, elles, s'étalent dans les jours : chaque matin à 6 h 37, jusqu'à {{lot}} sources, une à la fois. Une source neuve n'importe d'abord que ses {{essai}} meilleurs posts ; si elle tient sur nos comptes, la suite arrive par tranches de {{tranche}}, un lundi après l'autre.",
         enCours: "En cours",
         enCoursSource_one: "@{{handle}}, {{count}} slideshow encore dans la file.",
         enCoursSource_other: "@{{handle}}, {{count}} slideshows encore dans la file.",

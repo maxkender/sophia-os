@@ -1,7 +1,7 @@
 /**
  * 19/11 (Adrien) : « Lancer l'import » du prochain batch. La fenêtre liste les comptes prêts (un vrai label, pas à
- * podzer, pas déjà source), demande la langue de leurs TikToks (l'import l'exige), puis crée les sources et les met
- * dans la file : tout le batch dans une même séquence, une source à la fois. Elle montre ensuite ce qui est parti.
+ * podzer, pas déjà source), demande la langue de leurs TikToks (l'import l'exige), puis crée les sources : leur
+ * import part tout de suite, sans attendre les autres (0772). Elle montre ensuite ce qui est parti.
  */
 import * as React from "react";
 
@@ -119,7 +119,7 @@ export function DialogueLancement({ prets, regles, onFermer, onFini, onVoir }: {
       <DialogPopup className="max-w-xl">
         <DialogHeader>
           <DialogTitle className="text-base">Lancer l'import</DialogTitle>
-          <DialogDescription>Chaque compte devient une source et part dans la file d'import, avec le label de sa carte.</DialogDescription>
+          <DialogDescription>Chaque compte devient une source, avec le label de sa carte, et son import part tout de suite.</DialogDescription>
         </DialogHeader>
         {prets && <Contenu prets={prets} regles={regles} onFermer={onFermer} onFini={onFini} onVoir={onVoir} />}
       </DialogPopup>

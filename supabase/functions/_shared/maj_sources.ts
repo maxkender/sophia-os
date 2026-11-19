@@ -133,6 +133,53 @@ async function noterEchec(supabase: Supabase, compteId: string, message: string 
   }
 }
 
+/**
+ * Une source NEUVE part tout de suite (0772, décision d'Adrien du 19/11 : « si je mets un compte à importer, il est
+ * importé immédiatement ; c'est sur l'essai et la mise à jour de la semaine que ça se lisse »).
+ *
+ * Avant, son premier import passait par la séquence ci-dessous : une source à la fois, la suivante seulement quand
+ * la file d'import était vide, et une source lancée pendant qu'autre chose tournait attendait le lot du lendemain
+ * (6 h 37). Trois comptes lancés à la suite : le deuxième attendait des dizaines de minutes, le troisième un jour.
+ *
+ * Ici : on prend UNE source neuve à lancer (`sources_neuves_prendre`, trois relevés de profil au plus en même
+ * temps), on relève son profil et on enfile ses slideshows, sans regarder l'état de la file. Les plafonds sont ceux
+ * de toujours (l'essai de la source, la tranche par mise à jour). `sources_neuves_finir` note le relevé fait ; un
+ * échec repart 10 minutes plus tard, 5 fois au plus, puis avec le lot du matin. La séquence reste le chemin des
+ * mises à jour de la semaine.
+ */
+export async function traiterSourceNeuve(
+  supabase: Supabase,
+): Promise<{ prise: boolean; handle?: string; enfilees?: number; echec?: string }> {
+  const { data, error } = await supabase.rpc("sources_neuves_prendre");
+  if (error) throw error;
+  const compte = data as { id?: string; handle?: string; langue?: string } | null;
+  if (!compte?.id) return { prise: false };
+  try {
+    const listed = await listerUrlsCompteReference(supabase, compte.id, {
+      nouveauxSeulement: true,
+      marquerScrape: true,
+      ...(await lireReglagesMaj(supabase)),
+    });
+    // 0698 : un profil que personne n'a pu lire est un échec, pas « rien à importer ».
+    if (listed.illisible) throw new Error(listed.illisible);
+    const r = await enqueueImportUrls(supabase, {
+      urls: listed.urls,
+      compteReferenceId: compte.id,
+      labelIds: [],
+      langue: compte.langue ?? null,
+    });
+    // Le relevé est fait (et l'échec d'avant levé). Si l'écriture rate, la source sera relevée de nouveau dans
+    // quelques minutes : sans dégât, ses slideshows sont déjà dans la file.
+    const fin = await supabase.rpc("sources_neuves_finir", { p_compte: compte.id, p_enfilees: r.enqueued });
+    if (fin.error) console.error(`sources neuves : relevé de @${compte.handle} non noté`, fin.error.message);
+    return { prise: true, handle: compte.handle, enfilees: r.enqueued };
+  } catch (e) {
+    const message = (e as Error).message;
+    await noterEchec(supabase, compte.id, message);
+    return { prise: true, handle: compte.handle, echec: message };
+  }
+}
+
 type Claim =
   | { action: "idle" }
   | { action: "busy"; etat: MajSourcesRun }

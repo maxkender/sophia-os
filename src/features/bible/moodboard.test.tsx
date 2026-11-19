@@ -37,7 +37,7 @@ const CARTES = [carte({}), carte({ id: "k2", nom: "clean_girl", section: "sophia
 const source = (o: Partial<SourceBible>): SourceBible => ({
   id: "s1", handle: "une.source", langue: "en", actif: true, labels: [{ id: "L1", nom: "smart_girl" }], slides: [], importes: 120, valides: 90,
   perf: { posts: 20, r: 1.12, vuesMediane: 900, rVsLabel: 1.05, labelNom: "smart_girl" }, essaiMax: null, essaiVerdict: null, dernierImport: "2026-11-10T06:00:00Z",
-  attente: null, sequence: null, restant: 0, semaine: null, etape: "weekly", ...o,
+  neuve: null, attente: null, sequence: null, restant: 0, semaine: null, etape: "weekly", ...o,
 });
 const donnees = (sources: SourceBible[] = [], o: Partial<DonneesSources> = {}): DonneesSources => ({
   sources,
@@ -216,8 +216,8 @@ describe("page Bible", () => {
     fireEvent.click(screen.getByRole("button", { name: "Lancer l'import de 2 comptes" }));
     await waitFor(() => expect(api.lancerBatch).toHaveBeenCalledWith([{ id: "c2", langue: "en" }, { id: "c3", langue: "es" }]));
     const bilan = await screen.findByTestId("resultats-lancement");
-    expect(bilan).toHaveTextContent("@pret.un : dans la séquence d'import, essai de 30 posts");
-    expect(bilan).toHaveTextContent("@pret.deux : dans la séquence d'import, ses 100 posts les plus vus");
+    expect(bilan).toHaveTextContent("@pret.un : import lancé, essai de 30 posts");
+    expect(bilan).toHaveTextContent("@pret.deux : import lancé, ses 100 posts les plus vus");
     fireEvent.click(screen.getByRole("button", { name: "Voir « En import »" }));
     expect(screen.getByRole("tab", { name: /En import/ })).toHaveAttribute("aria-selected", "true");
   });
@@ -259,6 +259,36 @@ describe("page Bible", () => {
 
     fireEvent.click(screen.getByRole("tab", { name: /À l'essai/ }));
     expect(await screen.findByTestId("etat-source.ailleurs")).toHaveTextContent("Essai : 30 sur 30 importés, 6 sur 10 mesurés");
+  });
+
+  it("« En import » : chaque source neuve part tout de suite et dit où elle en est ; le lot des mises à jour se lit dans « Weekly update »", async () => {
+    api.lireComptes.mockResolvedValue([]);
+    const neuve = { compteReferenceId: "x", handle: "x", essais: 1, echec: null, lanceeLe: "2026-11-19T16:30:00Z", releve: false, enTraitement: 0 };
+    src.lireSources.mockResolvedValue(donnees([
+      source({ id: "n1", handle: "mondorunning", importes: 24, etape: "en_import", neuve: { ...neuve, releve: true, enTraitement: 18 } }),
+      source({ id: "n2", handle: "sslowrisee", importes: 0, dernierImport: null, etape: "en_import", neuve }),
+      source({ id: "n3", handle: "sydneysynced", importes: 0, dernierImport: null, etape: "en_import", neuve: { ...neuve, essais: 0, lanceeLe: null } }),
+      source({ id: "w1", handle: "une.source" }),
+    ], { file: {
+      enCours: { handle: "lena.psychologie", restant: 12, faits: 1, total: 6, aSuivre: ["luvy_y"] }, attente: [], essais: [],
+      reglages: { lotMax: 8, nouvellesParJour: 1000, essaiPosts: 30, essaiMesuresMin: 10, postsMaxParMaj: 100 },
+    } }));
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: /En import 3/ }));
+    expect(screen.getByTestId("regle-etape")).toHaveTextContent("Une source part dès qu'elle est créée, sans attendre les autres");
+    const bref = await screen.findByTestId("import-en-bref");
+    expect(bref).toHaveTextContent("3 sources en import : 1 relevé de profil en cours, 1 profil à relever (départ dans la minute), 18 slideshows en traitement.");
+    // plus de séquence ni de renvoi au lendemain dans cet onglet
+    expect(bref).not.toHaveTextContent(/séquence|6 h 37|au plus tôt/);
+    expect(screen.queryByTestId("lot-en-cours")).toBeNull();
+    expect(screen.getByTestId("etat-mondorunning")).toHaveTextContent("Import en cours : 18 slideshows en traitement");
+    expect(screen.getByTestId("etat-sslowrisee")).toHaveTextContent("Relevé du profil en cours");
+    expect(screen.getByTestId("etat-sydneysynced")).toHaveTextContent("Relevé du profil dans la minute");
+
+    fireEvent.click(screen.getByRole("tab", { name: /Weekly update 1/ }));
+    expect(await screen.findByTestId("lot-en-cours")).toHaveTextContent(
+      "Mise à jour en cours : @lena.psychologie, 12 slideshows encore dans la file · 1 source passée sur 6 · à suivre : @luvy_y",
+    );
   });
 
   it("une proposition vers le prochain batch : son label proposé est présélectionné ; on peut prendre un label de l'OS sans bloc, en créer un, ou n'en mettre aucun", async () => {
@@ -327,7 +357,7 @@ describe("page Bible", () => {
     fireEvent.click(within(tuile).getByRole("button", { name: "Importer" }));
     expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Importer @pret.avec.langue maintenant ? Label smart_girl, TikToks en allemand."));
     await waitFor(() => expect(api.lancerBatch).toHaveBeenCalledWith([{ id: "c2", langue: "de" }]));
-    expect(await screen.findByTestId("info")).toHaveTextContent("@pret.avec.langue : dans la séquence d'import, ses 100 posts les plus vus");
+    expect(await screen.findByTestId("info")).toHaveTextContent("@pret.avec.langue : import lancé, ses 100 posts les plus vus");
     confirmer.mockRestore();
 
     fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));

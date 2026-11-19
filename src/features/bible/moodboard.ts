@@ -145,7 +145,7 @@ export async function changerEtape(ids: string[], etape: EtapeManuelle): Promise
   if (error) throw new Error(error.message);
 }
 
-/** Ce que le lancement a fait d'un compte : parti, en attente du lot suivant, refusé (avec la raison) ou en erreur. */
+/** Ce que le lancement a fait d'un compte : parti, refusé (avec la raison) ou en erreur. « attente » ne revient plus depuis 0772. */
 export interface ResultatLancement {
   id: string;
   handle: string | null;
@@ -159,8 +159,8 @@ export interface ResultatLancement {
 }
 
 /**
- * « Lancer l'import » : crée la source de chaque compte (label de sa carte, langue donnée) et la met dans la file
- * d'import, tout le batch dans une même séquence (0763). Le serveur revérifie tout et rend un résultat par compte.
+ * « Lancer l'import » : crée la source de chaque compte (label de sa carte, langue donnée) et lance son import
+ * tout de suite, chacune de son côté (0763, 0772). Le serveur revérifie tout et rend un résultat par compte.
  */
 export async function lancerBatch(comptes: { id: string; langue: string }[]): Promise<ResultatLancement[]> {
   const { data, error } = await supabase.rpc("bible_lancer_batch", { p_comptes: comptes });

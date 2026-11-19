@@ -1,0 +1,90 @@
+{
+ "id": "bn-001",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7707980369747823880",
+  "vues": 427700,
+  "publie_le": "2026-11-14",
+  "accroche": "GLOW UP HACKS FOR MEN."
+ },
+ "titre": {
+  "en": "5 glow up habits every man needs"
+ },
+ "legendes": {
+  "en": "small habits, big difference #selfimprovement #glowup #tipsformen #running #discipline"
+ },
+ "musique": {
+  "titre": "FUNDO DE VIDEO",
+  "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
+ },
+ "notes": "Preuve : « GLOW UP HACKS FOR MEN. » de @built.not.born61 (427,7 k vues, 14/11), même gabarit (couverture en capitales et homme détouré en noir et blanc, un conseil par slide, « Follow for more »), numérotation de son « 6 WAYS TO BECOME A BETTER LOOKING MAN » (le post envoyé par Adrien). Slide Atala (4) : le conseil « courir », un homme qui court détouré (banque de l'OS, label male_run : 1df6a59e, aucune marque lisible) et le logo d'Atala à côté (demande d'Adrien du 19/11). cta A. Faits : 7 à 9 h de sommeil recommandées aux adultes (National Sleep Foundation, AASM : 7 h et plus) ; une déshydratation légère baisse la concentration et l'humeur (Armstrong et al., J. Nutr. 2012) ; la lumière du matin cale l'horloge interne. Images : Seedream détourées par BiRefNet, en noir et blanc (images/detoures).",
+ "banque": {
+  "images/detoures/coureur-montagne.png": "1df6a59e-98f6-41b6-bf7b-f3cbb23fdf7c"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture.png",
+   "en": {
+    "titre": "5 GLOW UP HABITS\nEVERY MAN NEEDS."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/posture.png",
+   "mode": "bas",
+   "en": {
+    "titre": "1. Fix your posture",
+    "texte": "Shoulders back, chin tucked, phone at eye level. Standing tall makes you look taller and more confident."
+   },
+   "taille": 440
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/reveil.png",
+   "mode": "objet",
+   "taille": 380,
+   "en": {
+    "titre": "2. Sleep 7 to 9 hours",
+    "texte": "Same bedtime every night, even on weekends. Sleep is when your body recovers and the tired look leaves your face."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-montagne.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Start running",
+    "texte": "3 runs a week build stamina and clear your head. I use Atala, an AI running coach that plans around my goal."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/gourde.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "4. Drink water first",
+    "texte": "Water before coffee, then a bottle on your desk all day. Even mild dehydration drains your focus and your energy."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/soleil.png",
+   "mode": "bas",
+   "en": {
+    "titre": "5. Get morning sunlight",
+    "texte": "10 minutes outside after you wake up. Morning light sets your body clock, so you sleep better at night."
+   },
+   "taille": 560
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

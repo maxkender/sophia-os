@@ -1,0 +1,26 @@
+{
+  "name": "pod-built",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 22 — originaux « conseils pour hommes » au style de @built.not.born61 (slides blanches, titres League Spartan, images détourées en noir et blanc), pour Atala, en anglais : un conseil « courir » avec un homme qui court détouré (banque, label male_run) et le logo d'Atala.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
+    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts",
+    "detourer": "NODE_USE_ENV_PROXY=1 node atelier/cli-detourer.ts"
+  }
+}

@@ -42,7 +42,7 @@
       "payoff"
      ],
      "fr": "apprends des trucs [[qui servent à rien]]",
-     "texte": "repítelo [[enseguida]]"
+     "texte": "repite su nombre [[en ese mismo momento]]"
     },
     "T2": {
      "en": [
@@ -60,7 +60,7 @@
       "make money"
      ],
      "fr": "[[pas besoin de rentabiliser chaque heure]]",
-     "texte": "[[\"un gusto, sam\"]]"
+     "texte": "[[\"un gusto, sam\"]], no solo \"hola\""
     },
     "T4": {
      "en": [
@@ -216,7 +216,7 @@
       "what matters"
      ],
      "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
-     "texte": "guarda el nombre con un detalle: \"sam, gimnasio, tiene un [[golden retriever]]\""
+     "texte": "guarda el nombre con un detalle pequeño, tipo: \"sam, del gimnasio, tiene un [[golden retriever]]\""
     },
     "T4": {
      "en": [
@@ -225,7 +225,7 @@
       "want to remember"
      ],
      "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
-     "texte": "la próxima vez que lo veas, [[su cara vuelve]] con él"
+     "texte": "la próxima vez que lo veas, [[su cara vuelve]] con él, incluso semanas después"
     }
    },
    "images": {

@@ -9,7 +9,7 @@
       "again"
      ],
      "fr": "10/10 habitudes pour retrouver ton cerveau",
-     "texte": "kako da [[zapamtiš imena]] ljudi"
+     "texte": "kako da [[zapamtiš imena]] ljudi koje upoznaš"
     },
     "T2": {
      "en": [
@@ -52,7 +52,7 @@
       "genuinely interests you"
      ],
      "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
-     "texte": "ime zaboraviš jer u tom trenutku smišljaš [[šta ćeš reći]]"
+     "texte": "ime zaboraviš jer u tom trenutku samo smišljaš [[šta ćeš sledeće reći]]"
     },
     "T3": {
      "en": [
@@ -60,7 +60,7 @@
       "make money"
      ],
      "fr": "[[pas besoin de rentabiliser chaque heure]]",
-     "texte": "[[\"drago mi je, sam\"]]"
+     "texte": "[[\"drago mi je, sam\"]], a ne samo \"ćao\""
     },
     "T4": {
      "en": [
@@ -108,7 +108,7 @@
       "scrolling"
      ],
      "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
-     "texte": "ime je samo zvuk, a mozak [[mnogo bolje pamti slike]]"
+     "texte": "ime je samo zvuk, a mozak [[mnogo bolje pamti slike]] nego zvuke"
     },
     "T3": {
      "en": [
@@ -216,7 +216,7 @@
       "what matters"
      ],
      "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
-     "texte": "sačuvaj ime sa jednim detaljem: \"sam, teretana, ima [[zlatnog retrivera]]\""
+     "texte": "sačuvaj ime sa jednim malim detaljem, npr: \"sam, iz teretane, ima [[zlatnog retrivera]]\""
     },
     "T4": {
      "en": [
@@ -225,7 +225,7 @@
       "want to remember"
      ],
      "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
-     "texte": "sledeći put kad ga pročitaš, [[vrati se i lice]]"
+     "texte": "sledeći put kad ga pročitaš, [[vrati se i lice]], čak i posle par nedelja"
     }
    },
    "images": {
@@ -267,7 +267,7 @@
       "find gaps"
      ],
      "fr": "[[cherche d'abord par toi-même]], puis vérifie avec l'IA ou repère ce qui manque",
-     "texte": "\"izvini, [[kako se ono zoveš?]]\" pa ga odmah iskoristi"
+     "texte": "\"izvini, [[kako se ono beše zoveš?]]\" pa ga odmah iskoristi u rečenici"
     },
     "T4": {
      "en": [

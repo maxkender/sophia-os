@@ -9,7 +9,7 @@
       "again"
      ],
      "fr": "10/10 habitudes pour retrouver ton cerveau",
-     "texte": "wie du dir [[namen merkst]]"
+     "texte": "wie du dir [[namen von leuten]] endlich merkst"
     },
     "T2": {
      "en": [
@@ -17,7 +17,7 @@
      ],
      "fr": "(version niche #2)",
      "alignement": "droite",
-     "texte": "(und warum du sie in 3 sekunden vergisst)"
+     "texte": "(warum du sie in 3 sekunden vergisst)"
     }
    },
    "images": {
@@ -42,7 +42,7 @@
       "payoff"
      ],
      "fr": "apprends des trucs [[qui servent à rien]]",
-     "texte": "sag ihn [[sofort zurück]]"
+     "texte": "sag den namen [[direkt zurück]], wenn du jemanden kennenlernst"
     },
     "T2": {
      "en": [
@@ -52,7 +52,7 @@
       "genuinely interests you"
      ],
      "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
-     "texte": "du vergisst den namen, weil du überlegst, [[was du als nächstes sagst]]"
+     "texte": "du vergisst den namen, weil du in dem moment überlegst, [[was du als nächstes sagst]]"
     },
     "T3": {
      "en": [
@@ -60,7 +60,7 @@
       "make money"
      ],
      "fr": "[[pas besoin de rentabiliser chaque heure]]",
-     "texte": "[[„freut mich, sam“]]"
+     "texte": "[[„freut mich, sam“]], nicht nur „hi“"
     },
     "T4": {
      "en": [
@@ -175,7 +175,7 @@
       "doomscrolling too much"
      ],
      "fr": "[[avant, je doomscrollais]] beaucoup trop",
-     "texte": "[[was mein scrollen ersetzt hat]]: ein buch am abend, lange spaziergänge,"
+     "texte": "[[mein scroll-ersatz]]: ein buch, lange spaziergänge,"
     },
     "T5": {
      "en": [
@@ -216,7 +216,7 @@
       "what matters"
      ],
      "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
-     "texte": "speicher den namen mit einem detail: „sam, gym, hat einen [[golden retriever]]“"
+     "texte": "speicher den namen mit einem kleinen detail, etwa: „sam, aus dem gym, hat einen [[golden retriever]]“"
     },
     "T4": {
      "en": [

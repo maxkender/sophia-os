@@ -42,7 +42,7 @@
       "payoff"
      ],
      "fr": "apprends des trucs [[qui servent à rien]]",
-     "texte": "say it back [[right away]]"
+     "texte": "say their name back to them [[right away]]"
     },
     "T2": {
      "en": [
@@ -60,7 +60,7 @@
       "make money"
      ],
      "fr": "[[pas besoin de rentabiliser chaque heure]]",
-     "texte": "[[\"nice to meet you, sam\"]]"
+     "texte": "[[\"nice to meet you, sam\"]], not just \"hi\""
     },
     "T4": {
      "en": [
@@ -216,7 +216,7 @@
       "what matters"
      ],
      "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
-     "texte": "save the name with one detail: \"sam, gym, has a [[golden retriever]]\""
+     "texte": "save the name with one small detail, like: \"sam, from the gym, has a [[golden retriever]]\""
     },
     "T4": {
      "en": [
@@ -225,7 +225,7 @@
       "want to remember"
      ],
      "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
-     "texte": "next time you see it, [[the face comes back]] with it"
+     "texte": "next time you see it, [[the face comes back]] with it, even weeks later"
     }
    },
    "images": {

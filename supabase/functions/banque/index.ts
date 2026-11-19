@@ -30,8 +30,8 @@
  */
 
 import { BANQUE_EXTERNE, lireDemandeBanque, lireRefs, rapprocherLabels, SITES_BANQUE } from "../_shared/banque.ts";
+import { controlerImageBanque, sha256Hex } from "../_shared/image_banque.ts";
 import { decouperEnLots } from "../_shared/lots.ts";
-import { controlerImageBanque, sha256Hex } from "../_shared/pods.ts";
 import { corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;

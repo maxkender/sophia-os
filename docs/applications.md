@@ -18,7 +18,8 @@ comment en ajouter une, et comment ajouter un label. Le détail du moteur
 5. Pour chaque application d'un label, l'OS **note** le contenu (prompt de
    pertinence), puis **écrit la slide de l'appli** (prompt de placement).
 6. Une application **inactive** ne publie rien, mais son stock se prépare
-   (notation) dès qu'un label la sert.
+   (notation) dès qu'un label la sert, et elle peut déjà recevoir les
+   nouvelles recrues (§ 6, « Recruter avant l'activation »).
 
 Un label et un podz par application : un contenu partagé entre deux
 applications a une seule valeur BLEO, les vues de l'une faussent l'autre.
@@ -30,7 +31,7 @@ applications a une seule valeur BLEO, les vues de l'une faussent l'autre.
 | Sophia | `sophia` | `…0001` | culture générale | 19 |
 | micabo | `micabo` | `…0002` | révisions pour les élèves et les étudiants | 4 |
 | Unswipe | `unswipe` | `…0003` | ses réseaux sans les formats courts | 0 |
-| Atala | `atala` | `…0004` | course à pied (running) | 0, inactive |
+| Atala | `atala` | `…0004` | course à pied (running) | 4, inactive |
 
 La liste de référence est **le catalogue** :
 `src/features/moteur/catalogueApplications.ts` (et sa copie pour les fonctions
@@ -166,7 +167,40 @@ application.
 Mettre un label de côté : décocher sa dernière application. Il passe dans le
 groupe « Sans application », rien n'est supprimé.
 
-## 6. Atala : où on en est (19/11)
+## 6. Recruter avant l'activation
+
+Recruter et publier sont deux choses (migration 0769, 19/11).
+
+- **Activer** une application ouvre la publication. C'est refusé tant que ses
+  prompts sont des brouillons.
+- Une application **en préparation** (inactive, mais servie par au moins un
+  label slideshow) peut recevoir les nouvelles recrues. Elle apparaît dans
+  Allocation → « Répartition entre applis », marquée « Inactive ». **C'est la
+  part qu'on lui saisit dans la cible qui décide** : à 0, elle ne reçoit rien.
+
+Ce que devient un compte créé pour elle : `parts_applications =
+{"<slug>": 100}`, un de ses labels (File de l'application, sinon le choix
+équilibré : sans stock, ses labels pèsent pareil et les comptes se répartissent
+entre eux), son identité, son warm-up. Ensuite la nuit le passe (« application
+désactivée », quota intact) jusqu'à l'activation. Il ne publie jamais pour une
+autre application.
+
+À avoir en tête :
+
+- **Le warm-up finit un lundi.** Il faut que l'application soit activée et que
+  ses labels aient du stock d'ici là, sinon le posteur n'a rien à publier.
+- **Les recrues du site ne suivent pas la cible** : le site choisit lui-même
+  l'application de ses candidats (Sophia ou Unswipe, `APPLICATIONS_HUB`). La
+  page le dit, marché par marché (« cible impossible… »).
+- **Tous ses labels reçoivent des comptes**, à parts égales tant qu'aucun n'a
+  de stock. Retirer l'application d'un label qu'on ne veut pas voir servi.
+
+La règle « en préparation » vit en base (`applications_en_preparation()`), lue
+par le moteur (`stats_choix_application`) et par la page
+(`lireApplicationsEnPreparation`, `candidates.ts`) : les deux ne peuvent pas se
+contredire.
+
+## 7. Atala : où on en est (19/11)
 
 Fait :
 - l'application en base (`…0004`), **inactive**, toutes langues (0764) ;
@@ -184,20 +218,27 @@ Fait :
   reliée à l'application (0765). Dans l'ajout en masse, « runvik » désigne
   toujours Atala.
 
+- ses premiers labels (19/11) : `classic_girl_run`, `clean_girl_run`,
+  `male_run`, `manga_tok`. Aucune source, aucun contenu, aucun compte ;
+- le recrutement avant l'activation (§ 6) : Atala a sa ligne dans Allocation,
+  il suffit de lui donner une part pour que les prochaines recrues soient des
+  comptes Atala.
+
 Reste à faire, à l'écran :
 1. **Relire les deux prompts** (`pertinence_atala`, `placement_atala`). Ce sont
    des brouillons : ils ne savent d'Atala que « course à pied » et
    n'affirment aucune fonctionnalité. Compléter le bloc « PITCH À COMPLÉTER »
    du placement, puis retirer la ligne `[BROUILLON …]` de chacun.
 2. **Créer le lien** `taap.it/atala` (ou corriger le lien dans Réglages).
-3. **Créer ses labels** (ceux de la Bible : `classic_girl_run`,
-   `white_female_run`, `white_bg_run`, `male_run`, `clean_girl_run`,
-   `anxiety_run`…), leurs sources, leur place dans la file des créateurs.
+3. **Compléter ses labels** (ceux de la Bible qui manquent :
+   `white_female_run`, `white_bg_run`, `anxiety_run`…), ajouter leurs sources
+   et les importer. `manga_tok` n'a pas `run` dans son nom : ses comptes
+   prennent l'identité « culture générale », pas celle du running (§ 5).
 4. Écrire sa fiche (Fiches), ajouter l'option « Atala » au select « App » du
    suivi Notion.
-5. **L'activer.**
+5. **L'activer**, avant le lundi où ses premières recrues sortent du warm-up.
 
-## 7. Pièges connus
+## 8. Pièges connus
 
 - **Ne pas décocher Sophia d'un label existant** pour le donner à une autre
   application : tous ses comptes changeraient d'application. Créer un label.
@@ -206,6 +247,9 @@ Reste à faire, à l'écran :
 - **Le nom d'un label ne se change pas à la légère** : l'identité des comptes
   déjà créés ne bouge pas, celle des suivants si.
 - **Un compte UGC reste Sophia**, quelle que soit l'application de son label.
+- **Désactiver une application ne coupe pas son recrutement** si elle garde des
+  labels et une part dans la cible : elle redevient « en préparation » (§ 6).
+  Pour l'arrêter tout à fait, remettre sa part à 0 dans Allocation.
 - Les migrations se passent à la main (SQL Editor ou MCP), hors fenêtres de
   nuit (21:50–23:15 UTC, 03:55–04:15 UTC) ; les fonctions Edge se déploient au
   merge.

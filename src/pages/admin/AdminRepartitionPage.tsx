@@ -32,6 +32,7 @@ import {
   ecrireCibleRepartitionApps,
   ecrireEtatManuelLabel,
   ecrireReglagesChoixLabel,
+  lireApplicationsEnPreparation,
   lireChoixApplicationAuto,
   lireCibleRepartitionApps,
   lireMarchesApplications,
@@ -42,6 +43,7 @@ import {
   PROVENANCE_JOURS,
   remettreReglagesChoixLabelDefaut,
 } from "@/features/moteur/repartition/apiRepartition";
+import { candidatesRepartition } from "@/features/moteur/repartition/candidates";
 import { CarteFileLabels } from "@/features/moteur/repartition/CarteFileLabels";
 import { CartePodz } from "@/features/moteur/repartition/CartePodz";
 import { fileDeLApplication } from "@/features/moteur/repartition/fileApplication";
@@ -168,15 +170,25 @@ export function AdminRepartitionPage() {
   const { t } = useTranslation();
   const { applications, applicationId } = useApplication();
 
-  const actifs: ApplicationCandidate[] = React.useMemo(
-    () =>
-      trierApplications(
-        applications.filter((a) => a.actif).map((a) => ({ id: a.id, slug: a.slug, langues: a.langues })),
-        (a) => a.slug,
-      ),
-    [applications],
-  );
-  const slugsActifs = React.useMemo(() => actifs.map((a) => a.slug), [actifs]);
+  // Les applications EN PRÉPARATION (inactives, déjà dotées d'un label) : elles
+  // ne publient rien, mais peuvent recevoir les prochaines recrues. Lues en
+  // base par la fonction que lit aussi le moteur (0769).
+  const preparation = useQuery({
+    queryKey: ["repartition-preparation"],
+    queryFn: lireApplicationsEnPreparation,
+    retry: false,
+  });
+  // Les applications qui peuvent recevoir un nouveau compte : les actives et
+  // celles en préparation. Toute la page raisonne sur cette liste, comme le
+  // moteur (`stats_choix_application`).
+  const { candidates, enPreparation } = React.useMemo(() => {
+    const r = candidatesRepartition(applications, preparation.data ?? []);
+    return {
+      candidates: trierApplications(r.candidates, (a) => a.slug),
+      enPreparation: r.enPreparation,
+    };
+  }, [applications, preparation.data]);
+  const slugsCandidates = React.useMemo(() => candidates.map((a) => a.slug), [candidates]);
 
   const reglages = useQuery({
     queryKey: ["repartition-reglages"],
@@ -192,9 +204,10 @@ export function AdminRepartitionPage() {
     retry: false,
   });
   const cible = useQuery({
-    queryKey: ["repartition-cible-apps", slugsActifs],
-    queryFn: () => lireCibleRepartitionApps(slugsActifs),
-    enabled: slugsActifs.length > 0,
+    queryKey: ["repartition-cible-apps", slugsCandidates],
+    queryFn: () => lireCibleRepartitionApps(slugsCandidates),
+    // Pas avant de savoir qui est candidate : la cible se lit sur cette liste.
+    enabled: slugsCandidates.length > 0 && !preparation.isPending,
     retry: false,
   });
   // D'où viennent les recrues. Celles du site ont déjà leur application quand
@@ -207,7 +220,7 @@ export function AdminRepartitionPage() {
   });
   // Les labels de CHAQUE application : la projection croise les deux étages.
   const parApp = useQueries({
-    queries: actifs.map((a) => ({
+    queries: candidates.map((a) => ({
       queryKey: ["repartition-marches", a.id],
       queryFn: () => lireMarchesRepartition(a.id),
       retry: false,
@@ -215,18 +228,20 @@ export function AdminRepartitionPage() {
   });
 
   const erreur =
+    preparation.error ??
     reglages.error ??
     marchesApps.error ??
     cible.error ??
     provenance.error ??
     parApp.find((q) => q.error)?.error;
   const chargement =
+    preparation.isPending ||
     reglages.isPending ||
     marchesApps.isPending ||
     cible.isPending ||
     provenance.isPending ||
     parApp.some((q) => q.isPending);
-  const pret = !chargement && !erreur && actifs.length > 0;
+  const pret = !chargement && !erreur && candidates.length > 0;
 
   /**
    * La part des prochaines recrues que le moteur ne placera pas, marché par
@@ -244,15 +259,15 @@ export function AdminRepartitionPage() {
   /** Les stats de chaque application, indexées par marché. */
   const statsParAppEtMarche = React.useMemo(() => {
     const out: Record<string, Record<string, StatLabel[]>> = {};
-    actifs.forEach((a, i) => {
+    candidates.forEach((a, i) => {
       for (const m of parApp[i]?.data ?? []) (out[cleMarche(m)] ??= {})[a.id] = m.stats;
     });
     return out;
-  }, [actifs, parApp]);
+  }, [candidates, parApp]);
 
   const marchesParApp = React.useMemo(
-    () => Object.fromEntries(actifs.map((a, i) => [a.id, parApp[i]?.data ?? []])),
-    [actifs, parApp],
+    () => Object.fromEntries(candidates.map((a, i) => [a.id, parApp[i]?.data ?? []])),
+    [candidates, parApp],
   );
 
   /** Les labels 100 % podz (0352), toutes applications : leur nom porte la marque pod. */
@@ -286,14 +301,15 @@ export function AdminRepartitionPage() {
         <>
           <CarteParcours
             cible={cible.data}
-            applications={actifs}
+            applications={candidates}
             flotte={provenance.data ?? []}
             file={reglagesOs.data?.file_labels_comptes}
           />
           <CarteApplications
             marches={marchesApps.data}
             cible={cible.data}
-            applications={actifs}
+            applications={candidates}
+            enPreparation={enPreparation}
             flotte={provenance.data ?? []}
             partParMarche={partParMarche}
           />
@@ -301,7 +317,7 @@ export function AdminRepartitionPage() {
             marches={marchesApps.data}
             statsParAppEtMarche={statsParAppEtMarche}
             cible={cible.data}
-            applications={actifs}
+            applications={candidates}
             reglages={reglages.data}
             partParMarche={partParMarche}
             flotte={provenance.data ?? []}
@@ -309,12 +325,12 @@ export function AdminRepartitionPage() {
             labelsPod={labelsPod}
           />
           <CarteLabels
-            applications={actifs}
+            applications={candidates}
             applicationParDefaut={applicationId}
             marchesParApp={marchesParApp}
             reglages={reglages.data}
           />
-          <CartePodz applications={actifs} marchesParApp={marchesParApp} reglages={reglages.data} />
+          <CartePodz applications={candidates} marchesParApp={marchesParApp} reglages={reglages.data} />
           <CarteFileLabels />
         </>
       )}
@@ -570,12 +586,15 @@ function CarteApplications({
   marches,
   cible,
   applications,
+  enPreparation,
   flotte,
   partParMarche,
 }: {
   marches: MarcheApplications[];
   cible: CibleApplications;
   applications: ApplicationCandidate[];
+  /** Slugs des applications inactives de la liste : elles recrutent, sans publier. */
+  enPreparation: ReadonlySet<string>;
   flotte: RecruesMarche[];
   partParMarche: Map<string, PartSite>;
 }) {
@@ -624,6 +643,12 @@ function CarteApplications({
   const restreintes = applications.filter((a) => a.langues !== null);
   const sansCible = cible.source === "defaut" && !brouillon;
   const autres = Math.max(0, 100 - applications.reduce((x, a) => x + (reel.get(a.slug)?.partReelle ?? 0), 0));
+  // Une application inactive à qui la cible (posée, ou en cours de saisie)
+  // donne une part : ses comptes se créeront et attendront. À dire avant
+  // d'enregistrer, pas après.
+  const inactivesVisees = sansCible
+    ? []
+    : applications.filter((a) => enPreparation.has(a.slug) && (partsCible[a.slug] ?? 0) > 0);
 
   return (
     <Card>
@@ -715,7 +740,17 @@ function CarteApplications({
                       <span className="flex items-center gap-2">
                         <span className="inline-block size-2.5 shrink-0 rounded-[3px]" style={{ background: couleurApplication(a.slug) }} aria-hidden />
                         <span className="min-w-0">
-                          <EtiquetteApplication slug={a.slug} />
+                          <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                            <EtiquetteApplication slug={a.slug} />
+                            {enPreparation.has(a.slug) && (
+                              <span className="inline-flex items-center gap-1" data-testid={`inactive-${a.slug}`}>
+                                <Badge variant="outline" className="font-normal">
+                                  {t("repartition.appInactive")}
+                                </Badge>
+                                <Aide libelle={t("repartition.appInactive")}>{t("repartition.appInactiveAide")}</Aide>
+                              </span>
+                            )}
+                          </span>
                           {a.langues !== null && (
                             <span className="block text-xs text-muted-foreground">
                               {t("repartition.langues", { liste: a.langues.join(", ") })}
@@ -773,6 +808,18 @@ function CarteApplications({
             <span className="text-xs text-muted-foreground">{t("repartition.sommeAide", { total })}</span>
             {enregistrer.isError && <span className="text-xs text-destructive">{messageErreur(enregistrer.error)}</span>}
           </div>
+        )}
+        {inactivesVisees.length > 0 && (
+          <Alert data-testid="alerte-inactives">
+            <AlertTriangle className="h-4 w-4" />
+            <AlertTitle>
+              {t("repartition.cibleInactiveTitre", {
+                count: inactivesVisees.length,
+                apps: inactivesVisees.map((a) => nomAffiche(a.slug)).join(", "),
+              })}
+            </AlertTitle>
+            <AlertDescription>{t("repartition.cibleInactiveAide")}</AlertDescription>
+          </Alert>
         )}
         {restreintes.length > 0 && <p className="text-xs text-muted-foreground">{t("repartition.appsFlotteAide")}</p>}
 

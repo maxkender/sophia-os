@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router-dom";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import "@/locales";
 
@@ -12,6 +12,7 @@ const lireMarchesRepartition = vi.fn();
 const lireCibleRepartitionApps = vi.fn();
 const lireRecruesSite = vi.fn();
 const lireReglagesRepartition = vi.fn();
+const lireApplicationsEnPreparation = vi.fn();
 
 const lireChoixApplicationAuto = vi.fn();
 const ecrireChoixApplicationAuto = vi.fn();
@@ -25,6 +26,7 @@ vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   PROVENANCE_JOURS: 30,
   CLE_CHOIX_APPLICATION_AUTO: "choix_application_auto",
   CLE_CHOIX_LABELS: "choix_labels",
+  lireApplicationsEnPreparation: () => lireApplicationsEnPreparation(),
   lireChoixApplicationAuto: () => lireChoixApplicationAuto(),
   ecrireChoixApplicationAuto: (actif: boolean) => ecrireChoixApplicationAuto(actif),
   ecrireCibleRepartitionApps: (p: unknown) => ecrireCibleRepartitionApps(p),
@@ -164,6 +166,7 @@ async function detailMarche(cle: string): Promise<HTMLElement> {
 function poserDonnees() {
   vi.clearAllMocks();
   lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
+  lireApplicationsEnPreparation.mockResolvedValue([]);
   lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
   lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
   lireRecruesSite.mockResolvedValue(PROVENANCE);
@@ -469,6 +472,72 @@ describe("AdminRepartitionPage — la cible et le réel", () => {
 async function ouvrirReglages() {
   fireEvent.click(await screen.findByRole("button", { name: /Réglages avancés|Advanced settings/ }));
 }
+
+describe("AdminRepartitionPage — une application en préparation", () => {
+  // Atala au 19/11 : inactive (prompts en brouillon, pas de stock), mais ses
+  // labels existent. On veut pouvoir lui envoyer les prochaines recrues.
+  const ATALA = { id: "id-atala", slug: "atala", langues: null, actif: false };
+
+  beforeEach(() => {
+    poserDonnees();
+    APPS.push(ATALA);
+  });
+  afterEach(() => {
+    APPS.splice(APPS.indexOf(ATALA), 1);
+  });
+
+  it("inactive et sans label, elle reste hors de la répartition", async () => {
+    renderPage();
+    await screen.findByLabelText(/Cible de Sophia|Target for Sophia/);
+    expect(screen.queryByLabelText(/Cible de Atala|Target for Atala/)).toBeNull();
+    expect(lireCibleRepartitionApps).toHaveBeenLastCalledWith(["sophia", "micabo", "unswipe"]);
+    expect(lireMarchesRepartition).not.toHaveBeenCalledWith("id-atala");
+  });
+
+  it("inactive mais dotée de labels, elle a sa ligne, marquée « Inactive »", async () => {
+    lireApplicationsEnPreparation.mockResolvedValue(["id-atala"]);
+    renderPage();
+    const champ = await screen.findByLabelText(/Cible de Atala|Target for Atala/);
+    expect(within(champ.closest("tr")!).getByTestId("inactive-atala").textContent).toMatch(/Inactive/);
+    // Les applications actives, elles, ne portent pas la marque.
+    expect(screen.queryByTestId("inactive-sophia")).toBeNull();
+    // La cible et les labels se lisent sur la même liste que le moteur.
+    expect(lireCibleRepartitionApps).toHaveBeenLastCalledWith(["sophia", "micabo", "unswipe", "atala"]);
+    expect(lireMarchesRepartition).toHaveBeenCalledWith("id-atala");
+    // Sans part, rien à signaler : elle ne reçoit aucun compte.
+    expect(screen.queryByTestId("alerte-inactives")).toBeNull();
+  });
+
+  it("lui donner une part prévient avant d'enregistrer, puis part en base", async () => {
+    lireApplicationsEnPreparation.mockResolvedValue(["id-atala"]);
+    renderPage();
+    const champ = await screen.findByLabelText(/Cible de Atala|Target for Atala/);
+    fireEvent.change(champ, { target: { value: "100" } });
+    const alerte = screen.getByTestId("alerte-inactives");
+    expect(alerte.textContent).toMatch(/Atala est inactive|Atala is inactive/);
+    expect(alerte.textContent).toMatch(/warm-up/);
+    fireEvent.click(screen.getByRole("button", { name: /Poser la cible|Set the target/ }));
+    await waitFor(() =>
+      expect(ecrireCibleRepartitionApps).toHaveBeenCalledWith({ sophia: 60, unswipe: 25, micabo: 15, atala: 100 }),
+    );
+  });
+
+  it("une cible déjà posée sur elle garde l'avertissement à l'écran", async () => {
+    lireApplicationsEnPreparation.mockResolvedValue(["id-atala"]);
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "reglage",
+      parts: { sophia: 0, unswipe: 0, micabo: 0, atala: 100 },
+    });
+    renderPage();
+    expect((await screen.findByTestId("alerte-inactives")).textContent).toMatch(/Atala/);
+  });
+
+  it("une lecture en panne se voit, elle ne retire pas l'application en silence", async () => {
+    lireApplicationsEnPreparation.mockRejectedValue(new Error("applications_en_preparation : timeout"));
+    renderPage();
+    expect(await screen.findByText(/applications_en_preparation : timeout/)).toBeTruthy();
+  });
+});
 
 describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
   beforeEach(poserDonnees);

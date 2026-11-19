@@ -226,9 +226,12 @@ export async function lireRecruesSite(
   });
 }
 
-/** La cible de répartition entre applications, si un admin en a posé une. */
+/**
+ * La cible de répartition entre applications, si un admin en a posé une.
+ * `slugs` : les applications qui peuvent recevoir un compte (`candidates.ts`).
+ */
 export async function lireCibleRepartitionApps(
-  slugsActifs: readonly string[],
+  slugs: readonly string[],
 ): Promise<CibleApplications> {
   const { data, error } = await supabase
     .from("reglages")
@@ -236,7 +239,39 @@ export async function lireCibleRepartitionApps(
     .eq("cle", "repartition_applications")
     .maybeSingle();
   if (error) throw error;
-  return lireCibleApplications(data?.valeur, slugsActifs);
+  return lireCibleApplications(data?.valeur, slugs);
+}
+
+/** La fonction SQL n'existe pas (encore) : PostgREST ne la trouve pas, ou Postgres. */
+function estFonctionAbsente(err: unknown): boolean {
+  const code = String((err as { code?: unknown } | null)?.code ?? "");
+  return code === "PGRST202" || code === "42883";
+}
+
+/**
+ * Les applications EN PRÉPARATION : inactives, mais déjà servies par au moins
+ * un label slideshow (`applications_en_preparation`, migration 0769). Elles
+ * peuvent recevoir de nouveaux comptes sans rien publier avant leur
+ * activation.
+ *
+ * La règle vit en SQL et le moteur lit LA MÊME fonction
+ * (`stats_choix_application`) : la page ne peut pas proposer une application
+ * que la création de compte ignorerait, ni l'inverse.
+ *
+ * Migration pas encore passée : aucune. La page se comporte alors comme avant
+ * (applications actives seules), ce qui est aussi ce que fait le moteur. Toute
+ * autre erreur lève : une panne ne doit pas faire disparaître une application
+ * de la cible sans le dire.
+ */
+export async function lireApplicationsEnPreparation(): Promise<string[]> {
+  const { data, error } = await supabase.rpc("applications_en_preparation");
+  if (error) {
+    if (estFonctionAbsente(error)) return [];
+    throw error;
+  }
+  return ((data ?? []) as Array<{ application_id?: unknown }>)
+    .map((l) => String(l.application_id ?? ""))
+    .filter(Boolean);
 }
 
 

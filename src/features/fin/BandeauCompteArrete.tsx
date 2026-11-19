@@ -1,13 +1,15 @@
 /**
  * 18/11 (Max) : posteur à 2 comptes dont un a été killé : en haut du dashboard, dans sa langue, quel compte, quand,
- * pourquoi, qu'il continue sur l'autre, et sa paie à partir de la semaine suivante. Reste jusqu'à « Got it ».
- * Réservé au vrai posteur (l'admin qui traverse l'espace ne voit rien).
+ * pourquoi, qu'il continue sur l'autre, et sa paie (tarif 1 compte) à partir de la semaine suivante.
+ * 19/11 : même bandeau, en vert, quand Max valide un 2e compte le jeudi (quel compte, quel label, quand il démarre,
+ * ce qu'il gagne en plus). Reste jusqu'à « Got it ». Réservé au vrai posteur (l'admin qui traverse l'espace ne voit rien).
  */
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Info } from "lucide-react";
+import { Info, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { useAuth } from "@/features/auth/AuthContext";
 
 import { type BandeauCompte, lireMesBandeaux, marquerBandeauVu } from "./api";
@@ -31,13 +33,20 @@ export function Bandeau({ b }: { b: BandeauCompte }) {
     mutationFn: () => marquerBandeauVu(b.cle),
     onSuccess: () => qc.setQueryData<BandeauCompte[]>(["mes-bandeaux-compte"], (l) => (l ?? []).filter((x) => x.cle !== b.cle)),
   });
+  const double = b.cle.startsWith("compte_double:");
+  const Icone = double ? Sparkles : Info;
   return (
     <div
       role="status"
-      className="flex flex-col gap-3 rounded-xl border border-sky-200 bg-sky-50 p-4 text-sky-950 sm:flex-row sm:items-center dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-100"
-      data-testid="bandeau-compte-arrete"
+      className={cn(
+        "flex flex-col gap-3 rounded-xl border p-4 sm:flex-row sm:items-center",
+        double
+          ? "border-emerald-200 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-100"
+          : "border-sky-200 bg-sky-50 text-sky-950 dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-100",
+      )}
+      data-testid={double ? "bandeau-compte-double" : "bandeau-compte-arrete"}
     >
-      <Info className="hidden size-5 shrink-0 text-sky-600 sm:block dark:text-sky-300" aria-hidden />
+      <Icone className={cn("hidden size-5 shrink-0 sm:block", double ? "text-emerald-600 dark:text-emerald-300" : "text-sky-600 dark:text-sky-300")} aria-hidden />
       <p className="flex-1 text-sm leading-relaxed">{b.texte}</p>
       <Button size="sm" className="shrink-0 self-end sm:self-center" onClick={() => vu.mutate()} disabled={vu.isPending}>
         {t("auth.bandeauCompris")}

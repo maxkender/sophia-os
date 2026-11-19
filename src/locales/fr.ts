@@ -1330,7 +1330,7 @@ export const fr = {
       pays: "Proceeds, vues, RPM, ROI de la paie et posteurs à recruter, par marché de langue",
       posts: "Tous les posts générés",
       sources: "Comptes TikTok de référence à reprendre",
-      bible: "Comptes repérés avant l'import, et leurs DA par label",
+      bible: "Le chemin de l'import : comptes repérés, prochain batch, sources à l'essai, weekly update",
       reproduisibles: "Le stock de posts prêts à reproduire, par source",
       comptes: "Comptes de publication des posters (persona)",
       posters: "Accès des posters et rôles (recruteur)",
@@ -4030,7 +4030,7 @@ export const fr = {
       file: {
         titre: "File d'import des sources",
         description:
-          "Les imports s'étalent dans les jours. Chaque matin à 6 h 37 : jusqu'à {{lot}} mises à jour de la semaine, puis {{neuves}} sources neuves au plus, une source à la fois. Une source neuve n'importe d'abord que ses {{essai}} meilleurs posts ; si elle tient sur nos comptes, la suite arrive par tranches de {{tranche}}, un lundi après l'autre.",
+          "Les imports s'étalent dans les jours. Chaque matin à 6 h 37 : jusqu'à {{lot}} mises à jour de la semaine, puis les sources neuves qui attendent (plus de limite par jour), une source à la fois. Une source neuve n'importe d'abord que ses {{essai}} meilleurs posts ; si elle tient sur nos comptes, la suite arrive par tranches de {{tranche}}, un lundi après l'autre.",
         enCours: "En cours",
         enCoursSource_one: "@{{handle}}, {{count}} slideshow encore dans la file.",
         enCoursSource_other: "@{{handle}}, {{count}} slideshows encore dans la file.",
@@ -4115,7 +4115,7 @@ export const fr = {
       lundi: {
         titre: "Mise à jour hebdomadaire des sources",
         description:
-          "Chaque lundi à 6 h, l'OS retient les sources dont les posts font mieux que la médiane de nos comptes (r au-dessus de 1, ou au-dessus de leur label), celles qui ont eu un post à 100 000 vues ou plus dans le mois, et les sources neuves (moins de 5 posts mesurés). Elles sont mises à jour par lots de 6 par jour, une à la fois, pour ne pas charger la base. Les autres attendent le lundi suivant. Seuls les posts publiés depuis le dernier relevé sont importés.",
+          "Chaque lundi à 6 h, l'OS retient les sources dont les posts tiennent face à la médiane de nos comptes (r au-dessus de 0,95, ou de 0,95 face à leur label), celles qui ont eu un post à 100 000 vues ou plus dans le mois, et les sources neuves (moins de 5 posts mesurés). Elles sont mises à jour par lots de 8 par jour, une à la fois, pour ne pas charger la base. Les autres attendent le lundi suivant. Seuls les posts publiés depuis le dernier relevé sont importés.",
         jamais: "Pas encore de mise à jour du lundi.",
         resume:
           "Lundi {{date}} : {{maj}} source(s) mise(s) à jour, {{pasMaj}} pas cette semaine. {{importes}} slideshow(s) importé(s), {{valides}} validé(s).",
@@ -4127,13 +4127,13 @@ export const fr = {
         colImportes: "Importés",
         importes: "{{importes}} ({{valides}} validés)",
         lotAVenir: "lot à venir",
-        lotsAVenir_one: "{{count}} source attend son lot (6 par jour).",
-        lotsAVenir_other: "{{count}} sources attendent leur lot (6 par jour).",
+        lotsAVenir_one: "{{count}} source attend son lot (8 par jour).",
+        lotsAVenir_other: "{{count}} sources attendent leur lot (8 par jour).",
         raison: {
           toujours: "toujours",
           neuve: "source neuve",
-          r: "r au-dessus de 1",
-          label: "au-dessus de son label",
+          r: "r au-dessus de 0,95",
+          label: "au-dessus de 0,95 face à son label",
           "100k": "un post à {{vues}} vues",
         },
         postsBulle_one: "r médian de {{count}} post mesuré chez nous (3 à 30 jours)",

@@ -279,10 +279,11 @@ ce que tu ferais demain. Si une piste ne rend rien depuis une semaine, dis-le.
 
 ## Ce qui se passe après une validation (0686)
 
-Une source validée entre dans la file d'import, visible sur la page Sources :
-deux sources neuves par jour au plus, derrière les mises à jour de la semaine.
+Une source validée entre dans la file d'import, visible sur la page Sources et
+dans la Bible des comptes (onglet « En import ») : une source à la fois,
+derrière les mises à jour de la semaine, sans limite par jour depuis le 19/11.
 Elle n'importe d'abord que ses 30 meilleurs posts (l'essai). Le lundi, avec 10
-posts mesurés chez nous, elle « tient » (r au-dessus de 1, ou au-dessus de son
-label) et la suite arrive par tranches de 100, ou elle « ne tient pas » et
-l'import s'arrête. Un petit catalogue n'est donc plus un défaut, et un gros
+posts mesurés chez nous, elle « tient » (r au-dessus de 0,95, seul ou face à
+son label, depuis le 19/11) et la suite arrive par tranches de 100, ou elle
+« ne tient pas » et l'import s'arrête. Un petit catalogue n'est donc plus un défaut, et un gros
 catalogue n'est plus un risque : classe sur la qualité.

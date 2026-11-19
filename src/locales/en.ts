@@ -1329,7 +1329,7 @@ export const en = {
       pays: "Proceeds, views, RPM, payroll ROI and posters to recruit, by language market",
       posts: "All generated posts",
       sources: "Reference TikTok accounts to draw from",
-      bible: "Spotted accounts before import, and their art direction by label",
+      bible: "The import path: spotted accounts, next batch, sources on trial, weekly update",
       reproduisibles: "The stock of posts ready to reproduce, per source",
       comptes: "Posters' publishing accounts (persona)",
       posters: "Poster access and roles (recruiter)",
@@ -4024,7 +4024,7 @@ export const en = {
       file: {
         titre: "Sources import queue",
         description:
-          "Imports are spread over days. Every morning at 6:37: up to {{lot}} weekly updates, then at most {{neuves}} new sources, one source at a time. A new source first imports only its {{essai}} best posts; if it holds on our accounts, the rest comes in batches of {{tranche}}, one Monday after another.",
+          "Imports are spread over days. Every morning at 6:37: up to {{lot}} weekly updates, then the new sources that are waiting (no daily limit any more), one source at a time. A new source first imports only its {{essai}} best posts; if it holds on our accounts, the rest comes in batches of {{tranche}}, one Monday after another.",
         enCours: "Running",
         enCoursSource_one: "@{{handle}}, {{count}} slideshow still in the queue.",
         enCoursSource_other: "@{{handle}}, {{count}} slideshows still in the queue.",
@@ -4109,7 +4109,7 @@ export const en = {
       lundi: {
         titre: "Weekly sources update",
         description:
-          "Every Monday at 6 am, the OS keeps the sources whose posts beat our accounts' median (r above 1, or above their label), those with a post at 100,000 views or more this month, and new sources (fewer than 5 measured posts). They are updated in batches of 6 a day, one at a time, to keep the database load low. The others wait for the next Monday. Only posts published since the last scrape are imported.",
+          "Every Monday at 6 am, the OS keeps the sources whose posts hold against our accounts' median (r above 0.95, or 0.95 against their label), those with a post at 100,000 views or more this month, and new sources (fewer than 5 measured posts). They are updated in batches of 8 a day, one at a time, to keep the database load low. The others wait for the next Monday. Only posts published since the last scrape are imported.",
         jamais: "No Monday update yet.",
         resume:
           "Monday {{date}}: {{maj}} source(s) updated, {{pasMaj}} skipped this week. {{importes}} slideshow(s) imported, {{valides}} validated.",
@@ -4121,13 +4121,13 @@ export const en = {
         colImportes: "Imported",
         importes: "{{importes}} ({{valides}} validated)",
         lotAVenir: "batch to come",
-        lotsAVenir_one: "{{count}} source waits for its batch (6 a day).",
-        lotsAVenir_other: "{{count}} sources wait for their batch (6 a day).",
+        lotsAVenir_one: "{{count}} source waits for its batch (8 a day).",
+        lotsAVenir_other: "{{count}} sources wait for their batch (8 a day).",
         raison: {
           toujours: "always",
           neuve: "new source",
-          r: "r above 1",
-          label: "above its label",
+          r: "r above 0.95",
+          label: "above 0.95 against its label",
           "100k": "a post at {{vues}} views",
         },
         postsBulle_one: "Median r of {{count}} post measured on our accounts (3 to 30 days)",

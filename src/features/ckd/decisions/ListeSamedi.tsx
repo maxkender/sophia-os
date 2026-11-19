@@ -466,7 +466,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
       }
       if (decides > 0 || forcesKill.length > 0) await invoke("upwork", { action: "arrets" }).catch(() => undefined);
       // 0540 : le samedi est fait jusqu'au samedi suivant.
-      await marquerRituelFait("samedi", lundi, { decides, kills: forcesKill.length, erreurs: erreurs.length }).catch(() => undefined);
+      // 19/11 : une erreur d'enregistrement du rituel est montrée (avant, elle passait en silence).
+      await marquerRituelFait("samedi", lundi, { decides, kills: forcesKill.length, erreurs: erreurs.length })
+        .catch((err: Error) => { erreurs.push(`Samedi non enregistré (rituels_faits) : ${err.message}`); });
       void qc.invalidateQueries({ queryKey: ["rituels-faits"] });
       return { decides, kills: forcesKill.length, reports: 0, erreurs, simulation: false };
     },

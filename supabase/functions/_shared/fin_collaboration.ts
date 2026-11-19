@@ -64,9 +64,24 @@ export function texteCompteArrete(p: { handle: string | null; le: string; raison
   const raison = (p.raison ?? "posts were missing").replace(/[.\s]+$/, "");
   const autre = p.autre ? `You keep posting on @${p.autre.replace(/^@/, "")} as usual.` : "You keep posting on your other account as usual.";
   const paie = p.montant && p.montant > 0
-    ? `From next week, your payment is ${p.montant} $ per week (1 account).`
+    ? `From next week, your weekly payment goes back to the 1-account rate: ${p.montant} $ per week.`
     : "From next week, you are paid for 1 account.";
   return `One of your accounts (${compte}) was deactivated on ${dateCourte(p.le)} because ${raison}. ${autre} ${paie}`;
+}
+
+/**
+ * 19/11 (Max) : le bandeau du posteur dont Max a validé le 2e compte le jeudi : quel compte, quel label, quand il
+ * démarre (le lundi, après son warm-up du jeudi au dimanche) et ce qu'il gagne en plus (tarif d'un compte par semaine).
+ */
+export function texteDeuxiemeCompte(p: { handle: string | null; label: string | null; lundi: string; tarif: number | null }): string {
+  const compte = p.handle ? `@${p.handle.replace(/^@/, "")}` : "your account";
+  const style = p.label ? ` in the "${p.label}" style` : "";
+  const jour = dateCourte(`${p.lundi}T12:00:00Z`);
+  const gain = p.tarif && p.tarif > 0
+    ? `From that week you are paid for 2 accounts: +${p.tarif} $ per week (${2 * p.tarif} $ per week in total).`
+    : "From that week you are paid for 2 accounts.";
+  return `Good news: ${compte} is doing great, so you get a 2nd TikTok account${style}. It is on your dashboard now: ` +
+    `create it and do its warm-up from today to Sunday. It starts posting on Monday ${jour}. ${gain}`;
 }
 
 /** L'objet du message de fin. */

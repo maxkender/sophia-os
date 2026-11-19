@@ -1,0 +1,169 @@
+{
+ "id": "ig-015",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7698007507851152672",
+  "vues": 1300000,
+  "publie_le": "2026-10-18",
+  "accroche": "4 apps every girl needs"
+ },
+ "titre": {
+  "en": "apps every girl needs on her phone",
+  "fr": "les applis que toute fille doit avoir sur son tel",
+  "es": "apps que toda chica necesita en su móvil",
+  "it": "app che ogni ragazza deve avere sul telefono",
+  "tr": "her kızın telefonunda olması gereken uygulamalar"
+ },
+ "legendes": {
+  "en": "apps every girl needs on her phone #foryou #app #apps #thatgirl",
+  "fr": "les applis que toute fille doit avoir sur son tel #foryou #app #apps #thatgirl",
+  "es": "apps que toda chica necesita en su móvil #foryou #app #apps #thatgirl",
+  "it": "app che ogni ragazza deve avere sul telefono #foryou #app #apps #thatgirl",
+  "tr": "her kızın telefonunda olması gereken uygulamalar #foryou #app #apps #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Preuve : son « 4 apps every girl needs » du 18/10 (1,3 M). Photos Seedream : trousse-5, fille-27-1, bouquet-16. Applis (App Store US, 19/11) : VSCO (4,7 ★, 279 k avis), Letterboxd (4,8 ★, 88 k), Sophia en 3e (cta B), Notion (4,8 ★, 91 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/trousse-5.jpg",
+     "images/photos/fille-27-1.jpg",
+     "images/photos/bouquet-16.jpg"
+    ],
+    "titre": "apps every girl\nneeds on her phone"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/trousse-5.jpg",
+     "images/photos/fille-27-1.jpg",
+     "images/photos/bouquet-16.jpg"
+    ],
+    "titre": "les applis que toute fille\ndoit avoir sur son tel"
+   },
+   "es": {
+    "photos": [
+     "images/photos/trousse-5.jpg",
+     "images/photos/fille-27-1.jpg",
+     "images/photos/bouquet-16.jpg"
+    ],
+    "titre": "apps que toda chica\nnecesita en su móvil"
+   },
+   "it": {
+    "photos": [
+     "images/photos/trousse-5.jpg",
+     "images/photos/fille-27-1.jpg",
+     "images/photos/bouquet-16.jpg"
+    ],
+    "titre": "app che ogni ragazza\ndeve avere sul telefono"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/trousse-5.jpg",
+     "images/photos/fille-27-1.jpg",
+     "images/photos/bouquet-16.jpg"
+    ],
+    "titre": "her kızın telefonunda\nolması gereken uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/vsco",
+   "en": {
+    "nom": "vsco",
+    "texte": "soft film filters for your photos and a calm feed where nobody sees your likes"
+   },
+   "fr": {
+    "nom": "vsco",
+    "texte": "des filtres argentiques tout doux pour tes photos et un feed calme où personne ne voit tes likes"
+   },
+   "es": {
+    "nom": "vsco",
+    "texte": "filtros suaves tipo carrete para tus fotos y un feed tranquilo donde nadie ve tus likes"
+   },
+   "it": {
+    "nom": "vsco",
+    "texte": "filtri morbidi effetto pellicola per le tue foto e un feed tranquillo dove nessuno vede i tuoi like"
+   },
+   "tr": {
+    "nom": "vsco",
+    "texte": "fotoğrafların için yumuşak film filtreleri ve kimsenin beğenilerini görmediği sakin bir akış"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/letterboxd",
+   "en": {
+    "nom": "letterboxd",
+    "texte": "you log every movie you watch, rate it and see what your friends are watching"
+   },
+   "fr": {
+    "nom": "letterboxd",
+    "texte": "tu notes chaque film que tu regardes et tu vois ce que tes amies regardent"
+   },
+   "es": {
+    "nom": "letterboxd",
+    "texte": "apuntas cada peli que ves, le pones nota y ves lo que están viendo tus amigas"
+   },
+   "it": {
+    "nom": "letterboxd",
+    "texte": "segni ogni film che guardi, gli dai un voto e vedi cosa guardano le tue amiche"
+   },
+   "tr": {
+    "nom": "letterboxd",
+    "texte": "izlediğin her filmi kaydedip puanlarsın, arkadaşlarının ne izlediğini de görürsün"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "short lessons written by actual professors, you learn something new in just 10 minutes a day"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "lecciones cortas escritas por profesores de verdad, para aprender algo nuevo cada día en 10 minutos"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/notion",
+   "en": {
+    "nom": "notion",
+    "texte": "you keep your to-do lists, notes and plans in cute pages that you design yourself"
+   },
+   "fr": {
+    "nom": "notion",
+    "texte": "tu ranges tes to-do lists, tes notes et tes projets dans de jolies pages à ton style"
+   },
+   "es": {
+    "nom": "notion",
+    "texte": "guardas tus listas de tareas, tus notas y tus planes en páginas bonitas que diseñas tú"
+   },
+   "it": {
+    "nom": "notion",
+    "texte": "tieni liste, appunti e progetti in pagine carine che crei tu, a modo tuo"
+   },
+   "tr": {
+    "nom": "notion",
+    "texte": "yapılacaklar listelerini, notlarını ve planlarını kendi tasarladığın tatlı sayfalarda tutarsın"
+   }
+  }
+ ]
+}

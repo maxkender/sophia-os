@@ -1,0 +1,140 @@
+{
+ "id": "ig-017",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "apps that make you feel like the main character",
+  "fr": "les applis qui te font te sentir comme l'héroïne de ta vie",
+  "es": "apps que te hacen sentir la protagonista",
+  "it": "app che ti fanno sentire la protagonista",
+  "tr": "kendini başrolde hissettiren uygulamalar"
+ },
+ "legendes": {
+  "en": "apps that make you feel like the main character #foryou #apps #maincharacter #thatgirl",
+  "fr": "les applis qui te font te sentir comme l'héroïne de ta vie #foryou #apps #maincharacter #thatgirl",
+  "es": "apps que te hacen sentir la protagonista #foryou #apps #maincharacter #thatgirl",
+  "it": "app che ti fanno sentire la protagonista #foryou #apps #maincharacter #thatgirl",
+  "tr": "kendini başrolde hissettiren uygulamalar #foryou #apps #maincharacter #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve). Photos Seedream : cafe-2, fille-25, bouquet-18. Applis (App Store US, 19/11) : Strava (4,8 ★, 382 k avis), Sophia en 2e (cta A), Spotify (4,8 ★, 43 M ; Moonly refusée par le guichet comme appli de cycle) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/cafe-2.jpg",
+     "images/photos/fille-25.jpg",
+     "images/photos/bouquet-18.jpg"
+    ],
+    "titre": "apps that make you feel\nlike the main character"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/cafe-2.jpg",
+     "images/photos/fille-25.jpg",
+     "images/photos/bouquet-18.jpg"
+    ],
+    "titre": "les applis qui te font te sentir\ncomme l'héroïne de ta vie"
+   },
+   "es": {
+    "photos": [
+     "images/photos/cafe-2.jpg",
+     "images/photos/fille-25.jpg",
+     "images/photos/bouquet-18.jpg"
+    ],
+    "titre": "apps que te hacen sentir\nla protagonista"
+   },
+   "it": {
+    "photos": [
+     "images/photos/cafe-2.jpg",
+     "images/photos/fille-25.jpg",
+     "images/photos/bouquet-18.jpg"
+    ],
+    "titre": "app che ti fanno sentire\nla protagonista"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/cafe-2.jpg",
+     "images/photos/fille-25.jpg",
+     "images/photos/bouquet-18.jpg"
+    ],
+    "titre": "kendini başrolde\nhissettiren uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/strava",
+   "en": {
+    "nom": "strava",
+    "texte": "you track your runs and walks, see your progress and cheer on your friends"
+   },
+   "fr": {
+    "nom": "strava",
+    "texte": "tu suis tes courses et tes balades, tu vois tes progrès et tu encourages tes amies"
+   },
+   "es": {
+    "nom": "strava",
+    "texte": "registras tus carreras y paseos, ves tu progreso y animas a tus amigas"
+   },
+   "it": {
+    "nom": "strava",
+    "texte": "registri le tue corse e passeggiate, vedi i progressi e fai il tifo per le tue amiche"
+   },
+   "tr": {
+    "nom": "strava",
+    "texte": "koşularını ve yürüyüşlerini kaydeder, gelişimini görür, arkadaşlarını desteklersin"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/spotify",
+   "en": {
+    "nom": "spotify",
+    "texte": "your own soundtrack for every moment, with playlists made just for you every week"
+   },
+   "fr": {
+    "nom": "spotify",
+    "texte": "la bande-son de chaque moment de ta vie, avec des playlists rien que pour toi"
+   },
+   "es": {
+    "nom": "spotify",
+    "texte": "la banda sonora de cada momento, con playlists hechas para ti cada semana"
+   },
+   "it": {
+    "nom": "spotify",
+    "texte": "la colonna sonora di ogni momento, con playlist create apposta per te ogni settimana"
+   },
+   "tr": {
+    "nom": "spotify",
+    "texte": "her anın için kendi film müziğin, her hafta sana özel hazırlanan çalma listeleriyle"
+   }
+  }
+ ]
+}

@@ -35,7 +35,8 @@ rejette est validée toute seule 5 h après son dépôt.
 - **La couverture** : le titre en haut à gauche (une ou deux lignes de plus que chez elle, c'est normal en anglais), deux photos qui se chevauchent (ou une seule), et la note « (backed by science) » ou une note à elle (« (that actually work) »).
 - **Les photos** viennent de la **banque de l'OS** (`npm run photos`), jamais de Seedream : une photo par slide, aucune deux fois dans le post, ni deux fois dans la semaine si possible (la recherche montre les moins utilisées d'abord). Regarde chacune **en taille réelle** avant de la garder :
 	- jamais une célébrité ni une scène de film ou de série (la banque se trompe : le 19/11 elle marquait « sans visage » une actrice de Gilmore Girls), jamais une marque lisible, jamais de texte ;
-	- son style : des photos de filles « that girl », lumière naturelle, intérieurs doux, un verre d'eau, un matcha, un livre, une serviette sur la tête ; pour Atala, une coureuse en pleine foulée, de dos ou de profil, belle lumière.
+	- son style : des photos de filles « that girl », lumière naturelle, intérieurs doux, un verre d'eau, un matcha, un livre, une serviette sur la tête ;
+	- **pour Atala, une photo AESTHETIC** (demande d'Adrien du 19/11, qui a refusé une coureuse de banque d'images trop « stock ») : une vraie photo de téléphone, pas une pub, lumière douce (coucher de soleil pastel, matin brumeux), une tenue assortie, la fille de dos ou de trois quarts, le visage détourné ; aw-001 : dcb001c3 (au coucher du soleil au-dessus d'un lac, ensemble gris, casque). Jamais deux fois la même d'un post à l'autre si une autre est aussi belle.
 - **Atala** n'apparaît que sur sa slide : ni dans le titre, ni dans la légende TikTok, ni sur une autre slide (`npm run livrer` le vérifie).
 
 ## Son style, déjà dans l'atelier
@@ -56,7 +57,7 @@ Lance `npm install` une fois par session. `photos`, `livrer`, `etat` et `boite` 
 
 | Commande | Effet |
 | --- | --- |
-| `npm run photos -- "woman running"` | Cherche dans toute la banque (mots anglais de la description), sans visage reconnaissable ni texte, les moins utilisées d'abord : `donnees/photos.json` et la planche `sortie/photos/<mots>.jpg`. |
+| `npm run photos -- "woman running"` | Cherche dans toute la banque (chaque mot anglais dans la description ; filles entières permises, jamais un portrait, un selfie ni du texte), les moins utilisées d'abord : `donnees/photos.json` et la planche `sortie/photos/<mots>.jpg`. Essaie plusieurs mots : « woman running », « jogging », « girl reading », « woman matcha »… |
 | `npm run photos -- --garder <id> <nom>` | Garde une photo de la dernière recherche : `images/banque/<nom>.jpg` (1400 px, sans métadonnées) et son id dans `donnees/banque.json`, à recopier dans `banque` du post. |
 | `npm run veille` | Relève ses posts en direct (Apify) et en fait des planches. Budget : 1 $ par semaine glissante. |
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/en/<n>.jpg`) et la planche `sortie/apercus/<id>.en.jpg`. |
@@ -78,6 +79,7 @@ Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'
 - `slides` : les photos au niveau de la slide, les textes sous `en` :
 	- `couverture` : `{ "type": "couverture", "photos": [2 photos], "en": { "titre": "…", "note": "(backed by science)" } }` ;
 	- `habitude` : `{ "type": "habitude", "photo": "images/banque/eau.jpg", "en": { "titre", "intro", "paragraphes": [2], "chute" } }` ;
+	- `cadrage` (facultatif, toute slide) : où recadrer une photo qui n'a pas les proportions du cadre, de 0 à 1 (`{ "y": 0.78 }` : la coureuse en bas d'une photo en hauteur ; une liste pour les deux photos de la couverture) ; 0,5 (le centre) par défaut ;
 	- `atala` : `{ "type": "atala", "photo": "images/banque/course.jpg", "en": { "titre", "intro", "paragraphes": [2], "appli": "Atala : AI Running Coach", "sous": "Reach your running goals", "legende": "the app:" } }`.
 
 ## L'ordre de travail

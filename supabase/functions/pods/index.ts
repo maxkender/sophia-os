@@ -41,10 +41,11 @@
  *   { action: "label", pod, limite? }   — agent : contenus du label avec texte
  *       source, rang et vues chez nous (de quoi voir ce qui marche).
  *   { action: "images", pod }   — agent : banque d'images propres du label.
- *   { action: "photos", pod, cherche, limite? }   — agent : photos propres de
- *       TOUTE la banque dont la description (en anglais) contient chaque mot
- *       cherché, sans visage reconnaissable ni texte restant (pod 10 : son
- *       label n'a pas de banque à lui).
+ *   { action: "photos", pod, cherche, limite?, personnes? }   — agent : photos
+ *       propres de TOUTE la banque dont la description (en anglais) contient
+ *       chaque mot cherché, sans visage reconnaissable ni texte restant (pod
+ *       10 : son label n'a pas de banque à lui). Sans personne entière, sauf
+ *       `personnes: true` (podz 20 : des filles, sans visage mis en avant).
  *   { action: "top_posts", pod, compte?, limite? }   — agent : nos posts
  *       publiés (avec la slide Sophia) les plus vus, avec leur texte, leurs
  *       images et les slides TikTok d'origine du contenu (modèles de mise en page).
@@ -99,6 +100,7 @@ import {
   ecrireDecksApplications,
   estSlideApp,
   LEGENDE_A_ECARTER,
+  LEGENDE_A_ECARTER_PERSONNES,
   metadonneesJpeg,
   PODS_AVEC_PREUVE,
   PREUVE_JOURS_MAX,
@@ -1906,6 +1908,9 @@ async function ajouterImageBanque(request: Request, supabase: Supabase, body: Re
  * texte, ni collage : c'est la description qui les écarte, les drapeaux de
  * visage n'étant remplis que pour l'UGC. Pour un pod dont le label n'a pas
  * encore de banque (pod 10) : fonds et photos de ses remakes. Lecture seule.
+ * `personnes: true` (podz 20, ses photos de filles « that girl ») : la
+ * personne entière est permise, jamais un visage mis en avant ni du texte
+ * (`LEGENDE_A_ECARTER_PERSONNES`).
  */
 async function photosDeLaBanque(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
@@ -1919,7 +1924,7 @@ async function photosDeLaBanque(request: Request, supabase: Supabase, body: Reco
     .like("storage_path", "propre/%")
     // Les images ajoutées par un podz (Seedream…) restent à la banque de son label.
     .neq("source", "genere_ia")
-    .not("caption", "imatch", LEGENDE_A_ECARTER)
+    .not("caption", "imatch", body.personnes === true ? LEGENDE_A_ECARTER_PERSONNES : LEGENDE_A_ECARTER)
     .not("visage_identifiable", "is", true)
     .not("visage_premier_plan", "is", true)
     .not("texte_restant", "is", true);

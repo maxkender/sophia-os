@@ -23,6 +23,7 @@ import {
   ouvrirApplicationsOriginal,
   pertinenceOriginalApplication,
   LEGENDE_A_ECARTER,
+  LEGENDE_A_ECARTER_PERSONNES,
   motsCherches,
   PODS_AVEC_PREUVE,
   prochainJour,
@@ -728,6 +729,17 @@ Deno.test("LEGENDE_A_ECARTER : une personne entière, du texte ou un collage, ja
   assertEquals(ecartee("The image shows a person's legs and feet standing on a bed of fallen leaves."), false);
   assertEquals(ecartee("The image shows a desk with a laptop, a notebook, and a white mug on it."), false);
   assertEquals(ecartee("The image shows handwritten notes next to a menu and a human body model."), false);
+});
+
+Deno.test("LEGENDE_A_ECARTER_PERSONNES : une fille entière oui, un visage mis en avant ou du texte non", () => {
+  const ecartee = (caption: string) => new RegExp(LEGENDE_A_ECARTER_PERSONNES, "i").test(caption);
+  assertEquals(ecartee("The image shows a young woman jogging on a path with a beautiful view of the ocean at sunset."), false);
+  assertEquals(ecartee("The image shows a young woman lying on her stomach on a bed, reading a book."), false);
+  assertEquals(ecartee("The image shows a woman's face reflected in a mirror."), true);
+  assertEquals(ecartee("The image is a selfie of a young girl running on a path in a park."), true);
+  assertEquals(ecartee("The image shows a young actress smiling at the camera."), true);
+  assertEquals(ecartee('The image shows a dimly lit room with a quote that reads "keep going".'), true);
+  assertEquals(ecartee("The image is a collage of three photos."), true);
 });
 
 // ---------------------------------------------------------------------------

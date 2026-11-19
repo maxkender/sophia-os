@@ -1,19 +1,22 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowDown, ArrowRight, Globe, ListOrdered, Scale, Tag } from "lucide-react";
+import { ArrowDown, ArrowRight, ListOrdered, Scale, Tag } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { cn } from "@/lib/utils";
 
 /**
- * Le chemin d'un nouveau compte, en quatre cases : c'est la même règle que
+ * Le chemin d'un nouveau compte, en trois cases : c'est la même règle que
  * celle du moteur (`choisirApplicationPourCompte` puis `choisirLabel`, dans
  * manage-users), dans le même ordre. Chaque case porte le chiffre du jour
  * qui la concerne, pour qu'on voie aussi QUI passe par où.
+ *
+ * Il y en avait une quatrième, en tête : « Vient du site ? ». Depuis le 19/11
+ * les recrues du site suivent ce chemin comme les autres.
  */
 export interface EtapeSchema {
   cle: string;
-  icone: "site" | "file" | "app" | "label";
+  icone: "file" | "app" | "label";
   titre: string;
   regle: string;
   /** Le chiffre du jour, ou un mini-graphe. */
@@ -22,14 +25,14 @@ export interface EtapeSchema {
   applications?: string[];
 }
 
-const ICONES = { site: Globe, file: ListOrdered, app: Scale, label: Tag } as const;
+const ICONES = { file: ListOrdered, app: Scale, label: Tag } as const;
 
 export function SchemaDecision({ etapes }: { etapes: EtapeSchema[] }) {
   const { t } = useTranslation();
   return (
     <ol
       aria-label={t("repartition.schemaTitre")}
-      className="grid gap-2 lg:grid-cols-[repeat(4,minmax(0,1fr))] lg:gap-0"
+      className="grid gap-2 lg:grid-cols-[repeat(3,minmax(0,1fr))] lg:gap-0"
     >
       {etapes.map((e, i) => {
         const Icone = ICONES[e.icone];

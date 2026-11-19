@@ -18,9 +18,10 @@
  * marchés donc les LANGUES : viser 20 % d'Unswipe ne veut pas dire 20 %
  * partout, mais 20 % dans chaque marché où Unswipe est servie.
  *
- * CE QUI N'EST PAS ICI. Les recrues venues du site : leur application est
- * choisie par le site, candidat par candidat, et le moteur ne les place pas.
- * Le garde est chez l'appelant, pas ici.
+ * TOUTES LES RECRUES Y PASSENT, celles du site comprises (19/11). Avant, le
+ * site choisissait l'application de ses candidats et le moteur ne les plaçait
+ * pas ; il demandait toujours Sophia, et une recrue sur trois échappait à la
+ * cible.
  */
 
 /** Une application candidate : son id, son slug, et les langues qu'elle sert. */

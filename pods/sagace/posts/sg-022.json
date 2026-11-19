@@ -1,0 +1,1309 @@
+{
+ "id": "sg-022",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 pour réussir tes études",
+  "en": "10/10 skills to ace your studies",
+  "de": "10/10-Skills für bessere Noten",
+  "it": "Abilità 10/10 per andare bene a scuola",
+  "pt-BR": "Habilidades 10/10 para mandar bem nos estudos",
+  "tr": "Derslerinde başarılı olmak için 10/10 beceriler",
+  "ro": "Abilități 10/10 ca să reușești la școală",
+  "cs": "Dovednosti 10/10, díky kterým zvládneš školu"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 pour réussir tes études #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to ace your studies #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills für bessere Noten #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 per andare bene a scuola #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para mandar bem nos estudos #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Derslerinde başarılı olmak için 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 ca să reușești la școală #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, díky kterým zvládneš školu #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - rithu",
+  "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+ },
+ "notes": "Full test du 19/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 pour réussir tes études », sa couverture (décor, lignes brun/noir à ses tailles ; 3 lignes en en et de). 5 compétences d'étude : réviser sans relire (rappel actif), planifier ses révisions, Sophia, rédiger une dissertation (le format scolaire de chaque pays : essay, Erörterung, tema, redação, kompozisyon, eseu, slohovka), progresser en maths, vaincre la peur des examens. Écartées : la méthode Feynman (aucune vidéo native correcte en cs), la prise de notes (déjà dans sg-009), les fiches et la veille d'examen (rien de correct en ro), toute vidéo d'appli d'étude (Studyflix, simpleclub, Learnattack, tonguç). Sophia en étape 4 sur 7, cta C, « COMPRENDRE / LE MONDE ». Vraies vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "POUR",
+      "cap": 169
+     },
+     {
+      "t": "RÉUSSIR",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "TES ÉTUDES",
+      "cap": 169
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO ACE YOUR",
+      "cap": 169
+     },
+     {
+      "t": "STUDIES",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "FÜR BESSERE",
+      "cap": 169
+     },
+     {
+      "t": "NOTEN",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PER ANDARE",
+      "cap": 169
+     },
+     {
+      "t": "BENE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "A SCUOLA",
+      "cap": 169
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA MANDAR",
+      "cap": 169
+     },
+     {
+      "t": "BEM",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "NOS ESTUDOS",
+      "cap": 169
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "DERSLERİNDE",
+      "cap": 169
+     },
+     {
+      "t": "BAŞARILI",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "OLMAK İÇİN",
+      "cap": 169
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "CA SĂ",
+      "cap": 150
+     },
+     {
+      "t": "REUȘEȘTI",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "LA ȘCOALĂ",
+      "cap": 150
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DÍKY KTERÝM",
+      "cap": 169
+     },
+     {
+      "t": "ZVLÁDNEŠ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ŠKOLU",
+      "cap": 169
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉVISER",
+     [
+      {
+       "t": "SANS RELIRE",
+       "couleur": "#3b7dd8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sSSItm8k6f4",
+     "titre": "Comment Mémoriser à long terme (avec le Rappel Actif)",
+     "chaine": "Céline De Luca | Memory Athlete",
+     "vues": "7,8 k vues",
+     "date": "il y a 4 ans",
+     "duree": "11:49",
+     "avatar": "https://yt3.ggpht.com/toJp_olB_UmIYTtM52R3ywLPNjuMtvunoe1Cnl8uaBxFJV-5sFQEya0vWhSTcZzAOes7_JAA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "STUDY WITHOUT",
+     [
+      {
+       "t": "REREADING",
+       "couleur": "#3b7dd8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IyvlgRf7u3Y",
+     "titre": "How to do ACTIVE RECALL Effectively? (4 Techniques worked for me)",
+     "chaine": "Tiny Medicine",
+     "vues": "1.6M views",
+     "date": "4 years ago",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l86SVzamob4iiKcux-I_ERpjTvYmA9rhouDyc3nvgF4TM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ABFRAGEN",
+       "couleur": "#3b7dd8"
+      }
+     ],
+     "STATT LESEN"
+    ],
+    "video": {
+     "id": "dCp7zukx6x8",
+     "titre": "Diese LERNMETHODE wird dein Leben VERÄNDERN.  // Lerntipps",
+     "chaine": "laurinspire",
+     "vues": "1,8 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "8:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSbqVlvXCxFTwc02NBGqBpgWD0PNxX2T7mlroMgFTv6DI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RIPASSARE",
+     [
+      {
+       "t": "SENZA RILEGGERE",
+       "couleur": "#3b7dd8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LfjLg0Wt4Z8",
+     "titre": "Active recall per ricordare cosa si studia | metodo di studio efficace",
+     "chaine": "Giugyssima",
+     "vues": "161K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:47",
+     "avatar": "https://yt3.ggpht.com/nWC5431mnsaPaJL0wwFuDlVD28ZeDfYS13_DZn04bVN5y_MfaBdIJpEGV8rOkt9OZjxe3Bu_hw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "REVISAR",
+     [
+      {
+       "t": "SEM RELER",
+       "couleur": "#3b7dd8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "riw1rl5z0kM",
+     "titre": "Como estudar com eficiência - Métodos ativos e Active recall (Como estudo na faculdade de medicina)",
+     "chaine": "Letícia Fernandes",
+     "vues": "280 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "8:35",
+     "avatar": "https://yt3.ggpht.com/vAPKSrDCVMRqHJVk_xJXbgzk_JMiyHf9FtoXZZ-dyfMAqqi8bUgbpkp5InVQoLSU6OCeIM747bI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "TEKRAR OKUMADAN",
+     [
+      {
+       "t": "ÇALIŞMAK",
+       "couleur": "#3b7dd8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZzrDNX-r-7k",
+     "titre": "Ders Çalışıp Sınavda Yapamama Devri Bitti! (Aktif Hatırlama)",
+     "chaine": "Basit Beyin",
+     "vues": "27 B görüntüleme",
+     "date": "5 ay önce",
+     "duree": "14:23",
+     "avatar": "https://yt3.ggpht.com/0C7OfmgcG8O74GPM5NsmFibkc1mD-TBZlL8It7tqZRlpnVHRvnzRVTHY6G7L98JinQGfpdLJQg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "FĂRĂ SĂ RECITEȘTI",
+       "couleur": "#3b7dd8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uQUHc6XDK34",
+     "titre": "Daca INVETI dar UITI Rapid tot, uita-te la asta..",
+     "chaine": "La Povesti Cu Maimuța",
+     "vues": "25 K vizionări",
+     "date": "acum 10 luni",
+     "duree": "4:34",
+     "avatar": "https://yt3.ggpht.com/H2pnpNIAm4KjnQBDkbOFp9-53osEfmxepwzBx-eJpoQVn_wewp4uTiU8oZfo5nod1WYkaHkR9nU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "VYBAVOVAT SI",
+       "couleur": "#3b7dd8"
+      }
+     ],
+     "MÍSTO ČTENÍ"
+    ],
+    "video": {
+     "id": "HUZ6tswro8A",
+     "titre": "Rychlé zapamatování: Jak se učit tak rychle, až to není fér",
+     "chaine": "Psychologie Jednoduše",
+     "vues": "59 tis. zhlédnutí",
+     "date": "před 6 měsíci",
+     "duree": "4:45",
+     "avatar": "https://yt3.ggpht.com/BC554yqnGU6vWAoaEZzPOSYgAKYXSxpjnraQn5d4c--og3WT41eaaoGWoIYNkV07DQQXbyHNkQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "PLANIFIER",
+       "couleur": "#e0a020"
+      }
+     ],
+     "SES RÉVISIONS"
+    ],
+    "video": {
+     "id": "Ea5exgJxDNc",
+     "titre": "Comment planifier vos révisions d'examen (par une procrastinatrice invétérée)",
+     "chaine": "Ginny",
+     "vues": "253 k vues",
+     "date": "il y a 2 ans",
+     "duree": "11:24",
+     "avatar": "https://yt3.ggpht.com/5Vr3CWuQnNq643KkPxgNuUv7fhG9AgeJzZtUVP8UtZlqqlk0nDKYaclTiMzT9rrC9zMlPg0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE A",
+     [
+      {
+       "t": "STUDY PLAN",
+       "couleur": "#e0a020"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AC94pydCi3Y",
+     "titre": "How to make the PERFECT study timetable (for lazy students)",
+     "chaine": "jspark",
+     "vues": "331K views",
+     "date": "9 months ago",
+     "duree": "8:23",
+     "avatar": "https://yt3.ggpht.com/_wG41eMNwYjdEx_Nn9ARVezllCwGR1JFNPenWHnMQ-W7p3rtwxvP782yrUiy0J95vQFkqFlX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN LERNPLAN",
+     [
+      {
+       "t": "ERSTELLEN",
+       "couleur": "#e0a020"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WFY0AaAa3po",
+     "titre": "So Mache Ich Den Perfekten Lernplan Für Klausuren",
+     "chaine": "Luis Newton",
+     "vues": "63.579 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/8GzScwXxP0RN98Z9C9rf9tZ7EtHCDgb5hirGhPTerLbQW0cI2TCYbURaeVp7crFXTFA8WOHh5w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "ORGANIZZARE",
+       "couleur": "#e0a020"
+      }
+     ],
+     "LO STUDIO"
+    ],
+    "video": {
+     "id": "lIqdy-G7vQg",
+     "titre": "Come organizzare la sessione per passare tutti gli esami",
+     "chaine": "Lucia Wang",
+     "vues": "44K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "14:44",
+     "avatar": "https://yt3.ggpht.com/M9BbaYFaCqH11AO927r0HfZ_CaGD28b-uTbYLp5c5u0y5C9syNDlEnVT1JV3e1ohLs2GvzPJ7g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "MONTAR UM",
+     [
+      {
+       "t": "CRONOGRAMA",
+       "couleur": "#e0a020"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LuiKsNB1GFg",
+     "titre": "COMO FAZER UM CRONOGRAMA/PLANO DE ESTUDOS? - Débora Aladim",
+     "chaine": "Débora Aladim",
+     "vues": "1,6 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "12:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lFEtf74hQTl0uQmbVMrdocLyjP89VDf8t7L6UH963fYLMm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ÇALIŞMA",
+     [
+      {
+       "t": "PROGRAMI YAPMAK",
+       "couleur": "#e0a020"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7aFLgauwxmk",
+     "titre": "3 DK'DA ADAM GİBİ ÇALIŞMA PROGRAMI NASIL YAPILIR ?",
+     "chaine": "Burak Mert Yıldırım",
+     "vues": "667 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "3:32",
+     "avatar": "https://yt3.ggpht.com/P-jOuMe3q1-f2TXfIYHfJVXq9KJATacK-Jm0jHW0DgNbD_opVPbuI5oMbrTKBRy-APhIgko6qA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 30 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ-ȚI ORGANIZEZI",
+       "couleur": "#e0a020"
+      }
+     ],
+     "TIMPUL"
+    ],
+    "video": {
+     "id": "2XQoeKD790I",
+     "titre": "Cum sa iti organizezi timpul mai eficient | Laura Musuroaea",
+     "chaine": "Laura Musuroaea",
+     "vues": "31 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "13:07",
+     "avatar": "https://yt3.ggpht.com/uuj1PCZQT6WHe5fw0BZc3_YC-NeZABTNe3W42FybOqCNWDoBatgL_C1PsO8MWlG1CTE_M9hgmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "NAPLÁNOVAT SI",
+       "couleur": "#e0a020"
+      }
+     ],
+     "UČENÍ"
+    ],
+    "video": {
+     "id": "WxEsh8IRr-g",
+     "titre": "Jak si plánuju a organizuju učení na zkoušky!",
+     "chaine": "Jan Kohut",
+     "vues": "6,8 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "12:28",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "COMPRENDRE",
+     [
+      {
+       "t": "LE MONDE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND",
+     [
+      {
+       "t": "THE WORLD",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DIE WELT",
+     [
+      {
+       "t": "VERSTEHEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAPIRE",
+     [
+      {
+       "t": "IL MONDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER",
+     [
+      {
+       "t": "O MUNDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DÜNYAYI",
+     [
+      {
+       "t": "ANLAMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "LUMEA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ROZUMĚT",
+     [
+      {
+       "t": "SVĚTU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉDIGER",
+     [
+      {
+       "t": "UNE DISSERTATION",
+       "couleur": "#7a4fbf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "93J2babROOw",
+     "titre": "Réussir la dissertation au bac français | Objectif 20/20 ! 🤓",
+     "chaine": "Ta coach de français",
+     "vues": "123 k vues",
+     "date": "il y a 2 ans",
+     "duree": "12:45",
+     "avatar": "https://yt3.ggpht.com/q5uIIAxStsZSQjVLOKPPwLKjnZwt2rWSIEUnnhfEtsDnQKK1UpKHXaubtSTdbmf8O4DQpQxf=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WRITE",
+     [
+      {
+       "t": "A GOOD ESSAY",
+       "couleur": "#7a4fbf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "liyFKUFCQno",
+     "titre": "How to write a good essay",
+     "chaine": "Professor Tim Wilson",
+     "vues": "6.4M views",
+     "date": "15 years ago",
+     "duree": "8:24",
+     "avatar": "https://yt3.ggpht.com/JByRfK0LQSTk-SRY88K_JKVwwFAYMEqLjud00XLz__CpZ1tkBd65K5XpALoDjY8ehgdCEU8B=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE ERÖRTERUNG",
+     [
+      {
+       "t": "SCHREIBEN",
+       "couleur": "#7a4fbf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CWGsVuoBoTA",
+     "titre": "Erörterung schreiben I musstewissen Deutsch",
+     "chaine": "musstewissen Deutsch",
+     "vues": "2 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "9:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kaT0XaMiffDy2ZCR64emhq512yvYqYiOaykYrm8j1Wxw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCRIVERE",
+     [
+      {
+       "t": "UN TEMA",
+       "couleur": "#7a4fbf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "j6LEzjhDQNY",
+     "titre": "Come SCRIVERE un TEMA: scaletta, struttura ed errori da evitare",
+     "chaine": "Alessandro de Concini - ADC",
+     "vues": "413K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "17:41",
+     "avatar": "https://yt3.ggpht.com/O7Guse7uMO170W2Dakwlc-rgyB5XEcYgeBUVDxVLdM494piW1YVfHSKsAX3IRx9xtG_648z1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UMA",
+     [
+      {
+       "t": "REDAÇÃO NOTA 1000",
+       "couleur": "#7a4fbf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eI8R8Eyv9vQ",
+     "titre": "8 passos para uma Redação Nota 1000! - Professor Noslen",
+     "chaine": "Professor Noslen",
+     "vues": "1,8 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "10:37",
+     "avatar": "https://yt3.ggpht.com/12a76Za8ElTlzhyGF2TIYQT99F9XXMe0FVdOaq6-D9-iBiVAgb73XhQVWiiOP1_fcnb-7zmf0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KOMPOZİSYON",
+       "couleur": "#7a4fbf"
+      }
+     ],
+     "YAZMAK"
+    ],
+    "video": {
+     "id": "VtjXHEaFSsE",
+     "titre": "Kompozisyon Nasıl Yazılır | Kompozisyon Yazma Kuralları | Giriş Gelişme Sonuç",
+     "chaine": "Ayaz Hoca",
+     "vues": "549 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "6:52",
+     "avatar": "https://yt3.ggpht.com/wzGYDZFAn0OPM69ql50wQ6GpA1dSlowQVp585SqDrwHRJx3YXERrBOVIYJWZIujarBSbZCymIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SCRII",
+     [
+      {
+       "t": "UN ESEU",
+       "couleur": "#7a4fbf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6z4lG74rFr0",
+     "titre": "COMPUNEREA ARGUMENTATIVĂ ÎN 5 PAȘI",
+     "chaine": "Alexandru Ciurea",
+     "vues": "229 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "11:31",
+     "avatar": "https://yt3.ggpht.com/cAp-3ALLGo9M_B8Rx-sgIpuYPb634M1IXIMPfVB29Y3kgoLEADFI9hxDVV_CuzFdxHs7mASf=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAPSAT",
+     [
+      {
+       "t": "SLOHOVKU",
+       "couleur": "#7a4fbf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sJ3l6VuERiI",
+     "titre": "Jak napsat slohovku u maturity aneb jak se naučit psát!",
+     "chaine": "Jan Kohut",
+     "vues": "88 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "13:52",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "PROGRESSER",
+       "couleur": "#2e9e5b"
+      }
+     ],
+     "EN MATHS"
+    ],
+    "video": {
+     "id": "eFbXQXWurZk",
+     "titre": "Le SECRET chinois pour être fort en maths en 2026",
+     "chaine": "Maxime Lim",
+     "vues": "272 k vues",
+     "date": "il y a 1 an",
+     "duree": "8:07",
+     "avatar": "https://yt3.ggpht.com/epeJ4HYJg638a-jrRTExxiATmc8fCa9xIJldb7BoF83PAL09ZTijyqVPND1x0mHfKszI_ZTKLcw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "GET BETTER",
+     [
+      {
+       "t": "AT MATH",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YJZCadaXjrU",
+     "titre": "How to Actually Get Better at Math",
+     "chaine": "Rise Above Reality",
+     "vues": "1.3M views",
+     "date": "1 year ago",
+     "duree": "10:37",
+     "avatar": "https://yt3.ggpht.com/OIrlsbaUzpMwVotdEjYotJRIZVl1D4YG7l7oYtFImsryxeKLk48CXgFOWHNiUXWYtJmPRBa7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "BESSER",
+       "couleur": "#2e9e5b"
+      }
+     ],
+     "IN MATHE"
+    ],
+    "video": {
+     "id": "RaYXf4E6fWE",
+     "titre": "Besser Mathe lernen 2021 | 5 geniale Tricks machen dich zum Mathe-Ass #Mathematik",
+     "chaine": "Motiviert Studiert - Mit Dr. Daniel Hunold",
+     "vues": "245.384 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n6-7mXEN8tvq8EeuiZSYxY2XRYWN95VnWrZeT4xFfX8Bw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "MIGLIORARE",
+       "couleur": "#2e9e5b"
+      }
+     ],
+     "IN MATEMATICA"
+    ],
+    "video": {
+     "id": "Le0aXGEQB0c",
+     "titre": "MIGLIORARE IN MATEMATICA, prendere buoni voti, come migliorare in matematica￼￼￼",
+     "chaine": "La Fisica Che Ci Piace",
+     "vues": "76K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "22:40",
+     "avatar": "https://yt3.ggpht.com/jcmemkF18btjDULr6yXfUaSy3lTjAc3Nzmgzsni0Sf7RmXH_RUs70QIMRDrkO5XWoKJsvw5A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "MATEMÁTICA",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aFl8-yeou04",
+     "titre": "COMO APRENDER MATEMÁTICA DO ZERO | GUIA PARA INICIANTES",
+     "chaine": "Matemática em Evidência",
+     "vues": "819 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "6:24",
+     "avatar": "https://yt3.ggpht.com/sggqnOQmsGNb9KUh1TeXohHIgWFR2gyAQMfmnjebbJH2Uc49M0ISqVTZZHXe-0tyyHWi8w5IHzI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "MATEMATİĞİ",
+       "couleur": "#2e9e5b"
+      }
+     ],
+     "SÖKMEK"
+    ],
+    "video": {
+     "id": "kC2RmiP9dLs",
+     "titre": "Matematik Olmuyor, Sinirden Ağlıyorum! (Birlikte Başaralım)",
+     "chaine": "Tunç Kurt Matematik",
+     "vues": "835 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "14:17",
+     "avatar": "https://yt3.ggpht.com/Fqz6qFeN_Vnkc8Sa441sI0Zdfr2trgYVnlG5KuSyWTfpGVURSR9cxR-0CIr77dpeujaqN09JhA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "MATEMATICA",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "up-AutaF_h0",
+     "titre": "Cum sa invat matematica? # 3 pasi pentru a o intelege!",
+     "chaine": "Diana Sabau",
+     "vues": "56 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "10:27",
+     "avatar": "https://yt3.ggpht.com/Qh1fcTC-O7GAvoSUDQirwcx6VYZPDfzNPvuEdCHXhVAO3GszoDiej385aZDsX2KX7SxT0EkzqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZVLÁDNOUT",
+       "couleur": "#2e9e5b"
+      }
+     ],
+     "MATIKU"
+    ],
+    "video": {
+     "id": "WKo6jRHq_g4",
+     "titre": "Přijímačky na SŠ - Trik na rychlé řešení rovnic",
+     "chaine": "Marek Valášek",
+     "vues": "266 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIGoNF2GYwRjLYKfz8_gDYarbsorv9nIwEID8VbA0XtHs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "VAINCRE LA PEUR",
+     [
+      {
+       "t": "DES EXAMENS",
+       "couleur": "#d23c3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XSOYHlwVPWA",
+     "titre": "GÉRER son STRESS avant un examen, une interro",
+     "chaine": "Yvan Monka",
+     "vues": "98 k vues",
+     "date": "il y a 9 ans",
+     "duree": "10:26",
+     "avatar": "https://yt3.ggpht.com/gvUaZyIzPX9dLJG6RWkMmVQy24WquKZ5oOC_xgOImTx1wN9POYD0djENv1P46yEYChsQs98d=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BEAT",
+     [
+      {
+       "t": "EXAM STRESS",
+       "couleur": "#d23c3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-RZ86OB9hw4",
+     "titre": "Conquering exam stress: lessons from our bodies",
+     "chaine": "The Physiological Society",
+     "vues": "491K views",
+     "date": "9 years ago",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lm2ZZwF7kWIRvjYAun8L-5jeQZd58BlKbgaEg8XpPdRw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "PRÜFUNGSANGST",
+       "couleur": "#d23c3c"
+      }
+     ],
+     "BESIEGEN"
+    ],
+    "video": {
+     "id": "Q9zH_1wrHVM",
+     "titre": "Nie wieder Prüfungsangst: Das einzige Video, das du brauchst",
+     "chaine": "Henry Hildebrandt",
+     "vues": "59.850 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "6:45",
+     "avatar": "https://yt3.ggpht.com/jsshGkKONs53QHCb6nOVwRbzzG7EVOIqOHhYPI1omt9WY5iRcXmq6l6pTUo51r5SkPnSOghM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "VINCERE",
+     [
+      {
+       "t": "L'ANSIA DA ESAME",
+       "couleur": "#d23c3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "c_sRfaHpvr4",
+     "titre": "ANSIA da ESAME // I consigli della psicologa",
+     "chaine": "Centro Medico Lazzaro Spallanzani",
+     "vues": "108K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/IImuWuyAWGjDqx2k-pQp_jNon1A3kuLuwjAGdbN5lBg4H1n7DlVXPX66hmbWgZ5nFn91ZurK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONTROLAR A",
+     [
+      {
+       "t": "ANSIEDADE NA PROVA",
+       "couleur": "#d23c3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jReGUUvqG0Y",
+     "titre": "COMO COMBATER A ANSIEDADE ANTES DAS PROVAS | Seja Um Estudante Melhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "117 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "5:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SINAV KAYGISINI",
+       "couleur": "#d23c3c"
+      }
+     ],
+     "YENMEK"
+    ],
+    "video": {
+     "id": "wR8pN6XSTsc",
+     "titre": "Bir Daha Stres Olmayacaksın! (Sınav Stresi Olan Tüm Gençler İzlemeli)",
+     "chaine": "Saadet Şen",
+     "vues": "197 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "10:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmRgeOFrTGmlIPFFKf_LsP8TZybbB2tEh4gGtYUmCFX34=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI STĂPÂNEȘTI",
+     [
+      {
+       "t": "EMOȚIILE",
+       "couleur": "#d23c3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CoxOeJL4zcA",
+     "titre": "Cum să-ți stăpânești emoțiile înaintea unui examen sau a unui interviu",
+     "chaine": "Geanina Timofte",
+     "vues": "7,4 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFfW-JA809qsg0YFHmnGMu2iUCdlw_n-N6xVhQRsfP7Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZBAVIT SE",
+     [
+      {
+       "t": "STRESU ZE ZKOUŠEK",
+       "couleur": "#d23c3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8DGdo6v3snU",
+     "titre": "Jak se rychle zbavit nervozity, stresu, napětí a trémy",
+     "chaine": "Irena Hájková - terapeut a kouč",
+     "vues": "71 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "5:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkFv9dK65i3m6d96cNrG2zLIDDaZw4Qkj55Z4InhilUQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  }
+ ]
+}

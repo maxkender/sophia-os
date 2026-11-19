@@ -1,14 +1,18 @@
 /**
  * 19/11 (Adrien) : les sources dans la Bible. Après « Lancer l'import », un compte est une source, et son onglet se
- * CALCULE depuis son état réel : En import (dans la file ou en cours), À l'essai (ses 30 premiers posts, pas encore
+ * CALCULE depuis son état réel : En import (son premier import tourne), À l'essai (ses 30 premiers posts, pas encore
  * jugée), Weekly update (mise à jour chaque lundi si elle marche), Arrêtées (essai raté ou désactivée).
  *
- * Aucune règle n'est décidée ici : elles sont en base (0667, 0686, 0721, 0763). Ce fichier rassemble les lectures
- * que la page Sources fait déjà (stock, r, file, décision du lundi) et dit, en une phrase, où en est chaque source.
+ * Une source neuve part TOUT DE SUITE (0772) : relevé de son profil, puis ses slideshows dans la file. Seules les
+ * mises à jour de la semaine sont lissées (un lot chaque matin, une source à la fois).
+ *
+ * Aucune règle n'est décidée ici : elles sont en base (0667, 0686, 0721, 0763, 0772). Ce fichier rassemble les
+ * lectures que la page Sources fait déjà (stock, r, file, décision du lundi) et dit, en une phrase, où en est chaque
+ * source.
  */
 import { idApplication } from "@/features/moteur/catalogueApplications";
 import { contenusParSource, listerSources, performanceSources, type SemaineSources, type SourceLundi, sourcesDeLaSemaine } from "@/features/moteur/api";
-import { type FileSources, lireFileSources, type SourceEnAttente } from "@/features/moteur/fileSources";
+import { type FileSources, type SourceEnAttente, versFileSources } from "@/features/moteur/fileSources";
 import type { PerfSource } from "@/features/moteur/perfSource";
 import type { CompteReference } from "@/features/moteur/types";
 import { supabase } from "@/lib/supabase/client";
@@ -74,6 +78,42 @@ export async function lireReglesSources(): Promise<ReglesSources> {
   return versRegles(((data?.valeur as { sources?: Record<string, unknown> } | null)?.sources ?? null));
 }
 
+/** Une source neuve dont le premier import n'est pas fini (`sources_file().neuves`, 0772). */
+export interface SourceNeuve {
+  compteReferenceId: string;
+  handle: string;
+  /** Relevés du profil déjà tentés (5 au plus, puis la source repart avec le lot du matin). */
+  essais: number;
+  /** Raison du dernier relevé raté ; nul : pas d'échec. */
+  echec: string | null;
+  /** Le relevé du profil est parti. */
+  lanceeLe: string | null;
+  /** Le profil a été relevé : ses slideshows sont dans la file. */
+  releve: boolean;
+  /** Slideshows encore en traitement : dans la file, ou en lecture, pertinence, note, nettoyage. */
+  enTraitement: number;
+}
+
+export function versNeuves(brut: Record<string, unknown>): SourceNeuve[] {
+  return (Array.isArray(brut.neuves) ? (brut.neuves as Record<string, unknown>[]) : []).map((l) => ({
+    compteReferenceId: String(l.compte_reference_id),
+    handle: String(l.handle ?? ""),
+    essais: Number(l.essais ?? 0) || 0,
+    echec: typeof l.echec === "string" && l.echec ? l.echec : null,
+    lanceeLe: typeof l.lancee_le === "string" && l.lancee_le ? l.lancee_le : null,
+    releve: l.releve === true,
+    enTraitement: Number(l.en_traitement ?? 0) || 0,
+  }));
+}
+
+/** La file des sources : ce que la page Sources en lit, plus les sources neuves en cours de premier import. */
+async function lireFile(): Promise<{ file: FileSources; neuves: SourceNeuve[] }> {
+  const { data, error } = await supabase.rpc("sources_file");
+  if (error) throw new Error(error.message);
+  const brut = (data ?? {}) as Record<string, unknown>;
+  return { file: versFileSources(brut), neuves: versNeuves(brut) };
+}
+
 export interface SourceBible {
   id: string;
   /** Normalisé (minuscules, sans @) : c'est lui qui relie la source à son compte de la Bible. */
@@ -90,7 +130,9 @@ export interface SourceBible {
   essaiMax: number | null;
   essaiVerdict: "tient" | "ne_tient_pas" | null;
   dernierImport: string | null;
-  /** Dans la file d'attente (source neuve, ou mise à jour retenue dont le lot n'est pas parti). */
+  /** Source neuve dont le premier import n'est pas fini : profil à relever, relevé en cours, ou slideshows en traitement. */
+  neuve: SourceNeuve | null;
+  /** Elle attend un lot du matin : mise à jour retenue, ou source neuve dont le relevé a raté 5 fois. */
   attente: SourceEnAttente | null;
   /** Dans la séquence qui tourne : c'est son tour, ou elle suit. */
   sequence: "en_cours" | "a_suivre" | null;
@@ -102,11 +144,13 @@ export interface SourceBible {
 }
 
 /**
- * L'onglet d'une source. « En import » ne concerne que ce qui arrive : une source neuve dans la file, ou dont le
- * premier import tourne. Une source établie qui passe sa mise à jour du lundi reste dans « Weekly update ».
+ * L'onglet d'une source. « En import » ne concerne que ce qui arrive : une source neuve dont le premier import
+ * tourne (relevé du profil, puis ses slideshows en traitement). Elle en sort seule, quand tout est traité. Une source
+ * établie qui passe sa mise à jour du lundi reste dans « Weekly update ».
  */
 export function etapeDeLaSource(s: Omit<SourceBible, "etape">): EtapeSource {
   if (!s.actif || s.essaiVerdict === "ne_tient_pas") return "arretees";
+  if (s.neuve) return "en_import";
   if (s.attente?.sorte === "neuve") return "en_import";
   if (s.sequence && (s.semaine?.raison === "ajout" || s.importes === 0)) return "en_import";
   if (!s.dernierImport && s.importes === 0) return "en_import";
@@ -121,9 +165,11 @@ export function assemblerSources(o: {
   perf: Record<string, PerfSource>;
   stocks: Record<string, { importes: number; valides: number }>;
   file: FileSources;
+  neuves?: SourceNeuve[];
   semaine: SemaineSources | null;
 }): SourceBible[] {
   const parId = new Map(o.importes.map((i) => [i.compte_reference_id, i]));
+  const neuves = new Map((o.neuves ?? []).map((n) => [n.compteReferenceId, n]));
   const attente = new Map(o.file.attente.map((a) => [a.compteReferenceId, a]));
   const semaine = new Map((o.semaine?.sources ?? []).map((l) => [l.compteReferenceId, l]));
   const tour = handleNormal(o.file.enCours?.handle);
@@ -145,6 +191,7 @@ export function assemblerSources(o: {
       essaiMax: r.essai_max ?? null,
       essaiVerdict: r.essai_verdict ?? null,
       dernierImport: r.dernier_scrape_at,
+      neuve: neuves.get(r.id) ?? null,
       attente: attente.get(r.id) ?? null,
       sequence,
       restant: sequence === "en_cours" ? (o.file.enCours?.restant ?? 0) : 0,
@@ -164,10 +211,10 @@ export interface DonneesSources {
 
 /** Tout ce que les onglets des sources affichent, en une lecture. */
 export async function lireSources(): Promise<DonneesSources> {
-  const [refs, importes, perf, stocks, file, semaine, regles, labels] = await Promise.all([
-    listerSources(), lireImportes(), performanceSources(), contenusParSource(), lireFileSources(), sourcesDeLaSemaine(), lireReglesSources(), lireLabels(),
+  const [refs, importes, perf, stocks, { file, neuves }, semaine, regles, labels] = await Promise.all([
+    listerSources(), lireImportes(), performanceSources(), contenusParSource(), lireFile(), sourcesDeLaSemaine(), lireReglesSources(), lireLabels(),
   ]);
-  return { sources: assemblerSources({ refs, importes, perf, stocks, file, semaine }), file, semaine, regles, labels };
+  return { sources: assemblerSources({ refs, importes, perf, stocks, file, neuves, semaine }), file, semaine, regles, labels };
 }
 
 /** La source de chaque handle, vue du compte de la Bible (pour savoir s'il reste quelque chose à importer). */
@@ -215,12 +262,20 @@ export function phraseEtat(s: SourceBible, regles: ReglesSources): { texte: stri
   if (s.essaiVerdict === "ne_tient_pas") return { texte: `Essai raté : arrêtée à ${s.essaiMax ?? s.importes} posts`, ton: "alerte" };
 
   if (s.etape === "en_import") {
+    const n = s.neuve;
+    if (n?.releve) {
+      return { texte: n.enTraitement > 0 ? `Import en cours : ${n.enTraitement} slideshow${n.enTraitement > 1 ? "s" : ""} en traitement` : "Import en cours", ton: "attente" };
+    }
+    if (n?.lanceeLe) return { texte: `Relevé du profil en cours${n.essais > 1 ? ` (essai ${n.essais} sur 5)` : ""}`, ton: "attente" };
+    if (n?.echec) return { texte: `Relevé du profil raté, nouvel essai dans quelques minutes (${n.echec})`, ton: "alerte" };
+    if (n) return { texte: "Relevé du profil dans la minute", ton: "attente" };
     if (s.sequence === "en_cours") {
       return { texte: s.restant > 0 ? `Import en cours : ${s.restant} slideshow${s.restant > 1 ? "s" : ""} encore dans la file` : "Import en cours", ton: "attente" };
     }
     if (s.sequence === "a_suivre") return { texte: "À suivre dans la séquence en cours", ton: "attente" };
     if (s.attente?.echec) return { texte: `Import en échec, repart au lot suivant (${s.attente.echec})`, ton: "alerte" };
     if (s.attente) return { texte: s.attente.prevuLe ? `Dans la file, départ prévu le ${jourCourt(s.attente.prevuLe)}` : "Dans la file", ton: "attente" };
+    if (s.semaine?.raison === "ajout" && s.semaine.lanceeLe) return { texte: `Profil relevé le ${jourCourt(s.semaine.lanceeLe)} : aucun slideshow à importer`, ton: "neutre" };
     return { texte: "Jamais importée", ton: "neutre" };
   }
 
@@ -238,6 +293,27 @@ export function phraseEtat(s: SourceBible, regles: ReglesSources): { texte: stri
   if (s.attente?.echec) return { texte: `Mise à jour en échec, repart au lot suivant${suite}`, ton: "alerte" };
   if (l.lanceeLe) return { texte: `Mise à jour le ${jourCourt(l.lanceeLe)}${suite}`, ton: "bon" };
   return { texte: `Retenue, mise à jour ${s.attente?.prevuLe ? `prévue le ${jourCourt(s.attente.prevuLe)}` : "à venir"}${suite}`, ton: "attente" };
+}
+
+/**
+ * « En import », en une ligne : où en sont les sources neuves. `null` : aucune.
+ */
+export function enImportEnBref(sources: SourceBible[]): { total: number; detail: string } | null {
+  const neuves = sources.filter((s) => s.etape === "en_import" && s.neuve).map((s) => s.neuve!);
+  if (neuves.length === 0) return null;
+  const pasReleves = neuves.filter((n) => !n.releve);
+  const enReleve = pasReleves.filter((n) => n.lanceeLe).length;
+  const rates = pasReleves.filter((n) => !n.lanceeLe && n.echec).length;
+  const aRelever = pasReleves.length - enReleve - rates;
+  const slideshows = neuves.reduce((t, n) => t + (n.releve ? n.enTraitement : 0), 0);
+  const s = (k: number) => (k > 1 ? "s" : "");
+  const detail = [
+    enReleve > 0 ? `${enReleve} relevé${s(enReleve)} de profil en cours` : null,
+    aRelever > 0 ? `${aRelever} profil${s(aRelever)} à relever (départ dans la minute)` : null,
+    rates > 0 ? `${rates} relevé${s(rates)} raté${s(rates)} (nouvel essai dans quelques minutes)` : null,
+    slideshows > 0 ? `${slideshows} slideshow${s(slideshows)} en traitement` : null,
+  ].filter(Boolean).join(", ");
+  return { total: neuves.length, detail };
 }
 
 /**
@@ -341,9 +417,9 @@ export function regleDeLaVue(vue: Vue, r: ReglesSources): string {
     case "a_importer":
       return "Les comptes repérés. Un compte dont le label existe s'importe d'un clic (« Importer ») ; passe les autres dans « Prochain batch », le temps de régler leur label.";
     case "prochain_batch":
-      return "Les comptes choisis pour le prochain import. « Lancer l'import » crée leurs sources et les met dans la file ; un compte prêt part aussi seul, d'un clic. Il faut un vrai label : crée-le, ou rattache son bloc à un label de l'OS (« Modifier ou rattacher »). Les comptes à podzer ne partent pas : valide-les, ils se rangent dans « Weekly update », catégorie Podz.";
+      return "Les comptes choisis pour le prochain import. « Lancer l'import » crée leurs sources et leur import part tout de suite ; un compte prêt part aussi seul, d'un clic. Il faut un vrai label : crée-le, ou rattache son bloc à un label de l'OS (« Modifier ou rattacher »). Les comptes à podzer ne partent pas : valide-les, ils se rangent dans « Weekly update », catégorie Podz.";
     case "en_import":
-      return "Les sources créées, dans la file ou en cours d'import, une à la fois. Elles passent seules à l'étape suivante.";
+      return `Une source part dès qu'elle est créée, sans attendre les autres : l'OS relève son profil (une à deux minutes), puis ses slideshows passent dans la file d'import (lecture, pertinence, note, nettoyage : 20 à 30 minutes). Tout traité, elle passe seule à l'étape suivante : À l'essai, ou Weekly update dans un label neuf. Seules les mises à jour de la semaine sont étalées, ${r.lotMax} sources par jour.`;
     case "essai":
       return `Une source neuve n'importe d'abord que ses ${r.essaiPosts} posts les plus vus. Le lundi, dès ${r.essaiMesuresMin} posts mesurés chez nous : avec un r au-dessus de ${seuil(r.rMin)} (ou de ${seuil(r.rVsLabelMin)} face à son label) elle passe en Weekly update, sinon elle est arrêtée. Pas d'essai dans un label neuf (${labelNeuf(r)}) : la source va droit en Weekly update avec ses ${r.postsMaxParMaj} posts les plus vus.`;
     case "weekly":
@@ -359,7 +435,7 @@ export function regleDeLaVue(vue: Vue, r: ReglesSources): string {
 export function ligneResultat(r: ResultatLancement, regles: ReglesSources): { texte: string; ok: boolean } {
   const qui = `@${r.handle ?? "?"}`;
   const combien = typeof r.essai_max === "number" ? `essai de ${r.essai_max} posts` : `ses ${regles.postsMaxParMaj} posts les plus vus`;
-  if (r.statut === "lancee") return { texte: `${qui} : dans la séquence d'import, ${combien}`, ok: true };
+  if (r.statut === "lancee") return { texte: `${qui} : import lancé, ${combien}`, ok: true };
   if (r.statut === "attente") return { texte: `${qui} : dans la file${r.prevu_le ? `, départ au plus tôt le ${jourCourt(r.prevu_le)}` : ""}, ${combien}`, ok: true };
   return { texte: `${qui} : pas lancé (${r.raison ?? "erreur"})`, ok: false };
 }

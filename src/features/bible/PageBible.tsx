@@ -54,8 +54,12 @@ export function PageBible() {
   const qc = useQueryClient();
   const comptes = useQuery({ queryKey: ["bible", "comptes"], queryFn: lireComptes });
   const cartes = useQuery({ queryKey: ["bible", "cartes"], queryFn: lireCartes });
-  // Les sources : relues toutes les 20 s tant qu'une séquence d'import tourne, pour voir les tuiles avancer.
-  const donnees = useQuery({ queryKey: ["bible", "sources"], queryFn: lireSources, refetchInterval: (q) => (q.state.data?.file.enCours ? 20_000 : false) });
+  // Tant qu'une source neuve s'importe, la page se relit seule : on la voit avancer puis changer d'onglet.
+  const donnees = useQuery({
+    queryKey: ["bible", "sources"],
+    queryFn: lireSources,
+    refetchInterval: (q) => (q.state.data?.sources.some((s) => s.neuve) ? 10_000 : q.state.data?.file.enCours ? 20_000 : false),
+  });
   const propositions = useQuery({ queryKey: ["bible", "propositions"], queryFn: lirePropositions });
   const [vue, setVue] = React.useState<Vue>("a_importer");
   const [recherche, setRecherche] = React.useState("");

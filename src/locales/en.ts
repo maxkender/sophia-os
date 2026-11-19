@@ -4026,7 +4026,7 @@ export const en = {
       file: {
         titre: "Sources import queue",
         description:
-          "Imports are spread over days. Every morning at 6:37: up to {{lot}} weekly updates, then the new sources that are waiting (no daily limit any more), one source at a time. A new source first imports only its {{essai}} best posts; if it holds on our accounts, the rest comes in batches of {{tranche}}, one Monday after another.",
+          "A new source starts right away, as soon as it is added: its profile is read, then its slideshows go into the queue. Weekly updates are spread over days: every morning at 6:37, up to {{lot}} sources, one at a time. A new source first imports only its {{essai}} best posts; if it holds on our accounts, the rest comes in batches of {{tranche}}, one Monday after another.",
         enCours: "Running",
         enCoursSource_one: "@{{handle}}, {{count}} slideshow still in the queue.",
         enCoursSource_other: "@{{handle}}, {{count}} slideshows still in the queue.",

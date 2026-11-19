@@ -1,4 +1,4 @@
--- 0761 : la Bible devient le chemin de l'import (décisions d'Adrien du 19/11).
+-- 0763 : la Bible devient le chemin de l'import (décisions d'Adrien du 19/11).
 --
 -- 1. LES SEUILS (`reglages.bleo.sources`) :
 --      * r_min et r_vs_label_min : 1 → 0,95. Lus par la règle du lundi
@@ -169,7 +169,7 @@ end;
 $function$;
 
 comment on function public.bible_lancer_batch(jsonb) is
-  'Bible (0761) : lance l''import de comptes du prochain batch ([{id, langue}]). Crée chaque source avec le label de sa carte et la passe par maj_sources_ajouter ; tout le batch dans une séquence si rien ne tourne. Refuse, avec la raison : à podzer, label à créer, langue manquante, déjà une source. Rend {resultats: [{id, handle, statut: lancee | attente | refuse | erreur, raison, essai_max, prevu_le}]}.';
+  'Bible (0763) : lance l''import de comptes du prochain batch ([{id, langue}]). Crée chaque source avec le label de sa carte et la passe par maj_sources_ajouter ; tout le batch dans une séquence si rien ne tourne. Refuse, avec la raison : à podzer, label à créer, langue manquante, déjà une source. Rend {resultats: [{id, handle, statut: lancee | attente | refuse | erreur, raison, essai_max, prevu_le}]}.';
 
 revoke all on function public.bible_lancer_batch(jsonb) from public, anon;
 grant execute on function public.bible_lancer_batch(jsonb) to authenticated;
@@ -209,7 +209,7 @@ begin
      set statut = 'valide', label_id = v_label, decide_par = auth.uid(), decide_at = now(),
          badge = case when section is not null then 'existe' else badge end
    where id = p.id;
-  -- 0761 : les comptes gardent leur carte (label_propose_id) et prennent le vrai label.
+  -- 0763 : les comptes gardent leur carte (label_propose_id) et prennent le vrai label.
   update public.bible_comptes set label_id = v_label where label_propose_id = p.id;
   return jsonb_build_object('ok', true, 'label_id', v_label);
 end;

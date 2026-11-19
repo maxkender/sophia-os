@@ -3,7 +3,7 @@
  * CALCULE depuis son état réel : En import (dans la file ou en cours), À l'essai (ses 30 premiers posts, pas encore
  * jugée), Weekly update (mise à jour chaque lundi si elle marche), Arrêtées (essai raté ou désactivée).
  *
- * Aucune règle n'est décidée ici : elles sont en base (0667, 0686, 0721, 0761). Ce fichier rassemble les lectures
+ * Aucune règle n'est décidée ici : elles sont en base (0667, 0686, 0721, 0763). Ce fichier rassemble les lectures
  * que la page Sources fait déjà (stock, r, file, décision du lundi) et dit, en une phrase, où en est chaque source.
  */
 import { contenusParSource, listerSources, performanceSources, type SemaineSources, type SourceLundi, sourcesDeLaSemaine } from "@/features/moteur/api";

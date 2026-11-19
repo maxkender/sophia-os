@@ -144,7 +144,7 @@ export interface ResultatLancement {
 
 /**
  * « Lancer l'import » : crée la source de chaque compte (label de sa carte, langue donnée) et la met dans la file
- * d'import, tout le batch dans une même séquence (0761). Le serveur revérifie tout et rend un résultat par compte.
+ * d'import, tout le batch dans une même séquence (0763). Le serveur revérifie tout et rend un résultat par compte.
  */
 export async function lancerBatch(comptes: { id: string; langue: string }[]): Promise<ResultatLancement[]> {
   const { data, error } = await supabase.rpc("bible_lancer_batch", { p_comptes: comptes });

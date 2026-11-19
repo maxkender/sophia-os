@@ -15,6 +15,7 @@ import {
   type LignePaieApi,
   lireJalonsContrat,
   lireReglagesPaieApi,
+  planDecalage,
   planPaiement,
   refusMode,
   semaineDuNom,
@@ -226,4 +227,53 @@ Deno.test("0515 : un milestone compté pour une autre semaine que son nom", () =
   assertEquals([p.statut, p.approuver?.jalon_id], ["pret", "m5"]);
   assertEquals(semaineDe(alina[0]), 45);
   assertEquals(semaineDe(alina[1]), 47);
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// 19/11 (Max) : cohorte décalée (paie_decalages) : on ne bloque plus un paiement à cause du nom de la semaine.
+// Semaine payée : 9 nov. 2026 = Week 46 ; la cohorte prévue le 2/11 (Week 45) a été décalée d'une semaine.
+// ---------------------------------------------------------------------------------------------------------------
+
+const S46 = "2026-11-09";
+
+Deno.test("19/11 : décalé d'une semaine : « Week 45 » financée compte pour la Week 46 (1er cas : Mohammad Kazemi)", () => {
+  const jalons = [j("m1", "Week 45", "Submitted", 1, 15), j("m2", "Week 46", "NotFunded", 2), j("m3", "Week 47", "NotFunded", 3)];
+  // Sans décalage : bloqué comme avant.
+  assertEquals(planPaiement(ligne(), jalons, S46, R).statut, "refuse");
+  const p = planPaiement(ligne({ decalage: { ecart: 1 } }), jalons, S46, R);
+  assertEquals(p.statut, "pret");
+  assertEquals(p.approuver?.jalon_id, "m1");
+  // 1re semaine financée à 15 $ (offre d'avant la suppression du +1 $) : payée en entier.
+  assertEquals(p.approuver?.montant, 15);
+});
+
+Deno.test("19/11 : décalé : sans « Week 45 », la première active (« Trial week ») ; deux candidates : à vérifier", () => {
+  const essai = planPaiement(ligne({ decalage: { ecart: 1 } }), [j("m1", "Trial week", "Active", 1, 14), j("m2", "Week 47", "Active", 2, 14)], S46, R);
+  assertEquals([essai.statut, essai.approuver?.jalon_id], ["pret", "m1"]);
+  const deux = planPaiement(ligne({ decalage: { ecart: 1 } }), [j("m1", "Week 45", "Active", 1), j("m2", "Week 45", "Active", 2)], S46, R);
+  assertEquals(deux.statut, "refuse");
+  // Une milestone d'une semaine à venir n'est jamais prise à la place.
+  const avenir = planPaiement(ligne({ decalage: { ecart: 1 } }), [j("m1", "Week 48", "Active", 1)], S46, R);
+  assertEquals(avenir.statut, "refuse");
+});
+
+Deno.test("19/11 : la milestone de la semaine déjà payée à la main : jamais repayée, même avec une autre financée", () => {
+  const p = planPaiement(ligne(), [j("m1", "Week 46", "Paid", 1, 14, 14), j("m2", "Week 47", "Active", 2)], S46, R);
+  assertEquals(p.statut, "deja_payee");
+  assertEquals(p.montant_trouve, 14);
+});
+
+Deno.test("19/11 : décalage appliqué : non financées renommées (la plus lointaine d'abord), financée comptée pour sa nouvelle semaine", () => {
+  const lundis: Record<number, string> = { 46: "2026-11-09", 47: "2026-11-16", 48: "2026-11-23", 49: "2026-11-30" };
+  const p = planDecalage(
+    [j("m0", "Week 44", "Paid", 0, 14, 14), j("m1", "Week 45", "Active", 1, 15), j("m2", "Week 46", "NotFunded", 2), j("m3", "week 47 - TikTok", "NotFunded", 3),
+      j("m4", "Trial week", "Active", 4)],
+    45, 1, (n) => lundis[n],
+  );
+  assertEquals(p.renommer, [{ jalon_id: "m3", de: "week 47 - TikTok", vers: "Week 48 - TikTok" }, { jalon_id: "m2", de: "Week 46", vers: "Week 47" }]);
+  assertEquals(p.compter, [{ jalon_id: "m1", nom: "Week 45", semaine: "2026-11-09" }]);
+  // Une milestone déjà fixée à la main (0515) ne bouge pas ; un écart nul : rien.
+  const fixee = planDecalage([{ ...j("m1", "Week 45", "Active", 1), semaine: 46 }], 45, 1, (n) => lundis[n]);
+  assertEquals(fixee, { renommer: [], compter: [] });
+  assertEquals(planDecalage([j("m2", "Week 46", "NotFunded", 2)], 45, 0, (n) => lundis[n]), { renommer: [], compter: [] });
 });

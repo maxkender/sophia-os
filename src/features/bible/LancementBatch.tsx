@@ -10,7 +10,7 @@ import { Dialog, DialogDescription, DialogHeader, DialogPanel, DialogPopup, Dial
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 
 import { type CarteLabel, type CompteBible, lancerBatch, nomCarte, type ResultatLancement } from "./moodboard";
-import { ligneResultat, type ReglesSources } from "./sources";
+import { labelNeuf, ligneResultat, type ReglesSources } from "./sources";
 
 const CHAMP = "h-8 rounded-lg border border-stone-200 bg-white px-2 text-xs dark:border-stone-700 dark:bg-stone-900";
 
@@ -92,7 +92,7 @@ function Contenu({ prets, regles, onFermer, onFini, onVoir }: {
         ))}
       </ul>
       <p className="text-xs text-stone-500">
-        Dans un label que des comptes portent déjà, la source démarre par un essai de {regles.essaiPosts} posts ; dans un label neuf, par ses {regles.postsMaxParMaj} posts
+        La source démarre par un essai de {regles.essaiPosts} posts ; dans un label neuf ({labelNeuf(regles)}), par ses {regles.postsMaxParMaj} posts
         les plus vus. Coût : un relevé Apify par compte, puis l'analyse de chaque post importé (Gemini).
       </p>
       {erreur && <p className="text-sm text-destructive">{erreur}</p>}

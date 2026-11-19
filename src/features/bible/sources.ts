@@ -6,6 +6,7 @@
  * Aucune règle n'est décidée ici : elles sont en base (0667, 0686, 0721, 0763). Ce fichier rassemble les lectures
  * que la page Sources fait déjà (stock, r, file, décision du lundi) et dit, en une phrase, où en est chaque source.
  */
+import { idApplication } from "@/features/moteur/catalogueApplications";
 import { contenusParSource, listerSources, performanceSources, type SemaineSources, type SourceLundi, sourcesDeLaSemaine } from "@/features/moteur/api";
 import { type FileSources, lireFileSources, type SourceEnAttente } from "@/features/moteur/fileSources";
 import type { PerfSource } from "@/features/moteur/perfSource";
@@ -16,8 +17,16 @@ import { lireImportes, lireLabels } from "./api";
 import type { CarteLabel, EtapeSource, ResultatLancement, Section, SourceDuCompte, Vue } from "./moodboard";
 import type { CompteImporte, LabelBible } from "./types";
 
-const SOPHIA = "00000000-0000-4000-8000-000000000001";
-const MICABO = "00000000-0000-4000-8000-000000000002";
+/**
+ * La section d'un label de l'OS : celle de sa carte de la Bible s'il en a une, sinon l'app qu'il sert (Sophia
+ * d'abord, puis Micabo, puis Atala).
+ */
+export function sectionDuLabel(labelId: string, cartes: CarteLabel[], labels: LabelBible[]): Section {
+  const carte = cartes.find((c) => c.label_id === labelId);
+  if (carte) return carte.section;
+  const apps = labels.find((l) => l.id === labelId)?.apps ?? [];
+  return (["sophia", "micabo", "atala"] as const).find((s) => apps.includes(idApplication(s))) ?? "sophia";
+}
 
 /** Le handle tel que la Bible le range : minuscules, sans @ (comme `bible_handle` en base). */
 export const handleNormal = (h: string | null | undefined): string => (h ?? "").trim().replace(/^@+/, "").toLowerCase();
@@ -32,11 +41,13 @@ export interface ReglesSources {
   essaiPosts: number;
   essaiMesuresMin: number;
   postsMaxParMaj: number;
+  /** Un label créé depuis moins de tant de jours est « neuf » : ses sources s'importent sans essai (0766). */
+  labelNeufJours: number;
 }
 
 /** Les valeurs que les fonctions SQL prennent quand le réglage est absent. */
 export const REGLES_DEFAUT: ReglesSources = {
-  rMin: 1, rVsLabelMin: 1, vuesCoup: 100_000, postsMin: 5, lotMax: 6, essaiPosts: 30, essaiMesuresMin: 10, postsMaxParMaj: 100,
+  rMin: 1, rVsLabelMin: 1, vuesCoup: 100_000, postsMin: 5, lotMax: 6, essaiPosts: 30, essaiMesuresMin: 10, postsMaxParMaj: 100, labelNeufJours: 5,
 };
 
 export function versRegles(brut: Record<string, unknown> | null | undefined): ReglesSources {
@@ -53,6 +64,7 @@ export function versRegles(brut: Record<string, unknown> | null | undefined): Re
     essaiPosts: n("essai_posts", REGLES_DEFAUT.essaiPosts),
     essaiMesuresMin: n("essai_mesures_min", REGLES_DEFAUT.essaiMesuresMin),
     postsMaxParMaj: n("posts_max_par_maj", REGLES_DEFAUT.postsMaxParMaj),
+    labelNeufJours: n("label_neuf_jours", REGLES_DEFAUT.labelNeufJours),
   };
 }
 
@@ -282,13 +294,7 @@ export function rangerSources(
       || (filtre.semaine === "pas_retenues" ? s.semaine?.decision === "pas_maj" : Boolean(s.semaine) && s.semaine?.decision !== "pas_maj")));
 
   const carteDuLabel = new Map(cartes.filter((c) => c.label_id).map((c) => [c.label_id!, c]));
-  const apps = new Map(labels.map((l) => [l.id, l.apps]));
-  const sectionDe = (labelId: string): Section => {
-    const carte = carteDuLabel.get(labelId);
-    if (carte) return carte.section;
-    const a = apps.get(labelId) ?? [];
-    return !a.includes(SOPHIA) && a.includes(MICABO) ? "micabo" : "sophia";
-  };
+  const sectionDe = (labelId: string): Section => sectionDuLabel(labelId, cartes, labels);
   const ordreDe = (labelId: string): number => carteDuLabel.get(labelId)?.ordre ?? 99;
   // Les meilleures d'abord là où le r compte ; sinon par nom.
   const tri = (a: SourceBible, b: SourceBible) =>
@@ -323,9 +329,15 @@ export function rangerSources(
     .filter((g) => g.cartes.length > 0);
 }
 
+/** Ce qu'est un label neuf, pour l'import : créé depuis peu, ou que personne ne porte encore. */
+export const labelNeuf = (r: ReglesSources): string =>
+  r.labelNeufJours > 0 ? `créé depuis moins de ${r.labelNeufJours} jours, ou que personne ne porte encore` : "que personne ne porte encore";
+
 /** Comment on entre dans l'étape et comment on en sort, avec les vrais seuils. */
 export function regleDeLaVue(vue: Vue, r: ReglesSources): string {
   switch (vue) {
+    case "propositions":
+      return "Les comptes que l'agent éclaireur trouve chaque jour. Passe ceux que tu gardes dans « À importer », ou directement dans « Prochain batch » ; mets les autres à plus tard, ou refuse-les avec la raison (l'agent la relit).";
     case "a_importer":
       return "Les comptes repérés. Passe dans « Prochain batch » ceux que tu veux importer.";
     case "prochain_batch":
@@ -333,9 +345,9 @@ export function regleDeLaVue(vue: Vue, r: ReglesSources): string {
     case "en_import":
       return "Les sources créées, dans la file ou en cours d'import, une à la fois. Elles passent seules à l'étape suivante.";
     case "essai":
-      return `Dans un label que des comptes portent déjà, une source neuve n'importe d'abord que ses ${r.essaiPosts} posts les plus vus. Le lundi, dès ${r.essaiMesuresMin} posts mesurés chez nous : avec un r au-dessus de ${seuil(r.rMin)} (ou de ${seuil(r.rVsLabelMin)} face à son label) elle passe en Weekly update, sinon elle est arrêtée. Dans un label neuf, pas d'essai : la source va droit en Weekly update avec ses ${r.postsMaxParMaj} posts les plus vus.`;
+      return `Une source neuve n'importe d'abord que ses ${r.essaiPosts} posts les plus vus. Le lundi, dès ${r.essaiMesuresMin} posts mesurés chez nous : avec un r au-dessus de ${seuil(r.rMin)} (ou de ${seuil(r.rVsLabelMin)} face à son label) elle passe en Weekly update, sinon elle est arrêtée. Pas d'essai dans un label neuf (${labelNeuf(r)}) : la source va droit en Weekly update avec ses ${r.postsMaxParMaj} posts les plus vus.`;
     case "weekly":
-      return `Chaque lundi à 6 h, une source est mise à jour si son r dépasse ${seuil(r.rMin)}, ou ${seuil(r.rVsLabelMin)} face à son label, si elle a un post à ${nombre(r.vuesCoup)} vues, ou moins de ${r.postsMin} posts mesurés. ${r.postsMaxParMaj} posts de plus au maximum par mise à jour, ${r.lotMax} sources par jour. Les autres attendent le lundi suivant.`;
+      return `Le lundi à 6 h, l'OS choisit les sources à mettre à jour dans la semaine : celles dont le r dépasse ${seuil(r.rMin)}, ou ${seuil(r.rVsLabelMin)} face à leur label, qui ont un post à ${nombre(r.vuesCoup)} vues, ou moins de ${r.postsMin} posts mesurés. Les mises à jour partent ensuite chaque matin à 6 h 37, ${r.lotMax} sources par jour, ${r.postsMaxParMaj} posts de plus au maximum par source. Les autres sont rejugées le lundi suivant.`;
     case "arretees":
       return "Les essais ratés et les sources désactivées : elles ne sont plus mises à jour.";
     case "corbeille":

@@ -21,8 +21,8 @@ export type Etape = "a_importer" | "prochain_batch" | "importe";
 export type EtapeManuelle = "a_importer" | "prochain_batch";
 /** Les étapes d'une source, calculées depuis son état réel. */
 export type EtapeSource = "en_import" | "essai" | "weekly" | "arretees";
-/** Un onglet de la page : une étape du chemin, ou la corbeille. */
-export type Vue = EtapeManuelle | EtapeSource | "corbeille";
+/** Un onglet de la page : les propositions de l'éclaireur, une étape du chemin, ou la corbeille. */
+export type Vue = "propositions" | EtapeManuelle | EtapeSource | "corbeille";
 export type Section = "atala" | "micabo" | "sophia" | "idees";
 export type Badge = "existe" | "nouveau" | "propose" | "a_confirmer" | "idee";
 
@@ -31,6 +31,7 @@ export type Badge = "existe" | "nouveau" | "propose" | "a_confirmer" | "idee";
  * la source. `regle` dit en une phrase comment on entre dans l'étape et comment on en sort.
  */
 export const VUES: readonly { cle: Vue; libelle: string; chemin: boolean; auto: boolean }[] = [
+  { cle: "propositions", libelle: "Source proposals", chemin: true, auto: false },
   { cle: "a_importer", libelle: "À importer", chemin: true, auto: false },
   { cle: "prochain_batch", libelle: "Prochain batch", chemin: true, auto: false },
   { cle: "en_import", libelle: "En import", chemin: true, auto: true },

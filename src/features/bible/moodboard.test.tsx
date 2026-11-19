@@ -4,6 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { CarteLabel, CompteBible } from "./moodboard";
+import type { Proposition } from "./propositions";
 import type { DonneesSources, SourceBible } from "./sources";
 
 const api = vi.hoisted(() => ({
@@ -13,6 +14,8 @@ const api = vi.hoisted(() => ({
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
 const src = vi.hoisted(() => ({ lireSources: vi.fn() }));
 vi.mock("./sources", async (orig) => ({ ...(await orig<typeof import("./sources")>()), ...src }));
+const prop = vi.hoisted(() => ({ lirePropositions: vi.fn(), passerDansLaBible: vi.fn(), deciderProposition: vi.fn() }));
+vi.mock("./propositions", async (orig) => ({ ...(await orig<typeof import("./propositions")>()), ...prop }));
 
 import { appsDe, compterEtapes, handlesDuTexte, ranger, REMARQUE_UGC, vuesCourtes } from "./moodboard";
 import { DialogueAjout } from "./DialoguesBible";
@@ -42,6 +45,12 @@ const donnees = (sources: SourceBible[] = [], o: Partial<DonneesSources> = {}): 
   regles: { ...REGLES_DEFAUT, rMin: 0.95, rVsLabelMin: 0.95, lotMax: 8 },
   labels: [{ id: "L1", nom: "smart_girl", style_theme: null, application_id: "00000000-0000-4000-8000-000000000001", apps: ["00000000-0000-4000-8000-000000000001"] }],
   ...o,
+});
+const proposition = (o: Partial<Proposition>): Proposition => ({
+  id: "p1", handle: "encantre", langue: "de", sorte: "concept", labelId: null, labelNom: null, concept: "Chaque tableau a un secret", pourquoi: "Le compte le plus régulier du jour.",
+  risques: null, score: 86, piste: "exploration", statut: "propose", raisonRefus: null, note: null, creeLe: "2026-11-19T07:29:11Z",
+  chiffres: { posts: 40, slideshows: 38, vuesMediane: 32750, vuesMax: 205100, posts10k: 36, posts100k: 2, abonnes: 12100, postsTotal: 132, dernierSlideshow: "2026-11-18", releveLe: "2026-11-19" },
+  exemples: [{ url: "https://www.tiktok.com/@encantre/photo/1", vues: 231200, accroche: "Um dieses Haar kümmerte sich nur eine Frau." }], ...o,
 });
 const rendre = () =>
   render(<MemoryRouter><QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}><PageBible /></QueryClientProvider></MemoryRouter>);
@@ -89,6 +98,60 @@ describe("page Bible", () => {
     api.lireCartes.mockResolvedValue(CARTES);
     api.changerEtape.mockResolvedValue(undefined);
     src.lireSources.mockResolvedValue(donnees());
+    prop.lirePropositions.mockResolvedValue([]);
+  });
+
+  it("« Source proposals », avant « À importer » : les propositions de l'éclaireur par jour, celles à plus tard comprises ; → À importer ou Prochain batch", async () => {
+    api.lireComptes.mockResolvedValue([compte({ id: "c7", handle: "deja.la" })]);
+    api.rafraichirMiniatures.mockResolvedValue(undefined);
+    prop.lirePropositions.mockResolvedValue([
+      proposition({}),
+      proposition({ id: "p2", handle: "pour.un.label", sorte: "label", labelId: "L1", labelNom: "smart_girl", concept: null, score: 70, creeLe: "2026-11-19T09:00:00Z" }),
+      proposition({ id: "p3", handle: "mis.de.cote", statut: "plus_tard", note: "à revoir en décembre", creeLe: "2026-11-15T10:00:00Z" }),
+      proposition({ id: "p4", handle: "deja.la", creeLe: "2026-11-15T11:00:00Z", score: 40 }),
+    ]);
+    prop.passerDansLaBible.mockResolvedValue({ bibleId: "b9", handle: "encantre", deja: false });
+    prop.deciderProposition.mockResolvedValue(undefined);
+    rendre();
+    await screen.findByRole("tab", { name: /Source proposals 4/ });
+    await screen.findByRole("tab", { name: /À importer 1/ });
+    expect(screen.getAllByRole("tab").map((t) => t.textContent).slice(0, 3)).toEqual(["Source proposals 4", "À importer 1", "Prochain batch 0"]);
+    fireEvent.click(screen.getByRole("tab", { name: /Source proposals/ }));
+    expect(screen.getByTestId("regle-etape")).toHaveTextContent("l'agent éclaireur trouve chaque jour");
+    expect(await screen.findByTestId("propositions-en-bref")).toHaveTextContent("3 propositions à décider, 1 mise à plus tard.");
+    // Un jour par section, le plus récent d'abord ; dans un jour, le meilleur score d'abord.
+    const jours = [...document.querySelectorAll("[data-jour]")] as HTMLElement[];
+    expect(jours.map((j) => j.dataset.jour)).toEqual(["2026-11-19", "2026-11-15"]);
+    expect(jours[0]).toHaveTextContent("jeudi 19 novembre");
+    expect([...jours[0]!.querySelectorAll("[data-proposition]")].map((t) => (t as HTMLElement).dataset.proposition)).toEqual(["encantre", "pour.un.label"]);
+
+    const tuile = screen.getByText(/@encantre/).closest("[data-proposition]") as HTMLElement;
+    expect(tuile).toHaveTextContent("concept nouveau");
+    expect(tuile).toHaveTextContent("38 slideshows sur 40 posts · méd. 33 k · pic 205 k · 2 à 100 k ou plus");
+    expect(within(tuile).getByRole("link", { name: /Um dieses Haar/ })).toHaveAttribute("href", "https://www.tiktok.com/@encantre/photo/1");
+    expect(screen.getByText(/@pour\.un\.label/).closest("[data-proposition]")).toHaveTextContent("pour smart_girl");
+    const deCote = screen.getByText(/@mis\.de\.cote/).closest("[data-proposition]") as HTMLElement;
+    expect(deCote).toHaveTextContent("plus tard");
+    expect(deCote).toHaveTextContent("Note : à revoir en décembre");
+    expect(screen.getByText(/@deja\.la/).closest("[data-proposition]")).toHaveTextContent("déjà dans la Bible");
+
+    fireEvent.click(within(tuile).getByRole("button", { name: "À importer" }));
+    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p1", "a_importer"));
+    // Ses 3 derniers TikToks arrivent ensuite, comme pour un compte ajouté à la main.
+    await waitFor(() => expect(api.rafraichirMiniatures).toHaveBeenCalledWith("b9"));
+    fireEvent.click(within(deCote).getByRole("button", { name: "Prochain batch" }));
+    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p3", "prochain_batch"));
+    fireEvent.click(within(deCote).getByRole("button", { name: "Remettre à décider" }));
+    await waitFor(() => expect(prop.deciderProposition).toHaveBeenCalledWith("p3", "propose", undefined));
+
+    // Refuser demande la raison : l'agent la relit.
+    const demander = vi.spyOn(window, "prompt").mockReturnValue("trop de citations");
+    fireEvent.click(within(tuile).getByRole("button", { name: "Refuser" }));
+    await waitFor(() => expect(prop.deciderProposition).toHaveBeenCalledWith("p1", "refuse", "trop de citations"));
+    demander.mockRestore();
+
+    fireEvent.click(screen.getByRole("button", { name: /Plus tard 1/ }));
+    expect([...document.querySelectorAll("[data-proposition]")].map((t) => (t as HTMLElement).dataset.proposition)).toEqual(["mis.de.cote"]);
   });
 
   it("onglets avec compteurs, carte de label avec badge et DA, tuile avec lien entier et miniature ; → Prochain batch puis ← Retirer", async () => {
@@ -175,8 +238,11 @@ describe("page Bible", () => {
 
     fireEvent.click(screen.getByRole("tab", { name: /Weekly update/ }));
     expect(screen.getByTestId("regle-etape")).toHaveTextContent("Automatique");
-    expect(screen.getByTestId("regle-etape")).toHaveTextContent("si son r dépasse 0,95");
-    expect(await screen.findByTestId("semaine-en-bref")).toHaveTextContent("Lundi 16/11 : 1 source retenue (1 mise à jour), 0 pas cette semaine. 12 slideshows importés, 9 validés.");
+    expect(screen.getByTestId("regle-etape")).toHaveTextContent("celles dont le r dépasse 0,95");
+    // Le lundi décide ; les imports, eux, s'étalent sur la semaine.
+    expect(await screen.findByTestId("semaine-en-bref")).toHaveTextContent(
+      "Semaine du 16/11 : lundi, 1 source retenue et 0 pas cette semaine. 1 déjà mise à jour. Depuis lundi : 12 slideshows importés, 9 validés.",
+    );
     const tuile = screen.getByText(/une\.source/).closest("[data-source]") as HTMLElement;
     expect(within(tuile).getByTestId("etat-une.source")).toHaveTextContent("Mise à jour le 17/11 (r au-dessus de 0,95)");
     expect(tuile).toHaveTextContent("r 1,12");
@@ -210,6 +276,7 @@ describe("corbeille", () => {
     api.restaurerCompte.mockResolvedValue(undefined);
     api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c8", handle: "jete", supprime_at: "2026-11-18T16:00:00Z" })]);
     src.lireSources.mockResolvedValue(donnees());
+    prop.lirePropositions.mockResolvedValue([]);
     expect(compterEtapes([compte({}), compte({ id: "c8", supprime_at: "2026-11-18T16:00:00Z" })])).toEqual({ a_importer: 1, prochain_batch: 0, corbeille: 1 });
     rendre();
     expect(await screen.findByRole("tab", { name: /Corbeille 1/ })).toBeInTheDocument();

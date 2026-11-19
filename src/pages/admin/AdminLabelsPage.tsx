@@ -414,9 +414,10 @@ function FormulaireLabel({
       </div>
       {nom.trim() && (
         <p className="text-[11px] text-muted-foreground" data-testid="identite-label">
-          {t("labelsPage.form.identite", {
+          {t(identite.varies ? "labelsPage.form.identiteVariee" : "labelsPage.form.identite", {
             theme: t(`labelsPage.themes.${identite.theme}`),
             exemple: identite.exemple,
+            exemples: (identite.varies ?? []).map((h) => `@${h}`).join(", "),
             genre: genre === "homme" ? t("labels.genreHomme").toLowerCase() : t("labels.genreFemme").toLowerCase(),
           })}
           {identite.attendu && application && (

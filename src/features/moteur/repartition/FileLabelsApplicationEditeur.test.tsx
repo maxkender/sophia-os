@@ -84,7 +84,12 @@ function rendre(onChange = vi.fn(), initial?: ReglagesFileLabels, options?: Opti
 }
 
 const selectAjout = () => screen.getByLabelText(/^(Ajouter un label|Add a label)$/) as HTMLSelectElement;
-const optionsAjout = () => within(selectAjout()).getAllByRole("option").map((o) => (o as HTMLOptionElement).value);
+const toutesOptionsAjout = () =>
+  within(selectAjout()).getAllByRole("option").map((o) => (o as HTMLOptionElement).value);
+/** Les labels de l'application ÉDITÉE (ceux des autres applications ont une valeur « autre:… »). */
+const optionsAjout = () => toutesOptionsAjout().filter((v) => !v.startsWith("autre:"));
+/** Les labels des AUTRES applications, proposés dans la même liste. */
+const optionsAutres = () => toutesOptionsAjout().filter((v) => v.startsWith("autre:"));
 
 describe("FileLabelsApplicationEditeur", () => {
   beforeEach(() => {
@@ -298,6 +303,55 @@ describe("FileLabelsApplicationEditeur — une application en préparation, et d
     expect((onChange.mock.calls.at(-1)![1] as ChangementFileLabels).items).toHaveLength(2);
     fireEvent.click(screen.getByRole("button", { name: /(Retirer les 2 comptes de|Remove the 2 accounts of) male_run/ }));
     expect((onChange.mock.calls.at(-1)![1] as ChangementFileLabels).items).toEqual([]);
+  });
+
+  it("ses labels sont dans « Ajouter un label » dès l'ouverture, sans changer d'application d'abord", async () => {
+    // Le piège du 19/11 : l'éditeur s'ouvre sur Sophia, et la liste ne montrait
+    // que ses labels. Ceux d'Atala « n'étaient pas là ».
+    rendre(vi.fn(), undefined, enPreparation);
+    const selApp = await screen.findByLabelText(/^(Application|App)$/);
+    expect(selApp).toHaveValue("sophia");
+    await waitFor(() =>
+      expect(optionsAutres()).toEqual([
+        `autre:atala:${MALE.id}`,
+        `autre:atala:${GIRL.id}`,
+        `autre:unswipe:${CLASSIC.id}`,
+      ]),
+    );
+    // Rangés par application, celle qu'on édite d'abord.
+    const groupes = within(selectAjout()).getAllByRole("group").map((g) => (g as HTMLOptGroupElement).label);
+    expect(groupes).toEqual(["Sophia", "Atala", "Unswipe"]);
+    expect(screen.getByText(/rangés par appli|grouped by app/)).toBeInTheDocument();
+  });
+
+  it("choisir un label d'Atala depuis Sophia ouvre la File d'Atala, et l'entrée part chez elle", async () => {
+    const onChange = rendre(vi.fn(), undefined, enPreparation);
+    const selApp = await screen.findByLabelText(/^(Application|App)$/);
+    await waitFor(() => expect(optionsAutres()).toContain(`autre:atala:${MALE.id}`));
+    // Le nombre saisi AVANT de choisir le label est gardé.
+    fireEvent.change(screen.getByLabelText(/^(Nombre de comptes|Number of accounts)$/), { target: { value: "50" } });
+    fireEvent.change(selectAjout(), { target: { value: `autre:atala:${MALE.id}` } });
+
+    expect(selApp).toHaveValue("atala");
+    expect(selectAjout()).toHaveValue(MALE.id);
+    expect(screen.getByLabelText(/^(Nombre de comptes|Number of accounts)$/)).toHaveValue(50);
+
+    fireEvent.click(screen.getByRole("button", { name: /^(Ajouter|Add)$/ }));
+    const chg = onChange.mock.calls[0]![1] as ChangementFileLabels;
+    expect(chg.slug).toBe("atala");
+    expect(chg.items).toHaveLength(50);
+    expect(chg.items.every((i) => i.label_id === MALE.id)).toBe(true);
+    // Rien dans la File de Sophia.
+    const ecrit = onChange.mock.calls[0]![0] as ReglagesFileLabels;
+    expect(ecrit.items).toEqual([]);
+  });
+
+  it("en mode UGC, seuls les labels de Sophia : une entrée UGC n'existe que pour elle", async () => {
+    rendre(vi.fn(), undefined, enPreparation);
+    await waitFor(() => expect(optionsAutres().length).toBeGreaterThan(0));
+    fireEvent.click(screen.getByLabelText(/Compte UGC|UGC account/));
+    expect(optionsAutres()).toEqual([]);
+    expect(optionsAjout()).toEqual(["", SMART.id]);
   });
 
   it("à 0 % dans la cible, la File ne sera pas lue : l'éditeur le dit", async () => {

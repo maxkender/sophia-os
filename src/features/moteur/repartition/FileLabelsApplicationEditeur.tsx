@@ -21,9 +21,12 @@ import {
   groupesDeLaFile,
   itemsDeLaFile,
   labelsAjoutables,
+  labelsDesAutresApplications,
+  lireLabelAutre,
   nombreAjout,
   sansEntreesDuGroupe,
   ugcPossible,
+  valeurLabelAutre,
   type CleFile,
 } from "./fileApplication";
 import { useApplicationsMulti, useLiensLabels } from "./useMultiApp";
@@ -118,6 +121,23 @@ export function FileLabelsApplicationEditeur({
     !!partsCible && slug !== SLUG_SOPHIA && !((partsCible[slug] ?? 0) > 0);
   const ajoutables = applicationId ? labelsAjoutables(applicationId, labels ?? [], liensAjout) : [];
   const ugcIds = labelsUgc ?? [];
+  // Les labels des AUTRES applications, dans la même liste : on ne doit pas
+  // avoir à deviner qu'il faut d'abord changer d'application plus haut. Pas en
+  // mode UGC : une entrée UGC n'existe que pour Sophia.
+  const ajoutablesFiltres = ajoutables.filter((l) => !ugcAjout || ugcIds.includes(l.id));
+  const autresLabels = ugcAjout ? [] : labelsDesAutresApplications(apps, slug, labels ?? [], liens);
+  const choisirLabel = (valeur: string) => {
+    const autre = lireLabelAutre(valeur);
+    if (!autre) {
+      setLabelAjout(valeur);
+      return;
+    }
+    // Un label d'une autre application : l'éditeur passe sur SA File, le label
+    // reste choisi et le nombre saisi est gardé.
+    setSlug(autre.slug);
+    setUgcAjout(false);
+    setLabelAjout(autre.labelId);
+  };
 
   const majFile = (items: FileLabelCompteItem[]) =>
     onChange(avecItemsApplication(file, slug, cle, items), { slug, cle, items });
@@ -308,16 +328,37 @@ export function FileLabelsApplicationEditeur({
             id="ajoutLabel"
             className={selectClass}
             value={labelAjout}
-            onChange={(e) => setLabelAjout(e.target.value)}
+            onChange={(e) => choisirLabel(e.target.value)}
           >
             <option value="">{t("common.none")}</option>
-            {ajoutables
-              .filter((l) => !ugcAjout || ugcIds.includes(l.id))
-              .map((l) => (
+            {autresLabels.length === 0 ? (
+              ajoutablesFiltres.map((l) => (
                 <option key={l.id} value={l.id}>
                   {l.nom}
                 </option>
-              ))}
+              ))
+            ) : (
+              <>
+                {ajoutablesFiltres.length > 0 && (
+                  <optgroup label={nomApp}>
+                    {ajoutablesFiltres.map((l) => (
+                      <option key={l.id} value={l.id}>
+                        {l.nom}
+                      </option>
+                    ))}
+                  </optgroup>
+                )}
+                {autresLabels.map((g) => (
+                  <optgroup key={g.application.slug} label={nomApplication(g.application)}>
+                    {g.labels.map((l) => (
+                      <option key={l.id} value={valeurLabelAutre(g.application.slug, l.id)}>
+                        {l.nom}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </>
+            )}
           </select>
         </div>
         <div className="w-40 space-y-1">
@@ -363,6 +404,9 @@ export function FileLabelsApplicationEditeur({
           {t("warmup.ajouter")}
         </Button>
       </div>
+      {autresLabels.length > 0 && (
+        <p className="text-xs text-muted-foreground">{t("warmup.ajouterLabelAide")}</p>
+      )}
       {!ugcOk && <p className="text-xs text-muted-foreground">{t("warmup.fileJamaisUgc", { app: nomApp })}</p>}
       {ugcOk && ugcAjout && ugcIds.length === 0 && (
         <p className="text-xs text-destructive">{t("warmup.aucunLabelUgc")}</p>

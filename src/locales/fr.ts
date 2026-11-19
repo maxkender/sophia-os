@@ -9744,6 +9744,7 @@ export const fr = {
         "Aucun label avec slideshows UGC — coche UGC sur au moins un slideshow avant d’ajouter une entrée UGC.",
       fileIgnoreManuel: "Label manuel — ignoré à la création",
       ajouterLabel: "Ajouter un label",
+      ajouterLabelAide: "Tous les labels qu'on peut mettre en File, rangés par appli. Choisir un label d'une autre appli ouvre sa File : l'entrée part chez elle.",
       ajouterNombre: "Nombre de comptes",
       ajouterUgc: "Compte UGC",
       ajouter: "Ajouter",

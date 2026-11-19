@@ -202,6 +202,53 @@ export function labelsAjoutables<T extends LabelFileSlideshow & { id: string }>(
   );
 }
 
+/** Les labels d'une AUTRE application que celle dont on édite la File. */
+export interface LabelsAutreApplication<A, T> {
+  application: A;
+  labels: T[];
+}
+
+/**
+ * Les labels des autres applications qui ont une File, pour la liste
+ * « Ajouter un label » : on y trouve tous les labels qu'on peut mettre en
+ * File, pas seulement ceux de l'application affichée.
+ *
+ * POURQUOI. L'éditeur s'ouvre sur Sophia. Qui veut mettre `male_run` en File
+ * ne le trouvait pas dans la liste, et rien ne lui disait de changer d'abord
+ * d'application dans un autre sélecteur (19/11). Choisir un label d'une autre
+ * application bascule l'éditeur sur SA File : l'entrée part toujours dans la
+ * File de l'application que sert le label.
+ *
+ * Une application sans label à proposer n'a pas de groupe. Liens illisibles :
+ * aucun groupe, on ne sait pas qui sert quoi.
+ */
+export function labelsDesAutresApplications<
+  A extends { id: string; slug: string },
+  T extends LabelFileSlideshow & { id: string },
+>(
+  applications: readonly A[],
+  slugCourant: string,
+  labels: readonly T[],
+  liens: readonly LienLabelApplication[] | null,
+): Array<LabelsAutreApplication<A, T>> {
+  if (!liens) return [];
+  return applications
+    .filter((a) => a.slug !== slugCourant)
+    .map((application) => ({ application, labels: labelsAjoutables(application.id, labels, liens) }))
+    .filter((g) => g.labels.length > 0);
+}
+
+/** Valeur d'option d'un label d'une autre application : « autre:<slug>:<label> ». */
+export function valeurLabelAutre(slug: string, labelId: string): string {
+  return `autre:${slug}:${labelId}`;
+}
+
+/** Relit une valeur d'option ; `null` pour un label de l'application affichée. */
+export function lireLabelAutre(valeur: string): { slug: string; labelId: string } | null {
+  const m = /^autre:([^:]+):(.+)$/.exec(valeur);
+  return m ? { slug: m[1]!, labelId: m[2]! } : null;
+}
+
 /**
  * Entrée déjà en File dont le label ne sert (plus) l'application : signalée,
  * pas masquée. Liens illisibles → rien n'est signalé (on ne sait pas).

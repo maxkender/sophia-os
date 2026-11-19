@@ -217,10 +217,13 @@ autre application.
 
 ### Décider le label des prochains comptes
 
-Allocation → « File des créateurs ». Choisir l'application (une application en
-préparation y figure, marquée « inactive »), la file générale, un label et un
-**nombre de comptes**, puis « Ajouter » : 20 `male_run` puis 30
-`classic_girl_run` fixent le label des 50 prochains comptes, dans cet ordre.
+Allocation → « File des créateurs ». Dans « Ajouter un label », choisir le
+label (la liste montre tous les labels qu'on peut mettre en File, rangés par
+application ; une application en préparation y figure) et un **nombre de
+comptes**, puis « Ajouter » : 20 `male_run` puis 30 `classic_girl_run` fixent
+le label des 50 prochains comptes, dans cet ordre. L'entrée part dans la File
+de l'application que sert le label : choisir un label d'une autre application
+que celle affichée ouvre sa File.
 
 - **Une entrée = un compte**, tirée dans l'ordre et retirée de la File, quelle
   que soit la langue du compte et qu'il vienne d'un HM ou du site. La liste

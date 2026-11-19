@@ -9,7 +9,7 @@ import type { DonneesSources, SourceBible } from "./sources";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), lancerBatch: vi.fn(), validerCarte: vi.fn(), changerCarte: vi.fn(),
-  validerPodz: vi.fn(), rattacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
+  validerPodz: vi.fn(), rattacherCarte: vi.fn(), detacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
   modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
@@ -354,13 +354,69 @@ describe("page Bible", () => {
     expect(within(choix).getAllByRole("option").map((o) => o.textContent)).toEqual(["Choisir un label…", "History", "smart_girl"]);
     fireEvent.change(choix, { target: { value: "L7" } });
     fireEvent.click(screen.getByRole("button", { name: "Rattacher" }));
+    // Même app, label sans bloc : rien à signaler, pas de confirmation.
+    expect(screen.queryByTestId("alerte-rattachement")).toBeNull();
     await waitFor(() => expect(api.rattacherCarte).toHaveBeenCalledWith("k2", "L7"));
     expect(await screen.findByTestId("info")).toHaveTextContent("Le bloc est rattaché à History : 1 compte importable.");
+    // Le rattachement s'annule tout de suite, depuis le message.
+    api.detacherCarte.mockResolvedValue({ comptes: 1, label: "History" });
+    fireEvent.click(within(screen.getByTestId("info")).getByRole("button", { name: "Annuler" }));
+    await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k2"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("Rattachement annulé : 1 compte de retour sous « clean_girl ».");
 
     fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
     fireEvent.change(await screen.findByLabelText("Nom du label"), { target: { value: "clean girl sophia" } });
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
     await waitFor(() => expect(api.modifierCarte).toHaveBeenCalledWith("k2", { nom: "clean_girl_sophia", section: "sophia", description: "Coureuse en photo iPhone" }));
+  });
+
+  it("rattacher à un label d'une autre app, ou qui a déjà son bloc : prévenu et confirmé avant ; les comptes versés ailleurs se rendent depuis le bloc", async () => {
+    // Le cas du 19/11 : un bloc de running (Atala) rattaché par erreur à smart_girl (Sophia), qui avait déjà son bloc.
+    api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c2", handle: "runclubgirl" }), compte({ id: "c3", handle: "chiara", label_propose_id: "k3" })]);
+    src.lireSources.mockResolvedValue(donnees([], { labels: [
+      { id: "L1", nom: "smart_girl", style_theme: null, application_id: "00000000-0000-4000-8000-000000000001", apps: ["00000000-0000-4000-8000-000000000001"] },
+    ] }));
+    api.rattacherCarte.mockResolvedValue({ fusion: true, comptes: 2, label: "smart_girl" });
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(false);
+    rendre();
+    const bloc = (await screen.findByText("classic_girl_run")).closest("[data-carte]") as HTMLElement;
+    fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
+    fireEvent.change(await screen.findByLabelText("Label de l'OS"), { target: { value: "L1" } });
+    expect(screen.getByTestId("alerte-rattachement")).toHaveTextContent(
+      "Ce bloc est rangé sous Atala, et smart_girl est un label Sophia. smart_girl a déjà son bloc : les 2 comptes de ce bloc iront le rejoindre. Tu pourras annuler.",
+    );
+    // Refusé à la confirmation : rien ne bouge.
+    fireEvent.click(screen.getByRole("button", { name: "Rattacher" }));
+    expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Rattacher « classic_girl_run » (2 comptes, Atala) au label smart_girl (Sophia) ?"));
+    expect(api.rattacherCarte).not.toHaveBeenCalled();
+    confirmer.mockReturnValue(true);
+    fireEvent.click(screen.getByRole("button", { name: "Rattacher" }));
+    await waitFor(() => expect(api.rattacherCarte).toHaveBeenCalledWith("k1", "L1"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("2 comptes de « classic_girl_run » rangés sous smart_girl, qui avait déjà son bloc.");
+    expect(within(screen.getByTestId("info")).getByRole("button", { name: "Annuler" })).toBeInTheDocument();
+    confirmer.mockRestore();
+  });
+
+  it("après coup : le bloc qui a reçu des comptes les rend, le bloc qui a pris un label le rend", async () => {
+    api.lireCartes.mockResolvedValue([
+      // Vidé par un rattachement : ses 2 comptes sont sous smart_girl. Il existe toujours.
+      carte({ rattachement: { label: "smart_girl", fusion: true, vers: "k3", comptes: ["c1", "c2"] } }),
+      carte({ id: "k3", nom: "smart_girl", section: "sophia", badge: "existe", ordre: 1, label_id: "L1" }),
+      // A pris le label History : il s'appelait study_notes.
+      carte({ id: "k4", nom: "study_notes", section: "sophia", badge: "existe", ordre: 2, label_id: "L7", label_nom: "History", rattachement: { label: "History", fusion: false, vers: null, comptes: ["c4"] } }),
+    ]);
+    api.lireComptes.mockResolvedValue([
+      compte({ label_propose_id: "k3" }), compte({ id: "c2", handle: "runclubgirl", label_propose_id: "k3" }), compte({ id: "c4", handle: "etude", label_propose_id: "k4" }),
+    ]);
+    api.detacherCarte.mockResolvedValue({ comptes: 2, label: "smart_girl" });
+    rendre();
+    const recu = (await screen.findByText("smart_girl")).closest("[data-carte]") as HTMLElement;
+    fireEvent.click(within(recu).getByRole("button", { name: "Rendre 2 comptes à « classic_girl_run »" }));
+    await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k1"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("Rattachement annulé : 2 comptes de retour sous « classic_girl_run ».");
+    const pris = screen.getByText("History").closest("[data-carte]") as HTMLElement;
+    fireEvent.click(within(pris).getByRole("button", { name: "Annuler le rattachement" }));
+    await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k4"));
   });
 
   it("comptes à podzer : « Valider le podz » (ou tous ceux du batch) ; validés, ils sont dans Weekly update, catégorie Podz, jamais importés", async () => {

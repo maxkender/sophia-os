@@ -110,7 +110,16 @@ export interface CarteLabel {
   statut: string;
   /** Le nom du vrai label (carte « existe »). */
   label_nom?: string | null;
+  /**
+   * Le dernier rattachement de ce bloc à un label de l'OS, tant qu'il peut s'annuler (0769). `fusion` : ses comptes ont
+   * rejoint le bloc `vers` (celui du label) ; sinon c'est ce bloc qui a pris le label.
+   */
+  rattachement?: { label: string; fusion: boolean; vers: string | null; comptes: string[] } | null;
 }
+
+/** Les blocs dont les comptes ont été versés dans celui-ci par un rattachement : ils peuvent revenir. */
+export const blocsVersesDans = (carte: CarteLabel, cartes: CarteLabel[]): CarteLabel[] =>
+  cartes.filter((c) => c.rattachement?.fusion && c.rattachement.vers === carte.id && c.rattachement.comptes.length > 0);
 
 const COLONNES = "id, handle, etape, label_propose_id, autres_cartes, note_import, remarque, a_podzer, supprime_at, langue, posts, miniatures_statut, miniatures_erreur, vues_mediane, meilleur_post_vues, abonnes, ajoute_at";
 
@@ -122,7 +131,7 @@ export async function lireComptes(): Promise<CompteBible[]> {
 
 export async function lireCartes(): Promise<CarteLabel[]> {
   const { data, error } = await supabase.from("labels_proposes")
-    .select("id, nom, titre, section, badge, description_da, label_id, ordre, statut, labels(nom)")
+    .select("id, nom, titre, section, badge, description_da, label_id, ordre, statut, rattachement, labels(nom)")
     .not("section", "is", null).neq("statut", "refuse").order("ordre");
   if (error) throw new Error(error.message);
   return ((data ?? []) as unknown as (CarteLabel & { labels: { nom: string } | null })[])
@@ -257,13 +266,22 @@ export async function carteDuLabel(labelId: string): Promise<CarteLabel> {
 
 /**
  * Rattache un bloc sans vrai label à un label de l'OS : ses comptes prennent ce label et deviennent importables.
- * Si le label avait déjà son bloc, les comptes le rejoignent (`fusion`).
+ * Si le label avait déjà son bloc, les comptes le rejoignent (`fusion`) ; le bloc d'origine reste, vide. Dans les deux
+ * cas le rattachement s'annule (`detacherCarte`).
  */
 export async function rattacherCarte(carteId: string, labelId: string): Promise<{ fusion: boolean; comptes: number; label: string }> {
   const { data, error } = await supabase.rpc("bible_carte_rattacher", { p_carte: carteId, p_label: labelId });
   if (error) throw new Error(error.message);
   const r = (data ?? {}) as { fusion?: boolean; comptes?: number; label?: string };
   return { fusion: Boolean(r.fusion), comptes: Number(r.comptes ?? 0), label: r.label ?? "" };
+}
+
+/** Annule le rattachement d'un bloc : ses comptes reviennent (sauf importés ou déplacés depuis), ou il redevient une proposition. */
+export async function detacherCarte(carteId: string): Promise<{ comptes: number; label: string }> {
+  const { data, error } = await supabase.rpc("bible_carte_detacher", { p_carte: carteId });
+  if (error) throw new Error(error.message);
+  const r = (data ?? {}) as { comptes?: number; label?: string };
+  return { comptes: Number(r.comptes ?? 0), label: r.label ?? "" };
 }
 
 /** Le nom, l'app et la DA d'un label encore proposé (un vrai label se modifie dans Labels & applications). */

@@ -47,5 +47,8 @@ export const payableLundi = (i: Pick<InfoRuul, "pret">) => i.pret;
 /** Un email revenu (adresse invalide, refusé) : à corriger avant de compter dessus. */
 export const emailRevenu = (statut: string | null | undefined) => /bounce|blocked|invalid|spam|error|echec/i.test(statut ?? "");
 
+/** Un canal en pause (ex. les DM Slack) n'est pas un échec : on le dit simplement. */
+export const enPause = (erreur: string | null | undefined) => /pause/i.test(erreur ?? "");
+
 /** JJ/MM. */
 export const jjmm = (iso: string | null | undefined) => (iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}` : "—");

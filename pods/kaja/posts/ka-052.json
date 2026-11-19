@@ -1,0 +1,848 @@
+{
+ "id": "ka-052",
+ "titre": {
+  "en": "10/10 car skills everyone should know",
+  "fr": "10/10 gestes auto que tout le monde devrait savoir",
+  "de": "10/10 Auto-Skills, die jeder kennen sollte",
+  "it": "10/10 cose sull'auto che tutti dovrebbero sapere",
+  "tr": "10/10 herkesin bilmesi gereken araba becerisi",
+  "hu": "10/10 autós készség, amit mindenkinek tudnia kell",
+  "pl": "10/10 umiejętności, które powinien znać każdy kierowca",
+  "pt-BR": "10/10 habilidades de carro que todo mundo devia saber"
+ },
+ "legendes": {
+  "en": "10/10 car skills everyone should know #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 gestes auto que tout le monde devrait savoir #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Auto-Skills, die jeder kennen sollte #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 cose sull'auto che tutti dovrebbero sapere #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 herkesin bilmesi gereken araba becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 autós készség, amit mindenkinek tudnia kell #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności, które powinien znać każdy kierowca #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades de carro que todo mundo devia saber #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "Earrings",
+  "url": "https://www.tiktok.com/music/earrings-7354423336196933649"
+ },
+ "notes": "Full test (BLEO, 19/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (l'entretien de la voiture). Décor falaise. Son format court à 3 compétences plus l'étape Sophia (laver sa voiture, la démarrer avec des câbles, la pression des pneus), une vraie vidéo YouTube native par étape et par langue. Musique : « Earrings » de son manifeste. Sophia en étape 3, cta B, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "CAR SKILLS",
+     "EVERYONE",
+     "SHOULD KNOW"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "GESTES AUTO",
+     "À CONNAÎTRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "AUTO-SKILLS",
+     "FÜR JEDEN"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL AUTO",
+     "PER TUTTI"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "ARABA",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "AUTÓS",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "KAŻDEGO",
+     "KIEROWCY"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "DE CARRO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO WASH",
+     [
+      {
+       "t": "YOUR CAR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CFXfSBR5Q9w",
+     "titre": "How to SUPER CLEAN Your Car (Best Clean Possible)",
+     "chaine": "ChrisFix",
+     "vues": "24M views",
+     "date": "10 years ago",
+     "duree": "18:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lsMlPXxQcSMI_EveG6eb7sd1T9vFkEQrXKruSjabO_ANY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT LAVER",
+     [
+      {
+       "t": "TA VOITURE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MrRDveYY3yc",
+     "titre": "COMMENT LAVER SA VOITURE EN STATION  DE LAVAGE dans la vraie vie...!",
+     "chaine": "JOHN CARTESTER",
+     "vues": "1 M de vues",
+     "date": "il y a 5 ans",
+     "duree": "16:47",
+     "avatar": "https://yt3.ggpht.com/XlXS_StzzLjHJ7aS4W7D3kZaXbp-zdYEFnnFStsa6O1oGk40_GjSbUbhOO1gCSuzpc4so9t3Tv4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WÄSCHST DU",
+     [
+      {
+       "t": "DEIN AUTO",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "o_wBqUr2tVI",
+     "titre": "So wird das Auto perfekt sauber an der Waschbox | AUTOLACKAFFEN",
+     "chaine": "AUTOLACKAFFEN",
+     "vues": "919.254 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/cX4CuH1nmwaq1oBBa3-eJXeDxXDsPsAbR6FZA9sy2CjLzzkpShZdy4aASqHv3I7qBSf9hK83pw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME PULIRE",
+     [
+      {
+       "t": "L'AUTO",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eVmIWpAQANU",
+     "titre": "Tutorial: come pulire un'auto come nuova",
+     "chaine": "Quattroruote",
+     "vues": "747K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "4:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m5XMLcughZN7iZy9liUcr-DWuC2Lo8Foway_PWksQrTfKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ARABA YIKANIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FG6y3J6oFms",
+     "titre": "DOĞRU ARABA YIKAMA, HIZLI, BASİT VE ARACA ZARAR VERMEDEN (!)  NASIL YAPILIR?",
+     "chaine": "İzmir Oto Ekspertiz",
+     "vues": "234 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kduDLWzSDSIeg8RTaPr5GKt2Pj-7onlihj7s3IwRf9eS0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN MOSD",
+     [
+      {
+       "t": "AZ AUTÓDAT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CqWNieY9kZA",
+     "titre": "👉 Hogyan mosd le HELYESEN az autódat? | Autómosás lépésről-lépésre",
+     "chaine": "MotorMindZ",
+     "vues": "6,2 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "13:01",
+     "avatar": "https://yt3.ggpht.com/QS-FZamC5M7s0cY4TjIq9yD5gY_nLLPLPgEJcNY4ReEgICgYKVXmYx89zSE6KH9O4PNcpcqM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UMYĆ",
+     [
+      {
+       "t": "SAMOCHÓD",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4RdKwVeiBd0",
+     "titre": "Jak POPRAWNIE Umyć Samochód Na Myjni Samoobsługowej? 🧐 #detailing #automotive #poradnik",
+     "chaine": "AutoREV",
+     "vues": "598 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mu6SyV-I-NOlaI6dhtKJb0a8p0xlxKhDmWJK7CSFIKUf8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO LAVAR",
+     [
+      {
+       "t": "O CARRO",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "i0JTwI7QSTA",
+     "titre": "COMO LAVAR O CARRO CORRETAMENTE | Passo a Passo",
+     "chaine": "Veneto Studio",
+     "vues": "845 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "28:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k6V7oNRR-Q87ToF2awpYeJXNcxnSYsosKg0obHlqfqAY2z=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "JUMP START A CAR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iI1o2hNy2hE",
+     "titre": "How to Properly Jump Start a Car",
+     "chaine": "ChrisFix",
+     "vues": "15M views",
+     "date": "11 years ago",
+     "duree": "7:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lsMlPXxQcSMI_EveG6eb7sd1T9vFkEQrXKruSjabO_ANY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DÉMARRER",
+     [
+      {
+       "t": "AVEC DES CÂBLES",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BBhXM_6hjlI",
+     "titre": "Comment utiliser des câbles de démarrage ? - Tutoriel Oscaro",
+     "chaine": "Oscaro",
+     "vues": "1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/LPaF5K9OS8iBzSGZ9vILzMueja6Sczt3qP1LkHF3fjRkT_iSJ5z-q9F7naIK-YC4Fuc6UnrpLxc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GIBST DU",
+     [
+      {
+       "t": "STARTHILFE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "myRluWwCgRU",
+     "titre": "Ratgeber Starthilfe (2017) So klappt die Starthilfe",
+     "chaine": "AUTO BILD",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/tGLDV7gQK95X_Bkguw4zbVXzSs_UEHx8zDBVr6Fwc4Z1-J8d3o7jOfnDCFW69zz2UEIpazie=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FAR PARTIRE",
+     [
+      {
+       "t": "L'AUTO",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LzPMLu8zR7I",
+     "titre": "NON TI PARTE LA MACCHINA?  ECCO COME FARE",
+     "chaine": "Emanuele Sabatino",
+     "vues": "2,5 Mln visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "10:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYpgLH1vAxIWS_3267DdCzXpdAQkGqxMI40njWWxZ3Hq0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "AKÜ TAKVİYESİ YAPILIR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r8D8bszRis4",
+     "titre": "Akü Takviyesi Nasıl Yapılır?",
+     "chaine": "Esan Akü I Esan Battery",
+     "vues": "126 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "0:55",
+     "avatar": "https://yt3.ggpht.com/qhBQzc0q4W0ng2u0lp5gbziMFbgrFNdqJYecaBoE0rP65X8yimFfkf80Kd68pt5gUYUQHq_Tlg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "BIKÁZZ",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Jxnnghu423c",
+     "titre": "Bikázás, bikakábel, lemerült akkus indítás - Vezess tanácsadó 3. rész | Vezess TV",
+     "chaine": "Vezess TV",
+     "vues": "230 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "4:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kheI0-hI_jkPK9Xota0fqzBiFJFG37NHmRkr212Gpuekw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ODPALIĆ",
+     [
+      {
+       "t": "Z KABLI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jO9Kmi0Xc2k",
+     "titre": "Jak prawidłowo używać Kable Rozruchowe - sposób na rozładowany akumulator",
+     "chaine": "Poradniki Elektryczne - Zrób To Sam",
+     "vues": "687 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "7:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mvK5A9neX0B4APSMeZ23qOQYg6q-cOzkRGKaq0rkRF2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "CHUPETA",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ii6VMsmtSvA",
+     "titre": "Chupeta na bateria descarregada I Mecânica Fácil",
+     "chaine": "Mecânica Fácil",
+     "vues": "1,6 mi visualizações",
+     "date": "há 11 anos",
+     "duree": "6:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k2IHVjLNZgbo5yPirMqYbZDgZfl3nH4mNMwOmVDyDccxc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO KNOW",
+     [
+      {
+       "t": "HOW THINGS WORK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT COMPRENDRE",
+     [
+      {
+       "t": "COMMENT TOUT MARCHE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO VERSTEHST DU,",
+     [
+      {
+       "t": "WIE ALLES",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "FUNKTIONIERT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME CAPIRE",
+     [
+      {
+       "t": "COME FUNZIONA TUTTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL ÇALIŞTIĞINI",
+     [
+      {
+       "t": "ANLA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÉRTSD MEG,",
+     [
+      {
+       "t": "HOGYAN MŰKÖDIK",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "MINDEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROZUMIEĆ,",
+     [
+      {
+       "t": "JAK WSZYSTKO",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "DZIAŁA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ENTENDER",
+     [
+      {
+       "t": "COMO TUDO",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "FUNCIONA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO CHECK",
+     [
+      {
+       "t": "TIRE PRESSURE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xYzq1tBEnpc",
+     "titre": "STOP Setting Tire Pressure to 32 PSI! (You're Destroying Your Car)",
+     "chaine": "Car Clever",
+     "vues": "1.7M views",
+     "date": "9 months ago",
+     "duree": "9:04",
+     "avatar": "https://yt3.ggpht.com/VDbi93ar8gLSDCEu2oH5LyTvfj7UJpePi8q6C8J87rTuzr5cd1TJPeS6EoZsAFcAWCMZDxJq=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT GONFLER",
+     [
+      {
+       "t": "TES PNEUS",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KbT1m_Qt6v0",
+     "titre": "ARRÊTE de Gonfler tes Pneus à 2,2 Bars (Cette Erreur te Coûte 260€/an)",
+     "chaine": "AUTO MALIN",
+     "vues": "1 M de vues",
+     "date": "il y a 8 mois",
+     "duree": "11:33",
+     "avatar": "https://yt3.ggpht.com/2XdmvsNtLPZEoOsTrCC5CQIEUi4l_goqADUkHsychiTuDYNfeeS-6ZushAkXytE9i_LKvWxMLtQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO PRÜFST DU",
+     [
+      {
+       "t": "DEN REIFENDRUCK",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ibdZRsJKNOc",
+     "titre": "Reifendruck prüfen und nachfüllen: So einfach geht’s! | Einfach. Selber. Machen. | ADAC",
+     "chaine": "ADAC",
+     "vues": "275.156 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "8:10",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME CONTROLLARE",
+     [
+      {
+       "t": "LE GOMME",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Dv8oXEDOxro",
+     "titre": "Come regolare la pressione delle gomme",
+     "chaine": "Quattroruote",
+     "vues": "233K visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m5XMLcughZN7iZy9liUcr-DWuC2Lo8Foway_PWksQrTfKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "LASTİK BASINCI",
+       "couleur": "#24d329"
+      }
+     ],
+     [
+      {
+       "t": "KONTROL EDİLİR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WAD449nDYSw",
+     "titre": "Lastik basınç kontrolü nasıl yapılır?",
+     "chaine": "Trafik Hayattır!",
+     "vues": "340 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/Qb9X7FsoSPG8W9odk43PiSXLjLwmt-mPPJf5gLW9sLzWdLORsoO5XtTpF2_3vyVFzk13NuA2Zg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ELLENŐRIZD",
+     [
+      {
+       "t": "A GUMINYOMÁST",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gP5dpRe4Z60",
+     "titre": "Gumiabroncs-nyomás ellenőrzése",
+     "chaine": "E-guide Renault",
+     "vues": "839 megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "0:56",
+     "avatar": "https://yt3.ggpht.com/kGmlhH0oQPjTZYlCok3hEPiJbWGoAagGbSC2MgdpcHHntfhbFaTauXOGWMQ35vPGkDFYZSCZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK SPRAWDZIĆ",
+     [
+      {
+       "t": "CIŚNIENIE W OPONACH",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7bJibxAd3yo",
+     "titre": "PRZESTAŃ POMPOWAĆ DO 2,2 BARA! Niszczysz Auto Nie Wiedząc",
+     "chaine": "Auto Fakty Polska",
+     "vues": "389 tys. wyświetleń",
+     "date": "9 mies. temu",
+     "duree": "17:38",
+     "avatar": "https://yt3.ggpht.com/MbI87h8JmWZn8riEfDnEemVWfe01SUld9mHz78Z97JlI2t6ZfJq--gUdBuQLvzZZXHqKRlo8Hg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO CALIBRAR",
+     [
+      {
+       "t": "O PNEU",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0sKqrvLPNj8",
+     "titre": "Qual a calibragem correta para cada tipo de pneu? Aprenda a CALIBRAR como um PROFISSIONAL | 📺 101",
+     "chaine": "Instante Volante",
+     "vues": "3,6 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "6:21",
+     "avatar": "https://yt3.ggpht.com/MUt-FTYA6SpcveBFSYCb9FhKykbtRsiM2aotSY5ebxeYAEgrXAqzJSvx-9YNOig4akDa9gcGIw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

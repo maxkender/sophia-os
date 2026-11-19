@@ -224,6 +224,11 @@ Fait :
 - le recrutement avant l'activation (§ 6) : Atala a sa ligne dans Allocation,
   il suffit de lui donner une part pour que les prochaines recrues soient des
   comptes Atala.
+- sa banque d'images (19/11) : ses labels n'avaient aucune image. On la remplit
+  depuis Pinterest avant ses podz : recherche, tri à l'œil, recadrage 9:16,
+  versement sous un ou plusieurs labels (`banque/AGENT.md`, fonction Edge
+  `banque`, migration 0771). Les podz d'un label retrouvent ces images avec
+  leur commande `images`.
 
 Reste à faire, à l'écran :
 1. **Relire les deux prompts** (`pertinence_atala`, `placement_atala`). Ce sont

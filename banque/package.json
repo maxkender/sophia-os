@@ -1,0 +1,22 @@
+{
+  "name": "banque-images",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Banque d'images de l'OS venues de Pinterest : chercher (scraper Pinterest d'Apify), trier à l'œil sur planches, recadrer en 9:16 et verser sous un ou plusieurs labels (fonction Edge banque). Les podz de ces labels les retrouvent avec leur commande images.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "test": "node --test atelier/pinterest.test.ts",
+    "chercher": "NODE_USE_ENV_PROXY=1 node atelier/cli-chercher.ts",
+    "planche": "NODE_USE_ENV_PROXY=1 node atelier/cli-planche.ts",
+    "verser": "NODE_USE_ENV_PROXY=1 node atelier/cli-verser.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts"
+  }
+}

@@ -7186,6 +7186,7 @@ export const en = {
         stock_libre_de_droits: "Stock",
         genere_ia: "Generated",
         fourni_par_freelance: "Provided",
+        pinterest: "Pinterest",
       },
     },
     labels: {

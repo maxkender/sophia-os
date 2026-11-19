@@ -295,3 +295,7 @@ verify_jwt = false
 # 18/11 : la Bible des comptes (miniatures). Contrôle d'accès interne : admin au sens strict (assertRole), ou x-cron-secret.
 [functions.bible]
 verify_jwt = false
+
+[functions.banque]
+# Agent de la banque d'images (en-tête x-banque-jeton, comparé à banque_jetons).
+verify_jwt = false

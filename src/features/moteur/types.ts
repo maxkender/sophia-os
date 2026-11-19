@@ -33,7 +33,9 @@ export type MediaSource =
   | "nettoye_reference"
   | "stock_libre_de_droits"
   | "genere_ia"
-  | "fourni_par_freelance";
+  | "fourni_par_freelance"
+  // 0771 : image cherchée sur Pinterest, versée par la fonction Edge `banque`.
+  | "pinterest";
 
 export interface CompteReference {
   id: string;

@@ -3,11 +3,13 @@
  * ses 3 derniers TikToks en vertical (cliquables), et au survol : Prochain batch / Retirer, Changer de label,
  * Modifier la note, Supprimer.
  *
- * 19/11 (Adrien) : plus de bouton « Importé ». Un compte quitte ces onglets quand sa source existe (« Lancer
- * l'import ») ; dans le prochain batch, la tuile dit s'il est prêt à partir, ou ce qui le bloque.
+ * 19/11 (Adrien) : plus de bouton « Importé ». Un compte quitte ces onglets quand sa source existe ; dans le prochain
+ * batch, la tuile dit s'il est prêt à partir, ou ce qui le bloque. Un compte prêt (son label existe) s'importe d'un
+ * clic, « Importer ». Un compte à podzer se valide (« Valider le podz ») : il n'est jamais importé, il passe dans la
+ * catégorie Podz de « Weekly update », à titre indicatif.
  */
 import * as React from "react";
-import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, RotateCcw, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ImageOff, Loader2, Pencil, Rocket, RotateCcw, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -21,12 +23,20 @@ export interface ActionsTuile {
   onSupprimer: (c: CompteBible) => void;
   onRestaurer: (c: CompteBible) => void;
   onSupprimerDefinitivement: (c: CompteBible) => void;
+  /** Importer ce compte tout de suite (son label existe). */
+  onImporter: (c: CompteBible) => void;
+  /** Valider un compte à podzer (catégorie Podz), ou l'en retirer. */
+  onPodz: (c: CompteBible, valide: boolean) => void;
 }
 
-export function TuileCompte({ c, aussi, actions, occupe, blocage, source }: {
+export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage, podzValide, source }: {
   c: CompteBible; aussi?: boolean; actions: ActionsTuile; occupe?: boolean;
-  /** Dans le prochain batch : prêt à partir, ou ce qui le bloque. */
+  /** Prêt à partir à l'import, ou ce qui le bloque. « prêt » : la tuile propose « Importer ». */
   blocage?: Blocage;
+  /** Afficher ce blocage sur la tuile (dans le prochain batch). */
+  montrerBlocage?: boolean;
+  /** Dans la catégorie Podz de « Weekly update » : un compte à podzer validé. */
+  podzValide?: boolean;
   /** Sa source, si le compte en est déjà une (avec les labels qu'elle porte). */
   source?: SourceDuCompte | null;
 }) {
@@ -48,7 +58,7 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, source }: {
         <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer" className="block break-all text-[13px] font-semibold leading-snug text-stone-900 hover:underline dark:text-stone-100">
           <span className="font-normal text-stone-400">tiktok.com/</span>@{c.handle}
         </a>
-        {(aussi || c.a_podzer || source || blocage) && (
+        {(aussi || c.a_podzer || source || (montrerBlocage && blocage)) && (
           <div className="mt-1 flex flex-wrap gap-1">
             {c.a_podzer && <span className="inline-flex items-center gap-0.5 rounded-full bg-teal-50 px-1.5 py-px text-[10px] font-medium text-teal-700 ring-1 ring-teal-200"><Sparkles className="size-2.5" />à podzer</span>}
             {aussi && <span className="inline-block rounded-full bg-stone-100 px-1.5 py-px text-[10px] text-stone-500 dark:bg-stone-800">aussi ici</span>}
@@ -57,7 +67,7 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, source }: {
                 déjà une source{source.labels.length ? ` · ${source.labels.join(", ")}` : ""}
               </span>
             )}
-            {blocage && blocage !== "podz" && blocage !== "deja_source" && (
+            {montrerBlocage && blocage && blocage !== "podz" && blocage !== "deja_source" && (
               <span
                 data-testid={`blocage-${c.handle}`}
                 className={cn("inline-block rounded-full px-1.5 py-px text-[10px] font-medium ring-1", blocage === "pret" ? "bg-emerald-50 text-emerald-700 ring-emerald-200" : "bg-amber-50 text-amber-700 ring-amber-200")}
@@ -129,11 +139,20 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, source }: {
             <Action icone={RotateCcw} libelle="Restaurer" fort onClick={() => actions.onRestaurer(c)} />
             <Action icone={Trash2} libelle="Supprimer pour de bon" danger onClick={() => actions.onSupprimerDefinitivement(c)} />
           </>
+        ) : podzValide ? (
+          <>
+            <Action icone={ArrowLeft} libelle="Retirer des podz" onClick={() => actions.onPodz(c, false)} />
+            <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
+            <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
+            <Action icone={Trash2} libelle="Supprimer" danger onClick={() => actions.onSupprimer(c)} />
+          </>
         ) : (
           <>
+            {blocage === "pret" && <Action icone={Rocket} libelle="Importer" fort onClick={() => actions.onImporter(c)} />}
+            {c.a_podzer && <Action icone={Check} libelle="Valider le podz" fort onClick={() => actions.onPodz(c, true)} />}
             {c.etape === "prochain_batch"
               ? <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />
-              : <Action icone={ArrowRight} libelle="Prochain batch" fort onClick={() => actions.onEtape(c, "prochain_batch")} />}
+              : <Action icone={ArrowRight} libelle="Prochain batch" fort={blocage !== "pret" && !c.a_podzer} onClick={() => actions.onEtape(c, "prochain_batch")} />}
             <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
             <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
             <Action icone={Trash2} libelle="Supprimer" danger onClick={() => actions.onSupprimer(c)} />

@@ -12,21 +12,22 @@
  */
 import * as React from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { BadgeCheck, ChevronRight, Plus, Rocket, Search } from "lucide-react";
+import { BadgeCheck, Check, ChevronRight, Pencil, Plus, Rocket, Search } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
+import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
-import { DialogueAjout, DialogueLabel } from "./DialoguesBible";
+import { DialogueAjout, DialogueCarte, DialogueLabel } from "./DialoguesBible";
 import { type ComptePret, DialogueLancement } from "./LancementBatch";
 import {
-  type Blocage, blocageImport, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, estVueSource, etapeAvantImport,
-  LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger, restaurerCompte, type Section, SECTIONS,
-  supprimerDefinitivement, validerCarte, type Vue, VUES,
+  type Blocage, blocageImport, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, estPodzValide, estVueSource,
+  etapeAvantImport, lancerBatch, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
+  restaurerCompte, type Section, SECTIONS, supprimerDefinitivement, validerCarte, validerPodz, type Vue, VUES,
 } from "./moodboard";
 import { deciderProposition, lirePropositions, passerDansLaBible, type Proposition } from "./propositions";
-import { compterSources, lireSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
+import { compterSources, ligneResultat, lireSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
 import { type ActionsProposition, VuePropositions } from "./VuePropositions";
 import { VueSources } from "./VueSources";
@@ -61,13 +62,18 @@ export function PageBible() {
   const [ajout, setAjout] = React.useState(false);
   const [aRanger, setARanger] = React.useState<CompteBible | null>(null);
   const [lancement, setLancement] = React.useState<ComptePret[] | null>(null);
+  const [blocAModifier, setBlocAModifier] = React.useState<CarteLabel | null>(null);
   const [occupes, setOccupes] = React.useState<Set<string>>(new Set());
   const [erreur, setErreur] = React.useState<string | null>(null);
+  /** Ce qu'une action vient de faire (un compte lancé, un bloc rattaché), dit en une phrase. */
+  const [info, setInfo] = React.useState<string | null>(null);
 
   const liste = React.useMemo(() => comptes.data ?? [], [comptes.data]);
   const toutes = React.useMemo(() => cartes.data ?? [], [cartes.data]);
   const sources = React.useMemo(() => donnees.data?.sources ?? [], [donnees.data]);
   const regles = donnees.data?.regles ?? REGLES_DEFAUT;
+  // Tous les labels de l'OS : un compte ou un bloc se rattache à n'importe lequel, pas seulement à ceux qui ont déjà un bloc.
+  const labelsOs = React.useMemo(() => (donnees.data?.labels ?? []).map((l) => ({ id: l.id, nom: l.nom })).sort((a, b) => a.nom.localeCompare(b.nom)), [donnees.data]);
 
   const carteParId = React.useMemo(() => new Map(toutes.map((c) => [c.id, c])), [toutes]);
   const sourceParHandle = React.useMemo(() => sourcesParHandle(sources), [sources]);
@@ -75,7 +81,12 @@ export function PageBible() {
   // L'onglet d'un compte avant l'import ; `null` : sa source existe, il se lit dans les onglets des sources.
   const etapeDe = (c: CompteBible) => etapeAvantImport(c, carteDe(c), sourceParHandle.get(c.handle));
 
-  const n: Record<Vue, number> = { propositions: propositions.data?.length ?? 0, ...compterEtapes(liste, etapeDe), ...compterSources(sources) };
+  // Les comptes à podzer validés : jamais importés, rangés dans « Weekly update » (catégorie Podz), à titre indicatif.
+  const podz = liste.filter(estPodzValide);
+  const nSources = compterSources(sources);
+  const n: Record<Vue, number> = {
+    propositions: propositions.data?.length ?? 0, ...compterEtapes(liste, etapeDe), ...nSources, weekly: nSources.weekly + podz.length,
+  };
   // Les onglets tenus à la main sur des comptes de la Bible (pas les propositions, pas les sources).
   const vueComptes = vue !== "propositions" && !estVueSource(vue);
   const groupes = vueComptes ? ranger(liste, toutes, { etape: vue, recherche, section, podzer }, etapeDe) : [];
@@ -90,8 +101,14 @@ export function PageBible() {
     .map((b) => ({ b, nb: batch.filter((c) => blocageDe(c) === b).length }))
     .filter((x) => x.nb > 0);
 
+  const q = recherche.trim().toLowerCase().replace(/^@/, "");
+  const podzVisibles = podz.filter((c) => (!section || (carteDe(c)?.section ?? "sans") === section)
+    && (!q || c.handle.includes(q) || (c.note_import ?? "").toLowerCase().includes(q) || (c.remarque ?? "").toLowerCase().includes(q)));
+  const podzDuBatch = batch.filter((c) => c.a_podzer);
+
   const agir = async (c: CompteBible, f: () => Promise<unknown>) => {
     setErreur(null);
+    setInfo(null);
     setOccupes((s) => new Set(s).add(c.id));
     try {
       await f();
@@ -109,6 +126,33 @@ export function PageBible() {
     onSupprimer: (c) => void agir(c, () => mettreCorbeille(c.id)),
     onRestaurer: (c) => void agir(c, () => restaurerCompte(c.id)),
     onSupprimerDefinitivement: (c) => { if (window.confirm(`Supprimer @${c.handle} pour de bon ? (On ne pourra plus le restaurer.)`)) void agir(c, () => supprimerDefinitivement(c.id)); },
+    onImporter: (c) => importer(c),
+    onPodz: (c, valide) => void agir(c, () => validerPodz([c.id], valide)),
+  };
+  // « Importer » sur une tuile : le compte part seul, tout de suite. Sans langue connue, la fenêtre de lancement la demande.
+  const importer = (c: CompteBible) => {
+    const carte = carteDe(c);
+    if (!carte || blocageDe(c) !== "pret") return;
+    if (!c.langue) { setLancement([{ compte: c, carte }]); return; }
+    const langue = c.langue;
+    if (!window.confirm(`Importer @${c.handle} maintenant ? Label ${nomCarte(carte)}, TikToks en ${nomLangue(langue).toLowerCase()}.\n\nCoût : un relevé Apify, puis l'analyse de chaque post importé (Gemini).`)) return;
+    void agir(c, async () => {
+      const [r] = await lancerBatch([{ id: c.id, langue }]);
+      if (!r) throw new Error(`@${c.handle} n'a pas été lancé.`);
+      const l = ligneResultat(r, regles);
+      if (!l.ok) throw new Error(l.texte);
+      setInfo(l.texte);
+    });
+  };
+  const validerLesPodz = async () => {
+    setErreur(null);
+    try {
+      await validerPodz(podzDuBatch.map((c) => c.id));
+      setInfo(`${podzDuBatch.length} compte${podzDuBatch.length > 1 ? "s" : ""} à podzer validé${podzDuBatch.length > 1 ? "s" : ""} : dans « Weekly update », catégorie Podz.`);
+      rafraichir();
+    } catch (e) {
+      setErreur((e as Error).message);
+    }
   };
   // Une proposition de l'éclaireur : elle entre dans la Bible (puis ses miniatures arrivent), ou elle est décidée.
   const surProposition = async (p: Proposition, f: () => Promise<unknown>) => {
@@ -210,10 +254,19 @@ export function PageBible() {
             <b className="text-stone-900 dark:text-white">{prets.length}</b> prêt{prets.length > 1 ? "s" : ""} à importer.
             {bloques.length > 0 && <span className="text-stone-500"> Les autres : {bloques.map((x) => `${LIBELLE_BLOCAGE[x.b]} (${x.nb})`).join(", ")}.</span>}
           </p>
-          <Button onClick={() => setLancement(prets)} disabled={prets.length === 0}><Rocket className="size-4" /> Lancer l'import ({prets.length})</Button>
+          <div className="flex flex-wrap gap-2">
+            {podzDuBatch.length > 0 && <Button variant="outline" onClick={() => void validerLesPodz()}><Check className="size-4" /> Valider les podz ({podzDuBatch.length})</Button>}
+            <Button onClick={() => setLancement(prets)} disabled={prets.length === 0}><Rocket className="size-4" /> Lancer l'import ({prets.length})</Button>
+          </div>
         </div>
       )}
       {erreur && <p className="text-sm text-destructive">{erreur}</p>}
+      {info && (
+        <p className="flex flex-wrap items-center gap-2 rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200" data-testid="info">
+          {info}
+          <button type="button" className="ml-auto text-xs underline-offset-2 hover:underline" onClick={() => setInfo(null)}>Fermer</button>
+        </p>
+      )}
       {(comptes.isLoading || cartes.isLoading || (estVueSource(vue) && donnees.isLoading) || (vue === "propositions" && propositions.isLoading)) && <p className="text-sm text-stone-500">Chargement…</p>}
       {vue === "propositions" && propositions.isError && <p className="text-sm text-destructive">Les propositions n'ont pas pu être lues : {(propositions.error as Error).message}</p>}
       {donnees.isError && <p className="text-sm text-destructive">Les sources n'ont pas pu être lues : {(donnees.error as Error).message}</p>}
@@ -231,7 +284,24 @@ export function PageBible() {
           />
         )
       ) : estVueSource(vue) ? (
-        donnees.data && <VueSources etape={vue} donnees={donnees.data} cartes={toutes} recherche={recherche} section={section} />
+        <>
+          {donnees.data && <VueSources etape={vue} donnees={donnees.data} cartes={toutes} recherche={recherche} section={section} />}
+          {vue === "weekly" && podzVisibles.length > 0 && (
+            <section className="space-y-4 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="podz">
+              <div className="space-y-1">
+                <h2 className="flex items-baseline gap-2.5">
+                  <span className="size-2.5 translate-y-[-2px] rounded-full bg-teal-400" aria-hidden />
+                  <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">Podz</span>
+                  <span className="text-sm tabular-nums text-stone-400">· {podzVisibles.length} compte{podzVisibles.length > 1 ? "s" : ""}</span>
+                </h2>
+                <p className="text-sm text-stone-500">À titre indicatif : ces comptes inspirent un podz. Ils ne sont ni importés ni mis à jour.</p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {podzVisibles.map((c) => <TuileCompte key={c.id} c={c} actions={actions} occupe={occupes.has(c.id)} podzValide />)}
+              </div>
+            </section>
+          )}
+        </>
       ) : (
         <div className="space-y-10 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="moodboard">
           {!comptes.isLoading && groupes.length === 0 && (
@@ -256,16 +326,30 @@ export function PageBible() {
                             <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{nomCarte(carte)}</code>
                             <span className={cn("rounded-full px-2 py-0.5 text-[11px] font-medium ring-1", BADGE[carte.badge])}>{LIBELLE_BADGE[carte.badge]}</span>
                             <span className="text-xs tabular-nums text-stone-400">{cs.length}</span>
-                            {vue !== "corbeille" && carteValidable(carte) && (
-                              <button
-                                type="button"
-                                onClick={() => void validerLabel(carte)}
-                                title="Ce label n'existe pas encore dans l'OS : ses comptes ne peuvent pas être importés tant qu'il n'est pas créé."
-                                className="ml-auto inline-flex h-7 items-center gap-1 rounded-full border border-stone-200 bg-white px-2.5 text-[11px] font-medium text-stone-700 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200"
-                              >
-                                <BadgeCheck className="size-3.5" aria-hidden />
-                                Créer ce label
-                              </button>
+                            {/* Un bloc dont le label n'existe pas encore : on le crée, on le corrige, ou on le rattache à un label de l'OS. */}
+                            {vue !== "corbeille" && !carte.label_id && (
+                              <span className="ml-auto flex flex-wrap gap-1.5">
+                                <button
+                                  type="button"
+                                  onClick={() => setBlocAModifier(carte)}
+                                  title="Corriger ce label proposé, ou rattacher le bloc à un label qui existe déjà dans l'OS."
+                                  className="inline-flex h-7 items-center gap-1 rounded-full border border-stone-200 bg-white px-2.5 text-[11px] font-medium text-stone-700 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200"
+                                >
+                                  <Pencil className="size-3.5" aria-hidden />
+                                  Modifier ou rattacher
+                                </button>
+                                {carteValidable(carte) && (
+                                  <button
+                                    type="button"
+                                    onClick={() => void validerLabel(carte)}
+                                    title="Ce label n'existe pas encore dans l'OS : ses comptes ne peuvent pas être importés tant qu'il n'est pas créé."
+                                    className="inline-flex h-7 items-center gap-1 rounded-full border border-stone-200 bg-white px-2.5 text-[11px] font-medium text-stone-700 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200"
+                                  >
+                                    <BadgeCheck className="size-3.5" aria-hidden />
+                                    Créer ce label
+                                  </button>
+                                )}
+                              </span>
                             )}
                           </div>
                           {carte.description_da && <p className="max-w-3xl text-sm text-stone-500">{carte.description_da}</p>}
@@ -280,7 +364,8 @@ export function PageBible() {
                             actions={actions}
                             occupe={occupes.has(compte.id)}
                             source={vue === "corbeille" ? null : sourceParHandle.get(compte.handle)}
-                            blocage={vue === "prochain_batch" ? blocageDe(compte) : undefined}
+                            blocage={vue === "corbeille" ? undefined : blocageDe(compte)}
+                            montrerBlocage={vue === "prochain_batch"}
                           />
                         ))}
                       </div>
@@ -293,8 +378,9 @@ export function PageBible() {
         </div>
       )}
 
-      <DialogueLabel compte={aRanger} cartes={toutes} onFermer={() => setARanger(null)} onChoisir={async (carte) => { if (aRanger) await agir(aRanger, () => changerCarte(aRanger.id, carte)); }} />
-      <DialogueAjout ouvert={ajout} cartes={toutes} onFermer={() => setAjout(false)} onFini={rafraichir} />
+      <DialogueLabel compte={aRanger} cartes={toutes} labels={labelsOs} onFermer={() => setARanger(null)} onChoisir={async (carte) => { if (aRanger) await agir(aRanger, () => changerCarte(aRanger.id, carte)); }} />
+      <DialogueAjout ouvert={ajout} cartes={toutes} labels={labelsOs} onFermer={() => setAjout(false)} onFini={rafraichir} />
+      <DialogueCarte carte={blocAModifier} labels={labelsOs} onFermer={() => setBlocAModifier(null)} onFini={(message) => { setErreur(null); setInfo(message); rafraichir(); }} />
       <DialogueLancement
         prets={lancement}
         regles={regles}

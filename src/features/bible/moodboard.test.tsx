@@ -9,6 +9,7 @@ import type { DonneesSources, SourceBible } from "./sources";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), lancerBatch: vi.fn(), validerCarte: vi.fn(), changerCarte: vi.fn(),
+  validerPodz: vi.fn(), rattacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(),
   modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
@@ -252,6 +253,85 @@ describe("page Bible", () => {
 
     fireEvent.click(screen.getByRole("tab", { name: /À l'essai/ }));
     expect(await screen.findByTestId("etat-source.ailleurs")).toHaveTextContent("Essai : 30 sur 30 importés, 6 sur 10 mesurés");
+  });
+
+  it("« Importer » sur une tuile dont le label existe : le compte part seul ; sans langue connue, la fenêtre la demande", async () => {
+    api.lireComptes.mockResolvedValue([
+      compte({ id: "c2", handle: "pret.avec.langue", label_propose_id: "k3", langue: "de" }),
+      compte({ id: "c3", handle: "pret.sans.langue", etape: "prochain_batch", label_propose_id: "k3" }),
+      compte({ id: "c4", handle: "label.propose", label_propose_id: "k2" }),
+    ]);
+    api.lancerBatch.mockResolvedValue([{ id: "c2", handle: "pret.avec.langue", statut: "lancee", essai_max: null }]);
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendre();
+    const tuile = (await screen.findByText(/pret\.avec\.langue/)).closest("[data-compte]") as HTMLElement;
+    // Pas de bouton tant que le label n'existe pas.
+    expect(within(screen.getByText(/label\.propose/).closest("[data-compte]") as HTMLElement).queryByRole("button", { name: "Importer" })).toBeNull();
+    fireEvent.click(within(tuile).getByRole("button", { name: "Importer" }));
+    expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Importer @pret.avec.langue maintenant ? Label smart_girl, TikToks en allemand."));
+    await waitFor(() => expect(api.lancerBatch).toHaveBeenCalledWith([{ id: "c2", langue: "de" }]));
+    expect(await screen.findByTestId("info")).toHaveTextContent("@pret.avec.langue : dans la séquence d'import, ses 100 posts les plus vus");
+    confirmer.mockRestore();
+
+    fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
+    const sansLangue = (await screen.findByText(/pret\.sans\.langue/)).closest("[data-compte]") as HTMLElement;
+    fireEvent.click(within(sansLangue).getByRole("button", { name: "Importer" }));
+    expect(await screen.findByRole("button", { name: "Lancer l'import de 1 compte" })).toBeDisabled();
+    expect(screen.getByLabelText("Langue de @pret.sans.langue")).toBeInTheDocument();
+  });
+
+  it("un bloc sans vrai label : « Modifier ou rattacher » le rattache à un label de l'OS, ou corrige son nom", async () => {
+    api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c2", handle: "clean", label_propose_id: "k2" }), compte({ id: "c3", handle: "chiara", label_propose_id: "k3" })]);
+    src.lireSources.mockResolvedValue(donnees([], { labels: [
+      { id: "L1", nom: "smart_girl", style_theme: null, application_id: "00000000-0000-4000-8000-000000000001", apps: ["00000000-0000-4000-8000-000000000001"] },
+      { id: "L7", nom: "History", style_theme: null, application_id: "00000000-0000-4000-8000-000000000001", apps: ["00000000-0000-4000-8000-000000000001"] },
+    ] }));
+    api.rattacherCarte.mockResolvedValue({ fusion: false, comptes: 1, label: "History" });
+    api.modifierCarte.mockResolvedValue(undefined);
+    rendre();
+    const bloc = (await screen.findByText("clean_girl")).closest("[data-carte]") as HTMLElement;
+    // Un bloc dont le label existe n'a rien à rattacher.
+    expect(within(screen.getByText("smart_girl").closest("[data-carte]") as HTMLElement).queryByRole("button", { name: "Modifier ou rattacher" })).toBeNull();
+    fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
+    const choix = await screen.findByLabelText("Label de l'OS");
+    expect(within(choix).getAllByRole("option").map((o) => o.textContent)).toEqual(["Choisir un label…", "History", "smart_girl"]);
+    fireEvent.change(choix, { target: { value: "L7" } });
+    fireEvent.click(screen.getByRole("button", { name: "Rattacher" }));
+    await waitFor(() => expect(api.rattacherCarte).toHaveBeenCalledWith("k2", "L7"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("Le bloc est rattaché à History : 1 compte importable.");
+
+    fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
+    fireEvent.change(await screen.findByLabelText("Nom du label"), { target: { value: "clean girl sophia" } });
+    fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
+    await waitFor(() => expect(api.modifierCarte).toHaveBeenCalledWith("k2", { nom: "clean_girl_sophia", section: "sophia", description: "Coureuse en photo iPhone" }));
+  });
+
+  it("comptes à podzer : « Valider le podz » (ou tous ceux du batch) ; validés, ils sont dans Weekly update, catégorie Podz, jamais importés", async () => {
+    api.lireComptes.mockResolvedValue([
+      compte({ id: "c2", handle: "a.valider", etape: "prochain_batch", label_propose_id: "k3", a_podzer: true }),
+      compte({ id: "c3", handle: "deja.valide", etape: "importe", label_propose_id: "k3", a_podzer: true, note_import: "collage rose" }),
+    ]);
+    api.validerPodz.mockResolvedValue(undefined);
+    rendre();
+    // Le podz validé ne compte plus dans les onglets d'avant import : il est dans Weekly update.
+    expect(await screen.findByRole("tab", { name: /Prochain batch 1/ })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: /À importer 0/ })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: /Weekly update 1/ })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
+    const tuile = (await screen.findByText(/a\.valider/)).closest("[data-compte]") as HTMLElement;
+    expect(within(tuile).queryByRole("button", { name: "Importer" })).toBeNull();
+    fireEvent.click(within(tuile).getByRole("button", { name: "Valider le podz" }));
+    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["c2"], true));
+    fireEvent.click(within(screen.getByTestId("barre-batch")).getByRole("button", { name: /Valider les podz \(1\)/ }));
+    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["c2"]));
+
+    fireEvent.click(screen.getByRole("tab", { name: /Weekly update/ }));
+    const categorie = await screen.findByTestId("podz");
+    expect(categorie).toHaveTextContent("Podz· 1 compte");
+    expect(categorie).toHaveTextContent("Ils ne sont ni importés ni mis à jour.");
+    const valide = within(categorie).getByText(/deja\.valide/).closest("[data-compte]") as HTMLElement;
+    fireEvent.click(within(valide).getByRole("button", { name: "Retirer des podz" }));
+    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["c3"], false));
   });
 
   it("« Créer ce label » sur une carte proposée d'une app qui existe, Atala comprise", async () => {

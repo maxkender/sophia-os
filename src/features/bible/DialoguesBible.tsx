@@ -1,7 +1,10 @@
 /**
- * 19/11 (Max) : les deux fenêtres de la Bible. « Changer de label » (labels existants et proposés, ou + nouveau label :
+ * 19/11 (Max) : les fenêtres de la Bible. « Changer de label » (labels existants et proposés, ou + nouveau label :
  * nom, app, description de la DA → proposition à valider) et « + Ajouter des comptes » (plusieurs liens d'un coup,
  * une app, un label → À importer, puis les 3 derniers TikToks, les miniatures et les stats).
+ *
+ * 19/11 (Adrien) : un compte se range sous N'IMPORTE QUEL label de l'OS (son bloc est créé s'il n'en avait pas), et
+ * un bloc dont le label n'existe pas encore se modifie ou se rattache à un label de l'OS (« Modifier ou rattacher »).
  */
 import * as React from "react";
 
@@ -12,15 +15,26 @@ import { cn } from "@/lib/utils";
 
 import { resoudreLiens } from "./api";
 import {
-  ajouterComptes, type CarteLabel, type CompteBible, creerCarte, handlesDuTexte, LIBELLE_BADGE, nomCarte, rafraichirMiniatures, REMARQUE_UGC, type Section, SECTIONS,
+  ajouterComptes, type CarteLabel, carteDuLabel, type CompteBible, creerCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, modifierCarte, nomCarte,
+  rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS,
 } from "./moodboard";
 import { nomLabelValide } from "./parse";
 
 const CHAMP = "h-9 w-full rounded-lg border border-stone-200 bg-white px-3 text-sm dark:border-stone-700 dark:bg-stone-900";
 const NOUVEAU = "__nouveau__";
+/** Un label de l'OS qui n'a pas encore de bloc dans la Bible : « label:<id> ». */
+const LABEL = "label:";
 
-/** Le choix d'une carte, groupé par app, avec « + nouveau label ». */
-function ChoixCarte({ cartes, valeur, onChange, sections: filtre }: { cartes: CarteLabel[]; valeur: string; onChange: (v: string) => void; sections?: Section[] }) {
+/** La carte choisie dans la liste : un bloc, un label de l'OS (son bloc est créé), ou rien. */
+async function carteChoisie(valeur: string, cartes: CarteLabel[]): Promise<CarteLabel | null> {
+  if (valeur.startsWith(LABEL)) return carteDuLabel(valeur.slice(LABEL.length));
+  return cartes.find((c) => c.id === valeur) ?? null;
+}
+
+/** Le choix d'une carte, groupé par app, puis les labels de l'OS sans bloc, avec « + nouveau label ». */
+function ChoixCarte({ cartes, valeur, onChange, sections: filtre, labelsLibres = [] }: {
+  cartes: CarteLabel[]; valeur: string; onChange: (v: string) => void; sections?: Section[]; labelsLibres?: LabelOs[];
+}) {
   const sections = SECTIONS.filter((s) => s.cle !== "sans" && (!filtre?.length || filtre.includes(s.cle as Section) || s.cle === "idees"));
   return (
     <select className={CHAMP} value={valeur} onChange={(e) => onChange(e.target.value)} aria-label="Label">
@@ -30,6 +44,11 @@ function ChoixCarte({ cartes, valeur, onChange, sections: filtre }: { cartes: Ca
           {cartes.filter((c) => c.section === s.cle).map((c) => <option key={c.id} value={c.id}>{nomCarte(c)} · {LIBELLE_BADGE[c.badge]}</option>)}
         </optgroup>
       ))}
+      {labelsLibres.length > 0 && (
+        <optgroup label="Autres labels de l'OS">
+          {labelsLibres.map((l) => <option key={l.id} value={LABEL + l.id}>{l.nom} · existe</option>)}
+        </optgroup>
+      )}
       <option value={NOUVEAU}>+ nouveau label</option>
     </select>
   );
@@ -53,8 +72,8 @@ function NouveauLabel({ section, onSection, nom, onNom, description, onDescripti
   );
 }
 
-export function DialogueLabel({ compte, cartes, onFermer, onChoisir }: {
-  compte: CompteBible | null; cartes: CarteLabel[]; onFermer: () => void; onChoisir: (carte: CarteLabel) => Promise<void>;
+export function DialogueLabel({ compte, cartes, labels = [], onFermer, onChoisir }: {
+  compte: CompteBible | null; cartes: CarteLabel[]; labels?: LabelOs[]; onFermer: () => void; onChoisir: (carte: CarteLabel) => Promise<void>;
 }) {
   const [valeur, setValeur] = React.useState("");
   const [section, setSection] = React.useState<Section>("sophia");
@@ -67,7 +86,7 @@ export function DialogueLabel({ compte, cartes, onFermer, onChoisir }: {
     setOccupe(true);
     setErreur(null);
     try {
-      const carte = valeur === NOUVEAU ? await creerCarte({ nom, section, description }) : cartes.find((c) => c.id === valeur);
+      const carte = valeur === NOUVEAU ? await creerCarte({ nom, section, description }) : await carteChoisie(valeur, cartes);
       if (carte) await onChoisir(carte);
       onFermer();
     } catch (e) {
@@ -84,13 +103,91 @@ export function DialogueLabel({ compte, cartes, onFermer, onChoisir }: {
           <DialogDescription>@{compte?.handle}</DialogDescription>
         </DialogHeader>
         <DialogPanel className="space-y-3 pb-5">
-          <ChoixCarte cartes={cartes} valeur={valeur} onChange={setValeur} />
+          <ChoixCarte cartes={cartes} valeur={valeur} onChange={setValeur} labelsLibres={labelsSansBloc(labels, cartes)} />
           {valeur === NOUVEAU && <NouveauLabel section={section} onSection={setSection} nom={nom} onNom={setNom} description={description} onDescription={setDescription} />}
           {erreur && <p className="text-sm text-destructive">{erreur}</p>}
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={onFermer}>Annuler</Button>
             <Button onClick={valider} disabled={occupe || !valeur || (valeur === NOUVEAU && !nomLabelValide(nom))}>Ranger ici</Button>
           </div>
+        </DialogPanel>
+      </DialogPopup>
+    </Dialog>
+  );
+}
+
+/**
+ * « Modifier ou rattacher » : un bloc dont le label n'existe pas encore dans l'OS. On le rattache à un label de l'OS
+ * (ses comptes prennent ce label et deviennent importables ; si le label avait déjà son bloc, ils le rejoignent), ou
+ * on corrige son nom, son app et sa DA avant de le créer.
+ */
+export function DialogueCarte({ carte, labels, onFermer, onFini }: { carte: CarteLabel | null; labels: LabelOs[]; onFermer: () => void; onFini: (message: string) => void }) {
+  const [labelId, setLabelId] = React.useState("");
+  const [nom, setNom] = React.useState("");
+  const [section, setSection] = React.useState<Section>("sophia");
+  const [description, setDescription] = React.useState("");
+  const [erreur, setErreur] = React.useState<string | null>(null);
+  const [occupe, setOccupe] = React.useState(false);
+  React.useEffect(() => {
+    setLabelId(""); setErreur(null);
+    setNom(carte?.nom ?? ""); setSection(carte?.section ?? "sophia"); setDescription(carte?.description_da ?? "");
+  }, [carte]);
+  const faire = async (f: () => Promise<string>) => {
+    setOccupe(true);
+    setErreur(null);
+    try {
+      onFini(await f());
+      onFermer();
+    } catch (e) {
+      setErreur((e as Error).message);
+    } finally {
+      setOccupe(false);
+    }
+  };
+  const rattacher = () => faire(async () => {
+    const r = await rattacherCarte(carte!.id, labelId);
+    return r.fusion
+      ? `${r.comptes} compte${r.comptes > 1 ? "s" : ""} rangé${r.comptes > 1 ? "s" : ""} sous ${r.label}, qui avait déjà son bloc.`
+      : `Le bloc est rattaché à ${r.label} : ${r.comptes} compte${r.comptes > 1 ? "s" : ""} importable${r.comptes > 1 ? "s" : ""}.`;
+  });
+  const enregistrer = () => faire(async () => {
+    await modifierCarte(carte!.id, { nom, section, description });
+    return `Le label proposé s'appelle ${nom}.`;
+  });
+  return (
+    <Dialog open={Boolean(carte)} onOpenChange={(o) => !o && onFermer()}>
+      <DialogPopup className="max-w-md">
+        <DialogHeader>
+          <DialogTitle className="text-base">Modifier ou rattacher</DialogTitle>
+          <DialogDescription>Le bloc « {carte ? nomCarte(carte) : ""} » : son label n'existe pas encore dans l'OS.</DialogDescription>
+        </DialogHeader>
+        <DialogPanel className="space-y-4 pb-5">
+          <div className="space-y-2">
+            <p className="text-xs font-medium text-stone-500">Le rattacher à un label de l'OS</p>
+            <div className="flex gap-2">
+              <select className={CHAMP} value={labelId} onChange={(e) => setLabelId(e.target.value)} aria-label="Label de l'OS">
+                <option value="">Choisir un label…</option>
+                {labels.map((l) => <option key={l.id} value={l.id}>{l.nom}</option>)}
+              </select>
+              <Button onClick={rattacher} disabled={occupe || !labelId}>Rattacher</Button>
+            </div>
+            <p className="text-[11px] text-stone-500">Les comptes du bloc prennent ce label et deviennent importables. Si le label a déjà son bloc, ils le rejoignent.</p>
+          </div>
+          <div className="space-y-2 border-t border-stone-200 pt-4 dark:border-stone-800">
+            <p className="text-xs font-medium text-stone-500">Ou corriger le label proposé</p>
+            <div className="grid gap-2 sm:grid-cols-2">
+              <input className={cn(CHAMP, "font-mono")} aria-label="Nom du label" value={nom} onChange={(e) => setNom(e.target.value.toLowerCase().replace(/\s+/g, "_"))} />
+              <select className={CHAMP} value={section} onChange={(e) => setSection(e.target.value as Section)} aria-label="App du label">
+                {SECTIONS.filter((s) => s.cle !== "sans").map((s) => <option key={s.cle} value={s.cle}>{s.libelle}</option>)}
+              </select>
+            </div>
+            <input className={CHAMP} aria-label="DA du label" placeholder="La DA en une ligne (photos, texte, couleur, vibe)" value={description} onChange={(e) => setDescription(e.target.value)} />
+            {nom && !nomLabelValide(nom) && <p className="text-xs text-destructive">Le nom : minuscules, chiffres et _ (ex. study_notes).</p>}
+            <div className="flex justify-end">
+              <Button variant="outline" onClick={enregistrer} disabled={occupe || !nomLabelValide(nom)}>Enregistrer</Button>
+            </div>
+          </div>
+          {erreur && <p className="text-sm text-destructive">{erreur}</p>}
         </DialogPanel>
       </DialogPopup>
     </Dialog>
@@ -104,7 +201,7 @@ const APPS: { cle: Section; libelle: string }[] = [
   { cle: "sophia", libelle: "Sophia" },
 ];
 
-export function DialogueAjout({ ouvert, cartes, onFermer, onFini }: { ouvert: boolean; cartes: CarteLabel[]; onFermer: () => void; onFini: () => void }) {
+export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }: { ouvert: boolean; cartes: CarteLabel[]; labels?: LabelOs[]; onFermer: () => void; onFini: () => void }) {
   const [texte, setTexte] = React.useState("");
   const [apps, setApps] = React.useState<Section[]>([]);
   const [valeur, setValeur] = React.useState("");
@@ -129,7 +226,7 @@ export function DialogueAjout({ ouvert, cartes, onFermer, onFini }: { ouvert: bo
         if (h && !handles.includes(h)) { handles.push(h); if (remarques[u]) rem[h] = remarques[u]!; }
       }
       if (!handles.length) throw new Error("Aucun lien TikTok reconnu.");
-      const carte = valeur === NOUVEAU ? await creerCarte({ nom, section: apps[0] ?? "sophia", description }) : cartes.find((c) => c.id === valeur) ?? null;
+      const carte = valeur === NOUVEAU ? await creerCarte({ nom, section: apps[0] ?? "sophia", description }) : await carteChoisie(valeur, cartes);
       const sections = apps.length ? apps : carte && carte.section !== "idees" ? [carte.section] : [];
       const r = await ajouterComptes(handles, carte, sections, { a_podzer: podzer, remarques: rem });
       setBilan(`${r.crees.length} ajouté${r.crees.length > 1 ? "s" : ""}${r.deja.length ? `, ${r.deja.length} déjà dans la Bible (rangé${r.deja.length > 1 ? "s" : ""} ici)` : ""}. Les miniatures arrivent dans une minute.`);
@@ -176,7 +273,7 @@ export function DialogueAjout({ ouvert, cartes, onFermer, onFini }: { ouvert: bo
           </div>
 
           <div className="grid gap-2 sm:grid-cols-[1fr_auto] sm:items-center">
-            <ChoixCarte cartes={cartes} valeur={valeur} onChange={setValeur} sections={apps} />
+            <ChoixCarte cartes={cartes} valeur={valeur} onChange={setValeur} sections={apps} labelsLibres={labelsSansBloc(labels, cartes)} />
             <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-stone-200 px-3 py-1.5 text-sm dark:border-stone-700">
               <input type="checkbox" checked={podzer} onChange={(e) => setPodzer(e.target.checked)} className="size-4 accent-teal-600" />
               À podzer

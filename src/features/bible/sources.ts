@@ -339,15 +339,15 @@ export function regleDeLaVue(vue: Vue, r: ReglesSources): string {
     case "propositions":
       return "Les comptes que l'agent éclaireur trouve chaque jour. Passe ceux que tu gardes dans « À importer », ou directement dans « Prochain batch » ; mets les autres à plus tard, ou refuse-les avec la raison (l'agent la relit).";
     case "a_importer":
-      return "Les comptes repérés. Passe dans « Prochain batch » ceux que tu veux importer.";
+      return "Les comptes repérés. Un compte dont le label existe s'importe d'un clic (« Importer ») ; passe les autres dans « Prochain batch », le temps de régler leur label.";
     case "prochain_batch":
-      return "Les comptes choisis pour le prochain import. « Lancer l'import » crée leurs sources et les met dans la file : il faut un vrai label, et les comptes à podzer ne partent pas.";
+      return "Les comptes choisis pour le prochain import. « Lancer l'import » crée leurs sources et les met dans la file ; un compte prêt part aussi seul, d'un clic. Il faut un vrai label : crée-le, ou rattache son bloc à un label de l'OS (« Modifier ou rattacher »). Les comptes à podzer ne partent pas : valide-les, ils se rangent dans « Weekly update », catégorie Podz.";
     case "en_import":
       return "Les sources créées, dans la file ou en cours d'import, une à la fois. Elles passent seules à l'étape suivante.";
     case "essai":
       return `Une source neuve n'importe d'abord que ses ${r.essaiPosts} posts les plus vus. Le lundi, dès ${r.essaiMesuresMin} posts mesurés chez nous : avec un r au-dessus de ${seuil(r.rMin)} (ou de ${seuil(r.rVsLabelMin)} face à son label) elle passe en Weekly update, sinon elle est arrêtée. Pas d'essai dans un label neuf (${labelNeuf(r)}) : la source va droit en Weekly update avec ses ${r.postsMaxParMaj} posts les plus vus.`;
     case "weekly":
-      return `Le lundi à 6 h, l'OS choisit les sources à mettre à jour dans la semaine : celles dont le r dépasse ${seuil(r.rMin)}, ou ${seuil(r.rVsLabelMin)} face à leur label, qui ont un post à ${nombre(r.vuesCoup)} vues, ou moins de ${r.postsMin} posts mesurés. Les mises à jour partent ensuite chaque matin à 6 h 37, ${r.lotMax} sources par jour, ${r.postsMaxParMaj} posts de plus au maximum par source. Les autres sont rejugées le lundi suivant.`;
+      return `Le lundi à 6 h, l'OS choisit les sources à mettre à jour dans la semaine : celles dont le r dépasse ${seuil(r.rMin)}, ou ${seuil(r.rVsLabelMin)} face à leur label, qui ont un post à ${nombre(r.vuesCoup)} vues, ou moins de ${r.postsMin} posts mesurés. Les mises à jour partent ensuite chaque matin à 6 h 37, ${r.lotMax} sources par jour, ${r.postsMaxParMaj} posts de plus au maximum par source. Les autres sont rejugées le lundi suivant. Les comptes à podzer validés y figurent à part, à titre indicatif.`;
     case "arretees":
       return "Les essais ratés et les sources désactivées : elles ne sont plus mises à jour.";
     case "corbeille":

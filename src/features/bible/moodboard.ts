@@ -178,8 +178,22 @@ export interface SourceDuCompte {
  * pas encore (ex. une source Sophia qu'on veut aussi sous un label Micabo).
  */
 export function etapeAvantImport(c: CompteBible, carte: CarteLabel | null | undefined, source: SourceDuCompte | null | undefined): EtapeManuelle | null {
+  if (estPodzValide(c)) return null;
   if (source && (!carte || (carte.label_id !== null && source.labelIds.includes(carte.label_id)))) return null;
   return c.etape === "prochain_batch" ? "prochain_batch" : "a_importer";
+}
+
+/**
+ * Un compte « à podzer » validé : il inspire un podz, il n'est jamais importé. Il quitte les onglets d'avant import
+ * et se range dans « Weekly update », catégorie Podz, à titre indicatif (aucune source, aucune mise à jour).
+ */
+export const estPodzValide = (c: CompteBible): boolean => !c.supprime_at && c.a_podzer && c.etape === "importe";
+
+/** Valide des comptes à podzer (ils passent dans la catégorie Podz), ou les en retire. */
+export async function validerPodz(ids: string[], valide = true): Promise<void> {
+  const { error } = await supabase.from("bible_comptes")
+    .update({ etape: valide ? "importe" : "a_importer", etape_at: new Date().toISOString() }).in("id", ids).eq("a_podzer", true);
+  if (error) throw new Error(error.message);
 }
 
 /** Pourquoi un compte du prochain batch peut partir à l'import, ou pas. */
@@ -210,6 +224,40 @@ export const carteValidable = (c: CarteLabel): boolean =>
 export async function changerCarte(id: string, carte: CarteLabel): Promise<void> {
   const { error } = await supabase.from("bible_comptes")
     .update({ label_propose_id: carte.id, label_id: carte.label_id, ...APP_SECTION[carte.section] }).eq("id", id);
+  if (error) throw new Error(error.message);
+}
+
+/** Un label de l'OS, pour les listes de choix. */
+export interface LabelOs {
+  id: string;
+  nom: string;
+}
+
+/** Les labels de l'OS qui n'ont pas encore de bloc dans la Bible. */
+export const labelsSansBloc = (labels: LabelOs[], cartes: CarteLabel[]): LabelOs[] => labels.filter((l) => !cartes.some((c) => c.label_id === l.id));
+
+/** La carte d'un label de l'OS, créée (« existe ») s'il n'en avait pas : pour ranger un compte sous n'importe quel label existant. */
+export async function carteDuLabel(labelId: string): Promise<CarteLabel> {
+  const { data, error } = await supabase.rpc("bible_carte_du_label", { p_label: labelId });
+  if (error) throw new Error(error.message);
+  return data as unknown as CarteLabel;
+}
+
+/**
+ * Rattache un bloc sans vrai label à un label de l'OS : ses comptes prennent ce label et deviennent importables.
+ * Si le label avait déjà son bloc, les comptes le rejoignent (`fusion`).
+ */
+export async function rattacherCarte(carteId: string, labelId: string): Promise<{ fusion: boolean; comptes: number; label: string }> {
+  const { data, error } = await supabase.rpc("bible_carte_rattacher", { p_carte: carteId, p_label: labelId });
+  if (error) throw new Error(error.message);
+  const r = (data ?? {}) as { fusion?: boolean; comptes?: number; label?: string };
+  return { fusion: Boolean(r.fusion), comptes: Number(r.comptes ?? 0), label: r.label ?? "" };
+}
+
+/** Le nom, l'app et la DA d'un label encore proposé (un vrai label se modifie dans Labels & applications). */
+export async function modifierCarte(id: string, p: { nom: string; section: Section; description: string }): Promise<void> {
+  const { error } = await supabase.from("labels_proposes")
+    .update({ nom: p.nom, description_da: p.description.trim() || null, section: p.section, ...APP_SECTION[p.section] }).eq("id", id).is("label_id", null);
   if (error) throw new Error(error.message);
 }
 

@@ -133,6 +133,10 @@ Deno.serve(async (request) => {
         // 18/11 (Max) : kills, partie 3 : le rapport du samedi (OS + #a-os-tickets) ; « envoyer: false » = sans Slack.
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
         return json(await rapportSamedi(db, typeof body.samedi === "string" ? body.samedi : null, body.envoyer !== false));
+      case "nudge_jeudi_ruul":
+        // 19/11 (Max) : le nudge du jeudi d'un posteur Ruul : email + bandeau sur son dashboard (jamais de DM Slack).
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await nudgeJeudiRuul(db, String(body.lundi ?? ""), Array.isArray(body.comptes) ? body.comptes.map(String) : [], body.simuler === true));
       case "textes_fin":
         // 18/11 (Max) : kills, parties 1 et 2 : textes au posteur (page de fin, bandeau) et message de fin (cron */10).
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
@@ -930,6 +934,65 @@ async function textesFin(db: Db, simuler: boolean) {
     } catch (e) {
       bilan.erreurs.push(`${t.poster_id} ${t.cle} : ${messageErreur(e).slice(0, 160)}`);
     }
+  }
+  return { ok: true, simulation: simuler, ...bilan };
+}
+
+interface NudgeRuul { poster_id: string; compte_id: string; prenom: string | null; faits: number; attendus: number; texte_en: string; deja: boolean }
+
+/**
+ * 19/11 (Max) : le nudge du jeudi pour les posteurs Ruul : le texte du nudge (jeudi_nudge_texte), traduit dans sa langue,
+ * par email et en bandeau sur son dashboard. Jamais en DM Slack. Noté dans nudges (canal « os ») : la ligne du jeudi
+ * affiche « déjà nudgé ». Un canal qui ne peut pas partir n'est pas un échec du nudge tant que l'autre est parti.
+ */
+async function nudgeJeudiRuul(db: Db, lundi: string, comptes: string[], simuler: boolean) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(lundi)) return { ok: false, error: "lundi invalide" };
+  const ids = comptes.filter((c) => /^[0-9a-f-]{36}$/.test(c));
+  if (!ids.length) return { ok: true, envoyes: 0, deja: 0, erreurs: [] };
+  const { data: pause } = await db.rpc("automation_en_pause");
+  if (pause === true && !simuler) return { ok: false, error: "automatisation en pause : rien n'est parti" };
+  const { data, error } = await db.rpc("jeudi_nudges_ruul", { p_lundi: lundi, p_comptes: ids });
+  if (error) throw new Error(error.message);
+  const bilan = { envoyes: 0, deja: 0, email: 0, bandeau: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; texte: string }[] };
+  for (const n of (data ?? []) as NudgeRuul[]) {
+    if (n.deja) {
+      bilan.deja++;
+      continue;
+    }
+    const { data: compte } = await db.from("comptes").select("pays").eq("id", n.compte_id).maybeSingle();
+    const { data: lg } = await db.rpc("parrainage_langue_pays", { p_pays: compte?.pays ?? null });
+    const langue = typeof lg === "string" ? lg : null;
+    const texte = await traduire(n.texte_en, langue);
+    if (simuler) {
+      if (bilan.exemples.length < 3) bilan.exemples.push({ langue, texte });
+      continue;
+    }
+    const canaux: string[] = [];
+    const erreurs: string[] = [];
+    // Le bandeau sur son dashboard (jusqu'à « Got it »).
+    const { error: eB } = await db.rpc("texte_poster_ecrire", { p_poster: n.poster_id, p_cle: `nudge_jeudi:${lundi}`, p_en: n.texte_en, p_texte: texte, p_langue: langue });
+    if (eB) erreurs.push(`bandeau : ${eB.message}`);
+    else {
+      canaux.push("dashboard");
+      bilan.bandeau++;
+    }
+    // L'email, à sa vraie adresse.
+    const c = await contactPosteur(db, n.poster_id);
+    if (c.email) {
+      const objet = await traduire("This week's posts", langue);
+      const e = rendreEmailRuul({ objet, titre: "Vik Studios", corps: texte, lienStop: OS_URL, sansPied: true });
+      const r = await envoyerEmailSite(c.email, objet, e.html, e.texte, OS_URL, ["nudge_jeudi"]);
+      if (r.ok) {
+        canaux.push("email");
+        bilan.email++;
+      } else erreurs.push(`email : ${String(r.erreur ?? "échec")}`);
+    } else erreurs.push("email : pas d'adresse connue");
+    const { error: eN } = await db.rpc("jeudi_nudge_ruul_noter", {
+      p_poster: n.poster_id, p_compte: n.compte_id, p_lundi: lundi, p_texte: texte, p_canaux: canaux, p_erreur: erreurs.length ? erreurs.join(" ; ") : null,
+    });
+    if (eN) erreurs.push(`noter : ${eN.message}`);
+    if (canaux.length) bilan.envoyes++;
+    if (erreurs.length) bilan.erreurs.push(`${n.poster_id} : ${erreurs.join(" ; ")}`);
   }
   return { ok: true, simulation: simuler, ...bilan };
 }

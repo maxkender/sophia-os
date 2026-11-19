@@ -13,15 +13,19 @@ import { conversationDe, useConversations } from "@/features/upwork/conversation
 import { LienConversation } from "@/features/upwork/LienConversation";
 import { cn } from "@/lib/utils";
 import { BadgeProblemesPosteur, useResumeProblemes } from "@/features/problemes/BadgeProblemesPosteur";
+import type { ResumeProblemes } from "@/features/problemes/api";
+import { plateformeDe, useIdsRuul } from "@/features/ruul/canal";
 
 import { ContexteJeudi } from "./ContexteJeudi";
 import { lireContexte } from "./contexte";
 import { FicheSamedi } from "./FicheSamedi";
 import { lireEtatsHandle, marquerKillSamedi, phraseStatut } from "./handlesEtat";
 import { LigneHandle } from "./LigneHandle";
+import { BadgePlateforme, LigneRuul } from "./LigneRuul";
 import { BadgesPosteur, StatutCompte } from "./LigneStatut";
 import { lundiDeLaSemaine } from "./logique";
 import { marquerRituelFait, recreerManuel, vuesCompte } from "./rituelsFaits";
+import { lireDecisionsRuul, nudgerRuul } from "./ruulDecisions";
 import { evaluerCompte, lireExtras, ordreStatut } from "./statutCompte";
 import {
   attendusJusquIci,
@@ -40,6 +44,19 @@ import {
 import { BarreFiltres, CelluleCompte, CellulesJours, CelluleVues, Choix, EnTetesJours, Signaux, TD, TH } from "./TableauComptes";
 
 const CHOIX: readonly ChoixJeudi[] = ["nudge", "recreate", "kill_samedi", "rien"];
+
+type FiltrePlateforme = "" | "ruul" | "upwork";
+
+/**
+ * 19/11 (Max) : pour un posteur Ruul, une relance qui n'a pas pu partir parce qu'un canal est en pause (DM Slack) n'est
+ * pas un échec : la catégorie « Reminder failed » n'est pas montrée sur sa ligne.
+ */
+function sansRelanceEchec(r: ResumeProblemes | undefined): ResumeProblemes | undefined {
+  if (!r?.categories?.includes("relance_echec")) return r;
+  const categories = r.categories.filter((c) => c !== "relance_echec");
+  if (!categories.length && !r.kill_samedi_lundi && !r.proposition && !r.attend) return undefined;
+  return { ...r, categories, n: Math.max(1, r.n - 1) };
+}
 
 /**
  * Prompt 25, partie 3 : Weekly decisions → Thursday. Tous les comptes actifs,
@@ -77,6 +94,10 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
   const [filtres, setFiltres] = React.useState(FILTRES_VIDES);
   const [tri, setTri] = React.useState<Tri>("posts_asc");
   const [bilan, setBilan] = React.useState<string | null>(null);
+  // 19/11 (Max) : la plateforme de chaque posteur (Ruul : contrat Hub, pas de contrat Upwork).
+  const idsRuul = useIdsRuul();
+  const estRuul = React.useCallback((c: CompteSemaine) => plateformeDe(idsRuul, c.poster_id) === "ruul", [idsRuul]);
+  const [plateforme, setPlateforme] = React.useState<FiltrePlateforme>("");
 
   // Correction du prompt 12 : le jeudi, seulement la nouvelle cohorte (1re semaine de posts).
   const liste = React.useMemo(() => (lu.data ?? []).filter((c) => c.cohorte_lundi === lundi), [lu.data, lundi]);
@@ -90,8 +111,15 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
     enabled: posteursListe.length > 0,
   });
   const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extras.data?.get(c.compte_id), {
-    lundi, aujourdhui, maintenant, page: "jeudi",
-  })])), [liste, extras.data, lundi, aujourdhui, maintenant]);
+    lundi, aujourdhui, maintenant, page: "jeudi", ruul: estRuul(c),
+  })])), [liste, extras.data, lundi, aujourdhui, maintenant, estRuul]);
+  // Les infos Ruul (contrat Hub, pastilles, emails, réponses, support) des posteurs Ruul de la liste.
+  const posteursRuul = React.useMemo(() => posteursListe.filter((p) => idsRuul.has(p)), [posteursListe, idsRuul]);
+  const ruul = useQuery({
+    queryKey: ["decisions-ruul", posteursRuul],
+    queryFn: () => lireDecisionsRuul(posteursRuul),
+    enabled: posteursRuul.length > 0,
+  });
   const ev = (c: CompteSemaine) => evals.get(c.compte_id)!;
   // 0531 : Recréer décidé dans Problèmes (pré-coché) ; un Kill samedi prévu grise la ligne.
   const brouillons = useQuery({ queryKey: ["jeudi-brouillons", lundi], queryFn: () => lireBrouillonsJeudi(lundi) });
@@ -107,7 +135,12 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
   const nudges = liste.filter((c) => choixDe(c) === "nudge");
   // 5/11 : Recreate n'est jamais grisé ; un compte non recommandé passe après confirmation.
   const recreates = liste.filter((c) => choixDe(c) === "recreate");
-  const visibles = trierComptes(filtrerComptes(liste, filtres), tri).sort((a, b) => ordreStatut(ev(a), ev(b)));
+  const nudgesRuul = nudges.filter(estRuul);
+  const nudgesUpwork = nudges.filter((c) => !estRuul(c));
+  const recreatesRuul = recreates.filter(estRuul).length;
+  const recreatesUpwork = recreates.length - recreatesRuul;
+  const parPlateforme = plateforme ? liste.filter((c) => (plateforme === "ruul") === estRuul(c)) : liste;
+  const visibles = trierComptes(filtrerComptes(parPlateforme, filtres), tri).sort((a, b) => ordreStatut(ev(a), ev(b)));
   // « À traiter » d'abord ; les comptes sans problème regroupés en bas, fermés.
   const principaux = visibles.filter((c) => ev(c).statut === "rouge" || ev(c).statut === "orange");
   const rienASignaler = visibles.filter((c) => ev(c).statut === "ok" || ev(c).statut === "vert");
@@ -115,9 +148,20 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
 
   const envoyer = useMutation({
     mutationFn: async () => {
-      const r = nudges.length ? await validerNudgesJeudi(lundi, nudges.map((c) => c.compte_id)) : { prepares: 0, deja: 0, sans_canal: 0 };
+      // Upwork : comme avant (Slack, file d'envoi). Ruul (19/11) : email + bandeau sur le dashboard, jamais de DM Slack.
+      const r = nudgesUpwork.length ? await validerNudgesJeudi(lundi, nudgesUpwork.map((c) => c.compte_id)) : { prepares: 0, deja: 0, sans_canal: 0 };
       const f = r.prepares > 0 ? await envoyerFile() : null;
       const erreurs: string[] = [];
+      let ruulEnvoyes = 0;
+      if (nudgesRuul.length) {
+        try {
+          const nr = await nudgerRuul(lundi, nudgesRuul.map((c) => c.compte_id));
+          ruulEnvoyes = nr.envoyes ?? 0;
+          for (const e of nr.erreurs ?? []) erreurs.push(`Ruul ${e}`);
+        } catch (e) {
+          erreurs.push(`Ruul : ${(e as Error).message}`);
+        }
+      }
       let recrees = 0;
       for (const c of recreates) {
         try {
@@ -132,13 +176,15 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
         }
       }
       // 0540 : le jeudi est fait jusqu'au jeudi suivant.
-      await marquerRituelFait("jeudi", lundi, { nudges: r.prepares, recreates: recrees, erreurs: erreurs.length }).catch(() => undefined);
-      return { ...r, partis: f?.envoyes ?? 0, attente: f?.upwork_bloque ?? 0, recrees, erreurs };
+      await marquerRituelFait("jeudi", lundi, { nudges: r.prepares + ruulEnvoyes, nudges_ruul: ruulEnvoyes, recreates: recrees, erreurs: erreurs.length }).catch(() => undefined);
+      return { ...r, partis: f?.envoyes ?? 0, attente: f?.upwork_bloque ?? 0, recrees, erreurs, ruulEnvoyes };
     },
     onSuccess: (r) => {
       void qc.invalidateQueries({ queryKey: ["rituels-faits"] });
       setChoix({});
-      setBilan(t("autoOnglets.decisions.liste.jeudi.bilan", r) + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
+      setBilan(t("autoOnglets.decisions.liste.jeudi.bilan", r) + (r.ruulEnvoyes ? ` · Ruul : ${r.ruulEnvoyes} nudge(s) par email + bandeau` : "")
+        + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
+      void qc.invalidateQueries({ queryKey: ["decisions-ruul"] });
       void qc.invalidateQueries({ queryKey: ["semaine-comptes"] });
       void qc.invalidateQueries({ queryKey: ["ckd"] });
     },
@@ -173,7 +219,7 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                         {t("autoOnglets.decisions.liste.jeudi.problemes", { date: jourMois(deProblemes(c)!.raison?.decide_le) })}
                       </p>
                     )}
-                    <BadgeProblemesPosteur r={resumes.data?.get(c.poster_id)} />
+                    <BadgeProblemesPosteur r={estRuul(c) ? sansRelanceEchec(resumes.data?.get(c.poster_id)) : resumes.data?.get(c.poster_id)} />
                     {c.nudge_en_file && !c.nudge_envoye_at && (
                       <p className="mt-1 text-[11px] text-muted-foreground">{t("autoOnglets.decisions.liste.jeudi.enFile")}</p>
                     )}
@@ -182,14 +228,24 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                     <StatutCompte e={ev(c)} x={extras.data?.get(c.compte_id)} />
                   </td>
                   <td className={TD}>
-                    <CelluleCompte c={c} />
-                    <BadgesPosteur e={ev(c)} x={extras.data?.get(c.compte_id)} />
-                    <LigneHandle compteId={c.compte_id} e={etats.data?.get(c.compte_id)} admin={admin} />
-                    <LienConversation className="mt-1" c={conversationDe(conv.data, { posteur: c.poster_id })} />
-                    {c.poster_id && (
-                      <div className="mt-1 max-w-80">
-                        <ContexteJeudi posterId={c.poster_id} c={contexte.data?.get(c.poster_id)} />
-                      </div>
+                    <div className="flex items-center gap-1.5">
+                      <BadgePlateforme ruul={estRuul(c)} />
+                      <CelluleCompte c={c} />
+                    </div>
+                    <BadgesPosteur e={ev(c)} x={estRuul(c) ? (extras.data?.get(c.compte_id) ? { ...extras.data.get(c.compte_id)!, sans_contrat: false } : undefined) : extras.data?.get(c.compte_id)} />
+                    {/* Ruul : « Ask for @ » seulement si le @ manque vraiment. */}
+                    {(!estRuul(c) || !c.handle) && <LigneHandle compteId={c.compte_id} e={etats.data?.get(c.compte_id)} admin={admin} />}
+                    {estRuul(c) ? (
+                      <LigneRuul i={ruul.data?.get(c.poster_id)} maintenant={maintenant} />
+                    ) : (
+                      <>
+                        <LienConversation className="mt-1" c={conversationDe(conv.data, { posteur: c.poster_id })} />
+                        {c.poster_id && (
+                          <div className="mt-1 max-w-80">
+                            <ContexteJeudi posterId={c.poster_id} c={contexte.data?.get(c.poster_id)} />
+                          </div>
+                        )}
+                      </>
                     )}
                     <button
                       type="button"
@@ -233,9 +289,24 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
       <CardContent className="space-y-3">
         {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}
         {lu.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
-        <BarreFiltres liste={liste} filtres={filtres} setFiltres={setFiltres} tri={tri} setTri={setTri} />
+        <div className="flex flex-wrap items-start gap-2">
+          <select
+            className="h-8 rounded-md border bg-background px-2 text-sm"
+            value={plateforme}
+            onChange={(e) => setPlateforme(e.target.value as FiltrePlateforme)}
+            aria-label="Plateforme"
+            data-testid="filtre-plateforme"
+          >
+            <option value="">Plateforme : toutes</option>
+            <option value="ruul">Plateforme : Ruul</option>
+            <option value="upwork">Plateforme : Upwork</option>
+          </select>
+          <div className="min-w-0 flex-1">
+            <BarreFiltres liste={parPlateforme} filtres={filtres} setFiltres={setFiltres} tri={tri} setTri={setTri} />
+          </div>
+        </div>
         <p className="text-xs text-muted-foreground">
-          {t("autoOnglets.decisions.liste.affiches", { n: visibles.length, total: liste.length })}
+          {t("autoOnglets.decisions.liste.affiches", { n: visibles.length, total: parPlateforme.length })}
         </p>
         <div className="relative overflow-x-auto">
           <table className="w-full border-collapse text-sm">
@@ -270,14 +341,15 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
           </details>
         )}
         <div className="sticky bottom-0 flex flex-wrap items-center gap-3 border-t bg-background py-3">
-          <Badge variant="info">{t("autoOnglets.decisions.liste.jeudi.compte", { nudges: nudges.length, recreates: recreates.length })}</Badge>
+          <Badge variant="info" data-testid="compteur-upwork">Upwork : {nudgesUpwork.length} nudge{nudgesUpwork.length > 1 ? "s" : ""} · {recreatesUpwork} recreate{recreatesUpwork > 1 ? "s" : ""}</Badge>
+          <Badge variant="info" data-testid="compteur-ruul">Ruul : {nudgesRuul.length} nudge{nudgesRuul.length > 1 ? "s" : ""} (email + bandeau) · {recreatesRuul} recreate{recreatesRuul > 1 ? "s" : ""}</Badge>
           {admin && (
             <Button
               data-action="envoyer-jeudi"
               loading={envoyer.isPending}
               disabled={nudges.length + recreates.length === 0}
               onClick={() => {
-                if (window.confirm(t("autoOnglets.decisions.liste.jeudi.confirm", { nudges: nudges.length, recreates: recreates.length }))) envoyer.mutate();
+                if (window.confirm(`${t("autoOnglets.decisions.liste.jeudi.confirm", { nudges: nudgesUpwork.length, recreates: recreatesUpwork })}\n\nRuul : ${nudgesRuul.length} nudge(s) par email + bandeau (pas de DM Slack), ${recreatesRuul} recreate(s).`)) envoyer.mutate();
               }}
             >
               {t("autoOnglets.decisions.liste.jeudi.envoyer")}

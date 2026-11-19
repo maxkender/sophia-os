@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o202",
+  "type_bleo": "full_test",
+  "titre": "comment je me fais une culture en mythologie grecque (sans relire mes cours) #mythologie #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label (ni habitudes volées, ni mots rares, ni musée, ni livres par an). cta A. Personnages courants (Zeus, Athéna, Pandore, Ulysse, Narcisse), aucun fait daté. Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "282080b0",
+      "texte_overlay": "comment je me fais une culture\nen mythologie grecque\n(sans relire mes cours)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "335ad655",
+      "texte_overlay": "1. je commence par les personnages\n\nzeus, athéna, ulysse.\nune famille compliquée, comme une série.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ea95a7e2",
+      "texte_overlay": "2. je repère les mots qui en viennent\n\nnarcissique, la boîte de pandore, une odyssée.\non en parle sans le savoir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6e55827f",
+      "texte_overlay": "3. je lis les histoires courtes\n\nun mythe par soir,\ncinq minutes avant de dormir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c652fd6f",
+      "texte_overlay": "4. je cherche les tableaux qui les racontent\n\ndans les musées, la moitié des œuvres\nparlent de ces dieux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "79122b66",
+      "texte_overlay": "5. j'en apprends un peu chaque jour\n\navant, je confondais tous les dieux.\nmaintenant, j'apprends un truc sur le monde chaque matin. et je reconnais les mythes partout.",
+      "texte_sophia": "5. j'en apprends un peu chaque jour\n\navant, je confondais tous les dieux.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je reconnais les mythes partout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e7040a90",
+      "texte_overlay": "c'est quoi ton mythe préféré ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

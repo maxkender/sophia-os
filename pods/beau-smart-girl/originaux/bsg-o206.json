@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o206",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en regardant le ciel la nuit (sans télescope) #astronomie #culture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label (ni habitudes volées, ni mots rares, ni musée, ni livres par an). cta B. Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Venus : jour sidéral de 243 jours terrestres, plus long que son année de 224,7 jours. Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "66f4cbee",
+      "texte_overlay": "ce que j'ai appris en regardant le ciel la nuit\n(sans télescope)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ea1b65fd",
+      "texte_overlay": "1. il faut s'éloigner des lumières\n\nun parc, une campagne, un toit.\nles étoiles apparaissent par centaines.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "a4cc72c0",
+      "texte_overlay": "2. on reconnaît vite la grande ourse\n\net une fois qu'on l'a trouvée,\non ne voit plus qu'elle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "461cbabb",
+      "texte_overlay": "3. les planètes brillent sans scintiller\n\nce matin, j'ai appris qu'une journée sur vénus dure plus longtemps que son année.\ndepuis, je la cherche chaque soir.",
+      "texte_sophia": "3. les planètes brillent sans scintiller\n\nce matin, l'appli Sophia m'a appris qu'une journée sur vénus dure plus longtemps que son année.\ndepuis, je la cherche chaque soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4e4630a5",
+      "texte_overlay": "4. le ciel change avec les saisons\n\nl'hiver n'a pas les mêmes étoiles que l'été.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "949e03d4",
+      "texte_overlay": "5. on se sent toute petite\n\net c'est étrangement apaisant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "b911bfa6",
+      "texte_overlay": "enregistre-le pour ta prochaine nuit claire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

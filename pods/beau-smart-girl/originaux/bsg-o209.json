@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o209",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "4c0d5118-52f4-4a25-aa90-096ad7d71acb",
+  "titre": "les choses que j'aurais aimé savoir avant de commencer la fac #fac #etudiante #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [
+    "4c0d5118-52f4-4a25-aa90-096ad7d71acb"
+  ],
+  "notes": "G1, déclinaison de 4c0d5118 (« les choses que j'aurais aimé savoir avant de commencer la fac », génération 0 ; meilleur passage bg 4,9 k vues, r 4,35), en français. Famille de mon full test bsg-o157, gagnante. cta B. Items neufs (rien de repris de bsg-o157 : ni personne ne connaît personne, ni premier semestre, ni profs, ni bibliothèque). Fait vérifié le 5/11 sur https://en.wikipedia.org/wiki/University_of_Oxford : « evidence of teaching as early as 1096 ». Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6dda546d",
+      "texte_overlay": "les choses que j'aurais aimé savoir\navant de commencer la fac",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e8b6c596",
+      "texte_overlay": "1. personne ne vérifie si tu travailles\n\nc'est ta liberté.\net ton piège.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f98ad91f",
+      "texte_overlay": "2. les associations, c'est là qu'on se fait des amis\n\nthéâtre, chorale, journal.\npas forcément en amphi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "f1cc2ae1",
+      "texte_overlay": "3. la fac, c'est une très vieille histoire\n\nce matin, j'ai appris qu'on enseignait déjà à oxford en 1096.\nj'ai regardé mon amphi autrement.",
+      "texte_sophia": "3. la fac, c'est une très vieille histoire\n\nce matin, l'appli Sophia m'a appris qu'on enseignait déjà à oxford en 1096.\nj'ai regardé mon amphi autrement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "68a72c8c",
+      "texte_overlay": "4. un planning sauve tout\n\nles partiels arrivent toujours\nplus vite que prévu.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "df491376",
+      "texte_overlay": "5. c'est normal de se sentir perdue\n\nle premier mois, tout le monde l'est.\nmême ceux qui font semblant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d5cf73e8",
+      "texte_overlay": "enregistre-le pour ta rentrée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

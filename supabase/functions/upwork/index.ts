@@ -292,8 +292,12 @@ Deno.serve(async (request) => {
         return json(await paieReconcilier(supabase, par));
       case "rattrapage_executer":
         // 19/11 (Max) : les lignes bloquées par le nom de la semaine des milestones : rien ne part sans son clic.
-        if (body.confirmer !== true || !par) return json({ ok: false, error: "confirmation de Max manquante" }, 400);
-        return json(await rattrapageExecuter(supabase, par, String(body.semaine ?? ""), Array.isArray(body.ids) ? body.ids.map(String) : null));
+        // 19/11 : aussi au nom de Max (valide_par) quand il l'a validé par écrit (appel serveur, secret du cron).
+        {
+          const validePar = par ?? (acces.userId === "cron" && typeof body.valide_par === "string" && /^[0-9a-f-]{36}$/.test(body.valide_par) ? body.valide_par : null);
+          if (body.confirmer !== true || !validePar) return json({ ok: false, error: "confirmation de Max manquante" }, 400);
+          return json(await rattrapageExecuter(supabase, validePar, String(body.semaine ?? ""), Array.isArray(body.ids) ? body.ids.map(String) : null));
+        }
       case "decalages_appliquer":
         // 19/11 (Max) : cohorte décalée : ses milestones à venir renommées (cron du lundi, après decalages_noter).
         return json(await decalagesAppliquer(supabase, par, body.simuler === true));
@@ -1741,6 +1745,7 @@ interface Rattrapage {
   action: string;
   jalon_id: string | null;
   jalon_nom: string | null;
+  jalon_montant: number | null;
   semaine_jalon: string | null;
   du: number;
   faits: number;
@@ -1805,10 +1810,76 @@ async function rattrapageExecuter(supabase: Supabase, par: string, semaine: stri
         .eq("id", x.paiement_api_id).eq("statut", "a_verifier")
       : Promise.resolve(null);
 
+  // 19/11 (Max) : plafonds du rattrapage : 60 $ par posteur et par semaine, 600 $ en tout (déjà payé compris).
+  const PLAFOND_LIGNE = 60;
+  const PLAFOND_TOTAL = 600;
+  const { data: dejaPayes } = await supabase.from("paie_rattrapages").select("montant_paye").eq("statut", "fait").in("action", ["approuver", "financer_main"]);
+  let totalPaye = ((dejaPayes ?? []) as { montant_paye: number | null }[]).reduce((t, y) => t + Number(y.montant_paye ?? 0), 0);
+  let plafondAtteint: string | null = null;
+  /** Une milestone déjà comptée ou approuvée pour une autre semaine : jamais réutilisée. */
+  const dejaUtilisee = async (x: Rattrapage): Promise<string | null> => {
+    if (!x.jalon_id) return null;
+    const cible = x.semaine_jalon ?? x.semaine;
+    const { data: fixe } = await supabase.from("paie_jalons_semaine").select("semaine").eq("jalon_id", x.jalon_id).is("annule_at", null).maybeSingle();
+    if (fixe && String(fixe.semaine) !== cible) return `${x.jalon_nom} déjà comptée pour la semaine du ${fixe.semaine}`;
+    const { data: api } = await supabase.from("paie_paiements_api").select("semaine").eq("jalon_approuve", x.jalon_id).in("statut", ["paye", "deja_payee"])
+      .neq("semaine", x.semaine).limit(1);
+    if (api?.length) return `${x.jalon_nom} déjà utilisée pour la semaine du ${api[0].semaine}`;
+    return null;
+  };
+
   for (const x of lignesR.filter((y) => y.statut === "propose")) {
     if (Date.now() - debut > 90_000) break;
     const decide = { decide_par: par, decide_at: new Date().toISOString() };
     try {
+      if (["approuver", "marquer_payee", "garder"].includes(x.action)) {
+        const reutilisee = await dejaUtilisee(x);
+        if (reutilisee) throw new Error(`${reutilisee} : rien n'est fait`);
+      }
+      if (x.action === "approuver" || x.action === "financer_main") {
+        const montant = Number(x.action === "approuver" ? (x.jalon_montant ?? x.du) : x.du);
+        if (!(montant > 0) || montant > PLAFOND_LIGNE) throw new Error(`montant ${montant} $ hors plafond (${PLAFOND_LIGNE} $ par posteur et par semaine) : rien n'est payé`);
+        if (totalPaye + montant > PLAFOND_TOTAL) {
+          plafondAtteint = `plafond de ${PLAFOND_TOTAL} $ atteint (${totalPaye} $ déjà payés) : arrêt, à demander à Max`;
+          break;
+        }
+        const { data: ps } = await supabase.from("paie_semaines").select("paye_at").eq("id", x.paie_semaine_id).maybeSingle();
+        // Semaine déjà cochée payée : seul le complément du 2e compte peut encore partir.
+        if (ps?.paye_at && x.action === "financer_main" && !(x.jalon_nom ?? "").includes("2nd acc")) {
+          throw new Error("semaine déjà cochée payée : rien n'est payé");
+        }
+      }
+      if (x.action === "financer_main") {
+        // Upwork ne finance pas par l'API sur ce compte (paiement à confirmer à la main) : paiement direct du montant
+        // exact (bonus « Give bonus », sendCustomPayment), marqué avant l'appel : jamais deux fois.
+        const montant = Number(x.du);
+        const contrat = x.contrat_id ?? "";
+        const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).maybeSingle();
+        if (!contrat || uc?.organisation_id !== ORG_VIK) throw new Error(`contrat ${contrat || "absent"} hors VIk Studios : rien n'est payé`);
+        await maj(x.id, { ...decide, statut: "erreur", resultat: "paiement envoyé à Upwork, réponse pas encore reçue (ne pas relancer sans vérifier)" });
+        const envoi = await ecrire(supabase, {
+          par, action: "paie_rattrapage_direct", query: MUTATION_BONUS, tenant: ORG_VIK, contrat, montant, compte: COMPTE,
+          variables: { input: { contractId: contrat, amount: montant, comment: `Weekly posting - week of ${jourCourt(x.semaine)}`, notes: `rattrapage ${x.id}`, type: "BONUS" } },
+        });
+        if (envoi.erreur) {
+          await maj(x.id, { statut: "erreur", resultat: `Upwork : ${envoi.erreur} (rien n'est payé)` });
+          bilan.push({ id: x.id, action: x.action, resultat: "erreur", raison: envoi.erreur });
+          continue;
+        }
+        const invoice = (envoi.data as { sendCustomPayment?: { invoiceId?: string } } | null)?.sendCustomPayment?.invoiceId ?? null;
+        totalPaye += montant;
+        const { data: lp } = await supabase.from("paie_semaines").select("id, paye_at").eq("id", x.paie_semaine_id).maybeSingle();
+        if (lp && !lp.paye_at) await marquerLignes(supabase, [x.paie_semaine_id], par, "paye");
+        if (x.paiement_api_id) {
+          await supabase.from("paie_paiements_api").update({
+            statut: "paye", montant_approuve: montant, financement: "bonus", erreur: `payée par paiement direct (rattrapage, facture ${invoice ?? "?"})`,
+            updated_at: new Date().toISOString(),
+          }).eq("id", x.paiement_api_id).eq("statut", "a_verifier");
+        }
+        await maj(x.id, { statut: "fait", resultat: `payée par paiement direct Upwork (${montant} $, facture ${invoice ?? "?"})`, montant_paye: montant });
+        bilan.push({ id: x.id, action: x.action, resultat: "fait", montant });
+        continue;
+      }
       if (x.action === "garder") {
         const { error: e } = await compter(x);
         if (e) throw e;
@@ -1851,6 +1922,7 @@ async function rattrapageExecuter(supabase: Supabase, par: string, semaine: stri
       const plan = { ...p.plan, financer: null, total: Math.round(((p.plan.approuver?.montant ?? 0) + (p.plan.complement?.montant ?? 0)) * 100) / 100 };
       const issue = await executer(supabase, par, semaine, { ...p, plan }, null);
       if (issue.resultat !== "paye") throw new Error(`${issue.resultat}${issue.raison ? ` : ${issue.raison}` : ""}`);
+      totalPaye += plan.approuver!.montant;
       await maj(x.id, { ...decide, statut: "fait", resultat: `payée : ${plan.approuver!.nom} approuvée (${plan.approuver!.montant} $)`, montant_paye: plan.approuver!.montant });
       bilan.push({ id: x.id, action: x.action, resultat: "fait", montant: plan.approuver!.montant });
     } catch (err) {
@@ -1861,11 +1933,16 @@ async function rattrapageExecuter(supabase: Supabase, par: string, semaine: stri
 
   // Le message au posteur, une fois, dans sa langue (payée, ou déjà payée à la main avec du retard).
   const { data: faites } = await supabase.from("paie_rattrapages").select("*").eq("semaine", semaine).eq("statut", "fait")
-    .in("action", ["approuver", "marquer_payee"]).is("message_statut", null);
+    .in("action", ["approuver", "financer_main", "marquer_payee"]).is("message_statut", null);
   const cache = new Map<string, string>();
   let messages = 0;
   for (const x of (faites ?? []) as Rattrapage[]) {
     if (Date.now() - debut > 120_000) break;
+    if (x.action === "marquer_payee") {
+      // Déjà payée à la main avant : pas de « payée maintenant, désolé du retard ».
+      await maj(x.id, { message_statut: "pas de message (déjà payée avant)" });
+      continue;
+    }
     if (!(Number(x.montant_paye ?? 0) > 0) || x.faits <= 0) {
       await maj(x.id, { message_statut: "pas de message (rien à payer)" });
       continue;
@@ -1877,9 +1954,12 @@ async function rattrapageExecuter(supabase: Supabase, par: string, semaine: stri
     await maj(x.id, { message_statut: envoi.ok ? "envoye" : `erreur : ${"error" in envoi ? envoi.error : "non envoyé"}`, message_at: envoi.ok ? new Date().toISOString() : null });
     if (envoi.ok) messages++;
   }
-  const reste = lignesR.filter((y) => y.statut === "propose" && ["approuver", "marquer_payee", "garder"].includes(y.action)).length -
+  const reste = lignesR.filter((y) => y.statut === "propose" && ["approuver", "marquer_payee", "garder", "financer_main"].includes(y.action)).length -
     bilan.length;
-  return { ok: true, semaine, faits: bilan.filter((b) => b.resultat === "fait").length, erreurs: bilan.filter((b) => b.resultat === "erreur"), messages, reste, bilan };
+  return {
+    ok: true, semaine, faits: bilan.filter((b) => b.resultat === "fait").length, erreurs: bilan.filter((b) => b.resultat === "erreur"), messages, reste,
+    total_paye: totalPaye, plafond: plafondAtteint, bilan,
+  };
 }
 
 /**

@@ -55,28 +55,28 @@ export async function executerRattrapage(semaine: string): Promise<BilanRattrapa
 }
 
 /** Les actions que le clic exécute (le reste se fait à la main sur Upwork). */
-export const ACTIONS_AUTO: ActionRattrapage[] = ["approuver", "marquer_payee", "garder"];
+export const ACTIONS_AUTO: ActionRattrapage[] = ["approuver", "financer_main", "marquer_payee", "garder"];
 
 /** Le récapitulatif d'une semaine : ce qui part (argent), ce qui est seulement noté, ce qui reste à la main. */
 export function recap(lignes: LigneRattrapage[]) {
   const ouvertes = lignes.filter((l) => l.statut === "propose" || l.statut === "erreur");
   const somme = (a: ActionRattrapage) => ouvertes.filter((l) => l.action === a);
-  const aPayer = somme("approuver");
+  const aPayer = [...somme("approuver"), ...somme("financer_main")];
   return {
     a_payer: aPayer.length,
-    montant: Math.round(aPayer.reduce((s, l) => s + (l.jalon_montant ?? l.du), 0) * 100) / 100,
+    montant: Math.round(aPayer.reduce((s, l) => s + (l.action === "approuver" ? (l.jalon_montant ?? l.du) : l.du), 0) * 100) / 100,
     deja_payees: somme("marquer_payee").length,
     gardees: somme("garder").length,
-    a_la_main: ouvertes.filter((l) => l.action === "financer_main" || l.action === "a_voir").length,
+    a_la_main: ouvertes.filter((l) => l.action === "a_voir").length,
     executables: ouvertes.filter((l) => ACTIONS_AUTO.includes(l.action)).length,
-    messages_en_attente: lignes.filter((l) => l.statut === "fait" && (l.action === "approuver" || l.action === "marquer_payee") && !l.message_statut).length,
+    messages_en_attente: lignes.filter((l) => l.statut === "fait" && (l.action === "approuver" || l.action === "financer_main") && !l.message_statut).length,
   };
 }
 
 export const LIBELLE_ACTION: Record<ActionRattrapage, string> = {
   approuver: "Approuver la milestone",
   marquer_payee: "Déjà payée sur Upwork : marquer payée",
-  financer_main: "À financer à la main",
+  financer_main: "Paiement direct (rien de financé)",
   garder: "0 post : garder pour sa prochaine semaine",
   rien: "Rien à faire",
   a_voir: "À voir",

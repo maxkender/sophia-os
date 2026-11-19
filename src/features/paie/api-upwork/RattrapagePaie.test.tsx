@@ -31,9 +31,9 @@ describe("Paie bloquée par le nom de la semaine — 19/11", () => {
     m.invoke.mockResolvedValue({ ok: true, faits: 3, messages: 2, reste: 0, erreurs: [] });
   });
 
-  it("récap : seules les milestones à approuver font partir de l'argent", () => {
+  it("récap : seuls l'approbation et le paiement direct font partir de l'argent", () => {
     const r = recap(LIGNES);
-    expect([r.a_payer, r.montant, r.deja_payees, r.gardees, r.a_la_main, r.executables]).toEqual([1, 15, 1, 1, 1, 3]);
+    expect([r.a_payer, r.montant, r.deja_payees, r.gardees, r.a_la_main, r.executables]).toEqual([2, 25, 1, 1, 0, 4]);
   });
 
   it("liste les lignes ; rien ne part avant la confirmation de Max, puis un seul appel", async () => {

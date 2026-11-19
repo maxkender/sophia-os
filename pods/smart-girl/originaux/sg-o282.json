@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o282",
+ "type_bleo": "full_test",
+ "titre": "6 types of tea and when to drink them #tea #tealover #slowliving #smartgirl #morningritual",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 5/7 (la jauge en demande 7 sur 21) : accroche jamais faite chez nous (« tea » absent des accroches de donnees/label.json). Accroches écrites : « 6 types of tea and when to drink them » (retenue : rituel concret), « tea for beginners » (écartée : fade), « the history of tea » (écartée : longue). Faits vérifiés : tous les thés viennent de Camellia sinensis ; le rooibos et les tisanes n'en sont pas. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d70e91ff",
+   "texte_overlay": "6 types of tea and\nwhen to drink them",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cc509ec5",
+   "texte_overlay": "black tea\n\nstrong and malty.\nthe morning cup.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e615d3bf",
+   "texte_overlay": "green tea\n\nfresh and grassy.\nfor the afternoon slump.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ab094ddd",
+   "texte_overlay": "white tea\n\nthe most delicate of all.\nfor a quiet moment.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7f3f9d22",
+   "texte_overlay": "oolong\n\nbetween green and black.\nafter a heavy meal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d7b813a",
+   "texte_overlay": "matcha\n\npowdered green tea, whisked.\nfor focus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "55585269",
+   "texte_overlay": "herbal tea\n\nnot really tea at all.\nfor the evening.",
+   "texte_sophia": "herbal tea\n\nmy evening cup, with one lesson\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f2d279ac",
+   "texte_overlay": "all true teas come from\nthe same plant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

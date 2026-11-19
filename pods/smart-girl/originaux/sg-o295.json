@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o295",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "397263d6-54b3-4859-bcac-8863526a2d66",
+ "titre": "5 bizarre hacks my therapist taught me to become my best self #selfimprovement #therapy #smartgirl #mentalhealth #growth",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "397263d6-54b3-4859-bcac-8863526a2d66"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 22 de la boîte (parent 397263d6, langue source hu) : accroche du parent mot pour mot. Les cinq conseils du parent (détox de 24 h des réseaux, dire non sans se justifier, apprendre une chose par jour, parler à un inconnu, se mettre dans l'inconfort). Sophia comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "32868b90",
+   "texte_overlay": "5 bizarre hacks my therapist\ntaught me to become my best self",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648488041928985877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d14674eb",
+   "texte_overlay": "1. a 24-hour social media detox",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648488041928985877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6da2458c",
+   "texte_overlay": "2. say no to friends\nwithout explaining",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648488041928985877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "60041d9d",
+   "texte_overlay": "3. learn something new every day\n\ninstead of ten minutes of scrolling.",
+   "texte_sophia": "3. learn something new every day\n\non a micro-learning app like Sophia\ninstead of ten minutes of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648488041928985877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b9ad66ab",
+   "texte_overlay": "4. talk to one stranger\na day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648488041928985877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c9c874a7",
+   "texte_overlay": "5. put yourself in\nuncomfortable situations",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648488041928985877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c8d1ba95",
+   "texte_overlay": "save this for the days\nyou need it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648488041928985877/6.jpg"
+  }
+ ]
+}

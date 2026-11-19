@@ -1,0 +1,51 @@
+{
+ "source_id": "sg-o286",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "13122704-71ee-4b94-beb2-36f5dddbf98e",
+ "titre": "4 time rules that will make you unstoppable #timemanagement #productivity #smartgirl #discipline #focus",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "b053325f-c2e0-4f25-bfd4-6bd09358eddc"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 2 de la boîte (parent 13122704, langue source it) : accroche reformulée (« 4 time rules that will make you unstoppable »), différente de sg-o247 et sg-o266 ; les quatre règles du parent. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "87a48102",
+   "texte_overlay": "4 time rules that will\nmake you unstoppable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d06229ef",
+   "texte_overlay": "1. the 2-minute rule\n\nunder two minutes? do it now.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8ad9c95c",
+   "texte_overlay": "2. eat the frog\n\nthe hardest thing first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "507e74a6",
+   "texte_overlay": "3. the 52/17 rhythm\n\n52 minutes of focus,\n17 of real rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "afebaf74",
+   "texte_overlay": "4. use dead time\n\nqueues and trains: i read\none short lesson.",
+   "texte_sophia": "4. use dead time\n\nqueues and trains: i read one\nlesson on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "80cf32ef",
+   "texte_overlay": "save this and try\none tomorrow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  }
+ ]
+}

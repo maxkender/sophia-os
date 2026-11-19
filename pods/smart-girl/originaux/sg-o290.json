@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o290",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8edab31d-4e09-449d-a45a-6ce8702ea837",
+ "titre": "speaking habits of the most confident woman in the room #publicspeaking #confidence #smartgirl #speakbetter #communication",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 6 de la boîte (parent 8edab31d, langue source sr) : accroche reformulée (« speaking habits of the most confident woman in the room »), différente de sg-o273 ; conseils du parent. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "17383cbd",
+   "texte_overlay": "speaking habits of the most\nconfident woman in the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a70ba732",
+   "texte_overlay": "she pauses before answering",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "25857638",
+   "texte_overlay": "she never starts with\n\"sorry, but\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0a304440",
+   "texte_overlay": "she always has something\nnew to share",
+   "texte_sophia": "she always has something new to share\n\nshe reads one lesson a day on\nan app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e469a600",
+   "texte_overlay": "she uses your name, once",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9454ce77",
+   "texte_overlay": "she asks the follow-up question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "45234b1e",
+   "texte_overlay": "she breathes slowly\nbefore she speaks",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b7c36d65",
+   "texte_overlay": "save this before your\nnext presentation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

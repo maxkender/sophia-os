@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o296",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "599fbe53-8893-4eb3-9922-9d085d16821a",
+ "titre": "50 topics to research when bored that will elevate your status #learning #curiosity #smartgirl #selfeducation #darkacademia",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "599fbe53-8893-4eb3-9922-9d085d16821a"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 33 de la boîte (parent 599fbe53, langue source en) : accroche du parent mot pour mot. Cinq rubriques de dix sujets comme le parent (philosophie, dynamiques sociales, économie, histoire, art et science), sujets en partie neufs. Sophia au milieu dans la rubrique « habits » comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "237e2187",
+   "texte_overlay": "50 topics to research when bored\nthat will elevate your status",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622615772828847381/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ec493211",
+   "texte_overlay": "philosophy\n\n1. stoicism  2. absurdism  3. the cave\n4. nihilism  5. the ship of theseus\n6. utilitarianism  7. existentialism\n8. the trolley problem  9. free will\n10. the social contract",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622615772828847381/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "16829fe6",
+   "texte_overlay": "social dynamics\n\n11. game theory  12. the pareto principle\n13. the halo effect  14. the overton window\n15. groupthink  16. social proof\n17. the dunning-kruger effect\n18. reciprocity  19. status games  20. charisma",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622615772828847381/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e3a6aedc",
+   "texte_overlay": "money and the world\n\n21. opportunity cost  22. compound interest\n23. inflation  24. the tragedy of the commons\n25. scarcity  26. supply and demand\n27. sunk cost  28. black swans\n29. the bretton woods system  30. tulip mania",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622615772828847381/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "38eb0d13",
+   "texte_overlay": "history\n\n31. the library of alexandria\n32. the bronze age collapse  33. the medici\n34. the silk road  35. the printing press\n36. the black death  37. the renaissance\n38. the fall of rome  39. the enlightenment\n40. the industrial revolution",
+   "texte_sophia": "history\n\n31. the library of alexandria  32. the bronze age\ncollapse  33. the medici  34. the silk road\n35. the printing press… i learn one a day on\nan app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622615772828847381/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eeb04c5c",
+   "texte_overlay": "art and science\n\n41. the golden ratio  42. impressionism\n43. chiaroscuro  44. entropy  45. quantum\nentanglement  46. neuroplasticity\n47. the fibonacci sequence  48. baroque music\n49. the scientific method  50. memento mori",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622615772828847381/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f3e32090",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622615772828847381/7.jpg"
+  }
+ ]
+}

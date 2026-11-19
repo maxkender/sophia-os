@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o285",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "72526617-5aa7-4c33-82de-f1581a8a2241",
+ "titre": "what my grandmother knew about elegance #elegance #grandmother #smartgirl #oldmoney #classy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 1 de la boîte (parent 72526617, langue source el) : accroche reformulée (« what my grandmother knew about elegance »), différente de sg-o265 ; leçons du parent et neuves. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "88ec7924",
+   "texte_overlay": "what my grandmother knew\nabout elegance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "13a7a872",
+   "texte_overlay": "good posture costs nothing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "91da9ff3",
+   "texte_overlay": "the phone stays\nin the bag at dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "867ee40c",
+   "texte_overlay": "a woman who reads is never bored",
+   "texte_sophia": "a woman who reads is never bored\n\nso i read one story a day on\nan app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "444d4040",
+   "texte_overlay": "handwritten thank-you notes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f0ca2b59",
+   "texte_overlay": "sundays belong to family",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d3d3175c",
+   "texte_overlay": "always a clean handkerchief",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3ade3f65",
+   "texte_overlay": "save this and call\nyour grandmother",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

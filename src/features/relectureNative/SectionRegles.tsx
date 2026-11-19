@@ -103,17 +103,24 @@ function VersionProposee({ v, onFait }: { v: VersionRegles; onFait: () => void }
  * attend la validation ; la version validée est celle que la traduction de
  * production reçoit, suivie des corrections retenues qu'elle ne couvre pas
  * encore.
+ *
+ * `langueFixe` : la section d'une seule langue, sans sélecteur, pour le
+ * panneau de la langue dans Traduction & placement.
  */
-export function SectionRegles() {
+export function SectionRegles({ langueFixe }: { langueFixe?: string } = {}) {
   const { t, i18n } = useTranslation();
   const qc = useQueryClient();
-  const relecteurs = useQuery({ queryKey: ["relecteurs-natifs"], queryFn: listerRelecteurs });
+  const relecteurs = useQuery({ queryKey: ["relecteurs-natifs"], queryFn: listerRelecteurs, enabled: !langueFixe });
   const langues = React.useMemo(
     () => [...new Set((relecteurs.data ?? []).map((r) => r.langue.toLowerCase()))].sort(),
     [relecteurs.data],
   );
   const [langueChoisie, setLangueChoisie] = React.useState<string | null>(null);
-  const langue = langueChoisie && langues.includes(langueChoisie) ? langueChoisie : (langues[0] ?? null);
+  const langue = langueFixe
+    ? langueFixe.toLowerCase()
+    : langueChoisie && langues.includes(langueChoisie)
+      ? langueChoisie
+      : (langues[0] ?? null);
   const [bilan, setBilan] = React.useState<string | null>(null);
 
   const versions = useQuery({ queryKey: [...CLE_REGLES, langue], queryFn: () => listerRegles(langue!), enabled: Boolean(langue) });
@@ -152,10 +159,12 @@ export function SectionRegles() {
   return (
     <div className="space-y-4" data-testid="section-regles">
       <div className="space-y-1">
-        <h2 className="flex items-center gap-2 text-sm font-semibold">
-          <ScrollText className="size-4 text-muted-foreground" aria-hidden />
-          {t("relectureNative.regles.titre")}
-        </h2>
+        {!langueFixe && (
+          <h2 className="flex items-center gap-2 text-sm font-semibold">
+            <ScrollText className="size-4 text-muted-foreground" aria-hidden />
+            {t("relectureNative.regles.titre")}
+          </h2>
+        )}
         <p className="text-xs text-muted-foreground">{t("relectureNative.regles.aide")}</p>
       </div>
       {erreur && (
@@ -163,22 +172,24 @@ export function SectionRegles() {
           {messageErreur(erreur)}
         </p>
       )}
-      {relecteurs.isPending ? (
+      {!langueFixe && relecteurs.isPending ? (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
-      ) : langues.length === 0 ? (
+      ) : !langueFixe && langues.length === 0 ? (
         <p className="text-sm text-muted-foreground">{t("relectureNative.corrections.aucuneLangue")}</p>
       ) : (
         <div className="flex flex-wrap items-end gap-3">
-          <div className="space-y-1">
-            <Label htmlFor="reglesLangue">{t("relectureNative.corrections.langue")}</Label>
-            <select id="reglesLangue" className={selectClass} value={langue ?? ""} onChange={(e) => setLangueChoisie(e.target.value)}>
-              {langues.map((l) => (
-                <option key={l} value={l}>
-                  {drapeauLangue(l)} {nomLangue(l)}
-                </option>
-              ))}
-            </select>
-          </div>
+          {!langueFixe && (
+            <div className="space-y-1">
+              <Label htmlFor="reglesLangue">{t("relectureNative.corrections.langue")}</Label>
+              <select id="reglesLangue" className={selectClass} value={langue ?? ""} onChange={(e) => setLangueChoisie(e.target.value)}>
+                {langues.map((l) => (
+                  <option key={l} value={l}>
+                    {drapeauLangue(l)} {nomLangue(l)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
           <Button
             size="sm"
             variant="outline"

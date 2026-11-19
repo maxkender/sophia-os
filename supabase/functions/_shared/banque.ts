@@ -82,6 +82,19 @@ export function lireDemandeBanque(body: Record<string, unknown>): DemandeBanque 
   };
 }
 
+/**
+ * La légende de secours d'un versement, facultative : la description d'une
+ * image de la banque est écrite par l'OS (Florence, puis Moondream). Celle de
+ * l'agent ne sert que si l'OS n'en rend aucune. Vide = pas de légende.
+ */
+export function lireLegendeSecours(brut: unknown): string | { erreur: string } {
+  const l = String(brut ?? "").replace(/\s+/g, " ").trim();
+  if (!l) return "";
+  if (l.length > 300) return { erreur: `legende de ${l.length} caractères (300 au plus)` };
+  if (l.split(" ").filter((m) => /[a-z]{3,}/i.test(m)).length < 3) return { erreur: "legende : en anglais, 3 mots au moins (ou rien : l'OS décrit l'image)" };
+  return l;
+}
+
 /** Les empreintes à interroger (`connues`) : 32 caractères hexadécimaux, sans doublon, bornées. */
 export function lireRefs(brut: unknown): string[] {
   if (!Array.isArray(brut)) return [];

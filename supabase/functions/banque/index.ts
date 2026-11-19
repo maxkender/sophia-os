@@ -9,13 +9,18 @@
  * Authentification : en-tête `x-banque-jeton`, comparé à `banque_jetons`
  * (empreinte SHA-256). Sans jeton valable : 401.
  *
- *   { action: "ajouter", labels: ["male_run", …], jpeg_base64, legende, visage?,
+ *   { action: "ajouter", labels: ["male_run", …], jpeg_base64, legende?, visage?,
  *     origine: { site: "pinterest", image_url, page_url?, requete? } }
- *       → { id, url } ; ou { id, url, deja: true } si l'image est déjà en
- *       banque (ses labels sont complétés, rien n'est réécrit).
- *       L'image : JPEG vertical 9:16, 720 px de large au moins, sans
- *       métadonnées, légende en anglais (`controlerImageBanque`). Au plus
- *       `banque_jetons.par_jour` images neuves sur 24 h.
+ *       → { id, url, description, description_par } ; ou { id, url, deja: true }
+ *       si l'image est déjà en banque (ses labels sont complétés, rien n'est
+ *       réécrit).
+ *       L'image : JPEG vertical 9:16, 720 px de large au moins, sans aucune
+ *       métadonnée (`controlerJpegBanque`) : un fichier qui en porte est refusé.
+ *       Sa description est écrite par l'OS, comme à l'import d'une source
+ *       (`capturerCaptionImage` : Florence, puis Moondream). `legende` ne sert
+ *       que si l'OS n'en rend aucune. Rien d'autre ne passe sur l'image : ni
+ *       nettoyage, ni retouche, ni agrandissement (décision d'Adrien du 19/11).
+ *       Au plus `banque_jetons.par_jour` images neuves sur 24 h.
  *       `visage: true` : un visage est reconnaissable (`visage_identifiable`,
  *       l'image ne sert ni en photo de profil ni à `photos`, la recherche dans
  *       toute la banque).
@@ -29,8 +34,9 @@
  *       Lecture seule.
  */
 
-import { BANQUE_EXTERNE, lireDemandeBanque, lireRefs, rapprocherLabels, SITES_BANQUE } from "../_shared/banque.ts";
-import { controlerImageBanque, sha256Hex } from "../_shared/image_banque.ts";
+import { BANQUE_EXTERNE, lireDemandeBanque, lireLegendeSecours, lireRefs, rapprocherLabels, SITES_BANQUE } from "../_shared/banque.ts";
+import { capturerCaptionImage } from "../_shared/fal_caption.ts";
+import { controlerJpegBanque, sha256Hex } from "../_shared/image_banque.ts";
 import { decouperEnLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -95,8 +101,9 @@ async function ajouter(supabase: Supabase, agent: Agent, body: Record<string, un
   } catch {
     return json({ ok: false, error: "jpeg_base64 invalide" }, 400);
   }
-  const legende = String(body.legende ?? "").trim();
-  const erreurs = controlerImageBanque(octets, legende);
+  const secours = lireLegendeSecours(body.legende);
+  if (typeof secours !== "string") return json({ ok: false, error: secours.erreur }, 400);
+  const erreurs = controlerJpegBanque(octets);
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
 
   const { data: enBase, error: lErr } = await supabase
@@ -141,6 +148,16 @@ async function ajouter(supabase: Supabase, agent: Agent, body: Record<string, un
   if (upErr) throw new Error(`stockage ${chemin} : ${messageErreur(upErr)}`);
   const url = supabase.storage.from(BUCKET).getPublicUrl(chemin).data.publicUrl as string;
   const applicationId = labels.find((l) => l.application_id)?.application_id ?? null;
+  // La description de l'OS, celle de toute la bibliothèque. Une panne de fal
+  // ne fait pas perdre l'image : elle entre avec la légende de l'agent, ou sans.
+  let description: { caption: string | null; statut: "ok" | "aucune"; modele: string } = { caption: null, statut: "aucune", modele: "none" };
+  try {
+    const r = await capturerCaptionImage(url);
+    description = { caption: r.caption, statut: r.statut, modele: r.modele };
+  } catch (e) {
+    console.error(`banque : description de ${chemin} : ${messageErreur(e)}`);
+  }
+  if (description.statut !== "ok" && secours) description = { caption: secours, statut: "ok", modele: "banque" };
   const { data: media, error: mErr } = await supabase
     .from("media_library")
     .insert({
@@ -148,9 +165,9 @@ async function ajouter(supabase: Supabase, agent: Agent, body: Record<string, un
       url,
       source: demande.origine.site,
       texte_restant: false,
-      caption: legende,
-      caption_statut: "ok",
-      caption_modele: "banque",
+      caption: description.caption,
+      caption_statut: description.statut,
+      caption_modele: description.modele,
       caption_le: new Date().toISOString(),
       ...(body.visage === true ? { visage_identifiable: true } : {}),
       ...(applicationId ? { application_id: applicationId } : {}),
@@ -187,7 +204,7 @@ async function ajouter(supabase: Supabase, agent: Agent, body: Record<string, un
     await defaire();
     throw e;
   }
-  return json({ ok: true, id: media.id, url });
+  return json({ ok: true, id: media.id, url, description: description.caption, description_par: description.modele });
 }
 
 async function connues(supabase: Supabase, body: Record<string, unknown>) {

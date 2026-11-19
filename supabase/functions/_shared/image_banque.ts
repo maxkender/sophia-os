@@ -62,8 +62,12 @@ export function dimensionsJpeg(jpeg: Uint8Array): { l: number; h: number } | nul
   return null;
 }
 
-/** Les erreurs d'une image à ajouter à la banque d'un label (vide = acceptée). */
-export function controlerImageBanque(octets: Uint8Array, legende: string): string[] {
+/**
+ * Les erreurs du fichier seul (vide = accepté) : un JPEG vertical 9:16, assez
+ * large, sans aucune métadonnée. La banque venue de Pinterest s'arrête là : sa
+ * description est écrite par l'OS (`capturerCaptionImage`).
+ */
+export function controlerJpegBanque(octets: Uint8Array): string[] {
   const erreurs: string[] = [];
   if (octets.length > BANQUE_PODZ.octetsMax) {
     erreurs.push(`image de ${(octets.length / 1_000_000).toFixed(1)} Mo (${BANQUE_PODZ.octetsMax / 1_000_000} Mo au plus)`);
@@ -78,6 +82,13 @@ export function controlerImageBanque(octets: Uint8Array, legende: string): strin
     const ratio = d.l / d.h;
     if (ratio < BANQUE_PODZ.ratioMin || ratio > BANQUE_PODZ.ratioMax) erreurs.push(`format ${d.l}×${d.h} : image verticale 9:16 attendue`);
   }
+  return erreurs;
+}
+
+/** Les erreurs d'une image à ajouter à la banque d'un label, légende comprise (vide = acceptée). */
+export function controlerImageBanque(octets: Uint8Array, legende: string): string[] {
+  const erreurs = controlerJpegBanque(octets);
+  if (erreurs.includes("pas un JPEG")) return erreurs;
   const l = legende.trim();
   if (l.split(/\s+/).filter((m) => /[a-z]{3,}/i.test(m)).length < 3) {
     erreurs.push("legende : décris l'image en anglais, en 3 mots au moins (elle sert à images --cherche)");

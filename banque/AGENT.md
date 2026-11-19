@@ -13,8 +13,14 @@ d'import nettoyée. Une image :
 
 - verticale **9:16**, 720 px de large au moins (l'outil recadre et refuse le reste) ;
 - **sans texte, ni logo en sujet, ni filigrane** ;
-- avec une **légende en anglais** qui dit qui, quoi, où et la lumière : c'est
-  elle que les podz lisent pour chercher (`images --cherche "track night"`).
+- **sans aucune métadonnée** : l'outil réencode l'image et retire tout (EXIF,
+  XMP, C2PA, profil de couleur), et l'OS refuse un fichier qui en porte ;
+- **décrite par l'OS**, en anglais, comme une image d'import (Florence, puis
+  Moondream) : c'est cette description que les podz lisent pour chercher
+  (`images --cherche "track night"`).
+
+Rien d'autre ne passe sur une image versée : ni nettoyage, ni retouche, ni
+agrandissement (décision d'Adrien du 19/11).
 
 ## Le tour, en quatre commandes
 
@@ -39,11 +45,10 @@ Lis chaque planche avec l'outil de lecture d'image, puis écris le fichier de
 décisions, une ligne par image **gardée** :
 
 ```json
-[
-  { "ref": "c4dfbf", "legende": "shirtless man crouching on a red running track at night under a floodlight, seen from behind" },
-  { "ref": "f3ff1e", "legende": "man in black running on a track at night under a stadium floodlight", "visage": true, "cadrage": "haut" }
-]
+["c4dfbf", "ac7589", { "ref": "f3ff1e", "visage": true, "cadrage": "haut" }]
 ```
+
+Une ligne est l'empreinte seule, ou un objet quand il faut préciser :
 
 - `cadrage` : `centre` (défaut), `haut`, `bas`, `gauche`, `droite`, quand le
   sujet n'est pas au milieu.
@@ -52,6 +57,8 @@ décisions, une ligne par image **gardée** :
   course : `--labels male_run,clean_girl_run,classic_girl_run`.
 - `visage: true` dès qu'un visage est reconnaissable : l'OS ne la proposera ni
   en photo de profil ni aux autres labels.
+- `legende` : facultative. L'OS décrit lui-même l'image ; la tienne ne sert
+  que s'il n'en rend aucune (`verser` le signale : « SANS DESCRIPTION »).
 
 **On écarte** :
 
@@ -76,7 +83,8 @@ n'est pas de la photo de course : ne le remplis pas avec cet outil.
 
 - **Regarde avant de verser.** `--essai`, puis une planche des images
   recadrées : un texte ou un collage se voit mal en vignette.
-- **Rien d'inventé.** Une légende décrit ce qu'on voit, pas ce qu'on suppose.
+- **Lis les descriptions rendues.** `verser` affiche celle de chaque image :
+  une description fausse ou vide se corrige tout de suite.
 - Le plafond est de 400 images versées sur 24 h (`banque_jetons.par_jour`).
   `quota_images` : arrête-toi, reprends demain.
 - Une image versée par erreur : donne son id à l'humain, ne la supprime pas

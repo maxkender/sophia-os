@@ -1,23 +1,25 @@
 // Usage : BANQUE_JETON=… node atelier/cli-verser.ts --labels male_run[,clean_girl_run] [--planche 3] [--essai] <decisions.json>
 //
 // Verse dans la banque les images GARDÉES au tri. Le fichier de décisions est
-// une liste, une ligne par image gardée :
-//   [{ "ref": "549690", "legende": "man running alone on a foggy road at dawn, seen from behind",
-//      "cadrage": "centre", "labels": ["male_run"], "visage": false }]
+// une liste, une ligne par image gardée : son empreinte seule, ou un objet.
+//   ["c4dfbf", { "ref": "f3ff1e", "cadrage": "haut", "visage": true, "labels": ["male_run"] }]
 //   - ref      les 6 caractères de la planche ;
-//   - legende  l'image décrite en anglais (qui, quoi, où, lumière) : c'est elle
-//              que les podz lisent avec images --cherche ;
 //   - cadrage  centre (défaut) | haut | bas | gauche | droite : où caler le 9:16 ;
 //   - labels   seulement si cette image va ailleurs que --labels ;
 //   - visage   true si un visage est reconnaissable (l'OS ne la proposera ni en
-//              photo de profil ni aux autres labels).
+//              photo de profil ni aux autres labels) ;
+//   - legende  facultative, en anglais : l'OS décrit lui-même chaque image
+//              versée (Florence, puis Moondream), comme à l'import d'une
+//              source. La tienne ne sert que si l'OS n'en rend aucune.
 //   --planche N  règle la planche : ses images absentes du fichier sont écartées
 //                et ne reviendront plus au tri.
 //   --essai      ne verse rien : écrit les images recadrées dans sortie/verser/
 //                pour les regarder (pas besoin de BANQUE_JETON).
 //
 // Chaque image est téléchargée en taille d'origine, recadrée en 9:16, ramenée à
-// 1080 px de large au plus et réencodée en JPEG sans métadonnées.
+// 1080 px de large au plus et réencodée en JPEG sans aucune métadonnée (l'OS
+// refuse un fichier qui en porte). Rien d'autre ne passe dessus : ni nettoyage,
+// ni retouche, ni agrandissement.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { metadonneesRestantes, retirerMetadonnees } from "../../pods/page-blanche/atelier/metadonnees.ts";
@@ -72,6 +74,7 @@ let versees = 0;
 let deja = 0;
 let refusees = 0;
 let quota = false;
+let sansDescription = 0;
 if (essai) mkdirSync("sortie/verser", { recursive: true });
 for (const { d, candidat, labels } of lignes) {
   const court = candidat.ref.slice(0, 6);
@@ -83,11 +86,11 @@ for (const { d, candidat, labels } of lignes) {
       console.log(`${court} : sortie/verser/${court}.jpg (${(jpeg.length / 1000).toFixed(0)} ko) → ${labels.join(", ")}`);
       continue;
     }
-    const r = await appelBanque<{ id: string; url: string; deja?: boolean }>({
+    const r = await appelBanque<{ id: string; url: string; deja?: boolean; description?: string | null; description_par?: string }>({
       action: "ajouter",
       labels,
       jpeg_base64: jpeg.toString("base64"),
-      legende: d.legende,
+      ...(d.legende ? { legende: d.legende } : {}),
       ...(d.visage ? { visage: true } : {}),
       origine: { site: "pinterest", image_url: candidat.image_url, ...(candidat.page_url ? { page_url: candidat.page_url } : {}), requete: candidat.requetes[0]?.slice(0, 200) },
     });
@@ -101,7 +104,11 @@ for (const { d, candidat, labels } of lignes) {
     candidat.motif = r.id;
     if (r.deja) deja += 1;
     else versees += 1;
-    console.log(`${court} : ${r.deja ? "déjà en banque, labels complétés" : "en banque"} (${r.id.slice(0, 8)}) → ${labels.join(", ")}`);
+    if (!r.deja && !r.description) sansDescription += 1;
+    console.log(
+      `${court} : ${r.deja ? "déjà en banque, labels complétés" : "en banque"} (${r.id.slice(0, 8)}) → ${labels.join(", ")}` +
+        (r.deja ? "" : ` · ${r.description ? `${r.description_par} : ${r.description}` : "SANS DESCRIPTION"}`),
+    );
   } catch (e) {
     refusees += 1;
     console.log(`${court} : ÉCHEC ${e instanceof Error ? e.message : e}`);
@@ -123,6 +130,6 @@ if (!essai) ecrire(STOCK, stock);
 console.log(
   essai
     ? `Essai : ${lignes.length} image(s) recadrée(s) dans sortie/verser/, rien de versé.`
-    : `${versees} versée(s), ${deja} déjà en banque, ${refusees} refusée(s)${planche ? (refusees ? ` · planche ${planche} laissée ouverte (corrige et relance)` : `, ${ecartees} écartée(s) : planche ${planche} réglée`) : ""}${quota ? " · quota du jour atteint" : ""}`,
+    : `${versees} versée(s), ${deja} déjà en banque, ${refusees} refusée(s)${planche ? (refusees ? ` · planche ${planche} laissée ouverte (corrige et relance)` : `, ${ecartees} écartée(s) : planche ${planche} réglée`) : ""}${quota ? " · quota du jour atteint" : ""}${sansDescription ? ` · ${sansDescription} sans description (l'OS n'en a rendu aucune : donne une legende et reverse)` : ""}`,
 );
 if (refusees) process.exitCode = 1;

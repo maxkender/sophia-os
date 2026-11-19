@@ -124,6 +124,11 @@ test("verifierDecisions : légende en anglais, cadrage connu, pas de doublon", (
     { ref: "549690", legende: "man running on a foggy road", cadrage: "haut", visage: true },
     { ref: "abcdef", legende: "red running track at night" },
   ]);
+  // L'OS décrit l'image : l'empreinte seule suffit, la légende n'est qu'un secours.
+  assert.deepEqual(verifierDecisions(["549690", { ref: "abcdef", cadrage: "bas" }]), {
+    decisions: [{ ref: "549690" }, { ref: "abcdef", cadrage: "bas" }],
+    erreurs: [],
+  });
   assert.equal(verifierDecisions({}).erreurs.length, 1);
   assert.equal(verifierDecisions([{ ref: "549690", legende: "run" }]).erreurs.length, 1);
   assert.equal(verifierDecisions([{ ref: "549", legende: "man running on a road" }]).erreurs.length, 1);

@@ -163,29 +163,33 @@ export function trouver(stock: Record<string, Candidat>, debut: string): Candida
   return trouvees[0];
 }
 
-export type Decision = { ref: string; legende: string; cadrage?: Cadrage; labels?: string[]; visage?: boolean };
+export type Decision = { ref: string; legende?: string; cadrage?: Cadrage; labels?: string[]; visage?: boolean };
 
-/** Vérifie un fichier de décisions (les images gardées d'une planche) ; rend les erreurs, ligne par ligne. */
+/**
+ * Vérifie un fichier de décisions (les images gardées d'une planche) ; rend les
+ * erreurs, ligne par ligne. Une ligne est l'empreinte seule ("c4dfbf") ou un
+ * objet. La légende est facultative : l'OS décrit lui-même chaque image.
+ */
 export function verifierDecisions(brut: unknown): { decisions: Decision[]; erreurs: string[] } {
   const erreurs: string[] = [];
-  if (!Array.isArray(brut)) return { decisions: [], erreurs: ["le fichier est une liste : [{ ref, legende, cadrage?, labels?, visage? }]"] };
+  if (!Array.isArray(brut)) return { decisions: [], erreurs: ['le fichier est une liste : ["c4dfbf", { ref, cadrage?, labels?, visage?, legende? }]'] };
   const decisions: Decision[] = [];
   const vues = new Set<string>();
   for (const [i, d] of brut.entries()) {
-    const o = (d ?? {}) as Record<string, unknown>;
+    const o = (typeof d === "string" ? { ref: d } : (d ?? {})) as Record<string, unknown>;
     const ref = String(o.ref ?? "").trim().toLowerCase();
-    const legende = String(o.legende ?? "").trim();
+    const legende = String(o.legende ?? "").replace(/\s+/g, " ").trim();
     const ou = `n° ${i + 1} (${ref || "sans ref"})`;
     if (!/^[0-9a-f]{6,32}$/.test(ref)) erreurs.push(`${ou} : ref = les 6 caractères de la planche`);
     if (vues.has(ref)) erreurs.push(`${ou} : en double`);
     vues.add(ref);
-    if (legende.split(/\s+/).filter((m) => /[a-z]{3,}/i.test(m)).length < 3) erreurs.push(`${ou} : legende en anglais, 3 mots au moins`);
+    if (legende && legende.split(" ").filter((m) => /[a-z]{3,}/i.test(m)).length < 3) erreurs.push(`${ou} : legende en anglais, 3 mots au moins (ou aucune)`);
     if (legende.length > 300) erreurs.push(`${ou} : legende de ${legende.length} caractères (300 au plus)`);
     if (o.cadrage !== undefined && !CADRAGES.includes(o.cadrage as Cadrage)) erreurs.push(`${ou} : cadrage = ${CADRAGES.join(" | ")}`);
     if (o.labels !== undefined && (!Array.isArray(o.labels) || !o.labels.length)) erreurs.push(`${ou} : labels = une liste de noms de labels`);
     decisions.push({
       ref,
-      legende,
+      ...(legende ? { legende } : {}),
       ...(o.cadrage ? { cadrage: o.cadrage as Cadrage } : {}),
       ...(Array.isArray(o.labels) ? { labels: o.labels.map(String) } : {}),
       ...(o.visage === true ? { visage: true } : {}),

@@ -558,17 +558,24 @@ async function kycBandeaux(supabase: Supabase, depuis: string, simuler: boolean)
   const erreurs: { poster: string; erreur: string }[] = [];
   const parLangue: Record<string, number> = {};
   let poses = 0;
+  let deja = 0;
+  // Reprenable : les bandeaux déjà posés aujourd'hui ne sont pas refaits ; arrêt propre avant la limite de la fonction.
+  const { data: faits } = await supabase.from("posteur_textes").select("poster_id").eq("cle", `relance_ruul:${jour}`);
+  const dejaPoses = new Set(((faits ?? []) as { poster_id: string }[]).map((f) => f.poster_id));
+  const debut = Date.now();
   for (const d of liste) {
     const manque = estManque(d.manque) ? d.manque : "identite";
     parLangue[d.langue ?? "en"] = (parLangue[d.langue ?? "en"] ?? 0) + 1;
     if (simuler) continue;
+    if (dejaPoses.has(d.poster_id)) { deja++; continue; }
+    if (Date.now() - debut > 100_000) break;
     const texteEn = texteKyc(manque, d.ruul_email ?? "your email");
     const texte = (await traduireRuul(texteKyc(manque, "{EMAIL}"), d.langue, cache)).replaceAll("{EMAIL}", d.ruul_email ?? "your email");
     const e = await bandeauRelance(supabase, d.poster_id, jour, texteEn, texte, d.langue);
     if (e) erreurs.push({ poster: d.poster_id, erreur: e });
     else poses++;
   }
-  return { ok: true, simulation: simuler, posteurs: liste.length, bandeaux: poses, par_langue: parLangue, erreurs };
+  return { ok: true, simulation: simuler, posteurs: liste.length, bandeaux: poses, deja, reste: simuler ? 0 : liste.length - poses - deja - erreurs.length, par_langue: parLangue, erreurs };
 }
 
 /** SPF, DKIM et DMARC des domaines d'envoi, lus dans le DNS public (lecture seule). */

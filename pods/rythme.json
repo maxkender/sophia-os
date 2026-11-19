@@ -1,5 +1,5 @@
 {
- "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz. Podz de remakes et d'originaux en images finies (page-blanche, fathom, yasmine, kaja, mentalapp, sagace, dorian, appshelf, inspogirly, atala) : depuis le 5/11 (lot 4, 0655), leur rythme est calculé par l'OS sur les comptes de leur label (npm run boite, ligne « Rythme du jour ») ; ici, seulement leur pause.",
+ "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz. Podz de remakes et d'originaux en images finies (page-blanche, fathom, yasmine, kaja, mentalapp, sagace, dorian, appshelf, inspogirly, atala, atala-wellness) : depuis le 5/11 (lot 4, 0655), leur rythme est calculé par l'OS sur les comptes de leur label (npm run boite, ligne « Rythme du jour ») ; ici, seulement leur pause.",
  "page-blanche": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
  "originaux": { "par_jour": 9 },
  "reactions": { "par_jour": 0, "pause": true, "motif": "routine vidéo en pause depuis le 07/10" },
@@ -18,5 +18,6 @@
  "dorian": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 15/11 (0729), en test" },
  "appshelf": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 15/11 (0730), en test" },
  "inspogirly": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 16/11 (0733), en test" },
- "atala": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 19/11 (0776), en test ; Atala encore inactive" }
+ "atala": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 19/11 (0776), en test ; Atala encore inactive" },
+ "atala-wellness": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 19/11 (0778), en test ; Atala encore inactive" }
 }

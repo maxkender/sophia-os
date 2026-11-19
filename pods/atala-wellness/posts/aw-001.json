@@ -1,0 +1,112 @@
+{
+ "id": "aw-001",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698680855316745505",
+  "vues": 12300,
+  "publie_le": "2026-10-20",
+  "accroche": "6 habitudes wellness qui font leurs effets au bout d'une semaine (validées par la science)"
+ },
+ "titre": { "en": "6 wellness habits that work in a week" },
+ "legendes": {
+  "en": "the running one changed everything for me 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running"
+ },
+ "musique": { "titre": "save a prayer", "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838" },
+ "notes": "Preuve : « 6 habitudes wellness qui font leurs effets au bout d'une semaine » de @healthy_with_emma6 (12,3 k vues, 20/10), même gabarit (7 slides, l'appli en 5e). Sa slide pub (« mange healthy même au resto », carte CleanMenu) devient la slide Atala : une fille qui court (banque) et la carte d'Atala. Faits vérifiés : déshydratation légère et humeur (Armstrong et al., J. Nutr. 2012) ; lumière du jour le matin, horloge interne et sommeil ; lecture sur écran émissif le soir et endormissement plus lent qu'avec un livre papier (Chang et al., PNAS 2015) ; 120 minutes par semaine dans la nature et bien-être (White et al., Scientific Reports 2019) ; 10 pages par jour ≈ 300 pages par mois. Photos : banque de l'OS (images/banque, ids dans `banque`).",
+ "banque": {
+  "images/banque/couverture-a.jpg": "09f1c9b6-c287-48c4-b267-6d8d522fe6ce",
+  "images/banque/couverture-b.jpg": "031b1d05-4c68-4fa8-ad65-848a4067177c",
+  "images/banque/eau.jpg": "028ba6dc-a764-4ce5-abf9-3f2cdce0c774",
+  "images/banque/lumiere.jpg": "0dbcb4b7-cf17-4517-9ed3-4cf523dcb4fd",
+  "images/banque/etirement.jpg": "009b4015-94e5-4d07-a7e0-2c4c9df1937a",
+  "images/banque/course.jpg": "02887918-b95c-4f0c-9e1e-7e43e644b973",
+  "images/banque/lecture.jpg": "03299b03-4f96-4930-bff6-fd0f62a7bf1d",
+  "images/banque/dehors.jpg": "037e3034-9866-45f6-a4ec-193f18b36ad4"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": ["images/banque/couverture-a.jpg", "images/banque/couverture-b.jpg"],
+   "en": { "titre": "6 wellness habits that start working after just one week", "note": "(backed by science)" }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/eau.jpg",
+   "en": {
+    "titre": "drink water _before coffee_",
+    "intro": "after 8 hours of sleep, you wake up _a little dehydrated_",
+    "paragraphes": [
+     "studies show that even mild dehydration can lower your _mood and focus_",
+     "a big glass of water first, _then_ the coffee. your energy notices"
+    ],
+    "chute": "the easiest habit on this list. _no excuse_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/lumiere.jpg",
+   "en": {
+    "titre": "get _morning light_",
+    "intro": "10 minutes of _daylight_ when you wake up and your body clock resets",
+    "paragraphes": [
+     "better mood, _more energy_, and you fall asleep easier at night",
+     "even on a cloudy day, outside is _way brighter_ than your bedroom"
+    ],
+    "chute": "open your door before you open _tiktok_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/etirement.jpg",
+   "en": {
+    "titre": "stretch for _5 minutes_",
+    "intro": "sitting all day leaves your body _stiff and heavy_",
+    "paragraphes": [
+     "a few minutes of stretching in the morning and you feel _lighter all day_",
+     "hips, back, neck. _before your phone_, not after"
+    ],
+    "chute": "you don't need a class. you need _a floor_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course.jpg",
+   "en": {
+    "titre": "_actually_ start running",
+    "intro": "running is the habit that changed _my energy_ the most",
+    "paragraphes": [
+     "i always wanted to run but i _never knew where to start_, so i went too fast and quit after a week",
+     "my tip: _i found an app that builds a running plan around my goal_ and adapts it every week, and i finally stuck with it"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/lecture.jpg",
+   "en": {
+    "titre": "read _10 pages_ instead of scrolling",
+    "intro": "your phone in bed keeps your brain _wide awake_",
+    "paragraphes": [
+     "a study showed that people reading on a screen at night _took longer to fall asleep_ than with a real book",
+     "10 pages a day is _about a book a month_"
+    ],
+    "chute": "put your phone _across the room_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/dehors.jpg",
+   "en": {
+    "titre": "go outside _every day_",
+    "intro": "a big study found that _2 hours a week_ in nature is linked to better health and well-being",
+    "paragraphes": [
+     "a walk, a park, _a lake_ if you're lucky",
+     "no gym, no plan. just _fresh air_"
+    ],
+    "chute": "touch grass is _literally_ the advice"
+   }
+  }
+ ]
+}

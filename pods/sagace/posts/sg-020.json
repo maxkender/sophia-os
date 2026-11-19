@@ -1,0 +1,1317 @@
+{
+ "id": "sg-020",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 que tout le monde devrait savoir",
+  "en": "10/10 skills everyone should know",
+  "de": "10/10-Skills, die jeder können sollte",
+  "it": "Abilità 10/10 che tutti dovrebbero sapere",
+  "pt-BR": "Habilidades 10/10 que todo mundo deveria saber",
+  "tr": "Herkesin bilmesi gereken 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care toți ar trebui să le știe",
+  "cs": "Dovednosti 10/10, které by měl umět každý"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 que tout le monde devrait savoir #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills everyone should know #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die jeder können sollte #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che tutti dovrebbero sapere #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que todo mundo deveria saber #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Herkesin bilmesi gereken 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care toți ar trebui să le știe #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které by měl umět každý #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - Notmaster",
+  "url": "https://www.tiktok.com/music/original-sound-7229869367767485227"
+ },
+ "notes": "Full test du 19/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 que tout le monde devrait savoir », sa couverture (décor, lignes brun/noir), 5 gestes utiles à tous (massage cardiaque, manœuvre de Heimlich, éteindre un feu d'huile, repérer une arnaque, démarrer avec des câbles), une vraie vidéo native par langue (Croix-Rouge, pompiers, ADAC, BSI…). Sophia en étape 4 sur 7 (cta A : « SAVOIR / UN PEU DE TOUT »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE TOUT LE MONDE",
+      "cap": 93
+     },
+     {
+      "t": "DEVRAIT",
+      "cap": 120
+     },
+     {
+      "t": "SAVOIR",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "EVERYONE",
+      "cap": 169
+     },
+     {
+      "t": "SHOULD",
+      "cap": 120
+     },
+     {
+      "t": "KNOW",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE JEDER",
+      "cap": 169
+     },
+     {
+      "t": "KÖNNEN",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "SOLLTE",
+      "cap": 169
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CHE TUTTI",
+      "cap": 169
+     },
+     {
+      "t": "DOVREBBERO",
+      "cap": 120
+     },
+     {
+      "t": "SAPERE",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE TODO MUNDO",
+      "cap": 93
+     },
+     {
+      "t": "DEVERIA",
+      "cap": 120
+     },
+     {
+      "t": "SABER",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "HERKESİN",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "BİLMESİ",
+      "cap": 169
+     },
+     {
+      "t": "GEREKEN",
+      "cap": 120
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PE CARE TOȚI",
+      "cap": 93
+     },
+     {
+      "t": "AR TREBUI",
+      "cap": 120
+     },
+     {
+      "t": "SĂ LE ȘTIE",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "KTERÉ BY MĚL",
+      "cap": 93
+     },
+     {
+      "t": "UMĚT",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "KAŽDÝ",
+      "cap": 169
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UN",
+     [
+      {
+       "t": "MASSAGE CARDIAQUE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mxOZLc-ncxw",
+     "titre": "Premiers secours - Adulte : Réanimation cardio-pulmonaire | Secourisme",
+     "chaine": "SIKANA Français",
+     "vues": "296 k vues",
+     "date": "il y a 10 ans",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/DQX2cY4K-0dl13gQ73G59f47sEafsdFI486pzU_WvghKWvX-rYDs_LfG9j6vP-wDvLBDP5nyOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PERFORM",
+     [
+      {
+       "t": "CPR",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6eRwgM2Pa4o",
+     "titre": "How to Perform Hands-Only CPR",
+     "chaine": "American Red Cross",
+     "vues": "891K views",
+     "date": "3 years ago",
+     "duree": "2:50",
+     "avatar": "https://yt3.ggpht.com/H0otazbVlYKLvh70k8g_LZ53ALaDbLjS9_IVeq6fHYA3z9RONtTexgcQAC8U0wPIcCNNKFSE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "WIEDERBELEBEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DsWLk2qSzm0",
+     "titre": "Erste-Hilfe-Tutorial: Herz-Lungen-Wiederbelebung",
+     "chaine": "Johanniter-Unfall-Hilfe e.V.",
+     "vues": "64.657 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l15BdS2HJgtfPyrqRwzI-VEDm_3cXsE0W-tk9JHGDmYrc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE IL",
+     [
+      {
+       "t": "MASSAGGIO CARDIACO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dWgPDS6fr7o",
+     "titre": "Video tutorial BLS-D (Basic Life Support and Defibrillation) - Croce Rossa Italiana",
+     "chaine": "Croce Rossa Italiana",
+     "vues": "214K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "2:47",
+     "avatar": "https://yt3.ggpht.com/nL4nyq_YVBdO2Jp0BgbklxD7AmU4QRPwSou6QtoyWkpQmnIWPhtHM-nX4dEm0u3uHSI0qIHH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "MASSAGEM CARDÍACA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LquiiQVKqKE",
+     "titre": "Como fazer massagem cardíaca em crianças e adultos | Primeiros Socorros",
+     "chaine": "Einstein Hospital Israelita",
+     "vues": "208 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "4:57",
+     "avatar": "https://yt3.ggpht.com/EMv__pRqzJOLGZT7CtGn45GegIgQsAlqe7UqSKqt4BjWvbS_ZMXkNVdQtVr_FiCes-GXRfTomg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KALP MASAJI",
+       "couleur": "#c2393d"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "4xEWoP7Hvb0",
+     "titre": "Dış Kalp Masajı Nasıl Yapılır?",
+     "chaine": "Kapsül TV - Acil Servis",
+     "vues": "67 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "2:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kiKCooI8YwPdvIX-nA-ti_1xNeyFlorVJUO7E5TW5x8A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "MASAJ CARDIAC",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1pgHtU7Ktuc",
+     "titre": "Masuri de prim-ajutor in cazul stopului cardio-respirator",
+     "chaine": "D.S.U. - Departamentul pentru Situații de Urgență",
+     "vues": "314 K vizionări",
+     "date": "acum 11 ani",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/OSNLgT2tGM24Gko0ekcbTXJk2VYtad8X2IsDUnjcmqnnu0AXuyQzkSJRHj8b6pUyfM1k2KR5=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NEPŘÍMÁ",
+     [
+      {
+       "t": "MASÁŽ SRDCE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BvUU_B0COXc",
+     "titre": "První pomoc při srdeční zástavě - jak na nepřímou srdeční masáž. Naučte se základní kroky!",
+     "chaine": "WorkMed - kurzy první pomoci a zdraví",
+     "vues": "30 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "0:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mHKSqSi-7iNbNL8hwi2EqO4afGAkrpujc2sFHBzaNidQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LA MANŒUVRE",
+     [
+      {
+       "t": "DE HEIMLICH",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mzqP_SaVdLI",
+     "titre": "La méthode d'Heimlich",
+     "chaine": "Voisins Vigilants",
+     "vues": "289 k vues",
+     "date": "il y a 10 ans",
+     "duree": "0:44",
+     "avatar": "https://yt3.ggpht.com/b-1CdUAhVF334sEG4WDQI5Sx0jJ_wlgu-atEXOJ2Ld1AtE1JWvc6BJN120-zDeSfe5tT-wdwUcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "THE",
+     [
+      {
+       "t": "HEIMLICH MANEUVER",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2dn13zneEjo",
+     "titre": "Mayo Clinic Minute: A quick guide to the Heimlich maneuver",
+     "chaine": "Mayo Clinic",
+     "vues": "1.6M views",
+     "date": "8 years ago",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/XaMRV3XB7tpRur1rxjg09DPJbpyT9p7Eo0s7ldb0ayI6eyq07nMuI6U_zURm02cS7l4fmZy_Lg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DER",
+     [
+      {
+       "t": "HEIMLICH-GRIFF",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "enYCRXk8HAE",
+     "titre": "Heimlich-Griff richtig anwenden | Notarzt zeigt Erste Hilfe bei Ersticken",
+     "chaine": "DoktorWeigl",
+     "vues": "125.791 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "6:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "LA MANOVRA",
+     [
+      {
+       "t": "DI HEIMLICH",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B9udm9iGFU4",
+     "titre": "La manovra di disostruzione nell'adulto (Heimlich)",
+     "chaine": "Francesco Pastore",
+     "vues": "478K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfRDmMmjFPRFDlWG23Pi17PR-4-s9X493VBJbZlYcpwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "A MANOBRA",
+     [
+      {
+       "t": "DE HEIMLICH",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PyMq2iDMEkI",
+     "titre": "SAMU 192: Adulto engasgado? Veja como realizar a manobra de Heimlich",
+     "chaine": "Ministério da Saúde",
+     "vues": "532 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/smS7kZ5RWHe4dsL2wodGLHR5XFoOXwNxg7fGXytGt4sDAulDsHPs-PBrpiNd0D7PZxih9PRHNg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "HEIMLICH",
+       "couleur": "#2f6db5"
+      }
+     ],
+     "MANEVRASI"
+    ],
+    "video": {
+     "id": "-F4tMoz4Bys",
+     "titre": "Yetişkin Hava Yolu Tıkanıklığı (Yetişkinlerde Heimlich Manevrası)",
+     "chaine": "HIZIROĞLU EĞİTİM VE SAĞLIK HİZMETLERİ",
+     "vues": "522 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "2:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lT2bdCeoOO_Fub6wkvMyCvIVFBsJecNcCOP1UO_Y6WeA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 30 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "MANEVRA",
+     [
+      {
+       "t": "HEIMLICH",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qu5KDTdwg44",
+     "titre": "Manevra Heimlich de salvare de la sufocare",
+     "chaine": "Spitalul Universitar de Urgenta Militar Central \"Dr. Carol Davila\"",
+     "vues": "254 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "4:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kx7sLrFVUmHRIvbSqbZbpOjzB0lxsRB_hg0SiILdCTGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "HEIMLICHŮV",
+       "couleur": "#2f6db5"
+      }
+     ],
+     "MANÉVR"
+    ],
+    "video": {
+     "id": "Bx7T8Lb5ieA",
+     "titre": "Heimlichův manévr",
+     "chaine": "VyukoveFilmy",
+     "vues": "163 tis. zhlédnutí",
+     "date": "před 16 lety",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kfyzFCgmlcNDZIw5lm4tk-PF5XmX4F7_vzToxgrosWAg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "SAVOIR",
+     [
+      {
+       "t": "UN PEU DE TOUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "KNOW",
+     [
+      {
+       "t": "A BIT OF EVERYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "VON ALLEM",
+     [
+      {
+       "t": "ETWAS WISSEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SAPERE",
+     [
+      {
+       "t": "UN PO' DI TUTTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SABER",
+     [
+      {
+       "t": "UM POUCO DE TUDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYDEN",
+     [
+      {
+       "t": "BİRAZ BİLMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ȘTII",
+     [
+      {
+       "t": "CÂTE PUȚIN DIN TOATE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VĚDĚT",
+     [
+      {
+       "t": "OD VŠEHO TROCHU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÉTEINDRE",
+     [
+      {
+       "t": "UN FEU D'HUILE",
+       "couleur": "#e0782a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A8x6uQKfbZU",
+     "titre": "Feu de friteuse",
+     "chaine": "Sdis Isère - Sdis 38",
+     "vues": "59 k vues",
+     "date": "il y a 5 ans",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nSuknmbNa5xYdK6Q-Fp3tCjmaK_2yM5rj_kHmAdmOwvYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PUT OUT",
+     [
+      {
+       "t": "A GREASE FIRE",
+       "couleur": "#e0782a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6E2d-bVKfNk",
+     "titre": "Wrong vs. right way to put out a grease fire | Ohio State Medical Center",
+     "chaine": "Ohio State Wexner Medical Center",
+     "vues": "109K views",
+     "date": "11 years ago",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/YyQeuaTGaGwGhWwjpQ90XUfipkjO5MEzs9Qjn1_xymW5KqCjbw9IQLjt50FXDxgRnorXk9Fm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN",
+     [
+      {
+       "t": "FETTBRAND LÖSCHEN",
+       "couleur": "#e0782a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gKbydxywb2E",
+     "titre": "Fettbrand - Ein Lehrfilm mit der Feuerwehr Nordhorn | Lehrerschmidt",
+     "chaine": "Lehrerschmidt",
+     "vues": "120.818 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "3:47",
+     "avatar": "https://yt3.ggpht.com/UyZNd_1wpswHfD461v_saXO6_nuxm4-C5TRz3PClMyBblASW2nOnMPXpUapKZJvXg47V198f6w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SPEGNERE",
+     [
+      {
+       "t": "L'OLIO IN FIAMME",
+       "couleur": "#e0782a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8h5iNXIjViY",
+     "titre": "A fuoco l'olio nella padella, cosa fare?",
+     "chaine": "Vigili del Fuoco Official  Page",
+     "vues": "9K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "0:58",
+     "avatar": "https://yt3.ggpht.com/HuivHj8yuVJ4tzoJ-vOkv-N0U_07t8ijWlKxlHVZXxFVbD7kOAkp20vRb7Qr3VmrgmLY5My0nFM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APAGAR",
+     [
+      {
+       "t": "FOGO NO ÓLEO",
+       "couleur": "#e0782a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Y1ms5cK_tKE",
+     "titre": "NÃO JOGUE ÁGUA na PANELA com ÓLEO!",
+     "chaine": "Manual do Mundo",
+     "vues": "827 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "YAĞ YANGINI",
+       "couleur": "#e0782a"
+      }
+     ],
+     "SÖNDÜRMEK"
+    ],
+    "video": {
+     "id": "Rj12OwwfUzI",
+     "titre": "Yağ Yangını Neden Su ile Söndürülmez",
+     "chaine": "Mekkem MEKANİK YANGIN",
+     "vues": "21 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "2:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nY3NavTSyP_rBtz5wnsjQTbDtlheG7YhADzZUGnPtUgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ STINGI",
+     [
+      {
+       "t": "ULEIUL APRINS",
+       "couleur": "#e0782a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Mpa2H0b6XTA",
+     "titre": "Recomandari IGSU",
+     "chaine": "Tu stii?",
+     "vues": "1,3 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "0:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m_tduaZA7TrgHU8tz6EnoqeEv964BZkjv38MmC3PZpEg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UHASIT",
+     [
+      {
+       "t": "HOŘÍCÍ OLEJ",
+       "couleur": "#e0782a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EeZFRCGVavw",
+     "titre": "HAŠENÍ OLEJE",
+     "chaine": "Hasičský záchranný sbor České republiky",
+     "vues": "55 tis. zhlédnutí",
+     "date": "před 14 lety",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l62c15jAnogu3S_soPRrZFP60LLPp01OlYZkwtDYZLow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "REPÉRER",
+     [
+      {
+       "t": "UNE ARNAQUE",
+       "couleur": "#7a4fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FOA8qcDE50o",
+     "titre": "Qu’est ce que le phishing, comment le reconnaître et s’en protéger ?",
+     "chaine": "FBF Les clés de la banque",
+     "vues": "47 k vues",
+     "date": "il y a 6 ans",
+     "duree": "0:31",
+     "avatar": "https://yt3.ggpht.com/RTT-gswWmKKrmc-s5Ngx0XKwK0XquzTZbMxVU-hgbLYVcwRQ5GnZnx52ElxWkV5mfHtX1ckWbA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPOT",
+     [
+      {
+       "t": "A PHISHING SCAM",
+       "couleur": "#7a4fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iHetr8xTWIU",
+     "titre": "How To Spot a Phishing Email",
+     "chaine": "Keeper Security",
+     "vues": "29K views",
+     "date": "1 year ago",
+     "duree": "2:07",
+     "avatar": "https://yt3.ggpht.com/kBgj-bh3VXtIwro1qZCYqWzzZgIkqGuJ_qo4DBDm3YJyPku4wp2iylwlR-_HB4bRjnaj04CDdoo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "PHISHING",
+       "couleur": "#7a4fb5"
+      }
+     ],
+     "ERKENNEN"
+    ],
+    "video": {
+     "id": "XgF42Jb8jxo",
+     "titre": "Phishing-E-Mails enttarnen! | BSI",
+     "chaine": "Bundesamt für Sicherheit in der Informationstechnik",
+     "vues": "109.807 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kPKjyATqbGbJUgvirVuEVSkAm5AnBfPkoMF4Ljxg2toTI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "UNA TRUFFA",
+       "couleur": "#7a4fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d_2Oq8vpUc4",
+     "titre": "Cos'è un attacco phishing e come riconoscere la truffa che ruba i dati dall'email",
+     "chaine": "Geopop",
+     "vues": "268K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "10:18",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "IDENTIFICAR",
+     [
+      {
+       "t": "UM GOLPE",
+       "couleur": "#7a4fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mpXZo5ifYss",
+     "titre": "O que é Phishing? Como detectar um site falso e não ser \"pescado\" (Dell Oficial)",
+     "chaine": "Dell Suporte Brasil",
+     "vues": "59 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "3:57",
+     "avatar": "https://yt3.ggpht.com/-cY_AwgbwcdG7SrrtA5AKo93VORoZ4l93_N-OkOsOk7FJB_zebwU7hiWsMZkukp8Q9Z397t4-Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DOLANDIRICILIĞI",
+       "couleur": "#7a4fb5"
+      }
+     ],
+     "FARK ETMEK"
+    ],
+    "video": {
+     "id": "JGiz2d1EbSA",
+     "titre": "Phishing (Oltalama) E-postaları Nasıl Anlaşılır ve Analiz Edilir?",
+     "chaine": "Konudan Konuya",
+     "vues": "1,7 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "2:17",
+     "avatar": "https://yt3.ggpht.com/BsUju84q_qWLUp9mmrgAL8lnKcAz1s7KowsGwOWSbHCF-K20gQmZKU_lcIPXEN8I6_xiWGNUUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ RECUNOȘTI",
+     [
+      {
+       "t": "O ÎNȘELĂTORIE",
+       "couleur": "#7a4fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2HPZRK4SOTI",
+     "titre": "Protejează-te de phishing! Cum să recunoști și să eviți înșelătoriile online",
+     "chaine": "cyberFolksRO",
+     "vues": "256 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "2:18",
+     "avatar": "https://yt3.ggpht.com/x7kox6zcS_v_Y2ENI-AU5n5JUkFHCsu-lZKVGYl6erD_rFBBW6L0SsQ_iA5QDPm7_C2GMSkkVQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POZNAT",
+     [
+      {
+       "t": "PODVODNÝ E-MAIL",
+       "couleur": "#7a4fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4H3yheVfWCc",
+     "titre": "Jak poznat podvodný mail",
+     "chaine": "ESET Česká republika",
+     "vues": "2,3 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "2:19",
+     "avatar": "https://yt3.ggpht.com/pDs4Iyf35jSWJ4bpqxFqxaY-GzwVEAMCqZXcwgzcT2TKdd_JUuipLWPgN7VyGOK6tW5OVewmUTs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DÉMARRER",
+     [
+      {
+       "t": "AVEC DES CÂBLES",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BBhXM_6hjlI",
+     "titre": "Comment utiliser des câbles de démarrage ? - Tutoriel Oscaro",
+     "chaine": "Oscaro",
+     "vues": "1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/LPaF5K9OS8iBzSGZ9vILzMueja6Sczt3qP1LkHF3fjRkT_iSJ5z-q9F7naIK-YC4Fuc6UnrpLxc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "JUMP-START",
+       "couleur": "#3f8f4a"
+      }
+     ],
+     "A CAR"
+    ],
+    "video": {
+     "id": "iI1o2hNy2hE",
+     "titre": "How to Properly Jump Start a Car",
+     "chaine": "ChrisFix",
+     "vues": "15M views",
+     "date": "11 years ago",
+     "duree": "7:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lsMlPXxQcSMI_EveG6eb7sd1T9vFkEQrXKruSjabO_ANY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "STARTHILFE",
+       "couleur": "#3f8f4a"
+      }
+     ],
+     "GEBEN"
+    ],
+    "video": {
+     "id": "zDz4dPqlwSQ",
+     "titre": "Starthilfe geben: Die Auto-Batterie richtig überbrücken | Einfach. Selber. Machen. | ADAC",
+     "chaine": "ADAC",
+     "vues": "510.347 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "AVVIARE L'AUTO",
+     [
+      {
+       "t": "CON I CAVI",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S0k0wNf66SY",
+     "titre": "Avviare un'auto in panne con i cavi",
+     "chaine": "LUPI AUTO",
+     "vues": "173K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lDJk8QwesHNAu5FIBs5vVm9YSAb7_QwMrTsvezhBlyZas=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "CHUPETA NO CARRO",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3yvNkUL6C3s",
+     "titre": "Como fazer a popular \"chupeta\" na bateria",
+     "chaine": "icarros",
+     "vues": "1,2 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/VsTe5DEDmWhBT54VCwMifrGZN1wvLW5cOiTFNvK2OX-cE6Xqg-ycQoNBuwexWTeEGTLbFMAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "AKÜ TAKVİYESİ",
+       "couleur": "#3f8f4a"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "jt_TfrcWm3A",
+     "titre": "Araçtan Araca Akü Takviyesi Nasıl Olmalıdır?",
+     "chaine": "İnci Akü: Dünyanın Enerji Uzmanı",
+     "vues": "482 B görüntüleme",
+     "date": "12 yıl önce",
+     "duree": "1:07",
+     "avatar": "https://yt3.ggpht.com/dOPmGKZqklKoF08cXTirFgXi-Fxh_AGgtj_MvC6xUY45510efLdKqqT-qOp3G8lb0qS0fQzs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DAI CURENT",
+     [
+      {
+       "t": "CU CABLURI",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Bf_-mVFH2p8",
+     "titre": "Cum se da curent cu cabluri la o masina cu bateria descarcata! Pas cu pas",
+     "chaine": "Webdape",
+     "vues": "87 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "6:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kvs79San-I9tiSUtgx2r2q87IGma2V8eyveKdq87xwscw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NASTARTOVAT",
+     [
+      {
+       "t": "PŘES KABELY",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CXE0ODCoZ-k",
+     "titre": "Jak na to? Vybitá baterie a startování přes kabely",
+     "chaine": "Síla sítě",
+     "vues": "110 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/GD5_2kLIQMw1wb7OAJ-isnQuxDy5LCUXoP8KVOHbqaAxVArO8V7G0x_EDPdZtZFhxDLdVBt0Rw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  }
+ ]
+}

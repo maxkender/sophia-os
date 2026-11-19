@@ -1,0 +1,1335 @@
+{
+ "id": "sg-021",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 pour survivre en pleine nature",
+  "en": "10/10 skills to survive in the wild",
+  "de": "10/10-Skills zum Überleben in der Wildnis",
+  "it": "Abilità 10/10 per sopravvivere nella natura",
+  "pt-BR": "Habilidades 10/10 para sobreviver na natureza",
+  "tr": "Doğada hayatta kalmak için 10/10 beceriler",
+  "ro": "Abilități 10/10 ca să supraviețuiești în natură",
+  "cs": "Dovednosti 10/10 pro přežití v divočině"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 pour survivre en pleine nature #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to survive in the wild #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills zum Überleben in der Wildnis #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 per sopravvivere nella natura #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para sobreviver na natureza #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Doğada hayatta kalmak için 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 ca să supraviețuiești în natură #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10 pro přežití v divočině #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "im not alone - Žvaigždė",
+  "url": "https://www.tiktok.com/music/im-not-alone-7214561277266610990"
+ },
+ "notes": "Full test du 19/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 pour survivre en pleine nature », sa couverture (décor, lignes brun/noir), 5 compétences de survie (allumer un feu sans briquet, construire un abri, reconnaître les plantes comestibles, fabriquer un piège à poissons, préparer un sac de survie), une vraie vidéo native par langue. « Rendre l'eau potable » écarté : pas de vidéo native correcte en roumain. Sophia en étape 4 sur 7 (cta B : « SURVIVRE / À L'ENNUI »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "POUR",
+      "cap": 169
+     },
+     {
+      "t": "SURVIVRE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "EN PLEINE NATURE",
+      "cap": 93
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO",
+      "cap": 169
+     },
+     {
+      "t": "SURVIVE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "IN THE WILD",
+      "cap": 120
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "ZUM",
+      "cap": 169
+     },
+     {
+      "t": "ÜBERLEBEN",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "IN DER WILDNIS",
+      "cap": 93
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PER",
+      "cap": 169
+     },
+     {
+      "t": "SOPRAVVIVERE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "NELLA NATURA",
+      "cap": 93
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA",
+      "cap": 169
+     },
+     {
+      "t": "SOBREVIVER",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "NA NATUREZA",
+      "cap": 93
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "DOĞADA",
+      "cap": 120
+     },
+     {
+      "t": "HAYATTA KALMAK",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "İÇİN",
+      "cap": 120
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CA SĂ",
+      "cap": 120
+     },
+     {
+      "t": "SUPRAVIEȚUIEȘTI",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ÎN NATURĂ",
+      "cap": 120
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PRO",
+      "cap": 169
+     },
+     {
+      "t": "PŘEŽITÍ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "V DIVOČINĚ",
+      "cap": 120
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ALLUMER UN FEU",
+     [
+      {
+       "t": "SANS BRIQUET",
+       "couleur": "#e0762b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EHsTQCS9tCw",
+     "titre": "Faire du feu facilement ! (Tuto Survie)",
+     "chaine": "Tutaupe",
+     "vues": "1,4 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "2:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m9ak-B2rkfMqGSuxFXOWk7HHyY51u-ceP1uQvKCUAq0j8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "START A FIRE",
+     [
+      {
+       "t": "WITHOUT A LIGHTER",
+       "couleur": "#e0762b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vCKXnHMuFBs",
+     "titre": "3 ways to start a FIRE (NO MATCHES OR LIGHTER) Fire Starting Techniques..",
+     "chaine": "Field Days",
+     "vues": "1.8M views",
+     "date": "6 years ago",
+     "duree": "9:40",
+     "avatar": "https://yt3.ggpht.com/itILXXXPmei8Psk8lVnjjNu75wX5v1jKiMYHMa58vE1Emyk8b27BQJTPzms5EOOM1CDyaW0zIrw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "FEUER MACHEN",
+     [
+      {
+       "t": "OHNE FEUERZEUG",
+       "couleur": "#e0762b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SEdP6WoLKSE",
+     "titre": "Survival-Tipps #3: Feuer machen - Bundeswehr",
+     "chaine": "Bundeswehr",
+     "vues": "100.590 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "1:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kqDNaSzIKZAEcrDoZQYyKmik8hCL7ofj29bgJaK1jgLoo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ACCENDERE UN FUOCO",
+     [
+      {
+       "t": "SENZA ACCENDINO",
+       "couleur": "#e0762b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zNUfqhdm3jc",
+     "titre": "ACCENDERE UN FUOCO  SENZA ACCENDINO - GORILLA SURVIVAL",
+     "chaine": "Street Gorilla",
+     "vues": "80K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nELegD-05h2l1ZEOhWAx-EEQPEG24pNbyU-uVO8aDQUXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER FOGO",
+     [
+      {
+       "t": "SEM ISQUEIRO",
+       "couleur": "#e0762b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OUlYQPzhxEo",
+     "titre": "Aprendendo a fazer FOGO COM GRAVETOS",
+     "chaine": "FELIJAO",
+     "vues": "529 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "15:06",
+     "avatar": "https://yt3.ggpht.com/gNuv8IFbrxGoISet4nU0bzVz-nYvXINLPugdukDj2Hqsy_b3BV97Iz-PShjAcNm87jc7Rm7STg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ÇAKMAKSIZ",
+       "couleur": "#e0762b"
+      }
+     ],
+     "ATEŞ YAKMAK"
+    ],
+    "video": {
+     "id": "cO7m_QJ_-4c",
+     "titre": "DOĞADA İLKEL YÖNTEMLERLE ATEŞ YAKMAK!!",
+     "chaine": "Deli Mi Ne?",
+     "vues": "6,2 Mn görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "12:31",
+     "avatar": "https://yt3.ggpht.com/MVgLXBUTpdt5KHs9ODybt4OSZZ3iqspkf9vMb0cZTbkgxqNb8z41wTKKu03VHxnvUzpvsz5W=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI FOC",
+     [
+      {
+       "t": "FĂRĂ BRICHETĂ",
+       "couleur": "#e0762b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sZxRsKicrMI",
+     "titre": "Focul cu lemne ude - Fără Chibrit sau Brichetă",
+     "chaine": "Cezar Machidon",
+     "vues": "208 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "20:41",
+     "avatar": "https://yt3.ggpht.com/fjgrsljs9pKVnAFweg60NT-U-BhW6bfAMM_WqQGV4OdShFgdtojqxnJeMcp3j2yV-trdY3OpBdA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ROZDĚLAT OHEŇ",
+     [
+      {
+       "t": "BEZ ZAPALOVAČE",
+       "couleur": "#e0762b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dJnZf_3GhGY",
+     "titre": "Primitivní rozdělávání ohně z blízka",
+     "chaine": "Primitivní dovednosti  Primitive skills",
+     "vues": "22 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "11:53",
+     "avatar": "https://yt3.ggpht.com/XoO0Xd28Xh9pNhqMSS76yw4NDhoa_AxcEjdc1-7DaCMe0XQhTqKSm7gHu9Bi6F1c-qymkVq8-w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CONSTRUIRE",
+     [
+      {
+       "t": "UN ABRI",
+       "couleur": "#8a6a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H22NVXQNpcM",
+     "titre": "72H en forêt pour construire le meilleur abri possible (sans expérience)",
+     "chaine": "Charles & Mélanie",
+     "vues": "1,8 M de vues",
+     "date": "il y a 4 mois",
+     "duree": "36:47",
+     "avatar": "https://yt3.ggpht.com/Sy5tUsjVvqrY_FXyLEbOpzRcYvpzKVk2kc8GTmYIyD_ogmrYeJNELIEWf38tBjEv4YHhKVaGZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BUILD",
+     [
+      {
+       "t": "A SHELTER",
+       "couleur": "#8a6a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tzUpH0Zft5c",
+     "titre": "5 Survival Shelters Everyone Should Know",
+     "chaine": "Survival Lilly",
+     "vues": "3.2M views",
+     "date": "6 years ago",
+     "duree": "17:46",
+     "avatar": "https://yt3.ggpht.com/82RHrpGf24eSsUUJh2TQtia90rO1slUTkVAalo6Yi2M9v4Y9lCoLbpMZaHo2NW87iYLt_vc-6qo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "UNTERSCHLUPF",
+       "couleur": "#8a6a45"
+      }
+     ],
+     "BAUEN"
+    ],
+    "video": {
+     "id": "XDJN8duzZ48",
+     "titre": "5€ die dein Leben retten! Rettungdecke und Co! Not-Shelter im Winter / Not-Biwak / Schutz im Winter",
+     "chaine": "DavidLeichtle",
+     "vues": "8718 Aufrufe",
+     "date": "vor 9 Monaten",
+     "duree": "17:31",
+     "avatar": "https://yt3.ggpht.com/PVoZhVgGII8QgfSc_idHS66-e57VsS_uDOnUZMGKcfq3rrdvp3fjWc2TLnETVrhyHctglxc6=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COSTRUIRE",
+     [
+      {
+       "t": "UN RIFUGIO",
+       "couleur": "#8a6a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HVsjVRqAhbY",
+     "titre": "Costruire un RIFUGIO NEL BOSCO senza attrezzi",
+     "chaine": "MARCO PRIORI - Natural Survival™",
+     "vues": "18K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nQ3hYgwb3Fi7mdKLwnXtOKaTfQqKthQpTerNZ8hpU6mA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONSTRUIR",
+     [
+      {
+       "t": "UM ABRIGO",
+       "couleur": "#8a6a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XpkSzgZ-27Y",
+     "titre": "Abrigo de Sobrevivência na Selva - Como fazer (feat. 1o BIS de Manaus)",
+     "chaine": "Celso Cavallini",
+     "vues": "1,2 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "15:25",
+     "avatar": "https://yt3.ggpht.com/vz8Vx_VtIghUJmYffy-gc4BKO3WncUeFiXS9TXNpV2JKzGajhFMBg5jEeuYGnINqGObPz9roT4k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BARINAK",
+       "couleur": "#8a6a45"
+      }
+     ],
+     "KURMAK"
+    ],
+    "video": {
+     "id": "WuAInmfWXNw",
+     "titre": "Çadır kullanmadan ormanda en pratik ve dayanıklı barınak yapma yöntemi | Doğadaki İnsan 41. Bölüm",
+     "chaine": "Doğadaki İnsan",
+     "vues": "37 B görüntüleme",
+     "date": "11 ay önce",
+     "duree": "11:50",
+     "avatar": "https://yt3.ggpht.com/6ACW78ZPa7S4CeUgTE2ms3SnW2tJCtQE4tDZ4JhBsUZCbvJ-7oPpJlrJ-iZ5RLvp-aG6FLfw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CONSTRUIEȘTI",
+     [
+      {
+       "t": "UN ADĂPOST",
+       "couleur": "#8a6a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Vwec-9rrPp0",
+     "titre": "Supravietuire si Bushcraft -Am construit adapost in salbaticie si am dormit printre ursi si lupi",
+     "chaine": "Vanatorul de Comori",
+     "vues": "44 K vizionări",
+     "date": "acum 1 an",
+     "duree": "16:15",
+     "avatar": "https://yt3.ggpht.com/nnBU6neClWOas9fDbZbjWyAxO1UlyZHlDvIli5ZbyZ-B28OPlcR51hiHb-Y3RDqY-_A12Hyolg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POSTAVIT",
+     [
+      {
+       "t": "PŘÍSTŘEŠEK",
+       "couleur": "#8a6a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DAZGGcgbgCA",
+     "titre": "NÁVOD : Jak postavit přístřešek z plachty 3x3 m, velký průvodce od A do Z",
+     "chaine": "JUBÖ BUSHCRAFT CZECH REPUBLIC",
+     "vues": "111 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "41:47",
+     "avatar": "https://yt3.ggpht.com/IM9_S63mD-KOOHUqoBcbf4n9_R0zaOX3bLlbJYNVdYTF3O9TQVS9Jc6m-wjjikSTiqlYCZSL=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "SURVIVRE",
+     [
+      {
+       "t": "À L'ENNUI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SURVIVE",
+     [
+      {
+       "t": "BOREDOM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "LANGEWEILE",
+     [
+      {
+       "t": "ÜBERLEBEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SOPRAVVIVERE",
+     [
+      {
+       "t": "ALLA NOIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SOBREVIVER",
+     [
+      {
+       "t": "AO TÉDIO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SIKINTIDAN",
+     [
+      {
+       "t": "KURTULMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SUPRAVIEȚUIEȘTI",
+     [
+      {
+       "t": "PLICTISELII",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PŘEŽÍT",
+     [
+      {
+       "t": "NUDU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RECONNAÎTRE",
+     [
+      {
+       "t": "LES PLANTES",
+       "couleur": "#4f8f3a"
+      }
+     ],
+     "COMESTIBLES"
+    ],
+    "video": {
+     "id": "xkbK3A-GsjM",
+     "titre": "10 plantes sauvages à cueillir en hiver !",
+     "chaine": "Le Chemin de la Nature",
+     "vues": "268 k vues",
+     "date": "il y a 4 ans",
+     "duree": "28:39",
+     "avatar": "https://yt3.ggpht.com/D1BU86dD_69iQzLiIQVC7K3rsbHAHdTM0AeZbQnQqVWbbU6Npt3zOLeRbXboVvtkrPFhpaANbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "RECOGNIZE",
+     [
+      {
+       "t": "EDIBLE",
+       "couleur": "#4f8f3a"
+      }
+     ],
+     "PLANTS"
+    ],
+    "video": {
+     "id": "ew5yeWqsWY8",
+     "titre": "11 Easy Edible Plants for Beginner Foragers- Eating Wild Food",
+     "chaine": "Robin Greenfield",
+     "vues": "659K views",
+     "date": "6 years ago",
+     "duree": "14:00",
+     "avatar": "https://yt3.ggpht.com/8d34wDoLLlxqALgjjYiVVV8NNzFr_IBzh0ME9g6Gvc6tMDpBEh_rY4FNscku_48fUzLwp4nACU8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ESSBARE",
+       "couleur": "#4f8f3a"
+      }
+     ],
+     "PFLANZEN",
+     "ERKENNEN"
+    ],
+    "video": {
+     "id": "mduIdfOGkUU",
+     "titre": "Essbare Unkräuter: 20 wilde Pflanzen im Garten + viele kreative Rezeptideen!",
+     "chaine": "Essbare Natur mit Martina Merz",
+     "vues": "52.643 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "13:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lf79QfYu0jSBX5oJGIrqtQmXA3H69ncBPPL0ru1bZ4Sg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "LE ERBE",
+       "couleur": "#4f8f3a"
+      }
+     ],
+     "COMMESTIBILI"
+    ],
+    "video": {
+     "id": "TiiBVE_iGBg",
+     "titre": "Le 5 erbe spontanee sempre disponibili per la sopravvivenza e la minestra dell'Apocalisse (ricetta)",
+     "chaine": "marziocristiani",
+     "vues": "173K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "2:40",
+     "avatar": "https://yt3.ggpht.com/Suhgczk-ToyNCCM043SUYaNlwzU2tCBA1Kl_YLUUIrEqZqk8faz5pPDO1KiM7wHQUbDi3qjk_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "RECONHECER",
+     [
+      {
+       "t": "PLANTAS",
+       "couleur": "#4f8f3a"
+      }
+     ],
+     "COMESTÍVEIS"
+    ],
+    "video": {
+     "id": "nTMhYSFCbqE",
+     "titre": "7 PANCs - Plantas Comestíveis",
+     "chaine": "Cultivando",
+     "vues": "235 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "17:27",
+     "avatar": "https://yt3.ggpht.com/7n4MfV2RF-MsaJi5aWCEQzIWzyDn7osqoqEUPp0Rt1R0hF_e5Th3et7lF2s6L0RFjHpPiyVF=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "YENİLEBİLİR",
+       "couleur": "#4f8f3a"
+      }
+     ],
+     "OTLARI",
+     "TANIMAK"
+    ],
+    "video": {
+     "id": "oeMXJrDliNc",
+     "titre": "YENİLEBİLİR YABANİ OTLARIN İÇİNE DÜŞTÜM 😍 14 çeşit ot topladım 😊👍",
+     "chaine": "Toprağınhuzuru",
+     "vues": "71 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "15:18",
+     "avatar": "https://yt3.ggpht.com/nyPhpKgKRPC_9BY37mOrOYsLreyn3c3pLFiPC_EFbluCCHoqiuLXEgFnRA61M5XleCJOCqzigi4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ RECUNOȘTI",
+     [
+      {
+       "t": "PLANTELE",
+       "couleur": "#4f8f3a"
+      }
+     ],
+     "COMESTIBILE"
+    ],
+    "video": {
+     "id": "Qkkx6TwAPAM",
+     "titre": "Plante comestibile spontane in februarie",
+     "chaine": "Liberi Prin Adevar",
+     "vues": "7,1 K vizionări",
+     "date": "acum 8 luni",
+     "duree": "5:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kAzKvkmRBqlnwCXrIE7PVprdRypmCoq_m0akb3BpvsCw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POZNAT",
+     [
+      {
+       "t": "JEDLÉ",
+       "couleur": "#4f8f3a"
+      }
+     ],
+     "ROSTLINY"
+    ],
+    "video": {
+     "id": "DVUiOv-Mrgo",
+     "titre": "První jarní bylinky - jedlé divoké rostliny - nápady a rezepty - byliny a jejich účinky - Bosá Sába",
+     "chaine": "Bosá Sába",
+     "vues": "10 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "14:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7pBMwGDXgO8d1q8-miltgAuT-TNxnY0SOuSjRG5BDsw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FABRIQUER",
+     [
+      {
+       "t": "UN PIÈGE",
+       "couleur": "#2f7fb5"
+      }
+     ],
+     "À POISSONS"
+    ],
+    "video": {
+     "id": "G-A1do1vrRQ",
+     "titre": "TECHNIQUE DE SURVIE : Comment fabriquer un piège à poisson - Cyril Chauquet",
+     "chaine": "Cyril Chauquet",
+     "vues": "250 k vues",
+     "date": "il y a 4 ans",
+     "duree": "5:40",
+     "avatar": "https://yt3.ggpht.com/Sr7dgA33cyx0USlKULzZ0UvNzmCmhoWBmnCKtQryNruxR_5N6-GbH7cULCszgBkWfv_Wkoj0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "A FISH TRAP",
+       "couleur": "#2f7fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bRl9IzZ3L7g",
+     "titre": "Primitive Survival Fish Trap - Build, Catch and Cook",
+     "chaine": "Clay Hayes",
+     "vues": "138K views",
+     "date": "7 years ago",
+     "duree": "14:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nclvC0n14LZyqyYbadFwJqRtp7fchZ7yiwtkBBPJ_uXj4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "FISCHFALLE",
+       "couleur": "#2f7fb5"
+      }
+     ],
+     "BAUEN"
+    ],
+    "video": {
+     "id": "2vpUufR-poQ",
+     "titre": "SURVIVAL FISCHFALLE - Reuse selber bauen - Bushcraft Projekt | Fritz Meinecke",
+     "chaine": "Fritz Meinecke",
+     "vues": "684.140 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "14:10",
+     "avatar": "https://yt3.ggpht.com/5AHYzlRfdC4xpFIzCroJ35-qqzlgkilcUu3J7CWFvZ_l0bp9OKeOUgjdQfKPsoXEBjTSHLNb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COSTRUIRE",
+     [
+      {
+       "t": "UNA TRAPPOLA",
+       "couleur": "#2f7fb5"
+      }
+     ],
+     "PER PESCI"
+    ],
+    "video": {
+     "id": "2ihkC613hmo",
+     "titre": "#1 - TRAPPOLA per Pesci - Sopravvivenza in MARE e su ISOLA DESERTA",
+     "chaine": "Wilderness Calling",
+     "vues": "424K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "12:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nsWARakYf1Vri4hCHmRmKSWxikyrnqgdkrtCxbnwT21w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "UMA ARMADILHA",
+       "couleur": "#2f7fb5"
+      }
+     ],
+     "PARA PEIXES"
+    ],
+    "video": {
+     "id": "JGRGRfVepKk",
+     "titre": "Armadilha de garrafa PET para peixes: Será que funciona? - Sobreviva Ep.09",
+     "chaine": "Sobrevivencialismo",
+     "vues": "1 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "13:39",
+     "avatar": "https://yt3.ggpht.com/Tc9CnSSdQNISaAB_IVJPUVtRJTrfJZg59qQTUb0B4368cVhS9cSd2cSaRyA_DXEVtcnsoyjk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BALIK TUZAĞI",
+       "couleur": "#2f7fb5"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "4bz_cvzTdjo",
+     "titre": "DAMACANADAN BALIK TUZAĞI İLE BALIK AVI #balık #balıkavı  #balıktutma #tuzak #köyhayatı #doğa",
+     "chaine": "sevdiğimiz işler",
+     "vues": "17 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "12:37",
+     "avatar": "https://yt3.ggpht.com/HTUXqAsgvUhwLM9jfC0f8a5j6NZPDoPhRQ7RBZ9EAok_uW_kW9WkKaL2zHakJE-1hl1MKGjEXA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "O CAPCANĂ",
+       "couleur": "#2f7fb5"
+      }
+     ],
+     "PENTRU PEȘTI"
+    ],
+    "video": {
+     "id": "YfBxTFujNCg",
+     "titre": "Cum sa faci o capcana pentru pestisori?",
+     "chaine": "Marian Pescarul",
+     "vues": "19 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/JHV0EfFqAIc4xWSrDWtIzjBAhrJaqPHn6HRnvWZOohCiZp31adOiu24_JdF2avHgZlqo7tnmHA0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYROBIT",
+     [
+      {
+       "t": "PAST NA RYBY",
+       "couleur": "#2f7fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3r3eKI4-2sU",
+     "titre": "Specnaz.cz: VÝROBA PASTI NA RYBY - survival",
+     "chaine": "Marek Chlíbek - Dago",
+     "vues": "177 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "39:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-BPFrC2UXx4lXbGRFjqpyGRa2T0eaR3P4l6GWy9JrouE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PRÉPARER",
+     [
+      {
+       "t": "UN SAC",
+       "couleur": "#c8352f"
+      }
+     ],
+     "DE SURVIE"
+    ],
+    "video": {
+     "id": "gcl0iRrGLgE",
+     "titre": "KIT D'URGENCE : SAC D’ÉVACUATION 72H !",
+     "chaine": "PI-WAN",
+     "vues": "626 k vues",
+     "date": "il y a 9 ans",
+     "duree": "8:45",
+     "avatar": "https://yt3.ggpht.com/BEwKTt3Y5xBw5gdccrvTHG89LEaeLifPz2_Pdqtc-bHWog_iUz2EiY-DvbEpQ60aAlAJfMPmUB4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PACK",
+     [
+      {
+       "t": "A SURVIVAL BAG",
+       "couleur": "#c8352f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CvsJhNvDytU",
+     "titre": "How to Build a Bug Out Bag 2026",
+     "chaine": "City Prepping",
+     "vues": "531K views",
+     "date": "11 months ago",
+     "duree": "28:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l30b3Ch-3SGYO_c8Hj5YzV1YN_SP6XUtMOtzkh_Yo1IyA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "NOTFALLRUCKSACK",
+       "couleur": "#c8352f"
+      }
+     ],
+     "PACKEN"
+    ],
+    "video": {
+     "id": "OE3ez9QGBvA",
+     "titre": "Notfallrucksack packen I So packst du richtig! 🚨⚠️ #outdoor - 001 I @LoreenaUnterwegs",
+     "chaine": "Loreena.Unterwegs",
+     "vues": "39.184 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "16:08",
+     "avatar": "https://yt3.ggpht.com/QD8KjyqxMqd2U2hJOSYSC6Dka2yA9b1BRf6pfRLVajmy--ijHtAl522Dlg-FTefaIKh4t_ZfnuI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PREPARARE",
+     [
+      {
+       "t": "UNO ZAINO",
+       "couleur": "#c8352f"
+      }
+     ],
+     "DI EMERGENZA"
+    ],
+    "video": {
+     "id": "hvJfQAhpxbc",
+     "titre": "Con questo Kit sei al Sicuro i miei Oggetti Essenziali per l'Outdoor",
+     "chaine": "Marco in Movimento",
+     "vues": "12K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "9:01",
+     "avatar": "https://yt3.ggpht.com/IqUWYLkrpCzu60pAPBLKc4zfgMbaHpVEMHxLVEre5vn7tb3KcBIoyT_MQn6yWabXhCPEQzGf_js=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "MONTAR",
+     [
+      {
+       "t": "UMA MOCHILA",
+       "couleur": "#c8352f"
+      }
+     ],
+     "DE EMERGÊNCIA"
+    ],
+    "video": {
+     "id": "SWYFldx_1oc",
+     "titre": "Como Montar uma Mochila de Emergência Para 72 Horas",
+     "chaine": "Por Dentro do Mato",
+     "vues": "125 mil visualizações",
+     "date": "há 3 meses",
+     "duree": "30:07",
+     "avatar": "https://yt3.ggpht.com/9HG-3zfmShsoGve7sTSniN2_-j2D19LoNZHBhmBy2eg--J9z_kqfrwmeIR2xAy5oi-qc4V-haw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ACİL DURUM",
+       "couleur": "#c8352f"
+      }
+     ],
+     "ÇANTASI",
+     "HAZIRLAMAK"
+    ],
+    "video": {
+     "id": "K0keerAalYE",
+     "titre": "Afet ve Acil Durum Çantası Nasıl Hazırlanır?",
+     "chaine": "AFAD",
+     "vues": "190 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/vvcgGre6a9aOelL2MLi1Pb4FQvVVzZXjvkYsxdcHp8JxRYjtufsU3DJkOqZW39S2ouqIjcHq_Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI FACI",
+     [
+      {
+       "t": "UN RUCSAC",
+       "couleur": "#c8352f"
+      }
+     ],
+     "DE SUPRAVIEȚUIRE"
+    ],
+    "video": {
+     "id": "W7eU35fo1-U",
+     "titre": "Ce trebuie să conțină un rucsac de supraviețuire - Cavaleria.ro",
+     "chaine": "Cavaleria.ro",
+     "vues": "16 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "7:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ksqs2s3fjaK8787eGgCGIRyC3ulQjt_ItUoK8y2MN-cTM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SBALIT",
+     [
+      {
+       "t": "NOUZOVÉ",
+       "couleur": "#c8352f"
+      }
+     ],
+     "ZAVAZADLO"
+    ],
+    "video": {
+     "id": "zDA731eSouc",
+     "titre": "PŘEHLEDNĚ: Jak sbalit evakuační zavazadlo. Podívejte se, co v něm nesmí chybět",
+     "chaine": "CNN Prima NEWS",
+     "vues": "8,5 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nySPtVK36S4FpA61milCDcbaxCgdWfIkKbuaZMozDDq9g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1402 @@
+{
+ "id": "sg-019",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7704018547965463841",
+  "vues": 5273,
+  "publie_le": "2026-11-03",
+  "accroche": "Compétences 10/10 qui te transforme en génie"
+ },
+ "titre": {
+  "fr": "Compétences 10/10 qui te transforment en génie",
+  "en": "10/10 skills that turn you into a genius",
+  "de": "10/10 Skills, die dich zum Genie machen",
+  "it": "Competenze 10/10 che ti trasformano in un genio",
+  "pt-BR": "Habilidades 10/10 que te transformam em um gênio",
+  "tr": "Seni dahiye dönüştüren 10/10 beceriler",
+  "ro": "Abilități 10/10 care te transformă într-un geniu",
+  "cs": "Dovednosti 10/10, které z tebe udělají génia"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui te transforment en génie #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that turn you into a genius #learnontiktok #selfimprovement #skills",
+  "de": "10/10 Skills, die dich zum Genie machen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Competenze 10/10 che ti trasformano in un genio #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que te transformam em um gênio #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Seni dahiye dönüştüren 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care te transformă într-un geniu #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které z tebe udělají génia #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - T07",
+  "url": "https://www.tiktok.com/music/original-sound-7690376253924231949"
+ },
+ "notes": "Remake de son post à 5,3 k (03/11, « Compétences 10/10 qui te transforme en génie ») : sa couverture brun/noir à ses tailles relevées (127/91/123/182), « TRAMSFORME » corrigé en « TRANSFORMENT ». Ses 3 compétences dans son ordre et ses couleurs, titres sur 3 lignes à ses tailles (calcul mental, apprendre comme une machine, négocier tout ce que tu veux, « TOUS CE QUE » corrigé), sans ligne de temps comme les siennes ; 2 ajoutées dans son esprit : résoudre un Rubik's cube (orange), lire une partition (bleu). D'autres vraies vidéos que les siennes (LesCoursSimples, Major Prépa, Laetitia Valstar), natives dans chaque langue. Ses « e-books » retirés ; Sophia en étape 4 sur 7 (cta C : « MUSCLER / SON ESPRIT »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "QUI TE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "TRANSFORMENT",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "EN GÉNIE",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "THAT TURN YOU",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "INTO A",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "GENIUS",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "DIE DICH ZUM",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "GENIE",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "MACHEN",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZE",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "CHE TI",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "TRASFORMANO",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "IN UN GENIO",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "QUE TE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "TRANSFORMAM",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "EM UM GÊNIO",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "SENİ",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "DAHİYE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "DÖNÜŞTÜREN",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "CARE TE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "TRANSFORMĂ",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "ÎNTR-UN GENIU",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "KTERÉ Z TEBE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "UDĚLAJÍ",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "GÉNIA",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÊTRE LE",
+     [
+      {
+       "t": "MEILLEUR EN",
+       "couleur": "#c04848"
+      }
+     ],
+     "CALCUL MENTAL"
+    ],
+    "tailles": [
+     139,
+     124,
+     135
+    ],
+    "video": {
+     "id": "i1YQnh9fcKk",
+     "titre": "Calculer 98 x 97 EN 10 SECONDES 😎",
+     "chaine": "Hedacademy",
+     "vues": "1,3 M de vues",
+     "date": "il y a 4 ans",
+     "duree": "8:00",
+     "avatar": "https://yt3.ggpht.com/tjiQ1W7LGI0KKR9qZ-LUc5nk-b5bba9QwqzPJ2vpHupBVwpYPO2SsAt0uUyz2CBya98JbpM-LQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "BE THE",
+     [
+      {
+       "t": "BEST AT",
+       "couleur": "#c04848"
+      }
+     ],
+     "MENTAL MATH"
+    ],
+    "tailles": [
+     139,
+     124,
+     135
+    ],
+    "video": {
+     "id": "nTn9gVqRfKY",
+     "titre": "Mental Math Tricks - Addition, Subtraction, Multiplication & Division!",
+     "chaine": "The Organic Chemistry Tutor",
+     "vues": "2M views",
+     "date": "9 years ago",
+     "duree": "21:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOQikQsmqQS3dG9VBvbJ03Eqqw7NshUvDNorj5UAZL6M0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "IM KOPFRECHNEN",
+     [
+      {
+       "t": "DER BESTE",
+       "couleur": "#c04848"
+      }
+     ],
+     "SEIN"
+    ],
+    "tailles": [
+     139,
+     124,
+     135
+    ],
+    "video": {
+     "id": "PCcK92FAzwo",
+     "titre": "Kopfrechnen - superschnell - genialer Rechentrick | Lehrerschmidt",
+     "chaine": "Lehrerschmidt",
+     "vues": "5,9 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:53",
+     "avatar": "https://yt3.ggpht.com/UyZNd_1wpswHfD461v_saXO6_nuxm4-C5TRz3PClMyBblASW2nOnMPXpUapKZJvXg47V198f6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "ESSERE IL",
+     [
+      {
+       "t": "MIGLIORE NEL",
+       "couleur": "#c04848"
+      }
+     ],
+     "CALCOLO MENTALE"
+    ],
+    "tailles": [
+     139,
+     124,
+     135
+    ],
+    "video": {
+     "id": "K52AtgQhdDo",
+     "titre": "Calcolo Mentale Rapido - Addizioni e Sottrazioni",
+     "chaine": "Luigi Manca",
+     "vues": "244K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/NkJAVDX0NxKjaWBQLlwbnBVS7FR3iTCWPmPGFlwxEi_vthjAVJ-uptIz9Jssd-eTNlZbt8Y-Iw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "SER O",
+     [
+      {
+       "t": "MELHOR EM",
+       "couleur": "#c04848"
+      }
+     ],
+     "CÁLCULO MENTAL"
+    ],
+    "tailles": [
+     139,
+     124,
+     135
+    ],
+    "video": {
+     "id": "oQjEa0QXpfc",
+     "titre": "COMO FAZER CONTAS DE CABEÇA E MAIS RÁPIDO - Matemática Básica Super (Aula 1.4)",
+     "chaine": "Matemática Absoluta - Ryo",
+     "vues": "240 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "15:10",
+     "avatar": "https://yt3.ggpht.com/XVJPEED2WUwQU_oWpar5dubweYMJF0PrXJAbnHN4YTetjxE74nIgis87-cCUOGlfzgViSUYbwUo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "ZİHİNDEN İŞLEMDE",
+     [
+      {
+       "t": "EN İYİSİ",
+       "couleur": "#c04848"
+      }
+     ],
+     "OL"
+    ],
+    "tailles": [
+     139,
+     124,
+     135
+    ],
+    "video": {
+     "id": "VEprphPmLoY",
+     "titre": "AŞIRI Hızlı Nasıl HESAPLAMA Yapılır? 🔢⚡(Zihinden Yapacağın 5 İşlem Hilesi!)",
+     "chaine": "Tinko",
+     "vues": "262 B görüntüleme",
+     "date": "1 ay önce",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/gSCyvKIg29AcMEcmVBZBlAfffmtjT3mSgYo3FV-cPjjDHWPHDHChEWDDVs_jj0DUuOe76myeC8o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ FII CEL",
+     [
+      {
+       "t": "MAI BUN LA",
+       "couleur": "#c04848"
+      }
+     ],
+     "CALCUL MENTAL"
+    ],
+    "tailles": [
+     139,
+     124,
+     135
+    ],
+    "video": {
+     "id": "E1o8jM08YlQ",
+     "titre": "Ce este Sorobanul?",
+     "chaine": "Centrul de Aritmetica Mentala Japoneza Nomin Jyuku",
+     "vues": "114 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/YtH7FLdBpuf_6GvkuIPLjFiangiUmmHcwagoAqZn1mzlL_9kPJgBvXH0iApz92m1PifbYCbEww=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "BÝT",
+     [
+      {
+       "t": "NEJLEPŠÍ",
+       "couleur": "#c04848"
+      }
+     ],
+     "V POČÍTÁNÍ Z HLAVY"
+    ],
+    "tailles": [
+     139,
+     124,
+     135
+    ],
+    "video": {
+     "id": "nswY245Z_hw",
+     "titre": "Násobení dvouciferných čísel pro jedničkáře. Super trik. Znáte ho? ￼",
+     "chaine": "Kalman Horvát",
+     "vues": "42 tis. zhlédnutí",
+     "date": "před 2 měsíci",
+     "duree": "5:04",
+     "avatar": "https://yt3.ggpht.com/a6oEdXOkLhMXcOELSpaGQ6cWoD8dDaglLkM3FxS5KP_zSd_MQNuPzSNkQCpk95i5UHyk8Lgnje8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "APPRENDRE",
+       "couleur": "#6c5418"
+      }
+     ],
+     "COMME UNE",
+     [
+      {
+       "t": "MACHINE",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "tailles": [
+     131,
+     157,
+     148
+    ],
+    "video": {
+     "id": "y3PdynAvNyg",
+     "titre": "9 méthodes d'études qui fonctionnent vraiment (+100% productivité)",
+     "chaine": "Maxime Lim",
+     "vues": "250 k vues",
+     "date": "il y a 1 an",
+     "duree": "6:22",
+     "avatar": "https://yt3.ggpht.com/epeJ4HYJg638a-jrRTExxiATmc8fCa9xIJldb7BoF83PAL09ZTijyqVPND1x0mHfKszI_ZTKLcw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "LEARN",
+       "couleur": "#6c5418"
+      }
+     ],
+     "LIKE A",
+     [
+      {
+       "t": "MACHINE",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "tailles": [
+     131,
+     157,
+     148
+    ],
+    "video": {
+     "id": "B9SptdjpJBQ",
+     "titre": "How To Learn Faster",
+     "chaine": "AsapSCIENCE",
+     "vues": "6M views",
+     "date": "9 years ago",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kNsIkKkqyNZp2IEAcBxbULIIHDDBi49kvEk2mRmOHwjF0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "LERNEN",
+       "couleur": "#6c5418"
+      }
+     ],
+     "WIE EINE",
+     [
+      {
+       "t": "MASCHINE",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "tailles": [
+     131,
+     157,
+     148
+    ],
+    "video": {
+     "id": "DhD92jTN2KU",
+     "titre": "Die Einzigen 2 Lernmethoden, Die Du Wirklich Brauchst",
+     "chaine": "Luis Newton",
+     "vues": "102.061 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "7:24",
+     "avatar": "https://yt3.ggpht.com/8GzScwXxP0RN98Z9C9rf9tZ7EtHCDgb5hirGhPTerLbQW0cI2TCYbURaeVp7crFXTFA8WOHh5w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "IMPARARE",
+       "couleur": "#6c5418"
+      }
+     ],
+     "COME UNA",
+     [
+      {
+       "t": "MACCHINA",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "tailles": [
+     131,
+     157,
+     148
+    ],
+    "video": {
+     "id": "E9EjC9yvkTc",
+     "titre": "Come Studiare Più Velocemente Ed Efficacemente Con La Tecnica Feynman",
+     "chaine": "L' Arte della Crescita Personale",
+     "vues": "392K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "2:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ngFFazLGf0sjblEOn6g0mXYHRTaBFR0ROBG8Ye95iddw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "APRENDER",
+       "couleur": "#6c5418"
+      }
+     ],
+     "COMO UMA",
+     [
+      {
+       "t": "MÁQUINA",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "tailles": [
+     131,
+     157,
+     148
+    ],
+    "video": {
+     "id": "ZPbgl2eKKIM",
+     "titre": "Como aprender qualquer coisa mais rápido [segundo a ciência]",
+     "chaine": "Laura Amorim",
+     "vues": "581 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "12:05",
+     "avatar": "https://yt3.ggpht.com/4PdOKC_QnfqiKTg4jA7tCLjwHRNo_G7qmyuQbkI4HF6151rX62fZ5WVGyKus13cDSzTUlTvaZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "MAKİNE",
+       "couleur": "#6c5418"
+      }
+     ],
+     "GİBİ",
+     [
+      {
+       "t": "ÖĞREN",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "tailles": [
+     131,
+     157,
+     148
+    ],
+    "video": {
+     "id": "a5NWJMI0h5A",
+     "titre": "HİLE GİBİ ETKİLİ ÖĞRENME YÖNTEMİ (%99.9 İŞE YARIYOR)",
+     "chaine": "Korzay Koçak",
+     "vues": "177 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "11:09",
+     "avatar": "https://yt3.ggpht.com/bWYURPfGFSvj0XuUF2XjhvpaoljvbbZF-QETg_2QugU98y99Nl18X93PbOElKOofQR8UY9jBnA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ÎNVEȚI",
+       "couleur": "#6c5418"
+      }
+     ],
+     "CA O",
+     [
+      {
+       "t": "MAȘINĂ",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "tailles": [
+     131,
+     157,
+     148
+    ],
+    "video": {
+     "id": "MkZOlb3IhMI",
+     "titre": "Cum să înveți ORICE?📚💪🏻 4 sfaturi susținute de ȘTIINȚĂ! #productivity",
+     "chaine": "Brainium",
+     "vues": "27 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "8:49",
+     "avatar": "https://yt3.ggpht.com/wcU2C7ayCg990d-_s20VDZs5gtP-GfV1rY2Uu4B2B7UNj2SyLgH5AOuR44z3r-FEK9o-HvO8tA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "UČIT SE",
+       "couleur": "#6c5418"
+      }
+     ],
+     "JAKO",
+     [
+      {
+       "t": "STROJ",
+       "couleur": "#6c5418"
+      }
+     ]
+    ],
+    "tailles": [
+     131,
+     157,
+     148
+    ],
+    "video": {
+     "id": "Izr4OTn2SD8",
+     "titre": "Jak se učit efektivněji na zkoušky - jak se toho naučit více a hlavně rychleji?",
+     "chaine": "Pavel Semerád",
+     "vues": "52 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "12:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mlw6hJ5N-rAGOS70x_up1HwURebmUjewTLjdXNg6XuKtg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "MUSCLER",
+     [
+      {
+       "t": "SON ESPRIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TRAIN",
+     [
+      {
+       "t": "YOUR MIND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEN KOPF",
+     [
+      {
+       "t": "TRAINIEREN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ALLENARE",
+     [
+      {
+       "t": "LA MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TREINAR",
+     [
+      {
+       "t": "A MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ZİHNİNİ",
+     [
+      {
+       "t": "ÇALIŞTIR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI ANTRENEZI",
+     [
+      {
+       "t": "MINTEA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "TRÉNOVAT",
+     [
+      {
+       "t": "MYSL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "NÉGOCIER",
+     [
+      {
+       "t": "TOUT CE QUE",
+       "couleur": "#e41818"
+      }
+     ],
+     "TU VEUX"
+    ],
+    "tailles": [
+     152,
+     191,
+     140
+    ],
+    "video": {
+     "id": "FPptOyPBRO4",
+     "titre": "Secrets de Négociation: 5 Techniques pour Faire Baisser Le Prix de Votre Achat Immobilier",
+     "chaine": "Monsieur Rodolphe",
+     "vues": "86 k vues",
+     "date": "il y a 2 ans",
+     "duree": "11:50",
+     "avatar": "https://yt3.ggpht.com/0CdEEQJz9ff9YafLtx-m7gYl9JwxtSdxgqtsyimJf-BrmBEqLascK0hDl5F2QwOdsBiNUH-teQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "NEGOTIATE",
+     [
+      {
+       "t": "ANYTHING",
+       "couleur": "#e41818"
+      }
+     ],
+     "YOU WANT"
+    ],
+    "tailles": [
+     152,
+     191,
+     140
+    ],
+    "video": {
+     "id": "bgz2vNMTpxQ",
+     "titre": "Negotiation Skills: 3 Simple Tips On How To Negotiate",
+     "chaine": "Derek Halpern",
+     "vues": "721K views",
+     "date": "13 years ago",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMEKiZQTcA7lWd6wXIbsdtts7GCIMoV7oHIqKBo1TOsGw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "VERHANDELN",
+     [
+      {
+       "t": "ALLES, WAS",
+       "couleur": "#e41818"
+      }
+     ],
+     "DU WILLST"
+    ],
+    "tailles": [
+     152,
+     191,
+     140
+    ],
+    "video": {
+     "id": "e2HOjBJpmIQ",
+     "titre": "Die 5 SCHRITTE jeder VERHANDLUNG - So gehen wir beim NASHER Verhandlungsinstitut vor | NASHER",
+     "chaine": "Jack Nasher",
+     "vues": "310.642 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "14:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzK3M6hew3BuZK_cqdWt4Jm4HJJwY8WE1gYf79dCAye-o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "NEGOZIARE",
+     [
+      {
+       "t": "TUTTO CIÒ",
+       "couleur": "#e41818"
+      }
+     ],
+     "CHE VUOI"
+    ],
+    "tailles": [
+     152,
+     191,
+     140
+    ],
+    "video": {
+     "id": "w_P4Cjw3O-w",
+     "titre": "Come Negoziare: I 4 principi di Harvard | Tecniche di trattativa",
+     "chaine": "Jacopo Tartaglia",
+     "vues": "38K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/mspf8SyB7FhsT15y4kkT_a81YLvHCKOiv3V6IoU4AIkmd3k8r3SgI0HnGgs7P3cFXgxTEVy8U98=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "NEGOCIAR",
+     [
+      {
+       "t": "TUDO O QUE",
+       "couleur": "#e41818"
+      }
+     ],
+     "VOCÊ QUISER"
+    ],
+    "tailles": [
+     152,
+     191,
+     140
+    ],
+    "video": {
+     "id": "_wY7dKVrTEM",
+     "titre": "Como Vencer uma Negociação? Persuasão! (Linguagem Corporal - Metaforando)",
+     "chaine": "Metaforando",
+     "vues": "157 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "9:00",
+     "avatar": "https://yt3.ggpht.com/uI1P-w-eK6bsq07E8A_w3e5oXc0gruzQ3sGM5hLJK1HYr2e6CgwSmdG-A6TMYOkTnE3cUyezEmg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "İSTEDİĞİN",
+     [
+      {
+       "t": "HER ŞEYİ",
+       "couleur": "#e41818"
+      }
+     ],
+     "PAZARLIKLA AL"
+    ],
+    "tailles": [
+     152,
+     191,
+     140
+    ],
+    "video": {
+     "id": "9Hy4npZP-Js",
+     "titre": "DİPLOMATLARIN MÜZAKERE SIRLARI",
+     "chaine": "Oğuz Benlioğlu",
+     "vues": "14 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "7:09",
+     "avatar": "https://yt3.ggpht.com/14vkz4BMZMNC_-JYYgn-1Nlvi3M6krWlI2HPii08L-xmBPl3zfGjwFAWe6G_oQ2PJJo8nkC6=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ NEGOCIEZI",
+     [
+      {
+       "t": "ORICE",
+       "couleur": "#e41818"
+      }
+     ],
+     "VREI"
+    ],
+    "tailles": [
+     152,
+     191,
+     140
+    ],
+    "video": {
+     "id": "HAYkgs5Yb0I",
+     "titre": "3 tehnici de Negociere, Influențare și Persuasiune",
+     "chaine": "Alexandru Pleșea - Psiholog, Trainer",
+     "vues": "6,7 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "7:09",
+     "avatar": "https://yt3.ggpht.com/uMCRsdY56XWnIhpKLG2MbGDjnsfsaptHUkNWcqPpQAJoVaCUUWQs-cMSEfrN8YXNM_jfiP2w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "VYJEDNAT",
+     [
+      {
+       "t": "COKOLIV",
+       "couleur": "#e41818"
+      }
+     ],
+     "CHCEŠ"
+    ],
+    "tailles": [
+     152,
+     191,
+     140
+    ],
+    "video": {
+     "id": "Gx7eU6gerkY",
+     "titre": "CO VE VYJEDNÁVÁNÍ SKUTEČNĚ FUNGUJE? 12 RAD Z PRAXE.",
+     "chaine": "Kirill Juran",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "19:30",
+     "avatar": "https://yt3.ggpht.com/2-iel7lhrDx3CDEctM4HS0YHo_kuUz7JPzu-q3l92XOB6QU2XN9xTHJd8lyY9OV8864L0Ad_klQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉSOUDRE UN",
+     [
+      {
+       "t": "RUBIK'S CUBE",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uORbJS9bp54",
+     "titre": "Comment résoudre un Rubik's Cube (méthode facile et rapide)",
+     "chaine": "Delnart",
+     "vues": "5,8 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/iJE1jTrWOv2-oFTsmZwq1eYWf63RfDb6pKX7U1187EZubJ-VaKY4dXV4pCYix9xDEML27naa=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "SOLVE A",
+     [
+      {
+       "t": "RUBIK'S CUBE",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "103M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ZAUBERWÜRFEL",
+       "couleur": "#e8862a"
+      }
+     ],
+     "LÖSEN"
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RISOLVERE IL",
+     [
+      {
+       "t": "CUBO DI RUBIK",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2VL5Sd4uYAA",
+     "titre": "COME RISOLVERE IL CUBO DI RUBIK (Tutorial per principianti)",
+     "chaine": "Hyde",
+     "vues": "1,8 Mln visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "22:37",
+     "avatar": "https://yt3.ggpht.com/MLvaKadLY7DCVqOg_J_TgzESuYCWudKCfMkD0Up_kLqIQ-bUDbiP95rcNVCY8CLoxdWE-c8ItQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "MONTAR O",
+     [
+      {
+       "t": "CUBO MÁGICO",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZwbFLyesbOU",
+     "titre": "Como RESOLVER o Cubo Mágico EM 10 MINUTOS!",
+     "chaine": "Ercs",
+     "vues": "2,2 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "9:59",
+     "avatar": "https://yt3.ggpht.com/6OxdXZjA_wTTZE0QmGPTAToR02Nn0gCeuQvNAI0B8Bi8c7dHXfh5dRtk4h8PjjHFCasBM-wB=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ZEKA KÜPÜ",
+       "couleur": "#e8862a"
+      }
+     ],
+     "ÇÖZMEK"
+    ],
+    "video": {
+     "id": "Ck5WmLhfWN4",
+     "titre": "ZEKA KÜPÜ NASIL ÇÖZÜLÜR (ÖĞRENME GARANTİLİ!!)",
+     "chaine": "Tuna Özsoy",
+     "vues": "3,2 Mn görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "22:17",
+     "avatar": "https://yt3.ggpht.com/nenigceom6iWbgHKDDqcQtOj7atM6qBNzusi05Hs72M3jaIjlYCbz8KNUmtVe5ujgQVndgeZ0JI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ REZOLVI",
+     [
+      {
+       "t": "CUBUL RUBIK",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PrDrsiIqK_s",
+     "titre": "Invata sa rezolvi Cubul Rubik in 15 MINUTE (Solutie Metoda Incepatori) #jucarii #jucariicopii",
+     "chaine": "Domnu' Puzzle - Cristian Leana",
+     "vues": "1,1 mil. vizionări",
+     "date": "acum 6 ani",
+     "duree": "15:46",
+     "avatar": "https://yt3.ggpht.com/jlhnq0Mmx_QH1mF-MM5FQRVY2CGuBaZUekAxo31pTSLF2C48buiMtQiDlx7wPwCJCgHsS4vm=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "SLOŽIT",
+     [
+      {
+       "t": "RUBIKOVU KOSTKU",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CW0bvh6BXEU",
+     "titre": "Jak složit Rubikovu kostku – návod pro začátečníky | FYFT.cz",
+     "chaine": "FYFT",
+     "vues": "2,8 mil. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "22:47",
+     "avatar": "https://yt3.ggpht.com/sddxRMGkrNIv0Pb4JCGs0lHz5KTnC14BcBugdJMr6QePRyNuI7ccdgKPn4lEns26tDNgnEx7=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LIRE UNE",
+     [
+      {
+       "t": "PARTITION",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eIRhynU5G1Y",
+     "titre": "Apprendre à lire les notes de musique (Lecture de partition)",
+     "chaine": "Piano en ligne",
+     "vues": "532 k vues",
+     "date": "il y a 4 ans",
+     "duree": "7:06",
+     "avatar": "https://yt3.ggpht.com/6_riXyM6yXLauXbrsvAKLfF-rQcBBadJpMWxhtzG-nTLDOb9lPcv8NRQmCuBZ-ErkzNbR2jEypQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "READ",
+     [
+      {
+       "t": "SHEET MUSIC",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PyOKefHURsg",
+     "titre": "How to Read Notes The EASY Way You Weren’t Taught",
+     "chaine": "Pianote",
+     "vues": "4.3M views",
+     "date": "2 years ago",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/KnAqBxitYyFiFqxvkbuxqFIWTReKTYH0Pd0v9yipyspqyQP0cNISESMjJlHaLwHcGiAQ1rbmOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "NOTEN",
+       "couleur": "#2f6fb5"
+      }
+     ],
+     "LESEN"
+    ],
+    "video": {
+     "id": "D_QbSLiWRQc",
+     "titre": "Die NOTENNAMEN - einfach Noten lesen lernen",
+     "chaine": "MusikDurchblick",
+     "vues": "262.423 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/XfXGSHZFSQEIggXZHAxsfiR0frxmnUsb_TEqdEA0J60lsK9HunaItwDpFDoFsVeouSXJekvSGi8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LEGGERE",
+     [
+      {
+       "t": "LO SPARTITO",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YvGdQ8zz5TI",
+     "titre": "Leggere la musica è FACILE - 1 (le note sulle righe)",
+     "chaine": "Fabio Vetro",
+     "vues": "1,4 Mln visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "7:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mvGu6rAfVcESuiL-9Sp3dq35POPzRpmHJnM2dvWi0AJZY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "LER",
+     [
+      {
+       "t": "PARTITURA",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jyIFh1ZK-Ww",
+     "titre": "Aprenda a ler partitura do zero em 10 minutos",
+     "chaine": "Cecília Ramos",
+     "vues": "2 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "10:38",
+     "avatar": "https://yt3.ggpht.com/OkOfb4syEqyDKNifdIfcGjJNDao_dQkfHbml9xWQ7QH8AUKgiwcHA3Zbzahzw5N5f9Pr_flu=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "NOTA",
+       "couleur": "#2f6fb5"
+      }
+     ],
+     "OKUMAK"
+    ],
+    "video": {
+     "id": "kVd0K8RSHpU",
+     "titre": "Müziğe Yeni Başlayanlar İçin: Nota Okumanın En Kolay Yolu",
+     "chaine": "Burçak Çöllü",
+     "vues": "348 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "13:27",
+     "avatar": "https://yt3.ggpht.com/zxOvr_3dHA7VxnxIFFlwSxNs0aOdJjYxdMx0ynDRZGOqXmGATF_jRWaNdW2k6P41wuim7BMKPA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ CITEȘTI",
+     [
+      {
+       "t": "NOTE MUZICALE",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rOsQygRbd_o",
+     "titre": "Învață portativul muzical in 3 minute - Musical staff - 3 minute music lesson - musical staff",
+     "chaine": "Secretele muzicii (Klaudya)",
+     "vues": "171 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRVn9EM_xWjfJZaKAJJqKzXRRNxsKnzZf5lYoYPLGCNw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ČÍST",
+     [
+      {
+       "t": "NOTY",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oS7qAaC7u50",
+     "titre": "Jak číst noty v houslovém a basovém klíči",
+     "chaine": "Piano s Filipem",
+     "vues": "149 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "12:52",
+     "avatar": "https://yt3.ggpht.com/hmMUiaBNZl8MMvikV8t9Ql4SZyuAaMcL0MJJI1rzoTfMkrHxFLG_2-bX_IFlsoz5r2ImwRq4zg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

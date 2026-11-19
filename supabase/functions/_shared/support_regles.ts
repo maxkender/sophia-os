@@ -110,7 +110,7 @@ export function casDeCategorie(categorie: string, plateforme: "ruul" | "upwork" 
 
 export const estPasRegle = (t: string) => PAS_REGLE.test(t);
 export const estQuestionStatut = (t: string) => QUESTION_STATUT.test(t);
-export const estDemandeArret = (t: string) => DEMANDE_ARRET.test(t) || DEMANDE_ARRET_LANGUES.test(t);
+export const estDemandeArret = (t: string) => DEMANDE_ARRET.test(t.replace(/[’‘]/g, "'")) || DEMANDE_ARRET_LANGUES.test(t);
 
 /** 19/11 (Max) : le code à 6 chiffres de Ruul (connexion, vérification) : il vient de Ruul, pas de nous. */
 const CODE_RUUL = /\b(6|six)[\s-]?(digit|digits|chiffres|dígitos|cifre|stellig|haneli|cyfr)|(verification|verify|login|one[\s-]?time|security|confirmation|access)\s+code|\b(otp|2fa)\b|code\s+(from|of|for|on)\s+ruul|ruul[^.?!]{0,60}\b(code|kod|código|codice)\b|\b(code|kod|kodu|código|codice|kodem)\b[^.?!]{0,60}\b(ruul|e-?mail|mail|didn'?t|never|not\s+(receiv|com|arriv)|gelmedi|gelmiyor|no\s+(me\s+)?lleg|não\s+(chega|recebi)|non\s+arriva|nie\s+(przyszedł|dostałem))|doğrulama\s+kodu|código\s+de\s+verifica|codice\s+di\s+verifica|kod\s+weryfikacyjny|bestätigungscode|code\s+de\s+(vérification|confirmation)/iu;
@@ -119,9 +119,13 @@ const CODE_RUUL = /\b(6|six)[\s-]?(digit|digits|chiffres|dígitos|cifre|stellig|
 const QUESTION_PAIE = /(when|what\s+day)[^.?!]{0,50}\b(paid|pay|payment|payout|money|invoice|salary)|\b(pending|unpaid|open)\s+(invoices?|payments?)|\b(not|never)\s+(been\s+)?paid|haven'?t\s+(been\s+)?(paid|received\s+(my\s+)?(pay|payment|money))|didn'?t\s+(get|receive)\s+(my\s+)?(pay|payment|money|salary)|where\s+is\s+my\s+(pay|payment|money)|\bpayment\s+status|quand\s+(est-ce\s+que\s+)?(je\s+)?(serai|vais\s+être|suis)\s+pay|pas\s+(encore\s+)?(été\s+)?pay[ée]|cu[aá]ndo\s+(me\s+)?(pagan|pagar[aá]n|cobro|voy\s+a\s+cobrar)|quando\s+(vou\s+)?(ser\s+pag|receb|serò\s+pagat|mi\s+pagate|arriva\s+il\s+pagamento)|wann\s+(werde\s+ich\s+)?(bezahlt|bekomme\s+ich)|ne\s+zaman\s+(ödeme|ödenecek|para|maaş)|ödeme(m)?\s+(ne\s+zaman|gelmedi|yapılmadı|almadım)|ödemeyi\s+almadım|kiedy\s+(dostanę|wypłat|zapłat|płatno)|când\s+(voi\s+fi\s+plătit|primesc\s+bani)|mikor\s+(fizet|kapom)/iu;
 const PAS_RECU = /(not|never|haven'?t|didn'?t)\s+(been\s+)?(receiv|got|get|arriv)|no\s+(he\s+)?recib|não\s+recebi|almadım|gelmedi|nie\s+dostałem|pas\s+re[çc]u|non\s+(ho\s+)?ricevut|nicht\s+(erhalten|bekommen)/i;
 
-export const estCodeRuul = (t: string) => CODE_RUUL.test(t);
-export const estQuestionPaie = (t: string) => QUESTION_PAIE.test(t);
-export const ditPasRecu = (t: string) => PAS_RECU.test(t);
+/** 19/11 : « I haven’t received the payment », « 4 invoices… only one payment » : l'apostrophe typographique et « the ». */
+const PAIE_PAS_RECUE = /(haven|didn|hasn|wasn|weren|have\s+not|did\s+not|has\s+not)['’]?t?\s+(been\s+)?(received|got|gotten|get|paid)[^.?!]{0,30}\b(pay|payment|payments|money|salary|invoice)|\binvoices?\b[^.?!]{0,60}\b(paid|payment|received)|\b(paid|payment)[^.?!]{0,40}\binvoices?\b/i;
+const norm = (t: string) => t.replace(/[’‘]/g, "'");
+
+export const estCodeRuul = (t: string) => CODE_RUUL.test(norm(t));
+export const estQuestionPaie = (t: string) => QUESTION_PAIE.test(norm(t)) || PAIE_PAS_RECUE.test(t);
+export const ditPasRecu = (t: string) => PAS_RECU.test(norm(t)) || /\bonly\s+(received|got)\s+(one|1)\b/i.test(t);
 
 /** AAAA-MM-JJ à Paris. */
 function jourParis(d: Date): string {

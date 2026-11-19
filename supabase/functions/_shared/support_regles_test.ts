@@ -158,4 +158,10 @@ Deno.test("19/11 : « quand serai-je payé ? » : le vrai statut Ruul", () => {
   // Prêt, rien de payé encore : chaque lundi.
   assertEquals(textePaieRuul(ruulPret, JEUDI), "You are paid every Monday for the previous week, via Ruul. Your Ruul account is ready, so your next payment is on Monday 23 Nov.");
   assertEquals(ditPasRecu("I have not received my payment"), true);
+  // Apostrophe typographique, « the payment », factures Ruul.
+  assertEquals(estQuestionPaie("I haven’t received the payment—which is supposed to be made every Monday—for the past two weeks"), true);
+  assertEquals(estQuestionPaie("there are 4 invoices on my Ruul account, but I have only received one payment."), true);
+  assertEquals(ditPasRecu("I haven’t received the payment"), true);
+  assertEquals(ditPasRecu("4 invoices but I have only received one payment"), true);
+  assertEquals(estDemandeArret("I don’t want to continue anymore"), true);
 });

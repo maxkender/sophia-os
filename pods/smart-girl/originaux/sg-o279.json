@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o279",
+ "type_bleo": "full_test",
+ "titre": "how to seal a letter with wax like the 1800s #waxseal #letters #stationery #smartgirl #slowliving",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 2/7 (la jauge en demande 7 sur 21) : accroche jamais faite chez nous (« wax » et « seal » absent des accroches de donnees/label.json). Accroches écrites : « how to seal a letter with wax like the 1800s » (retenue : geste élégant et désuet), « the lost art of the wax seal » (écartée : proche de « the lost art of the handwritten letter »), « why letters had seals » (écartée : histoire seule). Étapes classiques du cachet de cire. Sophia sur le dernier item à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "81a6d31a",
+   "texte_overlay": "how to seal a letter with wax\nlike the 1800s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "deb477bb",
+   "texte_overlay": "1. fold the letter in three",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1a8816f6",
+   "texte_overlay": "2. melt the wax stick\nover a flame",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "43e34082",
+   "texte_overlay": "3. let a coin-sized pool drip\nonto the fold",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "19d32812",
+   "texte_overlay": "4. press the seal, count to ten,\nlift it straight up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2f18d6ef",
+   "texte_overlay": "5. a little history\n\nan unbroken seal proved\nno one had read the letter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6666c5d7",
+   "texte_overlay": "6. write something worth sealing\n\ni always have one new story\nto tell.",
+   "texte_sophia": "6. write something worth sealing\n\ni find one new story a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "91ff42e2",
+   "texte_overlay": "save this for your\nnext letter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o278",
+ "type_bleo": "full_test",
+ "titre": "cloud types you can learn to name #clouds #sky #nature #smartgirl #science",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/7 (la jauge en demande 7 sur 21) : accroche jamais faite chez nous (« cloud » absent des accroches de donnees/label.json). Accroches écrites : « cloud types you can learn to name » (retenue : savoir concret, même schéma que les styles d'architecture du 18/11), « how to read the sky » (écartée : vague), « weather facts » (écartée : plate). Nuages vérifiés : cumulus, cirrus, stratus, cumulonimbus, altocumulus, lenticulaire. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6f637c3b",
+   "texte_overlay": "cloud types you can\nlearn to name",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d8f0ac1f",
+   "texte_overlay": "cumulus\n\nthe fluffy cotton clouds\nof a fine day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a0f01314",
+   "texte_overlay": "cirrus\n\nthin wisps very high up,\nmade of ice crystals.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "00da4c5f",
+   "texte_overlay": "stratus\n\na flat grey blanket\nthat hides the sun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "529218af",
+   "texte_overlay": "cumulonimbus\n\nthe towering storm cloud\nthat brings thunder.",
+   "texte_sophia": "cumulonimbus\n\nthe towering storm cloud. i learned\nthe names in five minutes on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "da21cb16",
+   "texte_overlay": "altocumulus\n\nlittle rows of puffs:\na \"mackerel sky\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3ca6a911",
+   "texte_overlay": "lenticular\n\nsmooth lens shapes\nover mountains.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c4fd85d3",
+   "texte_overlay": "which one is in your\nsky today?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

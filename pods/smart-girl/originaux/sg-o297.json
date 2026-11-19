@@ -1,0 +1,51 @@
+{
+ "source_id": "sg-o297",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "632d2be2-8d6f-4ec6-8753-1c4a41516421",
+ "titre": "my study tips as a straight a student part 1 #studytips #studytok #smartgirl #straighta #school",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "632d2be2-8d6f-4ec6-8753-1c4a41516421"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 37 de la boîte (parent 632d2be2, langue source sl) : accroche du parent mot pour mot. Conseils du parent (les maths en faisant des exercices, le vocabulaire en fiches, films et écoute dans la langue, la culture générale hors de l'école). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ac9ed59f",
+   "texte_overlay": "my study tips as a straight a\nstudent part 1",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0711f461",
+   "texte_overlay": "maths\n\nyou won't understand anything\nby watching. do the exercises.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ae8365a2",
+   "texte_overlay": "languages\n\nlearn vocabulary with flashcards,\nand use it as much as you can.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "50b92d89",
+   "texte_overlay": "my secret trick\n\nfilms and podcasts in the language\nevery day, even if you understand 0%.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "80015637",
+   "texte_overlay": "for oral exams\n\nknow things beyond the syllabus.\ni read one short lesson a day.",
+   "texte_sophia": "for oral exams\n\nknow things beyond the syllabus. i read\none lesson a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d3706e9",
+   "texte_overlay": "comment your questions\nfor part 2",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  }
+ ]
+}

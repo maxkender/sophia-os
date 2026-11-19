@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o298",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "67831a63-71c4-463b-a147-9030744a7cbd",
+ "titre": "niche things that make you instantly more attractive #attractive #selfimprovement #smartgirl #thatgirl #confidence",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "67831a63-71c4-463b-a147-9030744a7cbd"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 38 de la boîte (parent 67831a63, langue source en) : accroche du parent mot pour mot. Idées du parent (ne pas avoir honte de tout, apprendre des choses rares pour le plaisir, avoir des choses intéressantes à dire, documenter sa vie) et neuves (un hobby fait main, une voix posée). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "840a8efc",
+   "texte_overlay": "niche things that make you\ninstantly more attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f96bd11d",
+   "texte_overlay": "not being embarrassed\nby everything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d1dff177",
+   "texte_overlay": "learning uncommon facts\njust for fun",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bb021b46",
+   "texte_overlay": "having interesting things to say",
+   "texte_sophia": "having interesting things to say\n\ni read one lesson a day on\nan app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c3712943",
+   "texte_overlay": "documenting your life\n\na journal, a scrapbook, film photos.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cf83cce4",
+   "texte_overlay": "a hobby you do with your hands",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8533abf2",
+   "texte_overlay": "a calm, unhurried voice",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "bfe77db9",
+   "texte_overlay": "which one do you have?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+  }
+ ]
+}

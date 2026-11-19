@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o288",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c44bc19e-e006-4bb4-8484-10650d618e4e",
+ "titre": "toxic habits we've all decided are normal #toxichabits #selfimprovement #smartgirl #mindset #habits",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "70732d78-9991-421f-8ab3-292e196a5236"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 4 de la boîte (parent c44bc19e, langue source tr) : accroche reformulée (« toxic habits we've all decided are normal »), différente de sg-o114, sg-o252 et sg-o271 ; habitudes du parent. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6d5e79e0",
+   "texte_overlay": "toxic habits we've all\ndecided are normal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "938d5d85",
+   "texte_overlay": "phones out during dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "22967d3b",
+   "texte_overlay": "complaining as a\nway to bond",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7d18eaa2",
+   "texte_overlay": "saying yes when you\nmean no",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f3619aa5",
+   "texte_overlay": "trading sleep for\nlooking busy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a69cc4f0",
+   "texte_overlay": "comparing your life to\nstrangers online",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "423076cc",
+   "texte_overlay": "scrolling until 2am\n\ni swapped it for one\nshort lesson in bed.",
+   "texte_sophia": "scrolling until 2am\n\ni swapped it for one lesson in bed\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "317dea25",
+   "texte_overlay": "which one are you\nquitting first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/8.jpg"
+  }
+ ]
+}

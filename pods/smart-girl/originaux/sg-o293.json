@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o293",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2747e20a-fdc8-463e-853b-cf96f914ef57",
+ "titre": "words that everyone should use to expand their vocabulary #vocabulary #words #smartgirl #english #wordoftheday",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "2747e20a-fdc8-463e-853b-cf96f914ef57"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 18 de la boîte (parent 2747e20a, langue source de) : accroche du parent mot pour mot. Les mots du parent en anglais (luminous, ethereal, mellifluous, serendipity, erudite, euphoria) avec un exemple. Sophia au milieu sur erudite comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e85426a8",
+   "texte_overlay": "words that everyone should use\nto expand their vocabulary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bb425227",
+   "texte_overlay": "luminous\n\nsoftly glowing, full of light.\n\nher smile was luminous.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2cf83cfc",
+   "texte_overlay": "ethereal\n\nextremely delicate, almost\nheavenly.\n\nthe music had an ethereal sound.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b2573a33",
+   "texte_overlay": "mellifluous\n\nsweet and smooth to hear.\n\nhe had a mellifluous voice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "396dc9e5",
+   "texte_overlay": "erudite\n\nhighly educated, deeply read.\n\nshe sounded erudite on\nevery topic.",
+   "texte_sophia": "erudite\n\nhighly educated, deeply read.\n\nshe uses an app like Sophia\nto learn every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "37ba13f3",
+   "texte_overlay": "serendipity\n\na happy accident.\n\nmeeting her was pure serendipity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9400dbb2",
+   "texte_overlay": "euphoria\n\nan intense feeling\nof happiness.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "37fd15d4",
+   "texte_overlay": "follow for more\ndaily words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o283",
+ "type_bleo": "full_test",
+ "titre": "ballroom dances every elegant woman should know #ballroom #dance #waltz #smartgirl #elegance",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 6/7 (la jauge en demande 7 sur 21) : accroche jamais faite chez nous (« dance » et « waltz » absent des accroches de donnees/label.json). Accroches écrites : « ballroom dances every elegant woman should know » (retenue : élégance + histoire), « how to waltz » (écartée : un seul item), « dances from history » (écartée : vague). Faits vérifiés : valse (Vienne, rythme à trois temps), tango (Buenos Aires, fin XIXe), foxtrot (années 1910), quickstep, valse lente anglaise, paso doble (inspiré de la corrida). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f78ef9aa",
+   "texte_overlay": "ballroom dances every\nelegant woman should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c4b83e7",
+   "texte_overlay": "the viennese waltz\n\nturning in three-four time,\nborn in vienna.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a66ce539",
+   "texte_overlay": "the tango\n\nfrom buenos aires,\nall tension and drama.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7b7878b8",
+   "texte_overlay": "the foxtrot\n\nsmooth and easy,\nfrom the 1910s.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a96c8dbe",
+   "texte_overlay": "the slow waltz\n\nthe one for weddings.",
+   "texte_sophia": "the slow waltz\n\nthe one for weddings. i learned its\nstory on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a33ad1dd",
+   "texte_overlay": "the quickstep\n\nlight, fast, almost\nflying.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fed460ef",
+   "texte_overlay": "the paso doble\n\ninspired by the\nspanish bullfight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0d7668bc",
+   "texte_overlay": "which one would you\nlearn first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

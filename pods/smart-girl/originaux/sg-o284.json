@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o284",
+ "type_bleo": "full_test",
+ "titre": "history's most beautiful love letters #loveletters #history #romance #smartgirl #literature",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 7/7 (la jauge en demande 7 sur 21) : accroche jamais faite chez nous (« love letters » absent des accroches de donnees/label.json). Accroches écrites : « history's most beautiful love letters » (retenue : romantique, culture), « famous couples in history » (écartée : vague), « how to write a love letter » (écartée : proche de la lettre manuscrite). Lettres vérifiées : Napoléon à Joséphine, Beethoven à « l'Immortelle Bien-Aimée » (1812), Johnny Cash à June Carter (1994), Vita Sackville-West à Virginia Woolf (1927), Frida Kahlo à Diego Rivera, Héloïse à Abélard. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "336e6206",
+   "texte_overlay": "history's most beautiful\nlove letters",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "51720d8a",
+   "texte_overlay": "beethoven, 1812\n\n\"ever thine, ever mine,\never ours.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2c775363",
+   "texte_overlay": "napoleon to joséphine\n\n\"i have not spent a day\nwithout loving you.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8e8dd8f9",
+   "texte_overlay": "vita sackville-west to\nvirginia woolf, 1927\n\n\"i miss you even more\nthan i could have believed.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6a910d78",
+   "texte_overlay": "johnny cash to june carter, 1994\n\n\"you still fascinate\nand inspire me.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b8768153",
+   "texte_overlay": "héloïse to abélard\n\nletters still read\nnine centuries later.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "09e0be7c",
+   "texte_overlay": "and the one i'd write\n\ni read one story like this\nevery night.",
+   "texte_sophia": "and the one i'd write\n\ni read one story like this every\nnight on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c8201cb2",
+   "texte_overlay": "which one made you\nfeel something?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -91,7 +91,9 @@ function renderPage() {
   );
 }
 
-const ligne = (nom: string) => screen.getByText(nom).closest("tr") as HTMLElement;
+const groupe = (slug: string) => within(screen.getByTestId(`groupe-labels-${slug}`));
+/** La ligne d'un label dans le groupe d'une application (un label partagé est dans ses deux groupes). */
+const ligne = (nom: string, slug = "sophia") => groupe(slug).getByText(nom).closest("tr") as HTMLElement;
 
 describe("AdminLabelsPage", () => {
   beforeEach(async () => {
@@ -103,19 +105,29 @@ describe("AdminLabelsPage", () => {
     api.definirApplicationsLabel.mockResolvedValue(undefined);
   });
 
-  it("montre chaque label avec les logos des applis qu'il sert et son stock", async () => {
+  it("range les labels par application : un label partagé est dans ses deux groupes, avec le stock de chacune", async () => {
     renderPage();
-    await screen.findByText("RH");
+    await screen.findByTestId("groupe-labels-sophia");
+    expect(groupe("sophia").getByText(/culture générale · 2 labels/)).toBeInTheDocument();
+    expect(groupe("sophia").getByText("RH")).toBeInTheDocument();
+    expect(groupe("sophia").getByText("white_bg")).toBeInTheDocument();
+    // Unswipe : RH seulement (white_bg ne la sert pas).
+    expect(groupe("unswipe").getByText("RH")).toBeInTheDocument();
+    expect(groupe("unswipe").queryByText("white_bg")).not.toBeInTheDocument();
+    // Les logos des applis servies, sur chaque ligne.
     expect(within(ligne("RH")).getByRole("img", { name: "Unswipe" })).toBeInTheDocument();
     expect(within(ligne("white_bg")).queryByRole("img", { name: "Unswipe" })).not.toBeInTheDocument();
     // Sous 7 jours, en rouge, comme sur la page Allocation.
     expect(within(ligne("RH")).getByText("2,0")).toHaveClass("text-destructive");
     expect(within(ligne("white_bg")).getByText("18,0")).not.toHaveClass("text-destructive");
+    // Aucun label sans application ici : pas de groupe « Sans application ».
+    expect(screen.queryByTestId("groupe-labels-sans")).not.toBeInTheDocument();
   });
 
   it("une ligne se déplie sur le style d'écriture, qui s'enregistre", async () => {
     renderPage();
-    fireEvent.click(await screen.findByText("RH"));
+    await screen.findByTestId("groupe-labels-sophia");
+    fireEvent.click(groupe("sophia").getByText("RH"));
     const theme = screen.getByLabelText("Thème / style");
     expect(theme).toHaveValue("Ton direct");
     fireEvent.change(theme, { target: { value: "Ton direct et chiffré" } });
@@ -131,18 +143,39 @@ describe("AdminLabelsPage", () => {
 
   it("changer le genre écrit le label sans déplier la ligne", async () => {
     renderPage();
-    await screen.findByText("RH");
+    await screen.findByTestId("groupe-labels-sophia");
     fireEvent.change(within(ligne("RH")).getByRole("combobox", { name: "Genre" }), { target: { value: "homme" } });
     await waitFor(() => expect(api.majLabel).toHaveBeenCalledWith("l1", { genre: "homme" }));
     expect(screen.queryByLabelText("Thème / style")).not.toBeInTheDocument();
   });
 
-  it("crée un label depuis le bouton, servi par Sophia par défaut", async () => {
+  it("« Nouveau label » : il faut choisir l'application, puis le label la sert, elle seule", async () => {
     renderPage();
     fireEvent.click(await screen.findByRole("button", { name: /Nouveau label/ }));
     fireEvent.change(screen.getByLabelText("Nom"), { target: { value: "neuf" } });
-    fireEvent.click(screen.getByRole("button", { name: "Créer" }));
+    // Sans application choisie, rien ne part.
+    expect(screen.getByRole("button", { name: "Créer" })).toBeDisabled();
+    fireEvent.click(screen.getByRole("radio", { name: /Sophia/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Créer pour Sophia" }));
     await waitFor(() => expect(api.creerLabel).toHaveBeenCalledWith("neuf", "#2f6f4e", { genre: "femme" }));
     await waitFor(() => expect(api.definirApplicationsLabel).toHaveBeenCalledWith("l3", [ID_SOPHIA]));
+    // Le formulaire reste ouvert sur la suite : sources, file des créateurs, style.
+    expect(await screen.findByTestId("label-cree")).toHaveTextContent("Label « neuf » créé pour Sophia");
+    expect(within(screen.getByTestId("label-cree")).getByRole("link", { name: "Sources" })).toHaveAttribute("href", "/admin/sources");
+  });
+
+  it("le bouton d'un groupe ouvre le formulaire sur son application ; le nom annonce l'identité des comptes", async () => {
+    api.creerLabel.mockResolvedValue({ id: "l4", nom: "male_run" });
+    renderPage();
+    await screen.findByTestId("groupe-labels-unswipe");
+    fireEvent.click(groupe("unswipe").getByRole("button", { name: "Label Unswipe" }));
+    expect(groupe("unswipe").getByRole("radio", { name: /Unswipe/ })).toBeChecked();
+    fireEvent.change(groupe("unswipe").getByLabelText("Nom"), { target: { value: "male_run" } });
+    // « male_run » : genre homme proposé, @ et bio de running.
+    expect(groupe("unswipe").getByTestId("identite-label")).toHaveTextContent("homme");
+    expect(groupe("unswipe").getByTestId("identite-label")).toHaveTextContent("« running » (ex. @lena.runs472)");
+    fireEvent.click(groupe("unswipe").getByRole("button", { name: "Créer pour Unswipe" }));
+    await waitFor(() => expect(api.creerLabel).toHaveBeenCalledWith("male_run", "#2f6f4e", { genre: "homme" }));
+    await waitFor(() => expect(api.definirApplicationsLabel).toHaveBeenCalledWith("l4", [ID_UNSWIPE]));
   });
 });

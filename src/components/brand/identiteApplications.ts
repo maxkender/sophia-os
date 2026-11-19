@@ -1,29 +1,28 @@
 import { nomApplication } from "@/features/moteur/applications";
+import { ficheApplication, SLUGS_APPLICATIONS } from "@/features/moteur/catalogueApplications";
 
 /**
  * L'identité d'une application dans les graphes, sans React : sa couleur, son
- * nom tel qu'en base, et sa place fixe. Les composants qui l'affichent sont
- * dans `LogoApplication.tsx`.
+ * nom tel qu'en base, et sa place fixe. Tout vient du catalogue
+ * (`catalogueApplications.ts`) : une application s'y déclare une fois. Les
+ * composants qui l'affichent sont dans `LogoApplication.tsx`.
  */
-
-const COULEURS = new Set(["sophia", "micabo", "unswipe"]);
-
-/** Les noms tels qu'en base (`applications.nom`) : le slug seul écrirait « unswipe ». */
-const NOMS: Record<string, string> = { sophia: "Sophia", micabo: "micabo", unswipe: "Unswipe" };
 
 /**
- * Un ordre FIXE pour les graphes : une application garde sa place (et sa
- * couleur) d'un graphe à l'autre, quel que soit son poids sur le marché.
+ * Un ordre FIXE pour les graphes, celui du catalogue : une application garde
+ * sa place (et sa couleur) d'un graphe à l'autre, quel que soit son poids sur
+ * le marché.
  */
-const ORDRE = ["sophia", "micabo", "unswipe"];
+const ORDRE = SLUGS_APPLICATIONS;
 
 /** La couleur de l'application, en variable CSS (claire et sombre). Une inconnue prend le gris « autre ». */
 export function couleurApplication(slug: string): string {
-  return COULEURS.has(slug) ? `var(--app-${slug})` : "var(--app-autre)";
+  return ficheApplication(slug) ? `var(--app-${slug})` : "var(--app-autre)";
 }
 
+/** Le nom tel qu'en base (`applications.nom`) : le slug seul écrirait « unswipe ». */
 export function nomAffiche(slug: string): string {
-  return NOMS[slug] ?? nomApplication({ slug });
+  return ficheApplication(slug)?.nom ?? nomApplication({ slug });
 }
 
 export function trierApplications<T>(liste: readonly T[], slug: (x: T) => string): T[] {

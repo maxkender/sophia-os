@@ -20,8 +20,13 @@
  *
  * Un motif PAR APPLICATION (`motifConcurrentApplication`) : les concurrents
  * d'Unswipe sont les applis de temps d'écran, ceux de micabo les applis
- * d'étude. Sans motif passé, toutes les fonctions gardent celui de Sophia : les
- * appels Sophia (import, composer) ne changent pas.
+ * d'étude, ceux d'Atala les applis de plans de course. Sans motif passé,
+ * toutes les fonctions gardent celui de Sophia : les appels Sophia (import,
+ * composer) ne changent pas.
+ *
+ * Ajouter une application : écrire son motif ici et l'inscrire dans
+ * `MOTIFS_PAR_APPLICATION`. Une application du catalogue
+ * (`catalogue_applications.ts`) sans motif fait échouer `concurrents_test.ts`.
  */
 
 /**
@@ -134,9 +139,63 @@ export const MOTIF_CONCURRENT_MICABO = new RegExp(
   "iu",
 );
 
-const MOTIFS_PAR_APPLICATION: Readonly<Record<string, RegExp>> = {
+/**
+ * Concurrents d'Atala (course à pied) : ceux de Sophia + les applis qui
+ * donnent un plan d'entraînement ou coachent la course. Première liste, écrite
+ * le 19/11 AVANT tout stock de running : à mesurer sur les slides des premiers
+ * labels importés (faux positifs, applis oubliées), comme l'ont été celles
+ * d'Unswipe et de micabo.
+ * Conditions, pour ne pas prendre un mot courant ou une chaussure :
+ *  - « nike run club » ou « NRC » ; jamais « nike running » seul (« my nike
+ *    running shoes ») ;
+ *  - « adidas running app » ou « runtastic » ; jamais « adidas running » seul ;
+ *  - « runmotion », « trainingpeaks », « runsmart », « runcoach », « mapmyrun »
+ *    collés seulement (« run smart, not hard », « your training peaks at
+ *    week 10 ») ;
+ *  - « couch to 5k » sous toutes ses formes (« couch 2 5k », « c25k »).
+ * PAS Strava ni Garmin / Apple Watch seuls : ce sont l'endroit où l'on
+ * enregistre sa sortie et la montre, cités comme outils dans le conseil, pas
+ * une appli qui prend la place d'Atala. « garmin coach » (les plans), si.
+ */
+export const MOTIF_CONCURRENT_ATALA = new RegExp(
+  [
+    MOTIF_CONCURRENT.source,
+    ...[
+      "runna",
+      String.raw`nike\s+run\s?club`,
+      "nrc",
+      String.raw`couch\s+(?:to|2)\s+5\s?k`,
+      "c25k",
+      "runkeeper",
+      String.raw`adidas\s+running\s+app`,
+      "runtastic",
+      "coopah",
+      String.raw`kiprun\s+pacer`,
+      String.raw`campus\s+coach`,
+      "runmotion",
+      "trainingpeaks",
+      String.raw`garmin\s+coach`,
+      String.raw`none\s+to\s+run`,
+      "trenara",
+      "runsmart",
+      "runcoach",
+      "mapmyrun",
+      String.raw`zombies,?\s+run`,
+      String.raw`run\s+with\s+hal`,
+    ].map(motEntier),
+  ].join("|"),
+  "iu",
+);
+
+/**
+ * Le motif de chaque application hors Sophia (qui garde `MOTIF_CONCURRENT`).
+ * Une application du catalogue DOIT avoir sa ligne ici, même si elle n'a pour
+ * l'instant que les concurrents de Sophia.
+ */
+export const MOTIFS_PAR_APPLICATION: Readonly<Record<string, RegExp>> = {
   unswipe: MOTIF_CONCURRENT_UNSWIPE,
   micabo: MOTIF_CONCURRENT_MICABO,
+  atala: MOTIF_CONCURRENT_ATALA,
 };
 
 /** Motif des concurrents d'une application ; celui de Sophia par défaut. */

@@ -2,6 +2,7 @@
 
 import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
+import { ficheApplication } from "@/features/moteur/catalogueApplications";
 import { LANGUES_CIBLES } from "@/features/moteur/langues";
 
 export type StatutLivraison = "a_valider" | "validee" | "rejetee" | "ecartee_note";
@@ -254,10 +255,8 @@ export function languesOrdonnees(l: Pick<Livraison, "decks" | "langue_source">):
   );
 }
 
-const NOMS_APPLICATIONS: Record<string, string> = { sophia: "Sophia", unswipe: "UnSwipe", micabo: "micabo" };
-
-/** Nom affiché d'une application à partir de son slug. */
-export const nomApplication = (slug: string): string => NOMS_APPLICATIONS[slug] ?? slug;
+/** Nom affiché d'une application à partir de son slug : la marque du catalogue (« UnSwipe », « micabo »). */
+export const nomApplication = (slug: string): string => ficheApplication(slug)?.marque ?? slug;
 
 /**
  * Versions montrables d'un deck dans une langue : le deck Sophia s'il porte la

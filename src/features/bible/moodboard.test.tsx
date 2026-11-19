@@ -15,7 +15,7 @@ import { DialogueAjout } from "./DialoguesBible";
 import { PageBible } from "./PageBible";
 
 const carte = (o: Partial<CarteLabel>): CarteLabel => ({
-  id: "k1", nom: "classic_girl_run", titre: null, section: "runvik", badge: "propose", description_da: "Coureuse en photo iPhone", label_id: null, ordre: 1, statut: "a_valider", ...o,
+  id: "k1", nom: "classic_girl_run", titre: null, section: "atala", badge: "propose", description_da: "Coureuse en photo iPhone", label_id: null, ordre: 1, statut: "a_valider", ...o,
 });
 const compte = (o: Partial<CompteBible>): CompteBible => ({
   id: "c1", handle: "compte.un", etape: "a_importer", label_propose_id: "k1", autres_cartes: [], note_import: null, remarque: null, a_podzer: false,
@@ -26,7 +26,7 @@ const compte = (o: Partial<CompteBible>): CompteBible => ({
 const CARTES = [carte({}), carte({ id: "k2", nom: "clean_girl", section: "sophia", badge: "propose", ordre: 2 }), carte({ id: "k3", nom: "smart_girl", section: "sophia", badge: "existe", ordre: 1, label_id: "L1" })];
 
 describe("rangement du moodboard", () => {
-  it("par app dans l'ordre (Runvik, Micabo, Sophia, Idées, Sans label), puis par label ; « aussi » sous la 2e carte", () => {
+  it("par app dans l'ordre (Atala, Micabo, Sophia, Idées, Sans label), puis par label ; « aussi » sous la 2e carte", () => {
     const comptes = [
       compte({}),
       compte({ id: "c2", handle: "crushed", label_propose_id: "k1", autres_cartes: ["k2"] }),
@@ -35,7 +35,7 @@ describe("rangement du moodboard", () => {
       compte({ id: "c5", handle: "batch", etape: "prochain_batch" }),
     ];
     const g = ranger(comptes, CARTES, { etape: "a_importer", recherche: "", section: "" });
-    expect(g.map((x) => x.section)).toEqual(["runvik", "sophia", "sans"]);
+    expect(g.map((x) => x.section)).toEqual(["atala", "sophia", "sans"]);
     expect(g[1]!.cartes.map((c) => c.carte?.nom)).toEqual(["smart_girl", "clean_girl"]);
     expect(g[1]!.cartes[1]!.comptes[0]).toMatchObject({ aussi: true });
     expect(g[2]!.total).toBe(1);
@@ -48,8 +48,8 @@ describe("rangement du moodboard", () => {
     const handles = (f: Parameters<typeof ranger>[2]) => ranger(comptes, CARTES, f).flatMap((g) => g.cartes.flatMap((c) => c.comptes.map((x) => x.compte.handle)));
     expect(handles({ etape: "a_importer", recherche: "", section: "", podzer: true })).toEqual(["podz"]);
     expect(handles({ etape: "a_importer", recherche: "ugc", section: "" })).toEqual(["podz"]);
-    expect(appsDe(["sophia", "micabo", "sophia", "runvik"])).toEqual({
-      application_ids: ["00000000-0000-4000-8000-000000000001", "00000000-0000-4000-8000-000000000002"], apps_attente: ["Runvik – running"],
+    expect(appsDe(["sophia", "micabo", "sophia", "atala"])).toEqual({
+      application_ids: ["00000000-0000-4000-8000-000000000001", "00000000-0000-4000-8000-000000000002", "00000000-0000-4000-8000-000000000004"], apps_attente: [],
     });
   });
 
@@ -121,13 +121,13 @@ describe("ajout de comptes", () => {
     api.ajouterComptes.mockResolvedValue({ crees: ["un", "deux"], deja: [], ids: [] });
     render(<DialogueAjout ouvert cartes={CARTES} onFermer={() => {}} onFini={() => {}} />);
     fireEvent.change(screen.getByPlaceholderText(/compte1/), { target: { value: "https://www.tiktok.com/@un\n@deux" } });
-    fireEvent.click(screen.getByRole("button", { name: "Runvik" }));
+    fireEvent.click(screen.getByRole("button", { name: "Atala" }));
     fireEvent.click(screen.getByRole("button", { name: "Sophia" }));
     fireEvent.click(screen.getByLabelText("À podzer"));
     fireEvent.change(screen.getByLabelText("Remarque pour @deux"), { target: { value: "photos à refaire" } });
     fireEvent.click(screen.getAllByRole("button", { name: "UGC" })[0]!);
     fireEvent.click(screen.getByRole("button", { name: "Ajouter" }));
-    await waitFor(() => expect(api.ajouterComptes).toHaveBeenCalledWith(["un", "deux"], null, ["runvik", "sophia"], {
+    await waitFor(() => expect(api.ajouterComptes).toHaveBeenCalledWith(["un", "deux"], null, ["atala", "sophia"], {
       a_podzer: true, remarques: { un: REMARQUE_UGC, deux: "photos à refaire" },
     }));
   });

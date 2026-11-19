@@ -5,11 +5,13 @@
 
 import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
+import { SLUGS_APPLICATIONS } from "@/features/moteur/catalogueApplications";
 
 export type StatutBanque = "a_valider" | "validee" | "rejetee";
 export type Support = "iphone" | "tablette" | "ordinateur";
 
-export const APPLICATIONS_BANQUE = ["micabo", "sophia", "unswipe"] as const;
+/** Les applications du catalogue : la banque a un rayon par application. */
+export const APPLICATIONS_BANQUE = SLUGS_APPLICATIONS;
 export const SUPPORTS: Support[] = ["iphone", "tablette", "ordinateur"];
 export const ECRANS_CONNUS = ["parcours", "notes", "a-retenir", "lecons", "site"] as const;
 

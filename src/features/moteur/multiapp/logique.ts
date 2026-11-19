@@ -114,6 +114,26 @@ export function promptsManquants(
   return clesPromptsApplication(slug).filter((cle) => !(contenus[cle] ?? "").trim());
 }
 
+/**
+ * Un prompt encore marqué BROUILLON : écrit d'avance par une migration (Atala,
+ * 0764) sans connaître le vrai pitch de l'appli. Il sert à préparer le stock
+ * (notation), mais l'application ne s'active pas tant que la ligne
+ * « [BROUILLON … ] » est dans le texte : la retirer, c'est dire « relu ».
+ */
+const MARQUE_BROUILLON = /\[BROUILLON[^\]]*\]/i;
+
+export function estPromptBrouillon(contenu: string | null | undefined): boolean {
+  return MARQUE_BROUILLON.test(contenu ?? "");
+}
+
+/** Prompts de l'application encore marqués BROUILLON : activation refusée tant qu'il en reste. */
+export function promptsBrouillons(
+  slug: string,
+  contenus: Readonly<Record<string, string | null | undefined>>,
+): string[] {
+  return clesPromptsApplication(slug).filter((cle) => estPromptBrouillon(contenus[cle]));
+}
+
 /** Avancement du rattrapage (0–100), `null` tant qu'il n'y a rien à mesurer. */
 export function avancementBackfill(etat: { restants: number; faits: number } | null | undefined): number | null {
   if (!etat) return null;

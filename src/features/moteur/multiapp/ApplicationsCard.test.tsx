@@ -13,6 +13,8 @@ const majApplication = vi.fn();
 const sonderTiersApplication = vi.fn();
 const lireTiersApplicationsDernierRun = vi.fn();
 const lirePrompt = vi.fn();
+const listerLiensLabels = vi.fn();
+const lireLiens1000 = vi.fn();
 
 vi.mock("@/features/auth/AuthContext", () => ({
   useAuth: () => ({ user: { id: "admin-1" }, role: "admin" }),
@@ -25,6 +27,8 @@ vi.mock("@/features/moteur/apiMultiApp", () => ({
   majApplication: (id: string, patch: unknown) => majApplication(id, patch),
   sonderTiersApplication: () => sonderTiersApplication(),
   lireTiersApplicationsDernierRun: () => lireTiersApplicationsDernierRun(),
+  listerLiensLabels: () => listerLiensLabels(),
+  lireLiens1000: () => lireLiens1000(),
   lireEtatBackfillPertinence: () =>
     Promise.resolve({ actif: false, restants: 0, faits: 0, erreurs: 0, demarre_at: null, dernier_at: null }),
   piloterBackfillPertinence: vi.fn(),
@@ -56,6 +60,41 @@ describe("ApplicationsCard — activation et tiers par application (0270)", () =
     lireTiersApplicationsDernierRun.mockResolvedValue(null);
     lirePrompt.mockReset();
     lirePrompt.mockResolvedValue("un prompt complet");
+    listerLiensLabels.mockReset();
+    listerLiensLabels.mockResolvedValue([
+      { label_id: "l1", application_id: ID_SOPHIA },
+      { label_id: "l2", application_id: ID_SOPHIA },
+    ]);
+    lireLiens1000.mockReset();
+    lireLiens1000.mockResolvedValue({ sophia: "taap.it/sophia.culture", unswipe: "" });
+  });
+
+  it("un prompt encore en brouillon : pas d'activation, et elle dit lequel relire", async () => {
+    sonderTiersApplication.mockResolvedValue("pret");
+    lirePrompt.mockImplementation((cle: string) =>
+      Promise.resolve(cle.startsWith("placement") ? "[BROUILLON À RELIRE : pitch à écrire]\n\nle prompt" : "un prompt complet"),
+    );
+    rendre(<ApplicationsCard />);
+    const interrupteurs = await screen.findAllByRole("switch");
+    fireEvent.click(interrupteurs[1]);
+    expect(await screen.findByText(/still a draft — placement_unswipe/)).toBeInTheDocument();
+    expect(majApplication).not.toHaveBeenCalled();
+  });
+
+  it("la ligne dépliée dit ce qui manque à l'application, dans l'ordre", async () => {
+    lirePrompt.mockImplementation((cle: string) => Promise.resolve(cle.startsWith("pertinence") ? "un prompt complet" : ""));
+    rendre(<ApplicationsCard />);
+    // Colonne « Labels » : 2 pour Sophia, aucun pour Unswipe.
+    expect(await screen.findByText("none")).toBeInTheDocument();
+    fireEvent.click(await screen.findByText("Unswipe"));
+    const preparation = await screen.findByTestId("preparation-unswipe");
+    await waitFor(() => expect(preparation.querySelectorAll("li")).toHaveLength(7));
+    const etats = [...preparation.querySelectorAll("li")].map((li) => li.getAttribute("data-etat"));
+    // code, pertinence, placement, lien à 1 000, labels, langues, interrupteur
+    expect(etats).toEqual(["ok", "ok", "a_faire", "a_faire", "a_faire", "ok", "a_faire"]);
+    expect(preparation).toHaveTextContent("Placement prompt empty (placement_unswipe)");
+    expect(preparation).toHaveTextContent("1,000-follower link missing");
+    expect(preparation).toHaveTextContent("Target languages: fr.");
   });
 
   it("0270 absente : l'activation est refusée, et elle le dit", async () => {

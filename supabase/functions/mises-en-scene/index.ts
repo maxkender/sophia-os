@@ -91,10 +91,13 @@ import {
   supportValide,
   tailleImage,
 } from "../_shared/mises_en_scene.ts";
+import { SLUGS_APPLICATIONS } from "../_shared/catalogue_applications.ts";
 import { sha256Hex } from "../_shared/pods.ts";
 import { assertRole, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const BUCKET = "medias";
+/** Les slugs du catalogue des applications, pour un message d'erreur qui dit quoi envoyer. */
+const APPLICATION_ATTENDUE = `application : ${SLUGS_APPLICATIONS.join(" | ")}`;
 const COLONNES_CAPTURE =
   "id, application_id, ecran, support, langue, nature, originale_id, url, largeur, hauteur, statut, motif_rejet, remplace_id, remplacee_par, decide_par, decide_le, created_at";
 const COLONNES_INTEGRATEUR = "id, media_id, support, note, statut, motif_rejet, created_at, media:media_library (url, caption)";
@@ -312,7 +315,7 @@ async function listerMisesEnScene(supabase: Supabase, appelant: Appelant, body: 
 
 async function listerCouplesManquants(supabase: Supabase, body: Record<string, unknown>) {
   const app = (await applications(supabase)).find((a) => a.slug === body.application);
-  if (!app) return json({ ok: false, error: "application : sophia | micabo | unswipe" }, 400);
+  if (!app) return json({ ok: false, error: APPLICATION_ATTENDUE }, 400);
   const langue = body.langue ? String(body.langue) : "fr";
   // Originales seulement : une langue traduite passe par les versions.
   let qc = supabase.from("captures_app").select("id, support, ecran").eq("application_id", app.id).eq("langue", langue)
@@ -424,7 +427,7 @@ async function ranger(supabase: Supabase, chemin: string, bytes: Uint8Array, mim
 
 async function importerCapture(supabase: Supabase, body: Record<string, unknown>) {
   const app = (await applications(supabase)).find((a) => a.slug === body.application);
-  if (!app) return json({ ok: false, error: "application : sophia | micabo | unswipe" }, 400);
+  if (!app) return json({ ok: false, error: APPLICATION_ATTENDUE }, 400);
   if (!ecranValide(body.ecran)) return json({ ok: false, error: "ecran : minuscules et tirets (parcours, a-retenir…)" }, 400);
   if (!supportValide(body.support)) return json({ ok: false, error: "support : iphone | tablette | ordinateur" }, 400);
   if (!langueValide(body.langue)) return json({ ok: false, error: "langue inconnue" }, 400);
@@ -667,7 +670,7 @@ async function traduireMiseEnScene(
 /** De quoi lancer un lot de versions `langue` (aucun appel Fal ici). */
 async function versionsManquantes(supabase: Supabase, body: Record<string, unknown>) {
   const app = (await applications(supabase)).find((a) => a.slug === body.application);
-  if (!app) return json({ ok: false, error: "application : sophia | micabo | unswipe" }, 400);
+  if (!app) return json({ ok: false, error: APPLICATION_ATTENDUE }, 400);
   const langue = body.langue;
   if (!langueValide(langue)) return json({ ok: false, error: "langue inconnue" }, 400);
   let q = supabase.from("mises_en_scene").select("id, capture_id, langue").eq("application_id", app.id)

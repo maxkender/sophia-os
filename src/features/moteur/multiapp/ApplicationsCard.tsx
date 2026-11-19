@@ -1,9 +1,11 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ChevronDown, ChevronRight, Plus } from "lucide-react";
+import { ChevronDown, ChevronRight, Circle, CircleAlert, CircleCheck, Plus } from "lucide-react";
 
+import { trierApplications } from "@/components/brand/identiteApplications";
 import { EtiquetteApplication } from "@/components/brand/LogoApplication";
+import { LOGOS } from "@/components/brand/logosApplications";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,7 +20,9 @@ import {
   SLUG_APPLICATION_VALIDE,
   slugApplicationDepuisNom,
   lireEtatBackfillPertinence,
+  lireLiens1000,
   lireTiersApplicationsDernierRun,
+  listerLiensLabels,
   majApplication,
   piloterBackfillPertinence,
   sonderTiersApplication,
@@ -27,6 +31,7 @@ import {
   type RunTiersApplications,
 } from "@/features/moteur/apiMultiApp";
 import { nomApplication } from "@/features/moteur/applications";
+import { ficheApplication } from "@/features/moteur/catalogueApplications";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { ID_SOPHIA } from "@/features/moteur/multiApp";
 
@@ -38,8 +43,10 @@ import {
   estErreurSchemaAbsent,
   langueCiblee,
   languesApresBascule,
+  promptsBrouillons,
   promptsManquants,
 } from "./logique";
+import { preparationApplication, prochainPoint, type EtatPoint, type PointPreparation } from "./preparation";
 import { optionsRequeteApplications } from "./requetesApplications";
 import { cn } from "@/lib/utils";
 
@@ -172,6 +179,73 @@ function ResumeLangues({ application }: { application: ApplicationMulti }) {
   );
 }
 
+const ICONE_POINT: Record<EtatPoint, { Icone: typeof Circle; classe: string }> = {
+  ok: { Icone: CircleCheck, classe: "text-success" },
+  a_relire: { Icone: CircleAlert, classe: "text-amber-600 dark:text-amber-400" },
+  a_faire: { Icone: Circle, classe: "text-muted-foreground" },
+};
+
+/**
+ * Ce qu'il faut à l'application pour publier, point par point et dans l'ordre
+ * (`preparation.ts`) : le code, ses deux prompts, son lien à 1 000 abonnés,
+ * ses labels, ses langues, puis l'interrupteur. Le prochain point à traiter
+ * est en gras. Les prompts sont lus sous la même clé que l'éditeur de la page
+ * Prompts et que l'activation : un prompt qu'on vient d'enregistrer est frais.
+ */
+function PreparationApplication({
+  application,
+  nbLabels,
+  lien1000,
+}: {
+  application: ApplicationMulti;
+  nbLabels: number;
+  lien1000: string | undefined;
+}) {
+  const { t } = useTranslation();
+  const [clePertinence, clePlacement] = clesPromptsApplication(application.slug);
+  const pertinence = useQuery({ queryKey: ["prompt", clePertinence], queryFn: () => lirePrompt(clePertinence) });
+  const placement = useQuery({ queryKey: ["prompt", clePlacement], queryFn: () => lirePrompt(clePlacement) });
+  if (pertinence.isPending || placement.isPending) {
+    return <p className="text-[11px] text-muted-foreground">{t("common.loading")}</p>;
+  }
+  const points = preparationApplication({
+    slug: application.slug,
+    actif: application.actif,
+    langues: application.langues,
+    logo: application.slug in LOGOS,
+    prompts: { [clePertinence]: pertinence.data, [clePlacement]: placement.data },
+    lien1000,
+    nbLabels,
+  });
+  const prochain = prochainPoint(points);
+  const texte = (p: PointPreparation) =>
+    t(`multiApp.applications.preparation.${p.cle}.${p.cle === "langues" && p.etat === "ok" && !p.detail ? "toutes" : p.etat}`, {
+      nom: nomApplication(application),
+      detail: p.detail ?? "",
+    });
+  return (
+    <div className="space-y-1.5" data-testid={`preparation-${application.slug}`}>
+      <p className="text-xs font-medium">{t("multiApp.applications.preparation.titre")}</p>
+      <ol className="space-y-1">
+        {points.map((p) => {
+          const { Icone, classe } = ICONE_POINT[p.etat];
+          return (
+            <li key={p.cle} className="flex items-start gap-1.5 text-[11px]" data-etat={p.etat}>
+              <Icone className={cn("mt-px size-3.5 shrink-0", classe)} aria-hidden />
+              <span className={cn(p.etat === "ok" && "text-muted-foreground", p === prochain && "font-semibold")}>
+                {texte(p)}
+              </span>
+            </li>
+          );
+        })}
+      </ol>
+      <p className="text-[11px] text-muted-foreground">
+        {prochain ? t("multiApp.applications.preparation.ordre") : t("multiApp.applications.preparation.pret")}
+      </p>
+    </div>
+  );
+}
+
 /** Mêmes classes que le tableau de la page Allocation. */
 const TH = "pb-2 pr-4 text-left text-[11px] font-medium uppercase tracking-wide text-muted-foreground last:pr-0";
 const TD = "py-2.5 pr-4 align-top last:pr-0";
@@ -179,9 +253,14 @@ const TD = "py-2.5 pr-4 align-top last:pr-0";
 function LigneApplication({
   application,
   run,
+  nbLabels,
+  lien1000,
 }: {
   application: ApplicationMulti;
   run?: RunTiersApplications | null;
+  /** Nombre de labels qui la servent ; `undefined` tant que les liens ne sont pas lus. */
+  nbLabels?: number;
+  lien1000?: string;
 }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
@@ -228,6 +307,20 @@ function LigneApplication({
         );
         return;
       }
+      // Un prompt écrit d'avance, pas encore relu : pas de publication sur un pitch supposé.
+      const brouillons = promptsBrouillons(
+        application.slug,
+        Object.fromEntries(cles.map((cle, i) => [cle, textes[i]])),
+      );
+      if (brouillons.length > 0) {
+        setBlocage(
+          t("multiApp.applications.promptsBrouillons", {
+            nom: nomApplication(application),
+            cles: brouillons.join(", "),
+          }),
+        );
+        return;
+      }
       setBlocage(null);
       await majApplication(application.id, { actif: true });
       await rafraichir();
@@ -246,6 +339,7 @@ function LigneApplication({
   const enCours = maj.isPending || activer.isPending;
   const erreur = maj.error ?? activer.error;
   const Chevron = ouvert ? ChevronDown : ChevronRight;
+  const concept = ficheApplication(application.slug)?.concept;
 
   return (
     <>
@@ -266,10 +360,18 @@ function LigneApplication({
             )}
             <EtiquetteApplication slug={application.slug} className="font-medium" />
           </span>
+          {concept && <p className="mt-0.5 pl-5 text-[11px] text-muted-foreground">{concept}</p>}
           {sophia && (
             <p className="mt-0.5 max-w-xs pl-5 text-[11px] text-muted-foreground">
               {t("multiApp.applications.sophiaVerrouillee")}
             </p>
+          )}
+        </td>
+        <td className={cn(TD, "tabular-nums")}>
+          {nbLabels === undefined ? null : nbLabels > 0 ? (
+            nbLabels
+          ) : (
+            <span className="text-xs text-amber-700 dark:text-amber-400">{t("multiApp.applications.aucunLabel")}</span>
           )}
         </td>
         <td className={TD}>
@@ -296,8 +398,9 @@ function LigneApplication({
       </tr>
       {ouvert && !sophia && (
         <tr>
-          <td colSpan={3} className="pb-3">
+          <td colSpan={4} className="pb-3">
             <div className="space-y-3 rounded-md bg-muted/30 p-3">
+              <PreparationApplication application={application} nbLabels={nbLabels ?? 0} lien1000={lien1000} />
               <div className="flex flex-wrap items-center gap-2">
                 <p className="text-xs font-medium">{t("multiApp.applications.langues")}</p>
                 <button
@@ -418,6 +521,13 @@ export function ApplicationsCard() {
     retry: false,
   });
 
+  // Labels par application et liens à 1 000 abonnés : pour la colonne « Labels »
+  // et l'état de préparation. Illisibles → la carte reste utilisable sans eux.
+  const liens = useQuery({ queryKey: ["label-applications"], queryFn: listerLiensLabels, retry: retrySaufSchema });
+  const liens1000 = useQuery({ queryKey: ["liens-1000"], queryFn: lireLiens1000, enabled: Boolean(user?.id), retry: false });
+  const nbLabels = (applicationId: string) =>
+    liens.data ? new Set(liens.data.filter((l) => l.application_id === applicationId).map((l) => l.label_id)).size : undefined;
+
   const [ajout, setAjout] = React.useState(false);
 
   return (
@@ -447,13 +557,21 @@ export function ApplicationsCard() {
               <thead>
                 <tr className="border-b">
                   <th scope="col" className={TH}>{t("multiApp.applications.colApp")}</th>
+                  <th scope="col" className={TH}>{t("multiApp.applications.colLabels")}</th>
                   <th scope="col" className={TH}>{t("multiApp.applications.langues")}</th>
                   <th scope="col" className={cn(TH, "text-right")}>{t("multiApp.applications.colEtat")}</th>
                 </tr>
               </thead>
               <tbody>
-                {apps.data.map((a) => (
-                  <LigneApplication key={a.id} application={a} run={run.data} />
+                {/* L'ordre du catalogue, le même que les groupes de la carte Labels. */}
+                {trierApplications(apps.data, (a) => a.slug).map((a) => (
+                  <LigneApplication
+                    key={a.id}
+                    application={a}
+                    run={run.data}
+                    nbLabels={nbLabels(a.id)}
+                    lien1000={liens1000.data?.[a.slug]}
+                  />
                 ))}
               </tbody>
             </table>

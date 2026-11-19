@@ -1,6 +1,6 @@
 /**
  * 19/11 (Max) : la Bible des comptes, en moodboard. Trois onglets (À importer · Prochain batch · Importés), les comptes
- * rangés par app (Runvik, Micabo, Sophia, Idées, puis Sans label) puis par label (nom, badge, DA), chacun avec ses
+ * rangés par app (Atala, Micabo, Sophia, Idées, puis Sans label) puis par label (nom, badge, DA), chacun avec ses
  * 3 derniers TikToks en miniatures. « Marquer le batch comme importé » ne change que l'étape dans la Bible.
  * Admin au sens strict (RLS + route).
  */
@@ -21,7 +21,7 @@ import {
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
 
 const TEINTE: Record<Section | "sans", { pastille: string; texte: string }> = {
-  runvik: { pastille: "bg-orange-400", texte: "text-orange-700" },
+  atala: { pastille: "bg-emerald-500", texte: "text-emerald-700" },
   micabo: { pastille: "bg-violet-400", texte: "text-violet-700" },
   sophia: { pastille: "bg-pink-400", texte: "text-pink-700" },
   idees: { pastille: "bg-teal-400", texte: "text-teal-700" },

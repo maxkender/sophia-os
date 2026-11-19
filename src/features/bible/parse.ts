@@ -35,6 +35,8 @@ const POST = /\/(?:video|photo)\/\d{8,25}/;
 const SNAKE = /^[a-z0-9]+(?:_[a-z0-9]+)+$/;
 const NOUVEAU = /\b(?:nouveau|new)\s+label\s+([a-z0-9]+(?:_[a-z0-9]+)*)/i;
 const MOTS_VIDES = new Set(["pour", "for", "label", "app", "+", "et", "and", "-", "–"]);
+/** Anciens noms d'une application : « runvik » était le nom de travail d'Atala (running) jusqu'au 19/11. */
+const ALIAS_APPS: Record<string, string> = { runvik: "atala" };
 
 export function handleDe(texte: string): string | null {
   const m = texte.match(PROFIL) ?? texte.trim().match(/^@([A-Za-z0-9._]{1,40})$/);
@@ -74,7 +76,8 @@ export function lireLigne(ligne: string, apps: AppBible[], labels: LabelBible[],
     const mot = brut.replace(/^[,;:()]+|[,;:()]+$/g, "");
     const bas = mot.toLowerCase();
     if (!bas) continue;
-    const app = apps.find((a) => a.slug.toLowerCase() === bas || a.nom.toLowerCase() === bas);
+    const cleApp = ALIAS_APPS[bas] ?? bas;
+    const app = apps.find((a) => a.slug.toLowerCase() === cleApp || a.nom.toLowerCase() === cleApp);
     if (app) {
       if (!appIds.includes(app.id)) appIds.push(app.id);
       appCourante = app.nom;

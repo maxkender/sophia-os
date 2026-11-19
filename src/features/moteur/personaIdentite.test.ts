@@ -27,7 +27,7 @@ function hasardFixe(graine: number): () => number {
   };
 }
 
-const LABELS = ["alpha_male", "smart_girl", "RH", "clean_study", "psychologiefaits", "Plony", "Dorian", null];
+const LABELS = ["alpha_male", "smart_girl", "RH", "clean_study", "psychologiefaits", "Plony", "Dorian", "clean_girl_run", null];
 
 describe("thème des mots", () => {
   it("donne leurs propres mots aux labels d'études, de carrière, de psycho et de philo", () => {
@@ -40,6 +40,31 @@ describe("thème des mots", () => {
     expect(themeMotsDuLabel("alpha_male_yellow")).toBe("alpha_male");
     expect(themeMotsDuLabel("beau_smart_girl")).toBe("smart_girl");
     expect(themeMotsDuLabel("Dorian")).toBe("default");
+  });
+
+  it("donne aux labels de running (Atala) leurs mots de course, en mot entier seulement", () => {
+    for (const label of ["male_run", "clean_girl_run", "white_female_run", "anxiety_run", "white_bg_run"]) {
+      expect(themeMotsDuLabel(label), label).toBe("running");
+    }
+    expect(themeMotsDuLabel("brunch_girl")).toBe("smart_girl");
+    expect(motsDuHandle("male_run", "fr").locaux).toContain("footing");
+    expect(motsDuHandle("male_run", "de").universels).toContain("marathon");
+    // Le genre et la photo de profil restent ceux de la famille du label.
+    expect(themeDuLabel("clean_girl_run")).toBe("clean_girl");
+    expect(themeDuLabel("white_female_run")).toBe("default");
+  });
+
+  it("écrit un @ et une bio de course pour un compte de running", () => {
+    const hasard = hasardFixe(19);
+    const ids = Array.from({ length: 60 }, () =>
+      composerIdentite(
+        { langue: "en", genre: "femme", labelNom: "clean_girl_run", racinesPrises: new Set(), nomsPris: new Set(), annee: 2026 },
+        hasard,
+      ),
+    );
+    const mots = new Set(ids.map((i) => racineHandle(i.handle).split(".")[1]));
+    for (const mot of mots) expect(MOTS_UNIVERSELS.running, mot).toContain(mot);
+    expect(ids.some((i) => /mile|long runs|half|clear my head/.test(i.bio))).toBe(true);
   });
 
   it("ne change pas le thème qui règle le genre et la photo de profil", () => {

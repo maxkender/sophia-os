@@ -1494,7 +1494,7 @@ export const en = {
     nettoyageStickers: {
       titre: "Label sticker cleanup",
       description:
-        "Runs every slideshow of a label through the import OCR and lists the ones carrying an AD sticker (app, brand, website). Rescue the ones to keep, then “Throw all away” removes them and replaces their posts scheduled today that are not posted yet. Always kept: content stickers, pods, tier A or better, our apps (Sophia, UnSwipe, Micabo).",
+        "Runs every slideshow of a label through the import OCR and lists the ones carrying an AD sticker (app, brand, website). Rescue the ones to keep, then “Throw all away” removes them and replaces their posts scheduled today that are not posted yet. Always kept: content stickers, pods, tier A or better, our apps (Sophia, micabo, UnSwipe, Atala).",
       serveur: "Runs on the server: you can close the page, progress and log are saved.",
       label: "Label",
       choisirLabel: "Pick a label…",
@@ -3854,8 +3854,8 @@ export const en = {
     },
     labelsPage: {
       title: "Labels & apps",
-      description: "Labels, their writing style, and the apps they serve.",
-      labelsDesc: "{{n}} labels. Click a row for its apps and writing style.",
+      description: "Labels grouped by app, their writing style, and what each app still needs before it can publish.",
+      labelsDesc: "{{n}} labels, grouped by app. Click a row for its apps and writing style.",
       labelsAide:
         "A label links contents to creators. Its gender sets the first names and TikTok names of the creators who carry it.",
       nouveauLabel: "New label",
@@ -3869,6 +3869,47 @@ export const en = {
       applisServies: "Apps served",
       styleTitre: "Writing style",
       styleEnregistre: "Saved.",
+      groupes: {
+        nb_one: "{{count}} label",
+        nb_other: "{{count}} labels",
+        ajouter: "{{app}} label",
+        vide: "No label serves {{app}}: it cannot publish anything. Add its first label.",
+        sansTitre_one: "No app · {{count}} label",
+        sansTitre_other: "No app · {{count}} labels",
+        sansAide:
+          "Available to no one: labels set aside (nothing is deleted) and manual labels. Open a row to give it an app again.",
+      },
+      form: {
+        application: "For which app?",
+        applicationAide:
+          "Pick the app this label serves. One label, one app: another one can be ticked later on its row, but that is rare.",
+        creerPour: "Create for {{app}}",
+        fermer: "Close",
+        identite: "Accounts of this label: {{genre}}, @ and bio on the “{{theme}}” theme (e.g. @{{exemple}}).",
+        themeAttendu:
+          "For {{app}}, end the name with “{{suffixe}}”: its accounts will get a “{{theme}}” @ and bio.",
+        cree: "Label “{{nom}}” created for {{app}}. Next:",
+        suite: {
+          sources: "Add its source accounts, then import them:",
+          sourcesLien: "Sources",
+          file: "Put it in the {{app}} creators queue, so the next recruits receive it:",
+          fileLien: "Settings → Warmup & label queue",
+          style: "Open its row to write its writing style (manual creations and podz).",
+        },
+      },
+      themes: {
+        running: "running",
+        etude: "studying",
+        carriere: "career",
+        psycho: "psychology",
+        philo: "philosophy",
+        alpha_male: "discipline",
+        smart_girl: "reading and culture",
+        clean_girl: "wellness",
+        cinema: "cinema",
+        anciens: "history",
+        default: "general knowledge",
+      },
     },
     sources: {
       title: "Reference accounts",
@@ -6550,7 +6591,7 @@ export const en = {
       onglets: { photos: "Photos", captures: "Screenshots", integrateurs: "Scenes", "mises-en-scene": "Mockups" },
       capturesTitre: "Screenshots of our apps",
       capturesAide:
-        "The real screens of micabo, Sophia and UnSwipe, by app and by device. Test phase: French only.",
+        "The real screens of our apps (Sophia, micabo, UnSwipe, Atala), by app and by device. Test phase: French only.",
       capturesVide: "No screenshots.",
       integrateursTitre: "Scenes",
       integrateursAide:
@@ -8124,17 +8165,59 @@ export const en = {
       applications: {
         titre: "Applications",
         desc: "Applications promoted by the slideshows: switch, target languages and relevance backfill.",
-        descCourte: "Click an app to pick its languages and run its relevance backfill.",
+        descCourte: "Click an app to see what it still needs, pick its languages and run its relevance backfill.",
         colApp: "App",
+        colLabels: "Labels",
+        aucunLabel: "none",
         colEtat: "Status",
         etapes:
-          "To launch an application: 1. add it here (it starts inactive); 2. write its two prompts (Configuration → Translation & placement) and its sheet (Sheets); 3. tick its labels above; 4. switch it on. Its competitor list and logo still have to be added in the code.",
+          "To launch an application: 1. declare it in the code (catalogue, logo, colour, competitors); 2. add it here (it starts inactive); 3. write its two prompts (Configuration → Translation & placement) and its sheet (Sheets); 4. set its 1,000-follower link (Settings); 5. create its labels above; 6. switch it on. The opened row shows where it stands. How-to: docs/applications.md.",
         ajout: {
           bouton: "Add an application",
           nom: "Name",
           slug: "Identifier",
           creer: "Create (inactive)",
-          aide: "The application is created inactive, with its two prompts empty. Nothing changes in production until a label serves it.",
+          aide: "The application is created inactive, with its two prompts empty. Nothing changes in production until a label serves it. Its logo, colour and competitors are declared in the code (docs/applications.md): without them it works, with a grey dot and Sophia's competitors only.",
+        },
+        preparation: {
+          titre: "Readiness",
+          ordre: "In order: the bold item is the next one to handle.",
+          pret: "Everything is in place.",
+          code: {
+            ok: "Declared in the code: catalogue, logo, colour, competitors.",
+            a_faire:
+              "To declare in the code (applications catalogue, logo, colour, competitors): docs/applications.md. Until then: grey dot and Sophia's competitors only.",
+          },
+          pertinence: {
+            ok: "Relevance prompt written ({{detail}}).",
+            a_relire:
+              "Relevance prompt still a draft ({{detail}}): review the pitch in Configuration → Translation & placement, then remove its “[BROUILLON … ]” line.",
+            a_faire: "Relevance prompt empty ({{detail}}): without it, no content is scored for {{nom}}.",
+          },
+          placement: {
+            ok: "Placement prompt written ({{detail}}).",
+            a_relire:
+              "Placement prompt still a draft ({{detail}}): review the pitch in Configuration → Translation & placement, then remove its “[BROUILLON … ]” line.",
+            a_faire: "Placement prompt empty ({{detail}}): without it, no {{nom}} deck is prepared.",
+          },
+          lien1000: {
+            ok: "1,000-follower link: {{detail}}.",
+            a_faire:
+              "1,000-follower link missing (Settings → Texts to posters): its accounts would be sent Sophia's link.",
+          },
+          labels: {
+            ok: "Labels serving it: {{detail}}.",
+            a_faire: "No label serves it: create its first label above (“{{nom}} label”).",
+          },
+          langues: {
+            ok: "Target languages: {{detail}}.",
+            toutes: "Target languages: all.",
+            a_faire: "No target language: it is served on no account.",
+          },
+          active: {
+            ok: "Active.",
+            a_faire: "Inactive: switch it on last, with the toggle on its row.",
+          },
         },
         sophiaVerrouillee: "Always active, all languages: account identity, and fallback for any account whose split leaves it a share (all of them, without a split).",
         actif: "Active",
@@ -8146,6 +8229,8 @@ export const en = {
         aucuneLangueAide: "No language: the application is served on no account.",
         promptsManquants:
           "Cannot activate {{nom}}: empty or missing prompt(s) — {{cles}}. Write them in Settings → Prompts (“Application” filter on {{nom}}).",
+        promptsBrouillons:
+          "Cannot switch {{nom}} on: prompt(s) still a draft — {{cles}}. Review the pitch (Configuration → Translation & placement, “Application” filter on {{nom}}), then remove the “[BROUILLON … ]” line.",
         backfillTitre: "Relevance backfill",
         backfillAide:
           "Scores for {{nom}} the content already in stock whose label serves it. Run it before activation: without an eligible score, content does not enter its pool.",

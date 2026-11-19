@@ -44,6 +44,7 @@
   --color-app-sophia: var(--app-sophia);
   --color-app-micabo: var(--app-micabo);
   --color-app-unswipe: var(--app-unswipe);
+  --color-app-atala: var(--app-atala);
   --color-app-autre: var(--app-autre);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -135,6 +136,7 @@
   --app-sophia: #df539f;
   --app-micabo: #3093ec;
   --app-unswipe: #6130b1;
+  --app-atala: #1f8f61;
   --app-autre: #898781;
 }
 
@@ -176,6 +178,7 @@
   --app-sophia: #c22d6d;
   --app-micabo: #1f6cb0;
   --app-unswipe: #9d74f8;
+  --app-atala: #35b07c;
   --app-autre: #6b6a66;
 }
 

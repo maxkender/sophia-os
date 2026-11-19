@@ -1,8 +1,12 @@
 /**
- * 19/11 (Max) : la Bible en moodboard. Les comptes rangés par app (Runvik, Micabo, Sophia, Idées, puis Sans label),
+ * 19/11 (Max) : la Bible en moodboard. Les comptes rangés par app (Atala, Micabo, Sophia, Idées, puis Sans label),
  * puis par carte de label (labels_proposes : section, badge, DA) ; le process en 3 étapes (À importer → Prochain
  * batch → Importé), qui ne change que l'étape dans la Bible. Lectures, écritures et rangement.
+ *
+ * 19/11 (soir) : l'appli de running a son nom, Atala, et existe dans l'OS (migration 0764). La section
+ * « runvik » (nom de travail, appli « en attente ») est devenue « atala », reliée à la vraie application.
  */
+import { idApplication } from "@/features/moteur/catalogueApplications";
 import { supabase } from "@/lib/supabase/client";
 
 import { handleDe } from "./parse";
@@ -10,7 +14,7 @@ import { handleDe } from "./parse";
 export type Etape = "a_importer" | "prochain_batch" | "importe";
 /** Un onglet de la page : une étape, ou la corbeille. */
 export type Vue = Etape | "corbeille";
-export type Section = "runvik" | "micabo" | "sophia" | "idees";
+export type Section = "atala" | "micabo" | "sophia" | "idees";
 export type Badge = "existe" | "nouveau" | "propose" | "a_confirmer" | "idee";
 
 export const ETAPES: readonly { cle: Etape; libelle: string }[] = [
@@ -22,7 +26,7 @@ export const ETAPES: readonly { cle: Etape; libelle: string }[] = [
 export const VUES: readonly { cle: Vue; libelle: string }[] = [...ETAPES, { cle: "corbeille", libelle: "Corbeille" }];
 
 export const SECTIONS: readonly { cle: Section | "sans"; libelle: string; sous?: string }[] = [
-  { cle: "runvik", libelle: "Runvik", sous: "running" },
+  { cle: "atala", libelle: "Atala", sous: "running" },
   { cle: "micabo", libelle: "Micabo" },
   { cle: "sophia", libelle: "Sophia" },
   { cle: "idees", libelle: "Idées" },
@@ -37,10 +41,11 @@ export const LIBELLE_BADGE: Record<Badge, string> = {
   idee: "idée",
 };
 
+/** Les applications d'une section : leurs ids viennent du catalogue des applications. */
 const APP_SECTION: Record<Section, { application_ids: string[]; apps_attente: string[] }> = {
-  runvik: { application_ids: [], apps_attente: ["Runvik – running"] },
-  micabo: { application_ids: ["00000000-0000-4000-8000-000000000002"], apps_attente: [] },
-  sophia: { application_ids: ["00000000-0000-4000-8000-000000000001"], apps_attente: [] },
+  atala: { application_ids: [idApplication("atala")], apps_attente: [] },
+  micabo: { application_ids: [idApplication("micabo")], apps_attente: [] },
+  sophia: { application_ids: [idApplication("sophia")], apps_attente: [] },
   idees: { application_ids: [], apps_attente: [] },
 };
 

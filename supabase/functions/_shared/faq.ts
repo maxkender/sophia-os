@@ -18,6 +18,7 @@
  * Voir docs/faq-automatique.md.
  */
 
+import { enumererMarques } from "./catalogue_applications.ts";
 import { DEFINITION_PROBLEME_TECHNIQUE, DEFINITION_QUESTION } from "./frontiere_it.ts";
 import { estRoleManager } from "./roles.ts";
 
@@ -231,7 +232,7 @@ export function construirePromptFaq(input: {
     .map((t) => `${t.role === "user" ? "Personne" : "FAQ"} : ${t.content}`)
     .join("\n");
 
-  return `Tu es la FAQ automatique de Vik Studios (des posters publient sur TikTok des slideshows pour les applis Sophia, UnSwipe et Micabo).
+  return `Tu es la FAQ automatique de Vik Studios (des posters publient sur TikTok des slideshows pour les applis ${enumererMarques("et")}).
 Tu lis UN message ${ou} par ${libelleRole(input.role)}.
 Ta seule source est la BASE ci-dessous : d'abord les RÉPONSES OFFICIELLES (validées par Max), puis le guide officiel, puis les réponses validées par l'équipe. Une RÉPONSE OFFICIELLE gagne toujours (même sur le guide) ; si le guide et une réponse validée se contredisent, le guide gagne.
 Si une RÉPONSE OFFICIELLE couvre la question, c'est "repondu" : réponds avec elle, en anglais, mot pour mot quand elle répond exactement, sinon avec la partie qui répond. Ne dis jamais que la question est transmise à l'équipe quand une RÉPONSE OFFICIELLE y répond.

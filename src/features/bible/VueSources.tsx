@@ -1,14 +1,14 @@
 /**
  * 19/11 (Adrien) : les onglets des sources dans la Bible (En import, À l'essai, Weekly update, Arrêtées). Le même
- * moodboard que les comptes repérés (par app, puis par label), précédé de ce qui se passe dans l'étape : la file
- * d'import, ou le bilan de la semaine (le lundi décide, les mises à jour partent chaque matin).
+ * moodboard que les comptes repérés (par app, puis par label), précédé de ce qui se passe dans l'étape : les sources
+ * neuves en cours d'import, ou le bilan de la semaine (le lundi décide, les mises à jour partent chaque matin).
  */
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
 import { type CarteLabel, type EtapeSource, type Section, SECTIONS } from "./moodboard";
-import { bilanSemaine, type DonneesSources, type FiltreSemaine, jourCourt, rangerSources } from "./sources";
+import { bilanSemaine, type DonneesSources, enImportEnBref, type FiltreSemaine, jourCourt, rangerSources } from "./sources";
 import { TuileSource } from "./TuileSource";
 
 const TEINTE: Record<Section | "sans", string> = {
@@ -21,29 +21,34 @@ const FILTRES_SEMAINE: { cle: FiltreSemaine; libelle: string }[] = [
   { cle: "pas_retenues", libelle: "Pas cette semaine" },
 ];
 
-/** « En import » : ce qui tourne et ce qui attend, avec le jour au plus tôt. */
-function FileEnBref({ donnees }: { donnees: DonneesSources }) {
-  const { enCours, attente } = donnees.file;
-  const neuves = attente.filter((a) => a.sorte === "neuve");
-  if (!enCours && neuves.length === 0) return null;
-  const jours = [...new Set(neuves.map((a) => a.prevuLe).filter(Boolean))].map((j) => jourCourt(j)).join(", ");
+/**
+ * « En import » : où en sont les sources neuves. Chacune part dès qu'elle est créée (0772) : rien n'attend ici un
+ * lot ni le lendemain.
+ */
+function ImportEnBref({ donnees }: { donnees: DonneesSources }) {
+  const b = enImportEnBref(donnees.sources);
+  if (!b) return null;
   return (
-    <div className="space-y-1 rounded-2xl border border-stone-200 bg-white px-5 py-3 text-sm text-stone-600 shadow-sm dark:border-stone-800 dark:bg-stone-900" data-testid="file-en-bref">
-      {enCours && (
-        <p>
-          <b className="text-stone-900 dark:text-white">En cours :</b>{" "}
-          {enCours.handle ? `@${enCours.handle}${enCours.restant > 0 ? `, ${enCours.restant} slideshow${enCours.restant > 1 ? "s" : ""} encore dans la file` : ""}` : "la séquence démarre"}
-          {" · "}{enCours.faits} source{enCours.faits > 1 ? "s" : ""} passée{enCours.faits > 1 ? "s" : ""} sur {enCours.total}
-          {enCours.aSuivre.length > 0 && <span className="text-stone-500"> · à suivre : {enCours.aSuivre.map((h) => `@${h}`).join(", ")}</span>}
-        </p>
-      )}
-      {neuves.length > 0 && (
-        <p>
-          <b className="text-stone-900 dark:text-white">{neuves.length}</b> source{neuves.length > 1 ? "s" : ""} neuve{neuves.length > 1 ? "s" : ""} dans la file
-          {jours ? ` : départ au plus tôt le ${jours}, à 6 h 37, si la séquence d'avant est finie.` : "."}
-        </p>
-      )}
-    </div>
+    <p className="rounded-2xl border border-stone-200 bg-white px-5 py-3 text-sm text-stone-600 shadow-sm dark:border-stone-800 dark:bg-stone-900" data-testid="import-en-bref">
+      <b className="text-stone-900 dark:text-white">{b.total}</b> source{b.total > 1 ? "s" : ""} en import{b.detail ? ` : ${b.detail}.` : "."}
+    </p>
+  );
+}
+
+/** Le lot de mises à jour qui tourne (une source à la fois, la suivante quand la file d'import est vide). */
+function LotEnCours({ donnees }: { donnees: DonneesSources }) {
+  const c = donnees.file.enCours;
+  if (!c) return null;
+  const s = (n: number) => (n > 1 ? "s" : "");
+  const ou = c.handle
+    ? `@${c.handle}${c.restant > 0 ? `, ${c.restant} slideshow${s(c.restant)} encore dans la file` : ""}`
+    : c.restant > 0 ? `le lot attend que la file d'import se vide (${c.restant} slideshow${s(c.restant)})` : "le lot démarre";
+  return (
+    <p className="text-sm text-stone-600" data-testid="lot-en-cours">
+      <b className="text-stone-900 dark:text-white">Mise à jour en cours :</b> {ou}
+      {" · "}{c.faits} source{s(c.faits)} passée{s(c.faits)} sur {c.total}
+      {c.aSuivre.length > 0 && <span className="text-stone-500"> · à suivre : {c.aSuivre.map((h) => `@${h}`).join(", ")}</span>}
+    </p>
   );
 }
 
@@ -55,16 +60,19 @@ function SemaineEnBref({ donnees, filtre, onFiltre }: { donnees: DonneesSources;
   const b = bilanSemaine(donnees.semaine);
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-3 shadow-sm dark:border-stone-800 dark:bg-stone-900" data-testid="semaine-en-bref">
-      <p className="text-sm text-stone-600">
-        {b ? (
-          <>
-            <b className="text-stone-900 dark:text-white">Semaine du {jourCourt(b.semaine)}</b> : lundi, {b.retenues} source{b.retenues > 1 ? "s" : ""} retenue{b.retenues > 1 ? "s" : ""}
-            {" "}et {b.pasRetenues} pas cette semaine. {b.faites} déjà mise{b.faites > 1 ? "s" : ""} à jour
-            {b.aVenir > 0 ? `, ${b.aVenir} à venir (${donnees.regles.lotMax} par jour, chaque matin à 6 h 37)` : ""}.
-            {" "}Depuis lundi : {b.importes} slideshow{b.importes > 1 ? "s" : ""} importé{b.importes > 1 ? "s" : ""}, {b.valides} validé{b.valides > 1 ? "s" : ""}.
-          </>
-        ) : "Pas encore de mise à jour du lundi."}
-      </p>
+      <div className="space-y-1">
+        <p className="text-sm text-stone-600">
+          {b ? (
+            <>
+              <b className="text-stone-900 dark:text-white">Semaine du {jourCourt(b.semaine)}</b> : lundi, {b.retenues} source{b.retenues > 1 ? "s" : ""} retenue{b.retenues > 1 ? "s" : ""}
+              {" "}et {b.pasRetenues} pas cette semaine. {b.faites} déjà mise{b.faites > 1 ? "s" : ""} à jour
+              {b.aVenir > 0 ? `, ${b.aVenir} à venir (${donnees.regles.lotMax} par jour, chaque matin à 6 h 37)` : ""}.
+              {" "}Depuis lundi : {b.importes} slideshow{b.importes > 1 ? "s" : ""} importé{b.importes > 1 ? "s" : ""}, {b.valides} validé{b.valides > 1 ? "s" : ""}.
+            </>
+          ) : "Pas encore de mise à jour du lundi."}
+        </p>
+        <LotEnCours donnees={donnees} />
+      </div>
       <div role="group" aria-label="Décision du lundi" className="inline-flex rounded-full bg-stone-100 p-0.5 dark:bg-stone-800">
         {FILTRES_SEMAINE.map((f) => (
           <button
@@ -91,7 +99,7 @@ export function VueSources({ etape, donnees, cartes, recherche, section }: {
 
   return (
     <>
-      {etape === "en_import" && <FileEnBref donnees={donnees} />}
+      {etape === "en_import" && <ImportEnBref donnees={donnees} />}
       {etape === "weekly" && <SemaineEnBref donnees={donnees} filtre={semaine} onFiltre={setSemaine} />}
       <div className="space-y-10 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="moodboard-sources">
         {groupes.length === 0 && <p className="py-10 text-center text-sm text-stone-500">{vide}</p>}

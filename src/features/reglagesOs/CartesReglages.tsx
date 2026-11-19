@@ -85,7 +85,8 @@ function ChampTexte({
 const CLES_UPWORK = ["accueil_message_texte", "arret_raison_upwork"] as const;
 /** Les variables du message de bienvenue (fonction upwork, messageAccueil). */
 /** 1/11 : plus de mot de passe ni de guide (Upwork) : le lien « Set my password », créé à l'envoi. */
-export const VARIABLES_ACCUEIL = ["prenom", "url", "email", "lien_mot_de_passe", "handle", "slack", "date"] as const;
+/** 19/11 : {niche}, la niche du warm-up, celle du label du compte (running, study, general knowledge…). */
+export const VARIABLES_ACCUEIL = ["prenom", "url", "email", "lien_mot_de_passe", "handle", "niche", "slack", "date"] as const;
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
 
 /** Le lundi qui suit aujourd'hui (Paris), pour l'aperçu. */
@@ -121,6 +122,7 @@ export function CarteMessagesUpwork() {
     email: "anas@sophia.com",
     lien_mot_de_passe: `${OS_URL}/set-password?t=…`,
     handle: "ana.studies",
+    niche: "study",
     slack: texte(lu.data?.slack_lien_invitation) || "https://join.slack.com/…",
     date: dateAnglaise(prochainLundi()),
   };

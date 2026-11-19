@@ -9,7 +9,7 @@ import type { DonneesSources, SourceBible } from "./sources";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), lancerBatch: vi.fn(), validerCarte: vi.fn(), changerCarte: vi.fn(),
-  validerPodz: vi.fn(), rattacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
+  validerPodz: vi.fn(), rattacherCarte: vi.fn(), detacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
   modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
@@ -37,7 +37,7 @@ const CARTES = [carte({}), carte({ id: "k2", nom: "clean_girl", section: "sophia
 const source = (o: Partial<SourceBible>): SourceBible => ({
   id: "s1", handle: "une.source", langue: "en", actif: true, labels: [{ id: "L1", nom: "smart_girl" }], slides: [], importes: 120, valides: 90,
   perf: { posts: 20, r: 1.12, vuesMediane: 900, rVsLabel: 1.05, labelNom: "smart_girl" }, essaiMax: null, essaiVerdict: null, dernierImport: "2026-11-10T06:00:00Z",
-  attente: null, sequence: null, restant: 0, semaine: null, etape: "weekly", ...o,
+  neuve: null, attente: null, sequence: null, restant: 0, semaine: null, etape: "weekly", ...o,
 });
 const donnees = (sources: SourceBible[] = [], o: Partial<DonneesSources> = {}): DonneesSources => ({
   sources,
@@ -216,8 +216,8 @@ describe("page Bible", () => {
     fireEvent.click(screen.getByRole("button", { name: "Lancer l'import de 2 comptes" }));
     await waitFor(() => expect(api.lancerBatch).toHaveBeenCalledWith([{ id: "c2", langue: "en" }, { id: "c3", langue: "es" }]));
     const bilan = await screen.findByTestId("resultats-lancement");
-    expect(bilan).toHaveTextContent("@pret.un : dans la séquence d'import, essai de 30 posts");
-    expect(bilan).toHaveTextContent("@pret.deux : dans la séquence d'import, ses 100 posts les plus vus");
+    expect(bilan).toHaveTextContent("@pret.un : import lancé, essai de 30 posts");
+    expect(bilan).toHaveTextContent("@pret.deux : import lancé, ses 100 posts les plus vus");
     fireEvent.click(screen.getByRole("button", { name: "Voir « En import »" }));
     expect(screen.getByRole("tab", { name: /En import/ })).toHaveAttribute("aria-selected", "true");
   });
@@ -259,6 +259,36 @@ describe("page Bible", () => {
 
     fireEvent.click(screen.getByRole("tab", { name: /À l'essai/ }));
     expect(await screen.findByTestId("etat-source.ailleurs")).toHaveTextContent("Essai : 30 sur 30 importés, 6 sur 10 mesurés");
+  });
+
+  it("« En import » : chaque source neuve part tout de suite et dit où elle en est ; le lot des mises à jour se lit dans « Weekly update »", async () => {
+    api.lireComptes.mockResolvedValue([]);
+    const neuve = { compteReferenceId: "x", handle: "x", essais: 1, echec: null, lanceeLe: "2026-11-19T16:30:00Z", releve: false, enTraitement: 0 };
+    src.lireSources.mockResolvedValue(donnees([
+      source({ id: "n1", handle: "mondorunning", importes: 24, etape: "en_import", neuve: { ...neuve, releve: true, enTraitement: 18 } }),
+      source({ id: "n2", handle: "sslowrisee", importes: 0, dernierImport: null, etape: "en_import", neuve }),
+      source({ id: "n3", handle: "sydneysynced", importes: 0, dernierImport: null, etape: "en_import", neuve: { ...neuve, essais: 0, lanceeLe: null } }),
+      source({ id: "w1", handle: "une.source" }),
+    ], { file: {
+      enCours: { handle: "lena.psychologie", restant: 12, faits: 1, total: 6, aSuivre: ["luvy_y"] }, attente: [], essais: [],
+      reglages: { lotMax: 8, nouvellesParJour: 1000, essaiPosts: 30, essaiMesuresMin: 10, postsMaxParMaj: 100 },
+    } }));
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: /En import 3/ }));
+    expect(screen.getByTestId("regle-etape")).toHaveTextContent("Une source part dès qu'elle est créée, sans attendre les autres");
+    const bref = await screen.findByTestId("import-en-bref");
+    expect(bref).toHaveTextContent("3 sources en import : 1 relevé de profil en cours, 1 profil à relever (départ dans la minute), 18 slideshows en traitement.");
+    // plus de séquence ni de renvoi au lendemain dans cet onglet
+    expect(bref).not.toHaveTextContent(/séquence|6 h 37|au plus tôt/);
+    expect(screen.queryByTestId("lot-en-cours")).toBeNull();
+    expect(screen.getByTestId("etat-mondorunning")).toHaveTextContent("Import en cours : 18 slideshows en traitement");
+    expect(screen.getByTestId("etat-sslowrisee")).toHaveTextContent("Relevé du profil en cours");
+    expect(screen.getByTestId("etat-sydneysynced")).toHaveTextContent("Relevé du profil dans la minute");
+
+    fireEvent.click(screen.getByRole("tab", { name: /Weekly update 1/ }));
+    expect(await screen.findByTestId("lot-en-cours")).toHaveTextContent(
+      "Mise à jour en cours : @lena.psychologie, 12 slideshows encore dans la file · 1 source passée sur 6 · à suivre : @luvy_y",
+    );
   });
 
   it("une proposition vers le prochain batch : son label proposé est présélectionné ; on peut prendre un label de l'OS sans bloc, en créer un, ou n'en mettre aucun", async () => {
@@ -327,7 +357,7 @@ describe("page Bible", () => {
     fireEvent.click(within(tuile).getByRole("button", { name: "Importer" }));
     expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Importer @pret.avec.langue maintenant ? Label smart_girl, TikToks en allemand."));
     await waitFor(() => expect(api.lancerBatch).toHaveBeenCalledWith([{ id: "c2", langue: "de" }]));
-    expect(await screen.findByTestId("info")).toHaveTextContent("@pret.avec.langue : dans la séquence d'import, ses 100 posts les plus vus");
+    expect(await screen.findByTestId("info")).toHaveTextContent("@pret.avec.langue : import lancé, ses 100 posts les plus vus");
     confirmer.mockRestore();
 
     fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
@@ -354,13 +384,69 @@ describe("page Bible", () => {
     expect(within(choix).getAllByRole("option").map((o) => o.textContent)).toEqual(["Choisir un label…", "History", "smart_girl"]);
     fireEvent.change(choix, { target: { value: "L7" } });
     fireEvent.click(screen.getByRole("button", { name: "Rattacher" }));
+    // Même app, label sans bloc : rien à signaler, pas de confirmation.
+    expect(screen.queryByTestId("alerte-rattachement")).toBeNull();
     await waitFor(() => expect(api.rattacherCarte).toHaveBeenCalledWith("k2", "L7"));
     expect(await screen.findByTestId("info")).toHaveTextContent("Le bloc est rattaché à History : 1 compte importable.");
+    // Le rattachement s'annule tout de suite, depuis le message.
+    api.detacherCarte.mockResolvedValue({ comptes: 1, label: "History" });
+    fireEvent.click(within(screen.getByTestId("info")).getByRole("button", { name: "Annuler" }));
+    await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k2"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("Rattachement annulé : 1 compte de retour sous « clean_girl ».");
 
     fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
     fireEvent.change(await screen.findByLabelText("Nom du label"), { target: { value: "clean girl sophia" } });
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
     await waitFor(() => expect(api.modifierCarte).toHaveBeenCalledWith("k2", { nom: "clean_girl_sophia", section: "sophia", description: "Coureuse en photo iPhone" }));
+  });
+
+  it("rattacher à un label d'une autre app, ou qui a déjà son bloc : prévenu et confirmé avant ; les comptes versés ailleurs se rendent depuis le bloc", async () => {
+    // Le cas du 19/11 : un bloc de running (Atala) rattaché par erreur à smart_girl (Sophia), qui avait déjà son bloc.
+    api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c2", handle: "runclubgirl" }), compte({ id: "c3", handle: "chiara", label_propose_id: "k3" })]);
+    src.lireSources.mockResolvedValue(donnees([], { labels: [
+      { id: "L1", nom: "smart_girl", style_theme: null, application_id: "00000000-0000-4000-8000-000000000001", apps: ["00000000-0000-4000-8000-000000000001"] },
+    ] }));
+    api.rattacherCarte.mockResolvedValue({ fusion: true, comptes: 2, label: "smart_girl" });
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(false);
+    rendre();
+    const bloc = (await screen.findByText("classic_girl_run")).closest("[data-carte]") as HTMLElement;
+    fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
+    fireEvent.change(await screen.findByLabelText("Label de l'OS"), { target: { value: "L1" } });
+    expect(screen.getByTestId("alerte-rattachement")).toHaveTextContent(
+      "Ce bloc est rangé sous Atala, et smart_girl est un label Sophia. smart_girl a déjà son bloc : les 2 comptes de ce bloc iront le rejoindre. Tu pourras annuler.",
+    );
+    // Refusé à la confirmation : rien ne bouge.
+    fireEvent.click(screen.getByRole("button", { name: "Rattacher" }));
+    expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Rattacher « classic_girl_run » (2 comptes, Atala) au label smart_girl (Sophia) ?"));
+    expect(api.rattacherCarte).not.toHaveBeenCalled();
+    confirmer.mockReturnValue(true);
+    fireEvent.click(screen.getByRole("button", { name: "Rattacher" }));
+    await waitFor(() => expect(api.rattacherCarte).toHaveBeenCalledWith("k1", "L1"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("2 comptes de « classic_girl_run » rangés sous smart_girl, qui avait déjà son bloc.");
+    expect(within(screen.getByTestId("info")).getByRole("button", { name: "Annuler" })).toBeInTheDocument();
+    confirmer.mockRestore();
+  });
+
+  it("après coup : le bloc qui a reçu des comptes les rend, le bloc qui a pris un label le rend", async () => {
+    api.lireCartes.mockResolvedValue([
+      // Vidé par un rattachement : ses 2 comptes sont sous smart_girl. Il existe toujours.
+      carte({ rattachement: { label: "smart_girl", fusion: true, vers: "k3", comptes: ["c1", "c2"] } }),
+      carte({ id: "k3", nom: "smart_girl", section: "sophia", badge: "existe", ordre: 1, label_id: "L1" }),
+      // A pris le label History : il s'appelait study_notes.
+      carte({ id: "k4", nom: "study_notes", section: "sophia", badge: "existe", ordre: 2, label_id: "L7", label_nom: "History", rattachement: { label: "History", fusion: false, vers: null, comptes: ["c4"] } }),
+    ]);
+    api.lireComptes.mockResolvedValue([
+      compte({ label_propose_id: "k3" }), compte({ id: "c2", handle: "runclubgirl", label_propose_id: "k3" }), compte({ id: "c4", handle: "etude", label_propose_id: "k4" }),
+    ]);
+    api.detacherCarte.mockResolvedValue({ comptes: 2, label: "smart_girl" });
+    rendre();
+    const recu = (await screen.findByText("smart_girl")).closest("[data-carte]") as HTMLElement;
+    fireEvent.click(within(recu).getByRole("button", { name: "Rendre 2 comptes à « classic_girl_run »" }));
+    await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k1"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("Rattachement annulé : 2 comptes de retour sous « classic_girl_run ».");
+    const pris = screen.getByText("History").closest("[data-carte]") as HTMLElement;
+    fireEvent.click(within(pris).getByRole("button", { name: "Annuler le rattachement" }));
+    await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k4"));
   });
 
   it("comptes à podzer : « Valider le podz » (ou tous ceux du batch) ; validés, ils sont dans Weekly update, catégorie Podz, jamais importés", async () => {

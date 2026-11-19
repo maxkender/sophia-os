@@ -67,7 +67,10 @@ const PAS_REGLE = /(still|again|always)\s+(not|doesn'?t|isn'?t|can'?t|the\s+same
 const QUESTION_STATUT = /(still\s+(in|active|part|working|with\s+you|employed|on\s+the\s+team)|am\s+i\s+(fired|kicked|removed|out|stopped|done)|(was|were|been|got)\s+(i\s+)?(fired|kicked|removed|stopped|terminated|killed|deleted|deactivated|banned)|(account|contract|profile)\s+(was\s+|is\s+|has\s+been\s+)?(deleted|deactivated|disabled|closed|ended|stopped|terminated|removed)|access\s+(denied|refused|removed)|can'?t\s+(log\s?in|access)\s+(anymore|any\s+more)|why\s+(was|is)\s+my\s+(account|contract)|est-ce\s+que\s+je\s+(suis|fais)\s+toujours|compte\s+(supprimé|désactivé|bloqué)|contrat\s+(terminé|arrêté|fini)|sigo\s+(activo|dentro)|cuenta\s+(eliminada|desactivada)|ancora\s+attiv|account\s+(eliminato|disattivato)|noch\s+aktiv|konto\s+(gelöscht|deaktiviert))/i;
 
 /** 6. Une demande d'arrêt claire (STOP, fin de contrat, supprimer le compte). */
-const DEMANDE_ARRET = /^\s*stop\s*[.!]*\s*$|\b(i\s+(want|would\s+like|wish|need)\s+to\s+(stop|quit|leave|end|cancel|terminate)|please\s+(stop|end|close|cancel|terminate|delete)\s+(my\s+)?(contract|account|collaboration)|(delete|close|remove|deactivate|cancel)\s+my\s+(account|contract|profile)|i\s+(quit|resign)|i('m|\s+am)\s+(quitting|leaving|out)|je\s+(veux|souhaite)\s+(arr[eê]ter|quitter|supprimer)|(quiero|deseo)\s+(dejar|parar|cancelar|eliminar)|voglio\s+(smettere|lasciare|cancellare)|ich\s+(möchte|will)\s+(aufhören|kündigen|löschen))/i;
+const DEMANDE_ARRET = /^\s*stop\s*[.!]*\s*$|\b(i\s+(want|would\s+like|wish|need)\s+to\s+(stop|quit|leave|end|cancel|terminate)|(don'?t|do\s+not|no\s+longer)\s+want\s+to\s+(continue|work|post)|i\s+(want|would\s+like)\s+to\s+stop\s+posting|please\s+(stop|end|close|cancel|terminate|delete)\s+(my\s+)?(contract|account|collaboration)|(delete|close|remove|deactivate|cancel)\s+my\s+(account|contract|profile)|i\s+(quit|resign)|i('m|\s+am)\s+(quitting|leaving|out)|je\s+(veux|souhaite)\s+(arr[eê]ter|quitter|supprimer)|(quiero|deseo)\s+(dejar|parar|cancelar|eliminar)|voglio\s+(smettere|lasciare|cancellare)|ich\s+(möchte|will)\s+(aufhören|kündigen|löschen))/i;
+
+/** 19/11 (Max) : les demandes d'arrêt dans les autres langues (2 demandes en turc le 19/11). */
+const DEMANDE_ARRET_LANGUES = /(bırakmak|ayrılmak|durdurmak|sonlandırmak|bitirmek|iptal\s+etmek)\s+istiyorum|devam\s+etmek\s+istemiyorum|(sözleşme(mi|yi)|hesabımı|işi)\s+(feshet|sonlandır|iptal\s+et|sil|bırak|bitir)|çalışmayı\s+bırak|quero\s+(parar|sair|cancelar|desistir|encerrar)|não\s+quero\s+(mais\s+)?continuar|no\s+quiero\s+(seguir|continuar)|(quiero|deseo)\s+(terminar|renunciar|darme\s+de\s+baja)|je\s+ne\s+(veux|souhaite)\s+plus\s+(continuer|travailler|poster)|arr[êe]ter\s+(la\s+collaboration|mon\s+contrat|de\s+poster)|non\s+voglio\s+più\s+continuare|voglio\s+(terminare|interrompere)|nicht\s+mehr\s+weitermachen|(chcę|chciał(a|bym))\s+(zrezygnować|zakończyć|przestać)|rezygnuję|vreau\s+să\s+(renunț|mă\s+opresc|închei)|(ki\s+szeretnék\s+lépni|abba\s+szeretném\s+hagyni|be\s+szeretném\s+fejezni)/iu;
 
 export function lienUpwork(texte: string): string | null {
   const m = texte.match(LIEN_UPWORK);
@@ -107,7 +110,95 @@ export function casDeCategorie(categorie: string, plateforme: "ruul" | "upwork" 
 
 export const estPasRegle = (t: string) => PAS_REGLE.test(t);
 export const estQuestionStatut = (t: string) => QUESTION_STATUT.test(t);
-export const estDemandeArret = (t: string) => DEMANDE_ARRET.test(t);
+export const estDemandeArret = (t: string) => DEMANDE_ARRET.test(t.replace(/[’‘]/g, "'")) || DEMANDE_ARRET_LANGUES.test(t);
+
+/** 19/11 (Max) : le code à 6 chiffres de Ruul (connexion, vérification) : il vient de Ruul, pas de nous. */
+const CODE_RUUL = /\b(6|six)[\s-]?(digit|digits|chiffres|dígitos|cifre|stellig|haneli|cyfr)|(verification|verify|login|one[\s-]?time|security|confirmation|access)\s+code|\b(otp|2fa)\b|code\s+(from|of|for|on)\s+ruul|ruul[^.?!]{0,60}\b(code|kod|código|codice)\b|\b(code|kod|kodu|código|codice|kodem)\b[^.?!]{0,60}\b(ruul|e-?mail|mail|didn'?t|never|not\s+(receiv|com|arriv)|gelmedi|gelmiyor|no\s+(me\s+)?lleg|não\s+(chega|recebi)|non\s+arriva|nie\s+(przyszedł|dostałem))|doğrulama\s+kodu|código\s+de\s+verifica|codice\s+di\s+verifica|kod\s+weryfikacyjny|bestätigungscode|code\s+de\s+(vérification|confirmation)/iu;
+
+/** 19/11 (Max) : « quand serai-je payé ? » (plusieurs langues) : jamais sans réponse. */
+const QUESTION_PAIE = /(when|what\s+day)[^.?!]{0,50}\b(paid|pay|payment|payout|money|invoice|salary)|\b(pending|unpaid|open)\s+(invoices?|payments?)|\b(not|never)\s+(been\s+)?paid|haven'?t\s+(been\s+)?(paid|received\s+(my\s+)?(pay|payment|money))|didn'?t\s+(get|receive)\s+(my\s+)?(pay|payment|money|salary)|where\s+is\s+my\s+(pay|payment|money)|\bpayment\s+status|quand\s+(est-ce\s+que\s+)?(je\s+)?(serai|vais\s+être|suis)\s+pay|pas\s+(encore\s+)?(été\s+)?pay[ée]|cu[aá]ndo\s+(me\s+)?(pagan|pagar[aá]n|cobro|voy\s+a\s+cobrar)|quando\s+(vou\s+)?(ser\s+pag|receb|serò\s+pagat|mi\s+pagate|arriva\s+il\s+pagamento)|wann\s+(werde\s+ich\s+)?(bezahlt|bekomme\s+ich)|ne\s+zaman\s+(ödeme|ödenecek|para|maaş)|ödeme(m)?\s+(ne\s+zaman|gelmedi|yapılmadı|almadım)|ödemeyi\s+almadım|kiedy\s+(dostanę|wypłat|zapłat|płatno)|când\s+(voi\s+fi\s+plătit|primesc\s+bani)|mikor\s+(fizet|kapom)/iu;
+const PAS_RECU = /(not|never|haven'?t|didn'?t)\s+(been\s+)?(receiv|got|get|arriv)|no\s+(he\s+)?recib|não\s+recebi|almadım|gelmedi|nie\s+dostałem|pas\s+re[çc]u|non\s+(ho\s+)?ricevut|nicht\s+(erhalten|bekommen)/i;
+
+/** 19/11 : « I haven’t received the payment », « 4 invoices… only one payment » : l'apostrophe typographique et « the ». */
+const PAIE_PAS_RECUE = /(haven|didn|hasn|wasn|weren|have\s+not|did\s+not|has\s+not)['’]?t?\s+(been\s+)?(received|got|gotten|get|paid)[^.?!]{0,30}\b(pay|payment|payments|money|salary|invoice)|\binvoices?\b[^.?!]{0,60}\b(paid|payment|received)|\b(paid|payment)[^.?!]{0,40}\binvoices?\b/i;
+const norm = (t: string) => t.replace(/[’‘]/g, "'");
+
+export const estCodeRuul = (t: string) => CODE_RUUL.test(norm(t));
+export const estQuestionPaie = (t: string) => QUESTION_PAIE.test(norm(t)) || PAIE_PAS_RECUE.test(t);
+export const ditPasRecu = (t: string) => PAS_RECU.test(norm(t)) || /\bonly\s+(received|got)\s+(one|1)\b/i.test(t);
+
+/** AAAA-MM-JJ à Paris. */
+function jourParis(d: Date): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
+}
+
+function plusJours(jour: string, n: number): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+/** Le samedi où l'arrêt est traité (les Kills ne se font que le samedi) : aujourd'hui si c'est samedi, sinon le prochain. */
+export function samediDeTraitement(maintenant: Date): string {
+  const jour = jourParis(maintenant);
+  const dow = new Date(`${jour}T12:00:00Z`).getUTCDay(); // 6 = samedi
+  return plusJours(jour, (6 - dow + 7) % 7);
+}
+
+/** « Saturday 21 Nov » (heure de Paris). */
+function jourLong(jour: string): string {
+  return new Date(`${jour}T12:00:00Z`).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "short", timeZone: "Europe/Paris" });
+}
+
+/**
+ * 19/11 (Max) : la réponse à une demande d'arrêt, avec la vraie situation : traitée le samedi, dernière semaine payée
+ * le lundi suivant (par Ruul ou Upwork), et il peut arrêter de poster dès ce samedi. Jamais « continue de poster ».
+ */
+export function texteArret(canal: "ruul" | "upwork", maintenant: Date): string {
+  const samedi = samediDeTraitement(maintenant);
+  const lundi = plusJours(samedi, 2);
+  return `Your stop request is registered. It will be processed on ${jourLong(samedi)}. Your last week will be paid on ${jourLong(lundi)} via ${canal === "ruul" ? "Ruul" : "Upwork"}. You can stop posting from ${jourLong(samedi)}.`;
+}
+
+/** 19/11 (Max) : le code à 6 chiffres vient de Ruul ; on ne peut pas l'envoyer. */
+export function texteCodeRuul(emailRuul: string | null): string {
+  return `The 6-digit code is sent by Ruul, not by Vik Studios, so we can't send it to you. On app.ruul.io, click "Resend code" and check your spam folder${emailRuul ? ` (the code goes to ${emailRuul})` : ""}.`;
+}
+
+const MANQUE_RUUL: Record<string, string> = {
+  NOT_REGISTERED: "create your Ruul account, verify your identity and add your bank account",
+  PENDING_AGREEMENTS: "accept the agreements",
+  PENDING_KYC: "verify your identity (KYC)",
+  PENDING_COLLECTION_ACCOUNT: "add your bank account",
+};
+
+/**
+ * 19/11 (Max) : « quand serai-je payé ? » pour un posteur Ruul, d'après son vrai statut de paiement :
+ * payé le [date] / envoyé, en attente de son action sur Ruul / pas encore payable (ce qui manque) / payé chaque lundi.
+ */
+export function textePaieRuul(e: EtatReel, maintenant: Date, emailRuul: string | null = null): string {
+  const lignes = [...e.paie].sort((a, b) => b.semaine.localeCompare(a.semaine));
+  const payee = lignes.find((p) => p.paye_at || p.ruul_statut === "PAID");
+  const envoyee = lignes.find((p) => !p.paye_at && p.ruul_statut && p.ruul_statut !== "PAID" && !["annule"].includes(p.statut ?? ""));
+  const onboarding = e.ruul?.onboarding ?? "NOT_REGISTERED";
+  const jour = jourParis(maintenant);
+  const dow = new Date(`${jour}T12:00:00Z`).getUTCDay();
+  const prochainLundi = plusJours(jour, ((1 - dow + 7) % 7) || 7);
+  const montant = (p: EtatReel["paie"][number]) => Number(p.total ?? p.montant ?? 0);
+  const regle = "You are paid every Monday for the previous week, via Ruul.";
+  if (envoyee) {
+    return `Your payment of ${montant(envoyee)} $ for the week of ${dateCourte(envoyee.semaine)} was sent on Ruul and is waiting for your action there (identity or bank). Log in to app.ruul.io to finish it and receive it.`;
+  }
+  if (onboarding !== "READY") {
+    const manque = MANQUE_RUUL[onboarding] ?? MANQUE_RUUL.NOT_REGISTERED;
+    return `Not payable yet: you still need to ${manque} on app.ruul.io${emailRuul ? ` (with ${emailRuul})` : ""}. Then click "It's done" on your dashboard. ${regle}`;
+  }
+  if (payee) {
+    const le = payee.paye_at ? dateCourte(payee.paye_at) : null;
+    return `Your payment of ${montant(payee)} $ for the week of ${dateCourte(payee.semaine)} was paid${le ? ` on ${le}` : ""} via Ruul. ${regle} Your next payment is on ${jourLong(prochainLundi)}.`;
+  }
+  return `${regle} Your Ruul account is ready, so your next payment is on ${jourLong(prochainLundi)}.`;
+}
 
 // ---------------------------------------------------------------------------------------------------------------
 // 6. La vraie situation (support_etat_reel).

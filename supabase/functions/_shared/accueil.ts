@@ -4,6 +4,7 @@
  * contrat, décider (relier, doublon, créer), composer le message.
  */
 import { GUIDE_POSTER_PUBLIC } from "./guide_public.ts";
+import { NICHE_DEFAUT } from "./label_theme.ts";
 
 /** Interrupteur off | test | on ; défaut « test » (montre, n'envoie rien). */
 export type ModeAuto = "off" | "test" | "on";
@@ -434,6 +435,8 @@ export const GUIDE_POSTER = GUIDE_POSTER_PUBLIC;
  * qui cite encore {mot_de_passe} ou {guide} (ancien texte) est retirée ;
  * {lien_mot_de_passe} : le lien « Set my password », créé à l'envoi (laissé tel
  * quel s'il n'est pas donné).
+ * 19/11 : {niche}, la niche du warm-up, celle du label du compte
+ * (`nicheDuPosteur`) ; pas donnée : la culture générale.
  */
 export function messageAccueil(
   modele: string,
@@ -443,6 +446,8 @@ export function messageAccueil(
     lien_mot_de_passe?: string | null;
     /** Prompt 13 : le @ TikTok à créer ; inconnu → la ligne qui le cite est retirée. */
     handle?: string | null;
+    /** 19/11 : la niche du label du compte (« running », « study »…). */
+    niche?: string | null;
   },
 ): string {
   const handle = (v.handle ?? "").trim().replace(/^@+/, "");
@@ -453,6 +458,7 @@ export function messageAccueil(
     email: v.email,
     slack: v.slack,
     date: dateAnglaise(v.cohorte_lundi),
+    niche: (v.niche ?? "").trim() || NICHE_DEFAUT,
     ...(handle ? { handle } : {}),
     ...(lien ? { lien_mot_de_passe: lien } : {}),
   };

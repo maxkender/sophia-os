@@ -21,9 +21,7 @@
 import type { ReglagesFileLabels } from "../types";
 import { avecTirage, fenetreVide, rafale } from "./fenetreRafale";
 import { fileAUneEntree, tirerDeLaFile } from "./fileApplication";
-import { estTirageSite, prochaineAppSite } from "./provenance";
 import {
-  applicationsEligibles,
   classerApplications,
   type ApplicationCandidate,
   type CibleApplications,
@@ -46,8 +44,6 @@ export interface Tirage {
   label_nom: string;
   /** Comptes obtenus sur les `n` tirages. */
   comptes: number;
-  /** Parmi eux, ceux d'une recrue venue du site, que le moteur n'a pas placée. */
-  comptesSite: number;
   /** Part des tirages, en pourcentage. */
   part: number;
 }
@@ -63,17 +59,6 @@ export const TIRAGES_DEFAUT = 20;
 export const FENETRE_RECENTS = 3;
 
 export interface OptionsTirages {
-  /**
-   * Part des prochaines recrues qui viennent du site, entre 0 et 1. Leur
-   * application est déjà décidée quand le moteur les voit.
-   */
-  partSite?: number;
-  /**
-   * Où le site envoie ces recrues, tel que MESURÉ, pas tel que supposé :
-   * `{ sophia: 1 }` aujourd'hui, autre chose le jour où il change d'avis.
-   * Vide, il n'y a pas de tirage du site, quelle que soit la part.
-   */
-  siteParApp?: Readonly<Record<string, number>>;
   /**
    * Quel classement de label dérouler.
    *
@@ -128,18 +113,10 @@ interface Candidat {
  * rien recevoir : elle est sautée, et le tirage va à la suivante, sinon un
  * trou de données ferait disparaître des comptes de la projection.
  *
- * LES RECRUES DU SITE. Avec `options.partSite`, une partie des tirages
- * revient à des recrues dont le site a DÉJÀ choisi l'application. Deux
- * conséquences, et aucune n'est cosmétique :
- *
- *  - ces tirages-là ne passent pas par `classerApplications`, qui écarte une
- *    application à cible nulle. Le site envoie où il veut, y compris là où
- *    l'admin vise 0 % : c'est un fait, pas une préférence ;
- *  - leur compte est ajouté à l'application reçue comme n'importe quel autre.
- *    C'est ce qui fait que Sainte-Laguë se corrige seul, en envoyant d'autant
- *    moins de recrues placées par le moteur vers cette application. Ne pas
- *    l'ajouter rendrait la projection sourde au site, et lui passer en plus
- *    une cible déjà corrigée la corrigerait deux fois.
+ * TOUTES LES RECRUES SE VALENT. Jusqu'au 19/11, une part des tirages était
+ * réservée aux recrues du site, dont le site choisissait l'application. C'est
+ * maintenant le moteur qui les place, comme les autres : la projection n'a
+ * plus qu'un seul genre de recrue.
  */
 export function simulerTirages(
   marche: MarcheApplications,
@@ -165,27 +142,6 @@ export function simulerTirages(
   // relégué (réserve basse) au bout de deux ou trois.
   const ajoutDemande = new Map<string, number>();
   const obtenus = new Map<string, Tirage>();
-  const parApp = options.siteParApp ?? {};
-  // Bornée ici et pas seulement chez l'appelant : un NaN qui passerait ferait
-  // sortir de la boucle au premier tour et rendrait une projection vide. Sans
-  // répartition mesurée, il n'y a rien à réserver au site.
-  const part =
-    Object.keys(parApp).length > 0
-      ? Math.min(1, Math.max(0, Number(options.partSite) || 0))
-      : 0;
-  // Ce que le site a déjà attribué dans CETTE projection, pour que la suite
-  // de ses tirages suive sa répartition réelle au lieu de tout donner au
-  // premier slug.
-  const attribuesSite: Record<string, number> = {};
-  // Un genre de recrue qui n'a rien pu placer ne pourra plus rien placer :
-  // ses tours suivants donneraient le même résultat. L'AUTRE genre, lui, peut
-  // très bien continuer — d'où deux drapeaux et non un `break` global.
-  const epuise = { site: false, recrutement: false };
-  // Sans recrue du site, il n'y a jamais de tirage du site à épuiser : sans
-  // ces deux drapeaux, le cas le plus courant tournerait à vide jusqu'à `n`
-  // au lieu de s'arrêter comme avant.
-  const peutSite = part > 0;
-  const peutRecrutement = part < 1;
 
   // Le classement du moteur, sauf demande explicite de dérouler la proposition.
   const classer = options.regle === "propose" ? classerPropose : classerLabels;
@@ -223,12 +179,6 @@ export function simulerTirages(
     });
 
   for (let i = 0; i < Math.max(0, n); i += 1) {
-    if ((!peutSite || epuise.site) && (!peutRecrutement || epuise.recrutement)) break;
-
-    const duSite = estTirageSite(i, part);
-    const genre = duSite ? "site" : "recrutement";
-    if (epuise[genre]) continue;
-
     const marcheCourant: MarcheApplications = {
       langue: marche.langue,
       pays: marche.pays,
@@ -239,44 +189,33 @@ export function simulerTirages(
       })),
     };
 
-    // L'APPLICATION. Une recrue du site va là où le site l'envoie, et ça ne
-    // dépend pas de la cible. Une recrue placée par le moteur prend la tête du
-    // classement — SAUF si une application plus bas a une entrée utilisable
-    // dans sa File : le moteur descend son classement pour la trouver
-    // (`choisirApplicationPourCompte`, manage-users). C'est ce qui permet
-    // d'amorcer un label neuf sur une application qui n'aurait rien reçu.
-    const voulu = duSite ? prochaineAppSite(attribuesSite, parApp) : null;
-    let app: Candidat | null = null;
-    if (duSite) {
-      const servies = applicationsEligibles(marche.langue, applications).filter(
-        (a) => (parApp[a.slug] ?? 0) > 0,
-      );
-      const choisie = servies.find((a) => a.slug === voulu) ?? servies[0];
-      app = choisie ? { application_id: choisie.id, slug: choisie.slug } : null;
-    } else {
-      const classement = classerApplications(marcheCourant, cible, applications);
-      const gagnant =
-        (file
-          ? classement.find((c) =>
-              fileAUneEntree(file!, c.slug, marche.langue, eligiblesFile(c.application_id)),
-            )
-          : undefined) ?? classement[0];
-      app = gagnant ? { application_id: gagnant.application_id, slug: gagnant.slug } : null;
-    }
+    // L'APPLICATION. La recrue prend la tête du classement — SAUF si une
+    // application plus bas a une entrée utilisable dans sa File : le moteur
+    // descend son classement pour la trouver (`choisirApplicationPourCompte`,
+    // manage-users). C'est ce qui permet d'amorcer un label neuf sur une
+    // application qui n'aurait rien reçu.
+    const classement = classerApplications(marcheCourant, cible, applications);
+    const gagnantApp =
+      (file
+        ? classement.find((c) =>
+            fileAUneEntree(file!, c.slug, marche.langue, eligiblesFile(c.application_id)),
+          )
+        : undefined) ?? classement[0];
+    const app: Candidat | null = gagnantApp
+      ? { application_id: gagnantApp.application_id, slug: gagnantApp.slug }
+      : null;
 
     // UNE SEULE APPLICATION, PAS DE REPLI. Le moteur fige son gagnant : si
     // elle n'a aucun label à donner, il répond NO_LABELS et la création
     // échoue. La projection descendait le classement, ce qui lui faisait
     // afficher des comptes sur une application qui n'en recevra jamais.
-    if (!app) {
-      epuise[genre] = true;
-      continue;
-    }
+    // Rien n'a pu être placé : les tours suivants donneraient le même
+    // résultat, on s'arrête.
+    if (!app) break;
 
     // LE LABEL. La File de l'application d'abord — langue puis file générale —
     // et seulement ensuite le classement. L'entrée tirée est consommée, elle
-    // ne servira pas deux fois. Vaut aussi pour une recrue du site : le site
-    // choisit l'application, pas le label.
+    // ne servira pas deux fois.
     let labelId: string | null = null;
     let labelNom: string | null = null;
     if (file) {
@@ -287,10 +226,7 @@ export function simulerTirages(
 
     const stats = statsParApp[app.application_id];
     if (!labelId) {
-      if (!stats || stats.length === 0) {
-        epuise[genre] = true;
-        continue;
-      }
+      if (!stats || stats.length === 0) break;
       const prets = avecAjouts(stats, app.application_id);
       const opts = { applicationId: app.application_id };
       // `jamaisSansLabel` : quand tous les labels de l'application sont
@@ -299,10 +235,7 @@ export function simulerTirages(
       // projection une part qui sera bel et bien attribuée.
       const labels = classer(prets, reglages, opts);
       const gagnant = labels[0] ?? classer(prets, reglages, { ...opts, ignorerFermeture: true })[0];
-      if (!gagnant) {
-        epuise[genre] = true;
-        continue;
-      }
+      if (!gagnant) break;
       labelId = gagnant.label_id;
       labelNom = gagnant.label_nom;
     }
@@ -315,13 +248,11 @@ export function simulerTirages(
     ajoutDemande.set(cleDemande, (ajoutDemande.get(cleDemande) ?? 0) + 1);
     fenetre = avecTirage(fenetre, labelId);
     comptesApp.set(app.slug, (comptesApp.get(app.slug) ?? 0) + 1);
-    if (duSite) attribuesSite[app.slug] = (attribuesSite[app.slug] ?? 0) + 1;
 
     const k = cle(app.application_id, labelId);
     const deja = obtenus.get(k);
     if (deja) {
       deja.comptes += 1;
-      if (duSite) deja.comptesSite += 1;
     } else {
       obtenus.set(k, {
         application_id: app.application_id,
@@ -329,7 +260,6 @@ export function simulerTirages(
         label_id: labelId,
         label_nom: labelNom,
         comptes: 1,
-        comptesSite: duSite ? 1 : 0,
         part: 0,
       });
     }

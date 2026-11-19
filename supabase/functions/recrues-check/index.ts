@@ -18,6 +18,7 @@ import {
   type RecrueAccueil,
 } from "../_shared/etapes.ts";
 import { lireModeAuto, messageAccueil, type ModeAuto } from "../_shared/accueil.ts";
+import { nicheDuPosteur } from "../_shared/niche_posteur.ts";
 import { avecLienMotDePasse, refusMotDePasseUpwork, refusPaiementUpwork, VAR_LIEN_MOT_DE_PASSE } from "../_shared/lien_mot_de_passe.ts";
 import { liensPublics } from "../_shared/guide_public.ts";
 import {
@@ -2957,6 +2958,7 @@ async function lancerTest(supabase: Supabase, posterId: string, quoi: string) {
     texte = messageAccueil(r.texteAccueil, {
       prenom: p.prenom, url: OS_URL, email: (p.email as string | null) ?? "", slack: r.slackLien,
       cohorte_lundi: cohorte, handle: (compte?.handle_tiktok as string | null) ?? null,
+      niche: await nicheDuPosteur(supabase, posterId),
     });
   } else if (quoi === "lundi_soir") {
     texte = texteLundiSoir(r.texteLundiSoir, p.prenom);

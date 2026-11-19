@@ -22,7 +22,6 @@ import { supabase } from "@/lib/supabase/client";
 
 import { ecrireReglage } from "../api";
 
-import type { RecruesMarche } from "./provenance";
 import {
   lireCibleApplications,
   type CibleApplications,
@@ -182,25 +181,31 @@ interface LigneRecrues {
   pays: string | null;
   recrues: number | string;
   recrues_site: number | string;
-  site_par_app: Record<string, number | string> | null;
+}
+
+/** Recrues d'un marché sur la fenêtre, et combien venaient du site. */
+export interface RecruesMarche {
+  langue: string;
+  pays: string | null;
+  /** Comptes créés sur la fenêtre, servis par l'assignation. */
+  recrues: number;
+  /** Parmi eux, ceux d'un poster venu du site de recrutement. */
+  recruesSite: number;
 }
 
 /** Nombre de jours sur lesquels on mesure la provenance des recrues. */
 export const PROVENANCE_JOURS = 30;
 
 /**
- * Combien de recrues par marché, combien venaient du site, et où le site les
- * a envoyées.
+ * Combien de recrues par marché, et combien venaient du site de recrutement.
  *
- * Ces recrues-là, le moteur ne les place pas : leur application est déjà
- * décidée quand il les voit. Sans ce chiffre, la page montrerait une cible
- * « 60 % Sophia » comme si les trois applications se disputaient chaque
- * recrue, alors qu'une partie est attribuée d'avance — en français, près
- * d'une sur deux.
- *
- * La répartition est MESURÉE, pas supposée (migration 0310) : le site décide
- * candidat par candidat et sait demander autre chose que Sophia. Le jour où
- * il le fait, la page suit sans qu'on y touche.
+ * UN CHIFFRE D'INFORMATION, plus une contrainte. Jusqu'au 19/11 le site
+ * choisissait l'application de ses candidats : ces recrues échappaient au
+ * moteur, et la page en déduisait un plancher par application et une cible
+ * « impossible ». Depuis, le moteur les place comme les autres
+ * (`choisirApplicationPourCompte`, manage-users) : la page dit seulement
+ * combien elles sont. La fonction SQL (0310, 0337) rend toujours leur
+ * ancienne répartition entre applications ; elle n'est plus lue.
  */
 export async function lireRecruesSite(
   jours: number = PROVENANCE_JOURS,
@@ -210,25 +215,20 @@ export async function lireRecruesSite(
   });
   if (error) throw error;
 
-  return ((data ?? []) as LigneRecrues[]).map((l) => {
-    const parApp: Record<string, number> = {};
-    for (const [slug, v] of Object.entries(l.site_par_app ?? {})) {
-      const n = nombre(v);
-      if (n > 0) parApp[slug] = n;
-    }
-    return {
-      langue: l.langue,
-      pays: l.pays ?? null,
-      recrues: nombre(l.recrues),
-      recruesSite: nombre(l.recrues_site),
-      siteParApp: parApp,
-    };
-  });
+  return ((data ?? []) as LigneRecrues[]).map((l) => ({
+    langue: l.langue,
+    pays: l.pays ?? null,
+    recrues: nombre(l.recrues),
+    recruesSite: nombre(l.recrues_site),
+  }));
 }
 
-/** La cible de répartition entre applications, si un admin en a posé une. */
+/**
+ * La cible de répartition entre applications, si un admin en a posé une.
+ * `slugs` : les applications qui peuvent recevoir un compte (`candidates.ts`).
+ */
 export async function lireCibleRepartitionApps(
-  slugsActifs: readonly string[],
+  slugs: readonly string[],
 ): Promise<CibleApplications> {
   const { data, error } = await supabase
     .from("reglages")
@@ -236,7 +236,39 @@ export async function lireCibleRepartitionApps(
     .eq("cle", "repartition_applications")
     .maybeSingle();
   if (error) throw error;
-  return lireCibleApplications(data?.valeur, slugsActifs);
+  return lireCibleApplications(data?.valeur, slugs);
+}
+
+/** La fonction SQL n'existe pas (encore) : PostgREST ne la trouve pas, ou Postgres. */
+function estFonctionAbsente(err: unknown): boolean {
+  const code = String((err as { code?: unknown } | null)?.code ?? "");
+  return code === "PGRST202" || code === "42883";
+}
+
+/**
+ * Les applications EN PRÉPARATION : inactives, mais déjà servies par au moins
+ * un label slideshow (`applications_en_preparation`, migration 0770). Elles
+ * peuvent recevoir de nouveaux comptes sans rien publier avant leur
+ * activation.
+ *
+ * La règle vit en SQL et le moteur lit LA MÊME fonction
+ * (`stats_choix_application`) : la page ne peut pas proposer une application
+ * que la création de compte ignorerait, ni l'inverse.
+ *
+ * Migration pas encore passée : aucune. La page se comporte alors comme avant
+ * (applications actives seules), ce qui est aussi ce que fait le moteur. Toute
+ * autre erreur lève : une panne ne doit pas faire disparaître une application
+ * de la cible sans le dire.
+ */
+export async function lireApplicationsEnPreparation(): Promise<string[]> {
+  const { data, error } = await supabase.rpc("applications_en_preparation");
+  if (error) {
+    if (estFonctionAbsente(error)) return [];
+    throw error;
+  }
+  return ((data ?? []) as Array<{ application_id?: unknown }>)
+    .map((l) => String(l.application_id ?? ""))
+    .filter(Boolean);
 }
 
 

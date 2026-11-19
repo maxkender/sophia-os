@@ -1,0 +1,143 @@
+{
+ "id": "at-002",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "cold weather runs do and don’ts",
+  "fr": "running en hiver : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #winterrunning #runningtips #girlswhorun #coldrun",
+  "fr": "#courseapied #running #hiver #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Housewife",
+  "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
+ },
+ "notes": "Preuve : « courir l’hiver : / les do & don’ts » de @hannah.run5 (279 k vues, 31/10), leur tube ; même gabarit, nos conseils et nos objets. Style `objets`. Objets neufs (Seedream détourés) : coureuse-hiver, gants, bonnet, doudoune, tshirt-coton, frontale, gilet, the, pommeau ; les autres viennent d'at-001. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta B` « your atala coach » / « ton coach atala »). Aucune page d'appli à la fin.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-hiver.png",
+   "en": {
+    "titre": "cold weather runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "running en hiver :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/gants.png",
+    "atala",
+    "images/objets/bonnet.png"
+   ],
+   "dont": [
+    "images/objets/doudoune.png",
+    "images/objets/tshirt-coton.png"
+   ],
+   "en": {
+    "titre": "before you go",
+    "do": [
+     "thin gloves",
+     "your\natala coach",
+     "a beanie"
+    ],
+    "dont": [
+     "a puffer coat",
+     "a cotton tee"
+    ]
+   },
+   "fr": {
+    "titre": "avant de sortir",
+    "do": [
+     "des gants fins",
+     "ton\ncoach atala",
+     "un bonnet"
+    ],
+    "dont": [
+     "une doudoune",
+     "un t-shirt\nen coton"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/frontale.png",
+    "images/objets/gilet.png",
+    "images/objets/montre.png"
+   ],
+   "dont": [
+    "images/objets/ecouteurs.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "out there",
+    "do": [
+     "a headlamp",
+     "a hi-vis vest",
+     "an easy pace"
+    ],
+    "dont": [
+     "both\nearbuds in",
+     "chasing a pr"
+    ]
+   },
+   "fr": {
+    "titre": "dehors",
+    "do": [
+     "une frontale",
+     "du fluo",
+     "un rythme cool"
+    ],
+    "dont": [
+     "deux écouteurs",
+     "ton meilleur\nchrono"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/the.png",
+    "images/objets/tenue.png",
+    "images/objets/rouleau.png"
+   ],
+   "dont": [
+    "images/objets/pommeau.png",
+    "images/objets/telephone.png"
+   ],
+   "en": {
+    "titre": "back home",
+    "do": [
+     "a hot tea",
+     "dry clothes\nright away",
+     "a foam roller"
+    ],
+    "dont": [
+     "a cold shower",
+     "scrolling in\nyour wet kit"
+    ]
+   },
+   "fr": {
+    "titre": "en rentrant",
+    "do": [
+     "un thé chaud",
+     "vite, au sec",
+     "ton rouleau"
+    ],
+    "dont": [
+     "l’eau froide",
+     "scroller\nencore trempée"
+    ]
+   }
+  }
+ ]
+}

@@ -50,6 +50,7 @@ Les podz :
 | 16 · Originaux @dorian.frog (Sophia) | `dorian` | `session_017c8FRXy9zA7uNry6RREAEV` | dorian (Sophia seul, images finies, en anglais ; icebergs et listes « niche » au style exact de @dorian.frog ; lancé par Adrien le 15/11, pilote dr-001) |
 | 17 · Originaux @theappshelf (Sophia) | `appshelf` | `session_017c8FRWZLUvdhYUiNBvRmdo` | appshelf (Sophia seul, images finies, en anglais, genre femme ; cinq vraies applis dont Sophia, au style exact de @theappshelf ; lancé par Adrien le 15/11, pilote as-001) |
 | 18 · Originaux @iinspogiirly (Sophia) | `inspogirly` | `session_017c8FRY98W6VXYGxJbXtwx8` | inspogirly (Sophia seul, images finies, en anglais, genre femme ; « 4 apps every girl needs » au style exact de @iinspogiirly, couverture en trois photos, applis douces sans cycle, dont Sophia ; lancé par Adrien le 16/11, pilote ig-001) |
+| 19 · Originaux running (Atala) | `atala` | `session_017c8FRX6LoodgJ3P4ywyBzb` | dos_donts_run (Atala seul, images finies, en anglais et en français, genre femme ; les « do & don'ts » de @hannah.run5 et @katrina.run, le logo d'Atala parmi les « Do », jamais de page d'appli ; lancé par Adrien le 19/11, pilote at-001 ; Atala encore inactive) |
 
 ## Règles absolues
 
@@ -84,8 +85,8 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15, 16, 17 et 18 ; le 6, relancé le 15/11, y
-  revient à son premier remake validé ; 16, 17 et 18 sont des originaux en images
+- **La voie 2** (podz 1, 10, 11, 13, 15, 16, 17, 18 et 19 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé ; 16, 17, 18 et 19 sont des originaux en images
   finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests

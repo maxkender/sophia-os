@@ -8,13 +8,13 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
+  applicationsDemandees,
   carteDesZones,
   codePays,
   codesDeZone,
   dateIso,
   idCohorteRuul,
   MOT_DE_PASSE_INITIAL,
-  partsPourApplications,
   paysAEnvoyer,
   type Recruteur,
   reservationPerimee,
@@ -210,14 +210,16 @@ Deno.test("carte des zones : langue_os = langue du pays connue et publiée par d
   assertEquals(langueDuPaysDetail("MA", { MA: { fr: 2 } }), { langue: "fr", devinee: false });
 });
 
-Deno.test("applications : Sophia seule garde le chemin historique de création", () => {
-  assertEquals(partsPourApplications(["sophia"]), null);
-  assertEquals(partsPourApplications([]), null);
-  assertEquals(partsPourApplications(undefined), null);
-  assertEquals(partsPourApplications(["unswipe"]), { unswipe: 100 });
-  assertEquals(partsPourApplications(["UnSwipe", "sophia", "sophia"]), { sophia: 50, unswipe: 50 });
-  // Une application inconnue n'ouvre rien : seule Sophia reste.
-  assertEquals(partsPourApplications(["micabo", "sophia"]), null);
+Deno.test("applications : la demande du site est gardée pour mémoire, plus rien n'en dépend", () => {
+  // Le moteur choisit l'application (19/11) : on ne garde que la trace, propre.
+  assertEquals(applicationsDemandees(["sophia"]), ["sophia"]);
+  assertEquals(applicationsDemandees(["UnSwipe", " sophia ", "sophia"]), ["unswipe", "sophia"]);
+  assertEquals(applicationsDemandees([]), []);
+  assertEquals(applicationsDemandees(undefined), []);
+  assertEquals(applicationsDemandees("sophia"), []);
+  // Ni texte libre ni liste sans fin dans la colonne.
+  assertEquals(applicationsDemandees(["", null, "une appli !", "atala"]), ["atala"]);
+  assertEquals(applicationsDemandees(Array.from({ length: 20 }, (_, i) => `app${i}`)).length, 8);
 });
 
 Deno.test("pays du compte : envoyé seulement quand la langue ne suffit pas, comme le front", () => {

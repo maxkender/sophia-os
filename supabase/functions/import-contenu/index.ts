@@ -29,6 +29,7 @@ import {
   demarrerMajSources,
   lireMajSourcesRun,
   tickMajSources,
+  traiterSourceNeuve,
 } from "../_shared/maj_sources.ts";
 import { assertAuthorised, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
@@ -39,6 +40,8 @@ import { assertAuthorised, json, messageErreur, secretCronConnu, serviceClient }
  *   { enqueueUrls: true, urls, compteReferenceId?, labelIds?, batchId? }
  *   { postUrl, ... } → enqueue 1 URL (ou scrape immédiat si scrapeNow)
  *   { worker: true } → claim 1 file OU 1 contenu, traite, rechaîne si file non vide
+ *   { sourcesNeuves: true } → une source neuve en attente : relevé du profil + file, tout de suite
+ *     (cron minute + rechaîne tant qu'il en reste ; n'attend pas que la file soit vide)
  *   { majSourcesDemarrer, comptes } → séquence persistée, 1 compte, file vidée entre chaque
  *   { majSourcesAnnuler: true } / { majSourcesEtat: true } / { majSourcesTick: true }
  *   { backfillPertinence: { applicationId, actif } } → rattrapage de pertinence
@@ -72,6 +75,15 @@ Deno.serve(async (request) => {
     if (body?.stats && body?.batchId) {
       const s = await statsImportBatch(supabase, String(body.batchId));
       return json({ ok: true, ...s });
+    }
+
+    // Une source neuve part tout de suite : son premier import n'attend ni la séquence, ni une file vide (0772).
+    if (body?.sourcesNeuves) {
+      const r = await traiterSourceNeuve(supabase);
+      // Une de prise : il peut en rester d'autres, on rechaîne. Aucune : la chaîne s'arrête là.
+      if (r.prise) relancer(request, { sourcesNeuves: true }, 1);
+      if ((r.enfilees ?? 0) > 0) kickWorkers(request, AMORCE_WORKERS);
+      return json({ ok: true, ...r });
     }
 
     if (body?.majSourcesEtat) {
@@ -429,6 +441,11 @@ const AMORCE_WORKERS = 3;
 
 /** Déclenche N workers en parallèle — fire-and-forget (pas d'attente). */
 function kickWorkers(request: Request, n: number): void {
+  relancer(request, { worker: true }, n);
+}
+
+/** Rappelle cette fonction N fois avec ce corps, sans attendre la réponse. */
+function relancer(request: Request, corps: Record<string, unknown>, n: number): void {
   const url = Deno.env.get("SUPABASE_URL");
   if (!url) return;
   const secret = secretCronConnu();
@@ -448,7 +465,7 @@ function kickWorkers(request: Request, n: number): void {
     const p = fetch(target, {
       method: "POST",
       headers,
-      body: JSON.stringify({ worker: true }),
+      body: JSON.stringify(corps),
     }).catch(() => null);
     if (edge?.waitUntil) edge.waitUntil(p);
   }

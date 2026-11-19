@@ -32,6 +32,7 @@ import {
   ecrireCibleRepartitionApps,
   ecrireEtatManuelLabel,
   ecrireReglagesChoixLabel,
+  lireApplicationsEnPreparation,
   lireChoixApplicationAuto,
   lireCibleRepartitionApps,
   lireMarchesApplications,
@@ -40,8 +41,10 @@ import {
   lireReglagesChoixLabelPoses,
   lireReglagesRepartition,
   PROVENANCE_JOURS,
+  type RecruesMarche,
   remettreReglagesChoixLabelDefaut,
 } from "@/features/moteur/repartition/apiRepartition";
+import { candidatesRepartition } from "@/features/moteur/repartition/candidates";
 import { CarteFileLabels } from "@/features/moteur/repartition/CarteFileLabels";
 import { CartePodz } from "@/features/moteur/repartition/CartePodz";
 import { fileDeLApplication } from "@/features/moteur/repartition/fileApplication";
@@ -55,13 +58,6 @@ import {
 } from "@/features/moteur/repartition/graphes";
 import { segmentsApplications } from "@/features/moteur/repartition/segments";
 import {
-  cibleHorsSite,
-  partSite,
-  type PartSite,
-  type RecruesMarche,
-  RECRUES_MINIMUM_MARCHE,
-} from "@/features/moteur/repartition/provenance";
-import {
   brouillonDepuisReglages,
   CHAMPS_REGLAGE_LABEL,
   etatManuelLabel,
@@ -73,7 +69,6 @@ import {
 import { SchemaDecision, type EtapeSchema } from "@/features/moteur/repartition/SchemaDecision";
 import {
   applicationsEligibles,
-  classerApplications,
   ecartsFlotte,
   type ApplicationCandidate,
   type CibleApplications,
@@ -168,15 +163,26 @@ export function AdminRepartitionPage() {
   const { t } = useTranslation();
   const { applications, applicationId } = useApplication();
 
-  const actifs: ApplicationCandidate[] = React.useMemo(
-    () =>
-      trierApplications(
-        applications.filter((a) => a.actif).map((a) => ({ id: a.id, slug: a.slug, langues: a.langues })),
-        (a) => a.slug,
-      ),
-    [applications],
-  );
-  const slugsActifs = React.useMemo(() => actifs.map((a) => a.slug), [actifs]);
+  // Les applications EN PRÉPARATION (inactives, déjà dotées d'un label) : elles
+  // ne publient rien, mais peuvent recevoir les prochaines recrues. Lues en
+  // base par la fonction que lit aussi le moteur (0770).
+  const preparation = useQuery({
+    queryKey: ["repartition-preparation"],
+    queryFn: lireApplicationsEnPreparation,
+    retry: false,
+  });
+  // Les applications qui peuvent recevoir un nouveau compte : les actives et
+  // celles en préparation. Toute la page raisonne sur cette liste, comme le
+  // moteur (`stats_choix_application`).
+  const { candidates, enPreparation } = React.useMemo(() => {
+    const r = candidatesRepartition(applications, preparation.data ?? []);
+    return {
+      candidates: trierApplications(r.candidates, (a) => a.slug),
+      enPreparation: r.enPreparation,
+    };
+  }, [applications, preparation.data]);
+  const slugsCandidates = React.useMemo(() => candidates.map((a) => a.slug), [candidates]);
+  const slugsEnPreparation = React.useMemo(() => [...enPreparation], [enPreparation]);
 
   const reglages = useQuery({
     queryKey: ["repartition-reglages"],
@@ -192,14 +198,15 @@ export function AdminRepartitionPage() {
     retry: false,
   });
   const cible = useQuery({
-    queryKey: ["repartition-cible-apps", slugsActifs],
-    queryFn: () => lireCibleRepartitionApps(slugsActifs),
-    enabled: slugsActifs.length > 0,
+    queryKey: ["repartition-cible-apps", slugsCandidates],
+    queryFn: () => lireCibleRepartitionApps(slugsCandidates),
+    // Pas avant de savoir qui est candidate : la cible se lit sur cette liste.
+    enabled: slugsCandidates.length > 0 && !preparation.isPending,
     retry: false,
   });
-  // D'où viennent les recrues. Celles du site ont déjà leur application quand
-  // le moteur les voit : sans ce chiffre, la cible afficherait une
-  // concurrence entre applications qui n'existe pas pour cette part-là.
+  // Combien de recrues viennent du site de recrutement. Une information : le
+  // moteur les place comme les autres depuis le 19/11, elles ne contraignent
+  // plus la cible.
   const provenance = useQuery({
     queryKey: ["repartition-provenance", PROVENANCE_JOURS],
     queryFn: () => lireRecruesSite(PROVENANCE_JOURS),
@@ -207,7 +214,7 @@ export function AdminRepartitionPage() {
   });
   // Les labels de CHAQUE application : la projection croise les deux étages.
   const parApp = useQueries({
-    queries: actifs.map((a) => ({
+    queries: candidates.map((a) => ({
       queryKey: ["repartition-marches", a.id],
       queryFn: () => lireMarchesRepartition(a.id),
       retry: false,
@@ -215,44 +222,33 @@ export function AdminRepartitionPage() {
   });
 
   const erreur =
+    preparation.error ??
     reglages.error ??
     marchesApps.error ??
     cible.error ??
     provenance.error ??
     parApp.find((q) => q.error)?.error;
   const chargement =
+    preparation.isPending ||
     reglages.isPending ||
     marchesApps.isPending ||
     cible.isPending ||
     provenance.isPending ||
     parApp.some((q) => q.isPending);
-  const pret = !chargement && !erreur && actifs.length > 0;
-
-  /**
-   * La part des prochaines recrues que le moteur ne placera pas, marché par
-   * marché. Appariée sur la clé de marché BRUTE, comme les autres lectures :
-   * normaliser ici désaccorderait silencieusement les tableaux.
-   */
-  const partParMarche = React.useMemo(() => {
-    const flotte = provenance.data ?? [];
-    const parCle = new Map(flotte.map((p) => [cleMarche(p), p]));
-    const out = new Map<string, PartSite>();
-    for (const m of marchesApps.data ?? []) out.set(cleMarche(m), partSite(parCle.get(cleMarche(m)), flotte));
-    return out;
-  }, [provenance.data, marchesApps.data]);
+  const pret = !chargement && !erreur && candidates.length > 0;
 
   /** Les stats de chaque application, indexées par marché. */
   const statsParAppEtMarche = React.useMemo(() => {
     const out: Record<string, Record<string, StatLabel[]>> = {};
-    actifs.forEach((a, i) => {
+    candidates.forEach((a, i) => {
       for (const m of parApp[i]?.data ?? []) (out[cleMarche(m)] ??= {})[a.id] = m.stats;
     });
     return out;
-  }, [actifs, parApp]);
+  }, [candidates, parApp]);
 
   const marchesParApp = React.useMemo(
-    () => Object.fromEntries(actifs.map((a, i) => [a.id, parApp[i]?.data ?? []])),
-    [actifs, parApp],
+    () => Object.fromEntries(candidates.map((a, i) => [a.id, parApp[i]?.data ?? []])),
+    [candidates, parApp],
   );
 
   /** Les labels 100 % podz (0352), toutes applications : leur nom porte la marque pod. */
@@ -286,36 +282,37 @@ export function AdminRepartitionPage() {
         <>
           <CarteParcours
             cible={cible.data}
-            applications={actifs}
-            flotte={provenance.data ?? []}
+            applications={candidates}
             file={reglagesOs.data?.file_labels_comptes}
           />
           <CarteApplications
             marches={marchesApps.data}
             cible={cible.data}
-            applications={actifs}
+            applications={candidates}
+            enPreparation={enPreparation}
             flotte={provenance.data ?? []}
-            partParMarche={partParMarche}
           />
           <CarteMarches
             marches={marchesApps.data}
             statsParAppEtMarche={statsParAppEtMarche}
             cible={cible.data}
-            applications={actifs}
+            applications={candidates}
             reglages={reglages.data}
-            partParMarche={partParMarche}
-            flotte={provenance.data ?? []}
             file={reglagesOs.data?.file_labels_comptes}
             labelsPod={labelsPod}
           />
           <CarteLabels
-            applications={actifs}
+            applications={candidates}
             applicationParDefaut={applicationId}
             marchesParApp={marchesParApp}
             reglages={reglages.data}
           />
-          <CartePodz applications={actifs} marchesParApp={marchesParApp} reglages={reglages.data} />
-          <CarteFileLabels />
+          <CartePodz applications={candidates} marchesParApp={marchesParApp} reglages={reglages.data} />
+          <CarteFileLabels
+            slugsEnPreparation={slugsEnPreparation}
+            // Sans cible posée, le moteur s'abstient : rien à dire sur les parts.
+            partsCible={cible.data.source === "reglage" ? cible.data.parts : null}
+          />
         </>
       )}
 
@@ -335,8 +332,8 @@ export function AdminRepartitionPage() {
  *
  * Éteint, l'application d'un nouveau compte reste celle que le recruteur
  * coche. Allumé, c'est le moteur qui décide, par la règle du schéma, et la
- * case disparaît des écrans de création. Deux choses ne bougent jamais : les
- * comptes EXISTANTS, et les recrues du site, dont le site garde le choix.
+ * case disparaît des écrans de création. Les comptes EXISTANTS ne bougent
+ * jamais. Les recrues du site suivent la même règle depuis le 19/11.
  */
 function InterrupteurChoixAuto({ cible }: { cible: CibleApplications }) {
   const { t } = useTranslation();
@@ -395,33 +392,24 @@ function InterrupteurChoixAuto({ cible }: { cible: CibleApplications }) {
 // 1. Le parcours d'un nouveau compte
 // ---------------------------------------------------------------------------
 
+/** Les recrues de la fenêtre, et combien venaient du site de recrutement. */
 function totauxSite(flotte: readonly RecruesMarche[]) {
-  const recrues = flotte.reduce((a, m) => a + m.recrues, 0);
-  const site = flotte.reduce((a, m) => a + m.recruesSite, 0);
-  const parApp: Record<string, number> = {};
-  for (const m of flotte) {
-    for (const [slug, v] of Object.entries(m.siteParApp)) parApp[slug] = (parApp[slug] ?? 0) + v;
-  }
-  const destinations = trierApplications(
-    Object.entries(parApp).filter(([, v]) => v > 0),
-    ([slug]) => slug,
-  );
-  return { recrues, site, parApp, destinations };
+  return {
+    recrues: flotte.reduce((a, m) => a + m.recrues, 0),
+    site: flotte.reduce((a, m) => a + m.recruesSite, 0),
+  };
 }
 
 function CarteParcours({
   cible,
   applications,
-  flotte,
   file,
 }: {
   cible: CibleApplications;
   applications: ApplicationCandidate[];
-  flotte: RecruesMarche[];
   file: ReglagesFileLabels | undefined;
 }) {
   const { t } = useTranslation();
-  const site = totauxSite(flotte);
   const fileParApp = applications
     .map((a) => {
       if (!file) return { slug: a.slug, n: 0 };
@@ -433,18 +421,6 @@ function CarteParcours({
   const entreesFile = fileParApp.reduce((a, x) => a + x.n, 0);
 
   const etapes: EtapeSchema[] = [
-    {
-      cle: "site",
-      icone: "site",
-      titre: t("repartition.etapeSiteTitre"),
-      regle: t("repartition.etapeSiteRegle"),
-      applications: site.destinations.map(([slug]) => slug),
-      mesure: (
-        <span className="text-muted-foreground">
-          {t("repartition.etapeSiteMesure", { site: site.site, recrues: site.recrues, jours: PROVENANCE_JOURS })}
-        </span>
-      ),
-    },
     {
       cle: "file",
       icone: "file",
@@ -507,77 +483,23 @@ function CarteParcours({
 }
 
 // ---------------------------------------------------------------------------
-// 2. Les applications : cible, réel, et ce que le site impose
+// 2. Les applications : cible et réel
 // ---------------------------------------------------------------------------
-
-interface VerdictMarche {
-  cle: string;
-  marche: MarcheApplications;
-  part: PartSite;
-  recrues: number;
-  site: number;
-  atteignable: boolean;
-  planchers: Record<string, number>;
-  bloquante: { slug: string; plancher: number } | null;
-}
-
-/**
- * Le verdict du site, marché par marché : ce que chaque application reçoit
- * quoi qu'il arrive (son plancher), et si la cible est atteignable. Une cible
- * qui demande à une application MOINS que ce que le site lui envoie déjà
- * n'est pas ambitieuse, elle est impossible.
- */
-function verdictsSite(
-  marches: readonly MarcheApplications[],
-  cible: CibleApplications,
-  applications: readonly ApplicationCandidate[],
-  partParMarche: Map<string, PartSite>,
-  flotte: readonly RecruesMarche[],
-): VerdictMarche[] {
-  const parCle = new Map(flotte.map((x) => [cleMarche(x), x]));
-  return marches.map((m) => {
-    const cle = cleMarche(m);
-    const p = partParMarche.get(cle) ?? partSite(undefined, flotte);
-    // Les EFFECTIFS affichés sont ceux du marché, toujours : quand la part est
-    // empruntée à la flotte, `p.recrues` vaut ceux de la flotte entière.
-    const sien = parCle.get(cle);
-    // La cible ramenée aux applications qui servent la langue, comme le fait
-    // `classerApplications`.
-    const classe = classerApplications(m, cible, applications);
-    const cibleMarche: CibleApplications = {
-      source: cible.source,
-      parts: Object.fromEntries(classe.map((a) => [a.slug, a.partVisee])),
-    };
-    const verdict = cibleHorsSite(cibleMarche, p.part, p.parApp);
-    const bloquante =
-      Object.entries(verdict.planchers)
-        .map(([slug, plancher]) => ({ slug, plancher, exces: plancher - (cibleMarche.parts[slug] ?? 0) }))
-        .sort((a, b) => b.exces - a.exces)[0] ?? null;
-    return {
-      cle,
-      marche: m,
-      part: p,
-      recrues: sien?.recrues ?? 0,
-      site: sien?.recruesSite ?? 0,
-      atteignable: verdict.atteignable,
-      planchers: verdict.planchers,
-      bloquante: bloquante ? { slug: bloquante.slug, plancher: bloquante.plancher } : null,
-    };
-  });
-}
 
 function CarteApplications({
   marches,
   cible,
   applications,
+  enPreparation,
   flotte,
-  partParMarche,
 }: {
   marches: MarcheApplications[];
   cible: CibleApplications;
   applications: ApplicationCandidate[];
+  /** Slugs des applications inactives de la liste : elles recrutent, sans publier. */
+  enPreparation: ReadonlySet<string>;
+  /** Les recrues de la fenêtre : la ligne « Site de recrutement », pour information. */
   flotte: RecruesMarche[];
-  partParMarche: Map<string, PartSite>;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
@@ -614,16 +536,15 @@ function CarteApplications({
   });
 
   const site = totauxSite(flotte);
-  const verdicts = verdictsSite(marches, cible, applications, partParMarche, flotte);
-  // Seul un verdict MESURÉ sur le marché peut accuser la cible : sur un
-  // échantillon emprunté à la flotte, ce serait pousser à la gonfler pour rien.
-  const impossibles = verdicts.filter((v) => v.part.base === "marche" && !v.atteignable);
-  // Les verdicts NÉGATIFS mesurés sur l'échantillon de la flotte : pas de quoi
-  // accuser la cible, mais pas de quoi la dire atteignable partout non plus.
-  const incertains = verdicts.filter((v) => v.part.base === "flotte" && !v.atteignable);
   const restreintes = applications.filter((a) => a.langues !== null);
   const sansCible = cible.source === "defaut" && !brouillon;
   const autres = Math.max(0, 100 - applications.reduce((x, a) => x + (reel.get(a.slug)?.partReelle ?? 0), 0));
+  // Une application inactive à qui la cible (posée, ou en cours de saisie)
+  // donne une part : ses comptes se créeront et attendront. À dire avant
+  // d'enregistrer, pas après.
+  const inactivesVisees = sansCible
+    ? []
+    : applications.filter((a) => enPreparation.has(a.slug) && (partsCible[a.slug] ?? 0) > 0);
 
   return (
     <Card>
@@ -715,7 +636,17 @@ function CarteApplications({
                       <span className="flex items-center gap-2">
                         <span className="inline-block size-2.5 shrink-0 rounded-[3px]" style={{ background: couleurApplication(a.slug) }} aria-hidden />
                         <span className="min-w-0">
-                          <EtiquetteApplication slug={a.slug} />
+                          <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                            <EtiquetteApplication slug={a.slug} />
+                            {enPreparation.has(a.slug) && (
+                              <span className="inline-flex items-center gap-1" data-testid={`inactive-${a.slug}`}>
+                                <Badge variant="outline" className="font-normal">
+                                  {t("repartition.appInactive")}
+                                </Badge>
+                                <Aide libelle={t("repartition.appInactive")}>{t("repartition.appInactiveAide")}</Aide>
+                              </span>
+                            )}
+                          </span>
                           {a.langues !== null && (
                             <span className="block text-xs text-muted-foreground">
                               {t("repartition.langues", { liste: a.langues.join(", ") })}
@@ -774,10 +705,23 @@ function CarteApplications({
             {enregistrer.isError && <span className="text-xs text-destructive">{messageErreur(enregistrer.error)}</span>}
           </div>
         )}
+        {inactivesVisees.length > 0 && (
+          <Alert data-testid="alerte-inactives">
+            <AlertTriangle className="h-4 w-4" />
+            <AlertTitle>
+              {t("repartition.cibleInactiveTitre", {
+                count: inactivesVisees.length,
+                apps: inactivesVisees.map((a) => nomAffiche(a.slug)).join(", "),
+              })}
+            </AlertTitle>
+            <AlertDescription>{t("repartition.cibleInactiveAide")}</AlertDescription>
+          </Alert>
+        )}
         {restreintes.length > 0 && <p className="text-xs text-muted-foreground">{t("repartition.appsFlotteAide")}</p>}
 
-        {/* Ce que le site impose, en une ligne et un verdict. */}
-        <div className="space-y-2 rounded-lg border bg-muted/30 p-3" data-testid="bloc-site">
+        {/* Le site de recrutement : combien de recrues il amène. Il ne décide
+            plus de leur application (19/11), le moteur les place. */}
+        <div className="space-y-1 rounded-lg border bg-muted/30 p-3" data-testid="bloc-site">
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
             <Globe className="size-4 text-muted-foreground" aria-hidden />
             <span className="font-medium">{t("repartition.siteTitre")}</span>
@@ -792,51 +736,8 @@ function CarteApplications({
                   })
                 : t("repartition.siteVide")}
             </span>
-            {site.destinations.length > 0 && (
-              <span className="inline-flex flex-wrap items-center gap-x-1.5 gap-y-1 text-muted-foreground">
-                {t("repartition.siteVers")}
-                {site.destinations.map(([slug, n]) => (
-                  <span key={slug} className="inline-flex items-center gap-1">
-                    <LogoApplication slug={slug} taille="xs" decoratif />
-                    <span className="text-foreground">{nomAffiche(slug)}</span>
-                    <span className="tabular-nums">{Math.round(n)}</span>
-                  </span>
-                ))}
-              </span>
-            )}
           </p>
-          {cible.source === "defaut" ? (
-            <p className="text-xs text-muted-foreground">{t("repartition.verdictSansCible")}</p>
-          ) : verdicts.length === 0 ? null : impossibles.length === 0 && incertains.length > 0 ? (
-            <p className="text-xs text-muted-foreground">
-              {t("repartition.cibleAtteignableMesures", { count: incertains.length })}
-            </p>
-          ) : impossibles.length === 0 ? (
-            <p className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">
-              <CheckCircle2 className="size-3.5" aria-hidden />
-              {t("repartition.cibleAtteignablePartout")}
-            </p>
-          ) : (
-            <div className="space-y-1">
-              <p className="flex items-center gap-1.5 text-xs font-medium text-destructive-foreground">
-                <AlertTriangle className="size-3.5" aria-hidden />
-                {t("repartition.cibleImpossible", { count: impossibles.length })}
-              </p>
-              <ul className="space-y-0.5 text-xs">
-                {impossibles.map((v) => (
-                  <li key={v.cle} className="flex flex-wrap items-center gap-2">
-                    <CelluleMarche langue={v.marche.langue} pays={v.marche.pays} />
-                    <span className="text-muted-foreground">
-                      {t("repartition.atteignableNon", {
-                        app: nomAffiche(v.bloquante?.slug ?? ""),
-                        minimum: pourcent(v.bloquante?.plancher ?? 0),
-                      })}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <p className="text-xs text-muted-foreground">{t("repartition.siteMoteur")}</p>
         </div>
       </CardContent>
     </Card>
@@ -856,8 +757,6 @@ function CarteMarches({
   cible,
   applications,
   reglages,
-  partParMarche,
-  flotte,
   file,
   labelsPod,
 }: {
@@ -866,40 +765,26 @@ function CarteMarches({
   cible: CibleApplications;
   applications: ApplicationCandidate[];
   reglages: ReglagesChoixLabel;
-  partParMarche: Map<string, PartSite>;
-  flotte: RecruesMarche[];
   file: ReglagesFileLabels | undefined;
   labelsPod: Set<string>;
 }) {
   const { t } = useTranslation();
   const [ouvert, setOuvert] = React.useState<string | null>(null);
   const [tous, setTous] = React.useState(false);
-  const verdicts = React.useMemo(
-    () => new Map(verdictsSite(marches, cible, applications, partParMarche, flotte).map((v) => [v.cle, v])),
-    [marches, cible, applications, partParMarche, flotte],
-  );
-
   const lignes = React.useMemo(
     () =>
       marches
         .map((m) => {
           const cle = cleMarche(m);
           const stats = statsParAppEtMarche[cle] ?? {};
-          // La projection n'utilise que la part du site MESURÉE SUR CE
-          // MARCHÉ. Empruntée à la flotte, elle réserverait des tirages à un
-          // site qui n'a peut-être jamais envoyé personne ici.
-          const provenance = partParMarche.get(cle);
-          const mesuree = provenance?.base === "marche" ? provenance : undefined;
           const tirages = simulerTirages(m, stats, cible, applications, reglages, TIRAGES_DEFAUT, {
-            partSite: mesuree?.part ?? 0,
-            siteParApp: mesuree?.parApp ?? {},
             // La File passe avant le classement, et détourne l'application.
             // Chaque ligne est une projection CONDITIONNELLE (« si les vingt
             // prochaines recrues venaient d'ici ») : chacune part du même état
             // de la File.
             file,
           });
-          // Le prochain compte placé par le moteur : un seul tirage, sans site.
+          // Le prochain compte : un seul tirage.
           const prochain = simulerTirages(m, stats, cible, applications, reglages, 1, { file })[0] ?? null;
           const places = tirages.reduce((a, x) => a + x.comptes, 0);
           return {
@@ -909,15 +794,13 @@ function CarteMarches({
             eligibles: new Set(applicationsEligibles(m.langue, applications).map((a) => a.slug)),
             tirages,
             prochain,
-            site: tirages.reduce((a, x) => a + x.comptesSite, 0),
             // Les recrues qu'aucune application n'a pu prendre, faute de label
             // ouvert. Sans ce compteur elles disparaîtraient en silence.
             perdues: Math.max(0, TIRAGES_DEFAUT - places),
-            provenance,
           };
         })
         .sort((a, b) => b.comptes - a.comptes || a.marche.langue.localeCompare(b.marche.langue)),
-    [marches, statsParAppEtMarche, cible, applications, reglages, partParMarche, file],
+    [marches, statsParAppEtMarche, cible, applications, reglages, file],
   );
   const visibles = tous ? lignes : lignes.slice(0, MARCHES_VISIBLES);
 
@@ -944,7 +827,6 @@ function CarteMarches({
                 <th className="hidden w-[18%] pb-2 pr-4 text-left font-medium md:table-cell">{t("repartition.colAujourdhui")}</th>
                 <th className="pb-2 pr-4 text-left font-medium">{t("repartition.colProchaine")}</th>
                 <th className="w-[22%] pb-2 pr-4 text-left font-medium">{t("repartition.colVingt", { n: TIRAGES_DEFAUT })}</th>
-                <th className="hidden whitespace-nowrap pb-2 text-right font-medium sm:table-cell">{t("repartition.colDuSite")}</th>
               </tr>
             </thead>
             <tbody>
@@ -1041,14 +923,11 @@ function CarteMarches({
                           </span>
                         )}
                       </td>
-                      <td className="hidden whitespace-nowrap py-2 text-right tabular-nums text-muted-foreground sm:table-cell">
-                        {l.site > 0 ? t("repartition.dontSite", { n: l.site, total: TIRAGES_DEFAUT }) : "—"}
-                      </td>
                     </tr>
                     {actif && (
                       <tr>
-                        <td colSpan={7} className="pb-3">
-                          <DetailMarche ligne={l} applications={applications} verdict={verdicts.get(l.cle)} cible={cible} labelsPod={labelsPod} />
+                        <td colSpan={6} className="pb-3">
+                          <DetailMarche ligne={l} applications={applications} labelsPod={labelsPod} />
                         </td>
                       </tr>
                     )}
@@ -1068,32 +947,26 @@ function CarteMarches({
   );
 }
 
-/** Le détail d'un marché : la composition des vingt prochains, et ce que pèse le site. */
+/** Le détail d'un marché : la composition des vingt prochains comptes. */
 function DetailMarche({
   ligne,
   applications,
-  verdict,
-  cible,
   labelsPod,
 }: {
   ligne: {
     marche: MarcheApplications;
     tirages: Tirage[];
-    provenance: PartSite | undefined;
     eligibles: Set<string>;
   };
   applications: ApplicationCandidate[];
-  verdict: VerdictMarche | undefined;
-  cible: CibleApplications;
   labelsPod: Set<string>;
 }) {
   const { t } = useTranslation();
-  const p = ligne.provenance;
   const tries = trierApplications(ligne.tirages, (x) => x.app);
   const nonServies = applications.filter((a) => !ligne.eligibles.has(a.slug));
   return (
-    <div className="grid gap-4 rounded-lg border bg-background p-3 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-      <div className="space-y-2">
+    <div className="rounded-lg border bg-background p-3">
+      <div className="max-w-2xl space-y-2">
         <p className="text-xs font-medium text-muted-foreground">
           {t("repartition.detailVingt", { n: TIRAGES_DEFAUT, langue: nomLangue(ligne.marche.langue) })}
         </p>
@@ -1106,10 +979,7 @@ function DetailMarche({
                 <LogoApplication slug={x.app} taille="xs" />
                 <NomLabel nom={x.label_nom} pod={labelsPod.has(x.label_id)} />
                 <span className="h-2 rounded-r-[4px]" style={{ width: `${(100 * x.comptes) / TIRAGES_DEFAUT}%`, background: couleurApplication(x.app) }} aria-hidden />
-                <span className="whitespace-nowrap text-right tabular-nums">
-                  {x.comptes}
-                  {x.comptesSite > 0 && <span className="text-muted-foreground"> ({t("repartition.dontSiteCourt", { n: x.comptesSite })})</span>}
-                </span>
+                <span className="whitespace-nowrap text-right tabular-nums">{x.comptes}</span>
               </li>
             ))}
           </ul>
@@ -1120,80 +990,7 @@ function DetailMarche({
           </p>
         )}
       </div>
-      <div className="space-y-1 text-xs">
-        <p className="font-medium text-muted-foreground">{t("repartition.siteTitre")}</p>
-        {!p || p.base === "aucune" ? (
-          <p className="text-muted-foreground">{t("repartition.mesure_aucune")}</p>
-        ) : (
-          <>
-            <p>
-              {p.base === "flotte"
-                ? t("repartition.detailSiteMince", {
-                    recrues: verdict?.recrues ?? 0,
-                    seuil: RECRUES_MINIMUM_MARCHE,
-                    part: pourcent(100 * p.part),
-                  })
-                : t("repartition.detailSite", {
-                    site: p.recruesSite,
-                    recrues: p.recrues,
-                    part: pourcent(100 * p.part),
-                  })}
-            </p>
-            <p className="text-muted-foreground">
-              {t("repartition.mesureSur", { base: t(`repartition.mesure_${p.base}`) })}
-            </p>
-            {verdict && <VerdictSite verdict={verdict} cible={cible} />}
-          </>
-        )}
-      </div>
     </div>
-  );
-}
-
-/**
- * Le plancher du site sur un marché, et ce qu'il dit de la cible. Trois
- * prudences, chacune pour une vraie raison :
- *   * sans cible posée, pas de verdict : la page calcule alors avec des parts
- *     égales, et accuser une cible que personne n'a choisie serait faux ;
- *   * sur un échantillon EMPRUNTÉ à la flotte, pas de verdict rouge : ce
- *     serait pousser à gonfler la cible pour un chiffre qui n'est pas d'ici ;
- *   * le plancher, lui, s'affiche toujours : il ne dépend que du site.
- */
-function VerdictSite({ verdict, cible }: { verdict: VerdictMarche; cible: CibleApplications }) {
-  const { t } = useTranslation();
-  const planchers = trierApplications(
-    Object.entries(verdict.planchers).filter(([, v]) => v > 0),
-    ([slug]) => slug,
-  );
-  const quoi = {
-    app: nomAffiche(verdict.bloquante?.slug ?? ""),
-    minimum: pourcent(verdict.bloquante?.plancher ?? 0),
-  };
-  return (
-    <>
-      {planchers.length > 0 && (
-        <p>
-          {t("repartition.planchers", {
-            liste: planchers.map(([slug, v]) => `${nomAffiche(slug)} ${pourcent(v)}`).join(" · "),
-          })}
-        </p>
-      )}
-      {cible.source === "defaut" ? (
-        <p className="text-muted-foreground">{t("repartition.verdictSansCible")}</p>
-      ) : verdict.atteignable ? (
-        <p className="flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
-          <CheckCircle2 className="size-3.5" aria-hidden />
-          {t("repartition.atteignableOui")}
-        </p>
-      ) : verdict.part.base !== "marche" ? (
-        <p className="text-muted-foreground">{t("repartition.verdictEchantillon", quoi)}</p>
-      ) : (
-        <p className="flex items-center gap-1 font-medium text-destructive">
-          <AlertTriangle className="size-3.5" aria-hidden />
-          {t("repartition.atteignableNon", quoi)}
-        </p>
-      )}
-    </>
   );
 }
 

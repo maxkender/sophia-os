@@ -36,6 +36,7 @@ import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceCl
 import {
   casDeCategorie, type CasFixe, detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, etatDashboardTexte,
   ligneStatut, type Situation, situation, TEXTES, texteStatut,
+  ditPasRecu, estCodeRuul, estQuestionPaie, texteArret, texteCodeRuul, textePaieRuul,
 } from "../_shared/support_regles.ts";
 
 /**
@@ -133,6 +134,10 @@ Deno.serve(async (request) => {
         // 18/11 (Max) : kills, partie 3 : le rapport du samedi (OS + #a-os-tickets) ; « envoyer: false » = sans Slack.
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
         return json(await rapportSamedi(db, typeof body.samedi === "string" ? body.samedi : null, body.envoyer !== false));
+      case "nudge_jeudi_ruul":
+        // 19/11 (Max) : le nudge du jeudi d'un posteur Ruul : email + bandeau sur son dashboard (jamais de DM Slack).
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await nudgeJeudiRuul(db, String(body.lundi ?? ""), Array.isArray(body.comptes) ? body.comptes.map(String) : [], body.simuler === true));
       case "textes_fin":
         // 18/11 (Max) : kills, parties 1 et 2 : textes au posteur (page de fin, bandeau) et message de fin (cron */10).
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
@@ -456,7 +461,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     const b = await cerveau(db, f, questionProbleme(categorie, texte, v), ctx);
     brouillon = b.brouillon;
     niveau = v?.verdict === "probleme_confirme" ? "max" : v?.verdict === "pas_de_probleme" && b.sur ? "bot" : "adrien";
-    if (niveau === "bot") reponseBot = signer(b.reponse);
+    if (niveau === "bot") reponseBot = signer(b.reponse, (b as { langue?: string | null }).langue ?? null);
   } else {
     const r = await deciderBot(db, { message: `[${categorie}] ${texte}`, source: "help", poster, profil: null, canal: "help" });
     d = r.decision;
@@ -769,7 +774,7 @@ async function deciderBot(
   return {
     plan,
     decision: finale,
-    texte: signer(finale.reponse),
+    texte: signer(finale.reponse, finale.langue),
     regle_utilisee: regle,
     plateforme,
     action_prevue: finale.action ? { action: finale.action, valeur: finale.action_valeur, executee: false } : null,
@@ -795,7 +800,7 @@ async function deciderBot(
 
 /** Ce qui doit se passer après la réponse (écritures faites par apresDemande, jamais en simulation). */
 export interface PlanRegles {
-  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | null;
+  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | null;
   upwork: "demander" | "lien" | null;
   lien: string | null;
   doublon_de: string | null;
@@ -934,6 +939,65 @@ async function textesFin(db: Db, simuler: boolean) {
   return { ok: true, simulation: simuler, ...bilan };
 }
 
+interface NudgeRuul { poster_id: string; compte_id: string; prenom: string | null; faits: number; attendus: number; texte_en: string; deja: boolean }
+
+/**
+ * 19/11 (Max) : le nudge du jeudi pour les posteurs Ruul : le texte du nudge (jeudi_nudge_texte), traduit dans sa langue,
+ * par email et en bandeau sur son dashboard. Jamais en DM Slack. Noté dans nudges (canal « os ») : la ligne du jeudi
+ * affiche « déjà nudgé ». Un canal qui ne peut pas partir n'est pas un échec du nudge tant que l'autre est parti.
+ */
+async function nudgeJeudiRuul(db: Db, lundi: string, comptes: string[], simuler: boolean) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(lundi)) return { ok: false, error: "lundi invalide" };
+  const ids = comptes.filter((c) => /^[0-9a-f-]{36}$/.test(c));
+  if (!ids.length) return { ok: true, envoyes: 0, deja: 0, erreurs: [] };
+  const { data: pause } = await db.rpc("automation_en_pause");
+  if (pause === true && !simuler) return { ok: false, error: "automatisation en pause : rien n'est parti" };
+  const { data, error } = await db.rpc("jeudi_nudges_ruul", { p_lundi: lundi, p_comptes: ids });
+  if (error) throw new Error(error.message);
+  const bilan = { envoyes: 0, deja: 0, email: 0, bandeau: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; texte: string }[] };
+  for (const n of (data ?? []) as NudgeRuul[]) {
+    if (n.deja) {
+      bilan.deja++;
+      continue;
+    }
+    const { data: compte } = await db.from("comptes").select("pays").eq("id", n.compte_id).maybeSingle();
+    const { data: lg } = await db.rpc("parrainage_langue_pays", { p_pays: compte?.pays ?? null });
+    const langue = typeof lg === "string" ? lg : null;
+    const texte = await traduire(n.texte_en, langue);
+    if (simuler) {
+      if (bilan.exemples.length < 3) bilan.exemples.push({ langue, texte });
+      continue;
+    }
+    const canaux: string[] = [];
+    const erreurs: string[] = [];
+    // Le bandeau sur son dashboard (jusqu'à « Got it »).
+    const { error: eB } = await db.rpc("texte_poster_ecrire", { p_poster: n.poster_id, p_cle: `nudge_jeudi:${lundi}`, p_en: n.texte_en, p_texte: texte, p_langue: langue });
+    if (eB) erreurs.push(`bandeau : ${eB.message}`);
+    else {
+      canaux.push("dashboard");
+      bilan.bandeau++;
+    }
+    // L'email, à sa vraie adresse.
+    const c = await contactPosteur(db, n.poster_id);
+    if (c.email) {
+      const objet = await traduire("This week's posts", langue);
+      const e = rendreEmailRuul({ objet, titre: "Vik Studios", corps: texte, lienStop: OS_URL, sansPied: true });
+      const r = await envoyerEmailSite(c.email, objet, e.html, e.texte, OS_URL, ["nudge_jeudi"]);
+      if (r.ok) {
+        canaux.push("email");
+        bilan.email++;
+      } else erreurs.push(`email : ${String(r.erreur ?? "échec")}`);
+    } else erreurs.push("email : pas d'adresse connue");
+    const { error: eN } = await db.rpc("jeudi_nudge_ruul_noter", {
+      p_poster: n.poster_id, p_compte: n.compte_id, p_lundi: lundi, p_texte: texte, p_canaux: canaux, p_erreur: erreurs.length ? erreurs.join(" ; ") : null,
+    });
+    if (eN) erreurs.push(`noter : ${eN.message}`);
+    if (canaux.length) bilan.envoyes++;
+    if (erreurs.length) bilan.erreurs.push(`${n.poster_id} : ${erreurs.join(" ; ")}`);
+  }
+  return { ok: true, simulation: simuler, ...bilan };
+}
+
 /** Le motif interne d'un arrêt, en anglais clair, pour « because … ». */
 async function raisonEnClair(motif: string | null): Promise<string | null> {
   if (!motif) return null;
@@ -1011,21 +1075,57 @@ async function appliquerRegles(
   }
   if (cas && cas !== "pas_regle") plan.cas = cas;
 
+  // 19/11 (Max) : posteurs Ruul : le code à 6 chiffres (il vient de Ruul) et « quand serai-je payé ? » (le vrai statut).
+  const ruul = o.plateforme === "ruul" || o.etat?.canal_paie === "ruul";
+  const demandeArretMsg = estDemandeArret(o.message) || d.action === "arret" || (d.categorie === "arret" && !estQuestionStatut(o.message));
+  if (!plan.cas && ruul && !demandeArretMsg && (estCodeRuul(o.message) || estQuestionPaie(o.message))) {
+    const { data: pr } = o.poster ? await db.from("profiles").select("ruul_email").eq("id", o.poster).maybeSingle() : { data: null };
+    const emailRuul = (pr?.ruul_email as string | null | undefined) ?? null;
+    if (estCodeRuul(o.message)) {
+      fixe(texteCodeRuul(emailRuul), "ruul");
+      plan.cas = "code_ruul";
+      d.personnel = true;
+    } else if (o.etat) {
+      const pasRecu = ditPasRecu(o.message);
+      fixe(textePaieRuul(o.etat, new Date(), emailRuul), "paie");
+      plan.cas = "paie_ruul";
+      // Un montant ou une adresse : jamais dans un salon public (message privé).
+      d.personnel = true;
+      // Payé chez nous mais « pas reçu » : la réponse part, et Max regarde (jamais de litige sans lui).
+      if (pasRecu && o.etat.paie.some((p) => p.paye_at || p.ruul_statut === "PAID")) {
+        d.niveau = "max";
+        plan.resume = "Paiement Ruul marqué payé mais le posteur dit ne pas l'avoir reçu.";
+        plan.action_proposee = "vérifier le paiement sur Ruul";
+      }
+    }
+  }
+
   // 6. Arrêts et kills : la vraie situation, jamais supposée.
   if (!plan.cas && o.etat) {
     const dejaAnnonce = o.historique.some((h) => /\b(stopped|ended|terminated|no longer active)\b/i.test(h.bot_reponse ?? ""));
     const s = situation(o.etat, dejaAnnonce);
-    const demandeArret = estDemandeArret(o.message) || d.action === "arret";
+    const demandeArret = demandeArretMsg;
     const surLeStatut = demandeArret || estQuestionStatut(o.message) || d.categorie === "arret" || d.categorie === "statut";
+    // 19/11 (Max) : une demande d'arrêt déjà notée (demandes_arret, pas encore décidée) : le compte est encore actif
+    // jusqu'au samedi, mais on ne lui dit jamais « continue de poster ».
+    const arretDejaDemande = surLeStatut && s.statut === "actif" && !!o.poster && await arretEnAttente(db, o.poster);
     if (surLeStatut) {
       plan.incoherences = s.incoherences;
-      if (demandeArret && s.statut === "actif") {
+      if (arretDejaDemande) {
+        fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
+        plan.cas = "arret";
+      } else if (demandeArret && s.statut === "actif") {
         // 18/11 (Max) : la demande d'arrêt va directement au Kill du samedi (pré-coché), rien n'est fermé avant.
-        fixe(TEXTES.arret_recu, "arret");
+        // 19/11 (Max) : une réponse qui dit la vraie situation : traitée samedi, payée lundi, arrêter de poster samedi.
+        fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
         plan.cas = "arret";
         plan.arret = true;
         plan.resume = plan.resume ?? "Le posteur demande l'arrêt de son contrat.";
         plan.action_proposee = `exécuter l'arrêt (désactiver le compte${o.etat.canal_paie === "upwork" && o.etat.contrat_upwork?.actif ? `, fermer le contrat Upwork ${o.etat.contrat_upwork.id}` : ""})`;
+      } else if (s.statut === "arret_en_cours") {
+        // 19/11 (Max) : arrêt déjà demandé : la même réponse avec les dates, jamais « continue de poster ».
+        fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
+        plan.cas = "arret";
       } else {
         // 18/11 (Max) : exactement le texte de la page « collaboration terminée » / du bandeau du dashboard.
         const t = s.statut === "kill"
@@ -1063,6 +1163,12 @@ async function appliquerRegles(
   if (plan.cas || d.reponse === TEXTE_ON_VERIFIE) d.reponse = await traduire(d.reponse, d.langue);
   if (!d.reponse.trim()) d.reponse = await traduire(TEXTES.equipe, d.langue);
   return plan;
+}
+
+/** Une demande d'arrêt notée et pas encore décidée (le Kill du samedi la traite). */
+async function arretEnAttente(db: Db, poster: string): Promise<boolean> {
+  const { data } = await db.from("demandes_arret").select("id").eq("poster_id", poster).is("decision", null).limit(1);
+  return (data ?? []).length > 0;
 }
 
 /** Les écritures du plan, une fois la demande enregistrée. Ne lève pas. */
@@ -1178,7 +1284,7 @@ async function rouvrirSiPasRegle(db: Db, poster: string, texte: string, canal: s
     remonte_pourquoi: `Le posteur dit que ce n'est pas réglé (${canal}) : « ${texte.slice(0, 200)} »`,
   }).eq("id", d.id);
   await journaliser(db, { qui: "cerveau_support", quoi: "rouverte", poster_id: poster, canal, demande_id: d.id, resultat: "demande rouverte : pas réglée selon le posteur" });
-  return { id: d.id as string, reponse: signer(await traduire(TEXTES.rouverte, d.langue as string | null)) };
+  return { id: d.id as string, reponse: signer(await traduire(TEXTES.rouverte, d.langue as string | null), d.langue as string | null) };
 }
 
 /**
@@ -1218,7 +1324,7 @@ async function suiviSupport(db: Db) {
     if (!e) continue;
     const fait = e.comptes_actifs === 0 && !(e.canal_paie === "upwork" && e.contrat_upwork?.actif);
     if (!fait) continue;
-    const m = await messageCanal(db, { id: d.id, poster_id: d.poster_id, source: d.source }, signer(await traduire(TEXTES.arret_confirme, d.langue)));
+    const m = await messageCanal(db, { id: d.id, poster_id: d.poster_id, source: d.source }, signer(await traduire(TEXTES.arret_confirme, d.langue), d.langue));
     if (!m.ok) continue;
     await db.from("support_demandes").update({ suivi: "arret_confirme", statut: "resolu", resolu_at: maintenant, verdict_fermeture: "regle_equipe", maj_at: maintenant }).eq("id", d.id);
     bilan.arret_confirme++;

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { HANDLE_VALIDE } from "../../../../supabase/functions/_shared/persona_handles_varies";
 import { THEMES_VARIES } from "../../../../supabase/functions/_shared/persona_identite";
-import { genreDuLabel, themeDuLabel, themeMotsDuLabel } from "../themeLabel";
+import { genreDuLabel, NICHE_DEFAUT, NICHE_PAR_THEME, nicheDesLabels, nicheDuLabel, themeDuLabel, themeMotsDuLabel } from "../themeLabel";
 import { EXEMPLES_VARIES, grouperLabelsParApplication, identiteDuNom } from "./groupesLabels";
 
 const APPS = [{ id: "a-sophia" }, { id: "a-micabo" }, { id: "a-atala" }];
@@ -93,5 +93,40 @@ describe("identité que le nom d'un label donne à ses comptes", () => {
         expect(h).toMatch(/\d{2,4}/);
       }
     }
+  });
+});
+
+describe("19/11 : la niche du warm-up suit le label du compte", () => {
+  it("la niche d'un label est celle de son thème (le même que le @ et la bio)", () => {
+    expect(nicheDuLabel("male_run")).toBe("running");
+    // Le running passe avant le reste, comme pour l'identité.
+    expect(nicheDuLabel("clean_girl_run")).toBe("running");
+    expect(nicheDuLabel("clean_study")).toBe("study");
+    expect(nicheDuLabel("that_girl_study")).toBe("study");
+    expect(nicheDuLabel("RH")).toBe("career advice");
+    expect(nicheDuLabel("alpha_male_yellow")).toBe("self-improvement");
+    expect(nicheDuLabel("smart_girl")).toBe("books and culture");
+    expect(nicheDuLabel("clean_girl")).toBe("wellness");
+    expect(nicheDuLabel("mentalmaxxing")).toBe("psychology");
+    expect(nicheDuLabel("Plony")).toBe("philosophy");
+    // Aucun mot reconnu : la culture générale, ce que les messages disaient à tous.
+    expect(nicheDuLabel("white_bg")).toBe("general knowledge");
+    expect(nicheDuLabel(null)).toBe(NICHE_DEFAUT);
+    expect(NICHE_DEFAUT).toBe("general knowledge");
+  });
+
+  it("chaque thème a sa niche, écrite pour « in the … niche »", () => {
+    for (const niche of Object.values(NICHE_PAR_THEME)) {
+      expect(niche).toMatch(/^[a-z][a-z -]+$/);
+      expect(niche).not.toMatch(/niche/);
+    }
+  });
+
+  it("un compte à plusieurs labels : le premier, par ordre alphabétique, qui a une niche à lui", () => {
+    expect(nicheDesLabels(["male_run"])).toBe("running");
+    expect(nicheDesLabels(["white_bg", "male_run"])).toBe("running");
+    expect(nicheDesLabels(["smart_girl", "clean_study"])).toBe("study");
+    expect(nicheDesLabels(["white_bg", null, " "])).toBe("general knowledge");
+    expect(nicheDesLabels([])).toBe("general knowledge");
   });
 });

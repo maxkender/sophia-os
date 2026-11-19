@@ -52,6 +52,7 @@ import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import { estManque, OBJET_KYC, texteKyc } from "../_shared/ruul_kyc.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { ADRESSE_CONNEXION, adresseDeConnexion, slackEnPause } from "../_shared/ruul_adresses.ts";
 import { lienRuul, lireReglageConnect } from "../_shared/ruul_connect.ts";
 import { dansFenetre, type Decision, emailParcours, etatRuul, type EtatParcours, PARIS, prochainEnvoi, ruulPret, type TypeParcours } from "../_shared/parcours_ruul.ts";
 import { partiesLocales as partiesParis } from "../_shared/relances.ts";
@@ -178,6 +179,10 @@ Deno.serve(async (request) => {
     // 18/11 (Max) : relance « finir son installation Ruul » (KYC, banque, inscription) : email + dashboard + Slack,
     // dans la langue du posteur ; jeudi et samedi (cron), ou maintenant avec forcer: true ; simuler: true n'envoie rien.
     if (body?.action === "kyc_relances") return json(await kycRelances(supabase, body?.forcer === true, body?.simuler === true));
+    // 19/11 (Max) : la relance KYC qui n'est pas arrivée par email (depuis une date) passe en bandeau sur le dashboard.
+    if (body?.action === "kyc_bandeaux") return json(await kycBandeaux(supabase, String(body?.depuis ?? ""), body?.simuler === true));
+    // 19/11 : SPF, DKIM et DMARC des domaines d'envoi (lecture seule, rien n'est changé).
+    if (body?.action === "dns_email") return json(await dnsEmail());
     if (body?.action === "dimanche" || body?.action === "soir") return json(await listeSoir(supabase, body?.forcer === true));
     return json({ ok: false, error: "action inconnue" }, 400);
   } catch (e) {
@@ -220,8 +225,18 @@ async function textesAB(supabase: Supabase): Promise<{ a_objet: string; a_texte:
 
 /** Un email par le site (vik-studios-creators.com ; expéditeur noreply@sophia-culture.com). */
 // 13/11 : par l'envoi suivi (journal emails_envois, file de réessai si Brevo refuse ou n'a plus de crédit).
+// 19/11 (Max) : jamais à l'adresse de connexion (@sophia.com) : ce n'est pas une vraie boîte (refus 550 5.4.1).
 function envoyerEmail(to: string, objet: string, html: string, texte: string, stop: string, tags: string[]): Promise<ResultatEnvoi> {
+  if (adresseDeConnexion(to)) return Promise.resolve({ ok: false, erreur: ADRESSE_CONNEXION });
   return envoyerSuivi({ to, objet, html, texte, stop, tags });
+}
+
+/** Le bandeau de relance Ruul en haut du dashboard (le plus récent seulement, tant que Ruul n'est pas prêt). */
+async function bandeauRelance(supabase: Supabase, posterId: string, jour: string, texteEn: string, texte: string, langue: string | null): Promise<string | null> {
+  const { error } = await supabase.rpc("texte_poster_ecrire", {
+    p_poster: posterId, p_cle: `relance_ruul:${jour}`, p_en: texteEn, p_texte: texte, p_langue: langue ?? "en",
+  });
+  return error ? error.message : null;
 }
 
 async function envoyer(supabase: Supabase) {
@@ -422,7 +437,7 @@ async function envoyer(supabase: Supabase) {
       if (d.slack_user_id) {
         const s = await ecrireAuPosteur(supabase, d.poster_id, avecPiedHelp(remplirRuul(t.email_ruul_slack ?? EMAIL_RUUL_SLACK, { prenom })));
         if (s.statut === "envoye") canaux.push("slack");
-        else erreur = erreur ?? ("erreur" in s ? String(s.erreur) : s.statut);
+        else if (!slackEnPause(s)) erreur = erreur ?? ("erreur" in s ? String(s.erreur) : s.statut);
       }
       // Une ligne par étape, même en échec : jamais deux fois la même relance.
       await supabase.from("ruul_email_relances").upsert({ poster_id: d.poster_id, etape: d.etape, canaux, erreur: canaux.length ? null : erreur ?? "aucun canal" });
@@ -493,22 +508,31 @@ async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean
     );
     if (!eDash) canaux.push("dashboard");
     else erreur = `dashboard : ${eDash.message}`;
-    // 2. L'email (adresse de contact), avec le lien d'arrêt des relances.
+    // 2. L'email à sa vraie adresse (0775 : jamais le login @sophia.com, jamais une adresse revenue), avec le lien d'arrêt.
     const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", d.poster_id).maybeSingle();
+    let emailParti = false;
     if (d.email && pr?.ruul_jeton) {
       const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
       const objet = await traduireRuul(OBJET_KYC, d.langue, cache);
       const corps = avecPiedHelp(`${prenom ? `Hi ${prenom},\n\n` : ""}${texte}`);
       const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open Ruul", lien: "https://app.ruul.io" }, lienStop });
       const r = await envoyerEmail(d.email, objet, e.html, e.texte, lienStop, ["ruul", "kyc_relance", manque]);
-      if (r.ok) canaux.push("email");
+      if (r.ok) { canaux.push("email"); emailParti = true; }
       else erreur = erreur ?? `email : ${r.erreur}`;
+    } else if (!d.email) {
+      erreur = erreur ?? "email : aucune adresse joignable";
     }
-    // 3. Le message privé Slack.
+    // 2 bis. 19/11 (Max) : pas d'email possible → la relance en bandeau en haut du dashboard.
+    if (!emailParti) {
+      const eBandeau = await bandeauRelance(supabase, d.poster_id, jour, texteKyc(manque, d.ruul_email ?? "your email"), texte, d.langue);
+      if (!eBandeau) canaux.push("bandeau");
+      else erreur = erreur ?? `bandeau : ${eBandeau}`;
+    }
+    // 3. Le message privé Slack (DM en pause : ce n'est pas une erreur).
     if (d.slack_user_id) {
       const sl = await ecrireAuPosteur(supabase, d.poster_id, avecPiedHelp(texte));
       if (sl.statut === "envoye") canaux.push("slack");
-      else erreur = erreur ?? `slack : ${"erreur" in sl ? String(sl.erreur) : sl.statut}`;
+      else if (!slackEnPause(sl)) erreur = erreur ?? `slack : ${"erreur" in sl ? String(sl.erreur) : sl.statut}`;
     }
     // Une ligne par jour, même en échec : jamais deux relances le même jour.
     await supabase.from("ruul_email_relances").upsert({ poster_id: d.poster_id, etape: d.etape, canaux, erreur: canaux.length ? erreur : erreur ?? "aucun canal" });
@@ -517,10 +541,68 @@ async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean
   const parCanal = (c: string) => bilan.filter((b) => b.canaux.includes(c)).length;
   return {
     ok: true, simulation: simuler, dues: dues.length, traites: bilan.length, reste: dues.length - bilan.length, par_manque: parManque,
-    envoyes: { email: parCanal("email"), slack: parCanal("slack"), dashboard: parCanal("dashboard") },
+    envoyes: { email: parCanal("email"), slack: parCanal("slack"), dashboard: parCanal("dashboard"), bandeau: parCanal("bandeau") },
     sans_canal: bilan.filter((b) => !simuler && !b.canaux.length).length,
     erreurs: bilan.filter((b) => b.erreur).slice(0, 20),
   };
+}
+
+/** La relance KYC en bandeau pour les posteurs dont l'email de relance est revenu (depuis `depuis`). */
+async function kycBandeaux(supabase: Supabase, depuis: string, simuler: boolean) {
+  if (!/^\d{4}-\d{2}-\d{2}/.test(depuis)) return { ok: false, error: "depuis (AAAA-MM-JJ) requis" };
+  const { data, error } = await supabase.rpc("ruul_kyc_echecs", { p_depuis: depuis });
+  if (error) throw error;
+  const liste = (data ?? []) as { poster_id: string; prenom: string | null; ruul_email: string | null; langue: string | null; manque: string }[];
+  const jour = new Intl.DateTimeFormat("en-CA", { timeZone: PARIS }).format(new Date());
+  const cache = new Map<string, string>();
+  const erreurs: { poster: string; erreur: string }[] = [];
+  const parLangue: Record<string, number> = {};
+  let poses = 0;
+  let deja = 0;
+  // Reprenable : les bandeaux déjà posés aujourd'hui ne sont pas refaits ; arrêt propre avant la limite de la fonction.
+  const { data: faits } = await supabase.from("posteur_textes").select("poster_id").eq("cle", `relance_ruul:${jour}`);
+  const dejaPoses = new Set(((faits ?? []) as { poster_id: string }[]).map((f) => f.poster_id));
+  const debut = Date.now();
+  for (const d of liste) {
+    const manque = estManque(d.manque) ? d.manque : "identite";
+    parLangue[d.langue ?? "en"] = (parLangue[d.langue ?? "en"] ?? 0) + 1;
+    if (simuler) continue;
+    if (dejaPoses.has(d.poster_id)) { deja++; continue; }
+    if (Date.now() - debut > 100_000) break;
+    const texteEn = texteKyc(manque, d.ruul_email ?? "your email");
+    const texte = (await traduireRuul(texteKyc(manque, "{EMAIL}"), d.langue, cache)).replaceAll("{EMAIL}", d.ruul_email ?? "your email");
+    const e = await bandeauRelance(supabase, d.poster_id, jour, texteEn, texte, d.langue);
+    if (e) erreurs.push({ poster: d.poster_id, erreur: e });
+    else poses++;
+  }
+  return { ok: true, simulation: simuler, posteurs: liste.length, bandeaux: poses, deja, reste: simuler ? 0 : liste.length - poses - deja - erreurs.length, par_langue: parLangue, erreurs };
+}
+
+/** SPF, DKIM et DMARC des domaines d'envoi, lus dans le DNS public (lecture seule). */
+async function dnsEmail() {
+  const lire = async (nom: string, type: "TXT" | "CNAME" | "MX") => {
+    try {
+      const r = await Deno.resolveDns(nom, type);
+      return r.map((x) => (Array.isArray(x) ? x.join("") : typeof x === "string" ? x : JSON.stringify(x)));
+    } catch (e) {
+      return [`(aucun : ${e instanceof Error ? e.name : "erreur"})`];
+    }
+  };
+  const domaines = ["vikstudios.com", "reply.vikstudios.com", "sophia-culture.com", "vik-studios-creators.com"];
+  const sortie: Record<string, Record<string, string[]>> = {};
+  for (const d of domaines) {
+    const txt = await lire(d, "TXT");
+    sortie[d] = {
+      spf: txt.filter((t) => /^v=spf1/i.test(t)),
+      brevo_code: txt.filter((t) => /brevo-code|sendinblue-code/i.test(t)),
+      dmarc: (await lire(`_dmarc.${d}`, "TXT")),
+      dkim_brevo1: await lire(`brevo1._domainkey.${d}`, "CNAME"),
+      dkim_brevo2: await lire(`brevo2._domainkey.${d}`, "CNAME"),
+      dkim_mail: (await lire(`mail._domainkey.${d}`, "TXT")).map((t) => t.slice(0, 60)),
+      mx: await lire(d, "MX"),
+    };
+  }
+  return { ok: true, domaines: sortie };
 }
 
 const SYNC_ESSAIS = 5;

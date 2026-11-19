@@ -1,0 +1,24 @@
+{
+  "name": "pod-atala",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 19 — originaux « do & don'ts » de course à pied au style de @hannah.run5 et @katrina.run, pour Atala, en anglais et en français : le logo d'Atala glissé parmi les « Do », jamais en page d'appli.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts"
+  }
+}

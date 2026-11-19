@@ -12,7 +12,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 
 ## À lire d'abord (mise à jour du 17/11)
 
-Cinq choses ont changé depuis la rédaction de ce document :
+Sept choses ont changé depuis la rédaction de ce document :
 
 1. **Le classement des contenus, c'est BLEO, plus la tierlist** (`bleo.mode =
    actif` depuis le 1/11, voir `docs/bleo.md`). La valeur d'un contenu est par
@@ -61,6 +61,18 @@ Cinq choses ont changé depuis la rédaction de ce document :
    plus que trois sortes (CTA, appli, label) ; le circuit de test « fiches »
    lit à leur place les règles et corrections des relecteurs natifs. Les
    lignes `bleo_fiches` de sorte `langue` restent en base, plus lues.
+
+6. **Une application inactive peut recevoir les recrues** (0770, 19/11).
+   Recruter et publier sont deux choses : une application « en préparation »
+   (inactive, déjà servie par un label slideshow) est candidate au choix
+   d'application d'un nouveau compte, et le reçoit si la cible
+   `repartition_applications` lui donne une part. Le compte fait son warm-up,
+   puis ne publie rien tant qu'elle n'est pas activée. Voir
+   `docs/applications.md` § 6.
+7. **Les recrues du site sont placées par le moteur** (19/11), comme toutes
+   les autres : `hub-posteurs` n'envoie plus d'application à manage-users, et
+   la page Allocation ne calcule plus de plancher ni de cible « impossible ».
+   Voir `docs/hub-posteurs.md`.
 
 **Un podz pour deux applications : à éviter.** Un original ouvert à une
 seconde application ne voit réécrire que sa slide d'appli, et la valeur BLEO
@@ -327,8 +339,10 @@ label et un podz par application (comme Fathomly, Kaja, that_girl_study).
     langue du compte donne une information, pas un blocage ;
   - compte CM ou UGC vidéo → 400 `CHOIX_COMPTE_INCOMPATIBLE`. Après la
     création, la répartition se change sur la carte du compte (admin).
-- **File des créateurs par application** (Réglages → « Warmup & file de
-  labels ») : un sélecteur d'application (actives, Sophia par défaut) choisit
+- **File des créateurs par application** (page Allocation ; avant : Réglages
+  → « Warmup & file de labels ») : un sélecteur d'application (actives et en
+  préparation, Sophia par défaut ; ajout par nombre de comptes et affichage
+  par groupes depuis le 19/11, voir `docs/applications.md` § 6) choisit
   la File éditée (`par_application[slug]`, file générale + files par langue,
   même ergonomie qu'avant). Les labels proposés à l'ajout sont ceux qui
   servent l'application choisie ; une entrée déjà en File dont le label ne la

@@ -27,6 +27,7 @@ import {
 import { comptePrincipal } from "@/features/moteur/comptesCm";
 import { partiesParis } from "@/features/onboarding/datesRuul";
 
+import { useMaNiche } from "./maNiche";
 import { Mico, type EtatMico } from "./Mico";
 import { useRegles } from "@/features/regles/api";
 import { RegleTexte } from "@/features/regles/CartesRegles";
@@ -425,6 +426,8 @@ export function OnboardingParcours({
   // Les 5 étapes (28 oct., G) : le @ à créer et le lundi du 1er post.
   const comptes = useQuery({ queryKey: ["mes-comptes"], queryFn: mesComptes, enabled: !simulation });
   const semaine = useQuery({ queryKey: ["ma-premiere-semaine"], queryFn: lireMaPremiereSemaine, enabled: !simulation });
+  // 19/11 : la niche du warm-up, celle du label de son compte (le @ à créer).
+  const niche = useMaNiche(comptePrincipal(comptes.data ?? [])?.id, !simulation);
   const contexte = React.useMemo<ContexteAccueil | null | undefined>(() => {
     if (simulation) return contexteSimule;
     if (!cohorte.data) return cohorte.data;
@@ -448,8 +451,9 @@ export function OnboardingParcours({
       premierPost: jourAnglais(premier),
       premierPaiement: jourAnglais(paie.toISOString().slice(0, 10)),
       montantSemaine: cohorte.data.cohorteRuul ? (semaine.data?.montantSemaine ?? null) : null,
+      niche,
     };
-  }, [simulation, contexteSimule, cohorte.data, comptes.data, semaine.data]);
+  }, [simulation, contexteSimule, cohorte.data, comptes.data, semaine.data, niche]);
   const ecrans = ecransPour(contexte);
   const questions = questionsPour(contexte);
 

@@ -12,7 +12,7 @@
  */
 import * as React from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { BadgeCheck, Check, ChevronRight, Pencil, Plus, Rocket, Search } from "lucide-react";
+import { BadgeCheck, Check, ChevronRight, Pencil, Plus, Rocket, Search, Undo2 } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 import { DialogueAjout, DialogueCarte, DialogueChoixLabel, DialogueLabel } from "./DialoguesBible";
 import { type ComptePret, DialogueLancement } from "./LancementBatch";
 import {
-  type Blocage, blocageImport, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, estPodzValide, estVueSource,
+  type Blocage, blocageImport, blocsVersesDans, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, detacherCarte, estPodzValide, estVueSource,
   etapeAvantImport, lancerBatch, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
   restaurerCompte, type Section, SECTIONS, supprimerDefinitivement, valeurDuLabel, validerCarte, validerPodz, type Vue, VUES,
 } from "./moodboard";
@@ -40,6 +40,8 @@ const TEINTE: Record<Section | "sans", { pastille: string; texte: string }> = {
   sans: { pastille: "bg-stone-300", texte: "text-stone-500" },
 };
 
+const BOUTON_BLOC = "inline-flex h-7 items-center gap-1 rounded-full border border-stone-200 bg-white px-2.5 text-[11px] font-medium text-stone-700 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200";
+
 const BADGE: Record<CarteLabel["badge"], string> = {
   existe: "bg-emerald-50 text-emerald-700 ring-emerald-200",
   nouveau: "bg-sky-50 text-sky-700 ring-sky-200",
@@ -52,8 +54,12 @@ export function PageBible() {
   const qc = useQueryClient();
   const comptes = useQuery({ queryKey: ["bible", "comptes"], queryFn: lireComptes });
   const cartes = useQuery({ queryKey: ["bible", "cartes"], queryFn: lireCartes });
-  // Les sources : relues toutes les 20 s tant qu'une séquence d'import tourne, pour voir les tuiles avancer.
-  const donnees = useQuery({ queryKey: ["bible", "sources"], queryFn: lireSources, refetchInterval: (q) => (q.state.data?.file.enCours ? 20_000 : false) });
+  // Tant qu'une source neuve s'importe, la page se relit seule : on la voit avancer puis changer d'onglet.
+  const donnees = useQuery({
+    queryKey: ["bible", "sources"],
+    queryFn: lireSources,
+    refetchInterval: (q) => (q.state.data?.sources.some((s) => s.neuve) ? 10_000 : q.state.data?.file.enCours ? 20_000 : false),
+  });
   const propositions = useQuery({ queryKey: ["bible", "propositions"], queryFn: lirePropositions });
   const [vue, setVue] = React.useState<Vue>("a_importer");
   const [recherche, setRecherche] = React.useState("");
@@ -68,7 +74,8 @@ export function PageBible() {
   const [occupes, setOccupes] = React.useState<Set<string>>(new Set());
   const [erreur, setErreur] = React.useState<string | null>(null);
   /** Ce qu'une action vient de faire (un compte lancé, un bloc rattaché), dit en une phrase. */
-  const [info, setInfo] = React.useState<string | null>(null);
+  const [info, setInfoComplete] = React.useState<{ texte: string; annuler?: () => Promise<string> } | null>(null);
+  const setInfo = (texte: string | null, annuler?: () => Promise<string>) => setInfoComplete(texte === null ? null : { texte, annuler });
 
   const liste = React.useMemo(() => comptes.data ?? [], [comptes.data]);
   const toutes = React.useMemo(() => cartes.data ?? [], [cartes.data]);
@@ -146,6 +153,20 @@ export function PageBible() {
       setInfo(l.texte);
     });
   };
+  // Défaire la dernière action (un rattachement) : elle rend sa phrase, les blocs sont relus.
+  const annuler = async (f: () => Promise<string>) => {
+    setErreur(null);
+    try {
+      setInfo(await f());
+      rafraichir();
+    } catch (e) {
+      setErreur((e as Error).message);
+    }
+  };
+  const detacher = (bloc: CarteLabel) => annuler(async () => {
+    const d = await detacherCarte(bloc.id);
+    return `Rattachement annulé : ${d.comptes} compte${d.comptes > 1 ? "s" : ""} de retour sous « ${nomCarte(bloc)} ».`;
+  });
   const validerLesPodz = async () => {
     setErreur(null);
     try {
@@ -268,8 +289,11 @@ export function PageBible() {
       {erreur && <p className="text-sm text-destructive">{erreur}</p>}
       {info && (
         <p className="flex flex-wrap items-center gap-2 rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200" data-testid="info">
-          {info}
-          <button type="button" className="ml-auto text-xs underline-offset-2 hover:underline" onClick={() => setInfo(null)}>Fermer</button>
+          {info.texte}
+          <span className="ml-auto flex gap-3">
+            {info.annuler && <button type="button" className="text-xs font-semibold underline underline-offset-2" onClick={() => void annuler(info.annuler!)}>Annuler</button>}
+            <button type="button" className="text-xs underline-offset-2 hover:underline" onClick={() => setInfo(null)}>Fermer</button>
+          </span>
         </p>
       )}
       {(comptes.isLoading || cartes.isLoading || (estVueSource(vue) && donnees.isLoading) || (vue === "propositions" && propositions.isLoading)) && <p className="text-sm text-stone-500">Chargement…</p>}
@@ -331,6 +355,23 @@ export function PageBible() {
                             <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{nomCarte(carte)}</code>
                             <span className={cn("rounded-full px-2 py-0.5 text-[11px] font-medium ring-1", BADGE[carte.badge])}>{LIBELLE_BADGE[carte.badge]}</span>
                             <span className="text-xs tabular-nums text-stone-400">{cs.length}</span>
+                            {/* Un rattachement se défait : le bloc qui a pris un label le rend, ou celui qui a reçu des comptes les rend. */}
+                            {vue !== "corbeille" && (carte.rattachement && !carte.rattachement.fusion && carte.label_id || blocsVersesDans(carte, toutes).length > 0) && (
+                              <span className="ml-auto flex flex-wrap gap-1.5">
+                                {carte.rattachement && !carte.rattachement.fusion && carte.label_id && (
+                                  <button type="button" onClick={() => void detacher(carte)} title={`Ce bloc s'appelait « ${carte.nom} » avant d'être rattaché à ${carte.rattachement.label}.`} className={BOUTON_BLOC}>
+                                    <Undo2 className="size-3.5" aria-hidden />
+                                    Annuler le rattachement
+                                  </button>
+                                )}
+                                {blocsVersesDans(carte, toutes).map((origine) => (
+                                  <button key={origine.id} type="button" onClick={() => void detacher(origine)} title="Ces comptes ont été rangés ici par un rattachement." className={BOUTON_BLOC}>
+                                    <Undo2 className="size-3.5" aria-hidden />
+                                    Rendre {origine.rattachement!.comptes.length} compte{origine.rattachement!.comptes.length > 1 ? "s" : ""} à « {nomCarte(origine)} »
+                                  </button>
+                                ))}
+                              </span>
+                            )}
                             {/* Un bloc dont le label n'existe pas encore : on le crée, on le corrige, ou on le rattache à un label de l'OS. */}
                             {vue !== "corbeille" && !carte.label_id && (
                               <span className="ml-auto flex flex-wrap gap-1.5">
@@ -396,7 +437,15 @@ export function PageBible() {
         onFermer={() => setPropositionARanger(null)}
         onChoisir={async (carte) => { if (propositionARanger) await passer(propositionARanger, "prochain_batch", carte); }}
       />
-      <DialogueCarte carte={blocAModifier} labels={labelsOs} onFermer={() => setBlocAModifier(null)} onFini={(message) => { setErreur(null); setInfo(message); rafraichir(); }} />
+      <DialogueCarte
+        carte={blocAModifier}
+        labels={labelsOs}
+        cartes={toutes}
+        nbComptes={blocAModifier ? liste.filter((c) => !c.supprime_at && c.label_propose_id === blocAModifier.id).length : 0}
+        sectionDe={(labelId) => sectionDuLabel(labelId, toutes, donnees.data?.labels ?? [])}
+        onFermer={() => setBlocAModifier(null)}
+        onFini={(message, defaire) => { setErreur(null); setInfo(message, defaire); rafraichir(); }}
+      />
       <DialogueLancement
         prets={lancement}
         regles={regles}

@@ -13,7 +13,9 @@
  *   - dans quelle langue il publie : la langue du PAYS, pas celle des emails
  *     choisie sur le formulaire (un Polonais peut lire nos emails en anglais
  *     et publier en polonais). Elle doit figurer dans les `langues` du HM ;
- *   - la répartition d'applications du compte (Sophia, UnSwipe, ou les deux).
+ *
+ * L'APPLICATION du compte n'est pas décidée ici (19/11) : c'est le moteur de
+ * l'OS qui la choisit, comme pour toute autre recrue (`applicationsDemandees`).
  */
 
 /** ISO 3166-1 alpha-2, la même liste que le site (src/config/countries.ts). */
@@ -321,20 +323,28 @@ export function carteDesZones(
   return { ouverts, fermes, inconnus: [...inconnus].sort() };
 }
 
-/** Applications que le site sait demander. */
-export const APPLICATIONS_HUB = ["sophia", "unswipe"] as const;
-
 /**
- * Répartition envoyée à manage-users (`parts_applications`).
- * Sophia seule → `null` : le chemin historique de création, inchangé.
+ * Ce que le site DEMANDE comme applications, gardé pour mémoire dans
+ * `hub_posteurs.applications`. Ce n'est plus une décision.
+ *
+ * Jusqu'au 19/11 le site choisissait l'application de ses candidats (décision
+ * du 18/10) : sa demande partait telle quelle dans `parts_applications`, et le
+ * moteur lui laissait la main. Dans les faits il demandait toujours Sophia
+ * (165 recrues sur 165 en 30 jours), soit une recrue sur trois hors de la
+ * cible posée dans Allocation. Depuis le 19/11, c'est LE MOTEUR qui choisit,
+ * comme pour toute autre recrue : `hub-posteurs` n'envoie plus aucune
+ * application à manage-users, qui applique la cible
+ * (`choisirApplicationPourCompte`).
+ *
+ * La demande reste lue pour ne pas casser le contrat du site, qui continue
+ * d'envoyer le champ : des slugs en minuscules, sans doublon, 8 au plus.
  */
-export function partsPourApplications(applications: unknown): Record<string, number> | null {
+export function applicationsDemandees(applications: unknown): string[] {
   const liste = Array.isArray(applications) ? applications : [];
-  const voulues = [...new Set(liste.map((a) => String(a ?? "").trim().toLowerCase()))]
-    .filter((a): a is (typeof APPLICATIONS_HUB)[number] => (APPLICATIONS_HUB as readonly string[]).includes(a));
-  if (voulues.length === 0 || (voulues.length === 1 && voulues[0] === "sophia")) return null;
-  if (voulues.length === 1) return { [voulues[0]]: 100 };
-  return { sophia: 50, unswipe: 50 };
+  const slugs = liste
+    .map((a) => String(a ?? "").trim().toLowerCase())
+    .filter((a) => /^[a-z0-9_-]{1,40}$/.test(a));
+  return [...new Set(slugs)].slice(0, 8);
 }
 
 /**

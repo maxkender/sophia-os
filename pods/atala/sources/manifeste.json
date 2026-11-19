@@ -1,0 +1,488 @@
+{
+ "comptes": [
+  "hannah.run5",
+  "katrina.run"
+ ],
+ "maj_le": "2026-11-19",
+ "note": "Leurs 30 meilleurs diaporamas sur 66 relevés (17/10 → 19/11), du plus vu au moins vu. Deux comptes UGC de Pacewell (une appli concurrente) sur le même gabarit Canva ; chez elles, chaque post finit sur une page Pacewell : jamais chez nous, le logo d’Atala est une vignette parmi les « Do ». `accroche` et `format` : lus sur leurs slides pour les 14 premiers ; pour les autres, lis-les sur la planche de `npm run veille`. C’est la PREUVE de tes originaux : une accroche et un format qui ont marché chez elles, avec nos vignettes à nous.",
+ "posts": [
+  {
+   "id": "7702850679013952800",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+   "publie_le": "2026-10-31",
+   "vues": 278500,
+   "enregistrements": 5923,
+   "slides": 6,
+   "langue": "fr",
+   "legende": "#running #hiver #coldrun #girlswhorun #courseapied",
+   "musique": {
+    "titre": "Housewife",
+    "id": "7697010651306838068"
+   },
+   "accroche": "courir l’hiver : / les do & don’ts",
+   "format": "dodont objets"
+  },
+  {
+   "id": "7701469373592079647",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7701469373592079647",
+   "publie_le": "2026-10-27",
+   "vues": 191300,
+   "enregistrements": 2613,
+   "slides": 6,
+   "langue": "en",
+   "legende": "#5k #running #runningtips #girlswhorun #runningroutine",
+   "musique": {
+    "titre": "Run Boy Run - Instrumental",
+    "id": "6929219807355078657"
+   },
+   "accroche": "first 5k / do and don’ts",
+   "format": "dodont photos"
+  },
+  {
+   "id": "7698491321337597215",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7698491321337597215",
+   "publie_le": "2026-10-19",
+   "vues": 175700,
+   "enregistrements": 1309,
+   "slides": 6,
+   "langue": "en",
+   "legende": "#running #runningadvice #girlswhorun #runningtips",
+   "musique": {
+    "titre": "La Mentira",
+    "id": "6705056394258679809"
+   },
+   "accroche": "beginner runner / do and don’ts",
+   "format": "dodont objets"
+  },
+  {
+   "id": "7700731258476727583",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7700731258476727583",
+   "publie_le": "2026-10-25",
+   "vues": 156700,
+   "enregistrements": 3347,
+   "slides": 6,
+   "langue": "en",
+   "legende": "#girlswhorun #morningrun #earlyrun #runningroutine #running",
+   "musique": {
+    "titre": "Run Boy Run - Instrumental",
+    "id": "6929219807355078657"
+   },
+   "accroche": "how to be the / 6am *running girl*",
+   "format": "routine"
+  },
+  {
+   "id": "7708030248713080096",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7708030248713080096",
+   "publie_le": "2026-11-14",
+   "vues": 141100,
+   "enregistrements": 1380,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#courseapied #running #nutrition #runnergirl #runningtips",
+   "musique": {
+    "titre": "Housewife",
+    "id": "7697010651306838068"
+   },
+   "accroche": "quoi manger / *avant* de courir",
+   "format": "grille"
+  },
+  {
+   "id": "7703199776250072353",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7703199776250072353",
+   "publie_le": "2026-11-01",
+   "vues": 72200,
+   "enregistrements": 779,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#courseapied #girlswhorun #running #regles #runningtips",
+   "musique": {
+    "titre": "original sound",
+    "id": "7697053831180077832"
+   },
+   "accroche": "courir pendant / *tes règles*",
+   "format": "grille"
+  },
+  {
+   "id": "7705812336375794977",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7705812336375794977",
+   "publie_le": "2026-11-08",
+   "vues": 66000,
+   "enregistrements": 752,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#running #courseapied #conseil #ventregonflé #runnergirl",
+   "musique": {
+    "titre": "Fancy Footwork Chris Lorenzo Chromeo",
+    "id": "7683615482959743751"
+   },
+   "accroche": "courir avec le / *ventre gonflé*",
+   "format": "grille"
+  },
+  {
+   "id": "7708795924448873760",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7708795924448873760",
+   "publie_le": "2026-11-16",
+   "vues": 58800,
+   "enregistrements": 562,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#courseapied #running #runnergirl #debutante #courir",
+   "musique": {
+    "titre": "my moon my man finneas cover",
+    "id": "7701470458784320288"
+   },
+   "accroche": "tes *erreurs* / en running",
+   "format": "grille (l’erreur / la solution)"
+  },
+  {
+   "id": "7703693124438117663",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7703693124438117663",
+   "publie_le": "2026-11-02",
+   "vues": 55500,
+   "enregistrements": 333,
+   "slides": 6,
+   "langue": "en",
+   "legende": "#running #girlswhorun #runningtips #wellness #runningadvice",
+   "musique": {
+    "titre": "Dracula (with JENNIE)",
+    "id": "7603221525400455169"
+   },
+   "accroche": "fall runs / do and don’ts",
+   "format": "dodont objets"
+  },
+  {
+   "id": "7705070227725307168",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7705070227725307168",
+   "publie_le": "2026-11-06",
+   "vues": 54400,
+   "enregistrements": 719,
+   "slides": 5,
+   "langue": "fr",
+   "legende": "#conseil #runningtips #courseapied #running #girlswhorun",
+   "musique": {
+    "titre": "original sound",
+    "id": "7698905099095673613"
+   },
+   "accroche": "la fille qui / court *à 6h*",
+   "format": "routine"
+  },
+  {
+   "id": "7705440592377007393",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7705440592377007393",
+   "publie_le": "2026-11-07",
+   "vues": 33900,
+   "enregistrements": 641,
+   "slides": 6,
+   "langue": "fr",
+   "legende": "#girlswhorun #courseapied #running #cyclemenstruel #runningtips",
+   "musique": {
+    "titre": "original sound",
+    "id": "7698905099095673613"
+   },
+   "accroche": "courir selon / ton cycle",
+   "format": "dodont objets"
+  },
+  {
+   "id": "7708386613612563745",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7708386613612563745",
+   "publie_le": "2026-11-15",
+   "vues": 30400,
+   "enregistrements": 255,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#courir #running #courseapied #runnergirl #ventregonflé",
+   "musique": {
+    "titre": "Rein Me In",
+    "id": "7516505002674079745"
+   },
+   "accroche": "courir avec le / *ventre gonflé*",
+   "format": "grille"
+  },
+  {
+   "id": "7705552211064982815",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7705552211064982815",
+   "publie_le": "2026-11-07",
+   "vues": 27800,
+   "enregistrements": 203,
+   "slides": 4,
+   "langue": "en",
+   "legende": "#running #runningtips #runnergirl #girlswhorun",
+   "musique": {
+    "titre": "original sound",
+    "id": "7698905099095673613"
+   },
+   "accroche": "winter running / *excuses*",
+   "format": "grille (the excuse / the fix)"
+  },
+  {
+   "id": "7704323080578993441",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7704323080578993441",
+   "publie_le": "2026-11-04",
+   "vues": 26800,
+   "enregistrements": 145,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#running #nutrition #runningtips #girlswhorun #courseapied",
+   "musique": {
+    "titre": "original sound",
+    "id": "7686597402995821325"
+   },
+   "accroche": "les *mythes* de / la course à pied",
+   "format": "grille (les mythes / la réalité)"
+  },
+  {
+   "id": "7704698782667099425",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7704698782667099425",
+   "publie_le": "2026-11-05",
+   "vues": 24100,
+   "enregistrements": 293,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#running #courseapied #runningtips #fallrun #conseil",
+   "musique": {
+    "titre": "Fancy Footwork Chris Lorenzo Chromeo",
+    "id": "7683615482959743751"
+   }
+  },
+  {
+   "id": "7702056893094628641",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7702056893094628641",
+   "publie_le": "2026-10-29",
+   "vues": 24100,
+   "enregistrements": 285,
+   "slides": 3,
+   "langue": "fr",
+   "legende": "#runningtips #girlswhorun #running #courseapied #conseil",
+   "musique": {
+    "titre": "original sound",
+    "id": "7455031539659852586"
+   }
+  },
+  {
+   "id": "7707787791601536286",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7707787791601536286",
+   "publie_le": "2026-11-13",
+   "vues": 23200,
+   "enregistrements": 140,
+   "slides": 4,
+   "langue": "en",
+   "legende": "#running #runningtips #beginnerrunner #girlswhorun #wellness",
+   "musique": {
+    "titre": "original sound",
+    "id": "7698905099095673613"
+   }
+  },
+  {
+   "id": "7706681331048025374",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7706681331048025374",
+   "publie_le": "2026-11-10",
+   "vues": 21200,
+   "enregistrements": 196,
+   "slides": 4,
+   "langue": "en",
+   "legende": "#beginnerrunner #running #runningtips #runnergirl #girlswhorun",
+   "musique": {
+    "titre": "Housewife",
+    "id": "7697010651306838068"
+   }
+  },
+  {
+   "id": "7702421573399039264",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7702421573399039264",
+   "publie_le": "2026-10-30",
+   "vues": 21100,
+   "enregistrements": 128,
+   "slides": 5,
+   "langue": "fr",
+   "legende": "#conseil #courseapied #running #5k #girlswhorun",
+   "musique": {
+    "titre": "Habiba",
+    "id": "6917313872059697154"
+   }
+  },
+  {
+   "id": "7706924154473270561",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7706924154473270561",
+   "publie_le": "2026-11-11",
+   "vues": 18700,
+   "enregistrements": 284,
+   "slides": 5,
+   "langue": "fr",
+   "legende": "#morningrun #running #courseapied #beginnerrunner #runnergirl",
+   "musique": {
+    "titre": "Housewife",
+    "id": "7697010651306838068"
+   }
+  },
+  {
+   "id": "7703594269969370400",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7703594269969370400",
+   "publie_le": "2026-11-02",
+   "vues": 18000,
+   "enregistrements": 137,
+   "slides": 6,
+   "langue": "fr",
+   "legende": "#runningtips #running #girlswhorun #courseapied #10k",
+   "musique": {
+    "titre": "original sound",
+    "id": "7669015206726503198"
+   }
+  },
+  {
+   "id": "7703957100484988193",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7703957100484988193",
+   "publie_le": "2026-11-03",
+   "vues": 17500,
+   "enregistrements": 384,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#courseapied #girlswhorun #runningtips #nutrition #running",
+   "musique": {
+    "titre": "Fancy Footwork Chris Lorenzo Chromeo",
+    "id": "7683615482959743751"
+   }
+  },
+  {
+   "id": "7698122689386450207",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7698122689386450207",
+   "publie_le": "2026-10-18",
+   "vues": 17000,
+   "enregistrements": 113,
+   "slides": 4,
+   "langue": "en",
+   "legende": "#running #nutrition #runningadvice #girlswhorun #nutritiontips",
+   "musique": {
+    "titre": "original sound",
+    "id": "7359622533177412353"
+   }
+  },
+  {
+   "id": "7709165099335814433",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7709165099335814433",
+   "publie_le": "2026-11-17",
+   "vues": 15400,
+   "enregistrements": 234,
+   "slides": 5,
+   "langue": "fr",
+   "legende": "#courir #running #cycle #regle #courseapied",
+   "musique": {
+    "titre": "Rein Me In",
+    "id": "7516505002674079745"
+   }
+  },
+  {
+   "id": "7697734841185422623",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7697734841185422623",
+   "publie_le": "2026-10-17",
+   "vues": 14400,
+   "enregistrements": 54,
+   "slides": 3,
+   "langue": "en",
+   "legende": "#running #runningtips #easyrun #girlswhorun #fyp",
+   "musique": {
+    "titre": "champagne",
+    "id": "7235662417353738242"
+   }
+  },
+  {
+   "id": "7707673488252751136",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7707673488252751136",
+   "publie_le": "2026-11-13",
+   "vues": 12100,
+   "enregistrements": 139,
+   "slides": 3,
+   "langue": "fr",
+   "legende": "#courseapied #running #winterrunning #runnergirl #runningtips",
+   "musique": {
+    "titre": "Fancy Footwork",
+    "id": "7689317601042810886"
+   }
+  },
+  {
+   "id": "7701706585877384481",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7701706585877384481",
+   "publie_le": "2026-10-28",
+   "vues": 11800,
+   "enregistrements": 168,
+   "slides": 4,
+   "langue": "fr",
+   "legende": "#nutrition #courseapied #running #girlswhorun #runningtips",
+   "musique": {
+    "titre": "Run Boy Run",
+    "id": "6929219806520412161"
+   }
+  },
+  {
+   "id": "7698848792333913374",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7698848792333913374",
+   "publie_le": "2026-10-20",
+   "vues": 11700,
+   "enregistrements": 133,
+   "slides": 6,
+   "langue": "en",
+   "legende": "#runningtips #runnergirl #girlswhorun #menstrualcycle #menstrualhealth",
+   "musique": {
+    "titre": "champagne",
+    "id": "7235662417353738242"
+   }
+  },
+  {
+   "id": "7707301815464906016",
+   "compte": "hannah.run5",
+   "url": "https://www.tiktok.com/@hannah.run5/photo/7707301815464906016",
+   "publie_le": "2026-11-12",
+   "vues": 11700,
+   "enregistrements": 62,
+   "slides": 5,
+   "langue": "fr",
+   "legende": "#courseapied #running #5k #debutante #runnergirl",
+   "musique": {
+    "titre": "Fancy Footwork",
+    "id": "7689317601042810886"
+   }
+  },
+  {
+   "id": "7701066102738013471",
+   "compte": "katrina.run",
+   "url": "https://www.tiktok.com/@katrina.run/photo/7701066102738013471",
+   "publie_le": "2026-10-26",
+   "vues": 11300,
+   "enregistrements": 111,
+   "slides": 6,
+   "langue": "en",
+   "legende": "#menstrualcycle #menstruation #running #girlswhorun #runningtips",
+   "musique": {
+    "titre": "La Mentira",
+    "id": "6705056394258679809"
+   }
+  }
+ ]
+}

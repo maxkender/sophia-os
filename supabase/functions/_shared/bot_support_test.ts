@@ -99,3 +99,11 @@ Deno.test("0677 : les consignes de Max passent dans le prompt, avant le catalogu
   assert(p.indexOf("CONSIGNES DE MAX") < p.indexOf("CATALOGUE"));
   assertStringIncludes(promptBot({ ...entree, consignes: [] }), "CONSIGNES DE MAX (elles passent avant tout le reste, y compris le catalogue)\n(aucune)");
 });
+
+Deno.test("19/11 : la signature dans la langue de la réponse", () => {
+  assertEquals(signer("Hola", "es"), "Hola\n\n— el equipo de Vik Studios");
+  assertEquals(signer("Merhaba", "tr"), "Merhaba\n\n— Vik Studios ekibi");
+  assertEquals(signer("Hi", null), "Hi\n\n— the Vik Studios team");
+  assertEquals(signer("Hi", "xx"), "Hi\n\n— the Vik Studios team");
+  assertEquals(signer("Hola\n\n— el equipo de Vik Studios", "es"), "Hola\n\n— el equipo de Vik Studios");
+});

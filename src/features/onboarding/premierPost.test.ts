@@ -8,6 +8,7 @@ import {
   manquants,
   marquerChecklistFaite,
   QUESTIONS_PREMIER_POST,
+  questionsPremierPost,
   sansLesNon,
   toutRepondu,
   type Reponses,
@@ -34,6 +35,20 @@ describe("checklist avant le premier post", () => {
     ]);
     expect(manquants(TOUT_OUI)).toEqual([]);
     expect(sansLesNon(r)).toEqual({ warmup: "oui", scroll: "oui" });
+  });
+
+  it("19/11 : la niche du label du compte est nommée dans la question des commentaires, et sur l'écran rouge", () => {
+    const q = questionsPremierPost("running");
+    // Mêmes questions, dans le même ordre : seule celle des commentaires change.
+    expect(q.map((x) => x.cle)).toEqual(QUESTIONS_PREMIER_POST.map((x) => x.cle));
+    expect(q.filter((x, i) => x !== QUESTIONS_PREMIER_POST[i]).map((x) => x.cle)).toEqual(["commentaires"]);
+    expect(q[3]!.question).toBe("Did you comment on at least 3 posts in the niche you're going to post in (running)?");
+    expect(manquants({ ...TOUT_OUI, commentaires: "non" }, q).map((x) => x.action)).toEqual([
+      "Comment on at least 3 posts in the niche you're going to post in (running)",
+    ]);
+    // Niche inconnue : la liste standard, telle quelle.
+    for (const niche of [undefined, null, " "]) expect(questionsPremierPost(niche)).toBe(QUESTIONS_PREMIER_POST);
+    expect(JSON.stringify(QUESTIONS_PREMIER_POST)).not.toMatch(/general knowledge/i);
   });
 
   describe("mémoire du navigateur", () => {

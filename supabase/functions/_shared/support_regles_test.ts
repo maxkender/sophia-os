@@ -2,6 +2,7 @@ import { assertEquals } from "jsr:@std/assert@1";
 
 import {
   detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, ligneStatut, premierJourPostsParis, situation, TEXTES, texteStatut, texteWarmup,
+  ditPasRecu, estCodeRuul, estQuestionPaie, samediDeTraitement, texteArret, texteCodeRuul, textePaieRuul,
 } from "./support_regles.ts";
 
 const ruul = { plateforme: "ruul" as const, attenteLienUpwork: false };
@@ -105,4 +106,62 @@ Deno.test("texteWarmup : pas lancé, terminé validé, terminé pas validé", ()
 Deno.test("premierJourPostsParis : fin dimanche 23:00 UTC (lundi 00:00 Paris) → lundi", () => {
   assertEquals(premierJourPostsParis("2026-11-22T23:00:00Z"), "2026-11-23");
   assertEquals(premierJourPostsParis("2026-11-23T10:00:00Z"), "2026-11-24");
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// 19/11 (Max) : bot Ruul : arrêt avec dates, code à 6 chiffres, « quand serai-je payé ? ».
+// ---------------------------------------------------------------------------------------------------------------
+
+const JEUDI = new Date("2026-11-19T15:00:00Z");
+const ruulPret: EtatReel = { ...base, canal_paie: "ruul", contrat_upwork: null, ruul: { onboarding: "READY", statut: "pret", compte: "active" } };
+
+Deno.test("19/11 : demande d'arrêt : samedi, lundi de paie, arrêter de poster (jamais « continue de poster »)", () => {
+  const t = texteArret("ruul", JEUDI);
+  assertEquals(t, "Your stop request is registered. It will be processed on Saturday 21 Nov. Your last week will be paid on Monday 23 Nov via Ruul. You can stop posting from Saturday 21 Nov.");
+  assertEquals(texteArret("upwork", JEUDI).includes("via Upwork"), true);
+  assertEquals(t.includes("keep posting"), false);
+  assertEquals(samediDeTraitement(new Date("2026-11-21T09:00:00Z")), "2026-11-21");
+  assertEquals(samediDeTraitement(new Date("2026-11-22T09:00:00Z")), "2026-11-28");
+  // Les demandes d'arrêt en turc (19/11) et dans d'autres langues.
+  for (const m of ["Çalışmayı bırakmak istiyorum", "Sözleşmemi feshetmek istiyorum lütfen", "artık devam etmek istemiyorum", "Quero parar, obrigado", "No quiero continuar", "I don't want to continue anymore"]) {
+    assertEquals(estDemandeArret(m), true, m);
+  }
+  assertEquals(estDemandeArret("When will I be paid?"), false);
+});
+
+Deno.test("19/11 : code à 6 chiffres Ruul (plusieurs langues)", () => {
+  for (const m of ["I didn't receive the 6-digit code from Ruul", "Ruul kodu gelmedi", "no me llega el código de verificación", "the verification code never arrives", "6 haneli kod gelmiyor"]) {
+    assertEquals(estCodeRuul(m), true, m);
+  }
+  assertEquals(estCodeRuul("When will I be paid?"), false);
+  const t = texteCodeRuul("ana@example.com");
+  assertEquals(t.includes("sent by Ruul, not by Vik Studios"), true);
+  assertEquals(t.includes("Resend code"), true);
+  assertEquals(t.includes("spam"), true);
+});
+
+Deno.test("19/11 : « quand serai-je payé ? » : le vrai statut Ruul", () => {
+  for (const m of ["When will I be paid?", "when the pending invoices will be paid?", "Ne zaman ödeme alacağım?", "¿Cuándo me pagan?", "I haven't been paid"]) {
+    assertEquals(estQuestionPaie(m), true, m);
+  }
+  // Payé.
+  const paye = textePaieRuul({ ...ruulPret, paie: [{ semaine: "2026-11-09", total: 10, statut: "paye", ruul_statut: "PAID", paye_at: "2026-11-18T15:06:15Z" }] }, JEUDI);
+  assertEquals(paye.startsWith("Your payment of 10 $ for the week of 9 Nov was paid on 18 Nov via Ruul."), true);
+  assertEquals(paye.includes("Monday 23 Nov"), true);
+  // Envoyé, en attente de son action.
+  const envoye = textePaieRuul({ ...ruulPret, ruul: { onboarding: "PENDING_KYC", statut: "invite", compte: "active" }, paie: [{ semaine: "2026-11-09", total: 10, statut: "a_payer", ruul_statut: "PENDING", paye_at: null }] }, JEUDI);
+  assertEquals(envoye.includes("waiting for your action there (identity or bank)"), true);
+  // Pas encore payable : KYC, banque, compte.
+  assertEquals(textePaieRuul({ ...ruulPret, ruul: { onboarding: "PENDING_KYC", statut: "invite", compte: "active" } }, JEUDI).startsWith("Not payable yet: you still need to verify your identity (KYC)"), true);
+  assertEquals(textePaieRuul({ ...ruulPret, ruul: { onboarding: "PENDING_COLLECTION_ACCOUNT", statut: "pret", compte: "active" } }, JEUDI).includes("add your bank account"), true);
+  assertEquals(textePaieRuul({ ...ruulPret, ruul: null }, JEUDI, "ana@example.com").includes("create your Ruul account"), true);
+  // Prêt, rien de payé encore : chaque lundi.
+  assertEquals(textePaieRuul(ruulPret, JEUDI), "You are paid every Monday for the previous week, via Ruul. Your Ruul account is ready, so your next payment is on Monday 23 Nov.");
+  assertEquals(ditPasRecu("I have not received my payment"), true);
+  // Apostrophe typographique, « the payment », factures Ruul.
+  assertEquals(estQuestionPaie("I haven’t received the payment—which is supposed to be made every Monday—for the past two weeks"), true);
+  assertEquals(estQuestionPaie("there are 4 invoices on my Ruul account, but I have only received one payment."), true);
+  assertEquals(ditPasRecu("I haven’t received the payment"), true);
+  assertEquals(ditPasRecu("4 invoices but I have only received one payment"), true);
+  assertEquals(estDemandeArret("I don’t want to continue anymore"), true);
 });

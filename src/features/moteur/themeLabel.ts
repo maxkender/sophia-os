@@ -94,3 +94,43 @@ export function themeMotsDuLabel(nomOuSlug: string | null | undefined): ThemeMot
   if (s.includes("plony") || s.includes("stoi") || s.includes("philo")) return "philo";
   return themeDuLabel(nomOuSlug);
 }
+
+/**
+ * La NICHE dite au posteur pour son warm-up (« follow accounts in the … niche »),
+ * en anglais comme tous les textes aux posteurs. Elle suit le thème des mots du
+ * @ et de la bio : un compte de running s'échauffe sur du running, pas sur de
+ * la culture générale. Un thème ajouté à `ThemeMots` doit avoir sa niche ici
+ * (le type l'impose).
+ */
+export const NICHE_PAR_THEME: Record<ThemeMots, string> = {
+  default: "general knowledge",
+  anciens: "history",
+  cinema: "movies",
+  alpha_male: "self-improvement",
+  smart_girl: "books and culture",
+  clean_girl: "wellness",
+  etude: "study",
+  carriere: "career advice",
+  psycho: "psychology",
+  philo: "philosophy",
+  running: "running",
+};
+
+/** Sans label lisible : la niche d'un compte de culture générale. */
+export const NICHE_DEFAUT: string = NICHE_PAR_THEME.default;
+
+export function nicheDuLabel(nomOuSlug: string | null | undefined): string {
+  return NICHE_PAR_THEME[themeMotsDuLabel(nomOuSlug)];
+}
+
+/**
+ * La niche d'un compte, d'après ses labels (presque toujours un seul). Avec
+ * plusieurs : le premier, par ordre alphabétique, qui a une niche à lui.
+ */
+export function nicheDesLabels(noms: readonly (string | null | undefined)[]): string {
+  const niches = noms
+    .filter((n): n is string => typeof n === "string" && n.trim() !== "")
+    .sort()
+    .map(nicheDuLabel);
+  return niches.find((n) => n !== NICHE_DEFAUT) ?? NICHE_DEFAUT;
+}

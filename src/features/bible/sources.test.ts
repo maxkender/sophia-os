@@ -4,10 +4,10 @@ import type { SourceLundi } from "@/features/moteur/api";
 import type { FileSources } from "@/features/moteur/fileSources";
 import type { CompteReference } from "@/features/moteur/types";
 
-import { blocageImport, type CarteLabel, carteValidable, type CompteBible, estPodzValide, etapeAvantImport, labelsSansBloc, valeurDuLabel } from "./moodboard";
+import { blocageImport, blocsVersesDans, type CarteLabel, carteValidable, type CompteBible, estPodzValide, etapeAvantImport, labelsSansBloc, valeurDuLabel } from "./moodboard";
 import {
-  assemblerSources, bilanSemaine, compterSources, etapeDeLaSource, ligneResultat, phraseEtat, rangerSources, regleDeLaVue, REGLES_DEFAUT, type ReglesSources,
-  type SourceBible, sourcesParHandle, versRegles,
+  assemblerSources, bilanSemaine, compterSources, enImportEnBref, etapeDeLaSource, ligneResultat, phraseEtat, rangerSources, regleDeLaVue, REGLES_DEFAUT, type ReglesSources,
+  type SourceBible, type SourceNeuve, sourcesParHandle, versNeuves, versRegles,
 } from "./sources";
 import type { LabelBible } from "./types";
 
@@ -21,12 +21,15 @@ const lundi = (o: Partial<SourceLundi>): SourceLundi => ({
 });
 const base = (o: Partial<Omit<SourceBible, "etape">>): Omit<SourceBible, "etape"> => ({
   id: "s1", handle: "une.source", langue: "en", actif: true, labels: [{ id: "L1", nom: "smart_girl" }], slides: [], importes: 120, valides: 90,
-  perf: { posts: 20, r: 1.1, vuesMediane: 900, rVsLabel: 1.05 }, essaiMax: null, essaiVerdict: null, dernierImport: "2026-11-10T06:00:00Z", attente: null,
+  perf: { posts: 20, r: 1.1, vuesMediane: 900, rVsLabel: 1.05 }, essaiMax: null, essaiVerdict: null, dernierImport: "2026-11-10T06:00:00Z", neuve: null, attente: null,
   sequence: null, restant: 0, semaine: null, ...o,
 });
 const source = (o: Partial<Omit<SourceBible, "etape">>): SourceBible => { const b = base(o); return { ...b, etape: etapeDeLaSource(b) }; };
 const attente = (o: Partial<FileSources["attente"][number]>): FileSources["attente"][number] => ({
   compteReferenceId: "s1", handle: "une.source", sorte: "neuve", essaiMax: 30, prevuLe: "2026-11-20", echec: null, ...o,
+});
+const neuve = (o: Partial<SourceNeuve>): SourceNeuve => ({
+  compteReferenceId: "s1", handle: "une.source", essais: 0, echec: null, lanceeLe: null, releve: false, enTraitement: 0, ...o,
 });
 const carte = (o: Partial<CarteLabel>): CarteLabel => ({
   id: "k1", nom: "smart_girl", titre: null, section: "sophia", badge: "existe", description_da: null, label_id: "L1", ordre: 1, statut: "valide", ...o,
@@ -47,6 +50,16 @@ describe("l'onglet d'une source, calculé depuis son état", () => {
     expect(etapeDeLaSource(base({ importes: 12, essaiMax: 30, sequence: "en_cours", semaine: lundi({ decision: "peu_de_mesures", raison: "ajout" }) }))).toBe("en_import");
     expect(etapeDeLaSource(base({ importes: 0, dernierImport: null, sequence: "a_suivre" }))).toBe("en_import");
     expect(etapeDeLaSource(base({ importes: 0, dernierImport: null }))).toBe("en_import");
+  });
+
+  it("une source neuve part tout de suite : En import tant que son premier import n'est pas fini, puis elle en sort seule", () => {
+    // à relever, relevé en cours, slideshows en traitement : toujours « En import », même avec du stock déjà arrivé
+    expect(etapeDeLaSource(base({ importes: 0, dernierImport: null, neuve: neuve({}) }))).toBe("en_import");
+    expect(etapeDeLaSource(base({ importes: 0, dernierImport: null, neuve: neuve({ essais: 1, lanceeLe: "2026-11-19T16:30:00Z" }) }))).toBe("en_import");
+    expect(etapeDeLaSource(base({ importes: 24, essaiMax: 30, neuve: neuve({ essais: 1, releve: true, enTraitement: 18 }) }))).toBe("en_import");
+    // tout traité : la base ne la rend plus dans `neuves`, elle passe à l'essai ou en Weekly update
+    expect(etapeDeLaSource(base({ importes: 30, essaiMax: 30, semaine: lundi({ decision: "peu_de_mesures", raison: "ajout", lanceeLe: "2026-11-19T16:30:00Z" }) }))).toBe("essai");
+    expect(etapeDeLaSource(base({ importes: 100, semaine: lundi({ decision: "peu_de_mesures", raison: "ajout", lanceeLe: "2026-11-19T16:30:00Z" }) }))).toBe("weekly");
   });
 
   it("une source établie qui passe sa mise à jour du lundi reste en Weekly update", () => {
@@ -74,6 +87,38 @@ describe("l'état d'une source, en une phrase", () => {
     expect(phraseEtat(source({ importes: 0, dernierImport: null, attente: attente({ echec: "clé Apify refusée" }) }), REGLES)).toEqual({
       texte: "Import en échec, repart au lot suivant (clé Apify refusée)", ton: "alerte",
     });
+  });
+
+  it("source neuve : relevé dans la minute, relevé en cours, ce qui reste en traitement, relevé raté ; jamais de renvoi au lendemain", () => {
+    expect(phraseEtat(source({ importes: 0, dernierImport: null, neuve: neuve({}) }), REGLES)).toEqual({ texte: "Relevé du profil dans la minute", ton: "attente" });
+    expect(texte({ importes: 0, dernierImport: null, neuve: neuve({ essais: 1, lanceeLe: "2026-11-19T16:30:00Z" }) })).toBe("Relevé du profil en cours");
+    expect(texte({ importes: 0, dernierImport: null, neuve: neuve({ essais: 3, lanceeLe: "2026-11-19T16:52:00Z" }) })).toBe("Relevé du profil en cours (essai 3 sur 5)");
+    expect(texte({ importes: 24, neuve: neuve({ essais: 1, lanceeLe: "2026-11-19T16:30:00Z", releve: true, enTraitement: 18 }) })).toBe("Import en cours : 18 slideshows en traitement");
+    expect(texte({ importes: 0, dernierImport: null, neuve: neuve({ essais: 1, lanceeLe: "2026-11-19T16:30:00Z", releve: true, enTraitement: 1 }) })).toBe("Import en cours : 1 slideshow en traitement");
+    expect(phraseEtat(source({ importes: 0, dernierImport: null, neuve: neuve({ essais: 2, echec: "profil illisible" }) }), REGLES)).toEqual({
+      texte: "Relevé du profil raté, nouvel essai dans quelques minutes (profil illisible)", ton: "alerte",
+    });
+    // profil relevé, rien dessus : elle n'est plus « neuve », et on dit pourquoi elle reste là
+    expect(texte({ importes: 0, dernierImport: null, semaine: lundi({ decision: "peu_de_mesures", raison: "ajout", lanceeLe: "2026-11-19T16:30:00Z" }) })).toBe(
+      "Profil relevé le 19/11 : aucun slideshow à importer",
+    );
+  });
+
+  it("« En import », en une ligne : relevés en cours, profils à relever, relevés ratés, slideshows en traitement", () => {
+    expect(enImportEnBref([source({})])).toBeNull();
+    expect(enImportEnBref([
+      source({ id: "a", importes: 0, dernierImport: null, neuve: neuve({ essais: 1, lanceeLe: "2026-11-19T16:30:00Z" }) }),
+      source({ id: "b", importes: 0, dernierImport: null, neuve: neuve({}) }),
+      source({ id: "c", importes: 0, dernierImport: null, neuve: neuve({}) }),
+      source({ id: "d", importes: 0, dernierImport: null, neuve: neuve({ essais: 1, echec: "profil illisible" }) }),
+      source({ id: "e", importes: 24, neuve: neuve({ essais: 1, releve: true, enTraitement: 18 }) }),
+      source({ id: "f", importes: 3, neuve: neuve({ essais: 1, releve: true, enTraitement: 40 }) }),
+      source({ id: "g" }),
+    ])).toEqual({
+      total: 6,
+      detail: "1 relevé de profil en cours, 2 profils à relever (départ dans la minute), 1 relevé raté (nouvel essai dans quelques minutes), 58 slideshows en traitement",
+    });
+    expect(enImportEnBref([source({ importes: 0, dernierImport: null, neuve: neuve({}) })])).toEqual({ total: 1, detail: "1 profil à relever (départ dans la minute)" });
   });
 
   it("à l'essai : importés sur le plafond, mesurés sur ce qu'il faut pour juger", () => {
@@ -134,6 +179,28 @@ describe("assembler les lectures", () => {
     ]);
     expect(sourcesParHandle(sources).get("une.source")).toEqual({ labelIds: ["L1"], labels: ["smart_girl"] });
   });
+
+  it("lit les sources neuves de la file (`neuves`) et les relie à leur source", () => {
+    const neuves = versNeuves({ neuves: [
+      { compte_reference_id: "s5", handle: "toute.neuve", essai_max: null, essais: 1, echec: null, lancee_le: "2026-11-19T16:30:00+00:00", releve: true, enfilees: 100, en_traitement: 64 },
+      { compte_reference_id: "s6", handle: "a.relever", essai_max: 30, essais: 0, echec: null, lancee_le: null, releve: false, enfilees: null, en_traitement: 0 },
+    ] });
+    expect(neuves).toEqual([
+      { compteReferenceId: "s5", handle: "toute.neuve", essais: 1, echec: null, lanceeLe: "2026-11-19T16:30:00+00:00", releve: true, enTraitement: 64 },
+      { compteReferenceId: "s6", handle: "a.relever", essais: 0, echec: null, lanceeLe: null, releve: false, enTraitement: 0 },
+    ]);
+    // une file d'avant 0772 (pas de `neuves`) se lit sans erreur
+    expect(versNeuves({})).toEqual([]);
+    const sources = assemblerSources({
+      refs: [ref({ id: "s5", handle_tiktok: "toute.neuve" }), ref({ id: "s6", handle_tiktok: "a.relever", dernier_scrape_at: null, essai_max: 30 })],
+      importes: [], perf: {}, stocks: { s5: { importes: 36, valides: 20 } },
+      file: { ...file, enCours: null, attente: [] }, neuves, semaine: null,
+    });
+    expect(sources.map((s) => [s.handle, s.etape, phraseEtat(s, REGLES).texte])).toEqual([
+      ["toute.neuve", "en_import", "Import en cours : 64 slideshows en traitement"],
+      ["a.relever", "en_import", "Relevé du profil dans la minute"],
+    ]);
+  });
 });
 
 describe("un compte de la Bible face à sa source", () => {
@@ -184,6 +251,15 @@ describe("un compte de la Bible face à sa source", () => {
     expect(valeurDuLabel("L7", [carte({})], labels)).toBe("label:L7");
     expect(valeurDuLabel("L99", [carte({})], labels)).toBe("");
     expect(valeurDuLabel(null, [carte({})], labels)).toBe("");
+  });
+
+  it("les blocs dont les comptes ont été versés dans un autre par un rattachement : ils peuvent revenir", () => {
+    const cible = carte({ id: "k3" });
+    const verse = carte({ id: "k1", label_id: null, rattachement: { label: "smart_girl", fusion: true, vers: "k3", comptes: ["c1", "c2"] } });
+    const vide = carte({ id: "k5", label_id: null, rattachement: { label: "smart_girl", fusion: true, vers: "k3", comptes: [] } });
+    const ailleurs = carte({ id: "k6", label_id: null, rattachement: { label: "x", fusion: true, vers: "k9", comptes: ["c7"] } });
+    const pris = carte({ id: "k7", rattachement: { label: "History", fusion: false, vers: null, comptes: ["c8"] } });
+    expect(blocsVersesDans(cible, [cible, verse, vide, ailleurs, pris]).map((c) => c.id)).toEqual(["k1"]);
   });
 
   it("un label se crée d'ici s'il est proposé ou nouveau, pour une app qui existe", () => {
@@ -257,6 +333,9 @@ describe("les règles, avec les vrais seuils", () => {
     expect(regleDeLaVue("propositions", REGLES)).toContain("l'agent éclaireur trouve chaque jour");
     expect(regleDeLaVue("prochain_batch", REGLES)).toContain("Les comptes à podzer ne partent pas : valide-les");
     expect(regleDeLaVue("a_importer", REGLES)).toContain("s'importe d'un clic");
+    expect(regleDeLaVue("en_import", REGLES)).toContain("Une source part dès qu'elle est créée, sans attendre les autres");
+    expect(regleDeLaVue("en_import", REGLES)).toContain("Seules les mises à jour de la semaine sont étalées, 8 sources par jour.");
+    expect(regleDeLaVue("prochain_batch", REGLES)).toContain("leur import part tout de suite");
     expect(regleDeLaVue("weekly", REGLES)).toContain("Les comptes à podzer validés y figurent à part, à titre indicatif.");
   });
 
@@ -269,7 +348,7 @@ describe("les règles, avec les vrais seuils", () => {
       lundi({ compteReferenceId: "s5", decision: "peu_de_mesures", raison: "ajout", lanceeLe: "2026-11-18T10:00:00Z", importes: 30, valides: 28 }),
     ] })).toEqual({ semaine: "2026-11-16", retenues: 3, faites: 2, aVenir: 1, pasRetenues: 1, importes: 42, valides: 39 });
 
-    expect(ligneResultat({ id: "c1", handle: "un", statut: "lancee", essai_max: 30 }, REGLES)).toEqual({ texte: "@un : dans la séquence d'import, essai de 30 posts", ok: true });
+    expect(ligneResultat({ id: "c1", handle: "un", statut: "lancee", essai_max: 30 }, REGLES)).toEqual({ texte: "@un : import lancé, essai de 30 posts", ok: true });
     expect(ligneResultat({ id: "c2", handle: "deux", statut: "attente", essai_max: null, prevu_le: "2026-11-20" }, REGLES).texte).toBe(
       "@deux : dans la file, départ au plus tôt le 20/11, ses 100 posts les plus vus",
     );

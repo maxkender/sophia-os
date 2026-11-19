@@ -7,6 +7,14 @@ const api = vi.hoisted(() => ({
   jeSuisPretRuul: vi.fn(),
   enregistrerMonEmailRuul: vi.fn(),
 }));
+// La niche du label du compte (19/11) : null = inconnue ; on garde si elle a été demandée.
+const niche = vi.hoisted(() => ({ valeur: null as string | null, actif: [] as boolean[] }));
+vi.mock("@/features/onboarding/maNiche", () => ({
+  useNicheComptePrincipal: (actif = true) => {
+    niche.actif.push(actif);
+    return niche.valeur;
+  },
+}));
 vi.mock("./api", () => api);
 vi.mock("@/features/moteur/api", () => ({ enregistrerIdentiteRuul: vi.fn() }));
 vi.mock("@/features/onboarding/cinqEtapesApi", () => ({ lireMesDeclarations: vi.fn().mockResolvedValue([]) }));
@@ -30,6 +38,8 @@ function rendu() {
 
 beforeEach(async () => {
   vi.clearAllMocks();
+  niche.valeur = null;
+  niche.actif = [];
   await i18n.changeLanguage("en");
 });
 
@@ -85,6 +95,30 @@ describe("ChecklistRuul (0592)", () => {
     expect(screen.getByDisplayValue("ana@test.zz")).toBeInTheDocument();
     expect(container.textContent).toContain("Finish before Sunday 15 November, midnight (Paris time), to start on Monday 16 November.");
     expect(container.textContent?.toLowerCase()).not.toMatch(/upwork|milestone/);
+  });
+
+  it("19/11 : l'étape du warm-up nomme la niche du label du compte ; inconnue : rien de plus", async () => {
+    api.lireMonOnboardingRuul.mockResolvedValue(base);
+    niche.valeur = "study";
+    const a = rendu();
+    const ligne = await screen.findByTestId("niche-warmup");
+    expect(ligne.textContent).toBe("Scroll and follow accounts in your niche: study.");
+    expect(screen.getByTestId("ruul-etape-warmup").contains(ligne)).toBe(true);
+    a.unmount();
+
+    niche.valeur = null;
+    rendu();
+    expect(await screen.findByTestId("checklist-ruul")).toBeInTheDocument();
+    expect(screen.queryByTestId("niche-warmup")).toBeNull();
+  });
+
+  it("19/11 : pas Ruul, ou checklist finie : la niche n'est pas lue", async () => {
+    api.lireMonOnboardingRuul.mockResolvedValue({ ...base, ruul: false });
+    rendu();
+    await waitFor(() => expect(api.lireMonOnboardingRuul).toHaveBeenCalled());
+    await new Promise((r) => setTimeout(r, 0));
+    expect(niche.actif.length).toBeGreaterThan(0);
+    expect(niche.actif.every((a) => a === false)).toBe(true);
   });
 
   it("invité sur Ruul : « It's done » marque le compte prêt", async () => {

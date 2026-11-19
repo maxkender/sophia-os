@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router-dom";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import "@/locales";
 
@@ -12,6 +12,7 @@ const lireMarchesRepartition = vi.fn();
 const lireCibleRepartitionApps = vi.fn();
 const lireRecruesSite = vi.fn();
 const lireReglagesRepartition = vi.fn();
+const lireApplicationsEnPreparation = vi.fn();
 
 const lireChoixApplicationAuto = vi.fn();
 const ecrireChoixApplicationAuto = vi.fn();
@@ -25,6 +26,7 @@ vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   PROVENANCE_JOURS: 30,
   CLE_CHOIX_APPLICATION_AUTO: "choix_application_auto",
   CLE_CHOIX_LABELS: "choix_labels",
+  lireApplicationsEnPreparation: () => lireApplicationsEnPreparation(),
   lireChoixApplicationAuto: () => lireChoixApplicationAuto(),
   ecrireChoixApplicationAuto: (actif: boolean) => ecrireChoixApplicationAuto(actif),
   ecrireCibleRepartitionApps: (p: unknown) => ecrireCibleRepartitionApps(p),
@@ -43,6 +45,15 @@ const lireReglages = vi.fn();
 vi.mock("@/features/moteur/api", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/moteur/api")>()),
   lireReglages: () => lireReglages(),
+}));
+
+/** La carte de la File, espionnée : on vérifie ce que la page lui passe. */
+const carteFile = vi.fn();
+vi.mock("@/features/moteur/repartition/CarteFileLabels", () => ({
+  CarteFileLabels: (props: Record<string, unknown>) => {
+    carteFile(props);
+    return null;
+  },
 }));
 
 /** La projection, espionnée : on vérifie ce que la page lui passe. */
@@ -126,14 +137,12 @@ const MARCHES_LABELS = MARCHES_APPS.map((m) => ({
   stats: [stat("study"), stat("gym")],
 }));
 
-// Les proportions de la prod au 18/10, doublées pour rester au-dessus du
-// seuil des petits pays (20 recrues) : en français, 10 recrues sur 22 viennent
-// de la cohorte. En allemand, aucune. En espagnol, l'échantillon est trop
-// mince pour parler du marché.
+// En français, 10 recrues sur 22 viennent du site de recrutement. En allemand
+// et en espagnol, aucune. Un chiffre d'information : le moteur les place.
 const PROVENANCE = [
-  { langue: "fr", pays: "FR", recrues: 22, recruesSite: 10, siteParApp: { sophia: 10 } },
-  { langue: "de", pays: "DE", recrues: 30, recruesSite: 0, siteParApp: {} },
-  { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
+  { langue: "fr", pays: "FR", recrues: 22, recruesSite: 10 },
+  { langue: "de", pays: "DE", recrues: 30, recruesSite: 0 },
+  { langue: "es", pays: "ES", recrues: 2, recruesSite: 0 },
 ];
 
 function renderPage() {
@@ -164,6 +173,7 @@ async function detailMarche(cle: string): Promise<HTMLElement> {
 function poserDonnees() {
   vi.clearAllMocks();
   lireReglagesRepartition.mockResolvedValue(REGLAGES_CHOIX_LABEL_DEFAUT);
+  lireApplicationsEnPreparation.mockResolvedValue([]);
   lireMarchesApplications.mockResolvedValue(MARCHES_APPS);
   lireMarchesRepartition.mockResolvedValue(MARCHES_LABELS);
   lireRecruesSite.mockResolvedValue(PROVENANCE);
@@ -196,123 +206,57 @@ describe("AdminRepartitionPage — recrues venues du site", () => {
     expect(bloc.textContent).toMatch(/10 recrues sur 54 en 30 jours|10 of 54 recruits in 30 days/);
   });
 
-  it("le français montre ses 10 recrues sur 22 et sa part hors moteur", async () => {
+  it("le site ne décide plus : la page dit que le moteur place ses recrues", async () => {
+    // 19/11 : avant, le site choisissait l'application de ses candidats et la
+    // page en tirait un plancher par application et un verdict sur la cible.
     renderPage();
-    const detail = await detailMarche("fr|FR");
-    expect(detail.textContent).toMatch(
-      /10 recrues sur 22 venues du site \(45 %\)|10 of 22 recruits came from the website \(45 %\)/,
-    );
+    const bloc = await blocSite();
+    expect(bloc.textContent).toMatch(/Le moteur les place comme les autres|The engine places them like the others/);
+    expect(bloc.textContent).not.toMatch(/envoyées vers|sent to/);
+    expect(bloc.textContent).not.toMatch(/atteignable|reachable|impossible/i);
   });
 
-  it("un échantillon trop mince le dit, au lieu de faire parler deux comptes", async () => {
-    renderPage();
-    const es = await detailMarche("es|ES");
-    expect(es.textContent).toMatch(/la flotte \(échantillon trop mince\)|the fleet \(sample too thin\)/);
-    // Les effectifs affichés sont ceux de l'Espagne (2), pas ceux de la flotte (28).
-    expect(es.textContent).toMatch(/Petit pays : 2 recrues en 30 jours \(moins de 20\)|Small country: 2 recruits in 30 days \(under 20\)/);
-    expect(es.textContent).not.toMatch(/sur 28|of 28/);
-    expect((await detailMarche("fr|FR")).textContent).toMatch(/ce marché|this market/);
-  });
-
-  it("une cible atteignable est annoncée comme telle", async () => {
-    renderPage();
-    // Cible Sophia 60 %, site 45,5 % : il reste de la marge.
-    expect((await detailMarche("fr|FR")).textContent).toMatch(/Cible atteignable|Target reachable/);
-    expect((await blocSite()).textContent).toMatch(
-      /atteignable sur tous les marchés|reachable in every market/,
-    );
-  });
-
-  it("viser moins que ce que le site envoie déjà est signalé impossible", async () => {
+  it("une cible sous l'ancienne part du site n'est plus dite impossible", async () => {
+    // Sophia à 0 % alors que 45 % des recrues françaises viennent du site :
+    // c'était « impossible », c'est maintenant une cible comme une autre.
     lireCibleRepartitionApps.mockResolvedValue({
       source: "reglage",
-      parts: { sophia: 30, unswipe: 40, micabo: 30 },
+      parts: { sophia: 0, unswipe: 60, micabo: 40 },
     });
     renderPage();
-    // C'est le cœur du bloc : 30 % demandés, 45,5 % déjà promis par le site.
     const bloc = await blocSite();
-    await waitFor(() =>
-      expect(bloc.textContent).toMatch(
-        /Sophia reçoit déjà au moins 45 % via le site|Sophia already gets at least 45 % from the website/,
-      ),
-    );
-    expect(bloc.textContent).toMatch(/Français|French/);
-    // L'allemand n'a aucune recrue du site : rien ne l'empêche.
-    expect(bloc.textContent).not.toMatch(/Allemand|German/);
-    expect((await detailMarche("de|DE")).textContent).toMatch(/Cible atteignable|Target reachable/);
+    expect(bloc.textContent).not.toMatch(/reçoit déjà|already gets/);
+    expect(screen.queryByText(/Cible impossible|Target impossible/)).toBeNull();
   });
 
-  it("sans cible posée, aucun verdict : on ne juge pas une cible que personne n'a choisie", async () => {
+  it("le parcours d'un compte n'a plus d'étape « Vient du site ? »", async () => {
+    renderPage();
+    await blocSite();
+    expect(screen.queryByText(/Vient du site|From the website\?/)).toBeNull();
+    // Il commence par la File, puis l'appli, puis le label.
+    expect(screen.getByText(/Un label en File \?|A label in the Queue\?/)).toBeTruthy();
+  });
+
+  it("le détail d'un marché ne parle plus du site", async () => {
+    renderPage();
+    const detail = await detailMarche("fr|FR");
+    expect(detail.textContent).toMatch(/Français|French/);
+    expect(detail.textContent).not.toMatch(/site|Plancher|Floor/i);
+    // Et la colonne « Du site » a disparu du tableau.
+    expect(screen.queryByRole("columnheader", { name: /^(Du site|From site)$/ })).toBeNull();
+  });
+
+  it("sans cible posée, aucune barre « cible » inventée ni écart affiché", async () => {
     // Sans réglage, la page calcule avec des parts ÉGALES pour montrer le
-    // manque. En français, 33,3 % de Sophia contre 45,5 % promis ferait
-    // « impossible » : un faux reproche adressé à une cible fictive.
+    // manque : les dessiner les ferait passer pour une décision.
     lireCibleRepartitionApps.mockResolvedValue({
       source: "defaut",
       parts: { sophia: 100 / 3, unswipe: 100 / 3, micabo: 100 / 3 },
     });
     renderPage();
-    const detail = await detailMarche("fr|FR");
-    expect(detail.textContent).toMatch(/cible non posée|no target set/);
-    expect(detail.textContent).not.toMatch(/reçoit déjà|already gets/);
-    // Le plancher, lui, ne dépend pas de la cible : il reste affiché.
-    expect(detail.textContent).toMatch(/Plancher : Sophia 45 %|Floor: Sophia 45 %/);
-    expect((await blocSite()).textContent).not.toMatch(/reçoit déjà|already gets/);
-    // Et aucune barre « cible » dessinée avec des parts égales inventées.
-    expect(screen.queryByRole("img", { name: /^(Cible|Target) :/ })).toBeNull();
     const ligneSophia = (await screen.findByLabelText(/Cible de Sophia|Target for Sophia/)).closest("tr")!;
+    expect(screen.queryByRole("img", { name: /^(Cible|Target) :/ })).toBeNull();
     expect(ligneSophia.textContent).not.toMatch(/pts/);
-  });
-
-  it("la projection dit combien des vingt prochaines recrues viennent du site", async () => {
-    renderPage();
-    // 45,5 % de 20, soit 9 recrues que le moteur ne place pas.
-    const ligne = await screen.findByTestId("marche-fr|FR");
-    expect(ligne.textContent).toMatch(/9 \/ 20/);
-  });
-
-  it("la page dit où le site a envoyé ses recrues", async () => {
-    renderPage();
-    const bloc = await blocSite();
-    expect(bloc.textContent).toMatch(/(envoyées vers|sent to)\s*Sophia\s*10/);
-  });
-
-  it("le site envoie sur Unswipe : la page suit, sans rien d'écrit en dur", async () => {
-    // C'est le site qui décide, candidat par candidat. Le jour où il envoie
-    // ailleurs, le plancher change d'application tout seul.
-    lireRecruesSite.mockResolvedValue([
-      { langue: "fr", pays: "FR", recrues: 22, recruesSite: 10, siteParApp: { unswipe: 10 } },
-      { langue: "de", pays: "DE", recrues: 15, recruesSite: 0, siteParApp: {} },
-      { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
-    ]);
-    lireCibleRepartitionApps.mockResolvedValue({
-      source: "reglage",
-      parts: { sophia: 90, unswipe: 5, micabo: 5 },
-    });
-    renderPage();
-    const detail = await detailMarche("fr|FR");
-    expect(detail.textContent).toMatch(/Plancher : Unswipe 45 %|Floor: Unswipe 45 %/);
-    // Et c'est Unswipe qui bloque la cible, pas Sophia.
-    expect(detail.textContent).toMatch(/Unswipe reçoit déjà au moins|Unswipe already gets at least/);
-  });
-
-  it("pas de verdict rouge sur un échantillon emprunté à la flotte", async () => {
-    // L'espagnol n'a que 2 recrues : sa part vient de la flotte. Déclarer sa
-    // cible impossible sur un chiffre emprunté pousserait l'admin à la
-    // gonfler pour rien.
-    lireCibleRepartitionApps.mockResolvedValue({
-      source: "reglage",
-      parts: { sophia: 1, unswipe: 60, micabo: 39 },
-    });
-    renderPage();
-    const es = await detailMarche("es|ES");
-    expect(es.textContent).toMatch(/Échantillon trop mince pour juger|Sample too thin to judge/);
-    expect(es.textContent).not.toMatch(/reçoit déjà|already gets/);
-    // Le français, lui, parle pour lui-même : le verdict franc est permis.
-    expect((await detailMarche("fr|FR")).textContent).toMatch(/reçoit déjà|already gets/);
-    // Et le bloc du site ne liste que lui.
-    const bloc = await blocSite();
-    expect(bloc.textContent).toMatch(/Français|French/);
-    expect(bloc.textContent).not.toMatch(/Espagnol|Spanish/);
   });
 
   it("l'interrupteur est refusé tant qu'aucune cible n'est posée", async () => {
@@ -427,7 +371,9 @@ describe("AdminRepartitionPage — la cible et le réel", () => {
     fireEvent.click(bouton);
     expect(bouton.getAttribute("aria-expanded")).toBe("true");
     const ligne = screen.getByTestId("marche-fr|FR");
-    expect((ligne.nextElementSibling as HTMLElement).textContent).toMatch(/Plancher|Floor/);
+    expect((ligne.nextElementSibling as HTMLElement).textContent).toMatch(
+      /Les 20 prochains comptes|The next 20 accounts/,
+    );
   });
 
   it("les recrues sans label ouvert gardent leur place dans la barre des 20", async () => {
@@ -442,22 +388,6 @@ describe("AdminRepartitionPage — la cible et le réel", () => {
     expect(within(ligne).getByRole("img", { name: /(Sans label ouvert|No open label) 20 (sur|of) 20/ })).toBeTruthy();
   });
 
-  it("des marchés trop minces pour juger ne font pas dire « atteignable partout »", async () => {
-    lireRecruesSite.mockResolvedValue([
-      { langue: "fr", pays: "FR", recrues: 3, recruesSite: 3, siteParApp: { sophia: 3 } },
-      { langue: "de", pays: "DE", recrues: 30, recruesSite: 0, siteParApp: {} },
-      { langue: "es", pays: "ES", recrues: 2, recruesSite: 0, siteParApp: {} },
-    ]);
-    // Flotte : 3 recrues du site sur 35 (8,6 %), au-dessus d'une cible Sophia à 5 %.
-    lireCibleRepartitionApps.mockResolvedValue({ source: "reglage", parts: { sophia: 5, unswipe: 65, micabo: 30 } });
-    renderPage();
-    const bloc = await blocSite();
-    await waitFor(() =>
-      expect(bloc.textContent).toMatch(/2 marchés sont trop minces pour juger|2 markets are too thin to judge/),
-    );
-    expect(bloc.textContent).not.toMatch(/sur tous les marchés\.|in every market\./);
-  });
-
   it("chaque marché donne son prochain compte", async () => {
     renderPage();
     const ligne = await screen.findByTestId("marche-de|DE");
@@ -469,6 +399,95 @@ describe("AdminRepartitionPage — la cible et le réel", () => {
 async function ouvrirReglages() {
   fireEvent.click(await screen.findByRole("button", { name: /Réglages avancés|Advanced settings/ }));
 }
+
+describe("AdminRepartitionPage — une application en préparation", () => {
+  // Atala au 19/11 : inactive (prompts en brouillon, pas de stock), mais ses
+  // labels existent. On veut pouvoir lui envoyer les prochaines recrues.
+  const ATALA = { id: "id-atala", slug: "atala", langues: null, actif: false };
+
+  beforeEach(() => {
+    poserDonnees();
+    APPS.push(ATALA);
+  });
+  afterEach(() => {
+    APPS.splice(APPS.indexOf(ATALA), 1);
+  });
+
+  it("inactive et sans label, elle reste hors de la répartition", async () => {
+    renderPage();
+    await screen.findByLabelText(/Cible de Sophia|Target for Sophia/);
+    expect(screen.queryByLabelText(/Cible de Atala|Target for Atala/)).toBeNull();
+    expect(lireCibleRepartitionApps).toHaveBeenLastCalledWith(["sophia", "micabo", "unswipe"]);
+    expect(lireMarchesRepartition).not.toHaveBeenCalledWith("id-atala");
+  });
+
+  it("inactive mais dotée de labels, elle a sa ligne, marquée « Inactive »", async () => {
+    lireApplicationsEnPreparation.mockResolvedValue(["id-atala"]);
+    renderPage();
+    const champ = await screen.findByLabelText(/Cible de Atala|Target for Atala/);
+    expect(within(champ.closest("tr")!).getByTestId("inactive-atala").textContent).toMatch(/Inactive/);
+    // Les applications actives, elles, ne portent pas la marque.
+    expect(screen.queryByTestId("inactive-sophia")).toBeNull();
+    // La cible et les labels se lisent sur la même liste que le moteur.
+    expect(lireCibleRepartitionApps).toHaveBeenLastCalledWith(["sophia", "micabo", "unswipe", "atala"]);
+    expect(lireMarchesRepartition).toHaveBeenCalledWith("id-atala");
+    // Sans part, rien à signaler : elle ne reçoit aucun compte.
+    expect(screen.queryByTestId("alerte-inactives")).toBeNull();
+  });
+
+  it("lui donner une part prévient avant d'enregistrer, puis part en base", async () => {
+    lireApplicationsEnPreparation.mockResolvedValue(["id-atala"]);
+    renderPage();
+    const champ = await screen.findByLabelText(/Cible de Atala|Target for Atala/);
+    fireEvent.change(champ, { target: { value: "100" } });
+    const alerte = screen.getByTestId("alerte-inactives");
+    expect(alerte.textContent).toMatch(/Atala est inactive|Atala is inactive/);
+    expect(alerte.textContent).toMatch(/warm-up/);
+    fireEvent.click(screen.getByRole("button", { name: /Poser la cible|Set the target/ }));
+    await waitFor(() =>
+      expect(ecrireCibleRepartitionApps).toHaveBeenCalledWith({ sophia: 60, unswipe: 25, micabo: 15, atala: 100 }),
+    );
+  });
+
+  it("une cible déjà posée sur elle garde l'avertissement à l'écran", async () => {
+    lireApplicationsEnPreparation.mockResolvedValue(["id-atala"]);
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "reglage",
+      parts: { sophia: 0, unswipe: 0, micabo: 0, atala: 100 },
+    });
+    renderPage();
+    expect((await screen.findByTestId("alerte-inactives")).textContent).toMatch(/Atala/);
+  });
+
+  it("sa File s'édite depuis la carte « File des créateurs », avec la cible sous les yeux", async () => {
+    // Décider le label des prochains comptes d'Atala : il faut pouvoir choisir
+    // sa File alors qu'elle est inactive, et savoir si elle sera lue.
+    lireApplicationsEnPreparation.mockResolvedValue(["id-atala"]);
+    renderPage();
+    await screen.findByLabelText(/Cible de Atala|Target for Atala/);
+    await waitFor(() => expect(carteFile).toHaveBeenCalled());
+    const props = carteFile.mock.calls.at(-1)![0];
+    expect(props.slugsEnPreparation).toEqual(["atala"]);
+    // La cible posée (60 / 25 / 15, rien pour Atala) part telle quelle.
+    expect(props.partsCible).toEqual({ sophia: 60, unswipe: 25, micabo: 15 });
+  });
+
+  it("sans cible posée, la carte de la File ne reçoit aucune part", async () => {
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "defaut",
+      parts: { sophia: 100 / 3, unswipe: 100 / 3, micabo: 100 / 3 },
+    });
+    renderPage();
+    await waitFor(() => expect(carteFile).toHaveBeenCalled());
+    expect(carteFile.mock.calls.at(-1)![0].partsCible).toBeNull();
+  });
+
+  it("une lecture en panne se voit, elle ne retire pas l'application en silence", async () => {
+    lireApplicationsEnPreparation.mockRejectedValue(new Error("applications_en_preparation : timeout"));
+    renderPage();
+    expect(await screen.findByText(/applications_en_preparation : timeout/)).toBeTruthy();
+  });
+});
 
 describe("AdminRepartitionPage — les réglages de label s'éditent", () => {
   beforeEach(poserDonnees);
@@ -792,21 +811,18 @@ describe("AdminRepartitionPage — ce que la projection reçoit", () => {
     await waitFor(() => expect(simulerTirages.mock.calls.at(-1)![6].file).toEqual(FILE));
   });
 
-  it("une part du site empruntée à la flotte ne réserve aucun tirage", async () => {
-    // L'espagnol n'a que 2 recrues : sa part vient de la flotte. La réserver
-    // ici donnerait des tirages à un site qui n'a peut-être jamais envoyé
-    // personne sur ce marché.
+  it("aucun tirage n'est réservé au site : toutes les recrues passent par le moteur", async () => {
+    // Avant le 19/11, la projection recevait la part du site mesurée sur le
+    // marché et lui réservait des tirages. Le moteur place tout le monde.
     renderPage();
     await waitFor(() => expect(simulerTirages).toHaveBeenCalled());
-    // Seuls les tirages de VINGT portent la part du site ; celui d'un seul
-    // compte (le prochain, placé par le moteur) n'en a pas, par construction.
-    const parMarche = new Map(
-      simulerTirages.mock.calls
-        .filter((c) => c[5] === 20)
-        .map((c) => [`${c[0].langue}|${c[0].pays ?? ""}`, c[6]]),
-    );
-    expect(parMarche.get("es|ES").partSite).toBe(0);
-    // Le français, lui, est mesuré sur son propre marché : 10 recrues sur 22.
-    expect(parMarche.get("fr|FR").partSite).toBeCloseTo(10 / 22);
+    for (const appel of simulerTirages.mock.calls) {
+      expect(appel[6]).not.toHaveProperty("partSite");
+      expect(appel[6]).not.toHaveProperty("siteParApp");
+    }
+    // En français, où 10 recrues sur 22 viennent du site, la ligne ne compte
+    // plus de recrues « du site » parmi les vingt.
+    const ligne = await screen.findByTestId("marche-fr|FR");
+    expect(ligne.textContent).not.toMatch(/\/ 20/);
   });
 });

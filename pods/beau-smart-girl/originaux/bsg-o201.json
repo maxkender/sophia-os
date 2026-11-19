@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o201",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en passant une journée entière à la bibliothèque #bibliotheque #culture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label (ni habitudes volées, ni mots rares, ni musée, ni livres par an). cta B. Fait vérifié le 31/10 sur https://fr.wikipedia.org/wiki/Le_Petit_Prince : « Il est publié en anglais le 6 avril 1943 à New York ». Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6454ded8",
+      "texte_overlay": "ce que j'ai appris en passant\nune journée entière à la bibliothèque",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "26c42071",
+      "texte_overlay": "1. le temps passe autrement\n\nsans téléphone, sans bruit.\nla journée a duré une semaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ec36abff",
+      "texte_overlay": "2. les rayons se lisent comme une carte\n\nhistoire, voyages, poésie.\nje me suis perdue exprès.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "bc35cb29",
+      "texte_overlay": "3. on tombe sur des trésors\n\nce matin, j'ai appris que le petit prince a d'abord été publié à new york, en 1943.\nje l'ai découvert dans un vieux livre du rayon jeunesse.",
+      "texte_sophia": "3. on tombe sur des trésors\n\nce matin, l'appli Sophia m'a appris que le petit prince a d'abord été publié à new york, en 1943.\nje l'ai découvert dans un vieux livre du rayon jeunesse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1c8b43c4",
+      "texte_overlay": "4. les bibliothécaires savent tout\n\ndemande-leur un conseil.\nils adorent ça.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "261b948e",
+      "texte_overlay": "5. je suis repartie avec cinq livres\n\net une carte gratuite.\nla meilleure affaire de l'année.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f8fbf516",
+      "texte_overlay": "c'est quoi ta bibliothèque préférée ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

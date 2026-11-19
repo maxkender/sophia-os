@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o143",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "98a86d26-4a31-42ae-b1fd-8bb1dfa6dd42",
+  "titre": "exquisite words to add to your vocabulary (part 3) #vocabulary #studytok #english",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "98a86d26-4a31-42ae-b1fd-8bb1dfa6dd42"
+  ],
+  "notes": "Déclinaison G1 de 98a86d26 (r 2,5 en turc), ligne 3 de la boîte. Accroche du parent mot pour mot, avec « (part 3) » (dans l'accroche du parent). Mots neufs, aucun du parent (mendacious, capricious, ambiguity, scrutinize, erudite) ni de cs-o050, cs-o096, cs-o102, cs-o106, cs-o120 ni de 85dd07fe ; définitions et exemples vérifiés dans leur sens courant : poignant, verbose, zealous, ebullient, meander. Place micabo : slide 6 (se tester). Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f389ce18",
+      "texte_overlay": "exquisite words to add to\nyour vocabulary\n(part 3)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "26721769",
+      "texte_overlay": "poignant\nadjective — deeply moving, a little sad\n\"the last chapter was so poignant i cried.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0e0d82b0",
+      "texte_overlay": "verbose\nadjective — using more words than needed\n\"my first draft was verbose. the second was clear.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4fcb12ae",
+      "texte_overlay": "zealous\nadjective — full of energy for a cause or goal\n\"a zealous student before every exam.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b544669f",
+      "texte_overlay": "ebullient\nadjective — cheerful and full of energy\n\"she was ebullient after getting her results.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0cc4cdaf",
+      "texte_overlay": "meander\nverb — to wander slowly, without a clear direction\n\"my thoughts meander when my phone is near.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e3c5c05c",
+      "texte_overlay": "part 4? 📜",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

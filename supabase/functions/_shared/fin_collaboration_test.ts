@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { estDemandePosteur, lignePaiement, raisonFixe, texteCompteArrete, texteFin } from "./fin_collaboration.ts";
+import { estDemandePosteur, lignePaiement, raisonFixe, texteCompteArrete, texteDeuxiemeCompte, texteFin } from "./fin_collaboration.ts";
 import type { EtatReel } from "./support_regles.ts";
 
 const etat = (p: Partial<EtatReel>): EtatReel => ({
@@ -43,6 +43,18 @@ Deno.test("page de fin : à sa demande, déjà payé (Ruul)", () => {
 Deno.test("bandeau : un compte désactivé, l'autre continue, tarif 1 compte", () => {
   assertEquals(
     texteCompteArrete({ handle: "run.anna", le: "2026-11-21T10:00:00Z", raison: "posts were missing", autre: "study.anna", montant: 14 }),
-    "One of your accounts (@run.anna) was deactivated on 21 Nov because posts were missing. You keep posting on @study.anna as usual. From next week, your payment is 14 $ per week (1 account).",
+    "One of your accounts (@run.anna) was deactivated on 21 Nov because posts were missing. You keep posting on @study.anna as usual. From next week, your weekly payment goes back to the 1-account rate: 14 $ per week.",
+  );
+});
+
+Deno.test("bandeau du 2e compte : quel compte, quel label, quand il démarre, ce qu'il gagne en plus", () => {
+  assertEquals(
+    texteDeuxiemeCompte({ handle: "leevi.voima242", label: "classic_study", lundi: "2026-11-23", tarif: 10 }),
+    "Good news: @leevi.voima242 is doing great, so you get a 2nd TikTok account in the \"classic_study\" style. It is on your dashboard now: " +
+      "create it and do its warm-up from today to Sunday. It starts posting on Monday 23 Nov. From that week you are paid for 2 accounts: +10 $ per week (20 $ per week in total).",
+  );
+  assertEquals(
+    texteDeuxiemeCompte({ handle: null, label: null, lundi: "2026-11-23", tarif: null }).endsWith("It starts posting on Monday 23 Nov. From that week you are paid for 2 accounts."),
+    true,
   );
 });

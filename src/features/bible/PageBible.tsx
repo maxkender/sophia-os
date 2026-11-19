@@ -5,7 +5,7 @@
  * 19/11 (Adrien) : la Bible est le chemin de l'import, d'un bout à l'autre, un onglet par étape :
  *   Source proposals → À importer → Prochain batch   (à la main ; les propositions viennent de l'agent éclaireur)
  *   → En import → À l'essai → Weekly update     (calculé depuis l'état réel de la source)
- *   et deux sorties : Arrêtées, Corbeille.
+ *   et trois sorties : Essai raté (gardée, plus importée), Arrêtées (désactivée), Corbeille.
  * « Lancer l'import » crée les sources du prochain batch ; plus rien ne se coche « importé » à la main. Les onglets
  * des sources montrent ce que montre la page Sources (r, stock, état, décision du lundi), qui reste en place.
  * Admin au sens strict (RLS + route).

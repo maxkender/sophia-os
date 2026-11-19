@@ -3,7 +3,7 @@
  * puis par carte de label (labels_proposes : section, badge, DA). Lectures, écritures et rangement.
  *
  * 19/11 (Adrien) : la Bible est le chemin de l'import, de bout en bout. Deux étapes à la main (À importer, Prochain
- * batch), puis « Lancer l'import » crée les sources ; la suite (En import, À l'essai, Weekly update, Arrêtées) est
+ * batch), puis « Lancer l'import » crée les sources ; la suite (En import, À l'essai, Weekly update, Essai raté, Arrêtées) est
  * calculée depuis l'état réel de la source (voir `sources.ts`), plus jamais cochée à la main.
  *
  * 19/11 (soir) : l'appli de running a son nom, Atala, et existe dans l'OS (migration 0764). La section « runvik »
@@ -20,7 +20,7 @@ export type Etape = "a_importer" | "prochain_batch" | "importe";
 /** Les deux étapes à la main, avant l'import. */
 export type EtapeManuelle = "a_importer" | "prochain_batch";
 /** Les étapes d'une source, calculées depuis son état réel. */
-export type EtapeSource = "en_import" | "essai" | "weekly" | "arretees";
+export type EtapeSource = "en_import" | "essai" | "weekly" | "essai_rate" | "arretees";
 /** Un onglet de la page : les propositions de l'éclaireur, une étape du chemin, ou la corbeille. */
 export type Vue = "propositions" | EtapeManuelle | EtapeSource | "corbeille";
 export type Section = "atala" | "micabo" | "sophia" | "idees";
@@ -37,11 +37,13 @@ export const VUES: readonly { cle: Vue; libelle: string; chemin: boolean; auto: 
   { cle: "en_import", libelle: "En import", chemin: true, auto: true },
   { cle: "essai", libelle: "À l'essai", chemin: true, auto: true },
   { cle: "weekly", libelle: "Weekly update", chemin: true, auto: true },
+  { cle: "essai_rate", libelle: "Essai raté", chemin: false, auto: true },
   { cle: "arretees", libelle: "Arrêtées", chemin: false, auto: true },
   { cle: "corbeille", libelle: "Corbeille", chemin: false, auto: false },
 ];
 
-export const estVueSource = (v: Vue): v is EtapeSource => v === "en_import" || v === "essai" || v === "weekly" || v === "arretees";
+export const estVueSource = (v: Vue): v is EtapeSource =>
+  v === "en_import" || v === "essai" || v === "weekly" || v === "essai_rate" || v === "arretees";
 
 export const SECTIONS: readonly { cle: Section | "sans"; libelle: string; sous?: string }[] = [
   { cle: "atala", libelle: "Atala", sous: "running" },

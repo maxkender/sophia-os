@@ -1,7 +1,8 @@
 /**
  * 19/11 (Adrien) : les sources dans la Bible. Après « Lancer l'import », un compte est une source, et son onglet se
  * CALCULE depuis son état réel : En import (son premier import tourne), À l'essai (ses 30 premiers posts, pas encore
- * jugée), Weekly update (mise à jour chaque lundi si elle marche), Arrêtées (essai raté ou désactivée).
+ * jugée), Weekly update (mise à jour chaque lundi si elle marche), Essai raté (gardée, plus importée), Arrêtées
+ * (désactivée).
  *
  * Une source neuve part TOUT DE SUITE (0772) : relevé de son profil, puis ses slideshows dans la file. Seules les
  * mises à jour de la semaine sont lissées (un lot chaque matin, une source à la fois).
@@ -147,9 +148,14 @@ export interface SourceBible {
  * L'onglet d'une source. « En import » ne concerne que ce qui arrive : une source neuve dont le premier import
  * tourne (relevé du profil, puis ses slideshows en traitement). Elle en sort seule, quand tout est traité. Une source
  * établie qui passe sa mise à jour du lundi reste dans « Weekly update ».
+ *
+ * 20/11 (Adrien : « si le compte ne marche pas, il ne faut pas l'effacer ») : une source qui rate son essai a sa
+ * propre case, « Essai raté ». Rien n'est effacé : elle reste une source, ses slideshows validés restent en stock,
+ * elle n'importe simplement plus rien. « Arrêtées » ne garde que les sources désactivées à la main.
  */
 export function etapeDeLaSource(s: Omit<SourceBible, "etape">): EtapeSource {
-  if (!s.actif || s.essaiVerdict === "ne_tient_pas") return "arretees";
+  if (!s.actif) return "arretees";
+  if (s.essaiVerdict === "ne_tient_pas") return "essai_rate";
   if (s.neuve) return "en_import";
   if (s.attente?.sorte === "neuve") return "en_import";
   if (s.sequence && (s.semaine?.raison === "ajout" || s.importes === 0)) return "en_import";
@@ -226,6 +232,7 @@ export const compterSources = (sources: SourceBible[]): Record<EtapeSource, numb
   en_import: sources.filter((s) => s.etape === "en_import").length,
   essai: sources.filter((s) => s.etape === "essai").length,
   weekly: sources.filter((s) => s.etape === "weekly").length,
+  essai_rate: sources.filter((s) => s.etape === "essai_rate").length,
   arretees: sources.filter((s) => s.etape === "arretees").length,
 });
 
@@ -259,7 +266,10 @@ export type TonEtat = "neutre" | "attente" | "bon" | "alerte";
 /** Où en est la source, en une phrase. */
 export function phraseEtat(s: SourceBible, regles: ReglesSources): { texte: string; ton: TonEtat } {
   if (!s.actif) return { texte: "Désactivée", ton: "neutre" };
-  if (s.essaiVerdict === "ne_tient_pas") return { texte: `Essai raté : arrêtée à ${s.essaiMax ?? s.importes} posts`, ton: "alerte" };
+  if (s.essaiVerdict === "ne_tient_pas") {
+    const gardes = s.valides > 0 ? `gardée avec ses ${s.valides} slideshow${s.valides > 1 ? "s" : ""} validé${s.valides > 1 ? "s" : ""}` : "gardée";
+    return { texte: `Essai raté : ${gardes}, plus d'import`, ton: "alerte" };
+  }
 
   if (s.etape === "en_import") {
     const n = s.neuve;
@@ -374,7 +384,7 @@ export function rangerSources(
   const ordreDe = (labelId: string): number => carteDuLabel.get(labelId)?.ordre ?? 99;
   // Les meilleures d'abord là où le r compte ; sinon par nom.
   const tri = (a: SourceBible, b: SourceBible) =>
-    (filtre.etape === "weekly" || filtre.etape === "essai" ? (b.perf?.r ?? -1) - (a.perf?.r ?? -1) : 0) || a.handle.localeCompare(b.handle);
+    (filtre.etape === "weekly" || filtre.etape === "essai" || filtre.etape === "essai_rate" ? (b.perf?.r ?? -1) - (a.perf?.r ?? -1) : 0) || a.handle.localeCompare(b.handle);
 
   const parLabel = new Map<string, { carte: CarteSources; section: Section; ordre: number; sources: { source: SourceBible; aussi: boolean }[] }>();
   const sans: SourceBible[] = [];
@@ -421,11 +431,13 @@ export function regleDeLaVue(vue: Vue, r: ReglesSources): string {
     case "en_import":
       return `Une source part dès qu'elle est créée, sans attendre les autres : l'OS relève son profil (une à deux minutes), puis ses slideshows passent dans la file d'import (lecture, pertinence, note, nettoyage : 20 à 30 minutes). Tout traité, elle passe seule à l'étape suivante : À l'essai, ou Weekly update dans un label neuf. Seules les mises à jour de la semaine sont étalées, ${r.lotMax} sources par jour.`;
     case "essai":
-      return `Une source neuve n'importe d'abord que ses ${r.essaiPosts} posts les plus vus. Le lundi, dès ${r.essaiMesuresMin} posts mesurés chez nous : avec un r au-dessus de ${seuil(r.rMin)} (ou de ${seuil(r.rVsLabelMin)} face à son label) elle passe en Weekly update, sinon elle est arrêtée. Pas d'essai dans un label neuf (${labelNeuf(r)}) : la source va droit en Weekly update avec ses ${r.postsMaxParMaj} posts les plus vus.`;
+      return `Une source neuve n'importe d'abord que ses ${r.essaiPosts} posts les plus vus. Le lundi, dès ${r.essaiMesuresMin} posts mesurés chez nous : avec un r au-dessus de ${seuil(r.rMin)} (ou de ${seuil(r.rVsLabelMin)} face à son label) elle passe en Weekly update, sinon elle va dans « Essai raté » (gardée, plus importée). Pas d'essai dans un label neuf (${labelNeuf(r)}) : la source va droit en Weekly update avec ses ${r.postsMaxParMaj} posts les plus vus.`;
     case "weekly":
       return `Le lundi à 6 h, l'OS choisit les sources à mettre à jour dans la semaine : celles dont le r dépasse ${seuil(r.rMin)}, ou ${seuil(r.rVsLabelMin)} face à leur label, qui ont un post à ${nombre(r.vuesCoup)} vues, ou moins de ${r.postsMin} posts mesurés. Les mises à jour partent ensuite chaque matin à 6 h 37, ${r.lotMax} sources par jour, ${r.postsMaxParMaj} posts de plus au maximum par source. Les autres sont rejugées le lundi suivant. Les comptes à podzer validés y figurent à part, à titre indicatif.`;
+    case "essai_rate":
+      return `Les sources qui n'ont pas passé l'essai : le lundi, avec ${r.essaiMesuresMin} posts mesurés chez nous, leur r est resté sous ${seuil(r.rMin)}, et sous ${seuil(r.rVsLabelMin)} face à leur label. Rien n'est effacé : la source reste, ses slideshows validés restent en stock, elle n'importe simplement plus rien. Pour lui redonner sa chance, lève son essai dans Sources : la suite de son catalogue s'importe.`;
     case "arretees":
-      return "Les essais ratés et les sources désactivées : elles ne sont plus mises à jour.";
+      return "Les sources désactivées à la main : elles ne sont plus mises à jour.";
     case "corbeille":
       return "Les comptes supprimés de la Bible : à restaurer, ou à supprimer pour de bon.";
   }

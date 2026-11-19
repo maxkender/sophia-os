@@ -12,7 +12,7 @@ ces labels les retrouve avec sa commande `images` et les dépose comme une image
 d'import nettoyée. Une image :
 
 - verticale **9:16**, 720 px de large au moins (l'outil recadre et refuse le reste) ;
-- **sans texte, ni logo en sujet, ni filigrane** ;
+- **belle, et sans texte posé dessus** ni filigrane (un logo n'empêche rien) ;
 - **sans aucune métadonnée** : l'outil réencode l'image et retire tout (EXIF,
   XMP, C2PA, profil de couleur), et l'OS refuse un fichier qui en porte ;
 - **décrite par l'OS**, en anglais, comme une image d'import (Florence, puis
@@ -60,19 +60,25 @@ Une ligne est l'empreinte seule, ou un objet quand il faut préciser :
 - `legende` : facultative. L'OS décrit lui-même l'image ; la tienne ne sert
   que s'il n'en rend aucune (`verser` le signale : « SANS DESCRIPTION »).
 
-**On écarte** :
+**Le critère, c'est l'esthétique** (Adrien, 19/11) : une belle image qui tient
+la direction artistique du label entre, même avec un logo, même si c'est une
+photo de marque. Une bonne recherche rend surtout de belles images : si une
+planche est pleine d'affiches, change de mots-clés plutôt que de trier plus.
 
-- tout texte posé sur l'image : citation, titre, statistiques d'une appli
-  (distance, allure), capture d'écran ;
-- un dossard lisible, un nom, une plaque ;
-- une pub ou une photo de marque (étiquette rouge, logo en gros plan, produit
-  mis en scène), et toute appli concurrente d'Atala à l'écran. Un logo petit
-  sur une chaussure ou une chaussette ne compte pas ;
-- un visage reconnaissable **en gros plan et de face**, un enfant, un athlète
-  connu. On préfère le dos, la silhouette, le flou, le cadrage qui coupe ;
-- un collage de plusieurs photos, un filigrane, une image floue ou sale ;
+**On écarte** seulement :
+
+- un texte posé sur l'image : citation, titre, liste, statistiques d'une appli
+  (distance, allure), capture d'écran. L'image sert de fond à un texte ;
+- un collage de plusieurs photos, un cadre ou une marge, un filigrane ;
+- une personne qui peut avoir moins de 18 ans, une image sexualisée ;
+- une image laide, floue, ratée ou hors sujet ;
 - un doublon : la même photo revient sous deux empreintes quand elle a été
   remise en ligne. Garde la plus grande.
+
+Ne sont **pas** des motifs d'écart : un logo, une photo de marque ou de
+campagne (l'étiquette rouge reste une alerte à regarder, pas un refus), un
+dossard, une image générée par IA si elle est belle et propre, un visage
+(note `visage: true`).
 
 **On garde** ce qui tient la direction artistique du label (`labels_proposes`,
 section `atala` de la Bible) : `male_run`, running homme ; `classic_girl_run`,

@@ -351,13 +351,15 @@ Sous 1 semaine, l'OS envoie une alerte à Adrien et Max (ajouter des sources au 
 Pour chaque source active (`comptes_reference.is_active`), lire `source_performance` :
 
 - moins de **5** posts mesurés, ou source listée dans sources.toujours → mise à jour ;
-- `r_mediane > 1` ou `r_vs_label > 1` → mise à jour ;
+- `r_mediane > 1` ou `r_vs_label > 1` → mise à jour (*19/11, 0761 :* les deux seuils passent à **0,95**) ;
 - *10/11 (0667) :* un post de la source chez nous à **100 000 vues** ou plus (publié il y a 3 à 30 jours, hors rappels) → mise à jour ;
 - sinon → pas de mise à jour cette semaine. La source reste active, ses contenus aussi.
 
 Mise à jour = importer ses posts publiés depuis `dernier_scrape_at`, par le circuit d'import actuel. Chaque décision est écrite dans `bleo_sources_decisions`, avec sa raison. Au 28/10, 23 sources sur 46 passent ; au 10/11, 29 sur 49 (dont 7 par la règle des 100 000 vues).
 
 *10/11 (0667) :* les sources retenues partent **par lots de 6 par jour** (`bleo_sources_lot`, le lundi juste après les décisions, puis à 6 h 37 tant qu'il en reste, seulement si le lot d'avant est fini), une source à la fois dans un lot, la file d'import vidée entre chaque. Seuils : `reglages.bleo.sources`. Compte rendu : `bleo_sources_semaine_ui`, panneau de la page Sources.
+
+*19/11 (0761, décisions d'Adrien) :* `r_min` et `r_vs_label_min` à **0,95** (règle du lundi et verdict des essais), lots de **8** par jour, plus de quota de sources neuves par jour (`nouvelles_par_jour` à 1000, toujours une source à la fois). L'import se lance depuis la **Bible des comptes** (`/admin/bible`, « Lancer l'import » du prochain batch, `bible_lancer_batch`) : ses onglets suivent une source d'un bout à l'autre (À importer, Prochain batch, En import, À l'essai, Weekly update, Arrêtées), les quatre derniers calculés depuis l'état réel de la source. La page Sources reste en place.
 
 ## L'agent de langue
 

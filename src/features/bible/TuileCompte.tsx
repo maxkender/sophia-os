@@ -2,17 +2,20 @@
  * 19/11 (Max) : un compte de la Bible dans le moodboard : le lien tiktok.com/@handle en entier, la note en petit,
  * ses 3 derniers TikToks en vertical (cliquables), et au survol : Prochain batch / Retirer, Changer de label,
  * Modifier la note, Supprimer.
+ *
+ * 19/11 (Adrien) : plus de bouton « Importé ». Un compte quitte ces onglets quand sa source existe (« Lancer
+ * l'import ») ; dans le prochain batch, la tuile dit s'il est prêt à partir, ou ce qui le bloque.
  */
 import * as React from "react";
-import { ArrowLeft, ArrowRight, Check, ImageOff, Loader2, Pencil, RotateCcw, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
+import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, RotateCcw, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import type { CompteBible, Etape } from "./moodboard";
-import { REMARQUE_UGC, vuesCourtes } from "./moodboard";
+import type { Blocage, CompteBible, EtapeManuelle, SourceDuCompte } from "./moodboard";
+import { LIBELLE_BLOCAGE, REMARQUE_UGC, vuesCourtes } from "./moodboard";
 
 export interface ActionsTuile {
-  onEtape: (c: CompteBible, etape: Etape) => void;
+  onEtape: (c: CompteBible, etape: EtapeManuelle) => void;
   onChangerLabel: (c: CompteBible) => void;
   onModifier: (c: CompteBible, p: { note: string; remarque: string; a_podzer: boolean }) => void;
   onSupprimer: (c: CompteBible) => void;
@@ -20,7 +23,13 @@ export interface ActionsTuile {
   onSupprimerDefinitivement: (c: CompteBible) => void;
 }
 
-export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aussi?: boolean; actions: ActionsTuile; occupe?: boolean }) {
+export function TuileCompte({ c, aussi, actions, occupe, blocage, source }: {
+  c: CompteBible; aussi?: boolean; actions: ActionsTuile; occupe?: boolean;
+  /** Dans le prochain batch : prêt à partir, ou ce qui le bloque. */
+  blocage?: Blocage;
+  /** Sa source, si le compte en est déjà une (avec les labels qu'elle porte). */
+  source?: SourceDuCompte | null;
+}) {
   const [edition, setEdition] = React.useState(false);
   const [note, setNote] = React.useState(c.note_import ?? "");
   const [remarque, setRemarque] = React.useState(c.remarque ?? "");
@@ -39,10 +48,23 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
         <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer" className="block break-all text-[13px] font-semibold leading-snug text-stone-900 hover:underline dark:text-stone-100">
           <span className="font-normal text-stone-400">tiktok.com/</span>@{c.handle}
         </a>
-        {(aussi || c.a_podzer) && (
+        {(aussi || c.a_podzer || source || blocage) && (
           <div className="mt-1 flex flex-wrap gap-1">
             {c.a_podzer && <span className="inline-flex items-center gap-0.5 rounded-full bg-teal-50 px-1.5 py-px text-[10px] font-medium text-teal-700 ring-1 ring-teal-200"><Sparkles className="size-2.5" />à podzer</span>}
             {aussi && <span className="inline-block rounded-full bg-stone-100 px-1.5 py-px text-[10px] text-stone-500 dark:bg-stone-800">aussi ici</span>}
+            {source && (
+              <span className="inline-block rounded-full bg-sky-50 px-1.5 py-px text-[10px] font-medium text-sky-700 ring-1 ring-sky-200" title="Ce compte est déjà une source de l'OS : il reste à lui donner le label de cette carte.">
+                déjà une source{source.labels.length ? ` · ${source.labels.join(", ")}` : ""}
+              </span>
+            )}
+            {blocage && blocage !== "podz" && blocage !== "deja_source" && (
+              <span
+                data-testid={`blocage-${c.handle}`}
+                className={cn("inline-block rounded-full px-1.5 py-px text-[10px] font-medium ring-1", blocage === "pret" ? "bg-emerald-50 text-emerald-700 ring-emerald-200" : "bg-amber-50 text-amber-700 ring-amber-200")}
+              >
+                {LIBELLE_BLOCAGE[blocage]}
+              </span>
+            )}
           </div>
         )}
         {edition ? (
@@ -109,10 +131,9 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
           </>
         ) : (
           <>
-            {c.etape === "a_importer" && <Action icone={ArrowRight} libelle="Prochain batch" fort onClick={() => actions.onEtape(c, "prochain_batch")} />}
-            {c.etape === "prochain_batch" && <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />}
-            {c.etape !== "importe" && <Action icone={Check} libelle="Importé" ok onClick={() => actions.onEtape(c, "importe")} />}
-            {c.etape === "importe" && <Action icone={ArrowLeft} libelle="À importer" onClick={() => actions.onEtape(c, "a_importer")} />}
+            {c.etape === "prochain_batch"
+              ? <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />
+              : <Action icone={ArrowRight} libelle="Prochain batch" fort onClick={() => actions.onEtape(c, "prochain_batch")} />}
             <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
             <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
             <Action icone={Trash2} libelle="Supprimer" danger onClick={() => actions.onSupprimer(c)} />
@@ -130,7 +151,7 @@ function texteErreur(erreur: string | null | undefined, post: boolean): string {
   return erreur;
 }
 
-function Action({ icone: Icone, libelle, titre, onClick, fort, danger, ok }: { icone: typeof Tags; libelle?: string; titre?: string; onClick: () => void; fort?: boolean; danger?: boolean; ok?: boolean }) {
+function Action({ icone: Icone, libelle, titre, onClick, fort, danger }: { icone: typeof Tags; libelle?: string; titre?: string; onClick: () => void; fort?: boolean; danger?: boolean }) {
   return (
     <button
       type="button"
@@ -141,7 +162,6 @@ function Action({ icone: Icone, libelle, titre, onClick, fort, danger, ok }: { i
         "inline-flex h-7 items-center gap-1 rounded-full border px-2 text-[11px] font-medium shadow-sm backdrop-blur transition",
         fort ? "border-stone-900 bg-stone-900 text-white hover:bg-stone-800" : "border-stone-200 bg-white/95 text-stone-700 hover:bg-white",
         danger && "text-red-600 hover:bg-red-50",
-        ok && "text-emerald-700 hover:bg-emerald-50",
       )}
     >
       <Icone className="size-3.5" />

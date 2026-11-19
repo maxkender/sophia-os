@@ -1,7 +1,7 @@
 /**
- * 18/11 (Max) : le doublement du jeudi. Au plus 40 comptes, les stars d'abord puis les vues de la semaine complète
- * d'avant ; pour chacun OUI ou NON et le label du 2e compte (toujours un autre label, une autre app si possible).
- * Rien ne se fait sans OUI. À côté : ce qui démarre lundi par pays (nouveaux posteurs et 2e comptes validés).
+ * 18/11 (Max), règle du 19/11 (0761) : le doublement du jeudi. Au plus 40 posteurs, classés par vues (vues médianes,
+ * puis % de posts viraux sur les 7 derniers jours) ; une proposition par posteur ; pour chacun OUI ou NON et le label
+ * du 2e compte (toujours un autre label). Rien ne se fait sans OUI. À côté : ce qui démarre lundi par pays.
  */
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 
 import {
   ajouterJours, compteurs, creerDeuxieme, decider, formaterVues, jeudiDeLaSemaine, type LabelPossible, lireLabelsPossibles,
-  lireLundi, lirePropositions, type LigneLundi, preparerPropositions, type PropositionDouble, toutRefuser,
+  lireLundi, lirePropositions, type LigneLundi, pctViraux, preparerPropositions, type PropositionDouble, toutRefuser,
 } from "./api";
 
 const dateCourte = (jour: string) => new Date(`${jour}T12:00:00Z`).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
@@ -42,7 +42,8 @@ export function DoublesJeudi({ maintenant = new Date(), jeudi: jeudiForce }: { m
         <div>
           <h2 className="flex items-center gap-2 text-lg font-semibold"><Sparkles className="size-4 text-amber-500" /> Doublement du jeudi</h2>
           <p className="text-sm text-muted-foreground">
-            Jeudi {dateCourte(jeudi).replace(/^jeudi /, "")} · au plus 40 comptes, stars d'abord, puis vues de la semaine complète d'avant. Rien ne part sans ton OUI.
+            Jeudi {dateCourte(jeudi).replace(/^jeudi /, "")} · au plus 40 posteurs, classés par vues médianes puis % de posts viraux (7 derniers jours).
+            Le 2e compte fait son warm-up jusqu'à dimanche et démarre lundi {dateCourte(lundi).replace(/^lundi /, "")} ; la paie passe à 2 comptes ce lundi-là. Rien ne part sans ton OUI.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -98,7 +99,7 @@ function LigneProposition({ p, onChange }: { p: PropositionDouble; onChange: () 
   const bord = cree ? "border-emerald-300 bg-emerald-50/40 dark:border-emerald-900 dark:bg-emerald-950/10"
     : p.decision === "non" ? "opacity-60" : p.statut === "erreur" ? "border-red-300 dark:border-red-900" : "";
   const options: LabelPossible[] = labels.data ?? [];
-  const nomPropose = options.find((l) => l.label_id === label)?.nom;
+  const nomPropose = options.find((l) => l.label_id === label)?.nom ?? (label === p.label_propose_id ? p.label_propose_nom : null);
 
   return (
     <article className={cn("grid gap-3 rounded-xl border bg-card p-3 shadow-sm sm:grid-cols-[2rem_minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1.2fr)_auto] sm:items-center", bord)} data-testid="proposition-double">
@@ -110,12 +111,15 @@ function LigneProposition({ p, onChange }: { p: PropositionDouble; onChange: () 
         </p>
         <p className="truncate text-xs text-muted-foreground">
           {p.handle ? <a href={`https://www.tiktok.com/@${p.handle}`} target="_blank" rel="noreferrer" className="font-medium text-foreground hover:underline">@{p.handle}</a> : "—"}
-          {" · "}{p.label_nom ?? "?"}{p.app_nom ? ` (${p.app_nom})` : ""}{p.hm_nom ? ` · HM ${p.hm_nom}` : ""}
+          {" · "}{p.label_nom ?? "?"}{p.app_nom ? ` (${p.app_nom})` : ""}{p.canal_paie === "ruul" ? " · Ruul" : ""}{p.hm_nom ? ` · HM ${p.hm_nom}` : ""}
         </p>
       </div>
       <div className="flex items-center gap-4 text-sm">
         <div><p className={MICRO_LABEL}>Vues méd.</p><p className="font-semibold tabular-nums">{formaterVues(p.vues_med)}</p></div>
-        <div><p className={MICRO_LABEL}>Bons posts</p><p className="tabular-nums">{p.bons ?? 0}/{p.posts ?? 0}</p></div>
+        <div title="Posts viraux : au moins 5 fois les vues médianes de la langue sur la semaine">
+          <p className={MICRO_LABEL}>Viraux</p>
+          <p className="tabular-nums">{p.viraux ?? 0}/{p.posts ?? 0}{pctViraux(p) != null && <span className="ml-1 text-xs text-muted-foreground">{pctViraux(p)} %</span>}</p>
+        </div>
         {p.meilleur_url && (
           <a href={p.meilleur_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
             meilleur {formaterVues(p.meilleur_vues)} <ExternalLink className="size-3" />

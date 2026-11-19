@@ -90,6 +90,7 @@ import {
 import { CiblesRecrutementAdmin } from "@/features/recrutementCibles/CiblesAdmin";
 import { CarteSeuilsConfiance } from "@/features/ckd/decisions/CarteSeuilsConfiance";
 import { ListeJeudi } from "@/features/ckd/decisions/ListeJeudi";
+import { DoublesJeudi } from "@/features/ckd/doublesJeudi/DoublesJeudi";
 import { ListeSamedi } from "@/features/ckd/decisions/ListeSamedi";
 import { CheckWarmup } from "@/features/ckd/decisions/CheckWarmup";
 import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
@@ -253,6 +254,8 @@ export function AdminCheckKillDoublePage() {
       <PanneauOnglet id="decisions" actif={onglet}>
         {onglet === "jeudi" ? (
           <>
+            {/* 19/11 (Max) : le doublement se fait le jeudi, avec le check de la cohorte : les propositions d'abord. */}
+            <DoublesJeudi />
             {/* Prompt 25 : tous les comptes actifs, Nudge / Recreate / rien, rien ne part avant Send. 5/11 : fait → replié jusqu'au jeudi suivant. */}
             <RituelFait rituel="jeudi">
               <ListeJeudi />

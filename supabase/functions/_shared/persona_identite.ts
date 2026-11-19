@@ -3,19 +3,32 @@
  * ni réseau, pour être testé. Les listes sont dans persona_donnees.ts, les
  * bios dans persona_bios.ts.
  *
- * Format du @ : `prenom.mot` + 3 chiffres — ex. « jakob.disziplin473 ».
- * — Prénom / nom : selon la LANGUE du compte + le GENRE
- * — Mot : selon le thème du LABEL, dans la langue du compte ou en anglais
+ * Deux façons d'écrire le @, selon le thème du label :
+ *  - le format classique, `prenom.mot` + 3 chiffres (« jakob.disziplin473 ») :
+ *    prénom selon la LANGUE et le GENRE du compte, mot selon le thème du LABEL,
+ *    dans la langue du compte ou en anglais ;
+ *  - les @ VARIÉS (`THEMES_VARIES`, aujourd'hui le running d'Atala) : une forme
+ *    différente à chaque compte, et un mot du thème moins d'une fois sur cinq.
+ *    Voir persona_handles_varies.ts.
  */
-import { themeMotsDuLabel, type Genre } from "./label_theme.ts";
+import { themeMotsDuLabel, type Genre, type ThemeMots } from "./label_theme.ts";
 import { composerBio } from "./persona_bios.ts";
 import { MOTS_PAR_THEME, MOTS_UNIVERSELS, NOMS_PAR_LANGUE } from "./persona_donnees.ts";
+import { HANDLE_MAX, tirerHandleVarie } from "./persona_handles_varies.ts";
+
+export { HANDLE_MAX };
 
 type Hasard = () => number;
 
-/** TikTok refuse un @ de plus de 24 caractères. */
-export const HANDLE_MAX = 24;
 const CHIFFRES = 3;
+
+/**
+ * Les thèmes dont les comptes prennent un @ varié plutôt que `prenom.mot123`.
+ * Le running d'abord (19/11) : trente comptes Atala « prenom.<mot de course>123 »
+ * se reconnaissaient au premier coup d'œil. Ajouter un thème ici suffit à le
+ * faire passer aux @ variés (ses mots restent ceux de persona_donnees.ts).
+ */
+export const THEMES_VARIES: ReadonlySet<ThemeMots> = new Set<ThemeMots>(["running"]);
 
 /** Part des @ dont le mot est pris dans la langue du compte (le reste : anglais). */
 const PART_MOT_LOCAL = 0.65;
@@ -53,19 +66,71 @@ export function motsDuHandle(
   return { locaux, universels };
 }
 
+interface EntreeIdentite {
+  langue: string;
+  genre: Genre;
+  labelNom?: string | null;
+  /** Racines de @ déjà prises dans la base (voir `racineHandle`). */
+  racinesPrises: Set<string>;
+  /** Noms affichés déjà pris, en minuscules. */
+  nomsPris: Set<string>;
+  annee: number;
+}
+
+/**
+ * L'identité d'un compte à @ varié. Le prénom et le nom de famille sont tirés
+ * d'abord : le @ les reprend souvent (« emma.mrtn » pour Emma Martin), le nom
+ * affiché est toujours le même couple. Jamais une racine de @ déjà prise tant
+ * qu'il en reste ; pendant la première moitié des essais, jamais un nom
+ * affiché déjà pris non plus.
+ */
+function composerIdentiteVariee(
+  entree: EntreeIdentite,
+  theme: ThemeMots,
+  hasard: Hasard,
+): { handle: string; nom: string; bio: string } {
+  const jeu = NOMS_PAR_LANGUE[entree.langue] ?? NOMS_PAR_LANGUE.en!;
+  const prenoms = entree.genre === "homme" ? jeu.prenomsH : jeu.prenomsF;
+  const { locaux, universels } = motsDuHandle(entree.labelNom, entree.langue);
+  // Les mots de la langue du compte comptent double : sans ça l'anglais, plus fourni, les noierait.
+  const motsTheme = [...locaux, ...locaux, ...universels];
+  const tirer = <T>(liste: readonly T[], defaut: T): T => liste[Math.floor(hasard() * liste.length)] ?? defaut;
+  const nomAffiche = (prenom: string, nomFamille: string) => `${capitaliser(prenom)} ${capitaliser(nomFamille)}`;
+
+  const ESSAIS = 400;
+  let choisi: { handle: string; prenom: string; nomFamille: string } | null = null;
+  let secours: { handle: string; prenom: string; nomFamille: string } | null = null;
+  for (let essai = 0; essai < ESSAIS && !choisi; essai += 1) {
+    const prenom = tirer(prenoms, "alex");
+    const nomFamille = tirer(jeu.noms, "martin");
+    const handle = tirerHandleVarie(
+      { prenom, nomFamille, genre: entree.genre, langue: entree.langue, annee: entree.annee, motsTheme },
+      hasard,
+    );
+    const candidat = { handle, prenom, nomFamille };
+    secours ??= candidat;
+    if (entree.racinesPrises.has(racineHandle(handle))) continue;
+    if (essai < ESSAIS / 2 && entree.nomsPris.has(nomAffiche(prenom, nomFamille).toLowerCase())) continue;
+    choisi = candidat;
+  }
+  // Tout est pris (jamais vu) : la première racine tirée, que seuls ses chiffres distingueront.
+  const retenu = choisi ?? {
+    ...secours!,
+    handle: `${racineHandle(secours!.handle).slice(0, HANDLE_MAX - CHIFFRES)}${Math.floor(hasard() * 900) + 100}`,
+  };
+  const bio = composerBio(
+    { prenom: retenu.prenom, langue: entree.langue, theme, annee: entree.annee },
+    hasard,
+  );
+  return { handle: retenu.handle, nom: nomAffiche(retenu.prenom, retenu.nomFamille), bio };
+}
+
 export function composerIdentite(
-  entree: {
-    langue: string;
-    genre: Genre;
-    labelNom?: string | null;
-    /** Racines de @ déjà prises dans la base (voir `racineHandle`). */
-    racinesPrises: Set<string>;
-    /** Noms affichés déjà pris, en minuscules. */
-    nomsPris: Set<string>;
-    annee: number;
-  },
+  entree: EntreeIdentite,
   hasard: Hasard = Math.random,
 ): { handle: string; nom: string; bio: string } {
+  const theme = themeMotsDuLabel(entree.labelNom);
+  if (THEMES_VARIES.has(theme)) return composerIdentiteVariee(entree, theme, hasard);
   const jeu = NOMS_PAR_LANGUE[entree.langue] ?? NOMS_PAR_LANGUE.en!;
   const prenoms = entree.genre === "homme" ? jeu.prenomsH : jeu.prenomsF;
   const { locaux, universels } = motsDuHandle(entree.labelNom, entree.langue);

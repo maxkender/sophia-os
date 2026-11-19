@@ -77,6 +77,15 @@ export async function compterCorrectionsLangue(langue: string): Promise<CompteCo
 }
 
 /**
+ * La clé de requête des retours propres à une application, sous
+ * « corrections-natives » : retenir, écarter ou ranger une correction relit
+ * les blocs.
+ */
+export function cleRetoursApplications(filtre: { langue?: string; applicationId?: string }) {
+  return ["corrections-natives", "retours-applications", filtre.langue?.toLowerCase() ?? null, filtre.applicationId ?? null] as const;
+}
+
+/**
  * Les corrections retenues rangées sous une application (0751), les plus
  * récentes d'abord : celles d'une langue (toutes ses applications), ou celles
  * d'une application (toutes ses langues).

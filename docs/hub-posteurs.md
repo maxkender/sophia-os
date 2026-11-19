@@ -23,8 +23,10 @@ identifiants par email. Ce document décrit le contrat entre les deux.
 - **pays du compte** : envoyé à manage-users seulement quand la langue ne
   désigne pas un seul marché (en, ar, ru…), comme le front
   (`paysAEnvoyer`) ; sinon le trigger `comptes_pays_defaut` le déduit ;
-- applications : Sophia seule = chemin historique ; UnSwipe seule =
-  `{ unswipe: 100 }` ; les deux = `{ sophia: 50, unswipe: 50 }` ;
+- **application du compte : le moteur de l'OS la choisit** (19/11), d'après la
+  cible de la page Allocation, comme pour toute autre recrue. Le champ
+  `applications` envoyé par le site est gardé pour mémoire
+  (`hub_posteurs.applications`), plus rien n'en dépend ;
 - **ouverture du pays = l'OS, point** (décision du 06/11) : un pays est ouvert
   au site si et seulement s'il a une zone de paie active dans l'OS
   (`zones_paie_pays`, `retire_at` nul). Ni la zone d'une HM ni `hm_pays`
@@ -116,53 +118,47 @@ sorti du warm-up.
 
 ## Qui choisit l'application d'un poster du site
 
-**Le site, candidat par candidat.** Décision du 18/10, après avoir envisagé
-l'inverse : il n'y aura pas de règle « un créateur venu du site va sur
-Sophia ». `APPLICATIONS_HUB` vaut `["sophia", "unswipe"]`,
-`partsPourApplications` (`_shared/hub_posteurs.ts`) traduit la demande en
-`null` (chemin historique, 100 % Sophia), `{unswipe: 100}` ou
-`{sophia: 50, unswipe: 50}`, et `manage-users` la recopie telle quelle. C'est
-voulu, et rien côté OS ne doit l'empêcher.
+**Le moteur de l'OS, comme pour toute autre recrue.** Décision du 19/11, qui
+revient sur celle du 18/10.
 
-Au 18/10 les 7 comptes de la cohorte sont sur Sophia, parce que le site a
-demandé `["sophia"]`. Ce n'est pas une propriété du système, c'est son état.
+Du 18/10 au 19/11, c'était le site, candidat par candidat : sa demande
+(`["sophia"]`, `["unswipe"]` ou les deux) partait telle quelle dans
+`parts_applications`, et un marqueur (`source: "hub-posteurs"`) disait à
+`manage-users` de laisser son moteur de côté. Dans les faits le site demandait
+toujours Sophia : 165 recrues sur 165 en 30 jours au 19/11, soit une recrue sur
+trois (165 sur 462) hors de la cible posée dans Allocation. Mettre Atala à
+100 % n'aurait donc touché que deux recrues sur trois.
 
-### Ce que l'OS en fait
+### Ce que fait l'OS maintenant
 
-Rien à la création : il applique ce que le site demande. En revanche la page
-`/admin/repartition` en tient compte, parce que ces recrues-là échappent au
-moteur :
+- `hub-posteurs` n'envoie **aucune application** à `manage-users` : le corps
+  est celui d'un recruteur qui n'a rien coché, sans marqueur ;
+- `manage-users` choisit donc l'application par son moteur
+  (`choisirApplicationPourCompte` : la File d'abord, puis l'application la plus
+  en retard sur sa cible dans le marché du compte), puis le label ;
+- interrupteur « Le moteur choisit l'application » éteint, ou aucune cible
+  posée : le compte part sur Sophia, comme pour toute recrue ;
+- la demande du site reste lue et rangée dans `hub_posteurs.applications`
+  (`applicationsDemandees`, `_shared/hub_posteurs.ts`) : une trace, que plus
+  rien ne lit. Le contrat du site ne change pas, il peut continuer d'envoyer
+  le champ.
 
-- `simulation_recrues_site` (migration 0310) rend, par marché, les recrues de
-  la fenêtre, combien venaient du site, et leur répartition RÉELLE entre
-  applications ;
-- `src/features/moteur/repartition/provenance.ts` en déduit le **plancher** de
-  chaque application, c'est-à-dire ce qu'elle reçoit quoi qu'il arrive, et dit
-  si une cible posée par un admin est atteignable. En français, 5 recrues sur
-  11 viennent du site : une cible qui demanderait à Sophia moins que ce que le
-  site lui envoie déjà est impossible, et la page le dit ;
-- la projection des 20 prochaines recrues réserve ces tirages-là et les envoie
-  où le site les envoie, pas où un slug écrit en dur le voudrait.
+### Ce que la page Allocation en dit
 
-**Tout est mesuré, rien n'est supposé.** Le jour où le site commencera à
-envoyer des comptes sur Unswipe, les planchers changeront d'application et les
-projections suivront sans qu'on touche à une ligne de code. C'est la raison
-d'être de la colonne de répartition de 0310 : une version antérieure posait
-`cohorte => sophia` en constante, et aurait affiché des chiffres faux à la
-première demande `["unswipe"]`.
+Elle ne calcule plus de plancher par application ni de cible « impossible »,
+et la projection ne réserve plus de tirages au site : le parcours d'un compte
+a trois étapes (File, application, label) au lieu de quatre. Elle garde une
+ligne d'information, « Site de recrutement : N recrues sur M en 30 jours »
+(`simulation_recrues_site`, migrations 0310 et 0337, dont la répartition par
+application n'est plus lue).
 
-### Si un jour on veut quand même contraindre
+### Pour revenir en arrière
 
-Ce n'est pas prévu. Si ça le devenait, le point unique est
-`partsPourApplications` (`_shared/hub_posteurs.ts`), avec son test, plus une
-décision à prendre sur ce que devient la demande du site : refuser avec un
-code d'erreur documenté dans le **Contrat**, ou l'ignorer en gardant la trace
-de la demande dans `hub_posteurs.applications`. Deux autres portes resteraient
-ouvertes : un second compte via `ensure_compte` / `ajouter_compte`, et
-l'édition admin depuis la fiche compte (`majPartsApplicationsCompte`), que
-seul un trigger sur `comptes.parts_applications` fermerait. Et la garde devrait
-tomber **avant** `createUser`, jamais dans `preparerCompte` : plus tard, un
-refus laisse un login orphelin.
+Renvoyer `parts_applications` depuis `hub-posteurs` suffit à imposer une
+application à un candidat : `manage-users` traite une répartition explicite
+comme un choix (`resoudreChoixCompte`). Il faudrait alors aussi remettre le
+plancher dans la page (`provenance.ts`, retiré le 19/11), sinon elle
+annoncerait de nouveau une cible que le site empêche d'atteindre.
 
 ## Suite prévue
 

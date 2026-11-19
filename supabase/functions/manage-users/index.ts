@@ -436,11 +436,14 @@ async function gererRequete(request: Request): Promise<Response> {
         // historique ; ce sont les LABELS et `parts_applications` qui disent
         // ce que le compte promeut. Seule la File et le pool de labels
         // suivent l'application choisie.
+        //
+        // Vaut aussi pour une recrue du site (hub-posteurs) depuis le 19/11 :
+        // le site n'envoie plus d'application, son corps est celui d'un
+        // recruteur qui n'a rien coché.
         const auto = await choisirApplicationPourCompte(supabase, {
           langue,
           pays: paysSaisi(body),
           defaut: application,
-          horsMoteur: vientDuGuichet(acces, body),
         });
         const prep = await preparerFileEtPersona(
           supabase,
@@ -994,15 +997,11 @@ async function creerComptePersoPourPoster(
     personaUgc = res.personaUgc;
     partsApplications = res.parts;
   } else {
-    // Même greffe que dans `create`. Le guichet du site ne passe jamais par
-    // ici (il appelle l'action `create`), d'où `horsMoteur: false` : un
-    // second compte ajouté à un poster du site est une décision de l'OS, pas
-    // du site, et le moteur a le droit de la prendre.
+    // Même greffe que dans `create` : le moteur choisit l'application.
     const auto = await choisirApplicationPourCompte(supabase, {
       langue,
       pays,
       defaut: application ?? await applicationSophia(supabase),
-      horsMoteur: false,
     });
     const prep = await preparerFileEtPersona(supabase, langue, auto.application, pays);
     if (!prep.ok) return json({ error: prep.error }, 409);
@@ -1346,27 +1345,6 @@ async function managerDe(
   return (data?.manager_id as string | null) ?? null;
 }
 
-/**
- * Consomme la file admin (langue > générale) + persona UGC si besoin.
- * `fileItemQueue` = entrée exacte à remettre dans LA MÊME file en cas d'échec.
- */
-/**
- * La recrue vient-elle du guichet du site ?
- *
- * Le site choisit l'application de ses candidats, candidat par candidat
- * (décision du 18/10), et le moteur doit lui laisser la main. On ne peut PAS
- * le déduire de l'absence de `parts_applications` : `partsPourApplications`
- * rend `null` quand le site demande Sophia seule, et le corps est alors
- * identique à celui d'un recruteur qui n'a rien coché. D'où le marqueur
- * explicite posé par hub-posteurs.
- *
- * `userId === "cron"` seul ne suffit pas non plus : il est partagé avec
- * pg_cron. Il faut les deux.
- */
-function vientDuGuichet(acces: { userId: string }, body: Record<string, unknown>): boolean {
-  return acces.userId === "cron" && String(body?.source ?? "") === "hub-posteurs";
-}
-
 /** `reglages.choix_application_auto` : l'interrupteur de la bascule. */
 const CLE_CHOIX_APPLICATION_AUTO = "choix_application_auto";
 /** `reglages.repartition_applications` : la cible posée par les admins. */
@@ -1447,16 +1425,20 @@ function fileAUneEntree(
 /**
  * L'application du nouveau compte, choisie par le moteur.
  *
- * TROIS RAISONS DE NE RIEN CHOISIR, et toutes rendent l'application par
+ * DEUX RAISONS DE NE RIEN CHOISIR, et toutes rendent l'application par
  * défaut (Sophia), c'est-à-dire le comportement d'avant la bascule :
  *
- *  1. `horsMoteur` : la recrue vient du site, qui a déjà choisi pour elle ;
- *  2. l'interrupteur est éteint ;
- *  3. aucune cible n'est posée. `lireCibleApplications` retombe alors sur des
+ *  1. l'interrupteur est éteint ;
+ *  2. aucune cible n'est posée. `lireCibleApplications` retombe alors sur des
  *     parts ÉGALES avec `source: "defaut"`, ce qui est un choix de PLAYGROUND
  *     destiné à montrer le manque à l'écran. Appliqué ici, il enverrait un
  *     compte sur trois vers Micabo dès la première création. Le moteur
  *     s'abstient donc tant que personne n'a décidé.
+ *
+ * LES RECRUES DU SITE Y PASSENT AUSSI (19/11). Jusque-là le site choisissait
+ * l'application de ses candidats et un marqueur (`source: "hub-posteurs"`)
+ * faisait sauter cette fonction : il demandait toujours Sophia, donc une
+ * recrue sur trois échappait à la cible. Le marqueur n'existe plus.
  *
  * ET LA FILE PASSE AVANT. Si une application a une entrée utilisable dans sa
  * File pour ce marché, c'est elle qui prend le compte, même si Sainte-Laguë
@@ -1472,11 +1454,9 @@ async function choisirApplicationPourCompte(
     langue: string;
     pays: string | null;
     defaut: ApplicationRow;
-    horsMoteur: boolean;
   },
 ): Promise<{ application: ApplicationRow; parts: PartsApplications | null }> {
   const rien = { application: args.defaut, parts: null };
-  if (args.horsMoteur) return rien;
 
   try {
     if (!(await choixApplicationAutoActif(supabase))) return rien;
@@ -1552,6 +1532,10 @@ async function choisirApplicationPourCompte(
   }
 }
 
+/**
+ * Consomme la file admin (langue > générale) + persona UGC si besoin.
+ * `fileItemQueue` = entrée exacte à remettre dans LA MÊME file en cas d'échec.
+ */
 async function preparerFileEtPersona(
   supabase: Supabase,
   langue: string,

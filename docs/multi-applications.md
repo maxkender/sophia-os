@@ -12,7 +12,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 
 ## À lire d'abord (mise à jour du 17/11)
 
-Six choses ont changé depuis la rédaction de ce document :
+Sept choses ont changé depuis la rédaction de ce document :
 
 1. **Le classement des contenus, c'est BLEO, plus la tierlist** (`bleo.mode =
    actif` depuis le 1/11, voir `docs/bleo.md`). La valeur d'un contenu est par
@@ -69,6 +69,10 @@ Six choses ont changé depuis la rédaction de ce document :
    `repartition_applications` lui donne une part. Le compte fait son warm-up,
    puis ne publie rien tant qu'elle n'est pas activée. Voir
    `docs/applications.md` § 6.
+7. **Les recrues du site sont placées par le moteur** (19/11), comme toutes
+   les autres : `hub-posteurs` n'envoie plus d'application à manage-users, et
+   la page Allocation ne calcule plus de plancher ni de cible « impossible ».
+   Voir `docs/hub-posteurs.md`.
 
 **Un podz pour deux applications : à éviter.** Un original ouvert à une
 seconde application ne voit réécrire que sa slide d'appli, et la valeur BLEO

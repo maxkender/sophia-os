@@ -20,6 +20,9 @@
  *       0589 : plateforme_paie (« ruul »), zone (A/B/C), tarif de la semaine
  *       (USD), email Ruul (peut être vide) et application du site sont gardés
  *       sur le profil. Un posteur Ruul n'a jamais de contrat Upwork.
+ *       `applications` : gardé pour mémoire (`hub_posteurs.applications`) ;
+ *       depuis le 19/11 c'est le moteur de l'OS qui choisit l'application du
+ *       compte, comme pour toute autre recrue (cible de la page Allocation).
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
  *       login @sophia.com, mot de passe unique et aléatoire (13/11 ; avant : 12345678 pour
  *       l'instant ; c'est CE mot de passe qui est renvoyé au site), premier
@@ -59,12 +62,12 @@
  */
 
 import {
+  applicationsDemandees,
   carteDesZones,
   codePays,
   dateIso,
   estUuid,
   idCohorteRuul,
-  partsPourApplications,
   paysAEnvoyer,
   type LanguesComptes,
   LANGUE_PAR_PAYS,
@@ -298,8 +301,9 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   if (!rattachement) {
     return json({ ok: false, error: "sans_rattachement : cohorte Ruul non configurée et pas de HM pour ce pays", pays_code: pays }, 422);
   }
-  const parts = partsPourApplications(body.applications);
-  const applications = parts ? Object.keys(parts) : ["sophia"];
+  // Ce que le site demande, pour mémoire seulement : c'est le moteur qui
+  // choisit l'application du compte (voir l'appel à manage-users plus bas).
+  const applications = applicationsDemandees(body.applications);
 
   // 3. Réserver la création (ou reprendre une réservation laissée par un appel mort).
   const reservation = {
@@ -345,19 +349,13 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     langue,
     type_compte: "perso",
     posts_par_jour: POSTS_PAR_JOUR,
-    // C'est le SITE qui choisit l'application de ses candidats, candidat par
-    // candidat (décision du 18/10). Ce marqueur le dit à manage-users, qui
-    // laisse alors son moteur de côté.
-    //
-    // Il est INDISPENSABLE et ne peut pas être déduit : `partsPourApplications`
-    // rend `null` quand le site demande Sophia seule, donc la clé
-    // `parts_applications` est absente — un corps strictement identique à
-    // celui d'un recruteur qui n'a rien coché. Sans ce marqueur, les posters
-    // du site repartiraient au choix automatique, et c'est justement le cas
-    // majoritaire : les 7 comptes de la cohorte au 18/10.
-    source: "hub-posteurs",
+    // AUCUNE application ici (19/11) : le corps est celui d'un recruteur qui
+    // n'a rien coché, et c'est le moteur de manage-users qui choisit
+    // l'application du compte d'après la cible de la page Allocation
+    // (`choisirApplicationPourCompte`), comme pour toute autre recrue. Avant,
+    // le site décidait (18/10) : il demandait toujours Sophia, et une recrue
+    // sur trois échappait à la cible.
     ...(paysCompte ? { pays: paysCompte } : {}),
-    ...(parts ? { parts_applications: parts } : {}),
   });
   if (!cree.ok) {
     if (cree.incertain) {

@@ -189,9 +189,10 @@ autre application.
 
 - **Le warm-up finit un lundi.** Il faut que l'application soit activée et que
   ses labels aient du stock d'ici là, sinon le posteur n'a rien à publier.
-- **Les recrues du site ne suivent pas la cible** : le site choisit lui-même
-  l'application de ses candidats (Sophia ou Unswipe, `APPLICATIONS_HUB`). La
-  page le dit, marché par marché (« cible impossible… »).
+- **Les recrues du site suivent la cible comme les autres** (19/11). Avant,
+  le site choisissait l'application de ses candidats : il demandait toujours
+  Sophia, et une recrue sur trois échappait à la cible. Voir
+  `docs/hub-posteurs.md`, « Qui choisit l'application d'un poster du site ».
 - **Tous ses labels reçoivent des comptes**, à parts égales tant qu'aucun n'a
   de stock. Retirer l'application d'un label qu'on ne veut pas voir servi.
 

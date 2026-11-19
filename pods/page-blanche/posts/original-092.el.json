@@ -49,7 +49,7 @@
       "front of a room"
      ],
      "fr": "la plupart des gens [[préféreraient tout faire]] que parler devant une salle",
-     "texte": "διαβάζεις την ίδια γραμμή δύο φορές και μετά από λίγες σελίδες [[πιάνεις το κινητό]]. απόλυτα φυσιολογικό"
+     "texte": "διαβάζεις την ίδια γραμμή δύο φορές και σε λίγες σελίδες [[πιάνεις το κινητό]]. φυσιολογικό"
     },
     "T3": {
      "en": [
@@ -68,7 +68,7 @@
       "pressure and almost nothing feels scary anymore"
      ],
      "fr": "et une fois que tu sais faire ça, tu restes [[calme sous pression]] et [[presque plus rien te fait peur]]",
-     "texte": "το κόλπο: [[κράτα τον πήχη χαμηλά]]. 10 σελίδες, ίδια ώρα, ίδιο σημείο, ακόμα και τις τεμπέλικες μέρες"
+     "texte": "το κόλπο: [[πήχης χαμηλά]]. 10 σελίδες, ίδια ώρα, ίδιο σημείο, και τις τεμπέλικες μέρες"
     }
    },
    "images": {
@@ -310,7 +310,7 @@
       "time you look for a key"
      ],
      "fr": "au lieu de perdre le fil à chaque fois que tu cherches une touche",
-     "texte": "γιατί για βδομάδες ακολουθείς [[ολόκληρη τη σκέψη κάποιου άλλου]]"
+     "texte": "αφού για βδομάδες ακολουθείς [[τη σκέψη κάποιου άλλου]]"
     }
    },
    "images": {
@@ -352,7 +352,7 @@
       "better at learning anything"
      ],
      "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et ça t'aide à [[tout apprendre]]",
-     "texte": "παλιά εκεί απλώς σκρόλαρα. τώρα, αφού είμαι ήδη στο κινητό, κάνω ένα μάθημα 5 λεπτών [[στην εφαρμογή Sophia]]"
+     "texte": "παλιά εκεί σκρόλαρα. τώρα, αφού είμαι ήδη στο κινητό, κάνω 5 λεπτά μάθημα [[στην εφαρμογή Sophia]]"
     },
     "T4": {
      "en": [
@@ -362,7 +362,7 @@
       "until i read for 20 minutes"
      ],
      "fr": "avant je scrollais H24, maintenant c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
-     "texte": "το σημερινό: [[γιατί η αναγέννηση ξεκίνησε στην ιταλία]], και το θυμάμαι ακόμα"
+     "texte": "το σημερινό: [[γιατί η αναγέννηση ξεκίνησε στην ιταλία]] και το θυμάμαι ακόμα"
     }
    },
    "images": {
@@ -395,7 +395,7 @@
       "don't make sense"
      ],
      "fr": "écrire oblige ton cerveau à [[mettre tes idées en ordre]] et à repérer ce qui tient pas debout",
-     "texte": "πολλοί αναγνώστες λένε ότι το μυαλό τους είναι [[πιο ήρεμο και λιγότερο σκόρπιο]], και η συγκέντρωση κρατάει και αλλού"
+     "texte": "πολλοί λένε ότι το μυαλό τους [[ηρεμεί και σκορπίζει λιγότερο]], ακόμα και εκτός βιβλίου"
     },
     "T4": {
      "en": [
@@ -411,10 +411,10 @@
      "remplacer": {
       "source": "sources/7678811813580164366_2.jpg",
       "boite": [
-       60,
-       110,
-       500,
-       440
+       160,
+       330,
+       400,
+       300
       ]
      }
     }

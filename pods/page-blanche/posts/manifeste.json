@@ -5022,6 +5022,60 @@
    "notes": "déclinaison G1 de original-067, fr en es tr hr, couverture par langue; cta A",
    "type_bleo": "declinaison",
    "parent_contenu_id": "bdf8016b-435a-4187-b2b1-d6531d7f0a2b"
+  },
+  {
+   "post_id": "var-weekend-5",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#weekend #harshtruth #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7688807102764092705_1",
+    "2": "7704304928449121568_5",
+    "3": "7704304928449121568_4",
+    "4": "7704304928449121568_6",
+    "5": "7704304928449121568_3",
+    "6": "7705738841709088033_5"
+   },
+   "notes": "déclinaison G1 de var-ruin20s-3, fr de it en bg, couverture par langue; cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "1658e774-aeca-4101-9cb4-859404934d71"
+  },
+  {
+   "post_id": "var-avis-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#unpopularopinion #selfimprovement #growth",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7699939278847085857_1",
+    "2": "7688807102764092705_3",
+    "3": "7699386616988650774_5",
+    "4": "7694340359056313632_3",
+    "5": "7692093201968090401_4",
+    "6": "7680975889932225814_6"
+   },
+   "notes": "déclinaison G1 de original-054, fr en it el, couverture par langue; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "7160941b-0c1e-4688-b21f-ad3bce44515d"
   }
  ]
 }

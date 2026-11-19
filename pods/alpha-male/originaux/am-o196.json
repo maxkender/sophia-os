@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o196",
+ "type_bleo": "full_test",
+ "titre": "Rules every man should follow with his first car #men #car #driving #responsibility #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7470927858257513246",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 19/11. Full test du jour (4 sur 6, jauge : 6 sur 20). Accroche jamais faite chez nous : aucun « first car » dans donnees/label.json. reference_url : le post source de am-o036 (2 à 7), vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "41ee862b",
+   "texte_overlay": "Rules every man should follow\nwith his first car",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0170f55b",
+   "texte_overlay": "1. Learn to change a tire\n\nBefore you need to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ac2bd8ff",
+   "texte_overlay": "2. Never let it drop\nbelow a quarter tank",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "01b4ee56",
+   "texte_overlay": "3. Keep it clean inside\n\nYour car shows how you live.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "20857698",
+   "texte_overlay": "4. Phone out of reach\nwhile driving",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8d5a7854",
+   "texte_overlay": "5. Learn how it works\n\nOil, brakes, battery.\nThe basics save money.",
+   "texte_sophia": "5. Learn how it works\n\nI learned the basics\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  }
+ ]
+}

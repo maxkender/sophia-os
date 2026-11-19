@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o195",
+ "type_bleo": "full_test",
+ "titre": "How to apologize like a real man #men #respect #maturity #relationships #selfimprovement",
+ "musique_titre": "alkuperäinen ääni",
+ "musique_url": "https://www.tiktok.com/music/alkuperainen-aani-7438536346848742177",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 19/11. Full test du jour (3 sur 6, jauge : 6 sur 20). Accroche jamais faite chez nous : « apologize » n'apparaît que dans des items de donnees/label.json. reference_url : le post source de am-o034, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "240409da",
+   "texte_overlay": "How to apologize\nlike a real man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "402fd641",
+   "texte_overlay": "1. Say \"I was wrong\"\n\nNo \"but\" after it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "260e6a13",
+   "texte_overlay": "2. Name what you did\n\nSpecific, not vague.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "42b123bc",
+   "texte_overlay": "3. Don't ask for instant forgiveness\n\nGive them time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8a94871f",
+   "texte_overlay": "4. Learn why it happened\n\nUnderstand yourself better.\nRead, reflect, grow.",
+   "texte_sophia": "4. Learn why it happened\n\nI read about it on the Sophia app.\nUnderstand yourself better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fb7ba48f",
+   "texte_overlay": "5. Change the behavior\n\nThe real apology is\nnot doing it again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o183",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c6428525-6464-4820-bb36-9df0a633a573",
+ "titre": "How to turn your life around in 90 days #men #discipline #selfimprovement #reset #mindset",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [
+  "c6428525-6464-4820-bb36-9df0a633a573"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 19/11. Déclinaison G2 de la ligne 5 (parent c6428525 = notre am-o052 ; 3e et dernière déclinaison après am-o145 et am-o163). Promesse reformulée. Domaines neufs. reference_url de am-o052 (1 à 4) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cdf05d4d",
+   "texte_overlay": "How to turn your life around\nin 90 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "205971d8",
+   "texte_overlay": "Weeks 1-4 | Body:\n•Train three times a week.\n•Walk 30 minutes daily.\n•Cook most of your meals.\n•Same wake-up time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1a91c784",
+   "texte_overlay": "Weeks 5-8 | Skill:\n•Pick one skill that matters.\n•Practice it an hour a day.\n•Ask someone better for feedback.\n•Track your progress.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1ca9d67f",
+   "texte_overlay": "Weeks 9-12 | People:\n•Reconnect with three old friends.\n•Join one new group or class.\n•Thank someone who helped you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4ec888f7",
+   "texte_overlay": "Every day | Mind:\n•Ten pages of a book.\n•One new idea.\n•Three lines in a journal.",
+   "texte_sophia": "Every day | Mind:\n•Ten pages of a book.\n•One lesson on the Sophia app.\n•Three lines in a journal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/2.jpg"
+  }
+ ]
+}

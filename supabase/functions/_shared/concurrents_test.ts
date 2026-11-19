@@ -1,10 +1,13 @@
 import { assertEquals, assertStrictEquals } from "jsr:@std/assert@1";
 
+import { CATALOGUE_APPLICATIONS } from "./catalogue_applications.ts";
 import {
   citeConcurrent,
   MOTIF_CONCURRENT,
+  MOTIF_CONCURRENT_ATALA,
   MOTIF_CONCURRENT_MICABO,
   MOTIF_CONCURRENT_UNSWIPE,
+  MOTIFS_PAR_APPLICATION,
   motifConcurrentApplication,
   positionConcurrent,
   retirerConcurrent,
@@ -335,4 +338,80 @@ Deno.test("citeConcurrent : Noctua (slide promo de @smarterhabitsdaily), pour to
   assertEquals(citeConcurrent("I use Noctua — quick insights", MOTIF_CONCURRENT_UNSWIPE), true);
   assertEquals(citeConcurrent("I use Noctua — quick insights", MOTIF_CONCURRENT_MICABO), true);
   assertEquals(citeConcurrent("a nocturnal routine"), false);
+});
+
+// ---------------------------------------------------------------------------
+// Atala : applis de plans de course (liste du 19/11, avant tout stock)
+// ---------------------------------------------------------------------------
+
+const ATALA = motifConcurrentApplication("atala");
+
+Deno.test("catalogue : chaque application hors Sophia a son motif de concurrents", () => {
+  for (const app of CATALOGUE_APPLICATIONS) {
+    if (app.slug === "sophia") continue;
+    assertEquals(app.slug in MOTIFS_PAR_APPLICATION, true, `${app.slug} : motif à écrire dans concurrents.ts`);
+    // Les concurrents de Sophia le sont de toutes les applications.
+    assertEquals(citeConcurrent("the vent now app", motifConcurrentApplication(app.slug)), true, app.slug);
+  }
+  assertStrictEquals(motifConcurrentApplication("sophia"), MOTIF_CONCURRENT);
+});
+
+Deno.test("atala : les applis de plans de course sont reconnues", () => {
+  assertStrictEquals(motifConcurrentApplication(" Atala "), MOTIF_CONCURRENT_ATALA);
+  for (const texte of [
+    "my training plan is from Runna",
+    "5. download runna and pick a plan",
+    "l'appli Runna m'a fait passer de 5 à 10 km",
+    "i started with the nike run club app",
+    "NRC guided runs saved me",
+    "couch to 5k changed everything",
+    "week 3 of couch 2 5k",
+    "c25k, then a 10k plan",
+    "RunKeeper",
+    "the adidas running app",
+    "mein plan kommt von Runtastic",
+    "mon plan vient de Campus Coach",
+    "Kiprun Pacer pour préparer mon semi",
+    "garmin coach plans are free",
+    "none to run is perfect for beginners",
+    "TrainingPeaks",
+    "zombies, run!",
+  ]) {
+    assertEquals(citeConcurrent(texte, ATALA), true, texte);
+  }
+});
+
+Deno.test("atala : pas de faux positif sur les chaussures, la montre ni les mots courants", () => {
+  for (const texte of [
+    "my nike running shoes",
+    "adidas running shorts",
+    "upload it on strava",
+    "my garmin says 5:30/km",
+    "run smart, not hard",
+    "your training peaks at week 10",
+    "a runner's high",
+    "i run with my dad every sunday",
+    "the Atala app",
+    "l'appli Atala",
+    "die Atala-App",
+  ]) {
+    assertEquals(citeConcurrent(texte, ATALA), false, texte);
+  }
+  // Motif Sophia par défaut : Runna n'y est pas, comportement d'avant.
+  assertEquals(citeConcurrent("my training plan is from Runna"), false);
+});
+
+Deno.test("atala : position imposée et nettoyage avec le motif de l'application", () => {
+  const slides = [
+    { position: 1, texte_overlay: "things that made me love running" },
+    { position: 2, texte_overlay: "1. slow down. most of your runs should feel easy." },
+    { position: 3, texte_overlay: "2. follow a plan\n\nmy training plan is from Runna." },
+    { position: 4, texte_overlay: "3. sleep 8h. (thanks runna for the rest days)" },
+  ];
+  assertEquals(positionConcurrent(slides, ATALA), 3);
+  assertEquals(positionConcurrent(slides), undefined);
+  const r = sansConcurrent(slides, ATALA);
+  assertEquals(r.modifie, true);
+  assertEquals(r.slides[3].texte_overlay, "3. sleep 8h.");
+  for (const s of r.slides) assertEquals(citeConcurrent(s.texte_overlay, ATALA), false);
 });

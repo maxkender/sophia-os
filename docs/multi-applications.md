@@ -4,6 +4,12 @@ L'OS fabrique des slideshows qui promeuvent une application. Jusqu'ici :
 Sophia (culture générale). Désormais aussi : **Unswipe** (reprendre le contrôle
 de son temps). Ce document est la référence du modèle et de son déploiement.
 
+> **Le mode d'emploi court est dans `docs/applications.md`** (19/11) : le
+> modèle en six phrases, le catalogue des applications, où vit quoi, ajouter
+> une application, ajouter un label, et l'état d'Atala (quatrième application,
+> course à pied, id `…0004`, migrations 0764 et 0765). Ce document-ci garde le
+> détail du moteur.
+
 ## À lire d'abord (mise à jour du 17/11)
 
 Cinq choses ont changé depuis la rédaction de ce document :
@@ -23,8 +29,11 @@ Cinq choses ont changé depuis la rédaction de ce document :
 3. **Une application s'ajoute depuis l'écran** : Labels & applications →
    « Ajouter une application » (`creerApplication`). Elle naît inactive, toutes
    langues, avec ses deux prompts vides ; un prompt vide vaut prompt absent
-   (pas de notation, activation refusée). Restent dans le code : sa liste de
-   concurrents (`_shared/concurrents.ts`) et son logo.
+   (pas de notation, activation refusée). Restent dans le code : sa ligne
+   au catalogue (`catalogueApplications.ts`), sa liste de concurrents
+   (`_shared/concurrents.ts`), son logo et sa couleur. Depuis le 19/11, la
+   ligne dépliée d'une application (« Préparation ») dit ce qui lui manque,
+   et un prompt marqué `[BROUILLON …]` bloque l'activation.
 
 4. **Les retours des relecteurs natifs savent pour quelle application ils
    valent** (0751, 18/11). `corrections_natives.application_id` : NULL = une
@@ -345,7 +354,9 @@ Migration 0270 (tiers par application, additive ; parties A puis B) :
 
 Constantes : Sophia = `00000000-0000-4000-8000-000000000001`,
 micabo = `00000000-0000-4000-8000-000000000002` (supprimée en 0257, recréée
-INACTIVE en 0272), Unswipe = `00000000-0000-4000-8000-000000000003` (0258).
+INACTIVE en 0272), Unswipe = `00000000-0000-4000-8000-000000000003` (0258),
+Atala = `00000000-0000-4000-8000-000000000004` (0764, INACTIVE). La liste de
+référence est le catalogue (`src/features/moteur/catalogueApplications.ts`).
 
 Logique pure partagée : `src/features/moteur/multiApp.ts` (tests vitest) et sa
 copie Deno `supabase/functions/_shared/multi_app.ts` (synchro testée). Lectures

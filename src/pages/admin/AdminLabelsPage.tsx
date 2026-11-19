@@ -4,9 +4,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { ChevronDown, ChevronRight, Plus, Trash2 } from "lucide-react";
 
+import { trierApplications } from "@/components/brand/identiteApplications";
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { FiltreApplication } from "@/features/moteur/FiltreApplication";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,13 +18,16 @@ import { creerLabel, listerLabels, majLabel, supprimerLabel } from "@/features/m
 import { definirApplicationsLabel } from "@/features/moteur/apiMultiApp";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
+import { ficheApplication } from "@/features/moteur/catalogueApplications";
 import { exemplesFeedDepuisTexte, exemplesFeedVersTexte } from "@/features/moteur/creationManuelle";
-import { applicationsDuLabel, ID_SOPHIA } from "@/features/moteur/multiApp";
+import { applicationsDuLabel } from "@/features/moteur/multiApp";
 import { ApplicationsCard } from "@/features/moteur/multiapp/ApplicationsCard";
+import { grouperLabelsParApplication, identiteDuNom } from "@/features/moteur/multiapp/groupesLabels";
 import { LabelApplications } from "@/features/moteur/multiapp/LabelApplications";
 import { ReplisCard } from "@/features/moteur/multiapp/ReplisCard";
 import { useLabelsApplications, type LabelsApplications } from "@/features/moteur/multiapp/useLabelsApplications";
 import { SEUIL_STOCK_JOURS } from "@/features/moteur/pilotage";
+import { genreDuLabel } from "@/features/moteur/themeLabel";
 // Les briques de la page Allocation : même lecture d'une page à l'autre.
 import { Aide, BarreReserve } from "@/features/moteur/repartition/graphes";
 import type { Label as LabelMoteur, LabelGenre } from "@/features/moteur/types";
@@ -38,9 +42,10 @@ const TH = "pb-2 pr-4 text-left text-[11px] font-medium uppercase tracking-wide 
 const TD = "py-2 pr-4 align-middle last:pr-0";
 
 /**
- * Les labels ne sont plus cloisonnés par application : la carte les montre
- * TOUS, chacun avec les applications qu'il sert. Le sélecteur d'application ne
- * fait plus que choisir la réserve affichée.
+ * La carte montre TOUS les labels, rangés par application (19/11) : un groupe
+ * par application, avec les labels qui la servent et leur stock POUR ELLE,
+ * puis les labels sans application. Un label qui sert deux applications est
+ * dans les deux groupes.
  */
 const CLE_TOUS_LABELS = ["labels", "tous"] as const;
 
@@ -101,7 +106,7 @@ function EditeurStyle({ label }: { label: LabelMoteur }) {
   );
 }
 
-/** Le stock du label dans l'application choisie, avec la barre de l'Allocation. */
+/** Le stock du label pour l'application de son groupe, avec la barre de l'Allocation. */
 function StockLabel({ jours, sert }: { jours: number | null | undefined; sert: boolean }) {
   const { t, i18n } = useTranslation();
   if (!sert) return <span className="text-xs text-muted-foreground/60">{t("labelsPage.pasServie")}</span>;
@@ -246,25 +251,51 @@ function LigneLabel({
   );
 }
 
-function FormulaireLabel({ multi, onFini }: { multi: LabelsApplications; onFini: () => void }) {
+/**
+ * Créer un label, en trois questions : pour quelle application, comment il
+ * s'appelle, et le genre de ses comptes. Le nom n'est pas décoratif : il fixe
+ * le thème du @ et de la bio des comptes (« _run » → running), que le
+ * formulaire annonce avant de créer. Le label sert l'application choisie, et
+ * elle seule (une autre se coche ensuite sur sa ligne, cas rare).
+ */
+function FormulaireLabel({
+  multi,
+  applications,
+  applicationInitiale,
+  onFini,
+}: {
+  multi: LabelsApplications;
+  applications: ApplicationListee[];
+  /** L'application du groupe d'où le formulaire est ouvert ; `null` = à choisir. */
+  applicationInitiale: string | null;
+  onFini: () => void;
+}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const { applications } = useApplication();
+  const [applicationId, setApplicationId] = React.useState<string | null>(
+    applicationInitiale ?? (applications.length === 1 ? applications[0]!.id : null),
+  );
   const [nom, setNom] = React.useState("");
   const [couleur, setCouleur] = React.useState("#2f6f4e");
-  const [genre, setGenre] = React.useState<LabelGenre>("femme");
-  // Défaut Sophia seule : un label créé sans toucher aux cases sert Sophia,
-  // comme avant (sans case cochée, il ne servirait personne).
-  const [appsNouveau, setAppsNouveau] = React.useState<string[]>([ID_SOPHIA]);
+  // Le genre suit le nom (« male_run » → homme) tant qu'on ne l'a pas choisi à la main.
+  const [genreChoisi, setGenreChoisi] = React.useState<LabelGenre | null>(null);
+  const genre: LabelGenre = genreChoisi ?? genreDuLabel(nom) ?? "femme";
+  const [cree, setCree] = React.useState<{ nom: string; application: string } | null>(null);
+
+  const application = applications.find((a) => a.id === applicationId) ?? null;
+  const identite = identiteDuNom(nom, application?.slug ?? null);
+  // Sans la table des liens (0256 absente), le label se crée comme avant, sans application.
+  const choixRequis = multi.multiDispo && applications.length > 0;
+  const valide = nom.trim().length > 0 && (!choixRequis || applicationId !== null);
 
   const creer = useMutation({
     mutationFn: async () => {
       const lab = await creerLabel(nom.trim(), couleur, { genre });
       // Le label existe déjà si cette écriture échoue : il ne sert alors
       // personne, et l'erreur dit quoi recocher.
-      if (multi.multiDispo) {
+      if (choixRequis && applicationId) {
         try {
-          await definirApplicationsLabel(lab.id, appsNouveau);
+          await definirApplicationsLabel(lab.id, [applicationId]);
         } catch (err) {
           throw new Error(
             t("multiApp.labels.creeSansApplications", {
@@ -276,7 +307,11 @@ function FormulaireLabel({ multi, onFini }: { multi: LabelsApplications; onFini:
       }
       return lab;
     },
-    onSuccess: onFini,
+    onSuccess: (lab) => {
+      setCree({ nom: lab.nom, application: application ? nomApplication(application) : "" });
+      setNom("");
+      setGenreChoisi(null);
+    },
     onSettled: () => {
       qc.invalidateQueries({ queryKey: ["labels"] });
       qc.invalidateQueries({ queryKey: ["label-applications"] });
@@ -286,75 +321,272 @@ function FormulaireLabel({ multi, onFini }: { multi: LabelsApplications; onFini:
 
   return (
     <form
-      className="flex flex-wrap items-end gap-3 rounded-md border border-border/80 bg-muted/30 p-3"
+      className="space-y-3 rounded-md border border-border/80 bg-muted/30 p-3"
+      data-testid="form-label"
       onSubmit={(e) => {
         e.preventDefault();
-        if (nom.trim() && appsNouveau.length > 0) creer.mutate();
+        if (valide) creer.mutate();
       }}
     >
-      <div className="space-y-1">
-        <Label htmlFor="labNom">{t("labels.nom")}</Label>
-        <Input id="labNom" value={nom} onChange={(e) => setNom(e.target.value)} required autoFocus />
-      </div>
-      <div className="space-y-1">
-        <Label htmlFor="labCoul">{t("labels.couleur")}</Label>
-        <Input id="labCoul" type="color" className="h-9 w-14 p-1" value={couleur} onChange={(e) => setCouleur(e.target.value)} />
-      </div>
-      <div className="space-y-1">
-        <div className="flex items-center gap-1.5">
-          <Label htmlFor="labGenre">{t("labels.genre")}</Label>
-          <Aide libelle={t("labels.genre")}>{t("labels.genreAide")}</Aide>
-        </div>
-        <select id="labGenre" className={selectClass} value={genre} onChange={(e) => setGenre(e.target.value as LabelGenre)}>
-          <option value="femme">{t("labels.genreFemme")}</option>
-          <option value="homme">{t("labels.genreHomme")}</option>
-        </select>
-      </div>
-      {multi.multiDispo && applications.length > 1 && (
-        <fieldset className="space-y-1">
-          <legend className="text-sm font-medium">{t("multiApp.labels.applicationsServies")}</legend>
-          <div className="flex h-9 flex-wrap items-center gap-3">
-            {applications.map((app) => (
-              <label key={app.id} className="flex items-center gap-1.5 text-xs">
-                <input
-                  type="checkbox"
-                  className="size-3.5"
-                  checked={appsNouveau.includes(app.id)}
-                  onChange={(e) =>
-                    setAppsNouveau((avant) => (e.target.checked ? [...avant, app.id] : avant.filter((id) => id !== app.id)))
-                  }
-                />
-                <LogoApplication slug={app.slug} taille="xs" decoratif />
-                {nomApplication(app)}
-              </label>
-            ))}
+      {choixRequis && (
+        <fieldset className="space-y-1.5">
+          <legend className="text-sm font-medium">{t("labelsPage.form.application")}</legend>
+          <div className="flex flex-wrap gap-2">
+            {applications.map((app) => {
+              const choisie = app.id === applicationId;
+              return (
+                <label
+                  key={app.id}
+                  className={cn(
+                    "flex cursor-pointer items-center gap-2 rounded-md border bg-background px-2.5 py-1.5 text-xs transition-colors",
+                    choisie ? "border-primary ring-1 ring-primary" : "border-border hover:bg-muted",
+                  )}
+                >
+                  <input
+                    type="radio"
+                    name="labApplication"
+                    className="sr-only"
+                    checked={choisie}
+                    onChange={() => setApplicationId(app.id)}
+                  />
+                  <LogoApplication slug={app.slug} taille="md" decoratif />
+                  <span>
+                    <span className="block font-medium">{nomApplication(app)}</span>
+                    <span className="block text-[11px] text-muted-foreground">
+                      {[ficheApplication(app.slug)?.concept, app.actif ? null : t("multiApp.applications.inactif").toLowerCase()]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </span>
+                  </span>
+                </label>
+              );
+            })}
           </div>
+          {applicationId === null && (
+            <p className="text-[11px] text-muted-foreground">{t("labelsPage.form.applicationAide")}</p>
+          )}
         </fieldset>
       )}
-      <div className="flex items-center gap-2">
-        <Button type="submit" disabled={creer.isPending || !nom.trim() || appsNouveau.length === 0}>
-          {creer.isPending ? t("common.saving") : t("labels.creer")}
-        </Button>
-        <Button type="button" variant="ghost" onClick={onFini}>
-          {t("common.cancel")}
-        </Button>
+      <div className="flex flex-wrap items-end gap-3">
+        <div className="flex flex-col gap-1">
+          <Label htmlFor="labNom">{t("labels.nom")}</Label>
+          <Input
+            id="labNom"
+            className="font-mono"
+            placeholder={identite.attendu ? `…${identite.attendu.suffixe}` : "clean_girl_run"}
+            value={nom}
+            onChange={(e) => setNom(e.target.value)}
+            required
+            autoFocus
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-1.5">
+            <Label htmlFor="labGenre">{t("labels.genre")}</Label>
+            <Aide libelle={t("labels.genre")}>{t("labels.genreAide")}</Aide>
+          </div>
+          <select
+            id="labGenre"
+            className={selectClass}
+            value={genre}
+            onChange={(e) => setGenreChoisi(e.target.value as LabelGenre)}
+          >
+            <option value="femme">{t("labels.genreFemme")}</option>
+            <option value="homme">{t("labels.genreHomme")}</option>
+          </select>
+        </div>
+        <div className="flex flex-col gap-1">
+          <Label htmlFor="labCoul">{t("labels.couleur")}</Label>
+          <Input id="labCoul" type="color" className="h-9 w-14 p-1" value={couleur} onChange={(e) => setCouleur(e.target.value)} />
+        </div>
+        <div className="flex items-center gap-2">
+          <Button type="submit" disabled={creer.isPending || !valide}>
+            {creer.isPending
+              ? t("common.saving")
+              : application
+                ? t("labelsPage.form.creerPour", { app: nomApplication(application) })
+                : t("labels.creer")}
+          </Button>
+          <Button type="button" variant="ghost" onClick={onFini}>
+            {cree ? t("labelsPage.form.fermer") : t("common.cancel")}
+          </Button>
+        </div>
       </div>
-      {creer.isError && <p className="w-full text-xs text-destructive">{(creer.error as Error).message}</p>}
+      {nom.trim() && (
+        <p className="text-[11px] text-muted-foreground" data-testid="identite-label">
+          {t("labelsPage.form.identite", {
+            theme: t(`labelsPage.themes.${identite.theme}`),
+            exemple: identite.exemple,
+            genre: genre === "homme" ? t("labels.genreHomme").toLowerCase() : t("labels.genreFemme").toLowerCase(),
+          })}
+          {identite.attendu && application && (
+            <span className="text-amber-700 dark:text-amber-400">
+              {" "}
+              {t("labelsPage.form.themeAttendu", {
+                app: nomApplication(application),
+                suffixe: identite.attendu.suffixe,
+                theme: t(`labelsPage.themes.${identite.attendu.theme}`),
+              })}
+            </span>
+          )}
+        </p>
+      )}
+      {cree && (
+        <div className="rounded-md border border-success/40 bg-success/5 p-2.5 text-xs" data-testid="label-cree">
+          <p className="font-medium">{t("labelsPage.form.cree", { nom: cree.nom, app: cree.application })}</p>
+          <ol className="mt-1 list-decimal space-y-0.5 pl-4 text-muted-foreground">
+            <li>
+              {t("labelsPage.form.suite.sources")}{" "}
+              <Link className="text-primary underline-offset-2 hover:underline" to="/admin/sources">
+                {t("labelsPage.form.suite.sourcesLien")}
+              </Link>
+            </li>
+            <li>
+              {t("labelsPage.form.suite.file", { app: cree.application })}{" "}
+              <Link className="text-primary underline-offset-2 hover:underline" to="/admin/reglages">
+                {t("labelsPage.form.suite.fileLien")}
+              </Link>
+            </li>
+            <li>{t("labelsPage.form.suite.style")}</li>
+          </ol>
+        </div>
+      )}
+      {creer.isError && <p className="text-xs text-destructive">{(creer.error as Error).message}</p>}
     </form>
   );
 }
 
+/** L'en-tête d'un groupe : l'application, ce qu'elle fait, son état, et le bouton pour lui ajouter un label. */
+function EnTeteGroupe({
+  application,
+  nb,
+  onAjouter,
+}: {
+  application: ApplicationListee | null;
+  nb: number;
+  onAjouter?: () => void;
+}) {
+  const { t } = useTranslation();
+  if (!application) {
+    return (
+      <div className="space-y-0.5 border-b pb-1.5">
+        <p className="text-sm font-semibold">{t("labelsPage.groupes.sansTitre", { count: nb })}</p>
+        <p className="text-[11px] text-muted-foreground">{t("labelsPage.groupes.sansAide")}</p>
+      </div>
+    );
+  }
+  const nom = nomApplication(application);
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-2 border-b pb-1.5">
+      <div className="flex min-w-0 items-center gap-2">
+        <LogoApplication slug={application.slug} taille="md" decoratif />
+        <div className="min-w-0">
+          <p className="flex items-center gap-2 text-sm font-semibold">
+            {nom}
+            {!application.actif && <Badge variant="outline">{t("multiApp.applications.inactif")}</Badge>}
+          </p>
+          <p className="text-[11px] text-muted-foreground">
+            {[ficheApplication(application.slug)?.concept, t("labelsPage.groupes.nb", { count: nb })].filter(Boolean).join(" · ")}
+          </p>
+        </div>
+      </div>
+      {onAjouter && (
+        <Button size="xs" variant="outline" onClick={onAjouter}>
+          <Plus />
+          {t("labelsPage.groupes.ajouter", { app: nom })}
+        </Button>
+      )}
+    </div>
+  );
+}
+
+function TableLabels({
+  labels,
+  multi,
+  applications,
+  application,
+}: {
+  labels: LabelMoteur[];
+  multi: LabelsApplications;
+  applications: ApplicationListee[];
+  application: ApplicationListee | null;
+}) {
+  const { t } = useTranslation();
+  return (
+    <div className="relative overflow-x-auto">
+      {/* relative : les textes sr-only (en position absolue) restent dans la zone qui défile. */}
+      {/* Largeurs fixes : les colonnes tombent au même endroit d'un groupe à l'autre. */}
+      <table className="w-full min-w-[640px] table-fixed border-collapse text-sm">
+        <colgroup>
+          <col className="w-[30%]" />
+          <col className="w-[14%]" />
+          <col className="w-[12%]" />
+          <col className="w-[24%]" />
+          <col className="w-[20%]" />
+        </colgroup>
+        <thead>
+          <tr className="border-b">
+            <th scope="col" className={TH}>{t("labelsPage.colLabel")}</th>
+            <th scope="col" className={TH}>{t("labels.genre")}</th>
+            <th scope="col" className={TH}>{t("labelsPage.colApplis")}</th>
+            <th scope="col" className={TH}>
+              {application && (
+                <span className="inline-flex items-center gap-1.5">
+                  {t("labelsPage.colStock")}
+                  <LogoApplication slug={application.slug} taille="xs" decoratif />
+                  <span className="sr-only">{nomApplication(application)}</span>
+                </span>
+              )}
+            </th>
+            <th scope="col" className={TH}>
+              <span className="sr-only">{t("labelsPage.colActions")}</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {labels.map((lab) => (
+            <LigneLabel
+              key={lab.id}
+              label={lab}
+              multi={multi}
+              applications={applications}
+              applicationId={application?.id ?? null}
+            />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/** Où le formulaire est ouvert : en haut de la carte (application à choisir) ou dans le groupe d'une application. */
+type FormulaireOuvert = { applicationId: string | null } | null;
+
 function LabelsCard() {
   const { t } = useTranslation();
-  const { applicationId, applications, application, slug } = useApplication();
+  const { applications: applicationsBrutes } = useApplication();
+  // L'ordre du catalogue, le même que dans les graphes : Sophia, micabo, Unswipe, Atala.
+  const applications = React.useMemo(
+    () => trierApplications(applicationsBrutes, (a) => a.slug),
+    [applicationsBrutes],
+  );
   const labels = useQuery({ queryKey: CLE_TOUS_LABELS, queryFn: () => listerLabels() });
   // Requêtes à part, et pas un enrichissement de `listerLabels` : la gestion
   // des labels doit rester utilisable même si 0256 (liens label × application,
   // vue `label_application_reserve`) n'est pas encore appliquée en base. Un
   // badge manquant n'empêche pas de créer un label.
-  const multi = useLabelsApplications(applicationId);
-  const [nouveau, setNouveau] = React.useState(false);
-  const nomApp = application ? nomApplication(application) : nomApplication({ slug });
+  const multi = useLabelsApplications(null);
+  const [formulaire, setFormulaire] = React.useState<FormulaireOuvert>(null);
+
+  // Sans les liens (0256 absente, ou pas encore lus), une seule liste, comme avant.
+  const groupes = React.useMemo(
+    () =>
+      labels.data && multi.liens && applications.length > 0
+        ? grouperLabelsParApplication(labels.data, applications, multi.liens)
+        : null,
+    [labels.data, multi.liens, applications],
+  );
+  const formulaireEnHaut = formulaire !== null && (formulaire.applicationId === null || groupes === null);
 
   return (
     <Card>
@@ -369,15 +601,15 @@ function LabelsCard() {
             </CardTitle>
             <CardDescription>{t("labelsPage.labelsDesc", { n: labels.data?.length ?? 0 })}</CardDescription>
           </div>
-          {!nouveau && (
-            <Button size="sm" variant="outline" onClick={() => setNouveau(true)}>
+          {formulaire === null && (
+            <Button size="sm" variant="outline" onClick={() => setFormulaire({ applicationId: null })}>
               <Plus />
               {t("labelsPage.nouveauLabel")}
             </Button>
           )}
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-6">
         {multi.schemaAbsent && <p className="text-[11px] text-muted-foreground">{t("multiApp.labels.schemaAbsent")}</p>}
         {multi.erreurLiens != null && (
           <p className="text-xs text-destructive">
@@ -386,44 +618,53 @@ function LabelsCard() {
             })}
           </p>
         )}
-        {nouveau && <FormulaireLabel multi={multi} onFini={() => setNouveau(false)} />}
+        {formulaireEnHaut && (
+          <FormulaireLabel
+            multi={multi}
+            applications={applications}
+            applicationInitiale={null}
+            onFini={() => setFormulaire(null)}
+          />
+        )}
         {labels.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
         {labels.isError && <p className="text-xs text-destructive">{(labels.error as Error).message}</p>}
         {labels.data && labels.data.length === 0 && <p className="text-sm text-muted-foreground">{t("labels.aucunIci")}</p>}
-        {labels.data && labels.data.length > 0 && (
-          <div className="relative overflow-x-auto">
-            {/* relative : les textes sr-only (en position absolue) restent dans la zone qui défile. */}
-            <table className="w-full border-collapse text-sm">
-              <thead>
-                <tr className="border-b">
-                  <th scope="col" className={TH}>{t("labelsPage.colLabel")}</th>
-                  <th scope="col" className={TH}>{t("labels.genre")}</th>
-                  <th scope="col" className={TH}>{t("labelsPage.colApplis")}</th>
-                  <th scope="col" className={TH}>
-                    <span className="inline-flex items-center gap-1.5">
-                      {t("labelsPage.colStock")}
-                      {application && <LogoApplication slug={application.slug} taille="xs" />}
-                      <span className="sr-only">{nomApp}</span>
-                    </span>
-                  </th>
-                  <th scope="col" className={TH}>
-                    <span className="sr-only">{t("labelsPage.colActions")}</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {labels.data.map((lab) => (
-                  <LigneLabel
-                    key={lab.id}
-                    label={lab}
-                    multi={multi}
-                    applications={applications}
-                    applicationId={applicationId}
-                  />
-                ))}
-              </tbody>
-            </table>
-          </div>
+        {groupes?.map((g) => (
+          <section
+            key={g.application?.id ?? "sans"}
+            className="space-y-2"
+            data-testid={`groupe-labels-${g.application?.slug ?? "sans"}`}
+          >
+            <EnTeteGroupe
+              application={g.application}
+              nb={g.labels.length}
+              onAjouter={
+                g.application && formulaire === null
+                  ? () => setFormulaire({ applicationId: g.application!.id })
+                  : undefined
+              }
+            />
+            {g.application && formulaire?.applicationId === g.application.id && (
+              <FormulaireLabel
+                multi={multi}
+                applications={applications}
+                applicationInitiale={g.application.id}
+                onFini={() => setFormulaire(null)}
+              />
+            )}
+            {g.labels.length > 0 ? (
+              <TableLabels labels={g.labels} multi={multi} applications={applications} application={g.application} />
+            ) : (
+              g.application && (
+                <p className="text-xs text-muted-foreground">
+                  {t("labelsPage.groupes.vide", { app: nomApplication(g.application) })}
+                </p>
+              )
+            )}
+          </section>
+        ))}
+        {!groupes && labels.data && labels.data.length > 0 && (
+          <TableLabels labels={labels.data} multi={multi} applications={applications} application={null} />
         )}
       </CardContent>
     </Card>
@@ -433,14 +674,15 @@ function LabelsCard() {
 /**
  * Labels & applications : la configuration qui vivait en bas du Pilotage,
  * dans le gabarit de la page Allocation. Les labels d'abord (on y vient le
- * plus souvent), chacun dépliable sur ses applications et son style, puis les
- * applications et les replis sur Sophia.
+ * plus souvent), rangés par application et chacun dépliable sur ses
+ * applications et son style, puis les applications (leur état de préparation)
+ * et les replis sur Sophia. Le mode d'emploi : `docs/applications.md`.
  */
 export function AdminLabelsPage() {
   const { t } = useTranslation();
   return (
     <div className="space-y-6">
-      <PageHeader title={t("labelsPage.title")} description={t("labelsPage.description")} actions={<FiltreApplication />} />
+      <PageHeader title={t("labelsPage.title")} description={t("labelsPage.description")} />
       <LabelsCard />
       <ApplicationsCard />
       <ReplisCard />

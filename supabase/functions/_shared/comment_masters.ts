@@ -5,6 +5,7 @@
  * contrôle minimal, rythme des relevés, recalibrage des seuils, message et
  * signature Slack, rapprochement du commentaire réellement posté.
  */
+import { ficheApplication, marqueCapitalisee } from "./catalogue_applications.ts";
 
 /**
  * Les langues des régions de comment masters (migration 0321) : le nom donné
@@ -63,11 +64,10 @@ export function nomPays(pays: string | null | undefined): string {
 }
 
 // Nom d'appli tel qu'il doit apparaître dans le commentaire. La table
-// `applications` écrit « Unswipe » et « micabo » ; sur TikTok c'est UnSwipe et Micabo.
-const NOM_APPLI: Record<string, string> = { sophia: "Sophia", unswipe: "UnSwipe", micabo: "Micabo" };
-
+// `applications` écrit « Unswipe » et « micabo » ; sur TikTok c'est UnSwipe et
+// Micabo : la marque du catalogue, avec une majuscule.
 export function nomAppli(brut: string | null): string {
-  return NOM_APPLI[(brut ?? "").toLowerCase()] ?? brut ?? "Sophia";
+  return ficheApplication(brut) ? marqueCapitalisee(brut) : brut ?? "Sophia";
 }
 
 /** Clé du prompt dans la table `prompts`, éditable depuis Admin → Prompts. */

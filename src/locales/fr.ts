@@ -1495,7 +1495,7 @@ export const fr = {
     nettoyageStickers: {
       titre: "Nettoyage stickers d'un label",
       description:
-        "Passe tous les slideshows d'un label dans l'OCR d'import et liste ceux qui portent un sticker PUB (app, marque, site). Tu repêches ceux à garder, puis « Tout jeter » les retire et remplace leurs posts du jour pas encore postés. Gardés d'office : stickers de contenu, pods, tier A ou mieux, nos applis (Sophia, UnSwipe, Micabo).",
+        "Passe tous les slideshows d'un label dans l'OCR d'import et liste ceux qui portent un sticker PUB (app, marque, site). Tu repêches ceux à garder, puis « Tout jeter » les retire et remplace leurs posts du jour pas encore postés. Gardés d'office : stickers de contenu, pods, tier A ou mieux, nos applis (Sophia, micabo, UnSwipe, Atala).",
       serveur: "Tourne sur le serveur : tu peux fermer la page, l'avancement et le journal sont enregistrés.",
       label: "Label",
       choisirLabel: "Choisir un label…",
@@ -3860,8 +3860,8 @@ export const fr = {
     },
     labelsPage: {
       title: "Labels & applications",
-      description: "Les labels, leur style d’écriture, et les applications qu’ils servent.",
-      labelsDesc: "{{n}} labels. Clique une ligne pour ses applications et son style d’écriture.",
+      description: "Les labels rangés par application, leur style d’écriture, et ce qu’il manque à chaque application pour publier.",
+      labelsDesc: "{{n}} labels, rangés par application. Clique une ligne pour ses applications et son style d’écriture.",
       labelsAide:
         "Le label fait le pont entre les contenus et les créateurs. Son genre fixe les prénoms et les noms TikTok des créateurs qui le portent.",
       nouveauLabel: "Nouveau label",
@@ -3875,6 +3875,47 @@ export const fr = {
       applisServies: "Applications servies",
       styleTitre: "Style d’écriture",
       styleEnregistre: "Enregistré.",
+      groupes: {
+        nb_one: "{{count}} label",
+        nb_other: "{{count}} labels",
+        ajouter: "Label {{app}}",
+        vide: "Aucun label ne sert {{app}} : elle ne peut rien publier. Ajoute son premier label.",
+        sansTitre_one: "Sans application · {{count}} label",
+        sansTitre_other: "Sans application · {{count}} labels",
+        sansAide:
+          "Disponibles pour personne : labels mis de côté (rien n’est supprimé) et labels manuels. Déplie une ligne pour lui redonner une application.",
+      },
+      form: {
+        application: "Pour quelle application ?",
+        applicationAide:
+          "Choisis l’application que ce label sert. Un label, une application : une autre se coche ensuite sur sa ligne, mais c’est rare.",
+        creerPour: "Créer pour {{app}}",
+        fermer: "Fermer",
+        identite: "Comptes de ce label : {{genre}}, @ et bio sur le thème « {{theme}} » (ex. @{{exemple}}).",
+        themeAttendu:
+          "Pour {{app}}, termine le nom par « {{suffixe}} » : ses comptes auront un @ et une bio « {{theme}} ».",
+        cree: "Label « {{nom}} » créé pour {{app}}. La suite :",
+        suite: {
+          sources: "Ajoute ses comptes source, puis importe-les :",
+          sourcesLien: "Sources",
+          file: "Mets-le dans la file des créateurs {{app}}, pour que les prochaines recrues le reçoivent :",
+          fileLien: "Réglages → Warmup & file de labels",
+          style: "Déplie sa ligne pour écrire son style d’écriture (créations manuelles et podz).",
+        },
+      },
+      themes: {
+        running: "running",
+        etude: "études",
+        carriere: "carrière",
+        psycho: "psycho",
+        philo: "philo",
+        alpha_male: "discipline",
+        smart_girl: "lecture et culture",
+        clean_girl: "bien-être",
+        cinema: "cinéma",
+        anciens: "histoire",
+        default: "culture générale",
+      },
     },
     sources: {
       title: "Comptes de référence",
@@ -6559,7 +6600,7 @@ export const fr = {
       onglets: { photos: "Photos", captures: "Captures", integrateurs: "Intégrateurs", "mises-en-scene": "Mises en scène" },
       capturesTitre: "Captures de nos applis",
       capturesAide:
-        "Les vrais écrans de micabo, Sophia et UnSwipe, par application et par support. Phase test : en français.",
+        "Les vrais écrans de nos applis (Sophia, micabo, UnSwipe, Atala), par application et par support. Phase test : en français.",
       capturesVide: "Aucune capture.",
       integrateursTitre: "Intégrateurs",
       integrateursAide:
@@ -8135,17 +8176,59 @@ export const fr = {
       applications: {
         titre: "Applications",
         desc: "Applications promues par les slideshows : interrupteur, langues ciblées et rattrapage de pertinence.",
-        descCourte: "Clique une application pour choisir ses langues et lancer son rattrapage de pertinence.",
+        descCourte: "Clique une application pour voir ce qu'il lui manque, choisir ses langues et lancer son rattrapage de pertinence.",
         colApp: "Application",
+        colLabels: "Labels",
+        aucunLabel: "aucun",
         colEtat: "État",
         etapes:
-          "Pour lancer une application : 1. l'ajouter ici (elle naît inactive) ; 2. écrire ses deux prompts (Configuration → Traduction & placement) et sa fiche (Fiches) ; 3. cocher ses labels plus haut ; 4. l'activer. Sa liste de concurrents et son logo restent à ajouter dans le code.",
+          "Pour lancer une application : 1. la déclarer dans le code (catalogue, logo, couleur, concurrents) ; 2. l'ajouter ici (elle naît inactive) ; 3. écrire ses deux prompts (Configuration → Traduction & placement) et sa fiche (Fiches) ; 4. régler son lien à 1 000 abonnés (Réglages) ; 5. créer ses labels plus haut ; 6. l'activer. La ligne dépliée dit où elle en est. Mode d'emploi : docs/applications.md.",
         ajout: {
           bouton: "Ajouter une application",
           nom: "Nom",
           slug: "Identifiant",
           creer: "Créer (inactive)",
-          aide: "L'application est créée inactive, avec ses deux prompts vides. Rien ne change en production tant qu'aucun label ne la sert.",
+          aide: "L'application est créée inactive, avec ses deux prompts vides. Rien ne change en production tant qu'aucun label ne la sert. Son logo, sa couleur et ses concurrents se déclarent dans le code (docs/applications.md) : sans eux elle marche, avec une pastille grise et les seuls concurrents de Sophia.",
+        },
+        preparation: {
+          titre: "Préparation",
+          ordre: "Dans l'ordre : le point en gras est le prochain à traiter.",
+          pret: "Tout est en place.",
+          code: {
+            ok: "Déclarée dans le code : catalogue, logo, couleur, concurrents.",
+            a_faire:
+              "À déclarer dans le code (catalogue des applications, logo, couleur, concurrents) : docs/applications.md. En attendant : pastille grise et seuls concurrents de Sophia.",
+          },
+          pertinence: {
+            ok: "Prompt de pertinence écrit ({{detail}}).",
+            a_relire:
+              "Prompt de pertinence en brouillon ({{detail}}) : relis le pitch dans Configuration → Traduction & placement, puis retire sa ligne « [BROUILLON … ] ».",
+            a_faire: "Prompt de pertinence vide ({{detail}}) : sans lui, aucun contenu n'est noté pour {{nom}}.",
+          },
+          placement: {
+            ok: "Prompt de placement écrit ({{detail}}).",
+            a_relire:
+              "Prompt de placement en brouillon ({{detail}}) : relis le pitch dans Configuration → Traduction & placement, puis retire sa ligne « [BROUILLON … ] ».",
+            a_faire: "Prompt de placement vide ({{detail}}) : sans lui, aucun deck {{nom}} n'est préparé.",
+          },
+          lien1000: {
+            ok: "Lien à 1 000 abonnés : {{detail}}.",
+            a_faire:
+              "Lien à 1 000 abonnés manquant (Réglages → Textes aux posteurs) : ses comptes recevraient le lien Sophia.",
+          },
+          labels: {
+            ok: "Labels qui la servent : {{detail}}.",
+            a_faire: "Aucun label ne la sert : crée son premier label plus haut (« Label {{nom}} »).",
+          },
+          langues: {
+            ok: "Langues ciblées : {{detail}}.",
+            toutes: "Langues ciblées : toutes.",
+            a_faire: "Aucune langue ciblée : elle n'est servie sur aucun compte.",
+          },
+          active: {
+            ok: "Active.",
+            a_faire: "Inactive : à activer en dernier, avec l'interrupteur de sa ligne.",
+          },
         },
         sophiaVerrouillee: "Toujours active, toutes langues : identité des comptes, et repli de tout compte dont la répartition lui laisse une part (tous, sans répartition).",
         actif: "Active",
@@ -8157,6 +8240,8 @@ export const fr = {
         aucuneLangueAide: "Aucune langue : l'application n'est servie sur aucun compte.",
         promptsManquants:
           "Impossible d'activer {{nom}} : prompt(s) vide(s) ou absent(s) — {{cles}}. Écris-les dans Réglages → Prompts (filtre « Application » sur {{nom}}).",
+        promptsBrouillons:
+          "Impossible d'activer {{nom}} : prompt(s) encore en brouillon — {{cles}}. Relis le pitch (Configuration → Traduction & placement, filtre « Application » sur {{nom}}), puis retire la ligne « [BROUILLON … ] ».",
         backfillTitre: "Rattrapage de pertinence",
         backfillAide:
           "Note pour {{nom}} les contenus déjà en stock dont un label la sert. À lancer avant l'activation : sans note éligible, un contenu n'entre pas dans son pool.",

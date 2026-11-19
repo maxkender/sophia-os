@@ -1,4 +1,5 @@
 import { blocConsignePlacement, variantesSansCopieAngle } from "./angle_placement.ts";
+import { enumererMarques } from "./catalogue_applications.ts";
 import { downloadImage } from "./apify.ts";
 import { variantesSansFrancaisResiduel } from "./deck_langue.ts";
 import { messageErreur } from "./supabase.ts";
@@ -317,7 +318,7 @@ tapé dans le texte, le fond coloré derrière le texte, ni le watermark TikTok
   collée. Transcris la slide normalement, puis ajoute une dernière ligne
   exactement : (sticker contenu)
 Pas un sticker du tout (transcris normalement, sans marque) : nos applis
-Sophia, UnSwipe, Micabo (carte, icône ou capture).
+${enumererMarques()} (carte, icône ou capture).
 Toujours du CONTENU, jamais une PUB : une grande plateforme citée comme outil
 dans le conseil de la slide (LinkedIn, YouTube, Spotify, Substack, Google,
 Wikipedia, Instagram…).`;

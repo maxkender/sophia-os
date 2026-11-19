@@ -265,7 +265,7 @@ export interface GroupeSources {
   total: number;
 }
 
-const ORDRE_SECTIONS: readonly (Section | "sans")[] = ["runvik", "micabo", "sophia", "idees", "sans"];
+const ORDRE_SECTIONS: readonly (Section | "sans")[] = ["atala", "micabo", "sophia", "idees", "sans"];
 
 /**
  * Range les sources d'un onglet comme le moodboard : par app, puis par label (leurs VRAIS labels, pas la carte du

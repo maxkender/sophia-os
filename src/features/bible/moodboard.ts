@@ -1,11 +1,16 @@
 /**
- * 19/11 (Max) : la Bible en moodboard. Les comptes rangés par app (Runvik, Micabo, Sophia, Idées, puis Sans label),
+ * 19/11 (Max) : la Bible en moodboard. Les comptes rangés par app (Atala, Micabo, Sophia, Idées, puis Sans label),
  * puis par carte de label (labels_proposes : section, badge, DA). Lectures, écritures et rangement.
  *
  * 19/11 (Adrien) : la Bible est le chemin de l'import, de bout en bout. Deux étapes à la main (À importer, Prochain
  * batch), puis « Lancer l'import » crée les sources ; la suite (En import, À l'essai, Weekly update, Arrêtées) est
  * calculée depuis l'état réel de la source (voir `sources.ts`), plus jamais cochée à la main.
+ *
+ * 19/11 (soir) : l'appli de running a son nom, Atala, et existe dans l'OS (migration 0764). La section « runvik »
+ * (nom de travail, appli « en attente ») est devenue « atala », reliée à la vraie application (0765) : ses cartes se
+ * valident comme celles de Sophia et de Micabo (« Créer ce label » crée un label Atala).
  */
+import { idApplication } from "@/features/moteur/catalogueApplications";
 import { supabase } from "@/lib/supabase/client";
 
 import { handleDe } from "./parse";
@@ -18,7 +23,7 @@ export type EtapeManuelle = "a_importer" | "prochain_batch";
 export type EtapeSource = "en_import" | "essai" | "weekly" | "arretees";
 /** Un onglet de la page : une étape du chemin, ou la corbeille. */
 export type Vue = EtapeManuelle | EtapeSource | "corbeille";
-export type Section = "runvik" | "micabo" | "sophia" | "idees";
+export type Section = "atala" | "micabo" | "sophia" | "idees";
 export type Badge = "existe" | "nouveau" | "propose" | "a_confirmer" | "idee";
 
 /**
@@ -38,7 +43,7 @@ export const VUES: readonly { cle: Vue; libelle: string; chemin: boolean; auto: 
 export const estVueSource = (v: Vue): v is EtapeSource => v === "en_import" || v === "essai" || v === "weekly" || v === "arretees";
 
 export const SECTIONS: readonly { cle: Section | "sans"; libelle: string; sous?: string }[] = [
-  { cle: "runvik", libelle: "Runvik", sous: "running" },
+  { cle: "atala", libelle: "Atala", sous: "running" },
   { cle: "micabo", libelle: "Micabo" },
   { cle: "sophia", libelle: "Sophia" },
   { cle: "idees", libelle: "Idées" },
@@ -53,10 +58,11 @@ export const LIBELLE_BADGE: Record<Badge, string> = {
   idee: "idée",
 };
 
+/** Les applications d'une section : leurs ids viennent du catalogue des applications. */
 const APP_SECTION: Record<Section, { application_ids: string[]; apps_attente: string[] }> = {
-  runvik: { application_ids: [], apps_attente: ["Runvik – running"] },
-  micabo: { application_ids: ["00000000-0000-4000-8000-000000000002"], apps_attente: [] },
-  sophia: { application_ids: ["00000000-0000-4000-8000-000000000001"], apps_attente: [] },
+  atala: { application_ids: [idApplication("atala")], apps_attente: [] },
+  micabo: { application_ids: [idApplication("micabo")], apps_attente: [] },
+  sophia: { application_ids: [idApplication("sophia")], apps_attente: [] },
   idees: { application_ids: [], apps_attente: [] },
 };
 
@@ -176,13 +182,14 @@ export function etapeAvantImport(c: CompteBible, carte: CarteLabel | null | unde
 }
 
 /** Pourquoi un compte du prochain batch peut partir à l'import, ou pas. */
-export type Blocage = "pret" | "podz" | "deja_source" | "sans_label" | "label_a_creer" | "app_a_creer";
+export type Blocage = "pret" | "podz" | "deja_source" | "sans_label" | "label_a_creer";
 
 export function blocageImport(c: CompteBible, carte: CarteLabel | null | undefined, source: SourceDuCompte | null | undefined): Blocage {
   if (c.a_podzer) return "podz";
   if (source) return "deja_source";
   if (!carte) return "sans_label";
-  if (!carte.label_id) return carte.section === "runvik" ? "app_a_creer" : "label_a_creer";
+  // Plus d'appli « à créer » depuis qu'Atala existe (0764) : il ne manque que le label, à créer depuis sa carte.
+  if (!carte.label_id) return "label_a_creer";
   return "pret";
 }
 
@@ -192,12 +199,11 @@ export const LIBELLE_BLOCAGE: Record<Blocage, string> = {
   deja_source: "déjà une source",
   sans_label: "sans label",
   label_a_creer: "label à créer",
-  app_a_creer: "app Runvik à créer",
 };
 
-/** Une carte dont le label peut être créé d'ici : proposé ou nouveau, pour une app qui existe. */
+/** Une carte dont le label peut être créé d'ici : proposé ou nouveau, pour une app qui existe (toutes sauf « Idées »). */
 export const carteValidable = (c: CarteLabel): boolean =>
-  !c.label_id && (c.badge === "nouveau" || c.badge === "propose") && (c.section === "sophia" || c.section === "micabo");
+  !c.label_id && (c.badge === "nouveau" || c.badge === "propose") && APP_SECTION[c.section].application_ids.length > 0;
 
 /** Range le compte sous une carte (et met ses apps d'après la section de la carte). */
 export async function changerCarte(id: string, carte: CarteLabel): Promise<void> {

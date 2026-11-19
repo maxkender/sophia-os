@@ -5,6 +5,7 @@
  * les vues ne jugent pas un CTA, qui arrive à la slide 4 ou plus loin. Le
  * classement reste une aide pour choisir les exemples des fiches label.
  */
+import { enumererMarques } from "./catalogue_applications.ts";
 
 export interface FormeCta {
   code: string;
@@ -94,7 +95,7 @@ export function promptClassement(lot: ReadonlyArray<CtaAClasser>): string {
       JSON.stringify({ id: i, avant: (c.avant ?? "").slice(0, 200), cta: c.cta_texte.slice(0, 500) })
     )
     .join("\n");
-  return `Tu classes la phrase d'appel (CTA) de slideshows TikTok. Chaque CTA cite une appli (Sophia, micabo ou UnSwipe). Les textes sont dans toutes les langues ; les consignes sont en français.
+  return `Tu classes la phrase d'appel (CTA) de slideshows TikTok. Chaque CTA cite une appli (${enumererMarques("ou")}). Les textes sont dans toutes les langues ; les consignes sont en français.
 
 Les formes possibles, par ordre de priorité. Si un CTA relève de deux formes, prends la première de la liste :
 ${formes}

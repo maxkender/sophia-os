@@ -44,6 +44,15 @@ describe("Bible : ajout en masse", () => {
     expect(l.note).toBe("refaire avec d'autres photos");
   });
 
+  it("« runvik », l'ancien nom de travail, désigne Atala dès qu'elle existe dans l'OS", () => {
+    const apps = [...APPS, { id: "a-atala", slug: "atala", nom: "Atala" }];
+    const l = lireLigne("Sophia clean_girl + runvik clean_girl_run https://www.tiktok.com/@crushed.ethereal", apps, LABELS);
+    expect(l.appIds).toEqual(["a-sophia", "a-atala"]);
+    expect(l.appsAttente).toEqual([]);
+    expect(l.autres).toEqual([{ sujet: "Atala", app: "Atala", label: "clean_girl_run" }]);
+    expect(lireLigne("atala male_run https://www.tiktok.com/@un", apps, LABELS)).toMatchObject({ appIds: ["a-atala"], labelPropose: "male_run" });
+  });
+
   it("le label donne l'app quand elle n'est pas écrite ; une ligne sans lien est signalée", () => {
     expect(lireLigne("clean_study https://www.tiktok.com/@sally.htg", APPS, LABELS).appIds).toEqual(["a-micabo"]);
     expect(lireLigne("juste du texte", APPS, LABELS)).toMatchObject({ ignoree: true, handle: null });

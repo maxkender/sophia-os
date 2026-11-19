@@ -1,0 +1,66 @@
+/**
+ * Les labels rangés par application, pour la carte Labels : un groupe par
+ * application (dans l'ordre du catalogue), puis les labels qui ne servent
+ * personne. Un label qui sert deux applications est dans les deux groupes :
+ * chaque groupe répond à « qu'est-ce que cette application peut publier ? ».
+ */
+import { applicationsDuLabel, type LienLabelApplication } from "../multiApp";
+import { themeMotsDuLabel, type ThemeMots } from "../themeLabel";
+
+export interface GroupeLabels<L, A> {
+  /** L'application du groupe ; `null` = les labels sans application. */
+  application: A | null;
+  labels: L[];
+}
+
+export function grouperLabelsParApplication<L extends { id: string }, A extends { id: string }>(
+  labels: readonly L[],
+  applications: readonly A[],
+  liens: readonly LienLabelApplication[],
+): GroupeLabels<L, A>[] {
+  const serviesPar = new Map(labels.map((l) => [l.id, applicationsDuLabel(l.id, liens)]));
+  const groupes: GroupeLabels<L, A>[] = applications.map((application) => ({
+    application,
+    labels: labels.filter((l) => serviesPar.get(l.id)!.includes(application.id)),
+  }));
+  const connues = new Set(applications.map((a) => a.id));
+  // Sans application, ou seulement des applications que la liste ne connaît pas.
+  const sans = labels.filter((l) => !serviesPar.get(l.id)!.some((id) => connues.has(id)));
+  if (sans.length > 0) groupes.push({ application: null, labels: sans });
+  return groupes;
+}
+
+/**
+ * Le thème qu'on attend des labels d'une application, et la fin de nom qui le
+ * donne. Un label Atala qui ne finit pas par « _run » marche, mais ses comptes
+ * auraient un @ et une bio de culture générale : le formulaire le dit.
+ */
+export const THEME_ATTENDU: Readonly<Record<string, { theme: ThemeMots; suffixe: string }>> = {
+  atala: { theme: "running", suffixe: "_run" },
+  micabo: { theme: "etude", suffixe: "_study" },
+};
+
+/** Un @ d'exemple par thème, pour montrer à quoi ressembleront les comptes du label. */
+export const EXEMPLE_HANDLE: Readonly<Record<ThemeMots, string>> = {
+  running: "lena.runs472",
+  etude: "lea.revisions318",
+  carriere: "emma.career204",
+  psycho: "noah.mind611",
+  philo: "marc.stoic530",
+  alpha_male: "jakob.discipline473",
+  smart_girl: "lena.books129",
+  clean_girl: "mia.glow385",
+  cinema: "leo.cinema742",
+  anciens: "max.history356",
+  default: "lea.culture218",
+};
+
+/** L'identité que le nom d'un label donne à ses comptes, et si elle colle à l'application choisie. */
+export function identiteDuNom(
+  nom: string,
+  slugApplication: string | null,
+): { theme: ThemeMots; exemple: string; attendu: { theme: ThemeMots; suffixe: string } | null } {
+  const theme = themeMotsDuLabel(nom);
+  const attendu = slugApplication ? (THEME_ATTENDU[slugApplication] ?? null) : null;
+  return { theme, exemple: EXEMPLE_HANDLE[theme], attendu: attendu && attendu.theme !== theme ? attendu : null };
+}

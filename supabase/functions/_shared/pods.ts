@@ -14,6 +14,7 @@ import {
   pertinenceSuffisante,
   scoreStockable,
 } from "./pertinence_apps.ts";
+import { SLUGS_APPLICATIONS } from "./catalogue_applications.ts";
 import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
 import { lireParLots } from "./lots.ts";
 import { chargerPrompt } from "./supabase.ts";
@@ -696,9 +697,14 @@ export const TIER_ORIGINAL = "B";
 const LONGUEUR_MAX_ACCROCHE = 120;
 const LONGUEUR_MAX_SLIDE = 320;
 const MOT_SOPHIA = /\bsophia\b/i;
-// Les applis d'étude de la niche du pod 12 (Penman, Quizlet, Anki, Knowt, StudyFetch) comptent aussi.
-const AUTRE_APPLI =
-  /\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unscroll|elqo|kodi[\s-]+(?:ai|app)|unswipe|micabo|penman|quizlet|anki|knowt|study[\s-]?fetch)\b/i;
+// Les applis d'étude de la niche du pod 12 (Penman, Quizlet, Anki, Knowt, StudyFetch) comptent aussi,
+// et nos autres applications (le catalogue, hors Sophia) : le texte de base d'un original n'en cite aucune.
+const AUTRE_APPLI = new RegExp(
+  String.raw`\b(vent[\s-]?now|readup|turbo[\s-]?resume|bycat|actualize|unscroll|elqo|kodi[\s-]+(?:ai|app)|penman|quizlet|anki|knowt|study[\s-]?fetch|${
+    SLUGS_APPLICATIONS.filter((s) => s !== SLUG_SOPHIA).join("|")
+  })\b`,
+  "i",
+);
 /** Les slides d'inspiration viennent du stockage de l'OS (`medias/brut/`), jamais d'un CDN qui expire. */
 export const REFERENCE_VALIDE = /^https:\/\/[a-z0-9]+\.supabase\.co\/storage\/v1\/object\/public\/medias\/brut\//;
 

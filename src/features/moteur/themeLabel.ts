@@ -1,0 +1,96 @@
+/**
+ * Thème + genre déduits du nom/slug d'un label : ce qui fixe, pour les comptes
+ * d'un label, les mots de leur @, leur bio et la banque de photos de profil.
+ *
+ * Copie front de `supabase/functions/_shared/label_theme.ts` (le module
+ * source, lu par le moteur à la création d'un compte), à garder synchro :
+ * `catalogueApplications.test.ts` compare les deux fichiers. Le front s'en
+ * sert pour annoncer, dès la création d'un label, l'identité de ses comptes.
+ */
+
+export type Genre = "homme" | "femme";
+
+export type ThemeLabel =
+  | "alpha_male"
+  | "smart_girl"
+  | "clean_girl"
+  | "cinema"
+  | "anciens"
+  | "default";
+
+function sansAccents(s: string): string {
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+export function normaliserLabel(s: string): string {
+  return sansAccents(s).replace(/[^a-z0-9]+/g, "_");
+}
+
+/** Déduit le thème persona depuis le nom ou slug du label. */
+export function themeDuLabel(nomOuSlug: string | null | undefined): ThemeLabel {
+  const s = normaliserLabel(nomOuSlug ?? "");
+  if (!s) return "default";
+  if (s.includes("ancien")) return "anciens";
+  if (s === "cinema" || s === "film" || (s.includes("cinema") && !s.includes("alpha"))) {
+    return "cinema";
+  }
+  if (s.includes("clean")) return "clean_girl";
+  // alpha* / *male* (y compris alpha_msle_dark typo) → alpha_male. Jamais
+  // « female » (white_female_run), qui contient « male ».
+  if (s.includes("alpha") || (s.includes("male") && !s.includes("girl") && !s.includes("female"))) {
+    return "alpha_male";
+  }
+  if (s.includes("girl") || s.includes("smart") || s.includes("beau")) return "smart_girl";
+  return "default";
+}
+
+/**
+ * Genre imposé par le label / thème.
+ * clean_girl / smart_girl / *_girl → femme
+ * alpha_male / *male* → homme
+ */
+export function genreDuLabel(nomOuSlug: string | null | undefined): Genre | null {
+  const theme = themeDuLabel(nomOuSlug);
+  if (theme === "alpha_male") return "homme";
+  if (theme === "clean_girl" || theme === "smart_girl") return "femme";
+  const s = normaliserLabel(nomOuSlug ?? "");
+  if (!s) return null;
+  if (s.includes("girl") || s.includes("femme") || s.includes("female") || s.includes("woman")) return "femme";
+  if (s.includes("male") || s.includes("homme") || s.includes("alpha")) return "homme";
+  return null;
+}
+
+/**
+ * Thème des MOTS du @ et de la bio : plus fin que `ThemeLabel`, qui règle aussi
+ * le genre et la banque de photos de profil et ne doit donc pas bouger.
+ * Un label d'études, de carrière, de psycho, de philo ou de running a ses
+ * propres mots ; les autres gardent ceux de leur `ThemeLabel`.
+ */
+export type ThemeMots = ThemeLabel | "etude" | "carriere" | "psycho" | "philo" | "running";
+
+/**
+ * Les mots qui font d'un label un label de running (Atala). Mots ENTIERS du
+ * nom (`clean_girl_run`, `male_run`, `anxiety_run`), jamais un morceau de mot :
+ * « brunch » ou « prune » ne sont pas du running.
+ */
+const MOTS_RUNNING: ReadonlySet<string> = new Set([
+  "run", "runs", "runner", "runners", "running", "runclub", "jogging", "marathon", "trail",
+]);
+
+export function estLabelRunning(nomOuSlug: string | null | undefined): boolean {
+  return normaliserLabel(nomOuSlug ?? "").split("_").some((mot) => MOTS_RUNNING.has(mot));
+}
+
+export function themeMotsDuLabel(nomOuSlug: string | null | undefined): ThemeMots {
+  const s = normaliserLabel(nomOuSlug ?? "");
+  // Le running passe avant tout : `clean_girl_run` garde le genre et la photo
+  // de profil de clean_girl, mais son @ et sa bio parlent de course.
+  if (estLabelRunning(nomOuSlug)) return "running";
+  if (s.includes("study") || s.includes("etud")) return "etude";
+  if (s === "rh" || s.startsWith("rh_") || s.includes("career") || s.includes("carriere")) {
+    return "carriere";
+  }
+  if (s.includes("psych") || s.includes("mental")) return "psycho";
+  if (s.includes("plony") || s.includes("stoi") || s.includes("philo")) return "philo";
+  return themeDuLabel(nomOuSlug);
+}

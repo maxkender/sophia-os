@@ -92,11 +92,16 @@ export const PAYS_VERS_NOTION: Readonly<Record<string, string>> = Object.freeze(
   BY: "Belarus",
 });
 
-/** Slug d'application en base → option exacte du select « App ». */
+/**
+ * Slug d'application en base → option exacte du select « App ». Une
+ * application du catalogue doit avoir sa ligne ici (`notion_test.ts`), et son
+ * option dans la base Notion : sans elle, ses embauches sortent en « inconnus ».
+ */
 export const APP_VERS_NOTION: Readonly<Record<string, string>> = Object.freeze({
   sophia: "Sophia",
   unswipe: "Unswipe",
   micabo: "Micabo",
+  atala: "Atala",
 });
 
 export interface LigneOs {

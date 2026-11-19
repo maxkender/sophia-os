@@ -12,7 +12,7 @@ import { bilanSemaine, type DonneesSources, type FiltreSemaine, jourCourt, range
 import { TuileSource } from "./TuileSource";
 
 const TEINTE: Record<Section | "sans", string> = {
-  runvik: "bg-orange-400", micabo: "bg-violet-400", sophia: "bg-pink-400", idees: "bg-teal-400", sans: "bg-stone-300",
+  atala: "bg-emerald-500", micabo: "bg-violet-400", sophia: "bg-pink-400", idees: "bg-teal-400", sans: "bg-stone-300",
 };
 
 const FILTRES_SEMAINE: { cle: FiltreSemaine; libelle: string }[] = [

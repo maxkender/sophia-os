@@ -20,7 +20,7 @@ import { PageBible } from "./PageBible";
 import { REGLES_DEFAUT } from "./sources";
 
 const carte = (o: Partial<CarteLabel>): CarteLabel => ({
-  id: "k1", nom: "classic_girl_run", titre: null, section: "runvik", badge: "propose", description_da: "Coureuse en photo iPhone", label_id: null, ordre: 1, statut: "a_valider", ...o,
+  id: "k1", nom: "classic_girl_run", titre: null, section: "atala", badge: "propose", description_da: "Coureuse en photo iPhone", label_id: null, ordre: 1, statut: "a_valider", ...o,
 });
 const compte = (o: Partial<CompteBible>): CompteBible => ({
   id: "c1", handle: "compte.un", etape: "a_importer", label_propose_id: "k1", autres_cartes: [], note_import: null, remarque: null, a_podzer: false,
@@ -47,7 +47,7 @@ const rendre = () =>
   render(<MemoryRouter><QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}><PageBible /></QueryClientProvider></MemoryRouter>);
 
 describe("rangement du moodboard", () => {
-  it("par app dans l'ordre (Runvik, Micabo, Sophia, Idées, Sans label), puis par label ; « aussi » sous la 2e carte", () => {
+  it("par app dans l'ordre (Atala, Micabo, Sophia, Idées, Sans label), puis par label ; « aussi » sous la 2e carte", () => {
     const comptes = [
       compte({}),
       compte({ id: "c2", handle: "crushed", label_propose_id: "k1", autres_cartes: ["k2"] }),
@@ -56,7 +56,7 @@ describe("rangement du moodboard", () => {
       compte({ id: "c5", handle: "batch", etape: "prochain_batch" }),
     ];
     const g = ranger(comptes, CARTES, { etape: "a_importer", recherche: "", section: "" });
-    expect(g.map((x) => x.section)).toEqual(["runvik", "sophia", "sans"]);
+    expect(g.map((x) => x.section)).toEqual(["atala", "sophia", "sans"]);
     expect(g[1]!.cartes.map((c) => c.carte?.nom)).toEqual(["smart_girl", "clean_girl"]);
     expect(g[1]!.cartes[1]!.comptes[0]).toMatchObject({ aussi: true });
     expect(g[2]!.total).toBe(1);
@@ -69,8 +69,8 @@ describe("rangement du moodboard", () => {
     const handles = (f: Parameters<typeof ranger>[2]) => ranger(comptes, CARTES, f).flatMap((g) => g.cartes.flatMap((c) => c.comptes.map((x) => x.compte.handle)));
     expect(handles({ etape: "a_importer", recherche: "", section: "", podzer: true })).toEqual(["podz"]);
     expect(handles({ etape: "a_importer", recherche: "ugc", section: "" })).toEqual(["podz"]);
-    expect(appsDe(["sophia", "micabo", "sophia", "runvik"])).toEqual({
-      application_ids: ["00000000-0000-4000-8000-000000000001", "00000000-0000-4000-8000-000000000002"], apps_attente: ["Runvik – running"],
+    expect(appsDe(["sophia", "micabo", "sophia", "atala"])).toEqual({
+      application_ids: ["00000000-0000-4000-8000-000000000001", "00000000-0000-4000-8000-000000000002", "00000000-0000-4000-8000-000000000004"], apps_attente: [],
     });
   });
 
@@ -131,9 +131,10 @@ describe("page Bible", () => {
     fireEvent.click(await screen.findByRole("tab", { name: /Prochain batch 5/ }));
     const barre = await screen.findByTestId("barre-batch");
     expect(barre).toHaveTextContent("5 comptes dans le prochain batch, 2 prêts à importer.");
-    expect(barre).toHaveTextContent("Les autres : à podzer : pas d'import (1), label à créer (1), app Runvik à créer (1).");
+    // Atala existe : sa carte n'attend plus une appli, seulement son label.
+    expect(barre).toHaveTextContent("Les autres : à podzer : pas d'import (1), label à créer (2).");
     expect(screen.getByTestId("blocage-pret.un")).toHaveTextContent("prêt à importer");
-    expect(screen.getByTestId("blocage-sans.app")).toHaveTextContent("app Runvik à créer");
+    expect(screen.getByTestId("blocage-sans.app")).toHaveTextContent("label à créer");
     expect(screen.getByTestId("blocage-label.propose")).toHaveTextContent("label à créer");
 
     fireEvent.click(within(barre).getByRole("button", { name: /Lancer l'import \(2\)/ }));
@@ -187,14 +188,14 @@ describe("page Bible", () => {
     expect(await screen.findByTestId("etat-source.ailleurs")).toHaveTextContent("Essai : 30 sur 30 importés, 6 sur 10 mesurés");
   });
 
-  it("« Créer ce label » sur une carte proposée d'une app qui existe ; pas sur Runvik", async () => {
+  it("« Créer ce label » sur une carte proposée d'une app qui existe, Atala comprise", async () => {
     api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c2", handle: "clean", label_propose_id: "k2" })]);
     api.validerCarte.mockResolvedValue(undefined);
     const confirmer = vi.spyOn(window, "confirm").mockReturnValue(true);
     rendre();
     const sophia = (await screen.findByText("clean_girl")).closest("[data-carte]") as HTMLElement;
-    const runvik = screen.getByText("classic_girl_run").closest("[data-carte]") as HTMLElement;
-    expect(within(runvik).queryByRole("button", { name: "Créer ce label" })).toBeNull();
+    const atala = screen.getByText("classic_girl_run").closest("[data-carte]") as HTMLElement;
+    expect(within(atala).getByRole("button", { name: "Créer ce label" })).toBeInTheDocument();
     fireEvent.click(within(sophia).getByRole("button", { name: "Créer ce label" }));
     expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Créer le label « clean_girl » pour Sophia ?"));
     await waitFor(() => expect(api.validerCarte).toHaveBeenCalledWith("k2"));
@@ -229,13 +230,13 @@ describe("ajout de comptes", () => {
     api.ajouterComptes.mockResolvedValue({ crees: ["un", "deux"], deja: [], ids: [] });
     render(<DialogueAjout ouvert cartes={CARTES} onFermer={() => {}} onFini={() => {}} />);
     fireEvent.change(screen.getByPlaceholderText(/compte1/), { target: { value: "https://www.tiktok.com/@un\n@deux" } });
-    fireEvent.click(screen.getByRole("button", { name: "Runvik" }));
+    fireEvent.click(screen.getByRole("button", { name: "Atala" }));
     fireEvent.click(screen.getByRole("button", { name: "Sophia" }));
     fireEvent.click(screen.getByLabelText("À podzer"));
     fireEvent.change(screen.getByLabelText("Remarque pour @deux"), { target: { value: "photos à refaire" } });
     fireEvent.click(screen.getAllByRole("button", { name: "UGC" })[0]!);
     fireEvent.click(screen.getByRole("button", { name: "Ajouter" }));
-    await waitFor(() => expect(api.ajouterComptes).toHaveBeenCalledWith(["un", "deux"], null, ["runvik", "sophia"], {
+    await waitFor(() => expect(api.ajouterComptes).toHaveBeenCalledWith(["un", "deux"], null, ["atala", "sophia"], {
       a_podzer: true, remarques: { un: REMARQUE_UGC, deux: "photos à refaire" },
     }));
   });

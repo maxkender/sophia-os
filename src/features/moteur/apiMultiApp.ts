@@ -177,6 +177,12 @@ export async function listerLiensLabels(): Promise<LienLabelApplicationRow[]> {
  * Remplace l'ensemble des applications servies par un label. Vide : le label
  * n'est plus disponible pour personne (21/10). Le seuil de pertinence d'une
  * application déjà cochée est gardé.
+ *
+ * Un label qui ne sert plus qu'UNE application la prend aussi comme
+ * application principale (`labels.application_id`) : c'est elle que lisent le
+ * doublement du jeudi (l'application du 2e compte) et la banque d'images des
+ * podz. Avant le 19/11 la colonne restait à Sophia pour tout label créé à
+ * l'écran, même coché pour une autre application seule.
  */
 export async function definirApplicationsLabel(
   labelId: string,
@@ -201,6 +207,28 @@ export async function definirApplicationsLabel(
     .eq("label_id", labelId)
     .not("application_id", "in", `(${voulues.join(",")})`);
   if (errDel) throw errDel;
+  if (voulues.length === 1) {
+    const { error: errPrincipale } = await supabase
+      .from("labels")
+      .update({ application_id: voulues[0] })
+      .eq("id", labelId)
+      .neq("application_id", voulues[0]!);
+    if (errPrincipale) throw errPrincipale;
+  }
+}
+
+/**
+ * Le lien à 1 000 abonnés de chaque application (`reglages.lien_1000.liens`,
+ * slug → lien). Une application sans lien recevrait celui de Sophia
+ * (`lien_1000_controle`) : la carte Applications le signale.
+ */
+export async function lireLiens1000(): Promise<Record<string, string>> {
+  const { data, error } = await supabase.from("reglages").select("valeur").eq("cle", "lien_1000").maybeSingle();
+  if (error) throw error;
+  const liens = (data?.valeur as { liens?: Record<string, unknown> } | null | undefined)?.liens ?? {};
+  return Object.fromEntries(
+    Object.entries(liens).map(([slug, lien]) => [slug, typeof lien === "string" ? lien.trim() : ""]),
+  );
 }
 
 /** Seuil de pertinence à l'import d'un label pour une application (0330). */

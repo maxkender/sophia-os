@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/features/auth/AuthContext";
+import { SLUGS_APPLICATIONS } from "@/features/moteur/catalogueApplications";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 
 import { isoVersLocalParis, lireReglagesBruts, localParisVersIso, RAISONS_FIN_UPWORK, remplirVariables, variablesInconnues } from "./api";
@@ -248,7 +249,8 @@ export function CarteCohorteAccueil() {
 
 const CLES_TEXTES = ["lien_1000", "ckd_raison_textes", "slack_boutons"] as const;
 export const CHAMPS_LIEN_1000 = ["titre", "message", "titre_relance", "message_relance"] as const;
-export const APPLIS_LIEN_1000 = ["sophia", "unswipe", "micabo"] as const;
+/** Un lien par application du catalogue : une application sans lien recevrait celui de Sophia. */
+export const APPLIS_LIEN_1000 = SLUGS_APPLICATIONS;
 export const CHAMPS_RAISON = ["shadowban_zero", "shadowban_faibles", "vues_basses", "posts_manquants"] as const;
 export const CHAMPS_BOUTONS = [
   "done", "aide", "stop", "confirmer_titre", "confirmer_texte", "confirmer_oui", "confirmer_non", "merci",
@@ -306,7 +308,7 @@ export function CarteTextesPosteurs() {
             <ChampTexte key={k} id={`lien1000-${k}`} label={t(`reglagesOs.textes.lien.${k}`)} valeur={b.lien[k]!} admin={admin}
               lignes={k.startsWith("titre") ? 1 : 3} onChange={(v) => setB({ ...b, lien: { ...b.lien, [k]: v } })} />
           ))}
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {APPLIS_LIEN_1000.map((k) => (
               <label key={k} className="block space-y-1 text-sm">
                 <span className="font-medium">{t("reglagesOs.textes.lienAppli", { appli: k })}</span>

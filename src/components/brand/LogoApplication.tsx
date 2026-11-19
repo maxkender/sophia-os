@@ -1,7 +1,5 @@
-import logoMicabo from "@/assets/applications/micabo.png";
-import logoSophia from "@/assets/applications/sophia.png";
-import logoUnswipe from "@/assets/applications/unswipe.png";
 import { couleurApplication, nomAffiche } from "./identiteApplications";
+import { LOGOS } from "./logosApplications";
 import { cn } from "@/lib/utils";
 
 /**
@@ -9,12 +7,8 @@ import { cn } from "@/lib/utils";
  * couleur dans les graphes. Une application inconnue (créée demain dans
  * l'OS) n'a ni l'une ni l'autre : elle prend une pastille à son initiale et
  * le gris « autre », la page reste lisible sans qu'on touche au code.
+ * Les logos eux-mêmes sont dans `logosApplications.ts`.
  */
-const LOGOS: Record<string, string> = {
-  sophia: logoSophia,
-  micabo: logoMicabo,
-  unswipe: logoUnswipe,
-};
 
 const TAILLES = {
   xs: "size-4 rounded-[4px]",

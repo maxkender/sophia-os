@@ -156,18 +156,19 @@ describe("un compte de la Bible face à sa source", () => {
     expect(etapeAvantImport(compte({}), carte({ label_id: "L2" }), dejaSource)).toBe("prochain_batch");
   });
 
-  it("ce qui bloque un compte du batch : podz, pas de label, label à créer, app à créer ; sinon prêt", () => {
+  it("ce qui bloque un compte du batch : podz, pas de label, label à créer ; sinon prêt", () => {
     expect(blocageImport(compte({ a_podzer: true }), carte({}), null)).toBe("podz");
     expect(blocageImport(compte({ label_propose_id: null }), null, null)).toBe("sans_label");
     expect(blocageImport(compte({}), carte({ label_id: null, badge: "nouveau", section: "micabo" }), null)).toBe("label_a_creer");
-    expect(blocageImport(compte({}), carte({ label_id: null, badge: "propose", section: "runvik" }), null)).toBe("app_a_creer");
+    // Atala existe dans l'OS : sa carte attend son label, plus son appli.
+    expect(blocageImport(compte({}), carte({ label_id: null, badge: "propose", section: "atala" }), null)).toBe("label_a_creer");
     expect(blocageImport(compte({}), carte({}), null)).toBe("pret");
   });
 
   it("un label se crée d'ici s'il est proposé ou nouveau, pour une app qui existe", () => {
     expect(carteValidable(carte({ label_id: null, badge: "nouveau", section: "micabo" }))).toBe(true);
     expect(carteValidable(carte({ label_id: null, badge: "propose", section: "sophia" }))).toBe(true);
-    expect(carteValidable(carte({ label_id: null, badge: "propose", section: "runvik" }))).toBe(false);
+    expect(carteValidable(carte({ label_id: null, badge: "propose", section: "atala" }))).toBe(true);
     expect(carteValidable(carte({ label_id: null, badge: "a_confirmer", section: "sophia" }))).toBe(false);
     expect(carteValidable(carte({ label_id: null, badge: "idee", section: "idees" }))).toBe(false);
     expect(carteValidable(carte({}))).toBe(false);

@@ -7,8 +7,9 @@
  *   - un contenu de pod (`contenus.pod`, passe-droit) ;
  *   - un contenu au tier A ou mieux, pour Sophia (`contenus.tier`) ou pour une
  *     autre application (`contenu_application_tier_etat`, lignes éligibles) ;
- *   - nos applis (Sophia, UnSwipe, Micabo) : l'OCR ne les compte pas comme
- *     sticker du tout (consigne de `ocrSlideImport`).
+ *   - nos applis (celles du catalogue : Sophia, micabo, UnSwipe, Atala) :
+ *     l'OCR ne les compte pas comme sticker du tout (consigne de
+ *     `ocrSlideImport`, qui les énumère depuis `catalogue_applications.ts`).
  * Retirer = `statut = rejete` : le slideshow sort de toutes les réserves.
  *
  * Le nettoyage est mené par le serveur (migration 0317, fonction

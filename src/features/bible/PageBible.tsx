@@ -1,5 +1,5 @@
 /**
- * 19/11 (Max) : la Bible des comptes, en moodboard. Les comptes rangés par app (Runvik, Micabo, Sophia, Idées, puis
+ * 19/11 (Max) : la Bible des comptes, en moodboard. Les comptes rangés par app (Atala, Micabo, Sophia, Idées, puis
  * Sans label) puis par label (nom, badge, DA), chacun avec ses 3 derniers TikToks en miniatures.
  *
  * 19/11 (Adrien) : la Bible est le chemin de l'import, d'un bout à l'autre, un onglet par étape :
@@ -30,7 +30,7 @@ import { type ActionsTuile, TuileCompte } from "./TuileCompte";
 import { VueSources } from "./VueSources";
 
 const TEINTE: Record<Section | "sans", { pastille: string; texte: string }> = {
-  runvik: { pastille: "bg-orange-400", texte: "text-orange-700" },
+  atala: { pastille: "bg-emerald-500", texte: "text-emerald-700" },
   micabo: { pastille: "bg-violet-400", texte: "text-violet-700" },
   sophia: { pastille: "bg-pink-400", texte: "text-pink-700" },
   idees: { pastille: "bg-teal-400", texte: "text-teal-700" },

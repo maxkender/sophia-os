@@ -99,7 +99,7 @@ export function DialogueLabel({ compte, cartes, onFermer, onChoisir }: {
 
 /** Les apps qu'on peut cocher (plusieurs à la fois). */
 const APPS: { cle: Section; libelle: string }[] = [
-  { cle: "runvik", libelle: "Runvik" },
+  { cle: "atala", libelle: "Atala" },
   { cle: "micabo", libelle: "Micabo" },
   { cle: "sophia", libelle: "Sophia" },
 ];

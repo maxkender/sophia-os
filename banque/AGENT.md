@@ -111,7 +111,7 @@ n'est pas de la photo de course : ne le remplis pas avec cet outil.
   dans `banque_jetons.jeton_hash` ; l'ancien cesse aussitôt de marcher.
 
 Coût mesuré le 19/11 : 0,0015 $ la recherche (15 épingles), puis 0,0001 $
-l'épingle. Les 76 recherches du jour (7 000 épingles) ont coûté 0,53 $ et
+l'épingle. Les 80 recherches du jour (6 960 épingles) ont coûté 0,50 $ et
 rendu 2 581 candidates ; environ une épingle sur trois est trop petite (736 px
 de large en 4:5). Au tri, une bonne recherche garde sept à huit images sur
 dix ; une recherche qui rend des affiches (« motivation », « vision board »,

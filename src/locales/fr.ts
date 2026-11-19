@@ -9749,6 +9749,9 @@ export const fr = {
       ajouterNombre: "Nombre de comptes",
       ajouterUgc: "Compte UGC",
       ajouter: "Ajouter",
+      fileAussi: "Aussi en File :",
+      fileAussiApp_one: "{{app}} · {{count}} compte",
+      fileAussiApp_other: "{{app}} · {{count}} comptes",
       fileAppInactive: "inactive",
       fileSansPart:
         "{{app}} a 0 % dans « Répartition entre applis » : le moteur ne lui envoie aucun compte, cette File ne sera donc pas lue. Donne-lui une part pour qu'elle serve.",

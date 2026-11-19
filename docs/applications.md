@@ -246,6 +246,10 @@ le label des 50 prochains comptes, dans cet ordre. L'entrée part dans la File
 de l'application que sert le label : choisir un label d'une autre application
 que celle affichée ouvre sa File.
 
+- **L'éditeur s'ouvre sur l'application qui a des comptes en File** (Sophia si
+  la sienne en a, ou si toutes sont vides) et annonce les autres Files non
+  vides (« Aussi en File : Atala · 45 comptes »). Sinon on rouvrait la page
+  sur la File vide de Sophia, et la File d'Atala semblait avoir disparu.
 - **Une entrée = un compte**, tirée dans l'ordre et retirée de la File, quelle
   que soit la langue du compte et qu'il vienne d'un HM ou du site. La liste
   regroupe les entrées qui se suivent (« ×20 ») ; en base, la File reste une

@@ -140,6 +140,14 @@ Deno.test("1/11 : jamais de mot de passe ni de guide : les lignes d'un ancien te
   );
 });
 
+Deno.test("19/11 : la niche du warm-up suit le label du compte ; pas donnée : la culture générale", () => {
+  const modele = "Hi {prenom}, like and follow accounts in the {niche} niche.";
+  const v = { prenom: "Ana", url: "u", email: "a@b", slack: "s", cohorte_lundi: "2026-11-02" };
+  assertEquals(messageAccueil(modele, { ...v, niche: "running" }), "Hi Ana, like and follow accounts in the running niche.");
+  assertEquals(messageAccueil(modele, v), "Hi Ana, like and follow accounts in the general knowledge niche.");
+  assertEquals(messageAccueil(modele, { ...v, niche: " " }), "Hi Ana, like and follow accounts in the general knowledge niche.");
+});
+
 Deno.test("prompt 13 : le @ TikTok à créer, ou la ligne retirée s'il n'est pas connu", () => {
   const modele = "Hi {prenom}\n• Login: {email}\n• Your TikTok account to create: @{handle} (use exactly this name)\n• Slack: {slack}";
   const v = { prenom: "Ana", url: "u", email: "a@b", slack: "s", cohorte_lundi: "2026-11-02" };

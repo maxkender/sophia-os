@@ -11,6 +11,10 @@
  *
  * Les comptes UGC vidéo (pod 3) ne passent PAS par ici : ils gardent leur
  * pop-up d'étapes, inchangée (voir `OnboardingPopup`).
+ *
+ * L'accueil est le même pour toutes les applications. Une seule chose suit le
+ * compte (19/11) : la niche du warm-up, nommée d'après son label
+ * (`ContexteAccueil.niche`, règle dans `moteur/themeLabel.ts`).
  */
 
 /** Lien d'intégration de la démo Loom (« How to Post TikTok Slide Shows »). */
@@ -141,6 +145,8 @@ export interface PremiereSemaine {
   /** Le montant de SA semaine (sa zone), en dollars : seulement sur son propre dashboard. */
   montantSemaine?: number | null;
   ruul?: boolean;
+  /** 19/11 : la niche du label de son compte (« running », « study »…) ; inconnue : « your niche », sans la nommer. */
+  niche?: string | null;
 }
 
 /**
@@ -150,6 +156,7 @@ export interface PremiereSemaine {
  */
 export function ecranCompte(handle: string | null, premierPost: string | null, o: Omit<PremiereSemaine, "handle" | "premierPost"> = {}): Ecran {
   const arobase = handle ? `@${handle.replace(/^@/, "")}` : null;
+  const niche = (o.niche ?? "").trim() || null;
   const etapes: { quand: string; titre: string; texte?: string }[] = [
     { quand: "Done", titre: "Log in", texte: "You're in: your dashboard has everything you need." },
     {
@@ -166,7 +173,7 @@ export function ecranCompte(handle: string | null, premierPost: string | null, o
       quand: "Before Sunday midnight",
       titre: "Start warmup + follow 5 accounts",
       texte:
-        "Press **“Start warmup”** on your dashboard, then follow **5 accounts** in your niche. Until your first post, use TikTok every day and **do not post anything**.",
+        `Press **“Start warmup”** on your dashboard, then follow **5 accounts** in your niche${niche ? ` (**${niche}**)` : ""}. Until your first post, use TikTok every day and **do not post anything**.`,
     },
   ];
   if (o.ruul) {
@@ -209,10 +216,56 @@ export function ecranCompte(handle: string | null, premierPost: string | null, o
         ton: "rouge",
         titre: "The warm-up, every day until your first posts",
         items: [
-          "Scroll **at least 10 minutes** of videos **in the niche you will post in**.",
+          `Scroll **at least 10 minutes** of videos **in the niche you will post in**${niche ? `: **${niche}**` : ""}.`,
           "**Follow at least 5 people**, like and comment.",
           "**Do not post anything yet.**",
         ],
+      },
+    ],
+  };
+}
+
+/**
+ * Écran « Your warm-up » (19/11) : la niche est nommée quand on connaît le
+ * label du compte, pour qu'un compte de running ne s'échauffe pas sur de la
+ * culture générale. Inconnue (aperçu admin, label illisible) : « your niche ».
+ */
+export function ecranWarmup(niche: string | null | undefined): Ecran {
+  const nommee = (niche ?? "").trim() || null;
+  return {
+    cle: "warmup",
+    titre: "Your warm-up: do it now",
+    mico: "surprise",
+    attente: ATTENTE_WARMUP_S,
+    blocs: [
+      {
+        type: "alerte",
+        ton: "vif",
+        titre: "VERY IMPORTANT: WARM UP YOUR ACCOUNT BEFORE YOU START POSTING!!!",
+        items: [
+          nommee
+            ? `**At least 10 minutes** of scrolling, in your niche: **${nommee}**.`
+            : "**At least 10 minutes** of scrolling, in your niche.",
+          "**Follow at least 5 people.**",
+          "**If you do not do it, you will not be paid.**",
+        ],
+      },
+      {
+        type: "p",
+        texte:
+          "**Do it as soon as possible**: today, right after creating your account. Then keep using TikTok like this **every day** until your first posts.",
+      },
+      {
+        type: "p",
+        texte: "You **start posting next Monday**, with your cohort. Your date is on your dashboard.",
+      },
+      { type: "titre", texte: "Watch: the warm-up, step by step" },
+      {
+        type: "video",
+        src: VIDEO_WARMUP,
+        image: VIDEO_WARMUP_IMAGE,
+        titre: "The warm-up, step by step",
+        fichier: true,
       },
     ],
   };
@@ -339,41 +392,7 @@ export const ECRANS: Ecran[] = [
       },
     ],
   },
-  {
-    cle: "warmup",
-    titre: "Your warm-up: do it now",
-    mico: "surprise",
-    attente: ATTENTE_WARMUP_S,
-    blocs: [
-      {
-        type: "alerte",
-        ton: "vif",
-        titre: "VERY IMPORTANT: WARM UP YOUR ACCOUNT BEFORE YOU START POSTING!!!",
-        items: [
-          "**At least 10 minutes** of scrolling, in your niche.",
-          "**Follow at least 5 people.**",
-          "**If you do not do it, you will not be paid.**",
-        ],
-      },
-      {
-        type: "p",
-        texte:
-          "**Do it as soon as possible**: today, right after creating your account. Then keep using TikTok like this **every day** until your first posts.",
-      },
-      {
-        type: "p",
-        texte: "You **start posting next Monday**, with your cohort. Your date is on your dashboard.",
-      },
-      { type: "titre", texte: "Watch: the warm-up, step by step" },
-      {
-        type: "video",
-        src: VIDEO_WARMUP,
-        image: VIDEO_WARMUP_IMAGE,
-        titre: "The warm-up, step by step",
-        fichier: true,
-      },
-    ],
-  },
+  ecranWarmup(null),
   {
     cle: "sans-warmup",
     titre: "No warm-up = no pay",
@@ -528,6 +547,8 @@ export interface ContexteAccueil {
   /** 13/11 : le jour du 1er paiement et le montant de SA semaine (Ruul). */
   premierPaiement?: string | null;
   montantSemaine?: number | null;
+  /** 19/11 : la niche du label de son compte, nommée sur les écrans du warm-up. */
+  niche?: string | null;
 }
 
 function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
@@ -574,10 +595,16 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
  */
 export function ecransPour(contexte: ContexteAccueil | null | undefined): Ecran[] {
   const ruul = Boolean(contexte?.cohorteRuul);
+  const niche = (contexte?.niche ?? "").trim() || null;
   const compte = ecranCompte(contexte?.handle ?? null, contexte?.premierPost ?? null, {
-    ruul, premierPaiement: contexte?.premierPaiement ?? null, montantSemaine: contexte?.montantSemaine ?? null,
+    ruul, premierPaiement: contexte?.premierPaiement ?? null, montantSemaine: contexte?.montantSemaine ?? null, niche,
   });
-  const remplacants: Record<string, Ecran> = { compte, ...(ruul ? ecransCohorteRuul(contexte?.emailRuul ?? null) : {}) };
+  const remplacants: Record<string, Ecran> = {
+    compte,
+    // La niche connue : l'écran du warm-up la nomme ; sinon l'écran standard, tel quel.
+    ...(niche ? { warmup: ecranWarmup(niche) } : {}),
+    ...(ruul ? ecransCohorteRuul(contexte?.emailRuul ?? null) : {}),
+  };
   return ECRANS.map((e) => remplacants[e.cle] ?? e);
 }
 

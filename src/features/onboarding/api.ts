@@ -1,3 +1,4 @@
+import { nicheDesLabels } from "@/features/moteur/themeLabel";
 import { supabase } from "@/lib/supabase/client";
 
 /**
@@ -46,12 +47,48 @@ export interface RecrueOnboarding {
   messages: MessageOnboarding[];
   prochaine: { type: string; periode: string; canal: string | null; texte: string | null; raison: string | null; valide: boolean } | null;
   test: boolean;
+  /** 19/11 : la niche de son warm-up (« running », « study »…), d'après le label de son compte ; pas lue : absente. */
+  niche?: string | null;
 }
 
 export async function lireOnboarding(): Promise<RecrueOnboarding[]> {
   const { data, error } = await supabase.rpc("onboarding_posteurs");
   if (error) throw error;
-  return (data ?? []) as RecrueOnboarding[];
+  const recrues = (data ?? []) as RecrueOnboarding[];
+  // La niche vient avec la liste, pour qu'un nudge ne parte jamais avant qu'elle soit lue.
+  // Illisible : la page s'affiche quand même, et le nudge dit la niche par défaut.
+  const niches = await lireNichesRecrues(recrues.map((r) => r.poster_id)).catch(() => new Map<string, string>());
+  return recrues.map((r) => ({ ...r, niche: niches.get(r.poster_id) ?? null }));
+}
+
+/**
+ * 19/11 : la niche du warm-up de chaque recrue, celle du label de son 1er
+ * compte perso actif (le compte du @ à créer ; même règle que `nicheDuPosteur`
+ * côté fonctions). Par paquets : les identifiants partent dans l'URL.
+ */
+export async function lireNichesRecrues(posteurs: string[]): Promise<Map<string, string>> {
+  const niches = new Map<string, string>();
+  const PAQUET = 100;
+  for (let i = 0; i < posteurs.length; i += PAQUET) {
+    const { data, error } = await supabase
+      .from("comptes")
+      .select("poster_id, compte_labels(labels(nom, slug))")
+      .in("poster_id", posteurs.slice(i, i + PAQUET))
+      .eq("type_compte", "perso")
+      .eq("is_active", true)
+      .order("created_at", { ascending: true });
+    if (error) throw error;
+    const comptes = (data ?? []) as unknown as {
+      poster_id: string;
+      compte_labels: { labels: { nom: string | null; slug: string | null } | null }[] | null;
+    }[];
+    for (const c of comptes) {
+      // Le 1er compte de chaque posteur (les suivants sont des 2es comptes).
+      if (niches.has(c.poster_id)) continue;
+      niches.set(c.poster_id, nicheDesLabels((c.compte_labels ?? []).map((l) => l.labels?.nom ?? l.labels?.slug)));
+    }
+  }
+  return niches;
 }
 
 /** 0470 : « Lives in X, job post Y » : le posteur créé avec le pays de l'annonce vit ailleurs (pays lu à l'API). */

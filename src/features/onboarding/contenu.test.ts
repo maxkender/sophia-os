@@ -46,6 +46,39 @@ describe("ecransPour", () => {
     expect(demande(ECRANS)).toEqual([]);
   });
 
+  it("19/11 : la niche du label du compte est nommée sur la 1re semaine et sur le warm-up", () => {
+    const ecrans = ecransPour({ cohorteRuul: false, emailRuul: null, niche: "running" });
+    // Mêmes écrans, dans le même ordre : la niche remplace, elle n'ajoute rien.
+    expect(ecrans.map((e) => e.cle)).toEqual(ECRANS.map((e) => e.cle));
+    expect(ecrans.filter((e, i) => e !== ECRANS[i]).map((e) => e.cle)).toEqual(["compte", "warmup"]);
+    const compte = texte(ecrans, "compte");
+    expect(compte).toContain("follow **5 accounts** in your niche (**running**).");
+    expect(compte).toContain("**in the niche you will post in**: **running**.");
+    expect(texte(ecrans, "warmup")).toContain("of scrolling, in your niche: **running**.");
+    // Le reste de l'écran du warm-up ne bouge pas (la vidéo, l'attente).
+    const warmup = ecrans.find((e) => e.cle === "warmup")!;
+    const standard = ECRANS.find((e) => e.cle === "warmup")!;
+    expect(warmup.attente).toBe(standard.attente);
+    expect(warmup.blocs.slice(1)).toEqual(standard.blocs.slice(1));
+    // Cohorte Ruul : pareil, en plus de ses écrans à elle.
+    const ruul = ecransPour({ cohorteRuul: true, emailRuul: null, niche: "study" });
+    expect(ruul.filter((e, i) => e !== ECRANS[i]).map((e) => e.cle)).toEqual(["slack", "paiements", "compte", "warmup"]);
+    expect(texte(ruul, "warmup")).toContain("in your niche: **study**.");
+  });
+
+  it("19/11 : niche inconnue (aperçu admin, label illisible) : « your niche », sans en nommer une", () => {
+    for (const niche of [undefined, null, " "]) {
+      const ecrans = ecransPour({ cohorteRuul: false, emailRuul: null, niche });
+      expect(ecrans.find((e) => e.cle === "warmup")).toBe(ECRANS.find((e) => e.cle === "warmup"));
+      expect(texte(ecrans, "compte")).toBe(texte(ECRANS, "compte"));
+    }
+    expect(texte(ECRANS, "warmup")).toContain("of scrolling, in your niche.");
+    expect(texte(ECRANS, "compte")).toContain("follow **5 accounts** in your niche.");
+    expect(texte(ECRANS, "compte")).toContain("**in the niche you will post in**.");
+    // Aucune niche écrite en dur dans l'accueil : elle vient du label.
+    expect(JSON.stringify(ECRANS)).not.toMatch(/general knowledge/i);
+  });
+
   it("cohorte Ruul sans adresse connue : renvoie à l'adresse de candidature", () => {
     const paie = texte(ecransPour({ cohorteRuul: true, emailRuul: null }), "paiements");
     expect(paie).toContain("the email address you applied with");

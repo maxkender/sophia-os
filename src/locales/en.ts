@@ -202,7 +202,7 @@ export const en = {
         parti_slack: "Nudge sent on Slack.",
         parti_upwork: "Nudge sent on Upwork.",
         messagesTitre: "Message for each situation",
-        messagesAide: "Variables: {prenom} {url} {email} {handle} {cohorte} {slack}. On Upwork, a recruit not on Slack also gets the Slack link.",
+        messagesAide: "Variables: {prenom} {url} {email} {handle} {niche} {cohorte} {slack}. {niche} is the niche of the account's label (running, study, general knowledge…). On Upwork, a recruit not on Slack also gets the Slack link.",
         enregistre: "Saved.",
         situations: { slack: "Not on Slack", connexion: "Never logged in", tiktok: "TikTok account not created", warmup: "Start warmup not clicked", pret: "Warm-up not done" },
       },

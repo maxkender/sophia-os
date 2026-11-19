@@ -18,6 +18,16 @@ describe("Onboarding posters : les nudges", () => {
     expect(composerNudge("Hi", r, "slack", "https://join.slack.com/x")).toBe("Hi");
   });
 
+  it("19/11 : la niche du warm-up suit le label du compte ; pas lue : la culture générale", () => {
+    for (const etape of ["warmup", "pret"] as const) {
+      expect(NUDGES_DEFAUT[etape]).toContain("in the {niche} niche");
+      expect(composerNudge(NUDGES_DEFAUT[etape], { ...r, slack: true, niche: "running" }, "slack", "")).toContain("accounts in the running niche");
+      expect(composerNudge(NUDGES_DEFAUT[etape], { ...r, slack: true }, "slack", "")).toContain("accounts in the general knowledge niche");
+      expect(composerNudge(NUDGES_DEFAUT[etape], { ...r, slack: true, niche: null }, "slack", "")).toContain("accounts in the general knowledge niche");
+    }
+    expect(JSON.stringify(NUDGES_DEFAUT)).not.toContain("general knowledge");
+  });
+
   it("la situation, les messages par défaut, qui est joignable", () => {
     expect(lireNudges(null)).toEqual(NUDGES_DEFAUT);
     expect(lireNudges({ slack: "Custom", tiktok: " " }).slack).toBe("Custom");

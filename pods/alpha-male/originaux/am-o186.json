@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o186",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9ed06b70-13c4-4012-b32c-f2cfaa9e2ab7",
+ "titre": "How to brutally transform your life. #selfimprovement #men #discipline #transformation #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7458397927627885334",
+ "inspirations": [
+  "9ed06b70-13c4-4012-b32c-f2cfaa9e2ab7"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 19/11. Déclinaison G1 de la ligne 20 (parent 9ed06b70, @selfsculpt_, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Phrase. » puis un paragraphe court. Règles neuves, aucune du parent (ne plus négocier, être détesté, environnement, discipline mentale). reference_url du parent (1 à 5) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b9ee24d5",
+   "texte_overlay": "How to brutally transform\nyour life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677369973152419094/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "03a8c2c9",
+   "texte_overlay": "1. Kill the comfortable routine.\n\nSame breakfast, same feed,\nsame excuses. Change one thing\nevery week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677369973152419094/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0b4ee488",
+   "texte_overlay": "2. Do the thing you're avoiding first.\n\nThe call, the workout, the email.\nThe rest of the day gets lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677369973152419094/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "257c12b1",
+   "texte_overlay": "3. Make your body a project.\n\nThree workouts a week.\nTrack them. Beat last week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677369973152419094/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "64f1fe10",
+   "texte_overlay": "4. Make your mind a project.\n\nOne book, one skill, one idea a day.\nGrowth needs fuel.",
+   "texte_sophia": "4. Make your mind a project.\n\nI learn one idea a day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677369973152419094/5.jpg"
+  }
+ ]
+}

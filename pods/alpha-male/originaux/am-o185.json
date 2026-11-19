@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o185",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7567a3a0-37ce-480d-89b3-bafcaea0dfb9",
+ "titre": "Small things that instantly make a man more interesting #men #charisma #selfimprovement #mindset #conversation",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [
+  "7567a3a0-37ce-480d-89b3-bafcaea0dfb9"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 19/11. Déclinaison G1 de la ligne 7 (parent 7567a3a0 = notre full test am-o117, langue source en). Accroche du parent mot pour mot. Choses neuves, aucune de am-o117. reference_url de am-o117 vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ed76e3f6",
+   "texte_overlay": "Small things that instantly\nmake a man more interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01112d95",
+   "texte_overlay": "1. A strong taste in music\n\nAnd a story behind one album.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "134d36ab",
+   "texte_overlay": "2. One dish he cooks perfectly\n\nAnd loves to share.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6301f9b5",
+   "texte_overlay": "3. Strange facts he can explain\n\nWhy octopuses have three hearts.\nHe learns one a day.",
+   "texte_sophia": "3. Strange facts he can explain\n\nWhy octopuses have three hearts.\nI learn one a day on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0c176c3b",
+   "texte_overlay": "4. A trip that changed him\n\nTold in two minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "06ba7bad",
+   "texte_overlay": "5. An opinion he can defend\n\nAnd change if you're right.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  }
+ ]
+}

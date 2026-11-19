@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o188",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "09fc262e-57e6-42bd-b7f8-439c9be8aff9",
+ "titre": "5 signs you're meant for greatness #men #mindset #ambition #selfimprovement #growth",
+ "musique_titre": "boohoo",
+ "musique_url": "https://www.tiktok.com/music/boohoo-7228135360868649774",
+ "inspirations": [
+  "09fc262e-57e6-42bd-b7f8-439c9be8aff9"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 19/11. Déclinaison G1 de la ligne 24 (parent 09fc262e, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Signe. » en une phrase. Signes neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0f8ac4ca",
+   "texte_overlay": "5 signs you're meant for\ngreatness",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7498735650418543878/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2a40e1d5",
+   "texte_overlay": "1. You can't stop thinking\nabout what you could build.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7498735650418543878/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "02bd7467",
+   "texte_overlay": "2. You'd rather fail trying\nthan never start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7498735650418543878/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "206b616a",
+   "texte_overlay": "3. You feel happy for others' wins,\nand hungry for your own.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7498735650418543878/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "27de42ce",
+   "texte_overlay": "4. You keep going when\nnobody is watching.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7498735650418543878/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "65e0c4d5",
+   "texte_overlay": "5. You never stop learning.\nEvery day, something new.",
+   "texte_sophia": "5. You never stop learning.\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7498735650418543878/6.jpg"
+  }
+ ]
+}

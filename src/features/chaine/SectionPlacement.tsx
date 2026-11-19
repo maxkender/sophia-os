@@ -17,14 +17,16 @@ import { CarteAnglesLabel } from "@/features/moteur/multiapp/CarteAnglesLabel";
 import { messageErreur } from "@/features/bleo/format";
 
 import { EditeurPrompt } from "./EditeurPrompt";
+import { RetoursApplications } from "./RetoursApplications";
 
 type Filtre = "tous" | "actif" | "sans" | "test";
 
 /**
- * Le placement de l'application du sélecteur : son prompt (replié), puis les
- * angles, une carte par label qui la sert, avec l'angle actif (utilisé
- * partout) et les angles en test (test à blanc seulement). Le filtre ne
- * cache que des cartes.
+ * Le placement de l'application du sélecteur : son prompt (replié), les
+ * retours des relecteurs natifs ajoutés à ce prompt, langue par langue
+ * (0751), puis les angles, une carte par label qui la sert, avec l'angle
+ * actif (utilisé partout) et les angles en test (test à blanc seulement). Le
+ * filtre ne cache que des cartes.
  */
 export function SectionPlacement() {
   const { t } = useTranslation();
@@ -62,6 +64,12 @@ export function SectionPlacement() {
       <Replie titre={t("prompts.placementTitleApp", { nom })} aide={t("prompts.placementDescApp", { nom })}>
         <EditeurPrompt key={clePromptPlacement(slug)} cle={clePromptPlacement(slug)} rows={20} nu />
       </Replie>
+
+      {applicationId && (
+        <Replie titre={t("chaine.placement.retoursTitre", { nom })} aide={t("chaine.placement.retoursAide", { nom })} testId="replie-retours-langues">
+          <RetoursApplications key={applicationId} applicationId={applicationId} />
+        </Replie>
+      )}
 
       <div className="space-y-2 pt-2" data-testid="page-angles">
         <div className="flex flex-wrap items-center justify-between gap-2">

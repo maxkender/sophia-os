@@ -36,6 +36,9 @@ vi.mock("@/features/moteur/apiMultiApp", () => ({
 
 const lirePrompt = vi.fn();
 const ecrirePrompt = vi.fn();
+const retoursApplications = vi.fn();
+const listerCorrections = vi.fn();
+const listerRegles = vi.fn();
 
 vi.mock("@/features/moteur/api", () => ({
   listerLabels: () =>
@@ -56,7 +59,9 @@ vi.mock("@/features/chaine/api", () => ({
     ]),
   compterComptesParLangue: () => Promise.resolve({ de: 12, fr: 30, it: 4 }),
   compterRelecteursParLangue: () => Promise.resolve({ de: 1, fr: 1 }),
-  compterCorrectionsRetenuesParLangue: () => Promise.resolve({ de: 2 }),
+  compterCorrectionsLangue: (langue: string) =>
+    Promise.resolve(langue === "de" ? { deLangue: 2, dAppli: 1, aTrier: 5 } : { deLangue: 0, dAppli: 0, aTrier: 0 }),
+  listerRetoursApplications: (filtre: unknown) => retoursApplications(filtre),
 }));
 
 vi.mock("@/features/relectureNative/apiBoucle", () => ({
@@ -64,7 +69,26 @@ vi.mock("@/features/relectureNative/apiBoucle", () => ({
   etatBoucle: () => Promise.resolve([]),
 }));
 vi.mock("@/features/relectureNative/apiCorrections", () => ({
+  TYPES_CORRECTION: ["calque", "registre", "vocabulaire", "placement", "longueur", "casse", "sens", "autre"],
   blocCorrectionsNatives: (langue: string) => Promise.resolve(langue === "de" ? "=== RETOURS DES RELECTEURS NATIFS (DE) ===\n- [calque] évite « Insouciant »" : ""),
+  listerCorrectionsNatives: (langue: string) => listerCorrections(langue),
+  compterVotesAExtraire: () => Promise.resolve(0),
+  deciderCorrections: () => Promise.resolve(),
+  extraireCorrections: () => Promise.resolve({ traites: 0, corrections: 0, echecs: [], restants: 0 }),
+  modifierCorrection: () => Promise.resolve(),
+  rangerCorrection: () => Promise.resolve(),
+  supprimerCorrection: () => Promise.resolve(),
+}));
+vi.mock("@/features/relectureNative/apiRegles", () => ({
+  listerRegles: (langue: string) => listerRegles(langue),
+  idsCorrectionsRetenues: () => Promise.resolve([]),
+  consoliderRegles: () => Promise.resolve({ ok: true, faites: [], sautees: [], echecs: [], restantes: [] }),
+  validerRegles: () => Promise.resolve(),
+  rejeterRegles: () => Promise.resolve(),
+}));
+// Le sélecteur de langue des sections de Relecture native : jamais lu ici (langue fixée par le panneau).
+vi.mock("@/features/relectureNative/api", () => ({
+  listerRelecteurs: () => Promise.reject(new Error("la langue est fixée : les relecteurs ne sont pas lus")),
 }));
 
 vi.mock("@/features/commentMasters/PromptCommentMasterCard", () => ({
@@ -73,7 +97,10 @@ vi.mock("@/features/commentMasters/PromptCommentMasterCard", () => ({
 
 vi.mock("@/features/moteur/ApplicationContext", () => ({
   useApplication: () => ({
-    applications: [],
+    applications: [
+      { id: SOPHIA, slug: "sophia", nom: "Sophia" },
+      { id: UNSWIPE, slug: "unswipe", nom: "Unswipe" },
+    ],
     application: { id: UNSWIPE, slug: "unswipe", nom: "Unswipe" },
     applicationId: UNSWIPE,
     slug: "unswipe",
@@ -112,6 +139,34 @@ function rendre(url = "/admin/chaine?onglet=placement") {
   );
 }
 
+const retourAppli = (langue: string, application_id: string, fautif: string, corrige: string, minute: number) => ({
+  langue,
+  application_id,
+  fautif,
+  corrige,
+  explication: null,
+  created_at: `2026-11-18T10:${String(minute).padStart(2, "0")}:00Z`,
+});
+const RETOURS = [
+  retourAppli("de", SOPHIA, "eine App wie Sophia", "ich les das auf Sophia", 1),
+  retourAppli("de", UNSWIPE, "die Unswipe App", "Unswipe", 2),
+  retourAppli("it", UNSWIPE, "l'app Unswipe", "Unswipe", 3),
+];
+/** Ce que la base rendrait pour ce filtre (langue, ou application). */
+function retoursFiltres(filtre: { langue?: string; applicationId?: string }) {
+  return Promise.resolve(
+    RETOURS.filter((r) => (!filtre.langue || r.langue === filtre.langue.toLowerCase()) && (!filtre.applicationId || r.application_id === filtre.applicationId)),
+  );
+}
+
+/** Ouvre un bloc replié (le `<details>` natif) comme le ferait un clic sur son titre. */
+function ouvrir(testId: string) {
+  const details = screen.getByTestId(testId) as HTMLDetailsElement;
+  details.open = true;
+  fireEvent(details, new Event("toggle"));
+  return details;
+}
+
 async function carte(nom: string) {
   await waitFor(() => expect(document.querySelector(`[data-label="${nom}"]`)).not.toBeNull());
   return document.querySelector(`[data-label="${nom}"]`) as HTMLElement;
@@ -119,9 +174,10 @@ async function carte(nom: string) {
 
 describe("AdminChainePage — onglet Placement (les angles)", () => {
   beforeEach(() => {
-    for (const f of [lister, activer, creer, modifier, enTest, supprimer, lirePrompt, ecrirePrompt]) f.mockReset();
+    for (const f of [lister, activer, creer, modifier, enTest, supprimer, lirePrompt, ecrirePrompt, retoursApplications]) f.mockReset();
     lister.mockResolvedValue(ANGLES);
     lirePrompt.mockResolvedValue("");
+    retoursApplications.mockImplementation(retoursFiltres);
     for (const f of [activer, creer, modifier, enTest, supprimer, ecrirePrompt]) f.mockResolvedValue(undefined);
   });
   afterEach(() => {
@@ -263,16 +319,31 @@ describe("AdminChainePage — onglet Placement (les angles)", () => {
     fireEvent.click(screen.getAllByRole("button", { name: /^(enregistrer|save)$/i })[0]);
     await waitFor(() => expect(ecrirePrompt).toHaveBeenCalledWith("placement_unswipe", "forme nouvelle"));
   });
+
+  it("les retours natifs ajoutés au prompt de l'application : un bloc par langue, rien des autres applications", async () => {
+    rendre();
+    const replie = await screen.findByTestId("replie-retours-langues");
+    const blocs = await within(replie).findAllByTestId("retours-application");
+    expect(retoursApplications).toHaveBeenCalledWith({ langue: undefined, applicationId: UNSWIPE });
+    expect(blocs.map((b) => b.getAttribute("data-langue"))).toEqual(["de", "it"]);
+    expect(blocs[0].textContent).toMatch(/Unswipe · .*(Allemand|German)/);
+    expect(blocs[0].textContent).toContain("SUR LA SLIDE DE L'APPLI (DE)");
+    expect(blocs[0].textContent).toContain("au lieu de « die Unswipe App », écris « Unswipe »");
+    expect(replie.textContent).not.toContain("eine App wie Sophia");
+  });
 });
 
 describe("AdminChainePage — onglet Langues", () => {
   beforeEach(() => {
-    for (const f of [lister, lirePrompt, ecrirePrompt]) f.mockReset();
+    for (const f of [lister, lirePrompt, ecrirePrompt, retoursApplications, listerCorrections, listerRegles]) f.mockReset();
     lister.mockResolvedValue(ANGLES);
     lirePrompt.mockImplementation((cle: string) =>
       Promise.resolve(cle === "traduction" ? "prompt générique fr" : cle === "traduction_de" ? "prompt allemand" : ""),
     );
     ecrirePrompt.mockResolvedValue(undefined);
+    retoursApplications.mockImplementation(retoursFiltres);
+    listerCorrections.mockResolvedValue([]);
+    listerRegles.mockResolvedValue([]);
   });
 
   it("les langues avec des comptes d'abord ; la langue de l'URL est ouverte avec la source de son prompt", async () => {
@@ -287,7 +358,11 @@ describe("AdminChainePage — onglet Langues", () => {
     expect(panneau.getAttribute("data-langue")).toBe("de");
     expect(within(panneau).getByTestId("source-prompt")).toHaveTextContent(/prompt dédié|dedicated prompt/i);
     await waitFor(() => expect(panneau.textContent).toMatch(/12 comptes actifs|12 active accounts/));
-    await waitFor(() => expect(within(panneau).getByTestId("corrections-langue")).toHaveTextContent(/2 corrections natives retenues|2 kept native corrections/));
+    await waitFor(() =>
+      expect(within(panneau).getByTestId("corrections-langue")).toHaveTextContent(
+        /2 corrections de langue retenues \(traduction\) · 1 propre à une appli \(placement\) · 5 à trier|2 kept language corrections \(translation\) · 1 specific to an app \(placement\) · 5 to sort/,
+      ),
+    );
     await waitFor(() => expect(panneau.textContent).toContain("évite « Insouciant »"));
     const zone = (await screen.findByTestId("prompt-traduction_de")) as HTMLTextAreaElement;
     await waitFor(() => expect(zone.value).toBe("prompt allemand"));
@@ -308,6 +383,72 @@ describe("AdminChainePage — onglet Langues", () => {
     fireEvent.change(zoneIt, { target: { value: "Scrivi come una creator." } });
     fireEvent.click(screen.getAllByRole("button", { name: /^(enregistrer|save)$/i })[0]);
     await waitFor(() => expect(ecrirePrompt).toHaveBeenCalledWith("traduction_it", "Scrivi come una creator."));
+  });
+
+  it("ce que le placement de chaque application reçoit dans la langue : un bloc par application", async () => {
+    rendre("/admin/chaine?langue=de");
+    const replie = await screen.findByTestId("replie-retours-appli");
+    const blocs = await within(replie).findAllByTestId("retours-application");
+    expect(retoursApplications).toHaveBeenCalledWith({ langue: "de", applicationId: undefined });
+    expect(blocs.map((b) => b.getAttribute("data-application"))).toEqual([SOPHIA, UNSWIPE]);
+    expect(blocs[0].textContent).toMatch(/Sophia · .*(Allemand|German)/);
+    expect(blocs[0].textContent).toContain("au lieu de « eine App wie Sophia », écris « ich les das auf Sophia »");
+    expect(blocs[0].textContent).not.toContain("Unswipe App");
+    expect(replie.textContent).not.toContain("l'app Unswipe");
+    await waitFor(() => expect(replie.textContent).toMatch(/1 retour|1 note/));
+  });
+
+  it("le tri et les règles de la langue s'ouvrent dans le panneau, sans sélecteur de langue, et ne lisent la base qu'à l'ouverture", async () => {
+    listerCorrections.mockResolvedValue([
+      {
+        id: "c1",
+        langue: "de",
+        vote_id: null,
+        duel_id: null,
+        relecture_id: "rp1",
+        relecteur_id: "r1",
+        version: null,
+        slide: 2,
+        type: "calque",
+        fautif: "Insouciant",
+        corrige: "unbekümmert",
+        explication: "ça sonne traduit",
+        statut: "proposee",
+        application_id: null,
+        decide_le: null,
+        created_at: "2026-11-18T10:00:00Z",
+        updated_at: "2026-11-18T10:00:00Z",
+        relecteur: { prenom: "Bogdan", nom: "Kocsis" },
+        remarque_source: null,
+      },
+    ]);
+    rendre("/admin/chaine?langue=de");
+    const tri = await screen.findByTestId("replie-tri");
+    await waitFor(() => expect(tri.textContent).toMatch(/5 à trier|5 to sort/));
+    expect(listerCorrections).not.toHaveBeenCalled();
+    expect(listerRegles).not.toHaveBeenCalled();
+
+    ouvrir("replie-tri");
+    const correction = await within(tri).findByTestId("correction");
+    expect(listerCorrections).toHaveBeenCalledWith("de");
+    expect(correction.textContent).toContain("unbekümmert");
+    expect(within(tri).getByRole("button", { name: /^(retenir|keep)$/i })).toBeInTheDocument();
+    expect(within(tri).queryByLabelText(/^(langue|language)$/i)).toBeNull();
+    expect(within(tri).queryByTestId("bloc-corrections")).toBeNull();
+
+    const regles = ouvrir("replie-regles");
+    await waitFor(() => expect(listerRegles).toHaveBeenCalledWith("de"));
+    expect(await within(regles).findByTestId("regles-etat")).toBeInTheDocument();
+    expect(screen.queryByRole("alert")).toBeNull();
+  });
+
+  it("une langue sans relecteur ni correction ne montre ni tri ni règles", async () => {
+    rendre("/admin/chaine?langue=it");
+    const panneau = await screen.findByTestId("panneau-langue");
+    await waitFor(() => expect(within(panneau).getByTestId("corrections-langue")).toHaveTextContent(/rien à trier|nothing to sort/));
+    expect(screen.queryByTestId("replie-tri")).toBeNull();
+    expect(screen.queryByTestId("replie-regles")).toBeNull();
+    expect(screen.getByTestId("replie-retours-appli")).toBeInTheDocument();
   });
 
   it("la recherche filtre la liste", async () => {

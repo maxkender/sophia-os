@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o268",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai fait mon dernier jour dans une boîte (pour pouvoir y revenir un jour) #demission #travail #carriere #reseau #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (partir en bons termes). Inspirations reprises de rh-o235. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2ddc9f09",
+   "texte_overlay": "ce que j'ai fait\nmon dernier jour dans une boîte\n(pour pouvoir y revenir un jour)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4a04349e",
+   "texte_overlay": "un document de passation\nclair, avec les contacts et les dossiers en cours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "afaa935a",
+   "texte_overlay": "un mot à chaque personne qui m'a aidée\npas un mail groupé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d1c13738",
+   "texte_overlay": "un café avec mon manager\npour lui dire merci, même si tout n'était pas parfait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "158a0bb0",
+   "texte_overlay": "j'ai noté ce que j'avais appris\npour le raconter dans mon prochain entretien",
+   "texte_sophia": "j'ai noté ce que j'avais appris\npour le raconter dans mon prochain entretien. utilise l'appli Sophia 5 minutes par jour, la liste s'allonge vite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "683570c1",
+   "texte_overlay": "aucune critique en partant\nle monde du travail est petit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "948934c8",
+   "texte_overlay": "t'es partie comment, de ta dernière boîte ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o272",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8dd9098b-26af-460c-a4bc-db5684f33c85",
+ "titre": "les petites phrases de ma cheffe qui m'ont poussée vers la sortie (et ce que j'ai fait) #travail #manager #santementale #carriere #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G2 de la ligne #2 (parent 8dd9098b) : même promesse, autres mots, phrases différentes de rh-o208 et rh-o258. Inspirations reprises de rh-o208. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7b9893ef",
+   "texte_overlay": "les petites phrases de ma cheffe\nqui m'ont poussée vers la sortie\n(et ce que j'ai fait)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "18b7692e",
+   "texte_overlay": "« c'est pas le moment pour une augmentation »\npour la 2e année. j'ai noté la date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d8552d75",
+   "texte_overlay": "« tu es trop sensible »\nquand je signalais un problème. j'ai tout écrit, calmement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a75be43d",
+   "texte_overlay": "« on verra en fin d'année »\npour chaque formation demandée. j'ai appris seule, 5 minutes par jour",
+   "texte_sophia": "« on verra en fin d'année »\npour chaque formation demandée. j'ai appris seule, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e2c8a371",
+   "texte_overlay": "« ici, on ne compte pas ses heures »\nmoi, j'ai commencé à les compter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f2fae6c8",
+   "texte_overlay": "un jour, j'ai mis mon CV à jour.\net je suis partie au bon moment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e48f2cf2",
+   "texte_overlay": "t'as déjà entendu une de ces phrases ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  }
+ ]
+}

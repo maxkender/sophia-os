@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o273",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d7e62ed8-b0c5-4e22-aef0-fda8d81fb6c9",
+ "titre": "ce que j'écris à mes nouveaux collègues dès la première semaine #nouveaujob #travail #carriere #emploi #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G2 de la ligne #3 (parent d7e62ed8), 3e et dernière : même promesse, autres mots et autres messages. Inspirations reprises de rh-o168. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "250d1958",
+   "texte_overlay": "ce que j'écris\nà mes nouveaux collègues\ndès la première semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "66924248",
+   "texte_overlay": "« je suis nouvelle, si je pose trop de questions, dis-le moi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "40b12dd3",
+   "texte_overlay": "« tu as un doc qui explique comment ça marche ici ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "02fc0100",
+   "texte_overlay": "« j'ai vu ton travail sur X, tu m'expliques un jour ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1f42762e",
+   "texte_overlay": "« je ramène les croissants vendredi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a88b223a",
+   "texte_overlay": "« j'ai lu un truc qui pourrait t'intéresser »\nmes 3 sources : un podcast, la newsletter de la boîte, 5 minutes par jour",
+   "texte_sophia": "« j'ai lu un truc qui pourrait t'intéresser »\nmes 3 sources : un podcast, la newsletter de la boîte, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0f4215fd",
+   "texte_overlay": "lequel tu enverrais ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  }
+ ]
+}

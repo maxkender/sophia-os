@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o271",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7b33b7b8-8b1e-43c6-ba58-064c45756e56",
+ "titre": "ce que 3 changements de job en 5 ans m'ont appris #carriere #travail #emploi #reconversion #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #1 (parent 7b33b7b8) : même promesse, autres mots et autres leçons. Inspirations reprises de rh-o228. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "34b3c676",
+   "texte_overlay": "ce que 3 changements de job\nen 5 ans\nm'ont appris",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8eaf6dfe",
+   "texte_overlay": "chaque nouveau poste m'a payée mieux\nparce que j'ai osé demander à chaque fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "caf7dae4",
+   "texte_overlay": "les 3 premiers mois sont toujours durs\nmême quand tu as de l'expérience",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5b79b46e",
+   "texte_overlay": "ton réseau, c'est tes anciens collègues\nreste en contact avec eux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d7e108a5",
+   "texte_overlay": "le titre du poste compte moins que l'équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "325104bd",
+   "texte_overlay": "ce qui me suit partout\nl'habitude d'apprendre un peu chaque jour",
+   "texte_sophia": "ce qui me suit partout\nl'habitude d'apprendre un peu chaque jour. utilise l'appli Sophia 5 minutes, ça te suivra aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dcb3d8f9",
+   "texte_overlay": "tu changerais de job cette année ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

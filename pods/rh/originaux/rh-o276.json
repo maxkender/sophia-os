@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o276",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3f9dd650-ed93-45a6-a72a-98fc78742c8e",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR en entretien, partie 5 #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne #9 (parent 3f9dd650) : accroche du parent mot pour mot. Chaque « mensonge » est un recadrage honnête, rien d'inventé. Inspirations reprises de rh-o048. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "74125712",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR en entretien\npartie 5",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "957c9521",
+   "texte_overlay": "1\n« vous avez un trou dans votre CV ? »\njamais « j'ai rien fait »\ntu dis ce que tu as vraiment fait pendant ce temps\nmême petit, c'est une réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cdfaf7b8",
+   "texte_overlay": "2\n« vous êtes stressée ? »\njamais « pas du tout »\ntu dis « un peu, c'est que ça compte pour moi »\nhonnête et touchant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ae03b960",
+   "texte_overlay": "3\n« vous avez déjà dirigé une équipe ? »\njamais « oui » si c'est non\ntu racontes une fois où tu as organisé les autres\nune asso, un projet, ça compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "57682560",
+   "texte_overlay": "4\n« vous vous formez comment ? »\njamais « je n'ai pas le temps »\ntu dis ce que tu fais vraiment\nmoi : un podcast, un livre, 5 minutes par jour",
+   "texte_sophia": "4\n« vous vous formez comment ? »\njamais « je n'ai pas le temps »\ntu dis ce que tu fais vraiment\nmoi : un podcast, un livre, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bf861f54",
+   "texte_overlay": "5\n« vous avez des questions ? »\njamais « non »\ntu en poses une sur l'équipe\nça montre que tu te projettes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "12714368",
+   "texte_overlay": "quelle question tu veux dans la partie 7 ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

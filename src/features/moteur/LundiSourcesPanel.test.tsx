@@ -73,7 +73,7 @@ describe("LundiSourcesPanel", () => {
     const resume = await screen.findByTestId("lundi-sources-resume");
     expect(resume.textContent).toContain("4 source(s) mise(s) à jour, 1 pas cette semaine");
     expect(resume.textContent).toContain("19 slideshow(s) importé(s), 14 validé(s)");
-    expect(resume.textContent).toContain("1 source attend son lot (6 par jour).");
+    expect(resume.textContent).toContain("1 source attend son lot (8 par jour).");
   });
 
   it("met les sources mises à jour d'abord, la meilleure en tête, et ne compte pas d'import pour une source sautée", async () => {
@@ -88,7 +88,7 @@ describe("LundiSourcesPanel", () => {
       "@faible",
     ]);
     expect(within(lignes[0]).getByText("Mise à jour")).toBeTruthy();
-    expect(within(lignes[0]).getByText("r au-dessus de 1")).toBeTruthy();
+    expect(within(lignes[0]).getByText("r au-dessus de 0,95")).toBeTruthy();
     expect(within(lignes[0]).getByText("12 (9 validés)")).toBeTruthy();
     expect(within(lignes[2]).getByText(/un post à 367\s400 vues/)).toBeTruthy();
     expect(within(lignes[2]).getByText("lot à venir")).toBeTruthy();

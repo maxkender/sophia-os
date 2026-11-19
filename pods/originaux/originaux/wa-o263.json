@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o263",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "925d6156-a6c3-40dd-9097-310860a77f71",
+ "titre": "psychology facts that explain everyday behaviour #psychology #facts #humanbehavior #mindset #selfimprovement",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "3c9413ba-4d14-4c62-9e24-9039e1c80390"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3c9413ba). déclinaison G2 de « psychology facts that will change how you see people » (parent 925d6156). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b376aaa-6ba6-4794-bcb4-0613be530584",
+   "texte_overlay": "psychology facts that\nexplain everyday behaviour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0e24b7e9-c3b8-4bf9-ae0e-a7d609f8102e",
+   "texte_overlay": "the halo effect\n\nwhen someone is good at one thing, we assume they're good at everything. knowing this helps you judge people more fairly and look past first impressions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6d5a7bd9-def8-4b22-9150-c076b1e011bd",
+   "texte_overlay": "the favour effect\n\nwhen someone does us a small kindness, we feel a strong urge to return it. little kind gestures build far more goodwill than big, impressive ones ever do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a7d4da7a-c97c-46d2-9e90-cbd23514df31",
+   "texte_overlay": "the curiosity effect\n\nwe see curious people as warmer, which is why learning a little every day changes how others react to you. curiosity is one of the warmest traits a person can show.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/4.jpg",
+   "texte_sophia": "the curiosity effect\n\nwe see curious people as warmer. i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and people respond to me with so much more warmth now."
+  },
+  {
+   "position": 5,
+   "media_id": "4b2457c8-9ffd-46f9-952c-8687d8a81e33",
+   "texte_overlay": "the familiarity effect\n\nwe tend to like what we see often. that's why a face you pass every morning slowly starts to feel friendly, even if you've never spoken a single word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1b04dcd2-7102-4f09-8c47-c21acbfedc63",
+   "texte_overlay": "the spotlight effect\n\npeople notice your small mistakes far less than you think. everyone is busy worrying about their own spotlight, so you can relax a little and let it go.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o262",
+ "type_bleo": "full_test",
+ "titre": "reasons to slow down your whole life #slowliving #calm #mentalhealth #mindset #selfimprovement",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "1b1d2c9b-cc3f-44c0-be6e-9c71dab18dcf"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 1b1d2c9b). full test BLEO : accroche jamais faite (format « reasons to slow down your X »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "abc16515-0a13-4fd2-b3b0-510f37287982",
+   "texte_overlay": "reasons to slow down\nyour whole life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f1d88f26-0749-4533-a4d6-fcea00515881",
+   "texte_overlay": "you notice more\n\nwhen you stop rushing, you start seeing the small beautiful things: light through a window, a funny sign, a kind face. a slow life is a much richer life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "15bc0369-abb3-428c-a514-5de250dba313",
+   "texte_overlay": "you learn deeper\n\nslow learning sticks far longer than cramming. a few calm minutes a day on something new beats hours of rushed scrolling. slow, steady curiosity is how real knowledge is built.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/3.jpg",
+   "texte_sophia": "you learn deeper\n\ni used to rush through everything. now i spend 5 minutes a day on one lesson in the Sophia app, slowly, a planet or a painting, and it stays with me so much longer."
+  },
+  {
+   "position": 4,
+   "media_id": "7657616a-91a7-49d6-8d6e-36118a4b1066",
+   "texte_overlay": "your decisions get better\n\nrushed choices are often the ones you regret. giving yourself a little more time to think usually leads to calmer, wiser and kinder decisions overall.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "33514e68-69c5-4228-a7ba-257cd0d1b47c",
+   "texte_overlay": "your body thanks you\n\nwalking slower, eating slower and breathing slower all lower your stress. your body was never designed to sprint through every single day of your life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c4f2e5fd-c4ab-4309-b7d6-110a7804ffdc",
+   "texte_overlay": "people feel your calm\n\nslow, calm people make everyone around them relax. your pace quietly sets the mood of the room, and others follow it without even noticing they're doing it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/6.jpg"
+  }
+ ]
+}

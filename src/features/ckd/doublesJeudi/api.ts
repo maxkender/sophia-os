@@ -16,13 +16,19 @@ export interface PropositionDouble {
   handle: string | null;
   label_nom: string | null;
   app_nom: string | null;
+  /** 0761 : upwork ou ruul. */
+  canal_paie?: string | null;
   star: boolean;
   vues_med: number | null;
+  /** 0761 : posts viraux (≥ 5 × la médiane de la langue) sur les 7 derniers jours. */
+  viraux?: number | null;
   bons: number | null;
   posts: number | null;
   meilleur_url: string | null;
   meilleur_vues: number | null;
   label_propose_id: string | null;
+  /** 0761 : le nom du label proposé (affiché sans ouvrir la liste). */
+  label_propose_nom?: string | null;
   label_choisi_id: string | null;
   decision: "oui" | "non" | null;
   statut: "propose" | "refuse" | "a_creer" | "cree" | "erreur" | "annule";
@@ -52,7 +58,11 @@ async function rpc<T>(nom: string, args: Record<string, unknown>): Promise<T> {
   return data as T;
 }
 
-export const lirePropositions = (jeudi: string) => rpc<PropositionDouble[]>("jeudi_doubles_lire", { p_jeudi: jeudi }).then((d) => d ?? []);
+export const lirePropositions = (jeudi: string) => rpc<PropositionDouble[]>("jeudi_doubles_lire_v2", { p_jeudi: jeudi }).then((d) => d ?? []);
+
+/** Le % de posts viraux d'une proposition (0 à 100), ou null. */
+export const pctViraux = (p: Pick<PropositionDouble, "viraux" | "posts">): number | null =>
+  p.viraux == null || !p.posts ? null : Math.round((100 * p.viraux) / p.posts);
 export const preparerPropositions = (jeudi: string) => rpc<number>("jeudi_doubles_preparer", { p_jeudi: jeudi });
 export const lireLabelsPossibles = (compte: string) => rpc<LabelPossible[]>("jeudi_labels_possibles", { p_compte: compte }).then((d) => d ?? []);
 export const decider = (id: string, decision: "oui" | "non", label: string | null) =>

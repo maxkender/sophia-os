@@ -25,6 +25,7 @@ import { choisirLabel } from "../_shared/choix_label_equilibre.ts";
 import { CANAL_QUESTIONS_DEFAUT, epinglerQuestions, TEXTE_QUESTIONS_DEFAUT } from "../_shared/slack_questions.ts";
 import { canauxDuBot, historiqueCanal } from "../_shared/slack_messages.ts";
 import { lireTout } from "../_shared/lots.ts";
+import { texteDeuxiemeCompte } from "../_shared/fin_collaboration.ts";
 import { estLienCourt, handleDuLien, handleMajoritaire, handlesProches, resoudreLienCourt } from "../_shared/handle_liens.ts";
 import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
@@ -575,14 +576,6 @@ async function doubleCreer(supabase: Supabase, propositionId: string) {
   return cree;
 }
 
-/** 18/11 : ce que le posteur lit sur son dashboard quand Max valide son 2e compte le jeudi (traduit ensuite). */
-export function texteDoubleJeudi(handle: string | null, lundi: string): string {
-  const compte = handle ? `@${handle.replace(/^@/, "")}` : "your account";
-  const jour = new Date(`${lundi}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
-  return `Good news: ${compte} is doing great, so you now have a 2nd TikTok account on your dashboard. ` +
-    `Create it and start its warm-up today: it starts posting on Monday ${jour}. From that week, your weekly payment covers your 2 accounts.`;
-}
-
 /**
  * 18/11 (Max) : le doublement du jeudi. Une ligne validée OUI (doubles_jeudi, statut a_creer) : le 2e compte est créé
  * (même langue et pays, le label choisi, son application), le posteur est prévenu sur son dashboard dans sa langue ;
@@ -628,15 +621,18 @@ async function doubleJeudi(supabase: Supabase, id: string): Promise<{ ok: boolea
     }
     const { error: e3 } = await supabase.rpc("jeudi_double_cree", { p_id: id, p_compte: cree.compteId });
     if (e3) throw e3;
-    // Le posteur est prévenu sur son dashboard (pop-up « info »), dans sa langue.
+    // 19/11 (Max) : le posteur est prévenu à sa prochaine connexion par un bandeau clair, dans sa langue :
+    // quel compte, quel label, quand il démarre (lundi, après le warm-up du jeudi au dimanche), ce qu'il gagne en plus.
     const lundi = ajouterJours(String(d.jeudi), 4);
     const { data: langue } = await supabase.rpc("parrainage_langue_pays", { p_pays: ancien.pays });
-    const en = texteDoubleJeudi(ancien.handle_tiktok, lundi);
-    const texte = await traduireDouble(en, typeof langue === "string" ? langue : null);
-    await supabase.from("posteur_messages").upsert(
-      { poster_id: d.poster_id, compte_id: cree.compteId, type: "info", semaine: lundi, texte, visible_de: new Date().toISOString() },
-      { onConflict: "poster_id,type,semaine", ignoreDuplicates: true },
-    );
+    const { data: profil } = await supabase.from("profiles").select("tarif_hebdo, ruul_tarif_semaine, canal_paie").eq("id", d.poster_id).maybeSingle();
+    const { data: nomLabel } = await supabase.from("labels").select("nom").eq("id", labelId).maybeSingle();
+    const tarif = Number((profil?.canal_paie === "ruul" ? profil?.ruul_tarif_semaine : null) ?? profil?.tarif_hebdo ?? 0) || null;
+    const en = texteDeuxiemeCompte({ handle: ancien.handle_tiktok, label: (nomLabel?.nom as string | undefined) ?? null, lundi, tarif });
+    const lg = typeof langue === "string" ? langue : null;
+    const texte = await traduireDouble(en, lg);
+    const { error: e4 } = await supabase.rpc("texte_poster_ecrire", { p_poster: d.poster_id, p_cle: `compte_double:${cree.compteId}`, p_en: en, p_texte: texte, p_langue: lg });
+    if (e4) console.error("bandeau 2e compte :", e4.message);
     return { ok: true, compteId: cree.compteId };
   } catch (e) {
     return await echec(messageErreur(e));

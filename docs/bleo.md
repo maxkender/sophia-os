@@ -369,6 +369,8 @@ Mise à jour = importer ses posts publiés depuis `dernier_scrape_at`, par le ci
 
 *19/11 (0769) :* un rattachement de bloc ne retire plus rien et s'annule. Le 19/11, le bloc `classic_girl_run` (Atala) a été rattaché par erreur à `beau_smart_girl` : ce label avait déjà son bloc, les 7 comptes y ont été versés et l'ancien bloc est passé `refuse`, sans chemin de retour (remis à la main depuis `bible_historique`). Désormais le bloc d'origine reste (vide, toujours dans les listes), la fenêtre prévient et demande confirmation quand le label est d'une autre app ou a déjà son bloc, et `bible_carte_detacher` annule (bouton « Annuler » du message, « Rendre N comptes à … » ou « Annuler le rattachement » sur le bloc).
 
+*19/11 (0771, décision d'Adrien) :* plus d'âge minimum à l'import. `age_min_jours` passe de 7 à **0** : les posts publiés dans les 7 derniers jours ne sont plus laissés pour la mise à jour suivante. Contrepartie : un post récent est noté sur ses vues du jour, et s'il est refusé (sous 40 000 vues et sous le seuil), il ne sera pas repris.
+
 ## L'agent de langue
 
 > **Remplacé le 29/10 par la réécriture native** (page Notion « Révolution placement/traduction », menée par la session de la relecture native). Ce qui vaut aujourd'hui :

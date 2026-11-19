@@ -218,16 +218,22 @@ describe("rangement des sources", () => {
 describe("les règles, avec les vrais seuils", () => {
   it("lit les réglages ; un réglage absent prend la valeur par défaut des fonctions SQL", () => {
     expect(versRegles({ r_min: 0.95, r_vs_label_min: 0.95, lot_max: 8, nouvelles_par_jour: 1000, essai_posts: 30 })).toEqual({
-      rMin: 0.95, rVsLabelMin: 0.95, vuesCoup: 100_000, postsMin: 5, lotMax: 8, essaiPosts: 30, essaiMesuresMin: 10, postsMaxParMaj: 100,
+      rMin: 0.95, rVsLabelMin: 0.95, vuesCoup: 100_000, postsMin: 5, lotMax: 8, essaiPosts: 30, essaiMesuresMin: 10, postsMaxParMaj: 100, labelNeufJours: 5,
     });
+    expect(versRegles({ label_neuf_jours: 0 }).labelNeufJours).toBe(0);
     expect(versRegles(null)).toEqual(REGLES_DEFAUT);
   });
 
   it("chaque onglet dit comment on y entre et comment on en sort", () => {
     expect(regleDeLaVue("essai", REGLES)).toContain("ses 30 posts les plus vus");
     expect(regleDeLaVue("essai", REGLES)).toContain("r au-dessus de 0,95");
-    expect(regleDeLaVue("weekly", REGLES)).toContain("si son r dépasse 0,95, ou 0,95 face à son label, si elle a un post à 100 000 vues, ou moins de 5 posts mesurés");
-    expect(regleDeLaVue("weekly", REGLES)).toContain("8 sources par jour");
+    // Pas d'essai dans un label neuf : créé depuis moins de 5 jours, ou que personne ne porte.
+    expect(regleDeLaVue("essai", REGLES)).toContain("Pas d'essai dans un label neuf (créé depuis moins de 5 jours, ou que personne ne porte encore)");
+    expect(regleDeLaVue("essai", { ...REGLES, labelNeufJours: 0 })).toContain("Pas d'essai dans un label neuf (que personne ne porte encore)");
+    // Le lundi décide ; les mises à jour, elles, partent chaque matin.
+    expect(regleDeLaVue("weekly", REGLES)).toContain("celles dont le r dépasse 0,95, ou 0,95 face à leur label, qui ont un post à 100 000 vues, ou moins de 5 posts mesurés");
+    expect(regleDeLaVue("weekly", REGLES)).toContain("Les mises à jour partent ensuite chaque matin à 6 h 37, 8 sources par jour");
+    expect(regleDeLaVue("propositions", REGLES)).toContain("l'agent éclaireur trouve chaque jour");
     expect(regleDeLaVue("prochain_batch", REGLES)).toContain("les comptes à podzer ne partent pas");
   });
 

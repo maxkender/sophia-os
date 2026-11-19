@@ -3,7 +3,7 @@
  * Sans label) puis par label (nom, badge, DA), chacun avec ses 3 derniers TikToks en miniatures.
  *
  * 19/11 (Adrien) : la Bible est le chemin de l'import, d'un bout à l'autre, un onglet par étape :
- *   À importer → Prochain batch                 (à la main)
+ *   Source proposals → À importer → Prochain batch   (à la main ; les propositions viennent de l'agent éclaireur)
  *   → En import → À l'essai → Weekly update     (calculé depuis l'état réel de la source)
  *   et deux sorties : Arrêtées, Corbeille.
  * « Lancer l'import » crée les sources du prochain batch ; plus rien ne se coche « importé » à la main. Les onglets
@@ -22,11 +22,13 @@ import { DialogueAjout, DialogueLabel } from "./DialoguesBible";
 import { type ComptePret, DialogueLancement } from "./LancementBatch";
 import {
   type Blocage, blocageImport, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, estVueSource, etapeAvantImport,
-  LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, mettreCorbeille, modifierCompte, nomCarte, ranger, restaurerCompte, type Section, SECTIONS,
+  LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger, restaurerCompte, type Section, SECTIONS,
   supprimerDefinitivement, validerCarte, type Vue, VUES,
 } from "./moodboard";
-import { compterSources, lireSources, regleDeLaVue, REGLES_DEFAUT, sourcesParHandle } from "./sources";
+import { deciderProposition, lirePropositions, passerDansLaBible, type Proposition } from "./propositions";
+import { compterSources, lireSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
+import { type ActionsProposition, VuePropositions } from "./VuePropositions";
 import { VueSources } from "./VueSources";
 
 const TEINTE: Record<Section | "sans", { pastille: string; texte: string }> = {
@@ -51,6 +53,7 @@ export function PageBible() {
   const cartes = useQuery({ queryKey: ["bible", "cartes"], queryFn: lireCartes });
   // Les sources : relues toutes les 20 s tant qu'une séquence d'import tourne, pour voir les tuiles avancer.
   const donnees = useQuery({ queryKey: ["bible", "sources"], queryFn: lireSources, refetchInterval: (q) => (q.state.data?.file.enCours ? 20_000 : false) });
+  const propositions = useQuery({ queryKey: ["bible", "propositions"], queryFn: lirePropositions });
   const [vue, setVue] = React.useState<Vue>("a_importer");
   const [recherche, setRecherche] = React.useState("");
   const [section, setSection] = React.useState<Section | "sans" | "">("");
@@ -72,8 +75,10 @@ export function PageBible() {
   // L'onglet d'un compte avant l'import ; `null` : sa source existe, il se lit dans les onglets des sources.
   const etapeDe = (c: CompteBible) => etapeAvantImport(c, carteDe(c), sourceParHandle.get(c.handle));
 
-  const n: Record<Vue, number> = { ...compterEtapes(liste, etapeDe), ...compterSources(sources) };
-  const groupes = estVueSource(vue) ? [] : ranger(liste, toutes, { etape: vue, recherche, section, podzer }, etapeDe);
+  const n: Record<Vue, number> = { propositions: propositions.data?.length ?? 0, ...compterEtapes(liste, etapeDe), ...compterSources(sources) };
+  // Les onglets tenus à la main sur des comptes de la Bible (pas les propositions, pas les sources).
+  const vueComptes = vue !== "propositions" && !estVueSource(vue);
+  const groupes = vueComptes ? ranger(liste, toutes, { etape: vue, recherche, section, podzer }, etapeDe) : [];
   const rafraichir = () => { void qc.invalidateQueries({ queryKey: ["bible"] }); };
 
   // Le prochain batch : qui peut partir, et ce qui bloque les autres.
@@ -104,6 +109,27 @@ export function PageBible() {
     onSupprimer: (c) => void agir(c, () => mettreCorbeille(c.id)),
     onRestaurer: (c) => void agir(c, () => restaurerCompte(c.id)),
     onSupprimerDefinitivement: (c) => { if (window.confirm(`Supprimer @${c.handle} pour de bon ? (On ne pourra plus le restaurer.)`)) void agir(c, () => supprimerDefinitivement(c.id)); },
+  };
+  // Une proposition de l'éclaireur : elle entre dans la Bible (puis ses miniatures arrivent), ou elle est décidée.
+  const surProposition = async (p: Proposition, f: () => Promise<unknown>) => {
+    setErreur(null);
+    setOccupes((s) => new Set(s).add(p.id));
+    try {
+      await f();
+      await qc.invalidateQueries({ queryKey: ["bible"] });
+    } catch (e) {
+      setErreur((e as Error).message);
+    } finally {
+      setOccupes((s) => { const x = new Set(s); x.delete(p.id); return x; });
+    }
+  };
+  const actionsProposition: ActionsProposition = {
+    onPasser: (p, etape) => void surProposition(p, async () => {
+      const r = await passerDansLaBible(p.id, etape);
+      // Ses 3 derniers TikToks, en arrière-plan : la tuile les montre dès qu'ils sont copiés.
+      if (r.bibleId) void rafraichirMiniatures(r.bibleId).catch(() => null).then(rafraichir);
+    }),
+    onDecider: (p, statut, raison) => void surProposition(p, () => deciderProposition(p.id, statut, raison)),
   };
   const validerLabel = async (carte: CarteLabel) => {
     const app = SECTIONS.find((s) => s.cle === carte.section)?.libelle ?? carte.section;
@@ -161,7 +187,7 @@ export function PageBible() {
           <Search className="pointer-events-none absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-stone-400" aria-hidden />
           <input value={recherche} onChange={(e) => setRecherche(e.target.value)} placeholder="@handle" className="h-9 w-48 rounded-full border border-stone-200 bg-white pl-8 pr-3 text-sm dark:border-stone-700 dark:bg-stone-900" />
         </div>
-        {!estVueSource(vue) && (
+        {vueComptes && (
           <button
             type="button"
             aria-pressed={podzer}
@@ -188,10 +214,23 @@ export function PageBible() {
         </div>
       )}
       {erreur && <p className="text-sm text-destructive">{erreur}</p>}
-      {(comptes.isLoading || cartes.isLoading || (estVueSource(vue) && donnees.isLoading)) && <p className="text-sm text-stone-500">Chargement…</p>}
+      {(comptes.isLoading || cartes.isLoading || (estVueSource(vue) && donnees.isLoading) || (vue === "propositions" && propositions.isLoading)) && <p className="text-sm text-stone-500">Chargement…</p>}
+      {vue === "propositions" && propositions.isError && <p className="text-sm text-destructive">Les propositions n'ont pas pu être lues : {(propositions.error as Error).message}</p>}
       {donnees.isError && <p className="text-sm text-destructive">Les sources n'ont pas pu être lues : {(donnees.error as Error).message}</p>}
 
-      {estVueSource(vue) ? (
+      {vue === "propositions" ? (
+        propositions.data && (
+          <VuePropositions
+            propositions={propositions.data}
+            recherche={recherche}
+            section={section}
+            sectionDe={(labelId) => sectionDuLabel(labelId, toutes, donnees.data?.labels ?? [])}
+            handlesBible={new Set(liste.filter((c) => !c.supprime_at).map((c) => c.handle))}
+            actions={actionsProposition}
+            occupes={occupes}
+          />
+        )
+      ) : estVueSource(vue) ? (
         donnees.data && <VueSources etape={vue} donnees={donnees.data} cartes={toutes} recherche={recherche} section={section} />
       ) : (
         <div className="space-y-10 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="moodboard">

@@ -279,10 +279,19 @@ ce que tu ferais demain. Si une piste ne rend rien depuis une semaine, dis-le.
 
 ## Ce qui se passe après une validation (0686)
 
+Depuis le 19/11 (0766), tes propositions se lisent aussi dans la Bible des
+comptes, premier onglet « Source proposals », rangées par jour. De là, un admin
+les passe dans « À importer » ou « Prochain batch » : la proposition devient
+`valide` tout de suite (c'est un oui), mais sa source n'est créée qu'au
+lancement de l'import (`compte_reference_id` arrive à ce moment-là, et son r
+quelques semaines après).
+
 Une source validée entre dans la file d'import, visible sur la page Sources et
 dans la Bible des comptes (onglet « En import ») : une source à la fois,
 derrière les mises à jour de la semaine, sans limite par jour depuis le 19/11.
-Elle n'importe d'abord que ses 30 meilleurs posts (l'essai). Le lundi, avec 10
+Elle n'importe d'abord que ses 30 meilleurs posts (l'essai), sauf dans un label
+neuf (créé depuis moins de 5 jours, ou que personne ne porte) : là, ses 100
+posts les plus vus partent sans essai. Le lundi, avec 10
 posts mesurés chez nous, elle « tient » (r au-dessus de 0,95, seul ou face à
 son label, depuis le 19/11) et la suite arrive par tranches de 100, ou elle
 « ne tient pas » et l'import s'arrête. Un petit catalogue n'est donc plus un défaut, et un gros

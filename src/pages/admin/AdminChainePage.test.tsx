@@ -62,6 +62,12 @@ vi.mock("@/features/chaine/api", () => ({
   compterCorrectionsLangue: (langue: string) =>
     Promise.resolve(langue === "de" ? { deLangue: 2, dAppli: 1, aTrier: 5 } : { deLangue: 0, dAppli: 0, aTrier: 0 }),
   listerRetoursApplications: (filtre: unknown) => retoursApplications(filtre),
+  cleRetoursApplications: (filtre: { langue?: string; applicationId?: string }) => [
+    "corrections-natives",
+    "retours-applications",
+    filtre.langue?.toLowerCase() ?? null,
+    filtre.applicationId ?? null,
+  ],
 }));
 
 vi.mock("@/features/relectureNative/apiBoucle", () => ({
@@ -160,12 +166,12 @@ function retoursFiltres(filtre: { langue?: string; applicationId?: string }) {
 }
 
 /** Ouvre un bloc replié (le `<details>` natif) comme le ferait un clic sur son titre. */
-function ouvrir(testId: string) {
-  const details = screen.getByTestId(testId) as HTMLDetailsElement;
+function ouvrirDetails(details: HTMLDetailsElement) {
   details.open = true;
   fireEvent(details, new Event("toggle"));
   return details;
 }
+const ouvrir = (testId: string) => ouvrirDetails(screen.getByTestId(testId) as HTMLDetailsElement);
 
 async function carte(nom: string) {
   await waitFor(() => expect(document.querySelector(`[data-label="${nom}"]`)).not.toBeNull());
@@ -324,7 +330,7 @@ describe("AdminChainePage — onglet Placement (les angles)", () => {
     rendre();
     const replie = await screen.findByTestId("replie-retours-langues");
     const blocs = await within(replie).findAllByTestId("retours-application");
-    expect(retoursApplications).toHaveBeenCalledWith({ langue: undefined, applicationId: UNSWIPE });
+    expect(retoursApplications).toHaveBeenCalledWith({ applicationId: UNSWIPE });
     expect(blocs.map((b) => b.getAttribute("data-langue"))).toEqual(["de", "it"]);
     expect(blocs[0].textContent).toMatch(/Unswipe · .*(Allemand|German)/);
     expect(blocs[0].textContent).toContain("SUR LA SLIDE DE L'APPLI (DE)");
@@ -385,17 +391,61 @@ describe("AdminChainePage — onglet Langues", () => {
     await waitFor(() => expect(ecrirePrompt).toHaveBeenCalledWith("traduction_it", "Scrivi come una creator."));
   });
 
-  it("ce que le placement de chaque application reçoit dans la langue : un bloc par application", async () => {
+  it("le panneau suit la chaîne : traduction, placement, relecteurs natifs, dans cet ordre", async () => {
     rendre("/admin/chaine?langue=de");
-    const replie = await screen.findByTestId("replie-retours-appli");
-    const blocs = await within(replie).findAllByTestId("retours-application");
-    expect(retoursApplications).toHaveBeenCalledWith({ langue: "de", applicationId: undefined });
-    expect(blocs.map((b) => b.getAttribute("data-application"))).toEqual([SOPHIA, UNSWIPE]);
-    expect(blocs[0].textContent).toMatch(/Sophia · .*(Allemand|German)/);
-    expect(blocs[0].textContent).toContain("au lieu de « eine App wie Sophia », écris « ich les das auf Sophia »");
-    expect(blocs[0].textContent).not.toContain("Unswipe App");
-    expect(replie.textContent).not.toContain("l'app Unswipe");
-    await waitFor(() => expect(replie.textContent).toMatch(/1 retour|1 note/));
+    const panneau = await screen.findByTestId("panneau-langue");
+    await waitFor(() => expect(within(panneau).getByTestId("partie-relecteurs")).toBeInTheDocument());
+    expect([...panneau.querySelectorAll("section")].map((s) => s.getAttribute("data-testid"))).toEqual([
+      "partie-traduction",
+      "partie-placement",
+      "partie-relecteurs",
+    ]);
+    // Le prompt de traduction et ce que les relecteurs y ajoutent restent dans la partie Traduction.
+    const traduction = within(panneau).getByTestId("partie-traduction");
+    expect(await within(traduction).findByTestId("prompt-traduction_de")).toBeInTheDocument();
+    await waitFor(() => expect(traduction.textContent).toContain("évite « Insouciant »"));
+    expect(within(panneau).getByTestId("partie-relecteurs")).toContainElement(screen.getByTestId("replie-tri"));
+  });
+
+  it("le placement par application : son prompt, puis ce que les relecteurs y ajoutent dans la langue", async () => {
+    lirePrompt.mockImplementation((cle: string) => Promise.resolve(cle === "placement_sophia" ? "forme de la slide Sophia" : ""));
+    rendre("/admin/chaine?langue=de");
+    const placement = await screen.findByTestId("partie-placement");
+    const applis = await within(placement).findAllByTestId("placement-appli");
+    expect(retoursApplications).toHaveBeenCalledWith({ langue: "de" });
+    expect(applis.map((a) => a.getAttribute("data-application"))).toEqual([SOPHIA, UNSWIPE]);
+    const [sophia, unswipe] = applis;
+    await waitFor(() => expect(sophia.textContent).toMatch(/Sophia.*(1 retour en Allemand|1 note in German)/));
+    expect(unswipe.textContent).toMatch(/1 retour en Allemand|1 note in German/);
+    // Rien n'est lu ni monté avant l'ouverture.
+    expect(within(sophia).queryByTestId("prompt-placement_sophia")).toBeNull();
+    expect(lirePrompt).not.toHaveBeenCalledWith("placement_sophia");
+
+    ouvrirDetails(sophia.querySelector("details") as HTMLDetailsElement);
+    const zone = (await within(sophia).findByTestId("prompt-placement_sophia")) as HTMLTextAreaElement;
+    await waitFor(() => expect(zone.value).toBe("forme de la slide Sophia"));
+    const bloc = within(sophia).getByTestId("retours-application");
+    expect(bloc.textContent).toContain("SUR LA SLIDE DE L'APPLI (DE)");
+    expect(bloc.textContent).toContain("au lieu de « eine App wie Sophia », écris « ich les das auf Sophia »");
+    expect(sophia.textContent).not.toContain("Unswipe App");
+    expect(placement.textContent).not.toContain("l'app Unswipe");
+
+    // Le prompt de placement s'enregistre d'ici, sous la clé de l'application.
+    fireEvent.change(zone, { target: { value: "forme nouvelle" } });
+    fireEvent.click(within(sophia).getByRole("button", { name: /^(enregistrer|save)$/i }));
+    await waitFor(() => expect(ecrirePrompt).toHaveBeenCalledWith("placement_sophia", "forme nouvelle"));
+  });
+
+  it("une application sans retour dans la langue : son prompt seul, et c'est dit", async () => {
+    rendre("/admin/chaine?langue=it");
+    const applis = await within(await screen.findByTestId("partie-placement")).findAllByTestId("placement-appli");
+    const [sophia, unswipe] = applis;
+    await waitFor(() => expect(unswipe.textContent).toMatch(/1 retour en Italien|1 note in Italian/));
+    expect(sophia.textContent).toMatch(/aucun retour en Italien|no note in Italian/);
+    ouvrirDetails(sophia.querySelector("details") as HTMLDetailsElement);
+    expect(await within(sophia).findByTestId("prompt-placement_sophia")).toBeInTheDocument();
+    expect(within(sophia).queryByTestId("retours-application")).toBeNull();
+    expect(sophia.textContent).toMatch(/lit son prompt seul|reads its prompt alone/);
   });
 
   it("le tri et les règles de la langue s'ouvrent dans le panneau, sans sélecteur de langue, et ne lisent la base qu'à l'ouverture", async () => {
@@ -448,7 +498,8 @@ describe("AdminChainePage — onglet Langues", () => {
     await waitFor(() => expect(within(panneau).getByTestId("corrections-langue")).toHaveTextContent(/rien à trier|nothing to sort/));
     expect(screen.queryByTestId("replie-tri")).toBeNull();
     expect(screen.queryByTestId("replie-regles")).toBeNull();
-    expect(screen.getByTestId("replie-retours-appli")).toBeInTheDocument();
+    expect(screen.queryByTestId("partie-relecteurs")).toBeNull();
+    expect(screen.getByTestId("partie-placement")).toBeInTheDocument();
   });
 
   it("la recherche filtre la liste", async () => {

@@ -339,8 +339,10 @@ label et un podz par application (comme Fathomly, Kaja, that_girl_study).
     langue du compte donne une information, pas un blocage ;
   - compte CM ou UGC vidéo → 400 `CHOIX_COMPTE_INCOMPATIBLE`. Après la
     création, la répartition se change sur la carte du compte (admin).
-- **File des créateurs par application** (Réglages → « Warmup & file de
-  labels ») : un sélecteur d'application (actives, Sophia par défaut) choisit
+- **File des créateurs par application** (page Allocation ; avant : Réglages
+  → « Warmup & file de labels ») : un sélecteur d'application (actives et en
+  préparation, Sophia par défaut ; ajout par nombre de comptes et affichage
+  par groupes depuis le 19/11, voir `docs/applications.md` § 6) choisit
   la File éditée (`par_application[slug]`, file générale + files par langue,
   même ergonomie qu'avant). Les labels proposés à l'ajout sont ceux qui
   servent l'application choisie ; une entrée déjà en File dont le label ne la

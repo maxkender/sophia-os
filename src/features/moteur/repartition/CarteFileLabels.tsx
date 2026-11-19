@@ -34,12 +34,27 @@ import {
  * C'est pour ça qu'elle vit ICI et plus dans Réglages : décider où va la
  * prochaine recrue et forcer la main au moteur sont la même conversation.
  *
+ * ELLE SERT AUSSI À DÉCIDER le label des prochains comptes, un par un : une
+ * entrée sert un compte et disparaît. Cinquante entrées posées d'un coup
+ * fixent le label des cinquante prochaines recrues de l'application, y compris
+ * une application encore inactive qui recrute déjà (`slugsEnPreparation`).
+ * Seule condition : que l'application ait une part dans la cible, sinon le
+ * moteur ne lui envoie personne et sa File n'est jamais lue (`partsCible`).
+ *
  * SAUVEGARDE IMMÉDIATE, SUR UNE VALEUR RELUE. Chaque modification est écrite
  * aussitôt, après relecture en base, jamais sur l'instantané de la page : une
  * embauche a pu tirer une entrée depuis qu'on a ouvert l'écran, et réécrire
  * le brouillon la ressusciterait.
  */
-export function CarteFileLabels() {
+export function CarteFileLabels({
+  slugsEnPreparation,
+  partsCible,
+}: {
+  /** Applications inactives qui recrutent déjà : leur File s'édite aussi. */
+  slugsEnPreparation?: readonly string[];
+  /** La cible posée entre applications ; `null` ou absente : rien n'est dit. */
+  partsCible?: Readonly<Record<string, number>> | null;
+} = {}) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [sauveAt, setSauveAt] = React.useState<number | null>(null);
@@ -98,6 +113,8 @@ export function CarteFileLabels() {
             enCours={persister.isPending}
             labels={labels.data}
             labelsUgc={labelsUgc.data}
+            slugsEnPreparation={slugsEnPreparation}
+            partsCible={partsCible}
           />
         ) : null}
         {persister.isError && (

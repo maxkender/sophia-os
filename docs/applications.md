@@ -212,7 +212,27 @@ autre application.
   Sophia, et une recrue sur trois échappait à la cible. Voir
   `docs/hub-posteurs.md`, « Qui choisit l'application d'un poster du site ».
 - **Tous ses labels reçoivent des comptes**, à parts égales tant qu'aucun n'a
-  de stock. Retirer l'application d'un label qu'on ne veut pas voir servi.
+  de stock. Retirer l'application d'un label qu'on ne veut pas voir servi, ou
+  décider label par label avec la File (ci-dessous).
+
+### Décider le label des prochains comptes
+
+Allocation → « File des créateurs ». Choisir l'application (une application en
+préparation y figure, marquée « inactive »), la file générale, un label et un
+**nombre de comptes**, puis « Ajouter » : 20 `male_run` puis 30
+`classic_girl_run` fixent le label des 50 prochains comptes, dans cet ordre.
+
+- **Une entrée = un compte**, tirée dans l'ordre et retirée de la File, quelle
+  que soit la langue du compte et qu'il vienne d'un HM ou du site. La liste
+  regroupe les entrées qui se suivent (« ×20 ») ; en base, la File reste une
+  liste à plat. File vide : le moteur reprend son choix équilibré.
+- **La file d'une langue passe avant la file générale** pour les comptes de
+  cette langue. Pour un ordre strict, n'utiliser que la file générale.
+- **Il faut une part dans la cible.** Le moteur ne donne un compte qu'à une
+  application qui a une part dans « Répartition entre applis » : à 0 %, sa
+  File n'est jamais lue, et l'éditeur le dit.
+- Limite connue : deux comptes créés dans la même seconde peuvent tirer la
+  même entrée (`popLabelFile` lit puis réécrit la File, sans verrou).
 
 La règle « en préparation » vit en base (`applications_en_preparation()`), lue
 par le moteur (`stats_choix_application`) et par la page

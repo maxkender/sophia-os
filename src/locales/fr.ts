@@ -8035,8 +8035,8 @@ export const fr = {
       cibleAide: "Pourcentages entiers, ramenés à 100. Une appli laissée à 0 ne reçoit rien. Sur un marché dont une appli ne sert pas la langue, sa part va aux autres.",
       poserCible: "Poser la cible",
       fileTitre: "File des créateurs",
-      fileAide: "Les labels placés ici passent en premier et entraînent leur appli. Sert à lancer un label neuf.",
-      fileAideDetail: "Ce qui est dans la File passe AVANT le classement, et attire même l'application : si une entrée utilisable existe pour un marché, c'est cette application-là qui prend le compte. Sert à amorcer un label neuf, qui sans ça ne serait jamais choisi faute d'historique, et n'aurait donc jamais d'historique. Choisis l'application, puis la file d'une langue pour cibler, ou la file générale. Chaque modification est enregistrée tout de suite.",
+      fileAide: "Les labels placés ici passent en premier, dans l'ordre : une entrée, un compte. Sert à lancer un label neuf, ou à décider le label des prochains comptes.",
+      fileAideDetail: "Ce qui est dans la File passe AVANT le classement, et attire même l'application : si une entrée utilisable existe pour un marché, c'est cette application-là qui prend le compte, à condition qu'elle ait une part dans la cible. Une entrée sert un compte, puis disparaît : pour décider le label des 50 prochains comptes, ajoute 50 entrées d'un coup. Sert à amorcer un label neuf, qui sans ça ne serait jamais choisi faute d'historique, et n'aurait donc jamais d'historique. Choisis l'application, puis la file d'une langue pour cibler, ou la file générale. Chaque modification est enregistrée tout de suite.",
       basculeTitre: "Le moteur choisit l'application",
       basculeAide:
         "Éteint, l'application d'un nouveau compte est celle que le recruteur coche. Allumé, c'est le moteur qui décide, par la règle projetée ci-dessous, et la case disparaît des écrans de création. Les comptes existants ne bougent jamais, les recrues venues du site suivent la même règle, et un label mis dans la File attire le compte vers son application : c'est comme ça qu'on amorce un label neuf.",
@@ -9744,8 +9744,21 @@ export const fr = {
         "Aucun label avec slideshows UGC — coche UGC sur au moins un slideshow avant d’ajouter une entrée UGC.",
       fileIgnoreManuel: "Label manuel — ignoré à la création",
       ajouterLabel: "Ajouter un label",
+      ajouterNombre: "Nombre de comptes",
       ajouterUgc: "Compte UGC",
       ajouter: "Ajouter",
+      fileAppInactive: "inactive",
+      fileSansPart:
+        "{{app}} a 0 % dans « Répartition entre applis » : le moteur ne lui envoie aucun compte, cette File ne sera donc pas lue. Donne-lui une part pour qu'elle serve.",
+      fileTotal_one: "{{count}} compte dans cette file, tiré dans l'ordre.",
+      fileTotal_other: "{{count}} comptes dans cette file, tirés dans l'ordre.",
+      fileGroupe_one: "×{{count}}",
+      fileGroupe_other: "×{{count}}",
+      fileMonter: "Monter {{label}}",
+      fileDescendre: "Descendre {{label}}",
+      fileRetirerUn: "Retirer un compte de {{label}}",
+      fileRetirerGroupe_one: "Retirer {{label}}",
+      fileRetirerGroupe_other: "Retirer les {{count}} comptes de {{label}}",
       plusDePersonaUgc:
         "Plus de persona UGC libre — crée-en une ou libère une association avant de créer un compte UGC.",
       labelUgcIntrouvable:

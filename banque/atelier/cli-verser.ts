@@ -13,14 +13,16 @@
 //              source. La tienne ne sert que si l'OS n'en rend aucune.
 //   --planche N  règle la planche : ses images absentes du fichier sont écartées
 //                et ne reviendront plus au tri.
-//   --essai      ne verse rien : écrit les images recadrées dans sortie/verser/
-//                pour les regarder (pas besoin de BANQUE_JETON).
+//   --essai      ne verse rien : écrit les images recadrées dans
+//                sortie/verser/<nom du fichier>/ et leur planche apercu.jpg, à
+//                REGARDER en grand avant de verser (pas besoin de BANQUE_JETON).
 //
 // Chaque image est téléchargée en taille d'origine, recadrée en 9:16, ramenée à
 // 1080 px de large au plus et réencodée en JPEG sans aucune métadonnée (l'OS
 // refuse un fichier qui en porte). Rien d'autre ne passe dessus : ni nettoyage,
 // ni retouche, ni agrandissement.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { basename } from "node:path";
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { metadonneesRestantes, retirerMetadonnees } from "../../pods/page-blanche/atelier/metadonnees.ts";
 import { PLANCHES, STOCK, appelBanque, ecrire, lire, lireStock } from "./api.ts";
@@ -75,15 +77,17 @@ let deja = 0;
 let refusees = 0;
 let quota = false;
 let sansDescription = 0;
-if (essai) mkdirSync("sortie/verser", { recursive: true });
+const dossierEssai = `sortie/verser/${basename(fichier, ".json")}`;
+const apercus: { court: string; jpeg: Buffer; note: string }[] = [];
+if (essai) mkdirSync(dossierEssai, { recursive: true });
 for (const { d, candidat, labels } of lignes) {
   const court = candidat.ref.slice(0, 6);
   if (quota) break;
   try {
     const jpeg = await recadrer(candidat.image_url, d.cadrage);
     if (essai) {
-      writeFileSync(`sortie/verser/${court}.jpg`, jpeg);
-      console.log(`${court} : sortie/verser/${court}.jpg (${(jpeg.length / 1000).toFixed(0)} ko) → ${labels.join(", ")}`);
+      writeFileSync(`${dossierEssai}/${court}.jpg`, jpeg);
+      apercus.push({ court, jpeg, note: `${d.cadrage && d.cadrage !== "centre" ? ` ${d.cadrage}` : ""}${d.visage ? " visage" : ""}` });
       continue;
     }
     const r = await appelBanque<{ id: string; url: string; deja?: boolean; description?: string | null; description_par?: string }>({
@@ -127,9 +131,30 @@ if (!essai && planche && !refusees) {
   }
 }
 if (!essai) ecrire(STOCK, stock);
+if (essai && apercus.length) {
+  // Une planche des images telles qu'elles seront versées, assez grande pour voir un texte ou un collage.
+  const [L, H, BANDE, COLONNES] = [330, 587, 22, 6];
+  const rangs = Math.ceil(apercus.length / COLONNES);
+  const c = createCanvas(COLONNES * (L + 4) - 4, rangs * (H + BANDE + 4) - 4);
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#111";
+  ctx.fillRect(0, 0, c.width, c.height);
+  ctx.font = "15px sans-serif";
+  ctx.textBaseline = "middle";
+  for (const [i, a] of apercus.entries()) {
+    const x = (i % COLONNES) * (L + 4);
+    const y = Math.floor(i / COLONNES) * (H + BANDE + 4);
+    ctx.drawImage(await loadImage(a.jpeg), x, y, L, H);
+    ctx.fillStyle = "#000";
+    ctx.fillRect(x, y + H, L, BANDE);
+    ctx.fillStyle = "#ffd84d";
+    ctx.fillText(`${a.court}${a.note}`, x + 5, y + H + BANDE / 2);
+  }
+  writeFileSync(`${dossierEssai}/apercu.jpg`, await c.encode("jpeg", 86));
+}
 console.log(
   essai
-    ? `Essai : ${lignes.length} image(s) recadrée(s) dans sortie/verser/, rien de versé.`
+    ? `Essai : ${apercus.length} image(s) recadrée(s), rien de versé. À regarder : ${dossierEssai}/apercu.jpg`
     : `${versees} versée(s), ${deja} déjà en banque, ${refusees} refusée(s)${planche ? (refusees ? ` · planche ${planche} laissée ouverte (corrige et relance)` : `, ${ecartees} écartée(s) : planche ${planche} réglée`) : ""}${quota ? " · quota du jour atteint" : ""}${sansDescription ? ` · ${sansDescription} sans description (l'OS n'en a rendu aucune : donne une legende et reverse)` : ""}`,
 );
 if (refusees) process.exitCode = 1;

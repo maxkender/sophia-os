@@ -30,7 +30,7 @@ Dans `banque/`, une fois par session : `npm install`.
 |---|---|
 | `npm run chercher -- --max 60 "men running aesthetic" "trail running man aesthetic"` | Lance le scraper Pinterest (Apify) : chaque argument est une recherche par mots-clés, ou l'adresse d'un tableau, d'un compte ou d'une recherche Pinterest. Les candidates s'ajoutent à `donnees/candidats.json`. Écartées d'office : vidéos, GIF, images pas verticales ou trop petites. |
 | `npm run planche -- --requete "men\|man\|male" --n 3` | Sort les planches à trier, `sortie/planches/<numéro>.jpg`, 40 images chacune, montrées comme elles seront versées. Sous chaque image : les 6 caractères de son empreinte et sa taille ; une étiquette rouge si la description sent la pub ou la marque. |
-| `npm run verser -- --labels male_run --planche 1 donnees/tri-1.json` | Verse les images gardées et écarte le reste de la planche. `--essai` ne verse rien et écrit les images recadrées dans `sortie/verser/` : regarde-les avant de verser. |
+| `npm run verser -- --labels male_run --planche 1 donnees/tri-1.json` | Verse les images gardées et écarte le reste de la planche. `--essai` ne verse rien : il écrit les images recadrées et leur planche `sortie/verser/<nom du fichier>/apercu.jpg`. Regarde-la avant de verser. |
 | `npm run etat` | Par label d'Atala : images propres, dont celles de Pinterest ; versées depuis 24 h ; candidates qui restent à trier. |
 
 `npm test` vérifie la lecture des épingles, les filtres et le recadrage.
@@ -81,8 +81,8 @@ n'est pas de la photo de course : ne le remplis pas avec cet outil.
 
 ## Règles
 
-- **Regarde avant de verser.** `--essai`, puis une planche des images
-  recadrées : un texte ou un collage se voit mal en vignette.
+- **Regarde avant de verser.** `--essai`, puis lis `apercu.jpg` : un texte, un
+  collage ou un logo se voient mal sur la vignette de la planche de tri.
 - **Lis les descriptions rendues.** `verser` affiche celle de chaque image :
   une description fausse ou vide se corrige tout de suite.
 - Le plafond est de 400 images versées sur 24 h (`banque_jetons.par_jour`).
@@ -100,7 +100,11 @@ n'est pas de la photo de course : ne le remplis pas avec cet outil.
 - **OS** : fonction Edge `banque`, en-tête `x-banque-jeton`. Le jeton vient de
   `BANQUE_JETON` (environnement de la session) : ne l'affiche jamais, ne l'écris
   dans aucun fichier.
+  L'OS n'en garde que l'empreinte (`banque_jetons`, ligne `pinterest`). Pour
+  en poser un neuf : un jeton au hasard (`openssl rand -hex 32`), son SHA-256
+  dans `banque_jetons.jeton_hash` ; l'ancien cesse aussitôt de marcher.
 
 Coût mesuré le 19/11 : 0,0015 $ la recherche (15 épingles), puis 0,0001 $
-l'épingle. Douze recherches de 60 épingles ont rendu 359 candidates pour
-0,05 $. Environ une épingle sur trois est trop petite (736 px de large en 4:5).
+l'épingle. Vingt-huit recherches ont rendu 1 092 candidates pour 0,18 $.
+Environ une épingle sur trois est trop petite (736 px de large en 4:5). Au tri,
+on garde autour de six images sur dix pour `male_run`.

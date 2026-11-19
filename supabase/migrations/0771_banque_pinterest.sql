@@ -18,7 +18,8 @@
 --   - `banque_etat(application)` : par label, le nombre d'images propres et
 --     celles venues de Pinterest.
 --
--- Additive, idempotente. Rien n'est écrit dans `media_library` ici.
+-- ✅ Appliquée le 2026-11-19 (MCP). Additive, idempotente. Rien n'est écrit dans
+-- `media_library` ici. L'empreinte du jeton de l'agent est posée à part.
 -- Retour arrière : drop function banque_etat, drop table banque_jetons,
 -- media_origines (la valeur d'enum reste, sans effet).
 

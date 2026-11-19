@@ -1,4 +1,5 @@
 import { avatarPourCompte } from "./avatar.ts";
+import { slugApplicationDuCompte } from "./avatar_application.ts";
 import {
   genreDuLabel,
   normaliserLabel,
@@ -46,6 +47,43 @@ export async function labelDuCompte(
   const genre: Genre | null =
     genreRaw === "homme" || genreRaw === "femme" ? genreRaw : null;
   return { labelId: lab.id as string, labelNom, genre };
+}
+
+/**
+ * L'application qu'un compte promeut VRAIMENT, pour chercher sa photo de
+ * profil dans la bonne banque (19/11). Elle se lit dans sa répartition
+ * (`parts_applications`), sinon dans les cases cochées de son label
+ * (`slugApplicationDuCompte`). `comptes.application_id` n'en dit rien : c'est
+ * une colonne historique, Sophia pour tous les comptes, Atala compris.
+ *
+ * Ne lève jamais : sans rien de lisible, rend cette colonne (le comportement
+ * d'avant).
+ */
+export async function applicationReelleDuCompte(
+  supabase: Supabase,
+  compte: { parts_applications?: unknown; application_id?: string | null },
+  labelId: string | null,
+): Promise<string | null> {
+  const historique = (compte.application_id as string | null | undefined) ?? null;
+  try {
+    const { data: apps } = await supabase.from("applications").select("id, slug");
+    const slugDe = new Map((apps ?? []).map((a) => [a.id as string, a.slug as string]));
+    let slugsDuLabel: string[] = [];
+    if (labelId) {
+      const { data: liens } = await supabase
+        .from("label_applications")
+        .select("application_id")
+        .eq("label_id", labelId);
+      slugsDuLabel = (liens ?? [])
+        .map((l) => slugDe.get(l.application_id as string))
+        .filter((x): x is string => Boolean(x));
+    }
+    const slug = slugApplicationDuCompte(compte.parts_applications, slugsDuLabel);
+    const id = slug ? [...slugDe].find(([, s]) => s === slug)?.[0] : null;
+    return id ?? historique;
+  } catch {
+    return historique;
+  }
 }
 
 /** Les @ et noms affichés déjà en base, lus page par page (une lecture rend 1 000 lignes au plus). */
@@ -97,7 +135,8 @@ export async function genererIdentite(
 
 /**
  * Pose une identité complète (pseudo + nom + bio + avatar) sur un compte.
- * Label → genre (H/F) + thème du @ + PDP ; langue → prénoms/mots.
+ * Label → genre (H/F) + thème du @ + PDP ; langue → prénoms/mots ;
+ * application réelle du compte → banque de la PDP.
  * `labelHint` évite une relecture juste après l'insert compte_labels.
  */
 export async function appliquerIdentiteInstantanee(
@@ -150,11 +189,14 @@ export async function appliquerIdentiteInstantanee(
   const genre = labelGenre ?? genreDuLabel(labelNom) ?? genreSource;
 
   const identite = await genererIdentite(supabase, compte.langue, genre, labelNom);
+  // La photo vient de la banque de l'application que le compte promeut
+  // vraiment (un compte Atala reçoit une photo Atala), jamais d'une autre.
   const avatar = await avatarPourCompte(supabase, {
     compteReferenceId: compte.compte_reference_id,
     labelId,
     labelNom,
-    applicationId: (compte.application_id as string | null) ?? null,
+    applicationId: await applicationReelleDuCompte(supabase, compte, labelId),
+    genre,
   });
 
   await supabase

@@ -180,6 +180,20 @@ application.
    (`persona_identite.ts`) et à `EXEMPLES_VARIES` (`groupesLabels.ts`).
 3. **Le genre** des comptes (prénoms, noms, photo de profil). Proposé d'après
    le nom (`male_run` → homme, `…_girl…` et `…female…` → femme), modifiable.
+
+   **La photo de profil vient de la banque de l'application du compte**
+   (19/11, `avatar.ts`). Dans l'ordre : les photos de son label ; celles des
+   labels du même thème de son application ; la photo de sa source, si elle
+   est de la même application ; celles des autres labels du même genre de son
+   application ; le reste des photos rangées sous son application. Rien de
+   libre : pas de photo, jamais celle d'une autre application. Pour un label,
+   les photos rangées sous l'application du compte passent avant les autres
+   photos du même label.
+   L'application du compte se lit dans sa répartition (`parts_applications`),
+   sinon dans les cases cochées de son label (`applicationReelleDuCompte`).
+   Avant, le choix lisait `comptes.application_id`, qui vaut Sophia pour tous
+   les comptes : les premiers comptes Atala ont reçu des photos `smart_girl`
+   de Sophia.
 4. Ensuite, le formulaire le rappelle :
    - ajouter ses comptes source et les importer (Sources) ;
    - le mettre dans la file des créateurs de son application (Réglages →
@@ -296,6 +310,13 @@ Reste à faire, à l'écran :
 - **Le nom d'un label ne se change pas à la légère** : l'identité des comptes
   déjà créés ne bouge pas, celle des suivants si.
 - **Un compte UGC reste Sophia**, quelle que soit l'application de son label.
+- **`comptes.application_id` ne dit pas l'application d'un compte** : c'est une
+  colonne historique, Sophia pour tous. Lire `parts_applications` et les
+  labels (`applicationReelleDuCompte` pour la photo de profil).
+- **Un label sans photo** : ses comptes prennent la photo d'un autre label du
+  même genre de la même application. Sans aucune photo dans l'application, ils
+  restent sans photo jusqu'à ce qu'on en ajoute (la maintenance de nuit
+  repasse sur les comptes sans photo).
 - **Désactiver une application ne coupe pas son recrutement** si elle garde des
   labels et une part dans la cible : elle redevient « en préparation » (§ 6).
   Pour l'arrêter tout à fait, remettre sa part à 0 dans Allocation.

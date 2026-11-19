@@ -1,63 +1,63 @@
 {
  "source_id": "sg-o298",
  "type_bleo": "declinaison",
- "parent_contenu_id": "67831a63-71c4-463b-a147-9030744a7cbd",
- "titre": "niche things that make you instantly more attractive #attractive #selfimprovement #smartgirl #thatgirl #confidence",
+ "parent_contenu_id": "696884ea-4c69-40d4-8126-dfcf2007bb03",
+ "titre": "how to be well mannered #manners #etiquette #smartgirl #elegance #classy",
  "musique_titre": "original sound",
  "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
  "inspirations": [
-  "67831a63-71c4-463b-a147-9030744a7cbd"
+  "696884ea-4c69-40d4-8126-dfcf2007bb03"
  ],
- "notes": "cta B. Déclinaison G1 de la ligne 38 de la boîte (parent 67831a63, langue source en) : accroche du parent mot pour mot. Idées du parent (ne pas avoir honte de tout, apprendre des choses rares pour le plaisir, avoir des choses intéressantes à dire, documenter sa vie) et neuves (un hobby fait main, une voix posée). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "notes": "cta B. Déclinaison G1 de la ligne 39 de la boîte (parent 696884ea, langue source en) : accroche du parent mot pour mot ; remplace la ligne 38 refusée en accroche_voisine (proche de sg-o287). Manières du parent (cinq minutes d'avance, posture droite, se lever quand quelqu'un entre, pas de montre ni de téléphone pendant qu'on vous parle, pas de questions sur l'âge ou le revenu) et neuves. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
  "slides": [
   {
    "position": 1,
    "media_id": "840a8efc",
-   "texte_overlay": "niche things that make you\ninstantly more attractive",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/1.jpg"
+   "texte_overlay": "how to be\nwell mannered",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632038016114068756/1.jpg"
   },
   {
    "position": 2,
    "media_id": "f96bd11d",
-   "texte_overlay": "not being embarrassed\nby everything",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/2.jpg"
+   "texte_overlay": "arrive five minutes early\n\nit says your time is organised.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632038016114068756/2.jpg"
   },
   {
    "position": 3,
    "media_id": "d1dff177",
-   "texte_overlay": "learning uncommon facts\njust for fun",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/3.jpg"
+   "texte_overlay": "keep an upright, open posture",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632038016114068756/3.jpg"
   },
   {
    "position": 4,
-   "media_id": "bb021b46",
-   "texte_overlay": "having interesting things to say",
-   "texte_sophia": "having interesting things to say\n\ni read one lesson a day on\nan app like Sophia",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+   "media_id": "d8d1046a",
+   "texte_overlay": "have something kind and interesting\nto say",
+   "texte_sophia": "have something kind and interesting\nto say. i read one story a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632038016114068756/4.jpg"
   },
   {
    "position": 5,
    "media_id": "c3712943",
-   "texte_overlay": "documenting your life\n\na journal, a scrapbook, film photos.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+   "texte_overlay": "stand up when someone new\njoins the table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632038016114068756/5.jpg"
   },
   {
    "position": 6,
    "media_id": "cf83cce4",
-   "texte_overlay": "a hobby you do with your hands",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+   "texte_overlay": "never check your phone while\nsomeone is talking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632038016114068756/6.jpg"
   },
   {
    "position": 7,
    "media_id": "8533abf2",
-   "texte_overlay": "a calm, unhurried voice",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+   "texte_overlay": "no questions about age\nor income",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632038016114068756/7.jpg"
   },
   {
    "position": 8,
    "media_id": "bfe77db9",
-   "texte_overlay": "which one do you have?",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634680285652684052/4.jpg"
+   "texte_overlay": "save this and practise one\nthis week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632038016114068756/7.jpg"
   }
  ]
 }

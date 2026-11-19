@@ -251,6 +251,16 @@ export function motsCherches(cherche: string): string[] {
 }
 
 /**
+ * Un mot cherché, pris en DÉBUT de mot dans la description (Postgres `~*`,
+ * `\m`) : « man » ne trouve plus « woman » (le 19/11, « man running » rendait
+ * surtout des femmes), « run » trouve toujours « running ». Les mots viennent
+ * de `motsCherches` (lettres, chiffres, apostrophe, tiret : rien à échapper).
+ */
+export function motifDebutDeMot(mot: string): string {
+  return `\\m${mot.replace(/[^\p{L}\p{N}'-]/gu, "")}`;
+}
+
+/**
  * Descriptions à écarter d'une recherche de photos (action `photos`), en
  * expression valable en JavaScript comme en Postgres (`~*`) :
  * - une personne entière (« a young woman… », « a person sitting… ») : son

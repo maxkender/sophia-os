@@ -1,0 +1,271 @@
+{
+ "post_id": "var-weekend-5",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "top 5 per buttare il weekend"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(dura verità)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7707424540049034509_6.jpg",
+      "boite": [
+       102,
+       556,
+       376,
+       376
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching productivity videos"
+     ],
+     "fr": "mater des [[vidéos de productivité]]",
+     "texte": "fai le [[4 di notte]] il venerdì"
+    },
+    "T2": {
+     "en": [
+      "study with me, how i plan my week, 5am morning",
+      "routines, you watch other people be productive"
+     ],
+     "fr": "study with me, ma semaine, routines à 5h du mat, tu regardes les autres [[être productifs]]",
+     "texte": "domani niente sveglia, quindi un altro video, un'altra lite nei commenti, un altro [[«ultimo» episodio]]"
+    },
+    "T3": {
+     "en": [
+      "your brain gets a",
+      "hit of dopamine",
+      "like you’ve actually",
+      "done something"
+     ],
+     "fr": "ton cerveau prend [[sa dose de dopamine]] comme si t'avais bossé",
+     "texte": "il sabato inizia alle 13 col [[mal di testa]] e già in ritardo su tutto"
+    },
+    "T4": {
+     "en": [
+      "close the video and do the thing instead"
+     ],
+     "fr": "ferme la vidéo et [[fais-le vraiment]]",
+     "texte": "metà del weekend, sparita. [[ben fatto]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "scrolla [[i loro weekend]]"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even realising, then lose hours",
+      "of your day to it. that is frying your attention span"
+     ],
+     "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et tu perds des heures. ça [[te grille l'attention]]",
+     "texte": "trekking, brunch, gita improvvisata al mare. guardi tutto nelle storie dal [[solito posto sul divano]]"
+    },
+    "T3": {
+     "en": [
+      "don’t become illiterate"
+     ],
+     "fr": "[[oublie pas comment lire]]",
+     "texte": "[[praticamente un hobby]]"
+    },
+    "T4": {
+     "en": [
+      "you can try using willpower",
+      "to stop, but i use a thing",
+      "that blocks tiktok until i read",
+      "a book for 20 minutes"
+     ],
+     "fr": "ce qui marche pour moi : un livre dans le bus, marcher sans musique et [[l'appli Sophia]] quand je prends mon tel",
+     "texte": "salta il libro, salta la passeggiata, e sul telefono salta 5 minuti sul viola dei re con [[l'app Sophia]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "reading book summaries"
+     ],
+     "fr": "lire des [[résumés de livres]]",
+     "texte": "faccende? [[tutte sabato]]"
+    },
+    "T2": {
+     "en": [
+      "blinkist, 10 minute youtube recaps, “5 lessons from",
+      "atomic habits” threads, you feel like you’ve read 50",
+      "books this year"
+     ],
+     "fr": "applis de résumés, récaps vidéo de 10 min, threads « 5 leçons de… », t'as l'impression d'avoir [[lu 50 livres cette année]]",
+     "texte": "lavatrice, spesa, la chiamata al dentista, la pila di posta, la lampada rotta. avevi tutta la settimana, quindi [[tutto in un giorno]]"
+    },
+    "T3": {
+     "en": [
+      "but you only get the",
+      "conclusions, never the",
+      "thinking that got there"
+     ],
+     "fr": "mais t'as que [[les conclusions]], jamais le raisonnement derrière",
+     "texte": "alle 18 hai fatto metà lista e [[finito tutta la tua energia]]"
+    },
+    "T4": {
+     "en": [
+      "so a week later you",
+      "remember nothing,",
+      "because your brain",
+      "never did the work"
+     ],
+     "fr": "une semaine après t'as tout oublié, parce que [[ton cerveau a rien fait]]",
+     "texte": "e l'altra metà? slitta a [[sabato prossimo]], ovvio. sistema perfetto"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to music all the time"
+     ],
+     "fr": "écouter de la musique [[H24]]",
+     "texte": "infila [[6 impegni]] in sole 48 ore"
+    },
+    "T2": {
+     "en": [
+      "on the bus, at the gym,",
+      "while studying, falling",
+      "asleep, there’s always",
+      "something playing"
+     ],
+     "fr": "dans le bus, à la salle, en bossant, pour t'endormir, y'a [[toujours un truc qui tourne]]",
+     "texte": "brunch alle 11, compleanno alle 15, aperitivo alle 19, pranzo coi parenti domenica, poi una festa"
+    },
+    "T3": {
+     "en": [
+      "your brain never gets a",
+      "quiet moment to think for",
+      "itself"
+     ],
+     "fr": "ton cerveau a [[jamais un moment au calme]] pour penser seul",
+     "texte": "passi il weekend [[in viaggio]], sempre a guardare l'ora"
+    },
+    "T4": {
+     "en": [
+      "that’s why silence feels so uncomfortable now, and",
+      "you struggle to remember anything"
+     ],
+     "fr": "du coup le silence te met [[trop mal à l'aise]], et [[t'arrives plus à rien retenir]]",
+     "texte": "e lunedì ti serve [[un weekend per riprenderti]] dal weekend. complimenti davvero"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things by hand"
+     ],
+     "fr": "écris tout [[à la main]]",
+     "texte": "domenica 15:00: [[ansia]]"
+    },
+    "T2": {
+     "en": [
+      "typing your notes feels faster, but your brain",
+      "barely has to work"
+     ],
+     "fr": "taper tes notes, ça va plus vite, mais [[ton cerveau bosse à peine]]",
+     "texte": "apri le note e ti scrivi [[la lista per lunedì]], non si sa mai"
+    },
+    "T3": {
+     "en": [
+      "writing by hand makes",
+      "you slow down and",
+      "process every idea",
+      "before it hits the page"
+     ],
+     "fr": "écrire à la main te force à [[ralentir et assimiler]] chaque idée avant de la poser",
+     "texte": "una riga diventa venti, e la testa è [[già in ufficio]] mentre sei ancora in pigiama"
+    },
+    "T4": {
+     "en": [
+      "it's proven to help you remember more and understand",
+      "things better than typing"
+     ],
+     "fr": "c'est [[prouvé]], tu [[retiens plus]] et tu comprends mieux qu'au clavier",
+     "texte": "la domenica sera è ufficialmente andata. e venerdì prossimo? [[si ricomincia!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,294 @@
+{
+ "post_id": "var-avis-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "mes avis impopulaires sur le développement perso"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(ne me tapez pas svp)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697367634559421710_1.jpg",
+      "boite": [
+       60,
+       120,
+       1000,
+       735
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "la passion, ça vient [[après]]"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "personne trouve sa passion par hasard. tu [[la construis]] en t'accrochant à un truc"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "tu progresses, et là [[tu commences à aimer]]"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "attendre le déclic avant de commencer, c'est juste [[une façon classe de jamais commencer]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705510532127673613_3.jpg",
+      "boite": [
+       96,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "all or nothing thinking"
+     ],
+     "fr": "la mentalité [[tout ou rien]]",
+     "texte": "le [[journal tous les soirs]], surcoté"
+    },
+    "T2": {
+     "en": [
+      "you miss one workout or eat one bad meal, and",
+      "decide the whole week is ruined"
+     ],
+     "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
+     "texte": "écrire les 3 mêmes plaintes chaque soir, c'est pas réfléchir, c'est [[les ressasser sur papier]]"
+    },
+    "T3": {
+     "en": [
+      "so you quit completely",
+      "instead of just getting",
+      "back on track the next",
+      "day"
+     ],
+     "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
+     "texte": "si tu refermes ton carnet [[plus mal qu'avant]], c'est un signe"
+    },
+    "T4": {
+     "en": [
+      "it's consistency that",
+      "matters, being",
+      "consistently good is",
+      "better than being",
+      "occasionally great"
+     ],
+     "fr": "c'est la régularité qui compte, [[bien faire chaque jour vaut mieux que tout déchirer une fois]]",
+     "texte": "écris quand il se passe vraiment un truc. [[une page honnête par semaine vaut mieux que 7 pages à râler]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702218062526680350_2.jpg",
+      "boite": [
+       400,
+       618,
+       420,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop procrastinating and",
+      "make a first draft"
+     ],
+     "fr": "[[arrête de procrastiner]] et fais un premier jet",
+     "texte": "se comparer aux autres, [[ça peut aider]]"
+    },
+    "T2": {
+     "en": [
+      "an idiot in motion goes",
+      "further than a genius at",
+      "rest"
+     ],
+     "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
+     "texte": "choisis quelqu'un [[quelques marches devant toi]], pas un milliardaire"
+    },
+    "T3": {
+     "en": [
+      "get the first draft out",
+      "first, even if it feels",
+      "embarrassing"
+     ],
+     "fr": "sors ton premier jet d'abord, [[même si t'as un peu honte]]",
+     "texte": "et copie [[ce qu'il fait chaque jour]], pas ce qu'il poste"
+    },
+    "T4": {
+     "en": [
+      "once something exists, you can fix it. staring at a blank",
+      "page gives you nothing to improve"
+     ],
+     "fr": "une fois que t'as un truc, tu peux le corriger. une page blanche, y'a rien à améliorer",
+     "texte": "« compare-toi seulement à toi d'hier », c'est mignon, mais [[ton toi d'hier a rien de neuf à t'apprendre]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697367634559421710_3.jpg",
+      "boite": [
+       60,
+       120,
+       1000,
+       780
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "vive le savoir [[inutile]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "le développement perso a transformé chaque hobby en projet. apprendre [[juste par curiosité]], ça compte aussi"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "la leçon du jour : Camus et le mythe de Sisyphe. 5 min sur [[l'appli Sophia]]"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "zéro utilité pour ma carrière. et pourtant, [[mes 5 meilleures minutes de la matinée]]"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "la curiosité a pas besoin d'être [[rentable]] pour valoir le coup"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe tes notifications",
+     "texte": "nouvel agenda, [[même toi]]"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5.",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
+     "texte": "les jolis carnets et la playlist du matin, ça ressemble à du changement. [[c'est surtout du shopping]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702218062526680350_6.jpg",
+      "boite": [
+       290,
+       499,
+       256,
+       450
+      ]
+     }
+    }
+   }
+  }
+ }
+}

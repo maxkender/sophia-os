@@ -1,0 +1,294 @@
+{
+ "post_id": "var-avis-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "opinioni impopolari sulla crescita personale"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(vi prego, non odiatemi)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697367634559421710_6.jpg",
+      "boite": [
+       100,
+       30,
+       900,
+       660
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "la passione arriva [[dopo]]"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "nessuno trova la passione per caso. [[la costruisci]] restando su una cosa"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "migliori, e lì [[inizia a piacerti]]"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "aspettare la chiamata prima di iniziare è solo [[un modo elegante per non iniziare mai]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705510532127673613_3.jpg",
+      "boite": [
+       96,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "all or nothing thinking"
+     ],
+     "fr": "la mentalité [[tout ou rien]]",
+     "texte": "il [[diario ogni sera]]? sopravvalutato"
+    },
+    "T2": {
+     "en": [
+      "you miss one workout or eat one bad meal, and",
+      "decide the whole week is ruined"
+     ],
+     "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
+     "texte": "scrivere le stesse 3 lamentele ogni sera non è riflettere, è [[ripassarle su carta]]"
+    },
+    "T3": {
+     "en": [
+      "so you quit completely",
+      "instead of just getting",
+      "back on track the next",
+      "day"
+     ],
+     "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
+     "texte": "se chiudi il quaderno [[sentendoti peggio]], è un segnale"
+    },
+    "T4": {
+     "en": [
+      "it's consistency that",
+      "matters, being",
+      "consistently good is",
+      "better than being",
+      "occasionally great"
+     ],
+     "fr": "c'est la régularité qui compte, [[bien faire chaque jour vaut mieux que tout déchirer une fois]]",
+     "texte": "scrivi quando succede davvero qualcosa. [[una pagina sincera a settimana batte 7 pagine di sfoghi]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702218062526680350_2.jpg",
+      "boite": [
+       400,
+       618,
+       420,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop procrastinating and",
+      "make a first draft"
+     ],
+     "fr": "[[arrête de procrastiner]] et fais un premier jet",
+     "texte": "confrontarsi con gli altri [[può aiutare]]"
+    },
+    "T2": {
+     "en": [
+      "an idiot in motion goes",
+      "further than a genius at",
+      "rest"
+     ],
+     "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
+     "texte": "scegli qualcuno [[qualche passo avanti]], non un milionario"
+    },
+    "T3": {
+     "en": [
+      "get the first draft out",
+      "first, even if it feels",
+      "embarrassing"
+     ],
+     "fr": "sors ton premier jet d'abord, [[même si t'as un peu honte]]",
+     "texte": "e copia [[quello che fa ogni giorno]], non quello che posta"
+    },
+    "T4": {
+     "en": [
+      "once something exists, you can fix it. staring at a blank",
+      "page gives you nothing to improve"
+     ],
+     "fr": "une fois que t'as un truc, tu peux le corriger. une page blanche, y'a rien à améliorer",
+     "texte": "\"confrontati solo con te di ieri\" è carino, ma [[il te di ieri non ha niente di nuovo da insegnarti]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697367634559421710_3.jpg",
+      "boite": [
+       60,
+       120,
+       1000,
+       780
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "viva il sapere [[inutile]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "la crescita personale ha trasformato ogni hobby in un progetto. imparare [[solo per curiosità]] conta"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "la lezione di oggi: perché la porpora era il colore dei re. 5 minuti su [[l'app Sophia]]"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "zero utilità per la carriera. eppure [[i 5 minuti migliori della mia mattina]]"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "la curiosità non deve [[rendere qualcosa]] per valerne la pena"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe tes notifications",
+     "texte": "agenda nuova, [[stesse abitudini]]"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5.",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
+     "texte": "quaderni carini e playlist del mattino sembrano un cambiamento. [[è soprattutto shopping]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702218062526680350_6.jpg",
+      "boite": [
+       290,
+       499,
+       256,
+       450
+      ]
+     }
+    }
+   }
+  }
+ }
+}

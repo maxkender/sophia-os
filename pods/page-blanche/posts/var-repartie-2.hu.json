@@ -1,0 +1,294 @@
+{
+ "post_id": "var-repartie-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "így lesz mindig [[kész a tökéletes visszavágás]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(nem 3 nappal később)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703972418016005390_5.jpg",
+      "boite": [
+       185,
+       545,
+       710,
+       435
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "va marcher sans rien dans les oreilles",
+     "texte": "nyerj [[két másodpercet]]"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique dès que tu sors",
+     "texte": "egy rövid szünet válasz előtt magabiztosnak tűnik, nem lassúnak"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher boostait la créativité des gens de 60 % en moyenne",
+     "texte": "egy „várj, mit mondtál?” vagy egy korty az italodból, amíg az agyad utoléri magát"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus intelligent à écouter, c'est tes propres pensées]]",
+     "texte": "akik a leggyorsabbnak tűnnek, sokszor csak [[a legnyugodtabbak]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_2.jpg",
+      "boite": [
+       180,
+       0,
+       745,
+       560
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "válaszolj [[kérdéssel]]"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "„miért, te is kérsz?” vagy „ki mondta?”, és a labda máris náluk pattog"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "nekik kell magyarázkodni, [[neked meg lesz időd]] kitalálni az igazi választ"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "beválik beszólásokra, kínos kérdésekre és arra az egy nagybácsira a családi ebédeken"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_6.jpg",
+      "boite": [
+       330,
+       0,
+       580,
+       420
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop eating junk food"
+     ],
+     "texte": "vegyél mindent [[szó szerint]]"
+    },
+    "T2": {
+     "en": [
+      "junk food is made to hit your dopamine the same way",
+      "scrolling does"
+     ],
+     "texte": "azt mondják, „a fellegekben jár az eszed”, te meg felnézel, hogy ellenőrizd"
+    },
+    "T3": {
+     "en": [
+      "the more you eat, the",
+      "more your brain starts",
+      "craving it"
+     ],
+     "texte": "szándékosan félreérteni valamit [[klasszikus]], és nem véletlenül"
+    },
+    "T4": {
+     "en": [
+      "every time you say no,",
+      "you practice",
+      "self-control, and that",
+      "gets easier too"
+     ],
+     "texte": "ez a leggyorsabb visszavágás, mert az alapanyag már ott van a mondatukban"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_4.jpg",
+      "boite": [
+       1110,
+       160,
+       1054,
+       1170
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit",
+     "texte": "gyűjts [[random tényeket]]"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4.",
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
+     "texte": "a legjobb beszólások váratlan dolgokat kötnek össze. a mai 5 percem [[a Sophia appon]]: miért Olaszországban született a reneszánsz. már kétszer elsütöttem"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend every paycheck"
+     ],
+     "texte": "nevess magadon [[elsőként]]"
+    },
+    "T2": {
+     "en": [
+      "you only live once, so buy the clothes, the takeaway, the",
+      "new phone"
+     ],
+     "texte": "megbotlasz vagy valami furát mondasz? kommentáld, mielőtt más tenné"
+    },
+    "T3": {
+     "en": [
+      "saving is for boring people, future",
+      "you can deal with it"
+     ],
+     "texte": "senki nem cikizhet olyasmivel, [[amiből már te poént csináltál]]"
+    },
+    "T4": {
+     "en": [
+      "the money you waste in your 20s",
+      "is the money that could give you",
+      "freedom in your 30s"
+     ],
+     "texte": "ha vállalod a pillanatot, magabiztosnak tűnsz, és a nyomás is elszáll"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_3.jpg",
+      "boite": [
+       660,
+       0,
+       420,
+       520
+      ]
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,264 @@
+{
+ "post_id": "var-reels-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "30 napig [[nem reelseztem]], és naplót vezettem"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(ez történt az agyammal)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7700620281760533792_3.jpg",
+      "boite": [
+       49,
+       508,
+       555,
+       373
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5. switched off all triggers"
+     ],
+     "fr": "5. j'ai viré les tentations",
+     "texte": "2. nap: [[fantomrezgések]]"
+    },
+    "T2": {
+     "en": [
+      "i literally have 0",
+      "notifications on for all",
+      "my messaging",
+      "platforms"
+     ],
+     "fr": "j'ai littéralement 0 notif sur toutes mes applis de messagerie",
+     "texte": "ma 6-szor éreztem, hogy rezeg a telóm a zsebemben. egész nap az asztalon volt"
+    },
+    "T3": {
+     "en": [
+      "gives me no reason to",
+      "check until i want to"
+     ],
+     "fr": "du coup j'ouvre seulement quand j'en ai envie",
+     "texte": "az agyam [[a löketre vár]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7706685736090668302_2.jpg",
+      "boite": [
+       96,
+       509,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stopped watching youtube"
+     ],
+     "fr": "2. j'ai arrêté youtube",
+     "texte": "6. nap: [[halálosan unatkozom]]"
+    },
+    "T2": {
+     "en": [
+      "on my phone when eating"
+     ],
+     "fr": "sur mon tel en mangeant",
+     "texte": "aztán valami megváltozott"
+    },
+    "T3": {
+     "en": [
+      "look i know it",
+      "feels impossible",
+      "but after trying it",
+      "for a few days",
+      "my mind feels",
+      "so much clearer"
+     ],
+     "fr": "je sais, ça paraît impossible, mais au bout de quelques jours j'avais la tête tellement plus claire",
+     "texte": "zene és telefon nélkül sétáltam haza. 10 percig zajos volt a fejem, aztán [[csend lett]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705190384011414797_1.jpg",
+      "boite": [
+       96,
+       540,
+       620,
+       620
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to focus for hours"
+     ],
+     "fr": "apprends à bosser [[des heures]]",
+     "texte": "9. nap: [[tényleg jelen vagyok]]"
+    },
+    "T2": {
+     "en": [
+      "most people can barely work for 20",
+      "minutes without checking something"
+     ],
+     "fr": "la plupart des gens [[tiennent pas 20 minutes]] sans aller checker un truc",
+     "texte": "vacsora egy barátnőmmel, és [[tényleg figyeltem rá]], egy képernyő se volt az asztalon"
+    },
+    "T3": {
+     "en": [
+      "train yourself to",
+      "do 60–90 minutes",
+      "of uninterrupted",
+      "deep work"
+     ],
+     "fr": "entraîne-toi à bosser [[60 à 90 minutes]] à fond, sans aucune pause",
+     "texte": "két másodperc alatt kiszúrtam az új frizuráját. egy hónapja észre se vettem volna"
+    },
+    "T4": {
+     "en": [
+      "being able to concentrate while everyone",
+      "else is distracted is a ridiculous advantage"
+     ],
+     "fr": "savoir te concentrer quand tous les autres sont éparpillés, c'est un avantage de dingue",
+     "texte": "kiderült, hogy amit fáradtságnak hívtam, annak a fele csak [[a végtelen görgetés]] volt"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708931321120165151_4.jpg",
+      "boite": [
+       584,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. started reading books instead"
+     ],
+     "fr": "4. j'apprends des trucs à la place",
+     "texte": "18. nap: [[újra kíváncsi vagyok]]"
+    },
+    "T2": {
+     "en": [
+      "i found an app that blocks",
+      "tiktok until I read for 30 minutes",
+      "and it's helped me finish three",
+      "books so far"
+     ],
+     "fr": "j'ai remplacé tiktok par 5 min par jour sur l'appli Sophia, et j'ai déjà appris plein de trucs",
+     "texte": "a mai reels-szünetemből lecke lett arról, miért pont olaszországban kezdődött a reneszánsz. 5 perc [[a Sophia appban]]"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "I3"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "fr": "apprends à bien écrire",
+     "texte": "30. nap: [[lelassul az idő]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "fr": "écrire clair, ça oblige à penser clair",
+     "texte": "visszajött a memóriám"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "fr": "apprends à expliquer simplement des trucs compliqués, à convaincre par écrit et à [[toucher vraiment les gens]]",
+     "texte": "meg tudom mondani, mit csináltam múlt kedden. egy hónapja egész hétvégék [[tűntek el a feedben]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "fr": "si tu sais écrire, tout devient plus simple : marketing, management, vente, et te créer une commu",
+     "texte": "a legfurcsább? [[nem is hiányzik]]. azt hittem, egy hét után feladom, most meg alig érzem a késztetést"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7706685736090668302_6.jpg",
+      "boite": [
+       584,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  }
+ }
+}

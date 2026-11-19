@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 
+import { HANDLE_VALIDE } from "../../../../supabase/functions/_shared/persona_handles_varies";
+import { THEMES_VARIES } from "../../../../supabase/functions/_shared/persona_identite";
 import { genreDuLabel, themeDuLabel, themeMotsDuLabel } from "../themeLabel";
-import { grouperLabelsParApplication, identiteDuNom } from "./groupesLabels";
+import { EXEMPLES_VARIES, grouperLabelsParApplication, identiteDuNom } from "./groupesLabels";
 
 const APPS = [{ id: "a-sophia" }, { id: "a-micabo" }, { id: "a-atala" }];
 const LABELS = [{ id: "smart_girl" }, { id: "clean_study" }, { id: "beau_smart_girl" }, { id: "Hook" }, { id: "male_run" }];
@@ -66,7 +68,10 @@ describe("identité que le nom d'un label donne à ses comptes", () => {
   });
 
   it("annonce le thème et un @ d'exemple, et signale un nom qui ne colle pas à l'application", () => {
-    expect(identiteDuNom("clean_girl_run", "atala")).toEqual({ theme: "running", exemple: "lena.runs472", attendu: null });
+    expect(identiteDuNom("clean_girl_run", "atala")).toMatchObject({ theme: "running", attendu: null });
+    // Le running a des @ variés : plusieurs exemples, de formes différentes.
+    expect(identiteDuNom("clean_girl_run", "atala").varies).toEqual(EXEMPLES_VARIES.running);
+    expect(identiteDuNom("smart_girl", "sophia").varies).toBeNull();
     expect(identiteDuNom("clean_girl", "atala")).toMatchObject({
       theme: "clean_girl",
       attendu: { theme: "running", suffixe: "_run" },
@@ -76,5 +81,13 @@ describe("identité que le nom d'un label donne à ses comptes", () => {
     // Sophia n'attend aucun thème : tous ses labels vont.
     expect(identiteDuNom("alpha_male", "sophia")).toMatchObject({ theme: "alpha_male", attendu: null });
     expect(identiteDuNom("", null)).toMatchObject({ theme: "default", attendu: null });
+  });
+
+  it("annonce des @ variés pour les mêmes thèmes que le moteur, avec des exemples valides", () => {
+    expect(Object.keys(EXEMPLES_VARIES).sort()).toEqual([...THEMES_VARIES].sort());
+    for (const exemples of Object.values(EXEMPLES_VARIES)) {
+      expect(exemples!.length).toBeGreaterThanOrEqual(3);
+      for (const h of exemples!) expect(h).toMatch(HANDLE_VALIDE);
+    }
   });
 });

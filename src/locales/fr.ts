@@ -3892,8 +3892,10 @@ export const fr = {
         creerPour: "Créer pour {{app}}",
         fermer: "Fermer",
         identite: "Comptes de ce label : {{genre}}, @ et bio sur le thème « {{theme}} » (ex. @{{exemple}}).",
+        identiteVariee:
+          "Comptes de ce label : {{genre}}, des @ tous différents (prénom, nom, initiales, année, mots de tous les jours ; un mot « {{theme}} » moins d'une fois sur cinq). Ex. {{exemples}}.",
         themeAttendu:
-          "Pour {{app}}, termine le nom par « {{suffixe}} » : ses comptes auront un @ et une bio « {{theme}} ».",
+          "Pour {{app}}, termine le nom par « {{suffixe}} » : ses comptes prendront l'identité « {{theme}} ».",
         cree: "Label « {{nom}} » créé pour {{app}}. La suite :",
         suite: {
           sources: "Ajoute ses comptes source, puis importe-les :",

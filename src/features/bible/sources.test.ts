@@ -4,7 +4,7 @@ import type { SourceLundi } from "@/features/moteur/api";
 import type { FileSources } from "@/features/moteur/fileSources";
 import type { CompteReference } from "@/features/moteur/types";
 
-import { blocageImport, type CarteLabel, carteValidable, type CompteBible, etapeAvantImport } from "./moodboard";
+import { blocageImport, type CarteLabel, carteValidable, type CompteBible, estPodzValide, etapeAvantImport, labelsSansBloc } from "./moodboard";
 import {
   assemblerSources, bilanSemaine, compterSources, etapeDeLaSource, ligneResultat, phraseEtat, rangerSources, regleDeLaVue, REGLES_DEFAUT, type ReglesSources,
   type SourceBible, sourcesParHandle, versRegles,
@@ -165,6 +165,21 @@ describe("un compte de la Bible face à sa source", () => {
     expect(blocageImport(compte({}), carte({}), null)).toBe("pret");
   });
 
+  it("un compte à podzer validé quitte les onglets d'avant import : il n'est jamais importé", () => {
+    const valide = compte({ a_podzer: true, etape: "importe" });
+    expect(estPodzValide(valide)).toBe(true);
+    expect(etapeAvantImport(valide, carte({}), null)).toBeNull();
+    // Pas encore validé : il reste dans son onglet. À la corbeille, ou plus « à podzer » : ce n'est plus un podz validé.
+    expect(estPodzValide(compte({ a_podzer: true }))).toBe(false);
+    expect(etapeAvantImport(compte({ a_podzer: true }), carte({}), null)).toBe("prochain_batch");
+    expect(estPodzValide(compte({ a_podzer: true, etape: "importe", supprime_at: "2026-11-19T10:00:00Z" }))).toBe(false);
+    expect(estPodzValide(compte({ a_podzer: false, etape: "importe" }))).toBe(false);
+  });
+
+  it("les labels de l'OS qui n'ont pas encore de bloc dans la Bible", () => {
+    expect(labelsSansBloc([{ id: "L1", nom: "smart_girl" }, { id: "L7", nom: "History" }], [carte({})])).toEqual([{ id: "L7", nom: "History" }]);
+  });
+
   it("un label se crée d'ici s'il est proposé ou nouveau, pour une app qui existe", () => {
     expect(carteValidable(carte({ label_id: null, badge: "nouveau", section: "micabo" }))).toBe(true);
     expect(carteValidable(carte({ label_id: null, badge: "propose", section: "sophia" }))).toBe(true);
@@ -218,17 +233,25 @@ describe("rangement des sources", () => {
 describe("les règles, avec les vrais seuils", () => {
   it("lit les réglages ; un réglage absent prend la valeur par défaut des fonctions SQL", () => {
     expect(versRegles({ r_min: 0.95, r_vs_label_min: 0.95, lot_max: 8, nouvelles_par_jour: 1000, essai_posts: 30 })).toEqual({
-      rMin: 0.95, rVsLabelMin: 0.95, vuesCoup: 100_000, postsMin: 5, lotMax: 8, essaiPosts: 30, essaiMesuresMin: 10, postsMaxParMaj: 100,
+      rMin: 0.95, rVsLabelMin: 0.95, vuesCoup: 100_000, postsMin: 5, lotMax: 8, essaiPosts: 30, essaiMesuresMin: 10, postsMaxParMaj: 100, labelNeufJours: 5,
     });
+    expect(versRegles({ label_neuf_jours: 0 }).labelNeufJours).toBe(0);
     expect(versRegles(null)).toEqual(REGLES_DEFAUT);
   });
 
   it("chaque onglet dit comment on y entre et comment on en sort", () => {
     expect(regleDeLaVue("essai", REGLES)).toContain("ses 30 posts les plus vus");
     expect(regleDeLaVue("essai", REGLES)).toContain("r au-dessus de 0,95");
-    expect(regleDeLaVue("weekly", REGLES)).toContain("si son r dépasse 0,95, ou 0,95 face à son label, si elle a un post à 100 000 vues, ou moins de 5 posts mesurés");
-    expect(regleDeLaVue("weekly", REGLES)).toContain("8 sources par jour");
-    expect(regleDeLaVue("prochain_batch", REGLES)).toContain("les comptes à podzer ne partent pas");
+    // Pas d'essai dans un label neuf : créé depuis moins de 5 jours, ou que personne ne porte.
+    expect(regleDeLaVue("essai", REGLES)).toContain("Pas d'essai dans un label neuf (créé depuis moins de 5 jours, ou que personne ne porte encore)");
+    expect(regleDeLaVue("essai", { ...REGLES, labelNeufJours: 0 })).toContain("Pas d'essai dans un label neuf (que personne ne porte encore)");
+    // Le lundi décide ; les mises à jour, elles, partent chaque matin.
+    expect(regleDeLaVue("weekly", REGLES)).toContain("celles dont le r dépasse 0,95, ou 0,95 face à leur label, qui ont un post à 100 000 vues, ou moins de 5 posts mesurés");
+    expect(regleDeLaVue("weekly", REGLES)).toContain("Les mises à jour partent ensuite chaque matin à 6 h 37, 8 sources par jour");
+    expect(regleDeLaVue("propositions", REGLES)).toContain("l'agent éclaireur trouve chaque jour");
+    expect(regleDeLaVue("prochain_batch", REGLES)).toContain("Les comptes à podzer ne partent pas : valide-les");
+    expect(regleDeLaVue("a_importer", REGLES)).toContain("s'importe d'un clic");
+    expect(regleDeLaVue("weekly", REGLES)).toContain("Les comptes à podzer validés y figurent à part, à titre indicatif.");
   });
 
   it("le bilan du lundi et le résultat d'un lancement", () => {

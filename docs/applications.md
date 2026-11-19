@@ -114,7 +114,7 @@ application.
 
    | Le nom contient | @ et bio des comptes | Exemple de @ |
    |---|---|---|
-   | `run`, `running`, `runner`, `marathon`, `trail`, `jogging` (mot entier) | running | `lena.runs472` |
+   | `run`, `running`, `runner`, `marathon`, `trail`, `jogging` (mot entier) | running, en @ variés (voir plus bas) | `emma.mrtn`, `itsleaa`, `lou.sunday` |
    | `study`, `etud` | études | `lea.revisions318` |
    | `rh`, `career`, `carriere` | carrière | `emma.career204` |
    | `psych`, `mental` | psycho | `noah.mind611` |
@@ -124,10 +124,27 @@ application.
    | `girl`, `smart`, `beau` | lecture et culture | `lena.books129` |
    | rien de tout ça | culture générale | `lea.culture218` |
 
-   Le running passe avant le reste : `clean_girl_run` a un @ de running, mais
-   garde le genre et la banque de photos de profil de `clean_girl`. Un label
-   Atala se termine donc par `_run`, un label micabo par `_study` ; le
-   formulaire le rappelle si le nom ne colle pas.
+   Le running passe avant le reste : `clean_girl_run` prend l'identité du
+   running, mais garde le genre et la banque de photos de profil de
+   `clean_girl`. Un label Atala se termine donc par `_run`, un label micabo par
+   `_study` ; le formulaire le rappelle si le nom ne colle pas.
+
+   **Les @ variés (running).** Trente comptes « prenom.mot-de-course123 » se
+   reconnaissent au premier coup d'œil. Les comptes d'un label de running
+   tirent donc chacun une forme différente, parmi une quarantaine
+   (`persona_handles_varies.ts`) :
+   - le nom seul, environ une fois sur deux : `emma.mrtn`, `clara_bonnet04`,
+     `leaa7`, `itsjade`, `cest.manon`, `theo.g99` ;
+   - le prénom et un mot, deux fois sur cinq : `lou.sunday`, `matcha.ines`,
+     `noahsmaps`, et de temps en temps un mot de course (`paul_foulees66`) ;
+   - deux mots sans nom, rarement : `slow.mornings`.
+
+   Un mot de course apparaît dans moins d'un @ sur cinq, et une bio sur trois
+   seulement parle de course. Le nom affiché reste « Prénom Nom », celui que le
+   @ reprend. Limite : un @ simple est plus souvent déjà pris sur TikTok ; la
+   recrue donne alors le sien dans « My TikTok account » et l'OS le remplace.
+   Pour passer un autre thème aux @ variés : l'ajouter à `THEMES_VARIES`
+   (`persona_identite.ts`) et à `EXEMPLES_VARIES` (`groupesLabels.ts`).
 3. **Le genre** des comptes (prénoms, noms, photo de profil). Proposé d'après
    le nom (`male_run` → homme, `…_girl…` et `…female…` → femme), modifiable.
 4. Ensuite, le formulaire le rappelle :
@@ -153,7 +170,8 @@ Fait :
   Runcoach, MapMyRun, Zombies Run, Run with Hal. Pas Strava ni les montres :
   ce sont des outils cités dans le conseil. Liste écrite avant tout stock, à
   mesurer sur les premières sources importées ;
-- l'identité des comptes de running : mots des @ et bios dans les 32 langues ;
+- l'identité des comptes de running : des @ variés (§ 5), des bios de course
+  ou de tous les jours, dans les 32 langues ;
 - le lien à 1 000 abonnés : `taap.it/atala` ;
 - la Bible : la section « Runvik » (nom de travail) est devenue « Atala »,
   reliée à l'application (0765). Dans l'ajout en masse, « runvik » désigne

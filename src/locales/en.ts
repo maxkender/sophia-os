@@ -3886,8 +3886,10 @@ export const en = {
         creerPour: "Create for {{app}}",
         fermer: "Close",
         identite: "Accounts of this label: {{genre}}, @ and bio on the “{{theme}}” theme (e.g. @{{exemple}}).",
+        identiteVariee:
+          "Accounts of this label: {{genre}}, @s that all differ (first name, surname, initials, year, everyday words; a “{{theme}}” word less than one time in five). E.g. {{exemples}}.",
         themeAttendu:
-          "For {{app}}, end the name with “{{suffixe}}”: its accounts will get a “{{theme}}” @ and bio.",
+          "For {{app}}, end the name with “{{suffixe}}”: its accounts will take the “{{theme}}” identity.",
         cree: "Label “{{nom}}” created for {{app}}. Next:",
         suite: {
           sources: "Add its source accounts, then import them:",

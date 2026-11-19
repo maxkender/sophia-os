@@ -1,7 +1,7 @@
 /**
  * 19/11 (Adrien) : les onglets des sources dans la Bible (En import, À l'essai, Weekly update, Arrêtées). Le même
  * moodboard que les comptes repérés (par app, puis par label), précédé de ce qui se passe dans l'étape : la file
- * d'import, ou le bilan de la mise à jour du lundi.
+ * d'import, ou le bilan de la semaine (le lundi décide, les mises à jour partent chaque matin).
  */
 import * as React from "react";
 
@@ -47,7 +47,10 @@ function FileEnBref({ donnees }: { donnees: DonneesSources }) {
   );
 }
 
-/** « Weekly update » : le bilan du dernier lundi, et un filtre retenues / pas cette semaine. */
+/**
+ * « Weekly update » : le bilan de la semaine, et un filtre retenues / pas cette semaine. Le lundi ne fait que
+ * DÉCIDER ; les mises à jour partent ensuite chaque matin, par lots, et les imports s'étalent sur la semaine.
+ */
 function SemaineEnBref({ donnees, filtre, onFiltre }: { donnees: DonneesSources; filtre: FiltreSemaine; onFiltre: (f: FiltreSemaine) => void }) {
   const b = bilanSemaine(donnees.semaine);
   return (
@@ -55,9 +58,10 @@ function SemaineEnBref({ donnees, filtre, onFiltre }: { donnees: DonneesSources;
       <p className="text-sm text-stone-600">
         {b ? (
           <>
-            <b className="text-stone-900 dark:text-white">Lundi {jourCourt(b.semaine)}</b> : {b.retenues} source{b.retenues > 1 ? "s" : ""} retenue{b.retenues > 1 ? "s" : ""}
-            {" "}({b.faites} mise{b.faites > 1 ? "s" : ""} à jour{b.aVenir > 0 ? `, ${b.aVenir} à venir à ${donnees.regles.lotMax} par jour` : ""}), {b.pasRetenues} pas cette semaine.
-            {" "}{b.importes} slideshow{b.importes > 1 ? "s" : ""} importé{b.importes > 1 ? "s" : ""}, {b.valides} validé{b.valides > 1 ? "s" : ""}.
+            <b className="text-stone-900 dark:text-white">Semaine du {jourCourt(b.semaine)}</b> : lundi, {b.retenues} source{b.retenues > 1 ? "s" : ""} retenue{b.retenues > 1 ? "s" : ""}
+            {" "}et {b.pasRetenues} pas cette semaine. {b.faites} déjà mise{b.faites > 1 ? "s" : ""} à jour
+            {b.aVenir > 0 ? `, ${b.aVenir} à venir (${donnees.regles.lotMax} par jour, chaque matin à 6 h 37)` : ""}.
+            {" "}Depuis lundi : {b.importes} slideshow{b.importes > 1 ? "s" : ""} importé{b.importes > 1 ? "s" : ""}, {b.valides} validé{b.valides > 1 ? "s" : ""}.
           </>
         ) : "Pas encore de mise à jour du lundi."}
       </p>

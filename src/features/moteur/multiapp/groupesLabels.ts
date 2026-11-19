@@ -40,9 +40,19 @@ export const THEME_ATTENDU: Readonly<Record<string, { theme: ThemeMots; suffixe:
   micabo: { theme: "etude", suffixe: "_study" },
 };
 
+/**
+ * Les thèmes dont les comptes prennent des @ variés (une forme différente à
+ * chaque compte, le thème dans moins d'un @ sur cinq) au lieu de
+ * `prenom.mot123`, avec quelques exemples de ce que ça donne. Les mêmes thèmes
+ * que `THEMES_VARIES` du moteur (persona_identite.ts) : un test le vérifie.
+ */
+export const EXEMPLES_VARIES: Readonly<Partial<Record<ThemeMots, readonly string[]>>> = {
+  running: ["emma.mrtn", "itsleaa", "clara_bonnet04", "lou.sunday", "slow.mornings"],
+};
+
 /** Un @ d'exemple par thème, pour montrer à quoi ressembleront les comptes du label. */
 export const EXEMPLE_HANDLE: Readonly<Record<ThemeMots, string>> = {
-  running: "lena.runs472",
+  running: "emma.mrtn",
   etude: "lea.revisions318",
   carriere: "emma.career204",
   psycho: "noah.mind611",
@@ -55,12 +65,26 @@ export const EXEMPLE_HANDLE: Readonly<Record<ThemeMots, string>> = {
   default: "lea.culture218",
 };
 
-/** L'identité que le nom d'un label donne à ses comptes, et si elle colle à l'application choisie. */
+/**
+ * L'identité que le nom d'un label donne à ses comptes, et si elle colle à
+ * l'application choisie. `varies` : les exemples d'un thème aux @ variés,
+ * `null` pour le format classique (`exemple`).
+ */
 export function identiteDuNom(
   nom: string,
   slugApplication: string | null,
-): { theme: ThemeMots; exemple: string; attendu: { theme: ThemeMots; suffixe: string } | null } {
+): {
+  theme: ThemeMots;
+  exemple: string;
+  varies: readonly string[] | null;
+  attendu: { theme: ThemeMots; suffixe: string } | null;
+} {
   const theme = themeMotsDuLabel(nom);
   const attendu = slugApplication ? (THEME_ATTENDU[slugApplication] ?? null) : null;
-  return { theme, exemple: EXEMPLE_HANDLE[theme], attendu: attendu && attendu.theme !== theme ? attendu : null };
+  return {
+    theme,
+    exemple: EXEMPLE_HANDLE[theme],
+    varies: EXEMPLES_VARIES[theme] ?? null,
+    attendu: attendu && attendu.theme !== theme ? attendu : null,
+  };
 }

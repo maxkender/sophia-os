@@ -174,7 +174,7 @@ describe("AdminLabelsPage", () => {
     // « male_run » : genre homme proposé, et des @ tous différents (plus de « prenom.mot123 »).
     expect(groupe("unswipe").getByTestId("identite-label")).toHaveTextContent("homme");
     expect(groupe("unswipe").getByTestId("identite-label")).toHaveTextContent("des @ tous différents");
-    expect(groupe("unswipe").getByTestId("identite-label")).toHaveTextContent("Ex. @emma.mrtn, @itsleaa");
+    expect(groupe("unswipe").getByTestId("identite-label")).toHaveTextContent("Ex. @emma.mrtn04, @itsleaa217");
     fireEvent.click(groupe("unswipe").getByRole("button", { name: "Créer pour Unswipe" }));
     await waitFor(() => expect(api.creerLabel).toHaveBeenCalledWith("male_run", "#2f6f4e", { genre: "homme" }));
     await waitFor(() => expect(api.definirApplicationsLabel).toHaveBeenCalledWith("l4", [ID_UNSWIPE]));

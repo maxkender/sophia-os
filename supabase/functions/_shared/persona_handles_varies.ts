@@ -9,22 +9,26 @@
  * Ici, chaque @ tire au hasard une FORME parmi une quarantaine, en trois
  * familles :
  *  - le nom seul (environ une fois sur deux) : prénom + nom de famille, nom
- *    abrégé (« mrtn »), initiale, année de naissance, lettre doublée
- *    (« emmaa »), préfixe (« its », « cest »…) ;
+ *    abrégé (« mrtn »), initiale, lettre doublée (« emmaa »), préfixe
+ *    (« its », « cest »…) ;
  *  - le nom et un mot (environ deux fois sur cinq) : le mot vient deux fois sur
  *    trois de la vie de tous les jours (café, dimanche, playlist…), une fois
  *    sur trois du thème du label (la course) ;
- *  - deux mots, sans nom (une fois sur douze) : « slow.mornings ».
- * Les chiffres de fin sont eux aussi variés : souvent aucun, sinon un chiffre,
- * une année sur deux chiffres, un nombre.
+ *  - deux mots, sans nom (une fois sur seize) : « slow.mornings ».
  *
  * Résultat : moins d'un @ sur cinq parle du thème du label.
  *
- * Une limite assumée : un @ simple a plus de chances d'être déjà pris sur
- * TikTok que « prenom.mot473 ». Les formes les plus nues (prénom + nom entier,
- * prénom + initiale, prénom seul) prennent donc presque toujours une fin
- * (`nue`). Si le @ est quand même pris, la recrue donne le sien dans « My
- * TikTok account » et l'OS le remplace (handle_tiktok.ts, 0444).
+ * TOUJOURS UN NOMBRE (19/11, Adrien : « golden_days sera déjà pris, il faut des
+ * numéros »). Un @ sans chiffres est presque toujours déjà pris sur TikTok, et
+ * la recrue ne peut alors pas créer le compte qu'on lui demande. Chaque @ porte
+ * donc un nombre de 2 à 4 chiffres : une année de naissance (« 04 », « 2004 »)
+ * ou un nombre quelconque. Les formes les plus nues (`nue` : prénom + nom
+ * entier, prénom + initiale, prénom seul, deux mots sans nom) en prennent 3 ou
+ * 4, jamais 2. Le nombre est à la fin, parfois juste après le prénom
+ * (« emma04.mrtn »), parfois suivi d'un tiret bas.
+ *
+ * Si le @ est quand même pris, la recrue donne le sien dans « My TikTok
+ * account » et l'OS le remplace (handle_tiktok.ts, 0444).
  */
 import type { Genre } from "./label_theme.ts";
 
@@ -151,22 +155,20 @@ export interface PiecesHandle {
 type Famille = "nom" | "mot" | "sans_nom";
 
 interface Brouillon {
+  /** Les lettres du @, avant son nombre. */
   base: string;
   famille: Famille;
-  /** La base porte déjà ses chiffres ou sa fin : on n'en rajoute pas. */
-  finie: boolean;
-  /** Forme très simple, souvent déjà prise sur TikTok : presque toujours une fin. */
+  /** Forme très simple, la plus souvent déjà prise sur TikTok : un nombre de 3 ou 4 chiffres. */
   nue?: boolean;
+  /** Ce qui vient après le nombre (« emma482_ »). */
+  apres?: string;
 }
 
-/** Une base de @, avant les chiffres de fin. */
+/** Les lettres d'un @, avant son nombre. */
 function tirerBase(p: PiecesHandle, hasard: Hasard): Brouillon {
   const { prenom, nomFamille } = p;
   const sk = squelette(nomFamille);
   const initiale = nomFamille[0] ?? "x";
-  const age = Math.floor(hasard() * 12) + 18;
-  const naissance = p.annee - age;
-  const yy = String(naissance % 100).padStart(2, "0");
   const sep = () => tirer([".", "_", ""], hasard);
   const sepVisible = () => tirer([".", "_"], hasard);
 
@@ -174,7 +176,7 @@ function tirerBase(p: PiecesHandle, hasard: Hasard): Brouillon {
 
   if (famille === "sans_nom") {
     const debuts = p.genre === "femme" ? [...DEBUTS_SANS_NOM, ...DEBUTS_SANS_NOM_F] : DEBUTS_SANS_NOM;
-    return { base: `${tirer(debuts, hasard)}${sep()}${tirer(FINS_SANS_NOM, hasard)}`, famille, finie: false };
+    return { base: `${tirer(debuts, hasard)}${sep()}${tirer(FINS_SANS_NOM, hasard)}`, famille, nue: true };
   }
 
   if (famille === "mot") {
@@ -197,64 +199,72 @@ function tirerBase(p: PiecesHandle, hasard: Hasard): Brouillon {
       // « emma.and.coffee » : en anglais d'un bout à l'autre, jamais avec un mot de la langue du compte.
       [2, () => `${prenom}.and.${motQuotidien}`],
     ], hasard)();
-    return { base, famille, finie: false };
+    return { base, famille };
   }
 
   const prefixes = [...PREFIXES, ...(PREFIXES_PAR_LANGUE[p.langue] ?? [])];
   return tirerPondere<() => Brouillon>([
     // Prénom + nom de famille, entier ou abrégé.
-    [5, () => ({ base: `${prenom}.${nomFamille}`, famille, finie: false, nue: true })],
-    [4, () => ({ base: `${prenom}_${nomFamille}`, famille, finie: false, nue: true })],
-    [4, () => ({ base: `${prenom}${nomFamille}`, famille, finie: false, nue: true })],
-    [6, () => ({ base: `${prenom}.${sk}`, famille, finie: false })],
-    [3, () => ({ base: `${prenom}_${sk}`, famille, finie: false })],
-    [5, () => ({ base: `${prenom}${sk}`, famille, finie: false })],
-    [2, () => ({ base: `${nomFamille}${sepVisible()}${prenom}`, famille, finie: false, nue: true })],
-    [1, () => ({ base: `${sk}.${prenom}`, famille, finie: false })],
+    [5, () => ({ base: `${prenom}.${nomFamille}`, famille, nue: true })],
+    [4, () => ({ base: `${prenom}_${nomFamille}`, famille, nue: true })],
+    [4, () => ({ base: `${prenom}${nomFamille}`, famille, nue: true })],
+    [7, () => ({ base: `${prenom}.${sk}`, famille })],
+    [4, () => ({ base: `${prenom}_${sk}`, famille })],
+    [5, () => ({ base: `${prenom}${sk}`, famille })],
+    [2, () => ({ base: `${nomFamille}${sepVisible()}${prenom}`, famille, nue: true })],
+    [1, () => ({ base: `${sk}.${prenom}`, famille })],
     // Prénom + initiale.
-    [3, () => ({ base: `${prenom}.${initiale}`, famille, finie: false, nue: true })],
-    [2, () => ({ base: `${prenom}_${initiale}`, famille, finie: false, nue: true })],
-    [2, () => ({ base: `${prenom}${initiale}${yy}`, famille, finie: true })],
+    [3, () => ({ base: `${prenom}.${initiale}`, famille, nue: true })],
+    [2, () => ({ base: `${prenom}_${initiale}`, famille, nue: true })],
+    [2, () => ({ base: `${prenom}${initiale}`, famille, nue: true })],
     // Prénom seul, déformé comme on le fait quand il est déjà pris.
-    [5, () => ({ base: etire(prenom, hasard), famille, finie: false, nue: true })],
-    [6, () => ({ base: `${tirer(prefixes, hasard)}${sep()}${prenom}`, famille, finie: false, nue: true })],
+    [5, () => ({ base: etire(prenom, hasard), famille, nue: true })],
+    [6, () => ({ base: `${tirer(prefixes, hasard)}${sep()}${prenom}`, famille, nue: true })],
     [3, () => {
       const suffixe = tirer(p.genre === "femme" ? SUFFIXES_F : SUFFIXES_H, hasard);
-      // Jamais « emma._ » : un tiret bas se colle au prénom.
-      const joint = suffixe.startsWith("_") ? "" : tirer([".", ""], hasard);
-      return { base: `${prenom}${joint}${suffixe}`, famille, finie: true };
+      // Un tiret bas vient après le nombre (« emma482_ »), une bise avant (« emma.xo482 »).
+      if (suffixe.startsWith("_")) return { base: prenom, famille, nue: true, apres: suffixe };
+      return { base: `${prenom}${tirer([".", ""], hasard)}${suffixe}`, famille, nue: true };
     }],
-    // Prénom + année de naissance.
-    [2, () => ({ base: `${prenom}${sep()}${yy}`, famille, finie: true })],
-    [1, () => ({ base: `${prenom}${naissance}`, famille, finie: true })],
-    [1, () => ({ base: `${prenom}.${sk}${yy}`, famille, finie: true })],
   ], hasard)();
 }
 
 /**
- * La fin d'un @ : rien une fois sur deux, sinon un chiffre, une année sur deux
- * chiffres, un nombre, un tiret bas. Une forme `nue` n'en est dispensée qu'une
- * fois sur sept.
+ * Le nombre d'un @, de 2 à 4 chiffres : une année de naissance (18 à 29 ans),
+ * sur deux ou quatre chiffres, ou un nombre quelconque. Jamais moins de trois
+ * chiffres pour une forme `nue` : « emma.martin04 » est déjà pris.
  */
-function tirerFin(annee: number, nue: boolean, hasard: Hasard): string {
-  const yy = String((annee - (Math.floor(hasard() * 12) + 18)) % 100).padStart(2, "0");
+export function tirerNombre(annee: number, nue: boolean, hasard: Hasard): string {
+  const naissance = annee - (Math.floor(hasard() * 12) + 18);
+  const yy = String(naissance % 100).padStart(2, "0");
   return tirerPondere<() => string>([
-    [nue ? 14 : 50, () => ""],
-    [nue ? 14 : 12, () => String(Math.floor(hasard() * 9) + 1)],
-    [nue ? 28 : 16, () => yy],
-    [nue ? 16 : 8, () => String(Math.floor(hasard() * 90) + 10)],
-    [nue ? 16 : 8, () => String(Math.floor(hasard() * 900) + 100)],
-    [nue ? 12 : 6, () => "_"],
+    [nue ? 0 : 15, () => yy],
+    [nue ? 0 : 15, () => String(Math.floor(hasard() * 90) + 10)],
+    [nue ? 75 : 50, () => String(Math.floor(hasard() * 900) + 100)],
+    [nue ? 25 : 20, () => String(naissance)],
   ], hasard)();
 }
 
-/** Un @ varié pour ces pièces. Peut déjà être pris : c'est à l'appelant de le vérifier. */
+/** Part des @ dont le nombre vient juste après le prénom (« emma04.mrtn ») plutôt qu'à la fin. */
+const PART_NOMBRE_AU_MILIEU = 0.15;
+/** Part des @ qui finissent par un tiret bas après leur nombre (« clara.bnt482_ »). */
+const PART_TIRET_FINAL = 0.05;
+
+/** Un @ varié pour ces pièces, toujours avec un nombre. Peut déjà être pris : c'est à l'appelant de le vérifier. */
 export function tirerHandleVarie(p: PiecesHandle, hasard: Hasard = Math.random): string {
   for (let essai = 0; essai < 40; essai += 1) {
-    const { base, finie, nue } = tirerBase(p, hasard);
-    const handle = finie ? base : `${base}${tirerFin(p.annee, nue === true, hasard)}`;
+    const { base, nue, apres } = tirerBase(p, hasard);
+    const nombre = tirerNombre(p.annee, nue === true, hasard);
+    const suite = base.slice(p.prenom.length);
+    // « emma04.mrtn » : le nombre après le prénom, quand le @ commence par lui et continue après un séparateur.
+    // Jamais dans « emma.and.coffee » : le nombre y couperait la phrase.
+    const auMilieu = apres === undefined && base.startsWith(p.prenom) && /^[._][a-z]+$/.test(suite) &&
+      hasard() < PART_NOMBRE_AU_MILIEU;
+    const handle = auMilieu
+      ? `${p.prenom}${nombre}${suite}`
+      : `${base}${nombre}${apres ?? (hasard() < PART_TIRET_FINAL ? "_" : "")}`;
     if (handle.length >= HANDLE_MIN && handle.length <= HANDLE_MAX && HANDLE_VALIDE.test(handle)) return handle;
   }
-  // Prénom et nom trop longs pour toutes les formes : le prénom et l'initiale, toujours assez courts.
-  return `${p.prenom}.${p.nomFamille[0] ?? "x"}`.slice(0, HANDLE_MAX);
+  // Prénom et nom trop longs pour toutes les formes : le prénom, l'initiale et un nombre, toujours assez courts.
+  return `${p.prenom.slice(0, HANDLE_MAX - 5)}.${p.nomFamille[0] ?? "x"}${Math.floor(hasard() * 900) + 100}`;
 }

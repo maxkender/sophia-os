@@ -14,6 +14,8 @@ import {
   MOTS_QUOTIDIEN_F,
   MOTS_QUOTIDIEN_H,
   squelette,
+  tirerHandleVarie,
+  tirerNombre,
 } from "../../../supabase/functions/_shared/persona_handles_varies";
 import {
   HANDLE_MAX,
@@ -100,23 +102,44 @@ describe("@ variés (running, Atala)", () => {
     for (const h of classiques) expect(h).toMatch(/^[a-z0-9]+\.[a-z0-9]+[1-9]\d{2}$/);
   });
 
-  it("donne des @ valides, de formes très différentes, sans forme dominante", () => {
+  it("donne des @ valides, de formes différentes, toujours avec un nombre", () => {
     const handles = tirer(1200, 31).map((i) => i.handle);
     for (const h of handles) {
       expect(h, h).toMatch(HANDLE_VALIDE);
       expect(h.length, h).toBeGreaterThanOrEqual(5);
       expect(h.length, h).toBeLessThanOrEqual(HANDLE_MAX);
       expect(h, h).not.toMatch(/\.\.|\._|_\./);
+      // « golden_days » serait déjà pris sur TikTok : jamais de @ sans nombre.
+      expect(h, h).toMatch(/\d{2,4}/);
+      expect(h, h).not.toMatch(/\d{5}/);
     }
     const parSilhouette = new Map<string, number>();
     for (const h of handles) parSilhouette.set(silhouette(h), (parSilhouette.get(silhouette(h)) ?? 0) + 1);
-    expect(parSilhouette.size).toBeGreaterThanOrEqual(12);
-    expect(Math.max(...parSilhouette.values()) / handles.length).toBeLessThan(0.3);
-    // L'ancien format, « prenom.mot » + 3 chiffres, n'est plus qu'une forme parmi d'autres.
-    expect(handles.filter((h) => /^[a-z]+\.[a-z]+\d{3}$/.test(h)).length / handles.length).toBeLessThan(0.08);
-    // Près de la moitié sans aucun chiffre.
-    expect(handles.filter((h) => !/\d/.test(h)).length / handles.length).toBeGreaterThan(0.3);
+    expect(parSilhouette.size).toBeGreaterThanOrEqual(8);
+    expect(Math.max(...parSilhouette.values()) / handles.length).toBeLessThan(0.45);
+    // L'ancienne silhouette, « mot.mot » + 3 chiffres, n'est plus qu'une forme parmi d'autres.
+    expect(handles.filter((h) => /^[a-z]+\.[a-z]+\d{3}$/.test(h)).length / handles.length).toBeLessThan(0.25);
+    // Le nombre lui-même varie : 2, 3 ou 4 chiffres, à la fin ou après le prénom.
+    const longueur = (n: number) => handles.filter((h) => h.match(/\d+/)![0].length === n).length / handles.length;
+    expect(longueur(2)).toBeGreaterThan(0.05);
+    expect(longueur(3)).toBeGreaterThan(0.4);
+    expect(longueur(4)).toBeGreaterThan(0.1);
+    expect(handles.filter((h) => /^[a-z]+\d+[._][a-z]/.test(h)).length / handles.length).toBeGreaterThan(0.03);
     expect(new Set(handles).size / handles.length).toBeGreaterThan(0.97);
+  });
+
+  it("donne 3 ou 4 chiffres aux formes les plus simples, jamais 2", () => {
+    const hasard = hasardFixe(23);
+    const nus = Array.from({ length: 500 }, () => tirerNombre(2026, true, hasard));
+    for (const n of nus) expect(n, n).toMatch(/^\d{3,4}$/);
+    const autres = new Set(Array.from({ length: 500 }, () => tirerNombre(2026, false, hasard).length));
+    expect([...autres].sort()).toEqual([2, 3, 4]);
+    // Deux mots sans nom (« golden_days ») et prénom + nom entier : jamais deux chiffres seulement.
+    const pieces = { prenom: "emma", nomFamille: "martin", genre: "femme" as const, langue: "fr", annee: 2026, motsTheme: [] };
+    const simples = Array.from({ length: 3000 }, () => tirerHandleVarie(pieces, hasard))
+      .filter((h) => !h.includes("emma") || /^emma[._]?martin\d/.test(h));
+    expect(simples.length).toBeGreaterThan(100);
+    for (const h of simples) expect(h, h).toMatch(/\d{3,4}/);
   });
 
   it("parle de course moins d'une fois sur cinq, mais pas jamais", () => {
@@ -158,7 +181,12 @@ describe("@ variés (running, Atala)", () => {
 
   it("garde les « x » et les mots doux pour les comptes femme", () => {
     const hommes = tirer(1500, 3, "en", "homme").map((i) => i.handle);
-    expect(hommes.some((h) => /(?:^|[._])(?:xo|xx|x)$/.test(h))).toBe(false);
+    const hasard = hasardFixe(41);
+    const theo = { prenom: "theo", nomFamille: "martin", genre: "homme" as const, langue: "fr", annee: 2026, motsTheme: [] };
+    const bises = /^[a-z]+\.?(?:xo|xx|x)\d/;
+    expect(Array.from({ length: 2000 }, () => tirerHandleVarie(theo, hasard)).some((h) => /^theo\.?(?:xo|xx|x)\d/.test(h))).toBe(false);
+    const emma = { ...theo, prenom: "emma", genre: "femme" as const };
+    expect(Array.from({ length: 2000 }, () => tirerHandleVarie(emma, hasard)).some((h) => bises.test(h))).toBe(true);
     const doux = new Set(MOTS_QUOTIDIEN_F);
     expect(hommes.some((h) => h.split(/[._]/).some((m) => doux.has(m.replace(/\d+$/, ""))))).toBe(false);
   });

@@ -4,7 +4,7 @@ import type { SourceLundi } from "@/features/moteur/api";
 import type { FileSources } from "@/features/moteur/fileSources";
 import type { CompteReference } from "@/features/moteur/types";
 
-import { blocageImport, type CarteLabel, carteValidable, type CompteBible, estPodzValide, etapeAvantImport, labelsSansBloc } from "./moodboard";
+import { blocageImport, type CarteLabel, carteValidable, type CompteBible, estPodzValide, etapeAvantImport, labelsSansBloc, valeurDuLabel } from "./moodboard";
 import {
   assemblerSources, bilanSemaine, compterSources, etapeDeLaSource, ligneResultat, phraseEtat, rangerSources, regleDeLaVue, REGLES_DEFAUT, type ReglesSources,
   type SourceBible, sourcesParHandle, versRegles,
@@ -178,6 +178,12 @@ describe("un compte de la Bible face à sa source", () => {
 
   it("les labels de l'OS qui n'ont pas encore de bloc dans la Bible", () => {
     expect(labelsSansBloc([{ id: "L1", nom: "smart_girl" }, { id: "L7", nom: "History" }], [carte({})])).toEqual([{ id: "L7", nom: "History" }]);
+    // Dans la liste de choix : le bloc du label s'il en a un, sinon le label lui-même ; rien si le label est inconnu.
+    const labels = [{ id: "L1", nom: "smart_girl" }, { id: "L7", nom: "History" }];
+    expect(valeurDuLabel("L1", [carte({})], labels)).toBe("k1");
+    expect(valeurDuLabel("L7", [carte({})], labels)).toBe("label:L7");
+    expect(valeurDuLabel("L99", [carte({})], labels)).toBe("");
+    expect(valeurDuLabel(null, [carte({})], labels)).toBe("");
   });
 
   it("un label se crée d'ici s'il est proposé ou nouveau, pour une app qui existe", () => {

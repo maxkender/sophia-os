@@ -15,15 +15,15 @@ import { cn } from "@/lib/utils";
 
 import { resoudreLiens } from "./api";
 import {
-  ajouterComptes, type CarteLabel, carteDuLabel, type CompteBible, creerCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, modifierCarte, nomCarte,
-  rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS,
+  ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, modifierCarte,
+  nomCarte, PREFIXE_LABEL, rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS, validerCarte,
 } from "./moodboard";
 import { nomLabelValide } from "./parse";
 
 const CHAMP = "h-9 w-full rounded-lg border border-stone-200 bg-white px-3 text-sm dark:border-stone-700 dark:bg-stone-900";
 const NOUVEAU = "__nouveau__";
 /** Un label de l'OS qui n'a pas encore de bloc dans la Bible : « label:<id> ». */
-const LABEL = "label:";
+const LABEL = PREFIXE_LABEL;
 
 /** La carte choisie dans la liste : un bloc, un label de l'OS (son bloc est créé), ou rien. */
 async function carteChoisie(valeur: string, cartes: CarteLabel[]): Promise<CarteLabel | null> {
@@ -54,8 +54,10 @@ function ChoixCarte({ cartes, valeur, onChange, sections: filtre, labelsLibres =
   );
 }
 
-function NouveauLabel({ section, onSection, nom, onNom, description, onDescription }: {
+function NouveauLabel({ section, onSection, nom, onNom, description, onDescription, creer, onCreer }: {
   section: Section; onSection: (s: Section) => void; nom: string; onNom: (s: string) => void; description: string; onDescription: (s: string) => void;
+  /** Créer le label dans l'OS tout de suite, au lieu de le laisser en proposition (absent : pas d'option). */
+  creer?: boolean; onCreer?: (b: boolean) => void;
 }) {
   return (
     <div className="space-y-2 rounded-xl border border-dashed border-stone-300 bg-stone-50 p-3 dark:border-stone-700 dark:bg-stone-900/40">
@@ -67,27 +69,51 @@ function NouveauLabel({ section, onSection, nom, onNom, description, onDescripti
       </div>
       <input className={CHAMP} placeholder="La DA en une ligne (photos, texte, couleur, vibe)" value={description} onChange={(e) => onDescription(e.target.value)} />
       {nom && !nomLabelValide(nom) && <p className="text-xs text-destructive">Le nom : minuscules, chiffres et _ (ex. study_notes).</p>}
-      <p className="text-[11px] text-stone-500">Crée une proposition « à valider », jamais un vrai label.</p>
+      {onCreer && section !== "idees" ? (
+        <label className="flex items-start gap-2 text-xs text-stone-600 dark:text-stone-300">
+          <input type="checkbox" checked={Boolean(creer)} onChange={(e) => onCreer(e.target.checked)} className="mt-0.5 size-3.5 accent-stone-900" />
+          <span>Créer ce label dans l'OS tout de suite : ses comptes sont alors prêts à importer. Sinon il reste une proposition, à créer plus tard depuis son bloc.</span>
+        </label>
+      ) : (
+        <p className="text-[11px] text-stone-500">Crée une proposition « à valider », jamais un vrai label.</p>
+      )}
     </div>
   );
 }
 
-export function DialogueLabel({ compte, cartes, labels = [], onFermer, onChoisir }: {
-  compte: CompteBible | null; cartes: CarteLabel[]; labels?: LabelOs[]; onFermer: () => void; onChoisir: (carte: CarteLabel) => Promise<void>;
+/**
+ * Le choix du label d'un compte : un bloc existant, un label de l'OS sans bloc (son bloc est créé), ou un nouveau label
+ * (une proposition, ou créé tout de suite dans l'OS). `sansLabel` : on peut aussi ne rien choisir.
+ */
+export function DialogueChoixLabel({ cible, titre, bouton, sansLabel = false, aide, cartes, labels = [], onFermer, onChoisir }: {
+  /** Le compte à ranger et la valeur présélectionnée (`null` : fenêtre fermée). */
+  cible: { handle: string; valeur: string } | null;
+  titre: string; bouton: string; sansLabel?: boolean; aide?: string;
+  cartes: CarteLabel[]; labels?: LabelOs[]; onFermer: () => void; onChoisir: (carte: CarteLabel | null) => Promise<void>;
 }) {
   const [valeur, setValeur] = React.useState("");
   const [section, setSection] = React.useState<Section>("sophia");
   const [nom, setNom] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const [creer, setCreer] = React.useState(false);
   const [erreur, setErreur] = React.useState<string | null>(null);
   const [occupe, setOccupe] = React.useState(false);
-  React.useEffect(() => { setValeur(compte?.label_propose_id ?? ""); setErreur(null); setNom(""); setDescription(""); }, [compte]);
+  const handle = cible?.handle;
+  const initiale = cible?.valeur;
+  React.useEffect(() => { setValeur(initiale ?? ""); setErreur(null); setNom(""); setDescription(""); setCreer(false); }, [handle, initiale]);
   const valider = async () => {
     setOccupe(true);
     setErreur(null);
     try {
-      const carte = valeur === NOUVEAU ? await creerCarte({ nom, section, description }) : await carteChoisie(valeur, cartes);
-      if (carte) await onChoisir(carte);
+      let carte: CarteLabel | null;
+      if (valeur === NOUVEAU) {
+        carte = await creerCarte({ nom, section, description });
+        // « Créer tout de suite » : la proposition devient un vrai label de l'OS, le bloc passe à « existe ».
+        if (creer && carteValidable(carte)) carte = { ...carte, label_id: await validerCarte(carte.id), badge: "existe", statut: "valide" };
+      } else {
+        carte = await carteChoisie(valeur, cartes);
+      }
+      if (carte || sansLabel) await onChoisir(carte);
       onFermer();
     } catch (e) {
       setErreur((e as Error).message);
@@ -96,23 +122,43 @@ export function DialogueLabel({ compte, cartes, labels = [], onFermer, onChoisir
     }
   };
   return (
-    <Dialog open={Boolean(compte)} onOpenChange={(o) => !o && onFermer()}>
+    <Dialog open={Boolean(cible)} onOpenChange={(o) => !o && onFermer()}>
       <DialogPopup className="max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-base">Changer de label</DialogTitle>
-          <DialogDescription>@{compte?.handle}</DialogDescription>
+          <DialogTitle className="text-base">{titre}</DialogTitle>
+          <DialogDescription>@{cible?.handle}</DialogDescription>
         </DialogHeader>
         <DialogPanel className="space-y-3 pb-5">
           <ChoixCarte cartes={cartes} valeur={valeur} onChange={setValeur} labelsLibres={labelsSansBloc(labels, cartes)} />
-          {valeur === NOUVEAU && <NouveauLabel section={section} onSection={setSection} nom={nom} onNom={setNom} description={description} onDescription={setDescription} />}
+          {valeur === NOUVEAU && (
+            <NouveauLabel section={section} onSection={setSection} nom={nom} onNom={setNom} description={description} onDescription={setDescription} creer={creer} onCreer={setCreer} />
+          )}
+          {aide && <p className="text-[11px] text-stone-500">{aide}</p>}
           {erreur && <p className="text-sm text-destructive">{erreur}</p>}
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={onFermer}>Annuler</Button>
-            <Button onClick={valider} disabled={occupe || !valeur || (valeur === NOUVEAU && !nomLabelValide(nom))}>Ranger ici</Button>
+            <Button onClick={valider} disabled={occupe || (!valeur && !sansLabel) || (valeur === NOUVEAU && !nomLabelValide(nom))}>{bouton}</Button>
           </div>
         </DialogPanel>
       </DialogPopup>
     </Dialog>
+  );
+}
+
+/** « Changer de label » d'un compte de la Bible. */
+export function DialogueLabel({ compte, cartes, labels = [], onFermer, onChoisir }: {
+  compte: CompteBible | null; cartes: CarteLabel[]; labels?: LabelOs[]; onFermer: () => void; onChoisir: (carte: CarteLabel) => Promise<void>;
+}) {
+  return (
+    <DialogueChoixLabel
+      cible={compte ? { handle: compte.handle, valeur: compte.label_propose_id ?? "" } : null}
+      titre="Changer de label"
+      bouton="Ranger ici"
+      cartes={cartes}
+      labels={labels}
+      onFermer={onFermer}
+      onChoisir={async (carte) => { if (carte) await onChoisir(carte); }}
+    />
   );
 }
 

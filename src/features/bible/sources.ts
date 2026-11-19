@@ -337,7 +337,7 @@ export const labelNeuf = (r: ReglesSources): string =>
 export function regleDeLaVue(vue: Vue, r: ReglesSources): string {
   switch (vue) {
     case "propositions":
-      return "Les comptes que l'agent éclaireur trouve chaque jour. Passe ceux que tu gardes dans « À importer », ou directement dans « Prochain batch » ; mets les autres à plus tard, ou refuse-les avec la raison (l'agent la relit).";
+      return "Les comptes que l'agent éclaireur trouve chaque jour. Passe ceux que tu gardes dans « À importer », ou directement dans « Prochain batch » en choisissant leur label ; mets les autres à plus tard, ou refuse-les avec la raison (l'agent la relit).";
     case "a_importer":
       return "Les comptes repérés. Un compte dont le label existe s'importe d'un clic (« Importer ») ; passe les autres dans « Prochain batch », le temps de régler leur label.";
     case "prochain_batch":

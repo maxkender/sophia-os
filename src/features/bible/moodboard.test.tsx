@@ -9,7 +9,7 @@ import type { DonneesSources, SourceBible } from "./sources";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), lancerBatch: vi.fn(), validerCarte: vi.fn(), changerCarte: vi.fn(),
-  validerPodz: vi.fn(), rattacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(),
+  validerPodz: vi.fn(), rattacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
   modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
@@ -137,11 +137,17 @@ describe("page Bible", () => {
     expect(screen.getByText(/@deja\.la/).closest("[data-proposition]")).toHaveTextContent("déjà dans la Bible");
 
     fireEvent.click(within(tuile).getByRole("button", { name: "À importer" }));
-    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p1", "a_importer"));
+    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p1", "a_importer", undefined));
     // Ses 3 derniers TikToks arrivent ensuite, comme pour un compte ajouté à la main.
     await waitFor(() => expect(api.rafraichirMiniatures).toHaveBeenCalledWith("b9"));
+    // « Prochain batch » : on choisit d'abord le label. Un concept n'en a pas : rien n'est présélectionné.
     fireEvent.click(within(deCote).getByRole("button", { name: "Prochain batch" }));
-    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p3", "prochain_batch"));
+    expect(await screen.findByRole("heading", { name: "Envoyer dans le prochain batch" })).toBeInTheDocument();
+    expect(prop.passerDansLaBible).toHaveBeenCalledTimes(1);
+    expect(screen.getByLabelText("Label")).toHaveValue("");
+    fireEvent.change(screen.getByLabelText("Label"), { target: { value: "k3" } });
+    fireEvent.click(screen.getByRole("button", { name: "Envoyer" }));
+    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p3", "prochain_batch", expect.objectContaining({ id: "k3", label_id: "L1" })));
     fireEvent.click(within(deCote).getByRole("button", { name: "Remettre à décider" }));
     await waitFor(() => expect(prop.deciderProposition).toHaveBeenCalledWith("p3", "propose", undefined));
 
@@ -253,6 +259,57 @@ describe("page Bible", () => {
 
     fireEvent.click(screen.getByRole("tab", { name: /À l'essai/ }));
     expect(await screen.findByTestId("etat-source.ailleurs")).toHaveTextContent("Essai : 30 sur 30 importés, 6 sur 10 mesurés");
+  });
+
+  it("une proposition vers le prochain batch : son label proposé est présélectionné ; on peut prendre un label de l'OS sans bloc, en créer un, ou n'en mettre aucun", async () => {
+    api.lireComptes.mockResolvedValue([]);
+    api.rafraichirMiniatures.mockResolvedValue(undefined);
+    src.lireSources.mockResolvedValue(donnees([], { labels: [
+      { id: "L1", nom: "smart_girl", style_theme: null, application_id: "00000000-0000-4000-8000-000000000001", apps: ["00000000-0000-4000-8000-000000000001"] },
+      { id: "L7", nom: "History", style_theme: null, application_id: "00000000-0000-4000-8000-000000000001", apps: ["00000000-0000-4000-8000-000000000001"] },
+    ] }));
+    prop.lirePropositions.mockResolvedValue([
+      proposition({ id: "p2", handle: "pour.smart", sorte: "label", labelId: "L1", labelNom: "smart_girl", concept: null }),
+      proposition({ id: "p5", handle: "pour.history", sorte: "label", labelId: "L7", labelNom: "History", concept: null, score: 60 }),
+      proposition({ id: "p6", handle: "un.concept", score: 40 }),
+    ]);
+    prop.passerDansLaBible.mockResolvedValue({ bibleId: "b1", handle: "x", deja: false });
+    api.carteDuLabel.mockResolvedValue(carte({ id: "k7", nom: "history", section: "sophia", badge: "existe", label_id: "L7", statut: "valide" }));
+    api.creerCarte.mockResolvedValue(carte({ id: "k8", nom: "tableaux_secrets", section: "sophia", badge: "nouveau", label_id: null }));
+    api.validerCarte.mockResolvedValue("L8");
+    rendre();
+    fireEvent.click(await screen.findByRole("tab", { name: /Source proposals 3/ }));
+    const tuile = (h: RegExp) => screen.getByText(h).closest("[data-proposition]") as HTMLElement;
+
+    // Un label qui a déjà son bloc : il est présélectionné, il suffit d'envoyer.
+    fireEvent.click(within(tuile(/@pour\.smart/)).getByRole("button", { name: "Prochain batch" }));
+    expect(await screen.findByLabelText("Label")).toHaveValue("k3");
+    fireEvent.click(screen.getByRole("button", { name: "Envoyer" }));
+    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p2", "prochain_batch", expect.objectContaining({ id: "k3" })));
+
+    // Un label de l'OS sans bloc : présélectionné aussi, son bloc est créé à l'envoi.
+    fireEvent.click(within(tuile(/@pour\.history/)).getByRole("button", { name: "Prochain batch" }));
+    await waitFor(() => expect(screen.getByLabelText("Label")).toHaveValue("label:L7"));
+    fireEvent.click(screen.getByRole("button", { name: "Envoyer" }));
+    await waitFor(() => expect(api.carteDuLabel).toHaveBeenCalledWith("L7"));
+    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p5", "prochain_batch", expect.objectContaining({ id: "k7", label_id: "L7" })));
+
+    // Un concept : on crée son label, tout de suite dans l'OS, et le compte part prêt.
+    fireEvent.click(within(tuile(/@un\.concept/)).getByRole("button", { name: "Prochain batch" }));
+    await waitFor(() => expect(screen.getByLabelText("Label")).toHaveValue(""));
+    fireEvent.change(screen.getByLabelText("Label"), { target: { value: "__nouveau__" } });
+    fireEvent.change(screen.getByPlaceholderText("nom_du_label"), { target: { value: "tableaux secrets" } });
+    fireEvent.click(screen.getByRole("checkbox", { name: /Créer ce label dans l'OS tout de suite/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Envoyer" }));
+    await waitFor(() => expect(api.creerCarte).toHaveBeenCalledWith({ nom: "tableaux_secrets", section: "sophia", description: "" }));
+    await waitFor(() => expect(api.validerCarte).toHaveBeenCalledWith("k8"));
+    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p6", "prochain_batch", expect.objectContaining({ id: "k8", label_id: "L8", badge: "existe" })));
+
+    // Sans label : possible (le compte attendra son label dans le prochain batch).
+    fireEvent.click(within(tuile(/@un\.concept/)).getByRole("button", { name: "Prochain batch" }));
+    await waitFor(() => expect(screen.getByLabelText("Label")).toHaveValue(""));
+    fireEvent.click(screen.getByRole("button", { name: "Envoyer" }));
+    await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p6", "prochain_batch", null));
   });
 
   it("« Importer » sur une tuile dont le label existe : le compte part seul ; sans langue connue, la fenêtre la demande", async () => {

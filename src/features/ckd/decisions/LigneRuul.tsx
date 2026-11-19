@@ -8,7 +8,7 @@ import { Check, Mail, MessageSquare, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-import { emailRevenu, type InfoRuul, jjmm, payableLundi } from "./ruulDecisions";
+import { emailRevenu, enPause, type InfoRuul, jjmm, payableLundi } from "./ruulDecisions";
 
 /** Le badge de plateforme d'une ligne. */
 export function BadgePlateforme({ ruul }: { ruul: boolean }) {
@@ -75,7 +75,11 @@ export function LigneRuul({ i, maintenant = new Date() }: { i: InfoRuul | undefi
           <p className="flex items-center gap-1"><Mail className="size-3" aria-hidden /> Aucun email envoyé</p>
         )}
         {relance && (
-          <p>Relance Ruul « {relance.etape ?? "?"} » · {ilYa(relance.at, maintenant)}{relance.erreur ? ` · ${relance.erreur}` : ""}</p>
+          <p>
+            Relance Ruul « {relance.etape ?? "?"} » · {ilYa(relance.at, maintenant)}
+            {(relance.canaux ?? []).length ? ` · par ${(relance.canaux ?? []).join(" + ")}` : ""}
+            {relance.erreur ? (enPause(relance.erreur) ? " · DM Slack en pause" : ` · ${relance.erreur}`) : ""}
+          </p>
         )}
         {reponse ? (
           <p className="flex items-start gap-1">
@@ -92,8 +96,11 @@ export function LigneRuul({ i, maintenant = new Date() }: { i: InfoRuul | undefi
           </p>
         )}
         {i.dernier_nudge?.at && (
-          <p>
-            Nudge {jjmm(i.dernier_nudge.at)} : {(i.dernier_nudge.canaux ?? []).length ? (i.dernier_nudge.canaux ?? []).join(" + ") : "pas parti"}
+          <p data-testid="dernier-nudge">
+            Nudge {jjmm(i.dernier_nudge.at)} :{" "}
+            {(i.dernier_nudge.canaux ?? []).length
+              ? `parti par ${(i.dernier_nudge.canaux ?? []).join(" + ")}`
+              : enPause(i.dernier_nudge.erreur) ? "pas encore parti (DM Slack en pause) : à envoyer par email + bandeau" : "pas encore parti"}
           </p>
         )}
       </div>

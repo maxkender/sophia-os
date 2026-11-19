@@ -18,7 +18,7 @@ import { SectionRegles } from "@/features/relectureNative/SectionRegles";
 import { compterComptesParLangue, compterCorrectionsLangue, compterRelecteursParLangue, listerPromptsMeta } from "./api";
 import { EditeurPrompt } from "./EditeurPrompt";
 import { lignesLangues, type LigneLangue, type SourcePrompt } from "./logique";
-import { RetoursApplications } from "./RetoursApplications";
+import { PlacementLangue } from "./PlacementLangue";
 
 export const CLE_PROMPTS_META = ["prompts-meta", "traduction"] as const;
 
@@ -40,12 +40,28 @@ function formaterDate(iso: string | null, locale: string): string {
  * commune en bas. Même règle que le moteur : prompt dédié, sinon le générique
  * pour le français, sinon les règles neutres du code.
  *
- * Toute la boucle des relecteurs natifs de la langue tient dans le panneau :
- * ce que la traduction reçoit (règles et corrections de langue), ce que le
- * placement de chaque application reçoit en plus (corrections propres à
- * l'application, 0751), puis le tri des corrections et les règles à valider,
- * les mêmes sections que Relecture native, sur cette seule langue.
+ * Le panneau d'une langue suit la chaîne, en trois parties :
+ *  1. Traduction : son prompt, ce que les relecteurs natifs y ajoutent (règles
+ *     et corrections de langue), la localisation scolaire.
+ *  2. Placement : par application, son prompt de placement puis les retours
+ *     natifs de cette langue sur sa slide (0751) — `PlacementLangue`.
+ *  3. Relecteurs natifs : le tri des corrections et les règles à valider, les
+ *     mêmes sections que Relecture native, sur cette seule langue.
  */
+
+/** Une partie du panneau : son titre, ce qu'elle contient, ses blocs. */
+function Partie({ titre, aide, testId, children }: { titre: string; aide: string; testId: string; children: React.ReactNode }) {
+  return (
+    <section className="space-y-3" data-testid={testId}>
+      <div className="space-y-0.5 border-b pb-2">
+        <h3 className="text-sm font-semibold">{titre}</h3>
+        <p className="text-xs text-muted-foreground">{aide}</p>
+      </div>
+      {children}
+    </section>
+  );
+}
+
 export function SectionLangues({ langue, onLangue }: { langue: string | null; onLangue: (code: string) => void }) {
   const { t, i18n } = useTranslation();
   const [recherche, setRecherche] = React.useState("");
@@ -139,7 +155,7 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
 
         {prompts.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
         {!prompts.isPending && choisie && (
-          <div className="min-w-0 space-y-4" data-testid="panneau-langue" data-langue={choisie.code}>
+          <div className="min-w-0 space-y-6" data-testid="panneau-langue" data-langue={choisie.code}>
             <div className="space-y-2 rounded-lg border bg-card p-4">
               <div className="flex flex-wrap items-center gap-2">
                 <h2 className="text-base font-semibold">
@@ -173,26 +189,30 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
 
             {choisie.relecteurs > 0 && <BandeauBoucle langue={choisie.code} compact />}
 
-            <EditeurPrompt key={choisie.cle} cle={choisie.cle} rows={22} nu />
+            <Partie titre={t("chaine.langues.partie.traduction")} aide={t("chaine.langues.partie.traductionAide")} testId="partie-traduction">
+              <EditeurPrompt key={choisie.cle} cle={choisie.cle} rows={22} nu />
+              <Replie titre={t("chaine.langues.blocTitre")} aide={t("chaine.langues.blocAide")}>
+                {bloc.data ? (
+                  <pre className="max-h-96 overflow-auto rounded-md bg-muted/40 p-3 font-mono text-xs whitespace-pre-wrap">{bloc.data}</pre>
+                ) : (
+                  <p className="text-xs text-muted-foreground">{t("chaine.langues.blocVide")}</p>
+                )}
+              </Replie>
+              <Replie titre={t("prompts.localisationScolaireTitle")} aide={t("prompts.localisationScolaireDesc")}>
+                <EditeurPrompt cle="localisation_scolaire" rows={12} nu />
+              </Replie>
+            </Partie>
 
-            <Replie titre={t("chaine.langues.blocTitre")} aide={t("chaine.langues.blocAide")}>
-              {bloc.data ? (
-                <pre className="max-h-96 overflow-auto rounded-md bg-muted/40 p-3 font-mono text-xs whitespace-pre-wrap">{bloc.data}</pre>
-              ) : (
-                <p className="text-xs text-muted-foreground">{t("chaine.langues.blocVide")}</p>
-              )}
-            </Replie>
-
-            <Replie
-              titre={t("chaine.langues.retoursAppliTitre", { count: n.dAppli })}
-              aide={t("chaine.langues.retoursAppliAide", { langue: nomLangue(choisie.code) })}
-              testId="replie-retours-appli"
+            <Partie
+              titre={t("chaine.langues.partie.placement")}
+              aide={t("chaine.langues.partie.placementAide", { langue: nomLangue(choisie.code) })}
+              testId="partie-placement"
             >
-              <RetoursApplications langue={choisie.code} />
-            </Replie>
+              <PlacementLangue langue={choisie.code} />
+            </Partie>
 
             {aDesRetours && (
-              <>
+              <Partie titre={t("chaine.langues.partie.relecteurs")} aide={t("chaine.langues.partie.relecteursAide")} testId="partie-relecteurs">
                 <Replie
                   key={`tri-${choisie.code}`}
                   paresseux
@@ -205,12 +225,8 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
                 <Replie key={`regles-${choisie.code}`} paresseux titre={t("chaine.langues.reglesTitre")} testId="replie-regles">
                   <SectionRegles langueFixe={choisie.code} />
                 </Replie>
-              </>
+              </Partie>
             )}
-
-            <Replie titre={t("prompts.localisationScolaireTitle")} aide={t("prompts.localisationScolaireDesc")}>
-              <EditeurPrompt cle="localisation_scolaire" rows={12} nu />
-            </Replie>
           </div>
         )}
       </div>

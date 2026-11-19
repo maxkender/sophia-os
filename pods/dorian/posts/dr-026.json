@@ -1,0 +1,136 @@
+{
+ "id": "dr-026",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698306039745187073",
+  "vues": 568900,
+  "publie_le": "2026-10-19",
+  "accroche": "5 niche ways to disgustingly improve your critical thinking"
+ },
+ "titre": {
+  "en": "5 niche ways to disgustingly improve your vocabulary",
+  "de": "5 nischen-tricks für einen absurd großen wortschatz",
+  "tr": "kelime hazneni aşırı geliştirmenin 5 niş yolu"
+ },
+ "legendes": {
+  "en": "#niche #vocabulary #lockedin #selfimprovement",
+  "de": "#wortschatz #sprache #lernen #selbstverbesserung",
+  "tr": "#kelime #türkçe #öğrenmek #kişiselgelişim"
+ },
+ "musique": {
+  "titre": "original sound - LanguFilms",
+  "url": "https://www.tiktok.com/music/original-sound-7291278974100622112"
+ },
+ "notes": "Original sur sa liste à 569 k (« 5 niche ways to disgustingly improve your critical thinking ») : même accroche, sujet vocabulaire. L'item des racines est adapté par langue (en : bene ; de : spectare ; tr : racine turque bil-). Fait : l'écrit contient bien plus de mots rares que la conversation (Hayes et Ahrens, 1988). Tableaux AIC déjà dans la banque, carnet Seedream. En, de, tr ; une couverture par langue (cerveaux 12, 13, 14). Sophia en item 3 sur 5 (cta A), écran accueil traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche ways to disgustingly improve your vocabulary",
+    "image": "images/cerveau-12.jpg",
+    "legende": "(sound smarter)"
+   },
+   "de": {
+    "titre": "5 nischen-tricks für einen absurd großen wortschatz",
+    "image": "images/cerveau-13.jpg",
+    "legende": "(klingt klüger)"
+   },
+   "tr": {
+    "titre": "kelime hazneni aşırı geliştirmenin 5 niş yolu",
+    "image": "images/cerveau-14.jpg",
+    "legende": "(daha zeki duyul)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Read one level above you",
+    "texte": "pick books slightly too hard for you. written language uses far more rare words than everyday conversation, so that's where new words come from",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "de": {
+    "titre": "Lies eine Stufe über dir",
+    "texte": "nimm bücher, die dir eigentlich etwas zu schwer sind. geschriebene sprache nutzt viel mehr seltene wörter als gespräche im alltag, dort lernst du neue",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "tr": {
+    "titre": "Seviyenin biraz üstünü oku",
+    "texte": "sana biraz zor gelen kitaplar seç. yazı dili, günlük konuşmadan çok daha fazla nadir kelime kullanır. yeni kelimeler oradan gelir",
+    "image": "images/lectrice-manet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Keep a word journal",
+    "texte": "write each new word with the sentence you found it in. the context is what makes it stick",
+    "image": "images/objets/carnet.png"
+   },
+   "de": {
+    "titre": "Führ ein Wörterheft",
+    "texte": "schreib jedes neue wort mit dem satz auf, in dem du es gefunden hast. der zusammenhang lässt es hängen bleiben",
+    "image": "images/objets/carnet.png"
+   },
+   "tr": {
+    "titre": "Kelime defteri tut",
+    "texte": "her yeni kelimeyi bulduğun cümleyle birlikte yaz. akılda kalmasını sağlayan bağlamdır",
+    "image": "images/objets/carnet.png"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. new words in every lesson",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. in jeder lektion neue wörter",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. her derste yeni kelimeler",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Learn the roots",
+    "texte": "one root unlocks dozens of words. latin \"bene\" means good: benefit, benevolent, benign. you can guess words you've never seen",
+    "image": "images/homere-dictant.jpg"
+   },
+   "de": {
+    "titre": "Lern die Wurzeln",
+    "texte": "eine wurzel öffnet dutzende wörter. lateinisch \"spectare\" heißt schauen: respekt, inspektion, spektakel, perspektive. so errätst du wörter, die du nie gesehen hast",
+    "image": "images/homere-dictant.jpg"
+   },
+   "tr": {
+    "titre": "Kökleri öğren",
+    "texte": "tek bir kök onlarca kelimenin kapısını açar. \"bil-\" kökü: bilgi, bilim, bilinç, bilgisayar. hiç görmediğin kelimeleri tahmin edebilirsin",
+    "image": "images/homere-dictant.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Use it three times",
+    "texte": "use a new word three times on the first day: in a message, out loud, in your head. a word you use is a word you keep",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "de": {
+    "titre": "Benutz es dreimal",
+    "texte": "benutz ein neues wort am ersten tag dreimal: in einer nachricht, laut, im kopf. ein wort, das du benutzt, behältst du",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "tr": {
+    "titre": "Üç kez kullan",
+    "texte": "yeni bir kelimeyi ilk gün üç kez kullan: bir mesajda, sesli, aklından. kullandığın kelime seninle kalır",
+    "image": "images/femme-ecrivant.jpg"
+   }
+  }
+ ]
+}

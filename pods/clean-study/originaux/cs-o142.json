@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o142",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c4183fae-1d07-4bee-98cb-c7133dec1cb5",
+  "titre": "note-taking habits that made everyone want to borrow my notebook #studytok #studytips #notetaking",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "c4183fae-1d07-4bee-98cb-c7133dec1cb5"
+  ],
+  "notes": "Déclinaison G2 de c4183fae (la famille de nos cs-o054 et cs-o089 : r 3,15 en allemand), ligne 2 de la boîte. Même promesse (des habitudes de notes qui font que tout le monde demande mes cours), autres mots : « note-taking habits that made everyone want to borrow my notebook ». Habitudes neuves, aucune de cs-o054 ni de cs-o089 : un sommaire en première page, les numéros de page, les définitions encadrées, un schéma par chapitre, se tester sur ses notes à la fin de chaque chapitre (place micabo, slide 6), une marge « à revoir ». Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "dec8b83a",
+      "texte_overlay": "note-taking habits that made everyone\nwant to borrow my notebook",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "973e7645",
+      "texte_overlay": "a table of contents on the first page.\nupdated every week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "a256dddd",
+      "texte_overlay": "every page numbered.\n\"page 14\" is faster than \"somewhere in october\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "db825d91",
+      "texte_overlay": "definitions always in a box.\neasy to spot, easy to learn.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c427b14d",
+      "texte_overlay": "one diagram per chapter.\nthe whole lesson in one picture.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "36291e1b",
+      "texte_overlay": "at the end of each chapter, i quiz myself from my notes.\nif something's missing, i fix it now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "725d5100",
+      "texte_overlay": "a \"to review\" mark in the margin.\nso i know exactly where to look before a test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

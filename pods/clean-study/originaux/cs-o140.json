@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o140",
+  "type_bleo": "full_test",
+  "titre": "my evening routine that makes the next school day so much easier #studytok #studytips #thatgirl",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« evening routine » absent du label ; cs-o048 parlait du dimanche, ici de chaque soir). Accroches écrites : « my evening routine that makes the next school day so much easier » (retenue : une routine enregistrable, une promesse modeste), « night routine for students » (écartée : plate), « the 10pm routine that changed my grades » (écartée : promesse invérifiable). Santé générale : les devoirs du lendemain vérifiés, 10 minutes de test sur la journée (place micabo, slide 3), le sac prêt, la tenue posée, l'écran éteint une heure avant, la même heure de coucher. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "eb19d5f4",
+      "texte_overlay": "my evening routine that makes\nthe next school day so much easier",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "18502697",
+      "texte_overlay": "i check tomorrow's timetable and homework.\nno morning surprises.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "81cd27a1",
+      "texte_overlay": "10 minutes quizzing myself on today's lessons.\nwhile it's still fresh.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "110970a6",
+      "texte_overlay": "bag packed and by the door.\nnothing to look for at 7am.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "390b8824",
+      "texte_overlay": "clothes out on the chair.\none less decision.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4d902aba",
+      "texte_overlay": "screens off an hour before bed.\na book instead.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9101fe75",
+      "texte_overlay": "same bedtime every school night.\nmorning-me is so much nicer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

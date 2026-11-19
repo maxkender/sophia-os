@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o141",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8e0dd55c-4300-4b7c-8146-3dbb88fa75ce",
+  "titre": "how i prepare for a test in just 3 days without pulling an all-nighter #studytok #studytips #exams",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "8e0dd55c-4300-4b7c-8146-3dbb88fa75ce"
+  ],
+  "notes": "Déclinaison G2 de 8e0dd55c (la famille de nos cs-o066 et cs-o108 : r 3,61 en espagnol d'Amérique latine), ligne 1 de la boîte. Même promesse (réviser un contrôle en 3 jours sans tout faire la veille), autres mots : « how i prepare for a test in just 3 days without pulling an all-nighter ». Plan neuf, aucun geste de cs-o066 ni de cs-o108 : jour 1 les exercices du cours refaits sans correction, jour 2 expliquer chaque chapitre à voix haute puis se tester (place micabo, slide 4), jour 3 un sujet complet chronométré, la veille une page d'erreurs, dormir. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f5393e21",
+      "texte_overlay": "how i prepare for a test in just 3 days\nwithout pulling an all-nighter",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "dce6fa05",
+      "texte_overlay": "day 1: i redo the exercises from class.\nno looking at the corrections.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1ff6149a",
+      "texte_overlay": "day 2: i explain each chapter out loud.\nlike i'm the teacher.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "82ac4ba2",
+      "texte_overlay": "day 2, evening: a quiz on everything.\nwhat i miss goes on one page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "e6bb7d91",
+      "texte_overlay": "day 3: one full practice test with a timer.\nthen i check it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a5a0d1ed",
+      "texte_overlay": "the night before: only my mistakes page.\n15 minutes, then bed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "790fed71",
+      "texte_overlay": "no all-nighter. a rested brain remembers more.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

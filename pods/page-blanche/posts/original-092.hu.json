@@ -1,0 +1,424 @@
+{
+ "post_id": "original-092",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things to learn to make",
+      "you ridiculously capable"
+     ],
+     "fr": "10/10 trucs à apprendre pour devenir capable de tout",
+     "texte": "mi történik az agyaddal, ha minden nap olvasol"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(hétről hétre)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7678811813580164366_3.jpg",
+      "boite": [
+       560,
+       60,
+       560,
+       410
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to speak in front of people"
+     ],
+     "fr": "apprends à parler [[devant les gens]]",
+     "texte": "1. hét: [[lassúnak tűnik]]"
+    },
+    "T2": {
+     "en": [
+      "most people would rather do anything than talk in",
+      "front of a room"
+     ],
+     "fr": "la plupart des gens [[préféreraient tout faire]] que parler devant une salle",
+     "texte": "kétszer olvasod el ugyanazt a sort, és pár oldal után [[a telefonodért nyúlsz]]. ez teljesen normális"
+    },
+    "T3": {
+     "en": [
+      "every time you do it",
+      "anyway, your brain",
+      "learns that the fear",
+      "doesn't actually stop",
+      "you"
+     ],
+     "fr": "chaque fois que tu le fais quand même, ton cerveau voit que la peur [[t'arrête pas vraiment]]",
+     "texte": "az agyad ahhoz szokott, hogy [[pár másodpercenként jön valami új]], így egy csendes oldal elsőre furcsa"
+    },
+    "T4": {
+     "en": [
+      "and once you can do that, you stay calm under",
+      "pressure and almost nothing feels scary anymore"
+     ],
+     "fr": "et une fois que tu sais faire ça, tu restes [[calme sous pression]] et [[presque plus rien te fait peur]]",
+     "texte": "a trükk: [[legyen alacsony a léc]]. 10 oldal, ugyanakkor, ugyanott, a lusta napokon is"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7704828130371882253_2.jpg",
+      "boite": [
+       584,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 44,
+      "y": 224,
+      "l": 862,
+      "h": 62
+     },
+     "lignes": [
+      {
+       "x": 44,
+       "y": 224,
+       "l": 862,
+       "h": 62,
+       "base": 283
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 366,
+      "l": 897,
+      "h": 82
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 366,
+       "l": 894,
+       "h": 41,
+       "base": 404
+      },
+      {
+       "x": 40,
+       "y": 414,
+       "l": 860,
+       "h": 34,
+       "base": 445
+      }
+     ],
+     "pas": 41,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 441,
+      "y": 470,
+      "l": 558,
+      "h": 377
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 539,
+      "l": 379,
+      "h": 233
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 539,
+       "l": 356,
+       "h": 39,
+       "base": 569
+      },
+      {
+       "x": 39,
+       "y": 587,
+       "l": 337,
+       "h": 40,
+       "base": 617
+      },
+      {
+       "x": 40,
+       "y": 635,
+       "l": 341,
+       "h": 32,
+       "base": 666
+      },
+      {
+       "x": 36,
+       "y": 684,
+       "l": 379,
+       "h": 40,
+       "base": 721
+      },
+      {
+       "x": 37,
+       "y": 740,
+       "l": 67,
+       "h": 32,
+       "base": 769
+      }
+     ],
+     "pas": 49,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 884,
+      "l": 892,
+      "h": 88
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 884,
+       "l": 848,
+       "h": 39,
+       "base": 921
+      },
+      {
+       "x": 36,
+       "y": 931,
+       "l": 892,
+       "h": 41,
+       "base": 969
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "3": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "learn to make things with your",
+      "hands"
+     ],
+     "fr": "apprends à faire des trucs [[de tes mains]]",
+     "texte": "2. hét: [[ritkábban nézed a telefont]]"
+    },
+    "T1b": {
+     "en": [
+      "cooking, pottery, sewing, fixing your own bike,",
+      "anything where you can see your mistakes"
+     ],
+     "fr": "cuisine, poterie, couture, réparer ton propre vélo, tout ce qui te [[montre tes erreurs]]",
+     "texte": "sokan észreveszik, hogy [[egy egész fejezetet]] elolvasnak, mielőtt a telefonjukra gondolnának"
+    },
+    "T2": {
+     "en": [
+      "you can't just watch a",
+      "video and know it,",
+      "you have to try, mess",
+      "up, and adjust"
+     ],
+     "fr": "regarder une vidéo suffit pas pour savoir faire, faut [[essayer, rater et ajuster]]",
+     "texte": "a késztetés még ott van, csak [[később jön]], és könnyebb figyelmen kívül hagyni"
+    },
+    "T3": {
+     "en": [
+      "that's how capable people learn everything, by actually",
+      "doing it instead of just watching"
+     ],
+     "fr": "c'est comme ça que les gens capables apprennent tout, [[en le faisant vraiment]] au lieu de juste regarder",
+     "texte": "és ha görgetés helyett az ágyban olvasol, este gyakran [[könnyebb lecsendesedni]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7706243776976620813_6.jpg",
+      "boite": [
+       584,
+       509,
+       400,
+       400
+      ]
+     }
+    }
+   },
+   "scissions": {
+    "T1": 2
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to touch type"
+     ],
+     "fr": "apprends à [[taper sans regarder]]",
+     "texte": "4. hét: [[új szavak]]"
+    },
+    "T2": {
+     "en": [
+      "you'll spend thousands of hours typing in your life,",
+      "and most people still look down at the keyboard"
+     ],
+     "fr": "tu vas passer [[des milliers d'heures]] à taper dans ta vie, et presque tout le monde regarde encore son clavier",
+     "texte": "a szavak, amiket eddig csak olvastál, [[becsúsznak a beszédedbe]] és az üzeneteidbe, néha észre se veszed"
+    },
+    "T3": {
+     "en": [
+      "touch typing lets you",
+      "think and type at the",
+      "same time"
+     ],
+     "fr": "taper sans regarder, c'est [[penser et écrire en même temps]]",
+     "texte": "egy gondolatot hangosan elmagyarázni [[kicsit könnyebb]]"
+    },
+    "T4": {
+     "en": [
+      "instead of losing your",
+      "train of thought every",
+      "time you look for a key"
+     ],
+     "fr": "au lieu de perdre le fil à chaque fois que tu cherches une touche",
+     "texte": "mert hetek óta követed [[valaki más teljes gondolatmenetét]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708456205689113889_1.jpg",
+      "boite": [
+       200,
+       404,
+       520,
+       574
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[chaque jour]]",
+     "texte": "6. hét: [[a telefonos pillanatok]]"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short form content, your brain",
+      "rarely has to hold attention for long"
+     ],
+     "fr": "si tu consommes que du contenu court, ton cerveau a rarement besoin de [[rester concentré longtemps]]",
+     "texte": "sorban állás vagy buszozás közben nem nyitsz ki könyvet, és pont ott [[bujkál a görgetés]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow",
+      "ideas for whole chapters,",
+      "and that focus makes you",
+      "better at learning anything"
+     ],
+     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et ça t'aide à [[tout apprendre]]",
+     "texte": "régen ott csak pörgettem. most, ha már úgyis telefonozom, csinálok egy 5 perces leckét [[a Sophia appban]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "avant je scrollais H24, maintenant c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
+     "texte": "a mai: [[miért olaszországban kezdődött a reneszánsz]], és este is emlékszem rá"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to write clearly"
+     ],
+     "fr": "apprends à [[écrire clairement]]",
+     "texte": "8. hét: [[az unalom könnyebb]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you",
+      "try to write them down"
+     ],
+     "fr": "tes pensées ont l'air [[floues et en vrac]] tant que t'essaies pas de les écrire",
+     "texte": "egy csendes vonatút vagy egy lassú este már nem tűnik [[menekülnivalónak]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces your",
+      "brain to put your",
+      "ideas in order and",
+      "find the parts that",
+      "don't make sense"
+     ],
+     "fr": "écrire oblige ton cerveau à [[mettre tes idées en ordre]] et à repérer ce qui tient pas debout",
+     "texte": "sok olvasó azt mondja, hogy [[nyugodtabb és kevésbé szétszórt]] a feje, és máshol is tovább tud figyelni"
+    },
+    "T4": {
+     "en": [
+      "and people who can explain things clearly get",
+      "taken seriously everywhere they go"
+     ],
+     "fr": "et les gens qui expliquent clairement [[sont pris au sérieux]] partout où ils vont",
+     "texte": "mindenki más, de kideríteni csak úgy lehet, ha [[ma este elkezded]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7678811813580164366_2.jpg",
+      "boite": [
+       60,
+       110,
+       500,
+       440
+      ]
+     }
+    }
+   }
+  }
+ }
+}

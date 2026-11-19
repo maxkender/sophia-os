@@ -1,0 +1,296 @@
+{
+ "post_id": "original-091",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "wie du dir [[namen merkst]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(und warum du sie in 3 sekunden vergisst)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703247582570532126_1.jpg",
+      "boite": [
+       174,
+       436,
+       732,
+       592
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "sag ihn [[sofort zurück]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "du vergisst den namen, weil du überlegst, [[was du als nächstes sagst]]"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[„freut mich, sam“]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "ihn einmal laut zu sagen, solange die person noch vor dir steht, gibt deinem gehirn [[eine zweite chance]]"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "außerdem hört [[jeder gern seinen namen!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703247582570532126_2.jpg",
+      "boite": [
+       184,
+       498,
+       712,
+       442
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "mach [[ein bild]] daraus"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "ein name ist nur ein klang, [[bilder merkt sich dein gehirn]] viel besser"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "rosa? denk an [[eine rose hinterm ohr]]. marc? [[ein marker in seiner hand]]"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "je schräger das bild, [[desto schneller]] ist der name beim nächsten mal wieder da"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708388542627466529_3.jpg",
+      "boite": [
+       96,
+       689,
+       872,
+       487
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "trainier dein gedächtnis [[5 min am tag]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "gedächtnis ist wie ein muskel, [[es braucht übung]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "jeden tag etwas neues zu lernen gewöhnt dein gehirn daran, [[details festzuhalten]], statt sie zu vergessen"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "[[was mein scrollen ersetzt hat]]: ein buch am abend, lange spaziergänge,"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "und 5 min in [[der Sophia-App]]. heute ging's um den urknall"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "[[schreib ihn auf]]"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "sobald die person weg ist, [[öffne deine kontakte]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "speicher den namen mit einem detail: „sam, gym, hat einen [[golden retriever]]“"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "wenn du ihn wieder liest, [[kommt das gesicht]] gleich mit"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7704751322830064929_5.jpg",
+      "boite": [
+       44,
+       570,
+       432,
+       453
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think for yourself before using AI"
+     ],
+     "fr": "réfléchis [[avant de demander à l'IA]]",
+     "texte": "frag nochmal, [[ohne scham]]"
+    },
+    "T2": {
+     "en": [
+      "asking AI for every answer feels smart, but your",
+      "brain skips the hard part"
+     ],
+     "fr": "tout demander à l'IA, ça fait intelligent, mais ton cerveau [[zappe la partie dure]]",
+     "texte": "namen vergessen ist normal, peinlich wird es erst, [[wenn du so tust, als ob]]"
+    },
+    "T3": {
+     "en": [
+      "try to work it out",
+      "yourself first, then",
+      "use AI to check it or",
+      "find gaps"
+     ],
+     "fr": "[[cherche d'abord par toi-même]], puis vérifie avec l'IA ou repère ce qui manque",
+     "texte": "„sorry, [[wie war dein name nochmal?]]“ und dann gleich benutzen"
+    },
+    "T4": {
+     "en": [
+      "the struggle is what makes you smarter, if AI",
+      "always does it for you, you stop practicing thinking"
+     ],
+     "fr": "c'est galérer qui [[fait progresser ton cerveau]], si l'IA fait tout à ta place, tu [[perds l'habitude de réfléchir]]",
+     "texte": "die meisten [[freuen sich, dass du fragst]], und diesmal bleibt er wirklich hängen"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703247582570532126_6.jpg",
+      "boite": [
+       184,
+       541,
+       712,
+       442
+      ]
+     }
+    }
+   }
+  }
+ }
+}

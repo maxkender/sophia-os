@@ -1,0 +1,294 @@
+{
+ "post_id": "var-repartie-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "comment toujours avoir [[la bonne réplique]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(sans y penser 3 jours après)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_1.jpg",
+      "boite": [
+       420,
+       0,
+       595,
+       480
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "va marcher sans rien dans les oreilles",
+     "texte": "gagne [[deux secondes]]"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique dès que tu sors",
+     "texte": "une petite pause avant de répondre, ça respire la confiance, pas la lenteur"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher boostait la créativité des gens de 60 % en moyenne",
+     "texte": "un «attends, répète?» ou une gorgée de ton verre, le temps que ton cerveau rattrape"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus intelligent à écouter, c'est tes propres pensées]]",
+     "texte": "ceux qui ont l'air les plus vifs sont souvent juste [[les plus calmes]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_2.jpg",
+      "boite": [
+       180,
+       0,
+       745,
+       560
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "réponds par [[une question]]"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "«pourquoi, t'en veux un?» ou «qui a dit ça?» et la balle repart direct dans son camp"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "l'autre doit se justifier, et [[toi t'as le temps]] de trouver la vraie réponse"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "ça marche sur les vannes, les questions gênantes et le tonton relou aux repas de famille"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_6.jpg",
+      "boite": [
+       330,
+       0,
+       580,
+       420
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop eating junk food"
+     ],
+     "texte": "prends tout [[au pied de la lettre]]"
+    },
+    "T2": {
+     "en": [
+      "junk food is made to hit your dopamine the same way",
+      "scrolling does"
+     ],
+     "texte": "on te dit «t'as la tête dans les nuages», tu lèves les yeux pour vérifier"
+    },
+    "T3": {
+     "en": [
+      "the more you eat, the",
+      "more your brain starts",
+      "craving it"
+     ],
+     "texte": "faire exprès de pas comprendre, [[c'est un classique]]"
+    },
+    "T4": {
+     "en": [
+      "every time you say no,",
+      "you practice",
+      "self-control, and that",
+      "gets easier too"
+     ],
+     "texte": "c'est la réplique la plus rapide qui existe, la matière est déjà dans sa phrase"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_4.jpg",
+      "boite": [
+       1110,
+       160,
+       1054,
+       1170
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit",
+     "texte": "collectionne [[les infos random]]"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4.",
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
+     "texte": "les meilleures répliques relient la discussion à un truc inattendu. mes 5 min du jour sur [[l'appli Sophia]] : Camus et le mythe de Sisyphe. déjà ressorti deux fois en soirée"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend every paycheck"
+     ],
+     "texte": "moque-toi de toi [[en premier]]"
+    },
+    "T2": {
+     "en": [
+      "you only live once, so buy the clothes, the takeaway, the",
+      "new phone"
+     ],
+     "texte": "tu trébuches ou tu sors un truc bizarre? commente-le avant tout le monde"
+    },
+    "T3": {
+     "en": [
+      "saving is for boring people, future",
+      "you can deal with it"
+     ],
+     "texte": "personne peut te clasher sur un truc [[que t'as déjà rendu drôle]]"
+    },
+    "T4": {
+     "en": [
+      "the money you waste in your 20s",
+      "is the money that could give you",
+      "freedom in your 30s"
+     ],
+     "texte": "assumer le moment, ça montre que t'as rien à cacher, et ça enlève toute la pression"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681667405294112014_3.jpg",
+      "boite": [
+       660,
+       0,
+       420,
+       520
+      ]
+     }
+    }
+   }
+  }
+ }
+}

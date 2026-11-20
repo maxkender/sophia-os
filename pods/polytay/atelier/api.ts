@@ -8,11 +8,11 @@ export const COMPTES_SOURCE = ["polytay"] as const;
 /** L'appli servie : Sophia (une leçon courte par jour et un quiz), id du catalogue de l'OS. */
 export const APPLICATION = { slug: "sophia", id: "00000000-0000-4000-8000-000000000001", nom: "Sophia" } as const;
 /**
- * Les langues livrées : l'anglais seul (celle du compte modèle), lancement
- * du 20/11. Cette liste est déclarée à l'OS à chaque `npm run boite` (0654) et
- * remplace `pods.langues` : l'attribution des comptes la lit.
+ * Les langues livrées : l'anglais (celle du compte modèle) depuis le 20/11,
+ * puis les dix langues ouvertes le 20/11 au soir (refonte des labels, un compte
+ * par langue). Déclarée à l'OS à chaque `npm run boite` (0654).
  */
-export const LANGUES = ["en"] as const;
+export const LANGUES = ["en", "fr", "es", "es-419", "it", "tr", "pt-BR", "sl", "de", "sk", "sv"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

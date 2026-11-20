@@ -7,10 +7,30 @@
   "accroche": "hobbies that make you impossible to bore"
  },
  "titre": {
-  "en": "habits that make you impossible to bore"
+  "en": "habits that make you impossible to bore",
+  "fr": "habitudes pour ne plus jamais t'ennuyer",
+  "es": "hábitos para no aburrirte nunca",
+  "es-419": "hábitos para que nunca te aburras",
+  "it": "abitudini per non annoiarti mai più",
+  "tr": "asla sıkılmamanı sağlayan alışkanlıklar",
+  "pt-BR": "hábitos pra você nunca mais ficar entediada",
+  "sl": "navade, zaradi katerih ti ni nikoli dolgčas",
+  "de": "gewohnheiten, mit denen dir nie langweilig wird",
+  "sk": "zvyky, vďaka ktorým sa nikdy nenudíš",
+  "sv": "vanor som gör att du aldrig blir uttråkad"
  },
  "legendes": {
-  "en": "curiosity is a habit, not a personality trait. pick one for this week <3 #girlblogger #selfimprovement #learning #curiosity #booktok"
+  "en": "curiosity is a habit, not a personality trait. pick one for this week <3 #girlblogger #selfimprovement #learning #curiosity #booktok",
+  "fr": "la curiosité, c'est une habitude, pas un trait de caractère. choisis-en une pour cette semaine <3 #girlblogger #developpementpersonnel #apprendre #curiosite #booktokfrance",
+  "es": "la curiosidad es un hábito, no un rasgo de personalidad. elige uno para esta semana <3 #girlblogger #desarrollopersonal #aprender #curiosidad #booktokespaña",
+  "es-419": "la curiosidad es un hábito, no un rasgo de personalidad. elige uno para esta semana <3 #girlblogger #desarrollopersonal #aprender #curiosidad #booktoklatam",
+  "it": "la curiosità è un'abitudine, non un tratto del carattere. scegline una per questa settimana <3 #girlblogger #crescitapersonale #imparare #curiosità #booktokitalia",
+  "tr": "merak bir kişilik özelliği değil, bir alışkanlık. bu hafta için birini seç <3 #girlblogger #kişiselgelişim #öğrenmek #merak #booktoktürkiye",
+  "pt-BR": "curiosidade é hábito, não traço de personalidade. escolhe um pra essa semana <3 #girlblogger #autodesenvolvimento #aprender #curiosidade #booktokbrasil",
+  "sl": "radovednost je navada, ne osebnostna lastnost. izberi eno za ta teden <3 #girlblogger #osebnirazvoj #učenje #radovednost #booktok",
+  "de": "neugier ist eine gewohnheit, keine charaktereigenschaft. such dir eine für diese woche aus <3 #girlblogger #selbstverbesserung #lernen #neugier #booktokdeutschland",
+  "sk": "zvedavosť je zvyk, nie povahová črta. vyber si jeden na tento týždeň <3 #girlblogger #osobnyrozvoj #ucenie #zvedavost #booktok",
+  "sv": "nyfikenhet är en vana, inte ett personlighetsdrag. välj en för den här veckan <3 #girlblogger #självutveckling #lärande #nyfikenhet #booktoksverige"
  },
  "musique": {
   "titre": "use your inner eyes x i was all over her",
@@ -61,6 +81,36 @@
    "titre": {
     "cx": 282,
     "base": 560
+   },
+   "fr": {
+    "titre": "habitudes pour\nne plus jamais\nt'ennuyer"
+   },
+   "es": {
+    "titre": "hábitos para no\naburrirte nunca"
+   },
+   "es-419": {
+    "titre": "hábitos para que\nnunca te aburras"
+   },
+   "it": {
+    "titre": "abitudini per non\nannoiarti mai più"
+   },
+   "tr": {
+    "titre": "asla sıkılmamanı\nsağlayan alışkanlıklar"
+   },
+   "pt-BR": {
+    "titre": "hábitos pra você\nnunca mais ficar\nentediada"
+   },
+   "sl": {
+    "titre": "navade, zaradi katerih\nti ni nikoli dolgčas"
+   },
+   "de": {
+    "titre": "gewohnheiten,\nmit denen dir nie\nlangweilig wird"
+   },
+   "sk": {
+    "titre": "zvyky, vďaka ktorým\nsa nikdy nenudíš"
+   },
+   "sv": {
+    "titre": "vanor som gör att du\naldrig blir uttråkad"
    }
   },
   {
@@ -83,6 +133,76 @@
     "paragraphes": [
      "Once a month, go to a museum by yourself and stay with ONE painting for ten whole minutes. you start seeing the hands, the light, the one face looking away.",
      "You leave with one story instead of fifty blurry photos. that's the one people ask about"
+    ]
+   },
+   "fr": {
+    "titre": "1. un musée, seule",
+    "paragraphes": [
+     "Une fois par mois, va au musée seule et reste devant UN seul tableau dix minutes entières. tu commences à voir les mains, la lumière, le visage qui regarde ailleurs.",
+     "Tu repars avec une histoire au lieu de cinquante photos floues. c'est celle qu'on te demande"
+    ]
+   },
+   "es": {
+    "titre": "1. un museo, sola",
+    "paragraphes": [
+     "Una vez al mes, ve sola a un museo y quédate delante de UN cuadro diez minutos enteros. empiezas a ver las manos, la luz, la cara que mira hacia otro lado.",
+     "Te vas con una historia en vez de cincuenta fotos borrosas. es la que todos te piden"
+    ]
+   },
+   "es-419": {
+    "titre": "1. un museo, sola",
+    "paragraphes": [
+     "Una vez al mes, ve sola a un museo y quédate frente a UN cuadro diez minutos completos. empiezas a ver las manos, la luz, la cara que mira hacia otro lado.",
+     "Sales con una historia en lugar de cincuenta fotos borrosas. es la que todos te piden"
+    ]
+   },
+   "it": {
+    "titre": "1. un museo, da sola",
+    "paragraphes": [
+     "Una volta al mese, vai in un museo da sola e resta davanti a UN solo quadro per dieci minuti interi. inizi a vedere le mani, la luce, il volto che guarda altrove.",
+     "Esci con una storia invece di cinquanta foto sfocate. ed è quella che tutti ti chiedono"
+    ]
+   },
+   "tr": {
+    "titre": "1. tek başına bir müze",
+    "paragraphes": [
+     "Ayda bir kez müzeye tek başına git ve TEK bir tablonun önünde tam on dakika dur. elleri, ışığı, başka yere bakan o yüzü görmeye başlarsın.",
+     "Elli bulanık fotoğraf yerine tek bir hikâyeyle çıkarsın. herkesin sorduğu da o olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. um museu, sozinha",
+    "paragraphes": [
+     "Uma vez por mês, vá a um museu sozinha e fique na frente de UM quadro por dez minutos inteiros. você começa a ver as mãos, a luz, o rosto que olha pro outro lado.",
+     "Você sai com uma história em vez de cinquenta fotos borradas. é essa que todo mundo quer ouvir"
+    ]
+   },
+   "sl": {
+    "titre": "1. muzej, sama",
+    "paragraphes": [
+     "Enkrat na mesec pojdi sama v muzej in ostani pred ENO sliko celih deset minut. začneš opažati roke, svetlobo, obraz, ki gleda stran.",
+     "Odideš z eno zgodbo namesto petdesetih zamegljenih fotografij. prav po njej te vsi sprašujejo"
+    ]
+   },
+   "de": {
+    "titre": "1. ein museum, allein",
+    "paragraphes": [
+     "Geh einmal im monat allein ins museum und bleib zehn ganze minuten vor EINEM bild stehen. du siehst plötzlich die hände, das licht, das gesicht, das wegschaut.",
+     "Du gehst mit einer geschichte statt fünfzig verwackelten fotos. und genau nach der fragen alle"
+    ]
+   },
+   "sk": {
+    "titre": "1. múzeum, sama",
+    "paragraphes": [
+     "Raz za mesiac choď do múzea sama a zostaň pred JEDNÝM obrazom celých desať minút. začneš vidieť ruky, svetlo, tú jednu tvár, ktorá sa pozerá inam.",
+     "Odchádzaš s jedným príbehom namiesto päťdesiatich rozmazaných fotiek. práve na ten sa ťa všetci pýtajú"
+    ]
+   },
+   "sv": {
+    "titre": "1. ett museum, ensam",
+    "paragraphes": [
+     "En gång i månaden, gå ensam till ett museum och stanna framför EN enda tavla i tio hela minuter. du börjar se händerna, ljuset, ansiktet som tittar bort.",
+     "Du går därifrån med en historia i stället för femtio suddiga bilder. det är den alla frågar om"
     ]
    }
   },
@@ -107,6 +227,76 @@
      "Every time you don't know what something is called, look it up. the tree on your street, that shade of blue, the style of the building you pass every day.",
      "The world gets more detailed. so do your sentences"
     ]
+   },
+   "fr": {
+    "titre": "2. apprendre le nom des choses",
+    "paragraphes": [
+     "Chaque fois que tu ne sais pas comment s'appelle quelque chose, cherche. l'arbre de ta rue, cette nuance de bleu, le style de l'immeuble devant lequel tu passes.",
+     "Le monde devient plus précis. tes phrases aussi"
+    ]
+   },
+   "es": {
+    "titre": "2. aprender el nombre de las cosas",
+    "paragraphes": [
+     "Cada vez que no sepas cómo se llama algo, búscalo. el árbol de tu calle, ese tono de azul, el estilo del edificio por el que pasas cada día.",
+     "El mundo se vuelve más detallado. y tus frases también"
+    ]
+   },
+   "es-419": {
+    "titre": "2. aprender el nombre de las cosas",
+    "paragraphes": [
+     "Cada vez que no sepas cómo se llama algo, búscalo. el árbol de tu cuadra, ese tono de azul, el estilo del edificio por el que pasas todos los días.",
+     "El mundo se vuelve más detallado. y tus frases también"
+    ]
+   },
+   "it": {
+    "titre": "2. imparare il nome delle cose",
+    "paragraphes": [
+     "Ogni volta che non sai come si chiama qualcosa, cercalo. l'albero della tua via, quella sfumatura di blu, lo stile del palazzo davanti a cui passi ogni giorno.",
+     "Il mondo diventa più dettagliato. e anche le tue frasi"
+    ]
+   },
+   "tr": {
+    "titre": "2. şeylerin adını öğrenmek",
+    "paragraphes": [
+     "Bir şeyin adını bilmediğin her seferde araştır. sokağındaki ağaç, o mavinin tonu, her gün önünden geçtiğin binanın tarzı.",
+     "Dünya daha ayrıntılı hâle gelir. cümlelerin de"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. aprender o nome das coisas",
+    "paragraphes": [
+     "Toda vez que você não souber o nome de alguma coisa, pesquise. a árvore da sua rua, aquele tom de azul, o estilo do prédio por onde você passa todo dia.",
+     "O mundo fica mais detalhado. e as suas frases também"
+    ]
+   },
+   "sl": {
+    "titre": "2. učenje imen stvari",
+    "paragraphes": [
+     "Vsakič, ko ne veš, kako se nekaj imenuje, poišči. drevo na tvoji ulici, ta odtenek modre, slog stavbe, mimo katere hodiš vsak dan.",
+     "Svet postane bolj podroben. in tvoji stavki tudi"
+    ]
+   },
+   "de": {
+    "titre": "2. die namen der dinge lernen",
+    "paragraphes": [
+     "Jedes mal, wenn du nicht weißt, wie etwas heißt, schau es nach. der baum in deiner straße, dieser blauton, der stil des hauses, an dem du täglich vorbeigehst.",
+     "Die welt wird detailreicher. deine sätze auch"
+    ]
+   },
+   "sk": {
+    "titre": "2. učiť sa názvy vecí",
+    "paragraphes": [
+     "Vždy, keď nevieš, ako sa niečo volá, vyhľadaj si to. strom na tvojej ulici, ten odtieň modrej, štýl budovy, okolo ktorej chodíš každý deň.",
+     "Svet je zrazu podrobnejší. a tvoje vety tiež"
+    ]
+   },
+   "sv": {
+    "titre": "2. lära sig vad saker heter",
+    "paragraphes": [
+     "Varje gång du inte vet vad något heter, slå upp det. trädet på din gata, den där blå nyansen, stilen på huset du går förbi varje dag.",
+     "Världen blir mer detaljerad. och dina meningar också"
+    ]
    }
   },
   {
@@ -122,6 +312,76 @@
     "paragraphes": [
      "I do one short lesson on Sophia every night instead of scrolling. history, philosophy or science, written by actual professors, with a little quiz after.",
      "Ten minutes, and the next day I always have something new to bring up"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon avant de dormir",
+    "paragraphes": [
+     "Je fais une petite leçon sur Sophia chaque soir au lieu de scroller. histoire, philosophie ou sciences, écrite par de vrais profs, avec un petit quiz après.",
+     "Dix minutes, et le lendemain j'ai toujours quelque chose de nouveau à raconter"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección antes de dormir",
+    "paragraphes": [
+     "Hago una lección corta en Sophia cada noche en vez de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos, y al día siguiente siempre tengo algo nuevo que contar"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección antes de dormir",
+    "paragraphes": [
+     "Tomo una lección corta en Sophia cada noche en lugar de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos, y al día siguiente siempre tengo algo nuevo que contar"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione prima di dormire",
+    "paragraphes": [
+     "Ogni sera faccio una breve lezione su Sophia invece di scrollare. storia, filosofia o scienze, scritta da veri professori, con un piccolo quiz alla fine.",
+     "Dieci minuti, e il giorno dopo ho sempre qualcosa di nuovo da raccontare"
+    ]
+   },
+   "tr": {
+    "titre": "3. uyumadan önce bir ders",
+    "paragraphes": [
+     "Her gece scroll yapmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim; gerçek profesörler yazıyor, sonunda da küçük bir test var.",
+     "On dakika, ve ertesi gün hep anlatacak yeni bir şeyim oluyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula antes de dormir",
+    "paragraphes": [
+     "Eu faço uma aula curtinha no Sophia toda noite em vez de ficar rolando o feed. história, filosofia ou ciência, escrita por professores de verdade, com um quiz no final.",
+     "Dez minutos, e no dia seguinte eu sempre tenho algo novo pra contar"
+    ]
+   },
+   "sl": {
+    "titre": "3. ena lekcija pred spanjem",
+    "paragraphes": [
+     "Vsak večer namesto skrolanja naredim eno kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, napisali so jo pravi profesorji, na koncu pa kratek kviz.",
+     "Deset minut, in naslednji dan imam vedno kaj novega povedati"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion vor dem schlafen",
+    "paragraphes": [
+     "Ich mache jeden abend eine kurze lektion auf Sophia, statt zu scrollen. geschichte, philosophie oder wissenschaft, geschrieben von echten professoren, mit einem kleinen quiz danach.",
+     "Zehn minuten, und am nächsten tag hab ich immer etwas neues zu erzählen"
+    ]
+   },
+   "sk": {
+    "titre": "3. jedna lekcia pred spaním",
+    "paragraphes": [
+     "Každý večer si namiesto scrollovania dám jednu krátku lekciu v aplikácii Sophia. dejiny, filozofia alebo veda, napísané skutočnými profesormi, a na konci malý kvíz.",
+     "Desať minút a na druhý deň mám vždy čo nové rozprávať"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion före läggdags",
+    "paragraphes": [
+     "Jag gör en kort lektion på Sophia varje kväll i stället för att scrolla. historia, filosofi eller naturvetenskap, skriven av riktiga professorer, med ett litet quiz efteråt.",
+     "Tio minuter, och nästa dag har jag alltid något nytt att berätta"
     ]
    }
   },
@@ -149,6 +409,76 @@
      "Write down every question that pops into your head. why do we yawn, who decided the alphabet's order, what's under the ocean floor.",
      "On sunday, answer one. by december you have a whole book of your own curiosity"
     ]
+   },
+   "fr": {
+    "titre": "4. un carnet de questions",
+    "paragraphes": [
+     "Note chaque question qui te passe par la tête. pourquoi on bâille, qui a décidé de l'ordre de l'alphabet, ce qu'il y a sous le fond des océans.",
+     "Le dimanche, réponds à une. en décembre, tu as un livre entier de ta propre curiosité"
+    ]
+   },
+   "es": {
+    "titre": "4. una libreta de preguntas",
+    "paragraphes": [
+     "Apunta cada pregunta que se te pase por la cabeza. por qué bostezamos, quién decidió el orden del abecedario, qué hay bajo el fondo del mar.",
+     "El domingo, responde una. en diciembre tienes un libro entero de tu propia curiosidad"
+    ]
+   },
+   "es-419": {
+    "titre": "4. un cuaderno de preguntas",
+    "paragraphes": [
+     "Anota cada pregunta que se te cruce por la cabeza. por qué bostezamos, quién decidió el orden del abecedario, qué hay debajo del fondo del mar.",
+     "El domingo, responde una. en diciembre tienes un libro entero de tu propia curiosidad"
+    ]
+   },
+   "it": {
+    "titre": "4. un quaderno di domande",
+    "paragraphes": [
+     "Scrivi ogni domanda che ti passa per la testa. perché sbadigliamo, chi ha deciso l'ordine dell'alfabeto, cosa c'è sotto il fondo dell'oceano.",
+     "La domenica, rispondi a una. a dicembre hai un libro intero della tua curiosità"
+    ]
+   },
+   "tr": {
+    "titre": "4. bir soru defteri",
+    "paragraphes": [
+     "Aklına gelen her soruyu yaz. neden esneriz, alfabenin sırasına kim karar verdi, okyanusun dibinin altında ne var.",
+     "Pazar günü birini cevapla. aralıkta elinde kendi merakından koca bir kitap olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. um caderno de perguntas",
+    "paragraphes": [
+     "Anote toda pergunta que passar pela sua cabeça. por que a gente boceja, quem decidiu a ordem do alfabeto, o que tem embaixo do fundo do mar.",
+     "No domingo, responda uma. em dezembro você tem um livro inteiro da sua própria curiosidade"
+    ]
+   },
+   "sl": {
+    "titre": "4. zvezek vprašanj",
+    "paragraphes": [
+     "Zapiši si vsako vprašanje, ki ti pade na pamet. zakaj zehamo, kdo je določil vrstni red abecede, kaj je pod oceanskim dnom.",
+     "V nedeljo odgovori na eno. do decembra imaš celo knjigo lastne radovednosti"
+    ]
+   },
+   "de": {
+    "titre": "4. ein heft voller fragen",
+    "paragraphes": [
+     "Schreib jede frage auf, die dir in den kopf kommt. warum gähnen wir, wer hat die reihenfolge des alphabets festgelegt, was liegt unter dem meeresboden.",
+     "Am sonntag beantwortest du eine. im dezember hast du ein ganzes buch deiner eigenen neugier"
+    ]
+   },
+   "sk": {
+    "titre": "4. zošit otázok",
+    "paragraphes": [
+     "Zapíš si každú otázku, ktorá ti napadne. prečo zíveme, kto určil poradie abecedy, čo je pod dnom oceánu.",
+     "V nedeľu odpovedz na jednu. do decembra máš celú knihu vlastnej zvedavosti"
+    ]
+   },
+   "sv": {
+    "titre": "4. ett häfte med frågor",
+    "paragraphes": [
+     "Skriv ner varje fråga som dyker upp i huvudet. varför gäspar vi, vem bestämde alfabetets ordning, vad finns under havsbotten.",
+     "På söndag, svara på en. i december har du en hel bok med din egen nyfikenhet"
+    ]
    }
   },
   {
@@ -172,11 +502,141 @@
      "Ask your grandma what her first job was, or what the city looked like when she was your age. people love being asked properly.",
      "It's history you can't find anywhere else, told by someone who was there"
     ]
+   },
+   "fr": {
+    "titre": "5. questionner les plus âgés",
+    "paragraphes": [
+     "Demande à ta grand-mère quel était son premier travail, ou à quoi ressemblait la ville quand elle avait ton âge. les gens adorent qu'on leur pose vraiment la question.",
+     "C'est de l'histoire que tu ne trouveras nulle part ailleurs, racontée par quelqu'un qui y était"
+    ]
+   },
+   "es": {
+    "titre": "5. preguntar a los mayores",
+    "paragraphes": [
+     "Pregúntale a tu abuela cuál fue su primer trabajo, o cómo era la ciudad cuando tenía tu edad. a la gente le encanta que le pregunten de verdad.",
+     "Es historia que no vas a encontrar en ningún otro sitio, contada por alguien que estuvo allí"
+    ]
+   },
+   "es-419": {
+    "titre": "5. preguntarle a los mayores",
+    "paragraphes": [
+     "Pregúntale a tu abuela cuál fue su primer trabajo, o cómo era la ciudad cuando tenía tu edad. a la gente le encanta que le pregunten de verdad.",
+     "Es historia que no vas a encontrar en ningún otro lado, contada por alguien que estuvo ahí"
+    ]
+   },
+   "it": {
+    "titre": "5. fare domande ai più grandi",
+    "paragraphes": [
+     "Chiedi a tua nonna qual è stato il suo primo lavoro, o com'era la città quando aveva la tua età. alle persone piace quando glielo chiedi davvero.",
+     "È storia che non trovi da nessun'altra parte, raccontata da chi c'era"
+    ]
+   },
+   "tr": {
+    "titre": "5. büyüklere soru sormak",
+    "paragraphes": [
+     "Büyükannene ilk işinin ne olduğunu ya da senin yaşındayken şehrin neye benzediğini sor. insanlar gerçekten merak edilmeyi çok sever.",
+     "Başka hiçbir yerde bulamayacağın bir tarih, orada olan birinin ağzından"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. perguntar aos mais velhos",
+    "paragraphes": [
+     "Pergunte pra sua avó qual foi o primeiro emprego dela, ou como era a cidade quando ela tinha a sua idade. as pessoas amam quando a gente pergunta de verdade.",
+     "É uma história que você não encontra em nenhum outro lugar, contada por quem estava lá"
+    ]
+   },
+   "sl": {
+    "titre": "5. spraševanje starejših",
+    "paragraphes": [
+     "Vprašaj babico, kakšna je bila njena prva služba ali kako je bilo videti mesto, ko je bila tvojih let. ljudje imajo radi, ko jih zares vprašaš.",
+     "To je zgodovina, ki je ne najdeš nikjer drugje, iz ust nekoga, ki je bil zraven"
+    ]
+   },
+   "de": {
+    "titre": "5. ältere menschen ausfragen",
+    "paragraphes": [
+     "Frag deine oma, was ihr erster job war oder wie die stadt aussah, als sie so alt war wie du. menschen lieben es, wenn man richtig nachfragt.",
+     "Das ist geschichte, die du nirgendwo sonst findest, erzählt von jemandem, der dabei war"
+    ]
+   },
+   "sk": {
+    "titre": "5. pýtať sa starších",
+    "paragraphes": [
+     "Spýtaj sa babky, aká bola jej prvá práca alebo ako vyzeralo mesto, keď mala toľko rokov ako ty. ľudia milujú, keď sa ich niekto naozaj spýta.",
+     "Sú to dejiny, ktoré nikde inde nenájdeš, rozprávané niekým, kto tam bol"
+    ]
+   },
+   "sv": {
+    "titre": "5. fråga äldre människor",
+    "paragraphes": [
+     "Fråga din mormor vad hennes första jobb var, eller hur staden såg ut när hon var i din ålder. folk älskar när man frågar på riktigt.",
+     "Det är historia du inte hittar någon annanstans, berättad av någon som var där"
+    ]
    }
   },
   {
    "type": "fin",
-   "en": {}
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
   }
  ]
 }

@@ -200,3 +200,11 @@ export function langueEcriture(livraisons: Pick<Livraison, "type" | "langue_sour
   for (const l of livraisons) if (l.type !== "langues" && l.langue_source) n.set(l.langue_source, (n.get(l.langue_source) ?? 0) + 1);
   return [...n.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ?? null;
 }
+
+/** À partir de combien de comptes d'un même label dans une langue on parle d'empilement (les mêmes posts traduits). */
+export const SEUIL_EMPILEMENT = 2;
+
+/** Les candidats à une place libre : seulement les comptes empilés, ou tous (`tous`). L'ordre de la base est gardé. */
+export function candidatsMontres<T extends { empilement: number }>(candidats: T[], tous: boolean): T[] {
+  return tous ? candidats : candidats.filter((c) => c.empilement >= SEUIL_EMPILEMENT);
+}

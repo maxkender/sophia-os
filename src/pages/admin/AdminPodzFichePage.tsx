@@ -282,7 +282,7 @@ export function AdminPodzFichePage() {
       {/* Au-delà d'une douzaine de comptes, la table est repliée : la fiche reste lisible. */}
       {!video && (fiche?.comptes ?? 0) > 12 && (
         <Replie titre={`${t("pods.page.comptes")} (${fiche!.comptes})`} aide={t("pods.page.comptesDescription")} paresseux>
-          <ComptesDuPod pod={pod.slug} label={pod.label} />
+          <ComptesDuPod pod={pod.slug} label={pod.label} deplacer={labelId ? { labelId, apps: pod.apps } : undefined} />
         </Replie>
       )}
       {!video && (fiche?.comptes ?? 0) <= 12 && (
@@ -292,7 +292,7 @@ export function AdminPodzFichePage() {
             <CardDescription>{t("pods.page.comptesDescription")}</CardDescription>
           </CardHeader>
           <CardContent>
-            <ComptesDuPod pod={pod.slug} label={pod.label} />
+            <ComptesDuPod pod={pod.slug} label={pod.label} deplacer={labelId ? { labelId, apps: pod.apps } : undefined} />
           </CardContent>
         </Card>
       )}

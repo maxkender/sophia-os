@@ -623,3 +623,109 @@ export function serieDuPod(
       return { ...l, valeur: l[jalon], flotte: f && f.n > 0 ? Math.round(f.somme / f.n) : null };
     });
 }
+
+// ---------------------------------------------------------------------------
+// Allocation des podz (0782) : places libres, candidats, déplacement d'un compte
+// ---------------------------------------------------------------------------
+
+/** Une place libre : une langue ouverte d'un podz où aucun compte de son label ne poste (`podz_places`). */
+export interface PlaceLibre {
+  pod: string;
+  pod_nom: string;
+  label_id: string;
+  label: string;
+  applications: string[] | null;
+  langue: string;
+  /** L'atelier du podz sait déjà produire cette langue. */
+  prete: boolean;
+  /** Les comptes actifs du label, toutes langues. */
+  comptes_label: number;
+  ouverte_le: string | null;
+  ouverte_par: AuteurLangue | null;
+}
+
+export async function listerPlaces(): Promise<PlaceLibre[]> {
+  const { data, error } = await supabase.rpc("podz_places");
+  if (error) throw error;
+  return (data ?? []) as PlaceLibre[];
+}
+
+/** Un compte qui pourrait prendre une place (`podz_candidats`). */
+export interface CandidatPlace {
+  compte_id: string;
+  handle: string | null;
+  langue: string;
+  pays: string | null;
+  cree_le: string;
+  poster: string | null;
+  labels: { id: string; nom: string }[];
+  /** Les comptes actifs de son label actuel dans sa langue : plus il y en a, plus les mêmes posts tournent. */
+  empilement: number;
+  posts_15j: number;
+  vues_moyenne: number | null;
+  vues_max: number | null;
+  dernier_post: string | null;
+}
+
+export async function listerCandidats(labelId: string, langue: string): Promise<CandidatPlace[]> {
+  const { data, error } = await supabase.rpc("podz_candidats", { p_label: labelId, p_langue: langue });
+  if (error) throw error;
+  return ((data ?? []) as CandidatPlace[]).map((c) => ({ ...c, labels: c.labels ?? [] }));
+}
+
+/** Ce que rend `compte_deplacer`. */
+export interface GesteDeplacement {
+  ok: boolean;
+  change: boolean;
+  id?: number;
+  label?: string;
+  /** Faux : le label d'arrivée est en images finies et la langue du compte n'y est pas ouverte. */
+  langue_ouverte?: boolean | null;
+}
+
+/** Change un compte de label : `de` le label qu'il quitte (nul : il n'en avait pas), `vers` celui qu'il prend. Noté au journal, annulable. */
+export async function deplacerCompte(compteId: string, de: string | null, vers: string, raison?: string): Promise<GesteDeplacement> {
+  const { data, error } = await supabase.rpc("compte_deplacer", { p_compte: compteId, p_de: de, p_vers: vers, p_raison: raison ?? null });
+  if (error) throw error;
+  return data as GesteDeplacement;
+}
+
+export async function annulerDeplacement(id: number): Promise<void> {
+  const { error } = await supabase.rpc("compte_deplacement_annuler", { p_id: id });
+  if (error) throw error;
+}
+
+/** Une ligne du journal des déplacements (`comptes_deplacements`). */
+export interface Deplacement {
+  id: number;
+  compte_id: string;
+  handle: string | null;
+  langue: string | null;
+  label_de: string | null;
+  label_vers: string | null;
+  deplace_le: string;
+  annule_le: string | null;
+}
+
+export async function listerDeplacements(limite = 30): Promise<Deplacement[]> {
+  const { data, error } = await supabase
+    .from("comptes_deplacements")
+    .select("id, compte_id, deplace_le, annule_le, comptes(handle_tiktok, langue), de:labels!comptes_deplacements_label_de_fkey(nom), vers:labels!comptes_deplacements_label_vers_fkey(nom)")
+    .order("deplace_le", { ascending: false })
+    .limit(limite);
+  if (error) throw error;
+  const un = <T,>(x: T | T[] | null): T | null => (Array.isArray(x) ? (x[0] ?? null) : x);
+  return ((data ?? []) as unknown as Record<string, unknown>[]).map((d) => {
+    const compte = un(d.comptes as { handle_tiktok: string | null; langue: string | null } | null);
+    return {
+      id: Number(d.id),
+      compte_id: String(d.compte_id),
+      handle: compte?.handle_tiktok ?? null,
+      langue: compte?.langue ?? null,
+      label_de: un(d.de as { nom: string } | null)?.nom ?? null,
+      label_vers: un(d.vers as { nom: string } | null)?.nom ?? null,
+      deplace_le: String(d.deplace_le),
+      annule_le: (d.annule_le as string | null) ?? null,
+    };
+  });
+}

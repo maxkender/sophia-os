@@ -23,6 +23,7 @@ const pod = (p: Partial<Pod> & { slug: string }): Pod => ({
   label_id: null,
   langues: null,
   langues_pretes: null,
+  modeles: [],
   cree_le: null,
   apps: [],
   ...p,
@@ -122,6 +123,15 @@ describe("la liste", () => {
     expect(fathom.titre).toBe("Fathomly");
     expect(fathom.freres).toEqual(["fathom_bis"]);
     expect(lignes.find((l) => l.pod.slug === "reactions_ugc")!.titre).toBe("reactions_ugc");
+  });
+
+  it("prend le modèle dans le champ du podz, sinon dans son nom", () => {
+    const l = assemblerPodz([
+      pod({ slug: "originaux_alpha_male", nom: "Originaux alpha_male", modeles: ["selfsculpt_", "millyjhino"] }),
+      pod({ slug: "remakes_kaja", nom: "Remakes @kaja.learn (Sophia)" }),
+      pod({ slug: "originaux_rh", nom: "Originaux RH" }),
+    ]);
+    expect(l.map((x) => x.modeles)).toEqual([["selfsculpt_", "millyjhino"], ["kaja.learn"], []]);
   });
 
   it("range par application (ordre du catalogue), actifs d'abord, deux podz d'un label côte à côte", () => {

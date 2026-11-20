@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o202",
+ "type_bleo": "full_test",
+ "titre": "Rules for a road trip with the boys #men #roadtrip #friends #brotherhood #adventure",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 20/11. Full test du jour (4 sur 6). Accroche jamais faite chez nous : « road trip » n'apparaît que dans des items de donnees/label.json. reference_url : post source de am-o036 (2 à 7), vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5f7f4f1e",
+   "texte_overlay": "Rules for a road trip\nwith the boys",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01c4fd30",
+   "texte_overlay": "1. The driver picks the music\n\nShotgun picks the snacks.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "28763d8e",
+   "texte_overlay": "2. Split gas evenly\n\nSettle it before you leave.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7738be5c",
+   "texte_overlay": "3. Switch drivers every\ntwo hours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "623a0f86",
+   "texte_overlay": "4. Play a trivia game\n\nWhoever loses buys dinner.",
+   "texte_sophia": "4. Play a trivia game\n\nQuestions from the Sophia app.\nWhoever loses buys dinner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0295a08a",
+   "texte_overlay": "5. Stop for the view\n\nThat's the whole point.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "27270e9a",
+   "texte_overlay": "6. What happens on the trip\nbecomes the story forever",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

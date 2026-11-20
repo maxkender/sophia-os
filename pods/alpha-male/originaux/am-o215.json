@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o215",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4d6b882d-5f3c-4c7f-a6a0-cddfdb580c0c",
+ "titre": "Hobbies que te harán absurdamente más seguro de ti mismo #confianza #hobbies #hombres #crecimiento #disciplina",
+ "musique_titre": "Elle Ta Tue Instrumental (Morena)",
+ "musique_url": "https://www.tiktok.com/music/elle-ta-tue-instrumental-morena-7430147882671508257",
+ "inspirations": [
+  "4d6b882d-5f3c-4c7f-a6a0-cddfdb580c0c"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 20/11. Déclinaison G1 de la ligne 11 (parent 4d6b882d, @jco.mindset, langue source es : écrite en espagnol). Accroche du parent mot pour mot. Même format : hobby en titre puis un court paragraphe. Hobbies neufs, aucun du parent (grabarse hablando, artes marciales, dominar un tema, anotar lo difícil). reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4071291c",
+   "texte_overlay": "Hobbies que te harán absurdamente\nmás seguro de ti mismo",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687664509053373716/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "22e08b8d",
+   "texte_overlay": "Escalar\n\nCada ruta te enseña que el miedo\nse supera paso a paso.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687664509053373716/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "05b037f2",
+   "texte_overlay": "Tocar un instrumento\n\nTocar frente a otros, aunque\nsea mal, te quita la vergüenza.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687664509053373716/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1c2979b7",
+   "texte_overlay": "Cocinar para otros\n\nVer a la gente disfrutar lo que\nhiciste con tus manos.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687664509053373716/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "74defadf",
+   "texte_overlay": "Correr una carrera\n\nCruzar una meta que creías\nimposible lo cambia todo.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687664509053373716/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b8747695",
+   "texte_overlay": "Aprender algo nuevo cada día\n\nHistoria, ciencia, arte. Saber de\ntodo te da seguridad al hablar.",
+   "texte_sophia": "Aprender algo nuevo cada día\n\nUsa una app de microaprendizaje\ncomo la app Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687664509053373716/6.jpg"
+  }
+ ]
+}

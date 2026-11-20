@@ -17,22 +17,75 @@
   "titre": "FUNDO DE VIDEO",
   "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
  },
- "notes": "Full test (boîte vide). Famille « GLOW UP … FOR MEN » : « GLOW UP HACKS FOR MEN. » de @built.not.born61 (427,7 k vues, 14/11), même gabarit. Autre angle que bn-001 (habitudes) : soin et style (coupe, vêtements, barbe, parfum). Slide Atala (3) : le conseil « courir », silhouette d'un homme qui court (banque de l'OS, male_run : 8378e69b, aucune marque) et le logo d'Atala. cta B. Aucun chiffre médical ; « toutes les 3 à 4 semaines » : rythme de coupe courant chez les barbiers. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "notes": "Full test (boîte vide). Famille « GLOW UP … FOR MEN » : « GLOW UP HACKS FOR MEN. » de @built.not.born61 (427,7 k vues, 14/11), même gabarit. Autre angle que bn-001 (habitudes) : soin et style (coupe, vêtements, barbe, parfum). Slide Atala (3) : le conseil « courir », silhouette d'un homme qui court (banque de l'OS, male_run : 8378e69b, aucune marque) et le logo d'Atala. placement_atala du 20/11 : voix TU (hook de 7 mots), argument « allure ». Aucun chiffre médical ; « toutes les 3 à 4 semaines » : rythme de coupe courant chez les barbiers. Images : Seedream détourées par BiRefNet, en noir et blanc.",
  "banque": {
   "images/detoures/coureur-colline.png": "8378e69b-3ec0-4691-af1c-29cc81e6b64e"
  },
  "slides": [
-  { "type": "couverture", "image": "images/detoures/couverture-2.png", "en": { "titre": "GLOW UP HACKS\nEVERY MAN\nSHOULD KNOW." } },
-  { "type": "conseil", "image": "images/detoures/ciseaux.png", "mode": "objet", "taille": 440,
-    "en": { "titre": "1. Get a fresh cut", "texte": "Book a haircut every 3 to 4 weeks. Ask your barber for a shape that suits your face, not the trend." } },
-  { "type": "conseil", "image": "images/detoures/cintre.png", "mode": "objet", "taille": 420,
-    "en": { "titre": "2. Wear clothes that fit", "texte": "Fit beats brand. Shoulder seams on your shoulders, sleeves that hug your arms. A plain black tee never fails." } },
-  { "type": "conseil", "atala": true, "image": "images/detoures/coureur-colline.png", "mode": "objet", "taille": 560,
-    "en": { "titre": "3. Run 3 times a week", "texte": "Running builds stamina and confidence you can see. Atala builds the plan for you and adjusts it every week." } },
-  { "type": "conseil", "image": "images/detoures/tondeuse.png", "mode": "objet", "taille": 400,
-    "en": { "titre": "4. Keep your beard sharp", "texte": "Trim every few days and clean up your neckline. Even stubble looks intentional when the lines are clean." } },
-  { "type": "conseil", "image": "images/detoures/parfum.png", "mode": "objet", "taille": 380,
-    "en": { "titre": "5. Find a signature scent", "texte": "One scent you wear every day. Two sprays on your neck or wrists is enough, never a cloud." } },
-  { "type": "fin", "image": "images/detoures/fin-2.png", "en": { "texte": "Follow for more" } }
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-2.png",
+   "en": {
+    "titre": "GLOW UP HACKS\nEVERY MAN\nSHOULD KNOW."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/ciseaux.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "1. Get a fresh cut",
+    "texte": "Book a haircut every 3 to 4 weeks. Ask your barber for a shape that suits your face, not the trend."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/cintre.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "2. Wear clothes that fit",
+    "texte": "Fit beats brand. Shoulder seams on your shoulders, sleeves that hug your arms. A plain black tee never fails."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-colline.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run 3 times a week",
+    "texte": "The mistake is starting too fast, then quitting. A running coach app like Atala tells you when to slow down."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/tondeuse.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "4. Keep your beard sharp",
+    "texte": "Trim every few days and clean up your neckline. Even stubble looks intentional when the lines are clean."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/parfum.png",
+   "mode": "objet",
+   "taille": 380,
+   "en": {
+    "titre": "5. Find a signature scent",
+    "texte": "One scent you wear every day. Two sprays on your neck or wrists is enough, never a cloud."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-2.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
  ]
 }

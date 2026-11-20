@@ -56,6 +56,7 @@ Les podz :
 | 20 · Originaux wellness (Atala) | `atala-wellness` | `session_017c8FRZQgR2abup9nQqXhmu` | wellness_run (Atala seul, images finies, en anglais, genre femme ; les listes d'habitudes wellness de @healthy_with_emma6 avec les photos de la banque, sa slide pub devient la slide Atala : une fille qui court et la carte d'Atala ; lancé par Adrien le 19/11, pilote aw-001 ; Atala encore inactive) |
 | 21 · Originaux @bdnf.milly (Sophia) | `milly` | `session_017c8FRWYwgJspaesP68E7GW` | milly (Sophia seule, images finies, en anglais ; les diaporamas « intelligence, mémoire, concentration » de @bdnf.milly, fond uni et Cormorant Garamond, le logo de Sophia sur une slide « lire une leçon chaque soir », jamais une capture ni un nootropique ; lancé par Adrien le 19/11, pilote mi-001) |
 | 22 · Originaux @built.not.born61 (Atala) | `built` | `session_017c8FRWHiNzpurLYcAQsJQE` | built_run (Atala seule, images finies, en anglais, genre homme ; les listes de conseils pour hommes de @built.not.born61, slides blanches et images détourées en noir et blanc, un conseil « courir » avec un homme qui court (banque, label male_run) et le logo d'Atala ; lancé par Adrien le 19/11, pilote bn-001 ; Atala encore inactive) |
+| 23 · Remakes @studyingsmiski (micabo) | `studyingsmiski` | session à créer | cozy_study (micabo seul, images finies, en anglais, genre femme ; les listes d'applis et guides d'étude « cozy » de @studyingsmiski, ciel en papier, cartes en timbre, stickers détourés et bulles à la main, micabo et son nouveau logo partout où elle met Turbo AI ; lancé par Adrien le 20/11, pilote sm-001) |
 
 ## Règles absolues
 
@@ -90,9 +91,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15 à 22 ; le 6, relancé le 15/11, y
+- **La voie 2** (podz 1, 10, 11, 13, 15 à 23 ; le 6, relancé le 15/11, y
   revient à son premier remake validé ; 16 à 22 sont des originaux en images
-  finies) a aussi sa boîte et
+  finies, 23 des remakes en images finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
   de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré

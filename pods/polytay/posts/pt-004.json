@@ -1,0 +1,621 @@
+{
+ "id": "pt-004",
+ "source": {
+  "url": "https://www.tiktok.com/@polytay/photo/7691715172410363166",
+  "vues": 10400,
+  "publie_le": "2026-10-01",
+  "accroche": "small things that made me smarter without trying that hard"
+ },
+ "titre": {
+  "en": "things that made me smarter without trying",
+  "fr": "ce qui m'a rendue plus cultivée sans effort",
+  "es": "cosas que me hicieron más culta sin esforzarme",
+  "es-419": "cosas que me hicieron más culta sin intentarlo",
+  "it": "cose che mi hanno resa più colta senza sforzo",
+  "tr": "hiç zorlanmadan beni daha bilgili yapan şeyler",
+  "pt-BR": "coisas que me deixaram mais culta sem esforço",
+  "sl": "stvari, ki so me brez truda naredile bolj razgledano",
+  "de": "was mich klüger gemacht hat, ohne mich anzustrengen",
+  "sk": "veci, vďaka ktorým som bez námahy rozhľadenejšia",
+  "sv": "saker som gjorde mig smartare utan att jag försökte"
+ },
+ "legendes": {
+  "en": "none of these feel like studying, that's the whole point. save it for the next slow week <3 #girlblogger #selfimprovement #learning #thatgirl #booktok",
+  "fr": "rien de tout ça ne ressemble à des révisions, c'est tout l'intérêt. enregistre-le pour ta prochaine semaine calme <3 #girlblogger #developpementpersonnel #apprendre #thatgirl #booktokfrance",
+  "es": "nada de esto parece estudiar, y esa es la gracia. guárdalo para tu próxima semana tranquila <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktokespaña",
+  "es-419": "nada de esto se siente como estudiar, y ese es el punto. guárdalo para tu próxima semana tranquila <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktoklatam",
+  "it": "niente di tutto questo sembra studiare, ed è proprio questo il punto. salvalo per la prossima settimana tranquilla <3 #girlblogger #crescitapersonale #imparare #thatgirl #booktokitalia",
+  "tr": "bunların hiçbiri ders çalışmak gibi hissettirmiyor, olay da bu. bir sonraki sakin haftan için kaydet <3 #girlblogger #kişiselgelişim #öğrenmek #thatgirl #booktoktürkiye",
+  "pt-BR": "nada disso parece estudar, e esse é o ponto. salva pra sua próxima semana tranquila <3 #girlblogger #autodesenvolvimento #aprender #thatgirl #booktokbrasil",
+  "sl": "nič od tega ni podobno učenju, in prav v tem je bistvo. shrani za naslednji miren teden <3 #girlblogger #osebnirazvoj #učenje #thatgirl #booktok",
+  "de": "nichts davon fühlt sich nach lernen an, genau darum geht's. speicher es für deine nächste ruhige woche <3 #girlblogger #selbstverbesserung #lernen #thatgirl #booktokdeutschland",
+  "sk": "nič z toho sa nepodobá na učenie, a o to práve ide. ulož si to na ďalší pokojný týždeň <3 #girlblogger #osobnyrozvoj #ucenie #thatgirl #booktok",
+  "sv": "inget av det här känns som plugg, det är hela poängen. spara den till nästa lugna vecka <3 #girlblogger #självutveckling #lärande #thatgirl #booktoksverige"
+ },
+ "musique": {
+  "titre": "use your inner eyes x i was all over her",
+  "url": "https://www.tiktok.com/music/original-sound-7409401948849457953"
+ },
+ "notes": "Preuve : « small things that made me smarter without trying that hard » de @polytay (10,4 k vues, 01/10), sa famille « things that made me smarter » (3e famille de l'AGENT.md), au gabarit de son tube. Éléments à nous : lire le livre avant le film (Pride and Prejudice, Little Women, Dune : de vrais romans adaptés), une carte du monde au mur, le « pourquoi » trois fois, un documentaire le dimanche. Slide Sophia (4) : « 3. a lesson in bed », cta A (reformulé). Photos : banques de Sophia, sans visage, sans marque ni texte lisible. Livré d'emblée dans les 11 langues du label (demande d'Adrien du 20/11).",
+ "banque": {
+  "images/banque/couv-livre-lunettes.jpg": "0e0070a0-c295-44ce-82b7-5c8ceadfc7fb",
+  "images/banque/couv-tasse-bleue.jpg": "0cc4cdaf-c8cd-40b0-9ae1-1576b34dab19",
+  "images/banque/livre-feuilles.jpg": "22ebe1ee-bd08-433a-b342-ef93beb7633f",
+  "images/banque/livre-lit.jpg": "1f2c19b3-2e51-4724-b828-781abb5380d5",
+  "images/banque/carte-fleurs.jpg": "3855e5d9-5a46-4951-ad7e-7fd0eaee7dd9",
+  "images/banque/atlas.jpg": "396dc9e5-beb1-433e-8467-a1e2642dfa6f",
+  "images/banque/livre-bougie.jpg": "3347a655-6e44-4463-9958-b4cd1dce37db",
+  "images/banque/tasse-carnet-rouge.jpg": "2ca2d164-e934-4efa-9906-8cb61cf0ca11",
+  "images/banque/feuilles-lit.jpg": "29773e9c-a9d1-4520-9c90-d1690b7cdefc",
+  "images/banque/documentaire.jpg": "233e6ab3-8939-4ede-8bb1-e0617834c84e",
+  "images/banque/lampe-the.jpg": "26bf28c0-d831-40cb-a2b5-3b6f570a4e8a"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-livre-lunettes.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-tasse-bleue.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things that made\nme smarter\nwithout trying"
+   },
+   "fr": {
+    "titre": "ce qui m'a rendue\nplus cultivée\nsans effort"
+   },
+   "es": {
+    "titre": "cosas que me\nhicieron más culta\nsin esforzarme"
+   },
+   "es-419": {
+    "titre": "cosas que me\nhicieron más culta\nsin intentarlo"
+   },
+   "it": {
+    "titre": "cose che mi hanno\nresa più colta\nsenza sforzo"
+   },
+   "tr": {
+    "titre": "hiç zorlanmadan\nbeni daha bilgili\nyapan şeyler"
+   },
+   "pt-BR": {
+    "titre": "coisas que me\ndeixaram mais culta\nsem esforço"
+   },
+   "sl": {
+    "titre": "stvari, ki so me\nbrez truda naredile\nbolj razgledano"
+   },
+   "de": {
+    "titre": "was mich klüger\ngemacht hat, ohne\nmich anzustrengen"
+   },
+   "sk": {
+    "titre": "veci, vďaka ktorým\nsom bez námahy\nrozhľadenejšia"
+   },
+   "sv": {
+    "titre": "saker som gjorde\nmig smartare utan\natt jag försökte"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/livre-feuilles.jpg",
+     "format": "carre"
+    },
+    {
+     "image": "images/banque/livre-lit.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "1. the book before the film",
+    "paragraphes": [
+     "Before you watch an adaptation, read the book first. pride and prejudice, little women, dune. then watch and notice what they cut.",
+     "You end up with opinions, and opinions are what make you interesting"
+    ]
+   },
+   "fr": {
+    "titre": "1. le livre avant le film",
+    "paragraphes": [
+     "Avant de regarder une adaptation, lis le livre. orgueil et préjugés, les quatre filles du docteur march, dune. puis regarde et remarque ce qu'ils ont coupé.",
+     "Tu finis avec des avis, et ce sont tes avis qui te rendent intéressante"
+    ]
+   },
+   "es": {
+    "titre": "1. el libro antes que la peli",
+    "paragraphes": [
+     "Antes de ver una adaptación, lee primero el libro. orgullo y prejuicio, mujercitas, dune. luego mírala y fíjate en lo que cortaron.",
+     "Acabas teniendo opiniones, y las opiniones son lo que te hace interesante"
+    ]
+   },
+   "es-419": {
+    "titre": "1. el libro antes que la película",
+    "paragraphes": [
+     "Antes de ver una adaptación, lee primero el libro. orgullo y prejuicio, mujercitas, dune. después mírala y fíjate en lo que cortaron.",
+     "Terminas con opiniones, y las opiniones son lo que te vuelve interesante"
+    ]
+   },
+   "it": {
+    "titre": "1. il libro prima del film",
+    "paragraphes": [
+     "Prima di guardare un adattamento, leggi il libro. orgoglio e pregiudizio, piccole donne, dune. poi guardalo e nota cosa hanno tagliato.",
+     "Finisci per avere delle opinioni, e sono le opinioni a renderti interessante"
+    ]
+   },
+   "tr": {
+    "titre": "1. filmden önce kitap",
+    "paragraphes": [
+     "Bir uyarlamayı izlemeden önce kitabını oku. aşk ve gurur, küçük kadınlar, dune. sonra izle ve neyi kestiklerine dikkat et.",
+     "Sonunda fikirlerin olur, ve insanı ilginç yapan da fikirleridir"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. o livro antes do filme",
+    "paragraphes": [
+     "Antes de ver uma adaptação, lê o livro primeiro. orgulho e preconceito, mulherzinhas, duna. depois assiste e repara no que cortaram.",
+     "Você acaba tendo opinião, e opinião é o que te deixa interessante"
+    ]
+   },
+   "sl": {
+    "titre": "1. knjiga pred filmom",
+    "paragraphes": [
+     "Preden pogledaš priredbo, najprej preberi knjigo. prevzetnost in pristranost, male ženske, peščeni planet. potem glej in opazi, kaj so izrezali.",
+     "Na koncu imaš mnenja, in mnenja so tisto, kar te naredi zanimivo"
+    ]
+   },
+   "de": {
+    "titre": "1. erst das buch, dann der film",
+    "paragraphes": [
+     "Bevor du eine verfilmung schaust, lies zuerst das buch. stolz und vorurteil, little women, dune. dann schau und achte darauf, was sie gekürzt haben.",
+     "Am ende hast du eine meinung, und meinungen machen dich interessant"
+    ]
+   },
+   "sk": {
+    "titre": "1. kniha pred filmom",
+    "paragraphes": [
+     "Predtým, ako si pozrieš adaptáciu, prečítaj si knihu. pýcha a predsudok, malé ženy, duna. potom ju pozri a všímaj si, čo vystrihli.",
+     "Nakoniec máš názory, a práve názory ťa robia zaujímavou"
+    ]
+   },
+   "sv": {
+    "titre": "1. boken före filmen",
+    "paragraphes": [
+     "Innan du ser en filmatisering, läs boken först. stolthet och fördom, unga kvinnor, dune. titta sedan och lägg märke till vad de klippte bort.",
+     "Du får åsikter, och åsikter är det som gör dig intressant"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/carte-fleurs.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/atlas.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a world map above my desk",
+    "paragraphes": [
+     "Every time a country comes up in the news or in a book, find it on the map and read one page about it.",
+     "After a year, the news stops being a list of names you don't know"
+    ]
+   },
+   "fr": {
+    "titre": "2. une carte du monde au mur",
+    "paragraphes": [
+     "Chaque fois qu'un pays apparaît dans l'actu ou dans un livre, trouve-le sur la carte et lis une page sur lui.",
+     "Au bout d'un an, l'actu n'est plus une liste de noms que tu ne connais pas"
+    ]
+   },
+   "es": {
+    "titre": "2. un mapamundi sobre mi escritorio",
+    "paragraphes": [
+     "Cada vez que un país salga en las noticias o en un libro, búscalo en el mapa y lee una página sobre él.",
+     "En un año, las noticias dejan de ser una lista de nombres que no conoces"
+    ]
+   },
+   "es-419": {
+    "titre": "2. un mapa del mundo en la pared",
+    "paragraphes": [
+     "Cada vez que un país aparezca en las noticias o en un libro, búscalo en el mapa y lee una página sobre él.",
+     "En un año, las noticias dejan de ser una lista de nombres que no conoces"
+    ]
+   },
+   "it": {
+    "titre": "2. un planisfero sopra la scrivania",
+    "paragraphes": [
+     "Ogni volta che un paese compare al telegiornale o in un libro, trovalo sulla mappa e leggi una pagina su di lui.",
+     "Dopo un anno, le notizie smettono di essere una lista di nomi che non conosci"
+    ]
+   },
+   "tr": {
+    "titre": "2. masamın üstünde bir dünya haritası",
+    "paragraphes": [
+     "Haberlerde ya da bir kitapta bir ülke geçtiğinde onu haritada bul ve hakkında bir sayfa oku.",
+     "Bir yıl sonra haberler tanımadığın isimlerden oluşan bir liste olmaktan çıkar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. um mapa-múndi em cima da mesa",
+    "paragraphes": [
+     "Toda vez que um país aparecer no jornal ou num livro, acha ele no mapa e lê uma página sobre ele.",
+     "Depois de um ano, as notícias deixam de ser uma lista de nomes que você não conhece"
+    ]
+   },
+   "sl": {
+    "titre": "2. zemljevid sveta nad mizo",
+    "paragraphes": [
+     "Vsakič, ko se kakšna država pojavi v novicah ali v knjigi, jo poišči na zemljevidu in preberi eno stran o njej.",
+     "Po enem letu novice niso več seznam imen, ki jih ne poznaš"
+    ]
+   },
+   "de": {
+    "titre": "2. eine weltkarte an der wand",
+    "paragraphes": [
+     "Jedes mal, wenn ein land in den nachrichten oder in einem buch vorkommt, such es auf der karte und lies eine seite darüber.",
+     "Nach einem jahr sind die nachrichten keine liste unbekannter namen mehr"
+    ]
+   },
+   "sk": {
+    "titre": "2. mapa sveta nad stolom",
+    "paragraphes": [
+     "Vždy, keď sa v správach alebo v knihe objaví nejaká krajina, nájdi ju na mape a prečítaj si o nej jednu stranu.",
+     "Po roku už správy nie sú zoznamom mien, ktoré nepoznáš"
+    ]
+   },
+   "sv": {
+    "titre": "2. en världskarta ovanför skrivbordet",
+    "paragraphes": [
+     "Varje gång ett land dyker upp i nyheterna eller i en bok, hitta det på kartan och läs en sida om det.",
+     "Efter ett år är nyheterna inte längre en lista med namn du inte känner till"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/livre-bougie.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. a lesson in bed",
+    "paragraphes": [
+     "Every night I do one short lesson on Sophia instead of scrolling. history, philosophy or science, written by actual professors, with a little quiz after.",
+     "I fall asleep thinking about rome, not about strangers' stories"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon au lit",
+    "paragraphes": [
+     "Chaque soir, je fais une petite leçon sur Sophia au lieu de scroller. histoire, philosophie ou sciences, écrite par de vrais profs, avec un petit quiz après.",
+     "Je m'endors en pensant à rome, pas aux stories des autres"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección en la cama",
+    "paragraphes": [
+     "Cada noche hago una lección corta en Sophia en vez de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Me duermo pensando en roma, no en las stories de desconocidos"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección en la cama",
+    "paragraphes": [
+     "Cada noche tomo una lección corta en Sophia en lugar de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Me duermo pensando en roma, no en las historias de desconocidos"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione a letto",
+    "paragraphes": [
+     "Ogni sera faccio una breve lezione su Sophia invece di scrollare. storia, filosofia o scienze, scritta da veri professori, con un piccolo quiz alla fine.",
+     "Mi addormento pensando a roma, non alle storie degli sconosciuti"
+    ]
+   },
+   "tr": {
+    "titre": "3. yatakta bir ders",
+    "paragraphes": [
+     "Her gece scroll yapmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim; gerçek profesörler yazıyor, sonunda da küçük bir test var.",
+     "Yabancıların hikâyelerini değil, roma'yı düşünerek uyuyorum"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula na cama",
+    "paragraphes": [
+     "Toda noite eu faço uma aula curtinha no Sophia em vez de ficar rolando o feed. história, filosofia ou ciência, escrita por professores de verdade, com um quiz no final.",
+     "Eu durmo pensando em roma, não nos stories de desconhecidos"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija v postelji",
+    "paragraphes": [
+     "Vsak večer namesto skrolanja naredim eno kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, napisali so jo pravi profesorji, na koncu pa kratek kviz.",
+     "Zaspim z mislimi na rim, ne na zgodbe neznancev"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion im bett",
+    "paragraphes": [
+     "Jeden abend mache ich eine kurze lektion auf Sophia, statt zu scrollen. geschichte, philosophie oder wissenschaft, von echten professoren, mit einem kleinen quiz.",
+     "Ich schlafe ein und denke an rom, nicht an die storys von fremden"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia v posteli",
+    "paragraphes": [
+     "Každý večer si namiesto scrollovania dám jednu krátku lekciu v aplikácii Sophia. dejiny, filozofia alebo veda, napísané skutočnými profesormi, a na konci malý kvíz.",
+     "Zaspávam s myšlienkami na rím, nie na príbehy cudzích ľudí"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion i sängen",
+    "paragraphes": [
+     "Varje kväll gör jag en kort lektion på Sophia i stället för att scrolla. historia, filosofi eller naturvetenskap, skriven av riktiga professorer, med ett litet quiz efteråt.",
+     "Jag somnar och tänker på rom, inte på främlingars stories"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/tasse-carnet-rouge.jpg",
+     "format": "carre"
+    },
+    {
+     "image": "images/banque/feuilles-lit.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "4. asking why three times",
+    "paragraphes": [
+     "When something surprises you, ask why. then why again, and once more. three answers deep is where it gets interesting.",
+     "You stop collecting facts and start understanding things"
+    ]
+   },
+   "fr": {
+    "titre": "4. demander pourquoi trois fois",
+    "paragraphes": [
+     "Quand quelque chose te surprend, demande pourquoi. puis encore pourquoi, et une dernière fois. c'est à trois réponses de profondeur que ça devient intéressant.",
+     "Tu arrêtes de collectionner des faits et tu commences à comprendre"
+    ]
+   },
+   "es": {
+    "titre": "4. preguntar por qué tres veces",
+    "paragraphes": [
+     "Cuando algo te sorprenda, pregunta por qué. luego otra vez, y una más. a tres respuestas de profundidad es donde se pone interesante.",
+     "Dejas de coleccionar datos y empiezas a entender las cosas"
+    ]
+   },
+   "es-419": {
+    "titre": "4. preguntar por qué tres veces",
+    "paragraphes": [
+     "Cuando algo te sorprenda, pregunta por qué. luego otra vez, y una más. a tres respuestas de profundidad es donde se pone interesante.",
+     "Dejas de juntar datos y empiezas a entender las cosas"
+    ]
+   },
+   "it": {
+    "titre": "4. chiedere perché tre volte",
+    "paragraphes": [
+     "Quando qualcosa ti sorprende, chiediti perché. poi di nuovo, e un'altra volta. è a tre risposte di profondità che diventa interessante.",
+     "Smetti di collezionare fatti e inizi a capire le cose"
+    ]
+   },
+   "tr": {
+    "titre": "4. üç kez neden diye sormak",
+    "paragraphes": [
+     "Bir şey seni şaşırttığında neden diye sor. sonra yine neden, ve bir kez daha. asıl ilginç kısım üçüncü cevapta başlar.",
+     "Bilgi biriktirmeyi bırakıp şeyleri anlamaya başlarsın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. perguntar por quê três vezes",
+    "paragraphes": [
+     "Quando algo te surpreender, pergunta por quê. depois de novo, e mais uma vez. é na terceira resposta que fica interessante.",
+     "Você para de colecionar fatos e começa a entender as coisas"
+    ]
+   },
+   "sl": {
+    "titre": "4. trikrat vprašati zakaj",
+    "paragraphes": [
+     "Ko te nekaj preseneti, vprašaj zakaj. potem še enkrat, in še enkrat. zanimivo postane pri tretjem odgovoru.",
+     "Nehaš zbirati dejstva in začneš razumeti stvari"
+    ]
+   },
+   "de": {
+    "titre": "4. dreimal warum fragen",
+    "paragraphes": [
+     "Wenn dich etwas überrascht, frag warum. dann noch mal, und ein letztes mal. drei antworten tief wird es spannend.",
+     "Du sammelst keine fakten mehr, du verstehst die dinge"
+    ]
+   },
+   "sk": {
+    "titre": "4. trikrát sa spýtať prečo",
+    "paragraphes": [
+     "Keď ťa niečo prekvapí, spýtaj sa prečo. potom znova, a ešte raz. zaujímavé to začne byť pri treťej odpovedi.",
+     "Prestaneš zbierať fakty a začneš veciam rozumieť"
+    ]
+   },
+   "sv": {
+    "titre": "4. fråga varför tre gånger",
+    "paragraphes": [
+     "När något överraskar dig, fråga varför. sedan igen, och en gång till. tre svar ner är där det blir intressant.",
+     "Du slutar samla fakta och börjar förstå saker"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/documentaire.jpg",
+     "format": "portrait"
+    },
+    {
+     "image": "images/banque/lampe-the.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "5. one documentary on sunday",
+    "paragraphes": [
+     "Sunday night, one documentary instead of three episodes. history, nature, space, the subject you'd never pick at school.",
+     "Monday, you have a new story ready for lunch"
+    ]
+   },
+   "fr": {
+    "titre": "5. un documentaire le dimanche",
+    "paragraphes": [
+     "Le dimanche soir, un documentaire au lieu de trois épisodes. histoire, nature, espace, le sujet que tu n'aurais jamais choisi à l'école.",
+     "Lundi, tu as une nouvelle histoire prête pour le déjeuner"
+    ]
+   },
+   "es": {
+    "titre": "5. un documental el domingo",
+    "paragraphes": [
+     "El domingo por la noche, un documental en vez de tres capítulos. historia, naturaleza, el espacio, el tema que nunca habrías elegido en el cole.",
+     "El lunes tienes una historia nueva lista para la comida"
+    ]
+   },
+   "es-419": {
+    "titre": "5. un documental el domingo",
+    "paragraphes": [
+     "El domingo en la noche, un documental en lugar de tres episodios. historia, naturaleza, el espacio, el tema que nunca habrías elegido en la escuela.",
+     "El lunes tienes una historia nueva lista para la comida"
+    ]
+   },
+   "it": {
+    "titre": "5. un documentario la domenica",
+    "paragraphes": [
+     "La domenica sera, un documentario invece di tre episodi. storia, natura, spazio, l'argomento che a scuola non avresti mai scelto.",
+     "Lunedì hai una storia nuova pronta per il pranzo"
+    ]
+   },
+   "tr": {
+    "titre": "5. pazar günü bir belgesel",
+    "paragraphes": [
+     "Pazar akşamı üç bölüm yerine bir belgesel. tarih, doğa, uzay, okulda asla seçmeyeceğin konu.",
+     "Pazartesi öğle yemeği için yeni bir hikâyen hazır olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. um documentário no domingo",
+    "paragraphes": [
+     "Domingo à noite, um documentário em vez de três episódios. história, natureza, espaço, o assunto que você nunca escolheria na escola.",
+     "Na segunda, você tem uma história nova pronta pro almoço"
+    ]
+   },
+   "sl": {
+    "titre": "5. dokumentarec ob nedeljah",
+    "paragraphes": [
+     "V nedeljo zvečer en dokumentarec namesto treh epizod. zgodovina, narava, vesolje, tema, ki je v šoli nikoli ne bi izbrala.",
+     "V ponedeljek imaš za kosilo pripravljeno novo zgodbo"
+    ]
+   },
+   "de": {
+    "titre": "5. eine doku am sonntag",
+    "paragraphes": [
+     "Sonntagabend eine doku statt drei folgen. geschichte, natur, weltall, das thema, das du in der schule nie gewählt hättest.",
+     "Am montag hast du eine neue geschichte fürs mittagessen"
+    ]
+   },
+   "sk": {
+    "titre": "5. dokument v nedeľu",
+    "paragraphes": [
+     "V nedeľu večer jeden dokument namiesto troch epizód. dejiny, príroda, vesmír, téma, ktorú by si si v škole nikdy nevybrala.",
+     "V pondelok máš na obed pripravený nový príbeh"
+    ]
+   },
+   "sv": {
+    "titre": "5. en dokumentär på söndag",
+    "paragraphes": [
+     "Söndag kväll, en dokumentär i stället för tre avsnitt. historia, natur, rymden, ämnet du aldrig hade valt i skolan.",
+     "På måndag har du en ny historia redo till lunchen"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ]
+}

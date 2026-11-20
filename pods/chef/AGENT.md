@@ -58,6 +58,7 @@ Les podz :
 | 22 · Originaux @built.not.born61 (Atala) | `built` | `session_017c8FRWHiNzpurLYcAQsJQE` | built_run (Atala seule, images finies, en anglais, genre homme ; les listes de conseils pour hommes de @built.not.born61, slides blanches et images détourées en noir et blanc, un conseil « courir » avec un homme qui court (banque, label male_run) et le logo d'Atala ; lancé par Adrien le 19/11, pilote bn-001 ; Atala encore inactive) |
 | 23 · Remakes @studyingsmiski (Sophia) | `studyingsmiski` | session à créer | cozy_girl (Sophia seule, images finies, en anglais, genre femme ; les listes d'applis et guides d'étude « cozy » de @studyingsmiski, ciel en papier, cartes en timbre, stickers détourés et bulles à la main, Sophia et sa vraie icône partout où elle met Turbo AI ; lancé par Adrien le 20/11 pour micabo, passé à Sophia le même jour (0783), pilote sm-001) |
 | 24 · Originaux @thebiomechanic (Atala) | `biomechanic` | session à créer | biomechanic_run (Atala seule, images finies, en anglais ; les tier lists « … Tierlist For Optimal Health (Science based) » de @thebiomechanic, fond blanc, Playfair, jauge CORTISOL, F à S, toutes les photos de la banque, un tier « courir » (A ou S) avec une photo de course et le logo d'Atala ; lancé par Adrien le 20/11, pilote bm-001 ; Atala encore inactive) |
+| 25 · Originaux @polytay (Sophia) | `polytay` | session à créer | polytay (Sophia seule, images finies, en anglais, genre femme ; les listes « learn everything » de @polytay, couverture en collage, un élément par slide avec deux photos de la banque, Sophia en élément avec son logo, jamais une capture ; lancé par Adrien le 20/11, pilote pt-001) |
 
 ## Règles absolues
 
@@ -92,9 +93,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15 à 24 ; le 6, relancé le 15/11, y
-  revient à son premier remake validé ; 16 à 22 et 24 sont des originaux en
-  images finies, 23 des remakes en images finies) a aussi sa boîte et
+- **La voie 2** (podz 1, 10, 11, 13, 15 à 25 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé ; 16 à 22, 24 et 25 sont des originaux
+  en images finies, 23 des remakes en images finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
   de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré

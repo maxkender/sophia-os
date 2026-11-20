@@ -47,7 +47,11 @@ import {
   remplirRuul,
   rendreEmailRuul,
   semaineCourte,
+  aideDejaDite,
+  type EmailRuul,
+  PIED_EN,
 } from "../_shared/ruul.ts";
+import { langueTraduite, normaliserLangue, traduireChamps } from "../_shared/traduction_email.ts";
 import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import { estManque, OBJET_KYC, texteKyc } from "../_shared/ruul_kyc.ts";
@@ -231,6 +235,40 @@ function envoyerEmail(to: string, objet: string, html: string, texte: string, st
   return envoyerSuivi({ to, objet, html, texte, stop, tags });
 }
 
+/** 20/11 (Max) : la langue des emails d'un posteur (pays de son compte, sinon de sa candidature ; 0787). */
+const languesPosteurs = new Map<string, string>();
+async function langueDuPosteur(supabase: Supabase, posterId: string | null | undefined): Promise<string> {
+  if (!posterId) return "en";
+  const deja = languesPosteurs.get(posterId);
+  if (deja) return deja;
+  const { data } = await supabase.rpc("email_langue_poster", { p_poster: posterId });
+  const l = normaliserLangue(typeof data === "string" ? data : "en");
+  languesPosteurs.set(posterId, l);
+  return l;
+}
+
+/**
+ * 20/11 (Max) : un email Ruul au posteur, dans la langue de son pays. Le texte anglais est traduit (une fois par
+ * langue et par texte, puis réutilisé) avec le pied (phrase Help, signature, lien d'arrêt) ; le nom, le mot de
+ * passe, les liens, les emails, les @ et les montants restent exacts. Traduction impossible : l'anglais, comme avant.
+ */
+async function emailTraduit(supabase: Supabase, posterId: string | null | undefined, e: EmailRuul, secrets: (string | null | undefined)[] = []): Promise<{ objet: string; html: string; texte: string }> {
+  const langue = await langueDuPosteur(supabase, posterId);
+  if (!langueTraduite(langue)) return { objet: e.objet, ...rendreEmailRuul(e) };
+  const s = secrets.filter((x): x is string => typeof x === "string");
+  // Un bouton dont le nom est cité dans le texte garde son nom anglais (le texte le cite tel quel).
+  const boutonCite = !!e.bouton && e.corps.includes(e.bouton.texte);
+  const [{ champs: t }, { champs: pied }] = await Promise.all([
+    traduireChamps(supabase, langue, { objet: e.objet, corps: e.corps, bouton: e.bouton && !boutonCite ? e.bouton.texte : null }, s),
+    traduireChamps(supabase, langue, { ...PIED_EN }),
+  ]);
+  const r = rendreEmailRuul({
+    ...e, objet: t.objet, corps: t.corps, bouton: e.bouton ? { texte: t.bouton ?? e.bouton.texte, lien: e.bouton.lien } : e.bouton,
+    langue, pied, aideDansTexte: e.sansPied || aideDejaDite(e.corps),
+  });
+  return { objet: t.objet, ...r };
+}
+
 /** Le bandeau de relance Ruul en haut du dashboard (le plus récent seulement, tant que Ruul n'est pas prêt). */
 async function bandeauRelance(supabase: Supabase, posterId: string, jour: string, texteEn: string, texte: string, langue: string | null): Promise<string | null> {
   const { error } = await supabase.rpc("texte_poster_ecrire", {
@@ -265,8 +303,8 @@ async function envoyer(supabase: Supabase) {
     const corps = remplirRuul(quel === "A" ? ab.a_texte : ab.b_texte, v);
     if (!corps.trim()) continue;
     const lienStop = `${URL_FONCTION}?stop=${p.ruul_jeton}`;
-    const e = rendreEmailRuul({ objet, corps, bouton: { texte: ab.bouton, lien: `${URL_FONCTION}?pret=${p.ruul_jeton}` }, lienStop });
-    const r = await envoyerEmail(p.ruul_email, objet, e.html, e.texte, lienStop, ["ruul", quel === "A" ? "email_a" : "email_b"]);
+    const e = await emailTraduit(supabase, p.id, { objet, corps, bouton: { texte: ab.bouton, lien: `${URL_FONCTION}?pret=${p.ruul_jeton}` }, lienStop }, [p.prenom]);
+    const r = await envoyerEmail(p.ruul_email, e.objet, e.html, e.texte, lienStop, ["ruul", quel === "A" ? "email_a" : "email_b"]);
     if (r.ok) {
       const maintenant = new Date().toISOString();
       // Après A : les relances J+1, J+3 comptent depuis l'email A. Après B : pas de relance d'invitation.
@@ -314,8 +352,8 @@ async function envoyer(supabase: Supabase) {
       else erreur = "erreur" in s ? String(s.erreur) : s.statut;
     }
     if ((!ok || etape === "relance3") && p.ruul_email) {
-      const e = rendreEmailRuul({ objet, corps, bouton, lienStop });
-      const r = await envoyerEmail(p.ruul_email, objet, e.html, e.texte, lienStop, ["ruul", etape]);
+      const e = await emailTraduit(supabase, p.id, { objet, corps, bouton, lienStop }, [p.prenom]);
+      const r = await envoyerEmail(p.ruul_email, e.objet, e.html, e.texte, lienStop, ["ruul", etape]);
       if (r.ok) {
         ok = true;
         canaux.push("email");
@@ -352,8 +390,8 @@ async function envoyer(supabase: Supabase) {
     if (!ok && p.ruul_email && p.ruul_jeton) {
       const objet = remplirRuul(t.paye_objet ?? "You received ${montant} on Ruul", v);
       const lienStop = `${URL_FONCTION}?stop=${p.ruul_jeton}`;
-      const e = rendreEmailRuul({ objet, corps: texte, bouton: null, lienStop });
-      const r = await envoyerEmail(p.ruul_email, objet, e.html, e.texte, lienStop, ["ruul", "paye"]);
+      const e = await emailTraduit(supabase, lignes[0].poster_id, { objet, corps: texte, bouton: null, lienStop }, [p.prenom]);
+      const r = await envoyerEmail(p.ruul_email, e.objet, e.html, e.texte, lienStop, ["ruul", "paye"]);
       ok = r.ok;
       erreur = r.erreur;
     }
@@ -376,8 +414,8 @@ async function envoyer(supabase: Supabase) {
       const corps = texteSansSlack(String(r.texte ?? ""));
       const objet = "A message from the Vik Studios team";
       const lienStop = `${URL_FONCTION}?stop=${p.ruul_jeton}`;
-      const e = rendreEmailRuul({ objet, corps, bouton: null, lienStop });
-      const envoi = await envoyerEmail(p.ruul_email, objet, e.html, e.texte, lienStop, ["ruul", `relais-${r.source}`]);
+      const e = await emailTraduit(supabase, r.poster_id, { objet, corps, bouton: null, lienStop }, [p.prenom]);
+      const envoi = await envoyerEmail(p.ruul_email, e.objet, e.html, e.texte, lienStop, ["ruul", `relais-${r.source}`]);
       await supabase.from("ruul_relais").update({
         statut: envoi.ok ? "envoye" : "erreur", erreur: envoi.erreur, envoye_at: envoi.ok ? new Date().toISOString() : null,
       }).eq("id", r.id);
@@ -401,17 +439,15 @@ async function envoyer(supabase: Supabase) {
   const { data: aInviter } = await supabase.rpc("ruul_slack_a_inviter");
   if ((aInviter ?? []).length) {
     const lien = await lienSlackInvitation(supabase);
-    const cache = new Map<string, string>();
     for (const p of (aInviter ?? []) as { poster_id: string; prenom: string | null; email: string | null; langue: string | null }[]) {
       const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", p.poster_id).maybeSingle();
       if (!p.email || !pr?.ruul_jeton) continue;
       const base = `To get the posting tips, answers and updates from the team, please join our Slack workspace with this link: ${lien} (use the same email as your dashboard).`;
-      const texte = await traduireRuul(base, p.langue, cache);
-      const objet = await traduireRuul("Join the Vik Studios Slack", p.langue, cache);
+      // 20/11 : l'email part de l'anglais, traduit dans la langue de son pays (emailTraduit).
       const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
       const prenom = (p.prenom ?? "").trim();
-      const e = rendreEmailRuul({ objet, corps: avecPiedHelp(`${prenom ? `Hi ${prenom},\n\n` : ""}${texte}`), bouton: { texte: "Join Slack", lien }, lienStop });
-      const r = await envoyerEmail(p.email, objet, e.html, e.texte, lienStop, ["ruul", "slack_invitation"]);
+      const e = await emailTraduit(supabase, p.poster_id, { objet: "Join the Vik Studios Slack", corps: avecPiedHelp(`${prenom ? `Hi ${prenom},\n\n` : ""}${base}`), bouton: { texte: "Join Slack", lien }, lienStop }, [prenom]);
+      const r = await envoyerEmail(p.email, e.objet, e.html, e.texte, lienStop, ["ruul", "slack_invitation"]);
       if (r.ok) await supabase.rpc("ruul_slack_invitation_noter", { p_poster: p.poster_id });
       bilan.push({ poster: p.poster_id, etape: "slack_invitation", ok: r.ok, erreur: r.erreur });
     }
@@ -429,8 +465,8 @@ async function envoyer(supabase: Supabase) {
         const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
         const objet = t.email_ruul_objet ?? EMAIL_RUUL_OBJET;
         const corps = avecPiedHelp(remplirRuul(t.email_ruul_texte ?? EMAIL_RUUL_TEXTE, { prenom }));
-        const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open my dashboard", lien: URL_DASHBOARD }, lienStop });
-        const r = await envoyerEmail(d.email, objet, e.html, e.texte, lienStop, ["ruul", `email_ruul_${d.etape}`]);
+        const e = await emailTraduit(supabase, d.poster_id, { objet, corps, bouton: { texte: "Open my dashboard", lien: URL_DASHBOARD }, lienStop }, [prenom]);
+        const r = await envoyerEmail(d.email, e.objet, e.html, e.texte, lienStop, ["ruul", `email_ruul_${d.etape}`]);
         if (r.ok) canaux.push("email");
         else erreur = r.erreur;
       }
@@ -513,10 +549,10 @@ async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean
     let emailParti = false;
     if (d.email && pr?.ruul_jeton) {
       const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
-      const objet = await traduireRuul(OBJET_KYC, d.langue, cache);
-      const corps = avecPiedHelp(`${prenom ? `Hi ${prenom},\n\n` : ""}${texte}`);
-      const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open Ruul", lien: "https://app.ruul.io" }, lienStop });
-      const r = await envoyerEmail(d.email, objet, e.html, e.texte, lienStop, ["ruul", "kyc_relance", manque]);
+      // 20/11 : l'email part du texte anglais, traduit en entier (pied compris) dans la langue de son pays.
+      const corps = avecPiedHelp(`${prenom ? `Hi ${prenom},\n\n` : ""}${texteKyc(manque, d.ruul_email ?? d.email ?? "your email")}`);
+      const e = await emailTraduit(supabase, d.poster_id, { objet: OBJET_KYC, corps, bouton: { texte: "Open Ruul", lien: "https://app.ruul.io" }, lienStop }, [prenom]);
+      const r = await envoyerEmail(d.email, e.objet, e.html, e.texte, lienStop, ["ruul", "kyc_relance", manque]);
       if (r.ok) { canaux.push("email"); emailParti = true; }
       else erreur = erreur ?? `email : ${r.erreur}`;
     } else if (!d.email) {
@@ -852,6 +888,21 @@ async function creerLiensV2(supabase: Supabase, posterId: string, source: string
  */
 function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">, slack: string, lundi?: string, numero?: number,
   motDePasse = "(the one in our previous email)", liens: LiensV2 | null = null) {
+  const c = contenuEtape(e, type, slack, lundi, numero, motDePasse, liens);
+  const r = rendreEmailRuul(c.email);
+  return { objet: c.email.objet, html: r.html, texte: r.texte, lienStop: c.lienStop };
+}
+
+/** 20/11 : le même email, dans la langue du pays du posteur (l'envoi ; l'aperçu reste en anglais). */
+async function rendreEtapeTraduite(supabase: Supabase, e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">, slack: string, lundi?: string,
+  numero?: number, motDePasse?: string, liens: LiensV2 | null = null) {
+  const c = contenuEtape(e, type, slack, lundi, numero, motDePasse, liens);
+  const r = await emailTraduit(supabase, e.poster_id, c.email, [e.prenom, motDePasse, e.login]);
+  return { ...r, lienStop: c.lienStop };
+}
+
+function contenuEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">, slack: string, lundi?: string, numero?: number,
+  motDePasse = "(the one in our previous email)", liens: LiensV2 | null = null): { email: EmailRuul; lienStop: string } {
   const jeton = e.ruul_jeton ?? "";
   const lienPret = liens ? `${URL_DASHBOARD_OS}/r/done?t=${liens.done}` : `${URL_FONCTION}?pret=${jeton}`;
   const lienStop = liens ? `${URL_DASHBOARD_OS}/r/stop?t=${liens.stop}` : `${URL_FONCTION}?stop=${jeton}`;
@@ -866,11 +917,10 @@ function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">,
     },
   }, lienPret);
   const sansPied = type === "desactivation" || type === "arret" || type === "identite_fin";
-  const r = rendreEmailRuul({
-    objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop, sansPied,
-    ...(liens ? { titre: "Vik Studios", arret: lienStop } : {}),
-  });
-  return { objet: m.objet, html: r.html, texte: r.texte, lienStop };
+  return {
+    email: { objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop, sansPied, ...(liens ? { titre: "Vik Studios", arret: lienStop } : {}) },
+    lienStop,
+  };
 }
 
 /** Toutes les heures : pour chaque posteur Ruul actif, l'email dû maintenant (au plus un par jour). */
@@ -960,7 +1010,7 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision & { num
   if (TYPES_AVEC_RUUL.has(d.type)) {
     (e as EtatParcours & { ruul_lien?: string | null }).ruul_lien = await lienRuul(supabase, e.poster_id, await lireReglageConnect(supabase));
   }
-  const m = rendreEtape(e, d.type, slack, d.lundi, numero, motDePasse, liens);
+  const m = await rendreEtapeTraduite(supabase, e, d.type, slack, d.lundi, numero, motDePasse, liens);
   const r = await envoyerEmail(e.email!, m.objet, m.html, m.texte, m.lienStop, ["ruul", "parcours", d.type]);
   // A/B : la date reste sur la fiche (les relances Ruul tous les 2 jours comptent depuis elle).
   if (r.ok && (d.type === "invite_a" || d.type === "invite_b")) {
@@ -1340,8 +1390,8 @@ async function confirmerArret(supabase: Supabase, posterId: string) {
     prenom: p?.prenom ?? null, login: p?.email ?? null, motDePasse: "", dashboard: URL_DASHBOARD_OS, handle: null, slack: "",
     cohorte_lundi: null, ruul_email: p?.ruul_email ?? null, abonnements: null,
   }, URL_DASHBOARD_OS);
-  const r = rendreEmailRuul({ objet: m.objet, corps: m.corps, bouton: null, lienStop: URL_DASHBOARD_OS, sansPied: true, titre: "Vik Studios" });
-  const env = await envoyerEmail(to, m.objet, r.html, r.texte, URL_DASHBOARD_OS, ["ruul", "parcours", "arret"]);
+  const r = await emailTraduit(supabase, posterId, { objet: m.objet, corps: m.corps, bouton: null, lienStop: URL_DASHBOARD_OS, sansPied: true, titre: "Vik Studios" }, [p?.prenom]);
+  const env = await envoyerEmail(to, r.objet, r.html, r.texte, URL_DASHBOARD_OS, ["ruul", "parcours", "arret"]);
   await supabase.from("ruul_parcours_envois").upsert({ poster_id: posterId, cle: "arret", type: "arret", ok: env.ok, canaux: env.ok ? ["email"] : [], erreur: env.erreur, envoye_at: new Date().toISOString() },
     { onConflict: "poster_id,cle" });
 }

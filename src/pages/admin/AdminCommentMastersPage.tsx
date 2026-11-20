@@ -51,6 +51,7 @@ import {
 } from "@/features/commentMasters/logique";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 import { drapeauPays, nomPaysIso } from "@/features/moteur/pays";
+import { OffresCommentMasters } from "@/features/commentMasters/OffresCommentMasters";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
@@ -142,6 +143,9 @@ export function AdminCommentMastersPage() {
           <li>{t("commentMasters.regleBonus")}</li>
         </ul>
       </div>
+
+      {/* 20/11 (Max) : le recrutement dans toutes les langues. */}
+      <OffresCommentMasters />
 
       {erreur && (
         <p role="alert" className="text-sm text-destructive">

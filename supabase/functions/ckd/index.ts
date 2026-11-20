@@ -581,14 +581,18 @@ async function doubleCreer(supabase: Supabase, propositionId: string) {
  * (même langue et pays, le label choisi, son application), le posteur est prévenu sur son dashboard dans sa langue ;
  * il démarre le lendemain de son warm-up, avec la cohorte du lundi. Deux clics ne créent pas deux comptes.
  */
-async function doubleJeudi(supabase: Supabase, id: string): Promise<{ ok: boolean; error?: string; compteId?: string; deja?: boolean }> {
+async function doubleJeudi(supabase: Supabase, id: string): Promise<{ ok: boolean; error?: string; compteId?: string; deja?: boolean; attente?: string }> {
   if (!/^[0-9a-f-]{36}$/.test(id)) return { ok: false, error: "id invalide" };
   const { data: d, error } = await supabase.from("doubles_jeudi")
-    .select("id, jeudi, compte_id, poster_id, statut, label_choisi_id, label_propose_id, nouveau_compte_id").eq("id", id).maybeSingle();
+    .select("id, jeudi, compte_id, poster_id, statut, label_choisi_id, label_propose_id, nouveau_compte_id, reponse").eq("id", id).maybeSingle();
   if (error) throw error;
   if (!d) return { ok: false, error: "proposition introuvable" };
   if (d.statut === "cree" && d.nouveau_compte_id) return { ok: true, compteId: String(d.nouveau_compte_id), deja: true };
   if (d.statut !== "a_creer") return { ok: false, error: "pas validée (OUI), ou annulée" };
+  // 21/11 (Max) : le 2e compte n'est créé qu'après l'accord du posteur (la proposition part par la fonction support).
+  if (d.reponse !== "oui") {
+    return { ok: true, attente: d.reponse ? `réponse du posteur : ${d.reponse}` : "proposition envoyée au posteur : le compte sera créé à son accord" };
+  }
   // Réserver : un seul appel crée le compte.
   const { data: reserve } = await supabase.from("doubles_jeudi").update({ erreur: "création en cours" })
     .eq("id", id).eq("statut", "a_creer").is("erreur", null).select("id");
@@ -622,7 +626,7 @@ async function doubleJeudi(supabase: Supabase, id: string): Promise<{ ok: boolea
     const { error: e3 } = await supabase.rpc("jeudi_double_cree", { p_id: id, p_compte: cree.compteId });
     if (e3) throw e3;
     // 19/11 (Max) : le posteur est prévenu à sa prochaine connexion par un bandeau clair, dans sa langue :
-    // quel compte, quel label, quand il démarre (lundi, après le warm-up du jeudi au dimanche), ce qu'il gagne en plus.
+    // quel compte, quel label, quand il démarre (lundi, après le warm-up), ce qu'il gagne en plus.
     const lundi = ajouterJours(String(d.jeudi), 4);
     const { data: langue } = await supabase.rpc("parrainage_langue_pays", { p_pays: ancien.pays });
     const { data: profil } = await supabase.from("profiles").select("tarif_hebdo, ruul_tarif_semaine, canal_paie").eq("id", d.poster_id).maybeSingle();

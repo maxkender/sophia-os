@@ -15,11 +15,14 @@ import {
   type LignePaieApi,
   lireJalonsContrat,
   lireReglagesPaieApi,
+  nomJalonComplement,
+  nomJalonSemaine,
   planDecalage,
   planPaiement,
   refusMode,
   semaineDuNom,
 } from "./paiement.ts";
+import { ajouterJours } from "./ckd.ts";
 
 const S = "2026-11-02";
 const R = lireReglagesPaieApi({ paie_api: { mode: "on" } });
@@ -69,7 +72,8 @@ Deno.test("Payer : approuver Week 45 (financée à 15 $ avant la suppression du 
   const p = planPaiement(ligne({ montant: 15, montant_calcule: 15 }), embauche, S, R);
   assertEquals(p.statut, "pret");
   assertEquals(p.approuver, { jalon_id: "m1", nom: "Week 45", montant: 15, depot: 15, sous_paiement: null });
-  assertEquals(p.financer, { mode: "existant", jalon_id: "m2", nom: "Week 46", montant: 14, editer: false });
+  // 21/11 : la Week 46 existante est renommée au nom standard (« Week 46 · 09/11–15/11 · 1 account »).
+  assertEquals(p.financer, { mode: "existant", jalon_id: "m2", nom: "Week 46 · 09/11–15/11 · 1 account", montant: 14, editer: true });
   assertEquals(p.total, 29);
 });
 
@@ -79,7 +83,7 @@ Deno.test("Payer moins : montant réduit et raison ; Week 46 absente : à créer
   assertEquals(p.statut, "pret");
   assertEquals(p.approuver?.montant, 12);
   assertEquals(p.approuver?.sous_paiement, "Missed posts: 2 $ deducted");
-  assertEquals(p.financer, { mode: "creer", jalon_id: null, nom: "Week 46", montant: 14, editer: false });
+  assertEquals(p.financer, { mode: "creer", jalon_id: null, nom: "Week 46 · 09/11–15/11 · 1 account", montant: 14, editer: false });
 });
 
 Deno.test("Double : la Week 46 existante est renommée « (2 acc) » et passe au tarif × 2", () => {
@@ -89,7 +93,9 @@ Deno.test("Double : la Week 46 existante est renommée « (2 acc) » et passe au
     S,
     R,
   );
-  assertEquals(p.financer, { mode: "existant", jalon_id: "m2", nom: "Week 46 (2 acc)", montant: 28, editer: true });
+  assertEquals(p.financer?.nom, nomJalonSemaine(ajouterJours(S, 7), 2));
+  assert(p.financer?.nom.endsWith("· 2 accounts"));
+  assertEquals(p.financer, { mode: "existant", jalon_id: "m2", nom: p.financer!.nom, montant: 28, editer: true });
 });
 
 Deno.test("Kill : approuver la dernière semaine, ne rien financer, fermer à la main ; Annuler : rembourser à la main", () => {
@@ -152,7 +158,7 @@ Deno.test("prompt 21, B9 : 1re semaine du 2e compte, le reste part dans un compl
   );
   assertEquals(p.statut, "pret");
   assertEquals(p.approuver?.montant, 14);
-  assertEquals(p.complement, { nom: "Week 45 (2nd acc)", montant: 14 });
+  assertEquals(p.complement, { nom: nomJalonComplement(S), montant: 14 });
   assertEquals(p.total, 56);
   // Un seul compte : pas de complément, la milestone inattendue est refusée.
   assertEquals(planPaiement(ligne({ montant: 28, montant_calcule: 28 }), [j("m1", "Week 45", "Active", 1, 14)], S, R).statut, "refuse");
@@ -276,4 +282,11 @@ Deno.test("19/11 : décalage appliqué : non financées renommées (la plus loin
   const fixee = planDecalage([{ ...j("m1", "Week 45", "Active", 1), semaine: 46 }], 45, 1, (n) => lundis[n]);
   assertEquals(fixee, { renommer: [], compter: [] });
   assertEquals(planDecalage([j("m2", "Week 46", "NotFunded", 2)], 45, 0, (n) => lundis[n]), { renommer: [], compter: [] });
+});
+
+Deno.test("21/11 : nom standard des milestones et doublement accepté après le financement", () => {
+  assertEquals(nomJalonSemaine("2026-11-23", 1), "Week 48 · 23/11–29/11 · 1 account");
+  assertEquals(nomJalonSemaine("2026-11-23", 2), "Week 48 · 23/11–29/11 · 2 accounts");
+  assertEquals(nomJalonComplement("2026-11-23"), "Week 48 · 23/11–29/11 · 2nd account top-up");
+  assertEquals(semaineDuNom(nomJalonSemaine("2026-11-30", 2)), 49);
 });

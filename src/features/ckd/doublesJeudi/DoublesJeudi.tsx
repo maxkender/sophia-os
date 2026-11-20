@@ -15,7 +15,8 @@ import { cn } from "@/lib/utils";
 
 import {
   ajouterJours, compteurs, creerDeuxieme, decider, formaterVues, jeudiDeLaSemaine, type LabelPossible, lireLabelsPossibles,
-  lireLundi, lirePropositions, type LigneLundi, pctViraux, preparerPropositions, type PropositionDouble, toutRefuser,
+  etatReponse, lireLundi, lirePropositions, lireReponses, type LigneLundi, pctViraux, preparerPropositions, type PropositionDouble,
+  type ReponseDouble, toutRefuser,
 } from "./api";
 
 const dateCourte = (jour: string) => new Date(`${jour}T12:00:00Z`).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
@@ -27,6 +28,8 @@ export function DoublesJeudi({ maintenant = new Date(), jeudi: jeudiForce }: { m
   const cle = ["doubles-jeudi", jeudi];
   const q = useQuery({ queryKey: cle, queryFn: () => lirePropositions(jeudi) });
   const lundiQ = useQuery({ queryKey: ["doubles-jeudi-lundi", jeudi], queryFn: () => lireLundi(jeudi) });
+  const reponsesQ = useQuery({ queryKey: ["doubles-jeudi-reponses", jeudi], queryFn: () => lireReponses(jeudi), refetchInterval: 60_000 });
+  const reponseDe = new Map((reponsesQ.data ?? []).map((r) => [r.id, r]));
   const rafraichir = () => {
     void qc.invalidateQueries({ queryKey: cle });
     void qc.invalidateQueries({ queryKey: ["doubles-jeudi-lundi", jeudi] });
@@ -69,7 +72,7 @@ export function DoublesJeudi({ maintenant = new Date(), jeudi: jeudiForce }: { m
               Pas encore de propositions pour ce jeudi. Elles se calculent jeudi à 7 h (ou avec « Calculer les propositions »).
             </div>
           )}
-          {liste.map((p) => <LigneProposition key={p.id} p={p} onChange={rafraichir} />)}
+          {liste.map((p) => <LigneProposition key={p.id} p={p} reponse={reponseDe.get(p.id)} onChange={rafraichir} />)}
         </div>
         <ResumeLundi lundi={lundi} lignes={lundiQ.data ?? []} />
       </div>
@@ -81,7 +84,7 @@ function Compteur({ n, libelle, ton }: { n: number; libelle: string; ton: string
   return <span className="rounded-full border bg-card px-2.5 py-1 text-xs"><b className={cn("tabular-nums", ton)}>{n}</b> {libelle}</span>;
 }
 
-function LigneProposition({ p, onChange }: { p: PropositionDouble; onChange: () => void }) {
+function LigneProposition({ p, reponse, onChange }: { p: PropositionDouble; reponse?: ReponseDouble; onChange: () => void }) {
   const [label, setLabel] = React.useState<string | null>(p.label_choisi_id ?? p.label_propose_id);
   const [ouvert, setOuvert] = React.useState(false);
   const labels = useQuery({ queryKey: ["doubles-jeudi-labels", p.compte_id], queryFn: () => lireLabelsPossibles(p.compte_id), enabled: ouvert, staleTime: 10 * 60_000 });
@@ -146,8 +149,8 @@ function LigneProposition({ p, onChange }: { p: PropositionDouble; onChange: () 
         </select>
       </div>
       <div className="flex items-center justify-end gap-1.5">
-        {cree ? (
-          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"><Check className="size-3.5" /> Compte créé</span>
+        {p.decision === "oui" && p.statut !== "erreur" ? (
+          <EtatPosteur r={reponse} cree={cree} />
         ) : p.decision === "non" ? (
           <span className="text-xs text-muted-foreground">Refusé</span>
         ) : (
@@ -163,6 +166,18 @@ function LigneProposition({ p, onChange }: { p: PropositionDouble; onChange: () 
         <p className="text-xs text-destructive sm:col-span-5">{(oui.error as Error | null)?.message ?? p.erreur}</p>
       )}
     </article>
+  );
+}
+
+/** 0802 : après le OUI, la réponse du posteur (le compte n'est créé qu'à son accord). */
+function EtatPosteur({ r, cree }: { r?: ReponseDouble; cree: boolean }) {
+  const e = etatReponse(r);
+  const ton = e.ton === "ok" ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
+    : e.ton === "non" ? "bg-muted text-muted-foreground" : "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200";
+  return (
+    <span className={cn("inline-flex max-w-[16rem] items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium", ton)} title={cree ? "2e compte créé" : "2e compte créé à l'accord du posteur"} data-testid="etat-posteur">
+      {e.ton === "ok" && <Check className="size-3.5" />}<span className="truncate">{e.texte}</span>
+    </span>
   );
 }
 

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { BlocGetPaid } from "@/features/ruul/BlocGetPaid";
+import { OffreDouble } from "@/features/ckd/doublesJeudi/OffreDouble";
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -440,6 +441,7 @@ export function PosterCalendrierPage() {
 
       {/* 21/11 (Max) : posteur RUUL pas prêt : le bloc « Get paid » tout en haut (impossible à fermer). */}
       <BlocGetPaid />
+      <OffreDouble />
 
       {/* 0592 : posteur Ruul : la checklist avant de commencer. */}
       {estRuul && <ChecklistRuul />}

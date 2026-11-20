@@ -78,6 +78,23 @@ export function centimes(dollars: number): string {
 
 const arrondi = (n: number) => Math.round(n * 100) / 100;
 
+/**
+ * 21/11 (Max) : le nom standard d'un milestone : « Week 48 · 23/11–29/11 · 2 accounts ». Une semaine de paie = lundi →
+ * dimanche ; le nombre de comptes payés cette semaine-là.
+ */
+export function nomJalonSemaine(lundi: string, comptes: number): string {
+  const jj = (d: Date) => `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+  const l = new Date(`${lundi}T12:00:00Z`);
+  const dim = new Date(l.getTime() + 6 * 86_400_000);
+  const n = Math.max(1, Math.round(comptes));
+  return `Week ${semaineIso(lundi)} · ${jj(l)}–${jj(dim)} · ${n} account${n > 1 ? "s" : ""}`;
+}
+
+/** Le milestone « complément 2e compte » d'une semaine déjà financée au tarif d'un compte. */
+export function nomJalonComplement(lundi: string): string {
+  return `${nomJalonSemaine(lundi, 2).replace(/ · 2 accounts$/, "")} · 2nd account top-up`;
+}
+
 /** « Week 45 », « Week 45 (2 acc) », « week45 » : le numéro de semaine du nom, ou null. */
 export function semaineDuNom(nom: string): number | null {
   const m = nom.match(/week\s*(\d{1,2})\b/i);
@@ -287,7 +304,7 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   const reste = arrondi(attendu - a.depot);
   const complement = reste > 0.009 && (l.nb_comptes ?? 1) >= 2 && l.tarif !== null && reste <= l.tarif + 0.009 &&
       Math.abs(l.montant - attendu) < 0.009
-    ? { nom: `Week ${w} (2nd acc)`, montant: reste }
+    ? { nom: nomJalonComplement(semaine), montant: reste }
     : null;
   // 0453 : plus de +1 $ en 1re semaine. Transition : une milestone déjà financée au tarif + 1 $
   // (offre acceptée avant la suppression) est payée en entier, sans rien réclamer.
@@ -316,6 +333,13 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
   if (suivanteFinancee.length === 1 && FINANCER_ACTIONS.includes(l.suivante_action ?? "")) {
     const deja = suivanteFinancee[0];
     if (l.suivante_montant !== null && deja.depot !== null && Math.abs(deja.depot - l.suivante_montant) > 0.009) {
+      // 21/11 (Max) : doublement accepté après le financement (au tarif d'un compte) : on ne bloque jamais la paie.
+      // Upwork ne modifie pas un milestone financé ; la différence (au plus un tarif) part le lundi suivant, au
+      // paiement de cette semaine, dans le milestone « complément 2e compte » (B9).
+      const manque = arrondi(l.suivante_montant - deja.depot);
+      if (l.suivante_action === "financer_double" && manque > 0 && l.tarif !== null && manque <= l.tarif + 0.009) {
+        return { ...vide("pret", null), approuver, complement, financer: null, total: arrondi(approuver.montant + (complement?.montant ?? 0)) };
+      }
       return vide("refuse", `${deja.nom} déjà financée à ${deja.depot} $, attendu ${l.suivante_montant} $ : à vérifier`);
     }
     return { ...vide("pret", null), approuver, complement, financer: null, total: arrondi(approuver.montant + (complement?.montant ?? 0)) };
@@ -330,7 +354,7 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
       if (montant > r.plafond_ligne) {
         return vide("refuse", `Week ${n} : ${montant} $ au-dessus du plafond par ligne (${r.plafond_ligne} $)`);
       }
-      const nom = double ? `Week ${n} (${l.suivante_comptes ?? 2} acc)` : `Week ${n}`;
+      const nom = nomJalonSemaine(ajouterJours(semaine, 7), double ? (l.suivante_comptes ?? 2) : 1);
       const candidates = jalons.filter((j) => j.etat === "NotFunded" && j.sequence > a.sequence && semaineDe(j) === n);
       if (candidates.length > 1) return vide("refuse", `${candidates.length} milestones « Week ${n} » non financées : à vérifier`);
       const existante = candidates[0];

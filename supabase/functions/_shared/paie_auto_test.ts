@@ -176,7 +176,9 @@ Deno.test("16/11 : seule la paie normale part seule (payer au tarif, 1 compte, s
   };
   assertEquals(motifInhabituel(base, 2000), null);
   assertEquals(motifInhabituel({ ...base, action: "modifier" }, 2000), "ligne « modifier »");
-  assertEquals(motifInhabituel({ ...base, nb_comptes: 2, montant: 28, montant_calcule: 28 }, 2000), "Doubler (plusieurs comptes payés)");
+  // 21/11 : un doublement accepté (2 comptes au tarif × 2) est une paie normale ; autre montant : à vérifier.
+  assertEquals(motifInhabituel({ ...base, nb_comptes: 2, montant: 28, montant_calcule: 28 }, 2000), null);
+  assertEquals(motifInhabituel({ ...base, nb_comptes: 2, montant: 21, montant_calcule: 21 }, 2000), "montant 21 $ différent du tarif × 2 (28 $)");
   assertEquals(motifInhabituel({ ...base, montant: 10, montant_calcule: 10 }, 2000), "montant 10 $ différent du tarif 14 $");
   assertEquals(motifInhabituel({ ...base, raison_correction: "posts manqués" }, 2000), "montant corrigé à la main");
   assertEquals(motifInhabituel({ ...base, tarif: 30, montant: 30, montant_calcule: 30 }, 20), "au-dessus du plafond (20 $)");

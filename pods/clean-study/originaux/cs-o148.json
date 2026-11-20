@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o148",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c4183fae-1d07-4bee-98cb-c7133dec1cb5",
+  "titre": "the note-taking habits that made me everyone's go-to for class notes #studytok #studytips #notetaking",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "c4183fae-1d07-4bee-98cb-c7133dec1cb5"
+  ],
+  "notes": "Déclinaison G2 de c4183fae (la famille de nos cs-o054 et cs-o089 : r 3,15 en allemand), ligne 2 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o142 : « the note-taking habits that made me everyone's go-to for class notes ». Habitudes neuves, aucune de cs-o054, cs-o089 ni cs-o142 : écrire au stylo noir et une seule couleur d'accent, une ligne pour chaque nouvelle idée, les questions du prof notées mot pour mot, les exemples numérotés, se tester sur ses notes le week-end (place micabo, slide 5), recopier au propre seulement les schémas. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9d672f1f",
+      "texte_overlay": "the note-taking habits that made me\neveryone's go-to for class notes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0bfdae52",
+      "texte_overlay": "black pen + one accent color. that's it.\nclean pages are easy to read.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9eb9b0e7",
+      "texte_overlay": "a new line for every new idea.\nno walls of text.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "77cc99e4",
+      "texte_overlay": "when the teacher asks the class a question, i write it word for word.\nthose come back on tests.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cc579382",
+      "texte_overlay": "every weekend, i quiz myself from my notes.\nif i can't answer, the notes need fixing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "57406a2a",
+      "texte_overlay": "examples are numbered.\n\"see example 3\" saves so much time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f8a797f4",
+      "texte_overlay": "i only redraw the diagrams neatly.\nnot the whole lesson.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

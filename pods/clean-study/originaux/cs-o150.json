@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o150",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "60813e6e-7067-4d54-8bef-4751c7222940",
+  "titre": "how i ask my teacher for help without feeling awkward #studytok #studytips #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "60813e6e-7067-4d54-8bef-4751c7222940"
+  ],
+  "notes": "Déclinaison G1 de 60813e6e (notre cs-o116 : r 6,21 en arabe), 5e ligne de la boîte. Ligne 4 (0804923e) passée volontairement : son accroche contient des lettres déserétiennes (« 𐐪 𐑂 ») que le guichet compte comme des mots et que la police de l'aperçu affiche en cases vides. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o116 : écrire sa question sur un papier avant, demander par écrit si on n'ose pas (message ou mail à l'école), y aller à deux, commencer par « j'ai essayé ça », se tester sur la réponse (place micabo, slide 5), rappeler que c'est leur métier. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "bb64e5fb",
+      "texte_overlay": "how i ask my teacher for help\nwithout feeling awkward",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c016f9f7",
+      "texte_overlay": "i write my question on a sticky note first.\nno blanking when i get there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "21127f96",
+      "texte_overlay": "too shy to ask out loud?\na short written message works too.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "cd79edf9",
+      "texte_overlay": "i go with a friend who has the same question.\nhalf the awkwardness.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "5a5a216b",
+      "texte_overlay": "i quiz myself on their answer that evening.\nproof it was worth it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1d38757d",
+      "texte_overlay": "i start with \"i tried this, and i'm stuck here\".\nteachers love that sentence.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "30a388cc",
+      "texte_overlay": "and i remember: helping students is literally their job.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

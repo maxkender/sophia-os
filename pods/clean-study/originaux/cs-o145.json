@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o145",
+  "type_bleo": "full_test",
+  "titre": "what i do in the 10 minutes before a test starts #studytok #studytips #exams",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 20/11 : 2 full tests sur 6). Accroche jamais faite chez nous (« before a test starts » absent du label ; cs-o110 parlait des 20 minutes avant un cours). Accroches écrites : « what i do in the 10 minutes before a test starts » (retenue : un moment précis et stressant), « pre-test routine » (écartée : plate), « how to never panic before a test » (écartée : promesse absolue). Santé générale : un dernier coup d'œil sur sa page d'erreurs (place micabo, slide 3 : se tester), boire de l'eau, ne pas écouter les révisions de dernière minute des autres, respirer lentement, écrire son nom tout de suite, lire tout le sujet avant de commencer. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "251de60e",
+      "texte_overlay": "what i do in the 10 minutes\nbefore a test starts",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "351859dd",
+      "texte_overlay": "i don't open a new chapter.\nnothing new now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7a2ac24f",
+      "texte_overlay": "one last quick quiz on my mistakes page.\njust the things i got wrong this week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3905c610",
+      "texte_overlay": "i step away from people quizzing each other in the hallway.\ntheir panic isn't my plan.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c3c12a7d",
+      "texte_overlay": "water, and a few slow breaths.\nin for 4, out for 6.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c82c75c4",
+      "texte_overlay": "name on the paper right away.\none less thing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "40580b08",
+      "texte_overlay": "then i read the whole test before writing anything.\nthe easy questions first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o149",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "fb8314c5-d882-45d1-b09f-1ac1acef71a3",
+  "titre": "slightly toxic exam season reminders that work way better than they should #studytok #studymotivation #exams",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "fb8314c5-d882-45d1-b09f-1ac1acef71a3"
+  ],
+  "notes": "Déclinaison G2 de fb8314c5 (la famille de nos cs-o020 et cs-o088 : r 6,95 en turc, r 4,4 en français), ligne 3 de la boîte. Même promesse (des rappels un peu toxiques pour la période d'examens qui marchent trop bien), autres mots : « slightly toxic exam season reminders that work way better than they should ». « Toxic » = rivalité avec soi-même, jamais le mépris des autres. Rappels neufs, aucun de cs-o020 ni de cs-o088 : relire n'est pas réviser, les notes du semestre ne s'apprennent pas en un soir, se tester maintenant (place micabo, slide 4), la pause qui devient une soirée, demain tu seras contente, le stress diminue en commençant. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5e5e4e77",
+      "texte_overlay": "slightly toxic exam season reminders\nthat work way better than they should",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2d8f2ee5",
+      "texte_overlay": "reading your notes again isn't revising.\nit's just reading.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c9624017",
+      "texte_overlay": "a whole semester doesn't fit in one night.\nstart TODAY.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e5294d13",
+      "texte_overlay": "quiz yourself right now. 5 questions.\nthen tell me you're \"basically ready\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4afa6b63",
+      "texte_overlay": "\"just one episode\" has never been one episode.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b4b63a78",
+      "texte_overlay": "the stress goes down once you start.\nnot before.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6ecacdd9",
+      "texte_overlay": "tomorrow-you will be so grateful.\ndo it for her.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

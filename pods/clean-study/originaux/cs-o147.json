@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o147",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8e0dd55c-4300-4b7c-8146-3dbb88fa75ce",
+  "titre": "my 3-day plan to study for a test without stressing the night before #studytok #studytips #exams",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "8e0dd55c-4300-4b7c-8146-3dbb88fa75ce"
+  ],
+  "notes": "Déclinaison G2 de 8e0dd55c (la famille de nos cs-o066 et cs-o108 : r 3,58 en espagnol d'Amérique latine), ligne 1 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o141 : « my 3-day plan to study for a test without stressing the night before ». Plan neuf, aucun geste de cs-o066, cs-o108 ni cs-o141 : jour 1 une fiche de questions par chapitre, jour 2 répondre aux questions sans notes (place micabo, slide 4), jour 2 au soir une carte mentale, jour 3 enseigner à quelqu'un, la veille relire les questions ratées seulement. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "e58c28a3",
+      "texte_overlay": "my 3-day plan to study for a test\nwithout stressing the night before",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "adf638df",
+      "texte_overlay": "day 1: i turn each chapter into a list of questions.\nwhat could the teacher ask?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "519dac63",
+      "texte_overlay": "day 1, evening: i check my questions against the book.\nnothing important missing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c2d52c87",
+      "texte_overlay": "day 2: i answer all my questions, notes closed.\nthe misses get a red dot.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2020a2b1",
+      "texte_overlay": "day 2, evening: one mind map per chapter.\nthe big picture on one page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "130692f7",
+      "texte_overlay": "day 3: i teach the red-dot parts to a friend or my mirror.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a82a9c69",
+      "texte_overlay": "the night before: just the red dots. then sleep.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

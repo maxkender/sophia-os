@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o146",
+  "type_bleo": "full_test",
+  "titre": "how i study for a test i'm genuinely scared of #studytok #studytips #exams",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« scared of » n'est pas une accroche du label). Accroches écrites : « how i study for a test i'm genuinely scared of » (retenue : une émotion vraie, un plan concret), « exam anxiety tips » (écartée : ton médical), « how i stopped being scared of tests » (écartée : promesse). Santé générale seulement, rien de médical : écrire ce qui fait peur, découper en petites parties, commencer tôt, se tester pour voir où on en est vraiment (place micabo, slide 5), demander de l'aide, se rappeler qu'un contrôle n'est pas toute une année. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "028e2262",
+      "texte_overlay": "how i study for a test\ni'm genuinely scared of",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "57f27934",
+      "texte_overlay": "i write down exactly what scares me.\n\"chapter 5\" is less scary than \"everything\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0209d79d",
+      "texte_overlay": "i cut it into tiny parts.\none part per day.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "db7c06b9",
+      "texte_overlay": "i start earlier than for any other test.\nfear shrinks with time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "e34cf1d4",
+      "texte_overlay": "i quiz myself to see where i really stand.\nusually it's better than i thought.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1405371e",
+      "texte_overlay": "the parts i still miss go to my teacher or a friend.\nbefore the test, not after.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ed351bcb",
+      "texte_overlay": "and i remind myself: one test is not my whole year.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

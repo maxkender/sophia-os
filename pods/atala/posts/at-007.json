@@ -1,0 +1,144 @@
+{
+ "id": "at-007",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "treadmill runs do and don’ts",
+  "fr": "courir sur tapis : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #treadmill #runningtips #girlswhorun #treadmillworkout",
+  "fr": "#courseapied #tapisdecourse #running #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Housewife",
+  "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
+ },
+ "notes": "Full test (accroche jamais faite chez nous). Format de leur tube : « courir l’hiver : / les do & don’ts » de @hannah.run5 (279 k vues, 31/10), style `objets` ; sujet voisin de saison (courir à l’intérieur quand il fait froid). Objets neufs : serviette, gourde, tapis, ventilateur, spray ; couverture : coureuse-profil-1. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta A` « an atala plan » / « un plan atala »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-1.png",
+   "en": {
+    "titre": "treadmill runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "courir sur tapis :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/serviette.png",
+    "atala",
+    "images/objets/gourde.png"
+   ],
+   "dont": [
+    "images/objets/pates.png",
+    "images/objets/tshirt-coton.png"
+   ],
+   "en": {
+    "titre": "before",
+    "do": [
+     "a small towel",
+     "an atala plan",
+     "a water bottle"
+    ],
+    "dont": [
+     "a big meal\nright before",
+     "a cotton tee"
+    ]
+   },
+   "fr": {
+    "titre": "avant",
+    "do": [
+     "une serviette",
+     "un plan atala",
+     "ta gourde"
+    ],
+    "dont": [
+     "un gros repas\njuste avant",
+     "un t-shirt\nen coton"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/tapis.png",
+    "images/objets/ecouteurs.png",
+    "images/objets/ventilateur.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "on the belt",
+    "do": [
+     "a 1% incline",
+     "a podcast or\na playlist",
+     "a fan"
+    ],
+    "dont": [
+     "eyes on\nyour phone",
+     "full speed\nfrom minute 1"
+    ]
+   },
+   "fr": {
+    "titre": "sur le tapis",
+    "do": [
+     "1 % de pente",
+     "un podcast ou\nune playlist",
+     "un ventilo"
+    ],
+    "dont": [
+     "les yeux\nsur ton tel",
+     "à fond dès\nla 1re minute"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/verre-eau.png",
+    "images/objets/rouleau.png",
+    "images/objets/spray.png"
+   ],
+   "dont": [
+    "images/objets/tenue.png",
+    "images/objets/montre.png"
+   ],
+   "en": {
+    "titre": "after",
+    "do": [
+     "a big glass\nof water",
+     "a foam roller",
+     "wipe down\nthe machine"
+    ],
+    "dont": [
+     "staying in\nsweaty kit",
+     "skipping\nthe cool-down"
+    ]
+   },
+   "fr": {
+    "titre": "après",
+    "do": [
+     "un grand\nverre d’eau",
+     "ton rouleau",
+     "essuie\nla machine"
+    ],
+    "dont": [
+     "rester\nen sueur",
+     "zapper\nla récup"
+    ]
+   }
+  }
+ ]
+}

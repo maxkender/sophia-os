@@ -1,0 +1,25 @@
+{
+  "name": "pod-biomechanic",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 24 — originaux au style de @thebiomechanic (« … Tierlist For Optimal Health (Science based) »), pour Atala, en anglais, avec les photos de la banque de l'OS : un tier « courir » avec une photo de course de la banque et le logo d'Atala.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
+    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts"
+  }
+}

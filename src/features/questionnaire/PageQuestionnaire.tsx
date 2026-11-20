@@ -169,8 +169,10 @@ export function PageQuestionnaire() {
           {ecran > SECTIONS.length && (
             <div className="space-y-2 py-6 text-center" data-testid="merci">
               <p className="text-4xl">🙏</p>
-              <h2 className="font-semibold text-xl">{t("ui.merci")}</h2>
-              {bonusLundi && <p className="font-medium text-sm" data-testid="merci-bonus">{t("ui.merci_bonus", { date: dateLundi(bonusLundi, langue) })}</p>}
+              {/* 20/11 (Max) : avec le bonus, son message seul (« Thanks! Your $5 bonus… »). */}
+              {bonusLundi
+                ? <h2 className="font-semibold text-lg" data-testid="merci-bonus">{t("ui.merci_bonus", { date: dateLundi(bonusLundi, langue) })}</h2>
+                : <h2 className="font-semibold text-xl">{t("ui.merci")}</h2>}
               <p className="text-muted-foreground text-sm">{t("ui.merci_texte")}</p>
             </div>
           )}

@@ -12,6 +12,7 @@
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 import { urlEmailSite } from "./site.ts";
+import { emailMessageFin, NE_PLUS_CONTACTER, nePlusContacterEmail } from "./stop.ts";
 
 export interface Message {
   to: string;
@@ -125,6 +126,11 @@ async function ecrire(db: Db, ligne: Record<string, unknown>) {
 export async function envoyerSuivi(m: Message, fetchFn: typeof fetch = fetch): Promise<ResultatEnvoi> {
   const db = journal();
   const base = { destinataire: m.to, objet: m.objet, html: m.html, texte: m.texte, desabonnement: m.stop, tags: m.tags };
+  // 0797 : un posteur arrêté ne reçoit plus que le message de fin.
+  if (db && !emailMessageFin(m.tags) && await nePlusContacterEmail(db, m.to)) {
+    await ecrire(db, { destinataire: m.to, objet: m.objet, tags: m.tags, statut: "refuse", erreur: NE_PLUS_CONTACTER, tentatives: 0 });
+    return { ok: false, erreur: NE_PLUS_CONTACTER };
+  }
   if (db && await brevoSansCredit(db)) {
     await ecrire(db, { ...base, statut: "en_file", erreur: "Brevo sans crédit", prochain_essai_at: new Date().toISOString() });
     return { ok: true, en_file: true, erreur: "en file : Brevo sans crédit" };

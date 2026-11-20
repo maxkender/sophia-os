@@ -9,7 +9,7 @@
  * le même pour tous les bots du workspace.
  */
 
-import { type MalgreStop, STOP_POSTEUR, stopDemande } from "./stop.ts";
+import { type MalgreStop, NE_PLUS_CONTACTER, nePlusContacter, permisApresArret, STOP_POSTEUR, stopDemande } from "./stop.ts";
 import { bloquer, PAUSE } from "./pause.ts";
 
 type Fetch = typeof fetch;
@@ -132,6 +132,8 @@ export async function ecrireAuPosteur(
   if (await dmSlackEnPause(supabase, posterId)) return { statut: "erreur", erreur: DM_SLACK_PAUSE };
   // 0684 : un posteur qui a dit STOP ne reçoit plus rien, sauf les exceptions nommées.
   if (!opts.malgreStop && await stopDemande(supabase, posterId)) return { statut: "erreur", erreur: STOP_POSTEUR };
+  // 0797 : un posteur arrêté (liste « ne plus contacter ») : plus rien, sauf le message de fin.
+  if (!permisApresArret(opts.malgreStop) && await nePlusContacter(supabase, posterId)) return { statut: "erreur", erreur: NE_PLUS_CONTACTER };
   const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");
   if (!ecriture) return { statut: "erreur", erreur: "SLACK_HM_BOT_TOKEN manquant" };
   try {

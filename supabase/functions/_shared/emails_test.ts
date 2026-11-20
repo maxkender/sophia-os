@@ -112,3 +112,18 @@ Deno.test("renvoi : le lien stop retrouvé dans le HTML, le texte brut", () => {
   assertEquals(lienStopDansHtml("<p>rien</p>"), null);
   assertEquals(texteDepuisHtml(html), "Hi Anna,\nGo: It's done: https://d.app/r/done?t=abc\nI do not wish to continue: https://d.app/r/stop?t=Zz_9-x");
 });
+
+Deno.test("0797 : un posteur arrêté ne reçoit plus d'email, sauf le message de fin", async () => {
+  const { db, lignes } = journalFactice();
+  const avecListe = { ...db, rpc: (_fn: string, a: { p_email: string }) => Promise.resolve({ data: a.p_email === "a@b.c", error: null }) };
+  _journalPourTests(avecListe);
+  let appels = 0;
+  const compte = (() => { appels++; return Promise.resolve(new Response(JSON.stringify({ ok: true, message_id: "<m>" }), { status: 200 })); }) as unknown as typeof fetch;
+  const r = await envoyerSuivi(M, compte);
+  assertEquals(r.ok, false);
+  assertEquals(appels, 0);
+  assertEquals(lignes[0].statut, "refuse");
+  const fin = await envoyerSuivi({ ...M, tags: ["fin_collaboration"] }, compte);
+  assertEquals(fin.ok, true);
+  assertEquals(appels, 1);
+});

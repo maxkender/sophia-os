@@ -8,6 +8,7 @@ import type { MonCompte } from "@/features/moteur/api";
 
 const mesComptes = vi.fn();
 const lireCohorteAccueil = vi.fn();
+const lireMesComptesGeles = vi.fn(async (): Promise<string[]> => []);
 
 vi.mock("@/features/auth/AuthContext", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/auth/AuthContext")>()),
@@ -21,6 +22,7 @@ vi.mock("@/features/moteur/api", async (importOriginal) => ({
 }));
 
 vi.mock("@/features/pods/VideosAPoster", () => ({ VideosAPoster: () => null }));
+vi.mock("@/features/moteur/gel", () => ({ lireMesComptesGeles: () => lireMesComptesGeles() }));
 vi.mock("@/features/onboarding/cinqEtapesApi", () => ({
   lireMaPremiereSemaine: async () => ({ cohorteLundi: null, slackLie: false }),
   lireMonWarmup: async () => null,
@@ -235,3 +237,42 @@ describe("prompt 15, point 6 : l'accueil du posteur", () => {
   });
 });
 
+describe("calendrier poster : application gelée (0793)", () => {
+  beforeEach(async () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-11-21T10:00:00Z"));
+    await i18n.changeLanguage("en");
+    lireCohorteAccueil.mockResolvedValue({ cohorteRuul: false, emailRuul: null });
+    postsMock.liste = [];
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    lireMesComptesGeles.mockResolvedValue([]);
+  });
+
+  const lance = { warmup_started_at: "2026-10-27T08:00:00Z", warmup_ends_at: "2026-11-01T23:00:00Z" };
+
+  it("compte gelé, warm-up fini, aucun post : le warm-up prolongé, la consigne et la paie", async () => {
+    mesComptes.mockResolvedValue([compte(lance)]);
+    lireMesComptesGeles.mockResolvedValue(["c1"]);
+    afficher();
+
+    expect(await screen.findByText("Warm-up extended: no posts to publish for now")).toBeInTheDocument();
+    const bloc = screen.getByTestId("warmup-prolonge");
+    expect(bloc).toHaveTextContent("follow accounts in your niche");
+    expect(bloc).toHaveTextContent("Never post, and keep your old posts.");
+    expect(bloc).toHaveTextContent("Your pay does not change.");
+  });
+
+  it("compte pas gelé : le jour vide d'avant, sans warm-up prolongé", async () => {
+    mesComptes.mockResolvedValue([compte(lance)]);
+    afficher();
+
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(screen.queryByTestId("warmup-prolonge")).not.toBeInTheDocument();
+    expect(screen.queryByText("Warm-up extended: no posts to publish for now")).not.toBeInTheDocument();
+  });
+});

@@ -48,6 +48,8 @@ import { WarmupBadge } from "@/features/moteur/WarmupBadge";
 import { BandeauRecreation } from "@/features/ckd/recreation/BandeauRecreation";
 import { VideosAPoster } from "@/features/pods/VideosAPoster";
 import { statutWarmup } from "@/features/moteur/warmup";
+import { lireMesComptesGeles } from "@/features/moteur/gel";
+import { useMaNiche } from "@/features/onboarding/maNiche";
 import { calendrierWarmup, lundiApres, premierJourPosts } from "@/features/moteur/premiersPosts";
 import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
@@ -302,6 +304,13 @@ export function PosterCalendrierPage() {
   const estCm = compte ? estCompteCm(compte) : false;
   // Compte UGC vidéo (pod 3) : une vidéo par jour, aucun slideshow à afficher.
   const ugc = Boolean(compte?.videos_uniquement);
+
+  // 0793 : l'application du compte est gelée (pas encore lancée). Il ne reçoit
+  // aucun post : on le dit, avec la consigne du warm-up, plutôt qu'un jour vide.
+  // Ici, avant tout retour anticipé : ce sont des hooks.
+  const geles = useQuery({ queryKey: ["mes-comptes-geles"], queryFn: lireMesComptesGeles, staleTime: 5 * 60_000 });
+  const gele = Boolean(compte && !estCm && !ugc && geles.data?.includes(compte.id));
+  const nicheGel = useMaNiche(compte?.id, gele);
   // Cohorte Ruul (venus du site) : leurs dates en clair, et Slack toujours à portée.
   const maSemaine = useQuery({ queryKey: ["ma-premiere-semaine"], queryFn: lireMaPremiereSemaine, staleTime: 5 * 60_000 });
   const cohorte = useQuery({
@@ -435,7 +444,17 @@ export function PosterCalendrierPage() {
       {!ugc && (
       <section className="space-y-4">
         <h2 className="text-lg font-semibold tracking-tight">{titreJour}</h2>
-        {duJour.length === 0 ? (
+        {duJour.length === 0 && gele ? (
+          <div data-testid="warmup-prolonge">
+            <EmptyState
+              icon={<CalendarCheck className="size-5" />}
+              title={t("calendrier.gelTitre")}
+              description={
+                nicheGel ? t("calendrier.gelAide", { niche: nicheGel }) : t("calendrier.gelAideSansNiche")
+              }
+            />
+          </div>
+        ) : duJour.length === 0 ? (
           <EmptyState
             icon={<CalendarCheck className="size-5" />}
             title={

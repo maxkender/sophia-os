@@ -267,6 +267,31 @@ par le moteur (`stats_choix_application`) et par la page
 (`lireApplicationsEnPreparation`, `candidates.ts`) : les deux ne peuvent pas se
 contredire.
 
+### Geler le lancement (0793, 20/11)
+
+Quand une application a déjà des comptes mais qu'on ne veut encore aucun post
+(Atala, coupée le 20/11 à 16 h 26 jusqu'au « go » de l'admin), on la **gèle**.
+Un gel n'est pas « application inactive » : une application arrêtée (UnSwipe)
+est inactive aussi, et ses comptes ne doivent pas être payés à ne rien faire.
+
+- **Geler** : `select public.application_geler('atala', 'pourquoi');`. La
+  fonction coupe l'application et ouvre une ligne dans `applications_gels`.
+- **Le « go »** : rallumer l'application (Labels & applications →
+  Applications). Le gel se ferme tout seul. Les posts partent au tirage
+  suivant : go avant 14 h, posts le lendemain ; après 14 h, relancer le tirage.
+- **Pendant le gel**, pour un compte dont le warm-up est fini (`compte_gele`) :
+  - aucun post, et aucune date de warm-up ne bouge (cohortes, lundi, financement
+    de la semaine suivante : comme d'habitude) ;
+  - **la paie ne change pas** : une semaine gelée sans aucun post assigné est
+    payée au tarif (« Application pas encore lancée : semaine payée »). Avec des
+    posts assignés dans la semaine, la règle habituelle s'applique ;
+  - son dashboard affiche « Warm-up extended » avec la consigne de sa niche ;
+  - le message du lundi 20 h et le contrôle « compte actif sans post » ne le
+    voient pas ; le bot support sait qu'il est en warm-up prolongé, payé.
+- Une recrue encore en warm-up suit son circuit normal : lancement par le
+  posteur, fin le lundi. Elle devient « gelée » ce lundi-là si l'application
+  l'est encore.
+
 ## 7. Atala : où on en est (19/11)
 
 Fait :

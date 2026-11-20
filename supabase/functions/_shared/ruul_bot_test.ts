@@ -29,6 +29,7 @@ Deno.test("Je veux Upwork : pays refusé → exception ; 1re demande → répons
 Deno.test("réponses aux cas connus et actions automatiques", () => {
   const base = { email: "ana@example.com", refusIdentite: 0, demandesAvant: 0 };
   assert(reponseCasRuul("code", { ...base, message: "" }).texte.includes("ana@example.com"));
+  assert(reponseCasRuul("code", { ...base, email: null, message: "" }).texte.endsWith("use your application email."));
   const e = reponseCasRuul("autre_email", { ...base, message: "my ruul account is Ana.Old@Mail.com" });
   assertEquals(e.action, { type: "email_ruul", valeur: "ana.old@mail.com" });
   assertEquals(reponseCasRuul("autre_email", { ...base, message: "other email" }).action, null);

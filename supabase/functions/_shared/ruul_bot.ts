@@ -18,7 +18,7 @@ export const TEXTES_RUUL = {
   etape_inscrit: "sign up on app.ruul.io with {email}",
   etape_identite: "verify your identity on app.ruul.io",
   etape_banque: "add your bank account on app.ruul.io",
-  code: "The code is sent by Ruul, not by us. On app.ruul.io, click \"Resend code\", check your spam folder, and use your application email: {email}.",
+  code: "The code is sent by Ruul, not by us. On app.ruul.io, click \"Resend code\", check your spam folder, and use your application email{email}.",
   autre_email: "No problem. Reply here with the email of your existing Ruul account: we'll update it on our side and Ruul will send you a new invitation.",
   autre_email_fait: "Done: we've updated your Ruul email to {email}. You'll receive a new invitation from Ruul at this address.",
   nom: "Ruul needs the exact name on your ID. Reply here with your first and last name exactly as written on your ID, and we'll update it on our side.",
@@ -103,7 +103,7 @@ export interface ReponseRuul {
 export function reponseCasRuul(cas: CasRuul, o: { message: string; email: string | null; refusIdentite: number; demandesAvant: number; nomPropose?: string | null }): ReponseRuul {
   switch (cas) {
     case "code":
-      return { texte: TEXTES_RUUL.code.replace("{email}", o.email ?? "the email you applied with"), upwork: false, action: null };
+      return { texte: TEXTES_RUUL.code.replace("{email}", o.email ? `: ${o.email}` : ""), upwork: false, action: null };
     case "autre_email": {
       const email = emailDansMessage(o.message);
       return email

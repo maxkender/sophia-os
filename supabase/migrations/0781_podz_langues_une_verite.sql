@@ -41,6 +41,9 @@
 -- migration : `langues_pretes` part de `langues` (la liste de l'atelier, telle
 -- qu'il l'a réécrite ce matin).
 --
+-- ✅ Appliquée le 2026-11-20 (MCP), après un essai complet dans une transaction
+-- annulée (ouvrir, fermer, refus, deux podz sur un label, soupape à blanc).
+--
 -- Retour arrière : réappliquer `bleo_ouvrir_langues_podz` de 0722 et
 -- `pod_langues` de 0654 ; `drop function public.podz_langue(text, text, text,
 -- text, jsonb)` ; les colonnes peuvent rester. Et redéployer la fonction `pods`

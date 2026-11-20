@@ -13,6 +13,7 @@ import { semaineAPayer } from "./logique";
 import { ListeAFinancer } from "./api-upwork/ListeAFinancer";
 import { PaiementsManuels } from "./api-upwork/PaiementsManuels";
 import { RattrapagePaie } from "./api-upwork/RattrapagePaie";
+import { BonusQuestionnairePaie } from "@/features/questionnaire/BonusQuestionnairePaie";
 import { ReglagesPaiementApi } from "./api-upwork/ReglagesPaiementApi";
 import { ReglagesPaie } from "./ReglagesPaie";
 import { ZonesPaie } from "@/features/reglagesOs/ZonesPaie";
@@ -104,6 +105,8 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
           </div>
 
           {!simulation && <RattrapagePaie />}
+          {/* 20/11 (Max) : les bonus du questionnaire « top posters ». */}
+          {!simulation && <BonusQuestionnairePaie />}
           {!simulation && <PaiementsManuels />}
           {!simulation && <ListeAFinancer />}
 

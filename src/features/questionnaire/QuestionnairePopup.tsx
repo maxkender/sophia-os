@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogFooter, DialogHeader, DialogPanel, DialogPopup, DialogTitle } from "@/components/ui/dialog";
 import { useAuth } from "@/features/auth/AuthContext";
 
-import { fermerPopup, lienQuestionnaire, lireMonPopup } from "./api";
+import { fermerPopup, lienQuestionnaire, lireMonPopup, type MonPopup } from "./api";
+import { useTextes } from "./textes";
 
 /**
- * 15/11 (Max) : le pop-up du questionnaire, seulement pour les posteurs que Max a choisis. Il disparaît quand
- * le posteur a répondu ou a cliqué « Later ». Rien pour les autres.
+ * 15/11 (Max) : le pop-up du questionnaire, seulement pour les posteurs choisis. Il disparaît quand le posteur a
+ * répondu. 20/11 (Max) : dans la langue de son compte, avec le bonus de 5 $ en titre ; « Later » le cache jusqu'à
+ * la connexion suivante, 3 fois au plus.
  */
 export function QuestionnairePopup() {
   const { roleReel } = useAuth();
@@ -18,34 +20,36 @@ export function QuestionnairePopup() {
 }
 
 function Popup() {
-  const qc = useQueryClient();
   const q = useQuery({ queryKey: ["questionnaire-popup"], queryFn: lireMonPopup, refetchInterval: 15 * 60_000 });
+  if (!q.data) return null;
+  return <Contenu p={q.data} />;
+}
+
+function Contenu({ p }: { p: MonPopup }) {
+  const qc = useQueryClient();
   const [ferme, setFerme] = React.useState(false);
-  if (!q.data || ferme) return null;
-  const { slug } = q.data;
+  const { t, dir, chargement } = useTextes(p.slug, p.langue);
+  if (ferme || chargement) return null;
   const plusTard = () => {
     setFerme(true);
-    void fermerPopup(slug, false).finally(() => qc.invalidateQueries({ queryKey: ["questionnaire-popup"] }));
+    void fermerPopup(p.slug, false).finally(() => qc.invalidateQueries({ queryKey: ["questionnaire-popup"] }));
   };
   return (
     <Dialog open onOpenChange={(o) => !o && plusTard()}>
-      <DialogPopup data-testid="questionnaire-popup">
+      <DialogPopup data-testid="questionnaire-popup" dir={dir}>
         <DialogHeader>
-          <DialogTitle>5 minutes to help us?</DialogTitle>
+          <DialogTitle>{t("ui.popup_titre")}</DialogTitle>
         </DialogHeader>
         <DialogPanel>
-          <p className="text-sm leading-relaxed">
-            We'd like to understand what you do on your account, so we can help everyone do as well. It takes about 5 minutes and your
-            answers stay private.
-          </p>
+          <p className="text-sm leading-relaxed">{t("ui.popup_texte")}</p>
         </DialogPanel>
         <DialogFooter>
-          <Button variant="outline" onClick={plusTard}>Later</Button>
+          <Button variant="outline" onClick={plusTard}>{t("ui.popup_plus_tard")}</Button>
           <Button
-            render={<a href={lienQuestionnaire(slug)} target="_blank" rel="noreferrer" />}
-            onClick={() => { setFerme(true); void fermerPopup(slug, true); }}
+            render={<a href={lienQuestionnaire(p.slug, undefined, p.langue)} target="_blank" rel="noreferrer" />}
+            onClick={() => { setFerme(true); void fermerPopup(p.slug, true); }}
           >
-            Answer the questions
+            {t("ui.popup_repondre")}
           </Button>
         </DialogFooter>
       </DialogPopup>

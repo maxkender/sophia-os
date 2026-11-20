@@ -49,6 +49,8 @@ const MOTIFS: RegExp[] = [
   /@[A-Za-z0-9._]{2,}/g,
   /\$\s?\d+(?:[.,]\d+)?|\d+(?:[.,]\d+)?\s?\$/g,
   /«[^»\n]{1,60}»/g,
+  // 20/11 : les variables des textes d'écran ({date}, {n}…).
+  /\{[a-z_]{1,20}\}/g,
 ];
 
 const REPERE = /\[\[(\d+)\]\]/g;

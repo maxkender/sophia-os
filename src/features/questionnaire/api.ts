@@ -32,11 +32,17 @@ async function appeler<T>(corps: Record<string, unknown>): Promise<T> {
   return data;
 }
 
-export function sauverReponses(slug: string, jeton: string, b: Brouillon, termine = false): Promise<{ ok: true }> {
+/** 20/11 : `bonus_lundi` : le lundi où le bonus est ajouté à la paie (questionnaire terminé, posteur ciblé). */
+export function sauverReponses(slug: string, jeton: string, b: Brouillon, termine = false, langue = "en"): Promise<{ ok: true; bonus_lundi?: string | null }> {
   return appeler({
-    action: "sauver", slug, jeton, nom: b.identite.nom, email: b.identite.email, tiktok: b.identite.tiktok,
+    action: "sauver", slug, jeton, nom: b.identite.nom, email: b.identite.email, tiktok: b.identite.tiktok, langue,
     reponses: b.reponses, captures: b.captures, section: b.ecran, termine,
   });
+}
+
+/** 20/11 : les textes du questionnaire et du pop-up dans une langue (anglais si inconnue ou si la traduction échoue). */
+export function lireTextes(slug: string, langue: string): Promise<{ langue: string; textes: Record<string, string> }> {
+  return appeler({ action: "textes", slug, langue });
 }
 
 /** Une capture : lien d'envoi signé (serveur), puis envoi direct dans l'espace privé. */
@@ -111,6 +117,10 @@ export interface LigneReponse {
   termine_at: string | null;
   maj_at: string;
   os: DonneesOs | null;
+  /** 20/11 : la langue du formulaire, les réponses écrites traduites en français, le bonus. */
+  langue?: string | null;
+  reponses_fr?: Record<string, string> | null;
+  bonus?: { lundi: string; statut: string; canal: string; montant: number } | null;
 }
 
 export async function lireReponsesAdmin(slug: string): Promise<LigneReponse[]> {
@@ -149,10 +159,19 @@ export async function lienCapture(chemin: string): Promise<string | null> {
 
 // --- Pop-up posteur ----------------------------------------------------------------------------------
 
-export async function lireMonPopup(): Promise<{ slug: string; titre: string } | null> {
+export interface MonPopup {
+  slug: string;
+  titre: string;
+  bonus?: number;
+  /** 20/11 : la langue de son compte (le pop-up et le questionnaire s'affichent dedans). */
+  langue?: string;
+  plus_tard_restants?: number;
+}
+
+export async function lireMonPopup(): Promise<MonPopup | null> {
   const { data, error } = await supabase.rpc("questionnaire_popup_mien");
   if (error) throw new Error(error.message);
-  return (data ?? null) as { slug: string; titre: string } | null;
+  return (data ?? null) as MonPopup | null;
 }
 
 export async function fermerPopup(slug: string, ouvert: boolean): Promise<void> {
@@ -160,5 +179,52 @@ export async function fermerPopup(slug: string, ouvert: boolean): Promise<void> 
   if (error) throw new Error(error.message);
 }
 
-export const lienQuestionnaire = (slug: string, origine = typeof window !== "undefined" ? window.location.origin : "") =>
-  `${origine}/questionnaire/${slug}`;
+export const lienQuestionnaire = (slug: string, origine = typeof window !== "undefined" ? window.location.origin : "", langue?: string) =>
+  `${origine}/questionnaire/${slug}${langue && langue !== "en" ? `?lang=${encodeURIComponent(langue)}` : ""}`;
+
+// --- 20/11 : les cibles (star + 30 meilleurs sur 14 jours) et le bonus ---------------------------------
+
+export interface Cible {
+  poster_id: string;
+  nom: string;
+  canal_paie: string;
+  langue: string;
+  star: boolean;
+  rang: number | null;
+  vues_mediane: number | null;
+  pct_viraux: number | null;
+  posts: number | null;
+  popup: "envoye" | "repondu" | "plus_tard_3" | null;
+}
+
+export async function lireCibles(slug: string): Promise<Cible[]> {
+  const { data, error } = await supabase.rpc("questionnaire_cibles", { p_slug: slug });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as Cible[];
+}
+
+/** Le pop-up aux cibles qui ne l'ont pas encore (au clic de Max seulement). */
+export async function envoyerCibles(slug: string): Promise<number> {
+  const { data, error } = await supabase.rpc("questionnaire_cibles_envoyer", { p_slug: slug });
+  if (error) throw new Error(error.message);
+  return Number((data as { envoyes?: number } | null)?.envoyes ?? 0);
+}
+
+export interface BonusQuestionnaire {
+  id: string;
+  poster_id: string;
+  nom: string;
+  canal_paie: "upwork" | "ruul";
+  lundi: string;
+  montant: number;
+  statut: "a_valider" | "a_payer" | "paye" | "retire";
+  envoi_at: string | null;
+  paye_at: string | null;
+  erreur: string | null;
+}
+
+export async function lireBonusQuestionnaire(): Promise<BonusQuestionnaire[]> {
+  const { data, error } = await supabase.rpc("questionnaire_bonus_lire");
+  if (error) throw new Error(error.message);
+  return ((data ?? []) as BonusQuestionnaire[]).map((b) => ({ ...b, montant: Number(b.montant) }));
+}

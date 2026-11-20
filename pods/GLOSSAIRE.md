@@ -45,8 +45,10 @@ Un seul geste, pour tout le monde, noté dans le journal
 - **Claude** (une session avec la base) :
   `select public.podz_langue('remakes_kaja', 'ro', 'ouvrir');` ou `'fermer'`.
   Seulement à la demande d'Adrien ou de Max.
-- **La soupape** de nuit (0722) : une langue de plus quand toutes celles du
-  podz ont un compte et que le label tient.
+- **La soupape** (0722, 0784) : le dimanche à 20 h, jusqu'à 3 langues de
+  plus par podz selon sa performance (lissée : 1,00 et plus, 3 langues ; 0,75,
+  2 ; 0,50, 1 ; rien avant 5 posts mesurés), réparties entre les podz pour
+  qu'ils ne se disputent pas les mêmes comptes.
 - **L'atelier** : ajouter une langue à `LANGUES` l'ouvre. En retirer une ne la
   ferme pas.
 

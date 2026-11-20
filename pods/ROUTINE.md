@@ -306,8 +306,8 @@ toute seule quand ses langues sont validées.
   seul (il dit ce qu'il laisse de côté). La langue source part toujours avec
   un post neuf.
 - **La liste des langues ouvertes est dans l'OS** (`pods.langues`, depuis le
-  20/11, 0781), plus dans ton atelier. Adrien, Max ou la soupape de nuit en
-  ouvrent ; l'attribution des comptes la lit : une langue ouverte peut
+  20/11, 0781), plus dans ton atelier. Adrien, Max ou la soupape (le dimanche soir, jusqu'à trois
+  langues d'un coup) en ouvrent ; l'attribution des comptes la lit : une langue ouverte peut
   recevoir des comptes de ton label, même sans post encore.
 - **`LANGUES` (`atelier/api.ts`) dit ce que ton atelier sait produire**
   (polices, captures de l'appli, vraies vidéos natives). L'OS la note à

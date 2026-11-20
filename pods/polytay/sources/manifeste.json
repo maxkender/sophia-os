@@ -1,0 +1,402 @@
+{
+ "comptes": [
+  "polytay"
+ ],
+ "maj_le": "2026-11-20",
+ "note": "Ses 30 diaporamas les plus vus sur 100 relevés (Apify, 20/11 ; 184 posts au total), du plus vu au moins vu. `accroche` (le titre de sa couverture) : lue sur ses slides pour les 3 premiers ; pour les autres, la légende dit le sujet, lis le titre sur la planche de `npm run veille`. Ses familles : « impossible to bore » (hobbies, habitudes), les ressources gratuites (chaînes YouTube « free university », podcasts, cours, livres), « things that made me smarter ». Son 3e (« psychology effects », 252 k) est une pub pour Mochivia, une appli d'apprentissage concurrente : jamais chez nous. C'est la PREUVE de tes originaux : une famille d'accroche qui a marché chez elle, avec nos éléments, nos textes et les photos de la banque.",
+ "posts": [
+  {
+   "id": "7690230388173573407",
+   "url": "https://www.tiktok.com/@polytay/photo/7690230388173573407",
+   "publie_le": "2026-09-27",
+   "vues": 478500,
+   "enregistrements": 38182,
+   "slides": 6,
+   "legende": "the goal is being impossible to bore. steal one & start this week <3 #selfimprovement #girlblogger #booktok #learning",
+   "musique": {
+    "titre": "use your inner eyes x i was all over her",
+    "id": "7409401948849457953"
+   },
+   "accroche": "hobbies that make you impossible to bore"
+  },
+  {
+   "id": "7689488208761015583",
+   "url": "https://www.tiktok.com/@polytay/photo/7689488208761015583",
+   "publie_le": "2026-09-25",
+   "vues": 393600,
+   "enregistrements": 52590,
+   "slides": 6,
+   "legende": "the four channels that taught me more than any lecture hall. save the whole degree #youtube #videoessay #girlblogger #learning",
+   "musique": {
+    "titre": "original sound",
+    "id": "7428338324530285358"
+   },
+   "accroche": "youtube channels that are basically free university"
+  },
+  {
+   "id": "7708272968048086303",
+   "url": "https://www.tiktok.com/@polytay/photo/7708272968048086303",
+   "publie_le": "2026-11-15",
+   "vues": 252100,
+   "enregistrements": 6870,
+   "slides": 6,
+   "legende": "@mochivia.app | Learn the psychology #psychology #socialpsychology #learnontiktok #rabbithole #selfimprovement",
+   "musique": {
+    "titre": "Tate McRae HOUSEWIFE gravagerz Remix",
+    "id": "7698813126124260099"
+   },
+   "accroche": "psychology effects i notice in everyone now (UGC de Mochivia : jamais chez nous)"
+  },
+  {
+   "id": "7703063772646083871",
+   "url": "https://www.tiktok.com/@polytay/photo/7703063772646083871",
+   "publie_le": "2026-11-01",
+   "vues": 162400,
+   "enregistrements": 20386,
+   "slides": 7,
+   "legende": "five resources for the girl who wants to actually sound like she reads everything <3 #booktok #wellread #girlblogger #romanticizeyourlife #learnwithme",
+   "musique": {
+    "titre": "original sound",
+    "id": "7600125086699391774"
+   }
+  },
+  {
+   "id": "7701208177773169950",
+   "url": "https://www.tiktok.com/@polytay/photo/7701208177773169950",
+   "publie_le": "2026-10-27",
+   "vues": 108500,
+   "enregistrements": 8732,
+   "slides": 7,
+   "legende": "being impossible to bore is just five small habits stacked. save the one you'll actually start <3 #selfimprovement #girlblogger #learning #thatgirl",
+   "musique": {
+    "titre": "Solace",
+    "id": "7629352188019509265"
+   }
+  },
+  {
+   "id": "7703976343582641439",
+   "url": "https://www.tiktok.com/@polytay/photo/7703976343582641439",
+   "publie_le": "2026-11-03",
+   "vues": 79400,
+   "enregistrements": 10257,
+   "slides": 6,
+   "legende": "four free classes for the walk home. save these before your next commute <3 #podcastrecommendations #learning #girlblogger #studytok",
+   "musique": {
+    "titre": "bleu de nuit",
+    "id": "7617883902271457297"
+   }
+  },
+  {
+   "id": "7688869715300683038",
+   "url": "https://www.tiktok.com/@polytay/photo/7688869715300683038",
+   "publie_le": "2026-09-23",
+   "vues": 48700,
+   "enregistrements": 3511,
+   "slides": 6,
+   "legende": "four books i still think about constantly. save this <3 #booktok #girlblogger #readingera #books",
+   "musique": {
+    "titre": "life is moving",
+    "id": "7537780321103005713"
+   }
+  },
+  {
+   "id": "7700837155907685662",
+   "url": "https://www.tiktok.com/@polytay/photo/7700837155907685662",
+   "publie_le": "2026-10-26",
+   "vues": 42500,
+   "enregistrements": 4788,
+   "slides": 7,
+   "legende": "the five channels i'd hand a freshman in place of a tuition bill. save the entire degree #youtube #videoessay #learning #selfeducation #girlblogger",
+   "musique": {
+    "titre": "One Perfect Night",
+    "id": "7685367409411033142"
+   }
+  },
+  {
+   "id": "7709913867928816926",
+   "url": "https://www.tiktok.com/@polytay/photo/7709913867928816926",
+   "publie_le": "2026-11-19",
+   "vues": 29900,
+   "enregistrements": 4581,
+   "slides": 6,
+   "legende": "psych lectures on monday, one painting on tuesday, a trend essay on wednesday, a money talk on thursday. all free on youtube <3 #youtubeuniversity #selfeducation #videoessay #learnontiktok #smartgirlies",
+   "musique": {
+    "titre": "Float in a Waking Dream",
+    "id": "7699850974151755812"
+   }
+  },
+  {
+   "id": "7707069532485061901",
+   "url": "https://www.tiktok.com/@polytay/photo/7707069532485061901",
+   "publie_le": "2026-11-12",
+   "vues": 28700,
+   "enregistrements": 3104,
+   "slides": 7,
+   "legende": "art history, culture studies, game theory and the one on love school skipped. all free <3 #youtubeuniversity #learnontiktok #girlblogger #selfeducation",
+   "musique": {
+    "titre": "What You Need (Instrumental)",
+    "id": "6867284208658679809"
+   }
+  },
+  {
+   "id": "7703605029059464479",
+   "url": "https://www.tiktok.com/@polytay/photo/7703605029059464479",
+   "publie_le": "2026-11-02",
+   "vues": 28500,
+   "enregistrements": 1902,
+   "slides": 7,
+   "legende": "five hobbies for a brain that never runs out of things to do. pick one for this weekend <3 #selfimprovement #girlblogger #booktok #hobbies",
+   "musique": {
+    "titre": "original sound",
+    "id": "7682487921642900237"
+   }
+  },
+  {
+   "id": "7690972518445878559",
+   "url": "https://www.tiktok.com/@polytay/photo/7690972518445878559",
+   "publie_le": "2026-09-29",
+   "vues": 26600,
+   "enregistrements": 2657,
+   "slides": 6,
+   "legende": "genuinely taught me more than most lectures did <3 save these for the walk #podcasts #learning #girlblogger #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "id": "7428338324530285358"
+   }
+  },
+  {
+   "id": "7692827988584336671",
+   "url": "https://www.tiktok.com/@polytay/photo/7692827988584336671",
+   "publie_le": "2026-10-04",
+   "vues": 25900,
+   "enregistrements": 2132,
+   "slides": 7,
+   "legende": "the list for a bored brain <3 save it for the next slow afternoon #topicstoresearch #studytok #girlblogger #learnontiktok",
+   "musique": {
+    "titre": "life is moving",
+    "id": "7537780321103005713"
+   }
+  },
+  {
+   "id": "7703342102264040734",
+   "url": "https://www.tiktok.com/@polytay/photo/7703342102264040734",
+   "publie_le": "2026-11-01",
+   "vues": 23900,
+   "enregistrements": 2229,
+   "slides": 7,
+   "legende": "none of these cost anything and most teach better than the lectures they replace. save it, start with whichever name you don't know yet <3 #youtube #freeeducation #videoessay #selfeducation #girlblogger",
+   "musique": {
+    "titre": "original sound",
+    "id": "7694742808900487949"
+   }
+  },
+  {
+   "id": "7691343681613352223",
+   "url": "https://www.tiktok.com/@polytay/photo/7691343681613352223",
+   "publie_le": "2026-09-30",
+   "vues": 22600,
+   "enregistrements": 1726,
+   "slides": 7,
+   "legende": "for the girl who wants to finish the things she saves <3 #booktok #girlblogger #wellread #romanticizeyourlife",
+   "musique": {
+    "titre": "оригинальный звук",
+    "id": "7681024194470234887"
+   }
+  },
+  {
+   "id": "7706047862534180127",
+   "url": "https://www.tiktok.com/@polytay/photo/7706047862534180127",
+   "publie_le": "2026-11-09",
+   "vues": 17900,
+   "enregistrements": 857,
+   "slides": 7,
+   "legende": "a pen, one odd subject, a director talking over a film, a month of pasta and november's sky. start with the closest one <3 #hobbies #girlblogger #learning #criterion #stargazing",
+   "musique": {
+    "titre": "the american dawn",
+    "id": "7423045556513703952"
+   }
+  },
+  {
+   "id": "7688003946354445599",
+   "url": "https://www.tiktok.com/@polytay/photo/7688003946354445599",
+   "publie_le": "2026-09-21",
+   "vues": 16000,
+   "enregistrements": 1460,
+   "slides": 6,
+   "legende": "the free syllabus nobody handed you <3 save this one #youtube #videoessay #learning #girlblogger",
+   "musique": {
+    "titre": "original sound",
+    "id": "7657342479188773662"
+   }
+  },
+  {
+   "id": "7691560033229868319",
+   "url": "https://www.tiktok.com/@polytay/photo/7691560033229868319",
+   "publie_le": "2026-10-01",
+   "vues": 15800,
+   "enregistrements": 734,
+   "slides": 6,
+   "legende": "the goal is getting your brain back. steal one & start this week <3 #selfimprovement #girlblogger #booktok #learning",
+   "musique": {
+    "titre": "Contemplation",
+    "id": "6834268077673154561"
+   }
+  },
+  {
+   "id": "7691096259138014495",
+   "url": "https://www.tiktok.com/@polytay/photo/7691096259138014495",
+   "publie_le": "2026-09-29",
+   "vues": 15800,
+   "enregistrements": 501,
+   "slides": 6,
+   "legende": "little things that made me better at conversation <3 #girlblogger #selfimprovement #socialskills #thatgirl",
+   "musique": {
+    "titre": "original sound",
+    "id": "7655543590017305374"
+   }
+  },
+  {
+   "id": "7705585154860829982",
+   "url": "https://www.tiktok.com/@polytay/photo/7705585154860829982",
+   "publie_le": "2026-11-08",
+   "vues": 14700,
+   "enregistrements": 1282,
+   "slides": 7,
+   "legende": "five things to put in your week so you always have something new to talk about <3 #studytok #girlblogger #selfimprovement #learnontiktok",
+   "musique": {
+    "titre": "original sound",
+    "id": "7041742373038066478"
+   }
+  },
+  {
+   "id": "7689859204357606686",
+   "url": "https://www.tiktok.com/@polytay/photo/7689859204357606686",
+   "publie_le": "2026-09-26",
+   "vues": 13900,
+   "enregistrements": 1070,
+   "slides": 6,
+   "legende": "podcasts that genuinely made me smarter. saving these for the next slow morning <3 #podcasttok #girlblogger #podcastrecs #learning #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "id": "7600125086699391774"
+   }
+  },
+  {
+   "id": "7703821329388014879",
+   "url": "https://www.tiktok.com/@polytay/photo/7703821329388014879",
+   "publie_le": "2026-11-03",
+   "vues": 13500,
+   "enregistrements": 1421,
+   "slides": 7,
+   "legende": "five free channels that cover what a personal finance class would, from rent and debt to index funds. a good one to save for payday <3 #personalfinance #moneytok #youtube #financialliteracy #selfeducation",
+   "musique": {
+    "titre": "Small Change",
+    "id": "7363428255024941072"
+   }
+  },
+  {
+   "id": "7691931152323595551",
+   "url": "https://www.tiktok.com/@polytay/photo/7691931152323595551",
+   "publie_le": "2026-10-02",
+   "vues": 12400,
+   "enregistrements": 557,
+   "slides": 6,
+   "legende": "the goal is thoughts that are actually your own. pick one & start it today <3 #selfimprovement #girlblogger #booktok #learning",
+   "musique": {
+    "titre": "original sound",
+    "id": "7622856097942637326"
+   }
+  },
+  {
+   "id": "7688375338220440862",
+   "url": "https://www.tiktok.com/@polytay/photo/7688375338220440862",
+   "publie_le": "2026-09-22",
+   "vues": 11500,
+   "enregistrements": 656,
+   "slides": 6,
+   "legende": "everything a library card unlocks, minus the card <3 sending this to the group chat #freeresources #learning #studytok #girlblogger",
+   "musique": {
+    "titre": "original sound",
+    "id": "7272067286709619489"
+   }
+  },
+  {
+   "id": "7691715172410363166",
+   "url": "https://www.tiktok.com/@polytay/photo/7691715172410363166",
+   "publie_le": "2026-10-01",
+   "vues": 10400,
+   "enregistrements": 544,
+   "slides": 7,
+   "legende": "small things that made me smarter without trying that hard <3 #selfimprovement #thatgirl #girlblogger #learning",
+   "musique": {
+    "titre": "use your inner eyes x i was all over her",
+    "id": "7409401948849457953"
+   }
+  },
+  {
+   "id": "7688746017960807710",
+   "url": "https://www.tiktok.com/@polytay/photo/7688746017960807710",
+   "publie_le": "2026-09-23",
+   "vues": 10300,
+   "enregistrements": 721,
+   "slides": 6,
+   "legende": "the resources that taught me more than my degree ever did. save this <3 #studytok #girlblogger #learnontiktok #selfimprovement",
+   "musique": {
+    "titre": "Blade Runner 2049",
+    "id": "6839324086548563969"
+   }
+  },
+  {
+   "id": "7709017702341315853",
+   "url": "https://www.tiktok.com/@polytay/photo/7709017702341315853",
+   "publie_le": "2026-11-17",
+   "vues": 10200,
+   "enregistrements": 1313,
+   "slides": 7,
+   "legende": "myth, art history, psychology, food history and maths. five classes, all free on youtube <3 #youtubeuniversity #learnontiktok #selfeducation #girlblogger",
+   "musique": {
+    "titre": "Whispers in the Wind",
+    "id": "7708697671434864690"
+   }
+  },
+  {
+   "id": "7708056483933457694",
+   "url": "https://www.tiktok.com/@polytay/photo/7708056483933457694",
+   "publie_le": "2026-11-14",
+   "vues": 10100,
+   "enregistrements": 372,
+   "slides": 7,
+   "legende": "five small ones, all doable this week. start with sunday's documentary <3 #selfimprovement #girlblogger #habits #learning #becomingher",
+   "musique": {
+    "titre": "Nicole Kidman (Instrumental)",
+    "id": "7695627831099033652"
+   }
+  },
+  {
+   "id": "7708802551746940191",
+   "url": "https://www.tiktok.com/@polytay/photo/7708802551746940191",
+   "publie_le": "2026-11-16",
+   "vues": 9284,
+   "enregistrements": 513,
+   "slides": 7,
+   "legende": "apps that give you something to say <3 save for later #girlblogger #apps #letterboxd #thatgirl #selfimprovement",
+   "musique": {
+    "titre": "sonido original",
+    "id": "7654738655000496904"
+   }
+  },
+  {
+   "id": "7705305617484877087",
+   "url": "https://www.tiktok.com/@polytay/photo/7705305617484877087",
+   "publie_le": "2026-11-07",
+   "vues": 8810,
+   "enregistrements": 679,
+   "slides": 6,
+   "legende": "fashion history, econ, science and a little royal scandal. queue one for the next walk <3 #podcastrecommendations #learning #girlblogger #fashionhistory",
+   "musique": {
+    "titre": "original sound",
+    "id": "7657342479188773662"
+   }
+  }
+ ]
+}

@@ -1,0 +1,182 @@
+{
+ "id": "pt-001",
+ "source": {
+  "url": "https://www.tiktok.com/@polytay/photo/7690230388173573407",
+  "vues": 478500,
+  "publie_le": "2026-09-27",
+  "accroche": "hobbies that make you impossible to bore"
+ },
+ "titre": {
+  "en": "habits that make you impossible to bore"
+ },
+ "legendes": {
+  "en": "curiosity is a habit, not a personality trait. pick one for this week <3 #girlblogger #selfimprovement #learning #curiosity #booktok"
+ },
+ "musique": {
+  "titre": "use your inner eyes x i was all over her",
+  "url": "https://www.tiktok.com/music/original-sound-7409401948849457953"
+ },
+ "notes": "Preuve : « hobbies that make you impossible to bore » de @polytay (478,5 k vues, 27/09), même famille que « being impossible to bore is just five small habits stacked » (108,5 k) ; même gabarit (collage de deux photos et titre en minuscules, un élément par slide : deux photos à gauche, titre numéroté et deux paragraphes à droite, « thank you for watching / save & follow »). Éléments à nous (les siens : lire avec un stylo, un rabbit hole par semaine, un puzzle le soir, noter ses lectures). Slide Sophia (5) : « 3. one lesson before bed », le LOGO de Sophia à la place de la photo du haut (comme ses logos de chaînes YouTube), jamais une capture (demande d'Adrien du 20/11) ; cta A. Sophia : une leçon courte par jour écrite par des profs, un quiz après chaque leçon, 10 minutes (fiche du podz 18). Photos : banques de Sophia (clean_study, smart_girl, beau_smart_girl), sans visage, sans marque ni texte lisible.",
+ "banque": {
+  "images/banque/couv-livre-cafe.jpg": "124638b3-c2f9-4e21-92f5-8e7ab89867f9",
+  "images/banque/musee-statue.jpg": "96ee3a56-2fc0-482a-9df0-737e47e70841",
+  "images/banque/musee-galerie.jpg": "b4cfdb1a-9bd1-4715-801b-91c19cf5e603",
+  "images/banque/geranium.jpg": "39b44bbe-cd31-4092-a755-12359dc8c347",
+  "images/banque/bouquet.jpg": "4e16bde8-661a-4ef8-9484-d1ce332296a5",
+  "images/banque/bougie-livre.jpg": "38d562a6-d390-4fe7-a295-e300e93a6606",
+  "images/banque/carnet-lit.jpg": "04454a82-1527-4b47-a7f3-2b6476689df7",
+  "images/banque/carnet-plateau.jpg": "c2d52c87-ea47-4141-b3b5-4c12a8a645a0",
+  "images/banque/theiere.jpg": "3f44d608-bcd1-42d8-9c8a-aa5cb1ecdb8e",
+  "images/banque/napperon.jpg": "12c5d705-6d55-4f18-8c7a-0a3f1c7b3aa4",
+  "images/banque/couv-the-livre.jpg": "aa747013-5684-41f3-a84c-fdc96cd3798f"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-livre-cafe.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800,
+     "cadrage": {
+      "x": 0.5
+     }
+    },
+    {
+     "image": "images/banque/couv-the-livre.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560,
+     "cadrage": {
+      "y": 0.97
+     }
+    }
+   ],
+   "en": {
+    "titre": "habits that make you\nimpossible to bore"
+   },
+   "titre": {
+    "cx": 282,
+    "base": 560
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/musee-statue.jpg",
+     "format": "paysage",
+     "cadrage": {
+      "y": 0.45
+     }
+    },
+    {
+     "image": "images/banque/musee-galerie.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a museum, alone",
+    "paragraphes": [
+     "Once a month, go to a museum by yourself and stay with ONE painting for ten whole minutes. you start seeing the hands, the light, the one face looking away.",
+     "You leave with one story instead of fifty blurry photos. that's the one people ask about"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/geranium.jpg",
+     "format": "carre",
+     "cadrage": {
+      "x": 0.35
+     }
+    },
+    {
+     "image": "images/banque/bouquet.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "2. learning the names of things",
+    "paragraphes": [
+     "Every time you don't know what something is called, look it up. the tree on your street, that shade of blue, the style of the building you pass every day.",
+     "The world gets more detailed. so do your sentences"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/bougie-livre.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson before bed",
+    "paragraphes": [
+     "I do one short lesson on Sophia every night instead of scrolling. history, philosophy or science, written by actual professors, with a little quiz after.",
+     "Ten minutes, and the next day I always have something new to bring up"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/carnet-lit.jpg",
+     "format": "paysage",
+     "cadrage": {
+      "y": 0.55
+     }
+    },
+    {
+     "image": "images/banque/carnet-plateau.jpg",
+     "format": "portrait",
+     "cadrage": {
+      "y": 0.6
+     }
+    }
+   ],
+   "en": {
+    "titre": "4. a notebook of questions",
+    "paragraphes": [
+     "Write down every question that pops into your head. why do we yawn, who decided the alphabet's order, what's under the ocean floor.",
+     "On sunday, answer one. by december you have a whole book of your own curiosity"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/theiere.jpg",
+     "format": "paysage",
+     "cadrage": {
+      "y": 0.5
+     }
+    },
+    {
+     "image": "images/banque/napperon.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "5. asking older people questions",
+    "paragraphes": [
+     "Ask your grandma what her first job was, or what the city looked like when she was your age. people love being asked properly.",
+     "It's history you can't find anywhere else, told by someone who was there"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {}
+  }
+ ]
+}

@@ -37,7 +37,7 @@ const DRAPEAUX_MAX = 8;
 function Langues({ ligne, ouvertures }: { ligne: LignePodz; ouvertures: OuvertureLangue[] }) {
   const { t } = useTranslation();
   if (ligne.format === "video") return <span className="text-muted-foreground">—</span>;
-  const langues = etatLangues(ligne.pod.langues, ligne.fiche?.comptes_par_langue ?? {}, ouvertures.filter((o) => o.pod === ligne.pod.slug));
+  const langues = etatLangues(ligne.pod.langues, ligne.fiche?.comptes_par_langue ?? {}, ouvertures.filter((o) => o.pod === ligne.pod.slug), ligne.pod.langues_pretes);
   const r = resumeLangues(langues);
   if (ligne.format === "texte_banque") {
     return (
@@ -55,8 +55,8 @@ function Langues({ ligne, ouvertures }: { ligne: LignePodz; ouvertures: Ouvertur
         {dansListe.slice(0, DRAPEAUX_MAX).map((l) => (
           <span
             key={l.langue}
-            title={`${canoniserLangue(l.langue)} · ${t(`pods.langues.etat.${l.etat}`)}`}
-            className={cn(l.etat === "sans_compte" && "opacity-30 grayscale")}
+            title={`${canoniserLangue(l.langue)} · ${t(`pods.langues.legende.${l.etat}`)}`}
+            className={cn(l.etat !== "servie" && "opacity-30 grayscale")}
           >
             {drapeauLangue(canoniserLangue(l.langue))}
           </span>
@@ -67,6 +67,7 @@ function Langues({ ligne, ouvertures }: { ligne: LignePodz; ouvertures: Ouvertur
       </div>
       <div className="text-xs text-muted-foreground">
         {t("pods.liste.languesServies", { servies: r.servie, total: dansListe.length })}
+        {r.a_preparer > 0 && <span className="text-info-foreground"> · {t("pods.liste.aPreparer", { count: r.a_preparer })}</span>}
         {alerte > 0 && <span className="text-destructive"> · {t("pods.liste.horsListe", { count: alerte })}</span>}
       </div>
     </div>

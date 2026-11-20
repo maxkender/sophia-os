@@ -27,6 +27,7 @@ Deux tâches planifiées te lancent (heure de Paris) :
 | Le rythme des podz | `pods/rythme.json` |
 | La routine des podz | `pods/ROUTINE.md` |
 | Les mots des podz | `pods/GLOSSAIRE.md` (label, podz, modèle, source, format) |
+| Les langues d'un podz | `select public.pod_langues('<slug>');` : ouvertes, prêtes, `a_preparer`, comptes. Tu n'ouvres ni ne fermes aucune langue : c'est Adrien ou Max (page Podz), ou la soupape |
 | La méthode d'analyse | `analyse/AGENT.md` (r, maturité, médianes) |
 
 Les podz :

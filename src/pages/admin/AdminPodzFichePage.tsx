@@ -86,7 +86,7 @@ export function AdminPodzFichePage() {
   const video = pod.slug === POD_VIDEO;
   const chiffres = ligne.tableau;
   const runway = chiffres ? autonomieMin(chiffres.autonomie) : null;
-  const langues = etatLangues(pod.langues, fiche?.comptes_par_langue ?? {}, (ouvertures.data ?? []).filter((o) => o.pod === pod.slug));
+  const langues = etatLangues(pod.langues, fiche?.comptes_par_langue ?? {}, (ouvertures.data ?? []).filter((o) => o.pod === pod.slug), pod.langues_pretes);
   const aValider = livraisons.data?.aValider ?? [];
   const decidees = livraisons.data?.decidees ?? [];
   const langueSource = langueEcriture([...aValider, ...decidees]);
@@ -272,7 +272,7 @@ export function AdminPodzFichePage() {
             <CardTitle>{t("pods.langues.titre")}</CardTitle>
           </CardHeader>
           <CardContent>
-            <BlocLangues format={format} langues={langues} langueSource={langueSource} />
+            <BlocLangues format={format} langues={langues} langueSource={langueSource} pod={pod.slug} />
           </CardContent>
         </Card>
       )}

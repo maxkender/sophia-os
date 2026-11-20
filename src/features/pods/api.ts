@@ -84,6 +84,8 @@ export interface Pod {
   label_id: string | null;
   /** Les langues que le podz livre lui-même (`pods.langues`, 0654) ; nul : l'OS traduit. */
   langues: string[] | null;
+  /** Les langues que son atelier sait produire (`pods.langues_pretes`, 0781) ; nul avant la migration. */
+  langues_pretes: string[] | null;
   cree_le: string | null;
   /** Les applications servies par son label (slugs du catalogue), dans l'ordre du catalogue. */
   apps: string[];
@@ -109,14 +111,13 @@ function appsDuLabel(label: LabelDuPod | null): string[] {
 
 /** Les pods déclarés (table `pods`) avec leur label, ses applications et leurs langues. */
 export async function listerPods(): Promise<Pod[]> {
-  const { data, error } = await supabase
-    .from("pods")
-    .select(
-      "slug, nom, actif, auto_validation, auto_validation_heures, langues, created_at, label_id, labels(nom, application_id, label_applications(application_id))",
-    )
-    .order("created_at");
+  const colonnes = (pretes: boolean) =>
+    `slug, nom, actif, auto_validation, auto_validation_heures, langues,${pretes ? " langues_pretes," : ""} created_at, label_id, labels(nom, application_id, label_applications(application_id))`;
+  let { data, error } = await supabase.from("pods").select(colonnes(true)).order("created_at");
+  // Avant la migration 0781, la colonne `langues_pretes` n'existe pas : on lit sans elle.
+  if (error) ({ data, error } = await supabase.from("pods").select(colonnes(false)).order("created_at"));
   if (error) throw error;
-  return (data ?? []).map((p) => {
+  return ((data ?? []) as unknown as Record<string, unknown>[]).map((p) => {
     const brut = p.labels as unknown as LabelDuPod | LabelDuPod[] | null;
     const label = (Array.isArray(brut) ? brut[0] : brut) ?? null;
     return {
@@ -128,6 +129,7 @@ export async function listerPods(): Promise<Pod[]> {
       auto_validation_heures: Number(p.auto_validation_heures ?? 12),
       label_id: (p.label_id as string | null) ?? null,
       langues: (p.langues as string[] | null) ?? null,
+      langues_pretes: (p.langues_pretes as string[] | null | undefined) ?? null,
       cree_le: (p.created_at as string | null) ?? null,
       apps: appsDuLabel(label),
     };
@@ -181,21 +183,49 @@ export async function listerLivraisonsDuPod(pod: string): Promise<{ aValider: Li
   return { aValider: (attente.data ?? []) as Livraison[], decidees: (faites.data ?? []) as Livraison[] };
 }
 
-/** Une langue ouverte à un podz par la soupape de nuit (`bleo_langues_ouvertes`, 0722). */
+/** Qui a fait le geste : la soupape de nuit, Adrien ou Max sur la page, l'atelier du podz, Claude en SQL. */
+export type AuteurLangue = "soupape" | "admin" | "podz" | "claude";
+
+/** Une ligne du journal des langues (`bleo_langues_ouvertes`, 0722 et 0781). */
 export interface OuvertureLangue {
   pod: string;
   langue: string;
   ouvert_le: string;
+  action: "ouverte" | "fermee";
+  par: AuteurLangue;
 }
 
 export async function listerOuverturesLangues(): Promise<OuvertureLangue[]> {
-  const { data, error } = await supabase
-    .from("bleo_langues_ouvertes")
-    .select("pod, langue, ouvert_le")
-    .order("ouvert_le")
-    .limit(1000);
+  const lire = (colonnes: string) =>
+    supabase.from("bleo_langues_ouvertes").select(colonnes).order("ouvert_le").limit(1000);
+  let { data, error } = await lire("pod, langue, ouvert_le, action, par");
+  // Avant la migration 0781 : pas de colonnes `action` et `par`, tout est une ouverture de la soupape.
+  if (error) ({ data, error } = await lire("pod, langue, ouvert_le"));
   if (error) throw error;
-  return (data ?? []) as OuvertureLangue[];
+  return ((data ?? []) as unknown as Partial<OuvertureLangue>[]).map((o) => ({
+    pod: String(o.pod),
+    langue: String(o.langue),
+    ouvert_le: String(o.ouvert_le),
+    action: o.action ?? "ouverte",
+    par: o.par ?? "soupape",
+  }));
+}
+
+/** Ce que rend `podz_langue` (0781). */
+export interface GesteLangue {
+  ok: boolean;
+  change: boolean;
+  langue: string;
+  langues: string[];
+  /** Les comptes actifs du label dans cette langue. */
+  comptes: number;
+}
+
+/** Ouvre ou ferme une langue d'un podz en images finies : le seul geste, noté au journal. */
+export async function changerLanguePodz(pod: string, langue: string, action: "ouvrir" | "fermer"): Promise<GesteLangue> {
+  const { data, error } = await supabase.rpc("podz_langue", { p_pod: pod, p_langue: langue, p_action: action, p_par: "admin" });
+  if (error) throw error;
+  return data as GesteLangue;
 }
 
 /** Les sources actives d'un label (comptes dont l'OS importe les posts) : leurs handles. */

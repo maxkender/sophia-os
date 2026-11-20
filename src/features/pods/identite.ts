@@ -103,12 +103,12 @@ export function grouperParApplication(lignes: LignePodz[]): GroupePodz[] {
 
 /**
  * L'état d'une langue pour un podz :
- *   - servie : au moins un compte du label la poste ;
- *   - sans_compte : le podz la livre, aucun compte ne la poste encore ;
- *   - hors_liste : pas dans la liste du podz (un compte y est quand même, ou la
- *     soupape l'a ouverte et elle n'y est plus).
+ *   - servie : ouverte, prête, et au moins un compte du label la poste ;
+ *   - a_preparer : ouverte, mais l'atelier du podz ne sait pas encore la produire ;
+ *   - sans_compte : ouverte et prête, aucun compte ne la poste encore ;
+ *   - hors_liste : pas dans la liste du podz (un compte y est quand même, ou elle a été fermée).
  */
-export type EtatLangue = "servie" | "sans_compte" | "hors_liste";
+export type EtatLangue = "servie" | "a_preparer" | "sans_compte" | "hors_liste";
 
 export interface LangueDuPodz {
   langue: string;
@@ -116,62 +116,67 @@ export interface LangueDuPodz {
   comptes: number;
   /** Les variantes de compte servies par cette langue (« es » sert « es-419 »). */
   variantes: { langue: string; comptes: number }[];
-  /** Les jours où la soupape a ouvert cette langue (ISO), du plus ancien au plus récent. */
-  ouvertures: string[];
+  /** Le journal de cette langue (ouvertures et fermetures), du plus ancien au plus récent. */
+  journal: Pick<OuvertureLangue, "action" | "par" | "ouvert_le">[];
 }
 
 const bas = (l: string) => l.trim().toLowerCase();
 const base = (l: string) => bas(l).split("-")[0]!;
 
 /**
- * Les langues d'un podz, dans l'ordre : servies (les plus remplies d'abord),
- * ouvertes sans compte, hors liste.
+ * Les langues d'un podz, dans l'ordre : servies (les plus remplies d'abord), à
+ * préparer, ouvertes sans compte, hors liste.
  *
- * `declarees` nul (texte + banque) : l'OS traduit partout, chaque langue qui a
+ * `ouvertes` nul (texte + banque) : l'OS traduit partout, chaque langue qui a
  * un compte est servie. Sinon la règle de `pod_langues` (0654) : un compte est
  * servi par sa langue exacte, ou par sa langue de base quand sa variante n'est
- * pas déclarée à part.
+ * pas ouverte à part. `pretes` (0781) : ce que l'atelier sait produire ; nul,
+ * on ne sait pas, tout ce qui est ouvert est tenu pour prêt.
  */
 export function etatLangues(
-  declarees: string[] | null,
+  ouvertes: string[] | null,
   comptesParLangue: Record<string, number>,
-  ouvertures: Pick<OuvertureLangue, "langue" | "ouvert_le">[] = [],
+  journal: Pick<OuvertureLangue, "langue" | "ouvert_le" | "action" | "par">[] = [],
+  pretes: string[] | null = null,
 ): LangueDuPodz[] {
-  const jours = new Map<string, string[]>();
-  for (const o of ouvertures) jours.set(bas(o.langue), [...(jours.get(bas(o.langue)) ?? []), o.ouvert_le]);
+  const evenements = new Map<string, LangueDuPodz["journal"]>();
+  for (const o of journal) {
+    evenements.set(bas(o.langue), [...(evenements.get(bas(o.langue)) ?? []), { action: o.action, par: o.par, ouvert_le: o.ouvert_le }]);
+  }
+  const sait = pretes ? new Set(pretes.map(bas)) : null;
   const comptes = Object.entries(comptesParLangue).filter(([, n]) => n > 0);
   const lignes = new Map<string, LangueDuPodz>();
   const ligne = (langue: string, etat: EtatLangue): LangueDuPodz => {
     const cle = bas(langue);
     let l = lignes.get(cle);
     if (!l) {
-      l = { langue, etat, comptes: 0, variantes: [], ouvertures: jours.get(cle) ?? [] };
+      l = { langue, etat, comptes: 0, variantes: [], journal: evenements.get(cle) ?? [] };
       lignes.set(cle, l);
     }
     return l;
   };
 
-  if (!declarees?.length) {
+  if (!ouvertes?.length) {
     for (const [langue, n] of comptes) ligne(langue, "servie").comptes += n;
   } else {
-    for (const d of declarees) ligne(d, "sans_compte");
+    for (const d of ouvertes) ligne(d, sait && !sait.has(bas(d)) ? "a_preparer" : "sans_compte");
     for (const [langue, n] of comptes) {
       const exacte = lignes.get(bas(langue));
       const parBase = exacte ? undefined : lignes.get(base(langue));
       const cible = exacte ?? parBase;
       if (cible && cible.etat !== "hors_liste") {
-        cible.etat = "servie";
+        if (cible.etat === "sans_compte") cible.etat = "servie";
         cible.comptes += n;
         if (parBase) cible.variantes.push({ langue, comptes: n });
       } else {
         ligne(langue, "hors_liste").comptes += n;
       }
     }
-    // Ouverte par la soupape, mais plus dans la liste du podz.
-    for (const cle of jours.keys()) if (!lignes.has(cle)) ligne(cle, "hors_liste");
+    // Au journal (ouverte puis fermée, ou effacée avant 0781), mais plus dans la liste du podz.
+    for (const cle of evenements.keys()) if (!lignes.has(cle)) ligne(cle, "hors_liste");
   }
 
-  const ordre: Record<EtatLangue, number> = { servie: 0, sans_compte: 1, hors_liste: 2 };
+  const ordre: Record<EtatLangue, number> = { servie: 0, a_preparer: 1, sans_compte: 2, hors_liste: 3 };
   return [...lignes.values()].sort(
     (a, b) => ordre[a.etat] - ordre[b.etat] || b.comptes - a.comptes || a.langue.localeCompare(b.langue),
   );
@@ -181,6 +186,7 @@ export function etatLangues(
 export function resumeLangues(langues: LangueDuPodz[]): Record<EtatLangue, number> & { comptes: number; max: number } {
   return {
     servie: langues.filter((l) => l.etat === "servie").length,
+    a_preparer: langues.filter((l) => l.etat === "a_preparer").length,
     sans_compte: langues.filter((l) => l.etat === "sans_compte").length,
     hors_liste: langues.filter((l) => l.etat === "hors_liste").length,
     comptes: langues.reduce((n, l) => n + l.comptes, 0),

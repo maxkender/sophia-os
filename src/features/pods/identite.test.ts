@@ -21,6 +21,7 @@ const pod = (p: Partial<Pod> & { slug: string }): Pod => ({
   auto_validation_heures: 5,
   label_id: null,
   langues: null,
+  langues_pretes: null,
   cree_le: null,
   apps: [],
   ...p,
@@ -70,7 +71,7 @@ describe("etatLangues", () => {
   it("une langue de base sert la variante de compte qui n'est pas déclarée à part", () => {
     const sansVariante = etatLangues(["es"], { es: 1, "es-419": 2 });
     expect(sansVariante).toEqual([
-      { langue: "es", etat: "servie", comptes: 3, variantes: [{ langue: "es-419", comptes: 2 }], ouvertures: [] },
+      { langue: "es", etat: "servie", comptes: 3, variantes: [{ langue: "es-419", comptes: 2 }], journal: [] },
     ]);
     const avecVariante = etatLangues(["es", "es-419"], { "es-419": 2 });
     expect(avecVariante.map((x) => [x.langue, x.etat, x.comptes])).toEqual([
@@ -79,15 +80,28 @@ describe("etatLangues", () => {
     ]);
   });
 
-  it("garde la trace de la soupape, même pour une langue qui n'est plus dans la liste", () => {
-    const l = etatLangues(["en", "tr"], { en: 1 }, [
-      { langue: "tr", ouvert_le: "2026-11-15T03:40:00Z" },
-      { langue: "hu", ouvert_le: "2026-11-16T03:40:00Z" },
-      { langue: "hu", ouvert_le: "2026-11-17T03:40:00Z" },
-    ]);
-    expect(l.find((x) => x.langue === "tr")).toMatchObject({ etat: "sans_compte", ouvertures: ["2026-11-15T03:40:00Z"] });
+  it("garde le journal de chaque langue, même pour une langue qui n'est plus dans la liste", () => {
+    const o = (langue: string, jour: string, action: "ouverte" | "fermee" = "ouverte") =>
+      ({ langue, ouvert_le: `2026-11-${jour}T03:40:00Z`, action, par: "soupape" as const });
+    const l = etatLangues(["en", "tr"], { en: 1 }, [o("tr", "15"), o("hu", "16"), o("hu", "17", "fermee")]);
+    expect(l.find((x) => x.langue === "tr")).toMatchObject({ etat: "sans_compte" });
+    expect(l.find((x) => x.langue === "tr")!.journal).toHaveLength(1);
     expect(l.find((x) => x.langue === "hu")).toMatchObject({ etat: "hors_liste", comptes: 0 });
-    expect(l.find((x) => x.langue === "hu")!.ouvertures).toHaveLength(2);
+    expect(l.find((x) => x.langue === "hu")!.journal.map((j) => j.action)).toEqual(["ouverte", "fermee"]);
+  });
+
+  it("une langue ouverte que l'atelier ne sait pas encore produire est à préparer, avec ou sans compte", () => {
+    // Dorian : le hongrois ouvert par la soupape, un compte y attend, l'atelier a 3 langues.
+    const l = etatLangues(["en", "de", "hu", "fi"], { en: 1, hu: 1 }, [], ["en", "de"]);
+    expect(l.map((x) => [x.langue, x.etat, x.comptes])).toEqual([
+      ["en", "servie", 1],
+      ["hu", "a_preparer", 1],
+      ["fi", "a_preparer", 0],
+      ["de", "sans_compte", 0],
+    ]);
+    expect(resumeLangues(l)).toMatchObject({ servie: 1, a_preparer: 2, sans_compte: 1, hors_liste: 0 });
+    // Sans liste « prêtes » (avant 0781) : tout ce qui est ouvert est tenu pour prêt.
+    expect(etatLangues(["en", "hu"], { hu: 1 }).map((x) => x.etat)).toEqual(["servie", "sans_compte"]);
   });
 });
 

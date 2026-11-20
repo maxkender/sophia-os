@@ -12,8 +12,10 @@ Quand un autre fichier dit autre chose, c'est ce fichier qui a raison.
 | **Modèle** | Le compte TikTok dont un podz reprend le style (`@fathom0g` pour Fathomly). Rien n'est importé de ce compte. |
 | **Source** | Un compte TikTok dont l'OS **importe** les posts dans un label (page Sources, Bible des comptes). |
 | **Format** | Ce que le podz livre. Deux formats pour les slideshows, voir plus bas. |
-| **Langue ouverte** | Une langue de la liste d'un podz en images finies (`pods.langues`) : il la livre. |
-| **Langue servie** | Une langue ouverte où au moins un compte du label poste. |
+| **Langue ouverte** | Une langue de la liste d'un podz en images finies (`pods.langues`). C'est une décision d'Adrien, de Max ou de la soupape : des comptes du label peuvent y aller, le podz doit la livrer. |
+| **Langue prête** | Une langue que l'atelier du podz sait produire (sa liste `LANGUES`, notée dans `pods.langues_pretes`). |
+| **Langue à préparer** | Ouverte, pas encore prête : le podz doit l'ajouter à son atelier. |
+| **Langue servie** | Ouverte, prête, et au moins un compte du label y poste. |
 | **Livraison** | Un contenu déposé par un podz dans la file de validation de l'OS. |
 
 ## Les deux formats
@@ -32,6 +34,27 @@ livrent des images finies.
 
 Le podz vidéo (réactions UGC) est à part : une vidéo par compte, validée une
 par une.
+
+## Ouvrir ou fermer une langue
+
+Un seul geste, pour tout le monde, noté dans le journal
+(`bleo_langues_ouvertes` : quoi, quand, par qui) :
+
+- **Adrien, Max** : page Podz, fiche du podz, bloc Langues (« Ouvrir une
+  langue », « Fermer cette langue »).
+- **Claude** (une session avec la base) :
+  `select public.podz_langue('remakes_kaja', 'ro', 'ouvrir');` ou `'fermer'`.
+  Seulement à la demande d'Adrien ou de Max.
+- **La soupape** de nuit (0722) : une langue de plus quand toutes celles du
+  podz ont un compte et que le label tient.
+- **L'atelier** : ajouter une langue à `LANGUES` l'ouvre. En retirer une ne la
+  ferme pas.
+
+Trois règles :
+- un podz en texte + banque n'a pas de liste, l'OS traduit ;
+- une langue d'un label n'appartient qu'à **un** de ses podz : deux podz d'un
+  même label se partagent les langues ;
+- la dernière langue ne se ferme pas : on met le podz en pause.
 
 ## Ce qu'on ne dit plus
 

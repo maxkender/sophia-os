@@ -19,7 +19,7 @@
   "titre": "Dracula (with JENNIE)",
   "url": "https://www.tiktok.com/music/dracula-with-jennie-7603221525400455169"
  },
- "notes": "Preuve : « fall runs / do and don’ts » de @katrina.run (56 k vues, 02/11) ; même gabarit (objets), un sujet de saison voisin (la pluie). Objets neufs : coureuse-pluie, coupe-vent, casquette, parapluie, journal, seche-cheveux. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta A` « an atala plan » / « un plan atala »). Aucune page d'appli.",
+ "notes": "Preuve : « fall runs / do and don’ts » de @katrina.run (56 k vues, 02/11) ; même gabarit (objets), un sujet de saison voisin (la pluie). Objets neufs : coureuse-pluie, coupe-vent, casquette, parapluie, journal, seche-cheveux. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta A` « an atala plan » / « un plan atala »). Aucune page d'appli. Légende du logo réécrite le 20/11 selon le prompt placement_atala (Atala toujours avec « app »/« appli », jamais seule, jamais « AI »).",
  "slides": [
   {
    "type": "couverture",
@@ -46,7 +46,7 @@
     "titre": "before you go",
     "do": [
      "a light\nrain jacket",
-     "an atala plan",
+     "a coach app\nlike atala",
      "a cap"
     ],
     "dont": [
@@ -58,7 +58,7 @@
     "titre": "avant de sortir",
     "do": [
      "un coupe-vent",
-     "un plan atala",
+     "appli coach\ncomme atala",
      "une casquette"
     ],
     "dont": [

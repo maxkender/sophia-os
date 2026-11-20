@@ -19,7 +19,7 @@
   "titre": "Run Boy Run - Instrumental",
   "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
  },
- "notes": "Preuve : « first 5k / do and don’ts » de @katrina.run (191 k vues, 27/10) ; même gabarit, une étape voisine (le premier semi). Objet neuf : medaille ; sac-sport ; le reste d'at-001. Couverture : coureuse-profil-2. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta B` « your atala coach » / « ton coach atala »). Aucune page d'appli.",
+ "notes": "Preuve : « first 5k / do and don’ts » de @katrina.run (191 k vues, 27/10) ; même gabarit, une étape voisine (le premier semi). Objet neuf : medaille ; sac-sport ; le reste d'at-001. Couverture : coureuse-profil-2. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta B` « your atala coach » / « ton coach atala »). Aucune page d'appli. Légende du logo réécrite le 20/11 selon le prompt placement_atala (Atala toujours avec « app »/« appli », jamais seule, jamais « AI »).",
  "slides": [
   {
    "type": "couverture",
@@ -46,7 +46,7 @@
     "titre": "training weeks",
     "do": [
      "one long run\na week",
-     "your\natala coach",
+     "a plan from an\napp like atala",
      "real sleep"
     ],
     "dont": [
@@ -58,7 +58,7 @@
     "titre": "l’entraînement",
     "do": [
      "une longue\nchaque semaine",
-     "ton\ncoach atala",
+     "appli de coach\ncomme atala",
      "bien dormir"
     ],
     "dont": [

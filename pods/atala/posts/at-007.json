@@ -20,7 +20,7 @@
   "titre": "Housewife",
   "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
  },
- "notes": "Full test (accroche jamais faite chez nous). Format de leur tube : « courir l’hiver : / les do & don’ts » de @hannah.run5 (279 k vues, 31/10), style `objets` ; sujet voisin de saison (courir à l’intérieur quand il fait froid). Objets neufs : serviette, gourde, tapis, ventilateur, spray ; couverture : coureuse-profil-1. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta A` « an atala plan » / « un plan atala »). Aucune page d'appli.",
+ "notes": "Full test (accroche jamais faite chez nous). Format de leur tube : « courir l’hiver : / les do & don’ts » de @hannah.run5 (279 k vues, 31/10), style `objets` ; sujet voisin de saison (courir à l’intérieur quand il fait froid). Objets neufs : serviette, gourde, tapis, ventilateur, spray ; couverture : coureuse-profil-1. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta A` « an atala plan » / « un plan atala »). Aucune page d'appli. Légende du logo réécrite le 20/11 selon le prompt placement_atala (Atala toujours avec « app »/« appli », jamais seule, jamais « AI »).",
  "slides": [
   {
    "type": "couverture",
@@ -47,7 +47,7 @@
     "titre": "before",
     "do": [
      "a small towel",
-     "an atala plan",
+     "a plan on an\napp like atala",
      "a water bottle"
     ],
     "dont": [
@@ -59,7 +59,7 @@
     "titre": "avant",
     "do": [
      "une serviette",
-     "un plan atala",
+     "appli de coach\ncomme atala",
      "ta gourde"
     ],
     "dont": [

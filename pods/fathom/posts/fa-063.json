@@ -14,7 +14,17 @@
   "de": "10/10 Skills für jeden mit 30",
   "it": "10/10 abilità da avere entro i 30 anni",
   "pt-BR": "10/10 habilidades para dominar até os 30",
-  "es-419": "10/10 habilidades que debes dominar a los 30"
+  "es-419": "10/10 habilidades que debes dominar a los 30",
+  "cs": "10/10 dovedností, které má každý dospělý zvládnout do 30",
+  "sk": "10/10 zručností, ktoré má každý dospelý zvládnuť do 30",
+  "hr": "10/10 vještina koje svaka odrasla osoba treba svladati do 30.",
+  "sl": "10/10 veščin, ki jih mora vsak odrasel obvladati do 30. leta",
+  "hu": "10/10 készség, amit minden felnőttnek 30 éves koráig el kell sajátítania",
+  "nl": "10/10 skills die elke volwassene voor zijn 30e moet beheersen",
+  "pl": "10/10 umiejętności, które każdy dorosły powinien opanować do 30.",
+  "ro": "10/10 abilități pe care orice adult ar trebui să le stăpânească până la 30 de ani",
+  "sv": "10/10 färdigheter varje vuxen borde kunna innan 30",
+  "tr": "Her yetişkinin 30 yaşına kadar öğrenmesi gereken 10/10 beceri"
  },
  "legendes": {
   "en": "10/10 Skills Every Adult Should Master By 30 #selfimprovement #learnontiktok #adulting",
@@ -23,13 +33,23 @@
   "de": "10/10 Skills für jeden mit 30 #selbstverbesserung #lernenmittiktok #erwachsenwerden",
   "it": "10/10 abilità da avere entro i 30 anni #crescitapersonale #imparacontiktok #vitadaadulti",
   "pt-BR": "10/10 habilidades para dominar até os 30 #desenvolvimentopessoal #aprendanotiktok #vidaadulta",
-  "es-419": "10/10 habilidades que debes dominar a los 30 #desarrollopersonal #aprendeentiktok #vidaadulta"
+  "es-419": "10/10 habilidades que debes dominar a los 30 #desarrollopersonal #aprendeentiktok #vidaadulta",
+  "cs": "10/10 dovedností, které má každý dospělý zvládnout do 30 #dovednosti #seberozvoj #vzdělávání",
+  "sk": "10/10 zručností, ktoré má každý dospelý zvládnuť do 30 #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "10/10 vještina koje svaka odrasla osoba treba svladati do 30. #vještine #osobnirazvoj #učenje",
+  "sl": "10/10 veščin, ki jih mora vsak odrasel obvladati do 30. leta #veščine #osebnarast #učenje",
+  "hu": "10/10 készség, amit minden felnőttnek 30 éves koráig el kell sajátítania #készségek #önfejlesztés #tanulás",
+  "nl": "10/10 skills die elke volwassene voor zijn 30e moet beheersen #skills #zelfontwikkeling #leren",
+  "pl": "10/10 umiejętności, które każdy dorosły powinien opanować do 30. #umiejętności #rozwójosobisty #nauka",
+  "ro": "10/10 abilități pe care orice adult ar trebui să le stăpânească până la 30 de ani #abilități #dezvoltarepersonală #învățare",
+  "sv": "10/10 färdigheter varje vuxen borde kunna innan 30 #färdigheter #självutveckling #lärande",
+  "tr": "Her yetişkinin 30 yaşına kadar öğrenmesi gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
  },
- "notes": "cta B. Déclinaison G2 de fa-047 (boîte BLEO du 13/11) : même promesse (« les compétences à avoir avant 30 ans »), autres mots ; autres étapes (cuisine, premier investissement, dire non), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue.",
+ "notes": "cta B. Déclinaison G2 de fa-047 (boîte BLEO du 13/11) : même promesse (« les compétences à avoir avant 30 ans »), autres mots ; autres étapes (cuisine, premier investissement, dire non), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue. 20/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr.",
  "slides": [
   {
    "type": "couverture",
@@ -158,6 +178,176 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "DOVEDNOSTÍ, KTERÉ",
+     [
+      {
+       "t": "ZVLÁDNI DO 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ZRUČNOSTÍ, KTORÉ",
+     [
+      {
+       "t": "ZVLÁDNI DO 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VJEŠTINA KOJE",
+     [
+      {
+       "t": "SVLADAJ DO 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠČIN, KI JIH",
+     [
+      {
+       "t": "OBVLADAJ DO 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KÉSZSÉG, AMIT",
+     [
+      {
+       "t": "30 ELŐTT TUDNI KELL",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS OM TE BEHEERSEN",
+     [
+      {
+       "t": "VOOR JE 30E",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "UMIEJĘTNOŚCI",
+     [
+      {
+       "t": "DO OPANOWANIA DO 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITĂȚI DE STĂPÂNIT",
+     [
+      {
+       "t": "PÂNĂ LA 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FÄRDIGHETER ATT KUNNA",
+     [
+      {
+       "t": "INNAN 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "30 YAŞINA KADAR",
+     [
+      {
+       "t": "ÖĞRENİLECEK BECERİ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -265,6 +455,156 @@
      "date": "hace 3 años",
      "duree": "1:01:17",
      "avatar": "https://yt3.ggpht.com/HbShqVuRoDLhhrAVh8X-rHb6-XkCkJVahOUk5Lpj6WJn50HaUouzIFCxHZ2zcvNpDiewbuH9K7o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "UVAŘ 5",
+     "JEDNODUCHÝCH JÍDEL"
+    ],
+    "video": {
+     "id": "oMI1UwBLHTw",
+     "titre": "Rychlá večeře pro začátečníky",
+     "chaine": "Vaření s Jančou",
+     "vues": "4,1 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "3:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmyadK15xFyq3-i_ZHqXSmyRoeftXD9S-pPE9GgcWyKg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "UVAR 5",
+     "JEDNODUCHÝCH JEDÁL"
+    ],
+    "video": {
+     "id": "L8TevtOJxIM",
+     "titre": "VIDEO RECEPT na kuracie rizoto po domácky",
+     "chaine": "Recepty, nápady a inšpirácie",
+     "vues": "165 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcnO6YEJ9dtk8FlT9Ev_OPtaZtBCJsZ05wICw4eX_7yA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "SKUHAJ 5",
+     "JEDNOSTAVNIH JELA"
+    ],
+    "video": {
+     "id": "R75XH4TbMOg",
+     "titre": "Jednostavan brzi ručak 10 minuta posla Quick Lunch Recipe - Sašina kuhinja",
+     "chaine": "Sašina Kuhinja",
+     "vues": "217 tis. pregleda",
+     "date": "prije 7 godina",
+     "duree": "1:44",
+     "avatar": "https://yt3.ggpht.com/Cqvb3x_RrT0RzRXl4qO2ZaDlf_Rlfu9OSrDtr_mQDa9pETdhbLVc9MSRMxFLqqYjCk3qbfCp9g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "SKUHAJ 5",
+     "PREPROSTIH JEDI"
+    ],
+    "video": {
+     "id": "slS-RyVJvM0",
+     "titre": "Hrustljave piščančje perutničke iz pečice kot na žaru: najboljši recept",
+     "chaine": "Recepti moje male kuhinje",
+     "vues": "1,9 tis. ogledov",
+     "date": "pred 3 leti",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/ST6OXBmQwDdVruA9Z9Rg5os2BEP0RIVbjhgVOBQjHAkEN2ty9yW3H60gCahBCu2vohQd2sSPAA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "FŐZZ MEG 5",
+     "EGYSZERŰ ÉTELT"
+    ],
+    "video": {
+     "id": "YoRTSZ_BYKc",
+     "titre": "A LEGJOBB serpenyős tál,ami ropogós, szaftos és egyszerű. Kezdőknek is.",
+     "chaine": "Pár perces receptek kezdőknek is",
+     "vues": "61 E megtekintés",
+     "date": "11 hónappal ezelőtt",
+     "duree": "5:18",
+     "avatar": "https://yt3.ggpht.com/f_jIDBBQ1K8JJZUUT73Xk0cVNKQxw8w8CHWUS1EGkySfELEId4D7j5dj4S5qlMPl9HuALD1R5A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "KOOK 5",
+     "MAKKELIJKE GERECHTEN"
+    ],
+    "video": {
+     "id": "zFjLEsrhbis",
+     "titre": "3 MAKKELIJKE GERECHTEN VOOR DOORDEWEEKS! | EtenmetNick | How to",
+     "chaine": "EtenmetNick",
+     "vues": "57K weergaven",
+     "date": "1 jaar geleden",
+     "duree": "16:33",
+     "avatar": "https://yt3.ggpht.com/KogLJZAxPboHzSrUtzXzjJjFPO26xAu_cFI2SgU0-BcamD-dDI4jUNz_iQAVSokoFVSHNPvP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "UGOTUJ 5",
+     "PROSTYCH DAŃ"
+    ],
+    "video": {
+     "id": "HCBZRBlsaWI",
+     "titre": "Błyskawiczne placki z kurczaka - Najlepszy przepis - Jak zrobić - Smakowite Dania",
+     "chaine": "SmakowiteDania",
+     "vues": "121 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/5GCI71onVEV3rdQljwEEVRJbebP3g7g9MoRxJ62bTEnI1mUO6iBEt-LOzGbKkHZFcCf_P5_r=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "GĂTEȘTE 5",
+     "REȚETE SIMPLE"
+    ],
+    "video": {
+     "id": "xvhH_WRszIg",
+     "titre": "Cina rapida in doar 10 minute si cu putine ingrediente | Rapid, ieftin, bun si fara Cuptor",
+     "chaine": "Bucatareste cu Rodica",
+     "vues": "61 K de vizionări",
+     "date": "acum 3 ani",
+     "duree": "2:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mvEUj9x7sZOULQrl6HMAI9pbHEnIDdzZraRYFuN6KqHe4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LAGA 5",
+     "ENKLA RÄTTER"
+    ],
+    "video": {
+     "id": "-ePg4utQGLs",
+     "titre": "Snabb Vardagspasta på under 10min!",
+     "chaine": "Filip Poon",
+     "vues": "85 637 visningar",
+     "date": "för 5 år sen",
+     "duree": "8:08",
+     "avatar": "https://yt3.ggpht.com/lOojMSNBHhSVAkuyRn-o6EjUeLxaGPSlP4xSUqibkwxN5qk4Vt4zmRO3hdJ8ACvriRytwmQj=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "5 KOLAY",
+     "YEMEK PİŞİR"
+    ],
+    "video": {
+     "id": "t6RV1XW1kFA",
+     "titre": "10 Dakikada Yapabileceğiniz 10 Yemek Tarifi",
+     "chaine": "Refika'nın Mutfağı",
+     "vues": "3,5 Mn görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "15:36",
+     "avatar": "https://yt3.ggpht.com/cqoZ06A5fIOfkQOrHQI5xgf7V5uQ2qtm336J9kmaHSHy554jgIUBqHTM6p5fqhHT8QhR3nkU=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -374,6 +714,156 @@
      "duree": "16:41",
      "avatar": "https://yt3.ggpht.com/cIr0soR9lJgvp54ZznA6CwRpN9Nd09_OiIMjaAI_F_--5qraoZp-W0aOPEKSdu_noRZD4cUgEA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "INVESTUJ SVÉ",
+     "PRVNÍ PENÍZE"
+    ],
+    "video": {
+     "id": "yk_IVB9Nolc",
+     "titre": "Základy rozumného investování ┃2026",
+     "chaine": "Investiční brambora",
+     "vues": "13 tis. zhlédnutí",
+     "date": "před 10 měsíci",
+     "duree": "15:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lm_EfzN1o9PcKo0yEzbgfR44sgmQRGDwp-3P2JQ4YaVQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "INVESTUJ SVOJE",
+     "PRVÉ PENIAZE"
+    ],
+    "video": {
+     "id": "RKAeLJnGXFg",
+     "titre": "Ako funguje investovanie?",
+     "chaine": "JurajVie",
+     "vues": "117 tis. zhliadnutí",
+     "date": "pred 3 rokmi",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mHr4KhtvgaN3F10OSfAIyJrbcGP_QKvSh2MQ35WlVsonM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ULOŽI SVOJ",
+     "PRVI NOVAC"
+    ],
+    "video": {
+     "id": "cGYFq0w_wss",
+     "titre": "POČNI INVESTIRATI U ETF-ove (nije komplicirano!)",
+     "chaine": "O novcu",
+     "vues": "21 tis. pregleda",
+     "date": "prije 2 godine",
+     "duree": "7:51",
+     "avatar": "https://yt3.ggpht.com/6gxTkCoxK843BB7ATSeosCuWt0T5PRcRhNOjdbMqcavhgDuiuBx4lP-P7BOI9Jy3iXDoyHLK_A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "INVESTIRAJ SVOJ",
+     "PRVI DENAR"
+    ],
+    "video": {
+     "id": "h-h2LbhS1Aw",
+     "titre": "KAKO ZAČETI INVESTIRATI",
+     "chaine": "Andraz Kalisnik",
+     "vues": "1,1 tis. ogledov",
+     "date": "pred 2 letoma",
+     "duree": "17:36",
+     "avatar": "https://yt3.ggpht.com/lPCc-1YvAAYsuZKC624BjppQ00o0Rr1eUxgUx6YpbDJI6k0IPfIpO8-RF5SzRlQpfHcCCFKr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "FEKTESD BE AZ",
+     "ELSŐ PÉNZED"
+    ],
+    "video": {
+     "id": "VsVSpoX-J1Q",
+     "titre": "Így kezdj el befektetni kezdőként",
+     "chaine": "Reiner András",
+     "vues": "1,3 E megtekintés",
+     "date": "4 héttel ezelőtt",
+     "duree": "25:43",
+     "avatar": "https://yt3.ggpht.com/os7kLS8kmpfU06jAH78Wcf5Xjzl7MSIFeGeyUo8-kv0CJiNUe9QUJwVhBbRfOOadngk6vYDE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "BELEG JE",
+     "EERSTE GELD"
+    ],
+    "video": {
+     "id": "YRQOU5teHDo",
+     "titre": "NA DEZE VIDEO KAN JIJ BEGINNEN MET BELEGGEN (BELEGGEN VOOR BEGINNERS)",
+     "chaine": "Focuss Op Financiën",
+     "vues": "243K weergaven",
+     "date": "6 jaar geleden",
+     "duree": "11:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m9TGiAlWTLRUOSeKCHH8dRx2F4UoI9-ocBVVWOSLmsMw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZAINWESTUJ",
+     "PIERWSZE PIENIĄDZE"
+    ],
+    "video": {
+     "id": "q70EUts2vN0",
+     "titre": "Jak zacząć INWESTOWAĆ na GIEŁDZIE [poradnik dla początkujących]",
+     "chaine": "Pankracy",
+     "vues": "332 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "1:01:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l0CNe8ojTJN-WyItzzCHw3MXhBGgebTjbczKTLJt_2eg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "INVESTEȘTE-ȚI",
+     "PRIMII BANI"
+    ],
+    "video": {
+     "id": "tehAH3j7nsY",
+     "titre": "Cum sa incepi sa investesti la Bursa (Ghid Complet + Live Demo) - Partea I",
+     "chaine": "Florin Rata",
+     "vues": "32 K de vizionări",
+     "date": "acum 1 an",
+     "duree": "15:32",
+     "avatar": "https://yt3.ggpht.com/DtQOxm80o71MbVez5m_7ETxjlexAkr_ffJoFap3ToNIavCjaASSvwoKkVbi8e5z99N7dOnV4FKA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "INVESTERA DINA",
+     "FÖRSTA PENGAR"
+    ],
+    "video": {
+     "id": "r07HMgSjkxs",
+     "titre": "Börja investera 2026: Komplett nybörjarguide till aktier & fonder!",
+     "chaine": "Svenska Investeraren",
+     "vues": "484 visningar",
+     "date": "för 7 mån. sen",
+     "duree": "14:20",
+     "avatar": "https://yt3.ggpht.com/sAx0i5fJLApMyOr2UvTngWzTzp9_18Via9UqEvtAD2aghFjeUVCv67Uege3PxkCpQPUQmIkAPYs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "İLK PARANI",
+     "YATIRIMA YÖNLENDİR"
+    ],
+    "video": {
+     "id": "aObBfIN_qSc",
+     "titre": "Sıfırdan Yatırıma Nasıl Başlanır?",
+     "chaine": "Para Biyolojisi",
+     "vues": "1,6 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "10:42",
+     "avatar": "https://yt3.ggpht.com/WEi4fLycKj70HbmNcszTx1GbWyJTouTW_2Hl1BD5EMiOFxWM63uI8rUryeH1EXeEYDfQrTPT9A=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -467,6 +957,136 @@
      "texte": [
       "5 minutos al día",
       "para saber un poco de todo."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "VĚZ TROCHU",
+     "O VŠEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut denně",
+      "a víš trochu o všem."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "VEDZ TROCHU",
+     "O VŠETKOM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minút denne",
+      "a vieš trochu o všetkom."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZNAJ PONEŠTO",
+     "O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuta dnevno",
+      "da znaš ponešto o svemu."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "VEDI MALO",
+     "O VSEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut na dan",
+      "da veš malo o vsem."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "TUDJ MINDENRŐL",
+     "EGY KICSIT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "napi 5 perc,",
+      "hogy mindenről tudj egy kicsit."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "WEET VAN",
+     "ALLES IETS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuten per dag",
+      "om van alles iets te weten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "WIEDZ TROCHĘ",
+     "O WSZYSTKIM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut dziennie,",
+      "by wiedzieć trochę o wszystkim."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "ȘTII CÂTE PUȚIN",
+     "DIN TOATE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minute pe zi",
+      "ca să știi câte puțin din toate."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "KUNNA LITE",
+     "OM ALLT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuter om dagen",
+      "för att kunna lite om allt."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYDEN",
+     "BİRAZ BİL"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "günde 5 dakika,",
+      "her şeyden biraz bilmek için."
      ]
     }
    }
@@ -576,6 +1196,156 @@
      "date": "hace 6 años",
      "duree": "2:35",
      "avatar": "https://yt3.ggpht.com/KqdudrUAMMWBBAn33wwHtSTpX8jSAFToz0RsPWqFCpHuP-sofDJVWqGKWtctj3zd-pN3ddOSqA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     "ŘÍKAT NE"
+    ],
+    "video": {
+     "id": "uXT5aY2mLmY",
+     "titre": "Jak se naučit říkat NE bez pocitu viny",
+     "chaine": "Cesta k sobě",
+     "vues": "2,3 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "9:56",
+     "avatar": "https://yt3.ggpht.com/4OYcq32xCO1MTcMLt1m7VCVLXDWjR_xngtq78oWPmqVbd0vVxhT3fcyIFY_M3E05K8SoJ1MS1Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     "POVEDAŤ NIE"
+    ],
+    "video": {
+     "id": "Ae_ZaO-oAkw",
+     "titre": "Ako povedať NIE",
+     "chaine": "Katarína Runa",
+     "vues": "1,4 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "9:05",
+     "avatar": "https://yt3.ggpht.com/fPHykhIxK-98fDofSUGrliaEpu_2u9tyCOV5yDRBgOxLjWZnkyDrJY3bg2rvB6J-vIabFgrvkw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAUČI",
+     "REĆI NE"
+    ],
+    "video": {
+     "id": "LEoxJ56m3nY",
+     "titre": "Zašto je teško reći NE, kako početi birati sebe, proći kroz krivnju i nelagodu - zdrave granice",
+     "chaine": "Anita Luis Osobni razvoj",
+     "vues": "7,6 tis. pregleda",
+     "date": "prije 1 mjesec",
+     "duree": "11:22",
+     "avatar": "https://yt3.ggpht.com/34S3h4N8EnHqF8wBMsK8E5Rlvxp4B7Dr-gIujZndPGHP3_RTnvPibXf6nlXZ0dAU7mM4HLAbBpo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAUČI SE",
+     "REČI NE"
+    ],
+    "video": {
+     "id": "l6N9oDGcjnA",
+     "titre": "Kako reči NE brez občutka krivde | Podzavestni vzorci iz otroštva (1. del)",
+     "chaine": "Asja Dominko",
+     "vues": "20 tis. ogledov",
+     "date": "pred 11 mes.",
+     "duree": "16:10",
+     "avatar": "https://yt3.ggpht.com/dATeFKntFMRcpvLngUGUXrUVjfa0tluFRSjLpZoBATsRWG3l7eHHt2aQx1W9IG6pOn49lhHZcQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG",
+     "NEMET MONDANI"
+    ],
+    "video": {
+     "id": "NvY7jeZokoM",
+     "titre": "TUDSZ NEMET MONDANI?- Ideje megtanulni! | Polgár Tünde",
+     "chaine": "Polgár Tünde",
+     "vues": "15 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "25:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXrBMjThTBBdpElaqxZ8TB3jp_2qM_7C7qOgZKliKphg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER",
+     "NEE ZEGGEN"
+    ],
+    "video": {
+     "id": "91yvHJ8P4fY",
+     "titre": "Nee zeggen",
+     "chaine": "Thinking Caterpillar",
+     "vues": "300 weergaven",
+     "date": "8 jaar geleden",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDb6M8fyyEJejAI-3GGcyFoqB6yyNSNIw3Mh7sze4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ",
+     "MÓWIĆ NIE"
+    ],
+    "video": {
+     "id": "uy_51Uz28So",
+     "titre": "Sztuka Mówienia NIE | ASERTYWNOŚĆ - Henry Cloud John Townsend",
+     "chaine": "Nieprzeciętne Życie",
+     "vues": "92 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCXIBRNek0fJpw899DDhvS7LSw-1uIHzAIbdDYvewSdfI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ SĂ",
+     "SPUI NU"
+    ],
+    "video": {
+     "id": "zVo-7y1SW7o",
+     "titre": "De ce îți e greu să spui NU – și cum să scapi de people pleasing",
+     "chaine": "Daniel Cirt",
+     "vues": "1,2 K de vizionări",
+     "date": "acum 1 an",
+     "duree": "8:40",
+     "avatar": "https://yt3.ggpht.com/L9R46bjfxKUJWCk_RR5_yrq4Yeen7RplLIlUEzR_XiMPR5bAv64gkAJPA3yEOxh_4LzI7z7elg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG ATT",
+     "SÄGA NEJ"
+    ],
+    "video": {
+     "id": "TUe268JKgfo",
+     "titre": "Avsnitt 407. Svårt att säga nej",
+     "chaine": "Lätt Svenska Med Oskar",
+     "vues": "2 139 visningar",
+     "date": "för 5 mån. sen",
+     "duree": "9:26",
+     "avatar": "https://yt3.ggpht.com/ebkIYPHR_BFTeh0KZ_RERLhoTjhZL7FiD2Apd0r9D_pMcVyhiTQ7mfvlqoKKlPSFaeT26u1uow=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "HAYIR DEMEYİ",
+     "ÖĞREN"
+    ],
+    "video": {
+     "id": "9D-k67DF40M",
+     "titre": "Hayır Diyemeyen İnsanların Psikolojisi",
+     "chaine": "usta zihin",
+     "vues": "2,3 B görüntüleme",
+     "date": "11 ay önce",
+     "duree": "8:52",
+     "avatar": "https://yt3.ggpht.com/8SIYQR17rgL0xQ4ZwPkCpK11luOQ8_gktB1jfxRDWIglIcn_iOHKRhm5buXIwhGnWCe9std_=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

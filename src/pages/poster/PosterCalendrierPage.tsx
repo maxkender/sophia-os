@@ -1,4 +1,5 @@
 import * as React from "react";
+import { BlocGetPaid } from "@/features/ruul/BlocGetPaid";
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -437,7 +438,10 @@ export function PosterCalendrierPage() {
       {/* Compte recréé (0368) : quoi faire, en haut de son espace. */}
       <BandeauRecreation actif={Boolean(user?.id)} />
 
-      {/* 0592 : posteur Ruul : la checklist avant de commencer, tout en haut. */}
+      {/* 21/11 (Max) : posteur RUUL pas prêt : le bloc « Get paid » tout en haut (impossible à fermer). */}
+      <BlocGetPaid />
+
+      {/* 0592 : posteur Ruul : la checklist avant de commencer. */}
       {estRuul && <ChecklistRuul />}
 
       {/* Prompt 15, point 6a : « Today » tout en haut. */}

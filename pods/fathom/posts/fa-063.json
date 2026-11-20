@@ -24,7 +24,11 @@
   "pl": "10/10 umiejętności, które każdy dorosły powinien opanować do 30.",
   "ro": "10/10 abilități pe care orice adult ar trebui să le stăpânească până la 30 de ani",
   "sv": "10/10 färdigheter varje vuxen borde kunna innan 30",
-  "tr": "Her yetişkinin 30 yaşına kadar öğrenmesi gereken 10/10 beceri"
+  "tr": "Her yetişkinin 30 yaşına kadar öğrenmesi gereken 10/10 beceri",
+  "lt": "10/10 įgūdžių, kuriuos kiekvienas suaugęs turi įvaldyti iki 30",
+  "no": "10/10 ferdigheter alle voksne bør mestre før 30",
+  "et": "10/10 oskust, mida iga täiskasvanu peaks valdama enne 30",
+  "fi": "10/10 taitoa, jotka jokaisen aikuisen pitäisi hallita ennen 30:tä"
  },
  "legendes": {
   "en": "10/10 Skills Every Adult Should Master By 30 #selfimprovement #learnontiktok #adulting",
@@ -43,13 +47,17 @@
   "pl": "10/10 umiejętności, które każdy dorosły powinien opanować do 30. #umiejętności #rozwójosobisty #nauka",
   "ro": "10/10 abilități pe care orice adult ar trebui să le stăpânească până la 30 de ani #abilități #dezvoltarepersonală #învățare",
   "sv": "10/10 färdigheter varje vuxen borde kunna innan 30 #färdigheter #självutveckling #lärande",
-  "tr": "Her yetişkinin 30 yaşına kadar öğrenmesi gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme"
+  "tr": "Her yetişkinin 30 yaşına kadar öğrenmesi gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme",
+  "lt": "10/10 įgūdžių, kuriuos kiekvienas suaugęs turi įvaldyti iki 30 #įgūdžiai #saviugda #mokymasis",
+  "no": "10/10 ferdigheter alle voksne bør mestre før 30 #ferdigheter #selvutvikling #læring",
+  "et": "10/10 oskust, mida iga täiskasvanu peaks valdama enne 30 #oskused #eneseareng #õppimine",
+  "fi": "10/10 taitoa, jotka jokaisen aikuisen pitäisi hallita ennen 30:tä #taidot #itsensäkehittäminen #oppiminen"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
  },
- "notes": "cta B. Déclinaison G2 de fa-047 (boîte BLEO du 13/11) : même promesse (« les compétences à avoir avant 30 ans »), autres mots ; autres étapes (cuisine, premier investissement, dire non), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue. 20/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr.",
+ "notes": "cta B. Déclinaison G2 de fa-047 (boîte BLEO du 13/11) : même promesse (« les compétences à avoir avant 30 ans »), autres mots ; autres étapes (cuisine, premier investissement, dire non), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue. 20/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr. 20/11 soir : ajouté en lt, no, et et fi.",
  "slides": [
   {
    "type": "couverture",
@@ -348,6 +356,74 @@
       }
      ]
     ]
+   },
+   "lt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ĮGŪDŽIŲ ĮVALDYTI",
+     [
+      {
+       "t": "IKI 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "no": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FERDIGHETER Å MESTRE",
+     [
+      {
+       "t": "FØR DU ER 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "et": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "OSKUST, MIDA VALDADA",
+     [
+      {
+       "t": "ENNE 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fi": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TAITOA HALLITTAVAKSI",
+     [
+      {
+       "t": "ENNEN 30:TÄ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -605,6 +681,66 @@
      "date": "7 yıl önce",
      "duree": "15:36",
      "avatar": "https://yt3.ggpht.com/cqoZ06A5fIOfkQOrHQI5xgf7V5uQ2qtm336J9kmaHSHy554jgIUBqHTM6p5fqhHT8QhR3nkU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "PASIGAMINK 5",
+     "PAPRASTUS PATIEKALUS"
+    ],
+    "video": {
+     "id": "hDeKVnKyTT8",
+     "titre": "Sultingos vištienos receptas. Labai lengva pasigaminti!",
+     "chaine": "Santa Maria Lietuva",
+     "vues": "40 tūkst. peržiūrų",
+     "date": "prieš 8 metus",
+     "duree": "01:01",
+     "avatar": "https://yt3.ggpht.com/gYNrbq6mVyK-S9IzalrTFkkD_APBAI8qNmvM3VXGHHgNlaWm-rEMbc_552xqSZXa1S81aTRCfA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LAG 5",
+     "ENKLE MIDDAGER"
+    ],
+    "video": {
+     "id": "opoXEGPGmQw",
+     "titre": "20 Middagstips til deg som ikke vet hva du skal lage til middag",
+     "chaine": "Hjemmelaget Mat På 123",
+     "vues": "5,8k avspillinger",
+     "date": "for 3 år siden",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nw86HSN9oyojkHGyFs-ZMQzyggvPCHIMz5jXIcM9llnw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "VALMISTA 5",
+     "LIHTSAT ROOGA"
+    ],
+    "video": {
+     "id": "hMY2OAekkEQ",
+     "titre": "Kodused toidud: Värskekapsa supp lihaga külmal talvepäeval. Kiire ja lihtne valmistada!",
+     "chaine": "Kodused toidud algajale",
+     "vues": "138 vaatamist",
+     "date": "9 kuu eest",
+     "duree": "4:51",
+     "avatar": "https://yt3.ggpht.com/PBRqAku1JK8CwLGKrd51wtJWZF2uvq65qJ4Wd-U6q_nCwprKSInBgUhaAVfPeCHB64KIlxDaHQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "TEE 5",
+     "HELPPOA RUOKAA"
+    ],
+    "video": {
+     "id": "hcFeQpanzto",
+     "titre": "3 Maukasta Arkiruokaa Jotka Valmistuvat Noin 10 minuutissa! 🌮 🍝 🍚",
+     "chaine": "Resepti",
+     "vues": "19 t. katselukertaa",
+     "date": "1 vuosi sitten",
+     "duree": "16.59",
+     "avatar": "https://yt3.ggpht.com/bE18TInjNf2DT2UFsLS1t3NwvJZq75D-LkaWv4M-kQbOAQSLCbfvaRu90sv95-sg-U21fW3kDHg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -864,6 +1000,66 @@
      "duree": "10:42",
      "avatar": "https://yt3.ggpht.com/WEi4fLycKj70HbmNcszTx1GbWyJTouTW_2Hl1BD5EMiOFxWM63uI8rUryeH1EXeEYDfQrTPT9A=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "lt": {
+    "titre": [
+     "INVESTUOK SAVO",
+     "PIRMUOSIUS PINIGUS"
+    ],
+    "video": {
+     "id": "VtFfTahKsS0",
+     "titre": "Investavimo pradžia: nuo ko pradėti investuoti pradedantiesiems",
+     "chaine": "Moterys investuoja",
+     "vues": "10 tūkst. peržiūrų",
+     "date": "prieš 1 metus",
+     "duree": "15:55",
+     "avatar": "https://yt3.ggpht.com/HfMWtwnbW2n7FTZURXPj8MtisVhBJlYqiTsEnW_UyCHB-e-8d1W5o4m9tZihPkmBCn_Ikm6CA5A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "INVESTER DINE",
+     "FØRSTE PENGER"
+    ],
+    "video": {
+     "id": "TCYMxGjfYsY",
+     "titre": "Få mest ut av sparing i Fond - 5 enkle steg",
+     "chaine": "Aksjer På Norsk",
+     "vues": "14k avspillinger",
+     "date": "for 1 år siden",
+     "duree": "8:10",
+     "avatar": "https://yt3.ggpht.com/tmX5s0oD2h7MgYyar_uV-7h9QP4cfVB3L6yliLVlU0RCINvc1sSa33xlBgdTDwz1Aid5p9kNOw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "INVESTEERI OMA",
+     "ESIMESED RAHAD"
+    ],
+    "video": {
+     "id": "fdbazY9Q7VA",
+     "titre": "Kuidas alustada investeerimist?",
+     "chaine": "LHV Pank",
+     "vues": "15 tuh vaatamist",
+     "date": "9 aasta eest",
+     "duree": "1:08:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8id24awxXN5vKT43meIXWHxnGclSgqQdz3eqbDZ2wU9A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "SIJOITA",
+     "ENSIMMÄISET RAHASI"
+    ],
+    "video": {
+     "id": "YtPgY9rv8p4",
+     "titre": "Näin aloitat sijoittamisen 2026",
+     "chaine": "Nordnet Suomi",
+     "vues": "21 t. katselukertaa",
+     "date": "2 vuotta sitten",
+     "duree": "10.37",
+     "avatar": "https://yt3.ggpht.com/CZzBTuI-dq73le2mmGUPAF_6EKoZkXOP2dAw17k1eeeB9fBZ-DsddvQrthh-7ooW8fXU1u-5D1w=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1087,6 +1283,58 @@
      "texte": [
       "günde 5 dakika,",
       "her şeyden biraz bilmek için."
+     ]
+    }
+   },
+   "lt": {
+    "titre": [
+     "ŽINOK PO TRUPUTĮ",
+     "APIE VISKĄ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutės per dieną,",
+      "kad žinotum po truputį apie viską."
+     ]
+    }
+   },
+   "no": {
+    "titre": [
+     "KUNN LITT",
+     "OM ALT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutter om dagen",
+      "for å kunne litt om alt."
+     ]
+    }
+   },
+   "et": {
+    "titre": [
+     "TEA NATUKE",
+     "KÕIGEST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutit päevas,",
+      "et teada natuke kõigest."
+     ]
+    }
+   },
+   "fi": {
+    "titre": [
+     "TIEDÄ VÄHÄN",
+     "KAIKESTA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuuttia päivässä",
+      "tietääksesi vähän kaikesta."
      ]
     }
    }
@@ -1346,6 +1594,66 @@
      "date": "11 ay önce",
      "duree": "8:52",
      "avatar": "https://yt3.ggpht.com/8SIYQR17rgL0xQ4ZwPkCpK11luOQ8_gktB1jfxRDWIglIcn_iOHKRhm5buXIwhGnWCe9std_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "IŠMOK",
+     "PASAKYTI NE"
+    ],
+    "video": {
+     "id": "vdx-bj06zCc",
+     "titre": "Kaip pasakyti NE",
+     "chaine": "Jurga MediaLab",
+     "vues": "1,1 tūkst. peržiūrų",
+     "date": "prieš 4 metus",
+     "duree": "02:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRrRL7uNG6hf3wnbvyd3CSr6_efoJVXD3ie9pNMRo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LÆR Å",
+     "SI NEI"
+    ],
+    "video": {
+     "id": "uuAPMv1NSwo",
+     "titre": "Lær å si nei på ett minutt",
+     "chaine": "Bypsykologene",
+     "vues": "1,1k avspillinger",
+     "date": "for 7 år siden",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLwanM4JUCdiQFLU9DRF3AP2uoRtDoT_Cc6R-szyn9oOY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "ÕPI ÜTLEMA",
+     "EI"
+    ],
+    "video": {
+     "id": "Yh_IdesoIYE",
+     "titre": "Julgus öelda “Ei!”",
+     "chaine": "Videoõps",
+     "vues": "9,4 tuh vaatamist",
+     "date": "1 kuu eest",
+     "duree": "5:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mEABBGl_lHgnJVW0DwMzR_v4H0p3ZyDOT0u7Ar-3bdRQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "OPI",
+     "SANOMAAN EI"
+    ],
+    "video": {
+     "id": "798DovBzrzU",
+     "titre": "5 tapaa sanoa ei",
+     "chaine": "Kysy Psykologilta",
+     "vues": "59 katselukertaa",
+     "date": "4 vuotta sitten",
+     "duree": "1.53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqMgf1f05gceuH4flpvwmRytDUs6NIFtviWQDZXxqzGA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

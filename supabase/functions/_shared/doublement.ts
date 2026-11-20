@@ -42,7 +42,7 @@ export function texteAccordDouble(lundi: string): string {
 
 export const TEXTE_REFUS_DOUBLE = "No problem, nothing changes for you. Keep up the great work!";
 
-const OUI = /^(yes|yeah|yep|yess+|sure|ok(ay)?|oui|ouais|s[ií]|sim|ja|jaa|evet|tak|da|ano|igen|ναι|نعم|да|так|כן|はい|是|accept(ed)?|i accept|i want it|let'?s go)[\s!.,👍🙏😊🙂]*$/iu;
+const OUI = /^(yes|yeah|yep|yess+|sure|ok(ay)?|oui|ouais|s[ií]|sim|ja|jaa|jah|jā|jes|evet|tak|da|ano|igen|ναι|نعم|да|так|כן|はい|是|accept(ed)?|i accept|i want it|let'?s go)[\s!.,👍🙏😊🙂]*$/iu;
 const NON = /^(no|nope|non|nein|nee|hay[ıi]r|nie|n[ãa]o|ne|nem|όχι|لا|нет|ні|לא|いいえ|不|no thanks?|non merci|no,? thank you)[\s!.,🙏]*$/iu;
 
 /**

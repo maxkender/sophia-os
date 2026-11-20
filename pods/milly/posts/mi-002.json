@@ -9,10 +9,30 @@
  "fond": "orange",
  "type_bleo": "full_test",
  "titre": {
-  "en": "How to Remember what you Read"
+  "en": "How to Remember what you Read",
+  "fr": "Comment retenir ce que tu lis",
+  "es": "Cómo recordar lo que lees",
+  "es-419": "Cómo recordar lo que lees",
+  "it": "Come ricordare ciò che leggi",
+  "tr": "Okuduğunu nasıl hatırlarsın",
+  "pt-BR": "Como lembrar do que você lê",
+  "sl": "Kako si zapomniti, kar prebereš",
+  "hr": "Kako zapamtiti ono što pročitaš",
+  "de": "Wie du behältst, was du liest",
+  "hu": "Hogyan jegyezd meg, amit olvasol"
  },
  "legendes": {
-  "en": "reading is not remembering #memory #learning #reading #brain #studytips"
+  "en": "reading is not remembering #memory #learning #reading #brain #studytips",
+  "fr": "lire, ce n'est pas retenir #mémoire #apprendre #lecture #cerveau #méthodedetravail",
+  "es": "leer no es recordar #memoria #aprender #lectura #cerebro #técnicasdeestudio",
+  "es-419": "leer no es lo mismo que recordar #memoria #aprender #lectura #cerebro #tipsdeestudio",
+  "it": "leggere non è ricordare #memoria #imparare #lettura #cervello #metododistudio",
+  "tr": "okumak hatırlamak değildir #hafıza #öğrenme #okuma #beyin #dersçalışma",
+  "pt-BR": "ler não é lembrar #memoria #aprender #leitura #cerebro #dicasdeestudo",
+  "sl": "branje ni pomnjenje #spomin #učenje #branje #možgani #učnetehnike",
+  "hr": "čitanje nije pamćenje #pamćenje #učenje #čitanje #mozak #tehnikeučenja",
+  "de": "lesen ist nicht behalten #gedächtnis #lernen #lesen #gehirn #lerntipps",
+  "hu": "az olvasás még nem emlékezés #memória #tanulás #olvasás #agy #tanulásimódszerek"
  },
  "musique": {
   "titre": "original sound - glow 💯",
@@ -43,6 +63,212 @@
      }
     ],
     "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Retenir",
+      "taille": "grand"
+     },
+     {
+      "t": "ce que tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Lis",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Recordar",
+      "taille": "grand"
+     },
+     {
+      "t": "lo que",
+      "taille": "petit"
+     },
+     {
+      "t": "Lees",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Recordar",
+      "taille": "grand"
+     },
+     {
+      "t": "lo que",
+      "taille": "petit"
+     },
+     {
+      "t": "Lees",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Ricordare",
+      "taille": "grand"
+     },
+     {
+      "t": "ciò che",
+      "taille": "petit"
+     },
+     {
+      "t": "Leggi",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Okuduğunu",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Hatırlarsın",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Lembrar",
+      "taille": "grand"
+     },
+     {
+      "t": "do que você",
+      "taille": "petit"
+     },
+     {
+      "t": "Lê",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako si",
+      "taille": "petit"
+     },
+     {
+      "t": "Zapomniti",
+      "taille": "grand"
+     },
+     {
+      "t": "kar",
+      "taille": "petit"
+     },
+     {
+      "t": "Prebereš",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "Zapamtiti",
+      "taille": "grand"
+     },
+     {
+      "t": "ono što",
+      "taille": "petit"
+     },
+     {
+      "t": "Pročitaš",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du",
+      "taille": "petit"
+     },
+     {
+      "t": "Behältst",
+      "taille": "grand"
+     },
+     {
+      "t": "was du",
+      "taille": "petit"
+     },
+     {
+      "t": "Liest",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Jegyezd meg",
+      "taille": "grand"
+     },
+     {
+      "t": "amit",
+      "taille": "petit"
+     },
+     {
+      "t": "Olvasol",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
    }
   },
   {
@@ -58,6 +284,146 @@
      },
      {
       "p": "The usual habits do little against it. In a large review of study techniques, highlighting and rereading were rated among the least useful, while testing yourself and spreading your reviews over time were rated the most useful."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Lire n'est pas retenir",
+    "blocs": [
+     {
+      "p": "Dans les années 1880, Hermann Ebbinghaus a mesuré sa propre mémoire : une grande partie de ce qu'on apprend s'oublie en un jour, sauf si on le révise. Des chercheurs ont refait son expérience en 2015 et retrouvé presque la même courbe."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Les habitudes courantes n'y changent pas grand-chose. Dans une grande revue des techniques d'étude, surligner et relire figuraient parmi les moins utiles, tandis que se tester et espacer ses révisions étaient jugés les plus utiles."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Leer no es recordar",
+    "blocs": [
+     {
+      "p": "En la década de 1880, Hermann Ebbinghaus midió su propia memoria y vio que gran parte de lo nuevo se olvida en un día si no se repasa. En 2015, unos investigadores repitieron su experimento y encontraron casi la misma curva."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Los hábitos de siempre apenas ayudan. En una gran revisión de técnicas de estudio, subrayar y releer quedaron entre las menos útiles, mientras que ponerse a prueba y espaciar los repasos se consideraron las más útiles."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Leer no es recordar",
+    "blocs": [
+     {
+      "p": "En la década de 1880, Hermann Ebbinghaus midió su propia memoria y descubrió que gran parte de lo nuevo se olvida en un día si no lo repasas. En 2015, otros investigadores repitieron su experimento y obtuvieron casi la misma curva."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Los hábitos de siempre casi no ayudan. En una gran revisión de técnicas de estudio, subrayar y volver a leer quedaron entre las menos útiles, mientras que autoevaluarte y espaciar tus repasos fueron las más útiles."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Leggere non è ricordare",
+    "blocs": [
+     {
+      "p": "Negli anni 1880 Hermann Ebbinghaus misurò la propria memoria e scoprì che gran parte di ciò che è nuovo si dimentica in un giorno, se non lo si ripassa. Nel 2015 alcuni ricercatori hanno ripetuto il suo esperimento e trovato quasi la stessa curva."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Le abitudini più comuni servono a poco. In un'ampia revisione delle tecniche di studio, evidenziare e rileggere sono risultate tra le meno utili, mentre mettersi alla prova e distanziare i ripassi sono state giudicate le più utili."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Okumak hatırlamak değildir",
+    "blocs": [
+     {
+      "p": "1880'lerde Hermann Ebbinghaus kendi hafızasını ölçtü ve yeni öğrenilen şeylerin büyük kısmının, tekrar edilmezse bir gün içinde unutulduğunu buldu. 2015'te araştırmacılar deneyini tekrarladı ve neredeyse aynı eğriyi elde etti."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Alışılmış yöntemler buna pek işe yaramaz. Çalışma tekniklerine dair büyük bir incelemede, altını çizmek ve yeniden okumak en az faydalılar arasında yer aldı; kendini test etmek ve tekrarları zamana yaymak ise en faydalıları sayıldı."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ler não é lembrar",
+    "blocs": [
+     {
+      "p": "Nos anos 1880, Hermann Ebbinghaus mediu a própria memória e descobriu que boa parte do que é novo se esquece em um dia, se não for revisado. Em 2015, pesquisadores repetiram o experimento e encontraram quase a mesma curva."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Os hábitos de sempre ajudam pouco. Em uma grande revisão de técnicas de estudo, grifar e reler ficaram entre as menos úteis, enquanto se testar e espaçar as revisões foram consideradas as mais úteis."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Branje ni pomnjenje",
+    "blocs": [
+     {
+      "p": "V osemdesetih letih 19. stoletja je Hermann Ebbinghaus meril lasten spomin in ugotovil, da velik del novega pozabimo že v enem dnevu, če ga ne ponovimo. Leta 2015 so raziskovalci njegov poskus ponovili in dobili skoraj enako krivuljo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Običajne navade pri tem malo pomagajo. V obsežnem pregledu učnih tehnik sta podčrtovanje in ponovno branje veljala za najmanj koristna, preverjanje samega sebe in razporejanje ponavljanja skozi čas pa za najbolj koristna."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Čitanje nije pamćenje",
+    "blocs": [
+     {
+      "p": "Osamdesetih godina 19. stoljeća Hermann Ebbinghaus mjerio je vlastito pamćenje i otkrio da velik dio novoga zaboravimo već za jedan dan ako ga ne ponovimo. Istraživači su 2015. ponovili njegov pokus i dobili gotovo istu krivulju."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Uobičajene navike tu malo pomažu. U velikom pregledu tehnika učenja podcrtavanje i ponovno čitanje bili su među najmanje korisnima, a samoprovjera i raspoređivanje ponavljanja kroz vrijeme ocijenjeni su najkorisnijima."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lesen ist nicht Behalten",
+    "blocs": [
+     {
+      "p": "In den 1880er-Jahren maß Hermann Ebbinghaus sein eigenes Gedächtnis und stellte fest, dass ein großer Teil von allem Neuen innerhalb eines Tages vergessen wird, wenn man es nicht wiederholt. 2015 wiederholten Forschende sein Experiment und fanden fast dieselbe Kurve."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Die üblichen Gewohnheiten helfen kaum dagegen. In einer großen Übersicht über Lerntechniken gehörten Markieren und erneutes Lesen zu den am wenigsten nützlichen, während Selbsttests und zeitlich verteiltes Wiederholen als die nützlichsten galten."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Az olvasás nem emlékezés",
+    "blocs": [
+     {
+      "p": "Az 1880-as években Hermann Ebbinghaus a saját memóriáját mérte, és azt találta, hogy az új dolgok nagy részét egy napon belül elfelejtjük, ha nem ismételjük át. 2015-ben kutatók megismételték a kísérletét, és szinte ugyanazt a görbét kapták."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "A megszokott módszerek keveset segítenek ellene. A tanulási technikák egy nagy áttekintésében az aláhúzás és az újraolvasás a legkevésbé hasznosak közé került, az önellenőrzés és az időben elosztott ismétlés pedig a leghasznosabbak közé."
      }
     ]
    }
@@ -81,6 +447,176 @@
       "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
      }
     ]
+   },
+   "fr": {
+    "titre": "Lis un peu, chaque soir",
+    "blocs": [
+     {
+      "p": "La mémoire préfère les petites doses étalées dans le temps. Sur des centaines d'expériences, le même temps d'étude réparti sur plusieurs jours était mieux retenu que ce même temps concentré en une seule séance. C'est l'effet d'espacement."
+     },
+     {
+      "p": "Alors, au lieu d'une longue séance par semaine, lis une courte leçon chaque soir, comme un entraînement. Chaque soir est une nouvelle répétition, et le sommeil qui suit aide à la consolider."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Lee un poco, cada noche",
+    "blocs": [
+     {
+      "p": "La memoria prefiere dosis pequeñas repartidas en el tiempo. En cientos de experimentos, el mismo tiempo de estudio repartido en varios días se recordó mejor que ese mismo tiempo concentrado en una sola sesión. Es el efecto de espaciado."
+     },
+     {
+      "p": "Así que, en vez de una sesión larga a la semana, lee una lección corta cada noche, como un entrenamiento. Cada noche es una repetición nueva, y el sueño que viene después ayuda a consolidarla."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Lee un poco cada noche",
+    "blocs": [
+     {
+      "p": "A la memoria le van mejor las dosis pequeñas repartidas en el tiempo. En cientos de experimentos, el mismo tiempo de estudio repartido en varios días se recordó mejor que ese tiempo concentrado en una sola sesión. Es el efecto de espaciamiento."
+     },
+     {
+      "p": "Entonces, en lugar de una sesión larga a la semana, lee una lección corta cada noche, como un entrenamiento. Cada noche es una repetición nueva, y el sueño que sigue ayuda a consolidarla."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Leggi un po', ogni sera",
+    "blocs": [
+     {
+      "p": "La memoria preferisce piccole dosi distribuite nel tempo. In centinaia di esperimenti, lo stesso tempo di studio distribuito su più giorni è stato ricordato meglio dello stesso tempo concentrato in un'unica sessione. È l'effetto di spaziatura."
+     },
+     {
+      "p": "Quindi, invece di una lunga sessione a settimana, leggi una breve lezione ogni sera, come un allenamento. Ogni sera è una nuova ripetizione, e il sonno che segue aiuta a consolidarla."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Her akşam biraz oku",
+    "blocs": [
+     {
+      "p": "Hafıza, zamana yayılmış küçük dozları sever. Yüzlerce deneyde, birkaç güne yayılan aynı çalışma süresi, tek oturuma sıkıştırılan aynı süreden daha iyi hatırlandı. Buna aralıklı tekrar etkisi denir."
+     },
+     {
+      "p": "Yani haftada bir uzun oturum yerine, her akşam kısa bir ders oku, bir antrenman gibi. Her akşam yeni bir tekrar olur ve ardından gelen uyku onu pekiştirmeye yardım eder."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Leia um pouco, toda noite",
+    "blocs": [
+     {
+      "p": "A memória prefere doses pequenas espalhadas no tempo. Em centenas de experimentos, o mesmo tempo de estudo dividido em vários dias foi lembrado melhor do que esse mesmo tempo concentrado em uma única sessão. É o efeito de espaçamento."
+     },
+     {
+      "p": "Então, em vez de uma sessão longa por semana, leia uma lição curta toda noite, como um treino. Cada noite é uma nova repetição, e o sono que vem depois ajuda a consolidá-la."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Beri malo, vsak večer",
+    "blocs": [
+     {
+      "p": "Spomin ima raje majhne odmerke, razporejene skozi čas. V stotinah poskusov so si ljudje enak čas učenja, razdeljen na več dni, zapomnili bolje kot enak čas, stisnjen v eno samo sejo. To je učinek razporejenega učenja."
+     },
+     {
+      "p": "Zato namesto ene dolge seje na teden vsak večer preberi kratko lekcijo, kot trening. Vsak večer je nova ponovitev, spanec, ki sledi, pa jo pomaga utrditi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Čitaj malo, svake večeri",
+    "blocs": [
+     {
+      "p": "Pamćenje voli male doze raspoređene kroz vrijeme. U stotinama pokusa isto vrijeme učenja raspoređeno na nekoliko dana pamtilo se bolje od istog vremena zbijenog u jednu sesiju. To je učinak raspoređenog učenja."
+     },
+     {
+      "p": "Zato umjesto jedne duge sesije tjedno svake večeri pročitaj kratku lekciju, kao trening. Svaka večer je novo ponavljanje, a san koji slijedi pomaže ga učvrstiti."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lies jeden Abend ein wenig",
+    "blocs": [
+     {
+      "p": "Das Gedächtnis mag kleine, über die Zeit verteilte Dosen. In Hunderten von Experimenten wurde dieselbe Lernzeit, verteilt auf mehrere Tage, besser behalten als dieselbe Zeit in einer einzigen Sitzung. Das ist der Spacing-Effekt."
+     },
+     {
+      "p": "Statt einer langen Sitzung pro Woche also jeden Abend eine kurze Lektion lesen, wie ein Training. Jeder Abend ist eine neue Wiederholung, und der Schlaf danach hilft, sie zu festigen."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Olvass egy keveset minden este",
+    "blocs": [
+     {
+      "p": "A memória a kis, időben elosztott adagokat szereti. Több száz kísérletben ugyanaz a tanulási idő több napra elosztva jobban megmaradt, mint egyetlen alkalomba sűrítve. Ez az elosztott tanulás hatása."
+     },
+     {
+      "p": "Ezért heti egy hosszú alkalom helyett olvass el minden este egy rövid leckét, mint egy edzést. Minden este egy újabb ismétlés, az utána következő alvás pedig segít megszilárdítani."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
    }
   },
   {
@@ -96,6 +632,146 @@
      },
      {
       "p": "In a classic study, students who stopped to explain a text to themselves understood it better than students who simply read it twice. What you can explain, you keep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Puis explique-le à voix haute",
+    "blocs": [
+     {
+      "p": "Ferme la page et explique à voix haute ce que tu viens de lire, comme à un ami : l'idée principale, pourquoi elle est vraie, et ce qu'elle rejoint dans ce que tu sais déjà. Te demander « pourquoi ? » oblige le cerveau à relier le nouveau à l'ancien."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Dans une étude classique, les élèves qui s'arrêtaient pour s'expliquer un texte le comprenaient mieux que ceux qui le lisaient simplement deux fois. Ce que tu sais expliquer, tu le gardes."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Y luego explícalo en voz alta",
+    "blocs": [
+     {
+      "p": "Cierra la página y explica en voz alta lo que acabas de leer, como si se lo contaras a un amigo: la idea principal, por qué es cierta y cómo se relaciona con algo que ya sabes. Preguntarte «¿por qué?» obliga al cerebro a unir lo nuevo con lo que ya conoce."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "En un estudio clásico, los alumnos que se detenían a explicarse un texto lo entendían mejor que los que simplemente lo leían dos veces. Lo que sabes explicar, lo conservas."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Luego explícalo en voz alta",
+    "blocs": [
+     {
+      "p": "Cierra la página y explica en voz alta lo que acabas de leer, como si se lo contaras a un amigo: la idea principal, por qué es cierta y cómo se conecta con algo que ya sabes. Preguntarte «¿por qué?» obliga a tu cerebro a unir lo nuevo con lo que ya conoce."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "En un estudio clásico, los estudiantes que se detenían a explicarse un texto lo entendían mejor que los que solo lo leían dos veces. Lo que puedes explicar, lo conservas."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Poi spiegalo ad alta voce",
+    "blocs": [
+     {
+      "p": "Chiudi la pagina e spiega ad alta voce ciò che hai appena letto, come a un amico: l'idea principale, perché è vera e come si collega a qualcosa che già sai. Chiederti «perché?» costringe il cervello a legare il nuovo a ciò che conosce."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "In uno studio classico, gli studenti che si fermavano a spiegarsi un testo lo capivano meglio di quelli che lo leggevano semplicemente due volte. Ciò che sai spiegare, lo tieni."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Sonra yüksek sesle anlat",
+    "blocs": [
+     {
+      "p": "Sayfayı kapat ve az önce okuduğunu bir arkadaşına anlatır gibi yüksek sesle açıkla: ana fikir, neden doğru olduğu ve zaten bildiğin bir şeyle nasıl bağlandığı. Kendine “neden?” diye sormak, beyni yeni bilgiyi eskisine bağlamaya zorlar."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Klasik bir çalışmada, durup bir metni kendilerine açıklayan öğrenciler, onu sadece iki kez okuyanlardan daha iyi anladı. Açıklayabildiğin şeyi akılda tutarsın."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Depois explique em voz alta",
+    "blocs": [
+     {
+      "p": "Feche a página e explique em voz alta o que acabou de ler, como se contasse a um amigo: a ideia principal, por que ela é verdadeira e como se liga a algo que você já sabe. Perguntar a si mesmo “por quê?” obriga o cérebro a ligar o novo ao antigo."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Em um estudo clássico, os alunos que paravam para explicar um texto a si mesmos o entendiam melhor do que os que simplesmente o liam duas vezes. O que você consegue explicar, você guarda."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Nato to razloži na glas",
+    "blocs": [
+     {
+      "p": "Zapri stran in na glas razloži, kar si pravkar prebral, kot bi pripovedoval prijatelju: glavno idejo, zakaj drži in kako se povezuje s tem, kar že veš. Vprašanje »zakaj?« prisili možgane, da novo povežejo s starim."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "V klasični raziskavi so učenci, ki so se ustavili in si besedilo razložili, tega bolje razumeli kot tisti, ki so ga preprosto dvakrat prebrali. Kar znaš razložiti, obdržiš."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Zatim to objasni naglas",
+    "blocs": [
+     {
+      "p": "Zatvori stranicu i naglas objasni ono što si upravo pročitao, kao da pričaš prijatelju: glavnu ideju, zašto je točna i kako se povezuje s onim što već znaš. Pitanje „zašto?“ tjera mozak da novo poveže sa starim."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "U klasičnom istraživanju učenici koji su zastali i sami sebi objasnili tekst razumjeli su ga bolje od onih koji su ga jednostavno pročitali dvaput. Ono što znaš objasniti, to i zadržiš."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Dann erklär es laut",
+    "blocs": [
+     {
+      "p": "Klapp das Buch zu und erklär laut, was du gerade gelesen hast, als würdest du es einem Freund erzählen: die Hauptidee, warum sie stimmt und wie sie mit etwas zusammenhängt, das du schon weißt. Die Frage „Warum?“ zwingt das Gehirn, Neues mit Altem zu verknüpfen."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "In einer klassischen Studie verstanden Lernende, die innehielten und sich einen Text selbst erklärten, ihn besser als jene, die ihn einfach zweimal lasen. Was du erklären kannst, behältst du."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Aztán mondd el hangosan",
+    "blocs": [
+     {
+      "p": "Csukd be a könyvet, és mondd el hangosan, amit az imént olvastál, mintha egy barátodnak mesélnéd: a fő gondolatot, miért igaz, és hogyan kapcsolódik ahhoz, amit már tudsz. A „miért?” kérdés arra kényszeríti az agyat, hogy az újat a régihez kösse."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Egy klasszikus vizsgálatban azok a diákok, akik megálltak, és elmagyarázták maguknak a szöveget, jobban megértették, mint akik egyszerűen kétszer elolvasták. Amit el tudsz magyarázni, az megmarad."
      }
     ]
    }

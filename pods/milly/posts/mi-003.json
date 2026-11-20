@@ -1,0 +1,780 @@
+{
+ "id": "mi-003",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7683191907333180702",
+  "vues": 142100,
+  "publie_le": "2026-09-08",
+  "accroche": "Habits / that increase / Intelligence"
+ },
+ "fond": "vert",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Full test (voie 1, boîte vide). Preuve de format : « Habits that increase Intelligence » de @bdnf.milly (142,1 k vues, 08/09, fond vert), famille « Habits that … », même gabarit. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : pendant le sommeil profond l'hippocampe rejoue la journée et aide à la transférer vers le cortex (Diekelmann et Born, Nature Reviews Neuroscience 2010) ; après une nuit blanche, environ 40 % de capacité en moins à former de nouveaux souvenirs (Yoo, Hu, Gujar, Jolesz et Walker, Nature Neuroscience 2007) ; plus on en sait sur un sujet, plus les faits nouveaux s'y retiennent (Chiesi, Spilich et Voss, Journal of Verbal Learning and Verbal Behavior 1979) ; un an de marche rapide trois fois par semaine : hippocampe +2 % environ, contre une baisse dans le groupe étirements (Erickson et al., PNAS 2011). 11 langues. Images : Seedream (irm-coronale, neurones-reseau, tractographie), sans texte.",
+ "titre": {
+  "en": "Habits that sharpen your Memory",
+  "fr": "Les habitudes qui aiguisent ta mémoire",
+  "es": "Hábitos que agudizan tu memoria",
+  "es-419": "Hábitos que agudizan tu memoria",
+  "it": "Abitudini che affinano la memoria",
+  "tr": "Hafızanı keskinleştiren alışkanlıklar",
+  "pt-BR": "Hábitos que afiam sua memória",
+  "sl": "Navade, ki izostrijo spomin",
+  "hr": "Navike koje izoštravaju pamćenje",
+  "de": "Gewohnheiten, die dein Gedächtnis schärfen",
+  "hu": "Szokások, amelyek élesítik a memóriádat"
+ },
+ "legendes": {
+  "en": "sleep, learn, move #memory #brain #habits #learning #neuroscience",
+  "fr": "dormir, apprendre, bouger #mémoire #cerveau #habitudes #apprendre #neurosciences",
+  "es": "dormir, aprender, moverse #memoria #cerebro #hábitos #aprender #neurociencia",
+  "es-419": "dormir, aprender, moverte #memoria #cerebro #hábitos #aprender #neurociencia",
+  "it": "dormire, imparare, muoversi #memoria #cervello #abitudini #imparare #neuroscienze",
+  "tr": "uyu, öğren, hareket et #hafıza #beyin #alışkanlıklar #öğrenme #nörobilim",
+  "pt-BR": "dormir, aprender, se mexer #memoria #cerebro #habitos #aprender #neurociencia",
+  "sl": "spanje, učenje, gibanje #spomin #možgani #navade #učenje #nevroznanost",
+  "hr": "spavaj, uči, kreći se #pamćenje #mozak #navike #učenje #neuroznanost",
+  "de": "schlafen, lernen, bewegen #gedächtnis #gehirn #gewohnheiten #lernen #neurowissenschaft",
+  "hu": "aludj, tanulj, mozogj #memória #agy #szokások #tanulás #idegtudomány"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-coronale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "Habits",
+      "taille": "grand"
+     },
+     {
+      "t": "that sharpen",
+      "taille": "petit"
+     },
+     {
+      "t": "your",
+      "taille": "petit"
+     },
+     {
+      "t": "Memory",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Habitudes",
+      "taille": "grand"
+     },
+     {
+      "t": "qui aiguisent",
+      "taille": "petit"
+     },
+     {
+      "t": "ta",
+      "taille": "petit"
+     },
+     {
+      "t": "Mémoire",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que agudizan",
+      "taille": "petit"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que agudizan",
+      "taille": "petit"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Abitudini",
+      "taille": "grand"
+     },
+     {
+      "t": "che affinano",
+      "taille": "petit"
+     },
+     {
+      "t": "la tua",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Hafızanı",
+      "taille": "grand"
+     },
+     {
+      "t": "keskinleştiren",
+      "taille": "petit"
+     },
+     {
+      "t": "Alışkanlıklar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que afiam",
+      "taille": "petit"
+     },
+     {
+      "t": "sua",
+      "taille": "petit"
+     },
+     {
+      "t": "Memória",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Navade",
+      "taille": "grand"
+     },
+     {
+      "t": "ki izostrijo",
+      "taille": "petit"
+     },
+     {
+      "t": "tvoj",
+      "taille": "petit"
+     },
+     {
+      "t": "Spomin",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Navike",
+      "taille": "grand"
+     },
+     {
+      "t": "koje izoštravaju",
+      "taille": "petit"
+     },
+     {
+      "t": "tvoje",
+      "taille": "petit"
+     },
+     {
+      "t": "Pamćenje",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Gewohnheiten",
+      "taille": "grand"
+     },
+     {
+      "t": "die dein",
+      "taille": "petit"
+     },
+     {
+      "t": "Gedächtnis",
+      "taille": "grand"
+     },
+     {
+      "t": "schärfen",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Szokások",
+      "taille": "grand"
+     },
+     {
+      "t": "amelyek élesítik",
+      "taille": "petit"
+     },
+     {
+      "t": "a",
+      "taille": "petit"
+     },
+     {
+      "t": "Memóriádat",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Sleep Is When Memory Is Saved",
+    "blocs": [
+     {
+      "p": "During deep sleep, the hippocampus replays the day's experiences and helps move them into long-term storage in the cortex. Sleep is not a pause in learning: it is the part where learning gets saved."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Skipping it costs a lot. In one study, after a single night without sleep, people's ability to form new memories was about 40% lower than after a normal night."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Le sommeil enregistre la mémoire",
+    "blocs": [
+     {
+      "p": "Pendant le sommeil profond, l'hippocampe rejoue les expériences de la journée et aide à les transférer vers le stockage à long terme, dans le cortex. Le sommeil n'est pas une pause dans l'apprentissage : c'est le moment où il s'enregistre."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "S'en priver coûte cher. Dans une étude, après une seule nuit blanche, la capacité à former de nouveaux souvenirs était inférieure d'environ 40 % à celle d'après une nuit normale."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Dormir es guardar la memoria",
+    "blocs": [
+     {
+      "p": "Durante el sueño profundo, el hipocampo repasa las experiencias del día y ayuda a llevarlas al almacén a largo plazo de la corteza. Dormir no es una pausa en el aprendizaje: es el momento en que se guarda."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Saltárselo sale caro. En un estudio, tras una sola noche sin dormir, la capacidad de formar recuerdos nuevos era alrededor de un 40 % menor que tras una noche normal."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Al dormir, la memoria se guarda",
+    "blocs": [
+     {
+      "p": "Durante el sueño profundo, el hipocampo repasa lo que viviste en el día y ayuda a pasarlo al almacenamiento a largo plazo en la corteza. Dormir no es una pausa en el aprendizaje: es el momento en que se guarda."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "No dormir cuesta caro. En un estudio, después de una sola noche sin dormir, la capacidad de formar recuerdos nuevos fue cerca de un 40 % menor que después de una noche normal."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Il sonno salva la memoria",
+    "blocs": [
+     {
+      "p": "Durante il sonno profondo, l'ippocampo ripercorre le esperienze della giornata e aiuta a trasferirle nella memoria a lungo termine, nella corteccia. Il sonno non è una pausa dall'apprendimento: è il momento in cui viene salvato."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Saltarlo costa caro. In uno studio, dopo una sola notte in bianco, la capacità di formare nuovi ricordi era circa il 40% più bassa rispetto a dopo una notte normale."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Hafıza uykuda kaydedilir",
+    "blocs": [
+     {
+      "p": "Derin uyku sırasında hipokampus günün deneyimlerini yeniden oynatır ve onları korteksteki uzun süreli depoya taşımaya yardım eder. Uyku öğrenmede bir mola değildir: öğrenilenin kaydedildiği andır."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Uykudan vazgeçmenin bedeli ağır. Bir çalışmada, tek bir uykusuz geceden sonra yeni anı oluşturma becerisi, normal bir geceden sonrakine göre yaklaşık %40 daha düşüktü."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "O sono salva a memória",
+    "blocs": [
+     {
+      "p": "Durante o sono profundo, o hipocampo repassa as experiências do dia e ajuda a levá-las para o armazenamento de longo prazo no córtex. Dormir não é uma pausa no aprendizado: é a hora em que ele é salvo."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Pular o sono custa caro. Em um estudo, depois de uma única noite sem dormir, a capacidade de formar novas memórias ficou cerca de 40% menor do que depois de uma noite normal."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Spanec shrani spomin",
+    "blocs": [
+     {
+      "p": "Med globokim spancem hipokampus znova predvaja dnevna doživetja in jih pomaga prenesti v dolgoročno shrambo v možganski skorji. Spanec ni premor v učenju: takrat se naučeno shrani."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Pomanjkanje spanca drago stane. V eni raziskavi je bila po eni sami neprespani noči sposobnost oblikovanja novih spominov za približno 40 % manjša kot po običajni noči."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "San sprema pamćenje",
+    "blocs": [
+     {
+      "p": "Tijekom dubokog sna hipokampus ponovno prolazi kroz dnevna iskustva i pomaže ih prenijeti u dugoročnu pohranu u kori mozga. San nije pauza u učenju: to je trenutak kad se naučeno sprema."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Preskakanje sna skupo košta. U jednom istraživanju, nakon samo jedne neprospavane noći, sposobnost stvaranja novih sjećanja bila je oko 40 % slabija nego nakon normalne noći."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Im Schlaf wird gespeichert",
+    "blocs": [
+     {
+      "p": "Im Tiefschlaf spielt der Hippocampus die Erlebnisse des Tages erneut ab und hilft, sie in den Langzeitspeicher der Großhirnrinde zu übertragen. Schlaf ist keine Lernpause: In ihm wird das Gelernte gespeichert."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Ihn auszulassen kostet viel. In einer Studie war nach nur einer durchwachten Nacht die Fähigkeit, neue Erinnerungen zu bilden, um etwa 40 % geringer als nach einer normalen Nacht."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Alvás közben mentődik a memória",
+    "blocs": [
+     {
+      "p": "Mély alvás közben a hippokampusz újra lejátssza a nap élményeit, és segít átvinni őket a kéreg hosszú távú tárolójába. Az alvás nem szünet a tanulásban: ekkor mentődik el, amit tanultál."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "A kihagyása sokba kerül. Egy vizsgálatban egyetlen átvirrasztott éjszaka után az új emlékek kialakításának képessége nagyjából 40%-kal gyengébb volt, mint egy normális éjszaka után."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Learn Something New Every Night",
+    "blocs": [
+     {
+      "p": "Memory grows with use. Every fact you learn gives the brain a hook for the next one: the more you already know about a subject, the easier new facts about it are to remember."
+     },
+     {
+      "p": "So make it a nightly habit, like a training session: one short lesson before bed, then let sleep do its work."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends du neuf chaque soir",
+    "blocs": [
+     {
+      "p": "La mémoire grandit avec l'usage. Chaque fait appris donne au cerveau un crochet pour le suivant : plus tu en sais déjà sur un sujet, plus les faits nouveaux s'y retiennent facilement."
+     },
+     {
+      "p": "Fais-en une habitude du soir, comme un entraînement : une courte leçon avant de dormir, puis laisse le sommeil faire son travail."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende algo nuevo cada noche",
+    "blocs": [
+     {
+      "p": "La memoria crece con el uso. Cada dato que aprendes le da al cerebro un gancho para el siguiente: cuanto más sabes de un tema, más fácil es recordar datos nuevos sobre él."
+     },
+     {
+      "p": "Así que conviértelo en un hábito nocturno, como un entrenamiento: una lección corta antes de dormir, y deja que el sueño haga su trabajo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aprende algo nuevo cada noche",
+    "blocs": [
+     {
+      "p": "La memoria crece con el uso. Cada dato que aprendes le da a tu cerebro un gancho para el siguiente: entre más sabes de un tema, más fácil es recordar datos nuevos sobre él."
+     },
+     {
+      "p": "Entonces hazlo un hábito de cada noche, como un entrenamiento: una lección corta antes de dormir, y deja que el sueño haga su parte."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Impara qualcosa ogni sera",
+    "blocs": [
+     {
+      "p": "La memoria cresce con l'uso. Ogni fatto che impari dà al cervello un aggancio per il successivo: più sai già di un argomento, più è facile ricordare fatti nuovi su di esso."
+     },
+     {
+      "p": "Quindi rendilo un'abitudine serale, come un allenamento: una breve lezione prima di dormire, poi lascia che il sonno faccia il suo lavoro."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Her akşam yeni bir şey öğren",
+    "blocs": [
+     {
+      "p": "Hafıza kullandıkça büyür. Öğrendiğin her bilgi beyne bir sonraki için bir kanca verir: bir konuda ne kadar çok şey biliyorsan, o konudaki yeni bilgileri hatırlamak o kadar kolaylaşır."
+     },
+     {
+      "p": "O yüzden bunu bir akşam alışkanlığı yap, bir antrenman gibi: yatmadan önce kısa bir ders, sonra işi uykuya bırak."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda algo novo toda noite",
+    "blocs": [
+     {
+      "p": "A memória cresce com o uso. Cada fato que você aprende dá ao cérebro um gancho para o próximo: quanto mais você já sabe sobre um assunto, mais fácil é lembrar fatos novos sobre ele."
+     },
+     {
+      "p": "Então transforme isso num hábito da noite, como um treino: uma lição curta antes de dormir, e deixe o sono fazer a parte dele."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vsak večer se nauči kaj novega",
+    "blocs": [
+     {
+      "p": "Spomin raste z uporabo. Vsako novo dejstvo da možganom kljukico za naslednje: več ko o neki temi že veš, laže si zapomniš nova dejstva o njej."
+     },
+     {
+      "p": "Zato naj bo to večerna navada, kot trening: kratka lekcija pred spanjem, nato pa naj spanec opravi svoje."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Svake večeri nauči nešto novo",
+    "blocs": [
+     {
+      "p": "Pamćenje raste korištenjem. Svaka nova činjenica daje mozgu kukicu za sljedeću: što više već znaš o nekoj temi, to lakše pamtiš nove činjenice o njoj."
+     },
+     {
+      "p": "Zato neka to bude večernja navika, kao trening: kratka lekcija prije spavanja, a onda neka san odradi svoje."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne jeden Abend etwas Neues",
+    "blocs": [
+     {
+      "p": "Das Gedächtnis wächst mit dem Gebrauch. Jede neue Tatsache gibt dem Gehirn einen Haken für die nächste: Je mehr du über ein Thema schon weißt, desto leichter merkst du dir Neues darüber."
+     },
+     {
+      "p": "Mach es also zu einer Abendgewohnheit, wie ein Training: eine kurze Lektion vor dem Schlafen, dann lass den Schlaf seine Arbeit tun."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanulj valami újat minden este",
+    "blocs": [
+     {
+      "p": "A memória használattal nő. Minden új tény kapaszkodót ad az agynak a következőhöz: minél többet tudsz már egy témáról, annál könnyebben jegyzed meg az új tényeket róla."
+     },
+     {
+      "p": "Tedd hát esti szokássá, mint egy edzést: egy rövid lecke lefekvés előtt, aztán hagyd, hogy az alvás elvégezze a dolgát."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Move Your Body",
+    "blocs": [
+     {
+      "p": "Aerobic exercise is one of the few habits shown to enlarge the hippocampus. In a year-long trial, older adults who walked briskly three times a week saw it grow by about 2%, while it kept shrinking in a group that only stretched."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "You do not need a marathon: in that trial, brisk walking was enough. Memory is trained at the desk, in bed, and on your feet."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Bouge ton corps",
+    "blocs": [
+     {
+      "p": "L'exercice d'endurance est l'une des rares habitudes dont on a montré qu'elle agrandit l'hippocampe. Dans un essai d'un an, des adultes âgés qui marchaient d'un bon pas trois fois par semaine l'ont vu grossir d'environ 2 %, alors qu'il continuait de rétrécir dans un groupe qui faisait seulement des étirements."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Pas besoin d'un marathon : dans cet essai, la marche rapide suffisait. La mémoire s'entraîne au bureau, au lit, et debout."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Mueve el cuerpo",
+    "blocs": [
+     {
+      "p": "El ejercicio aeróbico es uno de los pocos hábitos que han demostrado agrandar el hipocampo. En un ensayo de un año, adultos mayores que caminaban a paso rápido tres veces por semana lo vieron crecer un 2 % aproximadamente, mientras seguía encogiéndose en un grupo que solo hacía estiramientos."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "No hace falta un maratón: en ese ensayo bastó con caminar a paso rápido. La memoria se entrena en el escritorio, en la cama y de pie."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Mueve tu cuerpo",
+    "blocs": [
+     {
+      "p": "El ejercicio aeróbico es uno de los pocos hábitos que han demostrado agrandar el hipocampo. En un estudio de un año, adultos mayores que caminaban rápido tres veces por semana lo vieron crecer cerca de un 2 %, mientras que seguía achicándose en un grupo que solo hacía estiramientos."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "No necesitas correr un maratón: en ese estudio, caminar rápido fue suficiente. La memoria se entrena en el escritorio, en la cama y en movimiento."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Muovi il corpo",
+    "blocs": [
+     {
+      "p": "L'esercizio aerobico è una delle poche abitudini che si sono dimostrate capaci di ingrandire l'ippocampo. In uno studio durato un anno, adulti anziani che camminavano a passo svelto tre volte a settimana l'hanno visto crescere di circa il 2%, mentre continuava a ridursi in un gruppo che faceva solo stretching."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Non serve una maratona: in quello studio bastava camminare a passo svelto. La memoria si allena alla scrivania, a letto e in piedi."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Vücudunu hareket ettir",
+    "blocs": [
+     {
+      "p": "Aerobik egzersiz, hipokampusu büyüttüğü gösterilen nadir alışkanlıklardan biridir. Bir yıl süren bir çalışmada, haftada üç kez tempolu yürüyen yaşlı yetişkinlerde hipokampus yaklaşık %2 büyüdü; yalnızca esneme yapan grupta ise küçülmeye devam etti."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Maraton gerekmiyor: o çalışmada tempolu yürüyüş yetti. Hafıza masada, yatakta ve ayakta çalıştırılır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Mexa o corpo",
+    "blocs": [
+     {
+      "p": "O exercício aeróbico é um dos poucos hábitos que comprovadamente aumentam o hipocampo. Em um estudo de um ano, idosos que caminhavam em ritmo acelerado três vezes por semana viram ele crescer cerca de 2%, enquanto continuava encolhendo em um grupo que só fazia alongamento."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Não precisa de maratona: nesse estudo, caminhar rápido bastou. A memória se treina na mesa, na cama e em pé."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Premikaj telo",
+    "blocs": [
+     {
+      "p": "Aerobna vadba je ena redkih navad, za katere je dokazano, da povečajo hipokampus. V enoletni raziskavi se je starejšim odraslim, ki so trikrat na teden hitro hodili, povečal za približno 2 %, v skupini, ki se je le raztezala, pa se je še naprej manjšal."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Maraton ni potreben: v tej raziskavi je zadoščala hitra hoja. Spomin se trenira za mizo, v postelji in na nogah."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Pokreni tijelo",
+    "blocs": [
+     {
+      "p": "Aerobna tjelovježba jedna je od rijetkih navika za koje je dokazano da povećavaju hipokampus. U jednogodišnjem istraživanju starijim odraslima koji su tri puta tjedno brzo hodali povećao se za oko 2 %, dok se u skupini koja se samo istezala nastavio smanjivati."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Ne treba ti maraton: u tom je istraživanju bilo dovoljno brzo hodanje. Pamćenje se trenira za stolom, u krevetu i na nogama."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Beweg deinen Körper",
+    "blocs": [
+     {
+      "p": "Ausdauertraining ist eine der wenigen Gewohnheiten, die nachweislich den Hippocampus vergrößern. In einer einjährigen Studie wuchs er bei älteren Erwachsenen, die dreimal pro Woche zügig gingen, um etwa 2 %, während er in einer Gruppe, die sich nur dehnte, weiter schrumpfte."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Du brauchst keinen Marathon: In dieser Studie reichte zügiges Gehen. Das Gedächtnis wird am Schreibtisch trainiert, im Bett und auf den Beinen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Mozgasd a tested",
+    "blocs": [
+     {
+      "p": "Az aerob mozgás azon kevés szokás egyike, amelyről kimutatták, hogy megnöveli a hippokampuszt. Egy egyéves vizsgálatban a hetente háromszor tempósan sétáló idősebb felnőtteknél nagyjából 2%-kal nőtt, a csak nyújtó csoportban viszont tovább zsugorodott."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Nem kell maraton: abban a vizsgálatban elég volt a tempós séta. A memóriát az íróasztalnál, az ágyban és a lábadon is edzed."
+     }
+    ]
+   }
+  }
+ ]
+}

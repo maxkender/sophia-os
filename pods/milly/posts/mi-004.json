@@ -1,0 +1,768 @@
+{
+ "id": "mi-004",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7681333188714646814",
+  "vues": 367000,
+  "publie_le": "2026-09-03",
+  "accroche": "The secret / to / Memorizing / Anything"
+ },
+ "fond": "bleu",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "son original",
+  "url": "https://www.tiktok.com/music/son-original-7487620221440674582"
+ },
+ "notes": "Full test (voie 1, boîte vide). Preuve de format : « The secret to Memorizing Anything » de @bdnf.milly (367 k vues, 03/09), famille « The secret to … », même gabarit, fond bleu (texte noir). Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Faits vérifiés : chercher la réponse avant de l'avoir apprise, même en se trompant, fait mieux retenir que d'étudier ce temps-là (Richland, Kornell et Kao, Journal of Experimental Psychology: Applied 2009) ; « difficultés désirables » (Bjork 1994) ; mélanger les types de problèmes fait bien mieux réussir un test une semaine plus tard (Rohrer et Taylor, Instructional Science 2007) ; étudier en s'attendant à enseigner fait mieux retenir et mieux organiser qu'en s'attendant à un test (Nestojko, Bui, Kornell et Bjork, Memory & Cognition 2014). 11 langues. Images : Seedream (irm-sagittale, irmf-axiale, synapse), sans texte.",
+ "titre": {
+  "en": "The secret to Learning Faster",
+  "fr": "Le secret pour apprendre plus vite",
+  "es": "El secreto para aprender más rápido",
+  "es-419": "El secreto para aprender más rápido",
+  "it": "Il segreto per imparare più in fretta",
+  "tr": "Daha hızlı öğrenmenin sırrı",
+  "pt-BR": "O segredo para aprender mais rápido",
+  "sl": "Skrivnost hitrejšega učenja",
+  "hr": "Tajna bržeg učenja",
+  "de": "Das Geheimnis, um schneller zu lernen",
+  "hu": "A gyorsabb tanulás titka"
+ },
+ "legendes": {
+  "en": "easy is not the same as learned #learning #studytips #brain #memory #psychology",
+  "fr": "facile ne veut pas dire appris #apprendre #méthodedetravail #cerveau #mémoire #psychologie",
+  "es": "fácil no es lo mismo que aprendido #aprender #técnicasdeestudio #cerebro #memoria #psicología",
+  "es-419": "fácil no significa aprendido #aprender #tipsdeestudio #cerebro #memoria #psicología",
+  "it": "facile non vuol dire imparato #imparare #metododistudio #cervello #memoria #psicologia",
+  "tr": "kolay, öğrenilmiş demek değildir #öğrenme #dersçalışma #beyin #hafıza #psikoloji",
+  "pt-BR": "fácil não é o mesmo que aprendido #aprender #dicasdeestudo #cerebro #memoria #psicologia",
+  "sl": "lahko ne pomeni naučeno #učenje #učnetehnike #možgani #spomin #psihologija",
+  "hr": "lako ne znači naučeno #učenje #tehnikeučenja #mozak #pamćenje #psihologija",
+  "de": "leicht ist nicht gleich gelernt #lernen #lerntipps #gehirn #gedächtnis #psychologie",
+  "hu": "ami könnyű, még nincs megtanulva #tanulás #tanulásimódszerek #agy #memória #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-sagittale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "The secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "to",
+      "taille": "petit"
+     },
+     {
+      "t": "Learning",
+      "taille": "grand"
+     },
+     {
+      "t": "Faster",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Le secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "pour",
+      "taille": "petit"
+     },
+     {
+      "t": "Apprendre",
+      "taille": "grand"
+     },
+     {
+      "t": "plus vite",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     },
+     {
+      "t": "más rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     },
+     {
+      "t": "más rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Il segreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "per",
+      "taille": "petit"
+     },
+     {
+      "t": "Imparare",
+      "taille": "grand"
+     },
+     {
+      "t": "più in fretta",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Daha hızlı",
+      "taille": "moyen"
+     },
+     {
+      "t": "öğrenmenin",
+      "taille": "grand"
+     },
+     {
+      "t": "Sırrı",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O segredo",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     },
+     {
+      "t": "mais rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Skrivnost",
+      "taille": "grand"
+     },
+     {
+      "t": "hitrejšega",
+      "taille": "petit"
+     },
+     {
+      "t": "Učenja",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Tajna",
+      "taille": "grand"
+     },
+     {
+      "t": "bržeg",
+      "taille": "petit"
+     },
+     {
+      "t": "Učenja",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Das Geheimnis",
+      "taille": "moyen"
+     },
+     {
+      "t": "um",
+      "taille": "petit"
+     },
+     {
+      "t": "schneller",
+      "taille": "grand"
+     },
+     {
+      "t": "zu lernen",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "A gyorsabb",
+      "taille": "moyen"
+     },
+     {
+      "t": "tanulás",
+      "taille": "grand"
+     },
+     {
+      "t": "Titka",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Struggle Before The Answer",
+    "blocs": [
+     {
+      "p": "Trying to answer a question before you have learned the answer, even if you get it wrong, makes the right answer stick better once you see it. In experiments, students tested on material before studying it remembered more than students who simply spent that time studying."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Researchers call these desirable difficulties: learning that feels slower and harder in the moment often lasts much longer. Feeling fluent is not the same as having learned."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Cherche avant la réponse",
+    "blocs": [
+     {
+      "p": "Essayer de répondre à une question avant d'avoir appris la réponse, même en se trompant, fait mieux retenir la bonne réponse une fois qu'on la voit. Dans des expériences, des élèves interrogés avant d'étudier retenaient plus que ceux qui avaient simplement passé ce temps à étudier."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Les chercheurs parlent de difficultés désirables : un apprentissage qui paraît plus lent et plus dur sur le moment dure souvent bien plus longtemps. Avoir l'impression que c'est fluide, ce n'est pas avoir appris."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Esfuérzate antes de la respuesta",
+    "blocs": [
+     {
+      "p": "Intentar responder una pregunta antes de haber aprendido la respuesta, aunque te equivoques, hace que la respuesta correcta se fije mejor cuando la ves. En experimentos, los alumnos evaluados antes de estudiar recordaban más que los que simplemente dedicaban ese tiempo a estudiar."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Los investigadores lo llaman dificultades deseables: lo que se aprende de forma más lenta y difícil en el momento suele durar mucho más. Sentir que todo fluye no es lo mismo que haberlo aprendido."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Esfuérzate antes de la respuesta",
+    "blocs": [
+     {
+      "p": "Intentar responder una pregunta antes de aprender la respuesta, aunque te equivoques, hace que la respuesta correcta se te quede mejor cuando la ves. En experimentos, los estudiantes evaluados antes de estudiar recordaban más que los que solo usaron ese tiempo para estudiar."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Los investigadores le dicen dificultades deseables: aprender de una forma que se siente más lenta y difícil en el momento suele durar mucho más. Sentir que todo fluye no es lo mismo que haber aprendido."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Sforzati prima della risposta",
+    "blocs": [
+     {
+      "p": "Provare a rispondere a una domanda prima di aver imparato la risposta, anche sbagliando, fa fissare meglio la risposta giusta quando la vedi. Negli esperimenti, gli studenti interrogati prima di studiare ricordavano di più di quelli che avevano semplicemente usato quel tempo per studiare."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "I ricercatori le chiamano difficoltà desiderabili: un apprendimento che sul momento sembra più lento e faticoso spesso dura molto di più. Sentirsi fluidi non significa aver imparato."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Cevaptan önce zorlan",
+    "blocs": [
+     {
+      "p": "Cevabı öğrenmeden önce bir soruyu yanıtlamaya çalışmak, yanılsan bile, doğru cevabı gördüğünde aklında daha iyi kalmasını sağlar. Deneylerde, çalışmadan önce sınanan öğrenciler, o süreyi sadece çalışarak geçirenlerden daha fazlasını hatırladı."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Araştırmacılar buna istenen zorluklar diyor: o an daha yavaş ve zor gelen öğrenme çoğu zaman çok daha kalıcı olur. Akıcı hissetmek, öğrenmiş olmakla aynı şey değildir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Esforce-se antes da resposta",
+    "blocs": [
+     {
+      "p": "Tentar responder a uma pergunta antes de aprender a resposta, mesmo errando, faz a resposta certa grudar melhor quando você a vê. Em experimentos, alunos testados antes de estudar lembravam mais do que os que simplesmente usaram esse tempo para estudar."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Os pesquisadores chamam isso de dificuldades desejáveis: um aprendizado que parece mais lento e difícil na hora costuma durar muito mais. Sentir que está fluindo não é o mesmo que ter aprendido."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Potrudi se pred odgovorom",
+    "blocs": [
+     {
+      "p": "Če poskusiš odgovoriti na vprašanje, preden se naučiš odgovor, tudi če se zmotiš, si pravilni odgovor bolje zapomniš, ko ga vidiš. V poskusih so si učenci, ki so jih preverili pred učenjem, zapomnili več kot tisti, ki so ta čas preprosto porabili za učenje."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Raziskovalci temu pravijo zaželene težave: učenje, ki se v trenutku zdi počasnejše in težje, pogosto traja veliko dlje. Občutek tekočnosti še ne pomeni, da si se naučil."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Pomuči se prije odgovora",
+    "blocs": [
+     {
+      "p": "Ako pokušaš odgovoriti na pitanje prije nego što naučiš odgovor, čak i ako pogriješiš, točan odgovor bolje zapamtiš kad ga vidiš. U pokusima su učenici koji su bili ispitani prije učenja zapamtili više od onih koji su to vrijeme jednostavno proveli učeći."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Istraživači to zovu poželjnim poteškoćama: učenje koje se u trenutku čini sporijim i težim često traje mnogo dulje. Osjećaj da sve teče nije isto što i znanje."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Erst kämpfen, dann die Antwort",
+    "blocs": [
+     {
+      "p": "Wer versucht, eine Frage zu beantworten, bevor er die Antwort gelernt hat, behält die richtige Antwort besser, sobald er sie sieht, selbst wenn er falsch lag. In Experimenten erinnerten sich Lernende, die vor dem Lernen geprüft wurden, an mehr als jene, die diese Zeit einfach mit Lernen verbrachten."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Forschende nennen das wünschenswerte Erschwernisse: Lernen, das sich im Moment langsamer und schwerer anfühlt, hält oft viel länger. Sich flüssig zu fühlen heißt nicht, gelernt zu haben."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Küzdj a válasz előtt",
+    "blocs": [
+     {
+      "p": "Ha megpróbálsz válaszolni egy kérdésre, mielőtt megtanultad volna a választ, még ha tévedsz is, a helyes válasz jobban megmarad, amikor meglátod. Kísérletekben azok a diákok, akiket a tanulás előtt kérdeztek ki, többre emlékeztek, mint akik ezt az időt egyszerűen tanulással töltötték."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "A kutatók ezt kívánatos nehézségeknek hívják: az a tanulás, amely ott és akkor lassabbnak és nehezebbnek tűnik, gyakran sokkal tovább tart. Ha folyékonynak érzed, attól még nem tanultad meg."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Mix Your Subjects",
+    "blocs": [
+     {
+      "p": "Mixing different topics in one session, instead of practising one topic in a single block, improves long-term learning, even though it feels harder. In one study, students who mixed their maths problems scored far higher on a test a week later."
+     },
+     {
+      "p": "A short lesson each evening on a different subject, history one night, physics the next, builds that mixing into a daily routine."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Mélange les sujets",
+    "blocs": [
+     {
+      "p": "Mélanger plusieurs sujets dans une même séance, au lieu d'en travailler un seul d'affilée, améliore l'apprentissage à long terme, même si c'est plus dur. Dans une étude, les élèves qui mélangeaient leurs exercices de maths ont bien mieux réussi un test une semaine plus tard."
+     },
+     {
+      "p": "Une courte leçon chaque soir sur un sujet différent, l'histoire un soir, la physique le lendemain, fait de ce mélange une routine quotidienne."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Mezcla los temas",
+    "blocs": [
+     {
+      "p": "Mezclar distintos temas en una misma sesión, en vez de practicar uno solo en bloque, mejora el aprendizaje a largo plazo, aunque cueste más. En un estudio, los alumnos que mezclaban sus problemas de matemáticas sacaron notas mucho más altas en un examen una semana después."
+     },
+     {
+      "p": "Una lección corta cada noche sobre un tema distinto, historia un día y física al siguiente, convierte esa mezcla en una rutina diaria."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Mezcla tus temas",
+    "blocs": [
+     {
+      "p": "Mezclar distintos temas en una misma sesión, en lugar de practicar uno solo en bloque, mejora el aprendizaje a largo plazo, aunque se sienta más difícil. En un estudio, los estudiantes que mezclaban sus problemas de matemáticas sacaron calificaciones mucho más altas en un examen una semana después."
+     },
+     {
+      "p": "Una lección corta cada noche sobre un tema diferente, historia un día y física al siguiente, hace de esa mezcla una rutina diaria."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Mescola gli argomenti",
+    "blocs": [
+     {
+      "p": "Mescolare argomenti diversi nella stessa sessione, invece di esercitarsi su uno solo in blocco, migliora l'apprendimento a lungo termine, anche se è più faticoso. In uno studio, gli studenti che mescolavano i loro esercizi di matematica hanno ottenuto risultati molto migliori in un test una settimana dopo."
+     },
+     {
+      "p": "Una breve lezione ogni sera su un argomento diverso, storia una sera e fisica quella dopo, trasforma questo mescolare in una routine quotidiana."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Konuları karıştır",
+    "blocs": [
+     {
+      "p": "Tek bir konuyu blok halinde çalışmak yerine aynı oturumda farklı konuları karıştırmak, daha zor gelse de uzun vadeli öğrenmeyi iyileştirir. Bir çalışmada matematik problemlerini karıştıran öğrenciler, bir hafta sonraki testte çok daha yüksek puan aldı."
+     },
+     {
+      "p": "Her akşam farklı bir konuda kısa bir ders, bir gece tarih, ertesi gece fizik, bu karışımı günlük bir rutine dönüştürür."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Misture os assuntos",
+    "blocs": [
+     {
+      "p": "Misturar assuntos diferentes na mesma sessão, em vez de praticar um só em bloco, melhora o aprendizado de longo prazo, mesmo parecendo mais difícil. Em um estudo, alunos que misturavam seus exercícios de matemática tiraram notas bem mais altas em uma prova uma semana depois."
+     },
+     {
+      "p": "Uma lição curta toda noite sobre um assunto diferente, história numa noite e física na outra, transforma essa mistura numa rotina diária."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Mešaj teme",
+    "blocs": [
+     {
+      "p": "Mešanje različnih tem v eni seji, namesto da vadiš eno samo v bloku, izboljša dolgoročno učenje, čeprav se zdi težje. V eni raziskavi so učenci, ki so mešali matematične naloge, teden pozneje na preizkusu dosegli veliko boljši rezultat."
+     },
+     {
+      "p": "Kratka lekcija vsak večer o drugi temi, en večer zgodovina, naslednjega fizika, to mešanje spremeni v vsakdanjo rutino."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Miješaj teme",
+    "blocs": [
+     {
+      "p": "Miješanje različitih tema u jednoj sesiji, umjesto vježbanja jedne teme u bloku, poboljšava dugoročno učenje, iako se čini težim. U jednom istraživanju učenici koji su miješali matematičke zadatke postigli su mnogo bolji rezultat na testu tjedan dana kasnije."
+     },
+     {
+      "p": "Kratka lekcija svake večeri o drugoj temi, jedne večeri povijest, sljedeće fizika, pretvara to miješanje u svakodnevnu rutinu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Misch deine Themen",
+    "blocs": [
+     {
+      "p": "Verschiedene Themen in einer Sitzung zu mischen, statt ein Thema am Stück zu üben, verbessert das langfristige Lernen, auch wenn es schwerer fällt. In einer Studie schnitten Lernende, die ihre Matheaufgaben mischten, eine Woche später in einem Test deutlich besser ab."
+     },
+     {
+      "p": "Eine kurze Lektion jeden Abend zu einem anderen Thema, an einem Abend Geschichte, am nächsten Physik, macht dieses Mischen zur täglichen Routine."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Keverd a témákat",
+    "blocs": [
+     {
+      "p": "Ha egy alkalmon belül különböző témákat keversz ahelyett, hogy egyet gyakorolnál egy blokkban, javul a hosszú távú tanulás, még ha nehezebbnek is tűnik. Egy vizsgálatban a matekfeladataikat keverő diákok egy héttel később sokkal jobban teljesítettek egy dolgozatban."
+     },
+     {
+      "p": "Egy rövid lecke minden este más témáról, egyik este történelem, másnap fizika, ezt a keverést napi rutinná teszi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Teach It To Someone",
+    "blocs": [
+     {
+      "p": "In one experiment, students who studied a text expecting to teach it later recalled more of it, and organised it better, than students who studied it expecting a test."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Explaining forces you to put ideas in order and shows you exactly where your understanding has gaps. Those gaps are what to learn next."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Enseigne-le à quelqu'un",
+    "blocs": [
+     {
+      "p": "Dans une expérience, les élèves qui étudiaient un texte en pensant devoir l'enseigner en retenaient plus, et l'organisaient mieux, que ceux qui l'étudiaient en pensant passer un test."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Expliquer oblige à mettre les idées en ordre et montre exactement où ta compréhension a des trous. Ces trous, c'est ce qu'il faut apprendre ensuite."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Enséñaselo a alguien",
+    "blocs": [
+     {
+      "p": "En un experimento, los alumnos que estudiaban un texto pensando que tendrían que enseñarlo recordaban más y lo organizaban mejor que los que lo estudiaban pensando en un examen."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Explicar te obliga a ordenar las ideas y te muestra exactamente dónde tienes lagunas. Esas lagunas son lo siguiente que debes aprender."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Enséñaselo a alguien",
+    "blocs": [
+     {
+      "p": "En un experimento, los estudiantes que estudiaban un texto pensando que lo iban a enseñar recordaban más y lo organizaban mejor que los que lo estudiaban pensando en un examen."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Explicar te obliga a ordenar las ideas y te muestra exactamente dónde no entiendes algo. Eso es justo lo que te toca aprender después."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Insegnalo a qualcuno",
+    "blocs": [
+     {
+      "p": "In un esperimento, gli studenti che studiavano un testo aspettandosi di doverlo insegnare ne ricordavano di più, e lo organizzavano meglio, di quelli che lo studiavano aspettandosi un test."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Spiegare ti costringe a mettere in ordine le idee e ti mostra esattamente dove la tua comprensione ha dei buchi. Quei buchi sono ciò che devi imparare dopo."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Birine öğret",
+    "blocs": [
+     {
+      "p": "Bir deneyde, bir metni başkalarına öğreteceğini düşünerek çalışan öğrenciler, onu sınav olacağını düşünerek çalışanlardan daha fazlasını hatırladı ve daha düzenli aktardı."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Açıklamak seni fikirleri sıraya koymaya zorlar ve anlayışındaki boşlukları tam olarak gösterir. O boşluklar, sıradaki öğreneceğin şeydir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ensine para alguém",
+    "blocs": [
+     {
+      "p": "Em um experimento, alunos que estudavam um texto esperando ter que ensiná-lo lembravam mais dele, e o organizavam melhor, do que os que estudavam esperando uma prova."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Explicar obriga você a colocar as ideias em ordem e mostra exatamente onde estão as lacunas no seu entendimento. Essas lacunas são o que aprender em seguida."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Nauči še koga",
+    "blocs": [
+     {
+      "p": "V enem poskusu so si učenci, ki so se besedilo učili s pričakovanjem, da ga bodo poučevali, zapomnili več in ga bolje uredili kot tisti, ki so pričakovali preizkus."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Razlaga te prisili, da ideje urediš, in ti natančno pokaže, kje imaš vrzeli v razumevanju. Te vrzeli so to, kar se moraš naučiti naslednje."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nauči nekoga",
+    "blocs": [
+     {
+      "p": "U jednom pokusu učenici koji su učili tekst očekujući da će ga poučavati zapamtili su više i bolje ga organizirali od onih koji su očekivali test."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Objašnjavanje te tjera da posložiš ideje i točno pokazuje gdje ti razumijevanje ima rupe. Te rupe su ono što trebaš naučiti sljedeće."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Bring es jemandem bei",
+    "blocs": [
+     {
+      "p": "In einem Experiment erinnerten sich Lernende, die einen Text in der Erwartung lernten, ihn später zu unterrichten, an mehr und ordneten ihn besser als jene, die einen Test erwarteten."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Erklären zwingt dich, Gedanken zu ordnen, und zeigt dir genau, wo dein Verständnis Lücken hat. Genau diese Lücken lernst du als Nächstes."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanítsd meg valakinek",
+    "blocs": [
+     {
+      "p": "Egy kísérletben azok a diákok, akik úgy tanultak meg egy szöveget, hogy később tanítaniuk kell majd, többre emlékeztek belőle és jobban rendszerezték, mint akik dolgozatra számítottak."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "A magyarázat rákényszerít, hogy rendbe tedd a gondolataidat, és pontosan megmutatja, hol hiányos a megértésed. Ezeket a hiányokat kell legközelebb megtanulnod."
+     }
+    ]
+   }
+  }
+ ]
+}

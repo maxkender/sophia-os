@@ -7,11 +7,36 @@
   "accroche": "How to / Study / for 10+ / Hours"
  },
  "fond": "noir",
- "titre": { "en": "How to Train your Intelligence" },
- "legendes": {
-  "en": "the brain follows its training #intelligence #iq #learning #brain #neuroplasticity"
+ "titre": {
+  "en": "How to Train your Intelligence",
+  "fr": "Comment entraîner ton intelligence",
+  "es": "Cómo entrenar tu inteligencia",
+  "es-419": "Cómo entrenar tu inteligencia",
+  "it": "Come allenare la tua intelligenza",
+  "tr": "Zekanı nasıl eğitirsin",
+  "pt-BR": "Como treinar sua inteligência",
+  "sl": "Kako trenirati svojo inteligenco",
+  "hr": "Kako trenirati svoju inteligenciju",
+  "de": "Wie du deine Intelligenz trainierst",
+  "hu": "Hogyan eddzd az intelligenciádat"
  },
- "musique": { "titre": "825 hp", "url": "https://www.tiktok.com/music/825-hp-6891746453606123521" },
+ "legendes": {
+  "en": "the brain follows its training #intelligence #iq #learning #brain #neuroplasticity",
+  "fr": "le cerveau suit son entraînement #intelligence #cerveau #apprendre #neuroplasticité #culturegénérale",
+  "es": "el cerebro sigue su entrenamiento #inteligencia #cerebro #aprender #neuroplasticidad #cultura",
+  "es-419": "tu cerebro sigue el entrenamiento que le das #inteligencia #cerebro #aprender #neuroplasticidad #cultura",
+  "it": "il cervello segue il suo allenamento #intelligenza #cervello #imparare #neuroplasticità #cultura",
+  "tr": "beyin aldığı antrenmanı takip eder #zeka #beyin #öğrenme #nöroplastisite #genelkültür",
+  "pt-BR": "o cérebro segue o treino que recebe #inteligencia #cerebro #aprender #neuroplasticidade #conhecimento",
+  "sl": "možgani sledijo treningu #inteligenca #možgani #učenje #nevroplastičnost #splošnaizobrazba",
+  "hr": "mozak slijedi trening #inteligencija #mozak #učenje #neuroplastičnost #općakultura",
+  "de": "das gehirn folgt seinem training #intelligenz #gehirn #lernen #neuroplastizität #allgemeinbildung",
+  "hu": "az agy azt követi, amire edzed #intelligencia #agy #tanulás #neuroplaszticitás #műveltség"
+ },
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
  "notes": "Preuve : « How to Study for 10+ Hours » de @bdnf.milly (310,8 k vues, 24/09), même gabarit (couverture « How to / … / [IRM] / … », fond noir, 4 slides), sujet voisin de son « Habits that increase Intelligence » (142 k). Slide Sophia (3) : lire une leçon chaque soir comme un entraînement, le logo de Sophia au milieu (demande d'Adrien du 19/11 : le logo, jamais une capture). Faits vérifiés : hippocampe postérieur plus gros chez les chauffeurs de taxi londoniens, et d'autant plus qu'ils conduisent depuis longtemps (Maguire et al., PNAS 2000) ; trois mois de jonglage font grossir la matière grise des aires du mouvement visuel, qui régresse à l'arrêt (Draganski et al., Nature 2004) ; dormir peu après avoir appris retient mieux que rester éveillé le même temps (Gais, Lucas et Born, Learning & Memory 2006) ; se tester retient mieux à une semaine que relire (Roediger et Karpicke, Psychological Science 2006). Images : Seedream (images/), sans texte.",
  "slides": [
   {
@@ -19,10 +44,224 @@
    "image": "images/irm-sagittale.jpg",
    "en": {
     "lignes": [
-     { "t": "How to", "taille": "petit" },
-     { "t": "Train", "taille": "grand" },
-     { "t": "your", "taille": "petit" },
-     { "t": "Intelligence", "taille": "grand" }
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Train",
+      "taille": "grand"
+     },
+     {
+      "t": "your",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligence",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Entraîner",
+      "taille": "grand"
+     },
+     {
+      "t": "ton",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligence",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Entrenar",
+      "taille": "grand"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligencia",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Entrenar",
+      "taille": "grand"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligencia",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Allenare",
+      "taille": "grand"
+     },
+     {
+      "t": "la tua",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligenza",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Zekanı",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Eğitirsin",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Treinar",
+      "taille": "grand"
+     },
+     {
+      "t": "sua",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligência",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "Trenirati",
+      "taille": "grand"
+     },
+     {
+      "t": "svojo",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligenco",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "Trenirati",
+      "taille": "grand"
+     },
+     {
+      "t": "svoju",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligenciju",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du deine",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligenz",
+      "taille": "grand"
+     },
+     {
+      "t": "trainierst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Eddzd",
+      "taille": "grand"
+     },
+     {
+      "t": "az",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligenciádat",
+      "taille": "grand"
+     }
     ],
     "image_apres": 2
    }
@@ -32,9 +271,155 @@
    "en": {
     "titre": "Intelligence Is Trained, Not Fixed",
     "blocs": [
-     { "p": "The brain physically adapts to what it is repeatedly asked to do. In a well-known study, London taxi drivers, who spend years memorizing thousands of streets, had a larger posterior hippocampus than other adults, and the difference grew with every year on the job." },
-     { "image": "images/irm-surlignee.jpg" },
-     { "p": "Even three months of practicing a new skill is enough: adults who learned to juggle showed measurable growth in the grey matter of areas that process movement, and it faded once they stopped. Intelligence behaves like a muscle. It follows the training it receives." }
+     {
+      "p": "The brain physically adapts to what it is repeatedly asked to do. In a well-known study, London taxi drivers, who spend years memorizing thousands of streets, had a larger posterior hippocampus than other adults, and the difference grew with every year on the job."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Even three months of practicing a new skill is enough: adults who learned to juggle showed measurable growth in the grey matter of areas that process movement, and it faded once they stopped. Intelligence behaves like a muscle. It follows the training it receives."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "L'intelligence s'entraîne",
+    "blocs": [
+     {
+      "p": "Le cerveau change physiquement selon ce qu'on lui demande de faire. Dans une étude célèbre, les chauffeurs de taxi londoniens, qui passent des années à mémoriser des milliers de rues, avaient un hippocampe postérieur plus gros que les autres adultes, et l'écart grandissait avec chaque année de métier."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Même trois mois d'entraînement suffisent : des adultes qui ont appris à jongler ont vu grossir la matière grise des zones qui traitent le mouvement, puis elle a diminué quand ils ont arrêté. L'intelligence se comporte comme un muscle : elle suit l'entraînement qu'elle reçoit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "La inteligencia se entrena",
+    "blocs": [
+     {
+      "p": "El cerebro cambia físicamente según lo que se le pide hacer una y otra vez. En un estudio muy conocido, los taxistas de Londres, que pasan años memorizando miles de calles, tenían un hipocampo posterior más grande que otros adultos, y la diferencia crecía con cada año de oficio."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Incluso tres meses de práctica bastan: adultos que aprendieron a hacer malabares mostraron un aumento medible de materia gris en zonas que procesan el movimiento, que desapareció cuando lo dejaron. La inteligencia se comporta como un músculo: sigue el entrenamiento que recibe."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "La inteligencia se entrena",
+    "blocs": [
+     {
+      "p": "El cerebro cambia físicamente según lo que le pides hacer una y otra vez. En un estudio muy famoso, los taxistas de Londres, que pasan años memorizando miles de calles, tenían un hipocampo posterior más grande que otros adultos, y la diferencia crecía con cada año de trabajo."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Hasta tres meses de práctica alcanzan: adultos que aprendieron malabarismo mostraron un aumento medible de materia gris en áreas que procesan el movimiento, y se perdió cuando dejaron de practicar. La inteligencia funciona como un músculo: sigue el entrenamiento que recibe."
+     }
+    ]
+   },
+   "it": {
+    "titre": "L'intelligenza si allena",
+    "blocs": [
+     {
+      "p": "Il cervello cambia fisicamente in base a ciò che gli si chiede di fare più e più volte. In uno studio famoso, i tassisti di Londra, che passano anni a memorizzare migliaia di strade, avevano un ippocampo posteriore più grande degli altri adulti, e la differenza cresceva con ogni anno di lavoro."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Bastano anche tre mesi di pratica: adulti che hanno imparato a fare giocoleria hanno mostrato un aumento misurabile di materia grigia nelle aree che elaborano il movimento, poi svanito quando hanno smesso. L'intelligenza si comporta come un muscolo: segue l'allenamento che riceve."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Zeka sabit değildir, eğitilir",
+    "blocs": [
+     {
+      "p": "Beyin, kendisinden tekrar tekrar istenen işe fiziksel olarak uyum sağlar. Ünlü bir çalışmada, binlerce sokağı ezberlemek için yıllar harcayan Londra taksi şoförlerinin arka hipokampusu diğer yetişkinlerinkinden daha büyüktü ve fark meslekteki her yılla birlikte artıyordu."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Üç aylık pratik bile yeterli: hokkabazlık öğrenen yetişkinlerde hareketi işleyen bölgelerdeki gri madde ölçülebilir biçimde arttı, bıraktıklarında ise azaldı. Zeka bir kas gibi davranır: aldığı antrenmanı takip eder."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Inteligência se treina",
+    "blocs": [
+     {
+      "p": "O cérebro muda fisicamente de acordo com o que pedimos a ele repetidamente. Em um estudo famoso, os taxistas de Londres, que passam anos memorizando milhares de ruas, tinham um hipocampo posterior maior do que outros adultos, e a diferença crescia a cada ano de profissão."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Até três meses de prática bastam: adultos que aprenderam malabarismo mostraram um aumento mensurável da massa cinzenta em áreas que processam movimento, que sumiu quando pararam. A inteligência se comporta como um músculo: segue o treino que recebe."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Inteligenca se trenira",
+    "blocs": [
+     {
+      "p": "Možgani se fizično prilagodijo temu, kar od njih znova in znova zahtevamo. V znani raziskavi so imeli londonski taksisti, ki si leta zapomnijo na tisoče ulic, večji zadnji del hipokampusa kot drugi odrasli, razlika pa je rasla z vsakim letom dela."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Dovolj so že trije meseci vaje: odrasli, ki so se naučili žonglirati, so imeli merljivo več sive možganovine v predelih, ki obdelujejo gibanje, ko so prenehali, pa se je ta zmanjšala. Inteligenca deluje kot mišica: sledi treningu, ki ga dobi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Inteligencija se trenira",
+    "blocs": [
+     {
+      "p": "Mozak se fizički prilagođava onome što od njega iznova tražimo. U poznatom istraživanju londonski taksisti, koji godinama pamte tisuće ulica, imali su veći stražnji dio hipokampa od drugih odraslih, a razlika je rasla sa svakom godinom posla."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Dovoljna su već tri mjeseca vježbe: odrasli koji su naučili žonglirati imali su mjerljivo više sive tvari u područjima koja obrađuju pokret, a kad su prestali, ona se smanjila. Inteligencija se ponaša kao mišić: slijedi trening koji dobiva."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Intelligenz wird trainiert",
+    "blocs": [
+     {
+      "p": "Das Gehirn passt sich körperlich an das an, was es immer wieder tun soll. In einer bekannten Studie hatten Londoner Taxifahrer, die jahrelang Tausende Straßen auswendig lernen, einen größeren hinteren Hippocampus als andere Erwachsene, und der Unterschied wuchs mit jedem Berufsjahr."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Schon drei Monate Übung reichen: Erwachsene, die Jonglieren lernten, zeigten messbar mehr graue Substanz in Arealen, die Bewegung verarbeiten, und sie bildete sich zurück, als sie aufhörten. Intelligenz verhält sich wie ein Muskel: Sie folgt dem Training, das sie bekommt."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Az intelligencia edzhető",
+    "blocs": [
+     {
+      "p": "Az agy fizikailag alkalmazkodik ahhoz, amit újra és újra elvárunk tőle. Egy híres vizsgálatban a londoni taxisofőrök, akik évekig tanulják utcák ezreit, hátsó hippokampusza nagyobb volt, mint más felnőtteké, és a különbség minden munkában töltött évvel nőtt."
+     },
+     {
+      "image": "images/irm-surlignee.jpg"
+     },
+     {
+      "p": "Már három hónap gyakorlás is elég: a zsonglőrködést tanuló felnőtteknél mérhetően nőtt a szürkeállomány a mozgást feldolgozó területeken, majd csökkent, amikor abbahagyták. Az intelligencia úgy viselkedik, mint egy izom: azt követi, amire edzed."
+     }
     ]
    }
   },
@@ -44,10 +429,188 @@
    "en": {
     "titre": "Read A Lesson Every Night",
     "blocs": [
-     { "p": "The simplest way to train it is a small daily dose of new knowledge. One short lesson every evening, in history, science, philosophy or psychology, gives the brain something new to encode, connect and store, night after night." },
-     { "p": "Timing matters. Information learned shortly before sleep is consolidated during the night: in studies, people who slept soon after learning remembered more than people who stayed awake for the same amount of time." },
-     { "image": "sophia" },
-     { "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind." }
+     {
+      "p": "The simplest way to train it is a small daily dose of new knowledge. One short lesson every evening, in history, science, philosophy or psychology, gives the brain something new to encode, connect and store, night after night."
+     },
+     {
+      "p": "Timing matters. Information learned shortly before sleep is consolidated during the night: in studies, people who slept soon after learning remembered more than people who stayed awake for the same amount of time."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Lis une leçon chaque soir",
+    "blocs": [
+     {
+      "p": "La façon la plus simple de l'entraîner : une petite dose de savoir neuf chaque jour. Une courte leçon chaque soir, en histoire, en sciences, en philosophie ou en psychologie, donne au cerveau quelque chose de nouveau à encoder, relier et stocker, soir après soir."
+     },
+     {
+      "p": "Le moment compte. Ce qu'on apprend juste avant de dormir est consolidé pendant la nuit : dans les études, ceux qui dormaient peu après avoir appris retenaient plus que ceux qui restaient éveillés aussi longtemps."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Lee una lección cada noche",
+    "blocs": [
+     {
+      "p": "La forma más sencilla de entrenarla es una pequeña dosis diaria de conocimiento nuevo. Una lección corta cada noche, de historia, ciencia, filosofía o psicología, le da al cerebro algo nuevo que codificar, conectar y guardar, noche tras noche."
+     },
+     {
+      "p": "El momento importa. Lo que se aprende poco antes de dormir se consolida durante la noche: en los estudios, quienes dormían poco después de aprender recordaban más que quienes seguían despiertos el mismo tiempo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Lee una lección cada noche",
+    "blocs": [
+     {
+      "p": "La manera más sencilla de entrenarla es una pequeña dosis diaria de conocimiento nuevo. Una lección corta cada noche, de historia, ciencia, filosofía o psicología, le da a tu cerebro algo nuevo para codificar, conectar y almacenar, noche tras noche."
+     },
+     {
+      "p": "El momento importa. Lo que aprendes poco antes de dormir se consolida durante la noche: en los estudios, quienes dormían poco después de aprender recordaban más que quienes seguían despiertos el mismo tiempo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Leggi una lezione ogni sera",
+    "blocs": [
+     {
+      "p": "Il modo più semplice per allenarla è una piccola dose quotidiana di conoscenza nuova. Una breve lezione ogni sera, di storia, scienza, filosofia o psicologia, dà al cervello qualcosa di nuovo da codificare, collegare e conservare, sera dopo sera."
+     },
+     {
+      "p": "Il momento conta. Ciò che si impara poco prima di dormire viene consolidato durante la notte: negli studi, chi dormiva subito dopo aver imparato ricordava di più di chi restava sveglio per lo stesso tempo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Her akşam bir ders oku",
+    "blocs": [
+     {
+      "p": "Onu eğitmenin en basit yolu, her gün küçük bir doz yeni bilgi. Her akşam tarih, bilim, felsefe ya da psikolojiden kısa bir ders, beyne her gece kodlayacağı, bağlayacağı ve saklayacağı yeni bir şey verir."
+     },
+     {
+      "p": "Zamanlama önemli. Uyumadan hemen önce öğrenilen bilgi gece boyunca pekişir: çalışmalarda, öğrendikten kısa süre sonra uyuyanlar, aynı süre uyanık kalanlardan daha fazlasını hatırladı."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Leia uma lição toda noite",
+    "blocs": [
+     {
+      "p": "O jeito mais simples de treiná-la é uma pequena dose diária de conhecimento novo. Uma lição curta toda noite, de história, ciência, filosofia ou psicologia, dá ao cérebro algo novo para codificar, conectar e guardar, noite após noite."
+     },
+     {
+      "p": "O horário importa. O que se aprende pouco antes de dormir é consolidado durante a noite: nos estudos, quem dormia logo depois de aprender lembrava mais do que quem ficava acordado pelo mesmo tempo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vsak večer preberi eno lekcijo",
+    "blocs": [
+     {
+      "p": "Najpreprostejši način, da jo treniraš, je majhen dnevni odmerek novega znanja. Kratka lekcija vsak večer, iz zgodovine, znanosti, filozofije ali psihologije, da možganom nekaj novega, kar lahko zakodirajo, povežejo in shranijo, večer za večerom."
+     },
+     {
+      "p": "Čas je pomemben. Kar se naučimo tik pred spanjem, se utrdi med nočjo: v raziskavah so si tisti, ki so zaspali kmalu po učenju, zapomnili več kot tisti, ki so enako dolgo ostali budni."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Svake večeri pročitaj lekciju",
+    "blocs": [
+     {
+      "p": "Najjednostavniji način da je treniraš je mala dnevna doza novog znanja. Kratka lekcija svake večeri, iz povijesti, znanosti, filozofije ili psihologije, daje mozgu nešto novo da kodira, poveže i pohrani, večer za večeri."
+     },
+     {
+      "p": "Vrijeme je važno. Ono što naučimo neposredno prije spavanja učvršćuje se tijekom noći: u istraživanjima su oni koji su zaspali ubrzo nakon učenja zapamtili više od onih koji su jednako dugo ostali budni."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lies jeden Abend eine Lektion",
+    "blocs": [
+     {
+      "p": "Der einfachste Weg, sie zu trainieren, ist eine kleine tägliche Dosis neues Wissen. Eine kurze Lektion jeden Abend, aus Geschichte, Wissenschaft, Philosophie oder Psychologie, gibt dem Gehirn etwas Neues zum Verarbeiten, Verknüpfen und Speichern, Abend für Abend."
+     },
+     {
+      "p": "Der Zeitpunkt zählt. Was man kurz vor dem Schlafen lernt, wird in der Nacht gefestigt: In Studien behielten Menschen, die bald nach dem Lernen schliefen, mehr als jene, die gleich lange wach blieben."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Olvass el minden este egy leckét",
+    "blocs": [
+     {
+      "p": "Edzeni legegyszerűbben egy kis napi adag új tudással lehet. Minden este egy rövid lecke történelemből, tudományból, filozófiából vagy pszichológiából valami újat ad az agynak, amit kódolhat, összekapcsolhat és elraktározhat, estéről estére."
+     },
+     {
+      "p": "Az időzítés számít. Amit közvetlenül alvás előtt tanulunk, azt az agy éjszaka megszilárdítja: a vizsgálatokban azok, akik nem sokkal a tanulás után aludtak, többre emlékeztek, mint akik ugyanennyi ideig ébren maradtak."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
     ]
    }
   },
@@ -56,9 +619,155 @@
    "en": {
     "titre": "Then Recall It In The Morning",
     "blocs": [
-     { "p": "Reading is only half of the training. Before looking at anything, try to recall what you learned the night before: the key idea, a date, a name. This is called retrieval practice, one of the most reliable effects in cognitive science." },
-     { "image": "images/neurones.jpg" },
-     { "p": "Students who practiced recalling a text remembered far more of it a week later than students who simply reread it. Small reps, every night and every morning, for months: that is how the brain gets stronger." }
+     {
+      "p": "Reading is only half of the training. Before looking at anything, try to recall what you learned the night before: the key idea, a date, a name. This is called retrieval practice, one of the most reliable effects in cognitive science."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Students who practiced recalling a text remembered far more of it a week later than students who simply reread it. Small reps, every night and every morning, for months: that is how the brain gets stronger."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Puis rappelle-la le matin",
+    "blocs": [
+     {
+      "p": "Lire n'est que la moitié de l'entraînement. Avant de regarder quoi que ce soit, essaie de te rappeler ce que tu as appris la veille : l'idée clé, une date, un nom. C'est la pratique de récupération, l'un des effets les plus solides des sciences cognitives."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Des étudiants qui s'entraînaient à se rappeler un texte en retenaient bien plus une semaine plus tard que ceux qui se contentaient de le relire. De petites répétitions, chaque soir et chaque matin, pendant des mois : c'est comme ça que le cerveau se renforce."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Y recuérdala por la mañana",
+    "blocs": [
+     {
+      "p": "Leer es solo la mitad del entrenamiento. Antes de mirar nada, intenta recordar lo que aprendiste la noche anterior: la idea clave, una fecha, un nombre. Se llama práctica de recuperación y es uno de los efectos más sólidos de la ciencia cognitiva."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Los estudiantes que practicaban recordar un texto retenían mucho más una semana después que quienes simplemente lo releían. Pequeñas repeticiones, cada noche y cada mañana, durante meses: así se fortalece el cerebro."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Y recuérdala en la mañana",
+    "blocs": [
+     {
+      "p": "Leer es apenas la mitad del entrenamiento. Antes de ver cualquier cosa, intenta recordar lo que aprendiste la noche anterior: la idea clave, una fecha, un nombre. Se llama práctica de recuperación y es uno de los efectos más sólidos de la ciencia cognitiva."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Los estudiantes que practicaban recordar un texto retenían mucho más una semana después que quienes solo lo volvían a leer. Pequeñas repeticiones, cada noche y cada mañana, durante meses: así se fortalece el cerebro."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Poi richiamala al mattino",
+    "blocs": [
+     {
+      "p": "Leggere è solo metà dell'allenamento. Prima di guardare qualsiasi cosa, prova a ricordare ciò che hai imparato la sera prima: l'idea chiave, una data, un nome. Si chiama pratica di recupero, uno degli effetti più solidi delle scienze cognitive."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Gli studenti che si esercitavano a richiamare un testo ne ricordavano molto di più una settimana dopo rispetto a chi lo rileggeva soltanto. Piccole ripetizioni, ogni sera e ogni mattina, per mesi: è così che il cervello si rafforza."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Sonra sabah hatırla",
+    "blocs": [
+     {
+      "p": "Okumak antrenmanın sadece yarısı. Hiçbir şeye bakmadan önce, bir önceki akşam öğrendiğini hatırlamaya çalış: ana fikir, bir tarih, bir isim. Buna geri getirme pratiği denir ve bilişsel bilimin en sağlam bulgularından biridir."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Bir metni hatırlama alıştırması yapan öğrenciler, bir hafta sonra onu sadece yeniden okuyanlardan çok daha fazlasını hatırladı. Aylarca, her akşam ve her sabah küçük tekrarlar: beyin böyle güçlenir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Depois relembre de manhã",
+    "blocs": [
+     {
+      "p": "Ler é só metade do treino. Antes de olhar qualquer coisa, tente lembrar o que aprendeu na noite anterior: a ideia principal, uma data, um nome. Isso se chama prática de recuperação, um dos efeitos mais sólidos da ciência cognitiva."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Estudantes que praticavam relembrar um texto lembravam muito mais dele uma semana depois do que os que apenas o reliam. Pequenas repetições, toda noite e toda manhã, por meses: é assim que o cérebro fica mais forte."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Nato se je zjutraj spomni",
+    "blocs": [
+     {
+      "p": "Branje je le polovica treninga. Preden karkoli pogledaš, se poskusi spomniti, kaj si se naučil prejšnji večer: glavno idejo, letnico, ime. Temu pravimo vaja priklica, eden najzanesljivejših učinkov kognitivne znanosti."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Študenti, ki so vadili priklic besedila, so si ga teden pozneje zapomnili veliko bolje kot tisti, ki so ga samo ponovno prebrali. Majhne ponovitve, vsak večer in vsako jutro, več mesecev: tako se možgani okrepijo."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Zatim je se ujutro prisjeti",
+    "blocs": [
+     {
+      "p": "Čitanje je samo pola treninga. Prije nego što išta pogledaš, pokušaj se prisjetiti što si naučio prethodne večeri: glavnu ideju, godinu, ime. To se zove vježba prisjećanja, jedan od najpouzdanijih učinaka kognitivne znanosti."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Studenti koji su vježbali prisjećanje teksta zapamtili su ga tjedan dana kasnije mnogo bolje od onih koji su ga samo ponovno pročitali. Mala ponavljanja, svake večeri i svakog jutra, mjesecima: tako mozak jača."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Dann ruf sie morgens ab",
+    "blocs": [
+     {
+      "p": "Lesen ist nur die Hälfte des Trainings. Bevor du irgendetwas ansiehst, versuch dich zu erinnern, was du am Vorabend gelernt hast: die Kernidee, ein Datum, einen Namen. Das nennt man Abrufübung, einer der verlässlichsten Effekte der Kognitionswissenschaft."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Studierende, die übten, einen Text aus dem Gedächtnis abzurufen, behielten eine Woche später weit mehr davon als jene, die ihn nur noch einmal lasen. Kleine Wiederholungen, jeden Abend und jeden Morgen, über Monate: So wird das Gehirn stärker."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Aztán reggel idézd fel",
+    "blocs": [
+     {
+      "p": "Az olvasás csak az edzés fele. Mielőtt bármire ránéznél, próbáld felidézni, mit tanultál előző este: a fő gondolatot, egy évszámot, egy nevet. Ezt felidézéses gyakorlásnak hívják, és a kognitív tudomány egyik legmegbízhatóbb hatása."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Azok a diákok, akik egy szöveg felidézését gyakorolták, egy héttel később sokkal többre emlékeztek belőle, mint akik csak újraolvasták. Kis ismétlések, minden este és minden reggel, hónapokon át: így erősödik az agy."
+     }
     ]
    }
   }

@@ -6,10 +6,10 @@ export const POD = "originaux_milly";
 /** Le compte modèle : @bdnf.milly (nootropiques, biohacking, intelligence), ses diaporamas en Cormorant sur fond uni. */
 export const COMPTES_SOURCE = ["bdnf.milly"] as const;
 /**
- * Les langues livrées : l'anglais, celle du compte modèle, lancement du 19/11. Cette liste est déclarée à l'OS à chaque `npm run boite` (0654) et
+ * Les langues livrées : l'anglais (celle du compte modèle, lancement du 19/11), puis les 11 langues des comptes du label depuis le 20/11 (refonte des labels). Cette liste est déclarée à l'OS à chaque `npm run boite` (0654) et
  * remplace `pods.langues` : l'attribution des comptes la lit.
  */
-export const LANGUES = ["en"] as const;
+export const LANGUES = ["en", "fr", "es", "es-419", "it", "tr", "pt-BR", "sl", "hr", "de", "hu"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

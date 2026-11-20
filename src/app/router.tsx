@@ -88,6 +88,7 @@ import { AdminTestsPage } from "@/pages/admin/AdminTestsPage";
 import { SlackARelier } from "@/features/slack/SlackARelier";
 import { AdminCreationPage } from "@/pages/admin/AdminCreationPage";
 import { AdminPodsPage } from "@/pages/admin/AdminPodsPage";
+import { AdminPodzFichePage } from "@/pages/admin/AdminPodzFichePage";
 import { AdminFichesPage } from "@/pages/admin/AdminFichesPage";
 import { AdminRelectureNativePage } from "@/pages/admin/AdminRelectureNativePage";
 import { AdminBleoPage } from "@/pages/admin/AdminBleoPage";
@@ -212,6 +213,7 @@ export function AppRouter() {
               <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
               <Route path="/admin/creation" element={<AdminCreationPage />} />
               <Route path="/admin/pods" element={<AdminPodsPage />} />
+              <Route path="/admin/pods/:slug" element={<AdminPodzFichePage />} />
               <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
               <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />

@@ -98,6 +98,11 @@ if (r.langues?.a_livrer) {
   const comptes = Object.entries(r.langues.comptes).map(([l, n]) => `${l} ${n}`).join(" · ") || "aucun";
   console.log(`Langues à livrer : ${r.langues.a_livrer.join(", ") || "aucune"} (comptes du label : ${comptes}) ; npm run livrer s'y tient.`);
 }
+// 0781 : une langue ouverte (Adrien, Max ou la soupape) que cet atelier ne sait pas encore produire.
+const aPreparer = (r.langues as { a_preparer?: string[] | null } | null)?.a_preparer ?? [];
+if (aPreparer.length) {
+  console.log(`Langues à PRÉPARER : ${aPreparer.join(", ")}. Elles sont ouvertes pour ton label, pas encore dans LANGUES (atelier/api.ts) : prépare-les (pods/ROUTINE.md §5.6), puis ajoute-les à LANGUES.`);
+}
 if (rattrapage.commandes.length) {
   console.log(`\nRattrapage : ${rattrapage.commandes.length} post(s) gagnant(s) à livrer dans une langue qui en manque ; ` +
     `aujourd'hui ${rattrapagesRestants} d'abord (déjà fait : ${rattrapagesFaits}).`);

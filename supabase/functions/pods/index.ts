@@ -146,6 +146,7 @@ import {
   type ReglesRepetition,
 } from "../_shared/pods_repetition.ts";
 import { assertRole, aujourdhuiParis, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { effetDeclaration } from "../_shared/podz_langues.ts";
 import { passagesPourTier, tierImport } from "../_shared/tierlist.ts";
 
 const BUCKET = "medias";
@@ -1373,18 +1374,53 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
 }
 
 /**
- * 0654 : enregistre les langues que le podz déclare (`pods.langues`), si le
- * corps en porte et qu'elles changent. Rend un message d'erreur, ou `null`.
+ * 0654, 0781 : enregistre ce que l'atelier du podz sait produire
+ * (`pods.langues_pretes`). Il ne réécrit plus `pods.langues` (les langues
+ * ouvertes) : avant 0781, la langue ouverte la nuit par la soupape disparaissait
+ * au premier `npm run boite` du matin. Une langue nouvelle dans l'atelier
+ * s'ouvre par `podz_langue` (le même geste que la page Podz), aucune n'est
+ * jamais fermée ici. Rend un message d'erreur, ou `null`.
  */
 async function declarerLangues(supabase: Supabase, slug: string, brut: unknown): Promise<string | null> {
   const langues = lireLanguesDeclarees(brut);
   if (langues === null) return null;
   if ("erreur" in langues) return langues.erreur;
-  const { data: actuel } = await supabase.from("pods").select("langues").eq("slug", slug).maybeSingle();
-  const avant = ((actuel?.langues ?? null) as string[] | null)?.join(",") ?? null;
-  if (avant === langues.join(",")) return null;
-  const { error } = await supabase.from("pods").update({ langues }).eq("slug", slug);
-  return error ? `langues : ${messageErreur(error)}` : null;
+  const { data: actuel, error: lecture } = await supabase
+    .from("pods")
+    .select("langues, langues_pretes")
+    .eq("slug", slug)
+    .maybeSingle();
+  // Migration 0781 pas encore appliquée (colonne absente) : on ne touche à rien,
+  // plutôt que de réécrire `pods.langues` comme avant.
+  if (lecture) {
+    console.warn(`langues de ${slug} non enregistrées : ${messageErreur(lecture)}`);
+    return null;
+  }
+  const effet = effetDeclaration(
+    (actuel?.langues ?? null) as string[] | null,
+    (actuel?.langues_pretes ?? null) as string[] | null,
+    langues,
+  );
+  if (effet.premiere) {
+    const { error } = await supabase.from("pods").update({ langues, langues_pretes: langues }).eq("slug", slug);
+    return error ? `langues : ${messageErreur(error)}` : null;
+  }
+  if (effet.pretes) {
+    const { error } = await supabase.from("pods").update({ langues_pretes: effet.pretes }).eq("slug", slug);
+    if (error) return `langues : ${messageErreur(error)}`;
+  }
+  for (const langue of effet.aOuvrir) {
+    const { error } = await supabase.rpc("podz_langue", {
+      p_pod: slug,
+      p_langue: langue,
+      p_action: "ouvrir",
+      p_par: "podz",
+      p_raison: { atelier: true },
+    });
+    // Une langue déjà tenue par un autre podz du label : l'atelier la sait faire, elle ne s'ouvre pas ici.
+    if (error) console.warn(`langue ${langue} de ${slug} non ouverte : ${messageErreur(error)}`);
+  }
+  return null;
 }
 
 /**

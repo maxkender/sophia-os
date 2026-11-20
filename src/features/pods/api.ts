@@ -2,7 +2,7 @@
 
 import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
-import { ficheApplication } from "@/features/moteur/catalogueApplications";
+import { ficheApplication, ficheApplicationParId } from "@/features/moteur/catalogueApplications";
 import { LANGUES_CIBLES } from "@/features/moteur/langues";
 
 export type StatutLivraison = "a_valider" | "validee" | "rejetee" | "ecartee_note";
@@ -81,24 +81,57 @@ export interface Pod {
   /** Podz sûr (0323) : ses livraisons en attente sont validées en B au bout de `auto_validation_heures`. */
   auto_validation: boolean;
   auto_validation_heures: number;
+  label_id: string | null;
+  /** Les langues que le podz livre lui-même (`pods.langues`, 0654) ; nul : l'OS traduit. */
+  langues: string[] | null;
+  /** Les langues que son atelier sait produire (`pods.langues_pretes`, 0781) ; nul avant la migration. */
+  langues_pretes: string[] | null;
+  cree_le: string | null;
+  /** Les applications servies par son label (slugs du catalogue), dans l'ordre du catalogue. */
+  apps: string[];
 }
 
-/** Les pods déclarés (table `pods`) avec le nom de leur label. */
+type LabelDuPod = {
+  nom: string;
+  application_id: string | null;
+  label_applications: { application_id: string }[] | null;
+};
+
+/** Les applications d'un label : `label_applications`, sinon l'application du label. */
+function appsDuLabel(label: LabelDuPod | null): string[] {
+  if (!label) return [];
+  const ids = label.label_applications?.length
+    ? label.label_applications.map((l) => l.application_id)
+    : label.application_id
+      ? [label.application_id]
+      : [];
+  const slugs = ids.map((id) => ficheApplicationParId(id)?.slug).filter((s): s is string => Boolean(s));
+  return [...new Set(slugs)];
+}
+
+/** Les pods déclarés (table `pods`) avec leur label, ses applications et leurs langues. */
 export async function listerPods(): Promise<Pod[]> {
-  const { data, error } = await supabase
-    .from("pods")
-    .select("slug, nom, actif, auto_validation, auto_validation_heures, labels(nom)")
-    .order("created_at");
+  const colonnes = (pretes: boolean) =>
+    `slug, nom, actif, auto_validation, auto_validation_heures, langues,${pretes ? " langues_pretes," : ""} created_at, label_id, labels(nom, application_id, label_applications(application_id))`;
+  let { data, error } = await supabase.from("pods").select(colonnes(true)).order("created_at");
+  // Avant la migration 0781, la colonne `langues_pretes` n'existe pas : on lit sans elle.
+  if (error) ({ data, error } = await supabase.from("pods").select(colonnes(false)).order("created_at"));
   if (error) throw error;
-  return (data ?? []).map((p) => {
-    const label = p.labels as unknown as { nom: string } | { nom: string }[] | null;
+  return ((data ?? []) as unknown as Record<string, unknown>[]).map((p) => {
+    const brut = p.labels as unknown as LabelDuPod | LabelDuPod[] | null;
+    const label = (Array.isArray(brut) ? brut[0] : brut) ?? null;
     return {
       slug: p.slug as string,
       nom: p.nom as string,
       actif: p.actif as boolean,
-      label: (Array.isArray(label) ? label[0]?.nom : label?.nom) ?? null,
+      label: label?.nom ?? null,
       auto_validation: Boolean(p.auto_validation),
       auto_validation_heures: Number(p.auto_validation_heures ?? 12),
+      label_id: (p.label_id as string | null) ?? null,
+      langues: (p.langues as string[] | null) ?? null,
+      langues_pretes: (p.langues_pretes as string[] | null | undefined) ?? null,
+      cree_le: (p.created_at as string | null) ?? null,
+      apps: appsDuLabel(label),
     };
   });
 }
@@ -131,6 +164,86 @@ export async function listerLivraisons(): Promise<{ aValider: Livraison[]; decid
   if (attente.error) throw attente.error;
   if (faites.error) throw faites.error;
   return { aValider: (attente.data ?? []) as Livraison[], decidees: (faites.data ?? []) as Livraison[] };
+}
+
+/** Les livraisons d'UN podz : toute sa file d'attente et ses 30 dernières décidées (fiche du podz). */
+export async function listerLivraisonsDuPod(pod: string): Promise<{ aValider: Livraison[]; decidees: Livraison[] }> {
+  const [attente, faites] = await Promise.all([
+    supabase.from("pod_livraisons").select(COLONNES).eq("pod", pod).eq("statut", "a_valider").order("created_at").limit(200),
+    supabase
+      .from("pod_livraisons")
+      .select(COLONNES)
+      .eq("pod", pod)
+      .neq("statut", "a_valider")
+      .order("decide_le", { ascending: false })
+      .limit(30),
+  ]);
+  if (attente.error) throw attente.error;
+  if (faites.error) throw faites.error;
+  return { aValider: (attente.data ?? []) as Livraison[], decidees: (faites.data ?? []) as Livraison[] };
+}
+
+/** Qui a fait le geste : la soupape de nuit, Adrien ou Max sur la page, l'atelier du podz, Claude en SQL. */
+export type AuteurLangue = "soupape" | "admin" | "podz" | "claude";
+
+/** Une ligne du journal des langues (`bleo_langues_ouvertes`, 0722 et 0781). */
+export interface OuvertureLangue {
+  pod: string;
+  langue: string;
+  ouvert_le: string;
+  action: "ouverte" | "fermee";
+  par: AuteurLangue;
+}
+
+export async function listerOuverturesLangues(): Promise<OuvertureLangue[]> {
+  const lire = (colonnes: string) =>
+    supabase.from("bleo_langues_ouvertes").select(colonnes).order("ouvert_le").limit(1000);
+  let { data, error } = await lire("pod, langue, ouvert_le, action, par");
+  // Avant la migration 0781 : pas de colonnes `action` et `par`, tout est une ouverture de la soupape.
+  if (error) ({ data, error } = await lire("pod, langue, ouvert_le"));
+  if (error) throw error;
+  return ((data ?? []) as unknown as Partial<OuvertureLangue>[]).map((o) => ({
+    pod: String(o.pod),
+    langue: String(o.langue),
+    ouvert_le: String(o.ouvert_le),
+    action: o.action ?? "ouverte",
+    par: o.par ?? "soupape",
+  }));
+}
+
+/** Ce que rend `podz_langue` (0781). */
+export interface GesteLangue {
+  ok: boolean;
+  change: boolean;
+  langue: string;
+  langues: string[];
+  /** Les comptes actifs du label dans cette langue. */
+  comptes: number;
+}
+
+/** Ouvre ou ferme une langue d'un podz en images finies : le seul geste, noté au journal. */
+export async function changerLanguePodz(pod: string, langue: string, action: "ouvrir" | "fermer"): Promise<GesteLangue> {
+  const { data, error } = await supabase.rpc("podz_langue", { p_pod: pod, p_langue: langue, p_action: action, p_par: "admin" });
+  if (error) throw error;
+  return data as GesteLangue;
+}
+
+/** Les sources actives d'un label (comptes dont l'OS importe les posts) : leurs handles. */
+export async function listerSourcesDuLabel(labelId: string): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("compte_reference_labels")
+    .select("comptes_reference!inner(handle_tiktok, is_active)")
+    .eq("label_id", labelId)
+    .eq("comptes_reference.is_active", true)
+    .limit(200);
+  if (error) throw error;
+  return (data ?? [])
+    .map((l) => {
+      const c = l.comptes_reference as unknown as { handle_tiktok: string | null } | { handle_tiktok: string | null }[];
+      return (Array.isArray(c) ? c[0]?.handle_tiktok : c?.handle_tiktok) ?? null;
+    })
+    .filter((h): h is string => Boolean(h))
+    .sort((a, b) => a.localeCompare(b));
 }
 
 /** `tier` : rang imposé (la note d'import est calculée mais ne décide plus). */

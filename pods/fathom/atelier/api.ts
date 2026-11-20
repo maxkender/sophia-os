@@ -8,7 +8,7 @@ export const COMPTE_SOURCE = "fathom0g";
 /** Les langues livrées : l'anglais d'abord (décision du 23/10), puis les grandes langues de Sophia. Déclarées à l'OS (0654) : l'attribution des comptes les lit, n'y mets que ce que tu sais vraiment faire. */
 // 15/11 (Adrien) : un compte par langue sur 18 langues ; cette liste est déclarée à l'OS à chaque `npm run boite`
 // et remplace `pods.langues` : n'en retire pas une langue qui a un compte.
-export const LANGUES = ["en", "fr", "es", "de", "it", "pt", "pt-BR", "es-419", "tr", "pl", "hu", "nl", "sv", "ro", "cs", "sk", "hr", "sl"] as const;
+export const LANGUES = ["en", "fr", "es", "de", "it", "pt", "pt-BR", "es-419", "tr", "pl", "hu", "nl", "sv", "ro", "cs", "sk", "hr", "sl", "lt", "no", "et", "fi"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

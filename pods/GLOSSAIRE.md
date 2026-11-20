@@ -61,10 +61,13 @@ Trois règles :
 - **« Voie 1 », « voie 2 »** : dire le format. Les deux mots restent dans
   `pods/ROUTINE.md` et dans la base (`labels.voie`), où ils nomment la routine
   à suivre.
-- **« Label 100 % podz »** comme une sorte de label : c'est un état (aucune
-  source active, un seul podz), qui change le jour où l'on ajoute une source ou
-  un deuxième podz. Aujourd'hui, les règles de langues et d'allocation en
-  dépendent encore (vue `labels_100_podz`).
+- **« Label 100 % podz »** comme une sorte de label : c'est un état (il n'est
+  nourri que par des podz, un ou plusieurs, sans source active). Depuis 0783
+  il ne décide plus que de l'**attribution des comptes** (pas de règle de
+  réserve, remplissage langue par langue). Ce que fait un podz en images
+  finies (voie, rythme, rattrapage, soupape, étalement par langue) ne dépend
+  plus que du podz : ajouter une source ou un deuxième podz à son label ne
+  l'éteint pas.
 
 ## Les noms d'un podz
 

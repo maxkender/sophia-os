@@ -103,6 +103,13 @@ describe("Questionnaire (15/11)", () => {
     expect(visible(comment, { commentaires: "Often" })).toBe(true);
     expect(visible(comment, { commentaires: "Never" })).toBe(false);
     expect(habitudes.questions.some((q) => q.id === "temps_jour")).toBe(false);
+    // 20/11 : 2 comptes → « Do you do the same thing on both accounts? » (obligatoire seulement pour eux).
+    const routine = SECTIONS.find((x) => x.id === "routine")!;
+    const meme = routine.questions.find((q) => q.id === "meme_chose")!;
+    expect(visible(meme, { nb_comptes: "2" })).toBe(true);
+    expect(visible(meme, {})).toBe(false);
+    expect(complet({ ...r, nb_comptes: "2" }, { capture_temps: ["p/1.png"] })).toBe(false);
+    expect(complet({ ...r, nb_comptes: "2", meme_chose: "Same on both." }, { capture_temps: ["p/1.png"] })).toBe(true);
   });
 
   it("20/11 : textes à traduire (clés), variables, pays dans la langue du posteur", () => {

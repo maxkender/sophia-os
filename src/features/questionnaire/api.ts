@@ -33,9 +33,11 @@ async function appeler<T>(corps: Record<string, unknown>): Promise<T> {
 }
 
 /** 20/11 : `bonus_lundi` : le lundi où le bonus est ajouté à la paie (questionnaire terminé, posteur ciblé). */
-export function sauverReponses(slug: string, jeton: string, b: Brouillon, termine = false, langue = "en"): Promise<{ ok: true; bonus_lundi?: string | null }> {
+export function sauverReponses(
+  slug: string, jeton: string, b: Brouillon, termine = false, langue = "en", jetonPopup: string | null = null,
+): Promise<{ ok: true; bonus_lundi?: string | null }> {
   return appeler({
-    action: "sauver", slug, jeton, nom: b.identite.nom, email: b.identite.email, tiktok: b.identite.tiktok, langue,
+    action: "sauver", slug, jeton, nom: b.identite.nom, email: b.identite.email, tiktok: b.identite.tiktok, langue, t: jetonPopup,
     reponses: b.reponses, captures: b.captures, section: b.ecran, termine,
   });
 }
@@ -166,6 +168,14 @@ export interface MonPopup {
   /** 20/11 : la langue de son compte (le pop-up et le questionnaire s'affichent dedans). */
   langue?: string;
   plus_tard_restants?: number;
+  /** 20/11 : le jeton du pop-up (relie la réponse à la fiche) et le nombre de comptes actifs. */
+  jeton?: string;
+  nb_comptes?: number;
+}
+
+/** 20/11 : le pop-up s'est affiché (statut « vu »). */
+export async function noterPopupVu(slug: string): Promise<void> {
+  await supabase.rpc("questionnaire_popup_vu", { p_slug: slug });
 }
 
 export async function lireMonPopup(): Promise<MonPopup | null> {
@@ -179,8 +189,44 @@ export async function fermerPopup(slug: string, ouvert: boolean): Promise<void> 
   if (error) throw new Error(error.message);
 }
 
-export const lienQuestionnaire = (slug: string, origine = typeof window !== "undefined" ? window.location.origin : "", langue?: string) =>
-  `${origine}/questionnaire/${slug}${langue && langue !== "en" ? `?lang=${encodeURIComponent(langue)}` : ""}`;
+export function lienQuestionnaire(
+  slug: string, origine = typeof window !== "undefined" ? window.location.origin : "", langue?: string,
+  extra?: { t?: string; comptes?: number },
+): string {
+  const q = new URLSearchParams();
+  if (langue && langue !== "en") q.set("lang", langue);
+  if (extra?.t) q.set("t", extra.t);
+  if (extra?.comptes && extra.comptes > 1) q.set("comptes", String(extra.comptes));
+  const s = q.toString();
+  return `${origine}/questionnaire/${slug}${s ? `?${s}` : ""}`;
+}
+
+/** 20/11 : le suivi des posteurs ciblés (onglet « Top posters »). */
+export type StatutSuivi = "pas_vu" | "vu" | "plus_tard" | "en_cours" | "repondu" | "bonus_ajoute" | "bonus_paye";
+
+export interface LigneSuivi {
+  poster_id: string;
+  nom: string;
+  comptes: string | null;
+  canal_paie: string;
+  langue: string;
+  envoye_at: string;
+  vu_at: string | null;
+  plus_tard_n: number;
+  reponse_id: string | null;
+  en_cours: boolean;
+  termine_at: string | null;
+  bonus_statut: string | null;
+  bonus_lundi: string | null;
+  bonus_montant: number | null;
+  statut: StatutSuivi;
+}
+
+export async function lireSuivi(slug: string): Promise<LigneSuivi[]> {
+  const { data, error } = await supabase.rpc("questionnaire_suivi", { p_slug: slug });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as LigneSuivi[];
+}
 
 // --- 20/11 : les cibles (star + 30 meilleurs sur 14 jours) et le bonus ---------------------------------
 

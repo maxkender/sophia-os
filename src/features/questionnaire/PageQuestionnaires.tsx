@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
-import { envoyerCibles, envoyerPopup, lienCapture, lienQuestionnaire, type LigneReponse, lireCibles, lirePosteursChoix, lireReponsesAdmin } from "./api";
+import { envoyerPopup, lienQuestionnaire, type LigneReponse, lirePosteursChoix, lireReponsesAdmin } from "./api";
+import { Comparaison, FicheReponse, SuiviPosteurs } from "./SuiviTopPosters";
 import { colonnes, SECTIONS, SLUG_TOP_POSTERS } from "./questions";
 
 const COLONNES_OS: { id: string; libelle: string; valeur: (l: LigneReponse) => string }[] = [
@@ -49,12 +50,22 @@ export function PageQuestionnaires() {
   const lien = lienQuestionnaire(slug);
   const lignes = q.data ?? [];
   const terminees = lignes.filter((l) => l.termine_at).length;
+  const [onglet, setOnglet] = React.useState<"top" | "lien">("top");
   return (
     <div className="space-y-4" data-testid="page-questionnaires">
       <div>
         <h1 className="font-semibold text-xl">Questionnaires</h1>
         <p className="text-muted-foreground text-sm">Un formulaire par lien, sans connexion. Rien n'apparaît sur le dashboard des posteurs, sauf pour ceux à qui tu envoies le pop-up.</p>
       </div>
+      <div className="flex gap-1 border-b text-sm" role="tablist">
+        {([["top", "Top posters"], ["lien", "Lien et pop-up"]] as const).map(([k, l]) => (
+          <button key={k} type="button" role="tab" aria-selected={onglet === k} onClick={() => setOnglet(k)} data-testid={`onglet-${k}`}
+            className={onglet === k ? "border-primary border-b-2 px-3 py-1.5 font-medium" : "px-3 py-1.5 text-muted-foreground"}>
+            {l}
+          </button>
+        ))}
+      </div>
+      {onglet === "lien" && <>
       <Card>
         <CardHeader className="pb-2"><CardTitle className="text-base">Top posters</CardTitle></CardHeader>
         <CardContent className="flex flex-wrap items-center gap-2">
@@ -75,9 +86,11 @@ export function PageQuestionnaires() {
         </CardContent>
       </Card>
 
-      <Cibles slug={slug} />
-
       <EnvoyerPopup slug={slug} />
+      </>}
+
+      {onglet === "top" && <>
+      <SuiviPosteurs slug={slug} />
 
       <Card>
         <CardHeader className="flex-row flex-wrap items-center gap-2 pb-2">
@@ -129,7 +142,7 @@ export function PageQuestionnaires() {
                     </tr>
                     {ouverte === l.id && (
                       <tr className="border-b bg-muted/20">
-                        <td colSpan={2 + COLONNES_OS.length} className="p-3"><Detail l={l} /></td>
+                        <td colSpan={2 + COLONNES_OS.length} className="p-3"><FicheReponse l={l} /></td>
                       </tr>
                     )}
                   </React.Fragment>
@@ -139,64 +152,10 @@ export function PageQuestionnaires() {
           )}
         </CardContent>
       </Card>
-    </div>
-  );
-}
 
-function Detail({ l }: { l: LigneReponse }) {
-  return (
-    <div className="grid gap-4 md:grid-cols-2" data-testid="detail-reponse">
-      {SECTIONS.map((s) => (
-        <div key={s.id} className="space-y-1">
-          <p className="font-semibold text-sm">{s.titre}</p>
-          {s.questions.map((q) => {
-            if (q.type === "capture") {
-              const chemins = l.captures?.[q.id] ?? [];
-              return (
-                <div key={q.id} className="text-xs">
-                  <span className="text-muted-foreground">{q.n}. {q.texte} : </span>
-                  {chemins.length ? chemins.map((c, i) => <LienCapture key={c} chemin={c} n={i + 1} />) : "—"}
-                </div>
-              );
-            }
-            const v = texte(l.reponses[q.id]);
-            const d = q.detail ? texte(l.reponses[q.detail.id]) : "";
-            if (!v && !d && q.si) return null;
-            // 20/11 (Max) : la réponse d'origine, et sa traduction en français (réponses écrites).
-            const fr = l.reponses_fr?.[q.id];
-            const frD = q.detail ? l.reponses_fr?.[q.detail.id] : undefined;
-            return (
-              <div key={q.id} className="text-xs">
-                <span className="text-muted-foreground">{q.n}. {q.texte} : </span>
-                {v || "—"}{d ? ` · ${q.detail!.libelle} : ${d}` : ""}
-                {(fr && fr !== v) || (frD && frD !== d) ? (
-                  <span className="block text-emerald-700 dark:text-emerald-300" data-testid="traduction-fr">
-                    FR : {fr && fr !== v ? fr : v}{frD && frD !== d ? ` · ${q.detail!.libelle} : ${frD}` : ""}
-                  </span>
-                ) : null}
-              </div>
-            );
-          })}
-        </div>
-      ))}
+      <Comparaison lignes={lignes} />
+      </>}
     </div>
-  );
-}
-
-function LienCapture({ chemin, n }: { chemin: string; n: number }) {
-  const [url, setUrl] = React.useState<string | null>(null);
-  return (
-    <button
-      type="button"
-      className="mr-2 underline"
-      onClick={async () => {
-        const u = url ?? (await lienCapture(chemin));
-        setUrl(u);
-        if (u) window.open(u, "_blank", "noopener");
-      }}
-    >
-      capture {n}
-    </button>
   );
 }
 
@@ -252,95 +211,6 @@ function EnvoyerPopup({ slug }: { slug: string }) {
               </label>
             ))}
           </div>
-        </CardContent>
-      )}
-    </Card>
-  );
-}
-
-/**
- * 20/11 (Max) : les cibles du pop-up : les posteurs « star » et les 30 meilleurs sur 14 jours (vues médianes, puis
- * % de posts viraux), Ruul et Upwork, sans doublon. Rien ne part avant le clic.
- */
-function Cibles({ slug }: { slug: string }) {
-  const qc = useQueryClient();
-  const [ouvert, setOuvert] = React.useState(false);
-  const [confirme, setConfirme] = React.useState(false);
-  const q = useQuery({ queryKey: ["questionnaire", slug, "cibles"], queryFn: () => lireCibles(slug), enabled: ouvert });
-  const m = useMutation({
-    mutationFn: () => envoyerCibles(slug),
-    onSettled: () => { setConfirme(false); void qc.invalidateQueries({ queryKey: ["questionnaire", slug] }); },
-  });
-  const liste = q.data ?? [];
-  const aEnvoyer = liste.filter((c) => !c.popup).length;
-  return (
-    <Card data-testid="cibles">
-      <CardHeader className="flex-row flex-wrap items-center gap-2 pb-2">
-        <div className="flex-1">
-          <CardTitle className="text-base">Cibles : stars + 30 meilleurs (14 jours)</CardTitle>
-          <p className="text-muted-foreground text-xs">
-            Posteurs « star » et les 30 meilleurs sur 14 jours (vues médianes, puis % de posts viraux), Ruul et Upwork, sans doublon. Le pop-up
-            s'affiche à leur prochaine connexion, dans la langue de leur compte ; « Later » 3 fois au plus. Bonus de 5 $ quand le questionnaire
-            est terminé.
-          </p>
-        </div>
-        {!ouvert && <Button size="sm" variant="outline" onClick={() => setOuvert(true)} data-testid="voir-cibles">Voir les cibles</Button>}
-      </CardHeader>
-      {ouvert && (
-        <CardContent className="space-y-2">
-          {q.isLoading && <p className="text-muted-foreground text-sm">Chargement…</p>}
-          {q.error && <p className="text-destructive text-sm">{(q.error as Error).message}</p>}
-          {liste.length > 0 && (
-            <>
-              <p className="text-sm">
-                {liste.length} posteurs : {liste.filter((c) => c.star).length} star, {liste.filter((c) => (c.rang ?? 99) <= 30).length} dans le top 30,{" "}
-                {liste.filter((c) => c.canal_paie === "ruul").length} Ruul · {aEnvoyer} sans pop-up
-              </p>
-              <div className="max-h-80 overflow-y-auto rounded-md border">
-                <table className="w-full text-xs">
-                  <thead>
-                    <tr className="border-b text-left text-muted-foreground">
-                      <th className="px-2 py-1.5">Posteur</th>
-                      <th className="px-2 py-1.5">Pourquoi</th>
-                      <th className="px-2 py-1.5">Vues médianes</th>
-                      <th className="px-2 py-1.5">% viraux</th>
-                      <th className="px-2 py-1.5">Langue</th>
-                      <th className="px-2 py-1.5">Paie</th>
-                      <th className="px-2 py-1.5">Pop-up</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {liste.map((c) => (
-                      <tr key={c.poster_id} className="border-b last:border-0" data-testid="cible">
-                        <td className="px-2 py-1.5 font-medium">{c.nom}</td>
-                        <td className="px-2 py-1.5">{[c.star ? "star" : null, c.rang && c.rang <= 30 ? `top ${c.rang}` : null].filter(Boolean).join(" · ")}</td>
-                        <td className="px-2 py-1.5 tabular-nums">{c.vues_mediane ?? "—"}</td>
-                        <td className="px-2 py-1.5 tabular-nums">{c.pct_viraux !== null ? `${c.pct_viraux} %` : "—"}</td>
-                        <td className="px-2 py-1.5">{c.langue}</td>
-                        <td className="px-2 py-1.5">{c.canal_paie === "ruul" ? "Ruul" : "Upwork"}</td>
-                        <td className="px-2 py-1.5">{c.popup === "repondu" ? "a répondu" : c.popup === "plus_tard_3" ? "« Later » ×3" : c.popup ? "envoyé" : "—"}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="flex flex-wrap items-center gap-2">
-                {!confirme ? (
-                  <Button size="sm" disabled={!aEnvoyer} onClick={() => setConfirme(true)} data-testid="envoyer-cibles">
-                    Envoyer le pop-up aux {aEnvoyer} cibles
-                  </Button>
-                ) : (
-                  <>
-                    <span className="text-sm">Le pop-up s'affichera à {aEnvoyer} posteurs à leur prochaine connexion. Confirmer ?</span>
-                    <Button size="sm" disabled={m.isPending} onClick={() => m.mutate()} data-testid="confirmer-cibles">Oui, envoyer</Button>
-                    <Button size="sm" variant="outline" onClick={() => setConfirme(false)}>Annuler</Button>
-                  </>
-                )}
-                {m.isSuccess && <span className="text-success text-xs">Pop-up envoyé à {m.data} posteur{m.data > 1 ? "s" : ""}.</span>}
-                {m.error && <span className="text-destructive text-xs">{(m.error as Error).message}</span>}
-              </div>
-            </>
-          )}
         </CardContent>
       )}
     </Card>

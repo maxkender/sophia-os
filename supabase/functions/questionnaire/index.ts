@@ -4,7 +4,9 @@
  *   POST { action: "textes", slug, langue }
  *       20/11 : les textes du questionnaire et de son pop-up dans la langue donnée (traduits une fois depuis
  *       l'anglais, puis gardés : traductions_emails). Anglais si la langue est inconnue ou si la traduction échoue.
- *   POST { action: "sauver", slug, jeton, nom, email, tiktok, langue, reponses, captures, section, termine }
+ *   POST { action: "sauver", slug, jeton, nom, email, tiktok, langue, reponses, captures, section, termine, t? }
+ *       20/11 (Max, envoi aux 30) : `t` = le jeton du pop-up du posteur (lien du pop-up) : la réponse est reliée à sa
+ *       fiche par ce jeton, sans deviner. À chaque questionnaire terminé, Max est prévenu sur Slack (message privé).
  *       Sauvegarde au fil des écrans (une ligne par jeton du navigateur). Relie la réponse à la fiche du
  *       posteur (email, email Ruul, email perso, @ TikTok) ; sinon « non reliée ». Réponse terminée : son
  *       pop-up disparaît. 20/11 (Max) : terminée = toutes les questions obligatoires et au moins une capture ;
@@ -23,6 +25,10 @@ import { langueTraduite, normaliserLangue, traduireChamps } from "../_shared/tra
 import { generateTextFast } from "../_shared/gemini.ts";
 
 const JETON = /^[A-Za-z0-9-]{20,64}$/;
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+/** Le Slack de Max (comme les récaps de ckd) et la page des réponses. */
+const SLACK_MAX = "U0BL5FRLBEU";
+const PAGE_ADMIN = "https://sophia-marketing-orga.vercel.app/admin/questionnaires";
 const SLUG = /^[a-z0-9-]{3,40}$/;
 /** Les textes sont traduits par paquets (une réponse courte et vérifiable à chaque fois). */
 const PAQUET = 40;
@@ -113,8 +119,17 @@ async function sauver(db: Db, slug: string, jeton: string, c: Record<string, unk
   // 20/11 (Max) : « terminé » seulement si tout ce qui est obligatoire est là (et au moins une capture).
   const termine = c.termine === true && complet(reponses, captures);
   if (c.termine === true && !termine) return { ok: false, error: "Please answer all the questions and add at least one screenshot." };
-  const { data: lien } = await db.rpc("questionnaire_relier", { p_email: email, p_tiktok: tiktok });
-  const l = (lien ?? {}) as { poster_id?: string | null; par?: string | null };
+  // Le jeton du pop-up d'abord (posteur sûr), sinon l'email ou le @ TikTok.
+  let l: { poster_id?: string | null; par?: string | null } = {};
+  const t = String(c.t ?? "");
+  if (UUID.test(t)) {
+    const { data: pp } = await db.from("questionnaire_popups").select("poster_id").eq("slug", slug).eq("jeton", t).maybeSingle();
+    if (pp?.poster_id) l = { poster_id: pp.poster_id, par: "pop-up" };
+  }
+  if (!l.poster_id) {
+    const { data: lien } = await db.rpc("questionnaire_relier", { p_email: email, p_tiktok: tiktok });
+    l = (lien ?? {}) as { poster_id?: string | null; par?: string | null };
+  }
   const maintenant = new Date().toISOString();
   const premiereFois = termine && !ex?.termine_at;
   const ligne = {
@@ -130,12 +145,36 @@ async function sauver(db: Db, slug: string, jeton: string, c: Record<string, unk
   }
   // Le bonus (posteur ciblé, une seule fois) : la date du lundi où il est ajouté à sa paie.
   const { data: bonus } = await db.rpc("questionnaire_bonus_creer", { p_reponse: sauve.id });
-  const b = (bonus ?? {}) as { ok?: boolean; lundi?: string | null };
+  const b = (bonus ?? {}) as { ok?: boolean; lundi?: string | null; raison?: string };
   if (premiereFois) {
     const fr = await enFrancais(reponses, langue);
     if (fr) await db.from("questionnaire_reponses").update({ reponses_fr: fr }).eq("id", sauve.id);
+    await prevenirMax(db, l.poster_id ?? null, nom, langue, b);
   }
   return { ok: true, bonus_lundi: b.ok ? b.lundi ?? null : null };
+}
+
+/** 20/11 (Max) : un message privé Slack à chaque questionnaire terminé (ne fait jamais échouer l'envoi). */
+async function prevenirMax(db: Db, posterId: string | null, nom: string | null, langue: string, b: { ok?: boolean; lundi?: string | null; raison?: string }) {
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  if (!jeton) return;
+  let qui = nom ?? "Quelqu'un";
+  let paie = "";
+  if (posterId) {
+    const { data: p } = await db.from("profiles").select("prenom, nom, canal_paie").eq("id", posterId).maybeSingle();
+    qui = [p?.prenom, p?.nom].filter(Boolean).join(" ") || qui;
+    paie = p?.canal_paie === "ruul" ? "Ruul" : "Upwork";
+  }
+  const jj = b.lundi ? `${b.lundi.slice(8, 10)}/${b.lundi.slice(5, 7)}` : "";
+  const bonus = b.ok ? `Bonus 5 $ ajouté à sa paie du lundi ${jj} (${paie}).` : posterId ? `Pas de bonus (${b.raison ?? "?"}).` : "Réponse non reliée à un posteur : pas de bonus.";
+  const texte = `📝 Questionnaire top posters : *${qui}* a terminé (${langue}). ${bonus}\n${PAGE_ADMIN}`;
+  try {
+    await fetch("https://slack.com/api/chat.postMessage", {
+      method: "POST",
+      headers: { authorization: `Bearer ${jeton}`, "content-type": "application/json; charset=utf-8" },
+      body: JSON.stringify({ channel: SLACK_MAX, text: texte, unfurl_links: false }),
+    });
+  } catch { /* le questionnaire reste enregistré */ }
 }
 
 async function televerser(db: Db, slug: string, jeton: string, c: Record<string, unknown>) {

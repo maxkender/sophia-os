@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 import { type Brouillon, ecrireBrouillonLocal, envoyerCapture, jetonNavigateur, lireBrouillonLocal, sauverReponses } from "./api";
-import { assezLong, manquantes, nbCaptures, paysOptions, type Question, type Reponses, SECTIONS, visible } from "./questions";
+import { assezLong, manquantes, NB_COMPTES, nbCaptures, paysOptions, type Question, type Reponses, SECTIONS, visible } from "./questions";
 import { dateLundi, type Traduire, useTextes } from "./textes";
 
 const VIDE: Brouillon = { identite: { nom: "", email: "", tiktok: "" }, reponses: {}, captures: {}, ecran: 0, termine: false };
@@ -31,16 +31,25 @@ export function PageQuestionnaire() {
   const [params] = useSearchParams();
   // 16/11 (Max) : « Do the star survey » en test (?test=1) : le vrai questionnaire, mais rien n'est enregistré.
   const test = params.get("test") === "1";
-  // 20/11 (Max) : dans la langue du posteur (?lang=, mise par le pop-up : la langue de son compte), l'anglais par défaut.
-  const { t, langue, dir } = useTextes(slug, params.get("lang"));
+  // 20/11 (Max) : dans la langue du posteur (?lang=, mise par le pop-up : la langue de son compte), l'anglais par défaut ;
+  // un lien permet de passer en anglais (et de revenir).
+  const langueLien = params.get("lang");
+  const [enAnglais, setEnAnglais] = React.useState(false);
+  const { t, langue, dir } = useTextes(slug, enAnglais ? "en" : langueLien);
+  // Le jeton du pop-up (relie la réponse au posteur) et son nombre de comptes (question « both accounts »).
+  const jetonPopup = params.get("t");
   const [bonusLundi, setBonusLundi] = React.useState<string | null>(null);
   const cle = test ? `${slug}-test` : slug;
   const jeton = React.useMemo(() => jetonNavigateur(cle), [cle]);
-  const [b, setB] = React.useState<Brouillon>(() => lireBrouillonLocal(cle) ?? VIDE);
+  const [b, setB] = React.useState<Brouillon>(() => {
+    const x = lireBrouillonLocal(cle) ?? VIDE;
+    const n = params.get("comptes");
+    return n && /^[1-9]$/.test(n) ? { ...x, reponses: { ...x.reponses, [NB_COMPTES]: n } } : x;
+  });
   const sauver = React.useCallback(
     (x: Brouillon, termine: boolean) =>
-      test ? Promise.resolve({ ok: true as const, bonus_lundi: termine ? lundiSuivant() : null }) : sauverReponses(slug, jeton, x, termine, langue),
-    [test, slug, jeton, langue],
+      test ? Promise.resolve({ ok: true as const, bonus_lundi: termine ? lundiSuivant() : null }) : sauverReponses(slug, jeton, x, termine, langue, jetonPopup),
+    [test, slug, jeton, langue, jetonPopup],
   );
   const [statut, setStatut] = React.useState<"" | "enregistrement" | "enregistre" | "erreur">("");
   const [erreur, setErreur] = React.useState<string | null>(null);
@@ -94,7 +103,14 @@ export function PageQuestionnaire() {
           </div>
         )}
         <header className="space-y-2">
-          <p className="font-semibold text-muted-foreground text-sm">Vik Studios</p>
+          <p className="flex items-center justify-between font-semibold text-muted-foreground text-sm">
+            <span>Vik Studios</span>
+            {langueLien && !langueLien.toLowerCase().startsWith("en") && (
+              <button type="button" className="font-normal text-xs underline" onClick={() => setEnAnglais((x) => !x)} data-testid="changer-langue">
+                {enAnglais ? t("ui.en_ma_langue") : t("ui.en_anglais")}
+              </button>
+            )}
+          </p>
           <div className="h-2 overflow-hidden rounded-full bg-muted" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={ecran}>
             <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${Math.round((ecran / total) * 100)}%` }} />
           </div>

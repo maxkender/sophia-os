@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o302",
+ "type_bleo": "full_test",
+ "titre": "the most famous jewels in history #jewels #history #royalty #smartgirl #diamonds",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 4/7 (la jauge en demande 7 sur 23) : accroche jamais faite chez nous (« jewel » absent des accroches de donnees/label.json). Accroches écrites : « the most famous jewels in history » (retenue : histoire + glamour), « famous diamonds » (écartée : étroite), « royal jewels » (écartée : vague). Faits vérifiés : diamant Hope (45,52 carats, Smithsonian), Koh-i-Noor (joyaux de la Couronne britannique), Cullinan (plus gros diamant brut jamais trouvé, 3 106 carats, 1905), perle La Peregrina (Marie Ire d'Angleterre puis Elizabeth Taylor), pendentif de perle de Marie-Antoinette (vendu en 2018 chez Sotheby's). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8b1a9a03",
+   "texte_overlay": "the most famous jewels\nin history",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "af4e3179",
+   "texte_overlay": "the hope diamond\n\nblue, 45 carats, and\nsaid to be cursed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "510d77af",
+   "texte_overlay": "the koh-i-noor\n\nnow in the british crown jewels,\nclaimed by four countries.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "88e0d4dc",
+   "texte_overlay": "the cullinan\n\nthe largest rough diamond ever\nfound: 3,106 carats, in 1905.",
+   "texte_sophia": "the cullinan\n\nthe largest rough diamond ever found.\ni read its story on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f37b5aa5",
+   "texte_overlay": "la peregrina\n\na pearl worn by mary i of england,\nthen by elizabeth taylor.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ecab1cd5",
+   "texte_overlay": "marie antoinette's pearl\n\nsold at auction in 2018.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8ff5c9e8",
+   "texte_overlay": "which one would you wear?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  }
+ ]
+}

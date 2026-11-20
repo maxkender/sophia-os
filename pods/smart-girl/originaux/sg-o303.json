@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o303",
+ "type_bleo": "full_test",
+ "titre": "old-fashioned card games every elegant woman should know #cardgames #janeausten #cosy #smartgirl #hobbies",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 5/7 (la jauge en demande 7 sur 23) : accroche jamais faite chez nous (« card » absent des accroches de donnees/label.json). Accroches écrites : « old-fashioned card games every elegant woman should know » (retenue : hobby cosy, histoire), « card games for a rainy day » (écartée : plate), « jane austen hobbies » (écartée : trop étroite). Faits vérifiés : le whist dans les romans de Jane Austen, le bridge né du whist, le piquet du XVIe-XVIIe siècle à deux joueurs, la patience (nom britannique du solitaire), la canasta venue d'Uruguay dans les années 1940, le rami. Sophia à la fin comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7499b2b5",
+   "texte_overlay": "old-fashioned card games every\nelegant woman should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7970483f",
+   "texte_overlay": "whist\n\nthe game they play in\njane austen's novels.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "171390b5",
+   "texte_overlay": "bridge\n\nwhist's clever descendant.\nmemory and a good partner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0c06f4bc",
+   "texte_overlay": "piquet\n\nfor two players, played in\nfrance since the 1500s.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "59896cc4",
+   "texte_overlay": "patience\n\nthe british name for solitaire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3e259fdd",
+   "texte_overlay": "canasta\n\nborn in uruguay in the 1940s.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e4ce1087",
+   "texte_overlay": "rummy\n\nthe easiest to teach\nat a family dinner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9a840f9f",
+   "texte_overlay": "one game, one lesson, one evening\nwithout scrolling.",
+   "texte_sophia": "one game, one lesson on an app like\nSophia, one evening without scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

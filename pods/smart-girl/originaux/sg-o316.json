@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o316",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "78677657-e65e-4050-bd16-dda398d257be",
+ "titre": "5 habits of girls who are effortlessly easy to talk to #socialskills #conversation #smartgirl #thatgirl #friendship",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "78677657-e65e-4050-bd16-dda398d257be"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 46 de la boîte (parent 78677657, langue source cs) : accroche du parent mot pour mot. Les cinq habitudes du parent (laisser finir, rire vraiment, compliments profonds, nourrir son esprit au lieu de scroller, écrire en premier). Sophia comme rituel à la place du scroll, comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5f424f34",
+   "texte_overlay": "5 habits of girls who are\neffortlessly easy to talk to",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607186536672627999/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ed1fa776",
+   "texte_overlay": "1. they let you finish\n\nno interrupting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607186536672627999/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3d03f486",
+   "texte_overlay": "2. they laugh with their whole face",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607186536672627999/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c77596d8",
+   "texte_overlay": "3. they give deeper compliments\n\nnot \"nice top\" but\n\"you explained that so well\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607186536672627999/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e8d2e332",
+   "texte_overlay": "4. they feed their mind\n\ninteresting people like interesting\nthings. swap mindless scrolling\nfor learning.",
+   "texte_sophia": "4. they feed their mind\n\nthey swap mindless scrolling for\nlessons on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607186536672627999/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "39d4b599",
+   "texte_overlay": "5. they text first\n\nno keeping score.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607186536672627999/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bcef4538",
+   "texte_overlay": "send this to the friend\nwho does all five",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607186536672627999/5.jpg"
+  }
+ ]
+}

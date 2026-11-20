@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o318",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "85aab825-bac4-46bf-9608-2ff696c5d164",
+ "titre": "how to make studying and school more interesting #studytok #studytips #smartgirl #school #studymotivation",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "85aab825-bac4-46bf-9608-2ff696c5d164"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 54 de la boîte (parent 85aab825, langue source fr) : accroche du parent mot pour mot. Idées du parent par matière (biologie en voix off de documentaire animalier, géographie en explorateur, culture générale en leçons courtes) et neuves (histoire, langues, maths). Sophia au milieu comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "62f0e7d6",
+   "texte_overlay": "how to make studying and school\nmore interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681313590426504471/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "238fd9c5",
+   "texte_overlay": "biology\n\nnarrate it like a nature\ndocumentary voice-over.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681313590426504471/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b4321bf1",
+   "texte_overlay": "geography\n\nplan an imaginary trip\naround the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681313590426504471/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e2973220",
+   "texte_overlay": "general knowledge\n\nno need for heavy books.",
+   "texte_sophia": "general knowledge\n\nno need for heavy books. i use an app\nlike Sophia, five minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681313590426504471/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6a1fc4ae",
+   "texte_overlay": "history\n\nread it as gossip about\npeople who really lived.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681313590426504471/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b1d3bd1c",
+   "texte_overlay": "languages\n\nlearn the lyrics of one song.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681313590426504471/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a424e3a1",
+   "texte_overlay": "maths\n\nset a timer and race yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681313590426504471/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "02906f65",
+   "texte_overlay": "follow for more daily tips",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681313590426504471/5.jpg"
+  }
+ ]
+}

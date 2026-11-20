@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o313",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9be8d2db-4906-48b6-8723-f9edc9e164f4",
+ "titre": "6 little things that make you quietly impressive #selfimprovement #smartgirl #habits #confidence #thatgirl",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "9be8d2db-4906-48b6-8723-f9edc9e164f4"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 9 de la boîte (parent 9be8d2db, langue source pl) : accroche du parent mot pour mot. Les six idées du parent (retenir les détails sur les gens, lire un peu chaque jour, micro-apprentissage, poser des questions de détail, savoir un peu de tout, expliquer simplement). Sophia en 3 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b1cad3db",
+   "texte_overlay": "6 little things that make you\nquietly impressive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688747992425221407/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "250133dc",
+   "texte_overlay": "1. remembering little details\nabout people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688747992425221407/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3467981b",
+   "texte_overlay": "2. reading a little every day\n\nmore to talk about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688747992425221407/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e2cd9b0a",
+   "texte_overlay": "3. daily micro-learning",
+   "texte_sophia": "3. daily micro-learning\n\ni use an app like Sophia for short\nlessons every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688747992425221407/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cf77d38d",
+   "texte_overlay": "4. asking follow-up questions\n\npeople feel truly heard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688747992425221407/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a356879e",
+   "texte_overlay": "5. knowing a little about\na lot of things",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688747992425221407/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6ec96779",
+   "texte_overlay": "6. explaining things simply\n\nclarity impresses more than jargon.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688747992425221407/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ded161a4",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688747992425221407/7.jpg"
+  }
+ ]
+}

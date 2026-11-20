@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o319",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8ebe7366-f91a-4962-a584-000ad8b56f38",
+ "titre": "elite student habits nobody talks about #studytok #studytips #smartgirl #straighta #discipline",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "8ebe7366-f91a-4962-a584-000ad8b56f38"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 60 de la boîte (parent 8ebe7366, langue source en) : accroche du parent mot pour mot. Habitudes du parent (réviser deux semaines avant, routine minimale mais régulière, protéger son énergie, comprendre plutôt que mémoriser, culture générale chaque jour, des systèmes plutôt que la motivation). Sophia sur la culture générale à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d585ed43",
+   "texte_overlay": "elite student habits\nnobody talks about",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7625119066176474388/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "16fa2016",
+   "texte_overlay": "they revise at least\ntwo weeks in advance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7625119066176474388/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9ffb3177",
+   "texte_overlay": "their routine is minimal\nbut consistent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7625119066176474388/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3c679a8b",
+   "texte_overlay": "they protect their energy\nand always rest",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7625119066176474388/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0535f59a",
+   "texte_overlay": "they understand,\nnot memorise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7625119066176474388/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5f7a0377",
+   "texte_overlay": "they don't wait for motivation\n\nthey have systems.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7625119066176474388/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "50c9edb4",
+   "texte_overlay": "they build their general knowledge\ndaily\n\ni do five minutes every morning.",
+   "texte_sophia": "they build their general knowledge daily\n\ni do five minutes every morning on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7625119066176474388/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e5559b84",
+   "texte_overlay": "save this before exams",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7625119066176474388/6.jpg"
+  }
+ ]
+}

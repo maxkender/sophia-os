@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o320",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "752ba489-e608-4025-afdc-215ced55bb6c",
+ "titre": "30 things you need to do alone to truly know yourself #selflove #solodate #smartgirl #growth #alone",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "752ba489-e608-4025-afdc-215ced55bb6c"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 44 de la boîte (parent 752ba489, langue source en) : accroche du parent mot pour mot. Trente idées du parent et neuves, cinq par slide. Sophia dans la dernière série comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8b3c1ef8",
+   "texte_overlay": "30 things you need to do alone\nto truly know yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594775092303842580/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cba7d636",
+   "texte_overlay": "1. eat in a restaurant without your phone\n2. spend an evening in silence\n3. take yourself to a museum\n4. walk somewhere new\n5. read a whole book in one day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594775092303842580/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "68f9447e",
+   "texte_overlay": "6. go to the cinema alone\n7. do something that scares you\n8. travel for a weekend\n9. cook a real dinner for one\n10. visit a library",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594775092303842580/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "60e6789b",
+   "texte_overlay": "11. write what you feel, show no one\n12. cry without explaining why\n13. watch the sunrise\n14. learn a new skill\n15. spend a day in nature",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594775092303842580/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fb8e317e",
+   "texte_overlay": "16. make peace with boredom\n17. write a letter to your future self\n18. sit in a café for an hour\n19. try a new hobby\n20. dance in your room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594775092303842580/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f3e60ed5",
+   "texte_overlay": "21. sleep without worrying\n22. say no without guilt\n23. go to a concert\n24. take a long bath with a book\n25. plan your dream life on paper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594775092303842580/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f8a936f9",
+   "texte_overlay": "26. leave your phone at home for a day\n27. learn one new thing every morning\n28. walk without music\n29. forgive yourself\n30. sit with your thoughts",
+   "texte_sophia": "26. leave your phone at home for a day\n27. five minutes on an app like Sophia\n28. walk without music\n29. forgive yourself\n30. sit with your thoughts",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594775092303842580/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e57849fc",
+   "texte_overlay": "save this and start today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594775092303842580/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o301",
+ "type_bleo": "full_test",
+ "titre": "european towns that look like paintings #europe #travel #fairytale #smartgirl #wanderlust",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 3/7 (la jauge en demande 7 sur 23) : accroche jamais faite chez nous (« town » absent des accroches de donnees/label.json). Accroches écrites : « european towns that look like paintings » (retenue : rêve, très partageable), « the prettiest villages in europe » (écartée : banale), « fairytale towns » (écartée : vague). Lieux vérifiés : Colmar, Hallstatt, Giethoorn (village sans routes, aux canaux), Bibury, Český Krumlov, Positano, Rothenburg ob der Tauber. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "62540fba",
+   "texte_overlay": "european towns that\nlook like paintings",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7ecd9e30",
+   "texte_overlay": "colmar, france\n\nhalf-timbered houses\nover the canals.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9e93f7ca",
+   "texte_overlay": "hallstatt, austria\n\na village on the edge\nof a mountain lake.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "97d73c6d",
+   "texte_overlay": "giethoorn, netherlands\n\nno roads, only canals\nand little bridges.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b7f3a5c6",
+   "texte_overlay": "bibury, england\n\nstone cottages from\nthe 17th century.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "07010994",
+   "texte_overlay": "český krumlov, czechia\n\nred roofs in a bend\nof the river.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2363e66e",
+   "texte_overlay": "rothenburg, germany\n\nthe medieval town\nthat time forgot.",
+   "texte_sophia": "rothenburg, germany\n\nthe medieval town time forgot. i\nlearn one place a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "cfd1b341",
+   "texte_overlay": "which one are you\nvisiting first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

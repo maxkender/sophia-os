@@ -422,7 +422,8 @@ describe("section BLEO de l'OS", () => {
   it("menu : Pods et Allocation rangées dans BLEO, la boîte des podz dans les chiffres de la page Podz", () => {
     const lire = (f: string) => fs.readFileSync(path.join(process.cwd(), f), "utf8");
     const menu = lire("src/components/layout/AdminLayout.tsx");
-    const bleo = menu.slice(menu.indexOf('title: t("navSection.bleo")'), menu.indexOf('title: t("navSection.tests")'));
+    // 21/11 : BLEO est dans le groupe « Contenu », entre /admin/bleo et ses réglages.
+    const bleo = menu.slice(menu.indexOf('to: "/admin/bleo"'), menu.indexOf("paie: []"));
     for (const r of ["/admin/bleo", "/admin/bleo/plan", "/admin/bleo/familles", "/admin/pods", "/admin/repartition", "/admin/bleo/reglages"]) {
       expect(bleo).toContain(`to: "${r}"`);
     }

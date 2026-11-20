@@ -8,6 +8,7 @@ import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { type CasFin, estDemandePosteur, OBJET_FIN, raisonFixe, texteCompteArrete, texteFin } from "../_shared/fin_collaboration.ts";
 import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rapport_samedi.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { type Aujourdhui, type LigneAujourdhui, type QualiteSemaine, texteAlertesUrgentes, texteQualite, texteResumeJour } from "../_shared/aujourdhui.ts";
 import { lundiEnClair, reponseDouble, TEXTE_REFUS_DOUBLE, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "../_shared/doublement.ts";
 import {
   type CasRuul,
@@ -251,6 +252,20 @@ Deno.serve(async (request) => {
         // 12/11 (Max) : « Avoir le contexte » : l'analyse de tout ce que l'OS sait sur le posteur. Ne fait que lire.
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
         return json(await analyserContexte(db, String(body.id ?? "")));
+      case "aujourdhui_alertes":
+        // 21/11 (Max, point 10) : DM urgent (argent, ou ligne bloquée depuis plus de 24 h), une fois par ligne (cron horaire).
+        if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
+        return json(await aujourdhuiAlertes(db, body.envoyer !== false));
+      case "aujourdhui_resume":
+        // 21/11 (Max, point 10) : le résumé de 18 h (Paris) en DM.
+        if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
+        if (!body.forcer && heureParis() !== 18) return json({ ok: true, ignore: "pas 18 h à Paris" });
+        return json(await aujourdhuiResume(db, body.envoyer !== false));
+      case "qualite_semaine":
+        // 21/11 (Max, point 10) : le rapport qualité du lundi 9 h (Paris), semaine qui vient de finir.
+        if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
+        if (!body.forcer && heureParis() !== 9) return json({ ok: true, ignore: "pas lundi 9 h à Paris" });
+        return json(await qualiteSemaine(db, typeof body.lundi === "string" ? body.lundi : null, body.envoyer !== false));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -2523,4 +2538,49 @@ async function posteurParEmail(db: Db, email: string): Promise<string | null> {
   }
   const { data: h } = await db.from("hub_posteurs").select("profile_id").ilike("email_perso", motif).not("profile_id", "is", null).limit(1);
   return (h?.[0]?.profile_id as string | undefined) ?? null;
+}
+
+// ── 21/11 : page « Aujourd'hui » : DM à Max (alertes urgentes, résumé de 18 h, rapport qualité du lundi) ──
+
+const URL_AUJOURDHUI = `${OS_URL}/admin/auto/aujourdhui`;
+
+/** Les lignes urgentes pas encore signalées, en un seul DM ; chaque ligne n'est signalée qu'une fois (7 jours). */
+async function aujourdhuiAlertes(db: Db, envoyer: boolean) {
+  const { data, error } = await db.rpc("aujourdhui_alertes_a_envoyer");
+  if (error) throw new Error(error.message);
+  const lignes = (data ?? []) as (LigneAujourdhui & { cle: string })[];
+  const texte = texteAlertesUrgentes(lignes.map((l) => ({ ...l, id: l.cle })), URL_AUJOURDHUI);
+  if (!texte) return { ok: true, lignes: 0 };
+  if (!envoyer) return { ok: true, lignes: lignes.length, texte };
+  const jeton = jetonSlackFaq();
+  if (!jeton) return { ok: false, error: "jeton Slack absent" };
+  const r = await posterSlack(jeton, MAX_SLACK, texte);
+  if (!r.ok) return { ok: false, error: r.error ?? "Slack" };
+  const maintenant = new Date().toISOString();
+  const { error: e2 } = await db.from("aujourdhui_alertes_envoyees")
+    .upsert(lignes.map((l) => ({ cle: l.cle, titre: l.titre, envoye_at: maintenant })), { onConflict: "cle" });
+  if (e2) console.error("[support] alertes envoyées", e2.message);
+  return { ok: true, lignes: lignes.length };
+}
+
+async function aujourdhuiResume(db: Db, envoyer: boolean) {
+  const { data, error } = await db.rpc("aujourdhui_lire");
+  if (error) throw new Error(error.message);
+  const texte = texteResumeJour(data as Aujourdhui, URL_AUJOURDHUI);
+  if (!envoyer) return { ok: true, texte };
+  const jeton = jetonSlackFaq();
+  if (!jeton) return { ok: false, error: "jeton Slack absent" };
+  const r = await posterSlack(jeton, MAX_SLACK, texte);
+  return r.ok ? { ok: true } : { ok: false, error: r.error ?? "Slack" };
+}
+
+async function qualiteSemaine(db: Db, lundi: string | null, envoyer: boolean) {
+  const { data, error } = await db.rpc("support_qualite", { p_lundi: lundi && /^\d{4}-\d{2}-\d{2}$/.test(lundi) ? lundi : null });
+  if (error) throw new Error(error.message);
+  const texte = texteQualite(data as QualiteSemaine, `${OS_URL}/admin/auto/qualite`);
+  if (!envoyer) return { ok: true, texte };
+  const jeton = jetonSlackFaq();
+  if (!jeton) return { ok: false, error: "jeton Slack absent" };
+  const r = await posterSlack(jeton, MAX_SLACK, texte);
+  return r.ok ? { ok: true } : { ok: false, error: r.error ?? "Slack" };
 }

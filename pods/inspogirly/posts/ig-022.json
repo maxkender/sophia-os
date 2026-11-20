@@ -1,0 +1,140 @@
+{
+ "id": "ig-022",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "apps for your sunday reset",
+  "fr": "les applis pour ton reset du dimanche",
+  "es": "apps para tu reset del domingo",
+  "it": "app per il tuo reset della domenica",
+  "tr": "pazar sıfırlaman için uygulamalar"
+ },
+ "legendes": {
+  "en": "apps for your sunday reset #foryou #apps #sundayreset #thatgirl",
+  "fr": "les applis pour ton reset du dimanche #foryou #apps #sundayreset #thatgirl",
+  "es": "apps para tu reset del domingo #foryou #apps #sundayreset #thatgirl",
+  "it": "app per il tuo reset della domenica #foryou #apps #sundayreset #thatgirl",
+  "tr": "pazar sıfırlaman için uygulamalar #foryou #apps #sundayreset #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve). Photos Seedream : lit-2, fille-32-2, bouquet-23. Applis (App Store US, 20/11) : Sweepy (4,7 ★, 11 k avis), Sophia en 2e (cta A), AnyList (4,9 ★, 82 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/lit-2.jpg",
+     "images/photos/fille-32-2.jpg",
+     "images/photos/bouquet-23.jpg"
+    ],
+    "titre": "apps for your\nsunday reset"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/lit-2.jpg",
+     "images/photos/fille-32-2.jpg",
+     "images/photos/bouquet-23.jpg"
+    ],
+    "titre": "les applis pour ton\nreset du dimanche"
+   },
+   "es": {
+    "photos": [
+     "images/photos/lit-2.jpg",
+     "images/photos/fille-32-2.jpg",
+     "images/photos/bouquet-23.jpg"
+    ],
+    "titre": "apps para tu\nreset del domingo"
+   },
+   "it": {
+    "photos": [
+     "images/photos/lit-2.jpg",
+     "images/photos/fille-32-2.jpg",
+     "images/photos/bouquet-23.jpg"
+    ],
+    "titre": "app per il tuo\nreset della domenica"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/lit-2.jpg",
+     "images/photos/fille-32-2.jpg",
+     "images/photos/bouquet-23.jpg"
+    ],
+    "titre": "pazar sıfırlaman\niçin uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/sweepy",
+   "en": {
+    "nom": "sweepy",
+    "texte": "a cleaning plan for every room, so your space stays clean without a big sunday panic"
+   },
+   "fr": {
+    "nom": "sweepy",
+    "texte": "un planning de ménage pièce par pièce, pour que ton chez-toi reste propre sans rush le dimanche"
+   },
+   "es": {
+    "nom": "sweepy",
+    "texte": "un calendario de limpieza para cada habitación, para que tu casa esté limpia sin agobios"
+   },
+   "it": {
+    "nom": "sweepy",
+    "texte": "un programma di pulizie stanza per stanza, così la casa resta pulita senza ansia"
+   },
+   "tr": {
+    "nom": "sweepy",
+    "texte": "her oda için bir temizlik planı, böylece evin pazar telaşı olmadan hep temiz kalır"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/anylist",
+   "en": {
+    "nom": "anylist",
+    "texte": "a grocery list you share with your roommates, and you can save your favorite recipes in it"
+   },
+   "fr": {
+    "nom": "anylist",
+    "texte": "une liste de courses à partager avec tes colocs, avec aussi tes recettes préférées dedans"
+   },
+   "es": {
+    "nom": "anylist",
+    "texte": "una lista de la compra que compartes con tus compis de piso, y puedes guardar tus recetas favoritas"
+   },
+   "it": {
+    "nom": "anylist",
+    "texte": "una lista della spesa da condividere con le tue coinquiline, e ci puoi salvare le tue ricette preferite"
+   },
+   "tr": {
+    "nom": "anylist",
+    "texte": "ev arkadaşlarınla paylaştığın bir alışveriş listesi, en sevdiğin tarifleri de içine kaydedersin"
+   }
+  }
+ ]
+}

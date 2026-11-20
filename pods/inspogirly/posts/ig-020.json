@@ -1,0 +1,145 @@
+{
+ "id": "ig-020",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7663703766230633760",
+  "vues": 238000,
+  "publie_le": "2026-07-18",
+  "accroche": "healthy meal ideas for picky eaters"
+ },
+ "titre": {
+  "en": "cooking apps every girl needs",
+  "fr": "les applis de cuisine que toute fille doit avoir",
+  "es": "apps de cocina que toda chica necesita",
+  "it": "app di cucina che ogni ragazza deve avere",
+  "tr": "her kızın ihtiyacı olan yemek uygulamaları"
+ },
+ "legendes": {
+  "en": "cooking apps every girl needs #foryou #apps #cooking #thatgirl",
+  "fr": "les applis de cuisine que toute fille doit avoir #foryou #apps #cooking #thatgirl",
+  "es": "apps de cocina que toda chica necesita #foryou #apps #cooking #thatgirl",
+  "it": "app di cucina che ogni ragazza deve avere #foryou #apps #cooking #thatgirl",
+  "tr": "her kızın ihtiyacı olan yemek uygulamaları #foryou #apps #cooking #thatgirl"
+ },
+ "musique": {
+  "titre": "calvera out april 18th",
+  "url": "https://www.tiktok.com/music/calvera-out-april-18th-7491418348447369990"
+ },
+ "notes": "Preuve : son « healthy meal ideas for picky eaters » du 18/07 (238 k, 7 % d'enregistrements), en liste d'applis de cuisine (sans régime). Photos Seedream : cuisine-1, fille-30-1, bouquet-21. Applis (App Store US, 20/11) : Kitchen Stories (4,8 ★, 23 k avis), Sophia en 2e (cta B), Paprika (4,9 ★, 55 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/cuisine-1.jpg",
+     "images/photos/fille-30-1.jpg",
+     "images/photos/bouquet-21.jpg"
+    ],
+    "titre": "cooking apps\nevery girl needs"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/cuisine-1.jpg",
+     "images/photos/fille-30-1.jpg",
+     "images/photos/bouquet-21.jpg"
+    ],
+    "titre": "les applis de cuisine\nque toute fille doit avoir"
+   },
+   "es": {
+    "photos": [
+     "images/photos/cuisine-1.jpg",
+     "images/photos/fille-30-1.jpg",
+     "images/photos/bouquet-21.jpg"
+    ],
+    "titre": "apps de cocina que\ntoda chica necesita"
+   },
+   "it": {
+    "photos": [
+     "images/photos/cuisine-1.jpg",
+     "images/photos/fille-30-1.jpg",
+     "images/photos/bouquet-21.jpg"
+    ],
+    "titre": "app di cucina che ogni\nragazza deve avere"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/cuisine-1.jpg",
+     "images/photos/fille-30-1.jpg",
+     "images/photos/bouquet-21.jpg"
+    ],
+    "titre": "her kızın ihtiyacı olan\nyemek uygulamaları"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/kitchenstories",
+   "en": {
+    "nom": "kitchen stories",
+    "texte": "thousands of easy recipes with step-by-step videos, even if you've never cooked before"
+   },
+   "fr": {
+    "nom": "kitchen stories",
+    "texte": "des milliers de recettes faciles en vidéo, étape par étape, même si tu n'as jamais cuisiné"
+   },
+   "es": {
+    "nom": "kitchen stories",
+    "texte": "miles de recetas fáciles con vídeos paso a paso, aunque nunca hayas cocinado"
+   },
+   "it": {
+    "nom": "kitchen stories",
+    "texte": "migliaia di ricette facili con video passo dopo passo, anche se non hai mai cucinato"
+   },
+   "tr": {
+    "nom": "kitchen stories",
+    "texte": "hiç yemek yapmamış olsan bile adım adım videolu binlerce kolay tarif"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "short lessons written by actual professors, you learn something new in just 10 minutes a day"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "lecciones cortas escritas por profesores de verdad, para aprender algo nuevo cada día en 10 minutos"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/paprika",
+   "en": {
+    "nom": "paprika",
+    "texte": "you save your favorite recipes, plan your meals and make your grocery list in one app"
+   },
+   "fr": {
+    "nom": "paprika",
+    "texte": "tu gardes tes recettes préférées, tu prévois tes repas et tu fais ta liste de courses au même endroit"
+   },
+   "es": {
+    "nom": "paprika",
+    "texte": "guardas tus recetas, planeas tus comidas y haces tu lista de la compra en una app"
+   },
+   "it": {
+    "nom": "paprika",
+    "texte": "salvi le tue ricette preferite, organizzi i pasti e fai la lista della spesa in un'unica app"
+   },
+   "tr": {
+    "nom": "paprika",
+    "texte": "tariflerini kaydeder, yemeklerini planlar ve alışveriş listeni hazırlarsın"
+   }
+  }
+ ]
+}

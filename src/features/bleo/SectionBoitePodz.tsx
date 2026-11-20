@@ -21,43 +21,16 @@ import { EnteteTableau, EtatRequete, Ligne, TD, TD_NUM, TH, TH_NUM, Tableau, Tit
  * Le podz choisi est dans l'URL (`?boite=<label>`).
  */
 export function SectionBoitePodz() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
   const jauge = useQuery({ queryKey: ["bleo", "jauge"], queryFn: listerJauge });
-  const reglages = useQuery({ queryKey: ["bleo", "reglages"], queryFn: lireReglagesBleo });
   const labelId = params.get("boite") ?? jauge.data?.[0]?.label_id ?? "";
   const pod = jauge.data?.find((j) => j.label_id === labelId);
-  const boite = useQuery({
-    queryKey: ["bleo", "boite", labelId],
-    queryFn: () => listerBoite(labelId),
-    enabled: Boolean(labelId),
-  });
-  // Les lignes ouvertes montrent le post parent tel que posté (D37), lu à la demande.
-  const [ouvertes, setOuvertes] = React.useState<Set<string>>(new Set());
-  const rangMax = Math.max(0, ...(boite.data ?? []).filter((b) => ouvertes.has(cleLigne(b))).map((b) => b.rang));
-  const limitePosts = Math.max(50, Math.ceil(rangMax / 50) * 50);
-  const posts = useQuery({
-    queryKey: ["bleo", "boite-posts", labelId, limitePosts],
-    queryFn: () => listerBoitePosts(labelId, limitePosts),
-    enabled: Boolean(labelId) && ouvertes.size > 0,
-  });
-  const postDe = new Map((posts.data ?? []).map((l) => [cleLigne(l), l]));
-  const basculer = (cle: string) =>
-    setOuvertes((avant) => {
-      const apres = new Set(avant);
-      if (apres.has(cle)) apres.delete(cle);
-      else apres.add(cle);
-      return apres;
-    });
-  const maxParParent = Number(
-    (reglages.data?.boite as { declinaisons_par_parent?: number } | undefined)?.declinaisons_par_parent ?? 3,
-  );
 
   const choisir = (id: string) => {
     const suivant = new URLSearchParams(params);
     suivant.set("boite", id);
     setParams(suivant, { replace: true });
-    setOuvertes(new Set());
   };
 
   return (
@@ -70,7 +43,7 @@ export function SectionBoitePodz() {
         <p className="max-w-3xl text-sm text-muted-foreground">{t("bleo.podz.description")}</p>
       </div>
 
-      <EtatRequete erreur={jauge.error ?? boite.error ?? reglages.error ?? posts.error} chargement={jauge.isLoading} />
+      <EtatRequete erreur={jauge.error} chargement={jauge.isLoading} />
 
       <Card>
         <CardHeader>
@@ -112,110 +85,149 @@ export function SectionBoitePodz() {
         </CardContent>
       </Card>
 
-      {pod && (
-        <Card>
-          <CardHeader>
-            <TitreCarte icone={Package}>{t("bleo.podz.boite", { pod: pod.pod.replace(/^originaux_/, "") })}</TitreCarte>
-            <CardDescription>
-              {t("bleo.podz.boiteDesc", { max: maxParParent })}{" "}
-              <Link to={`/admin/bleo/familles?label=${pod.label_id}&verdict=gagnante`} className="underline">
-                {t("bleo.podz.voirFamilles")}
-              </Link>
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Tableau minWidth="50rem">
-              <EnteteTableau>
-                <th className={TH_NUM}>{t("bleo.colonnes.rang")}</th>
-                <th className={TH}>{t("bleo.colonnes.declinaison")}</th>
-                <th className={TH}>{t("bleo.colonnes.accroche")}</th>
-                <th className={TH_NUM}>{t("bleo.colonnes.faites")}</th>
-                <th className={TH}>{t("bleo.colonnes.gagnanteLe")}</th>
-                <th className={TH}>{t("bleo.colonnes.budget")}</th>
-              </EnteteTableau>
-              <tbody>
-                {(boite.data ?? []).map((b) => {
-                  const cle = cleLigne(b);
-                  const ouverte = ouvertes.has(cle);
-                  return (
-                    <React.Fragment key={cle}>
-                      <Ligne className={cn(ouverte && "border-b-0")}>
-                        <td className={TD_NUM}>
-                          <button
-                            type="button"
-                            className="inline-flex items-center gap-0.5 hover:text-foreground"
-                            aria-expanded={ouverte}
-                            title={ouverte ? t("bleo.podz.masquerPost") : t("bleo.podz.voirPost")}
-                            onClick={() => basculer(cle)}
-                          >
-                            {ouverte ? (
-                              <ChevronDown className="size-3.5" aria-hidden />
-                            ) : (
-                              <ChevronRight className="size-3.5" aria-hidden />
-                            )}
-                            {b.rang}
-                          </button>
-                        </td>
-                        <td className={TD}>
-                          <Badge variant={b.sorte === "g2" ? "success" : "outline"}>
-                            {b.sorte === "g2" ? <Sparkles aria-hidden /> : <Copy aria-hidden />}
-                            {t(`bleo.podz.sortes.${b.sorte}`)}
-                          </Badge>
-                          <span className="mt-0.5 block text-[11px] text-muted-foreground">
-                            {t(`bleo.podz.accroches.${b.accroche_attendue}`)}
-                          </span>
-                        </td>
-                        <td className={`${TD} max-w-[28rem]`}>
-                          <Link
-                            to={`/admin/bleo/familles/${b.famille_id}`}
-                            className="line-clamp-2 underline-offset-2 hover:underline"
-                          >
-                            {b.accroche ?? "—"}
-                          </Link>
-                        </td>
-                        <td className={TD_NUM}>
-                          {b.faites}/{maxParParent}
-                        </td>
-                        <td className={TD}>{formaterJour(b.verdict_le?.slice(0, 10), i18n.language)}</td>
-                        <td className={TD}>
-                          {b.au_budget ? (
-                            <Badge variant="warning" title={t("bleo.podz.auBudgetAide")}>
-                              <CircleAlert aria-hidden />
-                              {t("bleo.podz.auBudget")}
-                            </Badge>
-                          ) : (
-                            <span className="text-muted-foreground">{t("bleo.podz.libre")}</span>
-                          )}
-                        </td>
-                      </Ligne>
-                      {ouverte && (
-                        <tr className="border-b">
-                          <td colSpan={6} className="px-2">
-                            {postDe.get(cle) ? (
-                              <PostParent ligne={postDe.get(cle)!} />
-                            ) : (
-                              <p className="py-2 text-xs text-muted-foreground">{t("common.loading")}</p>
-                            )}
-                          </td>
-                        </tr>
-                      )}
-                    </React.Fragment>
-                  );
-                })}
-              </tbody>
-            </Tableau>
-            {boite.data && boite.data.length === 0 && (
-              <p className="py-4 text-center text-sm text-muted-foreground">{t("bleo.podz.boiteVide")}</p>
-            )}
-            {boite.data && boite.data.length >= 200 && (
-              <p className="pt-3 text-xs text-muted-foreground">{t("bleo.podz.premiers", { n: 200 })}</p>
-            )}
-          </CardContent>
-        </Card>
-      )}
+      {pod && <BoiteDuLabel key={pod.label_id} labelId={pod.label_id} nom={pod.pod.replace(/^originaux_/, "")} />}
 
       <p className="text-xs text-muted-foreground">{t("bleo.podz.voie2")}</p>
     </section>
+  );
+}
+
+/**
+ * La boîte d'un label : les déclinaisons que son podz peut faire, dans l'ordre. La même carte sur la
+ * page Podz (vue des chiffres) et sur la fiche d'un podz.
+ */
+export function BoiteDuLabel({ labelId, nom }: { labelId: string; nom: string }) {
+  const { t, i18n } = useTranslation();
+  const reglages = useQuery({ queryKey: ["bleo", "reglages"], queryFn: lireReglagesBleo });
+  const boite = useQuery({
+    queryKey: ["bleo", "boite", labelId],
+    queryFn: () => listerBoite(labelId),
+    enabled: Boolean(labelId),
+  });
+  // Les lignes ouvertes montrent le post parent tel que posté (D37), lu à la demande.
+  const [ouvertes, setOuvertes] = React.useState<Set<string>>(new Set());
+  const rangMax = Math.max(0, ...(boite.data ?? []).filter((b) => ouvertes.has(cleLigne(b))).map((b) => b.rang));
+  const limitePosts = Math.max(50, Math.ceil(rangMax / 50) * 50);
+  const posts = useQuery({
+    queryKey: ["bleo", "boite-posts", labelId, limitePosts],
+    queryFn: () => listerBoitePosts(labelId, limitePosts),
+    enabled: Boolean(labelId) && ouvertes.size > 0,
+  });
+  const postDe = new Map((posts.data ?? []).map((l) => [cleLigne(l), l]));
+  const basculer = (cle: string) =>
+    setOuvertes((avant) => {
+      const apres = new Set(avant);
+      if (apres.has(cle)) apres.delete(cle);
+      else apres.add(cle);
+      return apres;
+    });
+  const maxParParent = Number(
+    (reglages.data?.boite as { declinaisons_par_parent?: number } | undefined)?.declinaisons_par_parent ?? 3,
+  );
+
+  return (
+    <>
+      <EtatRequete erreur={boite.error ?? reglages.error ?? posts.error} chargement={false} />
+    <Card>
+      <CardHeader>
+        <TitreCarte icone={Package}>{t("bleo.podz.boite", { pod: nom })}</TitreCarte>
+        <CardDescription>
+          {t("bleo.podz.boiteDesc", { max: maxParParent })}{" "}
+          <Link to={`/admin/bleo/familles?label=${labelId}&verdict=gagnante`} className="underline">
+            {t("bleo.podz.voirFamilles")}
+          </Link>
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Tableau minWidth="50rem">
+          <EnteteTableau>
+            <th className={TH_NUM}>{t("bleo.colonnes.rang")}</th>
+            <th className={TH}>{t("bleo.colonnes.declinaison")}</th>
+            <th className={TH}>{t("bleo.colonnes.accroche")}</th>
+            <th className={TH_NUM}>{t("bleo.colonnes.faites")}</th>
+            <th className={TH}>{t("bleo.colonnes.gagnanteLe")}</th>
+            <th className={TH}>{t("bleo.colonnes.budget")}</th>
+          </EnteteTableau>
+          <tbody>
+            {(boite.data ?? []).map((b) => {
+              const cle = cleLigne(b);
+              const ouverte = ouvertes.has(cle);
+              return (
+                <React.Fragment key={cle}>
+                  <Ligne className={cn(ouverte && "border-b-0")}>
+                    <td className={TD_NUM}>
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-0.5 hover:text-foreground"
+                        aria-expanded={ouverte}
+                        title={ouverte ? t("bleo.podz.masquerPost") : t("bleo.podz.voirPost")}
+                        onClick={() => basculer(cle)}
+                      >
+                        {ouverte ? (
+                          <ChevronDown className="size-3.5" aria-hidden />
+                        ) : (
+                          <ChevronRight className="size-3.5" aria-hidden />
+                        )}
+                        {b.rang}
+                      </button>
+                    </td>
+                    <td className={TD}>
+                      <Badge variant={b.sorte === "g2" ? "success" : "outline"}>
+                        {b.sorte === "g2" ? <Sparkles aria-hidden /> : <Copy aria-hidden />}
+                        {t(`bleo.podz.sortes.${b.sorte}`)}
+                      </Badge>
+                      <span className="mt-0.5 block text-[11px] text-muted-foreground">
+                        {t(`bleo.podz.accroches.${b.accroche_attendue}`)}
+                      </span>
+                    </td>
+                    <td className={`${TD} max-w-[28rem]`}>
+                      <Link
+                        to={`/admin/bleo/familles/${b.famille_id}`}
+                        className="line-clamp-2 underline-offset-2 hover:underline"
+                      >
+                        {b.accroche ?? "—"}
+                      </Link>
+                    </td>
+                    <td className={TD_NUM}>
+                      {b.faites}/{maxParParent}
+                    </td>
+                    <td className={TD}>{formaterJour(b.verdict_le?.slice(0, 10), i18n.language)}</td>
+                    <td className={TD}>
+                      {b.au_budget ? (
+                        <Badge variant="warning" title={t("bleo.podz.auBudgetAide")}>
+                          <CircleAlert aria-hidden />
+                          {t("bleo.podz.auBudget")}
+                        </Badge>
+                      ) : (
+                        <span className="text-muted-foreground">{t("bleo.podz.libre")}</span>
+                      )}
+                    </td>
+                  </Ligne>
+                  {ouverte && (
+                    <tr className="border-b">
+                      <td colSpan={6} className="px-2">
+                        {postDe.get(cle) ? (
+                          <PostParent ligne={postDe.get(cle)!} />
+                        ) : (
+                          <p className="py-2 text-xs text-muted-foreground">{t("common.loading")}</p>
+                        )}
+                      </td>
+                    </tr>
+                  )}
+                </React.Fragment>
+              );
+            })}
+          </tbody>
+        </Tableau>
+        {boite.data && boite.data.length === 0 && (
+          <p className="py-4 text-center text-sm text-muted-foreground">{t("bleo.podz.boiteVide")}</p>
+        )}
+        {boite.data && boite.data.length >= 200 && (
+          <p className="pt-3 text-xs text-muted-foreground">{t("bleo.podz.premiers", { n: 200 })}</p>
+        )}
+      </CardContent>
+    </Card>
+    </>
   );
 }
 

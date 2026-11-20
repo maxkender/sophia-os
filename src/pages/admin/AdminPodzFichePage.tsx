@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, EmptyState }
 import { Replie } from "@/components/ui/replie";
 import { StatGroup, StatTile } from "@/components/ui/stat";
 import { SEUIL_STOCK_JOURS } from "@/features/moteur/pilotage";
+import { BoiteDuLabel } from "@/features/bleo/SectionBoitePodz";
 import { Aide } from "@/features/moteur/repartition/graphes";
 import {
   autonomieMin,
@@ -257,6 +258,13 @@ export function AdminPodzFichePage() {
           </Card>
         )}
       </div>
+
+      {/* La boîte BLEO : seulement pour un podz en texte + banque, qui décline ses familles gagnantes. */}
+      {fiche?.boite && labelId && (
+        <section id="boite" className="scroll-mt-20">
+          <BoiteDuLabel labelId={labelId} nom={ligne.titre} />
+        </section>
+      )}
 
       {!video && (
         <Card id="langues" className="scroll-mt-20">

@@ -7,47 +7,173 @@
   "publie_le": "2026-10-27",
   "accroche": "first 5k / do and don’ts"
  },
- "titre": { "en": "first 10k do and don’ts", "fr": "premier 10 km : les do & don’ts" },
+ "titre": {
+  "en": "first 10k do and don’ts",
+  "fr": "premier 10 km : les do & don’ts"
+ },
  "legendes": {
   "en": "#running #runningtips #girlswhorun #10k #beginnerrunner",
   "fr": "#courseapied #running #runningtips #10km #girlswhorun"
  },
- "musique": { "titre": "Run Boy Run - Instrumental", "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657" },
- "notes": "Preuve : « first 5k / do and don’ts » de @katrina.run (191 k vues, 27/10), même gabarit, sujet voisin (le premier 10 km), nos objets à nous. Style `objets` (celui de @hannah.run5, 279 k). Objets et coureuse : Seedream détourés par BiRefNet (images/objets). Logo d'Atala : vignette du milieu des « Do » de la slide 2 (« an atala plan » / « un plan atala »). Aucune page d'appli à la fin.",
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Preuve : « first 5k / do and don’ts » de @katrina.run (191 k vues, 27/10), même gabarit, sujet voisin (le premier 10 km), nos objets à nous. Style `objets` (celui de @hannah.run5, 279 k). Objets et coureuse : Seedream détourés par BiRefNet (images/objets). Logo d'Atala : vignette du milieu des « Do » de la slide 2 (« an atala plan » / « un plan atala »). Aucune page d'appli à la fin. Légende du logo réécrite le 20/11 selon le prompt placement_atala (Atala toujours avec « app »/« appli », jamais seule, jamais « AI »).",
  "slides": [
   {
    "type": "couverture",
    "image": "images/objets/coureuse-profil-2.png",
-   "en": { "titre": "first 10k\ndo and don’ts" },
-   "fr": { "titre": "premier 10 km :\nles do & don’ts" }
+   "en": {
+    "titre": "first 10k\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "premier 10 km :\nles do & don’ts"
+   }
   },
   {
    "type": "dodont",
-   "do": ["images/objets/chaussures.png", "atala", "images/objets/rouleau.png"],
-   "dont": ["images/objets/boite-chaussures.png", "images/objets/halteres.png"],
-   "en": { "titre": "the weeks before", "do": ["shoes you’ve broken in", "an atala plan", "a foam roller"], "dont": ["new shoes", "heavy leg days"] },
-   "fr": { "titre": "les semaines avant", "do": ["des baskets déjà rodées", "un plan atala", "un rouleau de massage"], "dont": ["des baskets neuves", "une grosse séance jambes"] }
+   "do": [
+    "images/objets/chaussures.png",
+    "atala",
+    "images/objets/rouleau.png"
+   ],
+   "dont": [
+    "images/objets/boite-chaussures.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "the weeks before",
+    "do": [
+     "shoes you’ve broken in",
+     "a plan from an\napp like atala",
+     "a foam roller"
+    ],
+    "dont": [
+     "new shoes",
+     "heavy leg days"
+    ]
+   },
+   "fr": {
+    "titre": "les semaines avant",
+    "do": [
+     "des baskets déjà rodées",
+     "appli de coach\ncomme atala",
+     "un rouleau de massage"
+    ],
+    "dont": [
+     "des baskets neuves",
+     "une grosse séance jambes"
+    ]
+   }
   },
   {
    "type": "dodont",
-   "do": ["images/objets/pates.png", "images/objets/tenue.png", "images/objets/masque.png"],
-   "dont": ["images/objets/vin.png", "images/objets/telephone.png"],
-   "en": { "titre": "the night before", "do": ["a pasta dinner", "your kit ready", "in bed by 10"], "dont": ["a glass of wine", "scrolling till 1am"] },
-   "fr": { "titre": "la veille", "do": ["des pâtes le soir", "ta tenue prête", "au lit avant 22h"], "dont": ["un verre de vin", "scroller jusqu’à 1h"] }
+   "do": [
+    "images/objets/pates.png",
+    "images/objets/tenue.png",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/vin.png",
+    "images/objets/telephone.png"
+   ],
+   "en": {
+    "titre": "the night before",
+    "do": [
+     "a pasta dinner",
+     "your kit ready",
+     "in bed by 10"
+    ],
+    "dont": [
+     "a glass of wine",
+     "scrolling till 1am"
+    ]
+   },
+   "fr": {
+    "titre": "la veille",
+    "do": [
+     "des pâtes le soir",
+     "ta tenue prête",
+     "au lit avant 22h"
+    ],
+    "dont": [
+     "un verre de vin",
+     "scroller jusqu’à 1h"
+    ]
+   }
   },
   {
    "type": "dodont",
-   "do": ["images/objets/banane.png", "images/objets/verre-eau.png", "images/objets/epingles.png"],
-   "dont": ["images/objets/cafes.png", "images/objets/gel.png"],
-   "en": { "titre": "race morning", "do": ["a banana", "small sips of water", "your bib pinned"], "dont": ["a third coffee", "a gel you’ve never tried"] },
-   "fr": { "titre": "le matin J", "do": ["une banane", "de l’eau, par gorgées", "ton dossard épinglé"], "dont": ["un 3e café", "un gel jamais testé"] }
+   "do": [
+    "images/objets/banane.png",
+    "images/objets/verre-eau.png",
+    "images/objets/epingles.png"
+   ],
+   "dont": [
+    "images/objets/cafes.png",
+    "images/objets/gel.png"
+   ],
+   "en": {
+    "titre": "race morning",
+    "do": [
+     "a banana",
+     "small sips of water",
+     "your bib pinned"
+    ],
+    "dont": [
+     "a third coffee",
+     "a gel you’ve never tried"
+    ]
+   },
+   "fr": {
+    "titre": "le matin J",
+    "do": [
+     "une banane",
+     "de l’eau, par gorgées",
+     "ton dossard épinglé"
+    ],
+    "dont": [
+     "un 3e café",
+     "un gel jamais testé"
+    ]
+   }
   },
   {
    "type": "dodont",
-   "do": ["images/objets/montre.png", "images/objets/gobelet.png", "images/objets/ecouteurs.png"],
-   "dont": ["images/objets/chrono.png", "images/objets/legging.png"],
-   "en": { "titre": "the race", "do": ["start slow", "drink at aid stations", "your playlist"], "dont": ["sprinting the first km", "brand-new leggings"] },
-   "fr": { "titre": "pendant la course", "do": ["commence lentement", "bois aux ravitos", "ta playlist"], "dont": ["sprinter le 1er km", "un legging neuf"] }
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/gobelet.png",
+    "images/objets/ecouteurs.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/legging.png"
+   ],
+   "en": {
+    "titre": "the race",
+    "do": [
+     "start slow",
+     "drink at aid stations",
+     "your playlist"
+    ],
+    "dont": [
+     "sprinting the first km",
+     "brand-new leggings"
+    ]
+   },
+   "fr": {
+    "titre": "pendant la course",
+    "do": [
+     "commence lentement",
+     "bois aux ravitos",
+     "ta playlist"
+    ],
+    "dont": [
+     "sprinter le 1er km",
+     "un legging neuf"
+    ]
+   }
   }
  ]
 }

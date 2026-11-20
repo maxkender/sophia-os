@@ -9,7 +9,7 @@ import type { DonneesSources, SourceBible } from "./sources";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), lancerBatch: vi.fn(), validerCarte: vi.fn(), changerCarte: vi.fn(),
-  validerPodz: vi.fn(), rattacherCarte: vi.fn(), detacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
+  validerPodz: vi.fn(), marquerPodz: vi.fn(), rattacherCarte: vi.fn(), detacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
   modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
@@ -24,10 +24,11 @@ import { PageBible } from "./PageBible";
 import { REGLES_DEFAUT } from "./sources";
 
 const carte = (o: Partial<CarteLabel>): CarteLabel => ({
-  id: "k1", nom: "classic_girl_run", titre: null, section: "atala", badge: "propose", description_da: "Coureuse en photo iPhone", label_id: null, ordre: 1, statut: "a_valider", ...o,
+  id: "k1", nom: "classic_girl_run", titre: null, section: "atala", badge: "propose", description_da: "Coureuse en photo iPhone", label_id: null, ordre: 1, statut: "a_valider",
+  a_podzer: false, podz_valide_at: null, ...o,
 });
 const compte = (o: Partial<CompteBible>): CompteBible => ({
-  id: "c1", handle: "compte.un", etape: "a_importer", label_propose_id: "k1", autres_cartes: [], note_import: null, remarque: null, a_podzer: false,
+  id: "c1", handle: "compte.un", etape: "a_importer", label_propose_id: "k1", autres_cartes: [], note_import: null, remarque: null,
   posts: [{ url: "https://www.tiktok.com/@compte.un/video/7600000000000000001", miniature_url: "https://img.test/1.jpg", vues: 4800000 }],
   miniatures_statut: "ok", miniatures_erreur: null, vues_mediane: 85000, meilleur_post_vues: 722000, abonnes: null, ajoute_at: "2026-11-19T10:00:00Z", ...o,
 });
@@ -74,10 +75,12 @@ describe("rangement du moodboard", () => {
     expect(compterEtapes(comptes)).toEqual({ a_importer: 4, prochain_batch: 1, corbeille: 0 });
   });
 
-  it("filtre « À podzer », recherche dans la remarque, apps réunies sans doublon", () => {
-    const comptes = [compte({}), compte({ id: "c2", handle: "podz", a_podzer: true, remarque: REMARQUE_UGC })];
-    const handles = (f: Parameters<typeof ranger>[2]) => ranger(comptes, CARTES, f).flatMap((g) => g.cartes.flatMap((c) => c.comptes.map((x) => x.compte.handle)));
+  it("filtre « À podzer » (le label du compte est à podzer), recherche dans la remarque, apps réunies sans doublon", () => {
+    const comptes = [compte({}), compte({ id: "c2", handle: "podz", label_propose_id: "k2", remarque: REMARQUE_UGC }), compte({ id: "c3", handle: "sans.label", label_propose_id: null })];
+    const cartes = CARTES.map((c) => (c.id === "k2" ? { ...c, a_podzer: true } : c));
+    const handles = (f: Parameters<typeof ranger>[2]) => ranger(comptes, cartes, f).flatMap((g) => g.cartes.flatMap((c) => c.comptes.map((x) => x.compte.handle)));
     expect(handles({ etape: "a_importer", recherche: "", section: "", podzer: true })).toEqual(["podz"]);
+    expect(handles({ etape: "a_importer", recherche: "", section: "" })).toEqual(["compte.un", "podz", "sans.label"]);
     expect(handles({ etape: "a_importer", recherche: "ugc", section: "" })).toEqual(["podz"]);
     expect(appsDe(["sophia", "micabo", "sophia", "atala"])).toEqual({
       application_ids: ["00000000-0000-4000-8000-000000000001", "00000000-0000-4000-8000-000000000002", "00000000-0000-4000-8000-000000000004"], apps_attente: [],
@@ -190,19 +193,22 @@ describe("page Bible", () => {
       compte({ id: "c2", handle: "pret.un", etape: "prochain_batch", label_propose_id: "k3" }),
       compte({ id: "c3", handle: "pret.deux", etape: "prochain_batch", label_propose_id: "k3", langue: "es" }),
       compte({ id: "c4", handle: "sans.app", etape: "prochain_batch" }),
-      compte({ id: "c5", handle: "a.podzer", etape: "prochain_batch", label_propose_id: "k3", a_podzer: true }),
+      compte({ id: "c5", handle: "a.podzer", etape: "prochain_batch", label_propose_id: "k4" }),
       compte({ id: "c6", handle: "label.propose", etape: "prochain_batch", label_propose_id: "k2" }),
     ]);
     api.lancerBatch.mockResolvedValue([
       { id: "c2", handle: "pret.un", statut: "lancee", essai_max: 30 },
       { id: "c3", handle: "pret.deux", statut: "lancee", essai_max: null },
     ]);
+    // Le label de c5 existe dans l'OS mais il est « à podzer » : ses comptes ne partent pas.
+    api.lireCartes.mockResolvedValue([...CARTES, carte({ id: "k4", nom: "white_bg", section: "sophia", badge: "existe", label_id: "L4", ordre: 3, a_podzer: true })]);
     rendre();
     fireEvent.click(await screen.findByRole("tab", { name: /Prochain batch 5/ }));
     const barre = await screen.findByTestId("barre-batch");
     expect(barre).toHaveTextContent("5 comptes dans le prochain batch, 2 prêts à importer.");
     // Atala existe : sa carte n'attend plus une appli, seulement son label.
-    expect(barre).toHaveTextContent("Les autres : à podzer : pas d'import (1), label à créer (2).");
+    expect(barre).toHaveTextContent("Les autres : label à podzer : pas d'import (1), label à créer (2).");
+    expect(screen.getByTestId("blocage-a.podzer")).toHaveTextContent("label à podzer : pas d'import");
     expect(screen.getByTestId("blocage-pret.un")).toHaveTextContent("prêt à importer");
     expect(screen.getByTestId("blocage-sans.app")).toHaveTextContent("label à créer");
     expect(screen.getByTestId("blocage-label.propose")).toHaveTextContent("label à créer");
@@ -461,32 +467,65 @@ describe("page Bible", () => {
     await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k4"));
   });
 
-  it("comptes à podzer : « Valider le podz » (ou tous ceux du batch) ; validés, ils sont dans Weekly update, catégorie Podz, jamais importés", async () => {
+  it("« à podzer » se marque sur le LABEL : le bloc se marque, se valide (seul ou tout le batch) et se retire ; validé, il est dans Weekly update, catégorie Podz, avec ses comptes, jamais importé", async () => {
+    api.lireCartes.mockResolvedValue([
+      ...CARTES,
+      carte({ id: "k4", nom: "white_bg_run", section: "atala", badge: "nouveau", ordre: 4, a_podzer: true }),
+      carte({ id: "k5", nom: "study_scrapbook", section: "micabo", badge: "nouveau", ordre: 5, description_da: "Scrapbook d'étudiante", a_podzer: true, podz_valide_at: "2026-11-20T09:00:00Z" }),
+    ]);
     api.lireComptes.mockResolvedValue([
-      compte({ id: "c2", handle: "a.valider", etape: "prochain_batch", label_propose_id: "k3", a_podzer: true }),
-      compte({ id: "c3", handle: "deja.valide", etape: "importe", label_propose_id: "k3", a_podzer: true, note_import: "collage rose" }),
+      compte({ id: "c2", handle: "a.valider", etape: "prochain_batch", label_propose_id: "k4" }),
+      compte({ id: "c3", handle: "deja.valide", etape: "a_importer", label_propose_id: "k5", note_import: "collage rose" }),
+      compte({ id: "c4", handle: "normal", etape: "a_importer", label_propose_id: "k3" }),
     ]);
     api.validerPodz.mockResolvedValue(undefined);
+    api.marquerPodz.mockResolvedValue(undefined);
     rendre();
-    // Le podz validé ne compte plus dans les onglets d'avant import : il est dans Weekly update.
+    // Les comptes du label validé ne comptent plus dans les onglets d'avant import : ils sont dans Weekly update.
     expect(await screen.findByRole("tab", { name: /Prochain batch 1/ })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: /À importer 0/ })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: /À importer 1/ })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: /Weekly update 1/ })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
-    const tuile = (await screen.findByText(/a\.valider/)).closest("[data-compte]") as HTMLElement;
-    expect(within(tuile).queryByRole("button", { name: "Importer" })).toBeNull();
-    fireEvent.click(within(tuile).getByRole("button", { name: "Valider le podz" }));
-    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["c2"], true));
-    fireEvent.click(within(screen.getByTestId("barre-batch")).getByRole("button", { name: /Valider les podz \(1\)/ }));
-    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["c2"]));
 
+    // À importer : un bloc ordinaire se marque « À podzer » depuis son en-tête ; la tuile n'a plus rien de podz.
+    const ordinaire = (await screen.findByText(/tiktok\.com\/@?normal|normal/)).closest("[data-carte]") as HTMLElement;
+    expect(ordinaire).not.toHaveTextContent("à podzer");
+    expect(within(ordinaire).queryByRole("button", { name: "Valider le podz" })).toBeNull();
+    fireEvent.click(within(ordinaire).getByRole("button", { name: "À podzer" }));
+    await waitFor(() => expect(api.marquerPodz).toHaveBeenCalledWith("k3", true));
+    expect(await screen.findByTestId("info")).toHaveTextContent("« smart_girl » est à podzer : ses comptes ne seront pas importés.");
+    fireEvent.click(within(ordinaire).getByTitle("Modifier la note et la remarque"));
+    expect(screen.queryByLabelText("À podzer")).toBeNull();
+
+    // Prochain batch : le bloc à podzer porte la pastille, son compte ne s'importe pas, le podz se valide sur le bloc.
+    fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
+    const bloc = (await screen.findByText(/a\.valider/)).closest("[data-carte]") as HTMLElement;
+    expect(bloc).toHaveAttribute("data-carte", "white_bg_run");
+    expect(bloc).toHaveTextContent("à podzer");
+    const tuile = within(bloc).getByText(/a\.valider/).closest("[data-compte]") as HTMLElement;
+    expect(within(tuile).queryByRole("button", { name: "Importer" })).toBeNull();
+    expect(within(tuile).queryByRole("button", { name: "Valider le podz" })).toBeNull();
+    fireEvent.click(within(bloc).getByRole("button", { name: "Valider le podz" }));
+    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["k4"], true));
+    fireEvent.click(within(screen.getByTestId("barre-batch")).getByRole("button", { name: /Valider les podz \(1\)/ }));
+    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["k4"]));
+    expect(await screen.findByTestId("info")).toHaveTextContent("1 label à podzer validé : dans « Weekly update », catégorie Podz.");
+    fireEvent.click(within(bloc).getByRole("button", { name: "Plus à podzer" }));
+    await waitFor(() => expect(api.marquerPodz).toHaveBeenCalledWith("k4", false));
+
+    // Weekly update : la catégorie Podz range les LABELS validés, chacun avec ses comptes.
     fireEvent.click(screen.getByRole("tab", { name: /Weekly update/ }));
     const categorie = await screen.findByTestId("podz");
-    expect(categorie).toHaveTextContent("Podz· 1 compte");
-    expect(categorie).toHaveTextContent("Ils ne sont ni importés ni mis à jour.");
-    const valide = within(categorie).getByText(/deja\.valide/).closest("[data-compte]") as HTMLElement;
+    expect(categorie).toHaveTextContent("Podz· 1 label");
+    expect(categorie).toHaveTextContent("ces labels sont faits en podz, pas importés");
+    const valide = within(categorie).getByText(/deja\.valide/).closest("[data-carte]") as HTMLElement;
+    expect(valide).toHaveAttribute("data-carte", "study_scrapbook");
+    expect(valide).toHaveTextContent("podz validé");
+    expect(valide).toHaveTextContent("Scrapbook d'étudiante");
+    const tuileValidee = within(valide).getByText(/deja\.valide/).closest("[data-compte]") as HTMLElement;
+    expect(within(tuileValidee).queryByRole("button", { name: "Retirer des podz" })).toBeNull();
+    expect(within(tuileValidee).queryByRole("button", { name: "Prochain batch" })).toBeNull();
     fireEvent.click(within(valide).getByRole("button", { name: "Retirer des podz" }));
-    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["c3"], false));
+    await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["k5"], false));
   });
 
   it("« Créer ce label » sur une carte proposée d'une app qui existe, Atala comprise", async () => {
@@ -528,18 +567,32 @@ describe("corbeille", () => {
 });
 
 describe("ajout de comptes", () => {
-  it("plusieurs apps cochées, « À podzer », une remarque par compte (UGC en un clic)", async () => {
+  it("plusieurs apps cochées, une remarque par compte (UGC en un clic) ; sans label, « Label à podzer » ne se coche pas", async () => {
     api.ajouterComptes.mockResolvedValue({ crees: ["un", "deux"], deja: [], ids: [] });
     render(<DialogueAjout ouvert cartes={CARTES} onFermer={() => {}} onFini={() => {}} />);
     fireEvent.change(screen.getByPlaceholderText(/compte1/), { target: { value: "https://www.tiktok.com/@un\n@deux" } });
     fireEvent.click(screen.getByRole("button", { name: "Atala" }));
     fireEvent.click(screen.getByRole("button", { name: "Sophia" }));
-    fireEvent.click(screen.getByLabelText("À podzer"));
+    // « À podzer » est une marque du label : sans label choisi, la case est fermée.
+    expect(screen.getByLabelText("Label à podzer")).toBeDisabled();
     fireEvent.change(screen.getByLabelText("Remarque pour @deux"), { target: { value: "photos à refaire" } });
     fireEvent.click(screen.getAllByRole("button", { name: "UGC" })[0]!);
     fireEvent.click(screen.getByRole("button", { name: "Ajouter" }));
     await waitFor(() => expect(api.ajouterComptes).toHaveBeenCalledWith(["un", "deux"], null, ["atala", "sophia"], {
-      a_podzer: true, remarques: { un: REMARQUE_UGC, deux: "photos à refaire" },
+      remarques: { un: REMARQUE_UGC, deux: "photos à refaire" },
     }));
+    expect(api.marquerPodz).not.toHaveBeenCalled();
+  });
+
+  it("« Label à podzer » à l'ajout : les comptes entrent sous le label choisi, et c'est le label qui est marqué", async () => {
+    api.ajouterComptes.mockResolvedValue({ crees: ["un"], deja: [], ids: [] });
+    api.marquerPodz.mockResolvedValue(undefined);
+    render(<DialogueAjout ouvert cartes={CARTES} onFermer={() => {}} onFini={() => {}} />);
+    fireEvent.change(screen.getByPlaceholderText(/compte1/), { target: { value: "@un" } });
+    fireEvent.change(screen.getByLabelText("Label"), { target: { value: "k2" } });
+    fireEvent.click(screen.getByLabelText("Label à podzer"));
+    fireEvent.click(screen.getByRole("button", { name: "Ajouter" }));
+    await waitFor(() => expect(api.ajouterComptes).toHaveBeenCalledWith(["un"], expect.objectContaining({ id: "k2" }), ["sophia"], { remarques: {} }));
+    await waitFor(() => expect(api.marquerPodz).toHaveBeenCalledWith("k2", true));
   });
 });

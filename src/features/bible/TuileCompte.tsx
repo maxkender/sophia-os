@@ -5,11 +5,13 @@
  *
  * 19/11 (Adrien) : plus de bouton « Importé ». Un compte quitte ces onglets quand sa source existe ; dans le prochain
  * batch, la tuile dit s'il est prêt à partir, ou ce qui le bloque. Un compte prêt (son label existe) s'importe d'un
- * clic, « Importer ». Un compte à podzer se valide (« Valider le podz ») : il n'est jamais importé, il passe dans la
- * catégorie Podz de « Weekly update », à titre indicatif.
+ * clic, « Importer ».
+ *
+ * 20/11 (Adrien) : « à podzer » ne se marque plus sur le compte mais sur son LABEL (le bloc). La tuile n'a donc plus
+ * ni case, ni pastille, ni bouton de podz ; un compte dont le label est à podzer n'est jamais importé.
  */
 import * as React from "react";
-import { ArrowLeft, ArrowRight, Check, ImageOff, Loader2, Pencil, Rocket, RotateCcw, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
+import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, Rocket, RotateCcw, Tags, Trash2, TriangleAlert } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -19,14 +21,12 @@ import { LIBELLE_BLOCAGE, REMARQUE_UGC, vuesCourtes } from "./moodboard";
 export interface ActionsTuile {
   onEtape: (c: CompteBible, etape: EtapeManuelle) => void;
   onChangerLabel: (c: CompteBible) => void;
-  onModifier: (c: CompteBible, p: { note: string; remarque: string; a_podzer: boolean }) => void;
+  onModifier: (c: CompteBible, p: { note: string; remarque: string }) => void;
   onSupprimer: (c: CompteBible) => void;
   onRestaurer: (c: CompteBible) => void;
   onSupprimerDefinitivement: (c: CompteBible) => void;
   /** Importer ce compte tout de suite (son label existe). */
   onImporter: (c: CompteBible) => void;
-  /** Valider un compte à podzer (catégorie Podz), ou l'en retirer. */
-  onPodz: (c: CompteBible, valide: boolean) => void;
 }
 
 export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage, podzValide, source }: {
@@ -35,7 +35,7 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage
   blocage?: Blocage;
   /** Afficher ce blocage sur la tuile (dans le prochain batch). */
   montrerBlocage?: boolean;
-  /** Dans la catégorie Podz de « Weekly update » : un compte à podzer validé. */
+  /** Dans la catégorie Podz de « Weekly update » : un compte d'un label à podzer validé (ni étape, ni import). */
   podzValide?: boolean;
   /** Sa source, si le compte en est déjà une (avec les labels qu'elle porte). */
   source?: SourceDuCompte | null;
@@ -43,8 +43,7 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage
   const [edition, setEdition] = React.useState(false);
   const [note, setNote] = React.useState(c.note_import ?? "");
   const [remarque, setRemarque] = React.useState(c.remarque ?? "");
-  const [podzer, setPodzer] = React.useState(c.a_podzer);
-  const ouvrir = () => { setNote(c.note_import ?? ""); setRemarque(c.remarque ?? ""); setPodzer(c.a_podzer); setEdition(true); };
+  const ouvrir = () => { setNote(c.note_import ?? ""); setRemarque(c.remarque ?? ""); setEdition(true); };
   const minis = (c.posts ?? []).slice(0, 3);
   const enCours = c.miniatures_statut === "a_faire" || c.miniatures_statut === null;
   const stats = [c.vues_mediane != null ? `méd. ${vuesCourtes(c.vues_mediane)}` : null, c.meilleur_post_vues != null ? `pic ${vuesCourtes(c.meilleur_post_vues)}` : null].filter(Boolean).join(" · ");
@@ -58,16 +57,15 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage
         <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer" className="block break-all text-[13px] font-semibold leading-snug text-stone-900 hover:underline dark:text-stone-100">
           <span className="font-normal text-stone-400">tiktok.com/</span>@{c.handle}
         </a>
-        {(aussi || c.a_podzer || source || (montrerBlocage && blocage)) && (
+        {(aussi || source || (montrerBlocage && blocage)) && (
           <div className="mt-1 flex flex-wrap gap-1">
-            {c.a_podzer && <span className="inline-flex items-center gap-0.5 rounded-full bg-teal-50 px-1.5 py-px text-[10px] font-medium text-teal-700 ring-1 ring-teal-200"><Sparkles className="size-2.5" />à podzer</span>}
             {aussi && <span className="inline-block rounded-full bg-stone-100 px-1.5 py-px text-[10px] text-stone-500 dark:bg-stone-800">aussi ici</span>}
             {source && (
               <span className="inline-block rounded-full bg-sky-50 px-1.5 py-px text-[10px] font-medium text-sky-700 ring-1 ring-sky-200" title="Ce compte est déjà une source de l'OS : il reste à lui donner le label de cette carte.">
                 déjà une source{source.labels.length ? ` · ${source.labels.join(", ")}` : ""}
               </span>
             )}
-            {montrerBlocage && blocage && blocage !== "podz" && blocage !== "deja_source" && (
+            {montrerBlocage && blocage && blocage !== "deja_source" && (
               <span
                 data-testid={`blocage-${c.handle}`}
                 className={cn("inline-block rounded-full px-1.5 py-px text-[10px] font-medium ring-1", blocage === "pret" ? "bg-emerald-50 text-emerald-700 ring-emerald-200" : "bg-amber-50 text-amber-700 ring-amber-200")}
@@ -78,22 +76,16 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage
           </div>
         )}
         {edition ? (
-          <form className="mt-1.5 space-y-1" onSubmit={(e) => { e.preventDefault(); actions.onModifier(c, { note, remarque, a_podzer: podzer }); setEdition(false); }}>
+          <form className="mt-1.5 space-y-1" onSubmit={(e) => { e.preventDefault(); actions.onModifier(c, { note, remarque }); setEdition(false); }}>
             <input autoFocus value={note} onChange={(e) => setNote(e.target.value)} className="h-7 w-full rounded-md border px-2 text-xs" placeholder="Note (ex. pic 4,8 M)" aria-label="Note" />
             <div className="flex gap-1">
               <input value={remarque} onChange={(e) => setRemarque(e.target.value)} className="h-7 min-w-0 flex-1 rounded-md border px-2 text-xs" placeholder="Remarque (ex. changer les images)" aria-label="Remarque" />
               <button type="button" onClick={() => setRemarque(REMARQUE_UGC)} title={REMARQUE_UGC} className="rounded-md bg-amber-50 px-1.5 text-[11px] font-medium text-amber-700 ring-1 ring-amber-200">UGC</button>
             </div>
-            <div className="flex items-center justify-between gap-1">
-              <label className="flex items-center gap-1.5 text-xs text-stone-600">
-                <input type="checkbox" checked={podzer} onChange={(e) => setPodzer(e.target.checked)} className="size-3.5 accent-teal-600" />
-                À podzer
-              </label>
-              <div className="flex gap-1">
-                <button type="button" onClick={() => { setEdition(false); actions.onSupprimer(c); }} className="rounded-md px-1.5 text-xs text-red-600 hover:bg-red-50">Supprimer</button>
-                <button type="button" onClick={() => setEdition(false)} className="rounded-md px-2 text-xs text-stone-500">Annuler</button>
-                <button type="submit" className="rounded-md bg-stone-900 px-2 py-1 text-xs text-white">OK</button>
-              </div>
+            <div className="flex justify-end gap-1">
+              <button type="button" onClick={() => { setEdition(false); actions.onSupprimer(c); }} className="rounded-md px-1.5 text-xs text-red-600 hover:bg-red-50">Supprimer</button>
+              <button type="button" onClick={() => setEdition(false)} className="rounded-md px-2 text-xs text-stone-500">Annuler</button>
+              <button type="submit" className="rounded-md bg-stone-900 px-2 py-1 text-xs text-white">OK</button>
             </div>
           </form>
         ) : (
@@ -141,18 +133,16 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage
           </>
         ) : podzValide ? (
           <>
-            <Action icone={ArrowLeft} libelle="Retirer des podz" onClick={() => actions.onPodz(c, false)} />
-            <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
+            <Action icone={Tags} libelle="Changer de label" onClick={() => actions.onChangerLabel(c)} />
             <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
             <Action icone={Trash2} libelle="Supprimer" danger onClick={() => actions.onSupprimer(c)} />
           </>
         ) : (
           <>
             {blocage === "pret" && <Action icone={Rocket} libelle="Importer" fort onClick={() => actions.onImporter(c)} />}
-            {c.a_podzer && <Action icone={Check} libelle="Valider le podz" fort onClick={() => actions.onPodz(c, true)} />}
             {c.etape === "prochain_batch"
               ? <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />
-              : <Action icone={ArrowRight} libelle="Prochain batch" fort={blocage !== "pret" && !c.a_podzer} onClick={() => actions.onEtape(c, "prochain_batch")} />}
+              : <Action icone={ArrowRight} libelle="Prochain batch" fort={blocage !== "pret" && blocage !== "podz"} onClick={() => actions.onEtape(c, "prochain_batch")} />}
             <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
             <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
             <Action icone={Trash2} libelle="Supprimer" danger onClick={() => actions.onSupprimer(c)} />

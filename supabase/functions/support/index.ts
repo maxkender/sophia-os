@@ -876,6 +876,28 @@ async function traduire(texte: string, langue: string | null | undefined): Promi
   }
 }
 
+/**
+ * 21/11 : une traduction relue (messages qui engagent la paie : doublement) : traduite, puis relue par le modèle face à
+ * l'anglais (mots faux ou inventés corrigés). « Accept », les @, « TikTok », les nombres et « $ » restent tels quels.
+ */
+async function traduireSoigne(texte: string, langue: string | null | undefined): Promise<string> {
+  const l = (langue ?? "en").toLowerCase();
+  if (!l || l.startsWith("en")) return texte;
+  const premier = await traduire(texte, langue);
+  if (premier === texte) return texte;
+  try {
+    const r = (await generateTextFast(
+      `Below is an English message and its translation into the language whose ISO code is "${l}". Proofread the translation: ` +
+        `fix any mistranslation, wrong, English or non-existent word, so it reads like a native speaker wrote it. Keep "Accept" ` +
+        `(a button name), "@" handles, "TikTok", numbers, dates and "$" unchanged. Same meaning, nothing added. Reply with the ` +
+        `corrected translation only.\n\nENGLISH:\n${texte}\n\nTRANSLATION:\n${premier}`,
+    )).trim().replace(/^["«“]+|["»”]+$/g, "");
+    return r && r.length < texte.length * 3 ? r : premier;
+  } catch {
+    return premier;
+  }
+}
+
 /** 18/11 : le texte de la page « collaboration terminée » (anglais), stocké s'il existe, sinon composé pareil. */
 async function texteFinBot(db: Db, poster: string | null, e: EtatReel, s: Situation): Promise<string | null> {
   if (poster) {
@@ -1097,8 +1119,8 @@ async function doublesOffres(db: Db, simuler: boolean) {
   for (const o of (data ?? []) as { id: string; poster_id: string; prenom: string | null; canal_paie: string; pays: string | null; handle: string | null; label: string | null; lundi: string; tarif: number | null }[]) {
     const langue = await langueDuPays(db, o.pays);
     const canal = o.canal_paie === "ruul" ? "ruul" : "upwork";
-    const en = texteOffreDouble({ prenom: o.prenom, handle: o.handle, label: o.label, tarif: o.tarif === null ? null : Number(o.tarif), lundi: o.lundi, canal });
-    const texte = await traduire(en, langue);
+    const en = texteOffreDouble({ prenom: o.prenom, handle: o.handle, tarif: o.tarif === null ? null : Number(o.tarif), lundi: o.lundi, canal });
+    const texte = await traduireSoigne(en, langue);
     if (simuler) {
       bilan.exemples.push({ langue, canal, texte_en: en, texte });
       continue;
@@ -1123,7 +1145,7 @@ async function doublesDemarrages(db: Db, simuler: boolean) {
   for (const o of (data ?? []) as { id: string; poster_id: string; canal_paie: string; pays: string | null; handle1: string | null; handle2: string | null; lundi: string; tarif: number | null }[]) {
     const langue = await langueDuPays(db, o.pays);
     const en = texteDemarrageDouble({ handle1: o.handle1, handle2: o.handle2, tarif: o.tarif === null ? null : Number(o.tarif), lundi: o.lundi });
-    const texte = await traduire(en, langue);
+    const texte = await traduireSoigne(en, langue);
     if (simuler) {
       bilan.exemples.push({ langue, texte });
       continue;
@@ -1136,6 +1158,42 @@ async function doublesDemarrages(db: Db, simuler: boolean) {
     if (r.erreur) bilan.erreurs.push(`${o.poster_id} : ${r.erreur}`);
   }
   return { ok: true, simulation: simuler, ...bilan };
+}
+
+const TEXTE_HANDLE_INCONNU = "Could you send us your TikTok handle so we can find your account?";
+
+/** 21/11 : « envoyée par email » sur le dernier message du bot (ou de l'équipe) d'une demande. */
+async function noterEnvoiEmail(db: Db, demande: string, statut: string) {
+  const { data: m } = await db.from("support_messages").select("id, envois").eq("demande_id", demande).neq("auteur", "posteur")
+    .order("cree_at", { ascending: false }).limit(1).maybeSingle();
+  if (m?.id) await db.from("support_messages").update({ envois: { ...((m.envois as Record<string, string> | null) ?? {}), email: statut } }).eq("id", m.id);
+}
+
+/** 21/11 : on a déjà demandé son handle à cette adresse (7 jours) : une seule fois. */
+async function handleDejaDemande(db: Db, email: string): Promise<boolean> {
+  const { count } = await db.from("support_demandes").select("id", { count: "exact", head: true }).ilike("email_de", email.trim())
+    .is("poster_id", null).gte("cree_at", new Date(Date.now() - 7 * 86_400_000).toISOString());
+  return (count ?? 0) > 0;
+}
+
+/** 21/11 : le posteur d'un email venu d'une adresse inconnue : @TikTok, numéro de contrat Upwork, puis nom exact (unique). */
+async function posteurParIndices(db: Db, o: { texte: string; nom: string | null }): Promise<string | null> {
+  for (const m of o.texte.matchAll(/@([a-z0-9._]{3,30})/gi)) {
+    const h = m[1]!.replace(/\.+$/, "");
+    const { data } = await db.from("comptes").select("poster_id").ilike("handle_tiktok", h).limit(2);
+    if (data?.length === 1 && data[0]!.poster_id) return data[0]!.poster_id as string;
+  }
+  for (const m of o.texte.matchAll(/\b(\d{8,9})\b/g)) {
+    const { data } = await db.from("profiles").select("id").eq("upwork_contract_id", m[1]!).limit(2);
+    if (data?.length === 1) return data[0]!.id as string;
+  }
+  const nom = (o.nom ?? "").trim().replace(/\s+/g, " ");
+  const parts = nom.split(" ");
+  if (parts.length >= 2) {
+    const { data } = await db.from("profiles").select("id").ilike("prenom", parts[0]!).ilike("nom", parts.slice(1).join(" ")).limit(2);
+    if (data?.length === 1) return data[0]!.id as string;
+  }
+  return null;
 }
 
 /** Le motif interne d'un arrêt, en anglais clair, pour « because … ». */
@@ -1531,29 +1589,46 @@ async function rouvrirSiPasRegle(db: Db, poster: string, texte: string, canal: s
  * problème, la demande passe « résolu » (verdict rempli) ; un arrêt demandé est confirmé au posteur seulement
  * une fois fait dans l'OS (comptes désactivés, contrat Upwork fermé si Upwork).
  */
-// Le suivi ne ferme que les demandes arrivées sous les nouvelles règles : les anciennes demandes ouvertes
-// restent telles quelles tant que Max n'a pas dit de les fermer.
-const DEBUT_SUIVI = "2026-11-18T00:00:00Z";
+// 21/11 (Max) : « Le bot a répondu et le posteur n'a pas relancé en 24 h : ticket fermé. Il se rouvre si le posteur
+// répond. Doublons fusionnés. » Pour toutes les demandes (plus seulement celles d'après le 18/11).
 
 async function suiviSupport(db: Db) {
+  const il24h = new Date(Date.now() - 24 * 3_600_000).toISOString();
   const il48h = new Date(Date.now() - 48 * 3_600_000).toISOString();
   const maintenant = new Date().toISOString();
-  const bilan: Record<string, number> = { regle_bot: 0, regle_equipe: 0, pas_un_probleme: 0, arret_confirme: 0 };
-  // Réglées par le bot (réponse envoyée), sans retour du posteur depuis 48 h.
-  const { data: bots } = await db.from("support_demandes").select("id, categorie").eq("statut", "bot").is("suivi", null)
-    .gte("cree_at", DEBUT_SUIVI).lt("cree_at", il48h).or(`posteur_at.is.null,posteur_at.lt.${il48h}`).limit(200);
-  for (const d of (bots ?? []) as { id: string; categorie: string | null }[]) {
+  const bilan: Record<string, number> = { regle_bot: 0, regle_equipe: 0, pas_un_probleme: 0, arret_confirme: 0, doublon: 0 };
+  // Réglées par le bot (réponse envoyée), sans retour du posteur depuis 24 h. Jamais un cas pour Max.
+  const { data: bots } = await db.from("support_demandes").select("id, categorie, cree_at, posteur_at, niveau, statut, bot_reponse")
+    .in("statut", ["bot", "ouvert"]).is("suivi", null).neq("niveau", "max").not("bot_reponse", "is", null)
+    .lt("cree_at", il24h).limit(300);
+  for (const d of (bots ?? []) as { id: string; categorie: string | null; cree_at: string; posteur_at: string | null; niveau: string | null; statut: string; bot_reponse: string | null }[]) {
+    if (!d.bot_reponse?.trim()) continue;
+    if (d.statut === "ouvert" && d.niveau !== "bot") continue;
+    // Le posteur a écrit après sa demande (relance) : elle reste ouverte.
+    if (d.posteur_at && new Date(d.posteur_at).getTime() > new Date(d.cree_at).getTime() + 60_000) continue;
     const verdict = d.categorie === "flou" || d.categorie === "salutation" ? "pas_un_probleme" : "regle_bot";
     await db.from("support_demandes").update({ statut: "resolu", resolu_at: maintenant, resolu_par_bot: true, verdict_fermeture: verdict, maj_at: maintenant }).eq("id", d.id);
     bilan[verdict]++;
   }
   // Réponse de l'équipe envoyée, sans retour du posteur depuis 48 h.
-  const { data: equipe } = await db.from("support_demandes").select("id, posteur_at, equipe_at").eq("statut", "attente_posteur").is("suivi", null).gte("cree_at", DEBUT_SUIVI)
+  const { data: equipe } = await db.from("support_demandes").select("id, posteur_at, equipe_at").eq("statut", "attente_posteur").is("suivi", null)
     .not("equipe_at", "is", null).lt("equipe_at", il48h).limit(200);
   for (const d of (equipe ?? []) as { id: string; posteur_at: string | null; equipe_at: string }[]) {
     if (d.posteur_at && d.posteur_at > d.equipe_at) continue;
     await db.from("support_demandes").update({ statut: "resolu", resolu_at: maintenant, verdict_fermeture: "regle_equipe", maj_at: maintenant }).eq("id", d.id);
     bilan.regle_equipe++;
+  }
+  // Doublons : plusieurs demandes ouvertes du même posteur → une seule (la plus récente), les autres fusionnées.
+  const { data: ouvertes } = await db.from("support_demandes").select("id, poster_id, cree_at, niveau").neq("statut", "resolu")
+    .not("poster_id", "is", null).order("cree_at", { ascending: false }).limit(1000);
+  const garde = new Map<string, string>();
+  for (const d of (ouvertes ?? []) as { id: string; poster_id: string; cree_at: string; niveau: string | null }[]) {
+    const recente = garde.get(d.poster_id);
+    if (!recente) { garde.set(d.poster_id, d.id); continue; }
+    await db.from("support_demandes").update({ statut: "resolu", resolu_at: maintenant, verdict_fermeture: "doublon", doublon_de: recente, maj_at: maintenant }).eq("id", d.id);
+    // Le niveau le plus haut reste visible sur la demande gardée.
+    if (d.niveau === "max") await db.from("support_demandes").update({ niveau: "max" }).eq("id", recente);
+    bilan.doublon++;
   }
   // Arrêts demandés : la confirmation part seulement quand l'arrêt est fait.
   const { data: arrets } = await db.from("support_demandes").select("id, poster_id, source, langue").eq("suivi", "arret_attendu").limit(50);
@@ -2116,7 +2191,7 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
   for (const e of emails) {
     const { data: deja } = await db.from("support_demandes").select("id").eq("email_message_id", e.messageId).limit(1);
     if ((deja ?? []).length) { bilan.push({ de: e.de, ignore: "déjà reçu" }); continue; }
-    const poster = await posteurParEmail(db, e.de);
+    let poster = await posteurParEmail(db, e.de);
     // 13/11 (Max) : une capture jointe est lue (décrite en une phrase) et ajoutée au message.
     const captures = await decrireImagesBrevo(e.images ?? []);
     const corpsEmail = captures.length ? `${e.texte}\n\n${captures.map((c) => `[Screenshot: ${c}]`).join("\n")}` : e.texte;
@@ -2128,10 +2203,30 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
       continue;
     }
     if (!poster) {
-      const { data, error } = await db.rpc("support_ajouter", { p: { poster_id: null, type: "question", texte, source: "email", escalader: true, slack_user: e.nom ?? e.de } });
+      // 21/11 (Max) : adresse inconnue : on cherche avec le @TikTok, le numéro de contrat ou le nom cités ; trouvé, la
+      // nouvelle adresse est ajoutée à sa fiche. Sinon, une seule réponse : son handle TikTok (pas d'escalade).
+      const trouve = await posteurParIndices(db, { texte, nom: e.nom ?? null });
+      if (trouve) {
+        await db.from("posteur_emails").upsert({ poster_id: trouve, email: e.de.trim().toLowerCase(), source: "email_entrant" }, { onConflict: "email" });
+        poster = trouve;
+      }
+    }
+    if (!poster) {
+      const dejaDemande = await handleDejaDemande(db, e.de);
+      if (!dejaDemande) {
+        const objet = e.sujet ? (/^re:/i.test(e.sujet) ? e.sujet : `Re: ${e.sujet}`) : "Your message";
+        const m = rendreEmailRuul({ objet, corps: signer(TEXTE_HANDLE_INCONNU, "en"), lienStop: OS_URL, sansPied: true });
+        await envoyerEmailSite(e.de, objet, m.html, m.texte, OS_URL, ["support", "reponse_email", "handle_demande"]);
+      }
+      const { data, error } = await db.rpc("support_ajouter", { p: { poster_id: null, type: "question", texte, source: "email", escalader: false, slack_user: e.nom ?? e.de } });
       if (error) { bilan.push({ de: e.de, erreur: error.message }); continue; }
       const id = (data as { id?: string } | null)?.id;
-      if (id) await db.from("support_demandes").update({ email_message_id: e.messageId, email_de: e.de, niveau: "max", raison: "Email d'un expéditeur inconnu." }).eq("id", id);
+      if (id) {
+        await db.from("support_demandes").update({
+          email_message_id: e.messageId, email_de: e.de, niveau: "bot", statut: "attente_posteur", bot_reponse: TEXTE_HANDLE_INCONNU,
+          raison: dejaDemande ? "Email d'un expéditeur inconnu (handle déjà demandé)." : "Email d'un expéditeur inconnu : handle TikTok demandé.",
+        }).eq("id", id);
+      }
       bilan.push({ de: e.de, poster: null, id });
       continue;
     }
@@ -2163,8 +2258,11 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
       const corps = texteReponseEmail(p?.prenom ?? null, r.reponse);
       const lienStop = p?.ruul_jeton ? `https://mbikecieskoobeizixig.supabase.co/functions/v1/ruul?stop=${p.ruul_jeton}` : OS_URL;
       const m = rendreEmailRuul({ objet, corps, bouton: { texte: "Open Help", lien: `${OS_URL}/createur/help` }, lienStop });
-      const s = await envoyerEmailSite(e.de, objet, m.html, m.texte, lienStop, ["support", "reponse_email"]);
+      // 21/11 (Max) : la réponse est reliée à la demande (tag demande:<id> sur l'email, pour son statut Brevo) et notée
+      // « envoyée par email » sur le message du bot.
+      const s = await envoyerEmailSite(e.de, objet, m.html, m.texte, lienStop, ["support", "reponse_email", ...(r.id ? [`demande:${r.id}`] : [])]);
       envoi = s.ok ? "envoyée" : `erreur : ${s.erreur}`;
+      if (r.id) await noterEnvoiEmail(db, r.id, s.ok ? "ok" : `erreur : ${s.erreur ?? "?"}`);
     }
     bilan.push({ de: e.de, poster, id: r.id ?? null, envoye_equipe: r.envoye_equipe ?? null, reponse: envoi });
   }
@@ -2315,6 +2413,9 @@ async function repondreCanal(db: Db, auteur: string | null, o: { poster_id: stri
 
 /** Le posteur d'une adresse email : login, email Ruul, ou email perso donné au site. */
 async function posteurParEmail(db: Db, email: string): Promise<string | null> {
+  // 21/11 (Max) : les adresses reconnues plus tard (posteur_emails), puis toutes les adresses connues.
+  const { data: connue } = await db.from("posteur_emails").select("poster_id").eq("email", email.trim().toLowerCase()).maybeSingle();
+  if (connue?.poster_id) return connue.poster_id as string;
   // 13/11 (refonte, Phase 3) : login, email Ruul, email perso (profils désactivés compris) ; « _ » et « % » pris à la lettre.
   const motif = email.trim().replace(/[\\%_]/g, (c) => `\\${c}`);
   if (!motif) return null;

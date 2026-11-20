@@ -216,6 +216,10 @@ Deno.serve(async (request) => {
         // webhooks entrants (adresse, domaine). Lecture seule.
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
         return json(await brevoEntrants(String(body.depuis ?? "")));
+      case "rattrapage_tickets":
+        // 21/11 (Max) : les tickets ouverts depuis plus de 48 h repassent par l'agent avec les nouvelles règles.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await rattrapageTickets(db, Math.min(Number(body.limite ?? 10) || 10, 25), body.simuler === true));
       case "suivi":
         // 17/11 (Max, point 8) : fermeture après 48 h sans retour, confirmation d'un arrêt une fois fait (cron support-suivi).
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -1203,6 +1207,57 @@ async function posteurParIndices(db: Db, o: { texte: string; nom: string | null 
     if (data?.length === 1) return data[0]!.id as string;
   }
   return null;
+}
+
+/**
+ * 21/11 (Max) : « les tickets de plus de 48 h → traités avec les nouvelles règles ». Chaque demande ouverte depuis plus
+ * de 48 h repasse par l'agent (sa fiche, son historique) : réponse claire (niveau bot) → envoyée sur son canal, avec
+ * « Sorry for the late reply » ; arrêt, posteur arrêté ou cas pour Max → rien n'est envoyé, la demande reste à Max avec
+ * son résumé. Une demande déjà rattrapée n'est jamais reprise (raison « rattrapage 21/11 »).
+ */
+async function rattrapageTickets(db: Db, limite: number, simuler: boolean) {
+  const il48h = new Date(Date.now() - 48 * 3_600_000).toISOString();
+  const { data, error } = await db.from("support_demandes").select("id, poster_id, source, texte, langue, raison")
+    .neq("statut", "resolu").lt("cree_at", il48h).not("poster_id", "is", null)
+    .or("raison.is.null,raison.not.ilike.%rattrapage 21/11%").order("cree_at").limit(limite);
+  if (error) throw new Error(error.message);
+  const bilan = { envoyees: 0, pour_max: 0, arretes_fermes: 0, erreurs: [] as string[], exemples: [] as Record<string, unknown>[] };
+  for (const dem of (data ?? []) as { id: string; poster_id: string; source: string | null; texte: string; langue: string | null; raison: string | null }[]) {
+    const { data: stop } = await db.rpc("ne_plus_contacter_bloque", { p_poster: dem.poster_id });
+    if (stop === true) {
+      // POSTEUR ARRÊTÉ : plus de réponse.
+      if (!simuler) await db.from("support_demandes").update({ statut: "resolu", resolu_at: new Date().toISOString(), verdict_fermeture: "pas_un_probleme", raison: `${dem.raison ?? ""} (rattrapage 21/11 : posteur arrêté)`.trim() }).eq("id", dem.id);
+      bilan.arretes_fermes++;
+      continue;
+    }
+    try {
+      const r = await deciderBot(db, { message: dem.texte, source: dem.source === "slack_salon" ? "slack_salon" : "help", poster: dem.poster_id, profil: null, simulation: true });
+      const clair = r.decision.niveau === "bot" && r.plan?.cas !== "arret" && !r.plan?.arret && r.decision.reponse !== TEXTE_ON_VERIFIE;
+      if (!clair) {
+        if (!simuler) {
+          await db.from("support_demandes").update({ niveau: "max", resume: r.plan?.resume ?? null, action_proposee: r.plan?.action_proposee ?? null,
+            brouillon: r.decision.reponse, raison: `${dem.raison ?? ""} (rattrapage 21/11 : pour Max)`.trim() }).eq("id", dem.id);
+        }
+        bilan.pour_max++;
+        if (bilan.exemples.length < 6) bilan.exemples.push({ id: dem.id, pour: "max", resume: r.plan?.resume ?? r.decision.raison });
+        continue;
+      }
+      const excuse = await traduire("Sorry for the late reply.", r.decision.langue);
+      const texte = `${excuse} ${r.texte}`;
+      if (simuler) {
+        if (bilan.exemples.length < 6) bilan.exemples.push({ id: dem.id, source: dem.source, texte });
+        bilan.envoyees++;
+        continue;
+      }
+      const m = await messageCanal(db, { id: dem.id, poster_id: dem.poster_id, source: dem.source }, texte);
+      if (!m.ok) { bilan.erreurs.push(`${dem.id} : ${m.error ?? "envoi impossible"}`); continue; }
+      await db.from("support_demandes").update({ statut: "bot", niveau: "bot", bot_reponse: texte, raison: `${dem.raison ?? ""} (rattrapage 21/11 : réponse envoyée)`.trim() }).eq("id", dem.id);
+      bilan.envoyees++;
+    } catch (e) {
+      bilan.erreurs.push(`${dem.id} : ${messageErreur(e)}`);
+    }
+  }
+  return { ok: true, simulation: simuler, traitees: (data ?? []).length, ...bilan };
 }
 
 /** Le motif interne d'un arrêt, en anglais clair, pour « because … ». */

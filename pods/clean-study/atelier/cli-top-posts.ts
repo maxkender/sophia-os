@@ -1,7 +1,8 @@
 // Usage : POD_JETON=… node atelier/cli-top-posts.ts [--compte icedlattebrunette] [--top 20]
 //
 // Nos posts PUBLIÉS les plus vus du label, tels que postés (traduits, AVEC la
-// slide de l'appli, micabo ou UnSwipe, que l'OS marque position_sophia) :
+// slide de l'appli, que l'OS marque position_sophia : UnSwipe ou micabo
+// avant le 20/11, Sophia depuis) :
 // c'est ce qui a vraiment marché chez nous. Écrit tout dans
 // donnees/top_posts.json (slides, images, slides TikTok d'origine par position).
 import { mkdirSync, writeFileSync } from "node:fs";

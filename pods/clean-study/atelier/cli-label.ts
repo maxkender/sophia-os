@@ -1,8 +1,8 @@
 // Usage : POD_JETON=… node atelier/cli-label.ts [--compte icedlattebrunette] [--top 20] [--texte]
 //         POD_JETON=… node atelier/cli-label.ts --slides <id8>
 //
-// Contenus du label clean_study, classés par ce qui marche chez nous (micabo
-// et UnSwipe confondus) :
+// Contenus du label clean_study, classés par ce qui marche chez nous (toutes
+// applications confondues : UnSwipe, micabo, puis Sophia depuis le 20/11) :
 // r = vues / médiane des vues du compte (médiane des r sur ≥ 3 passages).
 // Écrit tout dans donnees/label.json ; affiche le top (avec le texte : --texte).
 // --slides <id8> : les slides d'UN contenu, position par position, avec l'id de

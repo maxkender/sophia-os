@@ -1,6 +1,6 @@
 // Usage : POD_JETON=… node atelier/cli-apercu.ts <source_id|all>
 // Aperçu d'un original (originaux/<id>.json) : ses slides, texte posé sur
-// l'image (sans appli : l'OS place micabo ou UnSwipe), puis la slide TikTok d'inspiration de chaque
+// l'image (slide Sophia comprise), puis la slide TikTok d'inspiration de chaque
 // position, en une planche sortie/apercus/<id>.jpg. À REGARDER avant de déposer :
 // pas de texte qui déborde, une image différente par slide.
 // Accepte un id d'image complet ou son préfixe de 8 caractères.
@@ -20,8 +20,8 @@ for (const f of fichiers) {
   const cases = slides.map((s) => {
     const im = r.images.find((i) => i.id === s.media_id || i.id.startsWith(s.media_id));
     if (!im) throw new Error(`${o.source_id} #${s.position} : image ${s.media_id} hors banque`);
-    const texte = s.texte_overlay;
-    return { id: im.id, url: im.url, texte, legende: `#${s.position} ${texte.length} car.` };
+    const texte = s.texte_sophia ?? s.texte_overlay;
+    return { id: im.id, url: im.url, texte, legende: `#${s.position} ${s.texte_sophia ? "SOPHIA " : ""}${texte.length} car.` };
   });
   const references = slides.map((s) => ({
     id: `ref-${s.reference_url.split("/brut/")[1]?.replace(/\W/g, "_")}`,

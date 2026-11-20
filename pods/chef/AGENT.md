@@ -45,7 +45,7 @@ Les podz :
 | 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |
 | 10 · Remakes @yasminespixels (micabo) | `yasmine` | `session_01QT1sUhhR1rWp6BoCvA6xN5` | that_girl_study (micabo seul, français) |
 | 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; plus de carte UnSwipe depuis le 4/11) |
-| 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
+| 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (Sophia seule depuis le 20/11, 0788 ; avant : UnSwipe, puis micabo ; anglais, une slide Sophia par original) |
 | 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, en, fr et de ; 2 par jour depuis le 5/11, demande d'Adrien ; en test sur 3 comptes, un par langue) |
 | 14 · Originaux Plony (Sophia) (en pause) | `plony` | `session_017c8FRZ8qRaSWXppDYa8Lum` | Plony (Sophia seul, voie 1, en anglais) : **en pause depuis le 17/11** à la demande d'Adrien. Ses 13 comptes sont passés au label History (seul label), Plony n'a plus de compte ; routine du matin coupée, guichet fermé (`pods.actif = false`). Ne le signale pas comme une panne |
 | 15 · Remakes @sagace.fr (Sophia) | `sagace` | `session_017c8FRYHR6JY3Ltj2xa2Ftw` | sagace (Sophia seul, voie 2, en français ; lancé par Adrien le 15/11, pilote sg-001 ; comptes par « démarrage d'un podz » ou Pilotage) |

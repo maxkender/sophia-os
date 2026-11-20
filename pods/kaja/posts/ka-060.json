@@ -1,0 +1,819 @@
+{
+ "id": "ka-060",
+ "titre": {
+  "en": "10/10 content creator skills",
+  "fr": "10/10 skills de créateur de contenu",
+  "de": "10/10 Skills für Content Creator",
+  "it": "10/10 skill da content creator",
+  "tr": "10/10 içerik üretici becerisi",
+  "hu": "10/10 tartalomgyártó készség",
+  "pl": "10/10 umiejętności twórcy treści",
+  "pt-BR": "10/10 habilidades de criador de conteúdo"
+ },
+ "legendes": {
+  "en": "10/10 content creator skills #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills de créateur de contenu #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für Content Creator #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill da content creator #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 içerik üretici becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 tartalomgyártó készség #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności twórcy treści #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades de criador de conteúdo #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "Full test (BLEO, 20/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (la création de contenu). Décor branche2. Son format court à 3 compétences plus l'étape Sophia (monter ses vidéos, filmer au téléphone, parler face caméra), une vraie vidéo YouTube native par étape et par langue. Musique : « sonido original 7301405245357132549 » de son manifeste. Sophia en étape 3, cta C, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "CONTENT",
+     "CREATOR",
+     "SKILLS"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS DE",
+     "CRÉATEUR"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "CREATOR-",
+     "SKILLS"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL DA",
+     "CREATOR"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "İÇERİK",
+     "ÜRETİCİ",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "TARTALOM-",
+     "GYÁRTÓ",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "TWÓRCY"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "DE CRIADOR"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "EDIT VIDEOS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SrJOE2pEp7A",
+     "titre": "DaVinci Resolve Beginners Tutorial: Edit like a PRO for FREE!",
+     "chaine": "Ben Claremont",
+     "vues": "5.6M views",
+     "date": "2 years ago",
+     "duree": "12:27",
+     "avatar": "https://yt3.ggpht.com/KrcupDp1TdXZ0EN1rip1Lph4HBpALn7KVDO8tNjHERI3mjm-ZzMOPkx68qAg9L6Nk9XIoz1OZ7o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT MONTER",
+     [
+      {
+       "t": "TES VIDÉOS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cu1Bugc0B60",
+     "titre": "Le montage vidéo de A à Z sur Premiere Pro (DEBUTANTS en une seule partie)",
+     "chaine": "Philéas / in my timeline",
+     "vues": "3,1 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "23:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_njKW1o5wId9pLVj3XJvvONtdWzt3CviCmh4KX50mPFGZc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHNEIDEST DU",
+     [
+      {
+       "t": "DEINE VIDEOS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6zu9Ox0b96s",
+     "titre": "DaVinci Resolve IN 10 MINUTEN (Tutorial deutsch), Videos schneiden kostenlos",
+     "chaine": "UrlaubsVideosMachen",
+     "vues": "195.220 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "11:02",
+     "avatar": "https://yt3.ggpht.com/op3oQN7sT3SgCycvpRYeEoUXDaz-CVHh4Sn75PO6m1L8B9KV82BS1vowOiwjxcFA5MJI01AO3w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME MONTARE",
+     [
+      {
+       "t": "UN VIDEO",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ybjceUJwBhE",
+     "titre": "Montaggio Video completo DA ZERO per principianti con Premiere Pro CC (Tutorial ITA) - Parte1",
+     "chaine": "Wonderland Production",
+     "vues": "224K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "15:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kysGtOLnAA7fgorrU-3f0DTjzgcriL6y241rfG13E2TC8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "VİDEO EDİTLENİR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QHiiqIaySIo",
+     "titre": "SIFIRDAN Video Edit Nasıl Öğrenilir ve Editör Nasıl Olunur? 🔥 (Premiere Pro, Capcut vb...)",
+     "chaine": "Onur Naci Öztürkler",
+     "vues": "382 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "9:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTlcejmADAbvsrgC9_Bek4QOWcg2aULGYsIe_2os0F7CY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "VÁGJ VIDEÓT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DVFZXZprL2I",
+     "titre": "Videóvágás kezdőknek, ingyenes videóvágó szoftverrel - ShotCut videóvágó tutorial magyarul",
+     "chaine": "Tippekneked",
+     "vues": "11 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "13:09",
+     "avatar": "https://yt3.ggpht.com/A8Jx1e-acyV8az_8GLJEafiS-ksg5mWthy35ejgo7JbohhkLgxEEG9--VSPrXlxNnTV3HRHlQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "MONTOWAĆ FILMY",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5bB9AEzFom4",
+     "titre": "Jak zacząć montować filmy?",
+     "chaine": "Na Gałęzi",
+     "vues": "174 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "27:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kQ_siIkuTrbuG3ype_s1w5gV60Niaz3Go5a8AVQTmAUg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "EDITAR VÍDEOS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wq4zBNYhVnM",
+     "titre": "GUIA COMPLETO: COMO EDITAR VÍDEOS DO ZERO pelo CELULAR | CAPCUT PARA INICIANTE",
+     "chaine": "Arthur o Editor | CAPCUT",
+     "vues": "2,5 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "19:20",
+     "avatar": "https://yt3.ggpht.com/KP4S5-ROT6uc4oPiuiOXQZu9qfiSB9pOZY70SMLD5fMi2Oj0dkAKW09Ekq_nrVBtxVON8Ii8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO FILM",
+     [
+      {
+       "t": "WITH YOUR PHONE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0nG7pAXRgvE",
+     "titre": "10 Mobile Videography Tips For Beginners",
+     "chaine": "Learn Online Video",
+     "vues": "5.3M views",
+     "date": "4 years ago",
+     "duree": "9:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNlFuGtgjTcOa0AeA10Nkf1kGf73PHNc2IQM7mup7cNc4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FILMER",
+     [
+      {
+       "t": "AVEC TON TÉLÉPHONE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sSBZZo2PTMQ",
+     "titre": "Filmer à l'iPhone comme un Pro!!",
+     "chaine": "André Martin",
+     "vues": "87 k vues",
+     "date": "il y a 1 an",
+     "duree": "10:26",
+     "avatar": "https://yt3.ggpht.com/QUkljKMh5B_nfoHv_JgVAqjXAHOStqbyCGNHtbv4XkIbH2FbHeJuxxCTcAZ9c5UUa0YT3Uhs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FILMST DU",
+     [
+      {
+       "t": "MIT DEM HANDY",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "g8lhLaioWQs",
+     "titre": "So drehst du kinoreife Videos mit deinem Smartphone | Hinter den Kulissen mit dem iPhone 14 Pro",
+     "chaine": "Joey Helms",
+     "vues": "1,5 Mio. Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:31",
+     "avatar": "https://yt3.ggpht.com/KPeZ6AiKWCfJniKz3NNozqWiB2WUhSQtpJSqp8emWwgFOlzwQ9LwSw1GwnnFC2w4KUvYeiXhGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME GIRARE VIDEO",
+     [
+      {
+       "t": "COL TELEFONO",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pLAhvT9tU3w",
+     "titre": "Girare Video con lo Smartphone – 10 Trucchi per Fare Video col Telefono",
+     "chaine": "VideoZappo",
+     "vues": "76K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "6:44",
+     "avatar": "https://yt3.ggpht.com/sMiqQW5z2xbNz29mSTdFaG2bNlBDsTU-q8dM8l3LqmRYsNtp3NaJoYMyvExqS8u8IG-Cz__o1iA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "TELEFONLA ÇEKİLİR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V_3KKeZJHUg",
+     "titre": "Cep Telefonuyla Profesyonel Video Çekim Teknikleri",
+     "chaine": "Mehmet Üzüm",
+     "vues": "202 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "10:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGlFEdSpssOLkWPK-TnAz_ZK3bALrW0vuRWhwU3sQB1kQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN VIDEÓZZ",
+     [
+      {
+       "t": "TELEFONNAL",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PgePjEQVeRU",
+     "titre": "HOGYAN KÉSZÍTS PROFI VIDEÓT TELEFONNAL? 5 azonnal bevethető tipp a jobb minőségű videókért",
+     "chaine": "Perspektíva Videó Stúdió",
+     "vues": "29 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/5mqdfqQo8RwP4gy05DNpbji2-x7XMyCdFtdwPGdg_OpTT4SAOOJtc5RLfKhdVDj_fgREpm5-z2c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK FILMOWAĆ",
+     [
+      {
+       "t": "TELEFONEM",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O1x-uez2TvU",
+     "titre": "5 PROSTYCH trików JAK FILMOWAĆ TELEFONEM!",
+     "chaine": "Jordan JK Koman",
+     "vues": "57 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "1:59",
+     "avatar": "https://yt3.ggpht.com/qusC2UX0-z4nbjqrDqQtX95swnHANNVKaMa3hIjgS8C8sksoltJMPFu4BHZVuZNRNpIPB_dS9g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO GRAVAR",
+     [
+      {
+       "t": "COM O CELULAR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "slrG51MUq5M",
+     "titre": "Como Gravar Vídeos Profissionais com Qualquer Celular - 6 DICAS Valiosas (Aula grátis)",
+     "chaine": "Lucas PKTA",
+     "vues": "415 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "14:54",
+     "avatar": "https://yt3.ggpht.com/OPTTD8sOkTk49eIYJ3VRq-Rf24Vnq2bLIuzPYPkd7XBbEfz-eJF-SYI2ecnXB3-IdBp-wAqr=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO HAVE",
+     [
+      {
+       "t": "MORE TO SAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "DES CHOSES À DIRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HAST DU",
+     [
+      {
+       "t": "MEHR ZU ERZÄHLEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME AVERE",
+     [
+      {
+       "t": "PIÙ COSE DA DIRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "SÖZÜN HİÇ BİTMEZ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN LEGYEN",
+     [
+      {
+       "t": "MIRŐL BESZÉLNED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK MIEĆ",
+     [
+      {
+       "t": "CO POWIEDZIEĆ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to otwieram",
+      "zamiast scrollować."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO TER",
+     [
+      {
+       "t": "ASSUNTO SEMPRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO TALK",
+     [
+      {
+       "t": "TO A CAMERA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AYcqLymo6M4",
+     "titre": "📸 How to Talk to a Camera (Even if You've Never Done it Before!)",
+     "chaine": "Think Media",
+     "vues": "579K views",
+     "date": "5 years ago",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIxXpTkkck2o_PPlTttDIoyXZJTAxNbJN28Q4vv9cqb20=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ÊTRE À L'AISE",
+     [
+      {
+       "t": "FACE CAMÉRA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "irhPCLpJgSI",
+     "titre": "Comment être à l'aise face caméra ? 10 astuces simples.",
+     "chaine": "Isabelle Cougnaud",
+     "vues": "32 k vues",
+     "date": "il y a 3 ans",
+     "duree": "21:49",
+     "avatar": "https://yt3.ggpht.com/oxc7-HX7ymN0vgba8VmFDGvdT4B7Wudthw5_MNYzjeTYlPehczmJ8HEBzdyFZmHhS3fDBpDV=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPRICHST DU",
+     [
+      {
+       "t": "VOR DER KAMERA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nM1FHUsxgkU",
+     "titre": "Besser vor der Kamera sprechen! 7 TIPPS",
+     "chaine": "einfachQ",
+     "vues": "19.215 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "5:34",
+     "avatar": "https://yt3.ggpht.com/c1GqzLPaT5-KfpCHTNvRZ4Q1KHauvnacmX_I9c3PQ-gmC6-oWzEeXXFxUn5t-KOwIGZglEbFyA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME PARLARE",
+     [
+      {
+       "t": "IN CAMERA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EQCaeuXosxQ",
+     "titre": "Come PARLARE BENE davanti a una TELECAMERA",
+     "chaine": "Gianmarco Capri",
+     "vues": "12K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "11:46",
+     "avatar": "https://yt3.ggpht.com/tieSAaTGBT0ziAU8_DId7xD6JYI7KL_n3flwNA72-7bHdnPW52lzLxsI_6hahlgA_2IyhyC8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "KAMERAYA KONUŞULUR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jSLQLP1T2w8",
+     "titre": "Kamera Karşısında Nasıl Özgüvenle Konuşulur?",
+     "chaine": "Kübra Güngör",
+     "vues": "1 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "8:52",
+     "avatar": "https://yt3.ggpht.com/dZ_JfgeVaxxNlq2Lhew3UT4Whsly7WrwaHs-qiYtEHGv-HgEK2YV1laXoZvIv0hCq3p0xMY3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN BESZÉLJ",
+     [
+      {
+       "t": "A KAMERÁBA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R9IZmFkzYEo",
+     "titre": "Hogyan beszélj a kamerába? 5+1 pro tipp",
+     "chaine": "Dallos Zoltán | BUSINESS",
+     "vues": "1 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "5:01",
+     "avatar": "https://yt3.ggpht.com/3KUEaLaa9ZQUkYylnEAsRj_xZdmUe0aq1YxMe-YjIabHIYrM5EJjmWEFfIuZMRxKOCXwimQSD78=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "NIE BAĆ SIĘ KAMERY",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YONUzhU6wFY",
+     "titre": "Jak Nie Bać Się Kamery? Poradnik Dla Początkujących Jak Być Sobą Przed Kamerą",
+     "chaine": "Bartek Dziedzic TV",
+     "vues": "6,9 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "6:17",
+     "avatar": "https://yt3.ggpht.com/t6IPEnKoD3UgCcCTxIposBvlUooj7qP7ctusA81LZi3Cfo7vC90DhLDBcStyuTGZLmPZEpzP5Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FALAR",
+     [
+      {
+       "t": "PARA A CÂMERA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_RjJlPqNcOo",
+     "titre": "Como falar bem para a câmera - 5 DICAS SIMPLES E EFICIENTES!",
+     "chaine": "Roberta Setimi",
+     "vues": "146 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "4:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7H2e3XRViS4gyfRTfxXXKCRhzGe9-iiGRobnVwAbexm8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

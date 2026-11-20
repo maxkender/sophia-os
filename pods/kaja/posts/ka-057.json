@@ -1,0 +1,816 @@
+{
+ "id": "ka-057",
+ "titre": {
+  "en": "10/10 music skills to learn",
+  "fr": "10/10 skills musicaux à apprendre",
+  "de": "10/10 Musik-Skills zum Lernen",
+  "it": "10/10 skill musicali da imparare",
+  "tr": "10/10 öğrenebileceğin müzik becerisi",
+  "hu": "10/10 zenei készség, amit megtanulhatsz",
+  "pl": "10/10 muzycznych umiejętności do nauczenia",
+  "pt-BR": "10/10 habilidades musicais para aprender"
+ },
+ "legendes": {
+  "en": "10/10 music skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills musicaux à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Musik-Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill musicali da imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin müzik becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 zenei készség, amit megtanulhatsz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 muzycznych umiejętności do nauczenia #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades musicais para aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
+ },
+ "notes": "Full test (BLEO, 20/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (la musique). Décor branche2. Son format court à 3 compétences plus l'étape Sophia (faire un beat, mixer, lire les notes), une vraie vidéo YouTube native par étape et par langue. Musique : « original sound 7636068211729599264 » de son manifeste. Sophia en étape 3, cta C, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "MUSIC SKILLS",
+     "TO LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS",
+     "MUSICAUX"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "MUSIK-SKILLS",
+     "ZUM LERNEN"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL",
+     "MUSICALI"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "MÜZİK",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "ZENEI",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "MUZYCZNE",
+     "UMIEJĘTNOŚCI"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "MUSICAIS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "MAKE A BEAT",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tdXKLxua0f4",
+     "titre": "The best way to START making beats (FOR FREE)",
+     "chaine": "L.Dre",
+     "vues": "1.3M views",
+     "date": "4 years ago",
+     "duree": "8:48",
+     "avatar": "https://yt3.ggpht.com/-6w_JOutayKrO0G_pCwXB_A_Gw3AU5zMOFvhR4VfBmiYD35sOdNFn8dGk28yev6Om6aJFwBAPg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UNE PROD",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5MnetgUAFLk",
+     "titre": "(TUTO) Comment FAIRE Une PROD Sur FL STUDIO En 2023 !",
+     "chaine": "Jeune H",
+     "vues": "179 k vues",
+     "date": "il y a 3 ans",
+     "duree": "9:31",
+     "avatar": "https://yt3.ggpht.com/oXBOv9ssgha5SPA9MabwFI_GwfZ-HqWyzryNUONgTQ8sjHgZC_nzERY4U_7aCN7d9hBysEyvbk8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "EINEN BEAT",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7mTqbWbkPgY",
+     "titre": "Fl Studio ANFÄNGER Tutorial (Für Produzenten) 2025 | Fl Studio Tutorial Deutsch",
+     "chaine": "GoldenTutorials",
+     "vues": "115.223 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "8:09",
+     "avatar": "https://yt3.ggpht.com/ucIXjWyg4dsa9P3RpfMYDFXloU1E0da-iJeN33JS9_z1_qZSPCD-Qcio8xyCf3x9MC-4Jx5nzw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "UN BEAT",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "E-sDui4fcsc",
+     "titre": "COME USARE FL STUDIO PER FARE BEAT - Tutorial per Principianti (VERSIONE AGGIORNATA IN DESCRIZIONE)",
+     "chaine": "Hypn Records",
+     "vues": "808K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "19:48",
+     "avatar": "https://yt3.ggpht.com/YnPIFBSgji86_iBFHgKpwZfDtb09DZVde3yyRaaABBXXTm40Kg_bxlPX-geo7fY8xihi4RIP=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "BEAT YAPILIR",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TJW0iLCA2Cs",
+     "titre": "Trap beat nasıl yapılır ? - Başlangıç seviyesi - (Fl studio özel)",
+     "chaine": "PEPTIT",
+     "vues": "121 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "24:32",
+     "avatar": "https://yt3.ggpht.com/guc3zaMMEPAlN8mnyA62Veug24MtP87xXvowUOKcZyc49yDb-dsU5LIZHNk-GUpj8Hua74ziJw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN KÉSZÍTS",
+     [
+      {
+       "t": "SAJÁT ZENÉT",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fSESIPJfyoQ",
+     "titre": "Minden, Amit Tudnod Kell, Ha SAJÁT ZENÉKET Szeretnél Készíteni!",
+     "chaine": "On The Beat",
+     "vues": "14 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "14:06",
+     "avatar": "https://yt3.ggpht.com/DrMJFVRoRvC-Npafz95tnj7tLlKHnNa1RFVtF4TmQs71U3aQKnJhkmuERQ-XK54Wh2m_vjb5fg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "PIERWSZY BIT",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UTNv65mdDNQ",
+     "titre": "Jak zrobić pierwszy bit w FL Studio 20? | Bit od podstaw | Klasyczny hip-hop",
+     "chaine": "24 Bity",
+     "vues": "438 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "24:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOtL1tQDFS13uQW5Ol9jahJwu9rW4Te_h-9sRyhRVVQg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "UM BEAT",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7DlbsXYcSZ0",
+     "titre": "Como FAZER um BEAT sendo INICIANTE no FL Studio",
+     "chaine": "DJ Tavinho",
+     "vues": "109 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/aSvn9CQG97y0d3FyAHzdSNBWpp6NI8OmY-H-uuc-U4mUM8FMdUNpJDncGLRlOohdGZ8VZbEd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "DJ FOR BEGINNERS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gzjasvooSG8",
+     "titre": "How to DJ for Beginners",
+     "chaine": "DJ Carlo",
+     "vues": "9.2M views",
+     "date": "6 years ago",
+     "duree": "18:04",
+     "avatar": "https://yt3.ggpht.com/rsCzOr5uo3tXnTTePLQZSbJnEb1wx6rsZfVNNvCiOly_4NY_2U_JcpIr40RSPj7zUPEgakBX4TQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "MIXER COMME UN DJ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_zkdr8MV3Gs",
+     "titre": "Comment MIXER : Jour 1 - Première leçon FACILE pour les DJ DÉBUTANTS",
+     "chaine": "Jeremi / Tuto Mix",
+     "vues": "183 k vues",
+     "date": "il y a 2 ans",
+     "duree": "8:29",
+     "avatar": "https://yt3.ggpht.com/Y4TbcdA8DJLjT1F5ageUIiE14BHRSG0bIYLKfeOE7hSGmrwn8TBD7_4kG1cj4qfzEDp3WcQk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "AUFLEGEN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MqPqHGsFUes",
+     "titre": "Auflegen lernen DJ Mixing Tutorial - Basic Mixer/Controller",
+     "chaine": "Die DJ Revolution - Dein Weg zum Traumberuf DJ!",
+     "vues": "270.201 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "16:47",
+     "avatar": "https://yt3.ggpht.com/EhX1JxP_cnDCNC-9EEUBfi4hie8rbAqQ2HqBXSttKXuNVb0qLXqu5LU8ht7wpbBVYSjx1mY0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "MIXARE DA DJ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZkiYEKF6dgI",
+     "titre": "COME FUNZIONA UNA CONSOLE DJ | Impara a Mixare #1",
+     "chaine": "Federico Doria",
+     "vues": "298K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kwDWB2xiXR8sIVBbUbH8W2ot2JPhWdQAlBaE9chHV3qT4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "DJ OLUNUR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hC1zfb8mApg",
+     "titre": "DJ NASIL OLUNUR? (0’DAN DJ OLMAK #1)",
+     "chaine": "Ali ''Dalbu'' Dalbudak",
+     "vues": "6,3 B görüntüleme",
+     "date": "3 ay önce",
+     "duree": "4:44",
+     "avatar": "https://yt3.ggpht.com/MIIpokDqZCo2VpdETGSkav_2Jl15DkLsMHOIpKj28BcuKVjcXjCYozxhA9ICkQ93NqyIibKWmg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "LEGYÉL DJ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NAy2mOhPAiE",
+     "titre": "DJ Guide Nulláról 🎧 Hogyan DJ-zz Kezdőként 2026-ban",
+     "chaine": "POTMÉTER",
+     "vues": "9,9 E megtekintés",
+     "date": "5 hónappal ezelőtt",
+     "duree": "24:17",
+     "avatar": "https://yt3.ggpht.com/HJygRaWgJ8QoDD_LHyNHhAAtXOLoOVUxBYiQFiXhYKXnbiJEn0N1YvU7n770J1qnEDGakM6C=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZACZĄĆ",
+     [
+      {
+       "t": "JAKO DJ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fByFnv8GMrM",
+     "titre": "5 podstawowych kroków dla początkującego DJ #HEADSTART001",
+     "chaine": "HEADSTER MUSIC",
+     "vues": "103 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kJjENLetnLbjyadMduA7Crum5RqBvVALIhXzJTC0I6pg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO COMEÇAR",
+     [
+      {
+       "t": "COMO DJ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YZpAmlCkJ9g",
+     "titre": "Aula de DJ para iniciantes",
+     "chaine": "Playad",
+     "vues": "187 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "13:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nmNj5SgVivRGOxmi6_Rtvi-74m9bxnX9HtFz_o1U9iD_w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO LEARN",
+     [
+      {
+       "t": "IN 5 MINUTES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "EN 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "IN 5 MINUTEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME IMPARARE",
+     [
+      {
+       "t": "IN 5 MINUTI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "HIZLI ÖĞRENİLİR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TANULJ",
+     [
+      {
+       "t": "5 PERC ALATT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UCZYĆ SIĘ",
+     [
+      {
+       "t": "W 5 MINUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to otwieram",
+      "zamiast scrollować."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO APRENDER",
+     [
+      {
+       "t": "EM 5 MINUTOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO READ",
+     [
+      {
+       "t": "SHEET MUSIC",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZN41d7Txcq0",
+     "titre": "How to read music - Tim Hansen",
+     "chaine": "TED-Ed",
+     "vues": "7.7M views",
+     "date": "13 years ago",
+     "duree": "5:24",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT LIRE",
+     [
+      {
+       "t": "LES NOTES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "62epPH5jEYU",
+     "titre": "Apprendre à lire les notes facilement - partie 1",
+     "chaine": "Alain Stoffen • La Pédagogie Musicale Créative",
+     "vues": "895 k vues",
+     "date": "il y a 5 ans",
+     "duree": "17:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtMdKAqrAAurttGVEo8IMGfQc_NJ7vi_nHcL0bA8N4gv8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "NOTEN LESEN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "D_QbSLiWRQc",
+     "titre": "Die NOTENNAMEN - einfach Noten lesen lernen",
+     "chaine": "MusikDurchblick",
+     "vues": "262.859 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/XfXGSHZFSQEIggXZHAxsfiR0frxmnUsb_TEqdEA0J60lsK9HunaItwDpFDoFsVeouSXJekvSGi8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME LEGGERE",
+     [
+      {
+       "t": "LA MUSICA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YvGdQ8zz5TI",
+     "titre": "Leggere la musica è FACILE - 1 (le note sulle righe)",
+     "chaine": "Fabio Vetro",
+     "vues": "1,4 Mln visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "7:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mvGu6rAfVcESuiL-9Sp3dq35POPzRpmHJnM2dvWi0AJZY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "NOTA OKUNUR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kVd0K8RSHpU",
+     "titre": "Müziğe Yeni Başlayanlar İçin: Nota Okumanın En Kolay Yolu",
+     "chaine": "Burçak Çöllü",
+     "vues": "349 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "13:27",
+     "avatar": "https://yt3.ggpht.com/zxOvr_3dHA7VxnxIFFlwSxNs0aOdJjYxdMx0ynDRZGOqXmGATF_jRWaNdW2k6P41wuim7BMKPA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "OLVASS KOTTÁT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EnsaZEnwzvY",
+     "titre": "A ritmusok - Kottaolvasás egyszerűen 4.",
+     "chaine": "Krisztian Horvath",
+     "vues": "30 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mF-LU3M165N2ARq17L7PIeD77rZ8eQj2gmo049TV5G5hk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "CZYTAĆ NUTY",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MupowC5CEvE",
+     "titre": "Jak czytać nuty? | LiveActTV",
+     "chaine": "Live Act",
+     "vues": "889 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "8:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOz598LhX990l-G1EnYItJCf_rl1BYnqB3RgU2_ycQ0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO LER",
+     [
+      {
+       "t": "PARTITURA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jyIFh1ZK-Ww",
+     "titre": "Aprenda a ler partitura do zero em 10 minutos",
+     "chaine": "Cecília Ramos",
+     "vues": "2 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "10:38",
+     "avatar": "https://yt3.ggpht.com/OkOfb4syEqyDKNifdIfcGjJNDao_dQkfHbml9xWQ7QH8AUKgiwcHA3Zbzahzw5N5f9Pr_flu=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semanas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

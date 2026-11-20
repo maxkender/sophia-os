@@ -1,0 +1,816 @@
+{
+ "id": "ka-055",
+ "titre": {
+  "en": "10/10 baking skills to learn",
+  "fr": "10/10 recettes de pâtisserie à apprendre",
+  "de": "10/10 Backskills zum Lernen",
+  "it": "10/10 dolci che puoi imparare a fare",
+  "tr": "10/10 öğrenebileceğin tatlı tarifi",
+  "hu": "10/10 sütirecept, amit megtanulhatsz",
+  "pl": "10/10 wypieków, których możesz się nauczyć",
+  "pt-BR": "10/10 doces que você pode aprender"
+ },
+ "legendes": {
+  "en": "10/10 baking skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 recettes de pâtisserie à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Backskills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 dolci che puoi imparare a fare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin tatlı tarifi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 sütirecept, amit megtanulhatsz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 wypieków, których możesz się nauczyć #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 doces que você pode aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7660804487010847501"
+ },
+ "notes": "Full test (BLEO, 20/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (la pâtisserie). Décor falaise. Son format court à 3 compétences plus l'étape Sophia (cookies, brownie, génoise (gâteau au yaourt en français)), une vraie vidéo YouTube native par étape et par langue. Musique : « original sound 7660804487010847501 » de son manifeste. Sophia en étape 3, cta A, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "BAKING SKILLS",
+     "TO LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "PÂTISSERIES",
+     "À APPRENDRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "BACKSKILLS",
+     "ZUM LERNEN"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "DOLCI DA",
+     "IMPARARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "TATLI",
+     "TARİFLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "SÜTI-",
+     "RECEPTEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "WYPIEKI",
+     "DO NAUCZENIA"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "DOCES PARA",
+     "APRENDER"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO BAKE",
+     [
+      {
+       "t": "COOKIES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rEdl2Uetpvo",
+     "titre": "How To Make Perfect Chocolate Chip Cookies",
+     "chaine": "Tasty",
+     "vues": "37M views",
+     "date": "8 years ago",
+     "duree": "6:13",
+     "avatar": "https://yt3.ggpht.com/CfYIjL1dN06jrOxVxw4ElFs_0ShkZw9WpFmfkgoEx_-tdmG5Iv6CtlFmi3L-jkTmvTKfBXtMoMw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DES COOKIES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Xc0-e1q0pDA",
+     "titre": "RECETTE DES COOKIES de Cyril Lignac",
+     "chaine": "Quand Margot pâtisse",
+     "vues": "3 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "4:24",
+     "avatar": "https://yt3.ggpht.com/pN_nU0nVAJEUOz5I0TIwA0AvulG_BEtaGGLTVDxnCLgt_zpEBDIp2OxpqWT5eYvdDBg2_zzIdQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BACKST DU",
+     [
+      {
+       "t": "COOKIES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aVIgi3wTpYM",
+     "titre": "Nutella Chocolate Chip Cookies | BakeClub",
+     "chaine": "BakeClub",
+     "vues": "1,7 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5vjc1m-K_56XmWV7U4MZGPnRJ3L8mdf5lz-PuBjAlEKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "I COOKIES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rog20vpEs54",
+     "titre": "COOKIES AMERICANI: Ricetta per biscotti croccanti fuori e morbidi dentro!",
+     "chaine": "GialloZafferano",
+     "vues": "635K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/DIbS5q7AH-sy9nB9K6AfT-4yhagb4h1GI2u-9UQmcQCbtY8kV85MwumcnSGWYmUOl8shxYClsSI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "KURABİYE YAPILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nq6B26lwW54",
+     "titre": "Starbucks Misto Cookie  | Nasıl Yapılır?",
+     "chaine": "Nefis Yemek Tarifleri | Çay Saati Tarifleri",
+     "vues": "4,2 Mn görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "3:10",
+     "avatar": "https://yt3.ggpht.com/lMsx5Sz_xrrPde0z6pirXUNOIZFqbEDpFiLfbXoO8kgtmQa34wQW8tUJ8qJ_slUDAIIAYTaMQxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN SÜSS",
+     [
+      {
+       "t": "CSOKIS KEKSZET",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kofMR3I7f68",
+     "titre": "Csokis Amerikai keksz. Chocolate chip cookie @Szoky konyhája",
+     "chaine": "Szoky konyhája",
+     "vues": "148 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "13:58",
+     "avatar": "https://yt3.ggpht.com/sSg1S4A-OIxEasVcRBdGIKCNPn0LEdKv3UhzKL2RURfzeIEL-Ik6odKCGPtM7B66jKesvZCEBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UPIEC",
+     [
+      {
+       "t": "CIASTECZKA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bXfTuwjTNsE",
+     "titre": "Przepis na AMERYKAŃSKIE CIASTECZKA z CZEKOLADĄ! 🇺🇸 | Sugarlady",
+     "chaine": "Słodka Tuba",
+     "vues": "834 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/SJI02VA7jatIL3JNd6Md5N5qh0NIef0ymIR_nMoK3LEOxk00pdiIERdp7lAC8r-cCciOkUggfA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "COOKIES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "32bvO6_oe2I",
+     "titre": "Os melhores cookies que você vai comer!",
+     "chaine": "Paola Carosella",
+     "vues": "3,4 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "12:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjf86gk7mnUBFuyHRocbhWSW0tnhNnuwYPGwoZPgcpxIk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "BROWNIES",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lIb_741_dIw",
+     "titre": "The Best Fudgy Brownies Ever! • Tasty",
+     "chaine": "Tasty",
+     "vues": "13M views",
+     "date": "9 years ago",
+     "duree": "1:30",
+     "avatar": "https://yt3.ggpht.com/CfYIjL1dN06jrOxVxw4ElFs_0ShkZw9WpFmfkgoEx_-tdmG5Iv6CtlFmi3L-jkTmvTKfBXtMoMw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN BROWNIE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Biibg4EVOew",
+     "titre": "Ma meilleure recette de Brownies moelleux et faciles",
+     "chaine": "Hervé Cuisine",
+     "vues": "3,1 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/CtesnWt5qUmrXYKVCnLRSjOUpPgaodkFeIzWUEGrcWRfJQb7RypdKcg7ra49BLf3iOGhnU1yrCU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BACKST DU",
+     [
+      {
+       "t": "BROWNIES",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0wnc4J9WUD4",
+     "titre": "Brownies - schokoladig, saftig und lecker / Sallys Lieblingsrezept / Sallys Welt",
+     "chaine": "Sallys Welt",
+     "vues": "2,8 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "12:45",
+     "avatar": "https://yt3.ggpht.com/bZeKSjJMUYfIt2VFJ-kQC0IBgFc5rtBk-ymrUZDB6um7mF4smkXyH90uUXiqe2277Pq_Ua7dKYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "I BROWNIES",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UUR2XkcFKlo",
+     "titre": "BROWNIES al CIOCCOLATO 🍫 SUPER GOLOSI! – Non potrai più farne a meno! 😋😋😋",
+     "chaine": "GialloZafferano",
+     "vues": "145K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:50",
+     "avatar": "https://yt3.ggpht.com/DIbS5q7AH-sy9nB9K6AfT-4yhagb4h1GI2u-9UQmcQCbtY8kV85MwumcnSGWYmUOl8shxYClsSI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "BROWNIE YAPILIR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4iSS3iU6U1A",
+     "titre": "Brownie Tarifi I Tam Kıvamında Brownie I Arda'nın Mutfağı",
+     "chaine": "Arda'nın Mutfağı",
+     "vues": "3,8 Mn görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lk24AhOAPMb7_W6kAaMBVn-rJrBwpsVkgvJuIq5pR_W9s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN SÜSS",
+     [
+      {
+       "t": "BROWNIE-T",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S0IdBKgnyF4",
+     "titre": "CSOKIS BROWNIE 🍫 Egyszerűen Tökéletes ❤️🍫",
+     "chaine": "RG Konyhája",
+     "vues": "11 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "10:23",
+     "avatar": "https://yt3.ggpht.com/VdD_kznh8S-5SMuWMbc6jGmiLL2-iyGHCnXltUFmvLvye8wS4Dw8U99qGj993JypP3DfbNGSXg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UPIEC",
+     [
+      {
+       "t": "BROWNIE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WL9i_ANTfFw",
+     "titre": "Brownie - delikatne i puszyste ciasto czekoladowe rozpływające się w Twoich ustach! | Smaczny.TV",
+     "chaine": "Smaczny.tv",
+     "vues": "527 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "2:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQZ4vTSCTGeuP9q9fVcok0Mil2yx3UZWCE8VjZUwfNhg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "BROWNIE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Eoe3TYWSymw",
+     "titre": "O MELHOR BROWNIE DE NESCAU DO MUNDO",
+     "chaine": "Receitas de Pai",
+     "vues": "15 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/CKD4cd6Qz43POlCIWaSMKafxk0Xc_YEENsrhK7trkgHlVB3NnSOT0EQgpQPeSxxollEiqg0zqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "FEED YOUR BRAIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NOURRIR",
+     [
+      {
+       "t": "TON CERVEAU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FÜTTERST DU",
+     [
+      {
+       "t": "DEIN GEHIRN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME NUTRIRE",
+     [
+      {
+       "t": "IL CERVELLO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa",
+      "di nuovo ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "BEYNİNİ BESLERSİN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TÁPLÁLD",
+     [
+      {
+       "t": "AZ AGYADAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap",
+      "valami újat."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK KARMIĆ",
+     [
+      {
+       "t": "SWÓJ MÓZG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie",
+      "czegoś nowego."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ALIMENTAR",
+     [
+      {
+       "t": "SEU CÉREBRO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO BAKE",
+     [
+      {
+       "t": "A SPONGE CAKE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "a0LCeby6fdY",
+     "titre": "How to make Vanilla Sponge Cake / fluffy cake Recipe / Easy Cake / Genoise",
+     "chaine": "쿠킹씨 Cooking See",
+     "vues": "48M views",
+     "date": "6 years ago",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mTS3dErefeSNf6zhzuEy0ic1H5GIFMwQ3OxQ-LTaej0g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN GÂTEAU MOELLEUX",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iRllcn3Zg-E",
+     "titre": "Gâteau au yaourt en 1 minute . Bon et moelleux. Recette facile et rapide",
+     "chaine": "Les délices de Maha",
+     "vues": "5,8 M de vues",
+     "date": "il y a 5 ans",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klL4Q4I2r2HEKrGmv9SilbutbrtFCS3ybckZwww3aIRA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BACKST DU",
+     [
+      {
+       "t": "EINEN BISKUIT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hjGlvtQ6n18",
+     "titre": "Biskuit Rezept / Gelingsicher mit Tipps und Tricks / Sallys Welt",
+     "chaine": "Sallys Welt",
+     "vues": "1,7 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "21:54",
+     "avatar": "https://yt3.ggpht.com/bZeKSjJMUYfIt2VFJ-kQC0IBgFc5rtBk-ymrUZDB6um7mF4smkXyH90uUXiqe2277Pq_Ua7dKYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "IL PAN DI SPAGNA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9_MMRqluDBo",
+     "titre": "Pan di spagna alto: la ricetta classica, soffice e senza lievito - dolci  (How To Make Sponge Cake)",
+     "chaine": "Speziata",
+     "vues": "2,5 Mln visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "5:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_koCCQ6rFIQeU4wq0Y0ZEDSUMRM3CjL6X2ciD97kLKOW8U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "PANDİSPANYA YAPILIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XuoxDFch250",
+     "titre": "Sünger PANDİSPANYA TARİFİ - Çok kabaran kek yapımı",
+     "chaine": "Nefis Yemek Tarifleri",
+     "vues": "11 Mn görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "1:28",
+     "avatar": "https://yt3.ggpht.com/tX0tJPs42-5_5cy9RbtEDs90jzkQuKvgWO3Hj-lzIG8aQdtME1ffs1jloPkNzBtFDZ0GNqY0rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN SÜSS",
+     [
+      {
+       "t": "PISKÓTÁT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6Ut8KQqldSw",
+     "titre": "Piskóta recept lépésről lépésre. Kezdőknek.",
+     "chaine": "Pár perces receptek kezdőknek is",
+     "vues": "43 E megtekintés",
+     "date": "2 hónappal ezelőtt",
+     "duree": "10:07",
+     "avatar": "https://yt3.ggpht.com/f_jIDBBQ1K8JJZUUT73Xk0cVNKQxw8w8CHWUS1EGkySfELEId4D7j5dj4S5qlMPl9HuALD1R5A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UPIEC",
+     [
+      {
+       "t": "BISZKOPT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "quqIyMI-bZc",
+     "titre": "Biszkopt który zawsze się udaje",
+     "chaine": "Nat Ura",
+     "vues": "990 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "3:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lITiv9cbp7dhrcjWX346VF_Ux_c7QGMBylsJnu1GP3E98=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "PÃO DE LÓ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jsdfNXKcUeI",
+     "titre": "PÃO DE LÓ PROFISSIONAL COM 3 INGREDIENTES I O MAIS FÁCIL PÃO DE LÓ QUE VOC\\Ê JÁ VIU",
+     "chaine": "Receitas de Pai",
+     "vues": "16 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "9:27",
+     "avatar": "https://yt3.ggpht.com/CKD4cd6Qz43POlCIWaSMKafxk0Xc_YEENsrhK7trkgHlVB3NnSOT0EQgpQPeSxxollEiqg0zqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

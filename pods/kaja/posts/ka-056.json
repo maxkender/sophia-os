@@ -1,0 +1,817 @@
+{
+ "id": "ka-056",
+ "titre": {
+  "en": "10/10 DIY skills for your home",
+  "fr": "10/10 skills de bricolage pour ta maison",
+  "de": "10/10 Heimwerker-Skills für dein Zuhause",
+  "it": "10/10 lavoretti di casa da saper fare",
+  "tr": "10/10 ev için kendin yap becerisi",
+  "hu": "10/10 barkácskészség az otthonodhoz",
+  "pl": "10/10 umiejętności majsterkowania w domu",
+  "pt-BR": "10/10 habilidades de faça você mesmo em casa"
+ },
+ "legendes": {
+  "en": "10/10 DIY skills for your home #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills de bricolage pour ta maison #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Heimwerker-Skills für dein Zuhause #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 lavoretti di casa da saper fare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 ev için kendin yap becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 barkácskészség az otthonodhoz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności majsterkowania w domu #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades de faça você mesmo em casa #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7683367490465975070"
+ },
+ "notes": "Full test (BLEO, 20/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (le bricolage à la maison). Décor branche. Son format court à 3 compétences plus l'étape Sophia (peindre un mur, poser une étagère, faire un joint silicone), une vraie vidéo YouTube native par étape et par langue. Musique : « original sound 7683367490465975070 » de son manifeste. Sophia en étape 3, cta B, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "DIY SKILLS",
+     "FOR YOUR",
+     "HOME"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS DE",
+     "BRICOLAGE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "HEIMWERKER-",
+     "SKILLS"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "LAVORETTI",
+     "DI CASA"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "KENDİN YAP",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "BARKÁCS-",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "MAJSTRA"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "FAÇA VOCÊ",
+     "MESMO EM CASA"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PAINT A WALL",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bLbUIevOxzY",
+     "titre": "How To Paint A Room | DIY For Beginners",
+     "chaine": "Home RenoVision DIY",
+     "vues": "10M views",
+     "date": "4 years ago",
+     "duree": "25:07",
+     "avatar": "https://yt3.ggpht.com/gAX5qjM93uWbDopf3nhLsYn89FF_WwUwYIQhXnF7dC2nw0xdw1ec9NtxLgTkkuchSQcNWffb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 days"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "PEINDRE UN MUR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QxdKlpA4lIw",
+     "titre": "Tuto comment peindre un mur blanc comme un pro",
+     "chaine": "Docteur Peinture",
+     "vues": "2,2 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "19:20",
+     "avatar": "https://yt3.ggpht.com/kWnyY9oEuraWyki9mp-GMmZQHX6D6A52FuCgN78CaaIzY9B7t7KGabWAmsZI9XDta_OTnP_Nmak=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 jours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STREICHST DU",
+     [
+      {
+       "t": "EINE WAND",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ucmElNC6oh8",
+     "titre": "Wände streichen | HORNBACH Meisterschmiede",
+     "chaine": "HORNBACH",
+     "vues": "2,5 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "8:21",
+     "avatar": "https://yt3.ggpht.com/RpGZ6tZlPjCySI3mhtl9LNEZARs-yhR3YVX4Anc06lxXSftjiYO-5AsM4OdwWg-ppyHUZ8XhUeo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME PITTURARE",
+     [
+      {
+       "t": "UNA PARETE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AufeQrnAMOg",
+     "titre": "Come pitturare una parete con rullo e pennello | Leroy Merlin",
+     "chaine": "leroymerlinitalia",
+     "vues": "786K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPcfe_mCS9FDE7Ui_20cQV-qU_87rk2UPX5c6xbSaHWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 giorni"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "DUVAR BOYANIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "C_AnlbCzUVI",
+     "titre": "Duvar Nasıl Boyanır? - Duvar Boyama Teknikleri",
+     "chaine": "Koçtaş",
+     "vues": "530 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "3:32",
+     "avatar": "https://yt3.ggpht.com/FCmVkmQz7ca9TSsCoKwvSa9VST0UEFMsD399m51_6gztrlsa4M1abX-bvmZ5IkRJa7R0ENm3FQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 gün"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "FESD KI A FALAT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bgjyEWrgGiE",
+     "titre": "Falfestés kezdőknek: Így lesz csíkmentes",
+     "chaine": "Praktiker Magyarország",
+     "vues": "63 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/lfdHIMpWHkWdNcLrC-h8qRvBgQnV4gOjrxCOLjjHBSOf0k1sCsKGaxeb_yyaDeCyNadZj3CJTjg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 nap"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "POMALOWAĆ ŚCIANĘ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jjL_2pFFvAs",
+     "titre": "Jak pomalować mieszkanie krok po kroku | Porady Dulux",
+     "chaine": "Dulux Polska",
+     "vues": "874 tys. wyświetleń",
+     "date": "12 lat temu",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l0IJpIpZ5nLtpK4CyuRY5SIH53ab0M-QJu5YOCtPjaOkg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 dni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO PINTAR",
+     [
+      {
+       "t": "UMA PAREDE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9T9drC8svjk",
+     "titre": "COMO PINTAR UMA PAREDE 9 DICAS",
+     "chaine": "Mestre do Acabamento",
+     "vues": "3,4 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "8:09",
+     "avatar": "https://yt3.ggpht.com/pDQcrfgZC5i8Bhkc9aOCM_hBXlNvOyXiB3qNMW-nG03t0WAj1IiwiV1nVl4TLz0l9a8flxhA29c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 dias"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PUT UP A SHELF",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QJH1F24-1Vc",
+     "titre": "How to put up a floating shelf",
+     "chaine": "B&Q",
+     "vues": "1.3M views",
+     "date": "14 years ago",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/K4IsAEbwIekrkAFigaQ-EYMTbSHtlUbvJhSmB76L0wy5cDxtPj7GUzBY2fhA3BFfixxWk-uB550=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT POSER",
+     [
+      {
+       "t": "UNE ÉTAGÈRE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bFKz8c09NjY",
+     "titre": "C'votre maison - Poser une étagère",
+     "chaine": "La WebTV E.Leclerc & Vous",
+     "vues": "388 k vues",
+     "date": "il y a 12 ans",
+     "duree": "1:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kCoIIQyXm_RgLBd_VxVzblfDnX-VGso7IGdFLM0QTgTpg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HÄNGST DU",
+     [
+      {
+       "t": "EIN REGAL AUF",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yZ5iUXo2ZbU",
+     "titre": "DAS ist das EINFACHSTE und STABILSTE SCHWEBENDE (Werkstatt-)REGAL der Welt! | Jonas Winkler",
+     "chaine": "Jonas Winkler",
+     "vues": "378.609 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lVVV8g2uBPPXNfcTTigkPGFvAgi3qs_XEYwYIKi9PJssk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME MONTARE",
+     [
+      {
+       "t": "UNA MENSOLA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mms4dO0Hqwc",
+     "titre": "Imparalo in 1 minuto: come montare una mensola con staffe | Leroy Merlin",
+     "chaine": "leroymerlinitalia",
+     "vues": "253K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "1:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPcfe_mCS9FDE7Ui_20cQV-qU_87rk2UPX5c6xbSaHWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "DUVARA RAF TAKILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "W8_WTzu3nkw",
+     "titre": "Duvara Raf Nasıl Monte Edilir? 3' lü Duvar Rafı Montajı, Gizli Uçan Raf Nasıl Monte Edilir?",
+     "chaine": "Benim Evim",
+     "vues": "52 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/y7Rj4Ns8CKYJ9qXKT5Za0sGi4GCiyob85xrr37CrqujsTegK50rdMufseKu4bA-j5XEhtiSOAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TEGYÉL FEL",
+     [
+      {
+       "t": "EGY POLCOT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l4hGx7Qni1A",
+     "titre": "lebegő polc falra fúrás Tippek-trükkök",
+     "chaine": "Adam21 Asztalos",
+     "vues": "3,2 E megtekintés",
+     "date": "3 hónappal ezelőtt",
+     "duree": "12:01",
+     "avatar": "https://yt3.ggpht.com/ixls2gKyRTwmI09CntoOEl3YBmAYgdYOrfXuijZAcCkJuBlillbBId-A4vvhRsEUJRkS8jP0zRk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK POWIESIĆ",
+     [
+      {
+       "t": "PÓŁKĘ NA ŚCIANIE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gt3lDYVFTMw",
+     "titre": "Jak powiesić półkę na książki i bibeloty? - DOMOWE SOS",
+     "chaine": "Murator tv",
+     "vues": "216 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/Wx7XoGsoEAhQI4-19il49npW83gOvT-ryUhVEHHDDcG0ch2MAKz5Kw8GRJWGgVOe1A0zgAU4EA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO INSTALAR",
+     [
+      {
+       "t": "UMA PRATELEIRA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r3JYOEiVH2Q",
+     "titre": "#AKIÉFácil montar uma prateleira com poleias",
+     "chaine": "AKI",
+     "vues": "158 mil visualizações",
+     "date": "há 10 anos",
+     "duree": "1:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loOOpC6J9_TGtmTZaeReUmAVpzSlLnDOuBv8DySxW1dg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "BUILD YOUR MIND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT BÂTIR",
+     [
+      {
+       "t": "TA CULTURE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BAUST DU",
+     [
+      {
+       "t": "DEIN WISSEN AUF",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME COSTRUIRE",
+     [
+      {
+       "t": "LA TUA CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "KÜLTÜR EDİNİLİR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÉPÍTSD",
+     [
+      {
+       "t": "A TUDÁSODAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK BUDOWAĆ",
+     [
+      {
+       "t": "SWOJĄ WIEDZĘ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO CONSTRUIR",
+     [
+      {
+       "t": "SUA CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "CAULK LIKE A PRO",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4V7lemzrzJ0",
+     "titre": "how to use caulk and silicone like a pro - beginner to pro in seconds",
+     "chaine": "Billshowto",
+     "vues": "4.1M views",
+     "date": "7 years ago",
+     "duree": "5:43",
+     "avatar": "https://yt3.ggpht.com/SLZTRJyUep993c4uL0_SEMbz6Sr0Z1BJTrrEKgawqKeUikWSA1UcsYumTbTX-wGCksJRR2Ld-Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN JOINT SILICONE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1no5wfqRHC0",
+     "titre": "Remplacer un joint silicone ? C'est très FACILE ! Suivez nos conseils",
+     "chaine": "ObjectifHabitat",
+     "vues": "1 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "2:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l99ogUdBx02lPoRHNOYAVOT30wq5_pa3iNZMyOnWXi9Js=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ZIEHST DU",
+     [
+      {
+       "t": "SILIKONFUGEN",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9Zigh0ksrAU",
+     "titre": "Silikon richtig ziehen: Anleitung für perfekte Silikonfugen (+9 Tipps)",
+     "chaine": "Hausbauen24",
+     "vues": "4,1 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "11:08",
+     "avatar": "https://yt3.ggpht.com/Zn2QrF4KxQCLOoYn9SCcwRE0Mm_kIZU02BuhFxO39nyxWiByhD-KMcjApWUDkh6cZE75tCbY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME METTERE",
+     [
+      {
+       "t": "IL SILICONE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I7DpzaJzIus",
+     "titre": "Come mettere il silicone nella vasca da bagno | Leroy Merlin",
+     "chaine": "leroymerlinitalia",
+     "vues": "366K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPcfe_mCS9FDE7Ui_20cQV-qU_87rk2UPX5c6xbSaHWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "SİLİKON ÇEKİLİR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YtLaZSAPrs8",
+     "titre": "KALEM GİBİ DÜZGÜN BİR SİLİKON NASIL ÇEKİLİR",
+     "chaine": "kendin yaparsın",
+     "vues": "938 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/iZu7lJSIPD1nuUOyqleeuILbN9CEMacjxGvBAnvlemXIuVNqe3BTkOSfm0RgHemelPFWZvQy4f4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "SZILIKONOZZ",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7v_0vNZqRYQ",
+     "titre": "Hogyan szilikonozzunk házilag? Megmutatom",
+     "chaine": "Topburkoló",
+     "vues": "107 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/sQjzQ7_6JvD6UGAtTIqhzSCn_B7Jq0HseWKjqhilLFX8Fmewpxweat5C32zENUNYQtTWjCr6=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK POŁOŻYĆ",
+     [
+      {
+       "t": "SILIKON",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yL6HKNkzhLk",
+     "titre": "Układanie silikonu",
+     "chaine": "Budoradka",
+     "vues": "606 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "1:23",
+     "avatar": "https://yt3.ggpht.com/mCnA6mGh0XOoMeYlObMfoWMitCVZHdR2UNshiWMV5hjpBM_7MueCenG0Phtu5WOSH5BCajxI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO APLICAR",
+     [
+      {
+       "t": "SILICONE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OvjbUxsjrS4",
+     "titre": "Como Vedar Box do banheiro",
+     "chaine": "Helcio Marido de Aluguel",
+     "vues": "219 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/0emlgcR2DUI5SkMi9unMcEtHxB97T4-N4PF_uVS7-5ohPWH7PhZsbJCSO-1Kr6U1NpuPlrpD=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

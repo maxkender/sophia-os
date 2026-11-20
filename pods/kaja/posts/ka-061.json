@@ -1,0 +1,816 @@
+{
+ "id": "ka-061",
+ "titre": {
+  "en": "10/10 people skills to learn",
+  "fr": "10/10 skills sociaux à apprendre",
+  "de": "10/10 soziale Skills zum Lernen",
+  "it": "10/10 skill sociali da imparare",
+  "tr": "10/10 öğrenebileceğin sosyal beceri",
+  "hu": "10/10 társas készség, amit megtanulhatsz",
+  "pl": "10/10 umiejętności społecznych do nauczenia",
+  "pt-BR": "10/10 habilidades sociais para aprender"
+ },
+ "legendes": {
+  "en": "10/10 people skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills sociaux à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 soziale Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill sociali da imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin sosyal beceri #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 társas készség, amit megtanulhatsz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności społecznych do nauczenia #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades sociais para aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "Bitter Sweet Symphony - Remastered 2016",
+  "url": "https://www.tiktok.com/music/bitter-sweet-symphony-remastered-2016-6927374282162964481"
+ },
+ "notes": "Full test (BLEO, 20/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (les relations aux autres). Décor falaise. Son format court à 3 compétences plus l'étape Sophia (retenir les prénoms, écouter, se faire des amis), une vraie vidéo YouTube native par étape et par langue. Musique : « Bitter Sweet Symphony » de son manifeste. Sophia en étape 3, cta A, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "PEOPLE SKILLS",
+     "TO LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS",
+     "SOCIAUX"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SOZIALE",
+     "SKILLS"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL",
+     "SOCIALI"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "SOSYAL",
+     "BECERİLER"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "TÁRSAS",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "SPOŁECZNE"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "SOCIAIS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "REMEMBER NAMES",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jVUgl_va6IE",
+     "titre": "7 Clever TRICKS To Remember Names",
+     "chaine": "Greg and Mitch",
+     "vues": "418K views",
+     "date": "11 years ago",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l0MDg9RktBEd9bRHO3iLmKMveChvS5lJzdBsH6p_GOaB8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT RETENIR",
+     [
+      {
+       "t": "LES PRÉNOMS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XlP3obCNgJw",
+     "titre": "Technique pour retenir les prénoms et les noms facilement - Améliorer sa mémoire",
+     "chaine": "David Marsac - Mnemonaute la chaîne de la mémoire",
+     "vues": "8 k vues",
+     "date": "il y a 10 ans",
+     "duree": "14:14",
+     "avatar": "https://yt3.ggpht.com/BlURtuaWaainj3GpxJIZRaTdyFcX36JyGIM3NY3Lk47x8cvDcqskQwvryrJAtmw3mdtFvSxz-w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MERKST DU",
+     [
+      {
+       "t": "DIR NAMEN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "25cFw7CmQuc",
+     "titre": "Warum du Namen sofort vergisst: Die verborgene Psychologie deines Gehirns 🧠",
+     "chaine": "Menschen Verstehen",
+     "vues": "176.788 Aufrufe",
+     "date": "vor 8 Monaten",
+     "duree": "12:32",
+     "avatar": "https://yt3.ggpht.com/VJRxATvMGMcq1A2qIAB4L0jv0uUYRvEIQM7RW8gw9OBvYljcRvc60v_VqgwfG14nM966Mle3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "RICORDARE I NOMI",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nbUJEBp0JnE",
+     "titre": "Come RICORDARE i NOMI delle persone",
+     "chaine": "Andrea Muzii",
+     "vues": "18K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyQzE5qg9qAwCsMsdr_rauz5jXgX19RfpBlqJ4QKri5n4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "İSİMLER AKILDA KALIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ProozVvVl6w",
+     "titre": "İsim Hafızası - Hafıza Teknikleri - Onlarca İsmi Aklınızda Tutun",
+     "chaine": "Süper Hızlı Okuma",
+     "vues": "8,9 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "10:36",
+     "avatar": "https://yt3.ggpht.com/Ee7qDMlukHA2ysAIm_HFvDInbikIa4EsE6jmIfXVrtWJz3l7NgNoZ-ifWwx9SS3os6Jdo6JmIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN JEGYEZZ MEG",
+     [
+      {
+       "t": "NEVEKET",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wVUOC3eimDk",
+     "titre": "Így jegyezz meg neveket pofonegyszerűen! | Karizma Podcast #06 | Bolya Imre",
+     "chaine": "Bolya Imre | Karizma Podcast",
+     "vues": "605 megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "11:35",
+     "avatar": "https://yt3.ggpht.com/PN7O3fAJUWLPELLmLW7OaIMCG-FnNoaDbcvRy6QEsHp05ItT26TKKQ0uk7rspVtwHUg1juSoAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "ZAPAMIĘTAĆ IMIONA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CT7aR-J32r4",
+     "titre": "Jak zapamiętać imiona? Szybkie zapamiętywanie imion! [S1O19]",
+     "chaine": "Best Brain",
+     "vues": "80 tys. wyświetleń",
+     "date": "4 lata temu",
+     "duree": "18:28",
+     "avatar": "https://yt3.ggpht.com/9uKJIA1YLMq7PnqaRl0eQHmRft67gyL_18-tPh3CQx5c1rZ8T3OgRgXhC6DmobS5Fz1ugCBP7Do=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "LEMBRAR NOMES",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Eh98NeB3Gek",
+     "titre": "Como Lembrar Nomes e Rostos | Não Passe mais Vergonha",
+     "chaine": "Renato Alves Memorização",
+     "vues": "12 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "LISTEN BETTER",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "i3ku5nx4tMU",
+     "titre": "4 things all great listeners know",
+     "chaine": "TED-Ed",
+     "vues": "2.7M views",
+     "date": "3 years ago",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "MIEUX ÉCOUTER",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N0UjYrJnLzM",
+     "titre": "Pratiquer l’écoute active au travail",
+     "chaine": "Aysseline de Lardemelle (AFTHONIOS)",
+     "vues": "187 k vues",
+     "date": "il y a 6 ans",
+     "duree": "9:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kPgDq_H175HrDOZMY3T5kRCjX8PX0XyG4TNOejrUa1NfY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HÖRST DU",
+     [
+      {
+       "t": "AKTIV ZU",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PJklq_88PPs",
+     "titre": "AKTIVES ZUHÖREN nach Carl Rogers - die 7 Techniken einfach erklärt mit Beispielen | ERZIEHERKANAL",
+     "chaine": "Erzieherkanal - Wissen, Theorien & Infos",
+     "vues": "243.401 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTLIjj0tRulCXu8dOZJCvvuaczYEdjo3JXBxaSwDjdrRM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "ASCOLTARE MEGLIO",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FHmfO25f-3o",
+     "titre": "Prove di ascolto: 7 allenamenti per ascoltare in modo efficace | Alessandro Lucchini | TEDxTrento",
+     "chaine": "TEDx Talks",
+     "vues": "357K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "15:40",
+     "avatar": "https://yt3.ggpht.com/1gDPO-4YPWFErfn3yQBnv0yxpkmiud1m5CrorApkOqUYdNd9FrZQ9xB9C9VmDt4EsgArnlwqAQc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "İYİ DİNLENİR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4WgxPIsJo5U",
+     "titre": "Daha Etkili Bir Dinleyici Olmak [Aktif ve Verimli Dinlemek için 6 Tavsiye]",
+     "chaine": "Skop",
+     "vues": "19 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIdVe1zs4pfQ943TZDVvCnFfim0qC8cUc-ppgMPmlMN_4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "FIGYELJ JOBBAN",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qY4_zsgYhQc",
+     "titre": "Aktív hallgatás a gyakorlatban",
+     "chaine": "IMELO Toolbox",
+     "vues": "127 megtekintés",
+     "date": "6 hónappal ezelőtt",
+     "duree": "8:25",
+     "avatar": "https://yt3.ggpht.com/dBaIIvf8VKJ6zgsTuSMLvoF2O_3V6pnzNLnthzflXZTD5GimyPiqdksY_qxUq4mzylM0B_jM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "AKTYWNIE SŁUCHAĆ",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uts_Z1ZouQM",
+     "titre": "Jak ćwiczyć aktywne słuchanie?",
+     "chaine": "Karolina Gorczyca - Barszczewska",
+     "vues": "20 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "11:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZKv_ca_9SeMzi81Xlw9605jFFOtwhIYtO4rBDgvnIK8cU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "ESCUTAR MELHOR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K5Kj-G7aVvY",
+     "titre": "Escuta Ativa: Essa técnica irá melhorar MUITO seus relacionamentos! com Dra Anahy",
+     "chaine": "Papo com Anahy D'Amico",
+     "vues": "59 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m6uUoU8EERjH4_o4awWuhQJn0XZ2W7_FN_iU8UzA2o9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO BE",
+     [
+      {
+       "t": "INTERESTING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DEVENIR",
+     [
+      {
+       "t": "INTÉRESSANT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRST DU",
+     [
+      {
+       "t": "INTERESSANT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME DIVENTARE",
+     [
+      {
+       "t": "INTERESSANTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa",
+      "di nuovo ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "İLGİNÇ BİRİ OLUNUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN LEGYÉL",
+     [
+      {
+       "t": "ÉRDEKES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap",
+      "valami újat."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK BYĆ",
+     [
+      {
+       "t": "CIEKAWYM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie",
+      "czegoś nowego."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO SER",
+     [
+      {
+       "t": "INTERESSANTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "MAKE FRIENDS",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PSSOZO2V6m8",
+     "titre": "How to MAKE FRIENDS...as an ADULT.",
+     "chaine": "Caroline Winkler",
+     "vues": "704K views",
+     "date": "2 years ago",
+     "duree": "26:21",
+     "avatar": "https://yt3.ggpht.com/eheClzd-BU58sooZ_TffYy6zgz911ogtJFnzRRjm9aeh_E6jwUDkent7oEAcAq5N7vS1Qzc_TqM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 months"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT TE FAIRE",
+     [
+      {
+       "t": "DES AMIS",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vvB-zzvOrVQ",
+     "titre": "Livres outils - Comment se faire des amis et réussir dans la vie - Dale Carnegie",
+     "chaine": "Club Positif",
+     "vues": "118 k vues",
+     "date": "il y a 11 ans",
+     "duree": "25:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l8q3bPyobji-SCO_munuCm3MsMQVdcYVdC4kxtoDhHcA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 mois"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FINDEST DU",
+     [
+      {
+       "t": "NEUE FREUNDE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YghpcGFFoY4",
+     "titre": "Freunde finden – Schluss mit der Einsamkeit! Wie Sie Ihr Alleinsein durch Eigeninitiative beenden.",
+     "chaine": "Dr. Wlodarek Life Coaching",
+     "vues": "175.790 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "12:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kb8Og70NnHbaowWKGQ6nijdAWk-rfSfQ3-edqYEaWiras=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Monate"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "NUOVE AMICIZIE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oytYySKLNaU",
+     "titre": "Come fare nuove amicizie: consigli pratici sull'amicizia",
+     "chaine": "Expanda",
+     "vues": "135K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "7:59",
+     "avatar": "https://yt3.ggpht.com/fbgv8zYmePlvkvo0ToL-cFxKPkO6uQIE_hlyDkA3YYOew2Nxs8XkgOIej3DQ3_Pov-lWbPTK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 mesi"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ARKADAŞ EDİNİLİR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9rheBSonEdY",
+     "titre": "Yeni Arkadaşlar Edin | Sosyal Anksiyeteyi Yenmek, İnsanlarla Tanışmak | İÇE DÖNÜK KİŞİLİK",
+     "chaine": "İlayda Bilek",
+     "vues": "78 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "18:28",
+     "avatar": "https://yt3.ggpht.com/1pjpMXq_sfEGze_RSZde_SYwBjB6GmnCL3TbTEww8vhYMDhZ_utGmtvU8Zr7utW8WEDFbwu6eQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ay"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "BARÁTKOZZ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mkdO1klrPeE",
+     "titre": "Ha több Barátra vágysz ezt nézd meg ! - Hogyan barátkozz",
+     "chaine": "Sikerre Hangolva",
+     "vues": "80 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "9:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n4RXQaVrIGvPz6NXtSrEdf4e1wVoaeIElsD2gPhwAk-rM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hónap"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZDOBYĆ",
+     [
+      {
+       "t": "PRZYJACIÓŁ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q3dRQ817wyw",
+     "titre": "Znajdowanie PRZYJACIÓŁ",
+     "chaine": "Impresyw",
+     "vues": "179 tys. wyświetleń",
+     "date": "1 rok temu",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/PeUOIG8dvg1BRMkCLHYvND-2-ADHU0wPOIWfsk2F3P9HNBl_9RLctyIrznomRCs-nW_MgzjRet0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 miesiące"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "FAZER AMIGOS",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YmhF22Z6Tz4",
+     "titre": "A FÓRMULA DA AMIZADE: Como Fazer Amigos e Conquistar Pessoas",
+     "chaine": "Saber Coletivo",
+     "vues": "453 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "7:33",
+     "avatar": "https://yt3.ggpht.com/erlt9WUyK0uunqj5y7i69ksZ67EWOtw1Jx_dt06FjCu6AuLuX3RtjYWdEVUNCNkZPAIcnag9mTo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 meses"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

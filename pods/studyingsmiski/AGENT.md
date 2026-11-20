@@ -23,7 +23,7 @@ rejette est validée toute seule 5 h après son dépôt.
 	- **Jamais une concurrente de Sophia** parmi ses autres applis : ni apprentissage, culture générale, langues ou résumés de livres (Duolingo, Kaja, Fathomly, Brilliant, Elevate, Imprint, Headway, Blinkist…), ni temps d'écran ou blocage (Opal, one sec, ScreenZen, Forest, **Flora**…), ni Turbo AI. Une de ses applis qui en est une est remplacée par une vraie appli douce d'un de ses autres posts (sm-001 : Flora → Goodnotes, de sa version verte). `npm run livrer` en refuse une partie, à toi de voir le reste.
 - **Le label** : `cozy_girl` (migrations 0782 puis 0783), qui sert **Sophia seule**, 100 % podz, genre `femme` (créé `cozy_study` pour micabo, passé à Sophia le 20/11 : un nom en `_study` donnerait aux comptes l'identité de micabo). L'OS le range en voie 2 dès le premier remake validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » ou Adrien et Max (Pilotage). `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En anglais** (`LANGUES` dans `atelier/api.ts`), son ton : tout en minuscules dans les cartes, doux, complice (« psst... », « bestie », « smart girls don't gatekeep »).
+- **En 10 langues depuis le 20/11** (refonte des labels, demande d'Adrien : un compte cozy_girl par langue) : en, fr, es, es-419, it, tr, pt-BR, sl, de, hu (`LANGUES` dans `atelier/api.ts`). Chaque post part dans les 10, texte natif (es et es-419 distincts, espaces insécables avant « ! ? : ; » en français, posées par l'atelier), applis vérifiées sur l'App Store des 10 pays (lookup iTunes `country=`). Son ton, dans toutes les langues : tout en minuscules dans les cartes, doux, complice (« psst... », « bestie », « smart girls don't gatekeep »).
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un remake
@@ -42,7 +42,8 @@ rejette est validée toute seule 5 h après son dépôt.
 ## Son style, déjà dans l'atelier
 
 - **Format** : 1080 × 1080, JPEG sans métadonnées. Toutes les mesures sont prises sur ses slides (`atelier/slides.ts`).
-- **Polices** (`polices/`, SIL OFL) : la couverture en Fredoka Bold (92 px) ; le nom d'appli en Figtree Bold (82 px), ses plateformes en Figtree Bold (42 px) ; la description en Figtree Regular (50 px, lignes tous les 48 px) ; les bulles et « from a straight A student » en Gaegu Bold.
+- **Polices** (`polices/`, SIL OFL) : la couverture en Fredoka Bold (92 px) ; le nom d'appli en Figtree Bold (82 px), ses plateformes en Figtree Bold (42 px) ; la description en Figtree Regular (50 px, lignes tous les 48 px) ; les bulles et « from a straight A student » en Gaegu Bold. Hors de l'anglais (Gaegu n'a aucun accent) la main passe en Patrick Hand ; en hongrois, turc et slovène (lettres absentes de Fredoka) le titre passe en Nunito Black (`atelier/polices.ts`).
+- **Ce qui tient** : `titre_largeur` sur une couverture (la place libre entre les stickers : un titre plus long y est réduit, jamais sous 72 px) et `max_lignes` sur une carte (moins de 6 lignes quand un polaroid, une bulle ou un sticker monte sous le texte). `npm run mesure -- <id>` vérifie les 10 langues sans rien rendre ; `npm run mesure -- --titre <langue> "ligne" …` mesure des lignes de couverture.
 - **La carte en timbre** : bords dentelés, papier ligné gris clair, ombre noire décalée de 6 px.
 - **Les stickers** : un contour blanc de 6 px et une ombre douce ; les polaroids, un cadre blanc et une ombre.
 - **Le gabarit « conseil »** (ses guides : « how to stop procrastination. », grand titre en haut à gauche, texte dense, fond vert pâle) **n'est pas encore dans l'atelier** : pour refaire un guide, ajoute-le dans `atelier/slides.ts` (mesure ses slides sur la planche de la veille), puis montre la planche à l'équipe avant la première livraison.
@@ -59,7 +60,8 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `boite` demandent 
 | `npm run veille` | Relève ses posts en direct (Apify) et en fait des planches. Budget : 1 $ par semaine glissante. |
 | `npm run image -- <nom> "<l'objet, en anglais>" [--n 2] [--nb]` | Un sticker Seedream détouré (BiRefNet), `images/stickers/<nom>.png`. `--fond` : un fond carré (`images/fonds`) ; `--photo` : une photo de polaroid (`images/photos`). |
 | `npm run appli -- "<recherche>"` puis `npm run appli -- --id <id> <nom>` | Les vraies applis de l'App Store : une planche pour choisir, puis l'icône en 1024 px et sa fiche (`images/applis/<nom>/`). |
-| `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/en/<n>.jpg`) et la planche `sortie/apercus/<id>.en.jpg`. |
+| `npm run mesure -- <id>` | Vérifie dans chaque langue que les textes tiennent (lignes des cartes, bulles, titre), avant de rendre. |
+| `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/<langue>/<n>.jpg`) et la planche `sortie/apercus/<id>.<langue>.jpg`, dans chaque langue écrite. |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle : une slide Sophia (une carte d'appli, jamais la couverture), son nom « Sophia », aucune concurrente, aucune formule de pub, Sophia citée nulle part ailleurs. |
 | `npm run etat` | Les comptes du label, la file, le rang, puis les vues et le r de chaque remake en ligne. |
 | `npm run boite` | La journée BLEO (`pods/ROUTINE.md` §5) : le rythme, les full tests, puis les familles gagnantes à décliner. |

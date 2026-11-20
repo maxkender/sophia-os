@@ -15,7 +15,7 @@ import { createCanvas, loadImage, type Image } from "@napi-rs/canvas";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { retirerMetadonnees } from "./metadonnees.ts";
-import { POLICE } from "./polices.ts";
+import { POLICE, policeMain, policeTitre } from "./polices.ts";
 
 export const RACINE = join(import.meta.dirname, "..");
 export const L = 1080;
@@ -41,6 +41,8 @@ export type TypeSlide = "couverture" | "appli";
  *   `{ "nom": "Flora", "plateformes": "iOS, Android", "texte": "…", "bulle"?: "…" }` ;
  *   `"sophia": true` sur LA slide Sophia (son icône de l'App Store, `assets/sophia/icone.jpg`).
  * `carte` (facultatif) : la place de la carte `{ x, y, l, h }`, sinon celle de son gabarit.
+ * `max_lignes` (facultatif, appli) : les lignes de description permises (6 par défaut), moins quand un
+ *   polaroid ou un sticker monte sous le texte ; `npm run mesure` et le rendu le vérifient dans chaque langue.
  */
 export type Slide = {
   type: TypeSlide;
@@ -48,6 +50,9 @@ export type Slide = {
   icone?: string;
   sophia?: boolean;
   carte?: { x: number; y: number; l: number; h: number };
+  max_lignes?: number;
+  /** Couverture : la largeur libre du titre entre les stickers (sinon toute la carte). */
+  titre_largeur?: number;
   elements?: Element[];
   [langue: string]: unknown;
 };
@@ -111,7 +116,8 @@ function couper(ctx: Ctx, t: string, largeur: number): string[] {
   const lignes: string[] = [];
   for (const para of t.split("\n")) {
     let ligne = "";
-    for (const mot of para.split(/\s+/).filter(Boolean)) {
+    // Coupe aux espaces ordinaires seulement : l'espace insécable (U+00A0, avant « ! ? : ; » en français) tient les mots ensemble.
+    for (const mot of para.split(/[ \t]+/).filter(Boolean)) {
       const essai = ligne ? `${ligne} ${mot}` : mot;
       if (ligne && ctx.measureText(essai).width > largeur) {
         lignes.push(ligne);
@@ -224,7 +230,7 @@ async function polaroid(ctx: Ctx, chemin: string, x: number, y: number, l: numbe
 }
 
 /** Sa bulle : une forme ronde au trait noir épais, sa pointe, le texte à la main centré. */
-function bulle(ctx: Ctx, e: Extract<Element, { type: "bulle" }>, texte: string) {
+function bulle(ctx: Ctx, e: Extract<Element, { type: "bulle" }>, texte: string, langue: string) {
   const cx = e.x + e.l / 2;
   const cy = e.y + e.h / 2;
   ctx.save();
@@ -254,7 +260,7 @@ function bulle(ctx: Ctx, e: Extract<Element, { type: "bulle" }>, texte: string) 
   ctx.restore();
   ctx.fillStyle = ENCRE;
   ctx.textAlign = "center";
-  ctx.font = `46px "${POLICE.main}"`;
+  ctx.font = `${langue === "en" ? 46 : 42}px "${policeMain(langue)}"`;
   ctx.letterSpacing = "1px";
   const lignes = couper(ctx, texte, e.l * 0.66);
   const pas = 44;
@@ -266,14 +272,14 @@ function bulle(ctx: Ctx, e: Extract<Element, { type: "bulle" }>, texte: string) 
   ctx.letterSpacing = "0px";
 }
 
-async function elements(ctx: Ctx, s: Slide, texteBulle: string | undefined, dessous: boolean) {
+async function elements(ctx: Ctx, s: Slide, texteBulle: string | undefined, dessous: boolean, langue: string) {
   for (const e of s.elements ?? []) {
     if (Boolean(e.dessous) !== dessous) continue;
     if (e.type === "sticker") await sticker(ctx, e.image, e.x, e.y, e.l, e.rotation);
     else if (e.type === "polaroid") await polaroid(ctx, e.image, e.x, e.y, e.l, e.h, e.rotation);
     else if (e.type === "bulle") {
       if (!texteBulle) throw new Error("une bulle sans texte (`bulle` dans la langue)");
-      bulle(ctx, e, texteBulle);
+      bulle(ctx, e, texteBulle, langue);
     }
   }
 }
@@ -283,27 +289,36 @@ async function elements(ctx: Ctx, s: Slide, texteBulle: string | undefined, dess
 /** Ses mesures (couverture) : carte 600 × 605 à (240, 245) ; titre Fredoka Bold 92 px resserré (ses lignes font ~420 px), lignes tous les 82 ; sous-titre à la main 52 px, lignes tous les 44. */
 const COUV = { carte: { x: 240, y: 245, l: 600, h: 605 }, titre: { taille: 92, pas: 82 }, sous: { taille: 52, pas: 44, ecart: 68 } };
 
-async function couverture(ctx: Ctx, s: Slide, c: TexteCouverture) {
+async function couverture(ctx: Ctx, s: Slide, c: TexteCouverture, langue: string) {
   const k = s.carte ?? COUV.carte;
-  await elements(ctx, s, c.bulle, true);
+  await elements(ctx, s, c.bulle, true, langue);
   timbre(ctx, k.x, k.y, k.l, k.h);
   ctx.fillStyle = ENCRE;
   ctx.textAlign = "center";
-  ctx.font = `${COUV.titre.taille}px "${POLICE.titre}"`;
+  // `titre_largeur` : la largeur libre entre les stickers ; une langue aux mots plus longs y tient en
+  // réduisant le titre (jamais sous 72 px), plutôt que de passer sous un sticker.
+  const libre = s.titre_largeur ?? k.l - 70;
   ctx.letterSpacing = "-2px";
+  ctx.font = `${COUV.titre.taille}px "${policeTitre(langue)}"`;
+  const large = Math.max(...c.titre.split("\n").map((l) => ctx.measureText(l).width));
+  const taille = Math.max(72, Math.min(COUV.titre.taille, Math.floor((COUV.titre.taille * libre) / large)));
+  const pas = Math.round((COUV.titre.pas * taille) / COUV.titre.taille);
+  ctx.font = `${taille}px "${policeTitre(langue)}"`;
   const titre = couper(ctx, c.titre, k.l - 70);
-  ctx.font = `${COUV.sous.taille}px "${POLICE.main}"`;
+  if (titre.some((l) => ctx.measureText(l).width > libre + 1)) throw new Error(`titre trop large en ${langue} : « ${c.titre.replace(/\n/g, " / ")} »`);
+  ctx.font = `${COUV.sous.taille}px "${policeMain(langue)}"`;
   const sous = c.sous ? couper(ctx, c.sous, k.l - 120) : [];
-  const hauteur = (titre.length - 1) * COUV.titre.pas + 64 + (sous.length ? COUV.sous.ecart + (sous.length - 1) * COUV.sous.pas : 0);
+  const hauteur = (titre.length - 1) * pas + 64 + (sous.length ? COUV.sous.ecart + (sous.length - 1) * COUV.sous.pas : 0);
   const base0 = k.y + (k.h - hauteur) / 2 + 64;
-  ctx.font = `${COUV.titre.taille}px "${POLICE.titre}"`;
-  for (const [i, l] of titre.entries()) ctx.fillText(l, k.x + k.l / 2, base0 + i * COUV.titre.pas);
+  ctx.font = `${taille}px "${policeTitre(langue)}"`;
+  ctx.letterSpacing = "-2px";
+  for (const [i, l] of titre.entries()) ctx.fillText(l, k.x + k.l / 2, base0 + i * pas);
   ctx.letterSpacing = "1.5px";
-  ctx.font = `${COUV.sous.taille}px "${POLICE.main}"`;
-  const baseSous = base0 + (titre.length - 1) * COUV.titre.pas + COUV.sous.ecart;
+  ctx.font = `${COUV.sous.taille}px "${policeMain(langue)}"`;
+  const baseSous = base0 + (titre.length - 1) * pas + COUV.sous.ecart;
   for (const [i, l] of sous.entries()) ctx.fillText(l, k.x + k.l / 2, baseSous + i * COUV.sous.pas);
   ctx.letterSpacing = "0px";
-  await elements(ctx, s, c.bulle, false);
+  await elements(ctx, s, c.bulle, false, langue);
 }
 
 /**
@@ -321,9 +336,9 @@ const APPLI = {
   texte: { dx: 61, base: 274, taille: 50, pas: 48, largeur: 610 },
 };
 
-async function appli(ctx: Ctx, s: Slide, c: TexteAppli) {
+async function appli(ctx: Ctx, s: Slide, c: TexteAppli, langue: string) {
   const k = s.carte ?? APPLI.carte;
-  await elements(ctx, s, c.bulle, true);
+  await elements(ctx, s, c.bulle, true, langue);
   timbre(ctx, k.x, k.y, k.l, k.h);
   // L'icône de l'App Store (celle de Sophia sur sa slide), arrondie ici comme sur iOS.
   const a = APPLI.icone;
@@ -350,9 +365,10 @@ async function appli(ctx: Ctx, s: Slide, c: TexteAppli) {
   ctx.letterSpacing = "0px";
   ctx.font = `${APPLI.texte.taille}px "${POLICE.texte}"`;
   const lignes = couper(ctx, c.texte, APPLI.texte.largeur);
-  if (lignes.length > 6) throw new Error(`« ${c.nom} » : description trop longue (6 lignes au plus)`);
+  const max = s.max_lignes ?? 6;
+  if (lignes.length > max) throw new Error(`« ${c.nom} » (${langue}) : description trop longue (${lignes.length} lignes, ${max} au plus)`);
   for (const [i, l] of lignes.entries()) ctx.fillText(l, k.x + APPLI.texte.dx, k.y + APPLI.texte.base + i * APPLI.texte.pas);
-  await elements(ctx, s, c.bulle, false);
+  await elements(ctx, s, c.bulle, false, langue);
 }
 
 // ---------------------------------------------------------------------------
@@ -366,8 +382,8 @@ export async function rendreSlide(post: Post, s: Slide, langue: string): Promise
   ctx.textBaseline = "alphabetic";
   const c = contenu<Record<string, unknown>>(s, langue);
   if (!c) throw new Error(`${post.id} : slide ${s.type} sans texte en ${langue}`);
-  if (s.type === "couverture") await couverture(ctx, s, c as TexteCouverture);
-  else if (s.type === "appli") await appli(ctx, s, c as TexteAppli);
+  if (s.type === "couverture") await couverture(ctx, s, c as TexteCouverture, langue);
+  else if (s.type === "appli") await appli(ctx, s, c as TexteAppli, langue);
   else throw new Error(`type de slide inconnu : ${s.type}`);
   return retirerMetadonnees(canvas.toBuffer("image/jpeg", 92));
 }

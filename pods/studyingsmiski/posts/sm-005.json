@@ -1,0 +1,437 @@
+{
+ "id": "sm-005",
+ "source": {
+  "url": "https://www.tiktok.com/@studyingsmiski/photo/7597186216085277982",
+  "vues": 17200,
+  "publie_le": "2026-01-19",
+  "accroche": "back to school STUDENT APPS MASTER LIST ios and android friendly!"
+ },
+ "musique": {
+  "titre": "did i tell u that i miss u",
+  "url": "https://www.tiktok.com/music/did-i-tell-u-that-i-miss-u-7356061396491061264"
+ },
+ "notes": "Remake de sa « back to school STUDENT APPS MASTER LIST » (17,2 k vues, 19/01/2026, relevé du 20/11 : 5 slides, cartes en timbre sur fond vert, Study Time with Rain, Turbo AI, Folderly, Headspace) : sa liste la plus proche de notre gabarit, preuve plus faible que les autres (17 k), prise parce que ses autres listes d'applis où Turbo AI apparaît sont déjà faites (sm-001 à sm-004) ou presque toutes concurrentes (« i replaced these 4 learning apps »). Mêmes 5 slides dans le même ordre, fond papier vert Seedream. Turbo AI (sa 3e) remplacée par Sophia, sa vraie icône, cta B. Gardées : Study Time With Rain, Folderly, Headspace. Son « ios and android friendly » n'est pas repris (Study Time With Rain et Folderly : Android non vérifié). Faits lus sur les fiches de l'App Store : Study Time With Rain, pomodoro avec un petit fantôme, statistiques d'étude et compte à rebours D-Day ; Folderly, dossiers par cours, sous-tâches et rappels ; Headspace, méditations guidées, sommeil et « 3-minute resets ». Toutes sur l'App Store des 10 pays du label (lookup iTunes du 20/11). Ses personnages (Smiski, figurines de marque) remplacés par nos stickers Seedream (pince, washi, crayon, tablette, plante, grenouilles, fiches, carnet, nuage, chat en feutrine générique) ; polaroid Seedream d'une bibliothèque, sans visage.",
+ "titre": {
+  "en": "student apps master list",
+  "fr": "la liste ultime des applis d'étudiante",
+  "es": "la lista definitiva de apps para estudiar",
+  "es-419": "la lista definitiva de apps para estudiar",
+  "it": "la lista definitiva delle app per studiare",
+  "tr": "öğrenci uygulamaları ana listesi",
+  "pt-BR": "a lista definitiva de apps pra estudar",
+  "de": "die ultimative app-liste fürs studium",
+  "sl": "glavni seznam aplikacij za študij",
+  "hu": "a nagy egyetemista applista"
+ },
+ "legendes": {
+  "en": "my back to school app list, all in one place 📝💚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "ma liste d'applis de rentrée, tout au même endroit 📝💚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "mi lista de apps para la vuelta a clase, todo en un sitio 📝💚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "mi lista de apps para el regreso a clases, todo en un lugar 📝💚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "la mia lista di app per il nuovo semestre, tutto in un posto 📝💚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "okula dönüş uygulama listem, hepsi tek yerde 📝💚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "minha lista de apps de volta às aulas, tudo num lugar só 📝💚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "meine app-liste zum semesterstart, alles an einem ort 📝💚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "moj seznam aplikacij za začetek študijskega leta, vse na enem mestu 📝💚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "a tanévkezdős applistám, minden egy helyen 📝💚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/pince.png",
+     "x": 465,
+     "y": 80,
+     "l": 150,
+     "rotation": 0
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 40,
+     "y": 150,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 40,
+     "y": 760,
+     "l": 300,
+     "rotation": -25
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 770,
+     "y": 680,
+     "l": 290,
+     "rotation": 8
+    }
+   ],
+   "en": {
+    "titre": "student apps\nmaster list",
+    "sous": "back to school\nedition"
+   },
+   "fr": {
+    "titre": "la liste ultime\ndes applis\nd'étudiante",
+    "sous": "spécial\nrentrée"
+   },
+   "es": {
+    "titre": "la lista\ndefinitiva de\napps para\nestudiar",
+    "sous": "edición\nvuelta a clase"
+   },
+   "es-419": {
+    "titre": "la lista\ndefinitiva de\napps para\nestudiar",
+    "sous": "edición\nregreso a clases"
+   },
+   "it": {
+    "titre": "la lista\ndefinitiva\ndelle app\nper studiare",
+    "sous": "edizione\nnuovo semestre"
+   },
+   "tr": {
+    "titre": "öğrenci\nuygulamaları\nana listesi",
+    "sous": "okula dönüş\nözel"
+   },
+   "pt-BR": {
+    "titre": "a lista\ndefinitiva de\napps pra\nestudar",
+    "sous": "edição\nvolta às aulas"
+   },
+   "de": {
+    "titre": "die ultimative\napp-liste\nfürs studium",
+    "sous": "semesterstart-\nedition"
+   },
+   "sl": {
+    "titre": "glavni seznam\naplikacij\nza študij",
+    "sous": "posebna izdaja\nza začetek leta"
+   },
+   "hu": {
+    "titre": "a nagy\negyetemista\napplista",
+    "sous": "tanévkezdős\nkiadás"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/study-time-rain/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "a pomodoro timer with a little ghost studying next to you, plus study stats and a d-day countdown for your exams!"
+   },
+   "fr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un minuteur pomodoro avec un petit fantôme qui bosse à côté de toi, des stats d'étude et un compte à rebours jusqu'à tes exams !"
+   },
+   "es": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un temporizador pomodoro con un fantasmita que estudia a tu lado, ¡más estadísticas de estudio y una cuenta atrás para tus exámenes!"
+   },
+   "es-419": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un pomodoro con un fantasmita que estudia a tu lado, ¡más estadísticas de estudio y cuenta regresiva para tus exámenes!"
+   },
+   "it": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un timer pomodoro con un fantasmino che studia accanto a te, più statistiche di studio e un conto alla rovescia per gli esami!"
+   },
+   "tr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "yanında ders çalışan küçük bir hayaletle pomodoro sayacı, üstüne çalışma istatistikleri ve sınavların için geri sayım!"
+   },
+   "pt-BR": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "um timer pomodoro com um fantasminha estudando do seu lado, mais estatísticas de estudo e uma contagem regressiva pras provas!"
+   },
+   "de": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "ein pomodoro-timer mit einem kleinen geist, der neben dir lernt, plus lernstatistiken und ein countdown bis zu deinen prüfungen!"
+   },
+   "sl": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "pomodoro časovnik z malim duhcem, ki se uči ob tebi, pa še statistika učenja in odštevanje do izpitov!"
+   },
+   "hu": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "pomodoro időzítő egy kis szellemmel, aki melletted tanul, plusz tanulási statisztikák és visszaszámlálás a vizsgáidig!"
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 800,
+     "y": 110,
+     "l": 230,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "my favorite 10 minutes of the day, no joke!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "mes 10 minutes préférées de la journée, sans mentir !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mis 10 minutos favoritos del día, en serio!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mis 10 minutos favoritos del día, en serio!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "i miei 10 minuti preferiti della giornata, giuro!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "günün en sevdiğim 10 dakikası, cidden!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "meus 10 minutos favoritos do dia, sério!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "meine liebsten 10 minuten am tag, ehrlich!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "mojih najljubših 10 minut v dnevu, res!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "a nap kedvenc 10 perce, komolyan!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/folderly/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "an academic organizer with a folder for every course, to-dos you can break into small steps, and reminders so you never miss a deadline."
+   },
+   "fr": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "un organiseur d'études : un dossier par matière, des to-do à découper en petites étapes et des rappels pour ne rater aucune date limite."
+   },
+   "es": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "un organizador académico con una carpeta por asignatura, tareas que divides en pasos pequeños y recordatorios para no perderte ninguna entrega."
+   },
+   "es-419": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "un organizador académico con una carpeta por materia, pendientes que divides en pasos pequeños y recordatorios para no perderte ninguna entrega."
+   },
+   "it": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "un organizer per lo studio con una cartella per ogni corso, to-do da dividere in piccoli passi e promemoria per non perdere nessuna scadenza."
+   },
+   "tr": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "her ders için bir klasör, küçük adımlara bölebildiğin yapılacaklar ve teslim tarihlerini kaçırmaman için hatırlatıcılar."
+   },
+   "pt-BR": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "um organizador da faculdade com uma pasta pra cada matéria, tarefas divididas em passos pequenos e lembretes pra não perder nenhum prazo."
+   },
+   "de": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "ein studien-organizer mit einem ordner pro kurs, to-dos in kleinen schritten und erinnerungen, damit du keine deadline verpasst."
+   },
+   "sl": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "organizator za študij z mapo za vsak predmet, opravili, ki jih razdeliš na majhne korake, in opomniki, da ne zamudiš roka."
+   },
+   "hu": {
+    "nom": "Folderly",
+    "plateformes": "iOS",
+    "texte": "tanulmányi rendszerező: minden tárgynak saját mappa, kis lépésekre bontható teendők és emlékeztetők, hogy ne késs le határidőt."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/headspace/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 60,
+     "y": 730,
+     "l": 230,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 730,
+     "y": 720,
+     "l": 300,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "for the stressful weeks: guided meditations, sleep sessions and quick 3-minute resets to calm your mind."
+   },
+   "fr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "pour les semaines stressantes : méditations guidées, séances pour mieux dormir et petites pauses de 3 minutes pour souffler."
+   },
+   "es": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "para las semanas de estrés: meditaciones guiadas, sesiones para dormir y pausas rápidas de 3 minutos para calmar la mente."
+   },
+   "es-419": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "para las semanas de estrés: meditaciones guiadas, sesiones para dormir y pausas rápidas de 3 minutos para calmar la mente."
+   },
+   "it": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "per le settimane stressanti: meditazioni guidate, sessioni per dormire e pause veloci di 3 minuti per calmare la mente."
+   },
+   "tr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "stresli haftalar için: rehberli meditasyonlar, uyku seansları ve zihnini sakinleştiren 3 dakikalık hızlı molalar."
+   },
+   "pt-BR": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "pras semanas de estresse: meditações guiadas, sessões pra dormir e pausas rápidas de 3 minutos pra acalmar a mente."
+   },
+   "de": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "für stressige wochen: geführte meditationen, einschlafhilfen und kurze 3-minuten-pausen, um den kopf zu beruhigen."
+   },
+   "sl": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "za stresne tedne: vodene meditacije, vsebine za spanje in hitri 3-minutni premori, ki umirijo misli."
+   },
+   "hu": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "a stresszes hetekre: vezetett meditációk, alvást segítő tartalmak és gyors, 3 perces szünetek, hogy megnyugodj."
+   }
+  }
+ ]
+}

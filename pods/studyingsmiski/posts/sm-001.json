@@ -7,10 +7,28 @@
   "accroche": "4 apps you need as a student! from a straight A student"
  },
  "titre": {
-  "en": "4 apps you need as a student"
+  "en": "4 apps you need as a student",
+  "fr": "4 applis qu'il te faut en cours",
+  "es": "4 apps que necesitas si estudias",
+  "es-419": "4 apps que necesitas si estudias",
+  "it": "4 app che ti servono se studi",
+  "tr": "öğrenciysen lazım olan 4 uygulama",
+  "pt-BR": "4 apps que toda aluna precisa ter",
+  "de": "4 apps fürs studium, die du brauchst",
+  "sl": "4 aplikacije, ki jih rabiš za študij",
+  "hu": "kötelező 4 app diákoknak"
  },
  "legendes": {
-  "en": "the apps that got me through finals season 🍵📚 #studytok #studytips #academicweapon #studentlife #college"
+  "en": "the apps that got me through finals season 🍵📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "les applis qui m'ont sauvée pendant les partiels 🍵📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "las apps que me salvaron en época de exámenes 🍵📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "las apps que me salvaron en temporada de exámenes 🍵📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "le app che mi hanno salvata durante la sessione 🍵📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "final haftasında beni kurtaran uygulamalar 🍵📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "os apps que me salvaram na época de provas 🍵📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "die apps, die mich durch die prüfungsphase gebracht haben 🍵📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "aplikacije, ki so me rešile v izpitnem obdobju 🍵📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "az appok, amik átsegítettek a vizsgaidőszakon 🍵📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
  },
  "musique": {
   "titre": "doodle - Slowed",
@@ -25,9 +43,9 @@
     {
      "type": "sticker",
      "image": "images/stickers/dango.png",
-     "x": 150,
-     "y": 330,
-     "l": 190,
+     "x": 85,
+     "y": 290,
+     "l": 170,
      "rotation": -18
     },
     {
@@ -41,7 +59,7 @@
     {
      "type": "sticker",
      "image": "images/stickers/matcha.png",
-     "x": 760,
+     "x": 780,
      "y": 150,
      "l": 220,
      "rotation": 10
@@ -66,7 +84,44 @@
    "en": {
     "titre": "4 apps you\nneed as a\nstudent!",
     "sous": "from a straight\nA student"
-   }
+   },
+   "fr": {
+    "titre": "4 applis\nqu'il te faut\nen cours !",
+    "sous": "d'une élève\nà 18 de moyenne"
+   },
+   "es": {
+    "titre": "¡4 apps que\nnecesitas si\nestudias!",
+    "sous": "de una estudiante\nde sobresaliente"
+   },
+   "es-419": {
+    "titre": "¡4 apps que\nnecesitas si\nestudias!",
+    "sous": "de una estudiante\nde puro 10"
+   },
+   "it": {
+    "titre": "4 app che\nti servono\nse studi!",
+    "sous": "da una studentessa\nda 30 e lode"
+   },
+   "tr": {
+    "titre": "öğrenciysen\nlazım olan\n4 uygulama!",
+    "sous": "hep AA alan\nbir öğrenciden"
+   },
+   "pt-BR": {
+    "titre": "4 apps que\ntoda aluna\nprecisa ter!",
+    "sous": "de uma aluna\nnota 10"
+   },
+   "de": {
+    "titre": "4 apps fürs\nstudium, die\ndu brauchst!",
+    "sous": "von einer\n1,0-studentin"
+   },
+   "sl": {
+    "titre": "4 aplikacije,\nki jih rabiš\nza študij!",
+    "sous": "od študentke\ns samimi desetkami"
+   },
+   "hu": {
+    "titre": "kötelező\n4 app\ndiákoknak!",
+    "sous": "egy színötös\ndiáktól"
+   },
+   "titre_largeur": 425
   },
   {
    "type": "appli",
@@ -106,7 +161,62 @@
     "plateformes": "iOS, Android",
     "texte": "you can write by hand on your tablet like it's real paper and keep every class in its own digital notebook!",
     "bulle": "psst... you can search your handwriting!"
-   }
+   },
+   "fr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "tu écris à la main sur ta tablette comme sur du papier, et chaque cours a son carnet numérique !",
+    "bulle": "psst... tu peux chercher dans ton écriture !"
+   },
+   "es": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "escribes a mano en la tablet como en papel, ¡y cada asignatura tiene su cuaderno digital!",
+    "bulle": "psst... ¡puedes buscar en tu letra a mano!"
+   },
+   "es-419": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "escribes a mano en tu tablet como en papel, ¡y cada materia tiene su cuaderno digital!",
+    "bulle": "psst... ¡puedes buscar palabras en tu letra!"
+   },
+   "it": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "scrivi a mano sul tablet come su carta vera, e ogni materia ha il suo quaderno digitale!",
+    "bulle": "psst... puoi cercare nella tua scrittura!"
+   },
+   "tr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "tabletinde gerçek kağıttaymış gibi elle yazıyorsun ve her dersin kendi dijital defteri oluyor!",
+    "bulle": "psst... el yazında arama bile yapabiliyorsun!"
+   },
+   "pt-BR": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "você escreve à mão no tablet como no papel, e cada matéria ganha seu caderno digital!",
+    "bulle": "psiu... dá pra pesquisar na sua letra!"
+   },
+   "de": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "du schreibst auf dem tablet von hand wie auf papier, und jedes fach hat sein eigenes digitales heft!",
+    "bulle": "psst... du kannst sogar deine handschrift durchsuchen!"
+   },
+   "sl": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "na tablici pišeš na roko kot na pravi papir, vsak predmet pa ima svoj digitalni zvezek!",
+    "bulle": "psst... po svoji pisavi lahko celo iščeš!"
+   },
+   "hu": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "a tableteden kézzel írsz, mintha igazi papír lenne, és minden tantárgynak saját digitális füzete van!",
+    "bulle": "pszt... még a kézírásodban is kereshetsz!"
+   },
+   "max_lignes": 4
   },
   {
    "type": "appli",
@@ -134,6 +244,51 @@
     "nom": "Habitica",
     "plateformes": "iOS, Android",
     "texte": "habitica turns your habits and to-dos into an rpg. you level up when you get things done, lose hp when you skip them, and earn gold to buy gear!"
+   },
+   "fr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "habitica fait de tes to-do un jeu de rôle : tu montes de niveau quand tu les fais, tu perds des pv quand tu les sautes, et tu gagnes de l'or !"
+   },
+   "es": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "habitica convierte tus tareas en un rpg. ¡subes de nivel cuando las cumples, pierdes vida cuando te las saltas y ganas oro para tu equipo!"
+   },
+   "es-419": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "habitica convierte tus pendientes en un rpg. ¡subes de nivel cuando los cumples, pierdes vida cuando te los saltas y ganas oro para tu equipo!"
+   },
+   "it": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "habitica trasforma i tuoi to-do in un gioco di ruolo. sali di livello quando li completi, perdi pf quando li salti e guadagni oro per l'equipaggiamento!"
+   },
+   "tr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "habitica yapılacaklarını bir rpg'ye çeviriyor. bitirince seviye atlıyorsun, atlayınca can kaybediyorsun ve ekipman için altın kazanıyorsun!"
+   },
+   "pt-BR": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "o habitica transforma suas tarefas num rpg. você sobe de nível quando cumpre, perde vida quando pula e ganha ouro pra comprar equipamentos!"
+   },
+   "de": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "habitica macht aus deinen to-dos ein rollenspiel: erledigt heißt level up, auslassen kostet lp, und mit gold kaufst du ausrüstung!"
+   },
+   "sl": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "habitica tvoje navade in opravila spremeni v igro vlog. ko kaj narediš, napreduješ, ko kaj izpustiš, izgubiš življenje, z zlatom pa kupiš opremo!"
+   },
+   "hu": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "a habitica szerepjátékot csinál a teendőidből. szintet lépsz, ha elvégzed őket, életet veszítesz, ha kihagyod, és aranyat kapsz felszerelésre!"
    }
   },
   {
@@ -183,7 +338,62 @@
     "plateformes": "iOS",
     "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
     "bulle": "i do my daily lesson on the bus instead of scrolling!"
-   }
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "je fais ma leçon du jour dans le bus au lieu de scroller !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡hago mi lección del día en el bus en vez de hacer scroll!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡hago mi lección del día en el bus en vez de scrollear!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "faccio la lezione del giorno sul bus invece di scrollare!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "kaydırmak yerine günlük dersimi otobüste yapıyorum!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "faço minha aula do dia no ônibus em vez de rolar o feed!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "ich mache meine lektion im bus, statt zu scrollen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "dnevno lekcijo naredim kar na avtobusu!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "a napi leckémet a buszon csinálom görgetés helyett!"
+   },
+   "max_lignes": 5
   },
   {
    "type": "appli",
@@ -219,6 +429,51 @@
     "nom": "Dtd Sounds",
     "plateformes": "iOS",
     "texte": "a focus app that puts calming sounds and a study timer in one place, so you can stay focused and relaxed while studying."
+   },
+   "fr": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "une appli de concentration qui réunit des sons apaisants et un minuteur d'étude, pour rester concentrée et détendue quand tu bosses."
+   },
+   "es": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "una app de concentración que junta sonidos relajantes y un temporizador de estudio, para que estudies concentrada y tranquila."
+   },
+   "es-419": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "una app para concentrarte que junta sonidos relajantes y un temporizador de estudio, para que estudies enfocada y tranquila."
+   },
+   "it": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "un'app per la concentrazione che mette insieme suoni rilassanti e un timer per lo studio, così resti concentrata e tranquilla."
+   },
+   "tr": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "rahatlatıcı sesleri ve ders zamanlayıcısını bir araya getiren bir odak uygulaması, çalışırken hem odaklı hem rahat kalıyorsun."
+   },
+   "pt-BR": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "um app de foco que junta sons relaxantes e um timer de estudo, pra você estudar concentrada e tranquila."
+   },
+   "de": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "eine fokus-app, die beruhigende sounds und einen lerntimer vereint, damit du beim lernen konzentriert und entspannt bleibst."
+   },
+   "sl": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "aplikacija za zbranost, ki združuje pomirjujoče zvoke in časovnik za učenje, da med učenjem ostaneš zbrana in sproščena."
+   },
+   "hu": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "egy fókuszapp, ami nyugtató hangokat és tanulási időzítőt ad egy helyen, így tanulás közben koncentrált és nyugodt maradsz."
    }
   }
  ]

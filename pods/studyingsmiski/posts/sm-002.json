@@ -1,0 +1,458 @@
+{
+ "id": "sm-002",
+ "source": {
+  "url": "https://www.tiktok.com/@studyingsmiski/photo/7555510624701189407",
+  "vues": 339600,
+  "publie_le": "2025-09-29",
+  "accroche": "4 apps you need as a student! from a straight A student :)"
+ },
+ "musique": {
+  "titre": "the way things go",
+  "url": "https://www.tiktok.com/music/the-way-things-go-7247627511276980225"
+ },
+ "notes": "Remake de sa version verte de « 4 apps you need as a student! » (339,6 k vues, 29/09/2025), relevée le 20/11 (Apify, ses 5 slides) : mêmes 5 slides dans le même ordre, sur notre gabarit de cartes en timbre et un fond papier vert pâle Seedream (images/fonds/vert.jpg). Accroche reformulée en « 4 apps every student needs » (sa légende : « 4 apps every student NEEDS ») pour ne pas reprendre mot pour mot celle de sm-001. Turbo AI (sa 4e carte) remplacée par Sophia, sa vraie icône, cta B. Opal (sa 3e, blocage d'applis et temps d'écran : concurrente de Sophia) remplacée par Notion (une de ses applis douces, de « popular apps i ditched »). Gardées : Study Time With Rain (sa 2e) et Goodnotes (sa 5e). Faits lus sur les fiches de l'App Store (images/applis/*/fiche.json) : Study Time With Rain, minuteur pomodoro ou classique avec un petit fantôme, ambiance pluie et bibliothèque de chansons ; Notion, notes, tâches et projets en pages ; Goodnotes, notes manuscrites et carnets numériques. Plateformes : iOS seul pour Study Time With Rain (Android non vérifié), iOS et Android pour Notion et Goodnotes. Toutes disponibles sur l'App Store des 10 pays du label (lookup iTunes du 20/11). Ses personnages (Smiski, chat de marque) remplacés par nos stickers Seedream (plante, washi, chat en feutrine générique, grenouilles, tasse de matcha, carnet, crayon, tablette).",
+ "titre": {
+  "en": "4 apps every student needs",
+  "fr": "4 applis qu'il faut avoir en fac",
+  "es": "4 apps que toda estudiante necesita",
+  "es-419": "4 apps que toda estudiante necesita",
+  "it": "4 app che ogni studentessa deve avere",
+  "tr": "her öğrencinin ihtiyacı olan 4 uygulama",
+  "pt-BR": "4 apps obrigatórios pra estudar",
+  "de": "4 apps, die jede studentin braucht",
+  "sl": "4 aplikacije za vsako študentko",
+  "hu": "4 app, ami nélkül nincs egyetem"
+ },
+ "legendes": {
+  "en": "these 4 saved my grades (and my sanity) 🌿📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "ces 4 applis ont sauvé mes notes (et mon mental) 🌿📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "estas 4 apps salvaron mis notas (y mi salud mental) 🌿📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "estas 4 apps salvaron mis calificaciones (y mi salud mental) 🌿📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "queste 4 app mi hanno salvato i voti (e la sanità mentale) 🌿📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "bu 4 uygulama notlarımı (ve akıl sağlığımı) kurtardı 🌿📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "esses 4 apps salvaram minhas notas (e minha sanidade) 🌿📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "diese 4 apps haben meine noten (und meine nerven) gerettet 🌿📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "te 4 aplikacije so mi rešile ocene (in živce) 🌿📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "ez a 4 app mentette meg a jegyeimet (és az idegeimet) 🌿📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 500,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 30,
+     "y": 110,
+     "l": 210,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 720,
+     "y": 150,
+     "l": 230,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 40,
+     "y": 720,
+     "l": 250,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "4 apps every\nstudent\nneeds!",
+    "sous": "from a straight\nA student :)"
+   },
+   "fr": {
+    "titre": "4 applis\nqu'il faut\navoir en fac !",
+    "sous": "d'une élève\nà 18 de moyenne :)"
+   },
+   "es": {
+    "titre": "¡4 apps que\nnecesita toda\nestudiante!",
+    "sous": "de una estudiante\nde sobresaliente :)"
+   },
+   "es-419": {
+    "titre": "¡4 apps que\nnecesita toda\nestudiante!",
+    "sous": "de una estudiante\nde puro 10 :)"
+   },
+   "it": {
+    "titre": "4 app che ogni\nstudentessa\ndeve avere!",
+    "sous": "da una studentessa\nda 30 e lode :)"
+   },
+   "tr": {
+    "titre": "her öğrencinin\nihtiyacı olan\n4 uygulama!",
+    "sous": "hep AA alan\nbir öğrenciden :)"
+   },
+   "pt-BR": {
+    "titre": "4 apps\nobrigatórios\npra estudar!",
+    "sous": "de uma aluna\nnota 10 :)"
+   },
+   "de": {
+    "titre": "4 apps, die\njede studentin\nbraucht!",
+    "sous": "von einer\n1,0-studentin :)"
+   },
+   "sl": {
+    "titre": "4 aplikacije\nza vsako\nštudentko!",
+    "sous": "od študentke\ns samimi desetkami :)"
+   },
+   "hu": {
+    "titre": "4 app, ami\nnélkül nincs\negyetem!",
+    "sous": "egy színötös\ndiáktól :)"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/study-time-rain/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 60,
+     "y": 720,
+     "l": 260,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 800,
+     "y": 730,
+     "l": 220,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "a cozy study timer with a cute little ghost. pick pomodoro or a regular timer, then study along to rainy vibes and its song library!"
+   },
+   "fr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un minuteur d'étude tout doux avec un petit fantôme. pomodoro ou minuteur classique, et tu bosses sous l'ambiance pluie et ses musiques !"
+   },
+   "es": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un temporizador de estudio con un fantasmita adorable. eliges pomodoro o temporizador normal, ¡y estudias con ambiente de lluvia y canciones!"
+   },
+   "es-419": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un temporizador de estudio con un fantasmita adorable. eliges pomodoro o temporizador normal, ¡y estudias con ambiente de lluvia y canciones!"
+   },
+   "it": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un timer per lo studio con un fantasmino adorabile. scegli pomodoro o timer normale e studi con l'atmosfera di pioggia e le sue canzoni!"
+   },
+   "tr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "minik, tatlı bir hayaletle çalıştığın sevimli bir ders zamanlayıcısı. pomodoro ya da normal sayaç seç, sonra yağmur havasında şarkılarıyla çalış!"
+   },
+   "pt-BR": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "um timer de estudo fofinho com um fantasminha lindo. escolhe pomodoro ou timer normal e estuda com clima de chuva e as músicas dele!"
+   },
+   "de": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "ein süßer lerntimer mit einem kleinen geist. wähl pomodoro oder einen normalen timer und lern mit regenstimmung und songs!"
+   },
+   "sl": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "luškan časovnik za učenje s prikupnim malim duhcem. izbereš pomodoro ali navaden časovnik in se učiš ob vzdušju dežja in njegovih pesmih!"
+   },
+   "hu": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "cuki tanulási időzítő egy aranyos kis szellemmel. választhatsz pomodorót vagy sima időzítőt, és esős hangulatban, dalokkal tanulhatsz!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/notion/icone.jpg",
+   "max_lignes": 4,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 770,
+     "y": 640,
+     "l": 220,
+     "rotation": 8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 40,
+     "y": 700,
+     "l": 270,
+     "rotation": -5
+    },
+    {
+     "type": "bulle",
+     "x": 320,
+     "y": 650,
+     "l": 420,
+     "h": 250,
+     "queue": {
+      "x": 280,
+      "y": 820
+     }
+    }
+   ],
+   "en": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "class notes, to-dos and projects all in one place, in pages you can set up however you like.",
+    "bulle": "my notion has a page for every class!"
+   },
+   "fr": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "notes de cours, to-do et projets au même endroit, dans des pages que tu organises comme tu veux.",
+    "bulle": "j'ai une page notion pour chaque cours !"
+   },
+   "es": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "apuntes, listas de tareas y proyectos en un solo sitio, ordenados en páginas que montas como quieras.",
+    "bulle": "¡tengo una página de notion para cada asignatura!"
+   },
+   "es-419": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "apuntes, pendientes y proyectos en un solo lugar, en páginas que armas como quieras.",
+    "bulle": "¡tengo una página de notion para cada materia!"
+   },
+   "it": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "appunti, to-do list e progetti in un unico posto, organizzati in pagine che imposti come vuoi tu.",
+    "bulle": "ho una pagina notion per ogni materia!"
+   },
+   "tr": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "ders notları, yapılacaklar listesi ve projeler tek yerde, istediğin gibi düzenlediğin sayfalarda.",
+    "bulle": "her ders için bir notion sayfam var!"
+   },
+   "pt-BR": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "anotações, listas de tarefas e projetos num lugar só, organizados em páginas do jeito que você quiser.",
+    "bulle": "tenho uma página no notion pra cada matéria!"
+   },
+   "de": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "mitschriften, to-do-listen und projekte an einem ort, sortiert in seiten, die du einrichtest, wie du willst.",
+    "bulle": "ich hab für jedes fach eine notion-seite!"
+   },
+   "sl": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "zapiski, seznami opravil in projekti na enem mestu, urejeni v strani, ki si jih nastaviš po svoje.",
+    "bulle": "za vsak predmet imam svojo stran v notionu!"
+   },
+   "hu": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "jegyzetek, teendőlisták és projektek egy helyen, olyan oldalakba rendezve, amilyenre csak szeretnéd.",
+    "bulle": "minden tantárgynak van egy notion-oldalam!"
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 820,
+     "y": 110,
+     "l": 190,
+     "rotation": 10
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "i swapped my morning scroll for my daily lesson!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "j'ai remplacé mon scroll du matin par ma leçon !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡cambié el scroll de la mañana por mi lección!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡cambié el scroll de la mañana por mi lección!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "ho cambiato lo scroll del mattino con la mia lezione!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "sabahları kaydırmak yerine dersimi yapıyorum!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "troquei o scroll da manhã pela minha aula!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "statt morgens zu scrollen, mache ich meine lektion!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "jutranje skrolanje sem zamenjala z lekcijo!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "a reggeli görgetést lecseréltem a leckémre!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/goodnotes/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 750,
+     "l": 300,
+     "rotation": -18
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 730,
+     "y": 660,
+     "l": 320,
+     "rotation": -8
+    }
+   ],
+   "en": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "the comfiest way to take handwritten notes on a tablet. it feels like real paper and everything goes into digital notebooks."
+   },
+   "fr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "la façon la plus agréable d'écrire à la main sur tablette. on dirait du vrai papier et tout se range en carnets numériques."
+   },
+   "es": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "la forma más cómoda de tomar apuntes a mano en la tablet. parece papel de verdad y todo se guarda en cuadernos digitales."
+   },
+   "es-419": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "la forma más cómoda de escribir a mano en la tablet. se siente como papel y todo queda en cuadernos digitales."
+   },
+   "it": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "il modo più comodo per prendere appunti a mano sul tablet. sembra carta vera e tutto finisce in quaderni digitali."
+   },
+   "tr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "tablette elle not almanın en rahat yolu. gerçek kağıt gibi hissettiriyor ve her şey dijital defterlerde duruyor."
+   },
+   "pt-BR": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "o jeito mais gostoso de anotar à mão no tablet. parece papel de verdade e tudo vai pra cadernos digitais."
+   },
+   "de": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "die gemütlichste art, auf dem tablet von hand mitzuschreiben. fühlt sich an wie papier, und alles landet in digitalen heften."
+   },
+   "sl": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "najprijetnejši način za ročne zapiske na tablici. občutek je kot pravi papir, vse pa se shrani v digitalne zvezke."
+   },
+   "hu": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "a legkényelmesebb módja a kézzel írt jegyzeteknek tableten. olyan, mint az igazi papír, és minden digitális füzetekbe kerül."
+   }
+  }
+ ]
+}

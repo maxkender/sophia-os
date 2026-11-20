@@ -1,0 +1,511 @@
+{
+ "id": "sm-003",
+ "source": {
+  "url": "https://www.tiktok.com/@studyingsmiski/photo/7581565399871786271",
+  "vues": 75200,
+  "publie_le": "2025-12-08",
+  "accroche": "apps that will make you smarter instead of doomscrolling"
+ },
+ "musique": {
+  "titre": "pipo pipo",
+  "url": "https://www.tiktok.com/music/pipo-pipo-7181874531974531886"
+ },
+ "notes": "Remake de « apps that will make you smarter instead of doomscrolling » (75,2 k vues, 08/12/2025, relevé du 20/11 : 6 slides, NYT Games, Turbo AI, Duolingo, Word Salad, 2048) : même accroche, mêmes 6 slides dans le même ordre, sur notre gabarit de cartes en timbre et son ciel. Turbo AI (sa 3e slide) remplacée par Sophia, sa vraie icône, cta C. Duolingo (langues : concurrente de Sophia) remplacée par Sudoku.com. NYT Games et Word Salad (jeux de mots en anglais seulement, sans intérêt pour les 9 autres langues du label) remplacés par deux jeux de logique sans langue : Nonogram.com et Flow Free. Gardée : 2048 (Ketchapp). Faits lus sur les fiches de l'App Store : Nonogram.com, picross à indices chiffrés qui révèle une image, des milliers de niveaux ; Sudoku.com, des milliers de sudokus du facile à l'expert ; Flow Free, relier les couleurs par des tuyaux sans croiser, tout le plateau rempli ; 2048, fusionner les tuiles jusqu'à 2048. Toutes disponibles sur l'App Store des 10 pays du label (lookup iTunes du 20/11), et sur Android. Ses personnages (figurines, Hello Kitty, lapin de marque) remplacés par nos stickers Seedream (pièce de puzzle, crayon, grenouilles, fiches, carnet, dango, matcha, tasse) ; polaroid Seedream d'une bibliothèque, sans visage.",
+ "titre": {
+  "en": "apps that will make you smarter instead of doomscrolling",
+  "fr": "des applis qui te rendent plus maligne au lieu de doomscroller",
+  "es": "apps que te hacen más lista en vez de hacer doomscrolling",
+  "es-419": "apps que te hacen más lista en vez de hacer doomscrolling",
+  "it": "app che ti rendono più intelligente invece del doomscrolling",
+  "tr": "doomscrolling yerine seni daha zeki yapan uygulamalar",
+  "pt-BR": "apps que te deixam mais inteligente em vez do doomscrolling",
+  "de": "apps, die dich schlauer machen statt doomscrolling",
+  "sl": "aplikacije, ki te naredijo pametnejšo namesto doomscrollanja",
+  "hu": "appok, amik okosabbá tesznek doomscrolling helyett"
+ },
+ "legendes": {
+  "en": "swap a few minutes of scrolling for these 🧠🌷 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "remplace quelques minutes de scroll par ça 🧠🌷 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "cambia unos minutos de scroll por estas 🧠🌷 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "cambia unos minutos de scroll por estas 🧠🌷 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "cambia qualche minuto di scroll con queste 🧠🌷 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "birkaç dakikalık kaydırmayı bunlarla değiştir 🧠🌷 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "troca uns minutinhos de scroll por esses 🧠🌷 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "tausch ein paar minuten scrollen gegen diese apps 🧠🌷 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "nekaj minut skrolanja zamenjaj s temi 🧠🌷 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "cseréld le pár perc görgetést ezekre 🧠🌷 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 50,
+     "y": 160,
+     "l": 210,
+     "rotation": -15
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 790,
+     "y": 120,
+     "l": 230,
+     "rotation": 20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 300,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 770,
+     "y": 700,
+     "l": 280,
+     "rotation": 7
+    }
+   ],
+   "en": {
+    "titre": "apps that will\nmake you\nsmarter",
+    "sous": "instead of\ndoomscrolling"
+   },
+   "fr": {
+    "titre": "des applis\nqui te rendent\nplus maligne",
+    "sous": "au lieu de\ndoomscroller"
+   },
+   "es": {
+    "titre": "apps que te\nhacen más\nlista",
+    "sous": "en vez de hacer\ndoomscrolling"
+   },
+   "es-419": {
+    "titre": "apps que te\nhacen más\nlista",
+    "sous": "en vez de hacer\ndoomscrolling"
+   },
+   "it": {
+    "titre": "app che ti\nrendono più\nintelligente",
+    "sous": "invece di fare\ndoomscrolling"
+   },
+   "tr": {
+    "titre": "seni daha\nzeki yapan\nuygulamalar",
+    "sous": "doomscrolling\nyerine"
+   },
+   "pt-BR": {
+    "titre": "apps que te\ndeixam mais\ninteligente",
+    "sous": "em vez de fazer\ndoomscrolling"
+   },
+   "de": {
+    "titre": "apps, die\ndich schlauer\nmachen",
+    "sous": "statt\ndoomscrolling"
+   },
+   "sl": {
+    "titre": "aplikacije,\nki te naredijo\npametnejšo",
+    "sous": "namesto\ndoomscrollanja"
+   },
+   "hu": {
+    "titre": "appok, amik\nokosabbá\ntesznek",
+    "sous": "doomscrolling\nhelyett"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/nonogram/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 60,
+     "y": 730,
+     "l": 260,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "picture logic puzzles: use the number clues to fill the grid and reveal a hidden picture. thousands of levels, from easy to hard!"
+   },
+   "fr": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "des casse-têtes en image : avec les indices chiffrés, tu remplis la grille et une image cachée apparaît. des milliers de niveaux !"
+   },
+   "es": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "puzles de lógica con dibujo: usas las pistas numéricas para rellenar la cuadrícula y descubrir una imagen oculta. ¡miles de niveles!"
+   },
+   "es-419": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "acertijos de lógica con dibujo: usas las pistas numéricas para llenar la cuadrícula y descubrir una imagen oculta. ¡miles de niveles!"
+   },
+   "it": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "puzzle logici con disegno: usi gli indizi numerici per riempire la griglia e scoprire un'immagine nascosta. migliaia di livelli!"
+   },
+   "tr": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "resimli mantık bulmacaları: sayı ipuçlarıyla tabloyu doldur ve gizli resmi ortaya çıkar. kolaydan zora binlerce seviye!"
+   },
+   "pt-BR": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "quebra-cabeças de lógica com imagem: você usa as dicas numéricas pra preencher a grade e revelar um desenho escondido!"
+   },
+   "de": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "bilderrätsel mit logik: mit den zahlenhinweisen füllst du das raster und deckst ein verstecktes bild auf. tausende level!"
+   },
+   "sl": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "logične uganke s sliko: s številskimi namigi zapolniš mrežo in odkriješ skrito sliko. na tisoče stopenj, od lahkih do težkih!"
+   },
+   "hu": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "képes logikai rejtvények: a számokból kitalálod, mit kell kitölteni, és előbukkan egy rejtett kép. több ezer szint!"
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 830,
+     "y": 100,
+     "l": 190,
+     "rotation": 10
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "i do my lesson in bed instead of doomscrolling!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "je fais ma leçon au lit au lieu de scroller !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡hago mi lección en la cama en vez de hacer scroll!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡hago mi lección en la cama en vez de scrollear!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "faccio la lezione a letto invece di scrollare!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "kaydırmak yerine dersimi yatakta yapıyorum!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "faço minha aula na cama em vez de rolar o feed!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "ich mache meine lektion im bett statt zu scrollen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "lekcijo naredim v postelji, namesto da skrolam!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "a leckémet az ágyban csinálom görgetés helyett!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/sudoku/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 70,
+     "y": 730,
+     "l": 220,
+     "rotation": -12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 800,
+     "y": 730,
+     "l": 220,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "thousands of classic sudoku puzzles, from easy to expert. perfect for a quick brain break between study sessions."
+   },
+   "fr": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "des milliers de sudokus classiques, du facile à l'expert. parfait pour une petite pause cerveau entre deux révisions."
+   },
+   "es": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "miles de sudokus clásicos, de fácil a experto. perfecto para un descanso mental entre sesiones de estudio."
+   },
+   "es-419": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "miles de sudokus clásicos, de fácil a experto. perfecto para un break mental entre sesiones de estudio."
+   },
+   "it": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "migliaia di sudoku classici, da facili a esperti. perfetti per una pausa per il cervello tra una sessione di studio e l'altra."
+   },
+   "tr": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "kolaydan uzmana binlerce klasik sudoku. ders aralarında beynine mükemmel bir mola."
+   },
+   "pt-BR": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "milhares de sudokus clássicos, do fácil ao expert. perfeito pra uma pausa pro cérebro entre as sessões de estudo."
+   },
+   "de": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "tausende klassische sudokus, von leicht bis experte. perfekt für eine kurze denkpause zwischen zwei lerneinheiten."
+   },
+   "sl": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "na tisoče klasičnih sudokujev, od lahkih do ekspertnih. idealno za kratek premor za možgane med učenjem."
+   },
+   "hu": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "több ezer klasszikus sudoku, a könnyűtől a profi szintig. tökéletes kis agyszünet két tanulás között."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/flow-free/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 760,
+     "l": 200,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 810,
+     "y": 700,
+     "l": 200,
+     "rotation": 12
+    }
+   ],
+   "en": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "connect matching colors with pipes and fill the whole board without crossing any lines. simple, calming and so addictive!"
+   },
+   "fr": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "relie les couleurs identiques avec des tuyaux et remplis tout le plateau sans croiser les lignes. simple et trop addictif !"
+   },
+   "es": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "une los colores iguales con tuberías y llena todo el tablero sin cruzar líneas. ¡sencillo, relajante y súper adictivo!"
+   },
+   "es-419": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "une los colores iguales con tubos y llena todo el tablero sin cruzar líneas. ¡sencillo, relajante y súper adictivo!"
+   },
+   "it": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "collega i colori uguali con dei tubi e riempi il tabellone senza incrociare le linee. semplice e rilassante!"
+   },
+   "tr": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "aynı renkleri borularla birleştir ve çizgileri kesiştirmeden tüm tahtayı doldur. basit, rahatlatıcı ve çok bağımlılık yapıcı!"
+   },
+   "pt-BR": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "liga as cores iguais com canos e preenche o tabuleiro todo sem cruzar as linhas. simples, relaxante e viciante demais!"
+   },
+   "de": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "verbinde gleiche farben mit rohren und füll das ganze feld, ohne dass sich linien kreuzen. simpel und beruhigend!"
+   },
+   "sl": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "poveži enake barve s cevmi in zapolni celo ploščo, ne da bi se črte križale. preprosto, pomirjujoče in zelo zasvojljivo!"
+   },
+   "hu": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "kösd össze az azonos színeket csövekkel, és töltsd ki a táblát úgy, hogy a vonalak ne keresztezzék egymást. nyugtató!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/2048/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 50,
+     "y": 720,
+     "l": 260,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 810,
+     "y": 700,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "slide the tiles and merge matching numbers to reach 2048. it looks easy until you start planning your moves ahead!"
+   },
+   "fr": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "fais glisser les tuiles et fusionne les mêmes nombres pour atteindre 2048. ça a l'air facile jusqu'à ce qu'il faille prévoir tes coups !"
+   },
+   "es": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "desliza las fichas y junta los números iguales hasta llegar a 2048. ¡parece fácil hasta que tienes que planear tus jugadas!"
+   },
+   "es-419": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "desliza las fichas y junta los números iguales hasta llegar a 2048. ¡parece fácil hasta que tienes que planear tus jugadas!"
+   },
+   "it": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "fai scorrere le tessere e unisci i numeri uguali fino a 2048. sembra facile finché non devi pianificare le mosse!"
+   },
+   "tr": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "karoları kaydır, aynı sayıları birleştirip 2048'e ulaş. hamlelerini önceden planlamaya başlayana kadar kolay görünüyor!"
+   },
+   "pt-BR": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "desliza as peças e junta os números iguais até chegar no 2048. parece fácil até você ter que planejar as jogadas!"
+   },
+   "de": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "schieb die kacheln und verbinde gleiche zahlen, bis du 2048 erreichst. sieht leicht aus, bis du züge vorausplanen musst!"
+   },
+   "sl": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "drsaj ploščice in združuj enaka števila, dokler ne prideš do 2048. videti je lahko, dokler ne začneš načrtovati potez!"
+   },
+   "hu": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "csúsztasd a lapokat, és egyesítsd az azonos számokat, amíg el nem éred a 2048-at. könnyűnek tűnik, amíg nem kell előre tervezned!"
+   }
+  }
+ ]
+}

@@ -1,0 +1,437 @@
+{
+ "id": "sm-004",
+ "source": {
+  "url": "https://www.tiktok.com/@studyingsmiski/photo/7569008045318065439",
+  "vues": 70000,
+  "publie_le": "2025-11-04",
+  "accroche": "4 apps you need as a student! (légende : as a college senior, these are the must-have apps that carried me through 4 years)"
+ },
+ "musique": {
+  "titre": "New Jeans",
+  "url": "https://www.tiktok.com/music/new-jeans-7251860325203593218"
+ },
+ "notes": "Remake de sa liste du 04/11/2025 (70 k vues, relevé du 20/11 : 5 slides, Focus Friend, Opal, Turbo AI, Structured) : mêmes 5 slides dans le même ordre, sur notre gabarit de cartes en timbre et son ciel. Sa couverture reprend « 4 apps you need as a student! », déjà faite chez nous (sm-001) : l'accroche vient donc de sa légende (« the must-have apps that carried me through 4 years »), « 4 apps that carried me through college ». Turbo AI (sa 4e) remplacée par Sophia, sa vraie icône, cta A. Focus Friend (minuteur qui pénalise quand on quitte l'appli, famille Forest et Flora : temps d'écran, concurrente de Sophia) remplacée par Pomocat ; Opal (blocage d'applis, concurrente) remplacée par Headspace (une de ses applis douces, de sa « student apps master list »). Gardée : Structured. Faits lus sur les fiches de l'App Store : Pomocat, minuteur avec des animations de chat et du bruit blanc ; Headspace, méditations guidées dont des « 3-minute resets » ; Structured, agenda visuel qui met calendrier, tâches et routines sur une frise. Plateformes : Pomocat iOS seul (Android non vérifié), Headspace et Structured iOS et Android. Toutes sur l'App Store des 10 pays du label (lookup iTunes du 20/11). Ses personnages (les Supernanas, des personnages de marque) remplacés par nos stickers Seedream (toque, écouteurs, grenouilles, chat en feutrine générique, plante, nuage, punaise, pince) ; polaroid Seedream d'un bureau, sans visage.",
+ "titre": {
+  "en": "4 apps that carried me through college",
+  "fr": "4 applis qui m'ont portée pendant la fac",
+  "es": "4 apps que me salvaron en la uni",
+  "es-419": "4 apps que me salvaron en la uni",
+  "it": "4 app che mi hanno salvata all'università",
+  "tr": "üniversitede beni kurtaran 4 uygulama",
+  "pt-BR": "4 apps que me salvaram na facul",
+  "de": "meine 4 apps fürs ganze studium",
+  "sl": "4 aplikacije, ki so me rešile na faksu",
+  "hu": "4 app, ami végigvitt az egyetemen"
+ },
+ "legendes": {
+  "en": "4 years, 4 apps, zero regrets 🎓🍵 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "4 ans, 4 applis, zéro regret 🎓🍵 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "4 años, 4 apps, cero arrepentimientos 🎓🍵 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "4 años, 4 apps, cero arrepentimientos 🎓🍵 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "4 anni, 4 app, zero rimpianti 🎓🍵 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "4 yıl, 4 uygulama, sıfır pişmanlık 🎓🍵 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "4 anos, 4 apps, zero arrependimento 🎓🍵 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "4 jahre, 4 apps, null reue 🎓🍵 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "4 leta, 4 aplikacije, nič obžalovanja 🎓🍵 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "4 év, 4 app, nulla megbánás 🎓🍵 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/toque.png",
+     "x": 50,
+     "y": 140,
+     "l": 240,
+     "rotation": -12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 790,
+     "y": 100,
+     "l": 230,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 300,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 230,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "4 apps that\ncarried me\nthrough\ncollege",
+    "sous": "from a college\nsenior"
+   },
+   "fr": {
+    "titre": "4 applis qui\nm'ont portée\npendant\nla fac",
+    "sous": "d'une étudiante\nen dernière année"
+   },
+   "es": {
+    "titre": "4 apps que\nme salvaron\nen la uni",
+    "sous": "de una estudiante\nde último año"
+   },
+   "es-419": {
+    "titre": "4 apps que\nme salvaron\nen la uni",
+    "sous": "de una estudiante\nde último año"
+   },
+   "it": {
+    "titre": "4 app che\nmi hanno\nsalvata\nall'uni",
+    "sous": "da una studentessa\nall'ultimo anno"
+   },
+   "tr": {
+    "titre": "üniversitede\nbeni kurtaran\n4 uygulama",
+    "sous": "son sınıf bir\nöğrenciden"
+   },
+   "pt-BR": {
+    "titre": "4 apps que\nme salvaram\nna facul",
+    "sous": "de uma aluna\ndo último ano"
+   },
+   "de": {
+    "titre": "meine 4 apps\nfürs ganze\nstudium",
+    "sous": "von einer\nabsolventin"
+   },
+   "sl": {
+    "titre": "4 aplikacije,\nki so me\nrešile\nna faksu",
+    "sous": "od absolventke"
+   },
+   "hu": {
+    "titre": "4 app, ami\nvégigvitt az\negyetemen",
+    "sous": "egy végzős\nhallgatótól"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/pomocat/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 790,
+     "y": 710,
+     "l": 230,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "a pomodoro timer with an adorable cat that keeps you company while you focus, plus white noise to drown out everything else."
+   },
+   "fr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un minuteur pomodoro avec un chat adorable qui te tient compagnie pendant que tu te concentres, et du bruit blanc pour couper le reste."
+   },
+   "es": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un temporizador pomodoro con un gato adorable que te hace compañía mientras te concentras, y ruido blanco para aislarte de todo."
+   },
+   "es-419": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un temporizador pomodoro con un gato adorable que te acompaña mientras te concentras, y ruido blanco para aislarte de todo."
+   },
+   "it": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un timer pomodoro con un gatto adorabile che ti fa compagnia mentre ti concentri, più il rumore bianco per isolarti da tutto."
+   },
+   "tr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "odaklanırken sana eşlik eden çok tatlı bir kediyle pomodoro sayacı, bir de etrafı susturan beyaz gürültü."
+   },
+   "pt-BR": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "um timer pomodoro com um gatinho fofo que te faz companhia enquanto você foca, e ruído branco pra abafar todo o resto."
+   },
+   "de": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "ein pomodoro-timer mit einer süßen katze, die dir beim fokussieren gesellschaft leistet, plus white noise gegen alles andere."
+   },
+   "sl": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "pomodoro časovnik s prikupno mačko, ki ti dela družbo, ko se zbereš, in z belim šumom, ki utiša vse ostalo."
+   },
+   "hu": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "pomodoro időzítő egy imádnivaló cicával, aki veled van, amíg koncentrálsz, plusz fehér zaj, ami minden mást elnyom."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/headspace/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 730,
+     "y": 720,
+     "l": 300,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "guided meditations, from 3-minute resets to longer sessions. my go-to when exam stress hits and my brain won't slow down."
+   },
+   "fr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "des méditations guidées, de 3 minutes à des séances plus longues. mon refuge quand le stress des exams monte."
+   },
+   "es": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditaciones guiadas, desde pausas de 3 minutos hasta sesiones más largas. mi salvación cuando llega el estrés de los exámenes."
+   },
+   "es-419": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditaciones guiadas, desde pausas de 3 minutos hasta sesiones más largas. lo que uso cuando me gana el estrés de los exámenes."
+   },
+   "it": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditazioni guidate, da pause di 3 minuti a sessioni più lunghe. la mia salvezza quando arriva l'ansia da esame."
+   },
+   "tr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "3 dakikalık kısa molalardan uzun seanslara rehberli meditasyonlar. sınav stresi bastırınca ilk açtığım uygulama."
+   },
+   "pt-BR": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditações guiadas, de pausas de 3 minutos a sessões mais longas. meu refúgio quando bate o estresse de prova."
+   },
+   "de": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "geführte meditationen, von 3-minuten-pausen bis zu längeren sessions. mein rettungsanker, wenn der prüfungsstress kommt."
+   },
+   "sl": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "vodene meditacije, od 3-minutnih premorov do daljših seans. moja rešitev, ko me zgrabi izpitni stres."
+   },
+   "hu": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "vezetett meditációk a 3 perces gyors szünetektől a hosszabb alkalmakig. ehhez nyúlok, amikor jön a vizsgastressz."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/punaise.png",
+     "x": 850,
+     "y": 110,
+     "l": 120,
+     "rotation": 12
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "i do mine with my coffee before class!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "je la fais avec mon café avant les cours !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡la hago con mi café antes de clase!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡la hago con mi café antes de clase!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "la faccio col caffè prima di lezione!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "dersten önce kahvemle yapıyorum!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "faço com meu café antes da aula!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "ich mache sie mit meinem kaffee vor der vorlesung!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "naredim jo ob kavi pred predavanji!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "a kávém mellett csinálom óra előtt!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/structured/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/pince.png",
+     "x": 70,
+     "y": 730,
+     "l": 220,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "a visual day planner: your calendar, to-dos and routines on one timeline, so you can see your whole day at a glance."
+   },
+   "fr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "un agenda visuel : ton calendrier, tes to-do et tes routines sur une seule frise, pour voir toute ta journée d'un coup d'œil."
+   },
+   "es": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "una agenda visual: tu calendario, tus tareas y tus rutinas en una sola línea de tiempo, para ver todo tu día de un vistazo."
+   },
+   "es-419": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "una agenda visual: tu calendario, tus pendientes y tus rutinas en una sola línea de tiempo, para ver todo tu día de un vistazo."
+   },
+   "it": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "un'agenda visiva: calendario, to-do e routine su un'unica linea del tempo, così vedi tutta la giornata a colpo d'occhio."
+   },
+   "tr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "görsel bir günlük planlayıcı: takvimin, yapılacakların ve rutinlerin tek bir zaman çizelgesinde, tüm günün bir bakışta."
+   },
+   "pt-BR": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "uma agenda visual: seu calendário, tarefas e rotinas numa linha do tempo só, pra ver o dia inteiro de uma vez."
+   },
+   "de": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "ein visueller tagesplaner: kalender, to-dos und routinen auf einer zeitleiste, so siehst du deinen ganzen tag auf einen blick."
+   },
+   "sl": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "vizualni dnevni planer: koledar, opravila in rutine na eni časovnici, da vidiš cel dan na en pogled."
+   },
+   "hu": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "vizuális napi tervező: a naptárad, a teendőid és a rutinjaid egy idővonalon, így egy pillantással látod az egész napod."
+   }
+  }
+ ]
+}

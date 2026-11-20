@@ -19,7 +19,7 @@
   "titre": "La Mentira",
   "url": "https://www.tiktok.com/music/la-mentira-6705056394258679809"
  },
- "notes": "Preuve : « beginner runner / do and don’ts » de @katrina.run (176 k vues, 19/10) ; même gabarit (objets), nos conseils. Aucun objet neuf : ceux d'at-001 et d'at-002 ; couverture : coureuse-profil-1. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta C` « my running coach » / « mon coach running »). Aucune page d'appli.",
+ "notes": "Preuve : « beginner runner / do and don’ts » de @katrina.run (176 k vues, 19/10) ; même gabarit (objets), nos conseils. Aucun objet neuf : ceux d'at-001 et d'at-002 ; couverture : coureuse-profil-1. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta C` « my running coach » / « mon coach running »). Aucune page d'appli. Légende du logo réécrite le 20/11 selon le prompt placement_atala (Atala toujours avec « app »/« appli », jamais seule, jamais « AI »).",
  "slides": [
   {
    "type": "couverture",
@@ -46,7 +46,7 @@
     "titre": "your first runs",
     "do": [
      "proper\nrunning shoes",
-     "my\nrunning coach",
+     "a plan on an\napp like atala",
      "walk breaks\nare fine"
     ],
     "dont": [
@@ -58,7 +58,7 @@
     "titre": "au début",
     "do": [
      "des baskets\nde running",
-     "mon\ncoach running",
+     "appli de coach\ncomme atala",
      "marcher,\nc’est permis"
     ],
     "dont": [

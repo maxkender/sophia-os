@@ -1,0 +1,213 @@
+{
+ "id": "bm-001",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7695054241534168342",
+  "vues": 397500,
+  "publie_le": "2026-10-10",
+  "accroche": "Sports Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "running tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "most runners get this backwards 🏃 #running #health #biohacking #zone2 #fitness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "notes": "Preuve : « Sports Tierlist For Optimal Health (Science based) » de @thebiomechanic (397,5 k vues, 10/10), même famille d'accroche que son tube « Morning Tierlist » (717,6 k) ; même gabarit (couverture : tête au cerveau, titre Playfair, croquis, jauge CORTISOL ; un élément par slide de F à S, nom, deux paragraphes, photo). Slide Atala (11) : le S tier « Easy Zone 2 Runs », une coureuse de la banque (label de course) et le logo d'Atala à côté ; texte réécrit le 20/11 selon le prompt placement_atala (voix TU, forme « a running coach app like Atala », un argument : l'allure, quand ralentir), à la place du cta A. Toutes les photos viennent des banques de course de l'OS (male_run, clean_girl_run, classic_girl_run), demande d'Adrien du 20/11 ; aucune marque lisible. Faits : ~80 % d'entraînement à allure facile chez les athlètes d'endurance (Seiler, polarisé) ; un effort intense dans l'heure avant le coucher peut retarder l'endormissement (Stutz et al., Sports Med 2019), un effort modéré non ; les intervalles améliorent la VO2 max (méta-analyses HIIT) ; la lumière du matin cale l'horloge interne. Rien de médical (pas de complément, pas de produit). Images de couverture : Seedream (images/dessins).",
+ "banque": {
+  "images/banque/effort-max.jpg": "22c9b504-90cd-429d-ad86-3cec30b6e3c1",
+  "images/banque/genou.jpg": "aa8cde8e-3d5f-45f4-a305-62dfa711b638",
+  "images/banque/nuit.jpg": "30031fd5-ea01-4d38-817f-d11363ca6a80",
+  "images/banque/depart.jpg": "0ac2960d-04e8-403d-9a63-8acfa558e1cf",
+  "images/banque/tapis.jpg": "0409af69-3962-4498-bdca-e3f5d15af977",
+  "images/banque/boucle.jpg": "010be0ee-6a13-47a2-85d2-b67022149dcf",
+  "images/banque/piste.jpg": "5aadac81-9008-4fe7-9e87-cb8e6d6f901e",
+  "images/banque/groupe.jpg": "3955cda1-90eb-458e-baae-1fc4ff4a1dfa",
+  "images/banque/lever-soleil.jpg": "24c63301-733c-4750-b5f9-cd0f040261ce",
+  "images/banque/foret.jpg": "c98c9e9a-0651-49e4-b30f-9c0df1a75cbb",
+  "images/banque/repos.jpg": "0f7919eb-6899-49e4-bf31-b2618cf25acf"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/coureurs.jpg",
+   "en": {
+    "lignes": [
+     "Running Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/effort-max.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Max Effort Every Run",
+    "paragraphes": [
+     "Every run turns into a race. Your heart rate sits near its ceiling, stress hormones stay high, and your legs never get the easy days they need to repair.",
+     "Elite endurance athletes do roughly 80% of their training at an easy pace. Going all-out every day is the fastest way to stall, get hurt and quit."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/genou.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Running Through Pain",
+    "paragraphes": [
+     "Ignoring a sharp pain that changes your stride. You start limping without noticing, and the load shifts onto joints and tendons that were never meant to carry it.",
+     "Soreness is normal. Pain that gets worse as you run is a signal to stop, rest and get it checked."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/nuit.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Hard Sessions Right Before Bed",
+    "paragraphes": [
+     "A brutal interval session at 10 PM keeps your heart rate and core temperature up right when your body is trying to wind down.",
+     "Easy evening runs are fine for most people. It's the hard efforts in the last hour before bed that can push back your sleep."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/depart.jpg",
+   "cadrage": {
+    "y": 0.38
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Skipping the Warm-Up",
+    "paragraphes": [
+     "Going from the sofa straight into fast running. Cold muscles and stiff joints take the full load before blood flow and body temperature have caught up.",
+     "Five to ten minutes of easy jogging and a few drills make the first fast effort feel smoother and safer."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/tapis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Treadmill Only",
+    "paragraphes": [
+     "Great when it's dark, icy or pouring. The pace is controlled and the belt is forgiving on your legs.",
+     "But you miss the daylight, the fresh air and the small balance corrections that uneven ground asks of your feet and ankles."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/boucle.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Same Loop, Same Pace",
+    "paragraphes": [
+     "Same route, same speed, whenever you feel like it. Better than nothing, but your body adapts to the same stimulus and progress flattens out.",
+     "Without a mix of easy days, faster days and rest, it's hard to tell if you're getting fitter or just getting tired."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/piste.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Weekly Track Intervals",
+    "paragraphes": [
+     "Short, fast repeats with recovery in between. Interval training is one of the most effective ways to raise your VO2 max, a key marker of fitness.",
+     "It only misses A tier because it's demanding: one session a week is plenty, on top of easy running."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/groupe.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Running With Friends",
+    "paragraphes": [
+     "A run club or a friend waiting at 7 AM. Showing up is easier when someone is counting on you, and the miles go by faster when you talk.",
+     "Just keep the easy days easy: group runs have a habit of turning into races."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lever-soleil.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Sunrise Runs",
+    "paragraphes": [
+     "Morning daylight is one of the strongest signals for your internal clock, and a run is the easiest way to get outside for it.",
+     "Done early, it's also done: no meeting, no late night and no excuse can cancel it."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/foret.jpg",
+   "format": "carre",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Easy Zone 2 Runs",
+    "paragraphes": [
+     "Running at a pace where you can still hold a conversation. It builds your aerobic base, trains your heart and leaves you fresher, not drained.",
+     "Most runners do them too fast. A running coach app like Atala tells you when to slow down."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/repos.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Planned Rest Days",
+    "paragraphes": [
+     "Training is the stimulus, recovery is where you actually get fitter. Muscles, tendons and bones adapt in the days between the runs.",
+     "One or two easy or full rest days a week keep you running for years, not weeks."
+    ]
+   }
+  }
+ ]
+}

@@ -16,7 +16,7 @@
   "titre": "FUNDO DE VIDEO",
   "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
  },
- "notes": "Preuve : « GLOW UP HACKS FOR MEN. » de @built.not.born61 (427,7 k vues, 14/11), même gabarit (couverture en capitales et homme détouré en noir et blanc, un conseil par slide, « Follow for more »), numérotation de son « 6 WAYS TO BECOME A BETTER LOOKING MAN » (le post envoyé par Adrien). Slide Atala (4) : le conseil « courir », un homme qui court détouré (banque de l'OS, label male_run : 1df6a59e, aucune marque lisible) et le logo d'Atala à côté (demande d'Adrien du 19/11). cta A. Faits : 7 à 9 h de sommeil recommandées aux adultes (National Sleep Foundation, AASM : 7 h et plus) ; une déshydratation légère baisse la concentration et l'humeur (Armstrong et al., J. Nutr. 2012) ; la lumière du matin cale l'horloge interne. Images : Seedream détourées par BiRefNet, en noir et blanc (images/detoures).",
+ "notes": "Preuve : « GLOW UP HACKS FOR MEN. » de @built.not.born61 (427,7 k vues, 14/11), même gabarit (couverture en capitales et homme détouré en noir et blanc, un conseil par slide, « Follow for more »), numérotation de son « 6 WAYS TO BECOME A BETTER LOOKING MAN » (le post envoyé par Adrien). Slide Atala (4) : le conseil « courir », un homme qui court détouré (banque de l'OS, label male_run : 1df6a59e, aucune marque lisible) et le logo d'Atala à côté (demande d'Adrien du 19/11). placement_atala du 20/11 : voix TU (hook de 7 mots), argument « niveau ». Faits : 7 à 9 h de sommeil recommandées aux adultes (National Sleep Foundation, AASM : 7 h et plus) ; une déshydratation légère baisse la concentration et l'humeur (Armstrong et al., J. Nutr. 2012) ; la lumière du matin cale l'horloge interne. Images : Seedream détourées par BiRefNet, en noir et blanc (images/detoures).",
  "banque": {
   "images/detoures/coureur-montagne.png": "1df6a59e-98f6-41b6-bf7b-f3cbb23fdf7c"
  },
@@ -56,7 +56,7 @@
    "taille": 560,
    "en": {
     "titre": "3. Start running",
-    "texte": "3 runs a week build stamina and clear your head. I use Atala, an AI running coach that plans around my goal."
+    "texte": "3 easy runs a week build real stamina. A running coach app like Atala gives you a plan that starts at your level."
    }
   },
   {

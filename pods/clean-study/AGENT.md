@@ -29,13 +29,14 @@ que personne ne rejette est validée toute seule 5 h après son dépôt.
 - **Label** : `clean_study`.
 	- Thème : la fille qui étudie bien. Méthodes de travail, année scolaire, motivation, focus, bureaux et bibliothèques.
 	- Format : une liste, un conseil ou une méthode par slide, texte court sur des photos d'étude (bureaux, cahiers, ordinateurs, cafés, filles de dos).
-	- Comptes actifs : tous sur micabo depuis le 4/11 (les comptes UnSwipe sont passés à micabo quand UnSwipe a été arrêté).
-	- Résultats : 754 vues médianes, 4 % des posts à 5 k vues ou plus.
-	- La réserve micabo tient environ une journée : tu sers **le volume autant que la qualité**.
-- **Le label ne sert pas Sophia : il sert micabo** (et plus UnSwipe, arrêté le 4/11).
-	- Tu écris **un seul texte, sans aucune appli**.
-	- L'OS le traduit pour chaque compte et y place l'appli du compte : **micabo** (révision : il transforme les cours en flashcards et en quiz, 10 minutes par jour jusqu'à l'examen).
-	- Pas de `texte_sophia` : l'OS refuse le dépôt.
+	- Comptes actifs : 18, dans 13 langues, tous sur Sophia depuis le 20/11 (migration 0788). Avant : UnSwipe jusqu'au 4/11, puis micabo.
+	- Résultats (périodes UnSwipe et micabo) : 754 vues médianes, 4 % des posts à 5 k vues ou plus.
+	- La réserve est courte : tu sers **le volume autant que la qualité**.
+- **Le label sert Sophia, et Sophia seule** (depuis le 20/11 ; plus micabo ni UnSwipe).
+	- Tu écris le texte de base **sans aucune appli**, et sur **une seule** slide sa version avec Sophia (`texte_sophia`).
+	- Les comptes anglais reçoivent ta slide Sophia. Pour les autres langues, l'OS traduit la base et place Sophia lui-même.
+	- Sans `texte_sophia`, ou avec deux, l'OS refuse le dépôt.
+	- Les originaux d'avant le 20/11 (cs-o001 à cs-o150) n'ont pas de slide Sophia : l'OS la place tout seul, dans toutes les langues. Rien à relivrer.
 - **Modèles**, en anglais :
 	- [@studyy.hackz](https://www.tiktok.com/@studyy.hackz) : « “I don't know what study methods to use for each subject” », la même accroche cinq fois, de 277 k à 1,7 M vues.
 	- [@katy._.studies](https://www.tiktok.com/@katy._.studies) : « study hacks i wish i knew earlier », 1,1 M vues le 28/09.
@@ -51,10 +52,10 @@ que personne ne rejette est validée toute seule 5 h après son dépôt.
 - **Le label est jeune** : aucun de ses contenus n'est encore à r ≥ 2.
 	- Les schémas actifs le sont par la niche : `methods-per-subject` jusqu'au 5/11, `study-hacks-earlier` jusqu'au 28/10.
 	- Lance `npm run playbook -- --mesurer` chaque jour : un schéma du label s'active tout seul quand son r passe 2.
-- **Validé**, un original devient un contenu au **rang B** pour micabo :
+- **Validé**, un original devient un contenu classique au **rang B** :
 	- images SANS texte et texte à part ;
-	- l'OS traduit et place l'appli de chaque compte ;
-	- il n'a pas de rang Sophia.
+	- les comptes anglais reçoivent ta slide Sophia ;
+	- pour les autres langues, l'OS traduit et place Sophia lui-même.
 - `ANALYSE.md` donne les chiffres du label et ce qui marche ou non.
 - `playbook.json` liste les schémas, avec leurs preuves datées, et ce qu'il faut éviter.
 
@@ -76,7 +77,7 @@ Lance `npm install` une fois par session. Toutes les commandes, sauf `playbook` 
 | `npm run label -- --compte icedlattebrunette --top 20 --texte` | Liste les contenus du label classés par r chez nous. |
 | `npm run label -- --slides <id8>` | Donne les slides d'un contenu, position par position : `media_id` (image propre) et `reference_url` (slide d'inspiration). |
 | `npm run images -- --depuis <id8,id8…>` | Fait une planche des images propres de ces contenus, chaque vignette avec son id (★ = accroche). |
-| `npm run top-posts -- --compte renaraise` | Liste nos posts publiés les plus vus, tels que postés, avec leur slide d'appli (micabo ou UnSwipe). |
+| `npm run top-posts -- --compte renaraise` | Liste nos posts publiés les plus vus, tels que postés, avec leur slide d'appli (UnSwipe ou micabo avant le 20/11, Sophia depuis). |
 | `npm run doublons -- <source_id…>` | Signale un titre de slide 1 ou une photo de couverture (même sous un autre `media_id`) déjà pris par un autre original. Une reprise est permise (§4.3 de `pods/ROUTINE.md`, §4.7 avant BLEO), à condition de changer quelque chose : items, angle, image ou CTA. Seule une copie identique (mêmes images, mêmes textes sur toutes les slides) est refusée. |
 | `npm run apercu -- <source_id\|all>` | Fait l'aperçu d'un original : texte posé sur les images, puis les slides d'inspiration. Les émojis y sortent en ▯ (police de l'aperçu) : c'est normal. |
 | `npm run deposer -- <source_id\|all> [--essai]` | Dépose dans la file avec la preuve du schéma. `--essai` fait les contrôles locaux seulement. |
@@ -87,14 +88,17 @@ Regarde toujours les planches et les aperçus avec l'outil Read avant de choisir
 
 ## Un original (`originaux/<source_id>.json`)
 
-Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
+Le pilote `originaux/cs-o001.json` montre les champs. Il date d'avant le 20/11 : il n'a pas de `texte_sophia`. Pour un exemple avec la slide Sophia, vois `pods/smart-girl/originaux/sg-o001.json`. Les champs :
 - `schema_id` : un schéma **actif** du playbook. `deposer` y prend la preuve.
 - `titre` : l'accroche réécrite en légende, puis 3 ou 4 hashtags (#studytok #studytips #school #studymethod).
-- `texte_overlay` : le texte en anglais, **sans aucune appli**. C'est lui que l'OS traduit.
-- **Une place pour chaque appli**, sans la nommer :
-	- un item où l'on se teste sur ses cours, revoit ses notes ou prépare un examen : l'OS y place micabo ;
+- `texte_overlay` : le texte de base en anglais, **sans aucune appli**. C'est lui que l'OS traduit.
+- `texte_sophia` : sur **une seule** slide, jamais la couverture, la même idée avec Sophia :
+	- la formule : « a micro-learning app like the Sophia app » (mention indirecte) ;
+	- Sophia est une appli mobile de culture générale (5 minutes par jour d'histoire, d'art, de sciences). Ce n'est **pas** une appli de révision : ne lui prête jamais ce que faisait micabo (flashcards, quiz sur ses cours, notes) ;
+	- une idée concrète, dans le même mode que le deck (« I » / « you »), 320 caractères au plus ;
+	- pas de tiret long, pas de point-virgule, aucune autre appli.
 	
-	Un post sans l'une de ces places sert une seule des deux applis : dis-le dans `notes`.
+	Où la placer : sur un item de pause ou d'habitude (« my study breaks », « what i do instead of scrolling », « 5 minutes to learn something new before i start »), pas sur un item de méthode de révision. Un post sans item de ce genre : ajoute-le à la liste. C'est un point de départ, sans recul encore sur ce label : à revoir avec les premières vues en Sophia.
 - `media_id` et `reference_url` : prends-les avec `npm run label -- --slides <id8>` sur un contenu d'inspiration, ou avec `npm run images`.
 - `notes` : le schéma et sa preuve, les trois accroches écrites, ce qui est neuf, les images écartées.
 - `source_id` : `cs-o` suivi d'un numéro. On ne le réutilise jamais une fois l'original validé ou rejeté.
@@ -120,8 +124,7 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 	- Le style gagnant : bureaux, cahiers, ordinateurs, cafés, bibliothèques, filles de dos.
 	- **Toute la banque, sans tri de fond (Adrien, 17/11, `pods/ROUTINE.md` §4)** : personnes connues, cigarettes, alcool, marques, logos, écrans, filigranes, images sombres sont acceptés. Seule limite : la slide de l'appli, jamais sur une personne reconnaissable. Ce qui suit est un style à préférer, jamais une raison d'écarter une image. Une image déjà prise par un autre original revient après 14 jours (le guichet s'en charge).
 	- Les photos de la banque où l'on voit une célébrité (acteurs et actrices de films et de séries) sont acceptées (décision d'Adrien du 28/10).
-	- **Jamais de personne réelle sur les slides où l'OS place micabo ou UnSwipe** : on ne prête pas une appli à une personne réelle (voir ci-dessous : une image sans personne).
-	- Sur les items où l'OS placera micabo ou UnSwipe : une image sans personne.
+	- **Jamais de personne réelle sur la slide Sophia** : on ne prête pas une recommandation d'appli à une personne réelle. Pour la slide Sophia, prends une image sans personne reconnaissable (bureau, cahier, café, bibliothèque).
 	- Écrans, cigarettes, marques, couvertures de livre lisibles : acceptés (Adrien, 17/11).
 - **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
@@ -134,7 +137,7 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 	- Jamais de nuit blanche conseillée, de caféine en quantité, de produit, de régime ou de remarque sur le corps.
 	- Jamais de conseil médical (TDAH, anxiété, dépression) : « talk to someone you trust », au plus.
 - **« Toxic motivation »**, c'est la rivalité avec soi-même. Jamais le mépris des autres élèves, des profs ou d'un groupe.
-- **Aucune appli citée dans le texte de base** : ni Bycat, ni Penman, ni Quizlet, ni Anki, ni Knowt, ni Notion, ni micabo, ni UnSwipe, ni aucune autre. L'OS refuse le dépôt.
+- **Aucune appli citée dans le texte de base** : ni Bycat, ni Penman, ni Quizlet, ni Anki, ni Knowt, ni Notion, ni micabo, ni UnSwipe, ni aucune autre, ni Sophia (elle va dans `texte_sophia`). L'OS refuse le dépôt.
 - **Ni marques ni prix** : un cahier, pas un Moleskine ; un ordinateur, pas un MacBook.
 
 ## La boucle de la semaine

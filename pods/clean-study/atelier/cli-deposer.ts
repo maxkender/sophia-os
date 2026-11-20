@@ -51,6 +51,7 @@ for (const f of fichiers) {
       position: s.position,
       media_id: im.id,
       texte_overlay: s.texte_overlay,
+      texte_sophia: s.texte_sophia ?? null,
       reference_url: s.reference_url,
     };
   });

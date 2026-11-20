@@ -5,6 +5,9 @@ fait sa livraison du jour **seul**, du début à la fin, puis s'arrête.
 Personne n'est là pour répondre : ne pose pas de question, décide avec ton
 `AGENT.md`, et note tes doutes dans le compte rendu.
 
+Les mots (label, podz, modèle, source, format) sont définis dans
+`pods/GLOSSAIRE.md`.
+
 Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 **comment** ; ce fichier dit **quand** et **combien**. Il a deux parties :
 
@@ -296,18 +299,33 @@ toute seule quand ses langues sont validées.
 - Une commande « déjà déposée, attend la validation » ne se refait pas.
 - Le rattrapage ne déclare pas de `type_bleo` : le post est déjà jugé.
 
-### 5.6 Les langues
+### 5.6 Les langues : ouvertes, prêtes, à préparer
 
 - **Tu livres seulement les langues où ton label a un compte** : `npm run
   boite` les donne (« Langues à livrer ») et `npm run livrer` s'y tient tout
   seul (il dit ce qu'il laisse de côté). La langue source part toujours avec
   un post neuf.
-- **Tes langues possibles sont ta déclaration** : la liste `LANGUES` de
-  `atelier/api.ts`, envoyée à l'OS à chaque `npm run boite`. L'attribution
-  des comptes la lit : une langue de la liste peut recevoir des comptes de
-  ton label, même sans post encore. N'y mets que ce que tu sais vraiment
-  faire (polices, captures de l'appli, vraies vidéos natives) ; pour en
-  ajouter une, modifie la liste dans ta PR et dis-le dans ton compte rendu.
+- **La liste des langues ouvertes est dans l'OS** (`pods.langues`, depuis le
+  20/11, 0781), plus dans ton atelier. Adrien, Max ou la soupape (le dimanche soir, jusqu'à trois
+  langues d'un coup) en ouvrent ; l'attribution des comptes la lit : une langue ouverte peut
+  recevoir des comptes de ton label, même sans post encore.
+- **`LANGUES` (`atelier/api.ts`) dit ce que ton atelier sait produire**
+  (polices, captures de l'appli, vraies vidéos natives). L'OS la note à
+  chaque `npm run boite` ; il ne s'en sert plus pour fermer une langue.
+- **« Langues à PRÉPARER »** dans `npm run boite` : une langue ouverte qui
+  n'est pas encore dans `LANGUES`. Un compte y attend peut-être déjà tes
+  posts. Prépare-la le jour même : les textes de l'atelier, les écrans et
+  cartes de l'appli dans cette langue, un essai de rendu que tu regardes.
+  Puis ajoute-la à `LANGUES` dans ta PR, dis-le dans ton compte rendu, et
+  livre-la comme les autres (le rattrapage du §5.5 te commande les posts
+  gagnants qui y manquent).
+- Une langue que tu ne sais vraiment pas mettre en page : ne l'ajoute pas,
+  dis-le dans ton compte rendu. Elle reste « à préparer » sur la page Podz,
+  et Adrien décide de la fermer.
+- Ajouter toi-même une langue à `LANGUES` l'ouvre, comme avant : ne le fais
+  que si Adrien ou Max l'ont demandé.
+- Retirer une langue de `LANGUES` ne la ferme pas. Fermer une langue, c'est
+  Adrien ou Max (page Podz, fiche du podz, bloc Langues).
 
 ### 5.7 Le reste
 

@@ -192,12 +192,14 @@ export function AdminLayout() {
               description: t("navDesc.bleoFamilles"),
               end: false,
             },
-            // Pods (avec la boîte des podz en bas) et Allocation : déplacées ici telles quelles.
+            // Podz (liste, validation, chiffres avec la boîte BLEO) et Allocation.
             {
               to: "/admin/pods",
               label: t("nav.pods"),
               icon: Boxes,
               description: t("navDesc.pods"),
+              // La fiche d'un podz (/admin/pods/<slug>) garde l'entrée allumée.
+              end: false,
             },
             {
               to: "/admin/repartition",

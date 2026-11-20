@@ -1,0 +1,25 @@
+{
+  "name": "pod-studyingsmiski",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 23 — remakes des posts de @studyingsmiski (méthodes d'étude et applis pour étudiants, collages façon scrapbook), pour Sophia, en anglais : partout où elle met Turbo AI, Sophia et sa vraie icône.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts",
+    "appli": "NODE_USE_ENV_PROXY=1 node atelier/cli-appli.ts"
+  }
+}

@@ -38,6 +38,15 @@ const MOTS_VIDES = new Set(["pour", "for", "label", "app", "+", "et", "and", "-"
 /** Anciens noms d'une application : « runvik » était le nom de travail d'Atala (running) jusqu'au 19/11. */
 const ALIAS_APPS: Record<string, string> = { runvik: "atala" };
 
+/**
+ * 20/11 (Max) : un lien de TikTok (vidéo, photo, ou profil avec ?lang=…) devient le lien du compte : on coupe au
+ * handle (« https://www.tiktok.com/@x/video/123?… » → « https://www.tiktok.com/@x »). Les liens courts (vm.tiktok.com)
+ * n'ont pas de handle : ils restent tels quels (résolus à l'ajout).
+ */
+export function lienCompte(texte: string): string {
+  return texte.replace(/https?:\/\/(?:www\.|m\.)?tiktok\.com\/@([A-Za-z0-9._]{1,40})[^\s,;]*/gi, (_m, h: string) => `https://www.tiktok.com/@${h.toLowerCase()}`);
+}
+
 export function handleDe(texte: string): string | null {
   const m = texte.match(PROFIL) ?? texte.trim().match(/^@([A-Za-z0-9._]{1,40})$/);
   return m ? m[1]!.toLowerCase() : null;
@@ -108,7 +117,7 @@ export function lireLigne(ligne: string, apps: AppBible[], labels: LabelBible[],
   }
   const note = gardes.join(" ").replace(/\s+([,.;:!?])/g, "$1").replace(/^[\s,;:–-]+|[\s,;:–-]+$/g, "").trim();
   return {
-    ligne, handle, profilUrl: handle ? profil ?? `https://www.tiktok.com/@${handle}` : null, posts, appIds, appsAttente,
+    ligne, handle, profilUrl: handle ? `https://www.tiktok.com/@${handle}` : null, posts, appIds, appsAttente,
     labelId, labelPropose, autres, note, courts,
     ignoree: !handle && !courts.length,
     erreur: handle || courts.length ? null : "pas un lien TikTok : ligne ignorée",

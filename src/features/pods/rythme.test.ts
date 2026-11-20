@@ -10,7 +10,7 @@ describe("fiche d'un podz", () => {
     expect(dossierPod("originaux_weird_alpha")).toBe("originaux");
     expect(dossierPod("originaux_plony")).toBe("plony");
     expect(dossierPod("page_blanche")).toBe("page-blanche");
-    expect(parJourVoie1("originaux_plony")).toBeGreaterThan(0);
+    expect(parJourVoie1("originaux_alpha_male")).toBeGreaterThan(0);
     expect(parJourVoie1("remakes_kaja")).toBeNull();
   });
 

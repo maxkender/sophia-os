@@ -31,12 +31,14 @@ export async function appelPod<T = Record<string, unknown>>(corps: Record<string
 export type SlideOriginale = {
   position: number;
   media_id: string;
-  /**
-   * Texte de base, SANS appli : l'OS le traduit pour chaque langue et place
-   * l'appli du compte (micabo ou UnSwipe) sur la slide qui s'y prête. Le
-   * label ne sert pas Sophia : jamais de texte_sophia.
-   */
+  /** Texte de base, SANS appli (l'OS le traduit pour chaque langue). */
   texte_overlay: string;
+  /**
+   * Sur UNE slide : la version anglaise avec l'appli Sophia (servie aux comptes
+   * anglais ; l'OS place Sophia lui-même dans les autres langues). Le label
+   * sert Sophia depuis le 20/11 (0788) : le guichet en exige une, et une seule.
+   */
+  texte_sophia?: string;
   /** Slide TikTok d'inspiration (medias/brut/…) : le modèle de mise en page du poster. */
   reference_url: string;
 };

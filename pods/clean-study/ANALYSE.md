@@ -1,5 +1,7 @@
 # Pod 12 — label `clean_study` : analyse du 24 octobre 2026
 
+> **20/11 : le label sert Sophia, et Sophia seule (migration 0788).** Tout ce qui suit a été mesuré quand il servait UnSwipe puis micabo : les vues valent pour le label, pas les remarques sur la slide de l'appli. À refaire avec les premières vues en Sophia.
+
 Sources des données :
 - la base de prod (`mbikecieskoobeizixig`), en lecture seule ;
 - les pages publiques des posts TikTok de la niche (vues, enregistrements, date), lues sans Apify.

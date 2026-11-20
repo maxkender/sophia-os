@@ -1,0 +1,24 @@
+{
+  "name": "pod-polytay",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 25 — originaux au style de @polytay (« hobbies that make you impossible to bore », listes « learn everything » : collage de photos, puis une slide par élément, deux photos et un texte), pour Sophia, en anglais : un des éléments porte le logo de Sophia, jamais une capture de l'appli.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts"
+  }
+}

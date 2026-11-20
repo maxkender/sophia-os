@@ -117,7 +117,8 @@ export async function ajouterFiche(f: NouvelleFiche): Promise<ResultatAjout> {
   }
   const posts: PostBible[] = (f.posts ?? []).filter(Boolean).slice(0, 3).map((url) => ({ url }));
   const { data, error } = await supabase.from("bible_comptes").insert({
-    handle: f.handle, profil_url: f.profil_url ?? `https://www.tiktok.com/@${f.handle}`, statut: f.statut ?? "a_trier",
+    // 20/11 (Max) : toujours le lien du compte, jamais celui d'une vidéo.
+    handle: f.handle, profil_url: `https://www.tiktok.com/@${f.handle.replace(/^@+/, "").toLowerCase()}`, statut: f.statut ?? "a_trier",
     application_ids: f.application_ids ?? [], apps_attente: f.apps_attente ?? [],
     label_id: labelPropose ? null : f.label_id ?? null, label_propose_id: labelPropose,
     note_import: f.note_import || null, angle: f.angle || null, niche_statut: f.niche_statut ?? null, niche: f.niche || null,

@@ -1,0 +1,225 @@
+{
+ "id": "sm-001",
+ "source": {
+  "url": "https://www.tiktok.com/@studyingsmiski/photo/7565238452199902494",
+  "vues": 678300,
+  "publie_le": "2025-10-25",
+  "accroche": "4 apps you need as a student! from a straight A student"
+ },
+ "titre": {
+  "en": "4 apps you need as a student"
+ },
+ "legendes": {
+  "en": "the apps that got me through finals season 🍵📚 #studytok #studytips #academicweapon #studentlife #college"
+ },
+ "musique": {
+  "titre": "doodle - Slowed",
+  "url": "https://www.tiktok.com/music/doodle-slowed-7397023128725833744"
+ },
+ "notes": "Remake de « 4 apps you need as a student! » de @studyingsmiski (678,3 k vues, 25/10/2025) : même gabarit (fond ciel, cartes en timbre, stickers, bulles). Turbo AI (sa 4e carte) remplacée par Sophia (demande d'Adrien du 20/11 : le podz sert Sophia, pas micabo), sa vraie icône de l'App Store (« Sophia : General Knowledge », Vik Studios, iOS), cta A. Flora (sa 2e) remplacée par Goodnotes (une carte de sa version verte du même post) : Flora est un minuteur anti-téléphone façon Forest, une concurrente de Sophia (temps d'écran, règle du podz 18). Faits vérifiés sur les fiches de l'App Store (images/applis/*/fiche.json) : Goodnotes, notes manuscrites cherchables et carnets numériques (iOS, Android comme sur sa slide) ; Habitica transforme tâches et habitudes en RPG (niveaux, PV, or) ; Dtd Sounds réunit sons d'ambiance et minuteur. Ses personnages (Smiski, grenouille de marque) remplacés par nos stickers (grenouilles en peluche génériques, dango, matcha, tablette…). Images : Seedream détourées (images/stickers), fond Seedream (images/fonds/ciel.jpg).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 150,
+     "y": 330,
+     "l": 190,
+     "rotation": -18
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/punaise.png",
+     "x": 520,
+     "y": 190,
+     "l": 80,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 760,
+     "y": 150,
+     "l": 220,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 300,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 770,
+     "y": 700,
+     "l": 280,
+     "rotation": 7
+    }
+   ],
+   "en": {
+    "titre": "4 apps you\nneed as a\nstudent!",
+    "sous": "from a straight\nA student"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/goodnotes/icone.jpg",
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 720,
+     "y": 660,
+     "l": 330,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 40,
+     "y": 700,
+     "l": 270,
+     "rotation": -5
+    },
+    {
+     "type": "bulle",
+     "x": 320,
+     "y": 650,
+     "l": 420,
+     "h": 250,
+     "queue": {
+      "x": 280,
+      "y": 820
+     }
+    }
+   ],
+   "en": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "you can write by hand on your tablet like it's real paper and keep every class in its own digital notebook!",
+    "bulle": "psst... you can search your handwriting!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/habitica/icone.jpg",
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/epee.png",
+     "x": 70,
+     "y": 700,
+     "l": 300,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 770,
+     "y": 690,
+     "l": 270,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "habitica turns your habits and to-dos into an rpg. you level up when you get things done, lose hp when you skip them, and earn gold to buy gear!"
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 790,
+     "y": 120,
+     "l": 230,
+     "rotation": 14
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 140,
+     "y": 800,
+     "l": 200,
+     "rotation": -3
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "i do my daily lesson on the bus instead of scrolling!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/dtd-sounds/icone.jpg",
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 740,
+     "y": 70,
+     "l": 300,
+     "rotation": 8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 60,
+     "y": 760,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 800,
+     "y": 700,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Dtd Sounds",
+    "plateformes": "iOS",
+    "texte": "a focus app that puts calming sounds and a study timer in one place, so you can stay focused and relaxed while studying."
+   }
+  }
+ ]
+}

@@ -26,6 +26,8 @@ Deux tâches planifiées te lancent (heure de Paris) :
 | La file de validation | `https://sophia-marketing-orga.vercel.app/admin/pods` |
 | Le rythme des podz | `pods/rythme.json` |
 | La routine des podz | `pods/ROUTINE.md` |
+| Les mots des podz | `pods/GLOSSAIRE.md` (label, podz, modèle, source, format) |
+| Les langues d'un podz | `select public.pod_langues('<slug>');` : ouvertes, prêtes, `a_preparer`, comptes. Tu n'ouvres ni ne fermes aucune langue : c'est Adrien ou Max (page Podz), ou la soupape |
 | La méthode d'analyse | `analyse/AGENT.md` (r, maturité, médianes) |
 
 Les podz :
@@ -43,7 +45,7 @@ Les podz :
 | 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |
 | 10 · Remakes @yasminespixels (micabo) | `yasmine` | `session_01QT1sUhhR1rWp6BoCvA6xN5` | that_girl_study (micabo seul, français) |
 | 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; plus de carte UnSwipe depuis le 4/11) |
-| 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
+| 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (Sophia seule depuis le 20/11, 0788 ; avant : UnSwipe, puis micabo ; anglais, une slide Sophia par original) |
 | 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, en, fr et de ; 2 par jour depuis le 5/11, demande d'Adrien ; en test sur 3 comptes, un par langue) |
 | 14 · Originaux Plony (Sophia) (en pause) | `plony` | `session_017c8FRZ8qRaSWXppDYa8Lum` | Plony (Sophia seul, voie 1, en anglais) : **en pause depuis le 17/11** à la demande d'Adrien. Ses 13 comptes sont passés au label History (seul label), Plony n'a plus de compte ; routine du matin coupée, guichet fermé (`pods.actif = false`). Ne le signale pas comme une panne |
 | 15 · Remakes @sagace.fr (Sophia) | `sagace` | `session_017c8FRYHR6JY3Ltj2xa2Ftw` | sagace (Sophia seul, voie 2, en français ; lancé par Adrien le 15/11, pilote sg-001 ; comptes par « démarrage d'un podz » ou Pilotage) |
@@ -54,6 +56,9 @@ Les podz :
 | 20 · Originaux wellness (Atala) | `atala-wellness` | `session_017c8FRZQgR2abup9nQqXhmu` | wellness_run (Atala seul, images finies, en anglais, genre femme ; les listes d'habitudes wellness de @healthy_with_emma6 avec les photos de la banque, sa slide pub devient la slide Atala : une fille qui court et la carte d'Atala ; lancé par Adrien le 19/11, pilote aw-001 ; Atala encore inactive) |
 | 21 · Originaux @bdnf.milly (Sophia) | `milly` | `session_017c8FRWYwgJspaesP68E7GW` | milly (Sophia seule, images finies, en anglais ; les diaporamas « intelligence, mémoire, concentration » de @bdnf.milly, fond uni et Cormorant Garamond, le logo de Sophia sur une slide « lire une leçon chaque soir », jamais une capture ni un nootropique ; lancé par Adrien le 19/11, pilote mi-001) |
 | 22 · Originaux @built.not.born61 (Atala) | `built` | `session_017c8FRWHiNzpurLYcAQsJQE` | built_run (Atala seule, images finies, en anglais, genre homme ; les listes de conseils pour hommes de @built.not.born61, slides blanches et images détourées en noir et blanc, un conseil « courir » avec un homme qui court (banque, label male_run) et le logo d'Atala ; lancé par Adrien le 19/11, pilote bn-001 ; Atala encore inactive) |
+| 23 · Remakes @studyingsmiski (Sophia) | `studyingsmiski` | `session_017c8FRYPaAJ2uED5dZTv6Rf` | cozy_girl (Sophia seule, images finies, en anglais, genre femme ; les listes d'applis et guides d'étude « cozy » de @studyingsmiski, ciel en papier, cartes en timbre, stickers détourés et bulles à la main, Sophia et sa vraie icône partout où elle met Turbo AI ; lancé par Adrien le 20/11 pour micabo, passé à Sophia le même jour (0783), pilote sm-001) |
+| 24 · Originaux @thebiomechanic (Atala) | `biomechanic` | `session_017c8FRVNqSCbNNV5C2KjGi5` | biomechanic_run (Atala seule, images finies, en anglais ; les tier lists « … Tierlist For Optimal Health (Science based) » de @thebiomechanic, fond blanc, Playfair, jauge CORTISOL, F à S, toutes les photos de la banque, un tier « courir » (A ou S) avec une photo de course et le logo d'Atala ; lancé par Adrien le 20/11, pilote bm-001 ; Atala encore inactive) |
+| 25 · Originaux @polytay (Sophia) | `polytay` | `session_017c8FRWrtvELZfHQP5vye5G` | polytay (Sophia seule, images finies, en anglais, genre femme ; les listes « learn everything » de @polytay, couverture en collage, un élément par slide avec deux photos de la banque, Sophia en élément avec son logo, jamais une capture ; lancé par Adrien le 20/11, pilote pt-001) |
 
 ## Règles absolues
 
@@ -88,9 +93,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15 à 22 ; le 6, relancé le 15/11, y
-  revient à son premier remake validé ; 16 à 22 sont des originaux en images
-  finies) a aussi sa boîte et
+- **La voie 2** (podz 1, 10, 11, 13, 15 à 25 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé ; 16 à 22, 24 et 25 sont des originaux
+  en images finies, 23 des remakes en images finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
   de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré

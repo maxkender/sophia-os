@@ -70,10 +70,28 @@ export interface EmailRuul {
   /** 13/11 (Réparer Ruul, v2) : le titre en haut (« Vik Studios ») et le lien « I do not wish to continue » (/r/stop). */
   titre?: string;
   arret?: string | null;
+  /** 20/11 (Max) : la langue de l'email (attribut lang) et le pied traduit (phrase Help, signature, lien d'arrêt). */
+  langue?: string;
+  pied?: Partial<PiedEmail>;
+  /** Le texte dit déjà où trouver Help (décidé sur le texte anglais, avant la traduction). */
+  aideDansTexte?: boolean;
+}
+
+/** 20/11 : le pied de chaque email aux posteurs, en anglais (traduit avec le reste quand le posteur n'est pas anglophone). */
+export interface PiedEmail {
+  help: string;
+  equipe: string;
+  arret: string;
 }
 
 /** 12/11 (Max) : la dernière ligne de chaque email aux posteurs. */
 export const PIED_HELP_EMAIL = "Have a question or a problem? Don't reply to this email: click Help on your dashboard, you'll get an answer there.";
+export const PIED_EN: PiedEmail = { help: PIED_HELP_EMAIL, equipe: "The Vik Studios team", arret: "I do not wish to continue" };
+
+/** Le texte anglais dit déjà où trouver Help (la phrase n'est alors pas répétée en bas). */
+export function aideDejaDite(corps: string): boolean {
+  return /click Help on your dashboard/i.test(corps);
+}
 
 /** Le lien « I do not wish to continue » (page de confirmation) déduit du lien d'arrêt des relances. */
 export function lienArret(lienStop: string): string | null {
@@ -88,9 +106,10 @@ export function lienArret(lienStop: string): string | null {
 export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
   const paragraphes = e.corps.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
   // La phrase Help vient après le bouton, juste avant la signature (sauf si le texte la dit déjà).
-  const help = e.sansPied || /click Help on your dashboard/i.test(e.corps) ? null : PIED_HELP_EMAIL;
+  const pied = { ...PIED_EN, ...(e.pied ?? {}) };
+  const help = e.sansPied || e.aideDansTexte || aideDejaDite(e.corps) ? null : pied.help;
   const arret = e.sansPied ? null : (e.arret ?? lienArret(e.lienStop));
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${echapper(e.objet)}</title></head>
+  const html = `<!doctype html><html lang="${echapper(e.langue ?? "en")}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${echapper(e.objet)}</title></head>
 <body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px;padding:28px 24px">
@@ -98,11 +117,11 @@ export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
 ${paragraphes.map((p) => `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(p).replace(/\n/g, "<br>")}</td></tr>`).join("\n")}
 ${e.bouton ? `<tr><td style="padding:8px 0 20px"><a href="${echapper(e.bouton.lien)}" style="display:inline-block;background:#18181b;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:8px">${echapper(e.bouton.texte)}</a></td></tr>` : ""}
 ${help ? `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(help)}</td></tr>` : ""}
-<tr><td style="font-size:15px;line-height:1.4">The Vik Studios team</td></tr>
-${arret ? `<tr><td style="font-size:12px;line-height:1.5;color:#a1a1aa;padding-top:24px;border-top:1px solid #e4e4e7"><a href="${echapper(arret)}" style="color:#a1a1aa">I do not wish to continue</a></td></tr>` : ""}
+<tr><td style="font-size:15px;line-height:1.4">${echapper(pied.equipe)}</td></tr>
+${arret ? `<tr><td style="font-size:12px;line-height:1.5;color:#a1a1aa;padding-top:24px;border-top:1px solid #e4e4e7"><a href="${echapper(arret)}" style="color:#a1a1aa">${echapper(pied.arret)}</a></td></tr>` : ""}
 </table></td></tr></table></body></html>`;
-  const texte = [...paragraphes, ...(e.bouton ? [`${e.bouton.texte}: ${e.bouton.lien}`] : []), ...(help ? [help] : []), "The Vik Studios team",
-    ...(arret ? [`I do not wish to continue: ${arret}`] : [])].join("\n\n");
+  const texte = [...paragraphes, ...(e.bouton ? [`${e.bouton.texte}: ${e.bouton.lien}`] : []), ...(help ? [help] : []), pied.equipe,
+    ...(arret ? [`${pied.arret}: ${arret}`] : [])].join("\n\n");
   return { html, texte };
 }
 

@@ -79,7 +79,8 @@ describe("PosterRelecturePage", () => {
     expect(screen.getByText("Welcome to native review 👋")).toBeInTheDocument();
     expect(screen.getByText(/The golden rule/)).toBeInTheDocument();
     expect(await screen.findByTestId("duels-vide")).toHaveTextContent(/No duel waiting/);
-    expect(await screen.findByTestId("relectures-vide")).toHaveTextContent(/saturday/i);
+    // Le texte dit le jour d'arrivée des posts : le mercredi depuis le 19/11 (avant : le samedi).
+    expect(await screen.findByTestId("relectures-vide")).toHaveTextContent(/wednesday/i);
     expect(screen.queryByText(/Your country, part by part/)).not.toBeInTheDocument();
     expect(screen.getByText(/50 words minimum/)).toBeInTheDocument();
   });

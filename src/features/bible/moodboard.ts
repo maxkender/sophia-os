@@ -86,7 +86,6 @@ export interface CompteBible {
   note_import: string | null;
   /** Une remarque de Max (ex. « UGC (vraie personne) : changer les images »). */
   remarque: string | null;
-  a_podzer: boolean;
   /** Mis à la corbeille (restaurable), null sinon. */
   supprime_at?: string | null;
   /** La langue de ses TikToks, si on la connaît déjà (demandée au lancement sinon). */
@@ -110,6 +109,13 @@ export interface CarteLabel {
   label_id: string | null;
   ordre: number | null;
   statut: string;
+  /**
+   * Label « à podzer » (0786) : on en fait un podz (des originaux), on ne l'importe pas. Ses comptes servent
+   * d'inspiration. Depuis le 20/11 c'est le LABEL qu'on marque, plus chaque compte.
+   */
+  a_podzer: boolean;
+  /** Le podz est validé : le bloc et ses comptes se rangent dans « Weekly update », catégorie Podz. */
+  podz_valide_at: string | null;
   /** Le nom du vrai label (carte « existe »). */
   label_nom?: string | null;
   /**
@@ -123,7 +129,8 @@ export interface CarteLabel {
 export const blocsVersesDans = (carte: CarteLabel, cartes: CarteLabel[]): CarteLabel[] =>
   cartes.filter((c) => c.rattachement?.fusion && c.rattachement.vers === carte.id && c.rattachement.comptes.length > 0);
 
-const COLONNES = "id, handle, etape, label_propose_id, autres_cartes, note_import, remarque, a_podzer, supprime_at, langue, posts, miniatures_statut, miniatures_erreur, vues_mediane, meilleur_post_vues, abonnes, ajoute_at";
+const COLONNES = "id, handle, etape, label_propose_id, autres_cartes, note_import, remarque, supprime_at, langue, posts, miniatures_statut, miniatures_erreur, vues_mediane, meilleur_post_vues, abonnes, ajoute_at";
+const COLONNES_CARTE = "id, nom, titre, section, badge, description_da, label_id, ordre, statut, a_podzer, podz_valide_at";
 
 export async function lireComptes(): Promise<CompteBible[]> {
   const { data, error } = await supabase.from("bible_comptes").select(COLONNES).order("ajoute_at").limit(3000);
@@ -133,7 +140,7 @@ export async function lireComptes(): Promise<CompteBible[]> {
 
 export async function lireCartes(): Promise<CarteLabel[]> {
   const { data, error } = await supabase.from("labels_proposes")
-    .select("id, nom, titre, section, badge, description_da, label_id, ordre, statut, rattachement, labels(nom)")
+    .select(`${COLONNES_CARTE}, rattachement, labels(nom)`)
     .not("section", "is", null).neq("statut", "refuse").order("ordre");
   if (error) throw new Error(error.message);
   return ((data ?? []) as unknown as (CarteLabel & { labels: { nom: string } | null })[])
@@ -190,29 +197,36 @@ export interface SourceDuCompte {
  * pas encore (ex. une source Sophia qu'on veut aussi sous un label Micabo).
  */
 export function etapeAvantImport(c: CompteBible, carte: CarteLabel | null | undefined, source: SourceDuCompte | null | undefined): EtapeManuelle | null {
-  if (estPodzValide(c)) return null;
+  if (estPodzValide(carte)) return null;
   if (source && (!carte || (carte.label_id !== null && source.labelIds.includes(carte.label_id)))) return null;
   return c.etape === "prochain_batch" ? "prochain_batch" : "a_importer";
 }
 
 /**
- * Un compte « à podzer » validé : il inspire un podz, il n'est jamais importé. Il quitte les onglets d'avant import
- * et se range dans « Weekly update », catégorie Podz, à titre indicatif (aucune source, aucune mise à jour).
+ * Un label « à podzer » validé : on en fait un podz, il n'est jamais importé. Le bloc et ses comptes quittent les
+ * onglets d'avant import et se rangent dans « Weekly update », catégorie Podz, à titre indicatif (aucune source,
+ * aucune mise à jour).
  */
-export const estPodzValide = (c: CompteBible): boolean => !c.supprime_at && c.a_podzer && c.etape === "importe";
+export const estPodzValide = (carte: CarteLabel | null | undefined): boolean => Boolean(carte?.a_podzer && carte.podz_valide_at);
 
-/** Valide des comptes à podzer (ils passent dans la catégorie Podz), ou les en retire. */
-export async function validerPodz(ids: string[], valide = true): Promise<void> {
-  const { error } = await supabase.from("bible_comptes")
-    .update({ etape: valide ? "importe" : "a_importer", etape_at: new Date().toISOString() }).in("id", ids).eq("a_podzer", true);
+/** Marque un label « à podzer », ou retire la marque. Dans les deux sens, la validation du podz repart de zéro. */
+export async function marquerPodz(carteId: string, aPodzer: boolean): Promise<void> {
+  const { error } = await supabase.from("labels_proposes").update({ a_podzer: aPodzer, podz_valide_at: null }).eq("id", carteId);
+  if (error) throw new Error(error.message);
+}
+
+/** Valide des labels à podzer (ils passent, avec leurs comptes, dans la catégorie Podz), ou les en retire. */
+export async function validerPodz(carteIds: string[], valide = true): Promise<void> {
+  const { error } = await supabase.from("labels_proposes")
+    .update({ podz_valide_at: valide ? new Date().toISOString() : null }).in("id", carteIds).eq("a_podzer", true);
   if (error) throw new Error(error.message);
 }
 
 /** Pourquoi un compte du prochain batch peut partir à l'import, ou pas. */
 export type Blocage = "pret" | "podz" | "deja_source" | "sans_label" | "label_a_creer";
 
-export function blocageImport(c: CompteBible, carte: CarteLabel | null | undefined, source: SourceDuCompte | null | undefined): Blocage {
-  if (c.a_podzer) return "podz";
+export function blocageImport(carte: CarteLabel | null | undefined, source: SourceDuCompte | null | undefined): Blocage {
+  if (carte?.a_podzer) return "podz";
   if (source) return "deja_source";
   if (!carte) return "sans_label";
   // Plus d'appli « à créer » depuis qu'Atala existe (0764) : il ne manque que le label, à créer depuis sa carte.
@@ -222,7 +236,7 @@ export function blocageImport(c: CompteBible, carte: CarteLabel | null | undefin
 
 export const LIBELLE_BLOCAGE: Record<Blocage, string> = {
   pret: "prêt à importer",
-  podz: "à podzer : pas d'import",
+  podz: "label à podzer : pas d'import",
   deja_source: "déjà une source",
   sans_label: "sans label",
   label_a_creer: "label à créer",
@@ -298,17 +312,17 @@ export async function creerCarte(p: { nom: string; section: Section; description
   const { data, error } = await supabase.from("labels_proposes").insert({
     nom: p.nom, description_da: p.description || null, statut: "a_valider", section: p.section, badge: "nouveau", ordre: 99,
     ...APP_SECTION[p.section],
-  }).select("id, nom, titre, section, badge, description_da, label_id, ordre, statut").single();
+  }).select(COLONNES_CARTE).single();
   if (error) throw new Error(error.message);
   return data as unknown as CarteLabel;
 }
 
 export const REMARQUE_UGC = "UGC (vraie personne) : changer les images";
 
-/** La note, la remarque et la case « À podzer » d'un compte. */
-export async function modifierCompte(id: string, p: { note: string; remarque: string; a_podzer: boolean }): Promise<void> {
+/** La note et la remarque d'un compte. */
+export async function modifierCompte(id: string, p: { note: string; remarque: string }): Promise<void> {
   const { error } = await supabase.from("bible_comptes")
-    .update({ note_import: p.note.trim() || null, remarque: p.remarque.trim() || null, a_podzer: p.a_podzer }).eq("id", id);
+    .update({ note_import: p.note.trim() || null, remarque: p.remarque.trim() || null }).eq("id", id);
   if (error) throw new Error(error.message);
 }
 
@@ -340,11 +354,11 @@ export async function supprimerDefinitivement(id: string): Promise<void> {
 
 /**
  * Ajoute (ou range, s'il y est déjà) chaque compte sous la carte choisie, à importer, avec ses apps (une ou
- * plusieurs), sa remarque et la case « À podzer ». Rend les ids touchés.
+ * plusieurs) et sa remarque. Rend les ids touchés.
  */
 export async function ajouterComptes(
   handles: string[], carte: CarteLabel | null, sections: Section[],
-  opts: { a_podzer?: boolean; remarques?: Record<string, string> } = {},
+  opts: { remarques?: Record<string, string> } = {},
 ): Promise<{ crees: string[]; deja: string[]; ids: string[] }> {
   const apps = sections.length ? appsDe(sections) : null;
   const lien = carte ? { label_propose_id: carte.id, label_id: carte.label_id } : {};
@@ -355,14 +369,14 @@ export async function ajouterComptes(
   const nouveaux = handles.filter((h) => !deja.some((d) => d.handle === h));
   const ids: string[] = deja.map((d) => d.id);
   for (const d of deja) {
-    const maj = { supprime_at: null, ...lien, ...(apps ?? {}), ...(remarque(d.handle) ? { remarque: remarque(d.handle) } : {}), ...(opts.a_podzer ? { a_podzer: true } : {}) };
+    const maj = { supprime_at: null, ...lien, ...(apps ?? {}), ...(remarque(d.handle) ? { remarque: remarque(d.handle) } : {}) };
     const { error } = await supabase.from("bible_comptes").update(maj).eq("id", d.id);
     if (error) throw new Error(error.message);
   }
   if (nouveaux.length) {
     const { data, error } = await supabase.from("bible_comptes").insert(nouveaux.map((h) => ({
       handle: h, profil_url: `https://www.tiktok.com/@${h}`, statut: "a_trier", etape: "a_importer", miniatures_statut: "a_faire",
-      remarque: remarque(h), a_podzer: Boolean(opts.a_podzer), ...lien, ...(apps ?? { application_ids: [], apps_attente: [] }),
+      remarque: remarque(h), ...lien, ...(apps ?? { application_ids: [], apps_attente: [] }),
     }))).select("id");
     if (error) throw new Error(error.message);
     ids.push(...((data ?? []) as { id: string }[]).map((r) => r.id));
@@ -409,10 +423,11 @@ export function ranger(
   etapeDe: (c: CompteBible) => EtapeManuelle | null = etapeSimple,
 ): Groupe[] {
   const q = filtre.recherche.trim().toLowerCase().replace(/^@/, "");
-  const visibles = comptes.filter((c) => (filtre.etape === "corbeille" ? Boolean(c.supprime_at) : !c.supprime_at && etapeDe(c) === filtre.etape)
-    && (!filtre.podzer || c.a_podzer)
-    && (!q || c.handle.includes(q) || (c.note_import ?? "").toLowerCase().includes(q) || (c.remarque ?? "").toLowerCase().includes(q)));
   const parId = new Map(cartes.map((c) => [c.id, c]));
+  // « À podzer » : les comptes dont le LABEL est à podzer (0786).
+  const visibles = comptes.filter((c) => (filtre.etape === "corbeille" ? Boolean(c.supprime_at) : !c.supprime_at && etapeDe(c) === filtre.etape)
+    && (!filtre.podzer || Boolean(c.label_propose_id && parId.get(c.label_propose_id)?.a_podzer))
+    && (!q || c.handle.includes(q) || (c.note_import ?? "").toLowerCase().includes(q) || (c.remarque ?? "").toLowerCase().includes(q)));
   return SECTIONS
     .filter((s) => !filtre.section || filtre.section === s.cle)
     .map((s) => {

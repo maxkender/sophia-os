@@ -16,7 +16,7 @@
   "titre": "save a prayer",
   "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
  },
- "notes": "Full test (boîte vide, voie 1 tant qu'aw-001 n'est pas validé). Famille « N habitudes en une semaine » de @healthy_with_emma6 (« 6 habitudes wellness qui font leurs effets au bout d'une semaine », 12,3 k ; ici sa variante « … qui se voient sur ton visage au bout d'une semaine », 3,1 k), sujet : la peau / le visage (aw-001 : l'énergie). 7 slides, Atala en 5e. cta B. Faits vérifiés : visages après une nuit de manque de sommeil jugés plus fatigués et moins en bonne santé (Axelsson et al., BMJ 2010 ; Sundelin et al., Sleep 2013) ; crème solaire chaque jour, aucune augmentation détectable du vieillissement de la peau sur 4,5 ans (Hughes et al., Annals of Internal Medicine 2013) ; plus de fruits et légumes, teint plus chaud jugé plus sain en 6 semaines (Whitehead et al., PLoS ONE 2012) ; acné aggravée pendant le stress des examens (Chiu, Chon et Kimball, Archives of Dermatology 2003) ; maquillage laissé la nuit et pores bouchés (conseil dermatologique, sans chiffre). Photos : banque de l'OS ; Atala : 5552c0e1 (coucher de soleil rose, montagne, de dos), autre que dcb001c3 d'aw-001.",
+ "notes": "Full test (boîte vide, voie 1 tant qu'aw-001 n'est pas validé). Famille « N habitudes en une semaine » de @healthy_with_emma6 (« 6 habitudes wellness qui font leurs effets au bout d'une semaine », 12,3 k ; ici sa variante « … qui se voient sur ton visage au bout d'une semaine », 3,1 k), sujet : la peau / le visage (aw-001 : l'énergie). 7 slides, Atala en 5e. cta B. Faits vérifiés : visages après une nuit de manque de sommeil jugés plus fatigués et moins en bonne santé (Axelsson et al., BMJ 2010 ; Sundelin et al., Sleep 2013) ; crème solaire chaque jour, aucune augmentation détectable du vieillissement de la peau sur 4,5 ans (Hughes et al., Annals of Internal Medicine 2013) ; plus de fruits et légumes, teint plus chaud jugé plus sain en 6 semaines (Whitehead et al., PLoS ONE 2012) ; acné aggravée pendant le stress des examens (Chiu, Chon et Kimball, Archives of Dermatology 2003) ; maquillage laissé la nuit et pores bouchés (conseil dermatologique, sans chiffre). Photos : banque de l'OS ; Atala : 5552c0e1 (coucher de soleil rose, montagne, de dos), autre que dcb001c3 d'aw-001. Slide Atala réécrite le 20/11 selon le prompt placement_atala (un seul argument, « app like Atala », sans « AI ») : placement B (20/11) : « a running coach app like Atala plans my whole week, so i just show up ».",
  "banque": {
   "images/banque/couverture-c.jpg": "8e1cd414-7d20-4cc3-91f6-a8f21904d65c",
   "images/banque/sommeil.jpg": "0ac5acd9-e2e5-4ce5-974d-86778d74314f",
@@ -30,14 +30,29 @@
  "slides": [
   {
    "type": "couverture",
-   "photos": ["images/banque/couverture-c.jpg", "images/banque/sommeil.jpg"],
-   "cadrage": [{ "y": 0.5 }, { "y": 0.5 }],
-   "en": { "titre": "6 wellness habits that show on your face after just one week", "note": "(backed by science)" }
+   "photos": [
+    "images/banque/couverture-c.jpg",
+    "images/banque/sommeil.jpg"
+   ],
+   "cadrage": [
+    {
+     "y": 0.5
+    },
+    {
+     "y": 0.5
+    }
+   ],
+   "en": {
+    "titre": "6 wellness habits that show on your face after just one week",
+    "note": "(backed by science)"
+   }
   },
   {
    "type": "habitude",
    "photo": "images/banque/couverture-d.jpg",
-   "cadrage": { "x": 0.6 },
+   "cadrage": {
+    "x": 0.6
+   },
    "en": {
     "titre": "sleep _8 hours_, really",
     "intro": "your face shows _every short night_",
@@ -82,7 +97,7 @@
     "intro": "nothing gives me _that glow_ like a run",
     "paragraphes": [
      "i always wanted to run but i _kept quitting_ after a few days because i never knew what to do",
-     "my tip: _i started using an AI running coach_ that adapts my plan every week, so i just follow it"
+     "my tip: a running coach app like Atala plans _my whole week_, so i just show up"
     ],
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",

@@ -5,6 +5,9 @@ fait sa livraison du jour **seul**, du début à la fin, puis s'arrête.
 Personne n'est là pour répondre : ne pose pas de question, décide avec ton
 `AGENT.md`, et note tes doutes dans le compte rendu.
 
+Les mots (label, podz, modèle, source, format) sont définis dans
+`pods/GLOSSAIRE.md`.
+
 Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 **comment** ; ce fichier dit **quand** et **combien**. Il a deux parties :
 

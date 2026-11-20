@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 import { abrege } from "@/components/charts/echelle";
-import { drapeauLangue } from "@/features/moteur/langues";
+import { canoniserLangue, drapeauLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
 import { listerComptesPod } from "./api";
@@ -49,7 +49,7 @@ export function ComptesDuPod({ pod, label }: { pod: string; label: string | null
                   )}
                 </td>
                 <td className="whitespace-nowrap px-2 py-1">
-                  {drapeauLangue(c.langue)} {c.langue}
+                  {drapeauLangue(canoniserLangue(c.langue))} {canoniserLangue(c.langue)}
                   {c.pays ? ` · ${c.pays}` : ""}
                 </td>
                 <td className={cn("px-2 py-1 text-right tabular-nums", c.posts_15j === 0 && "font-semibold text-destructive")}>

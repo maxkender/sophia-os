@@ -419,7 +419,7 @@ describe("section BLEO de l'OS", () => {
     expect(screen.getByText("ombre")).toBeInTheDocument();
   });
 
-  it("menu : Pods et Allocation rangées dans BLEO, la boîte des podz sous le tableau de bord de Pods", () => {
+  it("menu : Pods et Allocation rangées dans BLEO, la boîte des podz dans les chiffres de la page Podz", () => {
     const lire = (f: string) => fs.readFileSync(path.join(process.cwd(), f), "utf8");
     const menu = lire("src/components/layout/AdminLayout.tsx");
     const bleo = menu.slice(menu.indexOf('title: t("navSection.bleo")'), menu.indexOf('title: t("navSection.tests")'));
@@ -429,10 +429,10 @@ describe("section BLEO de l'OS", () => {
     // Déplacées, pas copiées : une seule entrée chacune dans tout le menu.
     expect(menu.split('to: "/admin/pods"').length).toBe(2);
     expect(menu.split('to: "/admin/repartition"').length).toBe(2);
-    // Juste sous le tableau de bord des podz, avant les livraisons à valider.
+    // La boîte est dans la vue « Chiffres » de la page Podz, et l'ancien lien `#boite-podz` l'ouvre.
     const pods = lire("src/pages/admin/AdminPodsPage.tsx");
     const page = pods.slice(pods.indexOf("export function AdminPodsPage"));
-    expect(page.indexOf("<SectionBoitePodz />")).toBeGreaterThan(page.indexOf("<TableauDeBord />"));
-    expect(page.indexOf("<SectionBoitePodz />")).toBeLessThan(page.indexOf("slugs.map("));
+    expect(page.indexOf("<SectionBoitePodz />")).toBeGreaterThan(page.indexOf('vue === "chiffres" &&'));
+    expect(page).toContain('hash === "#boite-podz"');
   });
 });

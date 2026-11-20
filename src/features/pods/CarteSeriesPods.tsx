@@ -20,7 +20,7 @@ const JALONS: { cle: Jalon; libelle: string }[] = [
  * Barres : vues moyennes à J+1, J+3 ou J+7 (au choix) des posts publiés ce jour-là (comparables d'un
  * jour à l'autre) ; trait : la même moyenne pour tous les podz.
  */
-export function CarteSeriesPods({ pods }: { pods: { slug: string; nom: string }[] }) {
+export function CarteSeriesPods({ pods, fixe }: { pods: { slug: string; nom: string }[]; /** Un seul podz, sans sélecteur (fiche du podz). */ fixe?: string }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.language;
   const { data, error } = useQuery({ queryKey: ["pods", "series"], queryFn: () => lireSeriesPods(21), staleTime: 300_000 });
@@ -30,10 +30,11 @@ export function CarteSeriesPods({ pods }: { pods: { slug: string; nom: string }[
   }, [data, pods]);
   const [choisi, setChoisi] = React.useState<string>("");
   const [jalon, setJalon] = React.useState<Jalon>("moy_j1");
-  const pod = choisi || avecPosts[0]?.slug || "";
+  const pod = fixe ?? (choisi || avecPosts[0]?.slug || "");
 
   if (error) return <p className="text-sm text-destructive">{t("pods.series.erreur", { message: (error as Error).message })}</p>;
   if (!data || !pod) return null;
+  if (fixe && !data.some((l) => l.pod === fixe)) return null;
 
   const serie = serieDuPod(data, pod, jalon);
   const age = JALONS.find((j) => j.cle === jalon)?.libelle ?? "J+1";
@@ -58,7 +59,7 @@ export function CarteSeriesPods({ pods }: { pods: { slug: string; nom: string }[
     <Card>
       <CardHeader>
         <CardTitle className="flex flex-wrap items-center justify-between gap-2">
-          {t("pods.series.titre")}
+          {fixe ? t("pods.series.titreFixe") : t("pods.series.titre")}
           <span className="flex flex-wrap items-center gap-2">
           <select
             aria-label={t("pods.series.age")}
@@ -72,7 +73,7 @@ export function CarteSeriesPods({ pods }: { pods: { slug: string; nom: string }[
               </option>
             ))}
           </select>
-          <select
+          {!fixe && <select
             aria-label={t("pods.series.choisir")}
             className="h-8 rounded-md border bg-background px-2 text-sm font-normal"
             value={pod}
@@ -83,7 +84,7 @@ export function CarteSeriesPods({ pods }: { pods: { slug: string; nom: string }[
                 {p.nom}
               </option>
             ))}
-          </select>
+          </select>}
           </span>
         </CardTitle>
         <CardDescription>{t("pods.series.description")}</CardDescription>

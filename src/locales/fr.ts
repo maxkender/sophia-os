@@ -9788,6 +9788,7 @@ export const fr = {
       detail: "{{faits}} posts sur {{prevus}} · {{comptes}} compte(s)",
       detailBonus: "+ {{bonus}} $ de bonus",
       statut_paid: "Payé",
+      envoyeAttendu: "Paiement envoyé le {{lundi}}, attendu sur ton compte d'ici le {{mercredi}}",
       statut_processing: "En cours de paiement",
       statut_scheduled: "Prévu lundi",
       statut_waiting_setup: "En attente : termine ton inscription Ruul pour le recevoir",

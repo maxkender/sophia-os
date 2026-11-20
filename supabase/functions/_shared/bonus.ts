@@ -24,6 +24,7 @@ export function noteBonus(b: LigneNote): string {
   if (b.type === "parrainage") {
     return `Referral bonus: thank you for bringing ${String(b.prenom_filleul ?? "").trim() || "your friend"} to the team!`;
   }
+  if (b.type === "questionnaire") return "Questionnaire bonus: thank you for your answers!";
   return `Bonus: ${String(b.raison ?? "").trim() || "thank you"}`;
 }
 

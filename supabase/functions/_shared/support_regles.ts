@@ -172,6 +172,40 @@ const MANQUE_RUUL: Record<string, string> = {
   PENDING_COLLECTION_ACCOUNT: "add your bank account",
 };
 
+/** 21/11 (Max) : la règle de paie Ruul, avec le délai de la validation bancaire. */
+export const REGLE_PAIE_RUUL = "You are paid every Monday for the previous week (Monday to Sunday), via Ruul. " +
+  "Because of bank validation, the money usually reaches your account 1 to 2 business days later (Tuesday or Wednesday).";
+
+const ECHECS_RUUL = new Set(["FAILED", "REJECTED", "CANCELLED", "CANCELED", "RETURNED", "ERROR", "DECLINED"]);
+
+/**
+ * 21/11 (Max) : « je n'ai pas reçu ma paie » : le lot est-il parti ? Oui, compte Ruul prêt, avant mercredi soir : la
+ * date d'envoi et l'arrivée attendue (pas d'escalade avant jeudi). Jeudi ou après, ou échec chez Ruul : à Max, avec
+ * le statut Ruul du paiement. null : rien d'envoyé (les autres réponses s'appliquent).
+ */
+export function paieRuulEnRoute(e: EtatReel, maintenant: Date): { texte: string; escalader: boolean; statut: string; semaine: string } | null {
+  if ((e.ruul?.onboarding ?? "") !== "READY") return null;
+  const p = [...e.paie].sort((a, b) => b.semaine.localeCompare(a.semaine))
+    .find((x) => !x.paye_at && x.ruul_statut && x.ruul_statut !== "PAID" && x.statut !== "annule");
+  if (!p) return null;
+  const statut = String(p.ruul_statut).toUpperCase();
+  const lundi = plusJours(p.semaine, 7);
+  const mercredi = plusJours(p.semaine, 9);
+  const montant = Number(p.total ?? p.montant ?? 0);
+  const jour = jourParis(maintenant);
+  if (ECHECS_RUUL.has(statut)) {
+    return { texte: "We're checking your payment with Ruul, you'll get an answer within 24 h.", escalader: true, statut, semaine: p.semaine };
+  }
+  if (jour <= mercredi) {
+    return {
+      texte: `Your payment of ${montant} $ for the week of ${dateCourte(p.semaine)} was sent on ${jourLong(lundi)}. ` +
+        `It usually arrives within 1 to 2 business days (by ${jourLong(mercredi)}), because of bank validation.`,
+      escalader: false, statut, semaine: p.semaine,
+    };
+  }
+  return { texte: "We're checking your payment with Ruul, you'll get an answer within 24 h.", escalader: true, statut, semaine: p.semaine };
+}
+
 /**
  * 19/11 (Max) : « quand serai-je payé ? » pour un posteur Ruul, d'après son vrai statut de paiement :
  * payé le [date] / envoyé, en attente de son action sur Ruul / pas encore payable (ce qui manque) / payé chaque lundi.
@@ -185,7 +219,10 @@ export function textePaieRuul(e: EtatReel, maintenant: Date, emailRuul: string |
   const dow = new Date(`${jour}T12:00:00Z`).getUTCDay();
   const prochainLundi = plusJours(jour, ((1 - dow + 7) % 7) || 7);
   const montant = (p: EtatReel["paie"][number]) => Number(p.total ?? p.montant ?? 0);
-  const regle = "You are paid every Monday for the previous week, via Ruul.";
+  const regle = REGLE_PAIE_RUUL;
+  // 21/11 (Max) : lot parti, compte prêt : la validation bancaire de Ruul (1 à 2 jours ouvrés).
+  const enRoute = paieRuulEnRoute(e, maintenant);
+  if (enRoute) return enRoute.texte;
   if (envoyee) {
     return `Your payment of ${montant(envoyee)} $ for the week of ${dateCourte(envoyee.semaine)} was sent on Ruul and is waiting for your action there (identity or bank). Log in to app.ruul.io to finish it and receive it.`;
   }

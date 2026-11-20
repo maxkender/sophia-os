@@ -567,6 +567,12 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
           texte:
             "You are paid **every week** through **Ruul**, our payment partner. **Nothing to submit**: every Monday, we pay you for the week of posts that just ended (Monday → Sunday).",
         },
+        {
+          // 21/11 (Max) : le délai de la validation bancaire de Ruul (ajout de texte seulement).
+          type: "p",
+          texte:
+            "You're paid every Monday for the previous week (Monday to Sunday). Because of bank validation, the money usually reaches your account **1 to 2 business days later** (Tuesday or Wednesday).",
+        },
         { type: "titre", texte: "Before your first Monday" },
         {
           type: "etapes",

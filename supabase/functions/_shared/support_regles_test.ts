@@ -2,7 +2,7 @@ import { assertEquals } from "jsr:@std/assert@1";
 
 import {
   detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, ligneStatut, premierJourPostsParis, situation, TEXTES, texteStatut, texteWarmup,
-  ditPasRecu, estCodeRuul, estQuestionPaie, samediDeTraitement, texteArret, texteCodeRuul, textePaieRuul,
+  ditPasRecu, estCodeRuul, estQuestionPaie, paieRuulEnRoute, REGLE_PAIE_RUUL, samediDeTraitement, texteArret, texteCodeRuul, textePaieRuul,
 } from "./support_regles.ts";
 
 const ruul = { plateforme: "ruul" as const, attenteLienUpwork: false };
@@ -156,7 +156,14 @@ Deno.test("19/11 : « quand serai-je payé ? » : le vrai statut Ruul", () => {
   assertEquals(textePaieRuul({ ...ruulPret, ruul: { onboarding: "PENDING_COLLECTION_ACCOUNT", statut: "pret", compte: "active" } }, JEUDI).includes("add your bank account"), true);
   assertEquals(textePaieRuul({ ...ruulPret, ruul: null }, JEUDI, "ana@example.com").includes("create your Ruul account"), true);
   // Prêt, rien de payé encore : chaque lundi.
-  assertEquals(textePaieRuul(ruulPret, JEUDI), "You are paid every Monday for the previous week, via Ruul. Your Ruul account is ready, so your next payment is on Monday 23 Nov.");
+  assertEquals(textePaieRuul(ruulPret, JEUDI), `${REGLE_PAIE_RUUL} Your Ruul account is ready, so your next payment is on Monday 23 Nov.`);
+  // 21/11 : lot parti, compte prêt : la validation bancaire (1 à 2 jours ouvrés), escalade à partir du jeudi.
+  const envoi = { ...ruulPret, paie: [{ semaine: "2026-11-09", total: 10, statut: "a_payer", ruul_statut: "PROCESSING", paye_at: null }] };
+  const mardi = paieRuulEnRoute(envoi, new Date("2026-11-17T10:00:00Z"));
+  assertEquals(mardi?.escalader, false);
+  assertEquals(mardi?.texte, "Your payment of 10 $ for the week of 9 Nov was sent on Monday 16 Nov. It usually arrives within 1 to 2 business days (by Wednesday 18 Nov), because of bank validation.");
+  assertEquals(paieRuulEnRoute(envoi, new Date("2026-11-19T10:00:00Z"))?.escalader, true);
+  assertEquals(paieRuulEnRoute({ ...envoi, paie: [{ ...envoi.paie[0]!, ruul_statut: "FAILED" }] }, new Date("2026-11-17T10:00:00Z"))?.escalader, true);
   assertEquals(ditPasRecu("I have not received my payment"), true);
   // Apostrophe typographique, « the payment », factures Ruul.
   assertEquals(estQuestionPaie("I haven’t received the payment—which is supposed to be made every Monday—for the past two weeks"), true);

@@ -313,9 +313,11 @@ export function ecartsReconciliation(
 export function motifInhabituel(l: LigneAuto, plafondLigne: number): string | null {
   if (l.action !== "payer") return `ligne « ${l.action} »`;
   if (l.ids.length > 1) return "plusieurs profils sur ce contrat";
-  if ((l.nb_comptes ?? 1) > 1) return "Doubler (plusieurs comptes payés)";
   if (l.tarif === null || !(l.tarif > 0)) return "tarif du contrat inconnu";
-  if (Math.abs(l.montant - l.tarif) >= 0.005) return `montant ${l.montant} $ différent du tarif ${l.tarif} $`;
+  // 21/11 (Max) : un doublement accepté est une paie normale : tarif × nombre de comptes, sans OK ligne par ligne.
+  const comptes = Math.max(1, l.nb_comptes ?? 1);
+  if (comptes > 2) return `${comptes} comptes payés`;
+  if (Math.abs(l.montant - l.tarif * comptes) >= 0.005) return `montant ${l.montant} $ différent du tarif ${comptes > 1 ? `× ${comptes} (${l.tarif * comptes} $)` : `${l.tarif} $`}`;
   if (Math.abs(l.montant_calcule - l.montant) >= 0.005 || l.raison_correction) return "montant corrigé à la main";
   if (plafondLigne > 0 && l.montant > plafondLigne) return `au-dessus du plafond (${plafondLigne} $)`;
   return null;

@@ -9779,6 +9779,7 @@ export const en = {
       detail: "{{faits}} of {{prevus}} posts · {{comptes}} account(s)",
       detailBonus: "+ {{bonus}} $ bonus",
       statut_paid: "Paid",
+      envoyeAttendu: "Payment sent on {{lundi}}, expected in your account by {{mercredi}}",
       statut_processing: "On its way",
       statut_scheduled: "Scheduled for Monday",
       statut_waiting_setup: "On hold: finish your Ruul setup to get it",

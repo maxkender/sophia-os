@@ -8,6 +8,7 @@ import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { type CasFin, estDemandePosteur, OBJET_FIN, raisonFixe, texteCompteArrete, texteFin } from "../_shared/fin_collaboration.ts";
 import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rapport_samedi.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { reponseDouble, TEXTE_REFUS_DOUBLE, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "../_shared/doublement.ts";
 import {
   type CasRuul,
   decisionUpwork,
@@ -47,7 +48,7 @@ import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceCl
 import {
   casDeCategorie, type CasFixe, detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, etatDashboardTexte,
   ligneStatut, type Situation, situation, TEXTES, texteStatut,
-  ditPasRecu, estCodeRuul, estQuestionPaie, texteArret, texteCodeRuul, textePaieRuul,
+  ditPasRecu, estCodeRuul, estQuestionPaie, paieRuulEnRoute, texteArret, texteCodeRuul, textePaieRuul,
 } from "../_shared/support_regles.ts";
 
 /**
@@ -145,6 +146,15 @@ Deno.serve(async (request) => {
         // 18/11 (Max) : kills, partie 3 : le rapport du samedi (OS + #a-os-tickets) ; « envoyer: false » = sans Slack.
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
         return json(await rapportSamedi(db, typeof body.samedi === "string" ? body.samedi : null, body.envoyer !== false));
+      case "doubles_offres":
+        // 21/11 (Max) : la proposition de 2e compte (OUI du jeudi) : Upwork (conversation du contrat) ou email (Ruul),
+        // et le pop-up du dashboard, dans sa langue. Cron toutes les 15 min.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await doublesOffres(db, body.simuler === true));
+      case "doubles_demarrages":
+        // 21/11 (Max) : le lundi du démarrage : « From Monday … you manage 2 accounts … ». Une fois.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await doublesDemarrages(db, body.simuler === true));
       case "nudge_jeudi_ruul":
         // 19/11 (Max) : le nudge du jeudi d'un posteur Ruul : email + bandeau sur son dashboard (jamais de DM Slack).
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -820,7 +830,7 @@ async function deciderBot(
 
 /** Ce qui doit se passer après la réponse (écritures faites par apresDemande, jamais en simulation). */
 export interface PlanRegles {
-  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | `ruul_${CasRuul}` | null;
+  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | `ruul_${CasRuul}` | "double_jeudi" | null;
   /** 21/11 (Max) : le problème Ruul compté (le bot répond 2 fois au plus au même problème, puis escalade). */
   tentative_ruul: string | null;
   /** 21/11 : escalade Ruul (cas inconnu ou 3e message sur le même problème) → ticket dans #a-os-tickets. */
@@ -844,6 +854,14 @@ async function etatReel(db: Db, poster: string): Promise<EtatReel | null> {
 }
 
 /** Un texte fixe (anglais) dans la langue du message du posteur ; l'anglais tel quel ; en cas d'échec, l'anglais. */
+/** Le lundi qui suit (heure de Paris), AAAA-MM-JJ. */
+function lundiQuiSuit(d: Date): string {
+  const paris = new Date(d.toLocaleString("en-US", { timeZone: "Europe/Paris" }));
+  const iso = (paris.getDay() + 6) % 7;
+  paris.setDate(paris.getDate() + 7 - iso);
+  return `${paris.getFullYear()}-${String(paris.getMonth() + 1).padStart(2, "0")}-${String(paris.getDate()).padStart(2, "0")}`;
+}
+
 async function traduire(texte: string, langue: string | null | undefined): Promise<string> {
   const l = (langue ?? "en").toLowerCase();
   if (!l || l.startsWith("en")) return texte;
@@ -1025,6 +1043,101 @@ async function nudgeJeudiRuul(db: Db, lundi: string, comptes: string[], simuler:
   return { ok: true, simulation: simuler, ...bilan };
 }
 
+/** Un message dans la conversation Upwork du contrat du posteur (fonction upwork). */
+async function messageUpworkPosteur(poster: string, texte: string, type: string): Promise<string | null> {
+  await secretCron();
+  const secret = secretCronConnu();
+  const rep = await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/upwork`, {
+    method: "POST",
+    headers: { "content-type": "application/json", ...(secret ? { "x-cron-secret": secret } : {}) },
+    body: JSON.stringify({ action: "message_posteur", poster_id: poster, texte, type }),
+  });
+  const data = await rep.json().catch(() => ({})) as { ok?: boolean; error?: string };
+  return !rep.ok || data.ok === false ? `Upwork : ${data.error ?? `HTTP ${rep.status}`}` : null;
+}
+
+/** Un message de doublement : Upwork pour un posteur Upwork, email pour un posteur Ruul (+ le texte sur son dashboard). */
+async function envoyerDoublement(db: Db, o: { poster: string; canal: string; cle: string | null; en: string; texte: string; langue: string | null; objet: string; tag: string }) {
+  const canaux: string[] = [];
+  const erreurs: string[] = [];
+  if (o.cle) {
+    const { error } = await db.rpc("texte_poster_ecrire", { p_poster: o.poster, p_cle: o.cle, p_en: o.en, p_texte: o.texte, p_langue: o.langue });
+    if (error) erreurs.push(`dashboard : ${error.message}`);
+    else canaux.push("dashboard");
+  }
+  if (o.canal === "ruul") {
+    const c = await contactPosteur(db, o.poster);
+    if (c.email) {
+      const objet = await traduire(o.objet, o.langue);
+      const e = rendreEmailRuul({ objet, titre: "Vik Studios", corps: o.texte, lienStop: OS_URL, sansPied: true });
+      const r = await envoyerEmailSite(c.email, objet, e.html, e.texte, OS_URL, [o.tag]);
+      if (r.ok) canaux.push("email");
+      else erreurs.push(`email : ${String(r.erreur ?? "échec")}`);
+    } else erreurs.push("email : pas d'adresse connue");
+  } else {
+    const err = await messageUpworkPosteur(o.poster, o.texte, o.tag);
+    if (err) erreurs.push(err);
+    else canaux.push("upwork");
+  }
+  return { canaux, erreur: erreurs.length ? erreurs.join(" ; ") : null };
+}
+
+async function langueDuPays(db: Db, pays: string | null): Promise<string | null> {
+  const { data } = await db.rpc("parrainage_langue_pays", { p_pays: pays });
+  return typeof data === "string" ? data : null;
+}
+
+/** 21/11 (Max) : les propositions de 2e compte à envoyer (OUI de Max le jeudi, jamais envoyées). */
+async function doublesOffres(db: Db, simuler: boolean) {
+  const { data: pause } = await db.rpc("automation_en_pause");
+  if (pause === true && !simuler) return { ok: false, error: "automatisation en pause : rien n'est parti" };
+  const { data, error } = await db.rpc("doubles_offres_a_envoyer");
+  if (error) throw new Error(error.message);
+  const bilan = { envoyees: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; canal: string; texte_en: string; texte: string }[] };
+  for (const o of (data ?? []) as { id: string; poster_id: string; prenom: string | null; canal_paie: string; pays: string | null; handle: string | null; label: string | null; lundi: string; tarif: number | null }[]) {
+    const langue = await langueDuPays(db, o.pays);
+    const canal = o.canal_paie === "ruul" ? "ruul" : "upwork";
+    const en = texteOffreDouble({ prenom: o.prenom, handle: o.handle, label: o.label, tarif: o.tarif === null ? null : Number(o.tarif), lundi: o.lundi, canal });
+    const texte = await traduire(en, langue);
+    if (simuler) {
+      bilan.exemples.push({ langue, canal, texte_en: en, texte });
+      continue;
+    }
+    const r = await envoyerDoublement(db, { poster: o.poster_id, canal, cle: `double_offre:${o.id}`, en, texte, langue, objet: "A 2nd TikTok account for you", tag: "double_offre" });
+    // Envoyée quand le posteur l'a reçue quelque part en dehors du dashboard (Upwork ou email).
+    const parti = r.canaux.filter((c) => c !== "dashboard");
+    await db.rpc("double_offre_noter", { p_id: o.id, p_canaux: parti.length ? r.canaux : [], p_erreur: r.erreur });
+    if (parti.length) bilan.envoyees++;
+    if (r.erreur) bilan.erreurs.push(`${o.poster_id} : ${r.erreur}`);
+  }
+  return { ok: true, simulation: simuler, ...bilan };
+}
+
+/** 21/11 (Max) : le message du lundi où le 2e compte démarre. */
+async function doublesDemarrages(db: Db, simuler: boolean) {
+  const { data: pause } = await db.rpc("automation_en_pause");
+  if (pause === true && !simuler) return { ok: false, error: "automatisation en pause : rien n'est parti" };
+  const { data, error } = await db.rpc("doubles_demarrages_a_envoyer");
+  if (error) throw new Error(error.message);
+  const bilan = { envoyes: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; texte: string }[] };
+  for (const o of (data ?? []) as { id: string; poster_id: string; canal_paie: string; pays: string | null; handle1: string | null; handle2: string | null; lundi: string; tarif: number | null }[]) {
+    const langue = await langueDuPays(db, o.pays);
+    const en = texteDemarrageDouble({ handle1: o.handle1, handle2: o.handle2, tarif: o.tarif === null ? null : Number(o.tarif), lundi: o.lundi });
+    const texte = await traduire(en, langue);
+    if (simuler) {
+      bilan.exemples.push({ langue, texte });
+      continue;
+    }
+    const r = await envoyerDoublement(db, { poster: o.poster_id, canal: o.canal_paie === "ruul" ? "ruul" : "upwork", cle: `double_demarrage:${o.id}`, en, texte, langue, objet: "Your 2 accounts", tag: "double_demarrage" });
+    if (r.canaux.some((c) => c !== "dashboard")) {
+      await db.rpc("double_demarrage_noter", { p_id: o.id });
+      bilan.envoyes++;
+    }
+    if (r.erreur) bilan.erreurs.push(`${o.poster_id} : ${r.erreur}`);
+  }
+  return { ok: true, simulation: simuler, ...bilan };
+}
+
 /** Le motif interne d'un arrêt, en anglais clair, pour « because … ». */
 async function raisonEnClair(motif: string | null): Promise<string | null> {
   if (!motif) return null;
@@ -1096,6 +1209,27 @@ async function appliquerRegles(
     d.action_valeur = null;
     d.risque = d.risque.filter((r) => r !== "argent_tiers" && r !== "hors_plateforme");
   };
+  // 21/11 (Max) : une proposition de 2e compte en cours et un « yes » / « no » court (Upwork, email, Help) : la réponse
+  // est enregistrée (le 2e compte est créé s'il ne l'est pas encore) et le posteur reçoit la confirmation.
+  if (o.poster) {
+    const r = reponseDouble(o.message);
+    if (r) {
+      const { data: offre } = await db.rpc("double_jeudi_en_cours", { p_poster: o.poster });
+      if (typeof offre === "string" && offre) {
+        let lundi = lundiQuiSuit(new Date());
+        if (!o.simulation) {
+          const { data: rep } = await db.rpc("double_jeudi_repondre_interne", { p_id: offre, p_oui: r === "oui", p_via: "message" });
+          const l = (rep as { lundi?: string } | null)?.lundi;
+          if (l) lundi = l;
+        }
+        fixe(r === "oui" ? texteAccordDouble(lundi) : TEXTE_REFUS_DOUBLE, "double");
+        plan.cas = "double_jeudi";
+        d.personnel = true;
+        d.reponse = await traduire(d.reponse, d.langue);
+        return plan;
+      }
+    }
+  }
   const attente = o.etat?.upwork_exception?.statut === "lien_attendu";
   const det = detecterCas(o.message, { plateforme: o.plateforme, attenteLienUpwork: attente });
   const cas = det.cas ?? casDeCategorie(d.categorie, o.plateforme);
@@ -1179,6 +1313,13 @@ async function appliquerRegles(
       const pasRecu = ditPasRecu(o.message);
       fixe(textePaieRuul(o.etat, new Date(), emailRuul), "paie");
       plan.cas = "paie_ruul";
+      // 21/11 (Max) : lot parti mais pas arrivé jeudi, ou échec chez Ruul : à Max avec le statut Ruul du paiement.
+      const enRoute = paieRuulEnRoute(o.etat, new Date());
+      if (enRoute?.escalader) {
+        d.niveau = "max";
+        plan.resume = `Paiement Ruul de la semaine du ${enRoute.semaine} pas arrivé (statut Ruul : ${enRoute.statut}).`;
+        plan.action_proposee = "vérifier le paiement sur Ruul";
+      }
       // Un montant ou une adresse : jamais dans un salon public (message privé).
       d.personnel = true;
       // Payé chez nous mais « pas reçu » : la réponse part, et Max regarde (jamais de litige sans lui).

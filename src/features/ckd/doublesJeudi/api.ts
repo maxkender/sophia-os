@@ -69,7 +69,30 @@ export const decider = (id: string, decision: "oui" | "non", label: string | nul
   rpc<void>("jeudi_double_decider", { p_id: id, p_decision: decision, p_label: label });
 export const toutRefuser = (jeudi: string) => rpc<number>("jeudi_doubles_tout_refuser", { p_jeudi: jeudi });
 export const lireLundi = (jeudi: string) => rpc<LigneLundi[]>("jeudi_lundi_resume", { p_jeudi: jeudi }).then((d) => d ?? []);
-export const creerDeuxieme = (id: string) => invoke<{ ok: boolean; error?: string }>("ckd", { action: "double_jeudi", id });
+export const creerDeuxieme = (id: string) => invoke<{ ok: boolean; error?: string; attente?: string }>("ckd", { action: "double_jeudi", id });
+
+/** 0802 : la réponse du posteur à la proposition (envoyée après le OUI de Max). */
+export interface ReponseDouble {
+  id: string;
+  reponse: "oui" | "non" | "expire" | null;
+  repondu_at: string | null;
+  repondu_via: string | null;
+  offre_envoyee_at: string | null;
+  offre_canaux: string[] | null;
+  offre_erreur: string | null;
+  demarrage_message_at: string | null;
+}
+export const lireReponses = (jeudi: string) => rpc<ReponseDouble[]>("jeudi_doubles_reponses", { p_jeudi: jeudi }).then((d) => d ?? []);
+
+/** Le libellé de l'état d'une proposition validée OUI, côté posteur. */
+export function etatReponse(r: ReponseDouble | undefined): { texte: string; ton: "ok" | "attente" | "non" } {
+  if (!r) return { texte: "Proposition à envoyer", ton: "attente" };
+  if (r.reponse === "oui") return { texte: r.repondu_via === "warmup" ? "Accepté (warm-up lancé)" : "Accepté par le posteur", ton: "ok" };
+  if (r.reponse === "non") return { texte: "Refusé par le posteur", ton: "non" };
+  if (r.reponse === "expire") return { texte: "Expiré (pas de réponse)", ton: "non" };
+  if (r.offre_envoyee_at) return { texte: `Proposé (${(r.offre_canaux ?? []).filter((c) => c !== "dashboard").join(", ") || "dashboard"}) · en attente`, ton: "attente" };
+  return { texte: r.offre_erreur ? `Proposition pas partie : ${r.offre_erreur}` : "Proposition à envoyer", ton: "attente" };
+}
 
 /** Le jeudi (AAAA-MM-JJ) de la semaine d'un jour donné. */
 export function jeudiDeLaSemaine(jour: string): string {

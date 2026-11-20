@@ -139,6 +139,17 @@ const COULEUR_STATUT: Record<MaPaieRuul["statut"], string> = {
   none: "text-muted-foreground",
 };
 
+function ajouterJoursIso(jour: string, n: number): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+/** « Monday, November 23 » dans la langue du posteur. */
+function formaterJourLong(jour: string, langue: string): string {
+  return new Date(`${jour}T12:00:00Z`).toLocaleDateString(langue || "en", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
+}
+
 /** 0738 : chaque semaine comptée, son montant, son détail et où en est le paiement. */
 export function MesPaiements() {
   const { t, i18n } = useTranslation();
@@ -168,6 +179,15 @@ export function MesPaiements() {
                 <div className="text-right">
                   <div className="font-semibold tabular-nums">{Number(l.total).toFixed(2)} $</div>
                   <div className={`text-xs ${COULEUR_STATUT[l.statut]}`}>{t(`paiementsRuul.statut_${l.statut}`)}</div>
+                  {/* 21/11 (Max) : le lot part le lundi ; la validation bancaire de Ruul prend 1 à 2 jours ouvrés. */}
+                  {l.statut === "processing" && (
+                    <div className="text-xs text-muted-foreground" data-testid="paie-ruul-attendue">
+                      {t("paiementsRuul.envoyeAttendu", {
+                        lundi: formaterJourLong(ajouterJoursIso(l.semaine, 7), i18n.language),
+                        mercredi: formaterJourLong(ajouterJoursIso(l.semaine, 9), i18n.language),
+                      })}
+                    </div>
+                  )}
                 </div>
               </li>
             ))}

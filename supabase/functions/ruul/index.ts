@@ -94,6 +94,10 @@ const PAGE = (titre: string, texte: string) => new Response(
 
 const JETON = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
+/** 21/11 (Max) : le message de paie Ruul, avec le délai de la validation bancaire. */
+const PAYE_TEXTE_DEFAUT = "Hi {prenom}, your payment of ${montant} for the week of {semaine} was sent on Monday. " +
+  "It usually arrives within 1 to 2 business days (by {mercredi}).";
+
 Deno.serve(async (request) => {
   const url = new URL(request.url);
   const supabase = serviceClient();
@@ -381,8 +385,15 @@ async function envoyer(supabase: Supabase) {
     // 0684 (Max) : l'email de paie de sa dernière semaine part même après un STOP.
     const montant = lignes.reduce((s, l) => s + Number(l.montant), 0);
     const semaines = lignes.map((l) => semaineCourte(String(l.semaine))).join(" and ");
-    const v = { prenom: (p.prenom ?? "").trim() || "there", montant: Number.isInteger(montant) ? montant : montant.toFixed(2), semaine: semaines };
-    const texte = remplirRuul(t.paye_texte ?? "Hi {prenom}, you received ${montant} for the week of {semaine}. You can withdraw it on Ruul.", v);
+    // 21/11 (Max) : le lot part le lundi ; Ruul attend la validation bancaire : l'argent arrive en 1 à 2 jours ouvrés.
+    const derniere = lignes.map((l) => String(l.semaine)).sort().at(-1)!;
+    const mercredi = new Date(`${derniere}T12:00:00Z`);
+    mercredi.setUTCDate(mercredi.getUTCDate() + 9);
+    const v = {
+      prenom: (p.prenom ?? "").trim() || "there", montant: Number.isInteger(montant) ? montant : montant.toFixed(2), semaine: semaines,
+      mercredi: mercredi.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "short", timeZone: "UTC" }),
+    };
+    const texte = remplirRuul(t.paye_texte ?? PAYE_TEXTE_DEFAUT, v);
     let ok = false;
     let erreur: string | null = null;
     if (p.slack_user_id) {
@@ -391,7 +402,7 @@ async function envoyer(supabase: Supabase) {
       if (!ok) erreur = "erreur" in s ? String(s.erreur) : s.statut;
     }
     if (!ok && p.ruul_email && p.ruul_jeton) {
-      const objet = remplirRuul(t.paye_objet ?? "You received ${montant} on Ruul", v);
+      const objet = remplirRuul(t.paye_objet ?? "Your payment of ${montant} is on its way", v);
       const lienStop = `${URL_FONCTION}?stop=${p.ruul_jeton}`;
       const e = await emailTraduit(supabase, lignes[0].poster_id, { objet, corps: texte, bouton: null, lienStop }, [p.prenom]);
       const r = await envoyerEmail(p.ruul_email, e.objet, e.html, e.texte, lienStop, ["ruul", "paye"]);

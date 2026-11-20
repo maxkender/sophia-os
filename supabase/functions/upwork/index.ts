@@ -132,6 +132,7 @@ import {
   type JalonUpwork,
   lireJalonsContrat,
   lireReglagesPaieApi,
+  nomJalonSemaine,
   PAYEES,
   type PlanPaiement,
   planDecalage,
@@ -307,9 +308,18 @@ Deno.serve(async (request) => {
         return json(await paiePayer(supabase, par, String(body.semaine ?? ""), body.ids));
       case "paie_auto":
         return json(await paieAuto(supabase, par));
-      case "paie_auto_lancer":
+      case "paie_auto_lancer": {
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
-        return json(await paieAuto(supabase, par, { lancer: true }));
+        const paie = await paieAuto(supabase, par, { lancer: true });
+        // 21/11 (Max) : le clic du lundi envoie aussi les bonus de la semaine (parrainage, Comment Masters, questionnaire).
+        const bonus = await bonusAuto(supabase, par, ["parrainage", "comment_master", "questionnaire"], aujourdhuiParis())
+          .catch((e) => ({ ok: false, error: messageErreur(e) }));
+        return json({ ...paie, bonus });
+      }
+      case "bonus_auto":
+        // 21/11 (Max) : le bonus questionnaire Upwork part dès que le questionnaire est fini (cron horaire), seul type
+        // envoyé hors du clic du lundi.
+        return json(await bonusAuto(supabase, par, ["questionnaire"], null));
       case "paie_reconcilier":
         return json(await paieReconcilier(supabase, par));
       case "rattrapage_executer":
@@ -320,6 +330,10 @@ Deno.serve(async (request) => {
           if (body.confirmer !== true || !validePar) return json({ ok: false, error: "confirmation de Max manquante" }, 400);
           return json(await rattrapageExecuter(supabase, validePar, String(body.semaine ?? ""), Array.isArray(body.ids) ? body.ids.map(String) : null));
         }
+      case "jalons_aligner":
+        // 21/11 (Max) : dimanche soir, la semaine qui commence a son milestone au bon nom et au bon montant (via l'API,
+        // avant la paie du lundi). « simuler » : la liste seule, rien n'est modifié.
+        return json(await jalonsAligner(supabase, par, body.simuler === true, typeof body.lundi === "string" ? body.lundi : null));
       case "decalages_appliquer":
         // 19/11 (Max) : cohorte décalée : ses milestones à venir renommées (cron du lundi, après decalages_noter).
         return json(await decalagesAppliquer(supabase, par, body.simuler === true));
@@ -2053,6 +2067,69 @@ async function decalagesAppliquer(supabase: Supabase, par: string | null, simule
   return { ok: true, simulation: simuler, decalages: (data ?? []).length, bilan };
 }
 
+/**
+ * 21/11 (Max) : « Chaque dimanche soir, l'OS vérifie chaque contrat actif : la semaine qui commence a son milestone, au
+ * bon nom et au bon montant. » Le calcul est celui de la paie du lundi (paie_alignement_attendu). Un milestone pas
+ * encore financé est corrigé via l'API (nom + montant) ; un milestone financé au mauvais montant n'est jamais modifié
+ * (Upwork refuse) : le complément part au paiement de la semaine. Pas de milestone : la paie du lundi le crée.
+ */
+async function jalonsAligner(supabase: Supabase, par: string | null, simulerDemande: boolean, lundiDemande: string | null) {
+  const debut = Date.now();
+  const r = await reglagesPaieApi(supabase);
+  const simuler = simulerDemande || r.mode !== "on";
+  const p = maintenantParis();
+  // Dimanche : la semaine qui commence demain. Un autre jour : le lundi qui suit.
+  const lundi = lundiDemande && /^\d{4}-\d{2}-\d{2}$/.test(lundiDemande) ? lundiDemande : ajouterJours(p.jour, 8 - p.isoJour);
+  const { data: attendus, error } = await supabase.rpc("paie_alignement_attendu", { p_lundi: lundi });
+  if (error) throw error;
+  type Attendu = { poster_id: string; prenom: string | null; contrat_id: string; organisation_id: string | null; action: string; comptes: number; montant: number };
+  const lignes = ((attendus ?? []) as Attendu[]).filter((a) => a.contrat_id && ["financer", "financer_normal", "financer_double"].includes(a.action) && Number(a.montant) > 0);
+  const caches = new Map<string, JalonUpwork[]>();
+  const contrats = lignes.map((l) => l.contrat_id);
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data } = await supabase.from("upwork_jalons").select("contrat_id, jalons").in("contrat_id", contrats.slice(i, i + 200));
+    for (const c of (data ?? []) as { contrat_id: string; jalons: JalonUpwork[] | null }[]) caches.set(c.contrat_id, c.jalons ?? []);
+  }
+  const n = semaineIsoDe(lundi);
+  const resultats: Record<string, unknown>[] = [];
+  let corriges = 0;
+  if (!simuler) await jetonValide(supabase, par);
+  for (const l of lignes) {
+    if (Date.now() - debut > 200_000) { resultats.push({ arret: "budget de temps atteint, reprise au prochain passage" }); break; }
+    const nom = nomJalonSemaine(lundi, Number(l.comptes) || 1);
+    const montant = Math.round(Number(l.montant) * 100) / 100;
+    const jalons = caches.get(l.contrat_id) ?? [];
+    const deLaSemaine = jalons.filter((j) => semaineDe(j) === n && !PAYEES.includes(j.etat));
+    const base = { poster: l.prenom ?? l.poster_id, poster_id: l.poster_id, contrat: l.contrat_id, attendu: { nom, montant } };
+    if (!deLaSemaine.length) { resultats.push({ ...base, action: "creer_lundi", detail: "pas encore de milestone : la paie du lundi le crée" }); continue; }
+    if (deLaSemaine.length > 1) { resultats.push({ ...base, action: "a_verifier", detail: `${deLaSemaine.length} milestones Week ${n}`, actuel: deLaSemaine.map((j) => ({ nom: j.nom, montant: j.depot, etat: j.etat })) }); continue; }
+    const j = deLaSemaine[0]!;
+    const bonMontant = j.depot !== null && Math.abs(j.depot - montant) < 0.009;
+    if (bonMontant && j.nom === nom) continue;
+    const actuel = { id: j.id, nom: j.nom, montant: j.depot, etat: j.etat };
+    if (j.etat !== "NotFunded") {
+      resultats.push({ ...base, actuel, action: bonMontant ? "nom_finance" : "complement_au_paiement",
+        detail: bonMontant ? "financé : Upwork ne le renomme pas, la paie le reconnaît par son numéro de semaine" : "financé à un autre montant : la différence part au paiement de la semaine (complément 2e compte)" });
+      continue;
+    }
+    if (simuler) { resultats.push({ ...base, actuel, action: bonMontant ? "renommer" : "renommer_et_montant", simulation: true }); continue; }
+    if (!orgDeLOs(l.organisation_id)) { resultats.push({ ...base, actuel, action: "ignore", detail: "contrat hors VIk Studios" }); continue; }
+    const edite = await ecrire(supabase, {
+      par, action: "aligner_jalon", query: MUTATION_EDITER_JALON, tenant: l.organisation_id, contrat: l.contrat_id, montant,
+      variables: { input: { id: j.id, description: nom, depositAmount: centimes(montant) } },
+    });
+    if (edite.erreur || !edite.data?.editMilestone) {
+      resultats.push({ ...base, actuel, action: "erreur", detail: edite.erreur ?? "réponse vide" });
+      await aFaire(supabase, { cle: `aligner:${lundi}:${l.contrat_id}`, titre: `Milestone Week ${n} de ${l.prenom ?? l.poster_id} pas corrigé`,
+        detail: `attendu « ${nom} » à ${montant} $ : ${edite.erreur ?? "réponse vide"}`, poster_id: l.poster_id, contrat_id: l.contrat_id, semaine: lundi });
+      continue;
+    }
+    corriges++;
+    resultats.push({ ...base, actuel, action: bonMontant ? "renomme" : "renomme_et_montant" });
+  }
+  return { ok: true, simulation: simuler, lundi, semaine: n, contrats: lignes.length, corriges, a_corriger: resultats.filter((x) => x.action !== "creer_lundi").length, resultats };
+}
+
 /** Payer depuis la liste (bouton) : le même moteur que la paie automatique, ligne par ligne. */
 async function paiePayer(supabase: Supabase, par: string | null, semaine: string, ids: unknown) {
   // Prompt 22 : en pause, rien ne part et les lignes restent « à faire ».
@@ -3193,6 +3270,64 @@ async function bonusEnvoyer(supabase: Supabase, par: string, lundi: string) {
       await messagePosteur(supabase, par, String(b.poster_id), `Your friend ${prenom} is now active, +$${montant} bonus this Monday 🎉`, "parrainage");
     }
     resultats.push({ bonus: b.id, ok: true, invoice });
+  }
+  return { ok: true, payes: resultats.filter((x) => x.ok).length, echecs: resultats.filter((x) => !x.ok).length, resultats };
+}
+
+/**
+ * 21/11 (Max) : les bonus qui partent seuls, par bonus Upwork (sendCustomPayment) sur le contrat du posteur, VIk Studios
+ * seulement, jamais avant le test validé, jamais deux fois (marqué avant l'envoi). `lundiMax` : seulement les bonus de
+ * ce lundi ou d'avant (la paie du lundi) ; null : tous (le questionnaire, dès qu'il est fini). Plafond : base de la
+ * dernière semaine + bonus au-dessus de paie_plafond_ligne (60 $) → à vérifier, rien ne part.
+ */
+async function bonusAuto(supabase: Supabase, par: string | null, types: string[], lundiMax: string | null) {
+  const { data: tests } = await supabase.from("upwork_bonus_tests").select("id").eq("statut", "envoye").not("valide_at", "is", null).limit(1);
+  if (!tests?.length) return { ok: true, payes: 0, raison: "test du bonus pas encore validé : rien ne part" };
+  const expediteur = await verifierExpediteur(supabase);
+  if (expediteur) return { ok: false, error: expediteur };
+  const r = await reglagesPaieApi(supabase);
+  let req = supabase.from("bonus").select("id, poster_id, recrue_id, type, montant, quantite, periode_fin, raison, lundi_bonus")
+    .in("type", types).in("statut", ["a_valider", "a_payer"]).eq("canal_paie", "upwork").is("envoi_at", null).gt("montant", 0).limit(60);
+  if (lundiMax) req = req.lte("lundi_bonus", lundiMax);
+  const { data: lignes, error } = await req;
+  if (error) return { ok: false, error: error.message };
+  const resultats: Record<string, unknown>[] = [];
+  for (const b of lignes ?? []) {
+    const montant = Number(b.montant);
+    const echec = async (erreur: string, verifier = false) => {
+      await supabase.from("bonus").update({ erreur, ...(verifier ? { a_verifier: true } : {}) }).eq("id", b.id);
+      await aFaire(supabase, { cle: `bonus:${b.id}`, type: "paie", titre: `Bonus ${b.type} ${montant} $ pas envoyé`, detail: erreur, poster_id: b.poster_id });
+      resultats.push({ bonus: b.id, ok: false, erreur });
+    };
+    if (!(montant > 0 && montant <= 50)) { await echec(`montant ${montant} $ hors limites`, true); continue; }
+    const { data: base } = await supabase.from("paie_semaines").select("montant, montant_corrige").eq("poster_id", b.poster_id)
+      .order("semaine", { ascending: false }).limit(1).maybeSingle();
+    const baseSemaine = Number(base?.montant_corrige ?? base?.montant ?? 0);
+    if (r.plafond_ligne > 0 && baseSemaine + montant > r.plafond_ligne + 0.009) {
+      await echec(`base ${baseSemaine} $ + bonus ${montant} $ au-dessus du plafond (${r.plafond_ligne} $) : à vérifier`, true);
+      continue;
+    }
+    const { data: pr } = await supabase.from("profiles").select("upwork_contract_id").eq("id", b.poster_id).maybeSingle();
+    const contrat = String(pr?.upwork_contract_id ?? "");
+    if (!contrat) { await echec("pas de contrat Upwork relié"); continue; }
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).maybeSingle();
+    if (uc?.organisation_id !== ORG_VIK) { await echec(`contrat ${contrat} hors VIk Studios`); continue; }
+    let prenomFilleul: string | null = null;
+    if (b.type === "parrainage" && b.recrue_id) {
+      const { data: f } = await supabase.from("profiles").select("prenom").eq("id", b.recrue_id).maybeSingle();
+      prenomFilleul = (f?.prenom as string | null) ?? null;
+    }
+    const comment = noteBonus({ type: String(b.type), quantite: b.quantite, periode_fin: b.periode_fin, raison: b.raison, prenom_filleul: prenomFilleul });
+    const maintenant = new Date().toISOString();
+    await supabase.from("bonus").update({ envoi_at: maintenant, valide_at: maintenant, valide_par: par }).eq("id", b.id);
+    const envoi = await ecrire(supabase, {
+      par, action: `bonus_${b.type}`, query: MUTATION_BONUS, tenant: ORG_VIK, contrat, montant, compte: COMPTE,
+      variables: { input: { contractId: contrat, amount: montant, comment, notes: `bonus ${b.id}`, type: "BONUS" } },
+    });
+    if (envoi.erreur) { await echec(`Upwork : ${envoi.erreur}`); continue; }
+    const invoice = (envoi.data as { sendCustomPayment?: { invoiceId?: string } } | null)?.sendCustomPayment?.invoiceId ?? null;
+    await supabase.from("bonus").update({ statut: "paye", paye_at: new Date().toISOString(), paye_par: par, upwork_invoice: invoice, erreur: null }).eq("id", b.id);
+    resultats.push({ bonus: b.id, type: b.type, ok: true, invoice });
   }
   return { ok: true, payes: resultats.filter((x) => x.ok).length, echecs: resultats.filter((x) => !x.ok).length, resultats };
 }

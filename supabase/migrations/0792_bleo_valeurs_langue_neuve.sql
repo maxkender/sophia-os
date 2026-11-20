@@ -1,4 +1,4 @@
--- 0791 : un contenu est noté tout de suite dans une langue neuve de son label.
+-- 0792 : un contenu est noté tout de suite dans une langue neuve de son label.
 --
 -- Le tirage ne prend un contenu dans une langue que s'il y a une ligne
 -- `bleo_valeurs` (contenu, langue). Ces lignes ne naissaient que dans bleo_nuit
@@ -47,7 +47,7 @@ create or replace function public.bleo_valeurs_apres_label()
  set search_path to 'public'
 as $function$
 begin
-  -- 0791 : un compte qui reçoit un label peut ouvrir une langue neuve à ce label. Ses contenus sont
+  -- 0792 : un compte qui reçoit un label peut ouvrir une langue neuve à ce label. Ses contenus sont
   -- notés tout de suite dans cette langue, sans attendre bleo_nuit (5 h 15) : sinon le compte n'a rien
   -- au tirage suivant. Ne bloque jamais le changement de label.
   begin

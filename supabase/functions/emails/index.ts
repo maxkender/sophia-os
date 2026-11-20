@@ -26,6 +26,7 @@ import {
   TENTATIVES_MAX,
   texteDepuisHtml,
 } from "../_shared/emails.ts";
+import { emailMessageFin, NE_PLUS_CONTACTER, nePlusContacterEmail } from "../_shared/stop.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -114,6 +115,12 @@ async function passage(supabase: Supabase) {
       .order("cree_at").limit(40);
     for (const l of (data ?? []) as Ligne[]) {
       bilan.reessayes++;
+      // 0797 : un posteur arrêté depuis la mise en file ne reçoit plus que le message de fin.
+      if (!emailMessageFin(l.tags) && await nePlusContacterEmail(supabase, l.destinataire)) {
+        bilan.refuses++;
+        await supabase.from("emails_envois").update({ statut: "refuse", erreur: NE_PLUS_CONTACTER, prochain_essai_at: null }).eq("id", l.id);
+        continue;
+      }
       const r = await appelerSite({ to: l.destinataire, objet: l.objet, html: l.html!, texte: l.texte ?? texteDepuisHtml(l.html!), stop: l.desabonnement ?? "", tags: l.tags });
       const tentatives = l.tentatives + 1;
       const maintenant = new Date();

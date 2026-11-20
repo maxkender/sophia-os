@@ -30,3 +30,13 @@ describe("rapport des kills (partie 3)", () => {
     expect(screen.getByText("Killé mais encore dans Slack")).toBeInTheDocument();
   });
 });
+
+describe("0797 : la ligne des inactifs arrêtés automatiquement", () => {
+  it("donne les chiffres par catégorie et les alertes", async () => {
+    const { ligneInactifs } = await import("./inactifs");
+    expect(ligneInactifs({ arretes: 12, jamais_connectes: 8, jamais_postes: 4, en_cours: 0, alertes: 2 }))
+      .toBe("Inactifs arrêtés automatiquement : 12 (8 jamais connectés, 4 jamais postés) · 2 alertes bug d'assignation");
+    expect(ligneInactifs({ arretes: 0, jamais_connectes: 0, jamais_postes: 0, en_cours: 1, alertes: 0 }))
+      .toBe("Inactifs arrêtés automatiquement : 0 (0 jamais connecté, 0 jamais posté) · 1 en cours (reprise demain) · 0 alerte bug d'assignation");
+  });
+});

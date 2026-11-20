@@ -863,6 +863,9 @@ async function rapportSamedi(db: Db, samedi: string | null, envoyer: boolean) {
   const { data, error } = await db.rpc("samedi_rapport", { p_samedi: jour });
   if (error) throw new Error(error.message);
   const r = data as RapportSamedi;
+  // 0797 : la ligne des inactifs arrêtés automatiquement (et leur liste, dépliable dans l'OS).
+  const { data: ina } = await db.rpc("inactifs_rapport", { p_samedi: jour });
+  if (ina) r.inactifs = ina as RapportSamedi["inactifs"];
   const { error: e1 } = await db.rpc("samedi_rapport_ecrire", { p_samedi: jour, p_contenu: r });
   if (e1) throw new Error(e1.message);
   if (!envoyer) return { ok: true, samedi: jour, envoye: false, rapport: r };

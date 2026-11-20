@@ -35,7 +35,15 @@ import {
   urlAutorisation,
   urlRetour,
 } from "../_shared/upwork.ts";
-import { type MalgreStop, STOP_POSTEUR, stopDuContrat, typeUpworkPermisMalgreStop } from "../_shared/stop.ts";
+import {
+  type MalgreStop,
+  NE_PLUS_CONTACTER,
+  nePlusContacterContrat,
+  permisApresArret,
+  STOP_POSTEUR,
+  stopDuContrat,
+  typeUpworkPermisMalgreStop,
+} from "../_shared/stop.ts";
 import {
   type Annonce,
   bienvenueARattraper,
@@ -67,6 +75,20 @@ import { noteBonus } from "../_shared/bonus.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { nicheDuPosteur } from "../_shared/niche_posteur.ts";
 import { type EtatParcours, lignesPointSoirRuul } from "../_shared/parcours_ruul.ts";
+import {
+  aFaire as etapeAFaire,
+  derniereEtape,
+  type EtapeInactif,
+  etapesEnEchec,
+  OBJET_FIN_INACTIF,
+  prevenirMax,
+  statutInactif,
+  TEXTE_FIN_INACTIF,
+  texteFinInactif,
+} from "../_shared/inactifs.ts";
+import { normaliserLangue, traduireChamps } from "../_shared/traduction_email.ts";
+import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
+import { appelSlack, retirerDesCanaux } from "../_shared/slack_retrait.ts";
 import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
 import { decoderHtml, derniersMessagesSalon } from "../_shared/contexte.ts";
@@ -356,6 +378,13 @@ Deno.serve(async (request) => {
         return json(await repriseConversations(supabase, par));
       case "arrets":
         return json(await traiterArrets(supabase, par));
+      case "inactifs":
+        // 20/11 (Max) : les inactifs arrêtés automatiquement, le samedi (cron 19:07), reprise le dimanche ; « simuler » : rien n'est fait.
+        return json(await inactifsTraiter(supabase, par, {
+          reprise: body.reprise === true,
+          simuler: body.simuler === true,
+          jour: typeof body.jour === "string" && /^\d{4}-\d{2}-\d{2}$/.test(body.jour) ? body.jour : null,
+        }));
       case "arrets_verifier": {
         // 0464 : lundi 20 h et mardi 12 h (Paris) ; le passage se lit dans le jour.
         const jour = maintenantParis().isoJour;
@@ -3253,6 +3282,8 @@ async function envoyerMessage(
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
   // 0684 : un posteur qui a dit STOP ne reçoit plus rien sur Upwork, sauf les exceptions nommées.
   if (!o.malgreStop && await stopDuContrat(supabase, contratId)) return { ok: false, error: STOP_POSTEUR, stop: true };
+  // 0797 : un posteur arrêté (liste « ne plus contacter ») : plus rien sur Upwork, sauf le message de fin.
+  if (!permisApresArret(o.malgreStop) && await nePlusContacterContrat(supabase, contratId)) return { ok: false, error: NE_PLUS_CONTACTER, stop: true };
   // 1/11 : jamais de mot de passe sur Upwork, quel que soit le message.
   const refus = refusMotDePasseUpwork(texte);
   if (refus) return { ok: false, error: refus };
@@ -5192,6 +5223,282 @@ async function finsDeContrat(supabase: Supabase, par: string | null, reel: boole
     await supabase.from("arrets").update({ etapes, erreur, statut: erreur ? "erreur" : "fait", maj_at: new Date().toISOString() }).eq("id", f.arret_id);
   }
   return bilan;
+}
+
+// ---------------------------------------------------------------------------
+// 20/11 (Max) : le kill automatique des inactifs (0797), sans validation, chaque samedi.
+// ---------------------------------------------------------------------------
+
+interface LigneInactif {
+  id: string;
+  samedi: string;
+  poster_id: string;
+  categorie: "A" | "B" | "alerte";
+  canal_paie: string | null;
+  statut: string;
+  etapes: EtapeInactif[] | null;
+  tentatives: number;
+  detail: { prenom?: string | null; contrat_id?: string | null; comptes_sans_posts?: string[] } | null;
+}
+
+const etapeInactif = (action: EtapeInactif["action"], statut: EtapeInactif["statut"], detail: string | null): EtapeInactif =>
+  ({ action, statut, detail: detail ? detail.slice(0, 400) : null, at: new Date().toISOString() });
+
+/** Le samedi traité : aujourd'hui (samedi), la veille (reprise du dimanche) ; en simulation, le samedi qui vient. */
+function samediInactifs(p: { jour: string; isoJour: number }, reprise: boolean): string {
+  if (reprise) return ajouterJours(p.jour, -((p.isoJour + 1) % 7));
+  return ajouterJours(p.jour, (6 - p.isoJour + 7) % 7);
+}
+
+async function inactifsTraiter(supabase: Supabase, par: string | null, o: { reprise: boolean; simuler: boolean; jour: string | null }) {
+  const debut = Date.now();
+  const p = maintenantParis();
+  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "inactifs_auto").maybeSingle();
+  const r = (regl?.valeur ?? {}) as { mode?: string; canal_alertes?: string };
+  const simuler = o.simuler || r.mode !== "on";
+  const samedi = o.jour ?? samediInactifs(p, o.reprise);
+  // Sécurité : uniquement le samedi (et la reprise le dimanche), jamais un autre jour.
+  if (!simuler && !o.reprise && p.isoJour !== 6) return { ok: true, ignore: "uniquement le samedi" };
+  if (!simuler && o.reprise && p.isoJour !== 7) return { ok: true, ignore: "la reprise n'a lieu que le dimanche" };
+  if (!simuler && await automationEnPause(supabase)) {
+    await noterBloquee(supabase, { fonction: "upwork", action: "inactifs" });
+    return { ok: true, ignore: PAUSE };
+  }
+
+  // 1. Le samedi : la détection (une ligne par posteur et par samedi, jamais deux fois).
+  if (!o.reprise) {
+    const { data: cands, error } = await supabase.rpc("inactifs_detecter", { p_jour: samedi });
+    if (error) throw error;
+    const liste = (cands ?? []) as { poster_id: string; categorie: "A" | "B" | "alerte"; canal_paie: string; prenom: string | null;
+      signe_le: string; debut: string | null; connecte: boolean; prevus: number; comptes_sans_posts: string[]; contrat_id: string | null }[];
+    if (simuler) {
+      const compte = (c: string) => liste.filter((x) => x.categorie === c).length;
+      return { ok: true, simulation: true, samedi, A: compte("A"), B: compte("B"), alertes: compte("alerte"),
+        detail: liste.map((x) => ({ categorie: x.categorie, canal: x.canal_paie, prenom: x.prenom, debut: x.debut, signe_le: x.signe_le, prevus: x.prevus })) };
+    }
+    for (const c of liste) {
+      const { data: langue } = await supabase.rpc("email_langue_poster", { p_poster: c.poster_id });
+      await supabase.from("inactifs_auto").upsert({
+        samedi, poster_id: c.poster_id, categorie: c.categorie, canal_paie: c.canal_paie, langue: (langue as string | null) ?? null,
+        detail: { prenom: c.prenom, contrat_id: c.contrat_id, debut: c.debut, signe_le: c.signe_le, prevus: c.prevus, comptes_sans_posts: c.comptes_sans_posts },
+      }, { onConflict: "samedi,poster_id", ignoreDuplicates: true });
+    }
+  }
+  if (simuler) return { ok: true, simulation: true, samedi, ignore: "reprise simulée : rien à faire" };
+
+  const { data: lignes, error: errL } = await supabase.from("inactifs_auto").select("*").eq("samedi", samedi)
+    .in("statut", o.reprise ? ["erreur", "a_faire", "en_cours"] : ["a_faire", "en_cours"]).order("cree_at");
+  if (errL) throw errL;
+  const bilan = { samedi, arretes: 0, alertes: 0, erreurs: [] as string[], max_prevenu: 0 };
+  const cacheTexte = new Map<string, string>();
+  const testFermeture = await fermetureTestee(supabase);
+  for (const l of (lignes ?? []) as LigneInactif[]) {
+    if (Date.now() - debut > 240_000) break;
+    if (l.categorie === "alerte") {
+      await alerteAssignation(supabase, l, r.canal_alertes ?? "ops-alertes");
+      bilan.alertes++;
+      continue;
+    }
+    const etapes = await inactifUn(supabase, par, l, cacheTexte, testFermeture);
+    const statut = statutInactif(etapes);
+    const tentatives = (l.tentatives ?? 0) + 1;
+    const echecs = etapesEnEchec(etapes);
+    const erreur = echecs.map((e) => `${e.action} : ${e.detail ?? "échec"}`).join(" · ") || null;
+    await supabase.from("inactifs_auto").update({ etapes, statut, tentatives, erreur, maj_at: new Date().toISOString(),
+      prochain_essai: statut === "erreur" && tentatives < 2 ? ajouterJours(samedi, 1) : null }).eq("id", l.id);
+    if (statut === "fait") bilan.arretes++;
+    else bilan.erreurs.push(`${l.detail?.prenom ?? l.poster_id} : ${erreur}`);
+    // Max n'est prévenu qu'au 2e échec.
+    if (prevenirMax(tentatives, etapes)) {
+      await dmMax(`:warning: Inactif arrêté automatiquement (${l.detail?.prenom ?? l.poster_id}, ${l.canal_paie === "ruul" ? "Ruul" : "Upwork"}) : ` +
+        `étape en échec deux fois : ${erreur}. ${OS_URL}/admin/auto/rapport-kills`);
+      await supabase.from("inactifs_auto").update({ max_prevenu_at: new Date().toISOString() }).eq("id", l.id);
+      bilan.max_prevenu++;
+    }
+  }
+  return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
+}
+
+/** Un inactif, dans l'ordre de Max ; chaque étape déjà faite n'est jamais refaite. */
+async function inactifUn(supabase: Supabase, par: string | null, l: LigneInactif, cache: Map<string, string>, testFermeture: boolean): Promise<EtapeInactif[]> {
+  const etapes: EtapeInactif[] = [...(l.etapes ?? [])];
+  const ruul = l.canal_paie === "ruul";
+  const { data: pr } = await supabase.from("profiles")
+    .select("prenom, upwork_contract_id, slack_user_id, email_perso, ruul_email").eq("id", l.poster_id).maybeSingle();
+  const contrat = (pr?.upwork_contract_id as string | null) ?? null;
+  // Avant tout : dans la liste « ne plus contacter » (plus rien d'autre ne part, même pendant les étapes).
+  await supabase.from("ne_plus_contacter").upsert({ poster_id: l.poster_id, source: "inactif_auto" }, { onConflict: "poster_id", ignoreDuplicates: true });
+
+  // 1. Le message de fin, dans sa langue (Upwork : la conversation du contrat ; Ruul : email + page de fin).
+  if (etapeAFaire(etapes, "message")) {
+    try {
+      const { data: lg } = await supabase.rpc("email_langue_poster", { p_poster: l.poster_id });
+      const langue = normaliserLangue((lg as string | null) ?? "en");
+      let modele = cache.get(langue);
+      if (!modele) {
+        const { champs } = await traduireChamps(supabase, langue, { texte: TEXTE_FIN_INACTIF, objet: OBJET_FIN_INACTIF });
+        modele = `${champs.texte}\u0000${champs.objet}`;
+        cache.set(langue, modele);
+      }
+      const [corpsModele, objet] = modele.split("\u0000") as [string, string];
+      const texte = texteFinInactif(corpsModele, pr?.prenom as string | null);
+      let canal: string | null = null;
+      let erreur: string | null = null;
+      if (!ruul) {
+        if (!contrat) erreur = "contrat Upwork non relié";
+        else {
+          const env = await envoyerMessage(supabase, par, contrat, texte, { prioritaire: true, malgreStop: "message_fin" });
+          if (env.ok) canal = "upwork";
+          else erreur = `Upwork : ${env.error ?? "non envoyé"}`;
+        }
+      } else {
+        const { data: hub } = await supabase.from("hub_posteurs").select("email_perso").eq("profile_id", l.poster_id).maybeSingle();
+        const email = [hub?.email_perso, pr?.email_perso, pr?.ruul_email]
+          .map((x) => String(x ?? "").trim()).find((x) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x) && !/@sophia\.com$/i.test(x)) ?? null;
+        // La page de fin du dashboard (le bandeau), même texte.
+        await supabase.rpc("texte_poster_ecrire", { p_poster: l.poster_id, p_cle: "fin", p_en: texteFinInactif(TEXTE_FIN_INACTIF, pr?.prenom as string | null), p_texte: texte, p_langue: langue });
+        if (!email) erreur = "pas d'email connu (page de fin écrite)";
+        else {
+          const e = rendreEmailRuul({ objet, titre: "Vik Studios", corps: texte, lienStop: OS_URL, sansPied: true });
+          const r = await envoyerEmailSite(email, objet, e.html, e.texte, OS_URL, ["fin_collaboration", "message_fin", "inactif_auto"]);
+          if (r.ok) canal = "email+bandeau";
+          else erreur = `email : ${r.erreur ?? "échec"}`;
+        }
+        await supabase.rpc("texte_poster_envoye", { p_poster: l.poster_id, p_cle: "fin", p_erreur: erreur });
+      }
+      if (canal) await supabase.from("ne_plus_contacter").update({ message_fin_at: new Date().toISOString(), message_fin_canal: canal }).eq("poster_id", l.poster_id);
+      etapes.push(erreur ? etapeInactif("message", "erreur", erreur) : etapeInactif("message", "fait", `${canal} (${langue})`));
+    } catch (e) {
+      etapes.push(etapeInactif("message", "erreur", messageErreur(e)));
+    }
+  }
+
+  // 2. Upwork : le contrat terminé, sans paiement (après le message ; le financé non payé revient à la fermeture).
+  if (etapeAFaire(etapes, "upwork")) {
+    if (ruul) etapes.push(etapeInactif("upwork", "sans_objet", "posteur Ruul"));
+    else if (etapeAFaire(etapes, "message")) etapes.push(etapeInactif("upwork", "erreur", "le message de fin n'est pas parti : contrat pas encore terminé"));
+    else if (!contrat) etapes.push(etapeInactif("upwork", "erreur", "contrat Upwork non relié"));
+    else if (!testFermeture) etapes.push(etapeInactif("upwork", "erreur", "le test de fermeture des contrats n'a pas réussi"));
+    else {
+      try {
+        const { data: c } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).maybeSingle();
+        const tenant = (c?.organisation_id as string | undefined) ?? null;
+        const lu = await lire(supabase, { par, action: "inactif_jalons", query: REQUETE_JALONS, variables: { id: contrat }, tenant });
+        if (lu.erreur || !lu.data?.contractDetails) throw new Error(`milestones illisibles (${lu.erreur ?? "réponse vide"})`);
+        const plan = planUpwork(lireJalonsContrat(lu.data.contractDetails));
+        const echecs: string[] = [];
+        for (const j of plan.supprimer) {
+          const w = await ecrire(supabase, { par, action: "inactif_supprimer_jalon", query: MUTATION_SUPPRIMER_JALON, variables: { input: { id: j.id } }, tenant, contrat });
+          if (w.erreur || w.data?.deleteMilestone !== true) echecs.push(`${j.nom ?? j.id} : ${w.erreur ?? "non confirmé"}`);
+        }
+        const { data: rg } = await supabase.from("reglages").select("valeur").eq("cle", "arret_raison_upwork").maybeSingle();
+        const raison = typeof rg?.valeur === "string" && rg.valeur.trim() ? rg.valeur.trim() : RAISON_FIN_DEFAUT;
+        const f = await fermerContrat(supabase, par, contrat, tenant, raison, l.poster_id);
+        if (!f.ferme) throw new Error(f.raison ?? "contrat non terminé");
+        const rendu = plan.rembourser.length ? ` ; financé rendu à la fermeture : ${decrireJalons(plan.rembourser)}` : "";
+        etapes.push(etapeInactif("upwork", "fait", `contrat terminé sans paiement${echecs.length ? ` (milestones non supprimées : ${echecs.join(" ; ")})` : ""}${rendu}`));
+      } catch (e) {
+        etapes.push(etapeInactif("upwork", "erreur", messageErreur(e)));
+      }
+    }
+  }
+
+  // 3. Ruul : pas d'API pour retirer un workmate (aucun paiement ne part : il n'est plus dans le lot).
+  if (etapeAFaire(etapes, "ruul")) {
+    etapes.push(ruul
+      ? etapeInactif("ruul", "a_la_main", "Ruul n'a pas d'API pour retirer un workmate : aucun paiement ne part ; à retirer de Ruul à la main si besoin")
+      : etapeInactif("ruul", "sans_objet", "posteur Upwork"));
+  }
+
+  // 4. L'OS : l'arrêt (posteur et comptes désactivés, relances périmées, « To remove from Slack ») ; le compte TikTok libéré.
+  if (etapeAFaire(etapes, "os")) {
+    try {
+      const motif = l.categorie === "A" ? "Inactif automatique : jamais connecté (14 jours)" : "Inactif automatique : n'a jamais posté (14 jours)";
+      if (ruul) {
+        const { error } = await supabase.rpc("ruul_desactiver", { p_poster: l.poster_id, p_source: "manuel", p_motif: motif });
+        if (error) throw error;
+      } else {
+        const { data: a, error } = await supabase.from("arrets").insert({ poster_id: l.poster_id, source: "manuel", motif, statut: "a_faire" }).select("id").single();
+        if (error) throw error;
+        // Le contrat est déjà terminé ici (ou le sera à la reprise) : la fin de contrat du lundi ne le refait pas.
+        const { data: ar } = await supabase.from("arrets").select("etapes").eq("id", a.id).maybeSingle();
+        const fin = derniereEtape(etapes, "upwork")?.statut === "fait"
+          ? { action: "fermeture", statut: "fait", detail: "contrat terminé sans paiement (inactif automatique)", at: new Date().toISOString() }
+          : { action: "fermeture", statut: "a_faire", detail: "inactif automatique : reprise le lendemain", at: new Date().toISOString() };
+        await supabase.from("arrets").update({ etapes: [...((ar?.etapes ?? []) as unknown[]), fin] }).eq("id", a.id);
+        await supabase.from("inactifs_auto").update({ arret_id: a.id }).eq("id", l.id);
+      }
+      const { data: verif } = await supabase.from("profiles").select("is_active").eq("id", l.poster_id).maybeSingle();
+      etapes.push(verif?.is_active === false ? etapeInactif("os", "fait", "posteur et comptes désactivés") : etapeInactif("os", "erreur", "posteur encore actif"));
+    } catch (e) {
+      etapes.push(etapeInactif("os", "erreur", messageErreur(e)));
+    }
+  }
+
+  // 5. Slack : retiré de ses canaux (le compte reste dans « To remove from Slack » pour la désactivation).
+  if (etapeAFaire(etapes, "slack")) {
+    const slackUser = (pr?.slack_user_id as string | null) ?? null;
+    if (!slackUser) etapes.push(etapeInactif("slack", "sans_objet", "pas de compte Slack relié"));
+    else {
+      const jeton = Deno.env.get("SLACK_BOT_TOKEN") ?? Deno.env.get("SLACK_BOT_TOKEN2") ?? Deno.env.get("SLACK_HM_BOT_TOKEN");
+      if (!jeton) etapes.push(etapeInactif("slack", "erreur", "jeton Slack absent"));
+      else {
+        const b = await retirerDesCanaux(appelSlack(jeton), slackUser, true);
+        etapes.push(b.erreur || b.echecs.length
+          ? etapeInactif("slack", "erreur", `${b.erreur ?? ""} ${b.echecs.join(" ; ")}`.trim())
+          : etapeInactif("slack", "fait", b.retires.length ? `retiré de ${b.retires.join(", ")}` : "dans aucun canal"));
+      }
+    }
+  }
+
+  // 6. Ses tickets ouverts, fermés.
+  if (etapeAFaire(etapes, "tickets")) {
+    const maintenant = new Date().toISOString();
+    const [a, b] = await Promise.all([
+      supabase.from("problemes").update({ statut: "ferme_auto", ferme_raison: "posteur arrêté (inactif automatique)", ferme_at: maintenant, maj_at: maintenant })
+        .eq("poster_id", l.poster_id).eq("statut", "ouvert").select("id"),
+      supabase.from("support_demandes").update({ statut: "resolu" }).eq("poster_id", l.poster_id).in("statut", ["bot", "ouvert", "attente_posteur"]).select("id"),
+    ]);
+    const err = a.error?.message ?? b.error?.message ?? null;
+    etapes.push(err ? etapeInactif("tickets", "erreur", err) : etapeInactif("tickets", "fait", `${(a.data ?? []).length + (b.data ?? []).length} fermé(s)`));
+  }
+  return etapes;
+}
+
+/** L'alerte « bug d'assignation » : #ops-alertes (sinon un DM à Max), puis l'assignation relancée pour ces comptes. */
+async function alerteAssignation(supabase: Supabase, l: LigneInactif, canal: string) {
+  const comptes = l.detail?.comptes_sans_posts ?? [];
+  const texte = `:rotating_light: Bug d'assignation : ${l.detail?.prenom ?? l.poster_id} (${l.canal_paie === "ruul" ? "Ruul" : "Upwork"}) ` +
+    `a ${comptes.length} compte(s) sorti(s) du warm-up sans aucun post prévu. Pas arrêté ; l'OS relance l'assignation.`;
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN") ?? Deno.env.get("SLACK_BOT_TOKEN");
+  let poste = false;
+  if (jeton) {
+    const res = await fetch("https://slack.com/api/chat.postMessage", {
+      method: "POST",
+      headers: { authorization: `Bearer ${jeton}`, "content-type": "application/json; charset=utf-8" },
+      body: JSON.stringify({ channel: canal, text: texte }),
+    }).then((x) => x.json()).catch(() => null) as { ok?: boolean } | null;
+    poste = res?.ok === true;
+  }
+  if (!poste) await dmMax(`${texte} (#${canal} introuvable pour le bot)`);
+  // L'OS corrige l'assignation : la fonction d'assignation, compte par compte, pour aujourd'hui.
+  const resultats: string[] = [];
+  const url = Deno.env.get("SUPABASE_URL");
+  const secret = secretCronConnu();
+  for (const compteId of comptes) {
+    if (!url || !secret) break;
+    const r = await fetch(`${url}/functions/v1/assignation`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": secret },
+      body: JSON.stringify({ compteId, manuel: true }),
+    }).then((x) => `${x.status}`).catch((e) => messageErreur(e));
+    resultats.push(`${compteId} : ${r}`);
+  }
+  await supabase.from("inactifs_auto").update({
+    statut: "alerte", tentatives: (l.tentatives ?? 0) + 1, maj_at: new Date().toISOString(),
+    etapes: [{ action: "alerte", statut: poste ? "fait" : "dm_max", detail: canal, at: new Date().toISOString() },
+      { action: "assignation", statut: "relancee", detail: resultats.join(" ; ") || "aucun compte", at: new Date().toISOString() }],
+  }).eq("id", l.id);
 }
 
 async function verifier(supabase: Supabase) {

@@ -1,6 +1,16 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
-import { postersEnStop, stopDemande, stopDuContrat, typeUpworkPermisMalgreStop } from "./stop.ts";
+import {
+  emailMessageFin,
+  nePlusContacter,
+  nePlusContacterContrat,
+  nePlusContacterEmail,
+  permisApresArret,
+  postersEnStop,
+  stopDemande,
+  stopDuContrat,
+  typeUpworkPermisMalgreStop,
+} from "./stop.ts";
 
 /** Une fausse base : deux posteurs, Judy a dit STOP. */
 function base() {
@@ -40,4 +50,41 @@ Deno.test("0684 : sur Upwork, seuls la confirmation d'arrêt, la paie et un mess
   for (const t of ["warmup_check", "double", "parrainage", "bot_relance", "relance"]) assert(!typeUpworkPermisMalgreStop(t, false), t);
   assert(!typeUpworkPermisMalgreStop(undefined, false), "un envoi programmé sans type");
   assert(!typeUpworkPermisMalgreStop("double", true), "Doubler, même lancé à la main");
+});
+
+/** 0797 : une fausse base qui répond aux fonctions « ne plus contacter ». */
+function liste(bloques: { posteurs?: string[]; contrats?: string[]; emails?: string[] }) {
+  return {
+    rpc: (fn: string, args: Record<string, string>) => {
+      const oui = fn === "ne_plus_contacter_bloque" ? (bloques.posteurs ?? []).includes(args.p_poster)
+        : fn === "ne_plus_contacter_contrat" ? (bloques.contrats ?? []).includes(args.p_contrat)
+        : fn === "ne_plus_contacter_email" ? (bloques.emails ?? []).includes(args.p_email)
+        : false;
+      return Promise.resolve({ data: oui, error: null });
+    },
+  };
+}
+
+Deno.test("0797 : liste « ne plus contacter » lue par posteur, par contrat et par email", async () => {
+  const db = liste({ posteurs: ["judy"], contrats: ["C1"], emails: ["judy@example.com"] });
+  assert(await nePlusContacter(db, "judy"));
+  assert(!(await nePlusContacter(db, "ana")));
+  assert(await nePlusContacterContrat(db, "C1"));
+  assert(!(await nePlusContacterContrat(db, "C2")));
+  assert(await nePlusContacterEmail(db, "judy@example.com"));
+  assert(!(await nePlusContacterEmail(db, "pas-un-email")));
+});
+
+Deno.test("0797 : une lecture en échec ne bloque pas (l'erreur est notée)", async () => {
+  const db = { rpc: () => Promise.resolve({ data: null, error: { message: "panne" } }) };
+  assert(!(await nePlusContacter(db, "judy")));
+});
+
+Deno.test("0797 : après l'arrêt, seul le message de fin passe", () => {
+  assert(permisApresArret("message_fin"));
+  for (const m of ["confirmation_arret", "paie", "reponse", "manuel", undefined] as const) assert(!permisApresArret(m));
+  assert(emailMessageFin(["fin_collaboration"]));
+  assert(emailMessageFin(["x", "message_fin"]));
+  assert(!emailMessageFin(["relance_kyc"]));
+  assertEquals(emailMessageFin(null), false);
 });

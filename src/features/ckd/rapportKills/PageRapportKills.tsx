@@ -13,6 +13,8 @@ import { invoke } from "@/features/moteur/api";
 import { supabase } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 
+import { type Inactifs, ligneInactifs } from "./inactifs";
+
 export interface EtapeRapport { etape: string; libelle: string; ok: number; echec: number; a_faire: number; noms: { nom: string; statut: string; detail: string | null }[] }
 export interface RapportKills {
   samedi: string;
@@ -24,6 +26,8 @@ export interface RapportKills {
   etapes_partiels: EtapeRapport[];
   milestones_a_corriger: { nom: string; detail: string }[];
   controle: { type: string; libelle: string; nb: number; lignes: { poster_id: string; nom: string; detail: string | null }[] }[];
+  /** 0797 : les inactifs arrêtés automatiquement (sans validation) ce samedi. */
+  inactifs?: Inactifs;
 }
 interface Lu { samedi: string; contenu: RapportKills; cree_at: string; slack_at: string | null }
 
@@ -66,6 +70,7 @@ export function PageRapportKills() {
             <Chiffre label="Milestones à corriger" valeur={r.milestones_a_corriger.length} detail="passage à 1 compte" alerte={r.milestones_a_corriger.length > 0} />
             <Chiffre label="Incohérences" valeur={r.controle.reduce((t, c) => t + c.nb, 0)} detail="dans toute la base" alerte={r.controle.length > 0} />
           </div>
+          {r.inactifs && <LigneInactifs i={r.inactifs} />}
           <div className="grid gap-4 lg:grid-cols-2">
             <Repartition titre="Par HM" lignes={r.par_hm.map((h) => ({ cle: h.hm, c: h.complets, p: h.partiels }))} />
             <Repartition titre="Par pays" lignes={r.par_pays.map((p) => ({ cle: p.pays, c: p.complets, p: p.partiels }))} />
@@ -130,6 +135,37 @@ function Etapes({ titre, etapes }: { titre: string; etapes: EtapeRapport[] }) {
     <Bloc titre={titre}>
       <ul className="divide-y">{etapes.map((e) => <LigneEtape key={e.etape} e={e} />)}</ul>
     </Bloc>
+  );
+}
+
+const CATEGORIE: Record<Inactifs["liste"][number]["categorie"], string> = {
+  A: "jamais connecté",
+  B: "jamais posté",
+  alerte: "bug d'assignation",
+};
+
+function LigneInactifs({ i }: { i: Inactifs }) {
+  const [ouvert, setOuvert] = React.useState(false);
+  return (
+    <section className="rounded-xl border shadow-sm" data-testid="inactifs-auto">
+      <button type="button" className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm hover:bg-muted/40 disabled:cursor-default disabled:hover:bg-transparent"
+        onClick={() => setOuvert(!ouvert)} disabled={!i.liste.length}>
+        <span className="flex-1">{ligneInactifs(i)}</span>
+        {i.liste.length > 0 && <ChevronDown className={cn("size-4 text-muted-foreground transition-transform", ouvert && "rotate-180")} />}
+      </button>
+      {ouvert && (
+        <ul className="space-y-1 border-t bg-muted/20 px-6 py-2 text-xs">
+          {i.liste.map((n) => (
+            <li key={n.nom + n.categorie} className="flex flex-wrap items-center gap-2">
+              <span className="font-medium">{n.nom}</span>
+              <span className="text-muted-foreground">{CATEGORIE[n.categorie]} · {n.canal === "ruul" ? "Ruul" : "Upwork"}</span>
+              {n.categorie !== "alerte" && <span className="text-muted-foreground">message de fin : {n.message_fin ? "oui" : "non"}</span>}
+              {n.erreur && <span className="text-red-700 dark:text-red-300">{n.erreur}</span>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }
 

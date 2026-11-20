@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o335",
+ "type_bleo": "full_test",
+ "titre": "Things that age a man badly (and how to avoid them) #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "twin tribes monolith Dexter Morgan Super Slow",
+ "musique_url": "https://www.tiktok.com/music/twin-tribes-monolith-dexter-morgan-super-7401614052290169605",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 9 à 12 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 6e full test. Accroches écrites : « Things that age a man badly (and how to avoid them) » (retenue), « How to age like a gentleman » (écartée : ton vieilli), « Habits that make you look older » (écartée : négatif sans solution).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0a2f7dbe-bc58-4842-93c3-8110393fab4c",
+   "texte_overlay": "Things that age a man badly\n(and how to avoid them)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Never moving his body. Stiffness, back pain and low energy come quickly without exercise. Thirty minutes of movement a day keeps you young far longer than any cream.",
+   "media_id": "425c3342-2e40-4573-b639-61e2cfe7647e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Bad sleep, year after year. Short nights show in your face, your mood and your health. Protect seven to eight hours like it's part of your job, because it is.",
+   "media_id": "4392aff5-cc0f-41e3-bb18-7579c9ef9a78"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Stopping learning. Men who stop being curious start sounding old long before their age. Read, travel and try new things to keep your mind young.",
+   "media_id": "0aac1ca6-9dff-4313-b4e2-9eee8c88c618"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Holding on to bitterness. Old grudges and constant complaining age you inside and out. Letting go keeps you lighter and much easier to be around.",
+   "media_id": "0b3c3c59-fc9c-46d2-afb8-5097226bc30f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I felt my mind getting lazy. After: five minutes a day of history, art or science, and I feel more curious now than I did years ago.",
+   "texte_sophia": "Before: I felt my mind getting lazy. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I feel more curious now than I did years ago.",
+   "media_id": "0d492a9b-2d70-4514-b51b-f4d352b02c20"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Ignoring his skin. Sunscreen, water and a simple moisturiser. Ten seconds a day prevents damage you'll really notice in ten years.",
+   "media_id": "0d8bdd7c-134b-4c19-bb4d-20bb76eeca2e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Losing his friends. Men who stay social stay sharper and happier. Keep calling, keep meeting up, keep making new friends at every age.",
+   "media_id": "44385a00-3f43-4cea-bb16-e4901026040f"
+  }
+ ]
+}

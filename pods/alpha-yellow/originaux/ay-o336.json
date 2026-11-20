@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o336",
+ "type_bleo": "full_test",
+ "titre": "What to do when you feel behind in life #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 9 à 12 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 6e full test. Accroches écrites : « What to do when you feel behind in life » (retenue), « You're not behind, read this » (écartée : sans promesse), « How to catch up in life » (écartée : renforce la comparaison).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0b083484-5f02-40b8-a775-e8dcd753908a",
+   "texte_overlay": "What to do when you feel\nbehind in life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Stop comparing your chapter one to someone's chapter twenty. Social media shows highlights, not the years of struggle behind them. Your timeline is yours.",
+   "media_id": "102908d4-3b5a-4dcf-9c99-e9f73bf5df08"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Write down what you've already done. Skills learned, problems solved, people helped. Feeling behind often means forgetting how far you've actually come.",
+   "media_id": "10ee9d83-a9f0-42df-862d-7628f3d66e61"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Choose one area to focus on. Health, money, career or relationships. Trying to fix everything at once is how people stay stuck for years.",
+   "media_id": "1155ad44-135c-405b-a373-73df57e87c57"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Start small, but start today. A ten-minute workout, a first savings transfer, one job application. Action is the only real cure for feeling behind.",
+   "media_id": "149926ea-c26a-4fe4-8afc-f26215b40fd3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Small daily progress is the fastest way to stop feeling stuck.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small daily progress is the fastest way to stop feeling stuck.",
+   "media_id": "f73d2463-f51b-483d-a341-b3701a89aa11"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Spend time with people who encourage you. Some friends make you feel late, others make you feel ready. Choose carefully who you listen to.",
+   "media_id": "14f6d397-3d91-485b-b6ad-db5364347412"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Remember that many people found their path later. Writers, founders and athletes started in their 30s, 40s and beyond. It's not too late for you either.",
+   "media_id": "445d0bf5-f0a7-4773-bf86-3cdda2ec91e6"
+  }
+ ]
+}

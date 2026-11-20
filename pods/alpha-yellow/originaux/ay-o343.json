@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o343",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a8376bea-fda0-4bc3-8505-5134c686132f",
+ "titre": "Daily habits that quietly make you brilliant #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "a8376bea-fda0-4bc3-8505-5134c686132f"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 4 de la boîte (a8376bea, fr 1,2 k), 1re déclinaison. Même promesse, autres mots, sans « smart » ni « think » pour ne pas toucher la ligne 3. Items neufs, aucun repris du parent ni de 3bff423f et ses déclinaisons.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2e4fe072-0b90-4484-9378-d30b7a9f3fa3",
+   "texte_overlay": "Daily habits that quietly\nmake you brilliant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Ask one big question every day. Why is the sky blue? How do planes stay up? Looking for the answer trains your curiosity like a muscle.",
+   "media_id": "3612da49-b6d5-4d5b-afa8-e2aa85636526"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Read the news from two different sources. Seeing how the same story is told differently teaches you to think for yourself.",
+   "media_id": "3658ccc0-bee3-4b88-be51-9a7c0cb38447"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Do a puzzle with your morning coffee. Sudoku, a crossword, a chess problem. Five minutes of mental effort wakes your mind up.",
+   "media_id": "36c8e95d-437e-4f30-b6f9-b7fc0959873d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Listen more than you speak. Every person knows something you don't. Brilliant people collect ideas from everyone around them.",
+   "media_id": "36e3a02e-10f9-4b52-82db-51e247044acb"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your mind daily. I do five minutes a day of history, art or science, and small lessons every morning keep me sharp all day.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small lessons every morning keep me sharp all day.",
+   "media_id": "d19937fa-2604-4eb8-8aa2-32a6e513889f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Write a short summary of what you read. Three lines in your own words. It turns information into real understanding. Short summaries, deep memory.",
+   "media_id": "36f0a2b9-063c-4f9b-92a3-e7013a98885e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Go to bed at the same time. Regular sleep is when your brain stores everything you learned. Brilliance needs rest. Seven to eight hours, every night, no exceptions.",
+   "media_id": "3731dae5-4473-4220-a651-e6b2948f6e2f"
+  }
+ ]
+}

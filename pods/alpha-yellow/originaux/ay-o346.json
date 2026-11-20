@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o346",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d7503bae-e6d2-4fcc-a2e0-12c9eebd7be1",
+ "titre": "How to feel calmer around people when you're anxious #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "d7503bae-e6d2-4fcc-a2e0-12c9eebd7be1"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 7 de la boîte (d7503bae, en 1 k), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent (petits défis, question prête, regard dehors, expiration, être gentil avec soi, consulter). Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "463d0287-893d-43d1-85c3-71177f627879",
+   "texte_overlay": "How to feel calmer around\npeople when you're anxious",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689885995193486600/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Get there a little early. Walking into a quiet room is much easier than walking into a full one. People who arrive later come to you.",
+   "media_id": "3a8fc3a2-26d5-44d1-838c-c2033f64b08f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Give yourself a small role. Help with drinks, take photos, set up the music. Having a task makes social situations feel less pressured.",
+   "media_id": "3ab40913-b4c8-49c3-8c9e-802a7290e705"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Bring a friend you feel safe with. One familiar face can calm your whole body. Over time, you'll need them less and less.",
+   "media_id": "3abf30b5-2ee4-4666-8f16-445645e12326"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Lower your expectations. You don't need to be the funniest or the most interesting. Just being friendly is more than enough.",
+   "media_id": "3b50ccf3-3deb-4c5a-ab1c-b069fc4dc3eb"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I didn't know what to talk about. After: five minutes a day of history, art or science, and having stories makes me feel much calmer.",
+   "texte_sophia": "Before: I didn't know what to talk about. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Having stories makes me feel much calmer.",
+   "media_id": "e075c5b8-a97a-4519-97b0-f2d1fe6fde60"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Take a break when you need one. Step outside, get some air, come back. Leaving for five minutes is better than leaving for good.",
+   "media_id": "3b8ecc67-9907-46cc-9d40-bad4a3f64838"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Celebrate going, not just how it went. Every time you show up, your brain learns that social situations are safe. That's real progress.",
+   "media_id": "3bd1dc63-26ad-45be-a2f7-7163ef379cae"
+  }
+ ]
+}

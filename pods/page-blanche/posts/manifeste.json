@@ -5263,6 +5263,32 @@
    },
    "notes": "full test BLEO (plus intéressant), en es hu fi el, couverture par langue, photos banque OS; cta B",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-094",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#procrastination #productivity #studytips",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7436056740669557536",
+    "url_tiktok": "https://www.tiktok.com/music/x-7436056740669557536"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7689509565536177441_1",
+    "2": "7697728269335924001_3",
+    "3": "7683541501007252758_5",
+    "4": "7689509565536177441_3",
+    "5": "7703525134610566433_5",
+    "6": "7689509565536177441_2"
+   },
+   "notes": "full test BLEO (arrêter de procrastiner en 5 min), en tr hu fi lt, couverture par langue, photos banque OS; cta C",
+   "type_bleo": "full_test"
   }
  ]
 }

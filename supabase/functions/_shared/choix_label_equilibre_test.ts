@@ -22,6 +22,7 @@ import {
   lireReglagesChoixLabel,
   normaliserStatLabel,
   partsPlafonnees,
+  placeLibrePod,
   poidsLabel,
   REGLAGES_CHOIX_LABEL_DEFAUT,
   type ReglagesChoixLabel,
@@ -491,6 +492,7 @@ Deno.test("rien à choisir : null ; doublons ignorés ; lignes RPC normalisées"
       pod_seul: false,
       livre_langue: true,
       niveau_pod: null,
+      langue_ouverte: false,
     },
   );
   const vide = normaliserStatLabel({ label_id: "x" });
@@ -651,4 +653,41 @@ Deno.test("pays saturé : 4 alpha_male sur 5 en Pologne, le 6e va ailleurs même
   assertEquals(choisirLabel([pool[0]], R), "alpha_male");
   // Le seuil se règle.
   assertEquals(lireReglagesChoixLabel({ part_max_pays: 0.4 }).partMaxPays, 0.4);
+});
+
+// ── Place libre d'un podz (0794) : une langue ouverte sans compte passe avant tout, tout le temps ──
+
+Deno.test("place libre : une langue ouverte par un podz, sans compte, passe devant tout, même hors test", () => {
+  // Sorti du test depuis longtemps (26 comptes), perf faible, anti-rafale contre lui.
+  const libre = stat({ ...FATHOMLY, comptes_total: 26, comptes_langue: 0, langue_ouverte: true, perf_label: 0.8, passages: 200, recents_langue: 2 });
+  assert(placeLibrePod(libre));
+  assertEquals(choisirLabel([...FR_24_10, libre], R), "fathomly");
+  // Sans langue ouverte (podz en pause, ou label en texte + banque) : pas de place.
+  assertEquals(placeLibrePod(stat({ ...FATHOMLY, comptes_langue: 0 })), false);
+  // Déjà un compte dans la langue : pas de place.
+  assertEquals(placeLibrePod(stat({ ...FATHOMLY, comptes_langue: 1, langue_ouverte: true })), false);
+  // Un podz qui n'a encore rien livré : il n'aurait rien à poster.
+  assertEquals(placeLibrePod(stat({ ...FATHOMLY, comptes_langue: 0, langue_ouverte: true, livre_langue: false })), false);
+  // Un label ordinaire (sources) n'a jamais de place de podz.
+  assertEquals(placeLibrePod(stat({ label_id: "alpha_male", langue_ouverte: true })), false);
+});
+
+Deno.test("place libre : elle passe le plafond du test, mais jamais une fermeture", () => {
+  // En test, déjà ses 3 comptes : écarté d'habitude (test plein).
+  const plein = stat({ ...FATHOMLY, comptes_total: 3, comptes_langue: 0 });
+  assert(testPodPlein(plein, R, APP));
+  assertEquals(classerLabels([plein, stat({ label_id: "alpha_male" })], R).map((c) => c.label_id), ["alpha_male"]);
+  const pleinOuvert = { ...plein, langue_ouverte: true };
+  assertEquals(choisirLabel([pleinOuvert, stat({ label_id: "alpha_male" })], R), "fathomly");
+  // Fermé à la main : la place ne le rouvre pas.
+  const ferme = reglages({ fermes: ["fathomly"] });
+  assertEquals(choisirLabel([pleinOuvert, stat({ label_id: "alpha_male" })], ferme), "alpha_male");
+});
+
+Deno.test("place libre : deux podz avec une place se départagent comme d'habitude, devant les autres", () => {
+  const a = stat({ ...FATHOMLY, label_id: "milly", comptes_total: 11, langue_ouverte: true });
+  const b = stat({ ...FATHOMLY, label_id: "polytay", comptes_total: 4, langue_ouverte: true });
+  const ordre = classerLabels([stat({ label_id: "alpha_male" }), a, b], R).map((c) => c.label_id);
+  assertEquals(ordre[2], "alpha_male");
+  assertEquals(new Set(ordre.slice(0, 2)), new Set(["milly", "polytay"]));
 });

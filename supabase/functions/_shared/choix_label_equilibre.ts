@@ -75,6 +75,16 @@
  * Plein, il est écarté comme un label fermé, mais ce n'est pas une fermeture :
  * la nuit ne le retire à personne.
  *
+ * PLACE LIBRE D'UN PODZ (0794, décision d'Adrien du 20/11) : une langue OUVERTE
+ * par un podz actif (`pods.langues`) où son label n'a aucun compte passe AVANT
+ * TOUT, tout le temps : pendant le test (même au-delà de `testPodComptes`) et
+ * après. Ouvrir une langue est la décision ; le compte suivant de cette langue
+ * la remplit. Seuls restent écartés un label fermé, et un podz qui n'a encore
+ * rien livré (aucun contenu : il n'aurait rien à poster). La langue ouverte vient de
+ * `podz_labels_langue_ouverte` (`statsChoixLabel`), pas de `livre_langue` : un
+ * label 100 % podz en texte + banque (aucune liste de langues) ou dont le podz
+ * est en pause n'a pas de place.
+ *
  * Module pur : les chiffres viennent de `stats_choix_label` (migration 0287),
  * les réglages de `reglages.choix_labels` (`lireReglagesChoixLabel`).
  */
@@ -121,6 +131,11 @@ export interface StatLabelCreation {
    * servies où l'application recrute ; `null` s'il n'y en a aucune.
    */
   niveau_pod?: number | null;
+  /**
+   * Un podz ACTIF du label a ouvert la langue du compte (`pods.langues`, 0794).
+   * Posé par `statsChoixLabel`, absent des vieilles lectures : faux.
+   */
+  langue_ouverte?: boolean;
 }
 
 /** Une fermeture mémorisée : clé `cleFermeture(application, label)`. */
@@ -284,6 +299,7 @@ export function normaliserStatLabel(brut: Record<string, unknown>): StatLabelCre
     pod_seul: brut.pod_seul === true,
     livre_langue: brut.livre_langue !== false,
     niveau_pod: nombreOuNull(brut.niveau_pod),
+    langue_ouverte: brut.langue_ouverte === true,
   };
 }
 
@@ -417,6 +433,17 @@ export function demarragePod(s: StatLabelCreation, r: ReglagesChoixLabel, applic
     s.livre_langue !== false;
 }
 
+/**
+ * PLACE LIBRE D'UN PODZ (0794) : un podz actif du label a ouvert cette langue
+ * et le label n'y a aucun compte. Passe avant tout, tout le temps.
+ */
+export function placeLibrePod(s: StatLabelCreation): boolean {
+  // `livre_langue` faux : le label n'a encore AUCUN contenu pour l'application
+  // (0654). Un podz qui n'a rien livré ne tire pas de compte : il n'aurait rien
+  // à poster.
+  return estPodSeul(s) && s.langue_ouverte === true && s.livre_langue !== false && s.comptes_langue === 0;
+}
+
 /** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
 export function capacite(
   s: StatLabelCreation,
@@ -512,6 +539,8 @@ export interface LabelClasse {
   suspendu: boolean;
   /** Label de podz en démarrage, absent de cette langue : passe avant les autres (0716). */
   demarrage: boolean;
+  /** Langue ouverte par son podz, sans aucun compte : passe avant TOUT (0794). */
+  placeLibre: boolean;
   /** Moins de `JOURS_A_SEC` de réserve avec ce compte en plus. */
   aSec: boolean;
 }
@@ -533,7 +562,10 @@ export function classerLabels(
   const uniques = new Map<string, StatLabelCreation>();
   for (const s of stats) if (s.label_id && !uniques.has(s.label_id)) uniques.set(s.label_id, s);
   const liste = [...uniques.values()].filter(
-    (s) => opts.ignorerFermeture || (!estFerme(s.label_id, app, r, s) && !testPodPlein(s, r, app)),
+    // 0794 : une place libre passe le plafond du test (la langue ouverte est la décision).
+    (s) =>
+      opts.ignorerFermeture ||
+      (!estFerme(s.label_id, app, r, s) && (!testPodPlein(s, r, app) || placeLibrePod(s))),
   );
   if (liste.length === 0) return [];
 
@@ -557,9 +589,12 @@ export function classerLabels(
     suspendu: estSuspendu(s, r),
     aSec: estASec(s, r),
     demarrage: demarragePod(s, r, app),
+    placeLibre: placeLibrePod(s),
   }));
   // Un écart ne joue que s'il ne frappe pas tous les candidats.
   const regles: Array<(c: LabelClasse) => boolean> = [
+    // PRIORITÉ ABSOLUE (0794) : une langue ouverte par un podz, sans compte.
+    (c) => !c.placeLibre,
     (c) => c.aSec,
     // Démarrage d'un podz (0716) : ses comptes de test d'abord, une langue chacun.
     (c) => !c.demarrage,

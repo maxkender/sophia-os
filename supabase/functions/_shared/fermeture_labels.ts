@@ -24,6 +24,20 @@
  *      ne doit pas le retarder (même borne que `tierlist_applications`). Le
  *      reste attend la nuit suivante.
  *
+ * DANS LE MÊME THÈME (0794, décision d'Adrien du 20/11). Le nouveau label est
+ * cherché d'abord parmi ceux du même thème que le label quitté (études,
+ * carrière, running, alpha… : `themeMotsDuLabel`) et d'un genre compatible,
+ * puis parmi ceux d'un genre compatible, puis parmi tous. Un palier ne sert
+ * que s'il a un label qui n'est pas « à sec » ; le choix dans le palier reste
+ * celui de la création (`classerLabels`, places libres des podz d'abord).
+ *
+ * TOUT DE SUITE (0794). `labels` : ferme et réaffecte les comptes de CES labels
+ * maintenant, sans attendre la nuit, sans le plafond de la nuit, et sans
+ * refaire les fermetures automatiques. C'est le bouton « Fermé » de la page
+ * Allocation ; il rappelle la fonction tant qu'il reste des comptes
+ * (`reportes`). Chaque déplacement passe par `compte_deplacer` (journal
+ * `comptes_deplacements`, annulable).
+ *
  * Un compte UGC (persona IA) qui n'aurait plus de label n'est pas réaffecté :
  * son label doit porter des contenus UGC, c'est un choix humain. Il est
  * signalé. Réouvrir un label : l'ajouter à `labels_ouverts` (ou retirer sa clé
@@ -31,7 +45,7 @@
  */
 
 import {
-  choisirLabel,
+  classerLabels,
   cleFermeture,
   doitFermer,
   estFerme,
@@ -43,6 +57,7 @@ import {
   type StatLabelCreation,
 } from "./choix_label_equilibre.ts";
 import { estLabelFileSlideshow } from "./labels_file.ts";
+import { genreDuLabel, themeMotsDuLabel } from "./label_theme.ts";
 import { labelsServantApplication } from "./labels_repli.ts";
 import { ID_SOPHIA, type LienLabelApplication, normaliserParts } from "./multi_app.ts";
 
@@ -152,7 +167,16 @@ export interface ResultatFermeture {
   dryRun: boolean;
   /** Fermetures décidées cette nuit. */
   fermes: LabelFerme[];
-  deplaces: Array<{ compte_id: string; handle: string | null; de: string[]; vers: string }>;
+  deplaces: Array<{
+    compte_id: string;
+    handle: string | null;
+    /** Langue du compte (0794, pour l'aperçu de la page Allocation). */
+    langue?: string | null;
+    de: string[];
+    vers: string;
+    /** Le nouveau label est du même thème que le label quitté (0794). */
+    meme_theme?: boolean;
+  }>;
   retires: Array<{ compte_id: string; handle: string | null; labels: string[] }>;
   manuels: Array<{ compte_id: string; handle: string | null; raison: string }>;
   /** Comptes à traiter au-delà du plafond de la nuit. */
@@ -227,7 +251,89 @@ export async function statsChoixLabel(
     p_recents: args.recents,
   });
   if (error) throw new Error(`stats_choix_label : ${error.message}`);
-  return ((data ?? []) as Record<string, unknown>[]).map(normaliserStatLabel);
+  const stats = ((data ?? []) as Record<string, unknown>[]).map(normaliserStatLabel);
+  const ouverts = await labelsLangueOuverte(supabase, args.langue);
+  return ouverts.size === 0 ? stats : stats.map((s) => (ouverts.has(s.label_id) ? { ...s, langue_ouverte: true } : s));
+}
+
+/**
+ * Les labels dont un podz ACTIF a ouvert cette langue (0794) : la « place
+ * libre » qui passe avant tout au choix de label. Ne lève jamais : sans
+ * réponse (fonction pas encore en base, panne), aucune place, et le choix se
+ * fait comme avant.
+ */
+export async function labelsLangueOuverte(supabase: Supabase, langue: string | null): Promise<Set<string>> {
+  if (!langue) return new Set();
+  try {
+    const { data, error } = await supabase.rpc("podz_labels_langue_ouverte", { p_langue: langue });
+    if (error) {
+      console.warn(`[choix label] podz_labels_langue_ouverte : ${error.message}`);
+      return new Set();
+    }
+    return new Set(((data ?? []) as Array<{ label_id: string }>).map((l) => String(l.label_id)));
+  } catch (e) {
+    console.warn(`[choix label] podz_labels_langue_ouverte : ${e instanceof Error ? e.message : String(e)}`);
+    return new Set();
+  }
+}
+
+/** Ce qu'il faut d'un label pour le rapprocher d'un autre : son nom et son genre. */
+export interface LabelTheme {
+  id: string;
+  nom: string | null;
+  genre: string | null;
+}
+
+/**
+ * Les labels du pool, du plus proche au plus large du label quitté (0794) :
+ * même thème et genre compatible, puis genre compatible, puis tous. Un genre
+ * inconnu (d'un côté ou de l'autre) est compatible avec tout. Les paliers vides
+ * ou identiques au précédent sont retirés ; le dernier est toujours le pool.
+ */
+export function paliersTheme(depart: LabelTheme | null, pool: readonly LabelTheme[]): string[][] {
+  const tous = pool.map((l) => l.id);
+  if (!depart) return tous.length > 0 ? [tous] : [];
+  const genreDe = (l: LabelTheme) => (l.genre === "homme" || l.genre === "femme" ? l.genre : genreDuLabel(l.nom));
+  const theme = themeMotsDuLabel(depart.nom);
+  const genre = genreDe(depart);
+  const compatible = (l: LabelTheme) => {
+    const g = genreDe(l);
+    return !genre || !g || g === genre;
+  };
+  const paliers = [
+    pool.filter((l) => themeMotsDuLabel(l.nom) === theme && compatible(l)).map((l) => l.id),
+    pool.filter(compatible).map((l) => l.id),
+    tous,
+  ];
+  const out: string[][] = [];
+  for (const p of paliers) {
+    if (p.length === 0) continue;
+    const avant = out[out.length - 1];
+    if (avant && avant.length === p.length && avant.every((id, i) => id === p[i])) continue;
+    out.push(p);
+  }
+  return out;
+}
+
+/**
+ * Le label à donner, palier par palier : le premier label pas « à sec » du
+ * palier le plus proche ; sinon, au dernier palier, le premier tout court (ou
+ * rien si aucun label n'est ouvert). `meme` : pris dans le premier palier.
+ */
+export function choisirDansLeTheme(
+  stats: readonly StatLabelCreation[],
+  paliers: readonly string[][],
+  r: ReglagesChoixLabel,
+  applicationId: string,
+): { vers: string | null; meme: boolean } {
+  for (const [i, ids] of paliers.entries()) {
+    const garde = new Set(ids);
+    const classes = classerLabels(stats.filter((s) => garde.has(s.label_id)), r, { applicationId });
+    const bon = classes.find((c) => !c.aSec);
+    if (bon) return { vers: bon.label_id, meme: i === 0 && paliers.length > 1 };
+    if (i === paliers.length - 1 && classes.length > 0) return { vers: classes[0].label_id, meme: false };
+  }
+  return { vers: null, meme: false };
 }
 
 /**
@@ -237,7 +343,14 @@ export async function statsChoixLabel(
  */
 export async function fermerLabelsEtReaffecter(
   supabase: Supabase,
-  opts: { jour: string; dryRun?: boolean; budgetMs?: number; maintenant?: () => number },
+  opts: {
+    jour: string;
+    dryRun?: boolean;
+    budgetMs?: number;
+    maintenant?: () => number;
+    /** 0794 : ne traiter QUE ces labels, tenus pour fermés, tout de suite et sans plafond. */
+    labels?: string[];
+  },
 ): Promise<ResultatFermeture> {
   const dryRun = Boolean(opts.dryRun);
   const maintenant = opts.maintenant ?? (() => Date.now());
@@ -248,7 +361,7 @@ export async function fermerLabelsEtReaffecter(
   let r = lireReglagesChoixLabel(brut);
 
   const [labelsLus, liensLus, appsLues] = await Promise.all([
-    supabase.from("labels").select("id, slug, nom, manuel"),
+    supabase.from("labels").select("id, slug, nom, manuel, genre"),
     supabase.from("label_applications").select("label_id, application_id"),
     supabase.from("applications").select("id, slug, actif"),
   ]);
@@ -256,13 +369,19 @@ export async function fermerLabelsEtReaffecter(
   if (liensLus.error) throw new Error(`label_applications : ${liensLus.error.message}`);
   if (appsLues.error) throw new Error(`applications : ${appsLues.error.message}`);
   const nomDe = new Map((labelsLus.data ?? []).map((l) => [l.id as string, (l.nom as string | null) ?? null]));
+  const themeDe = new Map<string, LabelTheme>((labelsLus.data ?? []).map((l) => [
+    l.id as string,
+    { id: l.id as string, nom: (l.nom as string | null) ?? (l.slug as string | null) ?? null, genre: (l.genre as string | null) ?? null },
+  ]));
+  const demandes = new Set((opts.labels ?? []).map(String).filter(Boolean));
+  const cible = demandes.size > 0;
   const slideshow = (labelsLus.data ?? []).filter((l) => estLabelFileSlideshow(l)).map((l) => l.id as string);
   const liens = (liensLus.data ?? []) as LienLabelApplication[];
   const applications = (appsLues.data ?? []) as Array<ApplicationRef & { actif: boolean }>;
 
-  // 1. Fermetures du jour, application par application.
+  // 1. Fermetures du jour, application par application (jamais sur une demande ciblée).
   const nouvelles: Record<string, FermetureAuto> = {};
-  for (const app of applications.filter((a) => a.actif)) {
+  for (const app of cible ? [] : applications.filter((a) => a.actif)) {
     const pool = labelsServantApplication(slideshow, liens, app.id);
     const stats = await statsChoixLabel(supabase, {
       labels: pool,
@@ -297,6 +416,10 @@ export async function fermerLabelsEtReaffecter(
   const fermesConnus = new Set<string>(r.fermes);
   for (const k of Object.keys(r.fermesAuto)) fermesConnus.add(k.split(":")[1]);
   for (const id of r.ouverts) fermesConnus.delete(id);
+  if (cible) {
+    fermesConnus.clear();
+    for (const id of demandes) fermesConnus.add(id);
+  }
   if (fermesConnus.size === 0) return res;
 
   const { data: porteurs, error: errPorteurs } = await supabase
@@ -337,8 +460,10 @@ export async function fermerLabelsEtReaffecter(
   const handleDe = new Map(comptes.map((c) => [c.id, c.handle]));
   const nom = (id: string) => nomDe.get(id) ?? id;
 
-  const toutes = planifierReaffectations(comptes, applications, (l, app) => estFerme(l, app, r));
-  const actions = toutes.slice(0, r.relabelsMaxParNuit);
+  // Demande ciblée : ses labels sont tenus pour fermés, quelle que soit l'application.
+  const ferme = (l: string, app: string) => (cible ? demandes.has(l) : estFerme(l, app, r));
+  const toutes = planifierReaffectations(comptes, applications, ferme);
+  const actions = cible ? toutes : toutes.slice(0, r.relabelsMaxParNuit);
   res.reportes = toutes.length - actions.length;
 
   // 3. Un compte après l'autre : chaque choix lit les comptes déjà déplacés.
@@ -359,7 +484,8 @@ export async function fermerLabelsEtReaffecter(
         res.retires.push({ compte_id: a.compteId, handle, labels: a.retirer.map(nom) });
         continue;
       }
-      const pool = poolPourApplications(slideshow, liens, a.requises).filter((l) => !estFerme(l, a.principale, r));
+      const pool = poolPourApplications(slideshow, liens, a.requises)
+        .filter((l) => !estFerme(l, a.principale, r) && !demandes.has(l));
       const stats = await statsChoixLabel(supabase, {
         labels: pool,
         application: a.principale,
@@ -367,19 +493,46 @@ export async function fermerLabelsEtReaffecter(
         pays: compte.pays,
         recents: RECENTS_CHOIX_LABEL,
       });
-      const vers = choisirLabel(stats, r, { applicationId: a.principale });
+      // 0794 : d'abord dans le thème du label quitté.
+      const paliers = paliersTheme(
+        themeDe.get(a.retirer[0]) ?? null,
+        pool.map((id) => themeDe.get(id) ?? { id, nom: null, genre: null }),
+      );
+      const { vers, meme } = choisirDansLeTheme(stats, paliers, r, a.principale);
       if (!vers) {
         res.manuels.push({ compte_id: a.compteId, handle, raison: "aucun label ouvert pour son application" });
         continue;
       }
       if (!dryRun) {
-        const { error } = await supabase
-          .from("compte_labels")
-          .upsert({ compte_id: a.compteId, label_id: vers }, { onConflict: "compte_id,label_id", ignoreDuplicates: true });
-        if (error) throw new Error(`ajout de ${nom(vers)} : ${error.message}`);
-        await retirerLabels(supabase, a.compteId, a.retirer);
+        // Un seul label quitté : le geste journalisé (0782), annulable. Sinon, ou
+        // s'il échoue, l'écriture directe d'avant : un compte ne reste pas en plan.
+        let journalise = false;
+        if (a.retirer.length === 1) {
+          const { error: errRpc } = await supabase.rpc("compte_deplacer", {
+            p_compte: a.compteId,
+            p_de: a.retirer[0],
+            p_vers: vers,
+            p_raison: `label ${nom(a.retirer[0])} fermé`,
+          });
+          if (errRpc) console.warn(`[labels] compte_deplacer ${handle ?? a.compteId} : ${errRpc.message}`);
+          journalise = !errRpc;
+        }
+        if (!journalise) {
+          const { error } = await supabase
+            .from("compte_labels")
+            .upsert({ compte_id: a.compteId, label_id: vers }, { onConflict: "compte_id,label_id", ignoreDuplicates: true });
+          if (error) throw new Error(`ajout de ${nom(vers)} : ${error.message}`);
+          await retirerLabels(supabase, a.compteId, a.retirer);
+        }
       }
-      res.deplaces.push({ compte_id: a.compteId, handle, de: a.retirer.map(nom), vers: nom(vers) });
+      res.deplaces.push({
+        compte_id: a.compteId,
+        handle,
+        langue: compte.langue,
+        de: a.retirer.map(nom),
+        vers: nom(vers),
+        meme_theme: meme,
+      });
     } catch (e) {
       res.erreurs.push(`${handle ?? a.compteId} : ${e instanceof Error ? e.message : String(e)}`);
     }

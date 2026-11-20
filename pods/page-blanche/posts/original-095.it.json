@@ -25,10 +25,10 @@
      "remplacer": {
       "source": "sources/os_159bb76d.jpg",
       "boite": [
-       0,
-       0,
-       1504,
-       2784
+       550,
+       950,
+       954,
+       700
       ]
      }
     }

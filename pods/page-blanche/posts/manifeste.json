@@ -5289,6 +5289,88 @@
    },
    "notes": "full test BLEO (arrêter de procrastiner en 5 min), en tr hu fi lt, couverture par langue, photos banque OS; cta C",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-productif-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7684726544442346774?variante=var-productif-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 7,
+   "legende": "#productivity #habits #science",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Guitar Coach Sean",
+    "original": true,
+    "id": "7679792501380664084",
+    "url_tiktok": "https://www.tiktok.com/music/x-7679792501380664084"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7684726544442346774_1",
+    "2": "7684726544442346774_2",
+    "3": "7684726544442346774_3",
+    "4": "7699118764788321558_3",
+    "5": "7684726544442346774_5",
+    "6": "7684726544442346774_4",
+    "7": "7684726544442346774_7"
+   },
+   "notes": "déclinaison G1 de 7684726544442346774, fr de es hu bg, couverture par langue, photos banque OS; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "3c1b8886-9c23-4112-8379-3a706111bcbf"
+  },
+  {
+   "post_id": "var-memoire-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#memory #studytips #brainhealth",
+   "musique": {
+    "titre": "som original - strange",
+    "auteur": "strange",
+    "original": true,
+    "id": "7650637490231708437",
+    "url_tiktok": "https://www.tiktok.com/music/x-7650637490231708437"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7694340359056313632_1",
+    "2": "7694340359056313632_6",
+    "3": "7692093201968090401_2",
+    "4": "7694340359056313632_5",
+    "5": "7689509565536177441_4",
+    "6": "7689509565536177441_6"
+   },
+   "notes": "déclinaison G1 de var-focus-2, fr de tr fi hr, couverture par langue, photos banque OS; cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "43a268b3-dc3d-4b87-9fd7-dda391d3f1ec"
+  },
+  {
+   "post_id": "var-repartie-3",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#comebacks #repartie #confidence",
+   "musique": {
+    "titre": "Love is in the Air, Pt. 2",
+    "auteur": "Rock Burwell",
+    "original": false,
+    "id": "7636876081187588097",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636876081187588097"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685340052989398275_1",
+    "2": "7683541501007252758_4",
+    "3": "7691007701127564576_3",
+    "4": "7703525134610566433_6",
+    "5": "7700620281760533792_6",
+    "6": "7680975889932225814_5"
+   },
+   "notes": "déclinaison G2 (accroche reformulée) de var-repartie-1, fr en it el lt, couverture par langue, photos banque OS; cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "ceb6baa1-6227-4912-9e26-b949e995179b"
   }
  ]
 }

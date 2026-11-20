@@ -9,7 +9,7 @@
       "disgustingly disciplined"
      ],
      "fr": "10/10 habitudes pour avoir une discipline de malade",
-     "texte": "kişisel gelişim hakkındaki popüler olmayan fikirlerim"
+     "texte": "kişisel gelişim üzerine aykırı fikirlerim"
     },
     "T2": {
      "en": [
@@ -49,7 +49,7 @@
       "decide the whole week is ruined"
      ],
      "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
-     "texte": "sabah 5'te günlük, buz banyosu ve kitap kulağa harika geliyor, ta ki [[öğleden sonra 3'te çökene kadar]]"
+     "texte": "sabah 5'te günlük, buz banyosu, kitap: harika, ta ki [[3'te çökene kadar]]"
     },
     "T3": {
      "en": [
@@ -59,7 +59,7 @@
       "day"
      ],
      "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
-     "texte": "uyumak tembellik değil. yorgun bir beyin [[ne odaklanabilir ne de bir şey hatırlar]]"
+     "texte": "uyku tembellik değil. yorgun beyin [[ne odaklanır ne de bir şey hatırlar]]"
     },
     "T4": {
      "en": [
@@ -91,7 +91,7 @@
       "Turn off notifications"
      ],
      "fr": "Coupe tes notifications",
-     "texte": "[[yılda 100 kitap]] hedefini boş ver"
+     "texte": "[[100 kitap]] hedefini unut"
     },
     "T2": {
      "en": [
@@ -133,7 +133,7 @@
       "receptors"
      ],
      "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
-     "texte": "telefon detoksları hiç uzun sürmüyor. asıl sorun [[akışın senin yerine seçmesi]]"
+     "texte": "telefon detoksu hiç sürmüyor. asıl sorun [[akışın senin yerine seçmesi]]"
     },
     "T3": {
      "en": [
@@ -142,7 +142,7 @@
       "read"
      ],
      "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "eskiden akış seçerdi. şimdi ben seçiyorum: [[Sophia uygulamasında]] 5 dk"
+     "texte": "eskiden akış seçerdi. artık ben: [[Sophia uygulamasında]] 5 dk"
     },
     "T4": {
      "en": [
@@ -161,7 +161,7 @@
       "your attention span"
      ],
      "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
-     "texte": "asıl sorun hiçbir zaman telefon değildi. hep [[otomatik pilotta kaydırmaktı]]"
+     "texte": "asıl sorun hiç telefon değildi. hep [[otomatik pilotta kaydırmaktı]]"
     }
    },
    "images": {
@@ -226,7 +226,7 @@
       "rest"
      ],
      "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
-     "texte": "birinin 20 dk ders çalışmasını izlemek [[ders çalışmak değil]]"
+     "texte": "birini 20 dk çalışırken izlemek [[çalışmak değil]]"
     },
     "T3": {
      "en": [

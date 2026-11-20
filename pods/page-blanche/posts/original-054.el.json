@@ -41,7 +41,7 @@
       "all or nothing thinking"
      ],
      "fr": "la mentalité [[tout ou rien]]",
-     "texte": "οι [[ρουτίνες των 5 το πρωί]] είναι υπερεκτιμημένες"
+     "texte": "[[ξύπνημα στις 5]]; υπερεκτιμημένο"
     },
     "T2": {
      "en": [
@@ -49,7 +49,7 @@
       "decide the whole week is ruined"
      ],
      "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
-     "texte": "ημερολόγιο, παγωμένο μπάνιο και διάβασμα στις 5 το πρωί ακούγονται τέλεια, μέχρι [[να σβήσεις στις 3 το απόγευμα]]"
+     "texte": "ημερολόγιο, παγωμένο μπάνιο, διάβασμα στις 5: τέλεια, μέχρι [[να σβήσεις στις 3]]"
     },
     "T3": {
      "en": [
@@ -59,7 +59,7 @@
       "day"
      ],
      "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
-     "texte": "ο ύπνος δεν είναι τεμπελιά. ένας κουρασμένος εγκέφαλος [[δεν συγκεντρώνεται ούτε θυμάται τίποτα]]"
+     "texte": "ο ύπνος δεν είναι τεμπελιά. ένα κουρασμένο μυαλό [[δεν θυμάται τίποτα]]"
     },
     "T4": {
      "en": [
@@ -91,7 +91,7 @@
       "Turn off notifications"
      ],
      "fr": "Coupe tes notifications",
-     "texte": "ξέχνα τον στόχο των [[100 βιβλίων]]"
+     "texte": "ξέχνα τα [[100 βιβλία]]"
     },
     "T2": {
      "en": [
@@ -109,7 +109,7 @@
       "respond instantly"
      ],
      "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
-     "texte": "10 σελίδες τη μέρα κάνουν 3.650 σελίδες τον χρόνο. [[καμιά δωδεκαριά βιβλία που όντως τελειώνεις]], χωρίς ενοχές"
+     "texte": "10 σελίδες τη μέρα = 3.650 τον χρόνο. [[μια δωδεκάδα βιβλία που όντως τελειώνεις]], χωρίς ενοχές"
     }
    },
    "images": {
@@ -123,7 +123,7 @@
       "start reading everyday"
      ],
      "fr": "apprends un truc [[chaque jour]]",
-     "texte": "[[μην παρατάς]] το κινητό σου"
+     "texte": "[[μην αφήνεις]] το κινητό"
     },
     "T2": {
      "en": [
@@ -133,7 +133,7 @@
       "receptors"
      ],
      "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
-     "texte": "τα ψηφιακά detox δεν κρατάνε ποτέ. το πρόβλημα είναι [[να διαλέγει το feed για σένα]]"
+     "texte": "το detox δεν κρατάει ποτέ. το θέμα είναι [[να διαλέγει το feed για σένα]]"
     },
     "T3": {
      "en": [
@@ -142,7 +142,7 @@
       "read"
      ],
      "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "πριν διάλεγε το feed. τώρα διαλέγω εγώ: 5 λεπτά στην [[εφαρμογή Sophia]]"
+     "texte": "πριν διάλεγε το feed. τώρα εγώ: 5 λεπτά στην [[εφαρμογή Sophia]]"
     },
     "T4": {
      "en": [
@@ -161,7 +161,7 @@
       "your attention span"
      ],
      "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
-     "texte": "το κινητό δεν ήταν ποτέ το πραγματικό πρόβλημα. [[το scroll στον αυτόματο πιλότο]] ήταν"
+     "texte": "το κινητό δεν ήταν ποτέ το πρόβλημα. [[το scroll στον αυτόματο πιλότο]] ήταν"
     }
    },
    "images": {
@@ -193,7 +193,7 @@
       "for too long"
      ],
      "fr": "ton cerveau ne doit jamais s'entendre penser",
-     "texte": "τότε ο εγκέφαλός σου [[επιτέλους ταξιδεύει]]"
+     "texte": "τότε το μυαλό σου [[επιτέλους ταξιδεύει]]"
     },
     "T4": {
      "en": [
@@ -226,7 +226,7 @@
       "rest"
      ],
      "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
-     "texte": "το να βλέπεις κάποιον να διαβάζει 20 λεπτά [[δεν είναι διάβασμα]]"
+     "texte": "να βλέπεις κάποιον να διαβάζει 20 λεπτά [[δεν είναι διάβασμα]]"
     },
     "T3": {
      "en": [

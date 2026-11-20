@@ -20,6 +20,7 @@ import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { ficheApplication } from "@/features/moteur/catalogueApplications";
 import { exemplesFeedDepuisTexte, exemplesFeedVersTexte } from "@/features/moteur/creationManuelle";
+import { DetailLabel } from "@/features/moteur/labels/DetailLabel";
 import { applicationsDuLabel } from "@/features/moteur/multiApp";
 import { ApplicationsCard } from "@/features/moteur/multiapp/ApplicationsCard";
 import { grouperLabelsParApplication, identiteDuNom } from "@/features/moteur/multiapp/groupesLabels";
@@ -223,6 +224,10 @@ function LigneLabel({
         <tr>
           <td colSpan={5} className="pb-4">
             <div className="space-y-4 rounded-md bg-muted/30 p-3">
+              <div className="space-y-1.5">
+                <MicroLabel>{t("labelsPage.detail.titre")}</MicroLabel>
+                <DetailLabel labelId={label.id} nom={label.nom} applicationIds={servies ?? []} />
+              </div>
               {multi.multiDispo && multi.liens && (
                 <div className="space-y-1.5">
                   <MicroLabel>{t("labelsPage.applisServies")}</MicroLabel>

@@ -9784,9 +9784,9 @@ export const en = {
         "Until then, use TikTok normally every day: scroll, like, follow. Never post. Nothing to post yet: that is normal.",
       gelTitre: "Warm-up extended: no posts to publish for now",
       gelAide:
-        "Your new posts are being prepared. Until then, use TikTok every day on this account: scroll, like and follow accounts in your niche ({{niche}}). Never post, and keep your old posts. Your pay does not change. We will tell you here as soon as your posts are ready.",
+        "Your new posts are being prepared. Until then, use TikTok every day on this account: scroll, like and follow accounts in your niche ({{niche}}). Do this warm-up seriously, every day: without a good warm-up, TikTok will shadowban your account. Never post, and keep your old posts. Your pay does not change. We will tell you here as soon as your posts are ready.",
       gelAideSansNiche:
-        "Your new posts are being prepared. Until then, use TikTok every day on this account: scroll, like and follow accounts in your niche. Never post, and keep your old posts. Your pay does not change. We will tell you here as soon as your posts are ready.",
+        "Your new posts are being prepared. Until then, use TikTok every day on this account: scroll, like and follow accounts in your niche. Do this warm-up seriously, every day: without a good warm-up, TikTok will shadowban your account. Never post, and keep your old posts. Your pay does not change. We will tell you here as soon as your posts are ready.",
       caseWarmup: "Warm-up",
       casePremiersPosts: "FIRST POSTS",
       legendeWarmup: "🔥 Warm-up: use TikTok normally, never post. 🚀 First posts: they arrive that morning.",

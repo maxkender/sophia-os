@@ -41,6 +41,10 @@
 --   * un deuxième podz (suédois) sur le label Kaja : une seule ligne dans
 --     `labels_100_podz`, voie 2, le suédois est servi.
 --
+-- ✅ Appliquée le 2026-11-20 (MCP). Vérifié après : la vue, la voie, le
+-- rattrapage, le rythme et les langues servies répondent ; les quatre fonctions
+-- lisent `podz_images_finies`.
+--
 -- HORS CHAMP (inchangé, à savoir avant de mêler source et podz sur un label) :
 -- les empreintes de couverture et la relecture automatique exemptent les
 -- contenus des labels nourris seulement par des podz ; sur un label qui a aussi

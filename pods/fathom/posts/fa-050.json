@@ -23,7 +23,11 @@
   "pl": "10/10 umiejętności do nauczenia w jeden dzień!",
   "ro": "10/10 abilități pe care le înveți într-o zi!",
   "sv": "10/10 färdigheter du kan lära dig på en dag!",
-  "tr": "Bir günde öğrenebileceğin 10/10 beceri!"
+  "tr": "Bir günde öğrenebileceğin 10/10 beceri!",
+  "lt": "10/10 įgūdžių, kuriuos išmoksi per dieną!",
+  "no": "10/10 ferdigheter du kan lære på én dag!",
+  "et": "10/10 oskust, mida saad õppida ühe päevaga!",
+  "fi": "10/10 taitoa, jotka opit yhdessä päivässä!"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Day! #skills #learnontiktok #selfmastery",
@@ -43,13 +47,17 @@
   "pl": "10/10 umiejętności do nauczenia w jeden dzień! #umiejętności #rozwójosobisty #nauka",
   "ro": "10/10 abilități pe care le înveți într-o zi! #abilități #dezvoltarepersonală #învățare",
   "sv": "10/10 färdigheter du kan lära dig på en dag! #färdigheter #självutveckling #lärande",
-  "tr": "Bir günde öğrenebileceğin 10/10 beceri! #beceriler #kişiselgelişim #öğrenme"
+  "tr": "Bir günde öğrenebileceğin 10/10 beceri! #beceriler #kişiselgelişim #öğrenme",
+  "lt": "10/10 įgūdžių, kuriuos išmoksi per dieną! #įgūdžiai #saviugda #mokymasis",
+  "no": "10/10 ferdigheter du kan lære på én dag! #ferdigheter #selvutvikling #læring",
+  "et": "10/10 oskust, mida saad õppida ühe päevaga! #oskused #eneseareng #õppimine",
+  "fi": "10/10 taitoa, jotka opit yhdessä päivässä! #taidot #itsensäkehittäminen #oppiminen"
  },
  "musique": {
   "titre": "sonido original",
   "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
  },
- "notes": "cta A. Reprise de l'accroche de fa-002 et fa-020 (une seule fois sur 7 jours) : étapes nouvelles (avion de papier, mélange de cartes, Rubik's cube), autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers). 19/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr (titre et couverture de fa-002) ; faute de vidéo native, l'avion en papier devient le dessin en perspective en sl, et le mélange de cartes aussi en hu.",
+ "notes": "cta A. Reprise de l'accroche de fa-002 et fa-020 (une seule fois sur 7 jours) : étapes nouvelles (avion de papier, mélange de cartes, Rubik's cube), autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers). 19/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr (titre et couverture de fa-002) ; faute de vidéo native, l'avion en papier devient le dessin en perspective en sl, et le mélange de cartes aussi en hu. 20/11 soir : ajouté en lt, no, et et fi ; faute de vidéo native, l'avion en papier devient les échecs en et, et le mélange de cartes aussi en no.",
  "slides": [
   {
    "type": "couverture",
@@ -310,6 +318,74 @@
      ],
      "BİR GÜNDE",
      "ÖĞRENEBİLECEĞİN BECERİ"
+    ]
+   },
+   "lt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ĮGŪDŽIŲ, KURIUOS",
+     [
+      {
+       "t": "IŠMOKSI PER DIENĄ!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "no": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FERDIGHETER DU KAN",
+     [
+      {
+       "t": "LÆRE PÅ ÉN DAG!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "et": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "OSKUST, MIDA ÕPID",
+     [
+      {
+       "t": "ÜHE PÄEVAGA!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fi": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TAITOA, JOTKA OPIT",
+     [
+      {
+       "t": "YHDESSÄ PÄIVÄSSÄ!",
+       "bronze": true
+      }
+     ]
     ]
    }
   },
@@ -584,6 +660,66 @@
      "duree": "1:50",
      "avatar": "https://yt3.ggpht.com/kRzS8eGXfNP56-vZ3WCJ8MrUG-UsvwUWXxp0sxMjZ_5x41jkQOw0zVAdx_8UKgwqUsejQVtJ_kM=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "lt": {
+    "titre": [
+     "SULANKSTYK GERIAUSIĄ",
+     "POPIERINĮ LĖKTUVĄ"
+    ],
+    "video": {
+     "id": "1xVJ7ylha0o",
+     "titre": "Origami lėktuvas | Kaip pasigaminti popierinį lėktuvą, kuris skrenda toli",
+     "chaine": "Mr. Easy Origami ART",
+     "vues": "2 mln. peržiūrų",
+     "date": "prieš 6 metus",
+     "duree": "04:45",
+     "avatar": "https://yt3.ggpht.com/ksip7DyCtF0yHyTvEHGU-Q-NfknCxxuOKg1yaFqj_v6m7dW-pbvBUB9YMgkLMjqx3VC30uwz9w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "BRETT DET BESTE",
+     "PAPIRFLYET"
+    ],
+    "video": {
+     "id": "PEj-jXsGWeU",
+     "titre": "Slik brettar du Verdas beste papirfly | Hvordan brette et Papir fly som flyr langt @MrTatty",
+     "chaine": "MrTatty Welt",
+     "vues": "5,4k avspillinger",
+     "date": "for 1 år siden",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/uV7jfYHkBmu9Ez0JzmaOyCuxNGu4L8V5Igw6iIFYXH-xhKWG4IuwLa2Xtl_0MjLEpgV_pt4o6Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "MÄNGI",
+     "MALET"
+    ],
+    "video": {
+     "id": "Usa2IK90zmQ",
+     "titre": "Iivo Nei - Malekool algajatele (1/5)",
+     "chaine": "Tõnis Tüür",
+     "vues": "4,1 tuh vaatamist",
+     "date": "5 aasta eest",
+     "duree": "23:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kj1phys4s3ngjRmC6LD1r7SpCPGNTGG83SMn5UAtXhx60a=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "TAITA PARAS",
+     "PAPERILENNOKKI"
+    ],
+    "video": {
+     "id": "eyDUs7ZHHYM",
+     "titre": "HELPPO paperilennokki 1 MINUUTISSA",
+     "chaine": "Aviation Corner",
+     "vues": "10 t. katselukertaa",
+     "date": "3 vuotta sitten",
+     "duree": "1.06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXWY3k9GLj1diHc-RylSoK7hUJ6hhIa5KPc7yFwq-NOg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -857,6 +993,66 @@
      "duree": "7:47",
      "avatar": "https://yt3.ggpht.com/i1uu4lwltMS2PO3_PUEkuB7pX25bnX8QzSSoMiFjpk2i5lBS7bhDM8SuiDgu_d-qFwMzr-9z=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "lt": {
+    "titre": [
+     "MAIŠYK KORTAS",
+     "KAIP PROFAS"
+    ],
+    "video": {
+     "id": "2SbouJw9bq4",
+     "titre": "Kortų maišymas | Riffle shuffle (Tutorial)",
+     "chaine": "Magic CardsLT",
+     "vues": "3,6 tūkst. peržiūrų",
+     "date": "prieš 10 metų",
+     "duree": "01:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k6we3IQhkA6QXm6jCJiBXqcywM6vqBgdd4J-OjU08T-g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "SPILL",
+     "SJAKK"
+    ],
+    "video": {
+     "id": "-MbHkU7QBUc",
+     "titre": "Torsteins sjakkskole: Brikkene flyttes",
+     "chaine": "NRK Skole",
+     "vues": "11k avspillinger",
+     "date": "for 6 år siden",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nIRnOXb8yGhybdJKqxhHMFnljRWTbQUs6uogI6PHWUTpY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "SEGA KAARTE",
+     "NAGU PROFI"
+    ],
+    "video": {
+     "id": "S2iw915M9Js",
+     "titre": "kaartide segamine",
+     "chaine": "PP",
+     "vues": "570 vaatamist",
+     "date": "18 aasta eest",
+     "duree": "0:19",
+     "avatar": "https://yt3.ggpht.com/DjcInjort-MAtlxD3zeIgrTh9mROtFkwQffEtGXKsNKiM-jr2WyAlQ6q45KMH4LsMSGbvMv1iUg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "SEKOITA KORTIT",
+     "KUIN AMMATTILAINEN"
+    ],
+    "video": {
+     "id": "WK5WxudSbcI",
+     "titre": "Temppu- ja jekkukoulu osa 10 - Pakan kunnollinen sekoittaminen",
+     "chaine": "Riku Pajari",
+     "vues": "3,3 t. katselukertaa",
+     "date": "10 vuotta sitten",
+     "duree": "5.05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n3_SIQjBq88FMB9rLCFbsm0YXjU_mrirvLbInJMyYnRo4=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1093,6 +1289,58 @@
      "texte": [
       "her gün yeni bir şey öğren,",
       "5 dakikada."
+     ]
+    }
+   },
+   "lt": {
+    "titre": [
+     "NAUJAS FAKTAS",
+     "PER 5 MINUTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kasdien išmok ką nors naujo,",
+      "per 5 minutes."
+     ]
+    }
+   },
+   "no": {
+    "titre": [
+     "ET NYTT FAKTUM",
+     "PÅ 5 MINUTTER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lær noe nytt hver dag,",
+      "på 5 minutter."
+     ]
+    }
+   },
+   "et": {
+    "titre": [
+     "UUS FAKT",
+     "5 MINUTIGA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "õpi iga päev midagi uut,",
+      "5 minutiga."
+     ]
+    }
+   },
+   "fi": {
+    "titre": [
+     "UUSI FAKTA",
+     "5 MINUUTISSA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "opi joka päivä jotain uutta,",
+      "5 minuutissa."
      ]
     }
    }
@@ -1367,6 +1615,66 @@
      "date": "10 yıl önce",
      "duree": "14:03",
      "avatar": "https://yt3.ggpht.com/nenigceom6iWbgHKDDqcQtOj7atM6qBNzusi05Hs72M3jaIjlYCbz8KNUmtVe5ujgQVndgeZ0JI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "SUDĖK",
+     "RUBIKO KUBĄ"
+    ],
+    "video": {
+     "id": "t40q9XqpPcs",
+     "titre": "Kaip sudėti Rubiko Kubą Lietuviškai",
+     "chaine": "SkullCrusher",
+     "vues": "45 tūkst. peržiūrų",
+     "date": "prieš 10 metų",
+     "duree": "11:09",
+     "avatar": "https://yt3.ggpht.com/iRVYBW7d0IRcPwuM6MPLtnTje7qn9vyZfIdCS_QoVSroQSpIm_lu3U12zHFQo0PtXa0TSq8x9Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LØS EN",
+     "RUBIKS KUBE"
+    ],
+    "video": {
+     "id": "WQZAglyeMT4",
+     "titre": "Slik Løser Du En Rubik's Kube | Trinn 1 - Bli Kjent Med Kuben",
+     "chaine": "MasterCubeStore",
+     "vues": "61k avspillinger",
+     "date": "for 3 år siden",
+     "duree": "2:35",
+     "avatar": "https://yt3.ggpht.com/R5NNz0n3F9qHH_txvrRCN1ksBA8F7c1n2-gpvNgx2i1jC27msIXR9gHGjbUG0LZ5XQVE4sShjw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "LAHENDA",
+     "RUUBIKU KUUBIK"
+    ],
+    "video": {
+     "id": "VFCsxdeIuQI",
+     "titre": "Õpetus 3x3 Ruubiku Kuubiku lahendamiseks (algajatele)",
+     "chaine": "CHT Kuubikud",
+     "vues": "12 tuh vaatamist",
+     "date": "6 aasta eest",
+     "duree": "13:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mF4Ttf9AtlmOdJJWSHDs-9YAeo0ZkSGnSXmK3pmE78pA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "RATKAISE",
+     "RUBIKIN KUUTIO"
+    ],
+    "video": {
+     "id": "dNq8GaLAKAs",
+     "titre": "Opi ratkaisemaan Rubikin kuutio 15 minuutissa (Aloittelijan metodi)",
+     "chaine": "Kuutiostore",
+     "vues": "139 t. katselukertaa",
+     "date": "4 vuotta sitten",
+     "duree": "14.25",
+     "avatar": "https://yt3.ggpht.com/T99m7K_AnKscZ8PTJ1D8dStwnu0Vyoru_nwCLZ65tBimo7B_1L01_lSUTeNQm5IpOIg9Hw3B2q4=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

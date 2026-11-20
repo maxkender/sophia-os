@@ -5371,6 +5371,113 @@
    "notes": "déclinaison G2 (accroche reformulée) de var-repartie-1, fr en it el lt, couverture par langue, photos banque OS; cta C",
    "type_bleo": "declinaison",
    "parent_contenu_id": "ceb6baa1-6227-4912-9e26-b949e995179b"
+  },
+  {
+   "post_id": "var-ennuient-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#hobbies #curiosity #neverbored",
+   "musique": {
+    "titre": "original sound - Sean | Bangkok Photographer",
+    "auteur": "Sean | Bangkok Photographer",
+    "original": true,
+    "id": "7670141900171217672",
+    "url_tiktok": "https://www.tiktok.com/music/x-7670141900171217672"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7694778035337235744_1",
+    "2": "7683630825610513686_4",
+    "3": "7694778035337235744_5",
+    "4": "7694340359056313632_6",
+    "5": "7694340359056313632_4",
+    "6": "7694778035337235744_2"
+   },
+   "notes": "déclinaison G1 de original-007, fr tr it en es, couverture par langue, photos banque OS; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "8931d889-ff77-4f34-8dee-3177a27aa800"
+  },
+  {
+   "post_id": "var-grandv-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7685071416466607382?variante=var-grandv-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #concentration #science",
+   "musique": {
+    "titre": "som original - strange",
+    "auteur": "strange",
+    "original": true,
+    "id": "7650637490231708437",
+    "url_tiktok": "https://www.tiktok.com/music/x-7650637490231708437"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685071416466607382_1",
+    "2": "7685071416466607382_2",
+    "3": "7685071416466607382_5",
+    "4": "7685071416466607382_3",
+    "5": "7685071416466607382_4",
+    "6": "7685071416466607382_6"
+   },
+   "notes": "déclinaison G1 de 7685071416466607382, fr es it en sr, couverture par langue, photos banque OS; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "534a6e9f-40e6-477c-b40f-3ad4d18a8e18"
+  },
+  {
+   "post_id": "var-ruin20s-5",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#boring #harshtruth #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7683541501007252758_1",
+    "2": "7691007701127564576_3",
+    "3": "7686189452963712288_4",
+    "4": "7691007701127564576_5",
+    "5": "7689918962905124129_6",
+    "6": "7689918962905124129_5"
+   },
+   "notes": "déclinaison G1 de var-ruin20s-2, fr de it tr da, couverture par langue, photos banque OS; cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "7dddc5f8-c68e-4970-9925-e61caaad3720"
+  },
+  {
+   "post_id": "original-095",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#reading #booktok #books",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7699939278847085857_1",
+    "2": "7699939278847085857_2",
+    "3": "7699939278847085857_3",
+    "4": "7699939278847085857_4",
+    "5": "7699939278847085857_5",
+    "6": "7699939278847085857_6"
+   },
+   "notes": "full test BLEO (50 livres par an), de it es hu sr, couverture par langue, photos banque OS; cta A",
+   "type_bleo": "full_test"
   }
  ]
 }

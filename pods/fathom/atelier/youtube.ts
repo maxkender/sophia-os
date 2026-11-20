@@ -180,6 +180,10 @@ const REGION: Record<string, { hl: string; gl: string }> = {
   sk: { hl: "sk", gl: "SK" },
   hr: { hl: "hr", gl: "HR" },
   sl: { hl: "sl", gl: "SI" },
+  lt: { hl: "lt", gl: "LT" },
+  no: { hl: "no", gl: "NO" },
+  et: { hl: "et", gl: "EE" },
+  fi: { hl: "fi", gl: "FI" },
 };
 
 const ENTETES = {
@@ -304,6 +308,25 @@ export function dateAppli(date: string, langue = "en"): string {
     const mot = { "g.": ["godinu", "godine", "godina"], "mj.": ["mjesec", "mjeseca", "mjeseci"], "tj.": ["tjedan", "tjedna", "tjedana"], "d.": ["dan", "dana", "dana"], h: ["sat", "sata", "sati"], min: ["min", "min", "min"] }[hr[2]]?.[f];
     return `prije ${hr[1]} ${mot}`;
   }
+  // lt, et et fi : la page abrège (« prieš 5 m. », « 10 a eest », « 5 v sitten ») ; l'appli écrit le mot.
+  const lt = date.match(/^prieš (\d+)\s*(m\.|mėn\.|sav\.|d\.)$/);
+  if (langue === "lt" && lt) {
+    const k = Number(lt[1]);
+    const gen = k % 10 === 0 || (k % 100 >= 11 && k % 100 <= 19);
+    const mot = { "m.": gen ? "metų" : "metus", "mėn.": gen ? "mėnesių" : k % 10 === 1 ? "mėnesį" : "mėnesius", "sav.": gen ? "savaičių" : k % 10 === 1 ? "savaitę" : "savaites", "d.": gen ? "dienų" : k % 10 === 1 ? "dieną" : "dienas" }[lt[2]];
+    return `prieš ${lt[1]} ${mot}`;
+  }
+  const et = date.match(/^(\d+)\s*(a|k|näd|p) eest$/);
+  if (langue === "et" && et) {
+    const mot = { a: "aasta", k: "kuu", näd: "nädala", p: "päeva" }[et[2]];
+    return `${et[1]} ${mot} eest`;
+  }
+  const fi = date.match(/^(\d+)\s*(v|kk|vk|pv) sitten$/);
+  if (langue === "fi" && fi) {
+    const un = fi[1] === "1";
+    const mot = { v: un ? "vuosi" : "vuotta", kk: un ? "kuukausi" : "kuukautta", vk: un ? "viikko" : "viikkoa", pv: un ? "päivä" : "päivää" }[fi[2]];
+    return `${fi[1]} ${mot} sitten`;
+  }
   const m = date.match(/^(\d+)\s*(y|yr|mo|w|wk|d|h|min)s?\s+ago$/i);
   if (!m || langue !== "en") return date;
   const unite = { y: "year", yr: "year", mo: "month", w: "week", wk: "week", d: "day", h: "hour", min: "minute" }[m[2].toLowerCase()] ?? m[2];
@@ -356,6 +379,11 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   sv: (c) => `${c} visningar`,
   ro: (c) => (/^\d{1,2}$/.test(c) && Number(c) < 20 ? `${c} vizionări` : `${c} de vizionări`),
   tr: (c) => `${c} görüntüleme`,
+  // Langues ouvertes le 20/11.
+  lt: (c) => `${c} peržiūrų`,
+  no: (c) => `${c} avspillinger`,
+  et: (c) => `${c} vaatamist`,
+  fi: (c) => `${c} katselukertaa`,
 };
 
 /** « 3.4M views » : un chiffre après la virgule sous 10, tronqué comme l'appli. */

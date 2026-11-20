@@ -7,8 +7,8 @@
 // - des stickers détourés au liseré blanc, un polaroid, une bulle manuscrite ;
 // - la couverture : le titre rond et gras, le sous-titre à la main ;
 // - une slide par appli : son icône, son nom, ses plateformes, sa description.
-//   Là où elle met Turbo AI (concurrente), on met micabo et son nouveau logo
-//   (demande d'Adrien du 20/11) : `"micabo": true`.
+//   Là où elle met Turbo AI, on met Sophia et sa vraie icône de l'App Store
+//   (demande d'Adrien du 20/11) : `"sophia": true`.
 // Toutes les mesures sont prises sur ses slides de 1080 × 1080.
 
 import { createCanvas, loadImage, type Image } from "@napi-rs/canvas";
@@ -24,7 +24,7 @@ export const H = 1080;
 const ENCRE = "#111111";
 const PAPIER = "#ececec";
 const LIGNE = "#dcdcdc";
-const ICONE_MICABO = "assets/micabo/icone.png";
+const ICONE_SOPHIA = "assets/sophia/icone.jpg";
 
 /** Un élément posé sur la slide, dans l'ordre (`dessous` : avant la carte). */
 export type Element =
@@ -37,16 +37,16 @@ export type TypeSlide = "couverture" | "appli";
  * Une slide. Le fond, la carte et les éléments sont au niveau de la slide
  * (les mêmes dans toutes les langues), les textes sous la clé de chaque langue :
  * - couverture : texte `{ "titre": "4 apps you\nneed as a\nstudent!", "sous": "from a straight\nA student" }` ;
- * - appli : `icone` (images/applis/<nom>/icone.jpg ; rien pour micabo) ; texte
+ * - appli : `icone` (images/applis/<nom>/icone.jpg ; rien pour Sophia) ; texte
  *   `{ "nom": "Flora", "plateformes": "iOS, Android", "texte": "…", "bulle"?: "…" }` ;
- *   `"micabo": true` sur LA slide micabo (son nouveau logo, `assets/micabo/icone.png`).
+ *   `"sophia": true` sur LA slide Sophia (son icône de l'App Store, `assets/sophia/icone.jpg`).
  * `carte` (facultatif) : la place de la carte `{ x, y, l, h }`, sinon celle de son gabarit.
  */
 export type Slide = {
   type: TypeSlide;
   fond: string;
   icone?: string;
-  micabo?: boolean;
+  sophia?: boolean;
   carte?: { x: number; y: number; l: number; h: number };
   elements?: Element[];
   [langue: string]: unknown;
@@ -77,7 +77,7 @@ export function languesCompletes(post: Post): string[] {
   return Object.keys(post.titre).filter((l) => post.legendes[l] && post.slides.every((s) => s[l]));
 }
 /** La slide de l'appli, que l'OS marque `position_app`. */
-export const estSlideMicabo = (s: Slide) => s.micabo === true;
+export const estSlideSophia = (s: Slide) => s.sophia === true;
 export function textesSlide(s: Slide, langue: string): string {
   const c = contenu<Record<string, string>>(s, langue);
   if (!c) return "";
@@ -325,20 +325,17 @@ async function appli(ctx: Ctx, s: Slide, c: TexteAppli) {
   const k = s.carte ?? APPLI.carte;
   await elements(ctx, s, c.bulle, true);
   timbre(ctx, k.x, k.y, k.l, k.h);
-  // L'icône : le nouveau logo de micabo (coins déjà arrondis, transparents), ou celle de l'App Store arrondie ici.
+  // L'icône de l'App Store (celle de Sophia sur sa slide), arrondie ici comme sur iOS.
   const a = APPLI.icone;
   const xi = k.x + a.dx;
   const yi = k.y + a.dy;
-  if (s.micabo) {
-    ctx.drawImage(await image(ICONE_MICABO), xi, yi, a.cote, a.cote);
-  } else {
-    if (!s.icone) throw new Error(`« ${c.nom} » : pas d'icône (images/applis/<nom>/icone.jpg)`);
-    ctx.save();
-    rectArrondi(ctx, xi, yi, a.cote, a.cote, a.cote * 0.2237);
-    ctx.clip();
-    ctx.drawImage(await image(s.icone), xi, yi, a.cote, a.cote);
-    ctx.restore();
-  }
+  const icone = s.sophia ? ICONE_SOPHIA : s.icone;
+  if (!icone) throw new Error(`« ${c.nom} » : pas d'icône (images/applis/<nom>/icone.jpg)`);
+  ctx.save();
+  rectArrondi(ctx, xi, yi, a.cote, a.cote, a.cote * 0.2237);
+  ctx.clip();
+  ctx.drawImage(await image(icone), xi, yi, a.cote, a.cote);
+  ctx.restore();
   ctx.fillStyle = ENCRE;
   ctx.textAlign = "left";
   ctx.letterSpacing = "-1px";

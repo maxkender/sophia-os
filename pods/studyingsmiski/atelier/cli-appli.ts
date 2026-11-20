@@ -2,7 +2,7 @@
 //   npm run appli -- "habit tracker" [--n 10]
 //   npm run appli -- --id <id App Store> <nom>
 //
-// Les VRAIES applis de ses listes (à côté de micabo), lues sur l'App Store
+// Les VRAIES applis de ses listes (à côté de Sophia), lues sur l'App Store
 // (API de recherche d'iTunes, sans clé) :
 // - la recherche liste les applis (id, note, nombre d'avis, catégorie,
 //   éditeur) et en fait une planche (icône et trois premières captures),
@@ -10,9 +10,11 @@
 // - `--id` télécharge l'icône en 1024 px dans images/applis/<nom>/icone.jpg
 //   avec fiche.json (nom, éditeur, catégorie, note, description de l'App
 //   Store) : c'est là qu'on lit ce que fait l'appli avant d'écrire sa phrase.
-// Jamais une appli concurrente de micabo (flashcards, quiz, révision ou
-// prise de notes par l'IA : Turbo AI, Quizlet, Anki, Knowt…) : `npm run
-// livrer` les refuse. Les minuteurs, bloqueurs, sons et agendas restent.
+// Jamais une appli concurrente de Sophia (apprentissage, culture générale,
+// langues, résumés de livres, temps d'écran et blocage : Duolingo, Headway,
+// Opal, Forest, Flora…), ni Turbo AI et les applis de révision par l'IA :
+// `npm run livrer` en refuse une partie, à toi de voir le reste. Les notes,
+// sons, habitudes et agendas restent.
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

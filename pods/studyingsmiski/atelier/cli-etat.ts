@@ -1,8 +1,7 @@
 // Usage : npm run etat
 //
 // File de validation du pod, et vues / r des remakes en ligne. Le label
-// (cozy_study) ne sert que micabo : le rang affiché est le rang de l'appli dans la
-// livraison.
+// (cozy_girl) ne sert que Sophia : le rang affiché est le rang de la livraison.
 import { appelPod } from "./api.ts";
 
 type ChezNous = { publies: number; vues_mediane: number; r_median: number | null; r_passages: number[]; vues_passages: number[] };

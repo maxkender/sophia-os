@@ -5,8 +5,8 @@
 export const POD = "remakes_studyingsmiski";
 /** Le compte modèle : @studyingsmiski (méthodes d'étude et applis pour étudiants, collages façon scrapbook ; UGC de Turbo AI). */
 export const COMPTES_SOURCE = ["studyingsmiski"] as const;
-/** L'appli servie : micabo (révisions : flashcards et quiz à partir de ses cours), id du catalogue de l'OS. */
-export const APPLICATION = { slug: "micabo", id: "00000000-0000-4000-8000-000000000002", nom: "micabo" } as const;
+/** L'appli servie : Sophia (une leçon courte par jour et un quiz), id du catalogue de l'OS. */
+export const APPLICATION = { slug: "sophia", id: "00000000-0000-4000-8000-000000000001", nom: "Sophia" } as const;
 /**
  * Les langues livrées : l'anglais, celle du compte modèle, lancement du 19/11. Cette liste est déclarée à l'OS à chaque `npm run boite` (0654) et
  * remplace `pods.langues` : l'attribution des comptes la lit.

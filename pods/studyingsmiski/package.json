@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Podz 23 — remakes des posts de @studyingsmiski (méthodes d'étude et applis pour étudiants, collages façon scrapbook), pour micabo, en anglais : partout où elle met Turbo AI, micabo et son nouveau logo.",
+  "description": "Podz 23 — remakes des posts de @studyingsmiski (méthodes d'étude et applis pour étudiants, collages façon scrapbook), pour Sophia, en anglais : partout où elle met Turbo AI, Sophia et sa vraie icône.",
   "dependencies": {
     "@napi-rs/canvas": "^0.1.65"
   },

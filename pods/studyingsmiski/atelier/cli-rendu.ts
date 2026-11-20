@@ -8,7 +8,7 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { estSlideMicabo, languesCompletes, lirePost, RACINE, rendreSlide } from "./slides.ts";
+import { estSlideSophia, languesCompletes, lirePost, RACINE, rendreSlide } from "./slides.ts";
 
 const args = process.argv.slice(2);
 const id = args[0];
@@ -44,7 +44,7 @@ for (const langue of langues) {
     const s = post.slides[i];
     ctx.fillStyle = "#ffd76a";
     ctx.font = "22px sans-serif";
-    ctx.fillText(`#${i + 1}${estSlideMicabo(s) ? " · micabo" : ""}`, x + 4, y + hv + 28);
+    ctx.fillText(`#${i + 1}${estSlideSophia(s) ? " · Sophia" : ""}`, x + 4, y + hv + 28);
   }
   mkdirSync(join(RACINE, "sortie", "apercus"), { recursive: true });
   const fp = join(RACINE, "sortie", "apercus", `${id}.${langue}.jpg`);

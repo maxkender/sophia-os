@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o299",
+ "type_bleo": "full_test",
+ "titre": "how to read a wine label like a sommelier #wine #sommelier #dinnerparty #smartgirl #savoirvivre",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/7 (la jauge en demande 7 sur 23) : accroche jamais faite chez nous (« wine » absent des accroches de donnees/label.json). Accroches écrites : « how to read a wine label like a sommelier » (retenue : savoir-vivre utile au restaurant), « wine for beginners » (écartée : fade), « wine words » (écartée : proche du vocabulaire gagnant). Mentions vérifiées : appellation, millésime, cépage, grand cru, mis en bouteille au château, brut, degré d'alcool. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "99390f3f",
+   "texte_overlay": "how to read a wine label\nlike a sommelier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a1facc98",
+   "texte_overlay": "the appellation\n\nwhere the grapes were grown.\nin france, that's the name you see first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bc29d522",
+   "texte_overlay": "the vintage\n\nthe year the grapes were picked,\nnot the year it was bottled.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4d4c187a",
+   "texte_overlay": "the grape\n\npinot noir, chardonnay, syrah…\nnew world labels show it first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6a47ebcc",
+   "texte_overlay": "grand cru\n\nthe best vineyards of a region.",
+   "texte_sophia": "grand cru\n\nthe best vineyards of a region.\ni learned this in a five-minute\nlesson on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "371d6a12",
+   "texte_overlay": "\"mis en bouteille au château\"\n\nbottled where it was made.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5b313255",
+   "texte_overlay": "\"brut\"\n\non champagne: dry.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1165ecb0",
+   "texte_overlay": "save this for your\nnext dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

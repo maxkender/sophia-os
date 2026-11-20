@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o304",
+ "type_bleo": "full_test",
+ "titre": "6 ways to brew coffee and what each one tastes like #coffee #coffeelover #slowliving #smartgirl #morningritual",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 6/7 (la jauge en demande 7 sur 23) : accroche jamais faite chez nous (« brew » absent des accroches de donnees/label.json). Accroches écrites : « 6 ways to brew coffee and what each one tastes like » (retenue : rituel concret, même schéma que les thés du 19/11), « coffee for beginners » (écartée : fade), « coffee facts » (écartée : plate). Méthodes vérifiées : espresso (pression), cafetière à piston (infusion d'environ 4 min), café filtre à la main, moka sur le feu (Italie, 1933), café turc non filtré (patrimoine immatériel de l'UNESCO en 2013), cold brew (12 à 24 h). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c9ad5e3d",
+   "texte_overlay": "6 ways to brew coffee and\nwhat each one tastes like",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f2c577b9",
+   "texte_overlay": "espresso\n\nwater forced through under pressure.\nshort, thick, intense.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b92eee67",
+   "texte_overlay": "french press\n\nfour minutes of steeping.\nrich and full-bodied.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7723ae2c",
+   "texte_overlay": "pour-over\n\nwater poured slowly by hand.\nclean and delicate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ff5d75d4",
+   "texte_overlay": "moka pot\n\nthe italian stovetop classic\nfrom 1933. bold.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "02b448db",
+   "texte_overlay": "turkish coffee\n\nunfiltered, in a little pot.\non unesco's heritage list.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "aba09903",
+   "texte_overlay": "cold brew\n\n12 to 24 hours in cold water.\nsmooth and sweet.",
+   "texte_sophia": "cold brew\n\nsmooth and sweet. mine comes with\none lesson on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5aa8a5c5",
+   "texte_overlay": "which one is yours?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

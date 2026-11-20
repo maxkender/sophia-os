@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o306",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "72526617-5aa7-4c33-82de-f1581a8a2241",
+ "titre": "my grandmother's rules of elegance #elegance #grandmother #smartgirl #oldmoney #classy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent 72526617, langue source el) : accroche reformulée (« my grandmother's rules of elegance »), différente de sg-o265 et sg-o285 ; leçons du parent. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "db44ec5d",
+   "texte_overlay": "my grandmother's rules\nof elegance",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3e184d4e",
+   "texte_overlay": "sit up straight,\neven when no one is looking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1336da3b",
+   "texte_overlay": "no phone at the table, ever",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1d30cbdb",
+   "texte_overlay": "a handwritten thank-you,\nalways",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9f187615",
+   "texte_overlay": "a handkerchief in your bag",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "67e672f4",
+   "texte_overlay": "sundays for family",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8cd075ff",
+   "texte_overlay": "\"a woman who reads is never bored\"\n\nso i read instead of scrolling.",
+   "texte_sophia": "\"a woman who reads is never bored\"\n\nso i read one lesson on an app like\nSophia instead of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "cdf293ae",
+   "texte_overlay": "save this and call\nyour grandmother",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

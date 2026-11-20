@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o317",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7e0073e9-df38-4456-bc18-342c20ff9e26",
+ "titre": "6 hobbies that make you effortlessly more knowledgeable #hobbies #smartgirl #learning #selfeducation #curiosity",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "7e0073e9-df38-4456-bc18-342c20ff9e26"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 50 de la boîte (parent 7e0073e9, langue source en) : accroche du parent mot pour mot. Hobbies du parent (un mot par jour, lire sur un lieu avant d'y aller, leçons courtes, reconnaître les styles d'architecture, bonnes interviews, bases d'astronomie). Sophia en 3 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ff8991d8",
+   "texte_overlay": "6 hobbies that make you\neffortlessly more knowledgeable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692121062712167710/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "13dac7ca",
+   "texte_overlay": "1. one new word a day\n\nuse it in a sentence\nso it sticks.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692121062712167710/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ef30bbf5",
+   "texte_overlay": "2. reading about places\nbefore you visit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692121062712167710/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2f526db7",
+   "texte_overlay": "3. short daily lessons",
+   "texte_sophia": "3. short daily lessons\n\na general knowledge app like Sophia\noffers quick courses.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692121062712167710/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "626cbfb3",
+   "texte_overlay": "4. learning architecture styles\n\ngothic, baroque, art deco.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692121062712167710/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c173191b",
+   "texte_overlay": "5. watching good interviews",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692121062712167710/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c5404422",
+   "texte_overlay": "6. the basics of astronomy\n\na few planets, stars and\nconstellations.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692121062712167710/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c836f541",
+   "texte_overlay": "which one are you\nstarting?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692121062712167710/7.jpg"
+  }
+ ]
+}

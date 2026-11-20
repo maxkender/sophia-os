@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o321",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6f347f99-b744-45b8-a5d6-46f81b5d7d9b",
+ "titre": "ways to start living instead of just existing #selfimprovement #mindset #smartgirl #slowliving #growth",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "6f347f99-b744-45b8-a5d6-46f81b5d7d9b"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 39 de la boîte (parent 6f347f99, langue source pl) : accroche du parent mot pour mot. Idées du parent (la vie, c'est maintenant ; arrêter de regarder les autres vivre ; un audit de sa vie ; arrêter de dire qu'on n'a pas le temps d'apprendre), sans aucune allusion au poids ni au corps, et neuves. Sophia comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9ccd7186",
+   "texte_overlay": "ways to start living instead\nof just existing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655053088776015107/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4a790082",
+   "texte_overlay": "life is happening now\n\nnot when everything is perfect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655053088776015107/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "046f72ac",
+   "texte_overlay": "stop watching others live\nthe life you want",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655053088776015107/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b5af85f0",
+   "texte_overlay": "do a life audit\n\nyour habits, your people,\nyour time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655053088776015107/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4155cb64",
+   "texte_overlay": "say yes to small adventures",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655053088776015107/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d1e2cee4",
+   "texte_overlay": "stop saying you have no time\nto learn\n\nfive minutes instead of a scroll.",
+   "texte_sophia": "stop saying you have no time to learn\n\nfive minutes on an app like Sophia\ninstead of a scroll.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655053088776015107/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5ef3f3c6",
+   "texte_overlay": "make plans and keep them",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655053088776015107/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d890095b",
+   "texte_overlay": "save this for the days\nyou need it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655053088776015107/4.jpg"
+  }
+ ]
+}

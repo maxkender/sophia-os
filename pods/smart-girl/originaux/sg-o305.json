@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o305",
+ "type_bleo": "full_test",
+ "titre": "how to choose a signature perfume like a parisian #perfume #fragrance #signaturescent #smartgirl #elegance",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 7/7 (la jauge en demande 7 sur 23) : accroche jamais faite chez nous (« perfume » absent des accroches de donnees/label.json). Accroches écrites : « how to choose a signature perfume like a parisian » (retenue : élégance concrète), « perfume tips » (écartée : fade), « fragrance families » (écartée : technique). Conseils classiques de parfumerie (notes de tête, de cœur, de fond ; essai sur la peau ; attendre ; points de pulsation ; ne pas frotter). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4fd523e1",
+   "texte_overlay": "how to choose a signature\nperfume like a parisian",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e63d7c47",
+   "texte_overlay": "1. know the families\n\nfloral, woody, amber, fresh.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b9b2b978",
+   "texte_overlay": "2. test on skin, not paper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "15c1491e",
+   "texte_overlay": "3. wait thirty minutes\n\nthe top notes fade first.\nthe heart is what stays.",
+   "texte_sophia": "3. wait thirty minutes\n\nthe heart is what stays. i learned\nhow notes work on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9f866cb5",
+   "texte_overlay": "4. never more than two\nsprays",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "60c0eed3",
+   "texte_overlay": "5. pulse points\n\nwrists, neck, behind the ears.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8db5d181",
+   "texte_overlay": "6. don't rub your wrists\n\nit breaks the notes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d0453033",
+   "texte_overlay": "save this before your\nnext perfume",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o311",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e3bbeba8-102a-46b7-bc0b-d3930a763fe7",
+ "titre": "how to become ridiculously well educated #selfeducation #smartgirl #learning #darkacademia #intellectual",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 6 de la boîte (parent e3bbeba8, langue source es-419) : accroche reformulée (« how to become ridiculously well educated »), conseils du parent (lire l'original, un peu de latin, notes à la main, finir ce qu'on commence, l'histoire des objets, un scroll remplacé par une leçon). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1434e4d",
+   "texte_overlay": "how to become ridiculously\nwell educated",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "013fa660",
+   "texte_overlay": "1. read the original,\nnot the summary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8284fb0a",
+   "texte_overlay": "2. learn a little latin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a21bd8e2",
+   "texte_overlay": "3. take notes by hand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "03e49e07",
+   "texte_overlay": "4. finish what you start\n\nthe whole book, the whole album.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "485a0f0b",
+   "texte_overlay": "5. look up the history of\neverything you use",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "438e88cc",
+   "texte_overlay": "6. swap one scroll a day for\nfive minutes of learning",
+   "texte_sophia": "6. i swap one scroll a day for five\nminutes on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "dbb7992f",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

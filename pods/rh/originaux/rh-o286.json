@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o286",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ee3dac98-bebd-4eb1-a961-1818a15450a5",
+ "titre": "les petits signes qui veulent dire que t'as le poste #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G2 de la ligne #5 (parent ee3dac98), 3e et dernière : même promesse, autres mots, signes différents de rh-o158, rh-o262 et rh-o275. Inspirations reprises de rh-o158. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "424e8b39",
+   "texte_overlay": "les petits signes\nqui veulent dire\nque t'as le poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "63dd5ef6",
+   "texte_overlay": "on te présente le process d'arrivée\nordinateur, badge, premier jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2205c388",
+   "texte_overlay": "on te demande ton préavis exact\net on note la date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8049ac3b",
+   "texte_overlay": "on te parle des collègues par leur prénom\n« tu verras, Julie est super »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "66a63ab4",
+   "texte_overlay": "on te pose une question perso\nsur un truc que tu as raconté. moi, c'était ce que j'avais appris le matin",
+   "texte_sophia": "on te pose une question perso\nsur un truc que tu as raconté. moi, c'était ce que j'avais appris le matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "606886a5",
+   "texte_overlay": "on te dit « à très vite »\net pas « on vous tient au courant »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "38faba0b",
+   "texte_overlay": "c'était quoi ton signe à toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

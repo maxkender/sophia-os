@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o287",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fac64dca-a686-4ead-ba70-ac4a629fa004",
+ "titre": "le recruteur pose une question, voilà ce qu'il veut entendre #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G2 de la ligne #6 (parent fac64dca), 2e : même promesse, autres mots, questions différentes de rh-o150 et rh-o263. Inspirations reprises de rh-o150. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b448e8d",
+   "texte_overlay": "le recruteur pose une question,\nvoilà ce qu'il\nveut entendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ad8efffc",
+   "texte_overlay": "« pourquoi vous ? »\nil veut : une preuve, pas un adjectif",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "113d5f6f",
+   "texte_overlay": "« vous êtes disponible quand ? »\nil veut : une date vraie, sans flou",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9989d870",
+   "texte_overlay": "« qu'est-ce que vous faites de votre temps libre ? »\nil veut : un sujet vivant. ce que t'apprends en ce moment, par exemple",
+   "texte_sophia": "« qu'est-ce que vous faites de votre temps libre ? »\nil veut : un sujet vivant. utilise l'appli Sophia 5 minutes par jour, t'en auras toujours un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9995cb73",
+   "texte_overlay": "« vous avez eu un conflit au travail ? »\nil veut : comment tu l'as réglé, pas qui avait tort",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6fe9c405",
+   "texte_overlay": "« quelles sont vos prétentions ? »\nil veut : une fourchette réfléchie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "af69b68d",
+   "texte_overlay": "laquelle te bloque le plus ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  }
+ ]
+}

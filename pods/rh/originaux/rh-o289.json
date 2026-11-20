@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o289",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "da4ce904-2956-4014-a564-3c7afd4e4653",
+ "titre": "les phrases que je NE DIS PLUS jamais en entretien (et ce que je dis à la place), partie 2 #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne #9 (parent da4ce904) : accroche du parent mot pour mot, autres phrases. Inspirations reprises de rh-o073. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "697f01db",
+   "texte_overlay": "les phrases que je NE DIS PLUS\njamais en entretien\n(et ce que je dis à la place)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "96b434c1",
+   "texte_overlay": "« c'est écrit sur mon CV »\nà la place : je raconte, avec un exemple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d8854292",
+   "texte_overlay": "« je suis perfectionniste »\nà la place : un vrai défaut, et ce que je fais pour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5d269d56",
+   "texte_overlay": "« j'ai besoin de ce job »\nà la place : « ce poste m'intéresse parce que… »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c9abac18",
+   "texte_overlay": "« je ne connais pas trop votre secteur »\nà la place : ce que j'en ai appris. mes 3 sources : leur site, un podcast, 5 minutes par jour",
+   "texte_sophia": "« je ne connais pas trop votre secteur »\nà la place : ce que j'en ai appris. mes 3 sources : leur site, un podcast, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "24994b6d",
+   "texte_overlay": "« non, pas de question »\nà la place : « qu'est-ce qui fait qu'on réussit ici ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b5db718c",
+   "texte_overlay": "la phrase que tu bannis, c'est laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

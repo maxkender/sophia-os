@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o281",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai répondu quand on m'a proposé une mission en plus sans augmentation #travail #manager #limites #salaire #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (mission en plus sans augmentation). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "22e92383",
+   "texte_overlay": "ce que j'ai répondu\nquand on m'a proposé une mission en plus\nsans augmentation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "982da0c1",
+   "texte_overlay": "« merci de penser à moi »\nd'abord, sincèrement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bd668cea",
+   "texte_overlay": "« qu'est-ce que j'arrête pour la prendre ? »\nmon temps n'est pas extensible",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e2e431c7",
+   "texte_overlay": "« on en reparle à mon entretien annuel ? »\net je l'ai noté par écrit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1c03d8bc",
+   "texte_overlay": "« je la prends pour 3 mois, puis on fait le point »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7f2b7dbd",
+   "texte_overlay": "et j'en ai profité pour apprendre\nle sujet de la mission, 5 minutes chaque matin",
+   "texte_sophia": "et j'en ai profité pour apprendre\nle sujet de la mission, 5 minutes chaque matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7f8108b2",
+   "texte_overlay": "on t'a déjà fait le coup ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

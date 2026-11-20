@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o279",
+ "type_bleo": "full_test",
+ "titre": "comment j'ai demandé un jour de télétravail en plus (et obtenu oui) #teletravail #manager #travail #negociation #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (demander plus de télétravail). Sujet traité en général. Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6e395487",
+   "texte_overlay": "comment j'ai demandé\nun jour de télétravail en plus\n(et obtenu oui)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "99255a4e",
+   "texte_overlay": "j'ai regardé ce que dit l'accord de ma boîte\navant de demander",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1c27487f",
+   "texte_overlay": "j'ai noté ce que je fais mieux à la maison\nles tâches longues, sans interruption",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f4817af8",
+   "texte_overlay": "j'ai proposé un essai d'un mois\npas une règle à vie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a84eeed0",
+   "texte_overlay": "j'ai promis un point chaque vendredi\net je l'ai tenu",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fc87c488",
+   "texte_overlay": "j'ai montré que je ne m'éteignais pas à la maison\nma pause, c'est 5 minutes pour apprendre un truc",
+   "texte_sophia": "j'ai montré que je ne m'éteignais pas à la maison\nma pause, c'est 5 minutes sur l'appli Sophia pour apprendre un truc",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "779e1e4c",
+   "texte_overlay": "t'as combien de jours de télétravail ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

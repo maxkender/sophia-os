@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o282",
+ "type_bleo": "full_test",
+ "titre": "mes règles pour les afterworks (pour en profiter sans regretter le lendemain) #afterwork #travail #collegues #carriere #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (les afterworks). Pas d'incitation à boire. Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3dfa5f04",
+   "texte_overlay": "mes règles\npour les afterworks\n(sans regretter le lendemain)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5ba09e75",
+   "texte_overlay": "j'y vais, même une heure\nc'est là qu'on se parle vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ca3a21eb",
+   "texte_overlay": "je parle à quelqu'un d'une autre équipe\nau moins une personne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bdf23d1d",
+   "texte_overlay": "pas de ragots sur les collègues absents\njamais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "45496dbb",
+   "texte_overlay": "je pars avant la fin\npersonne ne t'en voudra",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e3042273",
+   "texte_overlay": "un sujet de conversation qui n'est pas le boulot\nmes 3 sources : un film, un livre, 5 minutes par jour à apprendre",
+   "texte_sophia": "un sujet de conversation qui n'est pas le boulot\nmes 3 sources : un film, un livre, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5a95d953",
+   "texte_overlay": "afterwork, t'y vas ou pas ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

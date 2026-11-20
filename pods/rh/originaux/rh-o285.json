@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o285",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d790aeff-73fa-4477-9d1a-3cafd1b91635",
+ "titre": "mes demi-vérités d'entretien de stage (et ce qu'elles avaient de vrai) #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G2 de la ligne #3 (parent d790aeff) : même promesse, autres mots. Chaque demi-vérité est recadrée, rien d'inventé. Inspirations reprises de rh-o232. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c0c62d29",
+   "texte_overlay": "mes demi-vérités\nd'entretien de stage\n(et ce qu'elles avaient de vrai)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bda29c6e",
+   "texte_overlay": "« j'ai déjà travaillé en équipe »\nde vrai : un projet de groupe de 3 mois, et je l'ai raconté en détail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "33831aaa",
+   "texte_overlay": "« je suis à l'aise avec les chiffres »\nde vrai : les bases, et j'ai dit que j'apprenais vite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "057a695a",
+   "texte_overlay": "« votre secteur me passionne »\nde vrai : il m'intéressait depuis peu. mes 3 sources : un podcast, leurs posts, 5 minutes par jour",
+   "texte_sophia": "« votre secteur me passionne »\nde vrai : il m'intéressait depuis peu. mes 3 sources : un podcast, leurs posts, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7ebc20ac",
+   "texte_overlay": "« je suis organisée »\nde vrai : depuis que j'ai un agenda papier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4d9afe36",
+   "texte_overlay": "« je n'ai pas d'autres pistes »\nça, je ne l'ai pas dit. j'en avais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7bde9ca1",
+   "texte_overlay": "t'as déjà dit une demi-vérité, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

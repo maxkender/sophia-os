@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o288",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d5fe1053-94d5-4104-9b0c-b08c1991adc8",
+ "titre": "ex-rh : ce qui se dit dans la salle juste après ton entretien (partie 2) #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne #8 (parent d5fe1053) : accroche du parent mot pour mot, autres phrases. Inspirations reprises de rh-o064. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a0bf5d7",
+   "texte_overlay": "ex-rh :\nce qui se dit dans la salle\njuste après ton entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a7056d47",
+   "texte_overlay": "« elle avait lu notre site »\nça se remarque en 2 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6993b6c8",
+   "texte_overlay": "« elle a été honnête sur son point faible »\non retient la franchise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "37962e2f",
+   "texte_overlay": "« elle a regardé tout le monde, pas que le manager »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ee6880c1",
+   "texte_overlay": "« elle nous a parlé d'un truc qu'elle venait d'apprendre »\nmoi, je retenais toujours ces candidates-là. la mienne apprenait 5 minutes par jour",
+   "texte_sophia": "« elle nous a parlé d'un truc qu'elle venait d'apprendre »\nmoi, je retenais toujours ces candidates-là. elle apprenait 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "624d4125",
+   "texte_overlay": "« elle a envoyé un merci le soir même »\npetit geste, grand effet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "385de760",
+   "texte_overlay": "qu'est-ce que tu voudrais qu'on dise de toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  }
+ ]
+}

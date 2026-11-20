@@ -1,0 +1,281 @@
+{
+ "id": "dr-030",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of cozy winter hobbies",
+  "pt-BR": "Iceberg de hobbies aconchegantes de inverno",
+  "sv": "Isberget av mysiga vinterhobbyer"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #cozy #winter #selfimprovement",
+  "pt-BR": "#iceberg #hobbies #aconchego #inverno",
+  "sv": "#isberg #hobbyer #mys #vinter"
+ },
+ "musique": {
+  "titre": "Room Full of Strangers - Danny Bluestone",
+  "url": "https://www.tiktok.com/music/original-sound-7689207966263953459"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « cozy winter hobbies » (novembre). En pt-BR, couverture raccourcie « hobbies de inverno » (c'est l'été au Brésil, mais l'accroche « inverno » garde le ton cosy). Sophia au 2e étage (icône). En, pt-BR, sv ; variantes 0, 1, 2.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "cozy winter hobbies",
+    "variante": 0
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de inverno",
+    "variante": 1
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "mysiga vinterhobbyer",
+    "variante": 2
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "knitting",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "hot tea",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "candles",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "reading in bed",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia by the window",
+       "image": "sophia"
+      },
+      {
+       "t": "jigsaw puzzles",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "baking bread",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "vinyl records",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "writing letters",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "pressing flowers",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "sketching",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "winter stargazing",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "old radio dramas",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "typewriter poems",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "hibernating",
+       "image": "images/objets/reveil.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "tricô",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "chá quente",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "velas",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "ler na cama",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia na janela",
+       "image": "sophia"
+      },
+      {
+       "t": "quebra-cabeça",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "fazer pão",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "discos de vinil",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "escrever cartas",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "prensar flores",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "desenhar",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "ver estrelas no frio",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "radionovelas",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "poemas na máquina",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "hibernar",
+       "image": "images/objets/reveil.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "sticka",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "varmt te",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "levande ljus",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "läsa i sängen",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia vid fönstret",
+       "image": "sophia"
+      },
+      {
+       "t": "pussel",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "baka bröd",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "vinylskivor",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "skriva brev",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "pressa blommor",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "skissa",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "vinterstjärnor",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "gamla radioteatrar",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "dikter på skrivmaskin",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "gå i ide",
+       "image": "images/objets/reveil.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

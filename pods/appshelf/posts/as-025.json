@@ -1,0 +1,207 @@
+{
+ "id": "as-025",
+ "fond": "images/c25-couv.jpg",
+ "titre": {
+  "en": "five apps to feel good in your body",
+  "es": "cinco apps para cuidar tu cuerpo",
+  "it": "cinque app per stare bene nel corpo",
+  "pt-BR": "cinco apps pra cuidar do seu corpo"
+ },
+ "legendes": {
+  "en": "gentle movement, deep breaths and real rest 🤍 #pilates #wellness #apprecommendations #selfcare",
+  "es": "movimiento suave, respiraciones profundas y descanso de verdad 🤍 #pilates #bienestar #appsrecomendadas #autocuidado",
+  "it": "movimento dolce, respiri profondi e vero riposo 🤍 #pilates #benessere #appconsigliate #selfcare",
+  "pt-BR": "movimento leve, respiração profunda e descanso de verdade 🤍 #pilates #bemestar #dicasdeapps #autocuidado"
+ },
+ "musique": {
+  "titre": "Cute & Cozy",
+  "url": "https://www.tiktok.com/music/cute-cozy-7603628458166290449"
+ },
+ "notes": "Full test (accroche neuve au format de son tube « five apps / … ») : « five apps / to feel good in your body », style carte. Applis vérifiées us, es, it, br : Bend, Pilates by Down Dog, Sophia (3e, cta A), Wim Hof Method, White Noise Lite. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c25-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "to feel good in your body"
+   },
+   "es": {
+    "photos": [
+     "images/c25-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para cuidar tu cuerpo"
+   },
+   "it": {
+    "photos": [
+     "images/c25-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per stare bene nel corpo"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c25-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra cuidar do seu corpo"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Bend",
+    "dossier": "images/applis/bend",
+    "note": "Short stretching routines for every part of your body. Five minutes in the morning and I feel so much better",
+    "fond": "images/c25-etirement.jpg"
+   },
+   "es": {
+    "nom": "Bend",
+    "dossier": "images/applis/bend",
+    "note": "Rutinas cortas de estiramientos para cada parte del cuerpo. Cinco minutos por la mañana y me siento mucho mejor",
+    "fond": "images/c25-etirement.jpg"
+   },
+   "it": {
+    "nom": "Bend",
+    "dossier": "images/applis/bend",
+    "note": "Brevi routine di stretching per ogni parte del corpo. Cinque minuti al mattino e mi sento molto meglio",
+    "fond": "images/c25-etirement.jpg"
+   },
+   "pt-BR": {
+    "nom": "Bend",
+    "dossier": "images/applis/bend",
+    "note": "Rotinas curtas de alongamento pra cada parte do corpo. Cinco minutos de manhã e eu me sinto muito melhor",
+    "fond": "images/c25-etirement.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Pilates by Down Dog",
+    "dossier": "images/applis/pilates-down-dog",
+    "note": "A brand new mat Pilates workout every time: low impact, core-focused, and you pick the length",
+    "fond": "images/c25-tapis.jpg"
+   },
+   "es": {
+    "nom": "Pilates by Down Dog",
+    "dossier": "images/applis/pilates-down-dog",
+    "note": "Un entrenamiento de Pilates en esterilla nuevo cada vez: bajo impacto, centrado en el core, y eliges la duración",
+    "fond": "images/c25-tapis.jpg"
+   },
+   "it": {
+    "nom": "Pilates by Down Dog",
+    "dossier": "images/applis/pilates-down-dog",
+    "note": "Un allenamento di Pilates a corpo libero sempre nuovo: basso impatto, focus sul core, e scegli tu la durata",
+    "fond": "images/c25-tapis.jpg"
+   },
+   "pt-BR": {
+    "nom": "Pilates by Down Dog",
+    "dossier": "images/applis/pilates-down-dog",
+    "note": "Um treino de Pilates no colchonete novo toda vez: baixo impacto, foco no core, e você escolhe a duração",
+    "fond": "images/c25-tapis.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day",
+    "fond": "images/c25-couv.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Lecciones cortas de historia, filosofía y ciencia, escritas por profesores, con un quiz después de cada una. 10 minutos al día",
+    "fond": "images/c25-couv.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Lezioni brevi di storia, filosofia e scienza, scritte da professori, con un quiz dopo ognuna. 10 minuti al giorno",
+    "fond": "images/c25-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Aulas curtas de história, filosofia e ciência, escritas por professores, com um quiz depois de cada uma. 10 minutos por dia",
+    "fond": "images/c25-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Wim Hof Method",
+    "dossier": "images/applis/wim-hof",
+    "note": "Guided breathing sessions that wake you up better than coffee. Cold showers optional",
+    "fond": "images/c25-lac.jpg"
+   },
+   "es": {
+    "nom": "Wim Hof Method",
+    "dossier": "images/applis/wim-hof",
+    "note": "Sesiones de respiración guiada que despiertan mejor que el café. Las duchas frías, opcionales",
+    "fond": "images/c25-lac.jpg"
+   },
+   "it": {
+    "nom": "Wim Hof Method",
+    "dossier": "images/applis/wim-hof",
+    "note": "Sessioni di respirazione guidata che ti svegliano meglio del caffè. Le docce fredde sono facoltative",
+    "fond": "images/c25-lac.jpg"
+   },
+   "pt-BR": {
+    "nom": "Wim Hof Method",
+    "dossier": "images/applis/wim-hof",
+    "note": "Sessões de respiração guiada que acordam melhor que café. Banho gelado opcional",
+    "fond": "images/c25-lac.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "White Noise Lite",
+    "dossier": "images/applis/white-noise",
+    "note": "Rain, ocean, fan: simple sounds that block the noise so your body can finally rest",
+    "fond": "images/c25-nuit.jpg"
+   },
+   "es": {
+    "nom": "White Noise Lite",
+    "dossier": "images/applis/white-noise",
+    "note": "Lluvia, mar, ventilador: sonidos sencillos que tapan el ruido para que tu cuerpo por fin descanse",
+    "fond": "images/c25-nuit.jpg"
+   },
+   "it": {
+    "nom": "White Noise Lite",
+    "dossier": "images/applis/white-noise",
+    "note": "Pioggia, mare, ventilatore: suoni semplici che coprono il rumore così il corpo riposa davvero",
+    "fond": "images/c25-nuit.jpg"
+   },
+   "pt-BR": {
+    "nom": "White Noise Lite",
+    "dossier": "images/applis/white-noise",
+    "note": "Chuva, mar, ventilador: sons simples que abafam o barulho pro seu corpo finalmente descansar",
+    "fond": "images/c25-nuit.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "style": "carte",
+ "type_bleo": "full_test"
+}

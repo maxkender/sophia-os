@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o220",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "396fb4af-eaa7-4b73-8875-958afe268086",
+  "titre": "les questions à poser en cours pour que tes profs se souviennent de toi #etudes #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [
+    "396fb4af-eaa7-4b73-8875-958afe268086"
+  ],
+  "notes": "G1, déclinaison de 396fb4af (« les questions à poser en cours pour que tes profs se souviennent de toi », génération 0 ; meilleur passage de 4,3 k vues, r 6,19), en français. Famille de mon full test bsg-o167, gagnante. cta A. Questions neuves (rien de repris de bsg-o167). Routine du 20/11 sur BLEO (par_jour passé à 12 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 3 full tests et 9 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent proprement, donc 5 déclinaisons et 7 full tests. Lignes sautées : 6 (« validé par les neurosciences »), 7 (« je notes »), 8 (accroche illisible « ge things »), 9, 11 et 12 (« backed by science », bienfaits santé invérifiables), 10 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6cba9276",
+      "texte_overlay": "les questions à poser en cours\npour que tes profs se souviennent de toi",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9db542f8",
+      "texte_overlay": "1. qu'est-ce qui tombe le plus souvent à l'examen ?\n\nta question préférée.\net la leur aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0d0ff60e",
+      "texte_overlay": "2. comment vous avez découvert ce sujet ?\n\nils adorent raconter.\net tu retiens mieux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "bb2b85f3",
+      "texte_overlay": "3. est-ce qu'il y a un débat là-dessus ?\n\nla question qui montre que tu réfléchis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6c36e28f",
+      "texte_overlay": "4. je peux vous montrer mon plan ?\n\naprès le cours, cinq minutes.\nleurs conseils valent de l'or.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8ba75f58",
+      "texte_overlay": "5. c'est lié à ce qu'on a vu sur…\n\navant, je n'osais jamais lever la main.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai toujours un lien à faire.",
+      "texte_sophia": "5. c'est lié à ce qu'on a vu sur…\n\navant, je n'osais jamais lever la main.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai toujours un lien à faire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ff8720bb",
+      "texte_overlay": "enregistre-le pour lundi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

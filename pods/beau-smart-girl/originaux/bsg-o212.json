@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o212",
+  "type_bleo": "full_test",
+  "titre": "comment je me fais une culture en architecture parisienne rien qu'en levant les yeux #paris #architecture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label. cta B. Différent de bsg-o159 (architecture en général) : Paris, ses ponts et ses monuments. Fait vérifié le 12/11 sur https://en.wikipedia.org/wiki/Pont_Neuf : « the oldest standing bridge across the river Seine in Paris ». Routine du 20/11 sur BLEO (par_jour passé à 12 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 3 full tests et 9 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent proprement, donc 5 déclinaisons et 7 full tests. Lignes sautées : 6 (« validé par les neurosciences »), 7 (« je notes »), 8 (accroche illisible « ge things »), 9, 11 et 12 (« backed by science », bienfaits santé invérifiables), 10 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "dbece282",
+      "texte_overlay": "comment je me fais une culture\nen architecture parisienne\nrien qu'en levant les yeux",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e359576e",
+      "texte_overlay": "1. je repère les immeubles haussmanniens\n\nbalcons au 2e et au 5e étage.\nune fois qu'on le sait, on le voit partout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c108cc6f",
+      "texte_overlay": "2. je cherche les dates sur les façades\n\ngravées au-dessus des portes.\nchaque rue devient une frise.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ed4db29f",
+      "texte_overlay": "3. je m'arrête sur les ponts\n\nce matin, j'ai appris que le pont-neuf, malgré son nom, est le plus vieux pont de paris sur la seine.\nje l'ai traversé autrement.",
+      "texte_sophia": "3. je m'arrête sur les ponts\n\nce matin, l'appli Sophia m'a appris que le pont-neuf, malgré son nom, est le plus vieux pont de paris sur la seine.\nje l'ai traversé autrement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0a9174f4",
+      "texte_overlay": "4. j'entre dans les passages couverts\n\nverrières, mosaïques, vieilles boutiques.\nun autre siècle, gratuit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "40ee0553",
+      "texte_overlay": "5. je note mes immeubles préférés\n\net le soir, je cherche leur histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "73eeec15",
+      "texte_overlay": "c'est quoi ton bâtiment préféré à paris ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

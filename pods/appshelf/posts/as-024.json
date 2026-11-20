@@ -1,0 +1,270 @@
+{
+ "id": "as-024",
+ "fond": "images/c24-fond.jpg",
+ "titre": {
+  "en": "my vision board apps for my 2027 chapter",
+  "es": "mis apps de vision board 2027 para un nuevo capítulo",
+  "it": "le mie app vision board 2027 per un nuovo capitolo",
+  "pt-BR": "meus apps de quadro dos sonhos 2027 pra um novo capítulo"
+ },
+ "legendes": {
+  "en": "manifesting a soft, calm, well-read 2027 ✨ #visionboard #2027goals #apprecommendations #manifesting",
+  "es": "manifestando un 2027 suave, tranquilo y lleno de aprendizajes ✨ #visionboard #metas2027 #appsrecomendadas #manifestar",
+  "it": "manifesto un 2027 dolce, calmo e pieno di cose nuove ✨ #visionboard #obiettivi2027 #appconsigliate #manifestare",
+  "pt-BR": "manifestando um 2027 leve, calmo e cheio de coisas novas ✨ #quadrodossonhos #metas2027 #dicasdeapps #manifestacao"
+ },
+ "musique": {
+  "titre": "last sip - Malia B.",
+  "url": "https://www.tiktok.com/music/original-7660064882242390032"
+ },
+ "notes": "Full test (accroche neuve, fin d'année, au format de son « my most used apps ») : « my 2027 vision board apps / for a new chapter », style bibliotheque. Applis vérifiées us, es, it, br : Vision Board ++, Moodboard, Sophia (3e, cta C), R4VE, Monefy. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c24-carnet.jpg",
+     "images/c24-bougies.jpg",
+     "images/c24-tableau.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "my"
+      },
+      {
+       "t": "vision",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "board",
+       "style": "clair"
+      },
+      {
+       "t": "apps"
+      }
+     ]
+    ],
+    "pastille": "for my 2027 chapter"
+   },
+   "es": {
+    "photos": [
+     "images/c24-carnet.jpg",
+     "images/c24-bougies.jpg",
+     "images/c24-tableau.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "mi"
+      },
+      {
+       "t": "vision",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "board",
+       "style": "clair"
+      },
+      {
+       "t": "2027"
+      }
+     ]
+    ],
+    "pastille": "para un nuevo capítulo"
+   },
+   "it": {
+    "photos": [
+     "images/c24-carnet.jpg",
+     "images/c24-bougies.jpg",
+     "images/c24-tableau.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "la mia"
+      },
+      {
+       "t": "vision",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "board",
+       "style": "clair"
+      },
+      {
+       "t": "2027"
+      }
+     ]
+    ],
+    "pastille": "per un nuovo capitolo"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c24-carnet.jpg",
+     "images/c24-bougies.jpg",
+     "images/c24-tableau.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "meu"
+      },
+      {
+       "t": "quadro",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "dos sonhos",
+       "style": "clair"
+      },
+      {
+       "t": "2027"
+      }
+     ]
+    ],
+    "pastille": "pra um novo capítulo"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Vision Board ++",
+    "dossier": "images/applis/vision-board",
+    "note": "Build your vision board with photos and affirmations, then see it on your home screen every day"
+   },
+   "es": {
+    "nom": "Vision Board ++",
+    "dossier": "images/applis/vision-board",
+    "note": "Crea tu vision board con fotos y afirmaciones y míralo cada día en tu pantalla de inicio"
+   },
+   "it": {
+    "nom": "Vision Board ++",
+    "dossier": "images/applis/vision-board",
+    "note": "Crea la tua vision board con foto e affermazioni e guardala ogni giorno sulla schermata Home"
+   },
+   "pt-BR": {
+    "nom": "Vision Board ++",
+    "dossier": "images/applis/vision-board",
+    "note": "Monte seu quadro dos sonhos com fotos e afirmações e veja ele todo dia na tela inicial"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Moodboard",
+    "dossier": "images/applis/moodboard",
+    "note": "Freeform collages with photos, videos and text: my 2027 mood board took ten minutes"
+   },
+   "es": {
+    "nom": "Moodboard",
+    "dossier": "images/applis/moodboard",
+    "note": "Collages libres con fotos, vídeos y texto: mi moodboard de 2027 me llevó diez minutos"
+   },
+   "it": {
+    "nom": "Moodboard",
+    "dossier": "images/applis/moodboard",
+    "note": "Collage liberi con foto, video e testo: il mio moodboard del 2027 ha richiesto dieci minuti"
+   },
+   "pt-BR": {
+    "nom": "Moodboard",
+    "dossier": "images/applis/moodboard",
+    "note": "Colagens livres com fotos, vídeos e texto: meu moodboard de 2027 levou dez minutos"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Makes me feel smarter in 10 minutes: one lesson written by a professor, one quiz, and I'm done"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Me hace sentir más lista en 10 minutos: una lección escrita por un profesor, un quiz y listo"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Mi fa sentire più intelligente in 10 minuti: una lezione scritta da un professore, un quiz e ho finito"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Me faz sentir mais inteligente em 10 minutos: uma aula escrita por um professor, um quiz e pronto"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "R4VE",
+    "dossier": "images/applis/r4ve",
+    "note": "A playful photo editor with stickers, cutouts and textures to make my goals look like a magazine cover"
+   },
+   "es": {
+    "nom": "R4VE",
+    "dossier": "images/applis/r4ve",
+    "note": "Un editor de fotos divertido con stickers, recortes y texturas para que mis metas parezcan una portada de revista"
+   },
+   "it": {
+    "nom": "R4VE",
+    "dossier": "images/applis/r4ve",
+    "note": "Un editor di foto divertente con sticker, ritagli e texture per far sembrare i miei obiettivi una copertina di rivista"
+   },
+   "pt-BR": {
+    "nom": "R4VE",
+    "dossier": "images/applis/r4ve",
+    "note": "Um editor de fotos divertido com figurinhas, recortes e texturas pra deixar minhas metas com cara de capa de revista"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Monefy",
+    "dossier": "images/applis/monefy",
+    "note": "Add a spending in one tap and watch a colorful wheel of where your money goes. Saving for my goals"
+   },
+   "es": {
+    "nom": "Monefy",
+    "dossier": "images/applis/monefy",
+    "note": "Apunta un gasto con un toque y mira en una rueda de colores a dónde va tu dinero. Ahorrando para mis metas"
+   },
+   "it": {
+    "nom": "Monefy",
+    "dossier": "images/applis/monefy",
+    "note": "Aggiungi una spesa con un tocco e guarda in una ruota colorata dove vanno i soldi. Risparmio per i miei obiettivi"
+   },
+   "pt-BR": {
+    "nom": "Monefy",
+    "dossier": "images/applis/monefy",
+    "note": "Anote um gasto com um toque e veja numa roda colorida pra onde vai seu dinheiro. Guardando pras minhas metas"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

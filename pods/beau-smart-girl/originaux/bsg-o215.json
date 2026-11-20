@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o215",
+  "type_bleo": "full_test",
+  "titre": "comment je rends mes soirées d'hiver plus cultivées (sans sortir) #hiver #culture #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label. cta B. Saison, plaid et culture à la maison. Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Symphony_No._9_(Beethoven) : « He was almost completely deaf by the time of its composition ». Routine du 20/11 sur BLEO (par_jour passé à 12 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 3 full tests et 9 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent proprement, donc 5 déclinaisons et 7 full tests. Lignes sautées : 6 (« validé par les neurosciences »), 7 (« je notes »), 8 (accroche illisible « ge things »), 9, 11 et 12 (« backed by science », bienfaits santé invérifiables), 10 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8d13aeae",
+      "texte_overlay": "comment je rends mes soirées d'hiver\nplus cultivées\n(sans sortir)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c1d1440b",
+      "texte_overlay": "1. un classique sous le plaid\n\nun chapitre, un thé.\nla meilleure soirée qui soit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4f72d8fe",
+      "texte_overlay": "2. un documentaire court\n\nvingt minutes sur un sujet inconnu.\net une question pour le lendemain.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "48a10e9d",
+      "texte_overlay": "3. un concert en entier, les yeux fermés\n\nce matin, j'ai appris que beethoven était presque complètement sourd quand il a composé sa neuvième symphonie.\nje l'ai écoutée en entier ce soir-là.",
+      "texte_sophia": "3. un concert en entier, les yeux fermés\n\nce matin, l'appli Sophia m'a appris que beethoven était presque complètement sourd quand il a composé sa neuvième symphonie.\nje l'ai écoutée en entier ce soir-là.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c050b0a9",
+      "texte_overlay": "4. un jeu de société culturel\n\nhistoire, géographie, art.\non apprend en riant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "31a05603",
+      "texte_overlay": "5. une recette d'un autre pays\n\net son histoire pendant que ça mijote.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "666fd585",
+      "texte_overlay": "enregistre-le pour cet hiver.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

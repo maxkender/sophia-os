@@ -7,7 +7,6 @@ import { CompteursHm } from "@/features/envoisMain/CompteursHm";
 import { CarteSante } from "@/features/frequences/Frequences";
 import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
-import { ADeciderMaintenant } from "@/features/problemes/ADeciderMaintenant";
 import { BandeauCoherence } from "@/features/coherence/BandeauCoherence";
 import { SectionDoubles } from "@/features/doubles/SectionDoubles";
 import { PageProblemesClaire } from "@/features/problemes/PageProblemesClaire";
@@ -18,6 +17,7 @@ import { Replie } from "@/components/ui/replie";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
 import { SectionSupport } from "@/features/support/SectionSupport";
 import { PageAujourdhui } from "@/features/auto/aujourdhui/PageAujourdhui";
+import { PageQualite } from "@/features/auto/aujourdhui/PageQualite";
 import { PageReglagesAuto } from "@/features/auto/PageReglagesAuto";
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
@@ -108,10 +108,7 @@ export function DecisionsPage() {
         <SectionSure nom="Cohérence">
           <BandeauCoherence />
         </SectionSure>
-        {/* 6/11 : une section qui plante n'emporte plus la page. */}
-        <SectionSure nom="À décider maintenant">
-          <ADeciderMaintenant />
-        </SectionSure>
+        {/* 21/11 (Max) : « À décider maintenant » est sur « Aujourd'hui » (le composant reste, rien n'est supprimé). */}
         {/* 0564 : les bonus du lundi (Comment Masters, parrainages, bonus en une phrase), envoyés au clic. */}
         <SectionSure nom="Bonus de lundi">
           <BonusLundi lienPage />
@@ -253,6 +250,15 @@ export function AujourdhuiPage() {
   return (
     <PageAuto cle="aujourdhui">
       <PageAujourdhui />
+    </PageAuto>
+  );
+}
+
+/** 21/11 (Max, point 10) : le rapport qualité du support, semaine par semaine. */
+export function QualitePage() {
+  return (
+    <PageAuto cle="qualite">
+      <PageQualite />
     </PageAuto>
   );
 }

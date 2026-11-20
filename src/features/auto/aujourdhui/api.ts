@@ -33,3 +33,94 @@ export async function lireAujourdhui(): Promise<ChiffresAujourdhui> {
     brevo_sans_credit: d.brevo_sans_credit === true, brevo_cle_absente: d.brevo_cle_absente === true,
     brevo_credits: d.brevo_credits === null || d.brevo_credits === undefined ? null : Number(d.brevo_credits) };
 }
+
+// ── 21/11 (Max, points 7 et 10) : la vraie page « Aujourd'hui » (0805 : aujourdhui_lire, aujourdhui_details, support_qualite) ──
+
+export type Ton = "rouge" | "orange" | "gris";
+export type CleSection = "valider" | "argent" | "posteurs" | "contenu" | "technique";
+
+export interface LigneJour {
+  id: string;
+  titre: string;
+  detail: string | null;
+  ton: Ton;
+  depuis: string | null;
+  nb: number | null;
+  montant: number | null;
+  posteurs: string[];
+  demandes: string[];
+  lien: string | null;
+  lien_label: string | null;
+  categorie: string | null;
+  plateforme: "upwork" | "ruul" | null;
+}
+
+export interface SectionJour {
+  cle: CleSection;
+  titre: string;
+  lignes: LigneJour[];
+}
+
+export interface Jour {
+  resume: { a_valider: number; cas: number; problemes: number; reponses: number; corrections: number };
+  sections: SectionJour[];
+  chiffres: {
+    comptes_actifs: number; posts_jour: number; ruul: number; upwork: number;
+    support_sans_humain: number | null; demandes_24h: number;
+  };
+}
+
+export async function lireJour(): Promise<Jour> {
+  const { data, error } = await supabase.rpc("aujourdhui_lire");
+  if (error) throw new Error(error.message);
+  const j = data as Jour;
+  return { ...j, sections: (j.sections ?? []).map((s) => ({ ...s, lignes: s.lignes ?? [] })) };
+}
+
+export interface PosteurJour {
+  id: string;
+  nom: string | null;
+  email: string | null;
+  plateforme: string;
+  handles: string[];
+}
+
+export interface DemandeJour {
+  id: string;
+  poster_id: string | null;
+  source: string | null;
+  categorie: string | null;
+  plateforme: string | null;
+  cree_at: string;
+  statut: string;
+  texte: string | null;
+  proposition: string | null;
+}
+
+export async function lireDetails(posteurs: string[], demandes: string[] | null): Promise<{ posteurs: PosteurJour[]; demandes: DemandeJour[] }> {
+  const { data, error } = await supabase.rpc("aujourdhui_details", { p_posteurs: posteurs, p_demandes: demandes });
+  if (error) throw new Error(error.message);
+  const d = (data ?? {}) as { posteurs?: PosteurJour[]; demandes?: DemandeJour[] };
+  return { posteurs: d.posteurs ?? [], demandes: d.demandes ?? [] };
+}
+
+export interface QualiteSemaine {
+  lundi: string;
+  demandes: number;
+  sans_humain: number;
+  pct_sans_humain: number | null;
+  objectif: number;
+  delai_premiere_reponse_min: number | null;
+  delai_reponse_humaine_min: number | null;
+  rouverts: number;
+  niveau2_par_sujet: Record<string, number>;
+  emails: { envoyes: number; delivres: number; refuses: number };
+  emails_entrants_non_relies: number;
+  a_relire: { id: string; categorie: string | null; langue: string | null; demande: string | null; reponse: string | null }[];
+}
+
+export async function lireQualite(lundi: string | null): Promise<QualiteSemaine> {
+  const { data, error } = await supabase.rpc("support_qualite", { p_lundi: lundi });
+  if (error) throw new Error(error.message);
+  return data as QualiteSemaine;
+}

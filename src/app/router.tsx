@@ -27,6 +27,7 @@ import {
   RuulSuiviPage,
   UpworkAAjouterPage,
   LogsPage,
+  QualitePage,
   NeedsYouAncienPage,
   NeedsYouPage,
   CartesProblemesPage,
@@ -170,6 +171,7 @@ export function AppRouter() {
             <Route path="/admin/auto/parrainage" element={<ParrainagePage />} />
             <Route path="/admin/auto/retirer-slack" element={<RetirerSlackPage />} />
             <Route path="/admin/auto/logs" element={<LogsPage />} />
+            <Route path="/admin/auto/qualite" element={<QualitePage />} />
             {/* Les anciennes adresses redirigent : aucun lien cassé. */}
             {Object.entries(ANCIENNES_ADRESSES).map(([de, vers]) => (
               <Route key={de} path={de} element={<Redirection vers={vers} />} />

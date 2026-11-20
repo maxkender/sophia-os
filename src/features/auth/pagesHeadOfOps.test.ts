@@ -51,6 +51,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/parrainage",
   "/admin/auto/retirer-slack",
   "/admin/auto/logs",
+  "/admin/auto/qualite", // 21/11 : rapport qualité du support
   "/admin/calendrier", // Schedule
   "/admin/posters", // Posters
   "/admin/posts-links", // Posts & links (31/10, sorti de Disputes)

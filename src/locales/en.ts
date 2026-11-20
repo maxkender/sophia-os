@@ -1297,6 +1297,13 @@ export const en = {
       },
     },
     navSection: {
+      aujourdhui: "Today",
+      posteurs: "Posters",
+      contenu: "Content",
+      paie: "Pay",
+      recrutement: "Recruiting",
+      sante: "Health",
+      reglages: "Settings",
       bleo: "BLEO",
       production: "Production",
       tests: "Tests",
@@ -5169,6 +5176,9 @@ export const en = {
       switchesDeplaces: "The switches (off / test / on), pay through the API and the FAQ bot are now in Overview → Switches:",
       // 12/11 (OS clair): the section menu, 7 entries.
       menu: {
+        qualite: "Support quality",
+        cohortes: "Cohorts",
+        candidats: "Ruul candidates",
         aujourdhui: "Today",
         problemes: "Problems",
         posteurs: "Posters",
@@ -5182,6 +5192,9 @@ export const en = {
         reglages: "Settings",
       },
       menuDesc: {
+        qualite: "The Monday report: solved without a human, delays, reopened, emails, answers to re-read.",
+        cohortes: "Will the next cohort be ready, and how the past ones did.",
+        candidats: "Website applications paid through Ruul, up to the first pay.",
         aujourdhui: "What you need to do now.",
         problemes: "Urgent, with the bots, Saturday: what is left to fix.",
         posteurs: "Every poster, their steps and reminders.",
@@ -5195,6 +5208,7 @@ export const en = {
         reglages: "Switches, texts and older pages.",
       },
       pages: {
+        qualite: { titre: "Support quality" },
         aujourdhui: { titre: "Today" },
         reglages: { titre: "Settings" },
         overview: { titre: "Overview" },
@@ -5252,7 +5266,8 @@ export const en = {
         },
       },
       phrases: {
-        aujourdhui: "What you need to do now: 5 lines at most, each with its button.",
+        qualite: "Week by week: share solved without a human (goal 70%), first-response delay, reopened, your cases by topic, emails and 10 bot answers to re-read.",
+        aujourdhui: "Everything waiting for you on one page: to validate, money, posters, content, technical, numbers. One line per problem; click = posters, thread and suggested answer.",
         reglages: "Switches, texts and every older page, kept here: nothing is deleted.",
         overview: "Everything the automation does, on one page. The red button stops every automatic action.",
         recruits: "Every recruit until their first post: steps, messages sent, next reminder.",

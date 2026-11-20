@@ -31,7 +31,7 @@ describe("les phrases en haut des pages (prompt 22, partie 11)", () => {
   });
 
   it("chacune des 22 pages a sa phrase, en anglais et en français", () => {
-    expect(PAGES_AUTO).toHaveLength(26);
+    expect(PAGES_AUTO).toHaveLength(27);
     for (const langue of ["en", "fr"]) {
       const t = i18n.getFixedT(langue);
       for (const p of PAGES_AUTO) {

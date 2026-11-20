@@ -1298,6 +1298,13 @@ export const fr = {
       },
     },
     navSection: {
+      aujourdhui: "Aujourd'hui",
+      posteurs: "Posteurs",
+      contenu: "Contenu",
+      paie: "Paie",
+      recrutement: "Recrutement",
+      sante: "Santé",
+      reglages: "Réglages",
       bleo: "BLEO",
       production: "Production",
       tests: "Tests",
@@ -5179,6 +5186,9 @@ export const fr = {
       switchesDeplaces: "Les interrupteurs (off / test / on), la paie par l'API et le bot FAQ sont maintenant dans Vue d'ensemble → Switches :",
       // 12/11 (OS clair) : le menu de la section, 7 entrées.
       menu: {
+        qualite: "Qualité du support",
+        cohortes: "Cohortes",
+        candidats: "Candidats Ruul",
         aujourdhui: "Aujourd'hui",
         problemes: "Problèmes",
         posteurs: "Posteurs",
@@ -5192,6 +5202,9 @@ export const fr = {
         reglages: "Réglages",
       },
       menuDesc: {
+        qualite: "Le rapport du lundi : réglé sans humain, délais, rouverts, emails, réponses à relire.",
+        cohortes: "La prochaine cohorte sera-t-elle prête, et comment ont fait les passées.",
+        candidats: "Les candidatures du site payées par Ruul, jusqu'à la 1re paie.",
         aujourdhui: "Ce que tu dois faire maintenant.",
         problemes: "Urgent, chez les bots, samedi : ce qui reste à régler.",
         posteurs: "Chaque posteur, ses étapes et ses relances.",
@@ -5205,6 +5218,7 @@ export const fr = {
         reglages: "Interrupteurs, textes et anciennes pages.",
       },
       pages: {
+        qualite: { titre: "Qualité du support" },
         aujourdhui: { titre: "Aujourd'hui" },
         reglages: { titre: "Réglages" },
         overview: { titre: "Vue d'ensemble" },
@@ -5262,7 +5276,8 @@ export const fr = {
         },
       },
       phrases: {
-        aujourdhui: "Ce que tu dois faire maintenant : 5 lignes au plus, chacune avec son bouton.",
+        qualite: "Semaine par semaine : la part réglée sans humain (objectif 70 %), le délai de 1re réponse, les rouverts, les cas pour toi par sujet, les emails et 10 réponses du bot à relire.",
+        aujourdhui: "Tout ce qui t'attend, en une page : à valider, argent, posteurs, contenu, technique, chiffres. Une ligne par problème ; clic = posteurs, fil et réponse proposée.",
         reglages: "Les interrupteurs, les textes et toutes les anciennes pages, rangées ici : rien n'est supprimé.",
         overview: "Tout ce que fait l'automatisation, sur une page. Le bouton rouge arrête toutes les actions automatiques.",
         recruits: "Chaque recrue jusqu'à son 1er post : étapes, messages envoyés, prochaine relance.",

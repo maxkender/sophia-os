@@ -20,7 +20,7 @@
  */
 import { supabase } from "@/lib/supabase/client";
 
-import { ecrireReglage } from "../api";
+import { ecrireReglage, invoke } from "../api";
 
 import {
   lireCibleApplications,
@@ -435,4 +435,45 @@ export async function lireReglagesChoixLabelPoses(): Promise<boolean> {
   const v = data?.valeur;
   if (!v || typeof v !== "object" || Array.isArray(v)) return false;
   return CLES_BASE_REGLAGE_LABEL.some((cle) => (v as Record<string, unknown>)[cle] !== undefined);
+}
+
+/** Ce que rend la fermeture d'un label avec réaffectation (0794, `fermeture_labels.ts`). */
+export interface ReaffectationLabel {
+  dryRun: boolean;
+  deplaces: Array<{ compte_id: string; handle: string | null; langue?: string | null; de: string[]; vers: string; meme_theme?: boolean }>;
+  retires: Array<{ compte_id: string; handle: string | null; labels: string[] }>;
+  manuels: Array<{ compte_id: string; handle: string | null; raison: string }>;
+  /** Comptes pas encore traités (budget de temps) : rappeler. */
+  reportes: number;
+  erreurs: string[];
+}
+
+/**
+ * Réaffecte tout de suite les comptes d'un label fermé, dans le même thème
+ * d'abord (0794). `dryRun` : l'aperçu, rien n'est écrit. L'appel réel est borné
+ * en temps : tant que `reportes` n'est pas nul, il faut rappeler.
+ */
+export async function reaffecterLabelFerme(labelId: string, dryRun: boolean): Promise<ReaffectationLabel> {
+  const out = await invoke<{ ok: boolean; saute?: boolean; raison?: string; labels?: ReaffectationLabel; erreurs?: unknown }>(
+    "minuit-vnext",
+    { etapes: ["labels"], labels: [labelId], dryRun, forcer: true },
+  );
+  if (!out.labels) throw new Error(out.raison ?? "minuit-vnext : l'étape labels n'a rien rendu");
+  return out.labels;
+}
+
+/** Tous les comptes d'un label fermé, en plusieurs appels si besoin (6 au plus). */
+export async function reaffecterLabelFermeEnEntier(labelId: string): Promise<ReaffectationLabel> {
+  const total: ReaffectationLabel = { dryRun: false, deplaces: [], retires: [], manuels: [], reportes: 0, erreurs: [] };
+  for (let i = 0; i < 6; i++) {
+    const r = await reaffecterLabelFerme(labelId, false);
+    total.deplaces.push(...r.deplaces);
+    total.retires.push(...r.retires);
+    total.manuels.push(...r.manuels);
+    total.erreurs.push(...r.erreurs);
+    total.reportes = r.reportes;
+    // Plus rien à faire, ou un tour qui n'avance pas (que des comptes à voir à la main).
+    if (r.reportes === 0 || r.deplaces.length + r.retires.length === 0) break;
+  }
+  return total;
 }

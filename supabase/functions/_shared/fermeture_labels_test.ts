@@ -4,10 +4,14 @@
  */
 import { assertEquals } from "jsr:@std/assert@1";
 
+import { REGLAGES_CHOIX_LABEL_DEFAUT, type StatLabelCreation } from "./choix_label_equilibre.ts";
 import {
   applicationsDuCompte,
+  choisirDansLeTheme,
   type CompteLabels,
+  type LabelTheme,
   ligneFermetureLabels,
+  paliersTheme,
   planifierReaffectations,
   poolPourApplications,
   type ResultatFermeture,
@@ -98,4 +102,52 @@ Deno.test("ligne du run : rien à dire → vide ; sinon fermetures, déplacement
     "labels (à blanc) — fermé : alpha_male_film (0,58 de la flotte sur 245 posts) ; " +
       "1 compte(s) déplacé(s) : sam.focus429 alpha_male_film → weird_alpha ; 2 reporté(s) à la nuit suivante",
   );
+});
+
+// ── Réaffectation dans le même thème (0794) ──
+
+const L = (id: string, genre: string | null = null): LabelTheme => ({ id, nom: id, genre });
+const POOL = [L("clean_study", "femme"), L("smart_girl", "femme"), L("alpha_male", "homme"), L("Fathomly"), L("male_study", "homme")];
+
+function st(over: Partial<StatLabelCreation> & { label_id: string }): StatLabelCreation {
+  return {
+    comptes_langue: 0, comptes_pays: 0, comptes_total: 0, passages_restants: 100_000, demande_jour: 0, passages: 0,
+    perf_label: null, perf_flotte: 1, recents_langue: 0, recence_langue: 0, recents_pays: 0, recence_pays: 0, ...over,
+  };
+}
+
+Deno.test("paliers : même thème et genre compatible, puis genre compatible, puis tous", () => {
+  // classic_study (études, sans genre) : tous les labels d'études, quel que soit leur genre.
+  assertEquals(paliersTheme(L("classic_study"), POOL), [
+    ["clean_study", "male_study"],
+    ["clean_study", "smart_girl", "alpha_male", "Fathomly", "male_study"],
+  ]);
+  // that_girl_study (études, femme) : les études femme, puis les labels femme ou sans genre, puis tous.
+  assertEquals(paliersTheme(L("that_girl_study", "femme"), POOL), [
+    ["clean_study"],
+    ["clean_study", "smart_girl", "Fathomly"],
+    ["clean_study", "smart_girl", "alpha_male", "Fathomly", "male_study"],
+  ]);
+  // Aucun label du thème : on commence au genre.
+  assertEquals(paliersTheme(L("RH", "femme"), POOL)[0], ["clean_study", "smart_girl", "Fathomly"]);
+  // Sans label de départ, ou sans pool.
+  assertEquals(paliersTheme(null, POOL), [POOL.map((l) => l.id)]);
+  assertEquals(paliersTheme(L("classic_study"), []), []);
+});
+
+Deno.test("choix dans le thème : le thème d'abord, sauf s'il est à sec ; sinon le palier suivant", () => {
+  const R = REGLAGES_CHOIX_LABEL_DEFAUT;
+  const stats = [st({ label_id: "clean_study", perf_label: 0.8, passages: 100 }), st({ label_id: "smart_girl", perf_label: 2, passages: 100 }), st({ label_id: "alpha_male" })];
+  const paliers = paliersTheme(L("that_girl_study", "femme"), POOL.filter((l) => stats.some((s) => s.label_id === l.id)));
+  // clean_study fait moins bien que smart_girl, mais c'est le même thème.
+  assertEquals(choisirDansLeTheme(stats, paliers, R, "app"), { vers: "clean_study", meme: true });
+  // Le thème à sec (moins d'un jour de contenu) : on sort du thème, vers le genre compatible.
+  const aSec = stats.map((s) => (s.label_id === "clean_study" ? { ...s, passages_restants: 0 } : s));
+  assertEquals(choisirDansLeTheme(aSec, paliers, R, "app"), { vers: "smart_girl", meme: false });
+  // Tout à sec : le premier du dernier palier, plutôt qu'un compte sans label.
+  const tout = stats.map((s) => ({ ...s, passages_restants: 0 }));
+  assertEquals(choisirDansLeTheme(tout, paliers, R, "app").meme, false);
+  assertEquals(typeof choisirDansLeTheme(tout, paliers, R, "app").vers, "string");
+  // Aucun label ouvert.
+  assertEquals(choisirDansLeTheme([], paliers, R, "app"), { vers: null, meme: false });
 });

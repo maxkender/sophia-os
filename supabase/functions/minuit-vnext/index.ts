@@ -305,7 +305,8 @@ function ligneQuotasBaisses(
  *   - crée passages statut=assigne (musique + hashtags) estampillés du cycle
  *
  *   {}  → kick rattrapage (async) + tierlist + assignation + upscale
- *   { etapes?: ['stats'|'scores'|'tierlist'|'tierlist_applications'|'labels'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'], compteId?, date?, forcer?, dryRun? }
+ *   { etapes?: ['stats'|'scores'|'tierlist'|'tierlist_applications'|'labels'|'assignation'|'upscale'|'variations'|'rattrapage'|'classement'], compteId?, date?, forcer?, dryRun?, labels? }
+ *   `labels` (avec `etapes: ['labels']`) : ferme et réaffecte les comptes de ces labels tout de suite (0794).
  *   etape `labels` : fermeture des labels faibles (sous 0,75 de la flotte sur
  *                      150 posts) et réaffectation des comptes qui les portent
  *                      (`_shared/fermeture_labels.ts`) ; tourne d'elle-même
@@ -576,7 +577,15 @@ Deno.serve(async (request) => {
     // Isolée comme les autres : un échec ici n'empêche pas l'assignation.
     if ((etapes.includes("labels") || etapes.includes("assignation")) && !compteId && !body?.contenuId) {
       await executerEtape(out, bilan, "labels", async () => {
-        const res = await fermerLabelsEtReaffecter(supabase, { jour, dryRun: Boolean(body?.dryRun) });
+        // 0794 : `labels` = fermer et réaffecter CES labels tout de suite (page Allocation).
+        const labelsCibles = Array.isArray(body?.labels)
+          ? (body.labels as unknown[]).map((l) => String(l ?? "").trim()).filter(Boolean)
+          : [];
+        const res = await fermerLabelsEtReaffecter(supabase, {
+          jour,
+          dryRun: Boolean(body?.dryRun),
+          ...(labelsCibles.length > 0 ? { labels: labelsCibles, budgetMs: 40_000 } : {}),
+        });
         out.labels = res;
         const ligne = ligneFermetureLabels(res);
         if (ligne) ajouterAvertissement(out, ligne);

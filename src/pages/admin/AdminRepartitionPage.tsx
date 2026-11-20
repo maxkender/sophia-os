@@ -31,6 +31,8 @@ import {
   ecrireChoixApplicationAuto,
   ecrireCibleRepartitionApps,
   ecrireEtatManuelLabel,
+  reaffecterLabelFerme,
+  reaffecterLabelFermeEnEntier,
   ecrireReglagesChoixLabel,
   lireApplicationsEnPreparation,
   lireChoixApplicationAuto,
@@ -1016,6 +1018,9 @@ function CarteLabels({
 }) {
   const { t } = useTranslation();
   const [choix, setChoix] = React.useState<string | null>(null);
+  // 0794 : les labels fermés sont cachés, et fermer un label propose de réaffecter ses comptes.
+  const [voirFermes, setVoirFermes] = React.useState(false);
+  const [aReaffecter, setAReaffecter] = React.useState<{ id: string; nom: string } | null>(null);
   const appId =
     choix ?? (applications.some((a) => a.id === applicationParDefaut) ? applicationParDefaut : applications[0]?.id) ?? null;
   const app = applications.find((a) => a.id === appId) ?? null;
@@ -1085,6 +1090,9 @@ function CarteLabels({
       // Les 100 % podz en dernier : leur réserve ne les juge pas.
       .sort((a, b) => Number(a.remplissage !== null) - Number(b.remplissage !== null) || a.jours - b.jours);
   }, [appId, marches, reglages]);
+
+  const nbFermes = lignes.filter((e) => e.motif !== null).length;
+  const lignesVues = voirFermes ? lignes : lignes.filter((e) => e.motif === null);
 
   return (
     <Card>
@@ -1161,7 +1169,7 @@ function CarteLabels({
               </tr>
             </thead>
             <tbody>
-              {lignes.map((e) => (
+              {lignesVues.map((e) => (
                 <tr key={e.stat.label_id} className="border-b border-border/40" data-testid={`label-${e.stat.label_nom}`}>
                   <td className="py-2 pr-4">
                     <NomLabel nom={e.stat.label_nom} pod={e.stat.pod_seul} className="text-xs" />
@@ -1251,12 +1259,37 @@ function CarteLabels({
                     <EtatLabel motif={e.motif} testPlein={e.testPlein} />
                   </td>
                   <td className="py-2">
-                    <DecisionLabel applicationId={appId!} labelId={e.stat.label_id} etat={e.decision} />
+                    <DecisionLabel
+                      applicationId={appId!}
+                      labelId={e.stat.label_id}
+                      etat={e.decision}
+                      onFerme={() => setAReaffecter({ id: e.stat.label_id, nom: e.stat.label_nom })}
+                    />
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        )}
+        {nbFermes > 0 && (
+          <Button
+            variant="ghost"
+            size="sm"
+            className="mt-2 h-7 px-2 text-xs text-muted-foreground"
+            aria-expanded={voirFermes}
+            data-testid="voir-labels-fermes"
+            onClick={() => setVoirFermes((v) => !v)}
+          >
+            {voirFermes ? t("repartition.fermesMasquer") : t("repartition.fermesVoir", { count: nbFermes })}
+          </Button>
+        )}
+        {aReaffecter && (
+          <ReaffectationLabelFerme
+            key={aReaffecter.id}
+            labelId={aReaffecter.id}
+            nom={aReaffecter.nom}
+            onFini={() => setAReaffecter(null)}
+          />
         )}
       </CardContent>
     </Card>
@@ -1273,17 +1306,21 @@ function DecisionLabel({
   applicationId,
   labelId,
   etat,
+  onFerme,
 }: {
   applicationId: string;
   labelId: string;
   etat: EtatManuelLabel;
+  /** Le label vient d'être fermé à la main : proposer de réaffecter ses comptes (0794). */
+  onFerme?: () => void;
 }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const poser = useMutation({
     mutationFn: (vers: EtatManuelLabel) => ecrireEtatManuelLabel({ applicationId, labelId, etat: vers }),
-    onSuccess: () => {
+    onSuccess: (_rien, vers) => {
       void queryClient.invalidateQueries({ queryKey: ["repartition-reglages"] });
+      if (vers === "ferme") onFerme?.();
     },
   });
 
@@ -1310,6 +1347,89 @@ function DecisionLabel({
         </Button>
       ))}
     </span>
+  );
+}
+
+/**
+ * 0794 : un label vient d'être fermé. Ses comptes sont réaffectés tout de
+ * suite, dans le même thème d'abord (études vers études, running vers
+ * running), sans attendre la nuit. L'aperçu d'abord, rien n'est écrit avant le
+ * clic ; chaque déplacement est journalisé et s'annule depuis la page Podz.
+ */
+function ReaffectationLabelFerme({ labelId, nom, onFini }: { labelId: string; nom: string; onFini: () => void }) {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const apercu = useQuery({
+    queryKey: ["reaffectation-label", labelId],
+    queryFn: () => reaffecterLabelFerme(labelId, true),
+    staleTime: 0,
+    gcTime: 0,
+  });
+  const appliquer = useMutation({
+    mutationFn: () => reaffecterLabelFermeEnEntier(labelId),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["repartition-marches"] });
+      void queryClient.invalidateQueries({ queryKey: ["repartition-reglages"] });
+    },
+  });
+  const fait = appliquer.data ?? null;
+  const vu = fait ?? apercu.data ?? null;
+  const aFaire = (apercu.data?.deplaces.length ?? 0) + (apercu.data?.retires.length ?? 0) + (apercu.data?.reportes ?? 0);
+
+  return (
+    <div className="mt-4 space-y-3 rounded-lg border border-warning/50 bg-warning/10 p-3" data-testid="reaffectation-label">
+      <p className="text-sm font-medium">
+        {fait ? t("repartition.reaffFait", { nom, n: fait.deplaces.length }) : t("repartition.reaffTitre", { nom })}
+      </p>
+      {apercu.isPending && <p className="text-xs text-muted-foreground">{t("common.loading")}</p>}
+      {apercu.isError && <p className="text-xs text-destructive-foreground">{messageErreur(apercu.error)}</p>}
+      {appliquer.isError && <p className="text-xs text-destructive-foreground">{messageErreur(appliquer.error)}</p>}
+      {vu && vu.deplaces.length === 0 && vu.manuels.length === 0 && vu.retires.length === 0 && !fait && (
+        <p className="text-xs text-muted-foreground">{t("repartition.reaffAucun")}</p>
+      )}
+      {vu && vu.deplaces.length > 0 && (
+        <ul className="grid gap-x-6 gap-y-0.5 text-xs sm:grid-cols-2">
+          {vu.deplaces.map((d) => (
+            <li key={d.compte_id} className="flex items-baseline gap-1.5">
+              <span className="font-mono">{d.handle ?? d.compte_id.slice(0, 8)}</span>
+              {d.langue && <span className="text-muted-foreground">{d.langue}</span>}
+              <span className="text-muted-foreground" aria-hidden>→</span>
+              <span className="font-medium">{d.vers}</span>
+              {d.meme_theme === false && <Badge variant="outline">{t("repartition.reaffHorsTheme")}</Badge>}
+            </li>
+          ))}
+        </ul>
+      )}
+      {vu && vu.reportes > 0 && !fait && (
+        <p className="text-xs text-muted-foreground">{t("repartition.reaffSuite", { n: vu.reportes })}</p>
+      )}
+      {vu && vu.manuels.length > 0 && (
+        <p className="text-xs text-muted-foreground">
+          {t("repartition.reaffManuels", { liste: vu.manuels.map((m) => `${m.handle ?? "?"} (${m.raison})`).join(" · ") })}
+        </p>
+      )}
+      {fait && fait.erreurs.length > 0 && (
+        <p className="text-xs text-destructive-foreground">{fait.erreurs.join(" · ")}</p>
+      )}
+      {fait && fait.reportes > 0 && (
+        <p className="text-xs text-destructive-foreground">{t("repartition.reaffReste", { n: fait.reportes })}</p>
+      )}
+      <div className="flex flex-wrap gap-2">
+        {!fait && (
+          <Button
+            size="sm"
+            loading={appliquer.isPending}
+            disabled={apercu.isPending || apercu.isError || aFaire === 0}
+            onClick={() => appliquer.mutate()}
+          >
+            {t("repartition.reaffBouton", { n: aFaire })}
+          </Button>
+        )}
+        <Button size="sm" variant="ghost" disabled={appliquer.isPending} onClick={onFini}>
+          {fait ? t("repartition.reaffFermer") : t("repartition.reaffPlusTard")}
+        </Button>
+      </div>
+    </div>
   );
 }
 

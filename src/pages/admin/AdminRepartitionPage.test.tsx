@@ -21,6 +21,8 @@ const ecrireReglagesChoixLabel = vi.fn();
 const remettreReglagesChoixLabelDefaut = vi.fn();
 const ecrireEtatManuelLabel = vi.fn();
 const ecrireCibleRepartitionApps = vi.fn();
+const reaffecterLabelFerme = vi.fn();
+const reaffecterLabelFermeEnEntier = vi.fn();
 
 vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   PROVENANCE_JOURS: 30,
@@ -39,6 +41,8 @@ vi.mock("@/features/moteur/repartition/apiRepartition", () => ({
   ecrireReglagesChoixLabel: (v: unknown) => ecrireReglagesChoixLabel(v),
   remettreReglagesChoixLabelDefaut: () => remettreReglagesChoixLabelDefaut(),
   ecrireEtatManuelLabel: (a: unknown) => ecrireEtatManuelLabel(a),
+  reaffecterLabelFerme: (id: string, dryRun: boolean) => reaffecterLabelFerme(id, dryRun),
+  reaffecterLabelFermeEnEntier: (id: string) => reaffecterLabelFermeEnEntier(id),
 }));
 
 const lireReglages = vi.fn();
@@ -644,15 +648,71 @@ describe("AdminRepartitionPage — ouvrir et fermer un label", () => {
     expect(within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }).getAttribute("aria-pressed")).toBe("false");
   });
 
-  it("un label fermé à la main montre sa décision au rechargement", async () => {
+  it("un label fermé est caché ; « Afficher » le montre avec sa décision (0794)", async () => {
     lireReglagesRepartition.mockResolvedValue({
       ...REGLAGES_CHOIX_LABEL_DEFAUT,
       fermesApp: ["id-sophia:study"],
     });
     renderPage();
+    // Les autres labels sont là, pas le label fermé.
+    const bouton = await screen.findByTestId("voir-labels-fermes");
+    expect(screen.queryByTestId("label-study")).toBeNull();
+    expect(bouton.textContent).toMatch(/1/);
+    fireEvent.click(bouton);
     const ligne = await ligneLabel("study");
     expect(within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }).getAttribute("aria-pressed")).toBe("true");
     expect(ligne.textContent).toMatch(/Fermé pour cette app|Closed for this app/);
+    // On peut les recacher.
+    fireEvent.click(screen.getByTestId("voir-labels-fermes"));
+    await waitFor(() => expect(screen.queryByTestId("label-study")).toBeNull());
+  });
+
+  it("sans label fermé, pas de bouton « Afficher »", async () => {
+    renderPage();
+    await ligneLabel("study");
+    expect(screen.queryByTestId("voir-labels-fermes")).toBeNull();
+  });
+
+  it("fermer un label propose de réaffecter ses comptes tout de suite, aperçu d'abord (0794)", async () => {
+    ecrireEtatManuelLabel.mockResolvedValue(undefined);
+    reaffecterLabelFerme.mockResolvedValue({
+      dryRun: true,
+      deplaces: [
+        { compte_id: "c1", handle: "lea.notes1", langue: "fr", de: ["study"], vers: "clean_study", meme_theme: true },
+        { compte_id: "c2", handle: "tom.focus2", langue: "en", de: ["study"], vers: "gym", meme_theme: false },
+      ],
+      retires: [],
+      manuels: [],
+      reportes: 0,
+      erreurs: [],
+    });
+    reaffecterLabelFermeEnEntier.mockResolvedValue({
+      dryRun: false,
+      deplaces: [
+        { compte_id: "c1", handle: "lea.notes1", langue: "fr", de: ["study"], vers: "clean_study", meme_theme: true },
+        { compte_id: "c2", handle: "tom.focus2", langue: "en", de: ["study"], vers: "gym", meme_theme: false },
+      ],
+      retires: [],
+      manuels: [],
+      reportes: 0,
+      erreurs: [],
+    });
+    renderPage();
+    const ligne = await ligneLabel("study");
+    fireEvent.click(within(ligne).getByRole("button", { name: /^(Fermé|Closed)$/ }));
+
+    const panneau = await screen.findByTestId("reaffectation-label");
+    await waitFor(() => expect(reaffecterLabelFerme).toHaveBeenCalledWith("study", true));
+    expect(await within(panneau).findByText("lea.notes1")).toBeTruthy();
+    expect(panneau.textContent).toMatch(/clean_study/);
+    // Le compte sorti du thème est signalé.
+    expect(panneau.textContent).toMatch(/hors thème|other theme/);
+    // Rien n'est écrit avant le clic.
+    expect(reaffecterLabelFermeEnEntier).not.toHaveBeenCalled();
+
+    fireEvent.click(within(panneau).getByRole("button", { name: /Réaffecter 2|Reassign 2/ }));
+    await waitFor(() => expect(reaffecterLabelFermeEnEntier).toHaveBeenCalledWith("study"));
+    await waitFor(() => expect(panneau.textContent).toMatch(/2 compte\(s\) réaffecté|2 account\(s\) reassigned/));
   });
 
   it("un label livré absent d'une langue le signale, et garde son stock entier pour ses jours", async () => {

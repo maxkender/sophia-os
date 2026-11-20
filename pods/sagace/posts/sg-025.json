@@ -1,0 +1,1312 @@
+{
+ "id": "sg-025",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 qui rendent la vie plus facile",
+  "en": "10/10 skills that make life easier",
+  "de": "10/10-Skills, die das Leben leichter machen",
+  "it": "Abilità 10/10 che rendono la vita più facile",
+  "pt-BR": "Habilidades 10/10 que deixam a vida mais fácil",
+  "tr": "Hayatı kolaylaştıran 10/10 beceriler",
+  "ro": "Abilități 10/10 care îți fac viața mai ușoară",
+  "cs": "Dovednosti 10/10, které ti usnadní život"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui rendent la vie plus facile #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that make life easier #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die das Leben leichter machen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che rendono la vita più facile #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que deixam a vida mais fácil #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Hayatı kolaylaştıran 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care îți fac viața mai ușoară #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které ti usnadní život #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - rithu",
+  "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+ },
+ "notes": "Full test du 20/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 qui rendent la vie plus facile », sa couverture (décor, lignes brun/noir, « FACILE » en brun géant ; 3 lignes en tr), 5 astuces de vie (enlever une tache, plier un drap-housse, puis Sophia, écaler un œuf dur, aiguiser un couteau, détartrer la bouilloire), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta B : « APPRENDRE / SANS EFFORT »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUI RENDENT LA VIE",
+      "cap": 120
+     },
+     {
+      "t": "PLUS",
+      "cap": 169
+     },
+     {
+      "t": "FACILE",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAT MAKE",
+      "cap": 120
+     },
+     {
+      "t": "LIFE",
+      "cap": 169
+     },
+     {
+      "t": "EASIER",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "DIE DAS LEBEN",
+      "cap": 120
+     },
+     {
+      "t": "LEICHTER",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "MACHEN",
+      "cap": 169
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "CHE RENDONO",
+      "cap": 120
+     },
+     {
+      "t": "LA VITA PIÙ",
+      "cap": 169
+     },
+     {
+      "t": "FACILE",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE DEIXAM",
+      "cap": 120
+     },
+     {
+      "t": "A VIDA MAIS",
+      "cap": 169
+     },
+     {
+      "t": "FÁCIL",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "HAYATI",
+      "cap": 169
+     },
+     {
+      "t": "KOLAYLAŞTIRAN",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 124,
+      "couleur": "brun"
+     },
+     {
+      "t": "CARE ÎȚI FAC",
+      "cap": 104
+     },
+     {
+      "t": "VIAȚA MAI",
+      "cap": 140
+     },
+     {
+      "t": "UȘOARĂ",
+      "cap": 205,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTERÉ TI",
+      "cap": 120
+     },
+     {
+      "t": "USNADNÍ",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŽIVOT",
+      "cap": 169
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ENLEVER",
+     [
+      {
+       "t": "UNE TACHE",
+       "couleur": "#d0453a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4kB7Kam7hds",
+     "titre": "Enlever les taches des vêtements",
+     "chaine": "Guide Astuces",
+     "vues": "241 k vues",
+     "date": "il y a 9 ans",
+     "duree": "1:32",
+     "avatar": "https://yt3.ggpht.com/_4GW7rze-hKncVjknowWWGkPDoOek1XpwXvt8IIq5kvu8uaSY2HmDm4NLuC3Dn6jmypqfbuL=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "REMOVE",
+     [
+      {
+       "t": "ANY STAIN",
+       "couleur": "#d0453a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CHzLckkSATI",
+     "titre": "How to Remove Stains From Clothes At Home Better Than The Dry Cleaner",
+     "chaine": "Gentleman's Gazette",
+     "vues": "2.8M views",
+     "date": "7 years ago",
+     "duree": "11:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k6PJnw0pfzs9uQ_5bk6DRUEWM9QoLA8fuyw5DEr_JuPX4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "FLECKEN",
+       "couleur": "#d0453a"
+      }
+     ],
+     "ENTFERNEN"
+    ],
+    "video": {
+     "id": "ZJJf3f0LY5Q",
+     "titre": "Hartnäckige Flecken mit Hausmittel aus Wäsche entfernen / Fleck auf Kleidung / Textilien wegbekommen",
+     "chaine": "Mac Paverick",
+     "vues": "176.762 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/UBhHhTdKVSI8VdSF5wV27jc0C-1Sq8Ti_lUBNyGWHOdiusppDpHSsbswHmfgNZcuKjfiNfCa=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "TOGLIERE",
+     [
+      {
+       "t": "UNA MACCHIA",
+       "couleur": "#d0453a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G0ChZad0djA",
+     "titre": "Come togliere le macchie più ostinate",
+     "chaine": "Pianetadonna Fai da te",
+     "vues": "101K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHVo_8PtbFvzNkbVJRR3-F-7ZFUAhdbkKNFIN9nvB7hJs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TIRAR",
+     [
+      {
+       "t": "UMA MANCHA",
+       "couleur": "#d0453a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yz2kWSDXkAo",
+     "titre": "COMO TIRAR MANCHA DE ÓLEO DA ROUPA QUE JÁ FOI LAVADA! | Por Talita Cavalcante",
+     "chaine": "Talita Cavalcante",
+     "vues": "779 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "4:32",
+     "avatar": "https://yt3.ggpht.com/bMBB2bU3eBbr8rGZv6kftxbiZfswDXZZwJz5HWxX9XmJ2ot_j9FYaia4n8dIOGjgm6aGODXf0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "LEKE",
+       "couleur": "#d0453a"
+      }
+     ],
+     "ÇIKARMAK"
+    ],
+    "video": {
+     "id": "wZ09Y7h_nlA",
+     "titre": "ZORLU ÇAY LEKESİ KIYAFETTEN NASIL ÇIKAR? İŞTE PRATİK VE ETKİLİ YÖNTEMLER! #leke #temizlik #pratik",
+     "chaine": "nasil.com",
+     "vues": "117 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nS8Vby1l8bScn6GJMTL8kijMHeZ4YcyM3A_-jk78ZwqPg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SCOȚI",
+     [
+      {
+       "t": "O PATĂ",
+       "couleur": "#d0453a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mwED_xn437s",
+     "titre": "Cum scoatem petele de ulei sau grăsime de pe haine",
+     "chaine": "Bucătăria Dinei",
+     "vues": "23 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "0:48",
+     "avatar": "https://yt3.ggpht.com/14R4vJK0OPLu3RJVWevI-Rke7L5WSgvnCgx7sVsGwqgGISzoNKGNJiJFj538s1uTEOs7w6Xg3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ODSTRANIT",
+     [
+      {
+       "t": "SKVRNU",
+       "couleur": "#d0453a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jZRiOzTlIbI",
+     "titre": "Jak odstranit skvrny z oblečení?",
+     "chaine": "Mýdlo s Jelenem",
+     "vues": "19 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "1:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFGQvknZarKe81ZHzfyeSHMV0vRjh7bZuxjzUH2Yzw8A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PLIER",
+     [
+      {
+       "t": "UN DRAP-HOUSSE",
+       "couleur": "#7a8fa6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9wm8NZIVb0Q",
+     "titre": "Comment plier un drap-housse ? - Gaël gagne du temps",
+     "chaine": "Pratiks",
+     "vues": "1,1 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "3:23",
+     "avatar": "https://yt3.ggpht.com/lkMqn-NPmbpigbinjGK47Av0hMQCtujEYl8pOGYc1yEjU0xlL_p8mGb3A4sSE1g8SBXsOwbj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FOLD",
+     [
+      {
+       "t": "A FITTED SHEET",
+       "couleur": "#7a8fa6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ckTCocBCUN4",
+     "titre": "How To Fold A Fitted Sheet | Linen House",
+     "chaine": "Linen House",
+     "vues": "5.2M views",
+     "date": "9 years ago",
+     "duree": "1:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l71vRPd3kjR0EQ4nU3IpK1smCDKwOmaV7XxpV5N9-UZRA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "SPANNBETTLAKEN",
+       "couleur": "#7a8fa6"
+      }
+     ],
+     "FALTEN"
+    ],
+    "video": {
+     "id": "YSh9qHlZXTs",
+     "titre": "Spannbettlaken falten - Frag Mutti TV",
+     "chaine": "Frag Mutti",
+     "vues": "725.135 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mxX1Bjqbpe_yRYh7KXHHUiGD7mshLg_EeFSpZm6eT5DCk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PIEGARE",
+     [
+      {
+       "t": "UN LENZUOLO CON ANGOLI",
+       "couleur": "#7a8fa6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8pitZarS0wc",
+     "titre": "Come piegare le lenzuola con gli angoli",
+     "chaine": "Soluzioni di Casa di Titty & Flavia",
+     "vues": "111K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "1:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kATzgHMcFmL_Y0_jccHKiTqnn_BfuAOaFlNBoKeo6QhA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DOBRAR",
+     [
+      {
+       "t": "LENÇOL DE ELÁSTICO",
+       "couleur": "#7a8fa6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UyQqt-av1rQ",
+     "titre": "Como dobrar lençol com elástico",
+     "chaine": "Muito Mais que Móveis",
+     "vues": "720 mil visualizações",
+     "date": "há 11 anos",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/hKY5d-HS_bQrLidMSIKxxponXOiOasfk78Gc3_nVzOg3-FUhhLrC_IhdDxc4TwySLwwvQPsjmkk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "LASTİKLİ ÇARŞAF",
+       "couleur": "#7a8fa6"
+      }
+     ],
+     "KATLAMAK"
+    ],
+    "video": {
+     "id": "SLFkiIIwQGs",
+     "titre": "LASTİKLİ ÇARŞAF Nasıl Katlanır👍Dolap Düzeni / Pratik Yöntemler Yatak Alezi Vlog #keşfet",
+     "chaine": "Hobby Evi",
+     "vues": "20 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/wbD6jH_MLfDF9tIyhHoW4mFfG4-GvoaVjngRNtJcyuK8chr4seTNqo7nFOgUIc0W4uVt1u8d5q0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎMPĂTUREȘTI",
+     [
+      {
+       "t": "CEARȘAFUL CU ELASTIC",
+       "couleur": "#7a8fa6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XcX5iB1UrDE",
+     "titre": "Cum sa impaturim cearceaful cu elastic",
+     "chaine": "Patul Meu",
+     "vues": "64 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "0:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_krXiYlGighg9HgpkcOTzLSUYgXeza0rX_eZsZqlz2fLkg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SLOŽIT",
+     [
+      {
+       "t": "NAPÍNACÍ PROSTĚRADLO",
+       "couleur": "#7a8fa6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NR8r_zmO4tM",
+     "titre": "Jak složit napínací prostěradlo",
+     "chaine": "Škola Michael",
+     "vues": "91 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kTG4BzVo3pPQFY7U5V57OiWewfVV3oOCwukq1ttraWMvw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "SANS EFFORT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "EFFORTLESSLY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "LERNEN",
+     [
+      {
+       "t": "OHNE MÜHE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "SENZA FATICA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "SEM ESFORÇO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ZAHMETSİZCE",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "FĂRĂ EFORT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE",
+     [
+      {
+       "t": "BEZ NÁMAHY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÉCALER",
+     [
+      {
+       "t": "UN ŒUF DUR",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UrNAL3eKyls",
+     "titre": "Comment Écailler Facilement un Oeuf Dur",
+     "chaine": "Goûtez",
+     "vues": "79 k vues",
+     "date": "il y a 3 ans",
+     "duree": "0:37",
+     "avatar": "https://yt3.ggpht.com/OoVG9SsF-rTQV6_1357U-X86rA_V-FpLeJ19nuRYRheSErrYanIZormB5n-_Rs8GWgehoM46=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PEEL",
+     [
+      {
+       "t": "A BOILED EGG",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RV9nz1qlY64",
+     "titre": "How to Make Hard-Cooked Eggs So Easy to Peel That the Shells Practically Fall Off",
+     "chaine": "America's Test Kitchen",
+     "vues": "2.7M views",
+     "date": "8 years ago",
+     "duree": "1:52",
+     "avatar": "https://yt3.ggpht.com/sKzhpJifGA4tZFt-KHpQ7iUbc3FohuxAY7Gqiea8xOfMK_sb2iRsjkWzy8VEe8zlymCX6L0s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "EIER",
+       "couleur": "#d9a441"
+      }
+     ],
+     "SCHNELL SCHÄLEN"
+    ],
+    "video": {
+     "id": "ifVTmuxolQQ",
+     "titre": "Gekochte Eier schälen in Sekunden - Diesen Trick sollte JEDER kennen!",
+     "chaine": "Der Schlaumacher | Geniale Fakten, Tipps & Lifehacks",
+     "vues": "175.734 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "1:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfTS9KM2CJ-tY3C1k3_sRqukgW7aWFBjRUyuiQdUzLJmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SGUSCIARE",
+     [
+      {
+       "t": "UN UOVO SODO",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MdJXuasqL18",
+     "titre": "Come SGUSCIARE le UOVA SODE in 3 SECONDI",
+     "chaine": "MypersonaltrainerTv",
+     "vues": "357K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "0:32",
+     "avatar": "https://yt3.ggpht.com/V3g92yU_f5wji-K1QWweh19YDOyIdl2mc0973p5bxg8zztobwZ96PHstH25IQ1DkJzo2CMtC=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DESCASCAR",
+     [
+      {
+       "t": "UM OVO COZIDO",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l-Sa4I0oaZQ",
+     "titre": "Jeito ninja de DESCASCAR OVO",
+     "chaine": "Manual do Mundo",
+     "vues": "2 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "YUMURTA",
+       "couleur": "#d9a441"
+      }
+     ],
+     "SOYMAK"
+    ],
+    "video": {
+     "id": "l69w3eURPX4",
+     "titre": "Yumurta Soymanın EN Hızlı ve Kolay Yolu - Arda'nın Mutfağı",
+     "chaine": "Arda'nın Mutfağı",
+     "vues": "134 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "1:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lk24AhOAPMb7_W6kAaMBVn-rJrBwpsVkgvJuIq5pR_W9s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CUREȚI",
+     [
+      {
+       "t": "UN OU FIERT",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0e6gw6Ybhwc",
+     "titre": "Cum poti curata mai rapid  un ou fiert  (2 metode)",
+     "chaine": "Bucătarul Trăsnit",
+     "vues": "194 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "3:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lEhcjW94VRdfDAHgZ0_Hm-yHXVmbMoROebfhKG5Rm0TQg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OLOUPAT",
+     [
+      {
+       "t": "VAJÍČKO",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "blThmmQ4W9c",
+     "titre": "3 tipy na loupání vajec | Chytře na ...",
+     "chaine": "Heureka",
+     "vues": "136 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "1:40",
+     "avatar": "https://yt3.ggpht.com/JHxGQ22ZIq2Tgku5cVWh5Ga4N3lN1Zw1-zXDPB0hc6RKZPsRoWkxuRK9CmpKIEs17viL54rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "AIGUISER",
+     [
+      {
+       "t": "UN COUTEAU",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "e4CqZpDaHg8",
+     "titre": "Aiguisage des couteaux à la maison",
+     "chaine": "la petite bette",
+     "vues": "144 k vues",
+     "date": "il y a 11 ans",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nWweDWEDcRo1jkrIEk_oiIqS7dWGxhu8SB-Q5YV5-RtAI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SHARPEN",
+     [
+      {
+       "t": "A KNIFE",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "h6faatE8b9Q",
+     "titre": "How to Sharpen a Knife with a Whetstone – Sharpening Dull Kitchen Knife to Extremely Sharp",
+     "chaine": "TheRenderQ",
+     "vues": "1.9M views",
+     "date": "9 years ago",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcWCFJZG8af-evu1iF8aFhOjUmpCqoqNphAV-5kVk77w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "MESSER",
+       "couleur": "#5f7f3a"
+      }
+     ],
+     "SCHÄRFEN"
+    ],
+    "video": {
+     "id": "TB0Vd8-p380",
+     "titre": "Messer richtig schärfen – auf dem Schleifstein",
+     "chaine": "WÜSTHOF",
+     "vues": "2,6 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/aFgEhMjN48Q5FUaSxr0-GKLCiSq6JmjNCGqvpSwH4NaxzBheu6CdgM2PhaRrmEyNrFsITR43=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "AFFILARE",
+     [
+      {
+       "t": "UN COLTELLO",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9I0bOUBLRiA",
+     "titre": "Come affilare un coltello - Scuola di Cucina",
+     "chaine": "CucinaPerTe",
+     "vues": "337K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDBlipPoKcHorynb6KuDRNBcbQnpjZCe636fGaJP0ZSEw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "AFIAR",
+     [
+      {
+       "t": "UMA FACA",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ByimatxymRI",
+     "titre": "Como AFIAR e AMOLAR uma faca PROFISSIONAL na PEDRA - sem a chaira",
+     "chaine": "Rei da Cutelaria",
+     "vues": "510 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/sLOyCKIEaQSpL_PsJMa_8CqkOH4p_6wz3hg5Xx4_g8feA4TbIdaAmHM27g4mmcEYXdtwEVfoYXM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BIÇAK",
+       "couleur": "#5f7f3a"
+      }
+     ],
+     "BİLEMEK"
+    ],
+    "video": {
+     "id": "IJlwitqtvFc",
+     "titre": "Bıçak bileme Selim usta",
+     "chaine": "Bilemeci Selim Kan",
+     "vues": "228 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "1:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lVXbaQKrWfzZ4_s2G0tqgxtfiLTquaRkXmRaQvXaY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ASCUȚI",
+     [
+      {
+       "t": "UN CUȚIT",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dONJFOPm7N8",
+     "titre": "Cum se ascute un cuţit - pentru începători",
+     "chaine": "Atelierul lui Daniel",
+     "vues": "79 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "32:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kq-wXu8caxbBBiHuwI59lM0-J49Mh0dAuNjkPzQyJZjw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NABROUSIT",
+     [
+      {
+       "t": "NŮŽ",
+       "couleur": "#5f7f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rV-2UdUep3s",
+     "titre": "Tipy a triky: Jak správně brousit nože",
+     "chaine": "Jak v kuchyni",
+     "vues": "72 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "0:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mHHoDj2Vd4Z0NXd-ObHgAyDO3vOvNO3L0g8curLuY2Vg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DÉTARTRER",
+     [
+      {
+       "t": "LA BOUILLOIRE",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8FP-kHUp5Cc",
+     "titre": "Détartrer une bouilloire : solution facile et écologique",
+     "chaine": "Minute Facile",
+     "vues": "123 k vues",
+     "date": "il y a 13 ans",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkXlV44SGe8MiiimoT5mKvZRj4ucbjBMXYxc30JFkmDYM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DESCALE",
+     [
+      {
+       "t": "THE KETTLE",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ogUmsRj8YFk",
+     "titre": "How To Descale A Kettle With Vinegar",
+     "chaine": "HowToDoYourself",
+     "vues": "564K views",
+     "date": "12 years ago",
+     "duree": "1:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCQUqpk79Ilz9d3TB0pqPmH-94L-mKCSVtIYNLSlcr=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "WASSERKOCHER",
+       "couleur": "#3b8ec2"
+      }
+     ],
+     "ENTKALKEN"
+    ],
+    "video": {
+     "id": "PlBDiwTsWZ0",
+     "titre": "Wasserkocher entkalken: Tipps für Haltbarkeit und Hygiene",
+     "chaine": "stern",
+     "vues": "22.606 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mmyVI4HMmy0Xy4SNvW8_DWKBVS1pGUsfzaB-Fd31v7nNs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "TOGLIERE IL CALCARE",
+     [
+      {
+       "t": "DAL BOLLITORE",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9yy40ZYKkV0",
+     "titre": "Come pulire il bollitore dal calcare",
+     "chaine": "Istruzionando",
+     "vues": "55K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mQ8yxZnLHouLTy7Jx_2PFbQQFP2h40hyoOZVBmvKJZrQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LIMPAR",
+     [
+      {
+       "t": "A CHALEIRA",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hUtHfZIlIE4",
+     "titre": "Como limpar chaleira? Tutorial completo ✨",
+     "chaine": "Helena Leigue",
+     "vues": "41 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "3:53",
+     "avatar": "https://yt3.ggpht.com/ZYGaNBlsb7nh5JtKwKTxykfVHRR4Bkk2Y99KyW7BkrELVlzxjdtITNPAxWOdhzdpKH-C0SawJw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KETTLE KİRECİ",
+       "couleur": "#3b8ec2"
+      }
+     ],
+     "TEMİZLEMEK"
+    ],
+    "video": {
+     "id": "ZJwht0v_iFs",
+     "titre": "Kettle VE ÇAYCI MAKİNELERİNDEKİ KİREÇ VE TORTU DOĞAL VE PRATİK ŞEKİLDE NASIL TEMİZLENİR?",
+     "chaine": "Yaşam Günlüğü",
+     "vues": "737 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/DSakhQGNt1rwSZikxEfqopcnQ4LlILPF0hTwB-NZbJ4qokla4oEy6WlpcqZqqTEWkmnYtPkfUqM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CURĂȚI",
+     [
+      {
+       "t": "FIERBĂTORUL",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OYMh_ivrdic",
+     "titre": "CURATA FIERBATORUL ELECTRIC RAPID SI EFICIENT / CASA ORGANICA EP. 3",
+     "chaine": "Ada Loves Life",
+     "vues": "14 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "3:17",
+     "avatar": "https://yt3.ggpht.com/pMAiHL4qx4ME4AZ0XByjKlHWTylEmlxwQnQRN4hpGvX4OyTMxXUb5l7LRPHJWnQs3s63R_qXAA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ODVÁPNIT",
+     [
+      {
+       "t": "RYCHLOVARNOU KONVICI",
+       "couleur": "#3b8ec2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Pe9vCZ2gDDM",
+     "titre": "Odstranění vodního kamene z rychlovarné konvice",
+     "chaine": "Petra Váňová",
+     "vues": "15 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nytohJ9_47zYp44mhMJ4Ju5t1k770zghyYobQvZG-oQ0c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   }
+  }
+ ]
+}

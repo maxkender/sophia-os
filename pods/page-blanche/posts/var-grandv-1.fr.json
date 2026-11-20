@@ -1,0 +1,294 @@
+{
+ "post_id": "var-grandv-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things that are rapidly",
+      "destroying your ability to focus"
+     ],
+     "fr": "10/10 trucs qui flinguent ta concentration à vitesse grand V"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": ""
+    },
+    "T3": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1693f654.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/os_0d9529e0.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to something",
+      "constantly"
+     ],
+     "fr": "pas bouger [[de toute la journée]]",
+     "texte": "pas bouger [[de toute la journée]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, YouTube in the background,",
+      "your brain is almost never doing just one",
+      "thing"
+     ],
+     "fr": "cours, bureau, canapé, puis lit. ton corps bouge à peine et ton cerveau [[ralentit avec lui]]",
+     "texte": "cours, bureau, canapé, puis lit. ton corps bouge à peine et ton cerveau [[ralentit avec lui]]"
+    },
+    "T3": {
+     "en": [
+      "especially with",
+      "lyrics, part of",
+      "your attention is",
+      "still processing",
+      "language"
+     ],
+     "fr": "même [[10 min de marche]] redonnent un coup de fouet à ta concentration",
+     "texte": "même [[10 min de marche]] redonnent un coup de fouet à ta concentration"
+    },
+    "T4": {
+     "en": [
+      "silence feels boring because you've stopped",
+      "practicing it"
+     ],
+     "fr": "prends l'escalier, marche, [[bouge toutes les heures]]",
+     "texte": "prends l'escalier, marche, [[bouge toutes les heures]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0161939d.jpg",
+      "boite": [
+       0,
+       0,
+       944,
+       1104
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "tout lire [[en diagonale]]",
+     "texte": "tout lire [[en diagonale]]"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even",
+      "realising, then lose hours of",
+      "your day to it. that is frying",
+      "your attention span"
+     ],
+     "fr": "titres, légendes, deux lignes d'un post, et hop, tu passes à autre chose. ton cerveau apprend à [[décrocher avant la fin]]",
+     "texte": "titres, légendes, deux lignes d'un post, et hop, tu passes à autre chose. ton cerveau apprend à [[décrocher avant la fin]]"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower to",
+      "stop, but i use a thing that",
+      "blocks tiktok until i read a",
+      "book for 20 minutes"
+     ],
+     "fr": "mes 5 min du jour sur [[l'appli Sophia]] : camus et le mythe de sisyphe, et je l'ai lu jusqu'au bout",
+     "texte": "mes 5 min du jour sur [[l'appli Sophia]] : camus et le mythe de sisyphe, et je l'ai lu jusqu'au bout"
+    },
+    "T4": {
+     "en": [
+      "don't become illiterate!!"
+     ],
+     "fr": "lis tout jusqu'au bout !!",
+     "texte": "lis tout jusqu'au bout !!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming everything at 2x speed"
+     ],
+     "fr": "bosser 3 h [[sans aucune pause]]",
+     "texte": "bosser 3 h [[sans aucune pause]]"
+    },
+    "T2": {
+     "en": [
+      "when every podcast, video",
+      "and voice note is sped up,",
+      "normal-speed information",
+      "starts feeling painfully slow"
+     ],
+     "fr": "ta concentration baisse forcément au bout d'un moment, alors forcer, c'est [[une dernière heure presque perdue]]",
+     "texte": "ta concentration baisse forcément au bout d'un moment, alors forcer, c'est [[une dernière heure presque perdue]]"
+    },
+    "T3": {
+     "en": [
+      "you're training yourself to",
+      "need constant density"
+     ],
+     "fr": "ton cerveau a besoin de [[petites pauses]] pour rester vif",
+     "texte": "ton cerveau a besoin de [[petites pauses]] pour rester vif"
+    },
+    "T4": {
+     "en": [
+      "instead, actually sit with an",
+      "idea for more than 10",
+      "seconds"
+     ],
+     "fr": "toutes les 50 min, lève-toi, étire-toi et regarde au loin",
+     "texte": "toutes les 50 min, lève-toi, étire-toi et regarde au loin"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_26ae8ed8.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "googling every random thought",
+      "you have"
+     ],
+     "fr": "garder ton tel [[juste à côté de toi]]",
+     "texte": "garder ton tel [[juste à côté de toi]]"
+    },
+    "T2": {
+     "en": [
+      "you don't need to solve every curiosity the second it",
+      "appears"
+     ],
+     "fr": "même retourné et en silencieux, il grignote ton attention",
+     "texte": "même retourné et en silencieux, il grignote ton attention"
+    },
+    "T3": {
+     "en": [
+      "one search becomes five",
+      "tabs, then Reddit, then",
+      "somehow 20 minutes",
+      "disappeared"
+     ],
+     "fr": "dans une étude, on retenait moins bien [[juste parce que le tel était sur la table]]",
+     "texte": "dans une étude, on retenait moins bien [[juste parce que le tel était sur la table]]"
+    },
+    "T4": {
+     "en": [
+      "write the thought down",
+      "and finish what you were",
+      "doing first"
+     ],
+     "fr": "quand t'as besoin de te concentrer, range-le [[dans ton sac]]",
+     "texte": "quand t'as besoin de te concentrer, range-le [[dans ton sac]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_31d533cb.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "procrastinating all day"
+     ],
+     "fr": "boire [[presque pas d'eau]]",
+     "texte": "boire [[presque pas d'eau]]"
+    },
+    "T2": {
+     "en": [
+      "every time you tell",
+      "yourself you'll do then",
+      "dont, you lose trust in",
+      "yourself"
+     ],
+     "fr": "même un petit manque d'eau [[flingue ta concentration]], bien avant que t'aies soif",
+     "texte": "même un petit manque d'eau [[flingue ta concentration]], bien avant que t'aies soif"
+    },
+    "T3": {
+     "en": [
+      "when you think about",
+      "doing something, do it",
+      "instantly"
+     ],
+     "fr": "garde une gourde sur ton bureau et [[bois toute la journée]]",
+     "texte": "garde une gourde sur ton bureau et [[bois toute la journée]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_028ba6dc.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

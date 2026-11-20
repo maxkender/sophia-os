@@ -23,12 +23,12 @@
    "images": {
     "I1": {
      "remplacer": {
-      "source": "sources/os_4c0d6882.jpg",
+      "source": "sources/os_00736c3e.jpg",
       "boite": [
        0,
        0,
-       2048,
-       2048
+       1760,
+       2368
       ]
      }
     }
@@ -125,12 +125,12 @@
    "images": {
     "I1": {
      "remplacer": {
-      "source": "sources/os_1693f654.jpg",
+      "source": "sources/os_193e5ff1.jpg",
       "boite": [
        0,
        0,
-       1664,
-       2496
+       2496,
+       1664
       ]
      }
     }
@@ -264,12 +264,12 @@
    "images": {
     "I1": {
      "remplacer": {
-      "source": "sources/os_3bb4f482.jpg",
+      "source": "sources/os_00946db8.jpg",
       "boite": [
        0,
        0,
-       2368,
-       1760
+       2048,
+       2048
       ]
      }
     }

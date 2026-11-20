@@ -245,7 +245,7 @@
       "for 20 minutes"
      ],
      "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
-     "texte": "Rönesans neden İtalya'da başladı, [[Sophia uygulamasında]] 5 dakikalık bir derste"
+     "texte": "Rönesans neden İtalya'da başladı, 5 dakikalık bir derste, [[Sophia uygulamasında]]"
     }
    },
    "images": {
@@ -311,7 +311,7 @@
       "source": "sources/os_c79404cc.jpg",
       "boite": [
        0,
-       450,
+       120,
        1664,
        1133
       ]

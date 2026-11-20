@@ -1,0 +1,350 @@
+{
+ "post_id": "var-productif-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "6 habitudes pour devenir ultra productive",
+     "texte": "6 Gewohnheiten für krass produktive Tage"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(laut Neurowissenschaft)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0e53949d.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. take real breaks"
+     ],
+     "fr": "1. fais de [[vraies pauses]]",
+     "texte": "1. plan [[morgen]] schon heute Abend"
+    },
+    "T2": {
+     "en": [
+      "doomscrolling between work",
+      "blocks is not rest, that's why",
+      "you always feel tired"
+     ],
+     "fr": "[[scroller]] entre deux sessions, [[c'est pas une pause]], d'où ta fatigue constante",
+     "texte": "schreib abends [[deine 3 Aufgaben]] für morgen auf, dann hört dein Kopf auf zu kreisen"
+    },
+    "T3": {
+     "en": [
+      "you're just swapping",
+      "one stream of",
+      "stimulation for another"
+     ],
+     "fr": "tu remplaces juste une dose de stimulation par une autre",
+     "texte": "morgens weißt du sofort, womit du anfängst"
+    },
+    "T4": {
+     "en": [
+      "take 10 minutes with",
+      "no screen"
+     ],
+     "fr": "prends 10 minutes sans écran",
+     "texte": "5 Min Liste vor dem Schlafen"
+    },
+    "T5": {
+     "en": [
+      "walk, stretch, stare outside, then come",
+      "back with an actually quieter brain"
+     ],
+     "fr": "marche, étire-toi, regarde dehors, puis reviens avec un cerveau enfin au calme",
+     "texte": "laut einer Studie [[schläft man damit schneller ein]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_64ceb7de.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "fr": "2. arrête [[le multitâche]]",
+     "texte": "2. schreib deinen Kopf [[leer]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "fr": "chaque fois que tu changes de tâche, ta mémoire doit tout lâcher et tout recharger",
+     "texte": "eine unerledigte Aufgabe [[geht dir ständig durch den Kopf]], auch wenn du an was anderem sitzt"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "fr": "faire 2 trucs à la fois, ça [[a l'air productif]], mais ton cerveau passe son temps à se recaler",
+     "texte": "Forschende zeigten: ein konkreter Plan dafür [[bringt sie zum Schweigen]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "eine Liste, ein Stift, [[und der Kopf ist frei]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_09dd6248.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone",
+      "right after waking up"
+     ],
+     "fr": "arrête de regarder ton tel [[dès le réveil]]",
+     "texte": "3. hol dir morgens [[Tageslicht]]"
+    },
+    "T2": {
+     "en": [
+      "if you scroll as soon as you wake up, you start",
+      "your whole day on cheap dopamine"
+     ],
+     "fr": "scroller dès que t'ouvres les yeux, c'est lancer ta journée à la [[dopamine facile]]",
+     "texte": "Morgenlicht stellt deine innere Uhr und [[macht dein Gehirn richtig wach]]"
+    },
+    "T3": {
+     "en": [
+      "everything after",
+      "that feels",
+      "boring, so it",
+      "gets way harder",
+      "to focus on",
+      "what actually",
+      "matters"
+     ],
+     "fr": "après, tout te paraît chiant, donc c'est [[bien plus dur de te concentrer]] sur ce qui compte vraiment",
+     "texte": "dein Gehirn weiß dann, dass [[der Tag begonnen hat]], und der Nebel im Kopf ist schneller weg"
+    },
+    "T4": {
+     "en": [
+      "give yourself the first 30 minutes without",
+      "your phone"
+     ],
+     "fr": "garde les 30 premières minutes de ta journée sans tel",
+     "texte": "10 Min raus am Morgen, auch wenn's bewölkt ist"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04772578.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. put your phone in another room"
+     ],
+     "fr": "4. mets ton tel [[dans une autre pièce]]",
+     "alignement": "gauche",
+     "texte": "4. ein [[Glas Wasser]] nach dem Aufwachen"
+    },
+    "T2": {
+     "en": [
+      "willpower alone is a",
+      "terrible phone blocker"
+     ],
+     "fr": "la volonté, [[ça suffit pas]] contre ton tel",
+     "texte": "nachts nichts getrunken, [[dein Gehirn hat Durst]]"
+    },
+    "T3": {
+     "en": [
+      "one study of nearly",
+      "800 people"
+     ],
+     "fr": "une étude sur presque 800 personnes",
+     "texte": "eine Studie mit 25 Leuten"
+    },
+    "T4": {
+     "en": [
+      "found that just having",
+      "your phone nearby",
+      "reduced available",
+      "cognitive capacity"
+     ],
+     "fr": "a montré qu'avoir juste ton tel à côté [[suffit à te ralentir le cerveau]]",
+     "texte": "zeigte, dass schon 1,5 % weniger Wasser [[Konzentration und Laune drückt]]"
+    },
+    "T5": {
+     "en": [
+      "even when you weren't using it!!"
+     ],
+     "fr": "[[même quand tu t'en sers pas !!]]",
+     "texte": "[[dauert 10 Sekunden!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_045f1f7b.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. read classic books"
+     ],
+     "fr": "3. lis des [[classiques]]",
+     "texte": "5. lern [[was Neues]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok",
+      "you saw 5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok d'il y a [[5 scrolls]] ?",
+     "texte": "dein Gehirn liebt Neues: es [[schüttet Dopamin aus]]"
+    },
+    "T3": {
+     "en": [
+      "exactly. read 20 pages",
+      "of a good book instead"
+     ],
+     "fr": "[[bah voilà]]. lis plutôt 20 pages d'un bon livre",
+     "texte": "und das hilft [[deinem Gedächtnis]], Infos zu behalten"
+    },
+    "T4": {
+     "en": [
+      "books that survived 50–",
+      "100+ years usually",
+      "survived for a reason"
+     ],
+     "fr": "un livre qui tient depuis 50 ou 100 ans, c'est rarement un hasard",
+     "texte": "meine 5 Min heute in [[der Sophia-App]]: wie mit dem Urknall alles anfing"
+    },
+    "T5": {
+     "en": [
+      "fix your attention span"
+     ],
+     "fr": "[[répare ta concentration]]",
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6. work before you communicate"
+     ],
+     "fr": "6. bosse [[avant]] de répondre",
+     "texte": "6. schlaf [[7 bis 9 Stunden]]"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90",
+      "minutes of uninterrupted",
+      "creation before",
+      "becoming available to",
+      "everyone else"
+     ],
+     "fr": "garde-toi 60-90 minutes pour [[créer sans interruption]] avant d'être dispo pour les autres",
+     "texte": "nach 17 bis 19 Stunden wach arbeitet dein Gehirn laut einer Studie [[wie mit 0,5 Promille]]"
+    },
+    "T3": {
+     "en": [
+      "your priorities should",
+      "enter your head before",
+      "theirs do"
+     ],
+     "fr": "tes priorités d'abord dans ta tête, celles des autres après",
+     "texte": "keine To-do-Liste macht [[eine zu kurze Nacht]] wieder gut"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_8d21ae9a.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  }
+ }
+}

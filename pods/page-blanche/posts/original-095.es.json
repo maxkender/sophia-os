@@ -49,7 +49,7 @@
       "generation's worst habits, it rots your brain"
      ],
      "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
-     "texte": "en la mochila, en la mesita, en el bolso: [[cada cola se vuelve un rato de lectura]]"
+     "texte": "en la mochila, en la mesita, en el bolso, en el coche: [[cada cola se vuelve un rato de lectura]]"
     },
     "T3": {
      "en": [
@@ -59,7 +59,7 @@
       "learn to sit in it"
      ],
      "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
-     "texte": "10 minutos aquí y allá [[se vuelven capítulos]]"
+     "texte": "10 minutos aquí, 15 minutos allá, y al final de la semana [[son capítulos enteros]]"
     },
     "T4": {
      "en": [
@@ -68,7 +68,7 @@
       "attention span"
      ],
      "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
-     "texte": "no buscan tiempo extra para leer, leen [[en los huecos]] que los demás llenan haciendo scroll"
+     "texte": "no buscan tiempo extra para leer, simplemente leen [[en los huecos]] que los demás llenan haciendo scroll"
     }
    },
    "images": {
@@ -93,7 +93,7 @@
       "you're lazy"
      ],
      "fr": "arrête de zapper les slides [[par flemme]]",
-     "texte": "dejan un libro aburrido [[sin culpa]]"
+     "texte": "dejan un libro aburrido [[sin ninguna culpa]]"
     },
     "T2": {
      "en": [
@@ -113,7 +113,7 @@
       "move on"
      ],
      "fr": "tout survoler apprend à ton cerveau à [[lire le titre et passer à autre chose]]",
-     "texte": "un libro malo puede [[frenarte semanas]]"
+     "texte": "un libro malo puede [[frenarte semanas]], porque nunca te apetece abrirlo"
     },
     "T4": {
      "en": [
@@ -121,7 +121,7 @@
       "attention span is better than most"
      ],
      "fr": "si tu lis encore ça, [[t'as plus de concentration que la plupart des gens]]",
-     "texte": "la vida es muy corta: [[elige uno que no puedas soltar]]"
+     "texte": "la vida es demasiado corta para eso: [[elige uno que no puedas soltar]]"
     }
    },
    "images": {
@@ -146,7 +146,7 @@
       "in the morning"
      ],
      "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
-     "texte": "10 páginas [[antes de tocar el móvil]]"
+     "texte": "leen 10 páginas [[antes de tocar siquiera el móvil]]"
     },
     "T2": {
      "en": [
@@ -163,7 +163,7 @@
       "without your phone"
      ],
      "fr": "passe [[les 30 premières minutes]] sans ton tel",
-     "texte": "[[10 páginas con el café]], el móvil espera"
+     "texte": "[[10 páginas con el primer café]], el móvil espera"
     },
     "T4": {
      "en": [
@@ -171,7 +171,7 @@
       "reacting to whatever your phone throws at you"
      ],
      "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
-     "texte": "es tan poco que [[nunca te lo saltas]], y marca el tono de todo el día"
+     "texte": "es tan poco que [[nunca te lo saltas]], y le da un tono mucho más tranquilo a todo tu día"
     }
    },
    "images": {
@@ -202,7 +202,7 @@
       "short form content is frying your attention span"
      ],
      "fr": "les vidéos courtes [[te grillent la concentration]]",
-     "texte": "los minutos en la parada [[también cuentan]]"
+     "texte": "hasta los minutos en la parada del bus [[cuentan]]"
     },
     "T3": {
      "en": [
@@ -245,7 +245,7 @@
       "a few minutes without grabbing their phone"
      ],
      "fr": "la plupart des gens tiennent pas quelques minutes [[seuls avec leurs pensées]] sans attraper leur tel",
-     "texte": "un ensayo pesado tras otro es como [[mucha gente se harta de leer]]"
+     "texte": "un ensayo pesado detrás de otro: así es como [[mucha gente acaba harta de leer libros]]"
     },
     "T3": {
      "en": [
@@ -254,7 +254,7 @@
       "prefrontal cortex"
      ],
      "fr": "c'est prouvé, la méditation [[renforce ton cortex préfrontal]]",
-     "texte": "una novela en medio [[se siente como un descanso]]"
+     "texte": "una novela en medio [[se siente como un descanso]], no como trabajo"
     },
     "T4": {
      "en": [
@@ -263,7 +263,7 @@
       "self-control"
      ],
      "fr": "celle qui gère [[ta concentration et ton self-control]]",
-     "texte": "y mantiene el hábito [[todo el año]]"
+     "texte": "y así el hábito sigue vivo [[durante todo el año]]"
     }
    },
    "images": {

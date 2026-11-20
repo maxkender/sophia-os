@@ -1,0 +1,296 @@
+{
+ "post_id": "var-ruin20s-5",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "top 5 wege, ewig langweilig zu bleiben"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(harte Wahrheit)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_040f5f1c.jpg",
+      "boite": [
+       0,
+       500,
+       1760,
+       1320
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "find bloß nie neue Freunde"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "dein Freundeskreis ist seit der Schule [[geschlossen]]. sorry, voll"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "neue Leute heißt neue Geschichten, neue Meinungen, neue Musik. klingt [[anstrengend]], oder?"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "will dich auf einer Party wer Spannendes anquatschen, starr aufs Handy, bis er [[aufgibt]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0964a4c2.jpg",
+      "boite": [
+       0,
+       400,
+       2048,
+       1480
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop scrolling and start reading"
+     ],
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "jammer, dass dir langweilig ist"
+    },
+    "T2": {
+     "en": [
+      "short-form content keeps",
+      "your brain chasing novelty",
+      "every few seconds"
+     ],
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
+     "texte": "sag's 12-mal am Tag und öffne dann [[dieselben 3 Apps]], die du eben zu hattest"
+    },
+    "T3": {
+     "en": [
+      "books force sustained",
+      "attention, memory and",
+      "imagination to stay",
+      "switched on"
+     ],
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "an deiner Langeweile ist die Welt schuld, [[nie du]]. es gibt halt nichts zu tun"
+    },
+    "T4": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, replace",
+      "your scrolling with reading"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "such bloß keine Lösung. [[bleib gelangweilt]] und sorg dafür, dass es alle mitkriegen"
+    },
+    "T5": {
+     "en": [
+      "i use readup to block my",
+      "apps until i read, or you",
+      "can move your phone to a",
+      "different room"
+     ],
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
+     "texte": "und tausch dein Scrollen nie gegen ein Buch, einen Podcast oder 5 Min in [[der Sophia-App]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "train a martial art"
+     ],
+     "fr": "fais un sport de combat",
+     "texte": "geh nie allein raus"
+    },
+    "T2": {
+     "en": [
+      "you get corrected constantly, exposed when your",
+      "technique is bad, and forced to keep going when",
+      "you're tired"
+     ],
+     "fr": "on te [[corrige sans arrêt]], on voit direct quand ta technique est nulle, et tu dois continuer [[même crevée]]",
+     "texte": "Konzert, Kino, eine Reise? hat keiner Zeit, [[fällt's eben aus]]. lieber zu Hause bleiben, als allein gesehen zu werden"
+    },
+    "T3": {
+     "en": [
+      "martial arts teaches",
+      "you to stay calm under",
+      "pressure"
+     ],
+     "fr": "ça t'apprend à [[rester calme sous pression]]",
+     "texte": "ein Tisch für eine Person? was sollen [[die Leute denken]]"
+    },
+    "T4": {
+     "en": [
+      "instead of quitting the",
+      "second something gets",
+      "uncomfortable"
+     ],
+     "fr": "au lieu de tout lâcher dès que ça devient inconfortable",
+     "texte": "also warte. irgendwann sagt jemand [[endlich ja]]. vielleicht"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_060f9bde.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "setz nie wieder einen Fuß in ein Museum"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "Museen sind leise, langsam und voller Dinge, [[die älter als dein Handy sind]]"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "ein Gemälde, an dem wer 4 Jahre saß? [[3 Sekunden]], max. dann über müde Füße jammern und ab zum Ausgang"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "Kunst ist [[nur was für andere]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_501b051b.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "fahr in jedem Urlaub an denselben Ort"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "was Neues? [[viel zu stressig]]"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "gleicher Strand, gleiches Hotel, gleiches Lokal, gleiche Bräune. ein Land, wo du die Karte nicht lesen kannst? [[niemals]]"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "bleib genau, wer du mit 16 warst, gleiche Storys, gleiche Witze. langweilig ist kein Fehler, [[es ist ein Lebensstil]]!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0b1145c6.jpg",
+      "boite": [
+       430,
+       0,
+       1508,
+       1300
+      ]
+     }
+    }
+   }
+  }
+ }
+}

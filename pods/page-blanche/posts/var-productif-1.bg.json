@@ -1,0 +1,350 @@
+{
+ "post_id": "var-productif-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "6 habitudes pour devenir ultra productive",
+     "texte": "6 навика за ултра продуктивност"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(науката е съгласна)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0fb9f742.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. take real breaks"
+     ],
+     "fr": "1. fais de [[vraies pauses]]",
+     "texte": "1. планирай [[утрешния ден]] вечерта"
+    },
+    "T2": {
+     "en": [
+      "doomscrolling between work",
+      "blocks is not rest, that's why",
+      "you always feel tired"
+     ],
+     "fr": "[[scroller]] entre deux sessions, [[c'est pas une pause]], d'où ta fatigue constante",
+     "texte": "вечер запиши [[3-те си задачи]] за утре и мозъкът ти спира да се върти в кръг"
+    },
+    "T3": {
+     "en": [
+      "you're just swapping",
+      "one stream of",
+      "stimulation for another"
+     ],
+     "fr": "tu remplaces juste une dose de stimulation par une autre",
+     "texte": "сутрин веднага знаеш откъде да започнеш"
+    },
+    "T4": {
+     "en": [
+      "take 10 minutes with",
+      "no screen"
+     ],
+     "fr": "prends 10 minutes sans écran",
+     "texte": "5 мин списък преди сън"
+    },
+    "T5": {
+     "en": [
+      "walk, stretch, stare outside, then come",
+      "back with an actually quieter brain"
+     ],
+     "fr": "marche, étire-toi, regarde dehors, puis reviens avec un cerveau enfin au calme",
+     "texte": "според едно изследване с такъв списък [[заспиваш по-бързо]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_64ceb7de.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "fr": "2. arrête [[le multitâche]]",
+     "texte": "2. изсипи главата си [[на хартия]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "fr": "chaque fois que tu changes de tâche, ta mémoire doit tout lâcher et tout recharger",
+     "texte": "една недовършена задача [[ти идва наум]] пак и пак, дори когато правиш друго"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "fr": "faire 2 trucs à la fois, ça [[a l'air productif]], mais ton cerveau passe son temps à se recaler",
+     "texte": "изследователи показват, че план за нея на хартия [[стига, за да я заглуши]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "списък, химикалка [[и чиста глава]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_09dd6248.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone",
+      "right after waking up"
+     ],
+     "fr": "arrête de regarder ton tel [[dès le réveil]]",
+     "texte": "3. излез [[на дневна светлина]] сутрин"
+    },
+    "T2": {
+     "en": [
+      "if you scroll as soon as you wake up, you start",
+      "your whole day on cheap dopamine"
+     ],
+     "fr": "scroller dès que t'ouvres les yeux, c'est lancer ta journée à la [[dopamine facile]]",
+     "texte": "сутрешната светлина нагласява вътрешния ти часовник и [[наистина буди мозъка ти]]"
+    },
+    "T3": {
+     "en": [
+      "everything after",
+      "that feels",
+      "boring, so it",
+      "gets way harder",
+      "to focus on",
+      "what actually",
+      "matters"
+     ],
+     "fr": "après, tout te paraît chiant, donc c'est [[bien plus dur de te concentrer]] sur ce qui compte vraiment",
+     "texte": "мозъкът ти знае, че [[денят е започнал]], и сутрешната мъгла в главата изчезва по-бързо"
+    },
+    "T4": {
+     "en": [
+      "give yourself the first 30 minutes without",
+      "your phone"
+     ],
+     "fr": "garde les 30 premières minutes de ta journée sans tel",
+     "texte": "10 мин навън сутрин, дори когато е облачно"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04772578.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. put your phone in another room"
+     ],
+     "fr": "4. mets ton tel [[dans une autre pièce]]",
+     "alignement": "gauche",
+     "texte": "4. изпий [[чаша вода]] след събуждане"
+    },
+    "T2": {
+     "en": [
+      "willpower alone is a",
+      "terrible phone blocker"
+     ],
+     "fr": "la volonté, [[ça suffit pas]] contre ton tel",
+     "texte": "цяла нощ без вода, [[мозъкът ти е жаден]]"
+    },
+    "T3": {
+     "en": [
+      "one study of nearly",
+      "800 people"
+     ],
+     "fr": "une étude sur presque 800 personnes",
+     "texte": "едно изследване с 25 души"
+    },
+    "T4": {
+     "en": [
+      "found that just having",
+      "your phone nearby",
+      "reduced available",
+      "cognitive capacity"
+     ],
+     "fr": "a montré qu'avoir juste ton tel à côté [[suffit à te ralentir le cerveau]]",
+     "texte": "показва, че само 1,5% по-малко вода [[сваля концентрацията]] и настроението"
+    },
+    "T5": {
+     "en": [
+      "even when you weren't using it!!"
+     ],
+     "fr": "[[même quand tu t'en sers pas !!]]",
+     "texte": "[[това са 10 секунди!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_045f1f7b.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. read classic books"
+     ],
+     "fr": "3. lis des [[classiques]]",
+     "texte": "5. научавай [[нещо ново]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok",
+      "you saw 5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok d'il y a [[5 scrolls]] ?",
+     "texte": "мозъкът ти обожава новото: [[то отделя допамин]]"
+    },
+    "T3": {
+     "en": [
+      "exactly. read 20 pages",
+      "of a good book instead"
+     ],
+     "fr": "[[bah voilà]]. remplace 5 min de scroll par [[l'appli Sophia]]",
+     "texte": "а допаминът помага на [[паметта ти]] да запази инфото"
+    },
+    "T4": {
+     "en": [
+      "books that survived 50–",
+      "100+ years usually",
+      "survived for a reason"
+     ],
+     "fr": "un livre qui tient depuis 50 ou 100 ans, c'est rarement un hasard",
+     "texte": "моите 5 мин днес в [[приложението Sophia]]: защо Ренесансът се ражда в Италия"
+    },
+    "T5": {
+     "en": [
+      "fix your attention span"
+     ],
+     "fr": "[[répare ta concentration]]",
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6. work before you communicate"
+     ],
+     "fr": "6. bosse [[avant]] de répondre",
+     "texte": "6. спи [[7-9 часа]]"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90",
+      "minutes of uninterrupted",
+      "creation before",
+      "becoming available to",
+      "everyone else"
+     ],
+     "fr": "garde-toi 60-90 minutes pour [[créer sans interruption]] avant d'être dispo pour les autres",
+     "texte": "след 17-19 часа без сън мозъкът ти работи [[като след 2 питиета]], според едно изследване"
+    },
+    "T3": {
+     "en": [
+      "your priorities should",
+      "enter your head before",
+      "theirs do"
+     ],
+     "fr": "tes priorités d'abord dans ta tête, celles des autres après",
+     "texte": "никой списък със задачи не компенсира [[твърде кратка нощ]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_8d21ae9a.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  }
+ }
+}

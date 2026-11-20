@@ -9,7 +9,7 @@
       "disgustingly disciplined"
      ],
      "fr": "10/10 habitudes pour avoir une discipline de malade",
-     "texte": "abitudini di chi legge 50 libri all'anno"
+     "texte": "le abitudini di chi legge 50 libri all'anno"
     },
     "T2": {
      "en": [
@@ -41,7 +41,7 @@
       "stop watching youtube while eating"
      ],
      "fr": "[[lâche youtube]] pendant les repas",
-     "texte": "[[hanno sempre un libro con sé]]"
+     "texte": "si portano [[sempre dietro un libro]]"
     },
     "T2": {
      "en": [
@@ -49,7 +49,7 @@
       "generation's worst habits, it rots your brain"
      ],
      "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
-     "texte": "in borsa, sul comodino, nello zaino: [[ogni fila diventa tempo per leggere]]"
+     "texte": "in borsa, sul comodino, nello zaino, in macchina: [[ogni fila diventa tempo per leggere]]"
     },
     "T3": {
      "en": [
@@ -59,7 +59,7 @@
       "learn to sit in it"
      ],
      "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
-     "texte": "10 minuti qua e là [[diventano capitoli interi]]"
+     "texte": "10 minuti qua, 15 minuti là, e a fine settimana [[sono capitoli interi]]"
     },
     "T4": {
      "en": [
@@ -113,7 +113,7 @@
       "move on"
      ],
      "fr": "tout survoler apprend à ton cerveau à [[lire le titre et passer à autre chose]]",
-     "texte": "un libro brutto può [[bloccarti per settimane]]"
+     "texte": "un libro brutto può [[bloccarti per settimane]], perché non lo apri mai"
     },
     "T4": {
      "en": [
@@ -146,7 +146,7 @@
       "in the morning"
      ],
      "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
-     "texte": "10 pagine [[prima di toccare il telefono]]"
+     "texte": "leggono 10 pagine [[prima di toccare il telefono]]"
     },
     "T2": {
      "en": [
@@ -154,7 +154,7 @@
       "now it’s notifications and other people’s lives"
      ],
      "fr": "ce que tu vois en premier conditionne ta journée, et là c'est [[des notifs et la vie des autres]]",
-     "texte": "la mattina la testa è più tranquilla, prima che [[le notifiche la tirino ovunque]]"
+     "texte": "la mattina la testa è più tranquilla, prima che [[le notifiche la tirino da tutte le parti]]"
     },
     "T3": {
      "en": [
@@ -163,7 +163,7 @@
       "without your phone"
      ],
      "fr": "passe [[les 30 premières minutes]] sans ton tel",
-     "texte": "[[10 pagine col caffè]], il telefono resta lì"
+     "texte": "[[10 pagine col primo caffè]], il telefono resta lì"
     },
     "T4": {
      "en": [
@@ -171,7 +171,7 @@
       "reacting to whatever your phone throws at you"
      ],
      "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
-     "texte": "è così poco che [[non lo salti mai]], e dà il tono a tutta la giornata"
+     "texte": "è talmente poco che [[non lo salti mai]], e dà un tono più calmo a tutta la tua giornata"
     }
    },
    "images": {
@@ -195,14 +195,14 @@
       "read books instead of scrolling"
      ],
      "fr": "lis des livres [[au lieu de scroller]]",
-     "texte": "niente libro? [[impara qualcosa lo stesso]]"
+     "texte": "niente libro? [[impara lo stesso]]"
     },
     "T2": {
      "en": [
       "short form content is frying your attention span"
      ],
      "fr": "les vidéos courtes [[te grillent la concentration]]",
-     "texte": "anche i minuti alla fermata [[contano]]"
+     "texte": "anche i 5 minuti alla fermata del bus [[contano]]"
     },
     "T3": {
      "en": [
@@ -245,7 +245,7 @@
       "a few minutes without grabbing their phone"
      ],
      "fr": "la plupart des gens tiennent pas quelques minutes [[seuls avec leurs pensées]] sans attraper leur tel",
-     "texte": "un saggio pesante dopo l'altro è il modo in cui [[molti si stufano di leggere]]"
+     "texte": "un saggio pesante dopo l'altro: è così che [[tanta gente finisce per stufarsi di leggere]]"
     },
     "T3": {
      "en": [
@@ -254,7 +254,7 @@
       "prefrontal cortex"
      ],
      "fr": "c'est prouvé, la méditation [[renforce ton cortex préfrontal]]",
-     "texte": "un romanzo in mezzo [[sembra una pausa]]"
+     "texte": "un romanzo in mezzo [[sembra una pausa]], non un lavoro"
     },
     "T4": {
      "en": [
@@ -263,7 +263,7 @@
       "self-control"
      ],
      "fr": "celle qui gère [[ta concentration et ton self-control]]",
-     "texte": "e tiene viva l'abitudine [[tutto l'anno]]"
+     "texte": "e così l'abitudine resta viva [[per tutto l'anno]]"
     }
    },
    "images": {

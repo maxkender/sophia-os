@@ -17,7 +17,7 @@
      ],
      "fr": "(la science est d'accord)",
      "alignement": "droite",
-     "texte": "(sie lesen nicht schneller)"
+     "texte": "(lesen nicht schneller)"
     }
    },
    "images": {
@@ -41,7 +41,7 @@
       "stop watching youtube while eating"
      ],
      "fr": "[[lâche youtube]] pendant les repas",
-     "texte": "[[immer ein buch dabei]]"
+     "texte": "sie haben [[immer ein buch dabei]]"
     },
     "T2": {
      "en": [
@@ -59,7 +59,7 @@
       "learn to sit in it"
      ],
      "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
-     "texte": "10 minuten hier und da werden [[zu ganzen kapiteln]]"
+     "texte": "10 minuten hier, 15 minuten da, und am ende der woche [[sind es ganze kapitel]]"
     },
     "T4": {
      "en": [
@@ -68,7 +68,7 @@
       "attention span"
      ],
      "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
-     "texte": "sie suchen keine extra zeit zum lesen, sie lesen [[in den lücken]], die andere mit scrollen füllen"
+     "texte": "sie suchen keine extra zeit zum lesen, sie lesen einfach [[in den kleinen lücken]], die andere mit scrollen füllen"
     }
    },
    "images": {
@@ -101,7 +101,7 @@
       "and never read the actual text"
      ],
      "fr": "la plupart des gens font défiler ce genre de slides sans [[jamais lire le texte]]",
-     "texte": "sich durch ein zähes buch zu quälen, macht lesen [[zur hausaufgabe]]"
+     "texte": "sich durch ein zähes buch zu quälen, das du hasst, macht lesen [[zur hausaufgabe]]"
     },
     "T3": {
      "en": [
@@ -113,7 +113,7 @@
       "move on"
      ],
      "fr": "tout survoler apprend à ton cerveau à [[lire le titre et passer à autre chose]]",
-     "texte": "ein schlechtes buch kann dich [[wochenlang ausbremsen]]"
+     "texte": "ein schlechtes buch kann dich [[wochenlang ausbremsen]], weil du es nie aufschlägst"
     },
     "T4": {
      "en": [
@@ -146,7 +146,7 @@
       "in the morning"
      ],
      "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
-     "texte": "10 seiten lesen, [[bevor das handy dran ist]]"
+     "texte": "sie lesen 10 seiten, [[bevor sie ans handy gehen]]"
     },
     "T2": {
      "en": [
@@ -163,7 +163,7 @@
       "without your phone"
      ],
      "fr": "passe [[les 30 premières minutes]] sans ton tel",
-     "texte": "[[10 seiten zum kaffee]], das handy bleibt liegen"
+     "texte": "[[10 seiten zum ersten kaffee]], das handy bleibt solange liegen"
     },
     "T4": {
      "en": [
@@ -171,7 +171,7 @@
       "reacting to whatever your phone throws at you"
      ],
      "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
-     "texte": "so klein, dass du es [[nie auslässt]], und es gibt dem ganzen tag die richtung"
+     "texte": "es ist so wenig, dass man es [[nie auslässt]], und es gibt dem ganzen tag eine ruhigere richtung"
     }
    },
    "images": {
@@ -195,7 +195,7 @@
       "read books instead of scrolling"
      ],
      "fr": "lis des livres [[au lieu de scroller]]",
-     "texte": "kein buch dabei? [[trotzdem was lernen]]"
+     "texte": "kein buch? [[trotzdem was lernen]]"
     },
     "T2": {
      "en": [
@@ -237,7 +237,7 @@
       "meditate for 10 minutes"
      ],
      "fr": "[[médite]] 10 minutes",
-     "texte": "[[roman und sachbuch]] im wechsel"
+     "texte": "[[roman, dann sachbuch]]"
     },
     "T2": {
      "en": [
@@ -245,7 +245,7 @@
       "a few minutes without grabbing their phone"
      ],
      "fr": "la plupart des gens tiennent pas quelques minutes [[seuls avec leurs pensées]] sans attraper leur tel",
-     "texte": "ein schweres sachbuch nach dem anderen, so [[verlieren viele die lust am lesen]]"
+     "texte": "ein schweres sachbuch nach dem anderen, genau so [[verlieren viele irgendwann die lust am lesen]]"
     },
     "T3": {
      "en": [
@@ -254,7 +254,7 @@
       "prefrontal cortex"
      ],
      "fr": "c'est prouvé, la méditation [[renforce ton cortex préfrontal]]",
-     "texte": "ein roman dazwischen [[fühlt sich wie pause an]]"
+     "texte": "ein roman dazwischen [[fühlt sich wie pause an]], nicht wie arbeit"
     },
     "T4": {
      "en": [

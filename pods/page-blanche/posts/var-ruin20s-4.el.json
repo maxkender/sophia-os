@@ -1,0 +1,298 @@
+{
+ "post_id": "var-ruin20s-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "top 5 τρόποι να καταστρέψεις τα 20 σου"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(σκληρή αλήθεια)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0295a08a.jpg",
+      "boite": [
+       0,
+       700,
+       1760,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "μην πέσεις ποτέ για ύπνο πριν τις 3"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "ο ύπνος είναι για όσους [[έφτασαν στο τέλος του feed]]"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "4 ώρες ύπνος είναι υπεραρκετές"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "και μετά απορείς γιατί έχεις [[θολούρα στο κεφάλι]], νεύρα τσατάλια και 3 καφέδες πριν το μεσημέρι. σίγουρα [[φταίει το ζώδιό σου]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705622925973540110_3.jpg",
+      "boite": [
+       584,
+       551,
+       400,
+       315
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "σκότωνε την ώρα σου όλη μέρα"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "λεωφορείο, ουρά, αναμονή; [[άνοιξε το feed]], προφανώς"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "και μη χαλάσεις με τίποτα 5 λεπτά να μάθεις γιατί η αναγέννηση γεννήθηκε στην ιταλία, στην [[εφαρμογή Sophia]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "ένα άδειο λεπτό είναι ένα λεπτό που μπορείς να [[γεμίσεις με το τίποτα]]"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "χρόνο έχεις έτσι κι αλλιώς [[άπειρο]]!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "περίμενε την τέλεια στιγμή"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "γυμναστήριο, πρότζεκτ, μετακόμιση: όλα ξεκινάνε [[την άλλη δευτέρα]]"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "τέλεια σημαίνει μηδέν φόβος, μηδέν αμφιβολίες και ένα άψογο σχέδιο"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "οπότε [[συνέχισε να περιμένεις]]"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "μια μέρα θα σηκώσεις το κεφάλι και [[τα 20 σου θα έχουν περάσει χωρίς εσένα]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7707371791773109518_6.jpg",
+      "boite": [
+       108,
+       551,
+       376,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "μην ξαναπάρεις ποτέ τους φίλους σου"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "άφησέ τους στο seen 3 εβδομάδες, στείλε ένα meme και [[κάνε πως δεν έγινε τίποτα]]. θα είναι εκεί και στα 30, έτσι;"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "γενέθλια, τηλέφωνα, σχέδια; [[βαριέμαι]]"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "οι φιλίες [[συντηρούνται μόνες τους]], σαν φυτό που δεν ποτίζεις ποτέ. είναι μια χαρά, στο υπόσχομαι"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7704059784672120077_2.jpg",
+      "boite": [
+       220,
+       537,
+       635,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "σύγκρινε τον εαυτό σου με όλους"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "η δουλειά τους, τα ταξίδια τους, το glow-up τους, όλα [[πριν τις 9 το πρωί]]"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "σύγκρινε την καθημερινότητά σου με [[τις καλύτερες στιγμές τους]], κάθε μέρα, χωρίς εξαίρεση"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "κι αν κάποτε σου αρέσει η ζωή σου, [[σκρόλαρε λίγο ακόμα]]!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7704059784672120077_6.jpg",
+      "boite": [
+       400,
+       494,
+       414,
+       450
+      ]
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,212 @@
+{
+ "id": "as-023",
+ "fond": "images/c23-couv.jpg",
+ "titre": {
+  "en": "five apps that make life feel manageable",
+  "es": "cinco apps para una vida más llevadera",
+  "it": "cinque app per una vita più leggera",
+  "pt-BR": "cinco apps pra vida ficar mais leve"
+ },
+ "legendes": {
+  "en": "from a calm planner to a button for anxious moments, these make the overwhelm a little smaller 🌿 #apprecommendations #productivity #selfcare #cuteapps",
+  "es": "de una agenda tranquila a un botón para los momentos de ansiedad, estas apps hacen todo más llevadero 🌿 #appsrecomendadas #productividad #autocuidado #appsbonitas",
+  "it": "da un planner tranquillo a un pulsante per i momenti d'ansia, queste app rendono tutto più leggero 🌿 #appconsigliate #produttività #selfcare #appcarine",
+  "pt-BR": "de uma agenda tranquila a um botão pros momentos de ansiedade, esses apps deixam tudo mais leve 🌿 #dicasdeapps #produtividade #autocuidado #appsfofos"
+ },
+ "musique": {
+  "titre": "ミミタブ",
+  "url": "https://www.tiktok.com/music/-7579136139465197569"
+ },
+ "notes": "Preuve : « five apps / that make life feel manageable » (10,9 k, 26/10 ; 4,5 % d'enregistrements), style carte. Applis vérifiées us, es, it, br : Sorted³, Sophia (2e, cta B), Craft, Rootd, Money Manager. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c23-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "that make life feel manageable"
+   },
+   "es": {
+    "photos": [
+     "images/c23-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para una vida más llevadera"
+   },
+   "it": {
+    "photos": [
+     "images/c23-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per una vita più leggera"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c23-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra vida ficar mais leve"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Sorted³",
+    "dossier": "images/applis/sorted",
+    "note": "Calendar, tasks and notes on one timeline, and it auto-schedules your day around what's already planned",
+    "fond": "images/c23-bureau.jpg"
+   },
+   "es": {
+    "nom": "Sorted³",
+    "dossier": "images/applis/sorted",
+    "note": "Calendario, tareas y notas en una sola línea de tiempo, y organiza tu día solo alrededor de lo que ya tienes",
+    "fond": "images/c23-bureau.jpg"
+   },
+   "it": {
+    "nom": "Sorted³",
+    "dossier": "images/applis/sorted",
+    "note": "Calendario, attività e note su un'unica timeline, e organizza da solo la giornata attorno ai tuoi impegni",
+    "fond": "images/c23-bureau.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sorted³",
+    "dossier": "images/applis/sorted",
+    "note": "Agenda, tarefas e notas numa linha do tempo só, e ele organiza seu dia sozinho em volta do que já está marcado",
+    "fond": "images/c23-bureau.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "A tiny lesson a day instead of doomscrolling: art, history, science, economics, then a quiz so it actually sticks",
+    "fond": "images/c23-fenetre.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Una mini lección al día en vez de hacer scroll sin fin: arte, historia, ciencia, economía, y luego un quiz para que se quede",
+    "fond": "images/c23-fenetre.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Una mini lezione al giorno invece di scrollare all'infinito: arte, storia, scienza, economia, poi un quiz perché resti davvero",
+    "fond": "images/c23-fenetre.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Uma mini aula por dia em vez de ficar rolando o feed: arte, história, ciência, economia, e depois um quiz pra fixar de verdade",
+    "fond": "images/c23-fenetre.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Craft",
+    "dossier": "images/applis/craft",
+    "note": "Beautiful docs and to-do lists in one place: my plans, my lists and my ideas finally live together",
+    "fond": "images/c23-lit.jpg"
+   },
+   "es": {
+    "nom": "Craft",
+    "dossier": "images/applis/craft",
+    "note": "Documentos bonitos y listas de tareas en un solo sitio: mis planes, mis listas y mis ideas por fin juntos",
+    "fond": "images/c23-lit.jpg"
+   },
+   "it": {
+    "nom": "Craft",
+    "dossier": "images/applis/craft",
+    "note": "Documenti belli e liste di cose da fare in un unico posto: piani, liste e idee finalmente insieme",
+    "fond": "images/c23-lit.jpg"
+   },
+   "pt-BR": {
+    "nom": "Craft",
+    "dossier": "images/applis/craft",
+    "note": "Documentos bonitos e listas de tarefas num lugar só: meus planos, minhas listas e minhas ideias finalmente juntos",
+    "fond": "images/c23-lit.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Rootd",
+    "dossier": "images/applis/rootd",
+    "note": "Gentle help for anxious moments: a big button for panic attacks, breathing and calm lessons",
+    "fond": "images/c23-couv.jpg"
+   },
+   "es": {
+    "nom": "Rootd",
+    "dossier": "images/applis/rootd",
+    "note": "Ayuda suave para los momentos de ansiedad: un botón para los ataques de pánico, respiraciones y lecciones para calmarte",
+    "fond": "images/c23-couv.jpg"
+   },
+   "it": {
+    "nom": "Rootd",
+    "dossier": "images/applis/rootd",
+    "note": "Un aiuto dolce nei momenti d'ansia: un pulsante per gli attacchi di panico, respirazioni e consigli per calmarti",
+    "fond": "images/c23-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Rootd",
+    "dossier": "images/applis/rootd",
+    "note": "Uma ajuda gentil pros momentos de ansiedade: um botão pras crises de pânico, respirações e dicas pra se acalmar",
+    "fond": "images/c23-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Money Manager",
+    "dossier": "images/applis/money-manager",
+    "note": "Track every coffee and every bill in seconds, and see your month in a simple calendar",
+    "fond": "images/c23-cafe.jpg"
+   },
+   "es": {
+    "nom": "Money Manager",
+    "dossier": "images/applis/money-manager",
+    "note": "Apunta cada café y cada factura en segundos y ve tu mes en un calendario sencillo",
+    "fond": "images/c23-cafe.jpg"
+   },
+   "it": {
+    "nom": "Money Manager",
+    "dossier": "images/applis/money-manager",
+    "note": "Segna ogni caffè e ogni bolletta in pochi secondi e vedi il tuo mese in un calendario semplice",
+    "fond": "images/c23-cafe.jpg"
+   },
+   "pt-BR": {
+    "nom": "Money Manager",
+    "dossier": "images/applis/money-manager",
+    "note": "Anote cada café e cada conta em segundos e veja seu mês num calendário simples",
+    "fond": "images/c23-cafe.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "style": "carte",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7701097024149523742",
+  "vues": 10900,
+  "publie_le": "2026-10-26",
+  "accroche": "five apps that make life feel manageable"
+ }
+}

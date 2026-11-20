@@ -5237,6 +5237,32 @@
    "notes": "déclinaison G1 de 7688807102764092705, fr de tr es lt, couverture par langue; cta B",
    "type_bleo": "declinaison",
    "parent_contenu_id": "0c693143-f8ba-4266-9ca4-84872e3437de"
+  },
+  {
+   "post_id": "original-093",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#interesting #selfimprovement #curiosity",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7436056740669557536",
+    "url_tiktok": "https://www.tiktok.com/music/x-7436056740669557536"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7689509565536177441_1",
+    "2": "7697728269335924001_3",
+    "3": "7689509565536177441_3",
+    "4": "7683541501007252758_5",
+    "5": "7703525134610566433_5",
+    "6": "7689509565536177441_2"
+   },
+   "notes": "full test BLEO (plus intéressant), en es hu fi el, couverture par langue, photos banque OS; cta B",
+   "type_bleo": "full_test"
   }
  ]
 }

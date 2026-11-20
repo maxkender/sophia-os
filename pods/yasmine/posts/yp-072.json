@@ -1,0 +1,666 @@
+{
+ "id": "yp-072",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment j’utilise mes heures de perm",
+  "en": "how i use my free periods",
+  "es": "cómo aprovecho mis horas libres",
+  "de": "so nutze ich meine Freistunden",
+  "it": "come uso le mie ore buche",
+  "pt-BR": "como eu uso meus horários vagos",
+  "tr": "boş derslerimi nasıl değerlendiriyorum"
+ },
+ "legendes": {
+  "fr": "une heure de perm, c’est une heure de gagnée 🤍 #lycee #revisions #studytok #thatgirl #organisation",
+  "en": "a free period is an hour won 🤍 #highschool #studytips #studytok #thatgirl #productivity",
+  "es": "una hora libre es una hora ganada 🤍 #instituto #estudiar #studytok #thatgirl #organizacion",
+  "de": "eine Freistunde ist eine gewonnene Stunde 🤍 #schule #lernen #studytok #thatgirl #organisation",
+  "it": "un’ora buca è un’ora guadagnata 🤍 #liceo #studiare #studytok #thatgirl #organizzazione",
+  "pt-BR": "um horário vago é uma hora ganha 🤍 #escola #estudos #studytok #thatgirl #organizacao",
+  "tr": "boş ders, kazanılmış bir saattir 🤍 #lise #ders #studytok #thatgirl #planlama"
+ },
+ "musique": {
+  "titre": "оригинальный звук",
+  "url": "https://www.tiktok.com/music/-7057573777705995010"
+ },
+ "fond": {
+  "media_id": "e0acf597-8797-4a3b-9703-aa80adb1a82c",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/31af44b3-9cbb-4391-8cb6-9f1f1f99c874/2.png?v=1790688639048",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans la note « 10 min de quiz », sans capture. 7 langues, photos et son neufs",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MES HEURES",
+      "DE PERM"
+     ],
+     "taille": 140,
+     "script_haut": "comment j’utilise",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MY FREE",
+      "PERIODS"
+     ],
+     "taille": 160,
+     "script_haut": "how i use",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MIS HORAS",
+      "LIBRES"
+     ],
+     "taille": 150,
+     "script_haut": "cómo aprovecho",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MEINE",
+      "FREISTUNDEN"
+     ],
+     "taille": 120,
+     "script_haut": "so nutze ich",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LE MIE",
+      "ORE BUCHE"
+     ],
+     "taille": 160,
+     "script_haut": "come uso",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MEUS HORÁRIOS",
+      "VAGOS"
+     ],
+     "taille": 112,
+     "script_haut": "como eu uso",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "BOŞ",
+      "DERSLERİMİ",
+      "NASIL",
+      "DEĞERLENDİRİYORUM"
+     ],
+     "taille": 80,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "8e95805c-7967-4293-9346-0dda57db5b55",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ee26f344-dcf8-4598-8b10-d909eee5d8cf/2.jpg?v=1791727025737",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je vais à la bibli, pas à la cafét📚",
+      "texte": "à la cafét, je parle. à la bibli, je bosse.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i go to the library, not the cafeteria📚",
+      "texte": "in the cafeteria i talk. in the library i work.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "voy a la biblio, no a la cafetería📚",
+      "texte": "en la cafetería hablo. en la biblio estudio.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich gehe in die Bibliothek, nicht in die Cafeteria📚",
+      "texte": "in der Cafeteria rede ich. in der Bibliothek lerne ich.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "vado in biblioteca, non al bar📚",
+      "texte": "al bar chiacchiero. in biblioteca studio.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "vou pra biblioteca, não pra cantina📚",
+      "texte": "na cantina eu converso. na biblioteca eu estudo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "kantine değil kütüphaneye gidiyorum📚",
+      "texte": "kantinde sohbet ediyorum. kütüphanede çalışıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "335a7f64-df80-47e2-ab91-dcb4a840bf6d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/04df5d80-d094-4684-86d5-5ea8bdf459c0/1.jpg?v=1791725443082",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "j’avance les devoirs du lendemain✏️",
+      "texte": "une heure maintenant, c’est une soirée libre ce soir.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i get ahead on tomorrow’s homework✏️",
+      "texte": "one hour now means a free evening tonight.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "adelanto los deberes de mañana✏️",
+      "texte": "una hora ahora es una noche libre hoy.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich mache schon die Hausaufgaben für morgen✏️",
+      "texte": "eine Stunde jetzt heißt ein freier Abend heute.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "porto avanti i compiti di domani✏️",
+      "texte": "un’ora adesso è una serata libera stasera.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "adianto a lição de amanhã✏️",
+      "texte": "uma hora agora é uma noite livre hoje.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "yarının ödevlerini öne alıyorum✏️",
+      "texte": "şimdi bir saat, bu akşam boş bir akşam demek.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "8beea57c-c5bb-4fe4-9632-739855d42783",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/496f8d72-9914-4320-89d8-1b580c74f5c9/4.jpg?v=1790607862011",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "10 min de quiz🧠",
+      "texte": "je mets le cours du matin dans micabo et je me teste tant que c’est frais. le soir, j’ai déjà fait la moitié.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "10 min of quizzes🧠",
+      "texte": "i put the morning’s lesson into micabo and test myself while it’s fresh. by evening, half the work is done.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "10 min de quiz🧠",
+      "texte": "meto la clase de la mañana en micabo y me pongo a prueba mientras está fresca. por la noche ya llevo la mitad.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "10 Min. Quiz🧠",
+      "texte": "ich packe den Stoff vom Morgen in micabo und teste mich, solange er frisch ist. abends ist die Hälfte schon erledigt.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "10 min di quiz🧠",
+      "texte": "metto la lezione del mattino su micabo e mi metto alla prova finché è fresca. la sera ho già fatto metà.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "10 min de quiz🧠",
+      "texte": "coloco a aula da manhã no micabo e me testo enquanto está fresca. à noite, metade já foi.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "10 dk test🧠",
+      "texte": "sabahki dersi micabo’ya koyup taze iken kendimi test ediyorum. akşam yarısı bitmiş oluyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "65edf35d-1d1c-4c30-a1ec-daf342451740",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/78ac9bee-4355-4b35-8e32-7e4f76618797/8.jpg?v=1792841581460",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je range mes cours de la matinée🗂️",
+      "texte": "feuilles classées, cahier à jour. plus rien qui traîne au fond du sac.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i organize my notes from the morning🗂️",
+      "texte": "sheets filed, notebook up to date. nothing left at the bottom of my bag.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ordeno los apuntes de la mañana🗂️",
+      "texte": "hojas archivadas, cuaderno al día. nada perdido en el fondo de la mochila.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich sortiere meine Notizen vom Vormittag🗂️",
+      "texte": "Blätter abgeheftet, Heft aktuell. nichts fliegt mehr unten im Rucksack rum.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "sistemo gli appunti della mattina🗂️",
+      "texte": "fogli archiviati, quaderno aggiornato. niente in fondo allo zaino.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "organizo as anotações da manhã🗂️",
+      "texte": "folhas arquivadas, caderno em dia. nada perdido no fundo da mochila.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "sabahki notlarımı düzenliyorum🗂️",
+      "texte": "kâğıtlar dosyada, defter güncel. çantanın dibinde hiçbir şey kalmıyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2a320eac-13aa-4da6-aa39-3370758db11a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/29579bba-1463-4cfd-9e92-1d7b649d4de5/1.jpg?v=1791725289243",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je garde une fiche dans mon sac📝",
+      "texte": "s’il reste 10 min, je la relis au lieu de scroller.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i keep a summary sheet in my bag📝",
+      "texte": "if there are 10 min left, i read it instead of scrolling.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "llevo un resumen en la mochila📝",
+      "texte": "si quedan 10 min, lo leo en vez de hacer scroll.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich habe immer eine Zusammenfassung in der Tasche📝",
+      "texte": "wenn 10 Min. übrig sind, lese ich sie statt zu scrollen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "tengo una scheda nello zaino📝",
+      "texte": "se avanzano 10 min, la rileggo invece di scrollare.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "levo um resumo na mochila📝",
+      "texte": "se sobram 10 min, leio em vez de rolar o feed.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "çantamda hep bir özet kâğıdı var📝",
+      "texte": "10 dakika kalırsa, kaydırmak yerine onu okuyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "79f7bbcd-af5d-4caa-97bf-5a6ba6e8a3b7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/243bb016-f7f4-45fe-a10a-75c9e621ec61/6.jpg?v=1790606972915",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "et parfois, je fais juste une vraie pause☕",
+      "texte": "si j’ai eu 4 h de cours d’affilée, je souffle. demain, je serai plus efficace.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "and sometimes i just take a real break☕",
+      "texte": "after 4 hours of class in a row, i rest. tomorrow i’ll be more efficient.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "y a veces, solo descanso de verdad☕",
+      "texte": "si he tenido 4 h seguidas de clase, respiro. mañana rendiré más.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "und manchmal mache ich einfach eine echte Pause☕",
+      "texte": "nach 4 Stunden Unterricht am Stück atme ich durch. morgen bin ich effizienter.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "e a volte faccio solo una vera pausa☕",
+      "texte": "dopo 4 ore di lezione di fila, respiro. domani sarò più efficiente.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "e às vezes eu só faço uma pausa de verdade☕",
+      "texte": "depois de 4 h de aula seguidas, eu respiro. amanhã rendo mais.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "bazen de sadece gerçek bir mola veriyorum☕",
+      "texte": "4 saat üst üste dersten sonra nefes alıyorum. yarın daha verimli olacağım.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment j’utilise mes heures de perm"
+ }
+}

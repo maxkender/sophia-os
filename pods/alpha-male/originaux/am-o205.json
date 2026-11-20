@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o205",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fcc21318-9d4d-4924-800f-623408cc27a8",
+ "titre": "The quietest drives a man will ever take #men #life #growth #reflection #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7352519992614587179",
+ "inspirations": [
+  "fcc21318-9d4d-4924-800f-623408cc27a8"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 20/11. Déclinaison G2 de la ligne 1 (parent fcc21318 = notre am-o133, langue source en). Promesse reformulée. Trajets neufs, aucun de am-o133. reference_url de am-o133 vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9a58fa3a",
+   "texte_overlay": "The quietest drives a man\nwill ever take",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "06e542fb",
+   "texte_overlay": "1. Home from the hospital\nwith a newborn:\n\nTen miles an hour.\nEvery bump feels huge.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d1ecbe8d",
+   "texte_overlay": "2. To a job interview that\ncould change everything:\n\nPracticing answers\nat every red light.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1e1aa65c",
+   "texte_overlay": "3. Leaving your childhood home\nfor the last time:\n\nOne look in the mirror.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8accb9f0",
+   "texte_overlay": "4. The first drive after\nchoosing a new life:\n\nNew habits. New goals.\nNobody knows yet.",
+   "texte_sophia": "4. The first drive after\nchoosing a new life:\n\nNew habits.\nA lesson a day on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f1ed02d8",
+   "texte_overlay": "5. The drive to a dream\nyou finally reached:\n\nSame car.\nDifferent man.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/6.jpg"
+  }
+ ]
+}

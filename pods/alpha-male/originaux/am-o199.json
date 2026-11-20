@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o199",
+ "type_bleo": "full_test",
+ "titre": "Gym etiquette every man should follow #men #gym #respect #discipline #selfimprovement",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 20/11. Full test du jour (1 sur 6, jauge : 6 sur 22). Accroche jamais faite chez nous : aucun « gym etiquette » dans donnees/label.json. reference_url : post source de am-o034, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2963772c",
+   "texte_overlay": "Gym etiquette every man\nshould follow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "52d5f57f",
+   "texte_overlay": "1. Re-rack your weights\n\nNobody is your mom here.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "63978332",
+   "texte_overlay": "2. Wipe the bench\n\nEvery time. No exceptions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "84f5e900",
+   "texte_overlay": "3. Don't stand in front of\nthe dumbbell rack",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3b876254",
+   "texte_overlay": "4. Ask before you jump in\n\n\"How many sets left?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2ae89be4",
+   "texte_overlay": "5. Use your rest time well\n\nOne short lesson between sets.",
+   "texte_sophia": "5. Use your rest time well\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a020d363",
+   "texte_overlay": "6. Spot people when asked\n\nThat's how gym friends start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

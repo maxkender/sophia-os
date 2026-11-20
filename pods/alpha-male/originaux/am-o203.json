@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o203",
+ "type_bleo": "full_test",
+ "titre": "How to be the uncle every kid remembers #men #family #uncle #respect #selfimprovement",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 20/11. Full test du jour (5 sur 6). Accroche jamais faite chez nous : aucun « uncle » dans donnees/label.json. reference_url : post source de am-o002, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5cbb7587",
+   "texte_overlay": "How to be the uncle\nevery kid remembers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "560ccb78",
+   "texte_overlay": "1. Show up to their games\n\nThey look for you in the stands.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "01ab08c9",
+   "texte_overlay": "2. Teach them something real\n\nA knot, a tool, a recipe.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "96248770",
+   "texte_overlay": "3. Never miss a birthday\n\nA call counts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "69144802",
+   "texte_overlay": "4. Take them somewhere new\n\nA museum, a hike, a stadium.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "676599a3",
+   "texte_overlay": "5. Answer their weird questions\n\nWhy is the sky blue?\nBe the uncle who knows.",
+   "texte_sophia": "5. Answer their weird questions\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o273",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3ee9537e-44c1-4ae1-ace3-8789a1df68fe",
+ "titre": "what people notice about you in the first 7 seconds #firstimpressions #psychology #confidence #socialskills #selfimprovement",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "4c740b93-4932-4afb-b567-cfaf14073b35"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4c740b93). déclinaison G1 de « what people notice about you in the first 7 seconds » (parent 3ee9537e). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3a2b97f8-8c50-45d2-b411-98efc315af34",
+   "texte_overlay": "what people notice about\nyou in the first 7 seconds",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "26ee2d13-f182-4a22-bbd8-0b5ab07a531f",
+   "texte_overlay": "your posture\n\nbefore you say a word, people read how you stand. shoulders relaxed and back, chin level, tell everyone you're comfortable, and that quiet calm is contagious.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4ea6525a-e71c-40e8-850b-5c7b893cabbd",
+   "texte_overlay": "your eyes\n\npeople notice whether you meet their eyes or look away. a warm, relaxed look held a second longer than usual feels like real interest and builds trust.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8966ab52-ab7e-4a63-b09e-0f24c97e8da8",
+   "texte_overlay": "your curiosity\n\npeople notice genuine curiosity straight away, and it comes from feeding your mind a little every day. curious people simply seem more alive, and others feel it within seconds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/4.jpg",
+   "texte_sophia": "your curiosity\n\npeople notice genuine curiosity. i spend 5 minutes a day on one lesson in the Sophia app: a planet, a painting, a moment in history. it shows up in how i talk and listen."
+  },
+  {
+   "position": 5,
+   "media_id": "ffb68e88-8bea-404e-b57e-3b39479310e9",
+   "texte_overlay": "your pace\n\npeople pick up on whether you rush or move calmly. walking and talking a little slower than everyone else reads as quiet, steady confidence almost instantly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "74cb48e9-0907-41f9-a579-a63ecd0a91ed",
+   "texte_overlay": "your hands\n\npeople notice what your hands are doing. open, relaxed hands look honest and calm, while hidden or fidgeting hands make people feel a little more guarded and unsure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/6.jpg"
+  }
+ ]
+}

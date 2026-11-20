@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o274",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d443ff45-842d-44bc-a6cc-596ed0455baf",
+ "titre": "quiet signs you're smarter than you think #intelligence #psychology #signs #selfimprovement #mindset",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "2270832d-a014-4226-8bd2-d93b7d026920"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 2270832d). déclinaison G1 de « quiet signs you re smarter than you think » (parent d443ff45). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "01ef57fe-25e3-4c25-a06f-6beb9f1c16a9",
+   "texte_overlay": "quiet signs you're smarter\nthan you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b1ad81e4-e060-4749-a79e-356ebeaf084b",
+   "texte_overlay": "you doubt yourself\n\nyou question your own answers before trusting them. people who know a lot also know how much they don't know, so a little self doubt is a good sign of a sharp mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "250e9828-7069-4a0f-a8a5-ae27dcb3769b",
+   "texte_overlay": "you get bored easily\n\nsmall talk and repetition drain you quickly. a mind that needs new ideas to stay awake is usually a mind that's always hungry for something to think about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c4cf4ef8-38fc-43e2-a7cd-14279d8b98a2",
+   "texte_overlay": "you talk to yourself\n\nyou think out loud when you're solving a problem. putting thoughts into words slows them down and organises them, which helps you find better answers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5ef67d7b-7f1c-4131-868f-8aed4b1f9a6c",
+   "texte_overlay": "you love odd questions\n\nyou wonder why cats purr or how old the moon is, and you feed that curiosity every day. constant wondering is the habit behind almost every brilliant mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/5.jpg",
+   "texte_sophia": "you love odd questions\n\nyou love odd questions, like why cats purr. the Sophia app turns them into one short lesson a day, and 5 minutes of curiosity keeps a sharp mind happy and growing."
+  },
+  {
+   "position": 6,
+   "media_id": "62435e95-41cf-4850-b9cb-9524a3441844",
+   "texte_overlay": "you notice small details\n\nyou spot the tiny things other people miss: a change in tone, a crooked frame, a pattern in numbers. close attention is a quiet but powerful sign of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o268",
+ "type_bleo": "full_test",
+ "titre": "quiet habits of high value people #highvalue #selfrespect #habits #selfimprovement #mindset",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "9d63e1c9-e7d4-481e-b65f-e6045adbfa5a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9d63e1c9). full test BLEO : accroche jamais faite (format « quiet habits of X people »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "acbbf8c0-32cb-40b8-bd50-815e12b311e1",
+   "texte_overlay": "quiet habits of\nhigh value people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "79a64fdd-c46d-40c3-8770-4f28f3f596ac",
+   "texte_overlay": "they keep their word\n\nwhen they say they'll do something, it happens, even the small things. people quickly learn they can rely on them, and that trust is worth more than charm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d0d861c2-0ac2-44a0-acff-bbfc98d64914",
+   "texte_overlay": "they don't chase approval\n\nthey're kind to everyone but don't twist themselves to be liked. calm self respect draws people in far more than trying hard to please everyone ever could.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ac69de3e-8d41-4e9f-b6b5-861e4e13daad",
+   "texte_overlay": "they keep growing\n\nhigh value people never stop learning, even a little every day: a planet, a painting, a moment in history. that steady growth is what makes them quietly impressive.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/4.jpg",
+   "texte_sophia": "they keep growing\n\ni used to think learning ended after school. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and i feel myself growing every single week."
+  },
+  {
+   "position": 5,
+   "media_id": "bb35dba8-ce39-4f45-bf98-c1c26080f856",
+   "texte_overlay": "they protect their time\n\nthey say no to plans and favours that drain them, kindly and without long excuses. guarding their time is how they keep energy for what matters most to them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fcf1cea1-9419-47f1-af7c-a0608e947d0f",
+   "texte_overlay": "they speak well of others\n\nthey never gossip about people who aren't in the room. speaking kindly about others quietly tells everyone that you're safe to trust as well, which is rarer than it sounds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/6.jpg"
+  }
+ ]
+}

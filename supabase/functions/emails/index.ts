@@ -157,7 +157,8 @@ async function passage(supabase: Supabase) {
       const maj: Record<string, unknown> = { verifie_at: maintenant.toISOString(), dernier_evenement: s.evenement };
       if (s.statut === "delivre") {
         bilan.delivres++;
-        Object.assign(maj, { statut: "delivre", livre_at: maintenant.toISOString(), html: null, texte: null, erreur: null });
+        // 21/11 (Max) : le texte reste (il apparaît dans le fil du posteur) ; seul le HTML est effacé.
+        Object.assign(maj, { statut: "delivre", livre_at: maintenant.toISOString(), html: null, erreur: null });
       } else if (s.statut === "refuse") {
         bilan.refuses++;
         Object.assign(maj, { statut: "refuse", erreur: `${s.evenement}${s.raison ? ` : ${s.raison}` : ""}` });

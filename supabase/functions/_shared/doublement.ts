@@ -15,15 +15,15 @@ const montant = (n: number) => (Math.round(n * 100) / 100).toString();
 
 /** La proposition (Upwork : « reply YES here » ; Ruul : « reply YES to this email »). */
 export function texteOffreDouble(o: {
-  prenom: string | null; handle: string | null; label: string | null; tarif: number | null; lundi: string; canal: "upwork" | "ruul";
+  prenom: string | null; handle: string | null; tarif: number | null; lundi: string; canal: "upwork" | "ruul";
 }): string {
   const compte = o.handle ? `@${o.handle.replace(/^@/, "")}` : "your account";
-  const style = o.label ? ` in the "${o.label}" style` : "";
+  // 21/11 : jamais le nom interne du label (jargon) dans un message au posteur.
   const paie = o.tarif && o.tarif > 0
     ? `Same work on it, and your weekly pay goes from ${montant(o.tarif)} $ to ${montant(2 * o.tarif)} $.`
     : "Same work on it, and you're paid for 2 accounts.";
   const repondre = o.canal === "ruul" ? "reply YES to this email" : "reply YES here";
-  return `Hi ${o.prenom?.trim() || "there"}, ${compte} is doing great. Would you like to manage a 2nd TikTok account${style}? ${paie} ` +
+  return `Hi ${o.prenom?.trim() || "there"}, ${compte} is doing great. Would you like to manage a 2nd TikTok account? ${paie} ` +
     `To accept, ${repondre} or click "Accept" on your dashboard before Sunday 23:59 (Paris time). ` +
     `The 2nd account does its warm-up until Sunday and starts posting on ${lundiEnClair(o.lundi)}.`;
 }

@@ -1,0 +1,764 @@
+{
+ "id": "mi-005",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7669161866979069214",
+  "vues": 228400,
+  "publie_le": "2026-08-01",
+  "accroche": "How to / Focus / for / 20+ hours"
+ },
+ "fond": "gris",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
+ "notes": "Full test (voie 1, boîte vide). Preuve de format : « How to Focus for 20+ hours » de @bdnf.milly (228,4 k vues, 01/08), famille « How to [verbe] … », même gabarit, fond gris. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : des interruptions d'environ 3 secondes doublent les erreurs sur une tâche en cours (Altmann, Trafton et Hambrick, Journal of Experimental Psychology: General 2014) ; les gros « multitâches médias » filtrent moins bien les distractions (Ophir, Nass et Wagner, PNAS 2009) ; deux courtes pauses empêchent la baisse de performance sur une longue tâche (Ariga et Lleras, Cognition 2011) ; quelques minutes de repos éveillé après avoir appris améliorent la mémoire (Dewar, Alber, Butler, Cowan et Della Sala, Psychological Science 2012). 11 langues. Images : Seedream (irm-surlignee, irm-activite, neurones), sans texte.",
+ "titre": {
+  "en": "How to Focus for Longer",
+  "fr": "Comment te concentrer plus longtemps",
+  "es": "Cómo concentrarte durante más tiempo",
+  "es-419": "Cómo concentrarte por más tiempo",
+  "it": "Come concentrarti più a lungo",
+  "tr": "Daha uzun süre nasıl odaklanırsın",
+  "pt-BR": "Como se concentrar por mais tempo",
+  "sl": "Kako se dlje zbrati",
+  "hr": "Kako se dulje koncentrirati",
+  "de": "Wie du dich länger konzentrierst",
+  "hu": "Hogyan koncentrálj tovább"
+ },
+ "legendes": {
+  "en": "one thing at a time #focus #attention #brain #studytips #productivity",
+  "fr": "une chose à la fois #concentration #attention #cerveau #méthodedetravail #productivité",
+  "es": "una cosa a la vez #concentración #atención #cerebro #técnicasdeestudio #productividad",
+  "es-419": "una cosa a la vez #concentración #atención #cerebro #tipsdeestudio #productividad",
+  "it": "una cosa alla volta #concentrazione #attenzione #cervello #metododistudio #produttività",
+  "tr": "aynı anda tek bir şey #odaklanma #dikkat #beyin #dersçalışma #verimlilik",
+  "pt-BR": "uma coisa de cada vez #foco #atencao #cerebro #dicasdeestudo #produtividade",
+  "sl": "ena stvar naenkrat #zbranost #pozornost #možgani #učnetehnike #produktivnost",
+  "hr": "jedna stvar odjednom #koncentracija #pažnja #mozak #tehnikeučenja #produktivnost",
+  "de": "eins nach dem anderen #konzentration #aufmerksamkeit #gehirn #lerntipps #produktivität",
+  "hu": "egyszerre csak egy dolog #koncentráció #figyelem #agy #tanulásimódszerek #produktivitás"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-surlignee.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Focus",
+      "taille": "grand"
+     },
+     {
+      "t": "for",
+      "taille": "petit"
+     },
+     {
+      "t": "Longer",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Te concentrer",
+      "taille": "grand"
+     },
+     {
+      "t": "plus",
+      "taille": "petit"
+     },
+     {
+      "t": "Longtemps",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Concentrarte",
+      "taille": "grand"
+     },
+     {
+      "t": "durante",
+      "taille": "petit"
+     },
+     {
+      "t": "más tiempo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Concentrarte",
+      "taille": "grand"
+     },
+     {
+      "t": "por",
+      "taille": "petit"
+     },
+     {
+      "t": "más tiempo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Concentrarti",
+      "taille": "grand"
+     },
+     {
+      "t": "più",
+      "taille": "petit"
+     },
+     {
+      "t": "a lungo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Daha uzun",
+      "taille": "petit"
+     },
+     {
+      "t": "süre nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Odaklanırsın",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como se",
+      "taille": "petit"
+     },
+     {
+      "t": "Concentrar",
+      "taille": "grand"
+     },
+     {
+      "t": "por",
+      "taille": "petit"
+     },
+     {
+      "t": "mais tempo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako se",
+      "taille": "petit"
+     },
+     {
+      "t": "Dlje",
+      "taille": "grand"
+     },
+     {
+      "t": "zbrati",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako se",
+      "taille": "petit"
+     },
+     {
+      "t": "Dulje",
+      "taille": "grand"
+     },
+     {
+      "t": "koncentrirati",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du dich",
+      "taille": "petit"
+     },
+     {
+      "t": "länger",
+      "taille": "grand"
+     },
+     {
+      "t": "Konzentrierst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Koncentrálj",
+      "taille": "grand"
+     },
+     {
+      "t": "Tovább",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "One Thing At A Time",
+    "blocs": [
+     {
+      "p": "Switching has a cost. In one experiment, interruptions of about three seconds were enough to double the number of errors people made on the task they had been doing."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "People who habitually juggle many media at once were also worse at ignoring distractions in lab tests than people who rarely do. Focus is built by doing one thing at a time, not many."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Une chose à la fois",
+    "blocs": [
+     {
+      "p": "Changer de tâche a un coût. Dans une expérience, des interruptions d'environ trois secondes suffisaient à doubler le nombre d'erreurs commises sur la tâche en cours."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Les personnes qui jonglent sans cesse entre plusieurs écrans et contenus ignoraient aussi moins bien les distractions en laboratoire que celles qui le font rarement. La concentration se construit en faisant une chose à la fois, pas plusieurs."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Una cosa a la vez",
+    "blocs": [
+     {
+      "p": "Cambiar de tarea tiene un coste. En un experimento, interrupciones de unos tres segundos bastaron para duplicar los errores que la gente cometía en la tarea que estaba haciendo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Las personas que suelen alternar entre muchos medios a la vez también ignoraban peor las distracciones en el laboratorio que quienes rara vez lo hacen. La concentración se construye haciendo una cosa a la vez, no muchas."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Una cosa a la vez",
+    "blocs": [
+     {
+      "p": "Cambiar de tarea tiene un costo. En un experimento, interrupciones de unos tres segundos fueron suficientes para duplicar los errores que las personas cometían en la tarea que estaban haciendo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Quienes acostumbran usar muchos medios al mismo tiempo también ignoraban peor las distracciones en pruebas de laboratorio que quienes casi no lo hacen. La concentración se construye haciendo una cosa a la vez, no muchas."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Una cosa alla volta",
+    "blocs": [
+     {
+      "p": "Passare da un compito all'altro ha un costo. In un esperimento, interruzioni di circa tre secondi bastavano a raddoppiare gli errori commessi nel compito che si stava svolgendo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Chi è abituato a usare molti media insieme ignorava anche peggio le distrazioni nei test di laboratorio rispetto a chi lo fa di rado. La concentrazione si costruisce facendo una cosa alla volta, non tante."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Aynı anda tek bir şey",
+    "blocs": [
+     {
+      "p": "İşler arasında geçiş yapmanın bir bedeli var. Bir deneyde, yaklaşık üç saniyelik bölünmeler, insanların yapmakta oldukları işteki hata sayısını ikiye katlamaya yetti."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Aynı anda birçok medyayı kullanmaya alışkın olanlar, laboratuvar testlerinde dikkat dağıtıcıları görmezden gelmekte de bunu nadiren yapanlardan daha kötüydü. Odak, aynı anda birçok şey değil, tek bir şey yaparak kurulur."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Uma coisa de cada vez",
+    "blocs": [
+     {
+      "p": "Trocar de tarefa tem um custo. Em um experimento, interrupções de uns três segundos bastaram para dobrar o número de erros que as pessoas cometiam na tarefa que estavam fazendo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Quem costuma usar várias mídias ao mesmo tempo também ignorava pior as distrações em testes de laboratório do que quem raramente faz isso. O foco se constrói fazendo uma coisa de cada vez, não várias."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Ena stvar naenkrat",
+    "blocs": [
+     {
+      "p": "Preklapljanje ima svojo ceno. V enem poskusu so prekinitve, dolge približno tri sekunde, zadoščale, da se je število napak pri nalogi, ki so jo ljudje opravljali, podvojilo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Ljudje, ki so navajeni hkrati uporabljati veliko medijev, so v laboratorijskih testih tudi slabše prezrli motnje kot tisti, ki tega skoraj ne počnejo. Zbranost se gradi tako, da delaš eno stvar naenkrat, ne več."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Jedna stvar odjednom",
+    "blocs": [
+     {
+      "p": "Prebacivanje ima cijenu. U jednom pokusu prekidi od otprilike tri sekunde bili su dovoljni da se udvostruči broj pogrešaka u zadatku koji su ljudi radili."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Ljudi koji su navikli istodobno koristiti mnogo medija u laboratorijskim su testovima i lošije ignorirali ometanja od onih koji to rijetko rade. Koncentracija se gradi radeći jednu stvar odjednom, a ne više njih."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Eins nach dem anderen",
+    "blocs": [
+     {
+      "p": "Wechseln hat seinen Preis. In einem Experiment reichten Unterbrechungen von etwa drei Sekunden, um die Fehler bei der laufenden Aufgabe zu verdoppeln."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Menschen, die gewohnheitsmäßig viele Medien gleichzeitig nutzen, konnten Ablenkungen im Labor auch schlechter ausblenden als jene, die das selten tun. Konzentration entsteht, wenn man eine Sache nach der anderen macht, nicht viele auf einmal."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Egyszerre csak egy dolog",
+    "blocs": [
+     {
+      "p": "A váltogatásnak ára van. Egy kísérletben már nagyjából hárommásodperces megszakítások is elegendők voltak ahhoz, hogy megduplázódjon a hibák száma az éppen végzett feladatban."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Akik megszokták, hogy egyszerre sok médiát használjanak, laboratóriumi tesztekben a zavaró ingereket is rosszabbul hagyták figyelmen kívül, mint akik ritkán teszik ezt. A koncentráció úgy épül, hogy egyszerre egy dolgot csinálsz, nem sokat."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Practise Focus Every Evening",
+    "blocs": [
+     {
+      "p": "Sustained attention is a skill you exercise: read one thing from start to finish, without checking anything else. Even a few calm minutes a day count as a rep."
+     },
+     {
+      "p": "One short lesson every evening, one subject, full attention, like a training session for the mind. The sleep that follows then helps consolidate what you just read."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Entraîne ta concentration chaque soir",
+    "blocs": [
+     {
+      "p": "L'attention soutenue est une compétence qui s'exerce : lire une seule chose du début à la fin, sans rien vérifier d'autre. Même quelques minutes au calme par jour comptent comme une répétition."
+     },
+     {
+      "p": "Une courte leçon chaque soir, un seul sujet, toute ton attention, comme une séance d'entraînement pour l'esprit. Le sommeil qui suit aide ensuite à consolider ce que tu viens de lire."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Entrena tu concentración cada noche",
+    "blocs": [
+     {
+      "p": "La atención sostenida es una habilidad que se ejercita: leer una sola cosa de principio a fin, sin mirar nada más. Incluso unos minutos tranquilos al día cuentan como una repetición."
+     },
+     {
+      "p": "Una lección corta cada noche, un solo tema, toda tu atención, como una sesión de entrenamiento para la mente. Después, el sueño ayuda a consolidar lo que acabas de leer."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Entrena tu concentración cada noche",
+    "blocs": [
+     {
+      "p": "La atención sostenida es una habilidad que se ejercita: lee una sola cosa de principio a fin, sin revisar nada más. Hasta unos minutos tranquilos al día cuentan como una repetición."
+     },
+     {
+      "p": "Una lección corta cada noche, un solo tema, toda tu atención, como una sesión de entrenamiento para la mente. Luego, el sueño ayuda a consolidar lo que acabas de leer."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Allena la concentrazione ogni sera",
+    "blocs": [
+     {
+      "p": "L'attenzione prolungata è un'abilità che si esercita: leggere una sola cosa dall'inizio alla fine, senza controllare nient'altro. Anche pochi minuti tranquilli al giorno contano come una ripetizione."
+     },
+     {
+      "p": "Una breve lezione ogni sera, un solo argomento, tutta la tua attenzione, come un allenamento per la mente. Il sonno che segue aiuta poi a consolidare ciò che hai appena letto."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Odağını her akşam çalıştır",
+    "blocs": [
+     {
+      "p": "Sürekli dikkat, çalıştırılan bir beceridir: tek bir şeyi baştan sona, başka hiçbir şeye bakmadan oku. Günde birkaç sakin dakika bile bir tekrar sayılır."
+     },
+     {
+      "p": "Her akşam kısa bir ders, tek bir konu, tüm dikkatinle, zihin için bir antrenman gibi. Ardından gelen uyku da az önce okuduğunu pekiştirmeye yardım eder."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Treine o foco toda noite",
+    "blocs": [
+     {
+      "p": "A atenção sustentada é uma habilidade que se exercita: ler uma coisa só do começo ao fim, sem checar mais nada. Até poucos minutos tranquilos por dia contam como uma repetição."
+     },
+     {
+      "p": "Uma lição curta toda noite, um assunto só, atenção total, como um treino para a mente. Depois, o sono ajuda a consolidar o que você acabou de ler."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vsak večer vadi zbranost",
+    "blocs": [
+     {
+      "p": "Trajna pozornost je veščina, ki jo uriš: preberi eno stvar od začetka do konca, ne da bi preverjal karkoli drugega. Že nekaj mirnih minut na dan šteje kot ponovitev."
+     },
+     {
+      "p": "Kratka lekcija vsak večer, ena tema, vsa tvoja pozornost, kot trening za um. Spanec, ki sledi, nato pomaga utrditi to, kar si pravkar prebral."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Svake večeri vježbaj fokus",
+    "blocs": [
+     {
+      "p": "Dugotrajna pažnja vještina je koja se vježba: pročitaj jednu stvar od početka do kraja, bez provjeravanja ičega drugog. I nekoliko mirnih minuta dnevno računa se kao ponavljanje."
+     },
+     {
+      "p": "Kratka lekcija svake večeri, jedna tema, puna pažnja, kao trening za um. San koji slijedi zatim pomaže učvrstiti ono što si upravo pročitao."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Trainiere jeden Abend deinen Fokus",
+    "blocs": [
+     {
+      "p": "Anhaltende Aufmerksamkeit ist eine Fähigkeit, die man übt: eine Sache von Anfang bis Ende lesen, ohne nebenbei etwas zu checken. Schon ein paar ruhige Minuten am Tag zählen als Wiederholung."
+     },
+     {
+      "p": "Eine kurze Lektion jeden Abend, ein Thema, volle Aufmerksamkeit, wie ein Training für den Kopf. Der Schlaf danach hilft, das gerade Gelesene zu festigen."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Edzd a fókuszodat minden este",
+    "blocs": [
+     {
+      "p": "A tartós figyelem gyakorolható készség: olvass végig egyetlen dolgot az elejétől a végéig, anélkül, hogy bármi mást megnéznél. Napi néhány nyugodt perc is egy ismétlésnek számít."
+     },
+     {
+      "p": "Minden este egy rövid lecke, egyetlen téma, teljes figyelem, mint egy edzés az elmének. Az utána következő alvás pedig segít megszilárdítani, amit az imént olvastál."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Take Real Breaks",
+    "blocs": [
+     {
+      "p": "Attention fades during long tasks. In one study, people who took two brief breaks during a long task kept their performance steady, while those who worked straight through declined."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "A real break means no new input: a short walk, a glass of water, looking out of the window. Even resting quietly for a few minutes after learning has been shown to improve memory."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Fais de vraies pauses",
+    "blocs": [
+     {
+      "p": "L'attention s'use pendant les longues tâches. Dans une étude, les personnes qui prenaient deux courtes pauses pendant une longue tâche gardaient un niveau stable, alors que celles qui travaillaient d'une traite déclinaient."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Une vraie pause, c'est sans nouvelle information : une petite marche, un verre d'eau, regarder par la fenêtre. Même se reposer au calme quelques minutes après avoir appris améliore la mémoire, selon des études."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Haz pausas de verdad",
+    "blocs": [
+     {
+      "p": "La atención se desgasta en las tareas largas. En un estudio, quienes hacían dos pausas breves durante una tarea larga mantenían su rendimiento estable, mientras que quienes trabajaban sin parar empeoraban."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Una pausa de verdad es sin información nueva: un paseo corto, un vaso de agua, mirar por la ventana. Incluso descansar en silencio unos minutos después de aprender mejora la memoria, según los estudios."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Toma descansos de verdad",
+    "blocs": [
+     {
+      "p": "La atención se agota en las tareas largas. En un estudio, quienes tomaban dos descansos breves durante una tarea larga mantuvieron su rendimiento estable, mientras que quienes trabajaban de corrido empeoraron."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Un descanso de verdad es sin información nueva: una caminata corta, un vaso de agua, mirar por la ventana. Hasta descansar en silencio unos minutos después de aprender mejora la memoria, según los estudios."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Fai pause vere",
+    "blocs": [
+     {
+      "p": "L'attenzione cala durante i compiti lunghi. In uno studio, chi faceva due brevi pause durante un compito lungo manteneva stabile la prestazione, mentre chi lavorava senza fermarsi peggiorava."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Una pausa vera è senza nuove informazioni: una breve passeggiata, un bicchiere d'acqua, guardare fuori dalla finestra. Anche riposare in silenzio per qualche minuto dopo aver imparato migliora la memoria, secondo gli studi."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Gerçek molalar ver",
+    "blocs": [
+     {
+      "p": "Uzun işlerde dikkat azalır. Bir çalışmada, uzun bir iş sırasında iki kısa mola verenler performanslarını sabit tuttu; ara vermeden çalışanlarınki ise düştü."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Gerçek bir mola yeni bilgi içermez: kısa bir yürüyüş, bir bardak su, pencereden dışarı bakmak. Çalışmalara göre, öğrendikten sonra birkaç dakika sessizce dinlenmek bile hafızayı güçlendirir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Faça pausas de verdade",
+    "blocs": [
+     {
+      "p": "A atenção cai em tarefas longas. Em um estudo, quem fazia duas pausas curtas durante uma tarefa longa manteve o desempenho estável, enquanto quem trabalhava sem parar piorava."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Uma pausa de verdade é sem informação nova: uma caminhada curta, um copo d'água, olhar pela janela. Até descansar em silêncio por alguns minutos depois de aprender melhora a memória, segundo os estudos."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Delaj prave odmore",
+    "blocs": [
+     {
+      "p": "Pri dolgih nalogah pozornost peša. V eni raziskavi so ljudje, ki so med dolgo nalogo naredili dva kratka odmora, ohranili stalno uspešnost, tistim, ki so delali brez prestanka, pa je upadla."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Pravi odmor je brez novih informacij: kratek sprehod, kozarec vode, pogled skozi okno. Po raziskavah že nekaj minut tihega počitka po učenju izboljša spomin."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Uzmi prave pauze",
+    "blocs": [
+     {
+      "p": "Pažnja slabi tijekom dugih zadataka. U jednom istraživanju ljudi koji su tijekom dugog zadatka uzeli dvije kratke pauze zadržali su stalan učinak, dok je onima koji su radili bez prekida učinak opao."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Prava pauza je bez novih informacija: kratka šetnja, čaša vode, pogled kroz prozor. Prema istraživanjima, čak i nekoliko minuta tihog odmora nakon učenja poboljšava pamćenje."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Mach echte Pausen",
+    "blocs": [
+     {
+      "p": "Bei langen Aufgaben lässt die Aufmerksamkeit nach. In einer Studie hielten Menschen, die während einer langen Aufgabe zwei kurze Pausen machten, ihre Leistung stabil, während sie bei denen, die durcharbeiteten, nachließ."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Eine echte Pause ist ohne neuen Input: ein kurzer Spaziergang, ein Glas Wasser, aus dem Fenster schauen. Studien zeigen, dass schon einige Minuten stilles Ausruhen nach dem Lernen das Gedächtnis verbessern."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tarts valódi szüneteket",
+    "blocs": [
+     {
+      "p": "Hosszú feladatoknál a figyelem lankad. Egy vizsgálatban azok, akik egy hosszú feladat közben két rövid szünetet tartottak, megőrizték a teljesítményüket, míg a megállás nélkül dolgozóké romlott."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Egy valódi szünetben nincs új információ: egy rövid séta, egy pohár víz, kinézni az ablakon. Vizsgálatok szerint már néhány perc csendes pihenés a tanulás után is javítja a memóriát."
+     }
+    ]
+   }
+  }
+ ]
+}

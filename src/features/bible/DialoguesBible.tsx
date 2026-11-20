@@ -18,7 +18,7 @@ import {
   ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, modifierCarte,
   nomCarte, PREFIXE_LABEL, rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS, validerCarte,
 } from "./moodboard";
-import { nomLabelValide } from "./parse";
+import { lienCompte, nomLabelValide } from "./parse";
 
 const CHAMP = "h-9 w-full rounded-lg border border-stone-200 bg-white px-3 text-sm dark:border-stone-700 dark:bg-stone-900";
 const NOUVEAU = "__nouveau__";
@@ -337,7 +337,7 @@ export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }:
           <DialogDescription>Colle plusieurs liens TikTok d'un coup (profils, posts, vm.tiktok.com ou @handle). Ils arrivent dans « À importer ».</DialogDescription>
         </DialogHeader>
         <DialogPanel className="space-y-4 pb-5">
-          <Textarea rows={4} value={texte} onChange={(e) => setTexte(e.target.value)} placeholder={"https://www.tiktok.com/@compte1\nhttps://www.tiktok.com/@compte2"} className="font-mono text-xs" />
+          <Textarea rows={4} value={texte} onChange={(e) => setTexte(lienCompte(e.target.value))} placeholder={"https://www.tiktok.com/@compte1\nhttps://www.tiktok.com/@compte2"} className="font-mono text-xs" aria-label="Liens TikTok" />
 
           <div className="space-y-1.5">
             <p className="text-xs font-medium text-stone-500">Apps (une ou plusieurs)</p>

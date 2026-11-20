@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o278",
+ "type_bleo": "full_test",
+ "titre": "ce que je ne poste plus sur linkedin (et ce que je poste à la place) #linkedin #reseau #carriere #rechercheemploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (ce qu'on poste sur LinkedIn). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3994d15d",
+   "texte_overlay": "ce que je ne poste plus\nsur linkedin\n(et ce que je poste à la place)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a1992bdb",
+   "texte_overlay": "« je suis heureuse d'annoncer… »\n→ ce que j'ai appris en arrivant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "15f76a7c",
+   "texte_overlay": "« à l'écoute du marché »\n→ le poste précis que je cherche",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "abe7b5b8",
+   "texte_overlay": "un repost sans un mot\n→ une phrase sur pourquoi ça m'a parlé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c46ae9df",
+   "texte_overlay": "« merci à toute l'équipe »\n→ un merci à une personne, avec ce qu'elle a fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8b8bbd96",
+   "texte_overlay": "rien sur ce que j'apprends\n→ un truc découvert cette semaine. mes 3 sources : un livre, un podcast, 5 minutes par jour",
+   "texte_sophia": "rien sur ce que j'apprends\n→ un truc découvert cette semaine. mes 3 sources : un livre, un podcast, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8c2f83a2",
+   "texte_overlay": "tu postes souvent sur linkedin ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

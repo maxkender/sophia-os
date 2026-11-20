@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o284",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8dd9098b-26af-460c-a4bc-db5684f33c85",
+ "titre": "comment j'ai su qu'il fallait quitter ce manager (ses phrases, mes actes) #travail #manager #santementale #carriere #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G2 de la ligne #2 (parent 8dd9098b), 3e et dernière : même promesse, autres mots, phrases différentes de rh-o208, rh-o258 et rh-o272. Inspirations reprises de rh-o208. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6a293ebc",
+   "texte_overlay": "comment j'ai su\nqu'il fallait quitter ce manager\n(ses phrases, mes actes)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b8dcef1e",
+   "texte_overlay": "lui : « je n'ai pas le temps pour ton point »\nmoi : je lui ai envoyé mes questions par écrit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a9779da7",
+   "texte_overlay": "lui : « c'est toi qui as mal compris »\nmoi : j'ai fait valider chaque consigne par mail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3f302a56",
+   "texte_overlay": "lui : « tout le monde fait des heures sup ici »\nmoi : j'ai gardé mes horaires",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ba5f8522",
+   "texte_overlay": "lui : « tu n'es pas prête pour plus »\nmoi : je me suis formée seule, un peu chaque jour",
+   "texte_sophia": "lui : « tu n'es pas prête pour plus »\nmoi : je me suis formée seule, un peu chaque jour. utilise l'appli Sophia 5 minutes, ça compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bbdbf9ba",
+   "texte_overlay": "6 mois plus tard\nj'avais une autre offre. et j'étais prête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7722b7cb",
+   "texte_overlay": "t'as déjà quitté un manager plutôt qu'une boîte ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  }
+ ]
+}

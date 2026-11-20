@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o280",
+ "type_bleo": "full_test",
+ "titre": "ce qui fait qu'on lit ton CV jusqu'au bout #cv #candidature #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 20/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Full test : accroche jamais faite chez nous (un CV qu'on lit en entier). Inspirations reprises de rh-o235. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8ce21716",
+   "texte_overlay": "ce qui fait qu'on lit\nton CV\njusqu'au bout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "18acc90c",
+   "texte_overlay": "une phrase en haut\nqui dit ce que tu cherches. pas « dynamique et motivée »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d03aa48f",
+   "texte_overlay": "des chiffres\n« 30 dossiers par semaine », pas « gestion de dossiers »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4e443d0f",
+   "texte_overlay": "les mots de l'annonce\ns'ils sont vrais pour toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a9f94460",
+   "texte_overlay": "une page, aérée\non lit en diagonale, aide-nous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f626c420",
+   "texte_overlay": "une ligne « en ce moment, j'apprends… »\nvraie, et facile à raconter en entretien",
+   "texte_sophia": "une ligne « en ce moment, j'apprends… »\nvraie, et facile à raconter en entretien. utilise l'appli Sophia 5 minutes par jour pour la remplir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a090de50",
+   "texte_overlay": "ton CV fait combien de pages ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

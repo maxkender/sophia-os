@@ -29,8 +29,9 @@ ses meilleurs) : ses posts sont des listes qu'on garde.
   l'un d'eux.
 - **Les guides de vie étudiante** (stage, bourses, cours de 75 min) : Turbo AI
   en « pro tip ».
-- Turbo AI est dans presque tous ses posts : sans doute un partenariat. Chez nous, **micabo prend exactement sa place**, avec son nouveau
-  logo.
+- Turbo AI est dans presque tous ses posts : sans doute un partenariat. Chez nous, **Sophia prend exactement sa place**, avec sa vraie
+  icône. Ses applis de temps d'écran (Flora, Opal) sont des concurrentes de
+  Sophia : on les remplace par ses applis douces (Goodnotes…).
 
 ## Son gabarit (mesuré sur ses slides de 1080 × 1080)
 

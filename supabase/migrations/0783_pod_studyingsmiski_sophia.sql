@@ -12,7 +12,7 @@
 -- La livraison sm-001, en attente, est redéposée avec la slide Sophia ; ses
 -- anciennes variantes micabo (`decks_applications`) sont effacées à part
 -- (un label Sophia n'en a pas).
--- ⏳ À appliquer (MCP) : la confirmation demandée par Supabase est restée sans réponse le 20/11. Idempotente.
+-- ✅ Appliquée le 2026-11-20 (MCP). Idempotente.
 
 update public.labels
    set slug = 'cozy-girl',

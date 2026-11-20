@@ -1,4 +1,5 @@
 // Usage : npm run mesure -- <id>
+//         npm run mesure -- --titre <langue> "ligne 1" "ligne 2" …   (largeur de lignes de couverture à 92 px)
 // Mesure, sans rien rendre, chaque texte de posts/<id>.json dans chaque langue :
 // les lignes de la description (6 au plus), la largeur du nom, les lignes de
 // chaque bulle et du titre de couverture. Signale ce qui ne tiendra pas, pour
@@ -7,10 +8,17 @@ import { createCanvas } from "@napi-rs/canvas";
 import { policeMain, policeTitre, POLICE } from "./polices.ts";
 import { lirePost, type Slide } from "./slides.ts";
 
+const ctx = createCanvas(10, 10).getContext("2d");
+if (process.argv[2] === "--titre") {
+  const [langue, ...lignes] = process.argv.slice(3);
+  ctx.letterSpacing = "-2px";
+  ctx.font = `92px "${policeTitre(langue)}"`;
+  for (const l of lignes) console.log(String(Math.round(ctx.measureText(l).width)).padStart(4), l);
+  process.exit(0);
+}
 const id = process.argv[2];
 if (!id) throw new Error("usage : npm run mesure -- <id>");
 const post = lirePost(id);
-const ctx = createCanvas(10, 10).getContext("2d");
 function couper(t: string, largeur: number): string[] {
   const lignes: string[] = [];
   for (const para of t.split("\n")) {

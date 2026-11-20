@@ -79,6 +79,7 @@ import {
 } from "./statutCompte";
 import { BarreFiltres, CelluleCompte, CellulesJours, CelluleVues, Choix, EnTetesJours, TD, TH } from "./TableauComptes";
 import { useFicheSamedi } from "./useFicheSamedi";
+import { BadgePosteur } from "@/features/ruul/BadgePlateforme";
 import { plateformeDe, useIdsRuul, usePlateformeDecisions } from "@/features/ruul/canal";
 
 const CHOIX: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "repondre"];
@@ -538,6 +539,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
             )}
           </td>
           <td className={TD}>
+            <BadgePosteur posterId={c.poster_id} className="mr-1" />
             {demandeCompte(c) && !prise ? <BadgeDemande d={demandeCompte(c)!} /> : <StatutCompte e={ev} x={ex} />}
             {decideDansProblemes(brouillons.data?.get(c.compte_id)) ? (
               <BadgeProblemes b={brouillons.data!.get(c.compte_id)!} choix={choixDe(c)} />

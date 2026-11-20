@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { BadgePosteur } from "@/features/ruul/BadgePlateforme";
 import { useTranslation } from "react-i18next";
 
 import { Badge } from "@/components/ui/badge";
@@ -35,7 +36,7 @@ export function CompteurCouverture({ c }: { c: Couverture }) {
           <ul className="mt-1 divide-y">
             {c.absents.map((a) => (
               <li key={a.poster_id} className="flex flex-wrap gap-2 py-1">
-                <span className="font-medium">{a.nom ?? a.poster_id}</span>
+                <span className="font-medium">{a.nom ?? a.poster_id}</span> <BadgePosteur posterId={a.poster_id} />
                 <span className="text-muted-foreground">{t(`${P}.couverture.raisons.${a.raison}`, { defaultValue: a.raison })}</span>
               </li>
             ))}
@@ -201,7 +202,7 @@ export function ResultatSimulation({ lignes, autres }: { lignes: LigneSimulation
                 {lignes.map((l) => (
                   <tr key={l.poster_id} className="border-b border-border/40" data-simulation={l.poster_id}>
                     <td className={TD}>
-                      <span className="font-medium">{l.nom ?? "—"}</span>
+                      <span className="font-medium">{l.nom ?? "—"}</span> <BadgePosteur posterId={l.poster_id} />
                       <Badge variant="error" className="ml-1">{t(`${P}.choix.${l.choix}`)}</Badge>
                     </td>
                     <td className={TD}>{l.desactivation}</td>

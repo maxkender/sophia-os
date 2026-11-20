@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { BadgePlateforme } from "@/features/ruul/BadgePlateforme";
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -114,7 +115,7 @@ function Ligne({ l, paie, actif, onClick }: { l: LigneSupport; paie?: boolean; a
       <span className="min-w-0 flex-1 space-y-0.5">
         <span className="flex flex-wrap items-center gap-1.5">
           <span className="font-medium">{t(`${H}.categories.${cleLibelle(l.type, l.categorie, l.plateforme)}`)}</span>
-          <span className="text-muted-foreground">· {l.nom} · {l.plateforme === "ruul" ? "Ruul" : "Upwork"}</span>
+          <span className="text-muted-foreground">· {l.nom}</span> <BadgePlateforme ruul={l.plateforme === "ruul"} />
           {paie && <Badge variant="error" data-testid="badge-paie">Paie</Badge>}
           {l.en_retard && <Badge variant="error">{t(`${A}.late`)}</Badge>}
           {l.statut !== "ouvert" && <Badge variant="outline">{t(`${A}.statuts.${l.statut}`)}</Badge>}
@@ -164,7 +165,7 @@ function PanneauDetail({ d, rafraichir, onFini }: { d: DetailSupport; rafraichir
         <div className="flex flex-wrap items-center gap-2">
           <span className={`size-2.5 rounded-full ${PASTILLE[d.urgence]}`} />
           <span className="font-semibold">{t(`${H}.categories.${cleLibelle(d.type, d.categorie, d.plateforme)}`)}</span>
-          <Badge variant="outline">{d.plateforme === "ruul" ? "Ruul" : "Upwork"}</Badge>
+          <BadgePlateforme ruul={d.plateforme === "ruul"} />
           <Badge variant="secondary">{t(`${A}.source.${d.source}`)}</Badge>
           <Badge variant="outline">{t(`${A}.statuts.${d.statut}`)}</Badge>
           {d.en_retard && <Badge variant="error">{t(`${A}.late`)}</Badge>}

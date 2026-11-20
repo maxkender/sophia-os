@@ -24,10 +24,28 @@
  * La clé (RUUL_API_KEY / RUUL_SANDBOX_API_KEY) reste dans les secrets ; elle n'apparaît jamais dans une réponse.
  */
 import { connecter, lienRuul } from "../_shared/ruul_connect.ts";
-import { appelRuul, descriptionLigne, descriptionLot, type EnvRuul } from "../_shared/ruul_api.ts";
+import { appelRuul, BASES, descriptionLigne, descriptionLot, type EnvRuul } from "../_shared/ruul_api.ts";
 import { assertAuthorised, assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
+
+/**
+ * 21/11 (Max) : la liste des pays de Ruul (GET /api/countries, publique, sans clé) : un pays où un talent ne peut pas
+ * s'inscrire (talentRegisterEnabled) ou ajouter sa banque (addBankAccountEnabled) n'est pas accepté → passage sur Upwork.
+ */
+async function paysRuul(supabase: Supabase) {
+  const r = await fetch(`${BASES.prod}/api/countries`, { headers: { accept: "application/json" } }).catch(() => null);
+  if (!r?.ok) return { ok: false, error: `pays Ruul illisibles (HTTP ${r?.status ?? "réseau"})` };
+  const liste = (await r.json().catch(() => [])) as { code?: string; name?: string; talentRegisterEnabled?: boolean; addBankAccountEnabled?: boolean }[];
+  const lignes = liste.filter((c) => typeof c.code === "string" && c.code.length <= 4).map((c) => ({
+    code: String(c.code).toUpperCase(), nom: c.name ?? null,
+    inscription: c.talentRegisterEnabled === true, banque: c.addBankAccountEnabled === true, maj_at: new Date().toISOString(),
+  }));
+  if (lignes.length < 100) return { ok: false, error: `liste de pays incomplète (${lignes.length})` };
+  const { error } = await supabase.from("ruul_pays").upsert(lignes, { onConflict: "code" });
+  if (error) return { ok: false, error: error.message };
+  return { ok: true, pays: lignes.length, refuses: lignes.filter((l) => !l.inscription || !l.banque).map((l) => l.code) };
+}
 
 export interface ReglageRuulApi {
   env: EnvRuul;
@@ -307,6 +325,9 @@ Deno.serve(async (request) => {
     switch (corps.action) {
       case "sync":
         return json(await sync(supabase));
+      case "pays":
+        // 21/11 (Max) : les pays où Ruul accepte un posteur (inscription et banque), relus chaque jour.
+        return json(await paysRuul(supabase));
       case "connect":
         return json(await connect(supabase, corps));
       case "devis":

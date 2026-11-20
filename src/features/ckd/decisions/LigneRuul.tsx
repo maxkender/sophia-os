@@ -10,20 +10,7 @@ import { cn } from "@/lib/utils";
 
 import { emailRevenu, enPause, type InfoRuul, jjmm, payableLundi } from "./ruulDecisions";
 
-/** Le badge de plateforme d'une ligne. */
-export function BadgePlateforme({ ruul }: { ruul: boolean }) {
-  return (
-    <span
-      className={cn(
-        "inline-flex rounded px-1.5 py-px text-[10px] font-semibold tracking-wide ring-1",
-        ruul ? "bg-violet-50 text-violet-700 ring-violet-200 dark:bg-violet-950/40 dark:text-violet-200" : "bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-200",
-      )}
-      data-testid="badge-plateforme"
-    >
-      {ruul ? "RUUL" : "UPWORK"}
-    </span>
-  );
-}
+export { BadgePlateforme } from "@/features/ruul/BadgePlateforme";
 
 function Pastille({ ok, libelle }: { ok: boolean; libelle: string }) {
   return (

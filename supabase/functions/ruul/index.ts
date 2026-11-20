@@ -916,7 +916,7 @@ function contenuEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">
       warmup: !!e.warmup_started_at && (e.abonnements ?? 0) >= 5, slack: !!e.slack_user_id,
     },
   }, lienPret);
-  const sansPied = type === "desactivation" || type === "arret" || type === "identite_fin";
+  const sansPied = type === "desactivation" || type === "arret";
   return {
     email: { objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop, sansPied, ...(liens ? { titre: "Vik Studios", arret: lienStop } : {}) },
     lienStop,
@@ -1018,7 +1018,8 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision & { num
     await supabase.from("profiles").update(d.type === "invite_a" ? { ruul_email_a_at: at } : { ruul_email_b_at: at }).eq("id", e.poster_id);
   }
   if (d.type === "identite_fin" && r.ok) {
-    await supabase.rpc("ruul_desactiver", { p_poster: e.poster_id, p_source: "manuel", p_motif: "Fin de collaboration : identité refusée 2 fois par Ruul" });
+    // 21/11 (Max) : 2e refus d'identité : plus de fin de collaboration ; exception Upwork (lien de profil attendu).
+    await supabase.rpc("upwork_exception_demander", { p_poster: e.poster_id, p_source: "email", p_demande: null });
   }
   if (d.type === "desactivation" && r.ok) {
     await supabase.rpc("ruul_desactiver", { p_poster: e.poster_id, p_source: "manuel", p_motif: "14 jours sans aucune activité" });

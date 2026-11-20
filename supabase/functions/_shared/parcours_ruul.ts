@@ -212,7 +212,7 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
   if (o.bienvenue && o.bienvenueDepuis && e.cree_at >= o.bienvenueDepuis && !envoye(e, "bienvenue")) {
     return { type: "bienvenue", cle: "bienvenue" };
   }
-  // 0698 : identité refusée par Ruul. 2e refus : fin de collaboration (email poli, puis désactivation).
+  // 0698 : identité refusée par Ruul. 21/11 (Max) : 2e refus : on propose Upwork (lien de profil attendu).
   if (o.v2 && e.identite === "declined") {
     if ((e.identite_refus ?? 0) >= 2 && !envoye(e, "identite_fin")) return { type: "identite_fin", cle: "identite_fin" };
     if ((e.identite_refus ?? 0) === 1 && !envoye(e, "identite_refus_1")) return { type: "identite_refusee", cle: "identite_refus_1" };
@@ -451,15 +451,16 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
         corps: [bonjour(d),
           "Ruul couldn't verify your identity, so we can't pay you yet. Please try again in Ruul:",
           "1. Use a valid ID (passport, ID card or driving licence) that isn't expired.\n2. Take clear photos in good light, with the 4 corners of the ID visible.\n3. Make sure the name on your Ruul account is exactly the name on your ID.\n4. Take the selfie in good light, without glasses or a hat.\n5. Then click the button below.",
-          "If it's declined a second time, we won't be able to pay you through Ruul."].join("\n\n"),
+          "If it's declined a second time, we'll pay you on Upwork instead."].join("\n\n"),
         bouton: { texte: "It's done", lien: lienPret },
       };
     case "identite_fin":
       return {
-        objet: "About your work with Vik Studios",
+        // 21/11 (Max) : 2e refus d'identité : on propose Upwork (plus de fin de collaboration).
+        objet: "We'll pay you on Upwork instead",
         corps: [bonjour(d),
-          "Ruul couldn't verify your identity a second time. We can only pay through Ruul, so unfortunately we have to end our collaboration. Your access is now closed.",
-          "If you posted this week, that week is still paid on Monday. Thank you for your time with us, and we wish you all the best."].join("\n\n"),
+          "Ruul couldn't verify your identity a second time, so we'll pay you on Upwork instead.",
+          "Reply to this email with the link to your Upwork freelancer profile (it looks like https://www.upwork.com/freelancers/...) and we'll send you an offer. Keep posting as usual: your weeks are paid."].join("\n\n"),
       };
     case "arret":
       return {

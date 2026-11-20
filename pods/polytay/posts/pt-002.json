@@ -1,0 +1,621 @@
+{
+ "id": "pt-002",
+ "source": {
+  "url": "https://www.tiktok.com/@polytay/photo/7701208177773169950",
+  "vues": 108500,
+  "publie_le": "2026-10-27",
+  "accroche": "being impossible to bore is just five small habits stacked"
+ },
+ "titre": {
+  "en": "small hobbies that make you impossible to bore",
+  "fr": "petits hobbies pour ne plus jamais t'ennuyer",
+  "es": "pequeños hobbies para no aburrirte nunca",
+  "es-419": "pequeños hobbies para que nunca te aburras",
+  "it": "piccoli hobby per non annoiarti mai più",
+  "tr": "asla sıkılmamanı sağlayan küçük hobiler",
+  "pt-BR": "hobbies pequenos pra você nunca mais ficar entediada",
+  "sl": "majhni hobiji, zaradi katerih ti ni nikoli dolgčas",
+  "de": "kleine hobbys, mit denen dir nie langweilig wird",
+  "sk": "malé hobby, vďaka ktorým sa nikdy nenudíš",
+  "sv": "små hobbys som gör att du aldrig blir uttråkad"
+ },
+ "legendes": {
+  "en": "being impossible to bore is mostly small hobbies you actually keep. save the one for this winter <3 #girlblogger #selfimprovement #hobbies #learning #cozyhobbies",
+  "fr": "ne jamais s'ennuyer, c'est surtout des petits hobbies qu'on garde. enregistre celui de cet hiver <3 #girlblogger #developpementpersonnel #hobbies #apprendre #hobbiescosy",
+  "es": "no aburrirse nunca es sobre todo tener pequeños hobbies que mantienes. guarda el de este invierno <3 #girlblogger #desarrollopersonal #hobbies #aprender #hobbiesacogedores",
+  "es-419": "no aburrirse nunca es más que nada tener pequeños hobbies que sostienes. guarda el de este invierno <3 #girlblogger #desarrollopersonal #hobbies #aprender #hobbies",
+  "it": "non annoiarsi mai è soprattutto avere piccoli hobby che porti avanti. salva quello di quest'inverno <3 #girlblogger #crescitapersonale #hobby #imparare #booktokitalia",
+  "tr": "asla sıkılmamak çoğunlukla bırakmadığın küçük hobilerden ibaret. bu kışın hobisini kaydet <3 #girlblogger #kişiselgelişim #hobiler #öğrenmek #booktoktürkiye",
+  "pt-BR": "nunca ficar entediada é principalmente ter hobbies pequenos que você mantém. salva o desse inverno <3 #girlblogger #autodesenvolvimento #hobbies #aprender #booktokbrasil",
+  "sl": "da ti ni nikoli dolgčas, so večinoma majhni hobiji, ki jih obdržiš. shrani tistega za to zimo <3 #girlblogger #osebnirazvoj #hobiji #učenje #booktok",
+  "de": "nie gelangweilt sein heißt vor allem: kleine hobbys, die man behält. speicher dir das für diesen winter <3 #girlblogger #selbstverbesserung #hobbys #lernen #booktokdeutschland",
+  "sk": "nikdy sa nenudiť sú hlavne malé hobby, ktoré si udržíš. ulož si to na túto zimu <3 #girlblogger #osobnyrozvoj #hobby #ucenie #booktok",
+  "sv": "att aldrig bli uttråkad handlar mest om små hobbys man håller fast vid. spara den för den här vintern <3 #girlblogger #självutveckling #hobbys #lärande #booktoksverige"
+ },
+ "musique": {
+  "titre": "Solace",
+  "url": "https://www.tiktok.com/music/Solace-7629352188019509265"
+ },
+ "notes": "Preuve : « being impossible to bore is just five small habits stacked » de @polytay (108,5 k vues, 27/10), famille « impossible to bore » (son 479 k), autre angle que pt-001 : des hobbies du soir, d'hiver. Éléments à nous : un puzzle d'un vrai tableau (La Tour de Babel de Bruegel, la photo de la banque en est un), les échecs, des lettres, une constellation par mois (Orion, visible l'hiver). Slide Sophia (4) : « 3. one lesson with my tea », cta B. Aucune ressource nommée hors Bruegel et Orion (vérifiés). Photos : banques de Sophia, sans visage, sans marque ni texte lisible. Livré d'emblée dans les 11 langues du label (demande d'Adrien du 20/11).",
+ "banque": {
+  "images/banque/couv-echecs-cafe.jpg": "4b96c303-b421-4252-b31f-609191aaeec3",
+  "images/banque/couv-bougie-lettre.jpg": "521da163-3b97-4af0-a942-b9c2588ea1dc",
+  "images/banque/puzzle-babel.jpg": "44fd86c5-081b-4034-8bcd-1adad924d18d",
+  "images/banque/puzzle-fleurs-cafe.jpg": "a256dddd-f2d7-4499-bd2a-6f0861f9161c",
+  "images/banque/echecs-fenetre.jpg": "b09ea494-86de-496a-8a74-e737d9717418",
+  "images/banque/echecs-plateau.jpg": "4fe59791-9976-4ba4-bf30-3993edcc89ae",
+  "images/banque/the-vapeur.jpg": "5162c159-4516-442e-bda4-8fc6932b584c",
+  "images/banque/lettres-plume.jpg": "b5eb7741-80fb-4482-a193-c5b2925a0f73",
+  "images/banque/lettres-mains.jpg": "05185a85-bc16-45bd-9843-b3f1d41cd963",
+  "images/banque/carte-ciel.jpg": "408e5017-8793-44c0-9c52-2a378207b17f",
+  "images/banque/ciel-nuit.jpg": "f459e154-76ec-465f-a281-33d665a0dc24"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-echecs-cafe.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-bougie-lettre.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "small hobbies that\nmake you impossible\nto bore"
+   },
+   "fr": {
+    "titre": "petits hobbies pour\nne plus jamais\nt'ennuyer"
+   },
+   "es": {
+    "titre": "pequeños hobbies\npara no aburrirte\nnunca"
+   },
+   "es-419": {
+    "titre": "pequeños hobbies\npara que nunca\nte aburras"
+   },
+   "it": {
+    "titre": "piccoli hobby per\nnon annoiarti mai più"
+   },
+   "tr": {
+    "titre": "asla sıkılmamanı\nsağlayan\nküçük hobiler"
+   },
+   "pt-BR": {
+    "titre": "hobbies pequenos\npra você nunca\nmais ficar entediada"
+   },
+   "sl": {
+    "titre": "majhni hobiji, zaradi\nkaterih ti ni\nnikoli dolgčas"
+   },
+   "de": {
+    "titre": "kleine hobbys,\nmit denen dir nie\nlangweilig wird"
+   },
+   "sk": {
+    "titre": "malé hobby, vďaka\nktorým sa nikdy\nnenudíš"
+   },
+   "sv": {
+    "titre": "små hobbys som gör\natt du aldrig\nblir uttråkad"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/puzzle-babel.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/puzzle-fleurs-cafe.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a puzzle of a real painting",
+    "paragraphes": [
+     "Get a 1000-piece puzzle of a famous painting, like bruegel's tower of babel. while you build it, read about who painted it and why.",
+     "By the last piece you know every corner of it, and the story behind it"
+    ]
+   },
+   "fr": {
+    "titre": "1. le puzzle d'un vrai tableau",
+    "paragraphes": [
+     "Prends un puzzle de 1000 pièces d'un tableau célèbre, comme la tour de babel de bruegel. pendant que tu le fais, lis qui l'a peint et pourquoi.",
+     "À la dernière pièce, tu en connais chaque coin, et toute l'histoire"
+    ]
+   },
+   "es": {
+    "titre": "1. el puzle de un cuadro real",
+    "paragraphes": [
+     "Hazte con un puzle de 1000 piezas de un cuadro famoso, como la torre de babel de bruegel. mientras lo montas, lee quién lo pintó y por qué.",
+     "Con la última pieza conoces cada rincón, y la historia que hay detrás"
+    ]
+   },
+   "es-419": {
+    "titre": "1. el rompecabezas de un cuadro",
+    "paragraphes": [
+     "Consigue un rompecabezas de 1000 piezas de una pintura famosa, como la torre de babel de bruegel. mientras lo armas, lee quién la pintó y por qué.",
+     "Con la última pieza conoces cada rincón, y la historia que hay detrás"
+    ]
+   },
+   "it": {
+    "titre": "1. il puzzle di un vero quadro",
+    "paragraphes": [
+     "Prendi un puzzle da 1000 pezzi di un quadro famoso, come la torre di babele di bruegel. mentre lo fai, leggi chi l'ha dipinto e perché.",
+     "All'ultimo pezzo ne conosci ogni angolo, e la storia che c'è dietro"
+    ]
+   },
+   "tr": {
+    "titre": "1. gerçek bir tablonun yapbozu",
+    "paragraphes": [
+     "Ünlü bir tablonun 1000 parçalık yapbozunu al, mesela bruegel'in babil kulesi. yaparken onu kimin, neden yaptığını oku.",
+     "Son parçada her köşesini biliyorsun, arkasındaki hikâyeyi de"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. o quebra-cabeça de um quadro",
+    "paragraphes": [
+     "Arruma um quebra-cabeça de 1000 peças de um quadro famoso, tipo a torre de babel de bruegel. enquanto monta, lê quem pintou e por quê.",
+     "Na última peça você conhece cada cantinho, e a história por trás"
+    ]
+   },
+   "sl": {
+    "titre": "1. sestavljanka prave slike",
+    "paragraphes": [
+     "Kupi sestavljanko s 1000 koščki znane slike, recimo babilonski stolp bruegla. medtem ko jo sestavljaš, preberi, kdo jo je naslikal in zakaj.",
+     "Pri zadnjem koščku poznaš vsak kotiček, in zgodbo za njim"
+    ]
+   },
+   "de": {
+    "titre": "1. ein puzzle von einem gemälde",
+    "paragraphes": [
+     "Hol dir ein 1000-teile-puzzle von einem berühmten bild, etwa bruegels turmbau zu babel. beim puzzeln liest du, wer es gemalt hat und warum.",
+     "Beim letzten teil kennst du jede ecke, und die geschichte dahinter"
+    ]
+   },
+   "sk": {
+    "titre": "1. puzzle skutočného obrazu",
+    "paragraphes": [
+     "Kúp si 1000-dielne puzzle slávneho obrazu, napríklad babylonskú vežu od bruegela. kým ho skladáš, prečítaj si, kto ho namaľoval a prečo.",
+     "Pri poslednom dieliku poznáš každý kút, aj príbeh za ním"
+    ]
+   },
+   "sv": {
+    "titre": "1. ett pussel av en riktig tavla",
+    "paragraphes": [
+     "Skaffa ett pussel på 1000 bitar av en känd målning, som bruegels babels torn. medan du lägger det, läs om vem som målade den och varför.",
+     "Vid sista biten känner du varje hörn av den, och historien bakom"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/echecs-fenetre.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/echecs-plateau.jpg",
+     "format": "carre"
+    }
+   ],
+   "en": {
+    "titre": "2. learning chess properly",
+    "paragraphes": [
+     "Not just the moves. learn one opening, then replay one famous game a week, move by move, with a coffee.",
+     "It teaches you patience, and you finally get why people call a game beautiful"
+    ]
+   },
+   "fr": {
+    "titre": "2. apprendre vraiment les échecs",
+    "paragraphes": [
+     "Pas juste les règles. apprends une ouverture, puis rejoue une partie célèbre par semaine, coup par coup, avec un café.",
+     "Ça t'apprend la patience, et tu comprends enfin pourquoi on dit qu'une partie est belle"
+    ]
+   },
+   "es": {
+    "titre": "2. aprender ajedrez de verdad",
+    "paragraphes": [
+     "No solo los movimientos. aprende una apertura y luego reproduce una partida famosa a la semana, jugada a jugada, con un café.",
+     "Te enseña paciencia, y por fin entiendes por qué dicen que una partida es bonita"
+    ]
+   },
+   "es-419": {
+    "titre": "2. aprender ajedrez en serio",
+    "paragraphes": [
+     "No solo los movimientos. aprende una apertura y luego reproduce una partida famosa por semana, jugada por jugada, con un café.",
+     "Te enseña paciencia, y por fin entiendes por qué dicen que una partida es hermosa"
+    ]
+   },
+   "it": {
+    "titre": "2. imparare gli scacchi sul serio",
+    "paragraphes": [
+     "Non solo le mosse. impara un'apertura, poi rigioca una partita famosa a settimana, mossa dopo mossa, con un caffè.",
+     "Ti insegna la pazienza, e finalmente capisci perché si dice che una partita è bella"
+    ]
+   },
+   "tr": {
+    "titre": "2. satrancı gerçekten öğrenmek",
+    "paragraphes": [
+     "Sadece hamleleri değil. bir açılış öğren, sonra her hafta ünlü bir oyunu hamle hamle, bir kahveyle yeniden oyna.",
+     "Sana sabrı öğretir, ve insanların neden bir oyuna güzel dediğini sonunda anlarsın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. aprender xadrez de verdade",
+    "paragraphes": [
+     "Não só os movimentos. aprende uma abertura, depois reproduz uma partida famosa por semana, lance por lance, com um café.",
+     "Te ensina paciência, e você finalmente entende por que dizem que uma partida é linda"
+    ]
+   },
+   "sl": {
+    "titre": "2. zares se naučiti šaha",
+    "paragraphes": [
+     "Ne le poteze. nauči se eno otvoritev, potem vsak teden poustvari eno slavno partijo, potezo za potezo, ob kavi.",
+     "Nauči te potrpežljivosti, in končno razumeš, zakaj ljudje rečejo, da je partija lepa"
+    ]
+   },
+   "de": {
+    "titre": "2. richtig schach lernen",
+    "paragraphes": [
+     "Nicht nur die züge. lern eine eröffnung und spiel jede woche eine berühmte partie nach, zug für zug, mit einem kaffee.",
+     "Es lehrt dich geduld, und du verstehst endlich, warum man eine partie schön nennt"
+    ]
+   },
+   "sk": {
+    "titre": "2. naozaj sa naučiť šach",
+    "paragraphes": [
+     "Nielen ťahy. nauč sa jedno otvorenie a potom každý týždeň prehraj jednu slávnu partiu, ťah po ťahu, pri káve.",
+     "Naučí ťa trpezlivosti a konečne pochopíš, prečo ľudia hovoria, že partia je krásna"
+    ]
+   },
+   "sv": {
+    "titre": "2. lära sig schack på riktigt",
+    "paragraphes": [
+     "Inte bara dragen. lär dig en öppning och spela sedan om ett berömt parti i veckan, drag för drag, med en kaffe.",
+     "Det lär dig tålamod, och du förstår äntligen varför folk kallar ett parti vackert"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/the-vapeur.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson with my tea",
+    "paragraphes": [
+     "Sophia gives me one lesson a day, written by actual professors. history, philosophy, geopolitics, with a little quiz after.",
+     "I read it with my tea after dinner. ten minutes, and my brain feels fed"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon avec mon thé",
+    "paragraphes": [
+     "Sophia me donne une leçon par jour, écrite par de vrais profs. histoire, philosophie, géopolitique, avec un petit quiz après.",
+     "Je la lis avec mon thé après le dîner. dix minutes, et mon cerveau est nourri"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección con mi té",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, geopolítica, con un pequeño quiz al final.",
+     "La leo con mi té después de cenar. diez minutos, y mi cerebro queda alimentado"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección con mi té",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, geopolítica, con un pequeño quiz al final.",
+     "La leo con mi té después de cenar. diez minutos, y siento el cerebro alimentado"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione con il mio tè",
+    "paragraphes": [
+     "Sophia mi dà una lezione al giorno, scritta da veri professori. storia, filosofia, geopolitica, con un piccolo quiz alla fine.",
+     "La leggo con il mio tè dopo cena. dieci minuti, e il mio cervello è nutrito"
+    ]
+   },
+   "tr": {
+    "titre": "3. çayımla bir ders",
+    "paragraphes": [
+     "Sophia bana her gün gerçek profesörlerin yazdığı bir ders veriyor. tarih, felsefe, jeopolitik, sonunda da küçük bir test.",
+     "Akşam yemeğinden sonra çayımla okuyorum. on dakika, ve beynim doymuş hissediyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula com meu chá",
+    "paragraphes": [
+     "O Sophia me dá uma aula por dia, escrita por professores de verdade. história, filosofia, geopolítica, com um quiz no final.",
+     "Eu leio com meu chá depois do jantar. dez minutos, e meu cérebro fica alimentado"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija ob čaju",
+    "paragraphes": [
+     "Sophia mi vsak dan da eno lekcijo, ki so jo napisali pravi profesorji. zgodovina, filozofija, geopolitika, na koncu pa kratek kviz.",
+     "Preberem jo ob čaju po večerji. deset minut, in moji možgani so siti"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion zum tee",
+    "paragraphes": [
+     "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren. geschichte, philosophie, geopolitik, mit einem kleinen quiz danach.",
+     "Ich lese sie nach dem abendessen mit meinem tee. zehn minuten, und mein kopf ist satt"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia pri čaji",
+    "paragraphes": [
+     "Sophia mi každý deň dá jednu lekciu, ktorú napísali skutoční profesori. dejiny, filozofia, geopolitika a na konci malý kvíz.",
+     "Čítam ju pri čaji po večeri. desať minút a môj mozog je nasýtený"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion till teet",
+    "paragraphes": [
+     "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. historia, filosofi, geopolitik, med ett litet quiz efteråt.",
+     "Jag läser den till mitt te efter middagen. tio minuter, och hjärnan känns mätt"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/lettres-plume.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/lettres-mains.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. writing real letters",
+    "paragraphes": [
+     "Pick one friend and write her an actual letter every month. what you read, what you noticed, one question for her.",
+     "You think slower on paper. and she keeps it, which no text ever gets"
+    ]
+   },
+   "fr": {
+    "titre": "4. écrire de vraies lettres",
+    "paragraphes": [
+     "Choisis une amie et écris-lui une vraie lettre chaque mois. ce que tu as lu, ce que tu as remarqué, une question pour elle.",
+     "Sur le papier, tu penses plus lentement. et elle la garde, ce qu'aucun texto ne vivra jamais"
+    ]
+   },
+   "es": {
+    "titre": "4. escribir cartas de verdad",
+    "paragraphes": [
+     "Elige a una amiga y escríbele una carta de verdad cada mes. lo que has leído, lo que has notado, una pregunta para ella.",
+     "En papel piensas más despacio. y ella la guarda, cosa que ningún mensaje consigue"
+    ]
+   },
+   "es-419": {
+    "titre": "4. escribir cartas de verdad",
+    "paragraphes": [
+     "Elige a una amiga y escríbele una carta de verdad cada mes. lo que leíste, lo que notaste, una pregunta para ella.",
+     "En papel piensas más lento. y ella la guarda, algo que ningún mensaje logra"
+    ]
+   },
+   "it": {
+    "titre": "4. scrivere vere lettere",
+    "paragraphes": [
+     "Scegli un'amica e scrivile una vera lettera ogni mese. cosa hai letto, cosa hai notato, una domanda per lei.",
+     "Sulla carta pensi più lentamente. e lei la conserva, cosa che nessun messaggio ottiene"
+    ]
+   },
+   "tr": {
+    "titre": "4. gerçek mektuplar yazmak",
+    "paragraphes": [
+     "Bir arkadaşını seç ve ona her ay gerçek bir mektup yaz. ne okuduğunu, neyi fark ettiğini, ona bir soru.",
+     "Kâğıtta daha yavaş düşünürsün. o da saklar, hiçbir mesajın başına gelmeyen bir şey"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. escrever cartas de verdade",
+    "paragraphes": [
+     "Escolhe uma amiga e escreve uma carta de verdade pra ela todo mês. o que você leu, o que você notou, uma pergunta pra ela.",
+     "No papel você pensa mais devagar. e ela guarda, coisa que nenhuma mensagem consegue"
+    ]
+   },
+   "sl": {
+    "titre": "4. pisanje pravih pisem",
+    "paragraphes": [
+     "Izberi eno prijateljico in ji vsak mesec napiši pravo pismo. kaj si brala, kaj si opazila, eno vprašanje zanjo.",
+     "Na papirju razmišljaš počasneje. in ona ga shrani, česar nobeno sporočilo ne doživi"
+    ]
+   },
+   "de": {
+    "titre": "4. echte briefe schreiben",
+    "paragraphes": [
+     "Such dir eine freundin aus und schreib ihr jeden monat einen echten brief. was du gelesen hast, was dir aufgefallen ist, eine frage an sie.",
+     "Auf papier denkst du langsamer. und sie hebt ihn auf, das passiert keiner nachricht"
+    ]
+   },
+   "sk": {
+    "titre": "4. písať skutočné listy",
+    "paragraphes": [
+     "Vyber si jednu kamarátku a každý mesiac jej napíš skutočný list. čo si čítala, čo si si všimla, jednu otázku pre ňu.",
+     "Na papieri premýšľaš pomalšie. a ona si ho odloží, čo sa žiadnej správe nestane"
+    ]
+   },
+   "sv": {
+    "titre": "4. skriva riktiga brev",
+    "paragraphes": [
+     "Välj en vän och skriv ett riktigt brev till henne varje månad. vad du har läst, vad du har lagt märke till, en fråga till henne.",
+     "På papper tänker du långsammare. och hon sparar det, vilket inget sms någonsin blir"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/carte-ciel.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/ciel-nuit.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. one constellation a month",
+    "paragraphes": [
+     "On the first clear night of the month, find one constellation and read the myth behind its name. start with orion, it's the easiest.",
+     "Every walk home at night turns into a story you know by heart"
+    ]
+   },
+   "fr": {
+    "titre": "5. une constellation par mois",
+    "paragraphes": [
+     "La première nuit claire du mois, trouve une constellation et lis le mythe derrière son nom. commence par orion, c'est la plus facile.",
+     "Chaque retour à pied le soir devient une histoire que tu connais par cœur"
+    ]
+   },
+   "es": {
+    "titre": "5. una constelación al mes",
+    "paragraphes": [
+     "La primera noche despejada del mes, encuentra una constelación y lee el mito detrás de su nombre. empieza por orión, es la más fácil.",
+     "Cada vuelta a casa de noche se convierte en una historia que te sabes de memoria"
+    ]
+   },
+   "es-419": {
+    "titre": "5. una constelación al mes",
+    "paragraphes": [
+     "La primera noche despejada del mes, encuentra una constelación y lee el mito detrás de su nombre. empieza por orión, es la más fácil.",
+     "Cada regreso a casa de noche se vuelve una historia que te sabes de memoria"
+    ]
+   },
+   "it": {
+    "titre": "5. una costellazione al mese",
+    "paragraphes": [
+     "La prima notte serena del mese, trova una costellazione e leggi il mito dietro il suo nome. inizia da orione, è la più facile.",
+     "Ogni ritorno a casa di sera diventa una storia che conosci a memoria"
+    ]
+   },
+   "tr": {
+    "titre": "5. ayda bir takımyıldız",
+    "paragraphes": [
+     "Ayın ilk açık gecesinde bir takımyıldız bul ve adının arkasındaki efsaneyi oku. avcı'dan başla, en kolayı o.",
+     "Gece eve her yürüyüş ezbere bildiğin bir hikâyeye dönüşür"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. uma constelação por mês",
+    "paragraphes": [
+     "Na primeira noite limpa do mês, acha uma constelação e lê o mito por trás do nome dela. começa por órion, é a mais fácil.",
+     "Toda volta pra casa à noite vira uma história que você sabe de cor"
+    ]
+   },
+   "sl": {
+    "titre": "5. eno ozvezdje na mesec",
+    "paragraphes": [
+     "Prvo jasno noč v mesecu poišči eno ozvezdje in preberi mit za njegovim imenom. začni z orionom, je najlažji.",
+     "Vsaka nočna pot domov postane zgodba, ki jo znaš na pamet"
+    ]
+   },
+   "de": {
+    "titre": "5. ein sternbild im monat",
+    "paragraphes": [
+     "In der ersten klaren nacht des monats suchst du ein sternbild und liest den mythos hinter seinem namen. fang mit orion an, der ist am leichtesten.",
+     "Jeder heimweg am abend wird zu einer geschichte, die du auswendig kennst"
+    ]
+   },
+   "sk": {
+    "titre": "5. jedno súhvezdie za mesiac",
+    "paragraphes": [
+     "Prvú jasnú noc v mesiaci nájdi jedno súhvezdie a prečítaj si mýtus za jeho menom. začni oriónom, je najľahší.",
+     "Každá nočná cesta domov sa zmení na príbeh, ktorý vieš naspamäť"
+    ]
+   },
+   "sv": {
+    "titre": "5. en stjärnbild i månaden",
+    "paragraphes": [
+     "Månadens första klara natt, hitta en stjärnbild och läs myten bakom namnet. börja med orion, den är lättast.",
+     "Varje promenad hem på kvällen blir en historia du kan utantill"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ]
+}

@@ -22,6 +22,7 @@ import {
   POD_VIDEO,
 } from "@/features/pods/api";
 import { BlocLangues } from "@/features/pods/BlocLangues";
+import { CarteRattrapage } from "@/features/pods/CarteRattrapage";
 import { CarteSeriesPods } from "@/features/pods/CarteSeriesPods";
 import { ComptesDuPod } from "@/features/pods/ComptesDuPod";
 import { EtiquetteEtat, EtiquetteFormat, LienCompte } from "@/features/pods/Etiquettes";
@@ -276,6 +277,8 @@ export function AdminPodzFichePage() {
           </CardContent>
         </Card>
       )}
+
+      {format === "images_finies" && <CarteRattrapage pod={pod.slug} />}
 
       {!video && <CarteSeriesPods pods={[{ slug: pod.slug, nom: pod.nom }]} fixe={pod.slug} />}
 

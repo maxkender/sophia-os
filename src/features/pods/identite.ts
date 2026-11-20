@@ -46,7 +46,8 @@ export function assemblerPodz(pods: Pod[], fiches: FichePod[] = [], tableau: Pod
     fiche: fiches.find((f) => f.slug === pod.slug) ?? null,
     tableau: tableau.find((t) => t.slug === pod.slug) ?? null,
     format: formatPodz(pod),
-    modeles: modelesDuNom(pod.nom),
+    // Le vrai champ (0785) ; avant lui, ou s'il est vide, le compte cité dans le nom.
+    modeles: pod.modeles?.length ? pod.modeles : modelesDuNom(pod.nom),
     titre: pod.label ?? pod.nom,
     freres: pod.label_id ? pods.filter((p) => p.label_id === pod.label_id && p.slug !== pod.slug).map((p) => p.slug) : [],
   }));

@@ -21,13 +21,16 @@ function Deplacer({ compte, pod, labelId, apps }: { compte: CompteDuPod; pod: st
   const qc = useQueryClient();
   const [ouvert, setOuvert] = React.useState(false);
   const [vers, setVers] = React.useState("");
+  const nom = compte.handle ? `@${compte.handle}` : compte.compte_id.slice(0, 8);
   const labels = useQuery({ queryKey: ["bible", "labels"], queryFn: lireLabels, enabled: ouvert, staleTime: 300_000 });
   const ids = apps.map((a) => idApplication(a));
   const choix = (labels.data ?? []).filter((l) => l.id !== labelId && l.apps.some((a) => ids.includes(a)));
   const deplacer = useMutation({
     mutationFn: () => deplacerCompte(compte.compte_id, labelId, vers, `depuis la fiche de ${pod}`),
-    onSuccess: () => {
+    onSuccess: (res) => {
       setOuvert(false);
+      // Le compte quitte cette fiche : on le dit tout de suite si sa langue n'est pas ouverte à l'arrivée.
+      if (res.langue_ouverte === false) window.alert(t("pods.places.languePasOuverte", { compte: nom, label: res.label ?? "" }));
       void qc.invalidateQueries({ queryKey: ["pods"] });
     },
   });
@@ -38,7 +41,6 @@ function Deplacer({ compte, pod, labelId, apps }: { compte: CompteDuPod; pod: st
       </Button>
     );
   }
-  const nom = compte.handle ? `@${compte.handle}` : compte.compte_id.slice(0, 8);
   return (
     <span className="inline-flex flex-wrap items-center justify-end gap-1.5">
       <select

@@ -313,10 +313,18 @@ describe("MesRecrues (accueil HM, lecture seule)", () => {
   });
 
   it("une HM : ses recrues seulement, sans bouton (ni Postpone, ni Stop, ni Link)", async () => {
-    rendu(<MesRecrues hm="hm-lucia" />);
-    const bloc = await screen.findByTestId("mes-recrues");
-    expect(await within(bloc).findByText("Ana Silva")).toBeInTheDocument();
-    expect(within(bloc).queryByText("Bo Lee")).toBeNull();
-    expect(within(bloc).queryByRole("button")).toBeNull();
+    // `MesRecrues` lit la date du jour : on la fige sur le mercredi des données d'essai, sinon le
+    // test casse dès que la cohorte du 2 nov. n'est plus « en préparation » (il cassait depuis).
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(MERCREDI);
+    try {
+      rendu(<MesRecrues hm="hm-lucia" />);
+      const bloc = await screen.findByTestId("mes-recrues");
+      expect(await within(bloc).findByText("Ana Silva")).toBeInTheDocument();
+      expect(within(bloc).queryByText("Bo Lee")).toBeNull();
+      expect(within(bloc).queryByRole("button")).toBeNull();
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

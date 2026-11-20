@@ -86,6 +86,8 @@ export interface Pod {
   langues: string[] | null;
   /** Les langues que son atelier sait produire (`pods.langues_pretes`, 0781) ; nul avant la migration. */
   langues_pretes: string[] | null;
+  /** Ses comptes modèles (`pods.modeles`, 0785), sans @ ; vide avant la migration. */
+  modeles: string[];
   cree_le: string | null;
   /** Les applications servies par son label (slugs du catalogue), dans l'ordre du catalogue. */
   apps: string[];
@@ -112,9 +114,9 @@ function appsDuLabel(label: LabelDuPod | null): string[] {
 /** Les pods déclarés (table `pods`) avec leur label, ses applications et leurs langues. */
 export async function listerPods(): Promise<Pod[]> {
   const colonnes = (pretes: boolean) =>
-    `slug, nom, actif, auto_validation, auto_validation_heures, langues,${pretes ? " langues_pretes," : ""} created_at, label_id, labels(nom, application_id, label_applications(application_id))`;
+    `slug, nom, actif, auto_validation, auto_validation_heures, langues,${pretes ? " langues_pretes, modeles," : ""} created_at, label_id, labels(nom, application_id, label_applications(application_id))`;
   let { data, error } = await supabase.from("pods").select(colonnes(true)).order("created_at");
-  // Avant la migration 0781, la colonne `langues_pretes` n'existe pas : on lit sans elle.
+  // Avant les migrations 0781 et 0785, `langues_pretes` et `modeles` n'existent pas : on lit sans elles.
   if (error) ({ data, error } = await supabase.from("pods").select(colonnes(false)).order("created_at"));
   if (error) throw error;
   return ((data ?? []) as unknown as Record<string, unknown>[]).map((p) => {
@@ -130,6 +132,7 @@ export async function listerPods(): Promise<Pod[]> {
       label_id: (p.label_id as string | null) ?? null,
       langues: (p.langues as string[] | null) ?? null,
       langues_pretes: (p.langues_pretes as string[] | null | undefined) ?? null,
+      modeles: (p.modeles as string[] | null | undefined) ?? [],
       cree_le: (p.created_at as string | null) ?? null,
       apps: appsDuLabel(label),
     };
@@ -728,4 +731,23 @@ export async function listerDeplacements(limite = 30): Promise<Deplacement[]> {
       annule_le: (d.annule_le as string | null) ?? null,
     };
   });
+}
+
+/** Une commande de rattrapage (`bleo_rattrapage_du_pod`, 0654) : un post gagnant qui manque dans des langues où le label a un compte. */
+export interface CommandeRattrapage {
+  rang: number;
+  contenu_id: string;
+  source_id: string | null;
+  titre: string | null;
+  accroche: string | null;
+  langues: string[];
+  vues_famille: number | null;
+  /** Déjà déposé par le podz, attend la validation. */
+  en_attente: boolean;
+}
+
+export async function listerRattrapage(pod: string): Promise<CommandeRattrapage[]> {
+  const { data, error } = await supabase.rpc("bleo_rattrapage_du_pod", { p_pod: pod });
+  if (error) throw error;
+  return ((data ?? []) as CommandeRattrapage[]).map((c) => ({ ...c, langues: c.langues ?? [] }));
 }

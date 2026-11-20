@@ -9,7 +9,7 @@ Quand un autre fichier dit autre chose, c'est ce fichier qui a raison.
 | --- | --- |
 | **Label** | Une ligne éditoriale (`alpha_male`, `Fathomly`). Les comptes portent un label, et postent ce que ce label contient. Un label est nourri par des sources, par des podz, ou par les deux. |
 | **Podz** | Un atelier Claude qui nourrit **un** label : un agent, son dossier `pods/<dossier>/`, sa routine du matin. Un label peut avoir plusieurs podz. |
-| **Modèle** | Le compte TikTok dont un podz reprend le style (`@fathom0g` pour Fathomly). Rien n'est importé de ce compte. |
+| **Modèle** | Le compte TikTok dont un podz reprend le style (`@fathom0g` pour Fathomly), noté dans `pods.modeles`. Rien n'est importé de ce compte. |
 | **Source** | Un compte TikTok dont l'OS **importe** les posts dans un label (page Sources, Bible des comptes). |
 | **Format** | Ce que le podz livre. Deux formats pour les slideshows, voir plus bas. |
 | **Langue ouverte** | Une langue de la liste d'un podz en images finies (`pods.langues`). C'est une décision d'Adrien, de Max ou de la soupape : des comptes du label peuvent y aller, le podz doit la livrer. |

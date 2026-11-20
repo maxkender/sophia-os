@@ -11,6 +11,10 @@
 --   Mesuré sur un créateur (transaction annulée) : `comptes` 1 669 ms → 5 ms.
 -- Les règles d'accès ne changent pas : mêmes conditions, mêmes lignes.
 -- Idempotente (alter policy, create or replace view).
+-- ✅ Appliquée le 2026-11-20 (MCP).
+
+-- Ne pas faire la queue derrière une lecture longue : on échoue vite, on relance.
+set local lock_timeout = '5s';
 
 alter policy comptes_admin on public.comptes
   using ((select public.is_admin()))

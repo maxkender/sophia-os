@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ResumePlateformes } from "./ResumePlateformes";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight, RefreshCw } from "lucide-react";
@@ -45,6 +46,7 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
 
   return (
     <div className="space-y-6">
+      <ResumePlateformes semaine={semaine} />
       <div className="inline-flex rounded-md border p-0.5 text-sm" role="tablist">
         {ONGLETS_PAIE.map((o) => (
           <button

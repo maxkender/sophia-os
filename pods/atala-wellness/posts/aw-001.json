@@ -16,7 +16,7 @@
   "titre": "save a prayer",
   "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
  },
- "notes": "Preuve : « 6 habitudes wellness qui font leurs effets au bout d'une semaine » de @healthy_with_emma6 (12,3 k vues, 20/10), même gabarit (7 slides, l'appli en 5e). Sa slide pub (« mange healthy même au resto », carte CleanMenu) devient la slide Atala : une fille qui court au coucher du soleil (banque, dcb001c3, choisie le 19/11 par Adrien comme « plus aesthetic » que la première) et la carte d'Atala. cta A. Faits vérifiés : déshydratation légère et humeur (Armstrong et al., J. Nutr. 2012) ; lumière du jour le matin, horloge interne et sommeil ; lecture sur écran émissif le soir et endormissement plus lent qu'avec un livre papier (Chang et al., PNAS 2015) ; 120 minutes par semaine dans la nature et bien-être (White et al., Scientific Reports 2019) ; 10 pages par jour ≈ 300 pages par mois. Photos : banque de l'OS (images/banque, ids dans `banque`).",
+ "notes": "Preuve : « 6 habitudes wellness qui font leurs effets au bout d'une semaine » de @healthy_with_emma6 (12,3 k vues, 20/10), même gabarit (7 slides, l'appli en 5e). Sa slide pub (« mange healthy même au resto », carte CleanMenu) devient la slide Atala : une fille qui court au coucher du soleil (banque, dcb001c3, choisie le 19/11 par Adrien comme « plus aesthetic » que la première) et la carte d'Atala. cta A. Faits vérifiés : déshydratation légère et humeur (Armstrong et al., J. Nutr. 2012) ; lumière du jour le matin, horloge interne et sommeil ; lecture sur écran émissif le soir et endormissement plus lent qu'avec un livre papier (Chang et al., PNAS 2015) ; 120 minutes par semaine dans la nature et bien-être (White et al., Scientific Reports 2019) ; 10 pages par jour ≈ 300 pages par mois. Photos : banque de l'OS (images/banque, ids dans `banque`). Slide Atala réécrite le 20/11 selon le prompt placement_atala (un seul argument, « app like Atala », sans « AI ») : placement A (20/11) : « a running coach app like Atala gives you a plan at your level, even from zero ».",
  "banque": {
   "images/banque/couverture-a.jpg": "09f1c9b6-c287-48c4-b267-6d8d522fe6ce",
   "images/banque/couverture-b.jpg": "031b1d05-4c68-4fa8-ad65-848a4067177c",
@@ -89,7 +89,7 @@
     "intro": "running is the habit that changed _my energy_ the most",
     "paragraphes": [
      "i always wanted to run but i _never knew where to start_, so i went too fast and quit after a week",
-     "my tip: _i found an app that builds a running plan around my goal_ and adapts it every week, and i finally stuck with it"
+     "my tip: a running coach app like Atala gives you _a plan at your level_, even from zero"
     ],
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",

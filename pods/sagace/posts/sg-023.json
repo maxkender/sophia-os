@@ -1,0 +1,1332 @@
+{
+ "id": "sg-023",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7677887690662055201",
+  "vues": 352500,
+  "publie_le": "2026-08-25",
+  "accroche": "10 compétence 10/10 à apprendre au lieu de scroller"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "940836e1-f885-498b-a89f-d93e27c7f220",
+ "titre": {
+  "fr": "10 compétences 10/10 à apprendre au lieu de scroller",
+  "en": "10 10/10 skills to learn instead of scrolling",
+  "de": "10 Skills (10/10), die du lernen kannst, statt zu scrollen",
+  "it": "10 abilità da 10/10 da imparare invece di scrollare",
+  "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri",
+  "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování"
+ },
+ "legendes": {
+  "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10 10/10 skills to learn instead of scrolling #learnontiktok #selfimprovement #skills",
+  "de": "10 Skills (10/10), die du lernen kannst, statt zu scrollen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "10 abilità da 10/10 da imparare invece di scrollare #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - m - m",
+  "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
+ },
+ "notes": "Déclinaison G1 de sg-002 (boîte du 20/11) : son titre et sa couverture mot pour mot dans les 8 langues, 5 autres compétences « au lieu de scroller » (belles photos au téléphone, pompes, crêpes, jongler avec un ballon, toucher ses pieds), d'autres vraies vidéos natives. Sophia en étape 4 sur 7 (cta C : « SE COUCHER / MOINS BÊTE », ce que j'ouvre au lieu de scroller).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCE",
+      "cap": 138
+     },
+     {
+      "t": "À APPRENDRE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "AU LIEU",
+      "cap": 149
+     },
+     {
+      "t": "DE SCROLLER",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 138
+     },
+     {
+      "t": "TO LEARN",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "INSTEAD OF",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLING",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 138
+     },
+     {
+      "t": "ZUM LERNEN",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "STATT ZU",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLEN",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 138
+     },
+     {
+      "t": "DA IMPARARE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "INVECE DI",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLARE",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "PARA APRENDER",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "EM VEZ DE",
+      "cap": 149
+     },
+     {
+      "t": "ROLAR O FEED",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KAYDIRMAK",
+      "cap": 138
+     },
+     {
+      "t": "YERİNE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "ÖĞRENİLECEK",
+      "cap": 149
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 138
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "ÎN LOC SĂ",
+      "cap": 149
+     },
+     {
+      "t": "DAI SCROLL",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 138
+     },
+     {
+      "t": "K NAUČENÍ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "MÍSTO",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLOVÁNÍ",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PRENDRE",
+     [
+      {
+       "t": "DE BELLES PHOTOS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jHUhvRZie9k",
+     "titre": "15 conseils pour réussir vos photos au smartphone ! (débutants)",
+     "chaine": "Nowtech",
+     "vues": "182 k vues",
+     "date": "il y a 6 ans",
+     "duree": "19:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4RP19H6KxmMXT9nsgUendqx8h4O0hZKHIxZrSirN_h-4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TAKE",
+     [
+      {
+       "t": "BETTER PHOTOS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Bmn_GI4xZBQ",
+     "titre": "11 Simple Tips to Capture Professional Photos With Your Phone",
+     "chaine": "Alex Armitage",
+     "vues": "537K views",
+     "date": "2 years ago",
+     "duree": "22:55",
+     "avatar": "https://yt3.ggpht.com/2nSAfjcwjlvVXxgp6y579FumgF5YKO_O5p7PCO8XyfHO3_wWdOePka9whgrVB4A2tLK0OxPfRA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "BESSERE",
+     [
+      {
+       "t": "HANDYFOTOS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r5_MzOYmzXg",
+     "titre": "SMARTPHONE FOTOGRAFIE TUTORIAL - 5 einfache Tipps für die Fotografie mit dem Handy",
+     "chaine": "Timo Nausch",
+     "vues": "95.830 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWrmWb_-C8scxAQsXTRJN2kocEUuAgmBjoim8Vs7jyrws=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCATTARE",
+     [
+      {
+       "t": "BELLE FOTO",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WJSw-iiaZKg",
+     "titre": "15 Fantastici Consigli per FOTOGRAFARE con lo SMARTPHONE",
+     "chaine": "iCamera",
+     "vues": "58K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "17:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nwS7u8BRn48iW5ER9I0nkHBfj1wwHBJd45e0q1DpTkvw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TIRAR",
+     [
+      {
+       "t": "FOTOS LINDAS",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "X_DvfKPfaGc",
+     "titre": "7 DICAS fotografia de CELULAR em 150 SEGUNDOS!",
+     "chaine": "Henrique Morais",
+     "vues": "1,3 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ZRdzAGhaSTu9VuE82YxTJgMnyNod6pOVfRhFMLvRuDS6YY0PmKdw8x8B1wem3PRNIdiV7TOsoQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GÜZEL",
+     [
+      {
+       "t": "FOTOĞRAF ÇEKMEK",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QN4ZEr_zrzE",
+     "titre": "Cep Telefonu ile Fotoğraf Çekim Teknikleri | Mobil Fotoğrafçılık",
+     "chaine": "Mehmet Üzüm",
+     "vues": "584 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "12:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGlFEdSpssOLkWPK-TnAz_ZK3bALrW0vuRWhwU3sQB1kQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 30 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "POZE FRUMOASE",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9s5mI9JPRF0",
+     "titre": "5 Sfaturi pentru poze mai bune cu telefonul!",
+     "chaine": "Virgil Adumitroae",
+     "vues": "132 K vizionări",
+     "date": "acum 13 ani",
+     "duree": "6:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nO36eIeTnFE79td6ZyBowmD9CoOvODB7HkSkZWXp1_Iw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "FOTIT",
+     [
+      {
+       "t": "JAKO PROFÍK",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SossG0shzPU",
+     "titre": "Fotoakademie #1: Jak na základy focení mobilem?",
+     "chaine": "Huramobil [Petr Hudec]",
+     "vues": "80 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "7:20",
+     "avatar": "https://yt3.ggpht.com/s0bSNGzQN1QugKU7wkwmF2K-C4C5490ocw7p4kMnWHFyJfTe5Ch1emcr4Y7Ui1qFFi7BovolGQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 minut na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "DES POMPES",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jgJHg3rAOVg",
+     "titre": "COMMENT FAIRE DES POMPES PARFAITES ?! ( en 3 minutes )",
+     "chaine": "COROKSTIK",
+     "vues": "260 k vues",
+     "date": "il y a 5 ans",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/RLtPuBMVV-ictPgaGShGG4aBmqgkB6qGmorvmaVFJpR2mdFcNaUnZ99lVSnSpHxU1Z1FX7EcoA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DO PERFECT",
+     [
+      {
+       "t": "PUSH-UPS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I9fsqKE5XHo",
+     "titre": "Do Push-Ups with Proper Form!",
+     "chaine": "Upright Health",
+     "vues": "1.3M views",
+     "date": "4 years ago",
+     "duree": "6:51",
+     "avatar": "https://yt3.ggpht.com/DvxFkC_ASm6XDtaCDinylXUFcJMdfnjglgqSI1VvpkQ66fMmsLxoKush1HWskC2MM8MuCtRJM8Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RICHTIGE",
+     [
+      {
+       "t": "LIEGESTÜTZE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H6Pq6i7xAv4",
+     "titre": "Liegestütz richtige Ausführung – Lernen für Anfänger",
+     "chaine": "Kraftschule.TV",
+     "vues": "711.903 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "2:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgHNOBMByaj3JBjXfPOZsHxU2iyMfBW9VA76PdS-Yig70=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE LE",
+     [
+      {
+       "t": "FLESSIONI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R4YYOEtiCFc",
+     "titre": "COME IMPARARE a FARE le FLESSIONI! [PIEGAMENTI SULLE BRACCIA]",
+     "chaine": "Federico Alastra",
+     "vues": "25K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/kD-HISggREZY1Gi0dBrS_f90xTFQL-e5QL9-3Oef_YnWsJCrTzevyp-JL3ZvJcv0Iu1EifpyQw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "FLEXÕES",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xAiHrxk5XyU",
+     "titre": "Como Fazer a Flexão de Braço Perfeita (Guia Para Iniciantes em 2026)",
+     "chaine": "Laércio Refundini",
+     "vues": "576 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "8:38",
+     "avatar": "https://yt3.ggpht.com/8VKpRZ5bAecygMoiAfLTfevM1O9Tj9EwsiUAz5io9wFgmxxulpwASvdFZA0DPyefNFh4xHqKncI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DOĞRU",
+     [
+      {
+       "t": "ŞINAV ÇEKMEK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oXw-TFiFpCk",
+     "titre": "Şınav Nasıl Çekilir | 4 ADIMDA DOĞRU ŞINAV",
+     "chaine": "ALFA",
+     "vues": "613 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "5:02",
+     "avatar": "https://yt3.ggpht.com/5bKA4W_L62AdcNlF44rpqACmmYOdx3XoPrZKQYgmLaUS5A_ThT0EA5TxubMf4Rf5IHfE-XTDKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "FLOTĂRI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "guV53fqTkVo",
+     "titre": "Tutorial Complet Flotari - TEHNICA DE EXECUTIE, GRESELI, PROGRESII",
+     "chaine": "Marius Oiaga",
+     "vues": "90 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:35",
+     "avatar": "https://yt3.ggpht.com/ION0nHpA79qO9djXmDfQEwcJa5GEErKbSk3xlQ55p16htd9E_L_-EeClGkUo4jVziK8Zicy3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "DĚLAT",
+     [
+      {
+       "t": "KLIKY",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7iWVCh-tQy8",
+     "titre": "Klik krok po kroku | správná technika a nejčastější chyby",
+     "chaine": "Fitness Institut",
+     "vues": "70 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/CQUEaIvM6keqV30x4yCU3et5Y_Rk3VHgIJQKRADq81kAmraZquw4OmDvxnaVIn8er5Bim1xl1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "SE COUCHER",
+     [
+      {
+       "t": "MOINS BÊTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "GO TO BED",
+     [
+      {
+       "t": "A BIT SMARTER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "KLÜGER",
+     [
+      {
+       "t": "SCHLAFEN GEHEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ADDORMENTARSI",
+     [
+      {
+       "t": "PIÙ SAGGI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DORMIR",
+     [
+      {
+       "t": "MAIS ESPERTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DAHA BİLGİLİ",
+     [
+      {
+       "t": "UYUMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ADORMI",
+     [
+      {
+       "t": "MAI DEȘTEPT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "JÍT SPÁT",
+     [
+      {
+       "t": "CHYTŘEJŠÍ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉUSSIR",
+     [
+      {
+       "t": "SES CRÊPES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WA9qtuldq6Y",
+     "titre": "Recette crêpes facile, rapide et inratable | Les recettes de Camille",
+     "chaine": "Les recettes de Camille",
+     "vues": "2,3 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k59ZsGlQEX48zo2h5NkDO8JsP5yfl0czYx0WC9yWgp0hI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "CRÊPES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SpSrBGnjurA",
+     "titre": "How to Make Crepes - Easy Crepe Recipe",
+     "chaine": "In The Kitchen With Matt",
+     "vues": "6.3M views",
+     "date": "9 years ago",
+     "duree": "6:53",
+     "avatar": "https://yt3.ggpht.com/vp2RAIudwYxjzKiBb2HdNQTrY7RHOA22QfJuJMPIkQIqwE3LV9DfRzO7cQAbOxQq7xeBns-Cr_c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "PFANNKUCHEN",
+     [
+      {
+       "t": "BACKEN",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "av7T1QqE6c8",
+     "titre": "Einfaches Pfannkuchen Grundrezept - ob süß oder herzhaft!",
+     "chaine": "Emmi kocht einfach",
+     "vues": "99.924 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nmMmDGxKYjT46JrAodhUIQsyZ32TwCfGiGy4Utb4YDDpQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE LE",
+     [
+      {
+       "t": "CRÊPES",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WZSfIVJg9Ww",
+     "titre": "Crepes fatte in casa: sottili e perfette con il trucco dello chef!",
+     "chaine": "Sonia Peronaci Official",
+     "vues": "273K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "3:43",
+     "avatar": "https://yt3.ggpht.com/CewIn3-SXC3tXhhFOXpVNWTU8Blpx60r6odkd9nI152TgGCJXVjhrbxEM2uDNE7aU9NKjC5BJfc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "PANQUECAS",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "M0OBIiDLOgM",
+     "titre": "COMO FAZER PANQUECA SIMPLES SEM LEITE",
+     "chaine": "Nandu Andrade",
+     "vues": "5 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/2FbWNovIrRhMblf6jjCYG6FUk5jswx1TXrZ12tMAOS9UhgO2O-4a3MHzlbbkN0TwHsmqM1-k5lY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KREP",
+     [
+      {
+       "t": "YAPMAK",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Mo5s6_UQ2Lg",
+     "titre": "Krep Nasıl Yapılır - Tam Ölçülü Garantili Tarif, Gözünüz Kapalı Deneyin :)",
+     "chaine": "Nefis Yemek Tarifleri",
+     "vues": "5,9 Mn görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/tX0tJPs42-5_5cy9RbtEDs90jzkQuKvgWO3Hj-lzIG8aQdtME1ffs1jloPkNzBtFDZ0GNqY0rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 20 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "CLĂTITE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xjbWGIZduco",
+     "titre": "Clătite simple rețetă pas cu pas - Laura Laurențiu",
+     "chaine": "Laura Laurentiu",
+     "vues": "4,6 mil. vizionări",
+     "date": "acum 9 ani",
+     "duree": "6:42",
+     "avatar": "https://yt3.ggpht.com/8Wc8MZ8Q94y93aj8HQViDCqRV_u4Yz7OpM3VCTjr3d6gBGlI1041UNTzJEYQB3veK7Jn3FWAwQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UPÉCT",
+     [
+      {
+       "t": "PALAČINKY",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UDPXeheEQQw",
+     "titre": "Nejlepší recept na palačinky jako od babičky",
+     "chaine": "Vaříme s Kubíčkem",
+     "vues": "424 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/sOehAfUsS1EVG8PcVPMtaKuLrcDWutm1oij5BilubUd0kog5Wso30lGEwT5tmeKXaiqEy3-jgw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 minut na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "JONGLER",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "AVEC UN BALLON"
+    ],
+    "video": {
+     "id": "OPmNlqDlxTg",
+     "titre": "Apprendre à JONGLER au FOOTBALL",
+     "chaine": "Footstyle TV",
+     "vues": "1 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lmve0GnHzbrQoVJejRJtf6i608VcYPiNf7grFVZooIItc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "JUGGLE",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "A FOOTBALL"
+    ],
+    "video": {
+     "id": "5PQgz2SUPdk",
+     "titre": "How To ACTUALLY Juggle A FOOTBALL For Beginners",
+     "chaine": "Daniel Meyn Football",
+     "vues": "3.4M views",
+     "date": "3 years ago",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/_cBX0ajGwwGp5t1jewpFVEK_vC5Dc-zuecrTPL89r7RX_IKIe1NiS3pwrQCH1i2kxsQum-WaOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEN BALL",
+     [
+      {
+       "t": "HOCHHALTEN",
+       "couleur": "#3c8d3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JDaNk8YlOnM",
+     "titre": "Jonglieren lernen? So geht's! - Fußball lernen für Anfänger",
+     "chaine": "Camill Hauser",
+     "vues": "756.152 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8vdB6tXrIf0aTGrDKeZnxg9_BBgBUF3I4ILu1MJNogIjM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "PALLEGGIARE",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "COL PALLONE"
+    ],
+    "video": {
+     "id": "Vx0jG7BvuSQ",
+     "titre": "IMPARA A PALLEGGIARE con 3 SEMPLICI ESERCIZI !! Tutorial Calcio #1 FOOTWORK Italia",
+     "chaine": "FOOTWORK Italia",
+     "vues": "583K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/ThSAe3j8btJzQnuNLEZ4aSjHKvmnG337MB-iefgIZgKolTtqjd5w4hoCkJ08GM3BKlE213oz=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "EMBAIXADINHAS",
+       "couleur": "#3c8d3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H4qfjY38p4Q",
+     "titre": "COMO FAZER EMBAIXADINHAS?",
+     "chaine": "Raquel Freestyle",
+     "vues": "1,8 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "4:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k7MQ3yPFhoeMz-EH7mG62k9TaqevVDGPCX5t5yrBVkYNA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "TOP",
+     [
+      {
+       "t": "SEKTİRMEK",
+       "couleur": "#3c8d3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DVPXqA35dbQ",
+     "titre": "TOP NASIL SEKTİRİLİR? | TOP SEKTİRME",
+     "chaine": "Nevzat Özkur",
+     "vues": "1,3 Mn görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/vGMv5QW3YdElTVJBUK2XCfhXXcldUf6Y6nMLS6mtR6cD7h5HgSyBsmxQkiyA4Q5GC2mApG3qvQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ JONGLEZI",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "CU MINGEA"
+    ],
+    "video": {
+     "id": "FlHxEgRMB3E",
+     "titre": "CUM SA JONGLEZI LA FOTBAL | CUM SA TII MINGEA PE PICIOR | IMPROVED FOOTBALL",
+     "chaine": "Improved Football",
+     "vues": "116 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/aQwdRFzCiHpDvTN0GHzj1StLi8lD0J8-GnwpJgsYkQ3cu8tczchn9Ip1fQekqGUZiMaAgSq45g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ŽONGLOVAT",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "S MÍČEM"
+    ],
+    "video": {
+     "id": "IGSWxR32MDo",
+     "titre": "JAK SPRÁVNĚ NOŽIČKOVAT? 🤔 | TUTORIAL #1 | FOTBAL BEZ LIMITU",
+     "chaine": "Fotbal bez limitu",
+     "vues": "80 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/9kPZCztZwLSUaUDDv86VSh5vSIXr-rxQ1jwZXmp7FFn7A8L4MPJ9TOoQNGlmUet7ZpXbUjlXgiU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "TOUCHER",
+     [
+      {
+       "t": "SES PIEDS",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TeqzyDnawTI",
+     "titre": "Comment TOUCHER SES PIEDS? ( routine COMPLÈTE expliquée )",
+     "chaine": "Major Mouvement",
+     "vues": "170 k vues",
+     "date": "il y a 4 ans",
+     "duree": "11:03",
+     "avatar": "https://yt3.ggpht.com/A3BpGqL6TLtFs_bInd2JYC8lcrWO8ICblsSkrS2yLkpkgpTNRUv-SgWJQVYGu2GAj46rVvuQ2os=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min par jour",
+     "pendant 1 mois"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TOUCH",
+     [
+      {
+       "t": "YOUR TOES",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dmWBti31ePk",
+     "titre": "How To Touch Your Toes (5-MINS!)",
+     "chaine": "Got ROM",
+     "vues": "161K views",
+     "date": "4 years ago",
+     "duree": "5:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncQgYNQT-bfrq2MSQ14s2hwpxC_DU44sRUnon4JFFRcQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min a day",
+     "for 1 month"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DIE ZEHEN",
+     [
+      {
+       "t": "BERÜHREN",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CapTVDQqf4Q",
+     "titre": "Hamstrings dehnen: Endlich die Zehen berühren mit diesen Übungen!",
+     "chaine": "BLACKROLL Recovery",
+     "vues": "41.273 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "18:35",
+     "avatar": "https://yt3.ggpht.com/fGdovBf_QdG812swXOay3TEu5Evp2zOD5VWWKiSevfs3At2AUwL1Hvb5OGe0pP1QfbgXWdV6qw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. am Tag",
+     "einen Monat lang"
+    ]
+   },
+   "it": {
+    "titre": [
+     "TOCCARSI",
+     [
+      {
+       "t": "LE PUNTE DEI PIEDI",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CaYGDXNd3wc",
+     "titre": "TOCCARE LE PUNTE DEI PIEDI IN 5 MINUTI - ESERCIZI PRATICI",
+     "chaine": "Umberto Miletto",
+     "vues": "89K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "3:32",
+     "avatar": "https://yt3.ggpht.com/AUKpvJrq-OscBwT_duwhyqBS7rGLtFCEkpEHtkozkHZxSqW6_eRk7q6U02UBEhFsRWSduFZVVg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min al giorno",
+     "per 1 mese"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENCOSTAR AS MÃOS",
+     [
+      {
+       "t": "NOS PÉS",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RBJk-vbtVvk",
+     "titre": "Como encostar as mãos no pé? 5 Min. para melhorar seu alongamento.",
+     "chaine": "Isabella Campos",
+     "vues": "145 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/nBJa9lzawvI2hG8sjrFW-Ghuqo1CQ-4jld4toaV_B5pzgt1R2QL7BCUOjnpPEIKMZpzmWFMJ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min por dia",
+     "durante 1 mês"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DAHA",
+     [
+      {
+       "t": "ESNEK OLMAK",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WOY7eO151wA",
+     "titre": "Tüm Vücüdunuzu Rahatlatacak Esneme Egzersizi - Tuğçe İrtem",
+     "chaine": "Tuğçe İrtem",
+     "vues": "1 Mn görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "16:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nEGE4FkhG0L6dz36g7zai50n4T1xt0QA2j7rNIDTfkvg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ay boyunca",
+     "günde 10 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FII",
+     [
+      {
+       "t": "MAI FLEXIBIL",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "s_GCuMc0BNo",
+     "titre": "FLEXIBILITATE/EXERCITII DE STRETCHING/CUM SA FII MAI FLEXIBILA? [HD]",
+     "chaine": "Kristina Zavarski",
+     "vues": "77 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "16:37",
+     "avatar": "https://yt3.ggpht.com/t63Ir2y78UwxRMUoom5G5O1-0II6jJTJvNRALil9dxmVMmZS1k3dS82V41EXV2dqwVLcWkLqgA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pe zi",
+     "timp de o lună"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BÝT",
+     [
+      {
+       "t": "OHEBNĚJŠÍ",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dZ89RgNe9Eg",
+     "titre": "18 minut | strečink pro zvýšení flexibility | cvičení pro každý den",
+     "chaine": "Bára Sedláková",
+     "vues": "31 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "19:42",
+     "avatar": "https://yt3.ggpht.com/pUW2WqLhlH81F8BFYKWZDCRvwTupbi4wYwN7cjPW6BQfk1DA6pKXq5aS0PXSD11gDNZ8GRA3LA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 minut denně",
+     "po dobu 1 měsíce"
+    ]
+   }
+  }
+ ]
+}

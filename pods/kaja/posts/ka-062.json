@@ -1,0 +1,818 @@
+{
+ "id": "ka-062",
+ "titre": {
+  "en": "10/10 fighting skills to learn",
+  "fr": "10/10 skills de combat à apprendre",
+  "de": "10/10 Kampfsport-Skills zum Lernen",
+  "it": "10/10 skill di combattimento",
+  "tr": "10/10 dövüş becerisi",
+  "hu": "10/10 küzdősport-készség",
+  "pl": "10/10 umiejętności walki",
+  "pt-BR": "10/10 habilidades de luta para aprender"
+ },
+ "legendes": {
+  "en": "10/10 fighting skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills de combat à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Kampfsport-Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill di combattimento #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 dövüş becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 küzdősport-készség #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności walki #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades de luta para aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7240852724106005291"
+ },
+ "notes": "Full test (BLEO, 20/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (les sports de combat). Décor branche. Son format court à 3 compétences plus l'étape Sophia (frapper, donner un coup de pied, chuter sans se blesser), une vraie vidéo YouTube native par étape et par langue. Musique : « original sound 7240852724106005291 » de son manifeste. Sophia en étape 3, cta B, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "FIGHTING",
+     "SKILLS TO",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS DE",
+     "COMBAT"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "KAMPFSPORT-",
+     "SKILLS"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL DI",
+     "COMBATTI-",
+     "MENTO"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "DÖVÜŞ",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KÜZDŐSPORT-",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "WALKI"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "DE LUTA"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "THROW A PUNCH",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kKDHdsVN0b8",
+     "titre": "Basics of Boxing - Training for Beginners at Home",
+     "chaine": "Tony Jeffries",
+     "vues": "7.5M views",
+     "date": "6 years ago",
+     "duree": "6:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nWjGS4Ozpz17yCf1uEZfb5C2lbtgkYe3UvFn7mQDusZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DÉBUTER",
+     [
+      {
+       "t": "LA BOXE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Pve6AkacEgs",
+     "titre": "LES BASES - LES 5 ERREURS DE DÉBUTANT À ÉVITER",
+     "chaine": "Boxing Academy France",
+     "vues": "1,8 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "4:14",
+     "avatar": "https://yt3.ggpht.com/dIHXUcWD3XUE6B5t2MGArTQPd8OUZY9ivLjDM4-U_NENsnPfURsO3Gwt95wIVik7xLnOLJZ5ee8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "SCHATTENBOXEN",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uCJCAMJjtAw",
+     "titre": "SCHATTENBOXEN lernen wie die PROFIS!! 10 TIPPS - Teil 1 - Boxen lernen - RINGLIFE",
+     "chaine": "RINGLIFE",
+     "vues": "327.085 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHaikgksF5FtnpTyB8IEuTyMcbflEiZTPYKdOArdw48D4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "I COLPI BASE",
+     [
+      {
+       "t": "DELLA BOXE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kDbytO1Bt6Q",
+     "titre": "Boxe colpi di base e movimento delle gambe",
+     "chaine": "Cicalone Simone",
+     "vues": "900K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "9:24",
+     "avatar": "https://yt3.ggpht.com/UXFZ8VAiQDLvz9-qmsCMp19ljgkNkd3JrLBb_Tb0y_Kth3SUY1bQq9DA_90RcgFL_ty8kvvH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "YUMRUK ATILIR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0AsxgiJEXXI",
+     "titre": "Yumruk Nasıl Atılır?",
+     "chaine": "Bigjoy",
+     "vues": "275 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/5002Xp6bQZP6LL9Aa_j7kBGMEKMIpliS4Cf71O2xGQgrYDMz4YMv5MXdFCy6KgMfTjuFgNhmoA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "ÜSS EGYENEST",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7CId50xWd3w",
+     "titre": "Az ökölvívás alapjai Erdei Zsolttal - Az egyenes ütés #samansport",
+     "chaine": "SamanSport",
+     "vues": "27 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "3:43",
+     "avatar": "https://yt3.ggpht.com/Y31ZATTzdB2oduRiJM4xGr4DefoAAvf4PrsTNk8WhjQPgcByxdCZyOUUL_D6Z2guNiI5mtDe=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZACZĄĆ",
+     [
+      {
+       "t": "TRENOWAĆ BOKS",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l4NzCvLdq7U",
+     "titre": "Trenuj z Tomaszem Adamkiem: pierwsza lekcja boksu z Mistrzem Świata!",
+     "chaine": "To Jest Boks",
+     "vues": "158 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "7:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lbnGtEZAiUKNrCJqvsl7jxnPIULzeo7yBXeAGT0M1_D_k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "APRENDER BOXE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Os_7UGTaNEs",
+     "titre": "Como aprender boxe em casa (um guia completo para iniciantes)",
+     "chaine": "Kevistenic",
+     "vues": "641 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "8:43",
+     "avatar": "https://yt3.ggpht.com/hCKEFf3oOR3095nPrg4UB2gvjai2hFHe5mRgKDgkITGT78Xtv1j1ot5iS_pHIsZzUlm83Vci-4o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "THROW A KICK",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Bp_QVO7kYtg",
+     "titre": "5 Common Muay Thai Roundhouse Mistakes: Perfect Your Kick",
+     "chaine": "fightTIPS",
+     "vues": "3M views",
+     "date": "9 years ago",
+     "duree": "4:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nYKfkgaERvCmOGSjDDHXmK7oRdEVmfup14dGDWK5KmY1w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 months"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN MIDDLE KICK",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JZjGpfogdxc",
+     "titre": "MIDDLE KICK : COMMENT DEVENIR INTOUCHABLE ?",
+     "chaine": "GREGGOT",
+     "vues": "60 k vues",
+     "date": "il y a 7 ans",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/5Nc966NpaUdX73RkRn8w_bpKYg1KLv5zAsIkeRjcI8BemRR4cqVX_o-i2A_EXEhvbyv-UBZCig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 mois"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "DEN ROUNDHOUSE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HlL-wf1ec0M",
+     "titre": "Kick Tutorial - 3 Roundhouse Kicks lernen & trainieren",
+     "chaine": "Michael Smolik",
+     "vues": "410.880 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "10:37",
+     "avatar": "https://yt3.ggpht.com/Q-XyRUI-UXMii2g5z7kczZdAw-gGO-jpV3Vglfpz4-RgwHn3KvVlQ7iyngJsfpR-MduQcdol=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Monate"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "IL CALCIO CIRCOLARE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bm1KuUIsiLg",
+     "titre": "Tutorial : calcio circolare | Pietro Di Rauso",
+     "chaine": "Pietro Di Rauso",
+     "vues": "81K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/ZbAuhbCIK0N8F5EVjQ8rUcuQGYpdadACuOfqOrja__5GFMi1npCEFJ47E_OpcHbdHPR5XD5w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 mesi"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "YAN TEKME ATILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kJJufwCfN48",
+     "titre": "Yan Tekme (Side Kick) Nasıl Atılır/ Vurulur? Kick Boks/ Muay Thai Tekme Teknikleri",
+     "chaine": "Hayatına Hareket Kat",
+     "vues": "51 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "9:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l_QZUWsDxE4Xot5tXrT4azr3yb08yPYz0rRj0nZv77WXE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ay"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "RÚGJ TESTRE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "C7LxDeyj1ec",
+     "titre": "Muay Thai Alaptechnikák - A testrúgás",
+     "chaine": "SamanSport",
+     "vues": "12 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/Y31ZATTzdB2oduRiJM4xGr4DefoAAvf4PrsTNk8WhjQPgcByxdCZyOUUL_D6Z2guNiI5mtDe=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hónap"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK WYKONAĆ",
+     [
+      {
+       "t": "KOPNIĘCIE OKRĘŻNE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "apTouLxg96s",
+     "titre": "Kickboxing - Trening w domu | Kopnięcie okrężne",
+     "chaine": "Tomasz Sarara",
+     "vues": "143 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "16:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m5bP0GdtxKNc4eonjQvr2Zw3_60Ry0RBiF81tX2-U8xg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 miesiące"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO DAR",
+     [
+      {
+       "t": "O CHUTE CIRCULAR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aspzJCAzv1g",
+     "titre": "Chute do Muay Thai - O passo a passo do chute circular médio",
+     "chaine": "Caio Nunes Muay Thai",
+     "vues": "142 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "8:56",
+     "avatar": "https://yt3.ggpht.com/9JmSRx-0taTeMYNf4ob0CaOkM5yXOMm2k3LJk6DfN7BKPOYGb_9lDaCFBRfj7NZwGEq13Go-Aw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 meses"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "TRAIN YOUR MIND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ENTRAÎNER",
+     [
+      {
+       "t": "TON ESPRIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TRAINIERST DU",
+     [
+      {
+       "t": "DEINEN KOPF",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME ALLENARE",
+     [
+      {
+       "t": "LA MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ZİHNİNİ ÇALIŞTIRIRSIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN EDZD",
+     [
+      {
+       "t": "AZ ELMÉDET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "TRENOWAĆ UMYSŁ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO TREINAR",
+     [
+      {
+       "t": "A MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "FALL SAFELY",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZVzzJ4xDgoE",
+     "titre": "How to Fall Safely - 3 Breakfall Techniques",
+     "chaine": "GMB Fitness (Praxis)",
+     "vues": "325K views",
+     "date": "7 years ago",
+     "duree": "4:09",
+     "avatar": "https://yt3.ggpht.com/QtbvC9T2w4DVz-I0PWzVnXxvGk4gFWwth8PDtnuQo-_RqVID3ndE47OLHhfIOsfJ6Kpd83n0SuA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "CHUTER SANS MAL",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7OBCLA8eBOk",
+     "titre": "Comment faire ses chute de judo (Ukemi) + un bonus",
+     "chaine": "Judokan Meylan",
+     "vues": "5,5 k vues",
+     "date": "il y a 6 ans",
+     "duree": "11:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lCOcBY3gVRNeW8AW7MnkNizqb7Bg8Yy2aqWluDF0fIfQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FÄLLST DU",
+     [
+      {
+       "t": "OHNE VERLETZUNG",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iLrSi0bIFUc",
+     "titre": "Judo - Falltechnik",
+     "chaine": "Landessportbund Nordrhein-Westfalen e.V.",
+     "vues": "31.046 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "1:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l68hfNqjqEeev8iaAplO0B0Z_Wwx2KoOBI69tQ3bOe8rU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "LE UKEMI",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XAM3hY4oeE0",
+     "titre": "Ukemi difficili? Ecco come migliorarle! #aikido",
+     "chaine": "Aikido Origin",
+     "vues": "4,2K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "7:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kw3t4mBy4sAPtlBAmVs_O0FdJ5gfe0-u361JP2QXyaaw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "GÜVENLİ DÜŞÜLÜR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "C8MQXxj-rzE",
+     "titre": "JUDO -  DÜŞÜŞ TEKNİKLERİ",
+     "chaine": "Artvin Gençlik ve Spor İl Müdürlüğü",
+     "vues": "17 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nManuwzT1Vn0Ml19fywl6uxQXFPioDUtcfWRIfWLZZb5c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "ESS BIZTONSÁGOSAN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uTBYBAnRHYs",
+     "titre": "Judo 1A6E1gcs3 Ukemi esés gördülő oldalra, jobb, vagy bal kéz tompít",
+     "chaine": "Horváth László",
+     "vues": "1,2 E megtekintés",
+     "date": "11 évvel ezelőtt",
+     "duree": "0:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mgifEprCaRLA7YcYFG4By59xoNxB67C8PFdGM6wk8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "BEZPIECZNIE UPAŚĆ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4-8vTG4xPNE",
+     "titre": "AbcJudo Podstawy: Pady judo (Basic Judo: ukemi for Judo)",
+     "chaine": "AbcJudo",
+     "vues": "188 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "6:20",
+     "avatar": "https://yt3.ggpht.com/Tzav6qmJFa8K25XreOA8QBGiBk27s-bmFYD1o5lyRGqw9wA4r7vSsJHfoPayoVjzhzz0X5Td1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "CAIR SEM SE MACHUCAR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UKox9rgjsFo",
+     "titre": "Os tipos de queda no judô  (Ukemis parte 1) - Ushiro-ukemi",
+     "chaine": "Projeto Judô",
+     "vues": "276 mil visualizações",
+     "date": "há 10 anos",
+     "duree": "8:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kalafZ3poHe_kQPeEP8Ejd1otu-GnMrZXRKSTIFP7EF64=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

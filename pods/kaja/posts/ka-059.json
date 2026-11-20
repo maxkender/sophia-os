@@ -1,0 +1,823 @@
+{
+ "id": "ka-059",
+ "titre": {
+  "en": "10/10 skills to teach your dog",
+  "fr": "10/10 choses à apprendre à ton chien",
+  "de": "10/10 Skills für deinen Hund",
+  "it": "10/10 cose da insegnare al tuo cane",
+  "tr": "10/10 köpeğine öğretebileceğin beceri",
+  "hu": "10/10 dolog, amit taníts meg a kutyádnak",
+  "pl": "10/10 rzeczy, których naucz swojego psa",
+  "pt-BR": "10/10 coisas para ensinar ao seu cachorro"
+ },
+ "legendes": {
+  "en": "10/10 skills to teach your dog #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 choses à apprendre à ton chien #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für deinen Hund #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 cose da insegnare al tuo cane #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 köpeğine öğretebileceğin beceri #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 dolog, amit taníts meg a kutyádnak #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 rzeczy, których naucz swojego psa #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 coisas para ensinar ao seu cachorro #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7585395509230062367"
+ },
+ "notes": "Full test (BLEO, 20/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (le dressage du chien). Décor branche. Son format court à 3 compétences plus l'étape Sophia (assis, marcher en laisse sans tirer, le rappel), une vraie vidéo YouTube native par étape et par langue. Musique : « original sound 7585395509230062367 » de son manifeste. Sophia en étape 3, cta B, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "SKILLS TO",
+     "TEACH",
+     "YOUR DOG"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "À APPRENDRE",
+     "À TON CHIEN"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "DEINEN HUND"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "DA INSEGNARE",
+     "AL TUO CANE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "KÖPEĞİNE",
+     "ÖĞRET"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "TANÍTSD MEG",
+     "A KUTYÁDNAK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "NAUCZ",
+     "SWOJEGO PSA"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "ENSINE AO",
+     "SEU CACHORRO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO TEACH",
+     [
+      {
+       "t": "YOUR DOG TO SIT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rcjn8v5nfDU",
+     "titre": "How to Train a Dog to \"Sit\" (K9-1.com)",
+     "chaine": "Dog Training World",
+     "vues": "5M views",
+     "date": "12 years ago",
+     "duree": "7:28",
+     "avatar": "https://yt3.ggpht.com/rhd4WkwQBhVUxmZAGGKRvF8Pmho6Qixn_4OWjbGS6K_5_P6aq-Ctpe9KUwQqj05VASHIZuMA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "LE ASSIS",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7GLwZTUaGX8",
+     "titre": "APPRENDRE LE ASSIS A SON CHIOT EN 3 MINUTES !!!",
+     "chaine": "Educhien_officiel",
+     "vues": "50 k vues",
+     "date": "il y a 6 ans",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/vN5S9YrmcnPPmdcHr7MTGrepysiWce8dTC0DRZ5_iR2Resj3kkCLQXTkREh9jaGiUg5XC7l34Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNT",
+     [
+      {
+       "t": "DEIN HUND SITZ",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dXYHA6ELbXM",
+     "titre": "Welpen Sitz beibringen - Welpenerziehung Step by Step",
+     "chaine": "Welpenkanal",
+     "vues": "151.557 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "12:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lROLg6lMqL2QM5D6BLP1SRpzincTCclYjcUDp_8G5UIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME INSEGNARE",
+     [
+      {
+       "t": "IL SEDUTO",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_4FxsvIihag",
+     "titre": "COME INSEGNARE AL CANE A FARE IL \"SEDUTO\" 🐶 Addestramento Educazione N 1 | Qua la Zampa #CANE #cani",
+     "chaine": "Qua la zampa",
+     "vues": "338K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmmKWAjxyKPuKY--xXC1JEF_urnoK0PxrJ30jcQdhyWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "OTUR KOMUTU ÖĞRETİLİR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "19WcGe3xtVY",
+     "titre": "Köpeklere Otur Komutu",
+     "chaine": "Köpek Koleji",
+     "vues": "259 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "3:29",
+     "avatar": "https://yt3.ggpht.com/Nbd1BYVhTxBxStCPwQHmQb5Es7P-Kl1yqreIACfUzones4Pf7cZssppqCSCZzzOn__C8Y4hH3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÜLTESD",
+     [
+      {
+       "t": "LE A KUTYÁT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XFOmz3PBxL4",
+     "titre": "KUTYASULI otthon 4/5. - ÜLTETÉS!",
+     "chaine": "DogCast TV",
+     "vues": "31 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdxiTlxbPMf-lgbky-HeNV4B-9MspTOuCABmtEvkxv2A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NAUCZYĆ",
+     [
+      {
+       "t": "KOMENDY SIAD",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OnLbb8RimWg",
+     "titre": "Siad, czyli jak nauczyć psa siadania na komendę - część 1 - TRENING PSA - John Dog",
+     "chaine": "John Dog",
+     "vues": "563 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "4:14",
+     "avatar": "https://yt3.ggpht.com/eoxOdkTmMETW7MXMZ1jJ1pTj-slnJBzbdIA7dWeD2IkoYfngVeQ_hJRUeUxIrjQYX8JVtduzZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ENSINAR",
+     [
+      {
+       "t": "O CACHORRO A SENTAR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uoSDsDCliqE",
+     "titre": "COMO ENSINAR O CACHORRO A SENTAR EM 5 MINUTOS",
+     "chaine": "Tudo Sobre Cachorros (Halina Medina)",
+     "vues": "795 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "8:12",
+     "avatar": "https://yt3.ggpht.com/HybjuL_SsmgdHEBRQe6SVeNvd-W2CjqvtB1etd9gU4CBmYXz2Fg_60AfSGnTwPu-GijvXqW-kw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "LEASH TRAIN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OwN0Ub3TWsk",
+     "titre": "How to Leash Train your Puppy!",
+     "chaine": "Zak George",
+     "vues": "2.9M views",
+     "date": "9 years ago",
+     "duree": "7:15",
+     "avatar": "https://yt3.ggpht.com/ao22ejdDuR8aaMVKDoMBSVuhgz9vvSIWWr4MjClV3tiJbj9uIrl-3hh0I9skMZ7Hd3VpCTESUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT MARCHER",
+     [
+      {
+       "t": "SANS QU'IL TIRE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_Pelqg5hqoE",
+     "titre": "Ton Chien TIRE en laisse ? Essayez cette méthode facile",
+     "chaine": "EDUC DOG",
+     "vues": "1,3 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/twxlFpJQPZb3N3yv4SDmXCFrcXpKyOdMKh8jX_VwZTGIu_5FU5CGAXwQw1-d4PWlA9hFanXRvg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KLAPPT DIE",
+     [
+      {
+       "t": "LEINENFÜHRIGKEIT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oTk3LmwYQJg",
+     "titre": "LEINENFÜHRIGKEIT: dem Hund in 3 SCHRITTEN das Leine ziehen abgewöhnen - ganz einfach",
+     "chaine": "Hundeschule Understanding Dogs",
+     "vues": "1,9 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "14:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4c1MjcDVtbswhzwYKEeWA0zv2vftCBqtfOw3Eg4R-c5k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME NON FARLO",
+     [
+      {
+       "t": "TIRARE AL GUINZAGLIO",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SooVv_S1_Y0",
+     "titre": "COME INSEGNARE AL CANE A NON TIRARE AL GUINZAGLIO, la \"CONDOTTA\" | Qua la Zampa #CANE #CANI",
+     "chaine": "Qua la zampa",
+     "vues": "487K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "4:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmmKWAjxyKPuKY--xXC1JEF_urnoK0PxrJ30jcQdhyWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ÇEKİŞTİRMEDEN YÜRÜNÜR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rdcaEULlWUQ",
+     "titre": "Köpeğim Sürekli Çekiştiriyor! Çekiştirmeden Nasıl Yürürüm?",
+     "chaine": "Köpek Koleji",
+     "vues": "272 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "8:22",
+     "avatar": "https://yt3.ggpht.com/Nbd1BYVhTxBxStCPwQHmQb5Es7P-Kl1yqreIACfUzones4Pf7cZssppqCSCZzzOn__C8Y4hH3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN SÉTÁLJ",
+     [
+      {
+       "t": "LAZA PÓRÁZZAL",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3T6VngkjFsg",
+     "titre": "KUTYA, LAZA PÓRÁZ, SÉTA LÁB MELLETT lépésről-lépésre.",
+     "chaine": "Figyelem Akadémia - Kriz Orsi",
+     "vues": "128 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "10:25",
+     "avatar": "https://yt3.ggpht.com/0uZp8pfnuuDlfxsB7JUmLl2OBYQBoX--voGdd1RAGvQPgZgmumH_CRbAzXsHzVKJPRALx-BPxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK CHODZIĆ",
+     [
+      {
+       "t": "NA LUŹNEJ SMYCZY",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tAEJTW0bWpY",
+     "titre": "Nie ciągnij!!! - Nauka chodzenia na luźnej smyczy",
+     "chaine": "Piesologia",
+     "vues": "1 mln wyświetleń",
+     "date": "11 lat temu",
+     "duree": "9:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l8Kims99WqW0SiN1sm1_dO-05F4bYCMhh3de5tBMshQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO PASSEAR",
+     [
+      {
+       "t": "SEM PUXAR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V7clpaJu2yc",
+     "titre": "Como Ensinar Seu Cachorro a Passear do Seu Lado Sem Puxar em 15 MINUTOS NA PRÁTICA",
+     "chaine": "Bernardo Adestra",
+     "vues": "240 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "17:33",
+     "avatar": "https://yt3.ggpht.com/y2D0tdeFulrIjcAHjhVHhz37MEKOJLFtduEE9M_f4h7KNNYr4BkEaRQtGjuVNY8qZ0l9xJbCtA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO TEACH",
+     [
+      {
+       "t": "YOURSELF",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "SOMETHING NEW",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT T'APPRENDRE",
+     [
+      {
+       "t": "UN TRUC NOUVEAU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "SELBST WAS NEUES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME IMPARARE",
+     [
+      {
+       "t": "QUALCOSA DI NUOVO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "YENİ ŞEY ÖĞRENİRSİN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TANULJ",
+     [
+      {
+       "t": "VALAMI ÚJAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NAUCZYĆ SIĘ",
+     [
+      {
+       "t": "CZEGOŚ NOWEGO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO APRENDER",
+     [
+      {
+       "t": "ALGO NOVO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO TEACH",
+     [
+      {
+       "t": "COME WHEN CALLED",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FvY1fYxKFJU",
+     "titre": "How to Train your Puppy to Come When Called NOW AND FOREVER!",
+     "chaine": "Zak George",
+     "vues": "2M views",
+     "date": "9 years ago",
+     "duree": "9:00",
+     "avatar": "https://yt3.ggpht.com/ao22ejdDuR8aaMVKDoMBSVuhgz9vvSIWWr4MjClV3tiJbj9uIrl-3hh0I9skMZ7Hd3VpCTESUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "LE RAPPEL",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZCd_ppaB2og",
+     "titre": "Comment apprendre le rappel à son chien efficacement ?",
+     "chaine": "Esprit Dog",
+     "vues": "605 k vues",
+     "date": "il y a 6 ans",
+     "duree": "4:59",
+     "avatar": "https://yt3.ggpht.com/kODwwmn7nDY1d207dFMYE-ro-ciV4z24fOCaT2EvNVpYAT--YcpsXtDzmMCM4Sx3X0Z41kiZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KLAPPT",
+     [
+      {
+       "t": "DER RÜCKRUF",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Qzr97Yvdk1c",
+     "titre": "Rückruftraining | Deinem Hund oder Welpen KOMM beibringen",
+     "chaine": "Doguniversity - Hundetraining mit Daniel",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "12:28",
+     "avatar": "https://yt3.ggpht.com/jgBo52Q_K6SThCiuZ9nvKVrAwCWjnQMGcCtt2Gvk2RyeLsam3J4lYArFs01PZN4lUSWFZCdbIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME INSEGNARE",
+     [
+      {
+       "t": "IL RICHIAMO",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "J2Pn2jzGgpw",
+     "titre": "4 consigli per avere un richiamo efficace con il cane",
+     "chaine": "AmDogTraining Marco Annovi",
+     "vues": "254K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nT-VIEzfiHkX3958Fk9dJMd0ixQ3GiIz4rAiL5krIzL5E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "GEL KOMUTU ÖĞRETİLİR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GYW06-Sbk8o",
+     "titre": "Köpeklere Gel Komutu Nasıl Öğretilir?",
+     "chaine": "Köpek Koleji",
+     "vues": "161 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "10:05",
+     "avatar": "https://yt3.ggpht.com/Nbd1BYVhTxBxStCPwQHmQb5Es7P-Kl1yqreIACfUzones4Pf7cZssppqCSCZzzOn__C8Y4hH3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TANÍTSD",
+     [
+      {
+       "t": "A BEHÍVÁST",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "prYcFKgXiBk",
+     "titre": "A behívás a kutyatartás alfája és omegája.",
+     "chaine": "Dog Solution",
+     "vues": "80 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "17:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEA_PKRqx6iw3dXeEZP0UQ4kwwnJ5ZBPX7gHnnWfme-4o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NAUCZYĆ",
+     [
+      {
+       "t": "KOMENDY DO MNIE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lDCmeGN9sgg",
+     "titre": "Jak nauczyć psa komendy DO MNIE - TRENING PSA - John Dog",
+     "chaine": "John Dog",
+     "vues": "489 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "3:07",
+     "avatar": "https://yt3.ggpht.com/eoxOdkTmMETW7MXMZ1jJ1pTj-slnJBzbdIA7dWeD2IkoYfngVeQ_hJRUeUxIrjQYX8JVtduzZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ENSINAR",
+     [
+      {
+       "t": "O CACHORRO A VIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kd-d_8DYbBw",
+     "titre": "O seu cachorro vem quando chamado?",
+     "chaine": "Jairo Teixeira",
+     "vues": "212 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "19:31",
+     "avatar": "https://yt3.ggpht.com/YwixhnL8tCVf0hX7eB8_2rrZXCHMWDB8QtYohWE49EwxyYSPRoA5gBi9imKQZ_HVaIb677G9I94=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semanas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

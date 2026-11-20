@@ -21,6 +21,7 @@ import { BandeauEmailRuul } from "@/features/ruul/BandeauEmailRuul";
 import { BandeauCompteArrete } from "@/features/fin/BandeauCompteArrete";
 import { BoutonHelp } from "@/features/support/BoutonHelp";
 import { QuestionnairePopup } from "@/features/questionnaire/QuestionnairePopup";
+import { OffreCommentMasterPopup } from "@/features/commentMasters/OffreCommentMasterPopup";
 
 export function PosterLayout() {
   const { t, i18n } = useTranslation();
@@ -90,6 +91,7 @@ export function PosterLayout() {
       {/* 15/11 : seulement pour les posteurs choisis par Max (page Questionnaires). */}
       <SectionSure nom="Questionnaire">
         <QuestionnairePopup />
+        <OffreCommentMasterPopup />
       </SectionSure>
       <PageSure />
     </AppShell>

@@ -28,6 +28,7 @@ import {
 } from "../_shared/comment_masters.ts";
 import { detecterDone, lireFil, nomSlack } from "../_shared/cm_suivi.ts";
 import { lireParLots } from "../_shared/lots.ts";
+import { recrutement } from "./recrutement.ts";
 import { trouverPosteur } from "../_shared/slack_posteur.ts";
 import { mapPool } from "../_shared/parallel.ts";
 import {
@@ -141,6 +142,15 @@ Deno.serve(async (request) => {
 
   const denied = await assertAuthorised(request);
   if (denied) return denied;
+
+  // 20/11 (Max) : le recrutement dans toutes les langues (cron toutes les 10 min) : offres traduites, installations.
+  if (corps.action === "recrutement") {
+    try {
+      return json(await recrutement(serviceClient(), Deno.env.get("SLACK_BOT_TOKEN") ?? null));
+    } catch (error) {
+      return json({ ok: false, error: messageErreur(error) }, 500);
+    }
+  }
 
   if (corps.action === "synchro_slack_planifiee") {
     // Le cron passe à 5 h et 6 h UTC : on ne garde que 7 h à Paris.

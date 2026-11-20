@@ -44,6 +44,9 @@ export const INTRO =
 
 export const MERCI = "Thank you!";
 
+/** 20/11 : réponse cachée posée par le lien du pop-up : le nombre de comptes actifs du posteur (« 1 », « 2 »). */
+export const NB_COMPTES = "nb_comptes";
+
 const OUI_SCROLL = ["Yes, less than 15 min a day", "15–30 min", "30–60 min", "More than 1 h"] as const;
 
 export const SECTIONS: readonly Section[] = [
@@ -114,6 +117,11 @@ export const SECTIONS: readonly Section[] = [
       },
       { id: "brouillons", n: "15", texte: "Do you save drafts or post right away?", type: "choix", options: ["Drafts", "Right away", "Both"] },
       { id: "duree_post", n: "16", texte: "How long does one post take you?", type: "choix", options: ["Less than 5 min", "5–10 min", "10–20 min", "More than 20 min"] },
+      // 20/11 (Max) : seulement pour un posteur à 2 comptes (le lien du pop-up porte nb_comptes).
+      {
+        id: "meme_chose", n: "16b", texte: "Do you do the same thing on both accounts? If not, what's different?", type: "long",
+        si: { question: NB_COMPTES, valeurs: ["2"] },
+      },
     ],
   },
   {
@@ -237,6 +245,8 @@ export const TEXTES_UI = {
   enregistrement: "Saving…",
   enregistre: "Saved ✓",
   pas_enregistre: "Not saved yet (we'll retry)",
+  en_anglais: "Show in English",
+  en_ma_langue: "Show in my language",
   retour: "Back",
   suivant: "Next",
   envoyer: "Send my answers",

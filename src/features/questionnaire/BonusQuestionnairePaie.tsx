@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { lireBonusQuestionnaire } from "./api";
 
 const jjmm = (iso: string) => `${iso.slice(8, 10)}/${iso.slice(5, 7)}`;
-const STATUT: Record<string, string> = { a_valider: "à valider", a_payer: "à payer", paye: "payé", retire: "retiré" };
+// 20/11 (Max) : validé d'avance (5 $ par questionnaire terminé, un par posteur, 150 $ au plus).
+const STATUT: Record<string, string> = { a_valider: "validé, part lundi", a_payer: "à payer", paye: "payé", retire: "retiré" };
 
 /**
  * 20/11 (Max) : page Pay, « Bonus questionnaire » : 5 $ par questionnaire « top posters » terminé (un par posteur),
@@ -23,11 +24,11 @@ export function BonusQuestionnairePaie() {
     <Card data-testid="bonus-questionnaire">
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-base">
-          Bonus questionnaire <Badge variant="secondary">{ouverts.length} à valider · {total} $</Badge>
+          Bonus questionnaire <Badge variant="secondary">{ouverts.length} à payer · {total} $ / 150 $</Badge>
         </CardTitle>
         <CardDescription>
-          5 $ par questionnaire « top posters » terminé, un par posteur, ajouté à la paie du lundi suivant. Upwork : avec les bonus du lundi
-          (« Tout envoyer »). Ruul : dans le lot Ruul du lundi.
+          5 $ par questionnaire « top posters » terminé, un par posteur, validé d'avance (150 $ au plus), ajouté à la paie du lundi suivant.
+          Upwork : il part avec les bonus du lundi (« Tout envoyer »). Ruul : dans le lot Ruul du lundi.
         </CardDescription>
       </CardHeader>
       <CardContent className="overflow-x-auto">

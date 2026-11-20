@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogFooter, DialogHeader, DialogPanel, DialogPopup, DialogTitle } from "@/components/ui/dialog";
 import { useAuth } from "@/features/auth/AuthContext";
 
-import { fermerPopup, lienQuestionnaire, lireMonPopup, type MonPopup } from "./api";
+import { fermerPopup, lienQuestionnaire, lireMonPopup, type MonPopup, noterPopupVu } from "./api";
 import { useTextes } from "./textes";
 
 /**
@@ -29,6 +29,10 @@ function Contenu({ p }: { p: MonPopup }) {
   const qc = useQueryClient();
   const [ferme, setFerme] = React.useState(false);
   const { t, dir, chargement } = useTextes(p.slug, p.langue);
+  // 20/11 : « vu » dès que le pop-up s'affiche (suivi de Max).
+  React.useEffect(() => {
+    if (!chargement) void noterPopupVu(p.slug).catch(() => undefined);
+  }, [chargement, p.slug]);
   if (ferme || chargement) return null;
   const plusTard = () => {
     setFerme(true);
@@ -46,7 +50,7 @@ function Contenu({ p }: { p: MonPopup }) {
         <DialogFooter>
           <Button variant="outline" onClick={plusTard}>{t("ui.popup_plus_tard")}</Button>
           <Button
-            render={<a href={lienQuestionnaire(p.slug, undefined, p.langue)} target="_blank" rel="noreferrer" />}
+            render={<a href={lienQuestionnaire(p.slug, undefined, p.langue, { t: p.jeton, comptes: p.nb_comptes })} target="_blank" rel="noreferrer" />}
             onClick={() => { setFerme(true); void fermerPopup(p.slug, true); }}
           >
             {t("ui.popup_repondre")}

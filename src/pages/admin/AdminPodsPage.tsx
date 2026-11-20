@@ -15,6 +15,7 @@ import {
   lireTableauPods,
   listerLivraisons,
   listerOuverturesLangues,
+  listerPlaces,
   listerPods,
   parPod,
   POD_VIDEO,
@@ -26,10 +27,11 @@ import { ListePodz } from "@/features/pods/ListePodz";
 import { InterrupteurAuto, LigneLivraison, ToutValiderEnB } from "@/features/pods/Livraisons";
 import { Onglets } from "@/features/pods/Onglets";
 import { lignesPods, resumePods } from "@/features/pods/resume";
+import { SectionPlaces } from "@/features/pods/SectionPlaces";
 
-/** Les trois vues de la page : les podz, la file de validation, les chiffres (dont la boîte BLEO). */
-type Vue = "podz" | "valider" | "chiffres";
-const VUES: readonly Vue[] = ["podz", "valider", "chiffres"];
+/** Les vues de la page : les podz, les places libres (allocation), la file de validation, les chiffres (dont la boîte BLEO). */
+type Vue = "podz" | "places" | "valider" | "chiffres";
+const VUES: readonly Vue[] = ["podz", "places", "valider", "chiffres"];
 
 /** La file de validation : une carte par podz qui a quelque chose à décider, puis l'historique. */
 function FileValidation() {
@@ -119,6 +121,8 @@ export function AdminPodsPage() {
   const tableau = useQuery({ queryKey: ["pods", "tableau"], queryFn: () => lireTableauPods(14) });
   const ouvertures = useQuery({ queryKey: ["pods", "ouvertures"], queryFn: listerOuverturesLangues, staleTime: 300_000 });
   const livraisons = useQuery({ queryKey: ["pods", "livraisons"], queryFn: listerLivraisons });
+  // Avant la migration 0782, la fonction n'existe pas : l'onglet reste, sans compteur.
+  const places = useQuery({ queryKey: ["pods", "places"], queryFn: listerPlaces, retry: false });
 
   const resume = tableau.data ? resumePods(tableau.data) : null;
   const lignes = assemblerPodz(pods.data ?? [], fiches.data ?? [], tableau.data?.pods ?? []);
@@ -147,6 +151,7 @@ export function AdminPodsPage() {
         actif={vue}
         onglets={[
           { cle: "podz", vers: "/admin/pods", contenu: t("pods.onglets.podz"), compteur: pods.data?.filter((p) => p.actif).length },
+          { cle: "places", vers: "/admin/pods?vue=places", contenu: t("pods.onglets.places"), compteur: places.data?.length },
           { cle: "valider", vers: "/admin/pods?vue=valider", contenu: t("pods.onglets.valider"), compteur: aValider, alerte: true },
           { cle: "chiffres", vers: "/admin/pods?vue=chiffres", contenu: t("pods.onglets.chiffres") },
         ]}
@@ -155,6 +160,8 @@ export function AdminPodsPage() {
       {erreur && <p className="text-sm text-destructive">{t("pods.tableau.erreur", { message: erreur.message })}</p>}
 
       {vue === "podz" && <ListePodz lignes={lignes} ouvertures={ouvertures.data ?? []} />}
+
+      {vue === "places" && <SectionPlaces />}
 
       {vue === "valider" && <FileValidation />}
 

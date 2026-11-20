@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { Pod } from "./api";
 import {
   assemblerPodz,
+  candidatsMontres,
   etatLangues,
   filtrerPodz,
   formatPodz,
@@ -150,5 +151,13 @@ describe("langueEcriture", () => {
       ]),
     ).toBe("fr");
     expect(langueEcriture([])).toBeNull();
+  });
+});
+
+describe("candidatsMontres", () => {
+  const c = [{ empilement: 8 }, { empilement: 2 }, { empilement: 1 }, { empilement: 0 }];
+  it("ne montre d'abord que les comptes empilés, dans l'ordre reçu", () => {
+    expect(candidatsMontres(c, false)).toEqual([{ empilement: 8 }, { empilement: 2 }]);
+    expect(candidatsMontres(c, true)).toHaveLength(4);
   });
 });

@@ -1,0 +1,140 @@
+{
+ "id": "ig-021",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "apps i use every single day",
+  "fr": "les applis que j'utilise tous les jours",
+  "es": "apps que uso todos los días",
+  "it": "le app che uso ogni singolo giorno",
+  "tr": "her gün kullandığım uygulamalar"
+ },
+ "legendes": {
+  "en": "apps i use every single day #foryou #apps #dailyroutine #thatgirl",
+  "fr": "les applis que j'utilise tous les jours #foryou #apps #dailyroutine #thatgirl",
+  "es": "apps que uso todos los días #foryou #apps #dailyroutine #thatgirl",
+  "it": "le app che uso ogni singolo giorno #foryou #apps #dailyroutine #thatgirl",
+  "tr": "her gün kullandığım uygulamalar #foryou #apps #dailyroutine #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve). Photos Seedream : bureau-2, fille-31-2, bouquet-22. Applis (App Store US, 20/11) : Pinterest (4,8 ★, 5,8 M avis), Sophia en 2e (cta C), Todoist (4,8 ★, 131 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/bureau-2.jpg",
+     "images/photos/fille-31-2.jpg",
+     "images/photos/bouquet-22.jpg"
+    ],
+    "titre": "apps i use\nevery single day"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/bureau-2.jpg",
+     "images/photos/fille-31-2.jpg",
+     "images/photos/bouquet-22.jpg"
+    ],
+    "titre": "les applis que j'utilise\ntous les jours"
+   },
+   "es": {
+    "photos": [
+     "images/photos/bureau-2.jpg",
+     "images/photos/fille-31-2.jpg",
+     "images/photos/bouquet-22.jpg"
+    ],
+    "titre": "apps que uso\ntodos los días"
+   },
+   "it": {
+    "photos": [
+     "images/photos/bureau-2.jpg",
+     "images/photos/fille-31-2.jpg",
+     "images/photos/bouquet-22.jpg"
+    ],
+    "titre": "le app che uso\nogni singolo giorno"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/bureau-2.jpg",
+     "images/photos/fille-31-2.jpg",
+     "images/photos/bouquet-22.jpg"
+    ],
+    "titre": "her gün kullandığım\nuygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/pinterest",
+   "en": {
+    "nom": "pinterest",
+    "texte": "you save all your ideas on boards, from outfits and recipes to room inspo"
+   },
+   "fr": {
+    "nom": "pinterest",
+    "texte": "tu ranges toutes tes idées dans des tableaux, des tenues aux recettes jusqu'à la déco de ta chambre"
+   },
+   "es": {
+    "nom": "pinterest",
+    "texte": "guardas todas tus ideas en tableros, desde outfits y recetas hasta inspo para decorar tu cuarto"
+   },
+   "it": {
+    "nom": "pinterest",
+    "texte": "salvi tutte le tue idee in bacheche, dagli outfit alle ricette fino all'ispirazione per la camera"
+   },
+   "tr": {
+    "nom": "pinterest",
+    "texte": "kombinlerden tariflere, oda ilhamına kadar tüm fikirlerini panolara kaydedersin"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, con un quiz cortito después para que se te quede"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/todoist",
+   "en": {
+    "nom": "todoist",
+    "texte": "you write your tasks the way you think and it sorts them into a clean daily list"
+   },
+   "fr": {
+    "nom": "todoist",
+    "texte": "tu notes tes tâches comme elles te viennent et elle les range dans une liste claire pour la journée"
+   },
+   "es": {
+    "nom": "todoist",
+    "texte": "apuntas tus tareas como te vienen y las ordena en una lista clara para el día"
+   },
+   "it": {
+    "nom": "todoist",
+    "texte": "scrivi i tuoi compiti come ti vengono e li ordina in una lista chiara per la giornata"
+   },
+   "tr": {
+    "nom": "todoist",
+    "texte": "görevlerini aklına geldiği gibi yazarsın, o da günlük düzenli bir listeye koyar"
+   }
+  }
+ ]
+}

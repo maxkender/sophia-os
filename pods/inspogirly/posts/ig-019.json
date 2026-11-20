@@ -1,0 +1,193 @@
+{
+ "id": "ig-019",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7698007507851152672",
+  "vues": 1300000,
+  "publie_le": "2026-10-18",
+  "accroche": "4 apps every girl needs"
+ },
+ "titre": {
+  "en": "apps every girl should download",
+  "fr": "les applis que toute fille devrait télécharger",
+  "es": "apps que toda chica debería descargar",
+  "it": "app che ogni ragazza dovrebbe scaricare",
+  "tr": "her kızın indirmesi gereken uygulamalar"
+ },
+ "legendes": {
+  "en": "apps every girl should download #foryou #app #apps #thatgirl",
+  "fr": "les applis que toute fille devrait télécharger #foryou #app #apps #thatgirl",
+  "es": "apps que toda chica debería descargar #foryou #app #apps #thatgirl",
+  "it": "app che ogni ragazza dovrebbe scaricare #foryou #app #apps #thatgirl",
+  "tr": "her kızın indirmesi gereken uygulamalar #foryou #app #apps #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Preuve : son « 4 apps every girl needs » du 18/10 (1,3 M). Photos Seedream : trousse-6, fille-29-1, bouquet-20. Applis (App Store US, 20/11) : BeReal (4,8 ★, 1,2 M avis), Widgetsmith (4,6 ★, 781 k), TickTick (4,9 ★, 47 k), Sophia en 4e (cta A), Habit Tracker (4,8 ★, 149 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/trousse-6.jpg",
+     "images/photos/fille-29-1.jpg",
+     "images/photos/bouquet-20.jpg"
+    ],
+    "titre": "apps every girl\nshould download"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/trousse-6.jpg",
+     "images/photos/fille-29-1.jpg",
+     "images/photos/bouquet-20.jpg"
+    ],
+    "titre": "les applis que toute fille\ndevrait télécharger"
+   },
+   "es": {
+    "photos": [
+     "images/photos/trousse-6.jpg",
+     "images/photos/fille-29-1.jpg",
+     "images/photos/bouquet-20.jpg"
+    ],
+    "titre": "apps que toda chica\ndebería descargar"
+   },
+   "it": {
+    "photos": [
+     "images/photos/trousse-6.jpg",
+     "images/photos/fille-29-1.jpg",
+     "images/photos/bouquet-20.jpg"
+    ],
+    "titre": "app che ogni ragazza\ndovrebbe scaricare"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/trousse-6.jpg",
+     "images/photos/fille-29-1.jpg",
+     "images/photos/bouquet-20.jpg"
+    ],
+    "titre": "her kızın indirmesi\ngereken uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/bereal",
+   "en": {
+    "nom": "bereal",
+    "texte": "once a day you and your friends post a real photo at the same time, no filters"
+   },
+   "fr": {
+    "nom": "bereal",
+    "texte": "une fois par jour, tes amies et toi postez une vraie photo en même temps, sans filtre"
+   },
+   "es": {
+    "nom": "bereal",
+    "texte": "una vez al día, tus amigas y tú subís una foto real al mismo tiempo, sin filtros"
+   },
+   "it": {
+    "nom": "bereal",
+    "texte": "una volta al giorno tu e le tue amiche postate una foto vera nello stesso momento"
+   },
+   "tr": {
+    "nom": "bereal",
+    "texte": "günde bir kez arkadaşlarınla aynı anda filtresiz gerçek bir fotoğraf paylaşırsınız"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/widgetsmith",
+   "en": {
+    "nom": "widgetsmith",
+    "texte": "you design your own widgets with your photos, countdowns and the weather in your colors"
+   },
+   "fr": {
+    "nom": "widgetsmith",
+    "texte": "tu crées tes propres widgets avec tes photos, des comptes à rebours et la météo"
+   },
+   "es": {
+    "nom": "widgetsmith",
+    "texte": "diseñas tus propios widgets con tus fotos, cuentas atrás y el tiempo en tus colores"
+   },
+   "it": {
+    "nom": "widgetsmith",
+    "texte": "crei i tuoi widget con le tue foto, i countdown e il meteo nei tuoi colori"
+   },
+   "tr": {
+    "nom": "widgetsmith",
+    "texte": "fotoğraflarınla, geri sayımlarla ve hava durumuyla kendi widget'larını tasarlarsın"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/ticktick",
+   "en": {
+    "nom": "ticktick",
+    "texte": "your to-do list and calendar in one place, with reminders so you never forget anything"
+   },
+   "fr": {
+    "nom": "ticktick",
+    "texte": "ta to-do list et ton agenda au même endroit, avec des rappels pour ne rien oublier"
+   },
+   "es": {
+    "nom": "ticktick",
+    "texte": "tu lista de tareas y tu calendario juntos, con recordatorios para que no se te olvide nada"
+   },
+   "it": {
+    "nom": "ticktick",
+    "texte": "la tua lista di cose da fare e il calendario in un solo posto, con promemoria per non dimenticare nulla"
+   },
+   "tr": {
+    "nom": "ticktick",
+    "texte": "yapılacaklar listen ve takvimin tek bir yerde, hiçbir şeyi unutmaman için hatırlatıcılarla"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/habittracker",
+   "en": {
+    "nom": "habit tracker",
+    "texte": "you check off your little habits every day and watch your streaks grow"
+   },
+   "fr": {
+    "nom": "habit tracker",
+    "texte": "tu coches tes petites habitudes chaque jour et tu regardes tes séries grandir"
+   },
+   "es": {
+    "nom": "habit tracker",
+    "texte": "marcas tus pequeños hábitos cada día y ves cómo crecen tus rachas"
+   },
+   "it": {
+    "nom": "habit tracker",
+    "texte": "spunti le tue piccole abitudini ogni giorno e guardi crescere le tue serie"
+   },
+   "tr": {
+    "nom": "habit tracker",
+    "texte": "küçük alışkanlıklarını her gün işaretler ve serilerinin büyümesini izlersin"
+   }
+  }
+ ]
+}

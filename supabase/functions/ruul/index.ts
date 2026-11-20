@@ -32,6 +32,7 @@
  * sur Ruul est fait par Max ; en mode « api » (plus tard), l'ajout,
  * l'invitation et l'identité seront lus chez Ruul.
  */
+import { TEXTES_RUUL } from "../_shared/ruul_bot.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { codePays, hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import {
@@ -183,6 +184,8 @@ Deno.serve(async (request) => {
     // 18/11 (Max) : relance « finir son installation Ruul » (KYC, banque, inscription) : email + dashboard + Slack,
     // dans la langue du posteur ; jeudi et samedi (cron), ou maintenant avec forcer: true ; simuler: true n'envoie rien.
     if (body?.action === "kyc_relances") return json(await kycRelances(supabase, body?.forcer === true, body?.simuler === true));
+    // 21/11 (Max) : bloqué sur Ruul depuis 7 jours malgré le support : on propose Upwork (une fois).
+    if (body?.action === "upwork_7j") return json(await proposerUpwork7j(supabase, body?.simuler === true));
     // 19/11 (Max) : la relance KYC qui n'est pas arrivée par email (depuis une date) passe en bandeau sur le dashboard.
     if (body?.action === "kyc_bandeaux") return json(await kycBandeaux(supabase, String(body?.depuis ?? ""), body?.simuler === true));
     // 19/11 : SPF, DKIM et DMARC des domaines d'envoi (lecture seule, rien n'est changé).
@@ -512,6 +515,35 @@ async function traduireRuul(texte: string, langue: string | null, cache: Map<str
   } catch { /* l'anglais */ }
   cache.set(cle, sortie);
   return sortie;
+}
+
+/**
+ * 21/11 (Max) : un posteur Ruul toujours pas prêt 7 jours après avoir écrit au support pour un problème Ruul (ruul_bloques_7j) :
+ * on lui propose Upwork par email (dans sa langue), son lien de profil est attendu (exception Upwork), une seule fois.
+ */
+async function proposerUpwork7j(supabase: Supabase, simuler: boolean) {
+  const { data, error } = await supabase.rpc("ruul_bloques_7j");
+  if (error) throw error;
+  const liste = (data ?? []) as { poster_id: string; prenom: string | null }[];
+  if (simuler) return { ok: true, simulation: true, n: liste.length };
+  const bilan: { poster: string; ok: boolean; erreur: string | null }[] = [];
+  for (const d of liste) {
+    const { data: adresse } = await supabase.rpc("ruul_adresse_joignable", { p_poster: d.poster_id });
+    const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", d.poster_id).maybeSingle();
+    let erreur: string | null = null;
+    if (typeof adresse === "string" && adresse && pr?.ruul_jeton) {
+      const prenom = (d.prenom ?? "").trim();
+      const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
+      const corps = `${prenom ? `Hi ${prenom},\n\n` : ""}${TEXTES_RUUL.bloque_7j}`;
+      const e = await emailTraduit(supabase, d.poster_id, { objet: "We can pay you on Upwork instead", corps, lienStop }, [prenom]);
+      const r = await envoyerEmail(adresse, e.objet, e.html, e.texte, lienStop, ["ruul", "upwork_7j"]);
+      if (!r.ok) erreur = `email : ${r.erreur}`;
+    } else erreur = "email : aucune adresse joignable";
+    if (!erreur) await supabase.rpc("upwork_exception_demander", { p_poster: d.poster_id, p_source: "email", p_demande: null });
+    await supabase.from("ruul_email_relances").insert({ poster_id: d.poster_id, etape: "upwork_7j", canaux: erreur ? [] : ["email"], erreur });
+    bilan.push({ poster: d.poster_id, ok: !erreur, erreur });
+  }
+  return { ok: true, proposes: bilan.filter((b) => b.ok).length, bilan };
 }
 
 async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean) {

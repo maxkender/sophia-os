@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { appliquerResolution, fusionner, handleDe, lireLigne, lireLignes, nomLabelValide } from "./parse";
+import { appliquerResolution, fusionner, handleDe, lienCompte, lireLigne, lireLignes, nomLabelValide } from "./parse";
 import type { AppBible, LabelBible } from "./types";
 
 const APPS: AppBible[] = [
@@ -80,5 +80,21 @@ describe("Bible : ajout en masse", () => {
       ["melih.diane", 1, 0, null, null],
       ["remistudy", 1, 0, null, null],
     ]);
+  });
+});
+
+describe("20/11 : un lien de TikTok devient le lien du compte", () => {
+  it("coupe au handle (vidéo, photo, paramètres), garde les liens courts et le reste du texte", () => {
+    const t = lienCompte(
+      "https://www.tiktok.com/@Crushed.Ethereal/video/7571234567890123456?is_from_webapp=1&sender_device=pc\n" +
+        "https://m.tiktok.com/@abc_1/photo/7570000000000000000\nhttps://www.tiktok.com/@deja?lang=fr\nhttps://vm.tiktok.com/ZMabc123/ @handle",
+    );
+    expect(t).toBe("https://www.tiktok.com/@crushed.ethereal\nhttps://www.tiktok.com/@abc_1\nhttps://www.tiktok.com/@deja\nhttps://vm.tiktok.com/ZMabc123/ @handle");
+  });
+
+  it("l'ajout en masse enregistre le lien du compte, jamais celui de la vidéo", () => {
+    const l = lireLigne("https://www.tiktok.com/@x.y/video/7571234567890123456?lang=fr", [], []);
+    expect(l.profilUrl).toBe("https://www.tiktok.com/@x.y");
+    expect(l.posts).toEqual(["https://www.tiktok.com/@x.y/video/7571234567890123456?lang=fr"]);
   });
 });

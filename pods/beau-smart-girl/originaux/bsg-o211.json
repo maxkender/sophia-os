@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o211",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en écrivant à la main pendant un mois #ecriture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label. cta A. Aucun fait daté. Routine du 20/11 sur BLEO (par_jour passé à 12 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 3 full tests et 9 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent proprement, donc 5 déclinaisons et 7 full tests. Lignes sautées : 6 (« validé par les neurosciences »), 7 (« je notes »), 8 (accroche illisible « ge things »), 9, 11 et 12 (« backed by science », bienfaits santé invérifiables), 10 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "57209b27",
+      "texte_overlay": "ce que j'ai appris en écrivant\nà la main pendant un mois",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "301c5faa",
+      "texte_overlay": "1. on pense plus lentement\n\net donc mieux.\nla main oblige à choisir ses mots.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cf7ef8db",
+      "texte_overlay": "2. on retient ce qu'on écrit\n\nmes listes, mes cours, mes idées.\nje n'avais plus besoin de les relire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a47969a0",
+      "texte_overlay": "3. l'écriture change\n\nau début, illisible.\nau bout d'un mois, presque jolie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ff4b9a55",
+      "texte_overlay": "4. les carnets deviennent des souvenirs\n\nles fichiers, on les oublie.\nles carnets, on les garde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "210f9b25",
+      "texte_overlay": "5. on a envie de mieux écrire\n\navant, je n'écrivais que des messages.\nmaintenant, j'apprends un truc sur le monde chaque matin. et je remplis un carnet par mois.",
+      "texte_sophia": "5. on a envie de mieux écrire\n\navant, je n'écrivais que des messages.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je remplis un carnet par mois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a813a33b",
+      "texte_overlay": "tu écris encore à la main ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

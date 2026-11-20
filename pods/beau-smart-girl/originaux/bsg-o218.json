@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o218",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "38999d59-ede9-47d4-bf96-615b403ae7de",
+  "titre": "mon grand-père a lu toute sa vie : ce qu'il m'a transmis sans le dire #lecture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "38999d59-ede9-47d4-bf96-615b403ae7de"
+  ],
+  "notes": "G2, déclinaison de 38999d59 (« les habitudes insolites que j'ai volées à mon grand-père qui a lu toute sa vie », G1 gagnante, génération 1 en français ; meilleur passage de 1,8 k vues, r 3,18), en français ; troisième et dernière déclinaison de ce parent. Accroche reformulée : « mon grand-père a lu toute sa vie : ce qu'il m'a transmis sans le dire ». cta C. Items neufs (rien de repris de bsg-o100, o194, o208). Routine du 20/11 sur BLEO (par_jour passé à 12 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 3 full tests et 9 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent proprement, donc 5 déclinaisons et 7 full tests. Lignes sautées : 6 (« validé par les neurosciences »), 7 (« je notes »), 8 (accroche illisible « ge things »), 9, 11 et 12 (« backed by science », bienfaits santé invérifiables), 10 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b17670e8",
+      "texte_overlay": "mon grand-père a lu toute sa vie :\nce qu'il m'a transmis sans le dire",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ed78619a",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "dcfa0095",
+      "texte_overlay": "1. le goût du silence\n\nune heure de lecture par jour,\net personne n'osait le déranger.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3f2453b9",
+      "texte_overlay": "2. le respect des livres\n\njamais corné, jamais posé ouvert à l'envers.\nun livre, ça se soigne.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "67d75edd",
+      "texte_overlay": "3. la curiosité pour les gens\n\nil lisait les biographies\ncomme d'autres lisent les romans.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "6d5426d7",
+      "texte_overlay": "4. l'art de raconter\n\nchaque livre devenait une histoire\nqu'il nous racontait au dîner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "65cb6f4a",
+      "texte_overlay": "5. l'idée qu'on n'a jamais fini\n\nà 85 ans, il avait encore une liste.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "bb0105b1",
+      "texte_overlay": "c'est quoi la tienne, ta liste ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

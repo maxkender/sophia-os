@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o216",
+  "type_bleo": "full_test",
+  "titre": "les questions que je me pose avant d'acheter un livre #lecture #booktok #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label. cta C. Différent de bsg-o158 (choisir ses livres) : l'achat réfléchi. Aucun fait daté. Routine du 20/11 sur BLEO (par_jour passé à 12 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 3 full tests et 9 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent proprement, donc 5 déclinaisons et 7 full tests. Lignes sautées : 6 (« validé par les neurosciences »), 7 (« je notes »), 8 (accroche illisible « ge things »), 9, 11 et 12 (« backed by science », bienfaits santé invérifiables), 10 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "50c99858",
+      "texte_overlay": "les questions que je me pose\navant d'acheter un livre",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f908d246",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d621f48a",
+      "texte_overlay": "1. est-ce que je le lirai ce mois-ci ?\n\nsinon, il rejoindra la pile.\net la pile est déjà haute.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "daa38845",
+      "texte_overlay": "2. est-ce qu'il est à la bibliothèque ?\n\nsouvent, oui.\net c'est gratuit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c72e63f3",
+      "texte_overlay": "3. est-ce que je l'aurais choisi sans la couverture ?\n\nles belles couvertures, ça trompe.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e77b05e0",
+      "texte_overlay": "4. est-ce que je peux l'avoir d'occasion ?\n\ndeux euros chez le bouquiniste,\net une histoire en plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0b36c16b",
+      "texte_overlay": "5. est-ce que je le prêterai ?\n\nles meilleurs livres\nsont ceux qu'on a envie de partager.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "b4be17f5",
+      "texte_overlay": "c'est quoi ton dernier achat livre ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o221",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "931ae4f3-2daf-4ac1-b9a8-29fd6299a488",
+  "titre": "how to stop being the lazy girl #productivity #thatgirl",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [
+    "931ae4f3-2daf-4ac1-b9a8-29fd6299a488"
+  ],
+  "notes": "G1, déclinaison de 931ae4f3 (« how to stop being the lazy girl », génération 0 ; meilleur passage es-419 5,4 k vues, r 8,53), en anglais. cta C. Items neufs (rien de repris du parent : ni lit fait, ni ménage du dimanche, ni sac prêt la veille, ni autre appli). Ton doux, aucun jugement. Routine du 20/11 sur BLEO (par_jour passé à 12 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 3 full tests et 9 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent proprement, donc 5 déclinaisons et 7 full tests. Lignes sautées : 6 (« validé par les neurosciences »), 7 (« je notes »), 8 (accroche illisible « ge things »), 9, 11 et 12 (« backed by science », bienfaits santé invérifiables), 10 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3a1b7374",
+      "texte_overlay": "how to stop being\nthe lazy girl",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2ac44bad",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one thing about the world every morning, for 7 days.\ntell me how it goes.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\ntell me how it goes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bebd5e10",
+      "texte_overlay": "1. start with two minutes\n\njust open the book.\nmotivation shows up after you start.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b07cce03",
+      "texte_overlay": "2. get dressed, even at home\n\npyjamas say sleep.\nreal clothes say let's go.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a4ebb84f",
+      "texte_overlay": "3. do the hardest thing first\n\nthe rest of the day\nfeels easy after that.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1e81958f",
+      "texte_overlay": "4. put your phone in another room\n\nout of sight,\nout of your hands.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "607b0d2d",
+      "texte_overlay": "5. celebrate small wins\n\na chapter read, a walk taken.\nwrite them down every night.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "c6c97fd8",
+      "texte_overlay": "which one are you starting today?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

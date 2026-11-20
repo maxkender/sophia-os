@@ -11,6 +11,8 @@
  *       (< 48 h) ; le lien d'onboarding est gardé (ruul_liens). Éteint (ruul_api.connect_actif) : rien, sauf
  *       { poster_id, forcer: true } par l'admin (un essai sur une personne).
  *   POST { action: "mon_lien" }   le posteur connecté (bouton « Open my Ruul setup » du dashboard) : son lien frais.
+ *   POST { action: "setup_textes" }   le posteur connecté : les textes du bloc « Get paid », dans sa langue.
+ *   POST { action: "pays" }   cron quotidien : les pays acceptés par Ruul (inscription, banque) → ruul_pays.
  *   POST { action: "devis", semaine }   admin : POST /payouts/calculate sur les lignes prêtes du lot (READY, validées).
  *       Ne crée rien chez Ruul ; le total à virer (frais compris, en EUR) est gardé sur le lot.
  *   POST { action: "payer", semaine }   MAX SEUL (réglage ruul_api.payeurs) : POST /payouts avec Idempotency-Key.
@@ -24,6 +26,8 @@
  * La clé (RUUL_API_KEY / RUUL_SANDBOX_API_KEY) reste dans les secrets ; elle n'apparaît jamais dans une réponse.
  */
 import { connecter, lienRuul } from "../_shared/ruul_connect.ts";
+import { TEXTES_SETUP_EN } from "../_shared/ruul_setup.ts";
+import { normaliserLangue, traduireChamps } from "../_shared/traduction_email.ts";
 import { appelRuul, BASES, descriptionLigne, descriptionLot, type EnvRuul } from "../_shared/ruul_api.ts";
 import { assertAuthorised, assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -305,6 +309,28 @@ Deno.serve(async (request) => {
     } catch (e) {
       console.error("[ruul-api] mon_lien", messageErreur(e));
       return json({ ok: false, error: "Something went wrong, please try again." }, 500);
+    }
+  }
+  // 21/11 (Max) : les textes du bloc « Get paid » du dashboard, dans la langue du posteur connecté (cache).
+  if (corps.action === "setup_textes") {
+    // Le posteur connecté (sa langue) ; ou le serveur (secret du cron) pour un aperçu dans une langue donnée.
+    const serveur = request.headers.get("x-cron-secret") ? (await assertAuthorised(request)) === null : false;
+    const acces = serveur ? null : await assertRole(request, ["poster", "admin"]);
+    if (acces instanceof Response) return acces;
+    try {
+      const supabase = serviceClient();
+      let langue: string;
+      if (serveur && typeof corps.langue === "string") langue = normaliserLangue(corps.langue);
+      else {
+        const cible = acces && acces.role === "admin" && typeof corps.poster_id === "string" ? corps.poster_id : acces?.userId ?? null;
+        const { data: lg } = cible ? await supabase.rpc("email_langue_poster", { p_poster: cible }) : { data: null };
+        langue = normaliserLangue((lg as string | null) ?? "en");
+      }
+      const { champs, traduit } = await traduireChamps(supabase, langue, { ...TEXTES_SETUP_EN });
+      return json({ ok: true, langue, traduit, textes: champs });
+    } catch (e) {
+      console.error("[ruul-api] setup_textes", messageErreur(e));
+      return json({ ok: true, langue: "en", traduit: false, textes: TEXTES_SETUP_EN });
     }
   }
   // Créer le paiement Ruul : un admin connecté, et seulement ceux du réglage ruul_api.payeurs (Max).

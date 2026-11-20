@@ -22,8 +22,10 @@ export function BandeauCompteArrete() {
 
 function Bandeaux() {
   const q = useQuery({ queryKey: ["mes-bandeaux-compte"], queryFn: lireMesBandeaux, staleTime: 5 * 60_000 });
-  if (!q.data?.length) return null;
-  return <div className="space-y-2">{q.data.map((b) => <Bandeau key={b.cle} b={b} />)}</div>;
+  // 21/11 (Max) : la relance Ruul ne se ferme plus sur « Got it » : le bloc « Get paid » (impossible à fermer) la remplace.
+  const bandeaux = (q.data ?? []).filter((b) => !b.cle.startsWith("relance_ruul:"));
+  if (!bandeaux.length) return null;
+  return <div className="space-y-2">{bandeaux.map((b) => <Bandeau key={b.cle} b={b} />)}</div>;
 }
 
 export function Bandeau({ b }: { b: BandeauCompte }) {

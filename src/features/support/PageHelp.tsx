@@ -59,7 +59,9 @@ export function PageHelp({ apercu }: { apercu?: ApercuHelp } = {}) {
     queryFn: () => (apercu ? (apercu.posterId ? lireDemandesDe(apercu.posterId) : Promise.resolve([])) : lireMesDemandes()),
     refetchInterval: apercu ? false : 30_000,
   });
-  const [probleme, setProbleme] = React.useState(false);
+  // 21/11 (Max) : « I have a problem with Ruul » (bloc Get paid) : le Help s'ouvre prérempli avec l'étape bloquée.
+  const ruulBloque = React.useMemo(() => etapeRuulDeLUrl(), []);
+  const [probleme, setProbleme] = React.useState(Boolean(ruulBloque));
   const pf: Plateforme = apercu?.plateforme ?? plateforme.data ?? "upwork";
   const rafraichir = () => qc.invalidateQueries({ queryKey: cleDemandes });
   const liste = demandes.data ?? [];
@@ -70,7 +72,7 @@ export function PageHelp({ apercu }: { apercu?: ApercuHelp } = {}) {
       <PageHeader title={t(`${H}.titre`)} description={t(`${H}.description`)} />
       {demandes.error && <p className="text-sm text-destructive">{(demandes.error as Error).message}</p>}
       <Chat demandes={liste} onChange={rafraichir} onProbleme={() => setProbleme(true)} />
-      {probleme && <FormProbleme plateforme={pf} userId={userId} onFini={() => { setProbleme(false); void rafraichir(); }} />}
+      {probleme && <FormProbleme plateforme={pf} userId={userId} initial={ruulBloque ? { categorie: "compte", texte: texteProblemeRuul(ruulBloque) } : undefined} onFini={() => { setProbleme(false); void rafraichir(); }} />}
     </div>
     </ApercuContexte.Provider>
   );
@@ -190,11 +192,23 @@ function Bulle({ cote, texte, at }: { cote: "moi" | "eux"; texte: string; at?: s
   );
 }
 
-function FormProbleme({ plateforme, userId, onFini }: { plateforme: Plateforme; userId: string; onFini: () => void }) {
+/** 21/11 : l'étape Ruul bloquée, passée par le bloc « Get paid » (?ruul=inscrit|identite|banque). */
+function etapeRuulDeLUrl(): "inscrit" | "identite" | "banque" | null {
+  const v = new URLSearchParams(window.location.search).get("ruul");
+  return v === "inscrit" || v === "identite" || v === "banque" ? v : null;
+}
+
+const ETAPE_RUUL_TEXTE = { inscrit: "signing up on app.ruul.io", identite: "verifying my identity", banque: "adding my bank account" } as const;
+
+function texteProblemeRuul(e: keyof typeof ETAPE_RUUL_TEXTE): string {
+  return `I have a problem with Ruul, I'm stuck at: ${ETAPE_RUUL_TEXTE[e]}. `;
+}
+
+function FormProbleme({ plateforme, userId, onFini, initial }: { plateforme: Plateforme; userId: string; onFini: () => void; initial?: { categorie: string; texte: string } }) {
   const { t } = useTranslation();
   const apercu = React.useContext(ApercuContexte);
-  const [categorie, setCategorie] = React.useState<string>("");
-  const [texte, setTexte] = React.useState("");
+  const [categorie, setCategorie] = React.useState<string>(initial?.categorie ?? "");
+  const [texte, setTexte] = React.useState(initial?.texte ?? "");
   const [fichier, setFichier] = React.useState<File | null>(null);
   const envoi = useMutation({
     mutationFn: async () => {

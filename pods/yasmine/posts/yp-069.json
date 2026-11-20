@@ -1,0 +1,674 @@
+{
+ "id": "yp-069",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7667147856670706966",
+  "vues": 53800,
+  "enregistrements": 1330,
+  "publie_le": "2026-07-27",
+  "titre": "SCHOOL TIPS from a highschool graduate"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5ec5fa42-68e6-4f45-882f-d7e35d6800f4",
+ "titre": {
+  "fr": "ce que je me dirais en seconde",
+  "en": "what i’d tell myself as a freshman",
+  "es": "lo que me diría en primero",
+  "de": "was ich mir in der 10. Klasse sagen würde",
+  "it": "cosa mi direi in prima",
+  "pt-BR": "o que eu me diria no 1º ano",
+  "tr": "lise birdeki halime söyleyeceklerim"
+ },
+ "legendes": {
+  "fr": "si tu es en seconde, c’est pour toi 🤍 #lycee #seconde #studytok #thatgirl #conseils",
+  "en": "if you’re a freshman, this is for you 🤍 #highschool #freshman #studytok #thatgirl #advice",
+  "es": "si estás en primero, esto es para ti 🤍 #instituto #consejos #studytok #thatgirl #estudiar",
+  "de": "wenn du in der 10. bist, ist das für dich 🤍 #schule #tipps #studytok #thatgirl #lernen",
+  "it": "se sei in prima, è per te 🤍 #liceo #consigli #studytok #thatgirl #scuola",
+  "pt-BR": "se você tá no 1º ano, é pra você 🤍 #ensinomedio #dicas #studytok #thatgirl #estudos",
+  "tr": "lise birdeysen bu senin için 🤍 #lise #tavsiye #studytok #thatgirl #ders"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7335942451062606634"
+ },
+ "fond": {
+  "media_id": "ebe71599-01c8-4cf8-b078-fe474ff45540",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/267bb608-bdb5-4587-b81f-61d1ef6fe445/1.jpg?v=1787123451053",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-015 (« conseils de lycée d’une jeune bachelière, partie 2 »), 2e sur 3 : même promesse reformulée en lettre à soi-même, notes iOS, 6 conseils jamais donnés au label. cta A : micabo dans la note « révise en te testant ». 7 langues, photos et son neufs",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CE QUE JE",
+      "ME DIRAIS EN",
+      "SECONDE"
+     ],
+     "taille": 130,
+     "script_haut": "lettre à moi-même",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "WHAT I’D TELL",
+      "MYSELF AS A",
+      "FRESHMAN"
+     ],
+     "taille": 116,
+     "script_haut": "a letter to myself",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LO QUE ME",
+      "DIRÍA EN",
+      "PRIMERO"
+     ],
+     "taille": 136,
+     "script_haut": "carta a mí misma",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "WAS ICH MIR",
+      "IN DER 10.",
+      "KLASSE SAGEN",
+      "WÜRDE"
+     ],
+     "taille": 110,
+     "script_haut": "ein Brief an mich",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "COSA MI",
+      "DIREI IN",
+      "PRIMA"
+     ],
+     "taille": 140,
+     "script_haut": "lettera a me stessa",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "O QUE EU",
+      "ME DIRIA NO",
+      "1º ANO"
+     ],
+     "taille": 130,
+     "script_haut": "carta pra mim mesma",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LİSE BİRDEKİ",
+      "HALİME",
+      "SÖYLEYECEKLERİM"
+     ],
+     "taille": 96,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "f972d4f7-c64e-4920-bd3c-f300f7fe0864",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7c908149-ee3c-4dbc-8670-48bf99f82958/6.jpg?v=1790608259797",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lève la main au moins une fois par cours✋",
+      "texte": "même pour une question bête. tu restes réveillée, et ton prof te voit.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "raise your hand at least once per class✋",
+      "texte": "even for a silly question. you stay awake, and your teacher notices you.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "levanta la mano al menos una vez por clase✋",
+      "texte": "aunque sea una pregunta tonta. te mantienes despierta y el profe te ve.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "melde dich mindestens einmal pro Stunde✋",
+      "texte": "auch für eine dumme Frage. du bleibst wach, und die Lehrkraft sieht dich.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "alza la mano almeno una volta a lezione✋",
+      "texte": "anche per una domanda stupida. resti sveglia e il prof ti nota.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "levante a mão pelo menos uma vez por aula✋",
+      "texte": "mesmo pra uma pergunta boba. você fica acordada e o professor te nota.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her derste en az bir kez parmak kaldır✋",
+      "texte": "saçma bir soru için bile. uyanık kalırsın ve hocan seni fark eder.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "6b268e5e-62ba-42d9-a50d-5a05575033bc",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7a77d849-cb91-436c-86b8-d5b97ea114c3/4.jpg?v=1791726944457",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "garde toutes tes copies corrigées📂",
+      "texte": "tes erreurs d’octobre, c’est ta meilleure fiche de révision en juin.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "keep all your graded tests📂",
+      "texte": "your mistakes from october are your best study guide in june.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "guarda todos tus exámenes corregidos📂",
+      "texte": "tus errores de octubre son tu mejor resumen en junio.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "heb alle korrigierten Tests auf📂",
+      "texte": "deine Fehler aus dem Oktober sind im Juni deine beste Lernhilfe.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "conserva tutte le verifiche corrette📂",
+      "texte": "gli errori di ottobre sono il tuo miglior ripasso a giugno.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "guarde todas as provas corrigidas📂",
+      "texte": "seus erros de outubro são o melhor resumo em junho.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "düzeltilmiş tüm kâğıtlarını sakla📂",
+      "texte": "ekimdeki hataların, haziranda en iyi tekrar notun olur.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "80b3d370-b503-46ca-a404-6f7c17c19193",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e4c89ac1-7c9a-45fb-bb88-535718ccf488/6.jpg?v=1790607962779",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "révise en te testant🧠",
+      "texte": "je mets mes cours dans micabo et je fais ses quiz. relire donne l’impression de savoir, se tester montre ce qui manque.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "study by testing yourself🧠",
+      "texte": "i put my lessons into micabo and do its quizzes. rereading feels like knowing, testing shows what’s missing.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "estudia poniéndote a prueba🧠",
+      "texte": "meto mis clases en micabo y hago sus quiz. releer da la sensación de saber, ponerse a prueba muestra lo que falta.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lern, indem du dich testest🧠",
+      "texte": "ich packe meinen Stoff in micabo und mache die Quiz. lesen fühlt sich nach Wissen an, testen zeigt, was fehlt.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "studia mettendoti alla prova🧠",
+      "texte": "metto le lezioni su micabo e faccio i suoi quiz. rileggere dà l’impressione di sapere, mettersi alla prova mostra cosa manca.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "estude se testando🧠",
+      "texte": "coloco minhas aulas no micabo e faço os quizzes. reler dá a sensação de saber, se testar mostra o que falta.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "kendini test ederek çalış🧠",
+      "texte": "derslerimi micabo’ya koyup testlerini çözüyorum. tekrar okumak bildiğini sandırır, test eksiği gösterir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2239713c-e844-42fe-832c-9e0a1e4d82f7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b09037db-7fee-4f5a-be35-fb6c75af5bf4/5.jpg?v=1791725597194",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "garde une activité hors des cours🎨",
+      "texte": "danse, dessin, sport. une heure où tu ne penses pas aux notes, ça recharge tout.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "keep one activity outside school🎨",
+      "texte": "dance, drawing, sports. an hour where you don’t think about grades recharges everything.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ten una actividad fuera de clase🎨",
+      "texte": "baile, dibujo, deporte. una hora sin pensar en notas lo recarga todo.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "behalte ein Hobby außerhalb der Schule🎨",
+      "texte": "Tanzen, Zeichnen, Sport. eine Stunde ohne Gedanken an Noten lädt alles wieder auf.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "tieni un’attività fuori dalla scuola🎨",
+      "texte": "danza, disegno, sport. un’ora senza pensare ai voti ricarica tutto.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "tenha uma atividade fora da escola🎨",
+      "texte": "dança, desenho, esporte. uma hora sem pensar em nota recarrega tudo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "okul dışında bir uğraşın olsun🎨",
+      "texte": "dans, resim, spor. notları düşünmediğin bir saat her şeyi yeniler.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "830c8e48-e347-43f3-85ee-89fd17f3ca34",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93/2.jpg?v=1790606714828",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "dis non à la sortie la veille d’un contrôle🙅‍♀️",
+      "texte": "il y aura d’autres soirées. la note, elle, reste.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "say no to going out the night before a test🙅‍♀️",
+      "texte": "there will be other nights. the grade stays.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "di que no a salir la noche antes de un examen🙅‍♀️",
+      "texte": "habrá otras noches. la nota se queda.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "sag Nein zum Ausgehen am Abend vor einer Arbeit🙅‍♀️",
+      "texte": "es gibt noch andere Abende. die Note bleibt.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "di’ di no all’uscita la sera prima di una verifica🙅‍♀️",
+      "texte": "ci saranno altre serate. il voto invece resta.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "diga não pro rolê na véspera da prova🙅‍♀️",
+      "texte": "vão ter outras noites. a nota fica.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "sınavdan önceki akşam dışarı çıkmaya hayır de🙅‍♀️",
+      "texte": "başka akşamlar da olacak. not ise kalıcı.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2ef3d804-36c1-48d4-9c77-5d588055791b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/40291024-2d83-45a2-86e0-a167a0dc5561/2.jpg?v=1787154934916",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ne compare pas tes notes📊",
+      "texte": "ta seule concurrente, c’est toi le trimestre d’avant.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "don’t compare your grades📊",
+      "texte": "your only competition is you from last semester.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "no compares tus notas📊",
+      "texte": "tu única rival eres tú el trimestre pasado.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "vergleich deine Noten nicht📊",
+      "texte": "deine einzige Konkurrenz bist du im letzten Halbjahr.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "non confrontare i tuoi voti📊",
+      "texte": "la tua unica rivale sei tu del trimestre prima.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "não compare suas notas📊",
+      "texte": "sua única concorrente é você no bimestre passado.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "notlarını karşılaştırma📊",
+      "texte": "tek rakibin, geçen dönemki sensin.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ]
+}

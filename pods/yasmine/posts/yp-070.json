@@ -1,0 +1,670 @@
+{
+ "id": "yp-070",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7667147856670706966",
+  "vues": 53800,
+  "enregistrements": 1330,
+  "publie_le": "2026-07-27",
+  "titre": "SCHOOL TIPS from a highschool graduate"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5ec5fa42-68e6-4f45-882f-d7e35d6800f4",
+ "titre": {
+  "fr": "les conseils de lycée que personne ne m’a donnés",
+  "en": "the high school tips nobody gave me",
+  "es": "los consejos de instituto que nadie me dio",
+  "de": "die Schultipps, die mir niemand gegeben hat",
+  "it": "i consigli sul liceo che nessuno mi ha dato",
+  "pt-BR": "as dicas de escola que ninguém me deu",
+  "tr": "kimsenin bana vermediği lise tavsiyeleri"
+ },
+ "legendes": {
+  "fr": "enregistre-le avant la rentrée 📌 #lycee #conseils #studytok #thatgirl #bac",
+  "en": "save this before school starts 📌 #highschool #studytips #studytok #thatgirl #advice",
+  "es": "guárdalo antes de volver a clase 📌 #instituto #consejos #studytok #thatgirl #estudiar",
+  "de": "speicher es vor dem Schulstart 📌 #schule #tipps #studytok #thatgirl #lernen",
+  "it": "salvalo prima del rientro 📌 #liceo #consigli #studytok #thatgirl #scuola",
+  "pt-BR": "salva antes da volta às aulas 📌 #ensinomedio #dicas #studytok #thatgirl #estudos",
+  "tr": "okullar açılmadan kaydet 📌 #lise #tavsiye #studytok #thatgirl #ders"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7456457094292458262"
+ },
+ "fond": {
+  "media_id": "28ccfa22-909b-4f43-97b6-dcf71c70c3be",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e33deadc-e074-4832-869b-1b80a73356b3/3.jpg?v=1790608126417",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-015 (« conseils de lycée d’une jeune bachelière, partie 2 »), 3e sur 3 : même promesse reformulée, notes iOS, 6 conseils jamais donnés au label. cta A : micabo dans la note « révise dans le bus ». 7 langues, photos et son neufs",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "QUE PERSONNE",
+      "NE M’A",
+      "DONNÉS"
+     ],
+     "taille": 112,
+     "script_haut": "les conseils de lycée",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "NOBODY",
+      "GAVE ME"
+     ],
+     "taille": 160,
+     "script_haut": "the high school tips",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "QUE NADIE",
+      "ME DIO"
+     ],
+     "taille": 160,
+     "script_haut": "los consejos de instituto",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DIE MIR",
+      "NIEMAND",
+      "GEGEBEN HAT"
+     ],
+     "taille": 112,
+     "script_haut": "die Schultipps,",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CHE NESSUNO",
+      "MI HA DATO"
+     ],
+     "taille": 116,
+     "script_haut": "i consigli sul liceo",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "QUE NINGUÉM",
+      "ME DEU"
+     ],
+     "taille": 120,
+     "script_haut": "as dicas de escola",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "KİMSENİN",
+      "BANA VERMEDİĞİ",
+      "LİSE",
+      "TAVSİYELERİ"
+     ],
+     "taille": 90,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "434a3a18-6fe5-4eee-a88f-a5acfbfde2d9",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fc399c78-07ab-4d0b-a207-fe4fcbd4aca3/4.jpg?v=1790608846880",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "note toutes les dates de contrôle dès qu’elles tombent📅",
+      "texte": "deux contrôles le même jour, ça se voit venir trois semaines avant.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "write down every test date as soon as you get it📅",
+      "texte": "two tests on the same day is something you can see coming three weeks ahead.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "apunta cada fecha de examen en cuanto la sepas📅",
+      "texte": "dos exámenes el mismo día se ven venir tres semanas antes.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "schreib jeden Prüfungstermin sofort auf📅",
+      "texte": "zwei Arbeiten am selben Tag siehst du drei Wochen vorher kommen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "segna ogni data di verifica appena la sai📅",
+      "texte": "due verifiche lo stesso giorno si vedono arrivare tre settimane prima.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "anote toda data de prova assim que souber📅",
+      "texte": "duas provas no mesmo dia dá pra ver chegando com três semanas.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her sınav tarihini öğrendiğin an yaz📅",
+      "texte": "aynı gün iki sınav, üç hafta önceden belli olur.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "74be0b98-e9f0-4b50-890a-cb71158325a2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/340b9e9f-76d2-48b0-a4b4-74da5dd7c7e7/4.jpg?v=1790608127562",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "relis ta copie avant de la rendre🔍",
+      "texte": "3 minutes, et tu rattrapes les fautes bêtes qui coûtent des points.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "reread your test before handing it in🔍",
+      "texte": "3 minutes, and you catch the silly mistakes that cost points.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "relee tu examen antes de entregarlo🔍",
+      "texte": "3 minutos y pillas los errores tontos que cuestan puntos.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lies deine Arbeit vor der Abgabe nochmal🔍",
+      "texte": "3 Minuten, und du findest die dummen Fehler, die Punkte kosten.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "rileggi la verifica prima di consegnarla🔍",
+      "texte": "3 minuti, e trovi gli errori stupidi che costano punti.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "releia a prova antes de entregar🔍",
+      "texte": "3 minutos e você pega os erros bobos que custam pontos.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "teslim etmeden önce kâğıdını tekrar oku🔍",
+      "texte": "3 dakika, puan kaybettiren dikkatsiz hataları yakalarsın.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "ada28d52-80f5-4240-afb7-b336f16914b8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8a43b55b-54f8-46e9-8bc6-e2555acb82a8/4.jpg?v=1791726086338",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "révise dans le bus🚌",
+      "texte": "je mets mes cours dans micabo et je fais un quiz sur le trajet. 15 min par jour, sans même m’en rendre compte.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "study on the bus🚌",
+      "texte": "i put my lessons into micabo and do a quiz on the way. 15 min a day without even noticing.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "estudia en el bus🚌",
+      "texte": "meto mis clases en micabo y hago un quiz en el trayecto. 15 min al día sin darme cuenta.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lern im Bus🚌",
+      "texte": "ich packe meinen Stoff in micabo und mache auf dem Weg ein Quiz. 15 Min. am Tag, ganz nebenbei.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "studia in autobus🚌",
+      "texte": "metto le lezioni su micabo e faccio un quiz durante il tragitto. 15 min al giorno senza accorgermene.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "estude no ônibus🚌",
+      "texte": "coloco minhas aulas no micabo e faço um quiz no trajeto. 15 min por dia sem nem perceber.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "otobüste çalış🚌",
+      "texte": "derslerimi micabo’ya koyup yolda test çözüyorum. fark etmeden günde 15 dakika.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4076e37e-7a59-4620-ab46-5c64bab8d01e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1d823e5d-d25d-4630-9a8c-4e82c84bd9c4/4.jpg?v=1791725746153",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "fais-toi un binôme de révision👯",
+      "texte": "une amie sérieuse, une matière chacune, et vous vous expliquez tout.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "find a study buddy👯",
+      "texte": "one serious friend, one subject each, and you explain everything to each other.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "búscate una compañera de estudio👯",
+      "texte": "una amiga seria, una asignatura cada una, y os lo explicáis todo.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "such dir eine Lernpartnerin👯",
+      "texte": "eine ernsthafte Freundin, jede ein Fach, und ihr erklärt euch alles.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "trovati una compagna di studio👯",
+      "texte": "un’amica seria, una materia a testa, e vi spiegate tutto.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "arrume uma dupla de estudo👯",
+      "texte": "uma amiga focada, uma matéria pra cada, e vocês explicam tudo uma pra outra.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "kendine bir çalışma arkadaşı bul👯",
+      "texte": "ciddi bir arkadaş, herkese bir ders, birbirinize her şeyi anlatın.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "ee2511a8-c680-44cd-a743-729b99a8773c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/277238f6-1a1c-4df7-a69c-33e6d5f887c2/6.jpg?v=1790607836277",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "parle à tes profs en dehors des cours👩‍🏫",
+      "texte": "une question à la fin de l’heure, et ils se souviennent de toi au conseil de classe.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "talk to your teachers outside class👩‍🏫",
+      "texte": "one question after class, and they remember you when grades are decided.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "habla con tus profes fuera de clase👩‍🏫",
+      "texte": "una pregunta al final de la hora y se acuerdan de ti en la evaluación.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "sprich mit deinen Lehrkräften außerhalb des Unterrichts👩‍🏫",
+      "texte": "eine Frage nach der Stunde, und sie erinnern sich an dich bei der Notenkonferenz.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "parla con i prof fuori dalla lezione👩‍🏫",
+      "texte": "una domanda a fine ora, e si ricordano di te allo scrutinio.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "fale com os professores fora da aula👩‍🏫",
+      "texte": "uma pergunta no fim da aula, e eles lembram de você no conselho de classe.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hocalarınla ders dışında konuş👩‍🏫",
+      "texte": "ders sonunda bir soru, not zamanı seni hatırlarlar.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "61d7fa2d-3fc5-4bcc-983d-a5d0251c6578",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d5aad6be-6479-4c16-a1c9-b7ee20df6e3c/4.jpg?v=1791725509612",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "garde une soirée sans écran par semaine🌙",
+      "texte": "un livre, un bain, une balade. ton cerveau en a besoin pour tenir l’année.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "keep one screen-free evening a week🌙",
+      "texte": "a book, a bath, a walk. your brain needs it to make it through the year.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "guarda una noche sin pantallas a la semana🌙",
+      "texte": "un libro, un baño, un paseo. tu cerebro lo necesita para aguantar el curso.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "halte dir einen bildschirmfreien Abend pro Woche frei🌙",
+      "texte": "ein Buch, ein Bad, ein Spaziergang. dein Kopf braucht das, um das Jahr durchzuhalten.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "tieniti una serata senza schermi a settimana🌙",
+      "texte": "un libro, un bagno, una passeggiata. il cervello ne ha bisogno per reggere l’anno.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "tenha uma noite sem tela por semana🌙",
+      "texte": "um livro, um banho, uma caminhada. seu cérebro precisa disso pra aguentar o ano.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "haftada bir akşam ekransız geçir🌙",
+      "texte": "bir kitap, bir banyo, bir yürüyüş. beyninin yılı tamamlamak için buna ihtiyacı var.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ]
+}

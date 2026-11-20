@@ -1,0 +1,672 @@
+{
+ "id": "yp-071",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je mémorise une leçon en 20 minutes",
+  "en": "how i memorize a lesson in 20 minutes",
+  "es": "cómo memorizo una lección en 20 minutos",
+  "de": "so lerne ich eine Lektion in 20 Minuten",
+  "it": "come memorizzo una lezione in 20 minuti",
+  "pt-BR": "como eu memorizo uma lição em 20 minutos",
+  "tr": "bir dersi 20 dakikada nasıl ezberliyorum"
+ },
+ "legendes": {
+  "fr": "20 minutes, montre en main ⏱️ #memoire #revisions #studytok #thatgirl #methode",
+  "en": "20 minutes, timer on ⏱️ #memory #studytips #studytok #thatgirl #studying",
+  "es": "20 minutos, cronómetro en mano ⏱️ #memoria #estudiar #studytok #thatgirl #metodo",
+  "de": "20 Minuten, Stoppuhr an ⏱️ #gedächtnis #lernen #studytok #thatgirl #methode",
+  "it": "20 minuti, cronometro alla mano ⏱️ #memoria #studiare #studytok #thatgirl #metodo",
+  "pt-BR": "20 minutos, cronômetro na mão ⏱️ #memoria #estudos #studytok #thatgirl #metodo",
+  "tr": "20 dakika, kronometre elde ⏱️ #hafıza #ders #studytok #thatgirl #yöntem"
+ },
+ "musique": {
+  "titre": "original sound - jacal",
+  "url": "https://www.tiktok.com/music/original-sound-jacal-7590956810832595725"
+ },
+ "fond": {
+  "media_id": "8cbacc03-b99f-42bb-87c2-be446a4cd941",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ee281b01-7b68-446e-8f21-27c718afe246/6.jpg?v=1787142041749",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans la note « 5 min de quiz », sans capture. 7 langues, photos et son neufs",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "UNE LEÇON",
+      "EN 20",
+      "MINUTES"
+     ],
+     "taille": 150,
+     "script_haut": "comment je mémorise",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "A LESSON",
+      "IN 20",
+      "MINUTES"
+     ],
+     "taille": 150,
+     "script_haut": "how i memorize",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "UNA LECCIÓN",
+      "EN 20",
+      "MINUTOS"
+     ],
+     "taille": 140,
+     "script_haut": "cómo memorizo",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "EINE LEKTION",
+      "IN 20",
+      "MINUTEN"
+     ],
+     "taille": 130,
+     "script_haut": "so lerne ich",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "UNA LEZIONE",
+      "IN 20",
+      "MINUTI"
+     ],
+     "taille": 140,
+     "script_haut": "come memorizzo",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "UMA LIÇÃO",
+      "EM 20",
+      "MINUTOS"
+     ],
+     "taille": 150,
+     "script_haut": "como eu memorizo",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "BİR DERSİ",
+      "20 DAKİKADA",
+      "NASIL",
+      "EZBERLİYORUM"
+     ],
+     "taille": 104,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "96dfee09-3946-4626-81a7-bca44d66e278",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9c184eab-41d2-41e2-9afc-02f3d47825ac/4.jpg?v=1790608894720",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min : je lis tout une fois📖",
+      "texte": "sans surligner, juste pour voir où va le cours.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: i read it all once📖",
+      "texte": "no highlighting, just to see where the lesson goes.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: lo leo todo una vez📖",
+      "texte": "sin subrayar, solo para ver de qué va.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 Min.: ich lese alles einmal📖",
+      "texte": "ohne Markieren, nur um zu sehen, worum es geht.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: leggo tutto una volta📖",
+      "texte": "senza evidenziare, solo per capire dove va la lezione.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: leio tudo uma vez📖",
+      "texte": "sem grifar, só pra ver do que se trata.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 dk: hepsini bir kez okuyorum📖",
+      "texte": "altını çizmeden, sadece dersin nereye gittiğini görmek için.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0d543223-f380-4f6d-a46b-a20040fe0e8e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ce8ede4b-a083-4a49-9db5-ef76f2cffc74/6.jpg?v=1790608531155",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min : je ferme tout et je résume à voix haute🗣️",
+      "texte": "ce qui sort tout seul est su. le reste, je le note.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: i close everything and summarize out loud🗣️",
+      "texte": "what comes out on its own is learned. the rest, i write down.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: lo cierro todo y resumo en voz alta🗣️",
+      "texte": "lo que sale solo ya lo sé. lo demás lo apunto.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 Min.: ich klappe alles zu und fasse laut zusammen🗣️",
+      "texte": "was von selbst kommt, sitzt. den Rest schreibe ich auf.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: chiudo tutto e riassumo ad alta voce🗣️",
+      "texte": "quello che esce da solo è imparato. il resto lo annoto.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: fecho tudo e resumo em voz alta🗣️",
+      "texte": "o que sai sozinho eu já sei. o resto eu anoto.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 dk: her şeyi kapatıp sesli özetliyorum🗣️",
+      "texte": "kendiliğinden çıkan öğrenilmiştir. gerisini not ediyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "125d05bf-91bd-4a05-bb5e-6713fabf5135",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/04a80fbf-856f-4bdc-997e-167681351455/4.jpg?v=1790607964701",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min de quiz🧠",
+      "texte": "je mets la leçon dans micabo et je réponds à ses questions. c’est là que je vois vraiment ce qui manque.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min of quizzes🧠",
+      "texte": "i put the lesson into micabo and answer its questions. that’s where i really see what’s missing.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min de quiz🧠",
+      "texte": "meto la lección en micabo y respondo sus preguntas. ahí veo de verdad lo que falta.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 Min. Quiz🧠",
+      "texte": "ich packe die Lektion in micabo und beantworte die Fragen. da sehe ich wirklich, was fehlt.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min di quiz🧠",
+      "texte": "metto la lezione su micabo e rispondo alle domande. è lì che vedo davvero cosa manca.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min de quiz🧠",
+      "texte": "coloco a lição no micabo e respondo as perguntas. é aí que eu vejo de verdade o que falta.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 dk test🧠",
+      "texte": "dersi micabo’ya koyup sorularını cevaplıyorum. eksiği asıl orada görüyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "cb55dafc-db21-453f-ba1a-bca8dc112f8e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2c65f6e5-0526-47cd-b6eb-9ce50fca245c/3.jpg?v=1787140712194",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min : je relis seulement ce que j’ai raté🎯",
+      "texte": "pas tout. juste les trous.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: i reread only what i missed🎯",
+      "texte": "not everything. just the gaps.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: releo solo lo que fallé🎯",
+      "texte": "no todo. solo los huecos.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 Min.: ich lese nur nach, was ich falsch hatte🎯",
+      "texte": "nicht alles. nur die Lücken.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: rileggo solo quello che ho sbagliato🎯",
+      "texte": "non tutto. solo i buchi.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 min: releio só o que errei🎯",
+      "texte": "não tudo. só os buracos.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 dk: sadece yanlış yaptıklarımı okuyorum🎯",
+      "texte": "hepsini değil. sadece boşlukları.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "7e6c3174-75e7-45f5-8635-621871aa2e64",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5dda674f-9d7d-47cc-9441-fd53d93e492f/7.jpg?v=1790607856278",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "le soir, je l’explique à quelqu’un👯",
+      "texte": "ma sœur, une amie, même mon chat. si j’explique, c’est que je sais.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "at night, i explain it to someone👯",
+      "texte": "my sister, a friend, even my cat. if i can explain it, i know it.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "por la noche, se lo explico a alguien👯",
+      "texte": "mi hermana, una amiga, hasta mi gato. si lo explico, es que lo sé.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "abends erkläre ich es jemandem👯",
+      "texte": "meiner Schwester, einer Freundin, sogar meiner Katze. wenn ich es erklären kann, sitzt es.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "la sera lo spiego a qualcuno👯",
+      "texte": "mia sorella, un’amica, perfino il mio gatto. se lo spiego, vuol dire che lo so.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "à noite, explico pra alguém👯",
+      "texte": "minha irmã, uma amiga, até meu gato. se eu explico, é porque eu sei.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "akşam birine anlatıyorum👯",
+      "texte": "kardeşime, bir arkadaşa, hatta kedime. anlatabiliyorsam biliyorum demektir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a439f27e-106e-445b-8051-4146a0392f87",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1f2a12ee-4cd1-4732-a680-873b79c3a657/1.jpg?v=1791725403204",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je la revois juste avant de dormir🌙",
+      "texte": "2 min, une dernière lecture. le sommeil range tout pendant la nuit.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i look at it right before bed🌙",
+      "texte": "2 min, one last read. sleep sorts it all out overnight.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "la repaso justo antes de dormir🌙",
+      "texte": "2 min, una última lectura. el sueño lo ordena todo por la noche.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich schaue sie kurz vor dem Schlafen an🌙",
+      "texte": "2 Min., ein letztes Mal lesen. der Schlaf sortiert über Nacht alles.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "la riguardo appena prima di dormire🌙",
+      "texte": "2 min, un’ultima lettura. il sonno sistema tutto durante la notte.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "revejo logo antes de dormir🌙",
+      "texte": "2 min, uma última leitura. o sono organiza tudo durante a noite.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "yatmadan hemen önce bakıyorum🌙",
+      "texte": "2 dakika, son bir okuma. uyku gece her şeyi yerine koyuyor.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je mémorise une leçon en 20 minutes"
+ }
+}

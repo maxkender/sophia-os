@@ -1,0 +1,672 @@
+{
+ "id": "yp-073",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment j’organise mon bureau pour bien bosser",
+  "en": "how i set up my desk to actually study",
+  "es": "cómo organizo mi escritorio para estudiar bien",
+  "de": "so richte ich meinen Schreibtisch zum Lernen ein",
+  "it": "come organizzo la scrivania per studiare bene",
+  "pt-BR": "como eu organizo minha mesa pra estudar de verdade",
+  "tr": "iyi çalışmak için masamı nasıl düzenliyorum"
+ },
+ "legendes": {
+  "fr": "un bureau rangé, une tête rangée 🤍 #bureau #revisions #studytok #thatgirl #organisation",
+  "en": "a tidy desk, a tidy mind 🤍 #desksetup #studytips #studytok #thatgirl #organization",
+  "es": "escritorio ordenado, mente ordenada 🤍 #escritorio #estudiar #studytok #thatgirl #organizacion",
+  "de": "ordentlicher Tisch, ordentlicher Kopf 🤍 #schreibtisch #lernen #studytok #thatgirl #organisation",
+  "it": "scrivania in ordine, testa in ordine 🤍 #scrivania #studiare #studytok #thatgirl #organizzazione",
+  "pt-BR": "mesa arrumada, cabeça arrumada 🤍 #setup #estudos #studytok #thatgirl #organizacao",
+  "tr": "düzenli masa, düzenli zihin 🤍 #masa #ders #studytok #thatgirl #düzen"
+ },
+ "musique": {
+  "titre": "оригинальный звук",
+  "url": "https://www.tiktok.com/music/-7416029088647351045"
+ },
+ "fond": {
+  "media_id": "0dcca707-dace-460e-9081-9cb770e81678",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/85f726d3-b87a-4471-8c70-0761fa40e907/4.jpg?v=1787158654445",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans la note « un onglet micabo ouvert », sans capture. 7 langues, photos et son neufs",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MON BUREAU",
+      "POUR BIEN",
+      "BOSSER"
+     ],
+     "taille": 140,
+     "script_haut": "comment j’organise",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MY DESK",
+      "TO ACTUALLY",
+      "STUDY"
+     ],
+     "taille": 130,
+     "script_haut": "how i set up",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MI ESCRITORIO",
+      "PARA",
+      "ESTUDIAR BIEN"
+     ],
+     "taille": 110,
+     "script_haut": "cómo organizo",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MEINEN",
+      "SCHREIBTISCH",
+      "ZUM LERNEN EIN"
+     ],
+     "taille": 104,
+     "script_haut": "so richte ich",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LA SCRIVANIA",
+      "PER STUDIARE",
+      "BENE"
+     ],
+     "taille": 116,
+     "script_haut": "come organizzo",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MINHA MESA",
+      "PRA ESTUDAR",
+      "DE VERDADE"
+     ],
+     "taille": 120,
+     "script_haut": "como eu organizo",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "İYİ ÇALIŞMAK",
+      "İÇİN MASAMI",
+      "NASIL",
+      "DÜZENLİYORUM"
+     ],
+     "taille": 104,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "04e46e61-2dfb-4b6b-ba7d-9c54d7726433",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/622daba9-028e-4693-88ea-59d9861a22ec/4.jpg?v=1790608123845",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "la lumière vient de côté💡",
+      "texte": "fenêtre ou lampe, jamais dans le dos. pas d’ombre sur la feuille, pas de fatigue.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "light from the side💡",
+      "texte": "window or lamp, never behind you. no shadow on the page, no tired eyes.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "la luz viene de lado💡",
+      "texte": "ventana o lámpara, nunca a la espalda. sin sombra en la hoja, sin cansancio.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "Licht von der Seite💡",
+      "texte": "Fenster oder Lampe, nie im Rücken. kein Schatten aufs Blatt, keine müden Augen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "la luce arriva di lato💡",
+      "texte": "finestra o lampada, mai alle spalle. niente ombra sul foglio, niente stanchezza.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a luz vem de lado💡",
+      "texte": "janela ou luminária, nunca nas costas. sem sombra na folha, sem cansaço.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ışık yandan gelsin💡",
+      "texte": "pencere ya da lamba, asla arkandan değil. kâğıtta gölge yok, yorgunluk yok.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "6bc7cfd3-3e23-44cd-9a89-a849288abee8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7430925d-bde1-4de6-974c-96c435a47f3a/2.jpg?v=1790608147769",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "seulement les cours du jour sur la table📚",
+      "texte": "le reste dans un tiroir. ce que je vois, c’est ce que je fais.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "only today’s lessons on the table📚",
+      "texte": "everything else in a drawer. what i see is what i do.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "solo las clases del día en la mesa📚",
+      "texte": "lo demás en un cajón. lo que veo es lo que hago.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "nur der Stoff von heute auf dem Tisch📚",
+      "texte": "der Rest in der Schublade. was ich sehe, mache ich.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "solo le lezioni del giorno sul tavolo📚",
+      "texte": "il resto in un cassetto. quello che vedo è quello che faccio.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "só as aulas do dia na mesa📚",
+      "texte": "o resto na gaveta. o que eu vejo é o que eu faço.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "masada sadece günün dersleri📚",
+      "texte": "gerisi çekmecede. ne görüyorsam onu yapıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "d1c96831-01b6-4f82-b75f-c59ba4d155bf",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06b26b31-7602-4ba3-a4d1-0668c6703bbe/5.jpg?v=1790606818705",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un onglet micabo ouvert🧠",
+      "texte": "mes cours y sont déjà. entre deux exercices, un quiz de 2 min, sans chercher où j’ai mis mes fiches.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a micabo tab always open🧠",
+      "texte": "my lessons are already there. between two exercises, a 2-min quiz without hunting for my notes.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una pestaña de micabo abierta🧠",
+      "texte": "mis clases ya están ahí. entre dos ejercicios, un quiz de 2 min sin buscar mis apuntes.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ein micabo-Tab immer offen🧠",
+      "texte": "mein Stoff ist schon drin. zwischen zwei Übungen ein 2-Minuten-Quiz, ohne meine Zettel zu suchen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una scheda di micabo aperta🧠",
+      "texte": "le lezioni sono già lì. tra due esercizi, un quiz di 2 min senza cercare gli appunti.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "uma aba do micabo aberta🧠",
+      "texte": "minhas aulas já estão lá. entre dois exercícios, um quiz de 2 min sem procurar minhas anotações.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "açık bir micabo sekmesi🧠",
+      "texte": "derslerim zaten orada. iki alıştırma arasında, notlarımı aramadan 2 dakikalık bir test.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "e521e20b-bcf8-406f-b974-4bee0f669c22",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/496f8d72-9914-4320-89d8-1b580c74f5c9/2.jpg?v=1790607815682",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une gourde toujours pleine💧",
+      "texte": "je ne me lève plus toutes les 20 min pour aller à la cuisine.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a water bottle always full💧",
+      "texte": "i stop getting up every 20 min to go to the kitchen.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una botella siempre llena💧",
+      "texte": "ya no me levanto cada 20 min para ir a la cocina.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "eine volle Trinkflasche💧",
+      "texte": "ich stehe nicht mehr alle 20 Min. auf, um in die Küche zu gehen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una borraccia sempre piena💧",
+      "texte": "non mi alzo più ogni 20 min per andare in cucina.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "uma garrafa sempre cheia💧",
+      "texte": "paro de levantar a cada 20 min pra ir na cozinha.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hep dolu bir su şişesi💧",
+      "texte": "artık 20 dakikada bir mutfağa kalkmıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1cc3bac4-49ec-491c-bd19-16898339f231",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/628b8a95-6973-407f-a6aa-249d24ce6e2d/7.jpg?v=1790608745226",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "le téléphone hors de portée📵",
+      "texte": "sur l’étagère derrière moi. pour le prendre, il faut se lever, et je ne me lève pas.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "phone out of reach📵",
+      "texte": "on the shelf behind me. to grab it i have to get up, and i don’t.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "el móvil fuera de alcance📵",
+      "texte": "en la estantería detrás de mí. para cogerlo tengo que levantarme, y no lo hago.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "Handy außer Reichweite📵",
+      "texte": "im Regal hinter mir. um es zu holen, muss ich aufstehen, und das tue ich nicht.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "il telefono fuori portata📵",
+      "texte": "sulla mensola dietro di me. per prenderlo devo alzarmi, e non lo faccio.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "celular fora do alcance📵",
+      "texte": "na estante atrás de mim. pra pegar, tenho que levantar, e eu não levanto.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "telefon ulaşamayacağım yerde📵",
+      "texte": "arkamdaki rafta. almak için kalkmam lazım, ben de kalkmıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a247b610-0e2f-47af-9ac6-89246fe2c48d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/97957b41-3e03-4098-a5c0-97514ec39543/4.jpg?v=1791725938623",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une plante, et c’est tout🌿",
+      "texte": "un bureau joli donne envie de s’y asseoir. pas besoin de plus.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "one plant, and that’s it🌿",
+      "texte": "a pretty desk makes you want to sit down. no need for more.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una planta y ya está🌿",
+      "texte": "un escritorio bonito da ganas de sentarse. no hace falta más.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "eine Pflanze, mehr nicht🌿",
+      "texte": "ein schöner Schreibtisch macht Lust, sich hinzusetzen. mehr braucht es nicht.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una pianta, e basta🌿",
+      "texte": "una scrivania carina fa venire voglia di sedersi. non serve altro.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "uma planta, e só🌿",
+      "texte": "uma mesa bonita dá vontade de sentar. não precisa de mais.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "bir bitki, o kadar🌿",
+      "texte": "güzel bir masa oturma isteği verir. fazlasına gerek yok.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment j’organise mon bureau pour bien bosser"
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "id": "dr-034",
+ "format": "liste",
+ "titre": {
+  "en": "5 tiny countries with genuinely insane histories",
+  "pt-BR": "5 países minúsculos com histórias absurdas",
+  "sv": "5 pyttesmå länder med helt sjuka historier"
+ },
+ "legendes": {
+  "en": "#history #facts #smarttok #lockedin",
+  "pt-BR": "#história #curiosidades #conhecimento #aprender",
+  "sv": "#historia #fakta #kunskap #lärande"
+ },
+ "musique": {
+  "titre": "original sound - mel - mel",
+  "url": "https://www.tiktok.com/music/original-sound-7430692417982057249"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : prise du rocher de Monaco par François Grimaldi déguisé en moine (1297) ; Liechtenstein 1866, 80 soldats revenus à 81 (anecdote rapportée, d'où « the story goes ») ; Andorre, co-princes depuis les paréages de 1278 ; Grand Siège de Malte (mai-septembre 1565) ; Saint-Marin, fondation traditionnelle en 301. Images Seedream, tableaux AIC Courbet et Fearnley. En, pt-BR, sv ; une couverture par langue (cerveaux 04, 06, 07). Sophia en item 3 sur 6 (cta C), écran « cours » traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 tiny countries with genuinely insane histories",
+    "image": "images/cerveau-04.jpg",
+    "legende": "(all true)"
+   },
+   "pt-BR": {
+    "titre": "5 países minúsculos com histórias absurdas",
+    "image": "images/cerveau-06.jpg",
+    "legende": "(tudo verdade)"
+   },
+   "sv": {
+    "titre": "5 pyttesmå länder med helt sjuka historier",
+    "image": "images/cerveau-07.jpg",
+    "legende": "(allt är sant)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Monaco",
+    "texte": "in 1297 françois grimaldi got into the fortress disguised as a monk and took it. his family still rules monaco, over 700 years later",
+    "image": "images/moine-chateau.jpg"
+   },
+   "pt-BR": {
+    "titre": "Mônaco",
+    "texte": "em 1297, françois grimaldi entrou na fortaleza disfarçado de monge e a tomou. a família dele ainda governa mônaco, mais de 700 anos depois",
+    "image": "images/moine-chateau.jpg"
+   },
+   "sv": {
+    "titre": "Monaco",
+    "texte": "år 1297 tog sig françois grimaldi in i fästningen förklädd till munk och intog den. hans familj styr fortfarande monaco, över 700 år senare",
+    "image": "images/moine-chateau.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Liechtenstein",
+    "texte": "in 1866 it sent 80 soldiers to war. the story goes that 81 came back: they'd made a friend on the way",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "pt-BR": {
+    "titre": "Liechtenstein",
+    "texte": "em 1866, mandou 80 soldados pra guerra. conta a história que voltaram 81: fizeram um amigo no caminho",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "sv": {
+    "titre": "Liechtenstein",
+    "texte": "år 1866 skickade landet 80 soldater i krig. enligt historien kom 81 tillbaka: de hade fått en vän på vägen",
+    "image": "images/montagne-courbet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. history i never learned at school",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. a história que eu nunca aprendi na escola",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. historia jag aldrig lärde mig i skolan",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Andorra",
+    "texte": "it has two heads of state: the president of france and a spanish bishop. an arrangement that goes back to 1278",
+    "image": "images/village-montagne.jpg"
+   },
+   "pt-BR": {
+    "titre": "Andorra",
+    "texte": "tem dois chefes de estado: o presidente da frança e um bispo espanhol. um acordo que vem de 1278",
+    "image": "images/village-montagne.jpg"
+   },
+   "sv": {
+    "titre": "Andorra",
+    "texte": "landet har två statschefer: frankrikes president och en spansk biskop. ett arrangemang som går tillbaka till 1278",
+    "image": "images/village-montagne.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Malta",
+    "texte": "in 1565 a few hundred knights and a few thousand soldiers and locals held off a huge ottoman fleet for almost four months",
+    "image": "images/forteresse-mer.jpg"
+   },
+   "pt-BR": {
+    "titre": "Malta",
+    "texte": "em 1565, algumas centenas de cavaleiros e poucos milhares de soldados e moradores seguraram uma enorme frota otomana por quase quatro meses",
+    "image": "images/forteresse-mer.jpg"
+   },
+   "sv": {
+    "titre": "Malta",
+    "texte": "år 1565 höll några hundra riddare och några tusen soldater och invånare stånd mot en enorm osmansk flotta i nästan fyra månader",
+    "image": "images/forteresse-mer.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "San Marino",
+    "texte": "by tradition founded in 301 by a stonemason called marinus. it's often called the oldest republic still around",
+    "image": "images/pergola.jpg"
+   },
+   "pt-BR": {
+    "titre": "San Marino",
+    "texte": "segundo a tradição, fundada em 301 por um pedreiro chamado marino. é chamada de a república mais antiga que ainda existe",
+    "image": "images/pergola.jpg"
+   },
+   "sv": {
+    "titre": "San Marino",
+    "texte": "enligt traditionen grundat år 301 av en stenhuggare som hette marinus. det kallas ofta världens äldsta republik som fortfarande finns",
+    "image": "images/pergola.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

@@ -1,0 +1,286 @@
+{
+ "id": "dr-029",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7697385698168524053",
+  "vues": 417400,
+  "publie_le": "2026-10-16",
+  "accroche": "Iceberg of ADHD hobbies (*requested update)"
+ },
+ "titre": {
+  "en": "Iceberg of minimalist hobbies",
+  "de": "Der Eisberg der Minimalisten-Hobbys",
+  "it": "Iceberg degli hobby da minimalisti"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #minimalism #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #minimalismus #selbstverbesserung",
+  "it": "#iceberg #hobby #minimalismo #crescitapersonale"
+ },
+ "musique": {
+  "titre": "Retake (Slowed) - gabriawll",
+  "url": "https://www.tiktok.com/music/original-sound-7626391140129589249"
+ },
+ "notes": "Original sur son iceberg « Iceberg of ADHD hobbies (*requested update) » (417 k), sujet « minimalist ». Sophia au 2e étage (icône). En, de, it ; couverture : variantes 4, 5, 6.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "minimalist hobbies",
+    "variante": 4
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Minimalisten-Hobbys",
+    "variante": 5
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da minimalisti",
+    "variante": 6
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "long walks",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "journaling",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "tea rituals",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "library books",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "cooking simple",
+       "image": "images/objets/bol-bois.png"
+      },
+      {
+       "t": "one sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "baking bread",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      }
+     ],
+     [
+      {
+       "t": "knitting",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "calligraphy",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "birdwatching",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "writing letters",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "waking at sunrise",
+       "image": "images/objets/reveil.png"
+      },
+      {
+       "t": "phone-free hours",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "pressing flowers",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ],
+     [
+      {
+       "t": "cold showers",
+       "image": "images/objets/douche.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "spazieren gehen",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "tagebuch schreiben",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "tee-rituale",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "bücherei",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "einfach kochen",
+       "image": "images/objets/bol-bois.png"
+      },
+      {
+       "t": "täglich sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "brot backen",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      }
+     ],
+     [
+      {
+       "t": "stricken",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "vögel beobachten",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "briefe schreiben",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "früh aufstehen",
+       "image": "images/objets/reveil.png"
+      },
+      {
+       "t": "handyfreie stunden",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "blumen pressen",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ],
+     [
+      {
+       "t": "kalt duschen",
+       "image": "images/objets/douche.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "lunghe passeggiate",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "scrivere un diario",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "il rito del tè",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "libri in prestito",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "cucinare semplice",
+       "image": "images/objets/bol-bois.png"
+      },
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "fare il pane",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      }
+     ],
+     [
+      {
+       "t": "lavorare a maglia",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "calligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "birdwatching",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "scrivere lettere",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "svegliarsi all'alba",
+       "image": "images/objets/reveil.png"
+      },
+      {
+       "t": "ore senza telefono",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "fiori pressati",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ],
+     [
+      {
+       "t": "docce fredde",
+       "image": "images/objets/douche.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   }
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+{
+ "id": "dr-032",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7693311352689118485",
+  "vues": 293200,
+  "publie_le": "2026-10-05",
+  "accroche": "5 niche habits of superintelligent people"
+ },
+ "titre": {
+  "en": "5 niche habits of people who are great at conversations",
+  "de": "5 nischen-gewohnheiten von guten gesprächspartnern",
+  "nl": "5 niche gewoontes van goede praters"
+ },
+ "legendes": {
+  "en": "#niche #conversation #socialskills #selfimprovement",
+  "de": "#gespräche #kommunikation #selbstverbesserung #lernen",
+  "nl": "#gesprekken #communicatie #zelfontwikkeling #leren"
+ },
+ "musique": {
+  "titre": "WISTED - Slowed - UdieNnx & HXVSAGE & DXNOHU",
+  "url": "https://www.tiktok.com/music/original-sound-7498688645760944129"
+ },
+ "notes": "Original sur sa liste « 5 niche habits of superintelligent people » (293 k) : même accroche « 5 niche habits of … », sujet conversation. Fait : Huang et al. 2017 (Harvard, Journal of Personality and Social Psychology) : poser des questions de relance rend plus apprécié. Images : Seedream (conversation, de dos), tableaux AIC déjà dans la banque. En, de, nl ; une couverture par langue (cerveaux 15, 16, 17). Sophia en item 3 sur 5 (cta B), écran accueil traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche habits of people who are great at conversations",
+    "image": "images/cerveau-15.jpg",
+    "legende": "(people will remember you)"
+   },
+   "de": {
+    "titre": "5 nischen-gewohnheiten von guten gesprächspartnern",
+    "image": "images/cerveau-16.jpg",
+    "legende": "(man wird sich an dich erinnern)"
+   },
+   "nl": {
+    "titre": "5 niche gewoontes van goede praters",
+    "image": "images/cerveau-17.jpg",
+    "legende": "(mensen onthouden je)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Ask a follow-up question",
+    "texte": "don't jump to your own story. ask one more question about theirs. harvard researchers found people who ask follow-up questions are liked more",
+    "image": "images/conversation.jpg"
+   },
+   "de": {
+    "titre": "Stell eine Nachfrage",
+    "texte": "spring nicht zu deiner eigenen geschichte. stell noch eine frage zu ihrer. forscher in harvard fanden: wer nachfragt, wird mehr gemocht",
+    "image": "images/conversation.jpg"
+   },
+   "nl": {
+    "titre": "Stel een vervolgvraag",
+    "texte": "spring niet naar je eigen verhaal. stel nog één vraag over dat van hen. onderzoekers van harvard zagen dat mensen die doorvragen aardiger gevonden worden",
+    "image": "images/conversation.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Say their name back",
+    "texte": "when someone tells you their name, use it in your next sentence. saying it out loud once makes it far easier to remember",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "de": {
+    "titre": "Wiederhol den Namen",
+    "texte": "wenn dir jemand seinen namen sagt, benutz ihn im nächsten satz. einmal laut ausgesprochen, merkst du ihn dir viel leichter",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "nl": {
+    "titre": "Herhaal hun naam",
+    "texte": "als iemand zijn naam zegt, gebruik die in je volgende zin. één keer hardop uitspreken maakt hem veel makkelijker te onthouden",
+    "image": "images/homme-chapeau.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "know a little about everything: history, philosophy, science, economics. 10 minutes a day, and you always have something to say",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "wisse ein bisschen über alles: geschichte, philosophie, wissenschaft, wirtschaft. 10 minuten am tag, und du hast immer etwas zu sagen",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "weet een beetje van alles: geschiedenis, filosofie, wetenschap, economie. 10 minuten per dag, en je hebt altijd iets te zeggen",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Tell stories, not facts",
+    "texte": "\"i read that\" is boring. \"so this happened\" is not. a fact inside a small story is what people repeat the next day",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "de": {
+    "titre": "Erzähl Geschichten, keine Fakten",
+    "texte": "\"ich hab gelesen, dass\" ist langweilig. \"also, das ist passiert\" nicht. ein fakt in einer kleinen geschichte wird am nächsten tag weitererzählt",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "nl": {
+    "titre": "Vertel verhalen, geen feiten",
+    "texte": "\"ik las dat\" is saai. \"dus dit gebeurde\" niet. een feit in een klein verhaal is wat mensen de volgende dag doorvertellen",
+    "image": "images/lectrice-corot.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Get comfortable with silence",
+    "texte": "a two-second pause isn't awkward. people often say the most interesting thing right after it",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "de": {
+    "titre": "Halte Stille aus",
+    "texte": "zwei sekunden pause sind nicht peinlich. oft kommt gleich danach das interessanteste",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "nl": {
+    "titre": "Durf stiltes te laten vallen",
+    "texte": "twee seconden stilte is niet ongemakkelijk. vaak komt juist daarna het interessantste",
+    "image": "images/lectrice-fenetre.jpg"
+   }
+  }
+ ]
+}

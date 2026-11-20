@@ -1,0 +1,172 @@
+{
+ "id": "dr-033",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+  "vues": 1200000,
+  "publie_le": "2026-10-07",
+  "accroche": "8 coding projects that are genuinely f*cking difficult"
+ },
+ "titre": {
+  "en": "5 science ideas that are genuinely f*cking difficult",
+  "it": "5 idee scientifiche difficili da c*zzo",
+  "tr": "gerçekten çok zor 5 bilimsel fikir"
+ },
+ "legendes": {
+  "en": "#niche #science #physics #smarttok #lockedin",
+  "it": "#scienza #fisica #curiosità #cultura",
+  "tr": "#bilim #fizik #bilgi #öğrenmek"
+ },
+ "musique": {
+  "titre": "original sound - Spëāķèř",
+  "url": "https://www.tiktok.com/music/original-sound-7667487181728631574"
+ },
+ "notes": "Original sur sa liste à 1,2 M (« 8 coding projects that are genuinely f*cking difficult ») : même structure (difficulté /50), idées scientifiques. Faits : relativité et GPS (environ +38 µs/jour corrigés) ; Cantor, diagonale (1891) ; « spukhafte Fernwirkung » (Einstein, 1947) ; deuxième principe et flèche du temps ; Gödel 1931. Images Seedream, tableau AIC Van der Pluym. En, it, tr ; une couverture par langue (cerveaux 18, 19, 20). Sophia en item 3 sur 6 (cta A), écran quiz traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 science ideas that are genuinely f*cking difficult",
+    "image": "images/cerveau-18.jpg",
+    "legende": "(try explaining them)"
+   },
+   "it": {
+    "titre": "5 idee scientifiche difficili da c*zzo",
+    "image": "images/cerveau-19.jpg",
+    "legende": "(prova a spiegarle)"
+   },
+   "tr": {
+    "titre": "gerçekten çok zor 5 bilimsel fikir",
+    "image": "images/cerveau-20.jpg",
+    "legende": "(anlatmayı dene)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Time runs at different speeds",
+    "difficulte": "30/50",
+    "texte": "einstein: clocks run faster higher up and slower when moving fast. gps satellites' clocks drift about 38 microseconds a day and have to be corrected",
+    "image": "images/satellite.jpg"
+   },
+   "it": {
+    "titre": "Il tempo scorre a velocità diverse",
+    "difficulte": "30/50",
+    "texte": "einstein: gli orologi vanno più veloci in alto e più lenti quando ti muovi veloce. gli orologi dei satelliti gps sfasano di circa 38 microsecondi al giorno e vanno corretti",
+    "image": "images/satellite.jpg"
+   },
+   "tr": {
+    "titre": "Zaman farklı hızlarda akar",
+    "difficulte": "30/50",
+    "texte": "einstein: saatler yüksekte daha hızlı, hızla hareket ederken daha yavaş işler. gps uydularındaki saatler günde yaklaşık 38 mikrosaniye kayar ve düzeltilmesi gerekir",
+    "image": "images/satellite.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Some infinities are bigger",
+    "difficulte": "36/50",
+    "texte": "georg cantor proved there are more numbers between 0 and 1 than there are whole numbers, even though both lists never end",
+    "image": "images/miroirs.jpg"
+   },
+   "it": {
+    "titre": "Alcuni infiniti sono più grandi",
+    "difficulte": "36/50",
+    "texte": "georg cantor dimostrò che tra 0 e 1 ci sono più numeri che numeri interi, anche se entrambe le liste non finiscono mai",
+    "image": "images/miroirs.jpg"
+   },
+   "tr": {
+    "titre": "Bazı sonsuzluklar daha büyük",
+    "difficulte": "36/50",
+    "texte": "georg cantor, 0 ile 1 arasında tam sayılardan daha fazla sayı olduğunu kanıtladı, iki liste de hiç bitmese bile",
+    "image": "images/miroirs.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. science explained without the headache",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. la scienza spiegata senza mal di testa",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "difficulte": "4/50",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. baş ağrısı olmadan anlatılan bilim",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Quantum entanglement",
+    "difficulte": "42/50",
+    "texte": "measure one particle and you instantly know something about its partner, however far apart. einstein called it \"spooky action at a distance\"",
+    "image": "images/particules.jpg"
+   },
+   "it": {
+    "titre": "L'entanglement quantistico",
+    "difficulte": "42/50",
+    "texte": "misuri una particella e sai subito qualcosa della sua compagna, a qualsiasi distanza. einstein la chiamò \"azione spettrale a distanza\"",
+    "image": "images/particules.jpg"
+   },
+   "tr": {
+    "titre": "Kuantum dolanıklığı",
+    "difficulte": "42/50",
+    "texte": "bir parçacığı ölç, ne kadar uzakta olursa olsun eşi hakkında anında bir şey bilirsin. einstein buna \"uzaktan ürkütücü etki\" dedi",
+    "image": "images/particules.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Entropy",
+    "difficulte": "45/50",
+    "texte": "disorder in a closed system always tends to grow. some physicists think it's the reason time only moves forward",
+    "image": "images/sablier-cosmos.jpg"
+   },
+   "it": {
+    "titre": "L'entropia",
+    "difficulte": "45/50",
+    "texte": "il disordine in un sistema chiuso tende sempre ad aumentare. alcuni fisici pensano sia il motivo per cui il tempo va solo avanti",
+    "image": "images/sablier-cosmos.jpg"
+   },
+   "tr": {
+    "titre": "Entropi",
+    "difficulte": "45/50",
+    "texte": "kapalı bir sistemde düzensizlik hep artma eğilimindedir. bazı fizikçiler zamanın yalnızca ileri akmasının nedeninin bu olduğunu düşünür",
+    "image": "images/sablier-cosmos.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Gödel's incompleteness",
+    "difficulte": "49/50",
+    "texte": "in 1931 kurt gödel proved that any consistent system of math that can do basic arithmetic contains true statements it can never prove",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "it": {
+    "titre": "L'incompletezza di Gödel",
+    "difficulte": "49/50",
+    "texte": "nel 1931 kurt gödel dimostrò che ogni sistema matematico coerente capace di fare l'aritmetica contiene verità che non potrà mai dimostrare",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "tr": {
+    "titre": "Gödel'in eksiklik teoremi",
+    "difficulte": "49/50",
+    "texte": "1931'de kurt gödel, temel aritmetiği yapabilen her tutarlı matematik sisteminin asla kanıtlayamayacağı doğru önermeler içerdiğini kanıtladı",
+    "image": "images/vieil-homme-livre.jpg"
+   }
+  }
+ ]
+}

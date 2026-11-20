@@ -1,0 +1,281 @@
+{
+ "id": "dr-031",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of philosophy nerd hobbies",
+  "tr": "Felsefe meraklılarının hobi buzdağı",
+  "nl": "IJsberg van hobby's van filosofienerds"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #philosophy #lockedin #selfimprovement",
+  "tr": "#buzdağı #hobi #felsefe #kişiselgelişim",
+  "nl": "#ijsberg #hobbys #filosofie #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "A Song of Ice and Fire - Ramin Djawadi",
+  "url": "https://www.tiktok.com/music/original-sound-6723045131219372033"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « philosophy nerd hobbies ». Sophia au 2e étage (icône). En, tr, nl ; variantes 3, 4, 5.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "philosophy nerd hobbies",
+    "variante": 3
+   },
+   "tr": {
+    "haut": "Felsefe meraklılarının",
+    "bas": "hobi buzdağı",
+    "variante": 4
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van filosofienerds",
+    "variante": 5
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "reading plato",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "long walks",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "journaling",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "coffee debates",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "debate club",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "thought experiments",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ],
+     [
+      {
+       "t": "stoicism",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "greek tragedy",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "memento mori",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "3am existentialism",
+       "image": "images/objets/bougie.png"
+      }
+     ],
+     [
+      {
+       "t": "reading in latin",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "reading kant for fun",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "logic puzzles",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "the meaning of it all",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "platon okumak",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "uzun yürüyüşler",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "günlük tutmak",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "kahve tartışmaları",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "satranç",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "münazara",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "düşünce deneyleri",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ],
+     [
+      {
+       "t": "stoacılık",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "yunan tragedyası",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "memento mori",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "gece 3'te varoluş",
+       "image": "images/objets/bougie.png"
+      }
+     ],
+     [
+      {
+       "t": "latince okumak",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "keyfine kant",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "mantık bulmacaları",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "her şeyin anlamı",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "plato lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "lange wandelingen",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "dagboek schrijven",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "koffiedebatten",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "debat",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "denkexperimenten",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ],
+     [
+      {
+       "t": "stoïcisme",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "griekse tragedie",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "memento mori",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "existentialisme om 3 uur",
+       "image": "images/objets/bougie.png"
+      }
+     ],
+     [
+      {
+       "t": "latijn lezen",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "kant voor de lol",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "logische puzzels",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "de zin van alles",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

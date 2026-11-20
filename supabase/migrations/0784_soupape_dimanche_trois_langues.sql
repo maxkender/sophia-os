@@ -9,7 +9,16 @@
 -- MAINTENANT :
 --   * LE DIMANCHE SOIR (20 h, Paris), pour la semaine qui vient ; plus chaque
 --     nuit. Le podz prépare et rattrape le lundi (un jour suffit).
---   * TROIS LANGUES d'un coup par podz (`par_lot`).
+--   * JUSQU'À TROIS LANGUES d'un coup par podz, SELON SA PERFORMANCE, un peu
+--     mais pas trop (Adrien, 20/11 : Dorian à 0,15 sur 9 posts ou Milly sans
+--     aucun post ne doivent pas recevoir trois langues). La performance du
+--     label face à la flotte est LISSÉE vers 1 par `lissage` (10) posts
+--     fictifs, pour qu'un podz jeune ne soit pas jugé sur trois posts :
+--       lissée ≥ 1,00 : 3 langues · ≥ 0,75 : 2 · ≥ 0,50 : 1 · en dessous : 0.
+--     Moins de `posts_min` (5) posts mesurés : aucune (il a déjà ses langues
+--     de départ). Un label tenu « Ouvert » n'a plus de passe-droit ici.
+--   * La performance est celle du label DANS SON APPLICATION (avant : toujours
+--     Sophia, donc that_girl_study, qui sert micabo, n'était jamais mesuré).
 --   * PLUS DE CONDITION « toutes les langues ont un compte » : elle reste
 --     affichée (`pleines`), elle ne bloque plus.
 --   * LES LANGUES SONT RÉPARTIES entre les podz. Une langue ne s'ouvre, dans un
@@ -18,8 +27,7 @@
 --     jours (au moins un). Les podz choisissent tour à tour, le label le plus
 --     performant d'abord, chacun prenant la langue la plus recrutée qui lui
 --     reste. Deux podz d'un même label ne reçoivent pas la même langue.
---   * La condition de performance ne change pas (0,75 de la flotte sur 30
---     posts, ou label tenu « Ouvert »). Les langues exclues non plus.
+--   * Les langues exclues ne changent pas (ar, he, fa, ur, ja).
 --
 -- Chaque ouverture passe par `podz_langue` (0781) et va au journal. Adrien et
 -- Max ouvrent et ferment toujours quand ils veulent (page Podz).
@@ -28,7 +36,7 @@
 -- trois par podz), ou une ligne sans langue avec la raison.
 --
 -- Réglages : `reglages.bleo.soupape_langues` (par_lot 3, recrues_par_ouverture
--- 6, jours_entre 6, perf_min 0.75, posts_min 30, exclues).
+-- 6, jours_entre 6, lissage 10, posts_min 5, paliers [1.0, 0.75, 0.5], exclues).
 -- Retour arrière : réappliquer la fonction de 0781/0783 ; `select
 -- cron.alter_job(<id de bleo-soupape-langues>, schedule := '40 3 * * *')` ;
 -- remettre `jours_entre` à 1.
@@ -38,7 +46,7 @@ set lock_timeout = '5s';
 update public.reglages
    set valeur = jsonb_set(valeur, '{soupape_langues}',
          coalesce(valeur->'soupape_langues', '{}'::jsonb)
-           || '{"par_lot": 3, "recrues_par_ouverture": 6, "jours_entre": 6}'::jsonb, true),
+           || '{"par_lot": 3, "recrues_par_ouverture": 6, "jours_entre": 6, "lissage": 10, "posts_min": 5, "paliers": [1.0, 0.75, 0.5]}'::jsonb, true),
        updated_at = now()
  where cle = 'bleo';
 
@@ -51,13 +59,14 @@ set search_path to 'public'
 as $function$
 declare
   cfg jsonb := coalesce((select valeur->'soupape_langues' from reglages where cle = 'bleo'), '{}'::jsonb);
-  v_perf_min numeric := coalesce((cfg->>'perf_min')::numeric, 0.75);
-  v_posts_min integer := coalesce((cfg->>'posts_min')::integer, 30);
+  v_posts_min integer := coalesce((cfg->>'posts_min')::integer, 5);
+  v_lissage numeric := greatest(coalesce((cfg->>'lissage')::numeric, 10), 0);
+  -- Les paliers de performance lissée : le 1er donne `par_lot` langues, puis une de moins à chaque palier.
+  v_paliers numeric[] := coalesce(array(select jsonb_array_elements_text(cfg->'paliers')::numeric), array[1.0, 0.75, 0.5]);
   v_jours integer := coalesce((cfg->>'jours_entre')::integer, 6);
   v_lot integer := greatest(coalesce((cfg->>'par_lot')::integer, 3), 1);
   v_par integer := greatest(coalesce((cfg->>'recrues_par_ouverture')::integer, 6), 1);
   v_exclues text[] := coalesce(array(select lower(jsonb_array_elements_text(cfg->'exclues'))), array['ar','he','fa','ur','ja']);
-  v_ouverts jsonb := coalesce((select valeur->'labels_ouverts_app' from reglages where cle = 'choix_labels'), '[]'::jsonb);
   -- Ce qu'il reste à ouvrir de chaque langue dans ce passage : {langue: places}.
   v_places jsonb;
   -- Les langues déjà données à chaque label dans ce passage : {label_id: [langues]}.
@@ -65,6 +74,9 @@ declare
   r record;
   v_langue text;
   v_n integer;
+  v_max integer;
+  v_lissee numeric;
+  v_app record;
   v_ok boolean;
   v_raison text;
 begin
@@ -80,9 +92,25 @@ begin
            group by 1) x
    where split_part(x.langue, '-', 1) <> all (v_exclues);
 
-  create temp table if not exists bs_stats on commit drop as
-  select s0.label_id, s0.perf_label / nullif(s0.perf_flotte, 0) as perf, s0.passages
-    from stats_choix_label((select array_agg(id) from labels), '00000000-0000-4000-8000-000000000001'::uuid, null, null, 0) s0;
+  -- La performance de chaque label dans SON application (la première qu'il sert, ordre du catalogue).
+  create temp table if not exists bs_stats (label_id uuid primary key, perf numeric, passages integer) on commit drop;
+  truncate bs_stats;
+  for v_app in
+    select x.app, array_agg(x.label_id) as labels
+      from (select distinct p.label_id,
+                   (select a.id from applications a
+                     where a.id = any (public.label_applications_ids(p.label_id))
+                     order by a.id limit 1) as app
+              from pods p where p.actif and p.langues is not null and p.label_id is not null) x
+     where x.app is not null
+     group by x.app
+  loop
+    insert into bs_stats
+    select s0.label_id, s0.perf_label / nullif(s0.perf_flotte, 0), s0.passages
+      from stats_choix_label((select array_agg(id) from labels), v_app.app, null, null, 0) s0
+     where s0.label_id = any (v_app.labels)
+    on conflict (label_id) do nothing;
+  end loop;
 
   for r in
     select p.slug, p.label_id, p.langues, l.nom, st.perf, st.passages,
@@ -105,10 +133,15 @@ begin
      -- Le label le plus performant choisit d'abord.
      order by st.perf desc nulls last, p.slug
   loop
+    -- Combien de langues : la performance lissée vers 1 décide (3, 2, 1 ou 0).
     v_ok := false;
-    if not (v_ouverts ? ('00000000-0000-4000-8000-000000000001:' || r.label_id::text))
-       and (coalesce(r.passages, 0) < v_posts_min or coalesce(r.perf, 0) < v_perf_min) then
-      v_raison := 'performance pas encore prouvée (' || coalesce(round(r.perf, 2)::text, '—') || ' sur ' || coalesce(r.passages, 0) || ' posts)';
+    v_lissee := (coalesce(r.perf, 0) * coalesce(r.passages, 0) + v_lissage) / nullif(coalesce(r.passages, 0) + v_lissage, 0);
+    v_max := greatest(0, v_lot - coalesce((select min(i) - 1 from generate_subscripts(v_paliers, 1) i
+                                           where v_lissee >= v_paliers[i]), v_lot));
+    if coalesce(r.passages, 0) < v_posts_min then
+      v_raison := 'pas encore assez de posts mesurés (' || coalesce(r.passages, 0) || ' sur ' || v_posts_min || ')';
+    elsif v_max = 0 then
+      v_raison := 'performance trop basse (' || round(v_lissee, 2) || ' lissée, ' || coalesce(round(r.perf, 2)::text, '—') || ' sur ' || r.passages || ' posts)';
     elsif r.derniere is not null and r.derniere > now() - make_interval(days => v_jours) then
       v_raison := 'la soupape lui a ouvert une langue il y a moins de ' || v_jours || ' jours';
     else
@@ -118,7 +151,7 @@ begin
     v_n := 0;
     if v_ok then
       loop
-        exit when v_n >= v_lot;
+        exit when v_n >= v_max;
         -- La langue la plus recrutée qui lui reste : pas déjà la sienne (ni celle d'un autre podz de
         -- son label), encore des places dans ce passage.
         select e.key into v_langue
@@ -139,12 +172,12 @@ begin
 
         if p_appliquer then
           perform public.podz_langue(r.slug, v_langue, 'ouvrir', 'soupape',
-                                     jsonb_build_object('perf', round(r.perf, 3), 'posts', r.passages, 'lot', v_n));
+                                     jsonb_build_object('perf', round(r.perf, 3), 'lissee', round(v_lissee, 3), 'posts', r.passages, 'lot', v_n));
         end if;
 
         pod := r.slug; label := r.nom; pleines := r.pleines; perf := round(r.perf, 3); posts := r.passages;
         derniere_ouverture := r.derniere; langue_proposee := v_langue; ouverte := p_appliquer;
-        raison := 'langue ' || v_n || ' sur ' || v_lot || ' de la semaine';
+        raison := 'langue ' || v_n || ' sur ' || v_max || ' (performance lissée ' || round(v_lissee, 2) || ')';
         return next;
       end loop;
       if v_n = 0 then
@@ -162,7 +195,7 @@ end;
 $function$;
 
 comment on function public.bleo_ouvrir_langues_podz(boolean) is
-  'La soupape des langues (0722, 0784) : le dimanche soir, jusqu''à par_lot (3) langues de plus par podz en images finies dont le label tient, réparties entre les podz (une langue nourrit un podz par tranche de recrues_par_ouverture recrues en 14 jours ; le plus performant choisit d''abord). Une ligne par langue proposée, ou une ligne sans langue avec la raison. p_appliquer : ouvre par podz_langue().';
+  'La soupape des langues (0722, 0784) : le dimanche soir, jusqu''à par_lot (3) langues de plus par podz en images finies selon la performance lissée de son label dans son application (paliers 1,00 / 0,75 / 0,50 : 3, 2, 1 langue ; rien sous posts_min posts), réparties entre les podz (une langue nourrit un podz par tranche de recrues_par_ouverture recrues en 14 jours ; le plus performant choisit d''abord). Une ligne par langue proposée, ou une ligne sans langue avec la raison. p_appliquer : ouvre par podz_langue().';
 
 -- Le dimanche à 20 h, heure de Paris (19 h UTC en hiver, 21 h à Paris en été).
 select cron.alter_job((select jobid from cron.job where jobname = 'bleo-soupape-langues'), schedule := '0 19 * * 0');

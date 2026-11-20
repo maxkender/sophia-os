@@ -112,6 +112,21 @@ export const estPasRegle = (t: string) => PAS_REGLE.test(t);
 export const estQuestionStatut = (t: string) => QUESTION_STATUT.test(t);
 export const estDemandeArret = (t: string) => DEMANDE_ARRET.test(t.replace(/[’‘]/g, "'")) || DEMANDE_ARRET_LANGUES.test(t);
 
+/**
+ * 21/11 (Max) : « stop » sans demande claire : frustration ou condition (« I'm going to stop if… », « maybe I'll quit »,
+ * « bırakacağım eğer… »). Une seule question : « Do you want to end our collaboration? Yes / No ». Jamais « the app
+ * stopped », « stop sending me… » (ce ne sont pas des arrêts).
+ */
+const ARRET_DOUTE = /\b(going\s+to|gonna|will|might|may|thinking\s+(of|about)|considering)\s+(stop|quit|leave|give\s+up)\b|\b(stop|quit|leave|give\s+up)\b[^.?!]{0,40}\b(if|unless)\b|\b(if|unless)\b[^.?!]{0,60}\b(i('ll|\s+will)?\s+)(stop|quit|leave)\b|bırakaca[ğg]ım|bırakabilirim|vazgeçece[ğg]im|je\s+vais\s+(arr[eê]ter|quitter)|voy\s+a\s+(dejar|parar)|vou\s+(parar|desistir)|smetterò|ich\s+werde\s+aufhören/iu;
+const PAS_UN_ARRET = /\b(app|application|page|video|upload|site|dashboard|it|button|phone|ruul)\b[^.?!]{0,25}\b(stopped|stops|stop\s+working)|\bstop\s+(sending|emailing|messaging|spamming|notif)|durdu|çalışmıyor/iu;
+export const estArretDouteux = (t: string) => {
+  const x = t.replace(/[’‘]/g, "'");
+  return !estDemandeArret(x) && !PAS_UN_ARRET.test(x) && ARRET_DOUTE.test(x);
+};
+export const QUESTION_ARRET = "Do you want to end our collaboration? Yes / No";
+/** La réponse précédente du bot était la question d'arrêt. */
+export const aDemandeArret = (reponsePrecedente: string | null | undefined) => /end our collaboration\?/i.test(reponsePrecedente ?? "");
+
 /** 19/11 (Max) : le code à 6 chiffres de Ruul (connexion, vérification) : il vient de Ruul, pas de nous. */
 const CODE_RUUL = /\b(6|six)[\s-]?(digit|digits|chiffres|dígitos|cifre|stellig|haneli|cyfr)|(verification|verify|login|one[\s-]?time|security|confirmation|access)\s+code|\b(otp|2fa)\b|code\s+(from|of|for|on)\s+ruul|ruul[^.?!]{0,60}\b(code|kod|código|codice)\b|\b(code|kod|kodu|código|codice|kodem)\b[^.?!]{0,60}\b(ruul|e-?mail|mail|didn'?t|never|not\s+(receiv|com|arriv)|gelmedi|gelmiyor|no\s+(me\s+)?lleg|não\s+(chega|recebi)|non\s+arriva|nie\s+(przyszedł|dostałem))|doğrulama\s+kodu|código\s+de\s+verifica|codice\s+di\s+verifica|kod\s+weryfikacyjny|bestätigungscode|code\s+de\s+(vérification|confirmation)/iu;
 

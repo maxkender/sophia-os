@@ -1,0 +1,621 @@
+{
+ "id": "pt-003",
+ "source": {
+  "url": "https://www.tiktok.com/@polytay/photo/7703605029059464479",
+  "vues": 28500,
+  "publie_le": "2026-11-02",
+  "accroche": "five hobbies for a brain that never runs out of things to do"
+ },
+ "titre": {
+  "en": "hobbies for a brain that never gets bored",
+  "fr": "hobbies pour un cerveau qui ne s'ennuie jamais",
+  "es": "hobbies para un cerebro que nunca se aburre",
+  "es-419": "hobbies para un cerebro que nunca se aburre",
+  "it": "hobby per un cervello che non si annoia mai",
+  "tr": "asla sıkılmayan bir beyin için hobiler",
+  "pt-BR": "hobbies pra um cérebro que nunca fica entediado",
+  "sl": "hobiji za možgane, ki jim ni nikoli dolgčas",
+  "de": "hobbys für ein gehirn, das sich nie langweilt",
+  "sk": "hobby pre mozog, ktorý sa nikdy nenudí",
+  "sv": "hobbys för en hjärna som aldrig blir uttråkad"
+ },
+ "legendes": {
+  "en": "for the slow afternoons and the rainy sundays. pick one for this weekend <3 #girlblogger #selfimprovement #hobbies #learning #booktok",
+  "fr": "pour les après-midis lents et les dimanches de pluie. choisis-en un pour ce week-end <3 #girlblogger #developpementpersonnel #hobbies #apprendre #booktokfrance",
+  "es": "para las tardes lentas y los domingos de lluvia. elige uno para este finde <3 #girlblogger #desarrollopersonal #hobbies #aprender #booktokespaña",
+  "es-419": "para las tardes lentas y los domingos de lluvia. elige uno para este fin de semana <3 #girlblogger #desarrollopersonal #hobbies #aprender #booktoklatam",
+  "it": "per i pomeriggi lenti e le domeniche di pioggia. scegline uno per questo weekend <3 #girlblogger #crescitapersonale #hobby #imparare #booktokitalia",
+  "tr": "yavaş öğleden sonralar ve yağmurlu pazarlar için. bu hafta sonu için birini seç <3 #girlblogger #kişiselgelişim #hobiler #öğrenmek #booktoktürkiye",
+  "pt-BR": "pras tardes lentas e os domingos de chuva. escolhe um pra esse fim de semana <3 #girlblogger #autodesenvolvimento #hobbies #aprender #booktokbrasil",
+  "sl": "za počasna popoldneva in deževne nedelje. izberi enega za ta vikend <3 #girlblogger #osebnirazvoj #hobiji #učenje #booktok",
+  "de": "für langsame nachmittage und verregnete sonntage. such dir eins fürs wochenende aus <3 #girlblogger #selbstverbesserung #hobbys #lernen #booktokdeutschland",
+  "sk": "na pomalé popoludnia a daždivé nedele. vyber si jedno na tento víkend <3 #girlblogger #osobnyrozvoj #hobby #ucenie #booktok",
+  "sv": "för långsamma eftermiddagar och regniga söndagar. välj en till helgen <3 #girlblogger #självutveckling #hobbys #lärande #booktoksverige"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7682487921642900237"
+ },
+ "notes": "Preuve : « five hobbies for a brain that never runs out of things to do » de @polytay (28,5 k vues, 02/11), famille des hobbies de son tube (« hobbies that make you impossible to bore », 479 k). Éléments à nous : la bibliothèque sans liste, le rabbit hole des jours de pluie (le manuscrit de Voynich existe, Yale), un sudoku au petit-déjeuner, un thé d'un pays nouveau (hojicha, rooibos, masala chai). Slide Sophia (4) : « 3. a lesson instead of a reel », cta C. Photos : banques de Sophia, sans visage, sans marque ni texte lisible. Livré d'emblée dans les 11 langues du label (demande d'Adrien du 20/11).",
+ "banque": {
+  "images/banque/couv-pluie-fenetre.jpg": "2facd817-f81e-4daa-8735-5d2eb2912267",
+  "images/banque/couv-theiere.jpg": "72b86364-de45-4dda-be84-6f74b2027554",
+  "images/banque/livre-lit-sombre.jpg": "2304ab60-cf22-458d-b2d5-6867541128c7",
+  "images/banque/bibliotheque.jpg": "25c9c10b-c393-4bf8-93ac-d642fe894213",
+  "images/banque/bougie-carnet.jpg": "1a1f603c-0e07-468b-bbbb-368eddebf7e3",
+  "images/banque/livre-lit.jpg": "1f2c19b3-2e51-4724-b828-781abb5380d5",
+  "images/banque/lampe-the.jpg": "26bf28c0-d831-40cb-a2b5-3b6f570a4e8a",
+  "images/banque/sudoku-lunettes.jpg": "49f642a7-c0d0-41cf-932d-061f0a32f284",
+  "images/banque/sudoku-main.jpg": "fe6e2643-5cea-477b-bb1a-1e872cf4d2ea",
+  "images/banque/the-citron.jpg": "26d975bf-b74e-4dbc-89b5-65bbac420dfd",
+  "images/banque/the-sachet.jpg": "84c155ba-b3ee-47d6-90d3-f2ef71db9514"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-pluie-fenetre.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-theiere.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "hobbies for a brain\nthat never gets\nbored"
+   },
+   "fr": {
+    "titre": "hobbies pour un\ncerveau qui ne\ns'ennuie jamais"
+   },
+   "es": {
+    "titre": "hobbies para un\ncerebro que nunca\nse aburre"
+   },
+   "es-419": {
+    "titre": "hobbies para un\ncerebro que nunca\nse aburre"
+   },
+   "it": {
+    "titre": "hobby per un\ncervello che non\nsi annoia mai"
+   },
+   "tr": {
+    "titre": "asla sıkılmayan\nbir beyin için\nhobiler"
+   },
+   "pt-BR": {
+    "titre": "hobbies pra um\ncérebro que nunca\nfica entediado"
+   },
+   "sl": {
+    "titre": "hobiji za možgane,\nki jim ni nikoli\ndolgčas"
+   },
+   "de": {
+    "titre": "hobbys für ein\ngehirn, das sich\nnie langweilt"
+   },
+   "sk": {
+    "titre": "hobby pre mozog,\nktorý sa nikdy\nnenudí"
+   },
+   "sv": {
+    "titre": "hobbys för en hjärna\nsom aldrig blir\nuttråkad"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/livre-lit-sombre.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bibliotheque.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. the library with no list",
+    "paragraphes": [
+     "Once a week, go to the library without a plan. find the strangest title in a section you never visit and read the first chapter right there.",
+     "It's how you find the subjects nobody told you to love"
+    ]
+   },
+   "fr": {
+    "titre": "1. la bibliothèque sans liste",
+    "paragraphes": [
+     "Une fois par semaine, va à la bibliothèque sans plan. trouve le titre le plus étrange d'un rayon où tu ne vas jamais et lis le premier chapitre sur place.",
+     "C'est comme ça qu'on trouve les sujets que personne ne t'a appris à aimer"
+    ]
+   },
+   "es": {
+    "titre": "1. la biblioteca sin lista",
+    "paragraphes": [
+     "Una vez a la semana, ve a la biblioteca sin plan. busca el título más raro de una sección que nunca visitas y lee el primer capítulo allí mismo.",
+     "Así encuentras los temas que nadie te dijo que te iban a encantar"
+    ]
+   },
+   "es-419": {
+    "titre": "1. la biblioteca sin lista",
+    "paragraphes": [
+     "Una vez por semana, ve a la biblioteca sin plan. busca el título más raro de una sección que nunca visitas y lee el primer capítulo ahí mismo.",
+     "Así encuentras los temas que nadie te dijo que ibas a amar"
+    ]
+   },
+   "it": {
+    "titre": "1. la biblioteca senza lista",
+    "paragraphes": [
+     "Una volta a settimana, vai in biblioteca senza un piano. trova il titolo più strano di uno scaffale che non visiti mai e leggi il primo capitolo lì.",
+     "È così che trovi gli argomenti che nessuno ti ha detto di amare"
+    ]
+   },
+   "tr": {
+    "titre": "1. listesiz kütüphane",
+    "paragraphes": [
+     "Haftada bir, plansız kütüphaneye git. hiç uğramadığın bir bölümdeki en tuhaf başlığı bul ve ilk bölümünü orada oku.",
+     "Kimsenin sana sevmeyi söylemediği konuları böyle bulursun"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. a biblioteca sem lista",
+    "paragraphes": [
+     "Uma vez por semana, vai à biblioteca sem plano. acha o título mais estranho de uma seção que você nunca visita e lê o primeiro capítulo ali mesmo.",
+     "É assim que você acha os assuntos que ninguém te mandou amar"
+    ]
+   },
+   "sl": {
+    "titre": "1. knjižnica brez seznama",
+    "paragraphes": [
+     "Enkrat na teden pojdi v knjižnico brez načrta. poišči najbolj nenavaden naslov na polici, ki je nikoli ne obiščeš, in tam preberi prvo poglavje.",
+     "Tako najdeš teme, za katere ti nihče ni rekel, da jih boš vzljubila"
+    ]
+   },
+   "de": {
+    "titre": "1. die bibliothek ohne liste",
+    "paragraphes": [
+     "Geh einmal pro woche ohne plan in die bibliothek. such den seltsamsten titel in einem regal, an das du nie gehst, und lies dort das erste kapitel.",
+     "So findest du die themen, die dir niemand ans herz gelegt hat"
+    ]
+   },
+   "sk": {
+    "titre": "1. knižnica bez zoznamu",
+    "paragraphes": [
+     "Raz za týždeň choď do knižnice bez plánu. nájdi najzvláštnejší názov v sekcii, kam nikdy nechodíš, a prečítaj si prvú kapitolu priamo tam.",
+     "Takto nájdeš témy, o ktorých ti nikto nepovedal, že ich budeš milovať"
+    ]
+   },
+   "sv": {
+    "titre": "1. biblioteket utan lista",
+    "paragraphes": [
+     "En gång i veckan, gå till biblioteket utan plan. hitta den konstigaste titeln i en hylla du aldrig besöker och läs första kapitlet där.",
+     "Så hittar du ämnena ingen sa att du skulle älska"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/bougie-carnet.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/livre-lit.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "2. a rainy-day rabbit hole",
+    "paragraphes": [
+     "When it rains, pick one odd topic, like the voynich manuscript or how church bells are made, and follow it for an hour. no goal.",
+     "You come back with something nobody else at dinner knows"
+    ]
+   },
+   "fr": {
+    "titre": "2. un rabbit hole les jours de pluie",
+    "paragraphes": [
+     "Quand il pleut, choisis un sujet bizarre, comme le manuscrit de voynich ou la fabrication des cloches, et suis-le pendant une heure. sans but.",
+     "Tu reviens avec un truc que personne d'autre à table ne sait"
+    ]
+   },
+   "es": {
+    "titre": "2. un rabbit hole de día lluvioso",
+    "paragraphes": [
+     "Cuando llueva, elige un tema raro, como el manuscrito voynich o cómo se fabrican las campanas, y síguelo durante una hora. sin objetivo.",
+     "Vuelves con algo que nadie más en la cena sabe"
+    ]
+   },
+   "es-419": {
+    "titre": "2. un rabbit hole en día de lluvia",
+    "paragraphes": [
+     "Cuando llueva, elige un tema raro, como el manuscrito voynich o cómo se hacen las campanas, y síguelo por una hora. sin meta.",
+     "Regresas con algo que nadie más en la cena sabe"
+    ]
+   },
+   "it": {
+    "titre": "2. un rabbit hole nei giorni di pioggia",
+    "paragraphes": [
+     "Quando piove, scegli un argomento strano, come il manoscritto voynich o come si fanno le campane, e seguilo per un'ora. senza scopo.",
+     "Torni con qualcosa che a cena nessun altro sa"
+    ]
+   },
+   "tr": {
+    "titre": "2. yağmurlu gün tavşan deliği",
+    "paragraphes": [
+     "Yağmur yağınca tuhaf bir konu seç, mesela voynich el yazması ya da çanların nasıl yapıldığı, ve bir saat peşinden git. amaçsız.",
+     "Akşam yemeğinde kimsenin bilmediği bir şeyle dönersin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. um mergulho em dia de chuva",
+    "paragraphes": [
+     "Quando chover, escolhe um assunto estranho, tipo o manuscrito voynich ou como se fazem sinos, e segue ele por uma hora. sem objetivo.",
+     "Você volta com algo que ninguém mais no jantar sabe"
+    ]
+   },
+   "sl": {
+    "titre": "2. deževni dan, ena tema",
+    "paragraphes": [
+     "Ko dežuje, izberi nenavadno temo, recimo voynichev rokopis ali kako nastanejo zvonovi, in ji sledi eno uro. brez cilja.",
+     "Vrneš se z nečim, česar pri večerji ne ve nihče drug"
+    ]
+   },
+   "de": {
+    "titre": "2. ein regentag-rabbit-hole",
+    "paragraphes": [
+     "Wenn es regnet, nimm ein schräges thema, etwa das voynich-manuskript oder wie glocken gegossen werden, und folge ihm eine stunde. ohne ziel.",
+     "Du kommst mit etwas zurück, das beim essen sonst keiner weiß"
+    ]
+   },
+   "sk": {
+    "titre": "2. daždivý deň, jedna téma",
+    "paragraphes": [
+     "Keď prší, vyber si zvláštnu tému, napríklad voynichov rukopis alebo ako sa vyrábajú zvony, a hodinu ju sleduj. bez cieľa.",
+     "Vrátiš sa s niečím, čo pri večeri nikto iný nevie"
+    ]
+   },
+   "sv": {
+    "titre": "2. ett regnigt kaninhål",
+    "paragraphes": [
+     "När det regnar, välj ett udda ämne, som voynichmanuskriptet eller hur kyrkklockor gjuts, och följ det i en timme. inget mål.",
+     "Du kommer tillbaka med något ingen annan vid middagen vet"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/lampe-the.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. a lesson instead of a reel",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. it's my thing between dinner and bed now.",
+     "Ten minutes, and the feed never sees me again till morning"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon au lieu d'un reel",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. c'est mon moment entre le dîner et le lit maintenant.",
+     "Dix minutes, et le feed ne me revoit pas avant le lendemain"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección en vez de un reel",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. ahora es lo mío entre la cena y la cama.",
+     "Diez minutos, y el feed no me vuelve a ver hasta mañana"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección en lugar de un reel",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. ahora es lo mío entre la cena y la cama.",
+     "Diez minutos, y el feed no me vuelve a ver hasta mañana"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione invece di un reel",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. ora è il mio momento tra la cena e il letto.",
+     "Dieci minuti, e il feed non mi rivede fino al mattino"
+    ]
+   },
+   "tr": {
+    "titre": "3. reel yerine bir ders",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. artık akşam yemeğiyle yatak arasındaki ritüelim bu.",
+     "On dakika, ve akış beni sabaha kadar görmüyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula em vez de um reels",
+    "paragraphes": [
+     "Uma aula por dia no Sophia, tipo por que a gente sonha, com um quiz no final. agora é o meu momento entre o jantar e a cama.",
+     "Dez minutos, e o feed não me vê de novo até de manhã"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija namesto reela",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. zdaj je to moj čas med večerjo in posteljo.",
+     "Deset minut, in feed me ne vidi več do jutra"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion statt reels",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. das ist jetzt mein ding zwischen abendessen und bett.",
+     "Zehn minuten, und der feed sieht mich erst morgen wieder"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia namiesto reelu",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. teraz je to moja chvíľa medzi večerou a posteľou.",
+     "Desať minút a feed ma až do rána neuvidí"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion i stället för en reel",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. det är min grej mellan middagen och sängen nu.",
+     "Tio minuter, och flödet ser mig inte igen förrän i morgon"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/sudoku-lunettes.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/sudoku-main.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. a sudoku with breakfast",
+    "paragraphes": [
+     "One puzzle every morning before you check your phone. start with the easy ones, the hard ones come by themselves.",
+     "Your brain wakes up on something that's yours, not the feed's"
+    ]
+   },
+   "fr": {
+    "titre": "4. un sudoku au petit-déj",
+    "paragraphes": [
+     "Une grille chaque matin avant de regarder ton téléphone. commence par les faciles, les difficiles viennent toutes seules.",
+     "Ton cerveau se réveille sur quelque chose à toi, pas sur le feed"
+    ]
+   },
+   "es": {
+    "titre": "4. un sudoku con el desayuno",
+    "paragraphes": [
+     "Un sudoku cada mañana antes de mirar el móvil. empieza por los fáciles, los difíciles llegan solos.",
+     "Tu cerebro se despierta con algo tuyo, no con el feed"
+    ]
+   },
+   "es-419": {
+    "titre": "4. un sudoku en el desayuno",
+    "paragraphes": [
+     "Un sudoku cada mañana antes de revisar el celular. empieza por los fáciles, los difíciles llegan solos.",
+     "Tu cerebro despierta con algo tuyo, no con el feed"
+    ]
+   },
+   "it": {
+    "titre": "4. un sudoku a colazione",
+    "paragraphes": [
+     "Uno schema ogni mattina prima di guardare il telefono. inizia dai facili, quelli difficili arrivano da soli.",
+     "Il tuo cervello si sveglia su qualcosa di tuo, non sul feed"
+    ]
+   },
+   "tr": {
+    "titre": "4. kahvaltıda bir sudoku",
+    "paragraphes": [
+     "Telefonuna bakmadan önce her sabah bir bulmaca. kolaylarla başla, zorlar kendiliğinden gelir.",
+     "Beynin akışla değil, sana ait bir şeyle uyanır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. um sudoku no café da manhã",
+    "paragraphes": [
+     "Um jogo toda manhã antes de olhar o celular. começa pelos fáceis, os difíceis chegam sozinhos.",
+     "Seu cérebro acorda em algo que é seu, não do feed"
+    ]
+   },
+   "sl": {
+    "titre": "4. sudoku ob zajtrku",
+    "paragraphes": [
+     "Vsako jutro ena uganka, preden pogledaš telefon. začni z lahkimi, težke pridejo same.",
+     "Tvoji možgani se zbudijo ob nečem tvojem, ne ob feedu"
+    ]
+   },
+   "de": {
+    "titre": "4. ein sudoku zum frühstück",
+    "paragraphes": [
+     "Jeden morgen ein rätsel, bevor du aufs handy schaust. fang mit den leichten an, die schweren kommen von allein.",
+     "Dein kopf wacht mit etwas eigenem auf, nicht mit dem feed"
+    ]
+   },
+   "sk": {
+    "titre": "4. sudoku pri raňajkách",
+    "paragraphes": [
+     "Každé ráno jedno sudoku, skôr než pozrieš do mobilu. začni ľahkými, ťažké prídu samy.",
+     "Tvoj mozog sa prebúdza pri niečom tvojom, nie pri feede"
+    ]
+   },
+   "sv": {
+    "titre": "4. en sudoku till frukost",
+    "paragraphes": [
+     "Ett pussel varje morgon innan du kollar mobilen. börja med de lätta, de svåra kommer av sig själva.",
+     "Hjärnan vaknar till något som är ditt, inte flödets"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/the-citron.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/the-sachet.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "5. tea from somewhere new",
+    "paragraphes": [
+     "Every week, a tea from a new place: hojicha, rooibos, masala chai. look up where it grows and who drinks it every day.",
+     "It's geography you can taste. and a reason to talk to the woman at the tea shop"
+    ]
+   },
+   "fr": {
+    "titre": "5. un thé d'ailleurs",
+    "paragraphes": [
+     "Chaque semaine, un thé d'un nouveau pays : hojicha, rooibos, masala chai. cherche où il pousse et qui le boit tous les jours.",
+     "C'est de la géographie qui se goûte. et une raison de parler à la dame du salon de thé"
+    ]
+   },
+   "es": {
+    "titre": "5. un té de otro lugar",
+    "paragraphes": [
+     "Cada semana, un té de un sitio nuevo: hojicha, rooibos, masala chai. busca dónde crece y quién lo bebe a diario.",
+     "Es geografía que se puede saborear. y una excusa para hablar con la chica de la tetería"
+    ]
+   },
+   "es-419": {
+    "titre": "5. un té de otro lugar",
+    "paragraphes": [
+     "Cada semana, un té de un lugar nuevo: hojicha, rooibos, masala chai. busca dónde se cultiva y quién lo toma a diario.",
+     "Es geografía que se puede saborear. y un pretexto para platicar con la señora de la tienda de té"
+    ]
+   },
+   "it": {
+    "titre": "5. un tè da un posto nuovo",
+    "paragraphes": [
+     "Ogni settimana, un tè da un paese nuovo: hojicha, rooibos, masala chai. cerca dove cresce e chi lo beve ogni giorno.",
+     "È geografia che si assaggia. e una scusa per parlare con la signora della sala da tè"
+    ]
+   },
+   "tr": {
+    "titre": "5. yeni bir yerden çay",
+    "paragraphes": [
+     "Her hafta yeni bir yerden bir çay: hojicha, rooibos, masala chai. nerede yetiştiğine ve kimin her gün içtiğine bak.",
+     "Tadına bakılabilen bir coğrafya. bir de çaycıdaki kadınla konuşmak için bir bahane"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. um chá de outro lugar",
+    "paragraphes": [
+     "Toda semana, um chá de um lugar novo: hojicha, rooibos, masala chai. pesquisa onde ele cresce e quem toma todo dia.",
+     "É geografia que dá pra provar. e uma desculpa pra conversar com a moça da casa de chá"
+    ]
+   },
+   "sl": {
+    "titre": "5. čaj od drugod",
+    "paragraphes": [
+     "Vsak teden čaj iz nove dežele: hojicha, rooibos, masala chai. poglej, kje raste in kdo ga pije vsak dan.",
+     "To je geografija, ki jo lahko okusiš. in izgovor za pogovor z gospo v čajnici"
+    ]
+   },
+   "de": {
+    "titre": "5. tee von woanders",
+    "paragraphes": [
+     "Jede woche ein tee aus einem neuen land: hojicha, rooibos, masala chai. schau nach, wo er wächst und wer ihn jeden tag trinkt.",
+     "Das ist geografie zum schmecken. und ein grund, mit der frau im teeladen zu reden"
+    ]
+   },
+   "sk": {
+    "titre": "5. čaj odinakiaľ",
+    "paragraphes": [
+     "Každý týždeň čaj z novej krajiny: hojicha, rooibos, masala chai. pozri sa, kde rastie a kto ho pije každý deň.",
+     "Je to zemepis, ktorý sa dá ochutnať. a dôvod prehodiť pár slov s pani v čajovni"
+    ]
+   },
+   "sv": {
+    "titre": "5. te från någon ny plats",
+    "paragraphes": [
+     "Varje vecka ett te från ett nytt land: hojicha, rooibos, masala chai. kolla var det växer och vem som dricker det varje dag.",
+     "Det är geografi du kan smaka. och en anledning att prata med kvinnan i tebutiken"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ]
+}

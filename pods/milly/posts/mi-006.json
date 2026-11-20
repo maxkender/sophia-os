@@ -1,0 +1,784 @@
+{
+ "id": "mi-006",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7677247493280763166",
+  "vues": 139100,
+  "publie_le": "2026-08-23",
+  "accroche": "Can you / permanently / Increase / IQ?"
+ },
+ "fond": "brun",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7358342888574470945"
+ },
+ "notes": "Full test (voie 1, boîte vide). Preuve de format : « Can you permanently Increase IQ? » de @bdnf.milly (139,1 k vues, 23/08), famille des questions sur l'intelligence, même gabarit, fond brun. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : des étudiants en médecine qui révisaient un grand examen ont gagné de la matière grise en quelques mois (Draganski et al., Journal of Neuroscience 2006) ; la vitesse de traitement culmine vers 18-19 ans, le vocabulaire vers la fin de la soixantaine ou le début de la soixante-dizaine (Hartshorne et Germine, Psychological Science 2015) ; chaque année d'études en plus fait gagner environ 1 à 5 points de QI, méta-analyse de plus de 600 000 personnes (Ritchie et Tucker-Drob, Psychological Science 2018). Aucune pilule ni produit. 11 langues. Images : Seedream (irm-axiale, irm-coronale, neurones-reseau), sans texte.",
+ "titre": {
+  "en": "Can you get Smarter after 25?",
+  "fr": "Peut-on devenir plus intelligent après 25 ans ?",
+  "es": "¿Se puede ser más inteligente después de los 25?",
+  "es-419": "¿Puedes ser más inteligente después de los 25?",
+  "it": "Si può diventare più intelligenti dopo i 25 anni?",
+  "tr": "25 yaşından sonra daha zeki olabilir misin?",
+  "pt-BR": "Dá para ficar mais inteligente depois dos 25?",
+  "sl": "Ali lahko po 25. letu postaneš pametnejši?",
+  "hr": "Možeš li postati pametniji nakon 25. godine?",
+  "de": "Kann man nach 25 noch klüger werden?",
+  "hu": "Lehetsz okosabb 25 éves korod után?"
+ },
+ "legendes": {
+  "en": "the brain keeps learning #intelligence #iq #brain #learning #neuroplasticity",
+  "fr": "le cerveau continue d'apprendre #intelligence #QI #cerveau #apprendre #neuroplasticité",
+  "es": "el cerebro sigue aprendiendo #inteligencia #CI #cerebro #aprender #neuroplasticidad",
+  "es-419": "tu cerebro sigue aprendiendo #inteligencia #CI #cerebro #aprender #neuroplasticidad",
+  "it": "il cervello continua a imparare #intelligenza #QI #cervello #imparare #neuroplasticità",
+  "tr": "beyin öğrenmeye devam eder #zeka #IQ #beyin #öğrenme #nöroplastisite",
+  "pt-BR": "o cérebro continua aprendendo #inteligencia #QI #cerebro #aprender #neuroplasticidade",
+  "sl": "možgani se učijo naprej #inteligenca #IQ #možgani #učenje #nevroplastičnost",
+  "hr": "mozak nastavlja učiti #inteligencija #IQ #mozak #učenje #neuroplastičnost",
+  "de": "das gehirn lernt weiter #intelligenz #IQ #gehirn #lernen #neuroplastizität",
+  "hu": "az agy tovább tanul #intelligencia #IQ #agy #tanulás #neuroplaszticitás"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-axiale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "Can you get",
+      "taille": "petit"
+     },
+     {
+      "t": "Smarter",
+      "taille": "grand"
+     },
+     {
+      "t": "after",
+      "taille": "petit"
+     },
+     {
+      "t": "25?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Peut-on devenir",
+      "taille": "petit"
+     },
+     {
+      "t": "plus intelligent",
+      "taille": "grand"
+     },
+     {
+      "t": "après",
+      "taille": "petit"
+     },
+     {
+      "t": "25 ans ?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "¿Se puede ser",
+      "taille": "petit"
+     },
+     {
+      "t": "más inteligente",
+      "taille": "grand"
+     },
+     {
+      "t": "después de los",
+      "taille": "petit"
+     },
+     {
+      "t": "25?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "¿Puedes ser",
+      "taille": "petit"
+     },
+     {
+      "t": "más inteligente",
+      "taille": "grand"
+     },
+     {
+      "t": "después de los",
+      "taille": "petit"
+     },
+     {
+      "t": "25?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Si può diventare",
+      "taille": "petit"
+     },
+     {
+      "t": "più intelligenti",
+      "taille": "grand"
+     },
+     {
+      "t": "dopo i",
+      "taille": "petit"
+     },
+     {
+      "t": "25 anni?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "25 yaşından",
+      "taille": "grand"
+     },
+     {
+      "t": "sonra daha",
+      "taille": "petit"
+     },
+     {
+      "t": "Zeki",
+      "taille": "grand"
+     },
+     {
+      "t": "olabilir misin?",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Dá para ficar",
+      "taille": "petit"
+     },
+     {
+      "t": "mais inteligente",
+      "taille": "grand"
+     },
+     {
+      "t": "depois dos",
+      "taille": "petit"
+     },
+     {
+      "t": "25?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Ali lahko",
+      "taille": "petit"
+     },
+     {
+      "t": "po 25. letu",
+      "taille": "grand"
+     },
+     {
+      "t": "postaneš",
+      "taille": "petit"
+     },
+     {
+      "t": "Pametnejši?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Možeš li postati",
+      "taille": "petit"
+     },
+     {
+      "t": "Pametniji",
+      "taille": "grand"
+     },
+     {
+      "t": "nakon",
+      "taille": "petit"
+     },
+     {
+      "t": "25. godine?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Kann man",
+      "taille": "petit"
+     },
+     {
+      "t": "nach 25",
+      "taille": "grand"
+     },
+     {
+      "t": "noch",
+      "taille": "petit"
+     },
+     {
+      "t": "klüger werden?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Lehetsz",
+      "taille": "petit"
+     },
+     {
+      "t": "Okosabb",
+      "taille": "grand"
+     },
+     {
+      "t": "25 éves",
+      "taille": "moyen"
+     },
+     {
+      "t": "korod után?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "The Brain Keeps Changing",
+    "blocs": [
+     {
+      "p": "Adult brains keep reorganising as they learn. When medical students studied intensively for a major exam, brain scans showed grey matter increases in areas linked to memory within a few months."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "And not every ability peaks young. In a study of tens of thousands of people, processing speed peaked around 18 or 19, but vocabulary kept improving until the late 60s or early 70s."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Le cerveau continue de changer",
+    "blocs": [
+     {
+      "p": "Le cerveau adulte continue de se réorganiser quand il apprend. Chez des étudiants en médecine qui révisaient intensément un grand examen, l'imagerie a montré une hausse de la matière grise dans des zones liées à la mémoire en quelques mois."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "Et toutes les capacités ne culminent pas jeunes. Dans une étude portant sur des dizaines de milliers de personnes, la vitesse de traitement culminait vers 18 ou 19 ans, mais le vocabulaire progressait jusqu'à la fin de la soixantaine, voire le début de la soixante-dizaine."
+     }
+    ]
+   },
+   "es": {
+    "titre": "El cerebro sigue cambiando",
+    "blocs": [
+     {
+      "p": "El cerebro adulto sigue reorganizándose cuando aprende. En estudiantes de medicina que se preparaban a fondo para un gran examen, las imágenes cerebrales mostraron aumentos de materia gris en zonas ligadas a la memoria en pocos meses."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "Y no todas las capacidades llegan a su máximo de jóvenes. En un estudio con decenas de miles de personas, la velocidad de procesamiento alcanzaba su máximo hacia los 18 o 19 años, pero el vocabulario seguía mejorando hasta finales de los 60 o principios de los 70."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "El cerebro sigue cambiando",
+    "blocs": [
+     {
+      "p": "El cerebro adulto se sigue reorganizando cuando aprende. En estudiantes de medicina que estudiaban intensamente para un examen importante, los escaneos cerebrales mostraron aumentos de materia gris en áreas ligadas a la memoria en pocos meses."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "Y no todas las habilidades llegan a su punto máximo en la juventud. En un estudio con decenas de miles de personas, la velocidad de procesamiento llegaba a su máximo cerca de los 18 o 19 años, pero el vocabulario seguía mejorando hasta finales de los 60 o principios de los 70."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Il cervello continua a cambiare",
+    "blocs": [
+     {
+      "p": "Il cervello adulto continua a riorganizzarsi mentre impara. In studenti di medicina che studiavano intensamente per un esame importante, le immagini cerebrali hanno mostrato aumenti di materia grigia in aree legate alla memoria nel giro di pochi mesi."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "E non tutte le capacità raggiungono il picco da giovani. In uno studio su decine di migliaia di persone, la velocità di elaborazione toccava il massimo intorno ai 18 o 19 anni, ma il vocabolario continuava a migliorare fino alla fine dei 60 o all'inizio dei 70."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Beyin değişmeye devam eder",
+    "blocs": [
+     {
+      "p": "Yetişkin beyni öğrendikçe kendini yeniden düzenlemeye devam eder. Büyük bir sınava yoğun şekilde çalışan tıp öğrencilerinde, beyin taramaları birkaç ay içinde hafızayla bağlantılı bölgelerde gri madde artışı gösterdi."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "Üstelik her yetenek gençken zirve yapmaz. On binlerce kişiyle yapılan bir çalışmada işlem hızı 18-19 yaş civarında zirveye ulaştı, ama kelime dağarcığı 60'ların sonuna, hatta 70'lerin başına kadar gelişmeye devam etti."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "O cérebro continua mudando",
+    "blocs": [
+     {
+      "p": "O cérebro adulto continua se reorganizando quando aprende. Em estudantes de medicina que estudavam intensamente para uma prova importante, exames de imagem mostraram aumento de massa cinzenta em áreas ligadas à memória em poucos meses."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "E nem toda habilidade atinge o pico na juventude. Em um estudo com dezenas de milhares de pessoas, a velocidade de processamento chegou ao auge por volta dos 18 ou 19 anos, mas o vocabulário continuou melhorando até o fim dos 60 ou o começo dos 70."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Možgani se še naprej spreminjajo",
+    "blocs": [
+     {
+      "p": "Odrasli možgani se ob učenju še naprej preoblikujejo. Pri študentih medicine, ki so se intenzivno učili za velik izpit, so slikanja možganov v nekaj mesecih pokazala povečanje sive možganovine v predelih, povezanih s spominom."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "In vse sposobnosti ne dosežejo vrha v mladosti. V raziskavi z več deset tisoč ljudmi je hitrost obdelave dosegla vrh pri približno 18 ali 19 letih, besedišče pa se je izboljševalo vse do poznih šestdesetih ali zgodnjih sedemdesetih let."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Mozak se i dalje mijenja",
+    "blocs": [
+     {
+      "p": "Odrasli mozak nastavlja se reorganizirati dok uči. Kod studenata medicine koji su intenzivno učili za velik ispit snimke mozga su u nekoliko mjeseci pokazale povećanje sive tvari u područjima povezanima s pamćenjem."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "I ne dosežu sve sposobnosti vrhunac u mladosti. U istraživanju s desecima tisuća ljudi brzina obrade dosegla je vrhunac oko 18. ili 19. godine, a rječnik se nastavio poboljšavati sve do kasnih šezdesetih ili ranih sedamdesetih."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Das Gehirn verändert sich weiter",
+    "blocs": [
+     {
+      "p": "Das erwachsene Gehirn organisiert sich beim Lernen weiter um. Bei Medizinstudierenden, die intensiv für eine große Prüfung lernten, zeigten Hirnscans innerhalb weniger Monate mehr graue Substanz in Arealen, die mit dem Gedächtnis zusammenhängen."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "Und nicht jede Fähigkeit erreicht ihren Höhepunkt in jungen Jahren. In einer Studie mit Zehntausenden Menschen lag der Höhepunkt der Verarbeitungsgeschwindigkeit bei etwa 18 oder 19 Jahren, der Wortschatz wuchs dagegen bis Ende 60 oder Anfang 70."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Az agy tovább változik",
+    "blocs": [
+     {
+      "p": "A felnőtt agy tanulás közben is folyamatosan átrendeződik. Egy nagy vizsgára intenzíven készülő orvostanhallgatóknál az agyi felvételek néhány hónap alatt a szürkeállomány növekedését mutatták a memóriához kötődő területeken."
+     },
+     {
+      "image": "images/irm-coronale.jpg"
+     },
+     {
+      "p": "És nem minden képesség fiatalon éri el a csúcsát. Egy több tízezer ember részvételével készült vizsgálatban a feldolgozási sebesség 18-19 éves kor körül tetőzött, a szókincs viszont egészen a 60-as évek végéig, a 70-es évek elejéig fejlődött."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Knowledge Has No Ceiling",
+    "blocs": [
+     {
+      "p": "Speed fades slowly with age, but knowledge keeps growing as long as you feed it. Every lesson adds to the store that later reasoning draws on."
+     },
+     {
+      "p": "So treat learning like training: one short lesson every night, in history, science or philosophy, for years."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Le savoir n'a pas de plafond",
+    "blocs": [
+     {
+      "p": "La vitesse baisse lentement avec l'âge, mais le savoir continue de grandir tant qu'on le nourrit. Chaque leçon enrichit la réserve dans laquelle le raisonnement puise ensuite."
+     },
+     {
+      "p": "Alors traite l'apprentissage comme un entraînement : une courte leçon chaque soir, en histoire, en sciences ou en philosophie, pendant des années."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "El conocimiento no tiene techo",
+    "blocs": [
+     {
+      "p": "La velocidad baja poco a poco con la edad, pero el conocimiento sigue creciendo mientras lo alimentes. Cada lección se suma a la reserva de la que luego tira el razonamiento."
+     },
+     {
+      "p": "Así que trata el aprendizaje como un entrenamiento: una lección corta cada noche, de historia, ciencia o filosofía, durante años."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "El conocimiento no tiene límite",
+    "blocs": [
+     {
+      "p": "La velocidad baja despacio con la edad, pero el conocimiento sigue creciendo mientras lo alimentes. Cada lección suma a la reserva que después usa tu razonamiento."
+     },
+     {
+      "p": "Entonces trata el aprendizaje como un entrenamiento: una lección corta cada noche, de historia, ciencia o filosofía, durante años."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "La conoscenza non ha un tetto",
+    "blocs": [
+     {
+      "p": "La velocità cala lentamente con l'età, ma la conoscenza continua a crescere finché la alimenti. Ogni lezione si aggiunge alla riserva a cui il ragionamento attinge poi."
+     },
+     {
+      "p": "Quindi tratta l'apprendimento come un allenamento: una breve lezione ogni sera, di storia, scienza o filosofia, per anni."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Bilginin tavanı yoktur",
+    "blocs": [
+     {
+      "p": "Hız yaşla yavaşça azalır, ama bilgi, onu besledikçe büyümeye devam eder. Her ders, akıl yürütmenin daha sonra yararlandığı depoya bir şey ekler."
+     },
+     {
+      "p": "O yüzden öğrenmeyi bir antrenman gibi gör: her gece tarih, bilim ya da felsefeden kısa bir ders, yıllar boyunca."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "O conhecimento não tem teto",
+    "blocs": [
+     {
+      "p": "A velocidade cai devagar com a idade, mas o conhecimento continua crescendo enquanto você o alimenta. Cada lição soma à reserva da qual o raciocínio tira depois."
+     },
+     {
+      "p": "Então trate o aprendizado como um treino: uma lição curta toda noite, de história, ciência ou filosofia, por anos."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Znanje nima stropa",
+    "blocs": [
+     {
+      "p": "Hitrost s starostjo počasi upada, znanje pa raste, dokler ga hraniš. Vsaka lekcija doda nekaj zalogi, iz katere pozneje črpa sklepanje."
+     },
+     {
+      "p": "Zato učenje jemlji kot trening: kratka lekcija vsak večer, iz zgodovine, znanosti ali filozofije, več let."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Znanje nema strop",
+    "blocs": [
+     {
+      "p": "Brzina s godinama polako opada, ali znanje raste sve dok ga hraniš. Svaka lekcija dodaje nešto zalihi iz koje poslije crpi zaključivanje."
+     },
+     {
+      "p": "Zato učenje shvati kao trening: kratka lekcija svake večeri, iz povijesti, znanosti ili filozofije, godinama."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Wissen hat keine Obergrenze",
+    "blocs": [
+     {
+      "p": "Die Geschwindigkeit lässt mit dem Alter langsam nach, doch Wissen wächst weiter, solange du es fütterst. Jede Lektion vergrößert den Vorrat, aus dem das Denken später schöpft."
+     },
+     {
+      "p": "Sieh Lernen also als Training: eine kurze Lektion jeden Abend, aus Geschichte, Wissenschaft oder Philosophie, über Jahre."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A tudásnak nincs plafonja",
+    "blocs": [
+     {
+      "p": "A sebesség a korral lassan csökken, a tudás viszont tovább nő, amíg táplálod. Minden lecke gyarapítja azt a készletet, amelyből később a gondolkodás merít."
+     },
+     {
+      "p": "Kezeld hát a tanulást edzésként: egy rövid lecke minden este történelemből, tudományból vagy filozófiából, éveken át."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Education Raises IQ",
+    "blocs": [
+     {
+      "p": "A large analysis of studies covering more than 600,000 people found that each extra year of education raised IQ by about one to five points."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "It is some of the strongest evidence that intelligence responds to effort. Not a pill, not a hack: years of learning, one day at a time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Les études font monter le QI",
+    "blocs": [
+     {
+      "p": "Une grande analyse portant sur plus de 600 000 personnes a montré que chaque année d'études supplémentaire augmentait le QI d'environ un à cinq points."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "C'est l'une des preuves les plus solides que l'intelligence répond à l'effort. Pas une pilule, pas une astuce : des années d'apprentissage, un jour à la fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Estudiar sube el CI",
+    "blocs": [
+     {
+      "p": "Un gran análisis de estudios con más de 600.000 personas encontró que cada año adicional de educación subía el CI entre uno y cinco puntos aproximadamente."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Es una de las pruebas más sólidas de que la inteligencia responde al esfuerzo. Ni una pastilla ni un truco: años de aprendizaje, un día cada vez."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Estudiar sube el CI",
+    "blocs": [
+     {
+      "p": "Un gran análisis de estudios con más de 600,000 personas encontró que cada año extra de educación subía el CI entre uno y cinco puntos, aproximadamente."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Es una de las pruebas más fuertes de que la inteligencia responde al esfuerzo. Ni una pastilla ni un truco: años de aprendizaje, un día a la vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Studiare alza il QI",
+    "blocs": [
+     {
+      "p": "Un'ampia analisi di studi su oltre 600.000 persone ha rilevato che ogni anno di istruzione in più alzava il QI di circa uno-cinque punti."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "È una delle prove più solide che l'intelligenza risponde all'impegno. Non una pillola, non un trucco: anni di apprendimento, un giorno alla volta."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Eğitim IQ'yu yükseltir",
+    "blocs": [
+     {
+      "p": "600.000'den fazla kişiyi kapsayan çalışmaların büyük bir analizi, fazladan her eğitim yılının IQ'yu yaklaşık bir ila beş puan artırdığını buldu."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Bu, zekânın emeğe karşılık verdiğinin en güçlü kanıtlarından biri. Hap değil, kestirme değil: yıllarca öğrenmek, her gün biraz."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Estudar aumenta o QI",
+    "blocs": [
+     {
+      "p": "Uma grande análise de estudos com mais de 600 mil pessoas mostrou que cada ano a mais de estudo aumentava o QI em cerca de um a cinco pontos."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "É uma das provas mais fortes de que a inteligência responde ao esforço. Não é um comprimido, não é um atalho: são anos de aprendizado, um dia de cada vez."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Izobrazba dvigne IQ",
+    "blocs": [
+     {
+      "p": "Obsežna analiza raziskav z več kot 600.000 ljudmi je pokazala, da je vsako dodatno leto izobraževanja dvignilo IQ za približno enega do pet točk."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "To je eden najmočnejših dokazov, da se inteligenca odziva na trud. Ne tableta, ne trik: leta učenja, dan za dnem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Obrazovanje podiže IQ",
+    "blocs": [
+     {
+      "p": "Velika analiza istraživanja s više od 600.000 ljudi pokazala je da je svaka dodatna godina obrazovanja podigla IQ za otprilike jedan do pet bodova."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "To je jedan od najjačih dokaza da inteligencija odgovara na trud. Ni tableta ni trik: godine učenja, dan po dan."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Bildung hebt den IQ",
+    "blocs": [
+     {
+      "p": "Eine große Analyse von Studien mit mehr als 600.000 Menschen ergab, dass jedes zusätzliche Bildungsjahr den IQ um etwa einen bis fünf Punkte erhöhte."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Das ist einer der stärksten Belege dafür, dass Intelligenz auf Anstrengung reagiert. Keine Pille, kein Hack: Jahre des Lernens, ein Tag nach dem anderen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A tanulás növeli az IQ-t",
+    "blocs": [
+     {
+      "p": "Egy több mint 600 000 embert felölelő nagy elemzés szerint minden további tanulással töltött év nagyjából egy-öt ponttal emelte az IQ-t."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Ez az egyik legerősebb bizonyíték arra, hogy az intelligencia reagál az erőfeszítésre. Nem egy tabletta, nem egy trükk: évekig tartó tanulás, napról napra."
+     }
+    ]
+   }
+  }
+ ]
+}

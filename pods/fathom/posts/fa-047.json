@@ -22,7 +22,11 @@
   "pl": "10/10 umiejętności do nauczenia przed 30.",
   "ro": "10/10 abilități de învățat înainte de 30 de ani",
   "sv": "10/10 färdigheter att lära sig innan du fyller 30",
-  "tr": "30 yaşından önce öğrenmen gereken 10/10 beceri"
+  "tr": "30 yaşından önce öğrenmen gereken 10/10 beceri",
+  "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 30",
+  "no": "10/10 ferdigheter å lære før du fyller 30",
+  "et": "10/10 oskust, mida õppida enne 30",
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #learnontiktok #selfmastery #curiosity",
@@ -41,13 +45,17 @@
   "pl": "10/10 umiejętności do nauczenia przed 30. #umiejętności #rozwójosobisty #nauka",
   "ro": "10/10 abilități de învățat înainte de 30 de ani #abilități #dezvoltarepersonală #învățare",
   "sv": "10/10 färdigheter att lära sig innan du fyller 30 #färdigheter #självutveckling #lärande",
-  "tr": "30 yaşından önce öğrenmen gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme"
+  "tr": "30 yaşından önce öğrenmen gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme",
+  "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 30 #įgūdžiai #saviugda #mokymasis",
+  "no": "10/10 ferdigheter å lære før du fyller 30 #ferdigheter #selvutvikling #læring",
+  "et": "10/10 oskust, mida õppida enne 30 #oskused #eneseareng #õppimine",
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä #taidot #itsensäkehittäminen #oppiminen"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7363016351713872646"
  },
- "notes": "cta C. Variante de l'accroche de fa-018 : autres étapes (pneu, négociation, CV), autre CTA. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "notes": "cta C. Variante de l'accroche de fa-018 : autres étapes (pneu, négociation, CV), autre CTA. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers). 20/11 soir : ajouté en lt, no, et et fi (langues ouvertes le 20/11).",
  "slides": [
   {
    "type": "couverture",
@@ -348,6 +356,74 @@
       }
      ]
     ]
+   },
+   "lt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ĮGŪDŽIŲ IŠMOKTI",
+     [
+      {
+       "t": "IKI 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "no": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FERDIGHETER Å LÆRE",
+     [
+      {
+       "t": "FØR DU ER 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "et": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "OSKUST, MIDA ÕPPIDA",
+     [
+      {
+       "t": "ENNE 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fi": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TAITOA OPITTAVAKSI",
+     [
+      {
+       "t": "ENNEN 30:TÄ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -605,6 +681,66 @@
      "date": "2 yıl önce",
      "duree": "5:20",
      "avatar": "https://yt3.ggpht.com/ByMnJvkPMczJfsxr3_XMmvtOpBiPPnbyYTGtPuorMNxY6NA2MKTKjjR6fPKnABor5ABdiTAJCQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "PASIKEISK",
+     "RATĄ"
+    ],
+    "video": {
+     "id": "3VvqvShaZmI",
+     "titre": "Kaip pasikeisti nuleistą padangą?",
+     "chaine": "Dainius Snetkovas",
+     "vues": "1 tūkst. peržiūrų",
+     "date": "prieš 8 metus",
+     "duree": "02:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ki4OqIfh7Hk8tnXkr1V8I2JpTiJ3xhJuCWlJMTTPJhsuA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "SKIFT",
+     "HJUL"
+    ],
+    "video": {
+     "id": "ZkGriv34lQo",
+     "titre": "Slik skifter du hjul på bilen din",
+     "chaine": "NAF",
+     "vues": "13k avspillinger",
+     "date": "for 1 år siden",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/WQLn3qFMWSHjemCoPyUoy-rDPCc3IGPI_N_q0UVkz1n9H07FH5EQZY6ND4zde480zV6jmv4qtQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "VAHETA",
+     "REHVI"
+    ],
+    "video": {
+     "id": "By7SML_PnxI",
+     "titre": "Kuidas autol ise rattaid vahetada?",
+     "chaine": "Menu Kirjastus",
+     "vues": "592 vaatamist",
+     "date": "14 aasta eest",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k873UzDWZcrn8zVD2UfTh7cJ0cXxgcK2DCVPNM1kk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "VAIHDA",
+     "RENGAS"
+    ],
+    "video": {
+     "id": "CLhwPcy0OzA",
+     "titre": "Auton renkaiden vaihto – näin näppärästi teet sen itse",
+     "chaine": "MartatTV",
+     "vues": "34 t. katselukertaa",
+     "date": "7 vuotta sitten",
+     "duree": "1.56",
+     "avatar": "https://yt3.ggpht.com/o8OJKY6UXOeGLRZk0YT_pmwmLHMBJ1H8Fb3niu6q7CsGlEqDxc4uO0Mpug2zjLRq4TB-X8EfnA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -864,6 +1000,66 @@
      "duree": "12:51",
      "avatar": "https://yt3.ggpht.com/wNkeq21QihmVBt1fN-wcCVI4p1Pq3fZl5kXJ5WhXs42Nay8eDcv_VbpGK1bLxuuPZocJNkFRZg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "lt": {
+    "titre": [
+     "IŠMOK",
+     "DERĖTIS"
+    ],
+    "video": {
+     "id": "ZnWsT3ORge8",
+     "titre": "Kaip derėtis dėl didelės nuolaidos?",
+     "chaine": "Mindaugas Lastauskas",
+     "vues": "183 peržiūrų",
+     "date": "prieš 7 metus",
+     "duree": "02:57",
+     "avatar": "https://yt3.ggpht.com/58s-nE38cUuqLBbo4mdZJWq4u51gvKR7WwK46zukGV_86nRxJkegfP3AbpOesne7dxtW2zo4cA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LÆR Å",
+     "FORHANDLE"
+    ],
+    "video": {
+     "id": "6dYTRhsKmts",
+     "titre": "Snakk deg til høyere lønn | Laura E. Mercer Traavik | BI Business Review",
+     "chaine": "Handelshøyskolen BI",
+     "vues": "3,7k avspillinger",
+     "date": "for 10 år siden",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nTh-GNuw1bu2A58Q9pi8WWyFgaeSw742p7FYI44aWdrhU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "ÕPI",
+     "LÄBI RÄÄKIMA"
+    ],
+    "video": {
+     "id": "rrbCPqZsmOQ",
+     "titre": "Minu parimad läbirääkimiste nipid kinnisvara müüjatele - Tip Tuesday #37",
+     "chaine": "Jorma Liivalaid",
+     "vues": "850 vaatamist",
+     "date": "6 aasta eest",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRce1NyckDjw5tWH5zjK3LoKJgbrxT3C2GLLp17qlbYw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "OPI",
+     "NEUVOTTELEMAAN"
+    ],
+    "video": {
+     "id": "Gt4QxAu8osc",
+     "titre": "Mitä neuvotteluvinkkejä antaisit asuntosijoittajalle? - 7 neuvoa #90 (2019)",
+     "chaine": "Ostan Asuntoja",
+     "vues": "2,3 t. katselukertaa",
+     "date": "6 vuotta sitten",
+     "duree": "19.18",
+     "avatar": "https://yt3.ggpht.com/wRqKzSpXwcgJsJH6CK5dtkiSAFVEHroUI6gcDou-KNQihSNp7n6n4EL35XYBAAXfxggqzFWOyF4=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1087,6 +1283,58 @@
      "texte": [
       "kaydırmak yerine",
       "açtığım şey."
+     ]
+    }
+   },
+   "lt": {
+    "titre": [
+     "NIEKADA NESUSTOK",
+     "MOKYTIS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ką atidarau",
+      "vietoj naršymo."
+     ]
+    }
+   },
+   "no": {
+    "titre": [
+     "SLUTT ALDRI",
+     "Å LÆRE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "det jeg åpner",
+      "i stedet for å scrolle."
+     ]
+    }
+   },
+   "et": {
+    "titre": [
+     "ÄRA KUNAGI",
+     "LÕPETA ÕPPIMIST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "mida ma avan",
+      "kerimise asemel."
+     ]
+    }
+   },
+   "fi": {
+    "titre": [
+     "ÄLÄ KOSKAAN",
+     "LOPETA OPPIMISTA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "mitä avaan",
+      "selaamisen sijaan."
      ]
     }
    }
@@ -1346,6 +1594,66 @@
      "date": "1 yıl önce",
      "duree": "4:01",
      "avatar": "https://yt3.ggpht.com/lk-eZmJBb_WL03WeOArxHKKxYjBIN00x5xmdKV5YztO4Ad0ZXgEegAHKm5k4f0k1OxcnbbNy1g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "PARAŠYK",
+     "GERĄ CV"
+    ],
+    "video": {
+     "id": "rzLa74qIEcA",
+     "titre": "Kaip rašyti CV – Atranka360",
+     "chaine": "Atranka360",
+     "vues": "4,4 tūkst. peržiūrų",
+     "date": "prieš 9 metus",
+     "duree": "01:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_niTHclxbsOcYJXSPthhxmz6MoDmjXScb7zqDkvDQjJrQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "SKRIV EN",
+     "GOD CV"
+    ],
+    "video": {
+     "id": "TFGmwlYuJNg",
+     "titre": "Hvordan skrive CV?",
+     "chaine": "ung.no",
+     "vues": "7,7k avspillinger",
+     "date": "for 4 år siden",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/gDENw-k3Mm6Ooz-4AGNmjRQDiYiFKRwEQl_u3sOT3ClY8k4VsMFKM7rAx6Lvqa5brYEnrzu1=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "KIRJUTA",
+     "HEA CV"
+    ],
+    "video": {
+     "id": "v_Hgxp2yKik",
+     "titre": "Näpunäited CV koostamiseks | CV.ee",
+     "chaine": "cvonline_eesti",
+     "vues": "840 vaatamist",
+     "date": "5 aasta eest",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/-EY38cOQLh1zDsegzNB7fm2FYESzWfAvWPOO9QjgfMLxPthQgJq8A2N-7Mghtdw3ZD6yF0it=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "KIRJOITA",
+     "HYVÄ CV"
+    ],
+    "video": {
+     "id": "28ed9k0TBA4",
+     "titre": "Millainen on hyvä CV? 📝 Katso vinkit toimivan ansioluettelon tekemiseen 🙌",
+     "chaine": "Duunivinkit",
+     "vues": "142 t. katselukertaa",
+     "date": "5 vuotta sitten",
+     "duree": "2.43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l_xtCzXSJBPGeZhiq8wX3IrjHglpzP_aO-kDBH4vynfg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o337",
+ "type_bleo": "full_test",
+ "titre": "Small daily wins that change your whole year #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 9 à 12 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 6e full test. Accroches écrites : « Small daily wins that change your whole year » (retenue), « Tiny habits, big year » (écartée : slogan), « Do this every day for a year » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "12bfbbaf-860a-4430-87dc-b8a40f1147c9",
+   "texte_overlay": "Small daily wins that\nchange your whole year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Ten push-ups after you wake up. It takes one minute, and after a year that's over three thousand push-ups. Your body and your discipline both get stronger.",
+   "media_id": "17b359c0-dd8c-4246-99f6-effd778a3109"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ten pages before bed. That's around twelve to fifteen books a year. Few habits change the way you think as much as steady reading.",
+   "media_id": "1a95aada-b5c9-4700-8864-e6943cb8d104"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "One glass of water before your coffee. A tiny habit that improves your energy, your skin and your focus without you even noticing.",
+   "media_id": "1b4919ef-880c-46b2-bacc-15634e83708c"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "One message to someone you care about. A friend, a parent, an old colleague. Over a year, your relationships become stronger than ever.",
+   "media_id": "1bfdc244-2b5b-48be-a25b-6c21056a1f30"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "One new thing learned. I do five minutes a day of history, art or science, and after a year it adds up to hundreds of small lessons.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. After a year it adds up to hundreds of small lessons.",
+   "media_id": "6eef4d6c-eec8-4174-a6a1-3bc17f238e10"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Ten minutes of tidying every evening. Your home stays calm, your mornings start better and you never lose a weekend to cleaning.",
+   "media_id": "1deae082-7a7d-4248-b4cc-35013346558e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "One line in a journal. What went well today. In a year, you'll have a book full of reasons to be proud of yourself. Read it on hard days.",
+   "media_id": "1e97fc9b-bb1c-47e1-b87a-3c653d258f7d"
+  }
+ ]
+}

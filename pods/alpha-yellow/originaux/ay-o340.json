@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o340",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a8a079e4-5469-401a-8978-e18fabc353cb",
+ "titre": "Simple money habits every young man needs #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "a8a079e4-5469-401a-8978-e18fabc353cb"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 1 de la boîte (a8a079e4, en 11,9 k r 1,78), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent (48 h, frais fixes, prêt, automatiser, inflation du mode de vie, choses qui durent). Conseils généraux, aucun produit cité.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1f1c852d-d468-4375-93ed-636008ad33b8",
+   "texte_overlay": "Simple money habits\nevery young man needs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672848309135920417/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Check your bank account every week. Five minutes on Sunday evening. Knowing where your money goes is the first step to keeping more of it.",
+   "media_id": "27ac2b03-4bef-4e04-a8e8-683b31af49c2"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Keep three months of expenses aside. An emergency fund turns a broken car or a lost job into a problem instead of a disaster.",
+   "media_id": "27ec079b-987b-4109-abd9-1bbcd1736dd6"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Pay off expensive debt first. Credit card interest grows faster than almost any saving. Clearing it is the best return you'll ever get.",
+   "media_id": "29307c4b-12f9-4820-a917-f3e30add72f3"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Cook more than you order. Cooking a few meals a week can save hundreds every month, and it's healthier too. Even a few meals a week make a real difference to your budget.",
+   "media_id": "2999f369-22ce-47a6-baed-9d334f21c7b2"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Invest in your mind. I do five minutes a day of history, art or science, and it costs far less than the courses and books I used to buy.",
+   "texte_sophia": "Invest in your mind. I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It costs far less than the courses and books I used to buy.",
+   "media_id": "bfb52f8e-036c-4b6e-81a6-4618072897c6"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Cancel what you don't use. Gym, streaming, subscriptions you forgot. Go through them every three months and cut the ones you don't need.",
+   "media_id": "2b387295-e98d-4f96-8a29-e0546faa356f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Learn the basics of investing. Index funds, compound interest, long-term thinking. Starting small in your 20s beats starting big in your 40s.",
+   "media_id": "2b70f060-0e36-462b-94b6-41ad34acc54a"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o345",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bc23da3b-ca45-4d2a-beac-a1d626c3d88b",
+ "titre": "Practical skills every young man should master before 30 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "bc23da3b-ca45-4d2a-beac-a1d626c3d88b"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 6 de la boîte (bc23da3b, ro 4,2 k r 4,61), 1re déclinaison. Même promesse, autres mots, sans « 20s » pour ne pas toucher la ligne 14. Items neufs, aucun repris du parent (premiers secours, mail, contrat, voyage, nager, dire non).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4610311f-079d-4fa1-979d-24eb14a5b770",
+   "texte_overlay": "Practical skills every young man\nshould master before 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Change a tyre and jump-start a car. Ten minutes of learning saves you from waiting hours by the side of the road. Watch one video, then practise once with a friend before you ever need it.",
+   "media_id": "3959e3ec-af44-4952-abfb-0d0fe88c3911"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Cook for six people. A big pasta dish, a curry, a roast. Being able to feed a group makes you the friend everyone wants to visit.",
+   "media_id": "39778329-fb98-4605-8a4d-82693e4bffd4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Negotiate calmly. Salary, rent, a used car. Asking for a better deal politely can be worth thousands over the years. A basic toolbox is all you need.",
+   "media_id": "39de5fa1-e814-4385-a1e7-95ac6bf17101"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Do basic home repairs. Fix a dripping tap, patch a wall, put up shelves. Small repairs save money and make you feel capable.",
+   "media_id": "39f85eb8-a004-47fe-8f5a-e1bcc44ef656"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Keep learning every day. I do five minutes a day of history, art or science, and it has made me the guy with an answer for everything.",
+   "texte_sophia": "Keep learning every day. I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It has made me the guy with an answer for everything.",
+   "media_id": "de0e6cf4-3a47-401d-a0fc-2d5bc8f3b0a9"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Give a short speech without notes. A toast, a presentation, a team update. Speaking clearly in public opens doors everywhere.",
+   "media_id": "39fbfcd7-5265-40b2-92da-61315e3f1b90"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "File your own paperwork. Taxes, insurance, contracts. Understanding your admin protects your money and your peace of mind.",
+   "media_id": "3a32eed7-7d4c-4f46-be33-39cf50693566"
+  }
+ ]
+}

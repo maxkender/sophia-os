@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o334",
+ "type_bleo": "full_test",
+ "titre": "How to travel cheap and still live well #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 9 à 12 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 6e full test. Accroches écrites : « How to travel cheap and still live well » (retenue), « Travel hacks nobody tells you » (écartée : vu partout), « See the world on a small budget » (écartée : plus faible).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "01e0212c-2f11-46e2-8137-e851167a8e4c",
+   "texte_overlay": "How to travel cheap\nand still live well",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Travel in shoulder season. Late spring and early autumn mean lower prices, fewer crowds and better weather than you'd expect. The same trip can cost half as much.",
+   "media_id": "001dfe66-72e1-49d0-bdc6-2c629ce0bace"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Eat where the locals eat. Walk two streets away from the main square. The food is better, the prices are fairer and you'll often end up chatting with people who live there.",
+   "media_id": "00c051d6-40c1-4e5f-b0ef-ba72cfa6d34f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Stay in neighbourhoods, not tourist centres. A short metro ride saves a lot of money, and you see how people really live in the city instead of a postcard version of it.",
+   "media_id": "0325aa19-d1e0-48d5-8036-0c26dc489c3f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Walk everywhere you can. It's free, it's healthy and it's the best way to discover a city. Some of the best places you'll find were never in any guide.",
+   "media_id": "050e325e-ed46-4672-9078-279140b0e42b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learn the story of a place before you go. I do five minutes a day of history, art or science, and every city I visit means more because I know its past.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Every city I visit means more because I know its past.",
+   "media_id": "0ad30696-82d9-49fc-ad0f-1a06512bc750"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pack light. One carry-on bag saves fees, time and stress. You need far fewer clothes than you think, and moving around becomes so much easier.",
+   "media_id": "06e69b66-f186-42ab-8bcf-28962e77c0ed"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Spend on experiences, save on things. A boat trip or a cooking class stays with you for years. Souvenirs usually end up in a drawer.",
+   "media_id": "07f1d645-4cfe-4349-ade4-b4f4c58d4c35"
+  }
+ ]
+}

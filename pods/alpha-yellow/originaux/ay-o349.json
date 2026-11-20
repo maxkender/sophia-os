@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o349",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9d0e60f6-01cb-4741-8624-1e85fb357117",
+ "titre": "how you stand out in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "twin tribes monolith Dexter Morgan Super Slow",
+ "musique_url": "https://www.tiktok.com/music/twin-tribes-monolith-dexter-morgan-super-7401614052290169605",
+ "inspirations": [
+  "9d0e60f6-01cb-4741-8624-1e85fb357117"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 14 de la boîte (9d0e60f6, es 16,1 k) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (parler clairement, tenir parole, curiosité, inconfort, noter ce qu'on apprend).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4f6c8486-7ca5-49d6-b663-845c9fe47c9c",
+   "texte_overlay": "how you stand out in your\n20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Build something outside your job. A side project, a sports team, a small business. Making something of your own sets you apart from most people your age.",
+   "media_id": "3fbe1e57-2329-4bfb-9f80-cb9bf0438c88"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Take your health seriously early. Train, sleep and eat well while others ignore it. In ten years the difference will be huge.",
+   "media_id": "4014c5ba-b9ce-4626-a761-7e3094bca10e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learn to ask for feedback. \"What could I do better?\" Most people avoid criticism. Seeking it makes you grow twice as fast.",
+   "media_id": "40435558-aca9-4f72-8df9-554236de7c5e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Show up early and prepared. To meetings, interviews, dates. Being reliable and ready is surprisingly rare in your 20s. Little by little, it adds up.",
+   "media_id": "407c1e17-91e7-4c86-9f63-8f972f212c16"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Read more than you scroll. I do five minutes a day of history, art or science, and it gives me ideas and stories most people simply don't have.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It gives me ideas and stories most people simply don't have.",
+   "media_id": "f107066d-f9df-49ea-bdce-8e378629b8e1"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Build real friendships with older people. Mentors, bosses, family friends. Their experience can save you years of mistakes.",
+   "media_id": "409083fd-217f-4a5d-9f7d-d24e03cf9d52"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be kind when it's not expected. In a competitive world, generosity stands out more than any achievement on your CV. Kindness is remembered long after titles are forgotten.",
+   "media_id": "40c7d92f-0dc2-4a1a-b1c2-95582b99f1cd"
+  }
+ ]
+}

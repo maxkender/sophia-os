@@ -18,7 +18,7 @@ Deno.test("textes du doublement", () => {
 });
 
 Deno.test("réponse courte à la proposition, toutes langues", () => {
-  for (const m of ["Yes!", "yes please", "Oui", "Evet", "sí", "Ja", "ok 👍", "Hi, yes", "yes, thanks"]) {
+  for (const m of ["Yes!", "yes please", "Oui", "Evet", "sí", "Ja", "ok 👍", "Hi, yes", "yes, thanks", "JAH", "Jā"]) {
     assertEquals(reponseDouble(m.replace(" please", "")), "oui", m);
   }
   for (const m of ["No", "non merci", "Hayır", "no thanks"]) assertEquals(reponseDouble(m), "non", m);

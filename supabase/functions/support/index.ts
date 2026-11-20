@@ -8,7 +8,7 @@ import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { type CasFin, estDemandePosteur, OBJET_FIN, raisonFixe, texteCompteArrete, texteFin } from "../_shared/fin_collaboration.ts";
 import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rapport_samedi.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
-import { reponseDouble, TEXTE_REFUS_DOUBLE, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "../_shared/doublement.ts";
+import { lundiEnClair, reponseDouble, TEXTE_REFUS_DOUBLE, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "../_shared/doublement.ts";
 import {
   type CasRuul,
   decisionUpwork,
@@ -840,6 +840,8 @@ export interface PlanRegles {
   doublon_de: string | null;
   incident: { cle: string; titre: string; groupe_seul: boolean } | null;
   arret: boolean;
+  /** 21/11 (Max) : fin immédiate (réglage arret_immediat) : texte de fin envoyé, arrêt créé (arrets) après la réponse. */
+  arret_immediat?: { en: string } | null;
   incoherences: string[];
   statut_posteur: string;
   resume: string | null;
@@ -1160,6 +1162,13 @@ async function doublesDemarrages(db: Db, simuler: boolean) {
   return { ok: true, simulation: simuler, ...bilan };
 }
 
+const TEXTE_FIN_IMMEDIAT = "We're ending our collaboration today, thank you for your understanding.";
+
+async function reglageVrai(db: Db, cle: string): Promise<boolean> {
+  const { data } = await db.from("reglages").select("valeur").eq("cle", cle).maybeSingle();
+  return data?.valeur === true || data?.valeur === "on";
+}
+
 const TEXTE_HANDLE_INCONNU = "Could you send us your TikTok handle so we can find your account?";
 
 /** 21/11 : « envoyée par email » sur le dernier message du bot (ou de l'équipe) d'une demande. */
@@ -1415,6 +1424,15 @@ async function appliquerRegles(
       if (arretDejaDemande) {
         fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
         plan.cas = "arret";
+      } else if (demandeArret && s.statut === "actif" && o.poster && await reglageVrai(db, "arret_immediat")) {
+        // 21/11 (Max) : demande claire = fin immédiate : le message de fin (avec la dernière semaine si elle est due),
+        // puis l'arrêt (arrets) : posteur et comptes désactivés, Slack, relances coupées, contrat fermé après la paie.
+        const due = s.a_payer.length > 0 || (o.etat.posts_semaine?.publies ?? 0) > 0;
+        const en = TEXTE_FIN_IMMEDIAT + (due ? ` Your last week will of course be paid on ${lundiEnClair(lundiQuiSuit(new Date()))}.` : "");
+        fixe(en, "arret");
+        plan.cas = "arret";
+        plan.arret_immediat = { en };
+        plan.resume = "Le posteur a demandé l'arrêt : fin immédiate.";
       } else if (demandeArret && s.statut === "actif") {
         // 18/11 (Max) : la demande d'arrêt va directement au Kill du samedi (pré-coché), rien n'est fermé avant.
         // 19/11 (Max) : une réponse qui dit la vraie situation : traitée samedi, payée lundi, arrêter de poster samedi.
@@ -1513,6 +1531,19 @@ async function apresDemande(
       fait.push("rattachée à la demande d'origine (doublon)");
     }
     if (plan.incident) fait.push(await incidentAjouter(db, o.poster, o.demande, plan.incident, d.categorie));
+    if (o.poster && plan.arret_immediat) {
+      // La réponse (le message de fin) est déjà partie : elle devient aussi la page de fin, notée envoyée (le passage
+      // des textes de fin ne la renvoie pas), puis l'arrêt est créé.
+      const { data: lg } = await db.from("support_demandes").select("langue, bot_reponse").eq("id", o.demande).maybeSingle();
+      await db.rpc("texte_poster_ecrire", { p_poster: o.poster, p_cle: "fin", p_en: plan.arret_immediat.en, p_texte: String(lg?.bot_reponse ?? plan.arret_immediat.en), p_langue: (lg?.langue as string | null) ?? null });
+      await db.rpc("texte_poster_envoye", { p_poster: o.poster, p_cle: "fin", p_erreur: null });
+      const { data: deja } = await db.from("arrets").select("id").eq("poster_id", o.poster).is("annule_at", null).in("statut", ["a_faire", "fait"]).limit(1);
+      if (!deja?.length) {
+        const { error } = await db.from("arrets").insert({ poster_id: o.poster, source: "stop_posteur", motif: `Demande du posteur : ${o.texte.slice(0, 300)}` });
+        fait.push(error ? `arrêt : ${error.message}` : "arrêt immédiat fait (OS, Slack, relances ; contrat fermé après la paie)");
+      } else fait.push("arrêt : déjà fait");
+      await db.from("support_demandes").update({ statut: "resolu", resolu_at: new Date().toISOString(), verdict_fermeture: "regle_bot" }).eq("id", o.demande);
+    }
     if (o.poster && plan.arret) {
       // 18/11 (Max) : demande d'arrêt notée (relances coupées, Kill pré-coché au samedi suivant) ; rien n'est fermé
       // maintenant : le samedi exécute le Kill, la confirmation part au posteur une fois l'arrêt fait (suiviSupport).

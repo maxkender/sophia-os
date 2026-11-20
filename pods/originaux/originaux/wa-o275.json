@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o275",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "221074fa-a000-4295-b200-f39a7c614f6f",
+ "titre": "psychology facts that will change how you see people #psychology #facts #humanbehavior #mindset #selfimprovement",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "138af0c6-65cb-4715-a9d5-400da16b2621"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 138af0c6). déclinaison G1 de « psychology facts that will change how you see people » (parent 221074fa). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "57420fea-05b7-4982-ad51-8758aa776a58",
+   "texte_overlay": "psychology facts that will\nchange how you see people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d4c1eebe-14b0-43ad-b3f9-be8f52e45713",
+   "texte_overlay": "the halo effect\n\nwe assume that someone good at one thing is good at everything. knowing this helps you judge people more fairly and see past a strong first impression of anyone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8b42e575-0e83-4f1e-ae7b-98e1a465bbd5",
+   "texte_overlay": "the reciprocity rule\n\nwhen someone is kind to us, we feel a strong, almost automatic urge to return it. small kind gestures build far more lasting goodwill than big impressive ones ever do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fce98740-52bc-4d15-a522-3a9cf377115e",
+   "texte_overlay": "the curiosity effect\n\nwe see curious people as warmer and easier to trust, so learning a little each day quietly changes how people see you. curiosity is one of the warmest traits you can have.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/4.jpg",
+   "texte_sophia": "the curiosity effect\n\nwe see curious people as warmer. i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and people now find me so much easier to talk to."
+  },
+  {
+   "position": 5,
+   "media_id": "8cbacc03-b99f-42bb-87c2-be446a4cd941",
+   "texte_overlay": "the mere exposure effect\n\nwe tend to like things simply because we see them often. that's why familiar faces feel friendlier, and why showing up regularly matters so much more than you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ef1b239b-b0b4-498f-ba1b-1bbb9c3155d3",
+   "texte_overlay": "the spotlight effect\n\npeople notice your mistakes far less than you think. everyone is busy worrying about their own spotlight, so you can relax and stop overthinking yours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/6.jpg"
+  }
+ ]
+}

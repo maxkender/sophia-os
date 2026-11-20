@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o272",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d0724c7d-49ae-476e-8dbe-98c3023b8337",
+ "titre": "hobbies that make you addicted to discipline #discipline #hobbies #habits #selfimprovement #motivation",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "b3df0deb-11c0-49cb-a3d1-4d6b7629b3d1"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, b3df0deb). déclinaison G2 de « hobbies that make discipline feel like an addiction » (parent d0724c7d). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dbe872a0-d673-4410-9580-f5b0c601de35",
+   "texte_overlay": "hobbies that make you\naddicted to discipline",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "45f1bc87-46de-4afe-85fe-26a287234789",
+   "texte_overlay": "logging your runs\n\nrun three times a week and write every run in a notebook. watching your times slowly drop is more addictive than any screen, and it keeps you going week after week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "33997bce-5a28-4ef5-818b-cc13e726ba79",
+   "texte_overlay": "one song a month\n\nlearn one full song on an instrument every month. the moment you finally play it through without a mistake is a rush that makes you want to practise more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fc3f9e03-8e38-413a-aadc-4752d5f01529",
+   "texte_overlay": "a daily learning streak\n\nlearn something new for 5 minutes a day and never break the streak. protecting a small daily streak trains discipline faster than any big ambitious plan.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/4.jpg",
+   "texte_sophia": "a daily learning streak\n\ni keep a daily learning streak. the Sophia app turns it into one short lesson a day, a planet or a myth, and not wanting to break that streak made me disciplined everywhere."
+  },
+  {
+   "position": 5,
+   "media_id": "8817f475-f56b-4444-962d-c4cfa5e53373",
+   "texte_overlay": "growing from seed\n\ngrow vegetables from seed on a balcony or in a garden. caring for them every day and waiting patiently teaches your brain that slow effort really pays.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "35354789-f4d7-4bca-ba64-18d3b5fb58bb",
+   "texte_overlay": "cold morning walks\n\ngo for a twenty minute walk every morning before breakfast, even in winter. doing something hard first thing makes the rest of the day feel so much easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/6.jpg"
+  }
+ ]
+}

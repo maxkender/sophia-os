@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o271",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "36aef349-b10a-4ceb-8a81-c92f0977a1a1",
+ "titre": "hobbies that build quietly unshakeable confidence #confidence #hobbies #selfimprovement #mindset #selfrespect",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "2f705994-b700-44cd-877c-87ad1e88040f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 2f705994). déclinaison G2 de « hobbies that will make you dangerously confident » (parent 36aef349). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7ea89a0f-9266-4687-a0ad-d22def0f8dcf",
+   "texte_overlay": "hobbies that build quietly\nunshakeable confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5ff2abe9-61db-493e-b8af-658377a3d8ff",
+   "texte_overlay": "saying i don't know\n\nnext time, say i don't know out loud instead of nodding along. people trust you more when they see you're comfortable admitting what you haven't learned yet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d677a70-9670-4a82-879c-131c928824c9",
+   "texte_overlay": "apologising once\n\nwhen you're wrong, apologise once, briefly and without long excuses. a short, honest sorry shows strength, while a long, nervous one only sounds like begging.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "744d547b-1f21-4abd-9451-e31a1cf1840a",
+   "texte_overlay": "learning what you pretend to know\n\nspend 5 minutes a day on something you always pretend to understand, like the stock market or black holes. understanding things for real makes you so much more confident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/4.jpg",
+   "texte_sophia": "learning what you pretend to know\n\ni used to nod along to things i didn't understand. now i spend 5 minutes a day on one lesson in the Sophia app, black holes or the stock market, and i stopped pretending."
+  },
+  {
+   "position": 5,
+   "media_id": "d5d46e53-73a3-4bdd-98f0-449f74fb062d",
+   "texte_overlay": "asking directly\n\nfor one week, ask for exactly what you want instead of hinting: the window seat, more time, a day off. hints get ignored, but clear requests get answered.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "adbbbd81-550e-483d-a49d-86894617e800",
+   "texte_overlay": "laughing at yourself\n\nwhen you trip, spill something or say something silly, laugh first. someone who can laugh at their own mistakes looks completely at ease in their skin.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/6.jpg"
+  }
+ ]
+}

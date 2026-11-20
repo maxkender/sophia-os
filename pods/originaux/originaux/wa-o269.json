@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o269",
+ "type_bleo": "full_test",
+ "titre": "signs you're a people pleaser and how to stop #peoplepleaser #boundaries #selfrespect #mentalhealth #selfimprovement",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "be8abcd5-6a13-49c3-8184-b8c7e8ba6081"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, be8abcd5). full test BLEO : accroche jamais faite (format « signs you're a X and how to stop »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1d5fa2f-1988-4e2b-a721-ad0ee9ae3d11",
+   "texte_overlay": "signs you're a people pleaser\nand how to stop",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "914495d5-e109-4242-bd81-269ca1e1f135",
+   "texte_overlay": "you say yes too fast\n\nyou agree before you've even thought about it. next time, say let me check and get back to you, and give yourself a minute to decide what you really want to do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5faf5885-a67b-4f4f-b294-11334a558c92",
+   "texte_overlay": "you over explain\n\na simple no turns into five reasons and an apology. try one short, kind sentence instead, and notice that nobody actually needs the long explanation at all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9587148b-f37f-4e86-a03b-41d405ce564e",
+   "texte_overlay": "you fill your mind with others\n\npeople pleasers spend all their thoughts on other people's moods. give some of that attention back to yourself and your own interests, like learning something new just for you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/4.jpg",
+   "texte_sophia": "you fill your mind with others\n\ni used to think only about what others wanted. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, just for me, and it reminds me i matter too."
+  },
+  {
+   "position": 5,
+   "media_id": "d199d04d-9433-4c0f-8e48-5cfeef06f387",
+   "texte_overlay": "you hide your opinion\n\nyou nod along even when you disagree. start small by sharing one honest opinion a day, kindly, and watch how most people simply listen and respect it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8acaea47-6d47-4da3-8425-15853d5af295",
+   "texte_overlay": "you feel guilty resting\n\nyou feel you must always be useful to someone. rest is not a reward you earn by pleasing everyone, it's something you deserve simply for being a human being.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/6.jpg"
+  }
+ ]
+}

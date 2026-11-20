@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 
 import { resoudreLiens } from "./api";
 import {
-  ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, modifierCarte,
+  ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, marquerPodz, modifierCarte,
   nomCarte, PREFIXE_LABEL, rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS, validerCarte,
 } from "./moodboard";
 import { lienCompte, nomLabelValide } from "./parse";
@@ -315,7 +315,9 @@ export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }:
       if (!handles.length) throw new Error("Aucun lien TikTok reconnu.");
       const carte = valeur === NOUVEAU ? await creerCarte({ nom, section: apps[0] ?? "sophia", description }) : await carteChoisie(valeur, cartes);
       const sections = apps.length ? apps : carte && carte.section !== "idees" ? [carte.section] : [];
-      const r = await ajouterComptes(handles, carte, sections, { a_podzer: podzer, remarques: rem });
+      const r = await ajouterComptes(handles, carte, sections, { remarques: rem });
+      // « À podzer » se marque sur le label choisi (0786), plus sur chaque compte.
+      if (podzer && carte && !carte.a_podzer) await marquerPodz(carte.id, true);
       setBilan(`${r.crees.length} ajouté${r.crees.length > 1 ? "s" : ""}${r.deja.length ? `, ${r.deja.length} déjà dans la Bible (rangé${r.deja.length > 1 ? "s" : ""} ici)` : ""}. Les miniatures arrivent dans une minute.`);
       setTexte("");
       setRemarques({});
@@ -361,9 +363,12 @@ export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }:
 
           <div className="grid gap-2 sm:grid-cols-[1fr_auto] sm:items-center">
             <ChoixCarte cartes={cartes} valeur={valeur} onChange={setValeur} sections={apps} labelsLibres={labelsSansBloc(labels, cartes)} />
-            <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-stone-200 px-3 py-1.5 text-sm dark:border-stone-700">
-              <input type="checkbox" checked={podzer} onChange={(e) => setPodzer(e.target.checked)} className="size-4 accent-teal-600" />
-              À podzer
+            <label
+              className={cn("flex items-center gap-2 rounded-lg border border-stone-200 px-3 py-1.5 text-sm dark:border-stone-700", valeur ? "cursor-pointer" : "cursor-not-allowed text-stone-400")}
+              title={valeur ? "Ce label est à faire en podz : ses comptes ne seront pas importés." : "Choisis d'abord un label : « à podzer » se marque sur le label, pas sur le compte."}
+            >
+              <input type="checkbox" checked={podzer && Boolean(valeur)} disabled={!valeur} onChange={(e) => setPodzer(e.target.checked)} className="size-4 accent-teal-600" />
+              Label à podzer
             </label>
           </div>
           {valeur === NOUVEAU && <NouveauLabel section={apps[0] ?? "sophia"} onSection={(s) => setApps([s])} nom={nom} onNom={setNom} description={description} onDescription={setDescription} />}

@@ -32,10 +32,11 @@ const neuve = (o: Partial<SourceNeuve>): SourceNeuve => ({
   compteReferenceId: "s1", handle: "une.source", essais: 0, echec: null, lanceeLe: null, releve: false, enTraitement: 0, ...o,
 });
 const carte = (o: Partial<CarteLabel>): CarteLabel => ({
-  id: "k1", nom: "smart_girl", titre: null, section: "sophia", badge: "existe", description_da: null, label_id: "L1", ordre: 1, statut: "valide", ...o,
+  id: "k1", nom: "smart_girl", titre: null, section: "sophia", badge: "existe", description_da: null, label_id: "L1", ordre: 1, statut: "valide",
+  a_podzer: false, podz_valide_at: null, ...o,
 });
 const compte = (o: Partial<CompteBible>): CompteBible => ({
-  id: "c1", handle: "une.source", etape: "prochain_batch", label_propose_id: "k1", autres_cartes: [], note_import: null, remarque: null, a_podzer: false,
+  id: "c1", handle: "une.source", etape: "prochain_batch", label_propose_id: "k1", autres_cartes: [], note_import: null, remarque: null,
   posts: [], miniatures_statut: "ok", miniatures_erreur: null, vues_mediane: null, meilleur_post_vues: null, abonnes: null, ajoute_at: "2026-11-19T10:00:00Z", ...o,
 });
 
@@ -230,28 +231,34 @@ describe("un compte de la Bible face à sa source", () => {
     const micabo = carte({ id: "k2", nom: "study_notes", section: "micabo", badge: "nouveau", label_id: null, statut: "a_valider" });
     const dejaSource = { labelIds: ["L9"], labels: ["classic_study"] };
     expect(etapeAvantImport(compte({ label_propose_id: "k2" }), micabo, dejaSource)).toBe("prochain_batch");
-    expect(blocageImport(compte({ label_propose_id: "k2" }), micabo, dejaSource)).toBe("deja_source");
+    expect(blocageImport(micabo, dejaSource)).toBe("deja_source");
     expect(etapeAvantImport(compte({}), carte({ label_id: "L2" }), dejaSource)).toBe("prochain_batch");
   });
 
-  it("ce qui bloque un compte du batch : podz, pas de label, label à créer ; sinon prêt", () => {
-    expect(blocageImport(compte({ a_podzer: true }), carte({}), null)).toBe("podz");
-    expect(blocageImport(compte({ label_propose_id: null }), null, null)).toBe("sans_label");
-    expect(blocageImport(compte({}), carte({ label_id: null, badge: "nouveau", section: "micabo" }), null)).toBe("label_a_creer");
+  it("ce qui bloque un compte du batch : label à podzer, pas de label, label à créer ; sinon prêt", () => {
+    // « À podzer » est sur le LABEL : tous ses comptes sont bloqués, même si le label existe dans l'OS.
+    expect(blocageImport(carte({ a_podzer: true }), null)).toBe("podz");
+    expect(blocageImport(carte({ a_podzer: true, label_id: null, badge: "nouveau" }), null)).toBe("podz");
+    expect(blocageImport(null, null)).toBe("sans_label");
+    expect(blocageImport(carte({ label_id: null, badge: "nouveau", section: "micabo" }), null)).toBe("label_a_creer");
     // Atala existe dans l'OS : sa carte attend son label, plus son appli.
-    expect(blocageImport(compte({}), carte({ label_id: null, badge: "propose", section: "atala" }), null)).toBe("label_a_creer");
-    expect(blocageImport(compte({}), carte({}), null)).toBe("pret");
+    expect(blocageImport(carte({ label_id: null, badge: "propose", section: "atala" }), null)).toBe("label_a_creer");
+    expect(blocageImport(carte({}), null)).toBe("pret");
   });
 
-  it("un compte à podzer validé quitte les onglets d'avant import : il n'est jamais importé", () => {
-    const valide = compte({ a_podzer: true, etape: "importe" });
+  it("un label à podzer validé : ses comptes quittent les onglets d'avant import, ils ne sont jamais importés", () => {
+    const valide = carte({ a_podzer: true, podz_valide_at: "2026-11-20T09:00:00Z" });
     expect(estPodzValide(valide)).toBe(true);
-    expect(etapeAvantImport(valide, carte({}), null)).toBeNull();
-    // Pas encore validé : il reste dans son onglet. À la corbeille, ou plus « à podzer » : ce n'est plus un podz validé.
-    expect(estPodzValide(compte({ a_podzer: true }))).toBe(false);
-    expect(etapeAvantImport(compte({ a_podzer: true }), carte({}), null)).toBe("prochain_batch");
-    expect(estPodzValide(compte({ a_podzer: true, etape: "importe", supprime_at: "2026-11-19T10:00:00Z" }))).toBe(false);
-    expect(estPodzValide(compte({ a_podzer: false, etape: "importe" }))).toBe(false);
+    expect(etapeAvantImport(compte({}), valide, null)).toBeNull();
+    expect(etapeAvantImport(compte({ etape: "a_importer" }), valide, null)).toBeNull();
+    // À podzer mais pas encore validé : ses comptes restent dans leur onglet (bloqués à l'import).
+    const propose = carte({ a_podzer: true });
+    expect(estPodzValide(propose)).toBe(false);
+    expect(etapeAvantImport(compte({}), propose, null)).toBe("prochain_batch");
+    // Plus à podzer (la marque retirée efface la validation), sans label, ou jamais marqué : pas un podz.
+    expect(estPodzValide(carte({ a_podzer: false, podz_valide_at: "2026-11-20T09:00:00Z" }))).toBe(false);
+    expect(estPodzValide(null)).toBe(false);
+    expect(estPodzValide(carte({}))).toBe(false);
   });
 
   it("les labels de l'OS qui n'ont pas encore de bloc dans la Bible", () => {
@@ -342,12 +349,13 @@ describe("les règles, avec les vrais seuils", () => {
     expect(regleDeLaVue("weekly", REGLES)).toContain("celles dont le r dépasse 0,95, ou 0,95 face à leur label, qui ont un post à 100 000 vues, ou moins de 5 posts mesurés");
     expect(regleDeLaVue("weekly", REGLES)).toContain("Les mises à jour partent ensuite chaque matin à 6 h 37, 8 sources par jour");
     expect(regleDeLaVue("propositions", REGLES)).toContain("l'agent éclaireur trouve chaque jour");
-    expect(regleDeLaVue("prochain_batch", REGLES)).toContain("Les comptes à podzer ne partent pas : valide-les");
+    expect(regleDeLaVue("prochain_batch", REGLES)).toContain("Un label marqué « à podzer » ne s'importe pas : valide son podz depuis l'en-tête de son bloc");
+    expect(regleDeLaVue("a_importer", REGLES)).toContain("se marque « À podzer » sur l'en-tête de son bloc");
     expect(regleDeLaVue("a_importer", REGLES)).toContain("s'importe d'un clic");
     expect(regleDeLaVue("en_import", REGLES)).toContain("Une source part dès qu'elle est créée, sans attendre les autres");
     expect(regleDeLaVue("en_import", REGLES)).toContain("Seules les mises à jour de la semaine sont étalées, 8 sources par jour.");
     expect(regleDeLaVue("prochain_batch", REGLES)).toContain("leur import part tout de suite");
-    expect(regleDeLaVue("weekly", REGLES)).toContain("Les comptes à podzer validés y figurent à part, à titre indicatif.");
+    expect(regleDeLaVue("weekly", REGLES)).toContain("Les labels à podzer validés y figurent à part, avec leurs comptes, à titre indicatif.");
     expect(regleDeLaVue("essai", REGLES)).toContain("sinon elle va dans « Essai raté » (gardée, plus importée)");
     expect(regleDeLaVue("essai_rate", REGLES)).toContain("avec 10 posts mesurés chez nous, leur r est resté sous 0,95, et sous 0,95 face à leur label");
     expect(regleDeLaVue("essai_rate", REGLES)).toContain("Rien n'est effacé : la source reste, ses slideshows validés restent en stock");

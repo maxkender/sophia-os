@@ -9791,6 +9791,11 @@ export const fr = {
       warmupEnCoursUgc: "Warm-up en cours : ta première vidéo arrive le {{jour}}",
       warmupEnCoursAide:
         "D'ici là, utilise TikTok normalement chaque jour : scrolle, like, abonne-toi. Ne poste jamais. Rien à poster pour l'instant : c'est normal.",
+      gelTitre: "Warm-up prolongé : aucun post à publier pour le moment",
+      gelAide:
+        "Tes nouveaux posts sont en préparation. D'ici là, utilise TikTok chaque jour sur ce compte : scrolle, like et suis des comptes de ta niche ({{niche}}). Ne publie rien, et garde tes anciens posts. Ta paie ne change pas. On te prévient ici dès que tes posts sont prêts.",
+      gelAideSansNiche:
+        "Tes nouveaux posts sont en préparation. D'ici là, utilise TikTok chaque jour sur ce compte : scrolle, like et suis des comptes de ta niche. Ne publie rien, et garde tes anciens posts. Ta paie ne change pas. On te prévient ici dès que tes posts sont prêts.",
       caseWarmup: "Warm-up",
       casePremiersPosts: "PREMIERS POSTS",
       legendeWarmup: "🔥 Warm-up : utilise TikTok normalement, ne poste jamais. 🚀 Premiers posts : ils arrivent ce matin-là.",

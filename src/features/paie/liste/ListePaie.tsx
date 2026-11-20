@@ -19,6 +19,7 @@ import { BarreChargement } from "@/components/ui/progress";
 import { lireBonus, lireReglagesBonus, marquerBonusPaye } from "@/features/bonus/api";
 import { prochainLundiBonus } from "@/features/bonus/logique";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
+import { BadgePosteur } from "@/features/ruul/BadgePlateforme";
 import { marquerPayee, marquerSemaineSuivante } from "@/features/paie/api";
 import { dollars } from "@/features/paie/logique";
 import { Case, CelluleContrat } from "@/features/paie/TableauPaie";
@@ -295,6 +296,7 @@ function LignePaie({
       <td className={cn(TD, "font-medium")}>
         <span className="inline-flex items-center gap-1.5">
           {l.poster_nom}
+          <BadgePosteur posterId={l.poster_id} />
           <IconeContrat lien={l.contrat_url} />
         </span>
         {l.exclu && (

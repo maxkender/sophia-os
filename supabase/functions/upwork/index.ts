@@ -3002,6 +3002,17 @@ async function testerDroits(supabase: Supabase, par: string | null) {
 // ---------------------------------------------------------------------------
 
 /** Une ÉCRITURE GraphQL : un seul essai, journalisée, jamais relancée. */
+/** 21/11 : le refus d'une écriture Upwork pour un posteur payé par Ruul. */
+const POSTEUR_RUUL = "posteur Ruul : jamais de contrat, de milestone ni de message Upwork";
+
+/** Le contrat n'appartient-il qu'à des posteurs RUUL (au moins un, aucun posteur Upwork) ? */
+async function contratDePosteurRuul(supabase: Supabase, contrat: string | null | undefined): Promise<boolean> {
+  if (!contrat) return false;
+  const { data, error } = await supabase.from("profiles").select("canal_paie").eq("upwork_contract_id", contrat);
+  if (error || !data?.length) return false;
+  return data.every((p) => p.canal_paie === "ruul");
+}
+
 async function ecrire(
   supabase: Supabase,
   o: {
@@ -3019,6 +3030,12 @@ async function ecrire(
 ): Promise<{ data: any; erreur: string | null }> {
   // Prompt 22 : le grand interrupteur passe avant tout (rien n'est écrit sur Upwork).
   if (await bloquer(supabase, { fonction: "upwork", action: o.action, cible: o.contrat })) return { data: null, erreur: PAUSE };
+  // 21/11 (Max) : une plateforme par posteur ; un posteur RUUL n'a jamais de contrat, de milestone ni de message Upwork.
+  if (await contratDePosteurRuul(supabase, o.contrat)) {
+    await noter(supabase, { par: o.par, action: o.action, contrat: o.contrat, montant: o.montant ?? null,
+      requete: { refuse: "posteur Ruul" }, reponse: null, erreur: POSTEUR_RUUL, statut: null, duree: 0 });
+    return { data: null, erreur: POSTEUR_RUUL };
+  }
   const jeton = await jetonValide(supabase, o.par, o.compte);
   const debut = Date.now();
   let statut: number | null = null;

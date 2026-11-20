@@ -32,7 +32,7 @@ export function texteTicket(d: {
   const court = citation.length > 400 ? `${citation.slice(0, 400)}…` : citation;
   const lien = lienMessageSlack(d.slack_canal, d.slack_ts);
   const lignes = [
-    `${ENTETE_TICKET} — ${d.nom ?? "Posteur inconnu"} (${d.plateforme === "ruul" ? "Ruul" : "Upwork"}${d.categorie ? ` · ${d.categorie}` : ""})`,
+    `${ENTETE_TICKET} — ${d.nom ?? "Posteur inconnu"} [${d.plateforme === "ruul" ? "RUUL" : "UPWORK"}]${d.categorie ? ` (${d.categorie})` : ""}`,
     `« ${court} »`,
     ...(d.note?.trim() ? [`Note de Max : ${d.note.trim()}`] : []),
     ...(lien ? [`Message d'origine : ${lien}`] : []),

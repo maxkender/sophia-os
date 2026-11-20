@@ -1,4 +1,5 @@
 import * as React from "react";
+import { BadgePosteur } from "@/features/ruul/BadgePlateforme";
 import { DecisionPreparee } from "@/features/ckd/decisions/DecisionPreparee";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
@@ -1806,7 +1807,7 @@ export function AdminPostersPage() {
       >
         <div className="flex items-start justify-between gap-2">
           <div className="flex min-w-0 flex-wrap items-center gap-2">
-            <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span>
+            <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span> <BadgePosteur posterId={poster.id} />
             {badgeManager(poster.role) && (
               <Badge variant="outline">{badgeManager(poster.role)}</Badge>
             )}
@@ -1843,7 +1844,7 @@ export function AdminPostersPage() {
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span>
+              <span className="text-sm font-semibold tracking-tight">{nomAffiche(poster)}</span> <BadgePosteur posterId={poster.id} />
               {!poster.is_active && <Badge variant="secondary">{t("posters.disabled")}</Badge>}
               {cohorte && semaine !== null && (
                 <Badge variant="outline">

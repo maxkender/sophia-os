@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { BadgePlateforme } from "@/features/ruul/BadgePlateforme";
 import * as React from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -219,7 +220,7 @@ function CarteARepondre({ l }: { l: LigneToutes }) {
           <div className="flex flex-wrap items-center gap-2">
             <b>{l.nom}</b>
             {l.email && <span className="text-muted-foreground text-xs">{l.email}</span>}
-            {l.plateforme && <Badge variant="outline">{l.plateforme === "ruul" ? "Ruul" : "Upwork"}</Badge>}
+            {l.plateforme && <BadgePlateforme ruul={l.plateforme === "ruul"} />}
             <Badge variant="outline">{SOURCES[l.source] ?? l.source}</Badge>
             <ChezBot d={l} />
             <QuiAAgi d={l} />

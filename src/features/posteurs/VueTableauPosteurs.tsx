@@ -1,4 +1,5 @@
 import * as React from "react";
+import { BadgePlateforme } from "@/features/ruul/BadgePlateforme";
 import { useQuery } from "@tanstack/react-query";
 import { ExternalLink, X } from "lucide-react";
 
@@ -221,7 +222,7 @@ function Case({ c, choix, taille }: { c: CompteTableau; choix: string | undefine
       </div>
       <div className="truncate opacity-85">
         {decision && <span className="font-bold" data-testid="choix-samedi">{kill ? "✕ " : "↻ "}{decision} · </span>}
-        {c.nom}{c.canal === "ruul" ? " · Ruul" : ""}
+        {c.nom} <BadgePlateforme ruul={c.canal === "ruul"} />
       </div>
     </div>
   );

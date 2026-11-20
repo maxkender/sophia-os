@@ -7,7 +7,7 @@ Deno.test("12/11 : le ticket de la Boîte (posteur, citation, lien Slack, lien S
     texte: "I'm getting the blank screen error again.", slack_canal: "C0CGA81NTDH", slack_ts: "1794391933.513679",
     note: "Écran blanc, 2e fois",
   }, "https://os.example/");
-  assert(t.startsWith(`${ENTETE_TICKET} — Leidy U. (Upwork · bug)`));
+  assert(t.startsWith(`${ENTETE_TICKET} — Leidy U. [UPWORK] (bug)`));
   assertStringIncludes(t, "« I'm getting the blank screen error again. »");
   assertStringIncludes(t, "Note de Max : Écran blanc, 2e fois");
   assertStringIncludes(t, "https://sophia-system.slack.com/archives/C0CGA81NTDH/p1794391933513679");
@@ -18,7 +18,7 @@ Deno.test("12/11 : sans message Slack, pas de lien ; une longue demande est coup
   assertEquals(lienMessageSlack(null, "1.2"), null);
   const t = texteTicket({ id: "x", nom: null, plateforme: "ruul", categorie: null, texte: "a".repeat(600) }, "https://os.example");
   assert(!t.includes("Message d'origine"));
-  assertStringIncludes(t, "Posteur inconnu (Ruul)");
+  assertStringIncludes(t, "Posteur inconnu [RUUL]");
   assertStringIncludes(t, "…");
 });
 

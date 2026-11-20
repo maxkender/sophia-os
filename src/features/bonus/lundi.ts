@@ -38,4 +38,6 @@ export const LIBELLE_TYPE: Record<LigneBonusLundi["type"], string> = {
   comment_master: "Comment Master",
   parrainage: "Parrainage",
   manuel: "Bonus",
+  // 20/11 (Max) : le bonus du questionnaire « top posters » (5 $).
+  questionnaire: "Bonus questionnaire",
 };

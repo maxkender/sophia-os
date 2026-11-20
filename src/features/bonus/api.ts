@@ -86,7 +86,7 @@ export async function lierRecrue(referralId: string, recrueId: string | null): P
 /** 0564 : une ligne de la carte « Bonus de lundi ». */
 export interface LigneBonusLundi {
   id: string;
-  type: "comment_master" | "parrainage" | "manuel";
+  type: "comment_master" | "parrainage" | "manuel" | "questionnaire";
   nom: string;
   detail: string;
   quantite: number | null;
@@ -164,7 +164,7 @@ export async function envoyerBonus(lundi: string): Promise<{ ok: boolean; payes?
 /** 0569 : un bonus envoyé (payé ou en échec). */
 export interface BonusEnvoye {
   id: string;
-  type: "comment_master" | "parrainage" | "manuel";
+  type: "comment_master" | "parrainage" | "manuel" | "questionnaire";
   nom: string;
   detail: string;
   montant: number;

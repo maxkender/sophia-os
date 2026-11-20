@@ -1,0 +1,1338 @@
+{
+ "id": "sg-026",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 que les gens cultivés maîtrisent",
+  "en": "10/10 skills cultured people master",
+  "de": "10/10-Skills, die gebildete Menschen beherrschen",
+  "it": "Abilità 10/10 che le persone colte padroneggiano",
+  "pt-BR": "Habilidades 10/10 que pessoas cultas dominam",
+  "tr": "Kültürlü insanların ustalaştığı 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care oamenii culți le stăpânesc",
+  "cs": "Dovednosti 10/10, které ovládají vzdělaní lidé"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 que les gens cultivés maîtrisent #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills cultured people master #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die gebildete Menschen beherrschen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che le persone colte padroneggiano #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que pessoas cultas dominam #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kültürlü insanların ustalaştığı 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care oamenii culți le stăpânesc #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které ovládají vzdělaní lidé #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Full test du 20/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 que les gens cultivés maîtrisent ». Couverture brun/noir, « CULTIVÉS » en brun géant. Étapes : comprendre l'art, reconnaître les styles d'architecture, Sophia en étape 4 (cta C, « BRILLER / EN SOCIÉTÉ »), écouter la musique classique, connaître la mythologie grecque, comprendre la philosophie. 40 vraies vidéos natives (musées, chaînes culturelles, profs) ; écartées : les chaînes traduites (Sahari en fr/it, hello erika, Era Umană/İnsan Çağı/Lidská Éra, KhanAcademyTurkce). « Situer les grandes époques » remplacée par la mythologie (pas de vidéo native correcte en cs).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE LES GENS",
+      "cap": 120
+     },
+     {
+      "t": "CULTIVÉS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "MAÎTRISENT",
+      "cap": 169
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "THAT",
+      "cap": 169
+     },
+     {
+      "t": "CULTURED",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "PEOPLE MASTER",
+      "cap": 130
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE GEBILDETE",
+      "cap": 120
+     },
+     {
+      "t": "MENSCHEN",
+      "couleur": "brun",
+      "cap": 230
+     },
+     {
+      "t": "BEHERRSCHEN",
+      "cap": 140
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CHE LE PERSONE",
+      "cap": 110
+     },
+     {
+      "t": "COLTE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "PADRONEGGIANO",
+      "cap": 120
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE PESSOAS",
+      "cap": 130
+     },
+     {
+      "t": "CULTAS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "DOMINAM",
+      "cap": 169
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KÜLTÜRLÜ",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "İNSANLARIN",
+      "cap": 150
+     },
+     {
+      "t": "USTALAŞTIĞI",
+      "cap": 130
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "PE CARE OAMENII",
+      "cap": 105
+     },
+     {
+      "t": "CULȚI",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "LE STĂPÂNESC",
+      "cap": 130
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "KTERÉ OVLÁDAJÍ",
+      "cap": 115
+     },
+     {
+      "t": "VZDĚLANÍ",
+      "couleur": "brun",
+      "cap": 230
+     },
+     {
+      "t": "LIDÉ",
+      "cap": 169
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPRENDRE",
+     [
+      {
+       "t": "L'ART",
+       "couleur": "#c08a3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "79bCNQiFI-w",
+     "titre": "Comment analyser une œuvre d'art, un tableau ? - Comprendre #1",
+     "chaine": "Studiolo",
+     "vues": "72 k vues",
+     "date": "il y a 6 ans",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kyGQP3-MdwypQwsvoVbMaXCn7Rj04BGnWt61lLDNXS5g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND",
+     [
+      {
+       "t": "ART",
+       "couleur": "#c08a3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AZoKElBwKCs",
+     "titre": "How to Look at an Artwork",
+     "chaine": "Phoenix Art Museum",
+     "vues": "242K views",
+     "date": "12 years ago",
+     "duree": "6:03",
+     "avatar": "https://yt3.ggpht.com/cJJ0V4nT05XTR6itYM3pd6HK4AJghKFW65Ge9HGKR0G65TUElSEg9KrBnMeZ3DRJudcYkT7R=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KUNST",
+       "couleur": "#c08a3e"
+      }
+     ],
+     "VERSTEHEN"
+    ],
+    "video": {
+     "id": "HLfyDNh788Y",
+     "titre": "Systematische Bildanalyse : Die Bildbeschreibung",
+     "chaine": "Der Kunsterklärer",
+     "vues": "284.385 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "10:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m6PS34Gol5pP_7khY_28xOQFMY_7coDQa9pL3d8TmuHQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAPIRE",
+     [
+      {
+       "t": "L'ARTE",
+       "couleur": "#c08a3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jm7jdgoRekA",
+     "titre": "I 7 ELEMENTI di un'opera d'arte | Quali sono? Come CAPIRE un'opera d'arte",
+     "chaine": "ArtandtheCities - Storia dell'arte e viaggi",
+     "vues": "15K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "9:43",
+     "avatar": "https://yt3.ggpht.com/m7aUOT_wKhx_uy3D0Kp-lC3wmoIxqSgmg6cWhAuFv1R-UOFxkZ77QmyNO6Q_uEELgJhjENzazQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER",
+     [
+      {
+       "t": "A ARTE",
+       "couleur": "#c08a3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sx7YADXwShs",
+     "titre": "Como analisar uma obra de arte?",
+     "chaine": "Art Talks",
+     "vues": "22 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/UirFhIS05eqdfljYGugvWseLdxmkQozXEOx9R1E3dwzJaLI0geMU5tvQ3zu5Eyq2J4wWs-mzsw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SANATI",
+       "couleur": "#c08a3e"
+      }
+     ],
+     "ANLAMAK"
+    ],
+    "video": {
+     "id": "dWg8mTs3nL0",
+     "titre": "RESİM NASIL OKUNUR ? / ÇOK ÖNEMLİ BİLGİLER",
+     "chaine": "Sanatın Gücü",
+     "vues": "30 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "12:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJrF8pd5bhGp6Tl5iMMWSX_ChdJefrSU-Xzf56fNyvF3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "ARTA",
+       "couleur": "#c08a3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RABHNb3KtD0",
+     "titre": "Ce vrea să spună Mona Lisa",
+     "chaine": "Zaiafet",
+     "vues": "92 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "28:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nT5M26_8AN9GZyCJxONHYqfli5Rm32zy9ppy-niD4OiA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ROZUMĚT",
+     [
+      {
+       "t": "UMĚNÍ",
+       "couleur": "#c08a3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VrgI1RxAZBw",
+     "titre": "Přehled uměleckých slohů | jak jdou po sobě | stručné znaky | vlastní poznatky",
+     "chaine": "Lenka Kopalova",
+     "vues": "69 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "15:59",
+     "avatar": "https://yt3.ggpht.com/GMZMV4PAbjd3i1mt3VEDvEGhLBQzA2xJwzLVG5MyvknZX_QFS29ZqlkQwlDuPwYTbHU7EMJt=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RECONNAÎTRE",
+     [
+      {
+       "t": "LES STYLES",
+       "couleur": "#b5523b"
+      }
+     ],
+     "D'ARCHITECTURE"
+    ],
+    "video": {
+     "id": "2Ls3gmDlpW8",
+     "titre": "HISTOIRE DES STYLES DECORATIFS du gothique à l'art nouveau",
+     "chaine": "Docteur Peinture",
+     "vues": "45 k vues",
+     "date": "il y a 3 ans",
+     "duree": "25:34",
+     "avatar": "https://yt3.ggpht.com/kWnyY9oEuraWyki9mp-GMmZQHX6D6A52FuCgN78CaaIzY9B7t7KGabWAmsZI9XDta_OTnP_Nmak=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPOT",
+     [
+      {
+       "t": "ARCHITECTURE",
+       "couleur": "#b5523b"
+      }
+     ],
+     "STYLES"
+    ],
+    "video": {
+     "id": "12__WSxFaaw",
+     "titre": "Every Architectural Style Explained In 15 Minutes",
+     "chaine": "Sahari",
+     "vues": "136K views",
+     "date": "1 year ago",
+     "duree": "15:12",
+     "avatar": "https://yt3.ggpht.com/3NixF4XHUg7QW5wIGbui8ijWCoYbeZW77VjqIUdQr7NAxCNrxnyMW0DkJG9xhTBILxnnhOcy8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "BAUSTILE",
+       "couleur": "#b5523b"
+      }
+     ],
+     "ERKENNEN"
+    ],
+    "video": {
+     "id": "S3gJgRCwPIs",
+     "titre": "So erkennst Du, ob ein Bauwerk zur Romanik, Gotik oder Renaissance gehört",
+     "chaine": "Die Klugscheisserin",
+     "vues": "170.841 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "4:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nKpitY4tbU1TvYxkJfwds4HewOj7KoKwMKsuHCpl_g3qg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "GLI STILI",
+       "couleur": "#b5523b"
+      }
+     ],
+     "ARCHITETTONICI"
+    ],
+    "video": {
+     "id": "peLaptrsO7M",
+     "titre": "differenze romanico-gotico",
+     "chaine": "Secondabis Socrate",
+     "vues": "35K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kAYCEMGaMSRteUTTSz13fw4jG_gesz53VyxvxNXdFW1A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "RECONHECER",
+     [
+      {
+       "t": "ESTILOS",
+       "couleur": "#b5523b"
+      }
+     ],
+     "ARQUITETÔNICOS"
+    ],
+    "video": {
+     "id": "dHJpy_KHzWA",
+     "titre": "Entendendo a Arquitetura - Como distinguir os estilos bizantino, românico e gótico",
+     "chaine": "Dani Porto",
+     "vues": "18 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lCbu5WpGkNjjfz7WnnJa7Gja-jhX4Gn6jG3-UN70IYA-E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "MİMARİ",
+       "couleur": "#b5523b"
+      }
+     ],
+     "ÜSLUPLARI",
+     "TANIMAK"
+    ],
+    "video": {
+     "id": "zfyMS0H7cBo",
+     "titre": "Mimari 101 - Olmaz Öyle Saçma Mimarlık - Ebru Tabak C. - B01",
+     "chaine": "Flu",
+     "vues": "265 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "14:24",
+     "avatar": "https://yt3.ggpht.com/IbuHZzUiXy5qGJfE8jvHvssIF-EpIxMNb4WgoZFv9N9__pLeWVY4ett0gC-cXZUp93Fw3XZ3tw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ RECUNOȘTI",
+     [
+      {
+       "t": "STILURILE",
+       "couleur": "#b5523b"
+      }
+     ],
+     "ARHITECTURALE"
+    ],
+    "video": {
+     "id": "0sBNrXoqNtc",
+     "titre": "Cum recunosti 15 stiluri arhitecturale ale secolului XX | Ep.3",
+     "chaine": "City Bites",
+     "vues": "18 K vizionări",
+     "date": "acum 3 luni",
+     "duree": "32:38",
+     "avatar": "https://yt3.ggpht.com/hEztOVcxk5zEP4w4eL71CI7fdLGB8fkaRe9H1XqknGovTrhZDb7SkVstQ5ZH6nBvNOLIz6P-HQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POZNAT",
+     [
+      {
+       "t": "STAVEBNÍ",
+       "couleur": "#b5523b"
+      }
+     ],
+     "SLOHY"
+    ],
+    "video": {
+     "id": "BFA_YuDhndg",
+     "titre": "Gotika   znaky",
+     "chaine": "Monika Fandáková",
+     "vues": "48 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "8:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lawQxmPSzpaaL9D6cwkmvDOVzNzFPlZ4xlrvwr__Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "BRILLER",
+     [
+      {
+       "t": "EN SOCIÉTÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SOUND",
+     [
+      {
+       "t": "SMART",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "IM GESPRÄCH",
+     [
+      {
+       "t": "GLÄNZEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "BRILLARE",
+     [
+      {
+       "t": "IN SOCIETÀ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "BRILHAR",
+     [
+      {
+       "t": "NAS CONVERSAS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SOHBETLERDE",
+     [
+      {
+       "t": "PARLAMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ STRĂLUCEȘTI",
+     [
+      {
+       "t": "ÎN SOCIETATE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZÁŘIT",
+     [
+      {
+       "t": "VE SPOLEČNOSTI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÉCOUTER",
+     [
+      {
+       "t": "LA MUSIQUE",
+       "couleur": "#2f5d9e"
+      }
+     ],
+     "CLASSIQUE"
+    ],
+    "video": {
+     "id": "YyhcxXYs2yQ",
+     "titre": "10 concepts essentiels [Les bases de la Musique Classique : NIVEAU 1]",
+     "chaine": "Val so Classic",
+     "vues": "77 k vues",
+     "date": "il y a 6 ans",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lZHKzcqyFFH-4HAsFWjCdWjxnlMEkIW0jv9k_pW6rWdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Écoute sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LISTEN TO",
+     [
+      {
+       "t": "CLASSICAL",
+       "couleur": "#2f5d9e"
+      }
+     ],
+     "MUSIC"
+    ],
+    "video": {
+     "id": "iJrI-PXYA_M",
+     "titre": "How to Listen to Classical Music: General Ideas",
+     "chaine": "Inside the Score",
+     "vues": "463K views",
+     "date": "8 years ago",
+     "duree": "8:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRh6povzHepGrolYlE7dvHfm_aTyal-kFVNfVrvRep808=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Listening over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KLASSISCHE",
+       "couleur": "#2f5d9e"
+      }
+     ],
+     "MUSIK HÖREN"
+    ],
+    "video": {
+     "id": "NTlYkBeOcsY",
+     "titre": "Epochen der Musikgeschichte: Klassik",
+     "chaine": "Musik mit Matthias",
+     "vues": "113.603 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "7:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCts49883ubXn0D2V0g00JaGfxd08i8dqO9b5aeVZ_JA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Hören über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ASCOLTARE",
+     [
+      {
+       "t": "LA MUSICA",
+       "couleur": "#2f5d9e"
+      }
+     ],
+     "CLASSICA"
+    ],
+    "video": {
+     "id": "6Dd6Ms0G9EY",
+     "titre": "Come si ascolta la \"Musica Classica\"? - VIDEO 1",
+     "chaine": "Diana Re",
+     "vues": "26K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4ROtvz8v1lZNtIFqjg2YAZ7r2VJcvtN7FVM-JkknkKqo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Ascolto di qualche settimana"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "OUVIR",
+     [
+      {
+       "t": "MÚSICA",
+       "couleur": "#2f5d9e"
+      }
+     ],
+     "CLÁSSICA"
+    ],
+    "video": {
+     "id": "TTsHI73XK3o",
+     "titre": "O Que Você Precisa Saber Antes de Ouvir Música Clássica",
+     "chaine": "Gramofone de Bolso",
+     "vues": "188 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "15:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZ_KKhxHerh56kUkglHLFTZn340-yIjWWQI_7Gnre82u8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Escuta ao longo de semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KLASİK MÜZİK",
+       "couleur": "#2f5d9e"
+      }
+     ],
+     "DİNLEMEK"
+    ],
+    "video": {
+     "id": "2gmadViLXFs",
+     "titre": "KLASİK MÜZİK TARİHİ (Orta Çağ, Rönesans, Barok, Klasik, Romantik, Çağdaş Dönemler) (O MÜZİK)",
+     "chaine": "OMÜZİKOKİTAP",
+     "vues": "33 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "14:06",
+     "avatar": "https://yt3.ggpht.com/6GgHynrLt2aswG74i4m9gJcdCf27w_3pnfWuzGzdF6M4ZL9s-pSMoLyDfkn5G7bh4q9y8L1cwqo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta dinleyerek"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ASCULȚI",
+     [
+      {
+       "t": "MUZICĂ",
+       "couleur": "#2f5d9e"
+      }
+     ],
+     "CLASICĂ"
+    ],
+    "video": {
+     "id": "DZc0lDYOb18",
+     "titre": "Barocul Muzical: Antonio Vivaldi & Johann Sebastian Bach: Educație muzicală / Muzică și mișcare",
+     "chaine": "Secretele muzicii (Klaudya)",
+     "vues": "19 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRVn9EM_xWjfJZaKAJJqKzXRRNxsKnzZf5lYoYPLGCNw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "ascultare câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POSLOUCHAT",
+     [
+      {
+       "t": "VÁŽNOU",
+       "couleur": "#2f5d9e"
+      }
+     ],
+     "HUDBU"
+    ],
+    "video": {
+     "id": "dLTIbGMdy_4",
+     "titre": "Dvořák: Novosvětská - Analýza a provedení (Česká studentská filharmonie)",
+     "chaine": "Česká filharmonie",
+     "vues": "109 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "1:39:31",
+     "avatar": "https://yt3.ggpht.com/9BcXAMavcjZ2TVRO9q55k6OV_Si3Sk8z3gE2sduzAtMfOQtJsG-54qR2iAsEaKR9jZWAdMFNSg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "poslech několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CONNAÎTRE",
+     [
+      {
+       "t": "LA MYTHOLOGIE",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "GRECQUE"
+    ],
+    "video": {
+     "id": "XYQ5GEFFmfA",
+     "titre": "L'HISTOIRE BORDELIQUE DE LA MYTHOLOGIE GRECQUE - DOC SEVEN",
+     "chaine": "Doc Seven",
+     "vues": "4,6 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "32:26",
+     "avatar": "https://yt3.ggpht.com/ObjZlE5C38vo0syeaQtuo-HaIZ7567CL2UlgmplDeUAsi7evzsAftQMhPVBtLq8GglTPuEV3N68=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "KNOW",
+     [
+      {
+       "t": "GREEK",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "MYTHOLOGY"
+    ],
+    "video": {
+     "id": "Ri-AoKE42rw",
+     "titre": "Greek Gods Explained In 12 Minutes",
+     "chaine": "The Life Guide",
+     "vues": "14M views",
+     "date": "9 years ago",
+     "duree": "12:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k6oDRKb-Q2Y9mLQCtYWeLSzdbc6a0dX61rWtQL7fFMEZs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "GRIECHISCHE",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "MYTHOLOGIE",
+     "KENNEN"
+    ],
+    "video": {
+     "id": "XdG0toKOGKs",
+     "titre": "Zeus, Hades und Co. – 7 Götter der griechischen Mythologie",
+     "chaine": "MrWissen2go Geschichte | Terra X",
+     "vues": "430.981 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "12:28",
+     "avatar": "https://yt3.ggpht.com/FJ5ZVGDLX7teEkJhha2MsLRD1FyM1PFeh1BZGkluBiQdiyDRdK0I29x8fvwdvee_nmWuko6F=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CONOSCERE",
+     [
+      {
+       "t": "LA MITOLOGIA",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "GRECA"
+    ],
+    "video": {
+     "id": "gd56VB6ntEE",
+     "titre": "Mitologia Greca \"L'essenziale\": l'origine degli dei greci - Storia e Mitologia Illustrate",
+     "chaine": "Storia e Mitologia Illustrate",
+     "vues": "508K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "12:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtyl-AHZBMbxAaSexXaP0w1Kk-iZMXHuEAZL7wKHxSfA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONHECER",
+     [
+      {
+       "t": "A MITOLOGIA",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "GREGA"
+    ],
+    "video": {
+     "id": "IaINCqS-dik",
+     "titre": "Conheça a MITOLOGIA GREGA | Resumo",
+     "chaine": "Toda Matéria",
+     "vues": "137 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/HzNmGq7dz8hluGyGAmMijcUKc_sp-9cynIvm9U41wDVqDmfREuHWjyuphcyajKWkrTfMTvZBgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "YUNAN",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "MİTOLOJİSİNİ",
+     "BİLMEK"
+    ],
+    "video": {
+     "id": "2VxAX-K9-M8",
+     "titre": "Yunan Mitolojisi Tek Part",
+     "chaine": "Shockvoice",
+     "vues": "2,3 Mn görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "1:54:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nJE5_OakWRwBNPZIDSYIFzP1rtWqP2Dm7XbfoPwis0b-w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CUNOȘTI",
+     [
+      {
+       "t": "MITOLOGIA",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "GREACĂ"
+    ],
+    "video": {
+     "id": "MTnZWs45vc0",
+     "titre": "TOP 10 ZEI ai Greciei Antice: mitologia greaca",
+     "chaine": "Mythologica",
+     "vues": "47 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/43sKtZZVisp6orYzxXL4CYgNQMB7pP4JswWTNjxCBJzLl_XrueA3rnu7JlflVTw92Vd72QQYCw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZNÁT",
+     [
+      {
+       "t": "ŘECKOU",
+       "couleur": "#7a4fb0"
+      }
+     ],
+     "MYTOLOGII"
+    ],
+    "video": {
+     "id": "jgRatgYf9XM",
+     "titre": "ŘECKÁ MYTOLOGIE (aneb ultimátní rekapitulace řeckého mýtu o stvoření světa)",
+     "chaine": "Kaktus 3.9",
+     "vues": "11 tis. zhlédnutí",
+     "date": "před 11 měsíci",
+     "duree": "21:33",
+     "avatar": "https://yt3.ggpht.com/XcJ5sNAoTOHOpu40WSTZF_iWIrrbY1DxRrDBA23ym1qdYqzPliHMav1pMFm9x5rntZPO3t81RPo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPRENDRE",
+     [
+      {
+       "t": "LA PHILOSOPHIE",
+       "couleur": "#3d8b5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9oHqMEaLlPo",
+     "titre": "Point Culture : Introduction à la Philosophie (partie 1)",
+     "chaine": "LinksTheSun",
+     "vues": "1,8 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "36:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-eVWXJhARWr-VZdKBZIM-xnIl7Ab-sbNnQVSkGkrqDqM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Lecture sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND",
+     [
+      {
+       "t": "PHILOSOPHY",
+       "couleur": "#3d8b5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1A_CAkYt3GY",
+     "titre": "What is Philosophy?: Crash Course Philosophy #1",
+     "chaine": "CrashCourse",
+     "vues": "8.6M views",
+     "date": "10 years ago",
+     "duree": "10:35",
+     "avatar": "https://yt3.ggpht.com/E454zI2spNFZsN_wgJPTHjMsqs1fFqb_qp4PYanWuyaXQJp98wKEV1kIQYlR57epaweO5P8v=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Reading over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "PHILOSOPHIE",
+       "couleur": "#3d8b5a"
+      }
+     ],
+     "VERSTEHEN"
+    ],
+    "video": {
+     "id": "sKXaY_reAcg",
+     "titre": "Was ist Philosophie? · Basics, Einführung, Grundlagen",
+     "chaine": "David Johann Lensing",
+     "vues": "128.955 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:07",
+     "avatar": "https://yt3.ggpht.com/-XWGPJyd-axt-Uug-J7ywmJPEwuzE5-m9Sd-LZjrFl-foSIBDf75vJm-dDPbKnLnEFTwh6JAfQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Lesen über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAPIRE",
+     [
+      {
+       "t": "LA FILOSOFIA",
+       "couleur": "#3d8b5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SC2xuXLDP8c",
+     "titre": "La filosofia: che cos'è e perchè è nata?",
+     "chaine": "Laura Pirotta",
+     "vues": "101K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/Z8zplvAgcGkiEKpz-NNmIoWYT0TwNqDF1xsqqgZc1m0yjXkI-RqSm-1Sczz8UmgmPQIoARAx3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Lettura di qualche giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER",
+     [
+      {
+       "t": "FILOSOFIA",
+       "couleur": "#3d8b5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Kl9v0Ln2sNw",
+     "titre": "O que é Filosofia?",
+     "chaine": "A Filosofia Explica",
+     "vues": "413 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "10:21",
+     "avatar": "https://yt3.ggpht.com/IaDOZZg1C4eq-cK4L5HzClzEVQgqX8z9GnIMH_QmWTiZ8YggNKshLvzcQFIcVYnYmIim1GSBhA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Leitura ao longo de dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "FELSEFEYİ",
+       "couleur": "#3d8b5a"
+      }
+     ],
+     "ANLAMAK"
+    ],
+    "video": {
+     "id": "l-rIuoYgnMo",
+     "titre": "Felsefe Nedir? | Kısaca Özetleyin",
+     "chaine": "Kısaca Özetleyin",
+     "vues": "38 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "1:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ltgkheSACfJLCoU8-2KqTC62k3iMQy1XSuvns4nsjx6g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün okuyarak"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "FILOSOFIA",
+       "couleur": "#3d8b5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CwAlHUq9i10",
+     "titre": "TeleŞcoala: Filosofie clasa a XII-a – Ce este filosofia? Genuri şi stiluri în filosofie (@TVR2)",
+     "chaine": "TVR",
+     "vues": "6,4 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "22:06",
+     "avatar": "https://yt3.ggpht.com/W1ly0FYMK5B3M39sRmLARUZ-kiLZpGWPNjcSnhq-4mR78oHyVyoa4j4V3fUXoudGCIXhhdZx=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "lectură câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ROZUMĚT",
+     [
+      {
+       "t": "FILOZOFII",
+       "couleur": "#3d8b5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MmMwIEgZmzw",
+     "titre": "Co je to Filozofie? | Sokrates, Platón, Aristoteles, Akvinský, Kant (#1 Filozofie, Maturita)",
+     "chaine": "Online Učitel",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "10:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lomBPoDuFytvH-HNBT4T5715ImHOJfVPw7byOYbu0OxA4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "čtení několik dní"
+    ]
+   }
+  }
+ ]
+}

@@ -48,7 +48,7 @@ import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceCl
 import {
   casDeCategorie, type CasFixe, detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, etatDashboardTexte,
   ligneStatut, type Situation, situation, TEXTES, texteStatut,
-  ditPasRecu, estCodeRuul, estQuestionPaie, paieRuulEnRoute, texteArret, texteCodeRuul, textePaieRuul,
+  aDemandeArret, ditPasRecu, estArretDouteux, estCodeRuul, estQuestionPaie, paieRuulEnRoute, QUESTION_ARRET, texteArret, texteCodeRuul, textePaieRuul,
 } from "../_shared/support_regles.ts";
 
 /**
@@ -1330,7 +1330,19 @@ async function appliquerRegles(
 
   // 19/11 (Max) : posteurs Ruul : le code à 6 chiffres (il vient de Ruul) et « quand serai-je payé ? » (le vrai statut).
   const ruul = o.plateforme === "ruul" || o.etat?.canal_paie === "ruul";
-  const demandeArretMsg = estDemandeArret(o.message) || d.action === "arret" || (d.categorie === "arret" && !estQuestionStatut(o.message));
+  // 21/11 (Max) : réponse à la question « Do you want to end our collaboration? » : « yes » = arrêt, « no » = rien.
+  const derniereReponse = o.historique.find((h) => h.bot_reponse)?.bot_reponse ?? null;
+  const suiteQuestion = aDemandeArret(derniereReponse) ? reponseDouble(o.message) : null;
+  const demandeArretMsg = suiteQuestion === "oui" || (suiteQuestion !== "non" &&
+    (estDemandeArret(o.message) || d.action === "arret" || (d.categorie === "arret" && !estQuestionStatut(o.message) && !estArretDouteux(o.message))));
+  if (!plan.cas && suiteQuestion === "non") {
+    fixe("Great, nothing changes for you. Keep up the good work!", "arret");
+    plan.cas = "arret";
+  } else if (!plan.cas && !demandeArretMsg && estArretDouteux(o.message)) {
+    // Frustration ou condition : une seule question, jamais d'arrêt sur un doute.
+    fixe(QUESTION_ARRET, "arret");
+    plan.cas = "arret";
+  }
   // 21/11 (Max) : « je n'arrive pas à activer Ruul » : les cas connus réglés par le bot ; le même problème une 3e fois,
   // escalade (#a-os-tickets) avec l'étape bloquée, ce qui a été tenté et une réponse proposée.
   if (!plan.cas && ruul && !demandeArretMsg && !(estQuestionPaie(o.message) && !estCodeRuul(o.message))) {

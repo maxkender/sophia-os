@@ -2,7 +2,7 @@ import { assertEquals } from "jsr:@std/assert@1";
 
 import {
   detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, ligneStatut, premierJourPostsParis, situation, TEXTES, texteStatut, texteWarmup,
-  ditPasRecu, estCodeRuul, estQuestionPaie, paieRuulEnRoute, REGLE_PAIE_RUUL, samediDeTraitement, texteArret, texteCodeRuul, textePaieRuul,
+  ditPasRecu, estArretDouteux, estCodeRuul, estQuestionPaie, paieRuulEnRoute, REGLE_PAIE_RUUL, samediDeTraitement, texteArret, texteCodeRuul, textePaieRuul,
 } from "./support_regles.ts";
 
 const ruul = { plateforme: "ruul" as const, attenteLienUpwork: false };
@@ -171,4 +171,16 @@ Deno.test("19/11 : « quand serai-je payé ? » : le vrai statut Ruul", () => {
   assertEquals(ditPasRecu("I haven’t received the payment"), true);
   assertEquals(ditPasRecu("4 invoices but I have only received one payment"), true);
   assertEquals(estDemandeArret("I don’t want to continue anymore"), true);
+});
+
+Deno.test("21/11 : arrêt clair, doute (une question) et faux stop", () => {
+  for (const m of ["STOP", "I want to end the contract", "I want to stop", "I quit", "Bırakmak istiyorum"]) assertEquals(estDemandeArret(m), true, m);
+  for (const m of ["I'm going to stop if I don't get paid", "Maybe I will quit, this is too much", "Ödeme gelmezse bırakacağım"]) {
+    assertEquals(estArretDouteux(m), true, m);
+    assertEquals(estDemandeArret(m), false, m);
+  }
+  for (const m of ["The app stopped working", "Please stop sending me emails", "My video upload stops at 50%", "Uygulama durdu"]) {
+    assertEquals(estDemandeArret(m), false, m);
+    assertEquals(estArretDouteux(m), false, m);
+  }
 });

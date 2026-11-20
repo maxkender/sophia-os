@@ -29,6 +29,15 @@
 --     reste. Deux podz d'un même label ne reçoivent pas la même langue.
 --   * Les langues exclues ne changent pas (ar, he, fa, ur, ja).
 --
+--   * `jours_entre` vaut 1 : le rendez-vous hebdomadaire suffit à espacer, ce
+--     délai n'évite plus qu'un double passage le même jour. (À 6, les
+--     ouvertures de l'ancienne soupape du vendredi 20/11 auraient bloqué le
+--     premier dimanche.)
+--
+-- ✅ Appliquée le 2026-11-20 (MCP), après deux passages à blanc en base. Vérifié
+-- après : tâche planifiée « 0 19 * * 0 », réglages en place, la fonction répond
+-- à blanc.
+--
 -- Chaque ouverture passe par `podz_langue` (0781) et va au journal. Adrien et
 -- Max ouvrent et ferment toujours quand ils veulent (page Podz).
 --
@@ -36,7 +45,7 @@
 -- trois par podz), ou une ligne sans langue avec la raison.
 --
 -- Réglages : `reglages.bleo.soupape_langues` (par_lot 3, recrues_par_ouverture
--- 6, jours_entre 6, lissage 10, posts_min 5, paliers [1.0, 0.75, 0.5], exclues).
+-- 6, jours_entre 1, lissage 10, posts_min 5, paliers [1.0, 0.75, 0.5], exclues).
 -- Retour arrière : réappliquer la fonction de 0781/0783 ; `select
 -- cron.alter_job(<id de bleo-soupape-langues>, schedule := '40 3 * * *')` ;
 -- remettre `jours_entre` à 1.
@@ -46,7 +55,7 @@ set lock_timeout = '5s';
 update public.reglages
    set valeur = jsonb_set(valeur, '{soupape_langues}',
          coalesce(valeur->'soupape_langues', '{}'::jsonb)
-           || '{"par_lot": 3, "recrues_par_ouverture": 6, "jours_entre": 6, "lissage": 10, "posts_min": 5, "paliers": [1.0, 0.75, 0.5]}'::jsonb, true),
+           || '{"par_lot": 3, "recrues_par_ouverture": 6, "jours_entre": 1, "lissage": 10, "posts_min": 5, "paliers": [1.0, 0.75, 0.5]}'::jsonb, true),
        updated_at = now()
  where cle = 'bleo';
 
@@ -63,7 +72,7 @@ declare
   v_lissage numeric := greatest(coalesce((cfg->>'lissage')::numeric, 10), 0);
   -- Les paliers de performance lissée : le 1er donne `par_lot` langues, puis une de moins à chaque palier.
   v_paliers numeric[] := coalesce(array(select jsonb_array_elements_text(cfg->'paliers')::numeric), array[1.0, 0.75, 0.5]);
-  v_jours integer := coalesce((cfg->>'jours_entre')::integer, 6);
+  v_jours integer := coalesce((cfg->>'jours_entre')::integer, 1);
   v_lot integer := greatest(coalesce((cfg->>'par_lot')::integer, 3), 1);
   v_par integer := greatest(coalesce((cfg->>'recrues_par_ouverture')::integer, 6), 1);
   v_exclues text[] := coalesce(array(select lower(jsonb_array_elements_text(cfg->'exclues'))), array['ar','he','fa','ur','ja']);
@@ -71,6 +80,8 @@ declare
   v_places jsonb;
   -- Les langues déjà données à chaque label dans ce passage : {label_id: [langues]}.
   v_donnees jsonb := '{}'::jsonb;
+  -- La performance de chaque label dans son application : {label_id: {perf, passages}}.
+  v_stats jsonb := '{}'::jsonb;
   r record;
   v_langue text;
   v_n integer;
@@ -93,8 +104,6 @@ begin
    where split_part(x.langue, '-', 1) <> all (v_exclues);
 
   -- La performance de chaque label dans SON application (la première qu'il sert, ordre du catalogue).
-  create temp table if not exists bs_stats (label_id uuid primary key, perf numeric, passages integer) on commit drop;
-  truncate bs_stats;
   for v_app in
     select x.app, array_agg(x.label_id) as labels
       from (select distinct p.label_id,
@@ -105,15 +114,17 @@ begin
      where x.app is not null
      group by x.app
   loop
-    insert into bs_stats
-    select s0.label_id, s0.perf_label / nullif(s0.perf_flotte, 0), s0.passages
+    select v_stats || coalesce(jsonb_object_agg(s0.label_id::text,
+                         jsonb_build_object('perf', s0.perf_label / nullif(s0.perf_flotte, 0), 'passages', s0.passages)), '{}'::jsonb)
+      into v_stats
       from stats_choix_label((select array_agg(id) from labels), v_app.app, null, null, 0) s0
-     where s0.label_id = any (v_app.labels)
-    on conflict (label_id) do nothing;
+     where s0.label_id = any (v_app.labels);
   end loop;
 
   for r in
-    select p.slug, p.label_id, p.langues, l.nom, st.perf, st.passages,
+    select p.slug, p.label_id, p.langues, l.nom,
+           (v_stats -> p.label_id::text ->> 'perf')::numeric as perf,
+           (v_stats -> p.label_id::text ->> 'passages')::integer as passages,
            (select max(o.ouvert_le) from bleo_langues_ouvertes o
              where o.pod = p.slug and o.action = 'ouverte' and o.par = 'soupape') as derniere,
            -- Les langues du podz où l'on recrute ont-elles toutes un compte ? (affiché, ne bloque plus)
@@ -128,10 +139,9 @@ begin
       from pods p
       join labels l on l.id = p.label_id
       join podz_images_finies z on z.pod = p.slug
-      left join bs_stats st on st.label_id = p.label_id
      where p.actif and p.langues is not null
      -- Le label le plus performant choisit d'abord.
-     order by st.perf desc nulls last, p.slug
+     order by (v_stats -> p.label_id::text ->> 'perf')::numeric desc nulls last, p.slug
   loop
     -- Combien de langues : la performance lissée vers 1 décide (3, 2, 1 ou 0).
     v_ok := false;

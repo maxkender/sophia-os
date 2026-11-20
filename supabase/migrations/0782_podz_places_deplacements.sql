@@ -30,6 +30,9 @@
 -- n'est touché : ni le choix de label à la création, ni la File des créateurs,
 -- ni BLEO.
 --
+-- ✅ Appliquée le 2026-11-20 (MCP), après un essai complet dans une transaction
+-- annulée (places, candidats, déplacer, annuler, refus).
+--
 -- Additive : une table, quatre fonctions. Retour arrière : `drop function
 -- public.compte_deplacement_annuler(bigint), public.compte_deplacer(uuid, uuid,
 -- uuid, text), public.podz_candidats(uuid, text), public.podz_places()` ; la
@@ -56,9 +59,15 @@ comment on table public.comptes_deplacements is
   'Journal des changements de label d''un compte faits par compte_deplacer() (0782) : labels avant et après, par qui, quand, et l''annulation éventuelle.';
 
 alter table public.comptes_deplacements enable row level security;
-drop policy if exists comptes_deplacements_admin on public.comptes_deplacements;
-create policy comptes_deplacements_admin on public.comptes_deplacements
-  for select to authenticated using (public.is_admin());
+do $p$
+begin
+  if not exists (select 1 from pg_policies where schemaname = 'public' and tablename = 'comptes_deplacements'
+                   and policyname = 'comptes_deplacements_admin') then
+    create policy comptes_deplacements_admin on public.comptes_deplacements
+      for select to authenticated using (public.is_admin());
+  end if;
+end
+$p$;
 revoke all on public.comptes_deplacements from public, anon;
 grant select on public.comptes_deplacements to authenticated, service_role;
 

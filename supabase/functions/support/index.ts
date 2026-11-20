@@ -9,6 +9,17 @@ import { type CasFin, estDemandePosteur, OBJET_FIN, raisonFixe, texteCompteArret
 import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rapport_samedi.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import {
+  type CasRuul,
+  decisionUpwork,
+  detecterCasRuul,
+  escalader,
+  etapeBloquee,
+  reponseCasRuul,
+  separerNomLegal,
+  TEXTES_RUUL,
+  texteEtape,
+} from "../_shared/ruul_bot.ts";
+import {
   CATEGORIES_PROBLEME,
   contexteTexte,
   estCategorie,
@@ -374,6 +385,15 @@ async function executerActionBrute(
         return r.ok
           ? { texte: `fait par le bot : ${r.texte}`, ok: true, details: { avant: avant?.ruul_email ?? "", apres: d.action_valeur ?? "" } }
           : t(`email Ruul pas changé (${r.raison})`, false);
+      }
+      case "nom_legal": {
+        // 21/11 (Max) : le nom légal (celui de sa pièce d'identité) mis à jour dans l'OS, pour qu'il corresponde à Ruul.
+        const n = separerNomLegal(d.action_valeur ?? "");
+        if (!n) return t("nom légal illisible : rien changé", false);
+        const { data: avant } = await db.from("hub_posteurs").select("prenom_legal, nom_legal").eq("profile_id", poster).maybeSingle();
+        const { error } = await db.from("hub_posteurs").update({ prenom_legal: n.prenom, nom_legal: n.nom }).eq("profile_id", poster);
+        return error ? t(`nom légal : ${error.message}`, false)
+          : { texte: `fait par le bot : nom légal ${[avant?.prenom_legal, avant?.nom_legal].filter(Boolean).join(" ") || "?"} → ${n.prenom} ${n.nom}`, ok: true, details: { avant: [avant?.prenom_legal, avant?.nom_legal].filter(Boolean).join(" "), apres: `${n.prenom} ${n.nom}` } };
       }
       case "invitation_ruul": {
         // Moins de 24 h : les spams ; plus : à réinviter (2 renvois au plus) ; ensuite Adrien.
@@ -800,7 +820,11 @@ async function deciderBot(
 
 /** Ce qui doit se passer après la réponse (écritures faites par apresDemande, jamais en simulation). */
 export interface PlanRegles {
-  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | null;
+  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | `ruul_${CasRuul}` | null;
+  /** 21/11 (Max) : le problème Ruul compté (le bot répond 2 fois au plus au même problème, puis escalade). */
+  tentative_ruul: string | null;
+  /** 21/11 : escalade Ruul (cas inconnu ou 3e message sur le même problème) → ticket dans #a-os-tickets. */
+  escalade_ruul: boolean;
   upwork: "demander" | "lien" | null;
   lien: string | null;
   doublon_de: string | null;
@@ -1031,6 +1055,29 @@ async function demandeDOrigine(db: Db, nom: string, poster: string | null): Prom
  * Les règles de Max après la décision du modèle (modifie la décision en place) : textes fixes traduits, vraie situation,
  * écart dashboard, incident groupé, escalade utile. Rend le plan des écritures (apresDemande).
  */
+/** 21/11 : combien de fois le bot a déjà répondu à ce problème Ruul (support_ruul_tentatives). */
+async function tentativesRuul(db: Db, poster: string, cle: string): Promise<number> {
+  const { data } = await db.from("support_ruul_tentatives").select("n").eq("poster_id", poster).eq("cle", cle).maybeSingle();
+  return Number(data?.n ?? 0);
+}
+
+async function paysRuulRefuse(db: Db, poster: string): Promise<boolean> {
+  const { data } = await db.rpc("ruul_pays_refuse", { p_poster: poster });
+  return data === true;
+}
+
+/** Ses 3 étapes Ruul et son email de candidature. */
+async function setupRuul(db: Db, poster: string): Promise<{ etapes: { inscrit: boolean; identite: boolean; banque: boolean; refus_identite?: number }; email: string | null }> {
+  const [{ data: e }, { data: h }, { data: p }] = await Promise.all([
+    db.rpc("ruul_etapes", { p_poster: poster }),
+    db.from("hub_posteurs").select("email_perso").eq("profile_id", poster).maybeSingle(),
+    db.from("profiles").select("ruul_email, email_perso").eq("id", poster).maybeSingle(),
+  ]);
+  const etapes = (e ?? { inscrit: false, identite: false, banque: false }) as { inscrit: boolean; identite: boolean; banque: boolean; refus_identite?: number };
+  const email = [h?.email_perso, p?.ruul_email, p?.email_perso].map((x) => String(x ?? "").trim()).find((x) => x.includes("@") && !/@sophia\.com$/i.test(x)) ?? null;
+  return { etapes, email };
+}
+
 async function appliquerRegles(
   db: Db,
   o: { message: string; poster: string | null; plateforme: "ruul" | "upwork" | null; etat: EtatReel | null; decision: DecisionBot; historique: { bot_reponse?: string | null }[]; simulation: boolean },
@@ -1039,6 +1086,7 @@ async function appliquerRegles(
   const plan: PlanRegles = {
     cas: null, upwork: null, lien: null, doublon_de: null, incident: null, arret: false, incoherences: [],
     statut_posteur: ligneStatut(o.etat), resume: d.resume ?? null, action_proposee: d.action_proposee ?? null,
+    tentative_ruul: null, escalade_ruul: false,
   };
   const fixe = (texte: string, categorie: string) => {
     d.reponse = texte;
@@ -1055,8 +1103,18 @@ async function appliquerRegles(
     fixe(TEXTES.lien_post, "lien_post");
     plan.incident = { cle: "lien_post", titre: "Liens de posts impossibles à ajouter", groupe_seul: true };
   } else if (cas === "upwork_demande") {
-    fixe(TEXTES.upwork_demande, "paie_upwork");
-    plan.upwork = "demander";
+    // 21/11 (Max) : pays refusé par Ruul → Upwork sans discuter ; 1re demande → une réponse (pas de frais, payé chaque
+    // lundi, 5 minutes, sa prochaine étape) ; 2e demande → exception Upwork, sans discuter.
+    const avant = o.poster ? await tentativesRuul(db, o.poster, "upwork_demande") : 0;
+    const refuse = o.poster ? await paysRuulRefuse(db, o.poster) : false;
+    if (decisionUpwork({ paysRefuse: refuse, demandesAvant: avant }) === "exception") {
+      fixe(TEXTES.upwork_demande, "paie_upwork");
+      plan.upwork = "demander";
+    } else {
+      const s = o.poster ? await setupRuul(db, o.poster) : null;
+      fixe(TEXTES_RUUL.persuasion.replace("{etape}", texteEtape(s?.etapes ?? { inscrit: false, identite: false, banque: false }, s?.email ?? null)), "paie_upwork");
+    }
+    plan.tentative_ruul = "upwork_demande";
   } else if (cas === "upwork_lien" && det.lien) {
     fixe(estProfilUpwork(det.lien) ? TEXTES.upwork_lien_ok : TEXTES.upwork_lien_invalide, "paie_upwork");
     if (estProfilUpwork(det.lien)) {
@@ -1081,6 +1139,35 @@ async function appliquerRegles(
   // 19/11 (Max) : posteurs Ruul : le code à 6 chiffres (il vient de Ruul) et « quand serai-je payé ? » (le vrai statut).
   const ruul = o.plateforme === "ruul" || o.etat?.canal_paie === "ruul";
   const demandeArretMsg = estDemandeArret(o.message) || d.action === "arret" || (d.categorie === "arret" && !estQuestionStatut(o.message));
+  // 21/11 (Max) : « je n'arrive pas à activer Ruul » : les cas connus réglés par le bot ; le même problème une 3e fois,
+  // escalade (#a-os-tickets) avec l'étape bloquée, ce qui a été tenté et une réponse proposée.
+  if (!plan.cas && ruul && !demandeArretMsg && !(estQuestionPaie(o.message) && !estCodeRuul(o.message))) {
+    const casR = detecterCasRuul(o.message, { categorie: d.categorie, estCode: estCodeRuul(o.message) });
+    if (casR) {
+      const avant = o.poster ? await tentativesRuul(db, o.poster, casR) : 0;
+      const s = o.poster ? await setupRuul(db, o.poster) : null;
+      const etapes = s?.etapes ?? { inscrit: false, identite: false, banque: false, refus_identite: 0 };
+      const nomPropose = casR === "nom" && d.action === "nom_legal" && d.action_valeur && separerNomLegal(d.action_valeur) ? d.action_valeur.trim() : null;
+      const r = reponseCasRuul(casR, { message: o.message, email: s?.email ?? null, refusIdentite: Number(etapes.refus_identite ?? 0), demandesAvant: avant, nomPropose });
+      plan.cas = `ruul_${casR}`;
+      plan.tentative_ruul = casR;
+      d.personnel = true;
+      if (escalader(avant) && !r.upwork) {
+        fixe(TEXTES.equipe, "ruul");
+        d.niveau = "adrien";
+        plan.escalade_ruul = true;
+        plan.resume = `Ruul bloqué à l'étape « ${etapeBloquee(etapes)} » (${casR}) : le bot a déjà répondu ${avant} fois au même problème.`;
+        plan.action_proposee = `Réponse proposée : ${r.texte}${casR === "bug" ? " (ou contacter le support Ruul avec la capture)" : ""}`;
+      } else {
+        fixe(r.texte, "ruul");
+        if (r.upwork) plan.upwork = "demander";
+        if (r.action) {
+          d.action = r.action.type;
+          d.action_valeur = r.action.valeur;
+        }
+      }
+    }
+  }
   if (!plan.cas && ruul && !demandeArretMsg && (estCodeRuul(o.message) || estQuestionPaie(o.message))) {
     const { data: pr } = o.poster ? await db.from("profiles").select("ruul_email").eq("id", o.poster).maybeSingle() : { data: null };
     const emailRuul = (pr?.ruul_email as string | null | undefined) ?? null;
@@ -1187,6 +1274,14 @@ async function apresDemande(
       resume: plan.resume, action_proposee: plan.action_proposee, statut_posteur: plan.statut_posteur,
     }).eq("id", o.demande);
     const source = o.source === "slack_salon" || o.source === "slack_aide" ? "slack" : o.source;
+    if (o.poster && plan.tentative_ruul) {
+      const { error } = await db.rpc("support_ruul_tentative_noter", { p_poster: o.poster, p_cle: plan.tentative_ruul });
+      if (error) fait.push(`tentative Ruul : ${error.message}`);
+    }
+    if (plan.escalade_ruul) {
+      const r = await envoyerTicket(db, null, o.demande, "Ruul : le bot a échoué 2 fois sur le même problème. Adrien valide la réponse proposée en un clic (Boîte) ou contacte le support Ruul.");
+      fait.push(r.ok ? "escalade Ruul : ticket #a-os-tickets" : `escalade Ruul : ${(r as { error?: string }).error ?? "échec"}`);
+    }
     if (o.poster && plan.upwork === "demander") {
       const { error } = await db.rpc("upwork_exception_demander", { p_poster: o.poster, p_source: source, p_demande: o.demande });
       fait.push(error ? `exception Upwork : ${error.message}` : "exception Upwork : lien attendu");

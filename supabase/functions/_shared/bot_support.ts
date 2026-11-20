@@ -12,13 +12,15 @@
 
 export type Niveau = "bot" | "adrien" | "max";
 export type SourceBot = "help" | "slack_salon";
-export type ActionBot = "lien_mot_de_passe" | "renvoi_parrainage" | "pseudo_tiktok" | "email_ruul" | "invitation_ruul" | "arret" | "lien_slack" | "prevenir_max";
+export type ActionBot = "lien_mot_de_passe" | "renvoi_parrainage" | "pseudo_tiktok" | "email_ruul" | "invitation_ruul" | "arret" | "lien_slack" | "prevenir_max" | "nom_legal";
 
-export const ACTIONS: readonly ActionBot[] = ["lien_mot_de_passe", "renvoi_parrainage", "pseudo_tiktok", "email_ruul", "invitation_ruul", "arret", "lien_slack", "prevenir_max"];
+export const ACTIONS: readonly ActionBot[] = ["lien_mot_de_passe", "renvoi_parrainage", "pseudo_tiktok", "email_ruul", "invitation_ruul", "arret", "lien_slack", "prevenir_max", "nom_legal"];
 export const CATEGORIES_BOT = [
   "posting", "tiktok", "warmup", "login", "slack", "paie", "parrainage", "arret", "ruul", "upwork", "bug", "statut", "salutation", "autre",
   // 17/11 (Max) : les cas à réponse fixe (support_regles.ts).
   "lien_post", "paie_upwork", "parrainage_cash", "flou",
+  // 21/11 (Max) : « je n'arrive pas à activer Ruul » (ruul_bot.ts) : le code règle la réponse.
+  "ruul_code", "ruul_autre_email", "ruul_nom", "ruul_identite", "ruul_pays", "ruul_bug",
 ] as const;
 export const RISQUES = ["repetition", "enerve", "menace", "scam", "argent_tiers", "multi_comptes", "hors_plateforme"] as const;
 export type Risque = (typeof RISQUES)[number];
@@ -94,7 +96,8 @@ PROCÉDURE
    invitation_ruul (posteur Ruul qui n'a pas reçu l'invitation Ruul ; s'il est déjà « Invited » dans Ruul (13/11, confirmé par Ruul), réponds : « You don't need to wait for an email from Ruul. Go to app.ruul.io and sign up with this exact email: <son email Ruul>. Then add your ID and bank details (5 minutes). » ; sinon réponds : « Please check your spam folder for an email from Ruul. If it's not there, we'll send you a new invitation at <son email Ruul> within 24 hours. »),
    arret (SEULEMENT s'il demande clairement d'arrêter : STOP, fin du contrat, supprimer son compte, dans n'importe quelle langue ; une question, un voyage ou un doute ne suffisent pas),
    lien_slack (donner le lien d'invitation Slack),
-   prevenir_max (un bug du dashboard que le catalogue couvre : tu donnes le contournement du catalogue, niveau "bot", et Max est prévenu).
+   prevenir_max (un bug du dashboard que le catalogue couvre : tu donnes le contournement du catalogue, niveau "bot", et Max est prévenu),
+   nom_legal (posteur Ruul qui donne son prénom et son nom EXACTEMENT comme sur sa pièce d'identité ; action_valeur = « Prénom Nom »).
 5. Si AUCUNE règle (catalogue ou infos) ne couvre le cas : reponse = "${TEXTE_ON_VERIFIE}" et niveau = "adrien". N'invente JAMAIS une règle, une date ou un montant.
 
 NIVEAUX (un seul)
@@ -121,6 +124,7 @@ CAS À RÉPONSE FIXE (17/11, Max) — classe-les avec ces catégories, le code m
 - "paie_upwork" : un posteur Ruul demande à être payé par Upwork plutôt que par Ruul. On ne refuse plus : niveau "bot".
 - "parrainage_cash" : son filleul veut être payé en cash ou par lui. Niveau "bot" (jamais de cash, jamais d'un posteur à un autre).
 - "flou" : message vide ou flou (« me too », « help me », « I have a problem », « hello ») : niveau "bot", on lui demande ce qui se passe. Jamais d'escalade.
+- Posteur Ruul qui n'arrive pas à activer Ruul (21/11, dans n'importe quelle langue) : "ruul_code" (code pas reçu, impossible de se connecter à Ruul), "ruul_autre_email" (il a déjà un compte Ruul avec un autre email), "ruul_nom" (son nom sur Ruul ne correspond pas), "ruul_identite" (identité refusée par Ruul), "ruul_pays" (son pays ou sa banque ne sont pas acceptés par Ruul), "ruul_bug" (il ne peut pas envoyer ses infos, bug, écran bloqué). Niveau "bot" : le code met la réponse exacte.
 
 DASHBOARD = HELP (une seule source de vérité)
 - L'ÉTAT DU DASHBOARD ci-dessous est exactement ce que le posteur voit. Ne dis jamais « tout est OK » si le dashboard montre un problème, ni l'inverse.

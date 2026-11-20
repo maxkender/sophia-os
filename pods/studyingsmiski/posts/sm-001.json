@@ -16,7 +16,7 @@
   "titre": "doodle - Slowed",
   "url": "https://www.tiktok.com/music/doodle-slowed-7397023128725833744"
  },
- "notes": "Remake de « 4 apps you need as a student! » de @studyingsmiski (678,3 k vues, 25/10/2025) : même gabarit (fond ciel, cartes en timbre, stickers, bulles), mêmes applis sauf Turbo AI (sa 3e, concurrente) remplacée par micabo et son nouveau logo (demande d'Adrien du 20/11). Textes reformulés et vérifiés sur les fiches de l'App Store (images/applis/*/fiche.json) : Flora tue l'arbre si on quitte l'appli, plantation de vrais arbres en option payante ; Habitica transforme tâches et habitudes en RPG (niveaux, PV, or) ; Dtd Sounds réunit sons d'ambiance et minuteur. micabo : dépose tes cours ou tes notes, il en fait des flashcards et des quiz et te fait réviser au bon moment (micabo.app). Ses personnages (Smiski, grenouille de marque) remplacés par nos stickers (grenouilles en peluche génériques, dango, matcha…). Images : Seedream détourées (images/stickers), fond Seedream (images/fonds/ciel.jpg).",
+ "notes": "Remake de « 4 apps you need as a student! » de @studyingsmiski (678,3 k vues, 25/10/2025) : même gabarit (fond ciel, cartes en timbre, stickers, bulles). Turbo AI (sa 4e carte) remplacée par Sophia (demande d'Adrien du 20/11 : le podz sert Sophia, pas micabo), sa vraie icône de l'App Store (« Sophia : General Knowledge », Vik Studios, iOS), cta A. Flora (sa 2e) remplacée par Goodnotes (une carte de sa version verte du même post) : Flora est un minuteur anti-téléphone façon Forest, une concurrente de Sophia (temps d'écran, règle du podz 18). Faits vérifiés sur les fiches de l'App Store (images/applis/*/fiche.json) : Goodnotes, notes manuscrites cherchables et carnets numériques (iOS, Android comme sur sa slide) ; Habitica transforme tâches et habitudes en RPG (niveaux, PV, or) ; Dtd Sounds réunit sons d'ambiance et minuteur. Ses personnages (Smiski, grenouille de marque) remplacés par nos stickers (grenouilles en peluche génériques, dango, matcha, tablette…). Images : Seedream détourées (images/stickers), fond Seedream (images/fonds/ciel.jpg).",
  "slides": [
   {
    "type": "couverture",
@@ -71,15 +71,15 @@
   {
    "type": "appli",
    "fond": "images/fonds/ciel.jpg",
-   "icone": "images/applis/flora/icone.jpg",
+   "icone": "images/applis/goodnotes/icone.jpg",
    "elements": [
     {
      "type": "sticker",
-     "image": "images/stickers/arbre.png",
-     "x": 760,
-     "y": 640,
-     "l": 230,
-     "rotation": 6
+     "image": "images/stickers/tablette.png",
+     "x": 720,
+     "y": 660,
+     "l": 330,
+     "rotation": -8
     },
     {
      "type": "sticker",
@@ -91,9 +91,9 @@
     },
     {
      "type": "bulle",
-     "x": 330,
+     "x": 320,
      "y": 650,
-     "l": 400,
+     "l": 420,
      "h": 250,
      "queue": {
       "x": 280,
@@ -102,10 +102,10 @@
     }
    ],
    "en": {
-    "nom": "Flora",
+    "nom": "Goodnotes",
     "plateformes": "iOS, Android",
-    "texte": "you choose how long you want to focus and plant a tree for that time. if you leave to open another app, your tree dies.",
-    "bulle": "psst... you can even plant real trees!"
+    "texte": "you can write by hand on your tablet like it's real paper and keep every class in its own digital notebook!",
+    "bulle": "psst... you can search your handwriting!"
    }
   },
   {
@@ -138,7 +138,7 @@
   },
   {
    "type": "appli",
-   "micabo": true,
+   "sophia": true,
    "fond": "images/fonds/ciel.jpg",
    "elements": [
     {
@@ -179,10 +179,10 @@
     }
    ],
    "en": {
-    "nom": "micabo",
-    "plateformes": "micabo.app",
-    "texte": "a study app that turns your lectures and notes into flashcards and quizzes, then tests you at the right time so it actually sticks!",
-    "bulle": "i review my class notes on the bus every day!"
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "i do my daily lesson on the bus instead of scrolling!"
    }
   },
   {

@@ -1,0 +1,104 @@
+{
+ "id": "mi-002",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7669161866979069214",
+  "vues": 228400,
+  "publie_le": "2026-08-01",
+  "accroche": "How to / Focus / for / 20+ hours"
+ },
+ "fond": "orange",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "How to Remember what you Read"
+ },
+ "legendes": {
+  "en": "reading is not remembering #memory #learning #reading #brain #studytips"
+ },
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Full test (podz rangé en voie 1, boîte vide). Preuve de format : « How to Focus for 20+ hours » de @bdnf.milly (228,4 k vues, 01/08, fond orange), famille « How to [verbe] … », même gabarit (couverture « How to / … / [IRM] / … », 4 slides). Slide Sophia (3) : lire une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : courbe de l'oubli (Ebbinghaus, Über das Gedächtnis, 1885), répliquée (Murre et Dros, PLOS ONE 2015) ; surligner et relire jugés peu utiles, se tester et espacer les révisions jugés les plus utiles (Dunlosky et al., Psychological Science in the Public Interest 2013) ; effet d'espacement sur des centaines d'expériences (Cepeda et al., Psychological Bulletin 2006, 317 expériences) ; le sommeil consolide ce qu'on vient d'apprendre (Gais, Lucas et Born, Learning & Memory 2006) ; s'expliquer le texte fait mieux comprendre que le relire (Chi et al., Cognitive Science 1994 : le groupe témoin lisait le texte deux fois). Images : Seedream (images/irm-axiale, irm-activite, synapse), sans texte.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-axiale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Remember",
+      "taille": "grand"
+     },
+     {
+      "t": "what you",
+      "taille": "petit"
+     },
+     {
+      "t": "Read",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Reading Is Not Remembering",
+    "blocs": [
+     {
+      "p": "In the 1880s, Hermann Ebbinghaus measured his own memory and found that a large part of anything new is forgotten within a day, unless it is reviewed. Researchers repeated his experiment in 2015 and found almost the same curve."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "The usual habits do little against it. In a large review of study techniques, highlighting and rereading were rated among the least useful, while testing yourself and spreading your reviews over time were rated the most useful."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Read A Little, Every Night",
+    "blocs": [
+     {
+      "p": "Memory prefers small doses spread out over time. Across hundreds of experiments, the same study time spread over several days was remembered better than the same time crammed into one session. This is the spacing effect."
+     },
+     {
+      "p": "So instead of one long session a week, read one short lesson every evening, like a training session. Each night is a new rep, and the sleep that follows helps consolidate it."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Then Explain It Out Loud",
+    "blocs": [
+     {
+      "p": "Close the page and explain out loud what you just read, as if to a friend: the main idea, why it is true, and how it connects to something you already know. Asking yourself “why?” forces the brain to link the new fact to old ones."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "In a classic study, students who stopped to explain a text to themselves understood it better than students who simply read it twice. What you can explain, you keep."
+     }
+    ]
+   }
+  }
+ ]
+}

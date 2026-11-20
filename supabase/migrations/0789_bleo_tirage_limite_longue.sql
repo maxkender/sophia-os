@@ -1,4 +1,4 @@
--- 0781 : le tirage de 14 h a 20 minutes au lieu de 2.
+-- 0789 : le tirage de 14 h a 20 minutes au lieu de 2.
 --
 -- Le 19/11, `bleo_tirage` a été coupé par le statement_timeout de la base
 -- (2 min) : il s'allonge avec la flotte (47 s le 8/11, 84 s le 18/11). Tout est

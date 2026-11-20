@@ -1,4 +1,4 @@
--- 0782 : le tirage ne met plus au plan un posteur qui a demandé à arrêter.
+-- 0790 : le tirage ne met plus au plan un posteur qui a demandé à arrêter.
 --
 -- Depuis le 3/11, l'assignation ne sert plus un posteur dont la demande d'arrêt
 -- est ouverte (`posteursEnRouge`, _shared/recrues_bloquees.ts). Le tirage de
@@ -17,7 +17,7 @@ declare
   v_def text := pg_get_functiondef('public.bleo_tirage(date, text)'::regprocedure);
   v_ancre text := $a$and rr.etape in ('acces', 'tiktok', 'warmup'))$a$;
   v_ajout text := $a$
-     -- 0782 : comme l'assignation (recrues_bloquees.ts), un posteur dont la demande d'arrêt est ouverte n'est pas au plan.
+     -- 0790 : comme l'assignation (recrues_bloquees.ts), un posteur dont la demande d'arrêt est ouverte n'est pas au plan.
      and not exists (select 1 from demandes_arret da
                       where da.poster_id = co.poster_id and da.decision is null)$a$;
 begin

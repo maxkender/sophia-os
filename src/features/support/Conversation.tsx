@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
+import { appeler } from "./api";
 import { type CanalReponse, canalDefaut, type ElementFil, LIBELLE_CANAL, lireConversation, repondreCanal } from "./conversation";
 
 const quand = (at: string) => new Date(at).toLocaleString("fr-FR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
@@ -27,6 +28,13 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
   const [canal, setCanal] = React.useState<CanalReponse | null>(null);
   const finRef = React.useRef<HTMLDivElement>(null);
   const c = q.data;
+  // 21/11 (Max) : la traduction en français de chaque message, sous le texte d'origine.
+  const traductions = useQuery({
+    queryKey: ["support", "conversation", posterId, "fr", c?.fil.length ?? 0],
+    enabled: !!c && c.fil.length > 0,
+    staleTime: Infinity,
+    queryFn: async () => (await appeler<{ traductions: (string | null)[] }>({ action: "traduire_fr", textes: (c?.fil ?? []).map((e) => e.texte ?? "") })).traductions,
+  });
   const canalChoisi: CanalReponse = canal ?? canalDefaut(source, c?.canaux);
   const envoyer = useMutation({
     mutationFn: () => repondreCanal({ poster_id: posterId, canal: canalChoisi, texte: texte.trim(), demande_id: demandeId }),
@@ -71,6 +79,12 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
                 {e.statut && e.canal === "email" && <span>· {e.statut}</span>}
               </div>
               <p className="whitespace-pre-wrap">{e.texte}</p>
+              {(() => {
+                const fr = traductions.data?.[i];
+                return fr && fr.trim() !== (e.texte ?? "").trim()
+                  ? <p className="mt-1 whitespace-pre-wrap border-t pt-1 text-muted-foreground text-xs italic" data-testid="traduction">🇫🇷 {fr}</p>
+                  : null;
+              })()}
             </div>
           ))}
           <div ref={finRef} />

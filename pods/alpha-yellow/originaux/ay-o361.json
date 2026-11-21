@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o361",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a8376bea-fda0-4bc3-8505-5134c686132f",
+ "titre": "Tiny habits that make you wiser every day #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "a8376bea-fda0-4bc3-8505-5134c686132f"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 7 de la boîte (a8376bea, fr 1,2 k), 2e déclinaison après ay-o343. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o343 ni de 3bff423f et ses déclinaisons.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "539d04f7-9fb1-4a21-8a9a-57951960db35",
+   "texte_overlay": "Tiny habits that\nmake you wiser every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Ask \"what can I learn from this?\" after every mistake. It turns bad days into lessons and stops you from making the same mistake twice.",
+   "media_id": "54b6303e-01c2-4445-80d1-ccb5cca6515b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Read one page of philosophy each morning. Marcus Aurelius, Seneca, Epictetus. Old wisdom gives calm perspective on modern problems.",
+   "media_id": "54b74330-03b0-4e3b-b628-5db13dddfdb3"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Talk to someone older every week. Grandparents, mentors, older colleagues. Their experience can save you years of trial and error.",
+   "media_id": "5517affb-3b92-4a03-ac72-78e4159be509"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Pause before reacting. Count to three before answering an angry message. Wisdom is often just the space between feeling and acting.",
+   "media_id": "55294a26-e737-41c1-9003-d1d9e958ecd6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Understanding the past helps you make better choices today.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Understanding the past helps you make better choices today.",
+   "media_id": "31ead05a-9576-48fb-a950-fb14c55a36d2"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keep a list of lessons learned. Every time life teaches you something, write it down. Re-read it once a month. Patterns will appear.",
+   "media_id": "5537b689-eb9a-4d34-92fd-743ca183da68"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Spend time in silence. A walk without headphones, ten minutes without your phone. Clear thoughts need quiet space to appear.",
+   "media_id": "55c68d5c-8e8d-4dd7-92ca-c7b4308fff0a"
+  }
+ ]
+}

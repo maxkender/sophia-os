@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o353",
+ "type_bleo": "full_test",
+ "titre": "Signs you're finally growing up #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Signs you're finally growing up » (retenue), « You know you're an adult when » (écartée : ton blague), « Signs of maturity in men » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35089f98-f1fe-4526-828c-127afe36912b",
+   "texte_overlay": "Signs you're finally\ngrowing up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "You choose a quiet evening over a party sometimes, and you enjoy it. Knowing what recharges you is a sign you understand yourself better.",
+   "media_id": "379524b1-3bdc-479e-bca4-c80a6ee201ff"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You apologise without excuses. \"I was wrong, I'm sorry.\" No \"but.\" Taking full responsibility is one of the clearest marks of a grown man.",
+   "media_id": "38bb235d-8681-4348-9e1c-9ec77f495583"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You care more about health than looks. Sleep, food and training become about feeling good, not just about the mirror. Real progress, every year.",
+   "media_id": "3bd2dfcb-cf56-41df-be56-426999e14b85"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "You walk away from drama. Arguments online, gossip at work, group chat fights. You simply don't have the energy for them anymore.",
+   "media_id": "40b4e548-5378-4ecf-8140-37daebcd5c24"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "You start learning for fun. I do five minutes a day of history, art or science, and I enjoy it far more than I ever enjoyed school.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I enjoy it far more than I ever enjoyed school.",
+   "media_id": "4b216322-3627-4262-9004-7459ee2ee681"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You save before you spend. Money stops being something to burn and becomes something that buys you calm and freedom. They're people too.",
+   "media_id": "4107fc84-f62a-4b39-b923-3b1a38aeb78b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "You appreciate your parents differently. You start seeing them as people, not just as parents, and you understand them more every year.",
+   "media_id": "43614913-d4f4-423e-86d3-ca356c79bc79"
+  }
+ ]
+}

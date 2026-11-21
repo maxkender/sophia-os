@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o352",
+ "type_bleo": "full_test",
+ "titre": "How to make your weekends feel longer #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to make your weekends feel longer » (retenue), « Why your weekends disappear » (écartée : sans promesse), « The perfect weekend routine » (écartée : vu partout).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2cd56137-8035-42ce-8517-60c340b552f1",
+   "texte_overlay": "How to make your weekends\nfeel longer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Start Saturday early. Waking up at a normal time instead of noon gives you four extra hours. Those morning hours feel like a whole bonus day.",
+   "media_id": "1c9d99ac-338c-465d-8c2a-4745894de4e7"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Do something new every weekend. A new place, a new dish, a new activity. Your brain remembers new experiences as longer than routine ones.",
+   "media_id": "297777d6-68d7-4554-a4fd-5ebf64d117e1"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Get the boring tasks done Friday evening. Laundry, groceries, emails. Starting the weekend with nothing on your list feels like freedom.",
+   "media_id": "2da7e61b-9764-4b8a-90a8-1b66f4692e02"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Go outside for real. A hike, a day by the sea, a trip to a nearby town. Time in nature makes days feel bigger and slower.",
+   "media_id": "310cd00e-d753-4e9d-b5c6-df5611821be5"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Saturday mornings feel richer when they start with something interesting.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Saturday mornings feel richer when they start with something interesting.",
+   "media_id": "4a24762d-06e6-48e7-b134-663af6902632"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Limit your screen time. Hours of scrolling blur together and disappear. Put the phone away and the weekend suddenly stretches.",
+   "media_id": "32b73ce0-603c-4772-b841-ff10912a8e4d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Protect Sunday evening. A calm dinner, a short plan for Monday, an early night. Ending well makes the whole weekend feel complete.",
+   "media_id": "35825d73-0e16-479b-bb14-7c9979de1dca"
+  }
+ ]
+}

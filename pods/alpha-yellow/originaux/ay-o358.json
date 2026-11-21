@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o358",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0ca8a820-1bb8-4d1d-b2f8-e0e2d1e15786",
+ "titre": "How to feel happy again after a hard season #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "0ca8a820-1bb8-4d1d-b2f8-e0e2d1e15786"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 4 de la boîte (0ca8a820, it 3,8 k r 2,08), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent (dehors, moins de bruit, les mains, rire, aider, patience). Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "512e9715-4c47-4cee-9383-906c9ca489d7",
+   "texte_overlay": "How to feel happy again\nafter a hard season",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Start with your body. Sleep, food, water, movement. When you feel low, the basics matter more than any big life change. Start there, start small.",
+   "media_id": "4f871d10-3e87-491f-951c-8ca24ecbf9fd"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Make one small plan to look forward to. A dinner with a friend, a day trip, a concert. Having something ahead lifts your mood today.",
+   "media_id": "505e2bf7-70ce-4755-ad5f-d1dfc1ca99d4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Write three good things each evening. They can be tiny: good coffee, a kind word, sunshine. Your brain slowly learns to notice good again.",
+   "media_id": "51564280-c8fe-4768-ac78-9b8da99c5a5f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Reconnect with an old hobby. The guitar, the bike, drawing, football. What made you happy before can help bring you back.",
+   "media_id": "515fc345-d4e1-4459-ac2d-a6959b1fc590"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: everything felt grey and repetitive. After: five minutes a day of history, art or science, and little moments of wonder came back.",
+   "texte_sophia": "Before: everything felt grey and repetitive. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Little moments of wonder came back.",
+   "media_id": "febe6347-7df5-4f8d-9e87-eeb4688dba04"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Talk to someone. A friend, a family member, or a professional. Sharing what you feel makes it lighter and helps you see a way forward.",
+   "media_id": "5165db71-39bd-433d-9fb0-24e34c18fb6f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Accept that it takes time. Healing is not a straight line. Some days will be better than others, and that's completely normal.",
+   "media_id": "51ccca20-ff4e-4789-8848-72212b9a39c8"
+  }
+ ]
+}

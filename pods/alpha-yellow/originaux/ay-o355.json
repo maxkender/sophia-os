@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o355",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7b9ce2e1-50ee-4b32-ab33-12d39805771c",
+ "titre": "Things worth buying before you turn 30 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "7b9ce2e1-50ee-4b32-ab33-12d39805771c"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 1 de la boîte (7b9ce2e1, de 3 k r 2,51), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent (matelas, chaussures en cuir, fonte, passeport, serviettes pour les invités, montre).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b3e64e6-7ad9-43a0-b978-1afc5f392194",
+   "texte_overlay": "Things worth buying\nbefore you turn 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A good chef's knife. One sharp, quality knife makes cooking faster, safer and more enjoyable. You'll use it every day for decades.",
+   "media_id": "4596749f-041f-4868-b872-22ceb94ee2c5"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "A proper winter coat. Warm, well cut, in a neutral colour. It's the piece people see most for months, so it's worth getting right.",
+   "media_id": "48536bd5-7470-42ff-81ee-4fe4c6aee98b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A basic toolbox. Hammer, screwdrivers, a drill, a level. Being able to fix and build things at home makes you feel capable.",
+   "media_id": "48b634cf-bbed-44b9-aff2-b92fbe8a9daf"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "A comfortable desk chair. If you work or study at home, your back will thank you for years. Cheap chairs cost you in pain later.",
+   "media_id": "48c64fc0-c275-46a2-9986-61c8cf3168bd"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Of everything I've invested in, my curiosity has paid back the most.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Of everything I've invested in, my curiosity has paid back the most.",
+   "media_id": "d6c2e7e2-cc60-4913-9f5c-d320485f0bee"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A good suitcase. Sturdy wheels, simple design, carry-on size. Travel becomes easier and more pleasant when your luggage doesn't fight you.",
+   "media_id": "490b5a5d-3bed-4f52-bca3-0d159f32530d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Quality running shoes. Whether you run or just walk a lot, good shoes protect your knees and back. Your body is worth it.",
+   "media_id": "4911c1d2-ad7e-43db-94d0-257006cbd5ed"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o365",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d7503bae-e6d2-4fcc-a2e0-12c9eebd7be1",
+ "titre": "How to stay calm in social situations that scare you #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "d7503bae-e6d2-4fcc-a2e0-12c9eebd7be1"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 11 de la boîte (d7503bae, en 1 k), 2e déclinaison après ay-o346. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o346. Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ad9e877-d99f-4b59-b71d-c53d405e6b6a",
+   "texte_overlay": "How to stay calm in social\nsituations that scare you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689885995193486600/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Name what you're feeling. \"I'm nervous, and that's okay.\" Saying it to yourself takes away half its power and helps you stay steady.",
+   "media_id": "5a967cba-8ed9-4bc0-850f-6fd394fad378"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Focus on one person at a time. Big groups feel overwhelming. Talking to one person is much easier, and others often join in.",
+   "media_id": "5ab16809-a8fc-4bfe-8904-663c7bf65143"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Use your senses to ground yourself. Notice three things you can see, two you can hear, one you can touch. It brings you back to the moment.",
+   "media_id": "5c0c33cd-3337-468d-a8b1-36cf82420491"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Prepare a way out. Knowing you can leave after an hour makes it easier to go. Most of the time, you'll want to stay longer.",
+   "media_id": "5c3af36b-6ba3-4b5a-bda3-df61721beac6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I panicked when conversations went quiet. After: five minutes a day of history, art or science, and I always have something to say.",
+   "texte_sophia": "Before: I panicked when conversations went quiet. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have something to say.",
+   "media_id": "609378e2-49d7-467a-873e-1e320da6f70e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Practise in easy places first. A café, a shop, a gym class. Small, low-pressure chats build confidence for bigger situations.",
+   "media_id": "5c7f0cac-6c71-43da-a866-f81ee201a2e6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be proud of every step. Going, staying, talking to one new person. Progress with anxiety is made of small wins, and each one counts.",
+   "media_id": "5d119d40-e2bc-41e1-ad1d-0cf3f7906b03"
+  }
+ ]
+}

@@ -1,0 +1,768 @@
+{
+ "id": "mi-011",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7669161866979069214",
+  "vues": 228400,
+  "publie_le": "2026-08-01",
+  "accroche": "How to / Focus / for / 20+ hours"
+ },
+ "fond": "noir",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825hp (Prismatic Mix)",
+  "url": "https://www.tiktok.com/music/825hp-Prismatic-Mix-7176902323170445314"
+ },
+ "notes": "Full test (boîte vide). Format de « How to Focus for 20+ hours » de @bdnf.milly (228,4 k vues), famille « How to [verbe] … », fond noir. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : dix minutes d'écriture sur ses inquiétudes juste avant un examen sous pression améliorent les notes (Ramirez et Beilock, Science 2011) ; l'écriture expressive sur des expériences stressantes augmente la mémoire de travail en quelques semaines (Klein et Boals, Journal of Experimental Psychology: General 2001) ; l'esprit critique dépend des connaissances du domaine (Willingham, American Educator 2007) ; marcher fait produire plus d'idées créatives, pendant et juste après, qu'être assis (Oppezzo et Schwartz, Journal of Experimental Psychology: LMC 2014, Stanford). 11 langues. Images : Seedream (tep, tractographie, cerveau-3d), sans texte.",
+ "titre": {
+  "en": "How to Think more Clearly",
+  "fr": "Comment penser plus clairement",
+  "es": "Cómo pensar con más claridad",
+  "es-419": "Cómo pensar con más claridad",
+  "it": "Come pensare in modo più chiaro",
+  "tr": "Daha net nasıl düşünürsün",
+  "pt-BR": "Como pensar com mais clareza",
+  "sl": "Kako razmišljati jasneje",
+  "hr": "Kako razmišljati jasnije",
+  "de": "Wie du klarer denkst",
+  "hu": "Hogyan gondolkodj tisztábban"
+ },
+ "legendes": {
+  "en": "clear the space you think with #thinking #focus #brain #learning #psychology",
+  "fr": "libère l'espace avec lequel tu penses #réflexion #concentration #cerveau #apprendre #psychologie",
+  "es": "libera el espacio con el que piensas #pensamiento #concentración #cerebro #aprender #psicología",
+  "es-419": "libera el espacio con el que piensas #pensamiento #concentración #cerebro #aprender #psicología",
+  "it": "libera lo spazio con cui pensi #pensiero #concentrazione #cervello #imparare #psicologia",
+  "tr": "düşündüğün alanı boşalt #düşünme #odaklanma #beyin #öğrenme #psikoloji",
+  "pt-BR": "libere o espaço com que você pensa #pensamento #foco #cerebro #aprender #psicologia",
+  "sl": "sprosti prostor, s katerim razmišljaš #razmišljanje #zbranost #možgani #učenje #psihologija",
+  "hr": "oslobodi prostor kojim razmišljaš #razmišljanje #koncentracija #mozak #učenje #psihologija",
+  "de": "schaff platz im kopf #denken #konzentration #gehirn #lernen #psychologie",
+  "hu": "szabadítsd fel a teret, amellyel gondolkodsz #gondolkodás #koncentráció #agy #tanulás #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/tep.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Think",
+      "taille": "grand"
+     },
+     {
+      "t": "more",
+      "taille": "petit"
+     },
+     {
+      "t": "Clearly",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Penser",
+      "taille": "grand"
+     },
+     {
+      "t": "plus",
+      "taille": "petit"
+     },
+     {
+      "t": "Clairement",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Pensar",
+      "taille": "grand"
+     },
+     {
+      "t": "con más",
+      "taille": "petit"
+     },
+     {
+      "t": "Claridad",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Pensar",
+      "taille": "grand"
+     },
+     {
+      "t": "con más",
+      "taille": "petit"
+     },
+     {
+      "t": "Claridad",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Pensare",
+      "taille": "grand"
+     },
+     {
+      "t": "in modo più",
+      "taille": "petit"
+     },
+     {
+      "t": "Chiaro",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Daha",
+      "taille": "petit"
+     },
+     {
+      "t": "Net",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Düşünürsün",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Pensar",
+      "taille": "grand"
+     },
+     {
+      "t": "com mais",
+      "taille": "petit"
+     },
+     {
+      "t": "Clareza",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "Razmišljati",
+      "taille": "grand"
+     },
+     {
+      "t": "Jasneje",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "Razmišljati",
+      "taille": "grand"
+     },
+     {
+      "t": "Jasnije",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du",
+      "taille": "petit"
+     },
+     {
+      "t": "Klarer",
+      "taille": "grand"
+     },
+     {
+      "t": "Denkst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Gondolkodj",
+      "taille": "grand"
+     },
+     {
+      "t": "Tisztábban",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Write Your Worries Down",
+    "blocs": [
+     {
+      "p": "Worry takes up working memory, the mental space you think with. In one study, students who spent ten minutes writing about their worries just before a high-pressure exam scored better than students who did not."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "In another, a few weeks of writing about stressful experiences increased people's working memory capacity. Putting a worry on paper frees room in your head."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Écris tes inquiétudes",
+    "blocs": [
+     {
+      "p": "L'inquiétude occupe la mémoire de travail, l'espace mental avec lequel tu réfléchis. Dans une étude, des élèves qui ont écrit dix minutes sur leurs inquiétudes juste avant un examen sous pression ont eu de meilleures notes que ceux qui ne l'avaient pas fait."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Dans une autre, quelques semaines d'écriture sur des expériences stressantes ont augmenté la mémoire de travail. Poser une inquiétude sur le papier libère de la place dans ta tête."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Escribe tus preocupaciones",
+    "blocs": [
+     {
+      "p": "La preocupación ocupa la memoria de trabajo, el espacio mental con el que piensas. En un estudio, los alumnos que escribieron diez minutos sobre sus preocupaciones justo antes de un examen de mucha presión sacaron mejores notas que los que no lo hicieron."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "En otro, unas semanas escribiendo sobre experiencias estresantes aumentaron la capacidad de memoria de trabajo. Poner una preocupación en papel libera espacio en tu cabeza."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Escribe lo que te preocupa",
+    "blocs": [
+     {
+      "p": "La preocupación ocupa la memoria de trabajo, el espacio mental con el que piensas. En un estudio, los estudiantes que escribieron diez minutos sobre lo que les preocupaba justo antes de un examen muy presionado sacaron mejores calificaciones que los que no lo hicieron."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "En otro, unas semanas de escribir sobre experiencias estresantes aumentaron la capacidad de memoria de trabajo. Pasar una preocupación al papel libera espacio en tu cabeza."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Scrivi le tue preoccupazioni",
+    "blocs": [
+     {
+      "p": "La preoccupazione occupa la memoria di lavoro, lo spazio mentale con cui pensi. In uno studio, gli studenti che hanno scritto per dieci minuti sulle loro preoccupazioni subito prima di un esame ad alta pressione hanno preso voti migliori di chi non l'ha fatto."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "In un altro, alcune settimane di scrittura su esperienze stressanti hanno aumentato la capacità di memoria di lavoro. Mettere una preoccupazione su carta libera spazio nella testa."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Endişelerini yaz",
+    "blocs": [
+     {
+      "p": "Endişe, düşünmek için kullandığın zihinsel alan olan çalışma belleğini işgal eder. Bir çalışmada, baskılı bir sınavdan hemen önce on dakika boyunca endişelerini yazan öğrenciler, yazmayanlardan daha yüksek not aldı."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Bir başkasında, birkaç hafta boyunca stresli deneyimler hakkında yazmak çalışma belleği kapasitesini artırdı. Bir endişeyi kâğıda dökmek kafanda yer açar."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Escreva suas preocupações",
+    "blocs": [
+     {
+      "p": "A preocupação ocupa a memória de trabalho, o espaço mental com que você pensa. Em um estudo, alunos que escreveram por dez minutos sobre suas preocupações logo antes de uma prova de alta pressão tiraram notas melhores do que os que não escreveram."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Em outro, algumas semanas escrevendo sobre experiências estressantes aumentaram a capacidade da memória de trabalho. Colocar uma preocupação no papel libera espaço na cabeça."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Zapiši svoje skrbi",
+    "blocs": [
+     {
+      "p": "Skrb zaseda delovni spomin, miselni prostor, s katerim razmišljaš. V eni raziskavi so učenci, ki so tik pred izpitom pod velikim pritiskom deset minut pisali o svojih skrbeh, dosegli boljše ocene kot tisti, ki tega niso storili."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "V drugi je nekaj tednov pisanja o stresnih izkušnjah povečalo zmogljivost delovnega spomina. Ko skrb preneseš na papir, sprostiš prostor v glavi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Zapiši svoje brige",
+    "blocs": [
+     {
+      "p": "Briga zauzima radno pamćenje, mentalni prostor kojim razmišljaš. U jednom istraživanju učenici koji su deset minuta pisali o svojim brigama neposredno prije ispita pod velikim pritiskom dobili su bolje ocjene od onih koji to nisu učinili."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "U drugom je nekoliko tjedana pisanja o stresnim iskustvima povećalo kapacitet radnog pamćenja. Kad brigu staviš na papir, oslobodiš mjesto u glavi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Schreib deine Sorgen auf",
+    "blocs": [
+     {
+      "p": "Sorgen belegen das Arbeitsgedächtnis, den geistigen Raum, mit dem du denkst. In einer Studie schnitten Schüler, die direkt vor einer Prüfung unter hohem Druck zehn Minuten über ihre Sorgen schrieben, besser ab als jene, die das nicht taten."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "In einer anderen steigerten ein paar Wochen Schreiben über belastende Erlebnisse die Kapazität des Arbeitsgedächtnisses. Eine Sorge aufs Papier zu bringen, schafft Platz im Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Írd le az aggodalmaidat",
+    "blocs": [
+     {
+      "p": "Az aggodalom elfoglalja a munkamemóriát, azt a mentális teret, amellyel gondolkodsz. Egy vizsgálatban azok a diákok, akik egy nagy tétű vizsga előtt tíz percig írtak az aggodalmaikról, jobb jegyet kaptak, mint akik nem."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Egy másikban néhány hétnyi írás megterhelő élményekről megnövelte a munkamemória kapacitását. Ha egy aggodalmat papírra teszel, helyet szabadítasz fel a fejedben."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Know Something About It",
+    "blocs": [
+     {
+      "p": "Clear thinking does not happen in a vacuum. Research on critical thinking shows that people reason far better about topics they already know something about."
+     },
+     {
+      "p": "So the surest way to think clearly about more things is to keep learning about more things, a little every evening, like a training session."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Sache quelque chose du sujet",
+    "blocs": [
+     {
+      "p": "On ne pense pas clairement dans le vide. Les recherches sur l'esprit critique montrent qu'on raisonne bien mieux sur des sujets qu'on connaît déjà un peu."
+     },
+     {
+      "p": "Le moyen le plus sûr de penser clairement sur plus de choses, c'est donc d'apprendre sur plus de choses, un peu chaque soir, comme un entraînement."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Sabe algo del tema",
+    "blocs": [
+     {
+      "p": "No se piensa con claridad en el vacío. La investigación sobre el pensamiento crítico muestra que razonamos mucho mejor sobre temas de los que ya sabemos algo."
+     },
+     {
+      "p": "Así que la forma más segura de pensar con claridad sobre más cosas es aprender sobre más cosas, un poco cada noche, como un entrenamiento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Conoce algo del tema",
+    "blocs": [
+     {
+      "p": "Nadie piensa con claridad en el vacío. La investigación sobre pensamiento crítico muestra que razonamos mucho mejor sobre temas que ya conocemos un poco."
+     },
+     {
+      "p": "Entonces, la forma más segura de pensar con claridad sobre más cosas es aprender sobre más cosas, un poco cada noche, como un entrenamiento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Sappi qualcosa dell'argomento",
+    "blocs": [
+     {
+      "p": "Non si pensa chiaramente nel vuoto. Le ricerche sul pensiero critico mostrano che ragioniamo molto meglio su argomenti di cui sappiamo già qualcosa."
+     },
+     {
+      "p": "Quindi il modo più sicuro per pensare chiaramente su più cose è imparare più cose, un po' ogni sera, come un allenamento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Konu hakkında bir şey bil",
+    "blocs": [
+     {
+      "p": "Net düşünce boşlukta oluşmaz. Eleştirel düşünme üzerine araştırmalar, insanların zaten biraz bildikleri konularda çok daha iyi akıl yürüttüğünü gösteriyor."
+     },
+     {
+      "p": "Yani daha çok konuda net düşünmenin en sağlam yolu, daha çok konuyu öğrenmeye devam etmek: her akşam biraz, bir antrenman gibi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Saiba algo sobre o assunto",
+    "blocs": [
+     {
+      "p": "Ninguém pensa com clareza no vazio. As pesquisas sobre pensamento crítico mostram que raciocinamos muito melhor sobre assuntos que já conhecemos um pouco."
+     },
+     {
+      "p": "Então o jeito mais seguro de pensar com clareza sobre mais coisas é aprender sobre mais coisas, um pouco toda noite, como um treino."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vedi kaj o temi",
+    "blocs": [
+     {
+      "p": "Jasno razmišljanje se ne zgodi v praznem. Raziskave kritičnega mišljenja kažejo, da veliko bolje sklepamo o temah, o katerih že nekaj vemo."
+     },
+     {
+      "p": "Najzanesljivejši način, da jasno razmišljaš o več stvareh, je torej, da se učiš o več stvareh, vsak večer malo, kot trening."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Znaj nešto o temi",
+    "blocs": [
+     {
+      "p": "Jasno razmišljanje ne događa se u prazno. Istraživanja kritičkog mišljenja pokazuju da mnogo bolje zaključujemo o temama o kojima već nešto znamo."
+     },
+     {
+      "p": "Najsigurniji način da jasno razmišljaš o više stvari zato je da učiš o više stvari, malo svake večeri, kao trening."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Wisse etwas über das Thema",
+    "blocs": [
+     {
+      "p": "Klares Denken passiert nicht im luftleeren Raum. Die Forschung zum kritischen Denken zeigt, dass wir über Themen, von denen wir schon etwas wissen, weit besser urteilen."
+     },
+     {
+      "p": "Der sicherste Weg, über mehr Dinge klar zu denken, ist also, über mehr Dinge zu lernen, jeden Abend ein wenig, wie ein Training."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tudj valamit a témáról",
+    "blocs": [
+     {
+      "p": "A tiszta gondolkodás nem légüres térben történik. A kritikus gondolkodás kutatása szerint sokkal jobban érvelünk olyan témákról, amelyekről már tudunk valamit."
+     },
+     {
+      "p": "A legbiztosabb módja tehát annak, hogy több dologról gondolkodj tisztán, hogy több dologról tanulj, minden este egy kicsit, mint egy edzés."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Take A Walk",
+    "blocs": [
+     {
+      "p": "In experiments at Stanford, people came up with more creative ideas while walking, and for a while afterwards, than while sitting down."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "When your thoughts are tangled, step outside for ten minutes before deciding anything. Moving often loosens what sitting has knotted."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Va marcher",
+    "blocs": [
+     {
+      "p": "Dans des expériences menées à Stanford, les participants avaient plus d'idées créatives en marchant, et encore un moment après, qu'en restant assis."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Quand tes pensées s'emmêlent, sors marcher dix minutes avant de décider quoi que ce soit. Le mouvement dénoue souvent ce que la chaise a noué."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Sal a caminar",
+    "blocs": [
+     {
+      "p": "En experimentos en Stanford, las personas tenían más ideas creativas mientras caminaban, y durante un rato después, que sentadas."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Cuando tus pensamientos se enreden, sal a caminar diez minutos antes de decidir nada. Moverse suele desatar lo que la silla ha anudado."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Sal a caminar",
+    "blocs": [
+     {
+      "p": "En experimentos en Stanford, las personas tuvieron más ideas creativas mientras caminaban, y un rato después, que sentadas."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Cuando tus pensamientos se enreden, sal a caminar diez minutos antes de decidir cualquier cosa. Moverte suele desatar lo que la silla amarró."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Vai a camminare",
+    "blocs": [
+     {
+      "p": "In esperimenti condotti a Stanford, le persone avevano più idee creative mentre camminavano, e per un po' dopo, che stando sedute."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Quando i pensieri si aggrovigliano, esci a camminare dieci minuti prima di decidere qualsiasi cosa. Muoversi spesso scioglie ciò che la sedia ha annodato."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Yürüyüşe çık",
+    "blocs": [
+     {
+      "p": "Stanford'daki deneylerde insanlar yürürken ve yürüyüşten sonraki bir süre boyunca, otururken olduğundan daha fazla yaratıcı fikir üretti."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Düşüncelerin birbirine karıştığında, bir karar vermeden önce on dakika dışarı çık ve yürü. Hareket, oturmanın düğümlediğini çoğu zaman çözer."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Saia para caminhar",
+    "blocs": [
+     {
+      "p": "Em experimentos em Stanford, as pessoas tiveram mais ideias criativas enquanto caminhavam, e por um tempo depois, do que sentadas."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Quando seus pensamentos se embolarem, saia para caminhar dez minutos antes de decidir qualquer coisa. Mexer o corpo muitas vezes desata o que a cadeira amarrou."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Pojdi na sprehod",
+    "blocs": [
+     {
+      "p": "V poskusih na Stanfordu so imeli ljudje med hojo, pa tudi še nekaj časa po njej, več ustvarjalnih zamisli kot sede."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Ko se ti misli zapletejo, pojdi za deset minut ven, preden se o čemerkoli odločiš. Gibanje pogosto razvozla, kar je sedenje zavozlalo."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Prošeći",
+    "blocs": [
+     {
+      "p": "U pokusima na Stanfordu ljudi su imali više kreativnih ideja dok su hodali, a i neko vrijeme poslije, nego dok su sjedili."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Kad ti se misli zapetljaju, izađi prošetati deset minuta prije nego što išta odlučiš. Kretanje često razveže ono što je sjedenje zavezalo."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Geh spazieren",
+    "blocs": [
+     {
+      "p": "In Experimenten in Stanford hatten Menschen beim Gehen, und noch eine Weile danach, mehr kreative Ideen als im Sitzen."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Wenn sich deine Gedanken verknoten, geh zehn Minuten nach draußen, bevor du irgendetwas entscheidest. Bewegung löst oft, was das Sitzen verknotet hat."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Menj sétálni",
+    "blocs": [
+     {
+      "p": "Stanfordi kísérletekben az embereknek séta közben, és még egy darabig utána is, több kreatív ötletük támadt, mint ülve."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Ha összegabalyodnak a gondolataid, menj ki tíz percre sétálni, mielőtt bármit eldöntenél. A mozgás gyakran kibogozza, amit az ülés összecsomózott."
+     }
+    ]
+   }
+  }
+ ]
+}

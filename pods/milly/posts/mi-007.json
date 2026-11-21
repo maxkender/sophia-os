@@ -1,0 +1,772 @@
+{
+ "id": "mi-007",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7684514161577053471",
+  "vues": 310800,
+  "publie_le": "2026-09-24",
+  "accroche": "How to / Study / for 10+ / Hours"
+ },
+ "fond": "rouge",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "pursuit (super slowed)",
+  "url": "https://www.tiktok.com/music/pursuit-super-slowed-7589620748253612049"
+ },
+ "notes": "Full test (boîte vide). Format de « How to Study for 10+ Hours » de @bdnf.milly (310,8 k vues), famille « How to [verbe] … » (elle fait aussi « solve problems faster »), fond rouge. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Faits vérifiés : une période d'incubation augmente les chances de résoudre un problème, surtout créatif (Sio et Ormerod, Psychological Bulletin 2009, méta-analyse) ; l'analogie d'une histoire militaire fait résoudre bien plus souvent le problème médical de la radiothérapie, une fois qu'on signale qu'elle peut aider (Gick et Holyoak, Cognitive Psychology 1980) ; après une nuit de sommeil, 59 % trouvent la règle cachée contre 23 % après le même temps éveillé (Wagner, Gais, Haider, Verleger et Born, Nature 2004). 11 langues. Images : Seedream (cerveau-3d, irm-activite, synapse), sans texte.",
+ "titre": {
+  "en": "How to Solve Problems Faster",
+  "fr": "Comment résoudre les problèmes plus vite",
+  "es": "Cómo resolver problemas más rápido",
+  "es-419": "Cómo resolver problemas más rápido",
+  "it": "Come risolvere i problemi più in fretta",
+  "tr": "Problemleri nasıl daha hızlı çözersin",
+  "pt-BR": "Como resolver problemas mais rápido",
+  "sl": "Kako hitreje reševati probleme",
+  "hr": "Kako brže rješavati probleme",
+  "de": "Wie du Probleme schneller löst",
+  "hu": "Hogyan oldd meg gyorsabban a problémákat"
+ },
+ "legendes": {
+  "en": "let the brain work in the background #problemsolving #brain #thinking #learning #psychology",
+  "fr": "laisse ton cerveau travailler en arrière-plan #résolutiondeproblèmes #cerveau #réflexion #apprendre #psychologie",
+  "es": "deja que tu cerebro trabaje en segundo plano #resolucióndeproblemas #cerebro #pensamiento #aprender #psicología",
+  "es-419": "deja que tu cerebro trabaje en segundo plano #resolucióndeproblemas #cerebro #pensamiento #aprender #psicología",
+  "it": "lascia lavorare il cervello in sottofondo #problemsolving #cervello #pensiero #imparare #psicologia",
+  "tr": "beynin arka planda çalışsın #problemçözme #beyin #düşünme #öğrenme #psikoloji",
+  "pt-BR": "deixe o cérebro trabalhar nos bastidores #resolucaodeproblemas #cerebro #pensamento #aprender #psicologia",
+  "sl": "naj možgani delajo v ozadju #reševanjeproblemov #možgani #razmišljanje #učenje #psihologija",
+  "hr": "pusti mozak da radi u pozadini #rješavanjeproblema #mozak #razmišljanje #učenje #psihologija",
+  "de": "lass dein gehirn im hintergrund arbeiten #problemlösen #gehirn #denken #lernen #psychologie",
+  "hu": "hagyd, hogy az agyad a háttérben dolgozzon #problémamegoldás #agy #gondolkodás #tanulás #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/cerveau-3d.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Solve",
+      "taille": "grand"
+     },
+     {
+      "t": "problems",
+      "taille": "petit"
+     },
+     {
+      "t": "Faster",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Résoudre",
+      "taille": "grand"
+     },
+     {
+      "t": "les problèmes",
+      "taille": "petit"
+     },
+     {
+      "t": "plus vite",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Resolver",
+      "taille": "grand"
+     },
+     {
+      "t": "problemas",
+      "taille": "petit"
+     },
+     {
+      "t": "más rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Resolver",
+      "taille": "grand"
+     },
+     {
+      "t": "problemas",
+      "taille": "petit"
+     },
+     {
+      "t": "más rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Risolvere",
+      "taille": "grand"
+     },
+     {
+      "t": "i problemi",
+      "taille": "petit"
+     },
+     {
+      "t": "più in fretta",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Problemleri",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl daha hızlı",
+      "taille": "petit"
+     },
+     {
+      "t": "Çözersin",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Resolver",
+      "taille": "grand"
+     },
+     {
+      "t": "problemas",
+      "taille": "petit"
+     },
+     {
+      "t": "mais rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako hitreje",
+      "taille": "petit"
+     },
+     {
+      "t": "Reševati",
+      "taille": "grand"
+     },
+     {
+      "t": "Probleme",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako brže",
+      "taille": "petit"
+     },
+     {
+      "t": "Rješavati",
+      "taille": "grand"
+     },
+     {
+      "t": "Probleme",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du",
+      "taille": "petit"
+     },
+     {
+      "t": "Probleme",
+      "taille": "grand"
+     },
+     {
+      "t": "schneller",
+      "taille": "petit"
+     },
+     {
+      "t": "löst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan oldd meg",
+      "taille": "petit"
+     },
+     {
+      "t": "Gyorsabban",
+      "taille": "grand"
+     },
+     {
+      "t": "a",
+      "taille": "petit"
+     },
+     {
+      "t": "Problémákat",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Step Away From It",
+    "blocs": [
+     {
+      "p": "When you are stuck, a break can help. A review of dozens of studies found that setting a problem aside for a while, an incubation period, improves the chances of solving it, especially for creative problems."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "During the break, the mind keeps working in the background and wrong ideas you were stuck on lose their grip. That may be why solutions so often seem to arrive in the shower or on a walk."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Éloigne-toi du problème",
+    "blocs": [
+     {
+      "p": "Quand tu bloques, une pause peut aider. Une revue de dizaines d'études a montré que mettre un problème de côté un moment, une période d'incubation, augmente les chances de le résoudre, surtout quand il demande de la créativité."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Pendant la pause, l'esprit continue de travailler en arrière-plan et les fausses pistes sur lesquelles tu bloquais perdent leur emprise. C'est peut-être pour ça que les solutions semblent si souvent arriver sous la douche ou en marchant."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aléjate un rato",
+    "blocs": [
+     {
+      "p": "Cuando te atascas, una pausa puede ayudar. Una revisión de decenas de estudios encontró que dejar un problema de lado durante un tiempo, un periodo de incubación, aumenta las probabilidades de resolverlo, sobre todo si es un problema creativo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Durante la pausa, la mente sigue trabajando en segundo plano y las ideas equivocadas en las que estabas atascado pierden fuerza. Quizá por eso las soluciones parecen llegar tan a menudo en la ducha o paseando."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aléjate un momento",
+    "blocs": [
+     {
+      "p": "Cuando te atoras, una pausa puede ayudar. Una revisión de decenas de estudios encontró que dejar un problema a un lado por un rato, un periodo de incubación, aumenta las probabilidades de resolverlo, sobre todo si es un problema creativo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Durante la pausa, tu mente sigue trabajando en segundo plano y las ideas equivocadas en las que estabas atorado pierden fuerza. Tal vez por eso las soluciones parecen llegar tan seguido en la regadera o caminando."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Allontanati dal problema",
+    "blocs": [
+     {
+      "p": "Quando sei bloccato, una pausa può aiutare. Una revisione di decine di studi ha rilevato che mettere da parte un problema per un po', un periodo di incubazione, aumenta le probabilità di risolverlo, soprattutto se è un problema creativo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Durante la pausa la mente continua a lavorare in sottofondo e le idee sbagliate su cui eri bloccato perdono presa. Forse è per questo che le soluzioni sembrano arrivare così spesso sotto la doccia o durante una passeggiata."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Problemden uzaklaş",
+    "blocs": [
+     {
+      "p": "Takıldığında bir mola işe yarayabilir. Onlarca çalışmayı inceleyen bir derleme, bir problemi bir süre kenara bırakmanın, yani bir kuluçka döneminin, onu çözme şansını artırdığını buldu; özellikle de yaratıcılık isteyen problemlerde."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Mola sırasında zihin arka planda çalışmaya devam eder ve takıldığın yanlış fikirler etkisini kaybeder. Çözümlerin bu kadar sık duşta ya da yürürken gelmesinin nedeni bu olabilir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Afaste-se do problema",
+    "blocs": [
+     {
+      "p": "Quando você trava, uma pausa pode ajudar. Uma revisão de dezenas de estudos mostrou que deixar um problema de lado por um tempo, um período de incubação, aumenta as chances de resolvê-lo, principalmente quando ele exige criatividade."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Durante a pausa, a mente continua trabalhando nos bastidores e as ideias erradas em que você estava preso perdem força. Talvez seja por isso que as soluções pareçam chegar tantas vezes no banho ou numa caminhada."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Odmakni se od problema",
+    "blocs": [
+     {
+      "p": "Ko se zatakne, lahko pomaga premor. Pregled več deset raziskav je pokazal, da odlaganje problema za nekaj časa, tako imenovano obdobje inkubacije, poveča možnosti, da ga rešiš, še posebej pri ustvarjalnih problemih."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Med premorom um v ozadju dela naprej, napačne zamisli, pri katerih si obtičal, pa izgubijo moč. Morda zato rešitve tako pogosto pridejo pod tušem ali na sprehodu."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Odmakni se od problema",
+    "blocs": [
+     {
+      "p": "Kad zapneš, pauza može pomoći. Pregled desetaka istraživanja pokazao je da odlaganje problema na neko vrijeme, takozvano razdoblje inkubacije, povećava izglede da ga riješiš, osobito kod kreativnih problema."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Tijekom pauze um i dalje radi u pozadini, a pogrešne ideje na kojima si zapeo gube snagu. Možda zato rješenja tako često stižu pod tušem ili u šetnji."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Geh auf Abstand",
+    "blocs": [
+     {
+      "p": "Wenn du feststeckst, kann eine Pause helfen. Eine Übersicht über Dutzende Studien ergab, dass es die Chancen auf eine Lösung erhöht, ein Problem eine Weile beiseitezulegen, also eine Inkubationsphase einzulegen, besonders bei kreativen Problemen."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "In der Pause arbeitet der Kopf im Hintergrund weiter, und falsche Ideen, an denen du festhingst, verlieren ihren Griff. Vielleicht kommen Lösungen deshalb so oft unter der Dusche oder beim Spazierengehen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Lépj hátrébb",
+    "blocs": [
+     {
+      "p": "Ha elakadtál, egy szünet segíthet. Több tucat vizsgálat áttekintése szerint ha egy problémát egy időre félreteszel, vagyis beiktatsz egy lappangási időt, nő az esélye, hogy megoldod, különösen kreatív problémáknál."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "A szünet alatt az elme a háttérben tovább dolgozik, a téves ötletek pedig, amelyeken elakadtál, veszítenek az erejükből. Talán ezért jönnek a megoldások olyan gyakran zuhanyzás vagy séta közben."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Collect Ideas From Everywhere",
+    "blocs": [
+     {
+      "p": "Many problems are solved by analogy, with an idea borrowed from another field. In a classic experiment, people who had read a military story with the same hidden structure were far more likely to solve a medical puzzle, once told the story might help."
+     },
+     {
+      "p": "The more fields you know a little about, the more analogies you can reach for. One short lesson every evening, history one night, biology the next, trains exactly that."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Collectionne les idées partout",
+    "blocs": [
+     {
+      "p": "Beaucoup de problèmes se résolvent par analogie, avec une idée empruntée à un autre domaine. Dans une expérience classique, ceux qui avaient lu une histoire militaire à la même structure cachée résolvaient bien plus souvent une énigme médicale, une fois prévenus que l'histoire pouvait aider."
+     },
+     {
+      "p": "Plus tu connais un peu de domaines, plus tu as d'analogies sous la main. Une courte leçon chaque soir, l'histoire un soir, la biologie le lendemain, entraîne exactement ça."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Reúne ideas de todas partes",
+    "blocs": [
+     {
+      "p": "Muchos problemas se resuelven por analogía, con una idea tomada de otro campo. En un experimento clásico, quienes habían leído una historia militar con la misma estructura oculta resolvían mucho más a menudo un enigma médico, una vez avisados de que la historia podía ayudar."
+     },
+     {
+      "p": "Cuantos más campos conoces un poco, más analogías tienes a mano. Una lección corta cada noche, historia un día y biología al siguiente, entrena justo eso."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Junta ideas de todos lados",
+    "blocs": [
+     {
+      "p": "Muchos problemas se resuelven por analogía, con una idea tomada de otro campo. En un experimento clásico, quienes habían leído una historia militar con la misma estructura oculta resolvían mucho más seguido un acertijo médico, una vez que les decían que la historia podía ayudar."
+     },
+     {
+      "p": "Entre más campos conozcas un poco, más analogías tienes a la mano. Una lección corta cada noche, historia un día y biología al siguiente, entrena justo eso."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Raccogli idee ovunque",
+    "blocs": [
+     {
+      "p": "Molti problemi si risolvono per analogia, con un'idea presa in prestito da un altro campo. In un esperimento classico, chi aveva letto una storia militare con la stessa struttura nascosta risolveva molto più spesso un enigma medico, una volta avvisato che la storia poteva aiutare."
+     },
+     {
+      "p": "Più campi conosci almeno un po', più analogie hai a portata di mano. Una breve lezione ogni sera, storia una sera e biologia quella dopo, allena proprio questo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Fikirleri her yerden topla",
+    "blocs": [
+     {
+      "p": "Pek çok problem, başka bir alandan ödünç alınan bir fikirle, yani analojiyle çözülür. Klasik bir deneyde, aynı gizli yapıya sahip bir askeri hikâye okuyanlar, hikâyenin işe yarayabileceği söylendiğinde tıbbi bir bulmacayı çok daha sık çözdü."
+     },
+     {
+      "p": "Ne kadar çok alanı biraz bilirsen, elinin altında o kadar çok analoji olur. Her akşam kısa bir ders, bir gece tarih, ertesi gece biyoloji, tam olarak bunu çalıştırır."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Junte ideias de todo lugar",
+    "blocs": [
+     {
+      "p": "Muitos problemas se resolvem por analogia, com uma ideia emprestada de outra área. Em um experimento clássico, quem tinha lido uma história militar com a mesma estrutura escondida resolvia um enigma médico com muito mais frequência, depois de ser avisado de que a história podia ajudar."
+     },
+     {
+      "p": "Quanto mais áreas você conhece um pouco, mais analogias tem à mão. Uma lição curta toda noite, história numa noite e biologia na outra, treina exatamente isso."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Zbiraj ideje od vsepovsod",
+    "blocs": [
+     {
+      "p": "Veliko problemov rešimo z analogijo, z zamislijo, izposojeno iz drugega področja. V klasičnem poskusu so tisti, ki so prebrali vojaško zgodbo z enako skrito zgradbo, veliko pogosteje rešili medicinsko uganko, ko so jim povedali, da jim zgodba lahko pomaga."
+     },
+     {
+      "p": "Več področij kot poznaš vsaj malo, več analogij imaš pri roki. Kratka lekcija vsak večer, en večer zgodovina, naslednjega biologija, trenira prav to."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Skupljaj ideje posvuda",
+    "blocs": [
+     {
+      "p": "Mnogi se problemi rješavaju analogijom, idejom posuđenom iz drugog područja. U klasičnom pokusu oni koji su pročitali vojnu priču iste skrivene strukture mnogo su češće riješili medicinsku zagonetku, nakon što im je rečeno da im priča može pomoći."
+     },
+     {
+      "p": "Što više područja poznaješ barem malo, to više analogija imaš pri ruci. Kratka lekcija svake večeri, jedne večeri povijest, sljedeće biologija, trenira upravo to."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Sammle Ideen überall",
+    "blocs": [
+     {
+      "p": "Viele Probleme werden per Analogie gelöst, mit einer Idee aus einem anderen Gebiet. In einem klassischen Experiment lösten Menschen, die eine Militärgeschichte mit derselben verborgenen Struktur gelesen hatten, ein medizinisches Rätsel viel häufiger, sobald man ihnen sagte, dass die Geschichte helfen könnte."
+     },
+     {
+      "p": "Je mehr Gebiete du ein wenig kennst, desto mehr Analogien hast du zur Hand. Eine kurze Lektion jeden Abend, an einem Abend Geschichte, am nächsten Biologie, trainiert genau das."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Gyűjts ötleteket mindenhonnan",
+    "blocs": [
+     {
+      "p": "Sok problémát analógiával oldunk meg, egy másik területről kölcsönzött ötlettel. Egy klasszikus kísérletben azok, akik egy azonos rejtett szerkezetű katonai történetet olvastak, sokkal gyakrabban oldottak meg egy orvosi feladványt, miután szóltak nekik, hogy a történet segíthet."
+     },
+     {
+      "p": "Minél több területet ismersz legalább egy kicsit, annál több analógia van kéznél. Minden este egy rövid lecke, egyik este történelem, másnap biológia, pont ezt edzi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Sleep On It",
+    "blocs": [
+     {
+      "p": "In one study, people worked on a task with a hidden shortcut. After a night of sleep, 59% discovered it, compared with 23% of those who had stayed awake for the same amount of time."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "So when a hard problem will not give way, work on it seriously, write down exactly where you are stuck, and let the night do part of the work."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "La nuit porte conseil",
+    "blocs": [
+     {
+      "p": "Dans une étude, des participants travaillaient sur une tâche qui cachait un raccourci. Après une nuit de sommeil, 59 % l'ont découvert, contre 23 % de ceux qui étaient restés éveillés le même temps."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Alors, quand un problème difficile résiste, travaille-le sérieusement, note précisément où tu bloques, et laisse la nuit faire une partie du travail."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Consúltalo con la almohada",
+    "blocs": [
+     {
+      "p": "En un estudio, los participantes hacían una tarea que escondía un atajo. Tras una noche de sueño, el 59 % lo descubrió, frente al 23 % de quienes se habían quedado despiertos el mismo tiempo."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Así que, cuando un problema difícil se resiste, trabájalo en serio, anota exactamente dónde te atascas y deja que la noche haga parte del trabajo."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Duerme y piénsalo",
+    "blocs": [
+     {
+      "p": "En un estudio, los participantes hacían una tarea que escondía un atajo. Después de una noche de sueño, el 59 % lo descubrió, contra el 23 % de quienes se quedaron despiertos el mismo tiempo."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Entonces, cuando un problema difícil no cede, trabájalo en serio, anota exactamente dónde te atoras y deja que la noche haga parte del trabajo."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Dormici sopra",
+    "blocs": [
+     {
+      "p": "In uno studio, i partecipanti svolgevano un compito che nascondeva una scorciatoia. Dopo una notte di sonno, il 59% l'ha scoperta, contro il 23% di chi era rimasto sveglio per lo stesso tempo."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Quindi, quando un problema difficile non cede, lavoraci seriamente, annota esattamente dove ti blocchi e lascia che la notte faccia una parte del lavoro."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Üzerine uyu",
+    "blocs": [
+     {
+      "p": "Bir çalışmada katılımcılar gizli bir kestirme içeren bir görev üzerinde çalıştı. Bir gece uykudan sonra %59'u kestirmeyi buldu; aynı süre uyanık kalanlarda bu oran %23'tü."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Yani zor bir problem direndiğinde, onun üzerinde ciddi şekilde çalış, tam olarak nerede takıldığını yaz ve işin bir kısmını geceye bırak."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Durma sobre o problema",
+    "blocs": [
+     {
+      "p": "Em um estudo, os participantes faziam uma tarefa que escondia um atalho. Depois de uma noite de sono, 59% o descobriram, contra 23% dos que ficaram acordados pelo mesmo tempo."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Então, quando um problema difícil não cede, trabalhe nele a sério, anote exatamente onde você trava e deixe a noite fazer parte do trabalho."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Prespi ga",
+    "blocs": [
+     {
+      "p": "V eni raziskavi so udeleženci reševali nalogo s skrito bližnjico. Po noči spanca jo je odkrilo 59 % ljudi, med tistimi, ki so enako dolgo ostali budni, pa 23 %."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Ko se težak problem ne da, se ga resno loti, natančno zapiši, kje si obtičal, in pusti noči, da opravi del dela."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Prespavaj ga",
+    "blocs": [
+     {
+      "p": "U jednom istraživanju sudionici su radili zadatak sa skrivenim prečacem. Nakon noći sna otkrilo ga je 59 % ljudi, a među onima koji su jednako dugo ostali budni 23 %."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Zato, kad se težak problem ne da, ozbiljno radi na njemu, točno zapiši gdje si zapeo i pusti noć da odradi dio posla."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Schlaf darüber",
+    "blocs": [
+     {
+      "p": "In einer Studie bearbeiteten Teilnehmende eine Aufgabe mit einer versteckten Abkürzung. Nach einer Nacht Schlaf entdeckten sie 59 %, von denen, die gleich lange wach geblieben waren, nur 23 %."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Wenn ein schweres Problem nicht nachgibt, arbeite also ernsthaft daran, schreib genau auf, wo du feststeckst, und lass die Nacht einen Teil der Arbeit machen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Aludj rá egyet",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban a résztvevők egy rejtett rövidítést tartalmazó feladaton dolgoztak. Egy éjszakai alvás után 59%-uk rájött, az ugyanennyi ideig ébren maradóknak viszont csak 23%-a."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Ha tehát egy nehéz probléma nem enged, dolgozz rajta komolyan, írd le pontosan, hol akadtál el, és hagyd, hogy az éjszaka elvégezze a munka egy részét."
+     }
+    ]
+   }
+  }
+ ]
+}

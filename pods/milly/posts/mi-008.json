@@ -1,0 +1,780 @@
+{
+ "id": "mi-008",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7683191907333180702",
+  "vues": 142100,
+  "publie_le": "2026-09-08",
+  "accroche": "Habits / that increase / Intelligence"
+ },
+ "fond": "gris_clair",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Full test (boîte vide). Format de « Habits that increase Intelligence » de @bdnf.milly (142,1 k vues, 08/09), famille « Habits that [grow] your [brain] », fond gris clair (texte noir). Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : trois mois d'apprentissage intensif d'une langue font croître l'hippocampe et des zones du cortex, pas chez un groupe témoin d'étudiants exigeants (Mårtensson et al., NeuroImage 2012), la croissance de l'hippocampe et du gyrus temporal supérieur allant avec un meilleur niveau ; réserve cognitive : éducation et activité intellectuelle aident à garder ses capacités malgré le vieillissement du cerveau (Stern, Lancet Neurology 2012) ; les musiciens professionnels ont plus de matière grise dans des zones motrices, auditives et visuo-spatiales, la différence suit leur niveau de pratique (Gaser et Schlaug, Journal of Neuroscience 2003). 11 langues. Images : Seedream (irm-sagittale, hippocampe, neurones), sans texte.",
+ "titre": {
+  "en": "Habits that grow your Brain",
+  "fr": "Les habitudes qui font grandir ton cerveau",
+  "es": "Hábitos que hacen crecer tu cerebro",
+  "es-419": "Hábitos que hacen crecer tu cerebro",
+  "it": "Abitudini che fanno crescere il cervello",
+  "tr": "Beynini büyüten alışkanlıklar",
+  "pt-BR": "Hábitos que fazem seu cérebro crescer",
+  "sl": "Navade, zaradi katerih možgani rastejo",
+  "hr": "Navike od kojih mozak raste",
+  "de": "Gewohnheiten, die dein Gehirn wachsen lassen",
+  "hu": "Szokások, amelyektől nő az agyad"
+ },
+ "legendes": {
+  "en": "the brain grows where you make it work #brain #habits #learning #neuroplasticity #intelligence",
+  "fr": "le cerveau grandit là où tu le fais travailler #cerveau #habitudes #apprendre #neuroplasticité #intelligence",
+  "es": "el cerebro crece donde lo haces trabajar #cerebro #hábitos #aprender #neuroplasticidad #inteligencia",
+  "es-419": "tu cerebro crece donde lo pones a trabajar #cerebro #hábitos #aprender #neuroplasticidad #inteligencia",
+  "it": "il cervello cresce dove lo fai lavorare #cervello #abitudini #imparare #neuroplasticità #intelligenza",
+  "tr": "beyin, çalıştırdığın yerde büyür #beyin #alışkanlıklar #öğrenme #nöroplastisite #zeka",
+  "pt-BR": "o cérebro cresce onde você o faz trabalhar #cerebro #habitos #aprender #neuroplasticidade #inteligencia",
+  "sl": "možgani rastejo tam, kjer jih zaposliš #možgani #navade #učenje #nevroplastičnost #inteligenca",
+  "hr": "mozak raste tamo gdje ga natjeraš da radi #mozak #navike #učenje #neuroplastičnost #inteligencija",
+  "de": "das gehirn wächst dort, wo du es arbeiten lässt #gehirn #gewohnheiten #lernen #neuroplastizität #intelligenz",
+  "hu": "az agy ott nő, ahol dolgoztatod #agy #szokások #tanulás #neuroplaszticitás #intelligencia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-sagittale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "Habits",
+      "taille": "grand"
+     },
+     {
+      "t": "that grow",
+      "taille": "petit"
+     },
+     {
+      "t": "your",
+      "taille": "petit"
+     },
+     {
+      "t": "Brain",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Habitudes",
+      "taille": "grand"
+     },
+     {
+      "t": "qui font grandir",
+      "taille": "petit"
+     },
+     {
+      "t": "ton",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerveau",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que hacen crecer",
+      "taille": "petit"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que hacen crecer",
+      "taille": "petit"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Abitudini",
+      "taille": "grand"
+     },
+     {
+      "t": "che fanno crescere",
+      "taille": "petit"
+     },
+     {
+      "t": "il tuo",
+      "taille": "petit"
+     },
+     {
+      "t": "Cervello",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Beynini",
+      "taille": "grand"
+     },
+     {
+      "t": "büyüten",
+      "taille": "petit"
+     },
+     {
+      "t": "Alışkanlıklar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que fazem",
+      "taille": "petit"
+     },
+     {
+      "t": "seu cérebro",
+      "taille": "petit"
+     },
+     {
+      "t": "Crescer",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Navade",
+      "taille": "grand"
+     },
+     {
+      "t": "zaradi katerih",
+      "taille": "petit"
+     },
+     {
+      "t": "možgani",
+      "taille": "petit"
+     },
+     {
+      "t": "Rastejo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Navike",
+      "taille": "grand"
+     },
+     {
+      "t": "od kojih",
+      "taille": "petit"
+     },
+     {
+      "t": "tvoj",
+      "taille": "petit"
+     },
+     {
+      "t": "Mozak raste",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Gewohnheiten",
+      "taille": "grand"
+     },
+     {
+      "t": "die dein Gehirn",
+      "taille": "petit"
+     },
+     {
+      "t": "wachsen",
+      "taille": "grand"
+     },
+     {
+      "t": "lassen",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Szokások",
+      "taille": "grand"
+     },
+     {
+      "t": "amelyektől",
+      "taille": "petit"
+     },
+     {
+      "t": "nő az",
+      "taille": "petit"
+     },
+     {
+      "t": "Agyad",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Learn A New Language",
+    "blocs": [
+     {
+      "p": "Learning a language changes the brain's structure. In one study, young adults who spent three months intensively learning a new language showed growth in the hippocampus and in parts of the cortex, while a group of students in another demanding field did not."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "And those whose hippocampus and language areas grew most were the ones who reached the best level. The brain grows where it is made to work."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends une langue",
+    "blocs": [
+     {
+      "p": "Apprendre une langue change la structure du cerveau. Dans une étude, de jeunes adultes qui ont appris une nouvelle langue de façon intensive pendant trois mois ont vu grandir leur hippocampe et des zones du cortex, contrairement à un groupe d'étudiants d'une autre filière exigeante."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Et ceux dont l'hippocampe et les zones du langage avaient le plus grandi étaient ceux qui atteignaient le meilleur niveau. Le cerveau grandit là où on le fait travailler."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende un idioma",
+    "blocs": [
+     {
+      "p": "Aprender un idioma cambia la estructura del cerebro. En un estudio, jóvenes adultos que pasaron tres meses aprendiendo intensamente un idioma nuevo mostraron crecimiento en el hipocampo y en zonas de la corteza, mientras que un grupo de estudiantes de otra carrera exigente no."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Y aquellos cuyo hipocampo y zonas del lenguaje más crecieron fueron los que alcanzaron mejor nivel. El cerebro crece donde se le hace trabajar."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aprende un idioma",
+    "blocs": [
+     {
+      "p": "Aprender un idioma cambia la estructura del cerebro. En un estudio, adultos jóvenes que pasaron tres meses aprendiendo intensamente un idioma nuevo tuvieron crecimiento en el hipocampo y en áreas de la corteza, mientras que un grupo de estudiantes de otra carrera exigente no."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Y quienes tuvieron más crecimiento en el hipocampo y en las áreas del lenguaje fueron los que llegaron a mejor nivel. El cerebro crece donde lo pones a trabajar."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Impara una lingua",
+    "blocs": [
+     {
+      "p": "Imparare una lingua cambia la struttura del cervello. In uno studio, giovani adulti che hanno studiato intensamente una nuova lingua per tre mesi hanno mostrato una crescita dell'ippocampo e di alcune aree della corteccia, a differenza di un gruppo di studenti di un altro corso impegnativo."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "E quelli in cui ippocampo e aree del linguaggio erano cresciuti di più erano quelli che avevano raggiunto il livello migliore. Il cervello cresce dove lo si fa lavorare."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Yeni bir dil öğren",
+    "blocs": [
+     {
+      "p": "Dil öğrenmek beynin yapısını değiştirir. Bir çalışmada, üç ay boyunca yoğun şekilde yeni bir dil öğrenen genç yetişkinlerin hipokampusunda ve korteksin bazı bölgelerinde büyüme görüldü; zorlu başka bir bölümde okuyan öğrencilerden oluşan grupta ise görülmedi."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Hipokampusu ve dil bölgeleri en çok büyüyenler de en iyi seviyeye ulaşanlardı. Beyin, çalıştırıldığı yerde büyür."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda um idioma",
+    "blocs": [
+     {
+      "p": "Aprender um idioma muda a estrutura do cérebro. Em um estudo, jovens adultos que passaram três meses aprendendo intensamente um novo idioma tiveram crescimento no hipocampo e em áreas do córtex, enquanto um grupo de estudantes de outro curso exigente não teve."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "E quem teve mais crescimento no hipocampo e nas áreas da linguagem foi quem chegou ao melhor nível. O cérebro cresce onde é colocado para trabalhar."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Nauči se jezika",
+    "blocs": [
+     {
+      "p": "Učenje jezika spremeni zgradbo možganov. V eni raziskavi so se mladim odraslim, ki so se tri mesece intenzivno učili nov jezik, povečali hipokampus in deli skorje, pri skupini študentov drugega zahtevnega študija pa ne."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Tisti, ki so jim hipokampus in jezikovni predeli zrasli najbolj, so dosegli tudi najboljšo raven. Možgani rastejo tam, kjer morajo delati."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nauči jezik",
+    "blocs": [
+     {
+      "p": "Učenje jezika mijenja građu mozga. U jednom istraživanju mladim odraslima koji su tri mjeseca intenzivno učili novi jezik povećali su se hipokampus i dijelovi kore mozga, a skupini studenata drugog zahtjevnog studija nisu."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Oni kojima su hipokampus i jezična područja najviše narasli dosegli su i najbolju razinu. Mozak raste tamo gdje mora raditi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne eine Sprache",
+    "blocs": [
+     {
+      "p": "Eine Sprache zu lernen verändert die Struktur des Gehirns. In einer Studie zeigten junge Erwachsene, die drei Monate lang intensiv eine neue Sprache lernten, ein Wachstum des Hippocampus und von Teilen der Großhirnrinde, eine Gruppe Studierender eines anderen anspruchsvollen Fachs dagegen nicht."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Und wessen Hippocampus und Sprachareale am stärksten wuchsen, erreichte auch das beste Niveau. Das Gehirn wächst dort, wo es arbeiten muss."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanulj meg egy nyelvet",
+    "blocs": [
+     {
+      "p": "A nyelvtanulás megváltoztatja az agy szerkezetét. Egy vizsgálatban azoknál a fiatal felnőtteknél, akik három hónapig intenzíven tanultak egy új nyelvet, megnőtt a hippokampusz és a kéreg egyes részei, egy másik megterhelő szakon tanuló diákcsoportnál viszont nem."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Akiknél a hippokampusz és a nyelvi területek a legjobban nőttek, azok érték el a legjobb szintet is. Az agy ott nő, ahol dolgoznia kell."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Keep Learning All Your Life",
+    "blocs": [
+     {
+      "p": "People who keep their minds busy over a lifetime, through education, reading and learning, tend to hold on to their thinking skills longer, even as their brains age. Researchers call this cognitive reserve."
+     },
+     {
+      "p": "You build it the way you build fitness: small, regular sessions. One short lesson every evening is one more rep for the mind."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends toute ta vie",
+    "blocs": [
+     {
+      "p": "Les personnes qui gardent l'esprit occupé toute leur vie, par les études, la lecture et l'apprentissage, conservent souvent leurs capacités de réflexion plus longtemps, même quand leur cerveau vieillit. Les chercheurs appellent ça la réserve cognitive."
+     },
+     {
+      "p": "Elle se construit comme la forme physique : par petites séances régulières. Une courte leçon chaque soir, c'est une répétition de plus pour l'esprit."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende toda la vida",
+    "blocs": [
+     {
+      "p": "Las personas que mantienen la mente ocupada a lo largo de la vida, con estudios, lectura y aprendizaje, suelen conservar más tiempo su capacidad de pensar, incluso cuando su cerebro envejece. Los investigadores lo llaman reserva cognitiva."
+     },
+     {
+      "p": "Se construye como la forma física: con sesiones pequeñas y regulares. Una lección corta cada noche es una repetición más para la mente."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Sigue aprendiendo toda la vida",
+    "blocs": [
+     {
+      "p": "Las personas que mantienen la mente activa toda la vida, con estudios, lectura y aprendizaje, suelen conservar por más tiempo su capacidad de pensar, aunque su cerebro envejezca. Los investigadores le llaman reserva cognitiva."
+     },
+     {
+      "p": "Se construye como la condición física: con sesiones pequeñas y constantes. Una lección corta cada noche es una repetición más para tu mente."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Continua a imparare tutta la vita",
+    "blocs": [
+     {
+      "p": "Chi tiene la mente occupata per tutta la vita, con lo studio, la lettura e l'apprendimento, tende a conservare più a lungo le proprie capacità di pensiero, anche quando il cervello invecchia. I ricercatori la chiamano riserva cognitiva."
+     },
+     {
+      "p": "Si costruisce come la forma fisica: con piccole sessioni regolari. Una breve lezione ogni sera è una ripetizione in più per la mente."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Hayat boyu öğrenmeye devam et",
+    "blocs": [
+     {
+      "p": "Hayatı boyunca eğitimle, okumayla ve öğrenmeyle zihnini meşgul tutanlar, beyinleri yaşlansa bile düşünme becerilerini genellikle daha uzun süre korur. Araştırmacılar buna bilişsel rezerv diyor."
+     },
+     {
+      "p": "Onu tıpkı kondisyon gibi kurarsın: küçük ve düzenli seanslarla. Her akşam kısa bir ders, zihin için bir tekrar daha demek."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda a vida toda",
+    "blocs": [
+     {
+      "p": "Pessoas que mantêm a mente ocupada a vida toda, com estudo, leitura e aprendizado, costumam conservar a capacidade de pensar por mais tempo, mesmo quando o cérebro envelhece. Os pesquisadores chamam isso de reserva cognitiva."
+     },
+     {
+      "p": "Ela se constrói como o condicionamento físico: com sessões pequenas e regulares. Uma lição curta toda noite é mais uma repetição para a mente."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Uči se vse življenje",
+    "blocs": [
+     {
+      "p": "Ljudje, ki vse življenje zaposlujejo um z izobraževanjem, branjem in učenjem, običajno dlje ohranijo sposobnost razmišljanja, tudi ko se jim možgani starajo. Raziskovalci temu pravijo kognitivna rezerva."
+     },
+     {
+      "p": "Gradiš jo kot telesno pripravljenost: z majhnimi, rednimi treningi. Kratka lekcija vsak večer je še ena ponovitev za um."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Uči cijeli život",
+    "blocs": [
+     {
+      "p": "Ljudi koji cijeli život drže um zaposlenim, obrazovanjem, čitanjem i učenjem, obično dulje zadrže sposobnost razmišljanja, čak i kad im mozak stari. Istraživači to zovu kognitivnom rezervom."
+     },
+     {
+      "p": "Gradi se kao kondicija: malim, redovitim treninzima. Kratka lekcija svake večeri još je jedno ponavljanje za um."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne ein Leben lang",
+    "blocs": [
+     {
+      "p": "Menschen, die ihren Geist ein Leben lang beschäftigen, durch Bildung, Lesen und Lernen, behalten ihre Denkfähigkeit oft länger, selbst wenn ihr Gehirn altert. Forschende nennen das kognitive Reserve."
+     },
+     {
+      "p": "Man baut sie auf wie Fitness: mit kleinen, regelmäßigen Einheiten. Eine kurze Lektion jeden Abend ist eine Wiederholung mehr für den Kopf."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanulj egész életedben",
+    "blocs": [
+     {
+      "p": "Akik egész életükben tanulással, olvasással és képzéssel foglalkoztatják az elméjüket, általában tovább megőrzik a gondolkodási képességeiket, még ha az agyuk öregszik is. A kutatók ezt kognitív tartaléknak hívják."
+     },
+     {
+      "p": "Úgy építed, mint az erőnlétet: kis, rendszeres alkalmakkal. Egy rövid lecke minden este még egy ismétlés az elmének."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Pick Up An Instrument",
+    "blocs": [
+     {
+      "p": "Professional musicians have more grey matter than non-musicians in areas for movement, hearing and spatial skills, and amateur musicians fall in between: the difference follows the level of training."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Playing music works hearing, movement, memory and attention at the same time. You do not need to turn professional: regular practice that keeps you a little out of your comfort zone is the point."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Joue d'un instrument",
+    "blocs": [
+     {
+      "p": "Les musiciens professionnels ont plus de matière grise que les non-musiciens dans des zones du mouvement, de l'audition et de l'espace, et les amateurs se situent entre les deux : la différence suit le niveau de pratique."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Jouer de la musique fait travailler en même temps l'audition, le mouvement, la mémoire et l'attention. Pas besoin de devenir pro : ce qui compte, c'est une pratique régulière qui te sort un peu de ta zone de confort."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Toca un instrumento",
+    "blocs": [
+     {
+      "p": "Los músicos profesionales tienen más materia gris que quienes no tocan en zonas del movimiento, la audición y el espacio, y los aficionados quedan en medio: la diferencia sigue el nivel de práctica."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Tocar música trabaja a la vez el oído, el movimiento, la memoria y la atención. No hace falta volverse profesional: lo importante es una práctica regular que te saque un poco de tu zona de confort."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Toca un instrumento",
+    "blocs": [
+     {
+      "p": "Los músicos profesionales tienen más materia gris que los no músicos en áreas del movimiento, la audición y el espacio, y los aficionados quedan en medio: la diferencia sigue el nivel de práctica."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Tocar música trabaja al mismo tiempo el oído, el movimiento, la memoria y la atención. No necesitas volverte profesional: lo importante es practicar seguido y salir un poco de tu zona de confort."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Suona uno strumento",
+    "blocs": [
+     {
+      "p": "I musicisti professionisti hanno più materia grigia dei non musicisti in aree legate al movimento, all'udito e allo spazio, e i dilettanti stanno nel mezzo: la differenza segue il livello di pratica."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Suonare allena insieme udito, movimento, memoria e attenzione. Non serve diventare professionisti: conta una pratica regolare che ti porti un po' fuori dalla tua zona di comfort."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Bir enstrüman çal",
+    "blocs": [
+     {
+      "p": "Profesyonel müzisyenlerin hareket, işitme ve uzamsal beceri bölgelerinde müzisyen olmayanlardan daha fazla gri madde vardır; amatörler ise ikisinin arasında kalır: fark, pratik seviyesini izler."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Müzik çalmak işitmeyi, hareketi, hafızayı ve dikkati aynı anda çalıştırır. Profesyonel olman gerekmiyor: önemli olan, seni konfor alanının biraz dışına çıkaran düzenli bir pratik."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Toque um instrumento",
+    "blocs": [
+     {
+      "p": "Músicos profissionais têm mais massa cinzenta do que não músicos em áreas ligadas a movimento, audição e noção de espaço, e os amadores ficam no meio: a diferença acompanha o nível de prática."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Tocar música trabalha audição, movimento, memória e atenção ao mesmo tempo. Não precisa virar profissional: o que importa é uma prática regular que tire você um pouco da zona de conforto."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Začni igrati inštrument",
+    "blocs": [
+     {
+      "p": "Poklicni glasbeniki imajo v predelih za gibanje, sluh in prostorske sposobnosti več sive možganovine kot neglasbeniki, ljubitelji pa so nekje vmes: razlika sledi ravni vadbe."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Igranje glasbe hkrati uri sluh, gibanje, spomin in pozornost. Ni ti treba postati profesionalec: šteje redna vaja, ki te vsaj malo potisne iz cone udobja."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Sviraj instrument",
+    "blocs": [
+     {
+      "p": "Profesionalni glazbenici imaju više sive tvari od neglazbenika u područjima za pokret, sluh i prostorne vještine, a amateri su negdje između: razlika prati razinu vježbe."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Sviranje istodobno vježba sluh, pokret, pamćenje i pažnju. Ne moraš postati profesionalac: važna je redovita vježba koja te barem malo izvuče iz zone komfora."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Spiel ein Instrument",
+    "blocs": [
+     {
+      "p": "Profimusiker haben in Arealen für Bewegung, Hören und räumliches Denken mehr graue Substanz als Nichtmusiker, und Hobbymusiker liegen dazwischen: Der Unterschied folgt dem Übungsniveau."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Musizieren trainiert Hören, Bewegung, Gedächtnis und Aufmerksamkeit gleichzeitig. Du musst kein Profi werden: Es zählt regelmäßiges Üben, das dich ein wenig aus deiner Komfortzone holt."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Játssz egy hangszeren",
+    "blocs": [
+     {
+      "p": "A hivatásos zenészeknek több szürkeállományuk van a mozgáshoz, a halláshoz és a térbeli képességekhez kötődő területeken, mint a nem zenészeknek, az amatőrök pedig a kettő között vannak: a különbség a gyakorlás szintjét követi."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "A zenélés egyszerre edzi a hallást, a mozgást, a memóriát és a figyelmet. Nem kell profivá válnod: a lényeg a rendszeres gyakorlás, amely kicsit kimozdít a komfortzónádból."
+     }
+    ]
+   }
+  }
+ ]
+}

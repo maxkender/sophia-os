@@ -1,0 +1,1333 @@
+{
+ "id": "sg-027",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7679111055632600353",
+  "vues": 149400,
+  "publie_le": "2026-08-28",
+  "accroche": "10 Compétence inutile mais qui te rendent 10x plus cool"
+ },
+ "titre": {
+  "fr": "10 compétences inutiles mais qui te rendent 10x plus cool",
+  "en": "10 skills that are useless but make you 10x cooler",
+  "de": "10 Fähigkeiten: nutzlos, aber sie machen dich 10x cooler",
+  "it": "10 abilità inutili ma che ti rendono 10x più cool",
+  "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal",
+  "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri",
+  "ro": "10 abilități inutile, dar care te fac de 10x mai cool",
+  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool"
+ },
+ "legendes": {
+  "fr": "10 compétences inutiles mais qui te rendent 10x plus cool #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10 skills that are useless but make you 10x cooler #learnontiktok #selfimprovement #skills",
+  "de": "10 Fähigkeiten: nutzlos, aber sie machen dich 10x cooler #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "10 abilità inutili ma che ti rendono 10x più cool #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "10 abilități inutile, dar care te fac de 10x mai cool #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - Jacob . P",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e0e2724c-f37c-49e9-b4d7-cd5d2a2deba7",
+ "notes": "Déclinaison G1 de sg-005 (21/11) : titre, légende, musique et couverture de sg-005 mot pour mot. 5 autres tours « inutiles mais cool » (ballon sur le doigt, pièce qui disparaît, avion en papier, moonwalk, tour avec un élastique), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « ÉPATER / TES POTES »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 111
+     },
+     {
+      "t": "INUTILES",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "MAIS QUI TE RENDENT",
+      "cap": 93
+     },
+     {
+      "t": "10x PLUS COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS THAT ARE",
+      "cap": 111
+     },
+     {
+      "t": "USELESS",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "BUT MAKE YOU",
+      "cap": 93
+     },
+     {
+      "t": "10x COOLER",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "FÄHIGKEITEN",
+      "cap": 111
+     },
+     {
+      "t": "NUTZLOS",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ABER SIE MACHEN DICH",
+      "cap": 93
+     },
+     {
+      "t": "10x COOLER",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 111
+     },
+     {
+      "t": "INUTILI",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "MA CHE TI RENDONO",
+      "cap": 93
+     },
+     {
+      "t": "10x PIÙ COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "INÚTEIS",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "MAS QUE TE DEIXAM",
+      "cap": 93
+     },
+     {
+      "t": "10x MAIS LEGAL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "İŞE YARAMAYAN",
+      "cap": 111
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "AMA SENİ 10X DAHA",
+      "cap": 93
+     },
+     {
+      "t": "HAVALI YAPAR",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 111
+     },
+     {
+      "t": "INUTILE",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "DAR CARE TE FAC",
+      "cap": 93
+     },
+     {
+      "t": "DE 10X MAI COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 111
+     },
+     {
+      "t": "ZBYTEČNÉ",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ALE DÍKY NIM BUDEŠ",
+      "cap": 93
+     },
+     {
+      "t": "10X VÍC COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE TOURNER",
+     [
+      {
+       "t": "UN BALLON",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "SUR SON DOIGT"
+    ],
+    "video": {
+     "id": "t5_fCU85iUs",
+     "titre": "COMMENT FAIRE TOURNER LE BALLON SUR SON DOIGT ! (Spinning détaillé)",
+     "chaine": "Brisco Basket Freestyle",
+     "vues": "269 k vues",
+     "date": "il y a 10 ans",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/2iZDYWSVP6ZBrhlvga-leh0fJjsaTnRC_CYAOdKquxb1XFyShb6CTFhfX80bwEChrzeT9q2l=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPIN",
+     [
+      {
+       "t": "A BALL",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "ON YOUR FINGER"
+    ],
+    "video": {
+     "id": "861h5e9gqQ0",
+     "titre": "How to Spin A Ball on Your Finger (FASTEST METHOD!!!)",
+     "chaine": "Coach Nick",
+     "vues": "1.8M views",
+     "date": "7 years ago",
+     "duree": "6:15",
+     "avatar": "https://yt3.ggpht.com/q00SZBNxGwwGw45QAOkTSizc8SfWaomAZs3NN8RT3ZTEOu9Qr770vUdP0SuPJpv26M_vAmuvOnU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN BALL",
+     [
+      {
+       "t": "AUF DEM FINGER",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "DREHEN"
+    ],
+    "video": {
+     "id": "MdbtuJ1JrIc",
+     "titre": "Wie drehe ich den BALL auf dem Finger? Freestyle Friday Part 1",
+     "chaine": "Paul Gudde Basketball",
+     "vues": "121.446 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kUdIsOOlOz1d-3zAmgqdDsWC6oWuVjMMvwE4uMEWD4Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FAR GIRARE",
+     [
+      {
+       "t": "LA PALLA",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "SUL DITO"
+    ],
+    "video": {
+     "id": "j9ADQrOmdcY",
+     "titre": "Tutorial - Come far GIRARE la palla sul DITO",
+     "chaine": "SpaceJumpersOfficial",
+     "vues": "29K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "2:45",
+     "avatar": "https://yt3.ggpht.com/nPyuZEuuTuCj58wjNe6PUT0FT-je60W4usOk8y5PQJ889DRfDF4GEl9sLmpglM5CsOTKPPjb3bs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "GIRAR",
+     [
+      {
+       "t": "A BOLA",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "NO DEDO"
+    ],
+    "video": {
+     "id": "Tv4QxWPlU-o",
+     "titre": "APRENDA COMO GIRAR UMA BOLA NO DEDO (Método infalível)",
+     "chaine": "Basquete pra vida",
+     "vues": "71 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "7:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_B-ZBDtvB9HvyS06uDl6dtv5VkQja2wCoXyoDtSem4g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PARMAKTA",
+     [
+      {
+       "t": "TOP",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "ÇEVİRMEK"
+    ],
+    "video": {
+     "id": "-Vpuq4AXHq4",
+     "titre": "Top çevirme nasıl yapılır. Anlatımlıdır",
+     "chaine": "Aslı Bebek",
+     "vues": "122 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJzSzTmzouNIrVU3_EEg0pEMkibXA6LURAXQOZWklf2jq6=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk'da öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ÎNVÂRTE",
+     [
+      {
+       "t": "MINGEA",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "PE DEGET"
+    ],
+    "video": {
+     "id": "Qzs8ktC5V4k",
+     "titre": "Cum sa invarti mingea pe deget | Super Schema | #invatafreestyle",
+     "chaine": "sport skill wonder",
+     "vues": "29 K vizionări",
+     "date": "acum 10 ani",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/YH73HR320gbvTFUD0QUttrxoXA-da08PYluWeubErWxD39tsxLaOhzkCFaFAOT56X3L_EGZd9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "TOČIT",
+     [
+      {
+       "t": "MÍČEM",
+       "couleur": "#e07a2e"
+      }
+     ],
+     "NA PRSTU"
+    ],
+    "video": {
+     "id": "6wBd2gbga9s",
+     "titre": "Jak se Naučit Točit Míčem na Prstě | Ball Spinning Tutorial",
+     "chaine": "Žonglu Zdar",
+     "vues": "8 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "1:41",
+     "avatar": "https://yt3.ggpht.com/9qdT5n4vodrn1_v785Uj0DgPPBO3oh-5GxNkUZ5ewAtFtg3AIyQ1ABRnz4VqSLvE32rqZHSA3UM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE DISPARAÎTRE",
+     [
+      {
+       "t": "UNE PIÈCE",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UxMYtAw9Puo",
+     "titre": "LA MEILLEURE DISPARITION DE PIÈCE EXPLIQUÉE !",
+     "chaine": "Abracademie",
+     "vues": "2,2 M de vues",
+     "date": "il y a 7 ans",
+     "duree": "5:44",
+     "avatar": "https://yt3.ggpht.com/boPGJAWw0UP9Llt6wkANwXph0QlUtU2Jbf4Jqv1un7eAzpe6gMBv9Zspx8lBEWAe1bf9Y01AsEA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE A COIN",
+     [
+      {
+       "t": "VANISH",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1NhGljqvkbw",
+     "titre": "3 EASY SIMPLE Coin Vanish ANYONE Can Do | REVEALED",
+     "chaine": "Making Impossible",
+     "vues": "814K views",
+     "date": "6 years ago",
+     "duree": "5:49",
+     "avatar": "https://yt3.ggpht.com/i6F2WThcEBhaNGqlpkDgxV213FXt8oTO6s1J4ES9CpnIUygA3GG-PSQGls3K80yZ3Sp_klE04g8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE MÜNZE",
+     [
+      {
+       "t": "VERSCHWINDEN LASSEN",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GrK9FcyR8SY",
+     "titre": "Münze VERSCHWINDEN LASSEN - French Drop Tutorial",
+     "chaine": "Matthias Berger",
+     "vues": "122.320 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "12:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfIVFyDA9WIbV7yGj8_wmldW0ymBEI5Fu9lzIXDrwmXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FAR SPARIRE",
+     [
+      {
+       "t": "UNA MONETA",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r6JHkpz0ffI",
+     "titre": "COME FAR SPARIRE UNA MONETA - TUTORIAL",
+     "chaine": "Jack Nobile",
+     "vues": "1 Mln visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "3:45",
+     "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UMA MOEDA",
+     [
+      {
+       "t": "DESAPARECER",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TMQlGbK9jQE",
+     "titre": "A melhor MÁGICA com MOEDA que você vai APRENDER hoje!",
+     "chaine": "Rafael Arcanjo",
+     "vues": "256 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mMhTuesqcvUavbtH21Mu7TqM-JCSvYYJtDJPrf5wF57R4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BOZUK PARAYI",
+     [
+      {
+       "t": "YOK ETMEK",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jP0cUOmc9f0",
+     "titre": "EN İYİ PARA KAYBETME NUMARASI NASIL YAPILIR? Sihirbazlık Numaraları",
+     "chaine": "KAAN",
+     "vues": "20 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "6:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kB3eDIqyy8-Qa9Su195GvBGurowbesmV7gEvDZMhs_Rw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "FĂ SĂ DISPARĂ",
+     [
+      {
+       "t": "O MONEDĂ",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OcLQY11ptrY",
+     "titre": "Trucuri magice - Trucul cu moneda care dispare",
+     "chaine": "trucurimagicedli",
+     "vues": "4,8 K vizionări",
+     "date": "acum 14 ani",
+     "duree": "1:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kSYIexk2-v8hnSD9Gkb6dLLA6BS_iXCLc_3ci15MQuaw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NECHAT ZMIZET",
+     [
+      {
+       "t": "MINCI",
+       "couleur": "#c9a43a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "k-gymK4VznE",
+     "titre": "Jak zmizet minci //MIZEJÍCÍ PENÍZE// Neuvěřitelný kouzelnický trik s Eurem",
+     "chaine": "Dejf & Petr",
+     "vues": "60 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "2:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFlR7Vo7nFWJS5ZXk0bebklhTufrgjCrb0VmHTJZZTsJE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ÉPATER",
+     [
+      {
+       "t": "TES POTES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "IMPRESS",
+     [
+      {
+       "t": "YOUR FRIENDS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "BEEINDRUCKE",
+     [
+      {
+       "t": "DEINE FREUNDE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "STUPIRE",
+     [
+      {
+       "t": "GLI AMICI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "IMPRESSIONAR",
+     [
+      {
+       "t": "OS AMIGOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ARKADAŞLARINI",
+     [
+      {
+       "t": "ŞAŞIRT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI IMPRESIONEZI",
+     [
+      {
+       "t": "PRIETENII",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OHROMIT",
+     [
+      {
+       "t": "KAMARÁDY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "UN AVION EN PAPIER",
+     [
+      {
+       "t": "QUI VOLE LOIN",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vSCOvatRuq0",
+     "titre": "comment faire un avion en papier simple rapide et qui vole longtemps",
+     "chaine": "origami papier",
+     "vues": "3 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "5:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRcWhx1N4cFZa02tZ_bswb08L_kKEj4mgtr91D2RP4k5s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "A PAPER PLANE",
+     [
+      {
+       "t": "THAT FLIES FAR",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "diccQNXiIDc",
+     "titre": "How to make a Paper Airplane that Flies Far and Straight - Best Paper Planes | Pappersflygplan",
+     "chaine": "Mahir Origami",
+     "vues": "3.8M views",
+     "date": "10 years ago",
+     "duree": "8:01",
+     "avatar": "https://yt3.ggpht.com/_gjM6GdpnjtYZ79LggT5yHNBgqekyWnHneivONWiJvXL4tMFSvD_MGjtnhCyvkuPN2Ju1y3w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN PAPIERFLIEGER",
+     [
+      {
+       "t": "DER WEIT FLIEGT",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jKPYmrDRb_E",
+     "titre": "Einfacher Papierflieger falten der weit fliegt  (Anleitung zum nachmachen)",
+     "chaine": "Allerlei Channel",
+     "vues": "385.443 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/dRgU2CBKUvC-0mvpZzvsTbX9HJXgrlTpYujjY6shXGMImIr0UJBsMHXwC_mF3D8NQjpMLdrvVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UN AEREO DI CARTA",
+     [
+      {
+       "t": "CHE VOLA LONTANO",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HS-YJ6jWdDk",
+     "titre": "100 metri - Aeroplanino di Carta che Vola Lontano",
+     "chaine": "Aeroplanini di Carta & Creazioni fai da te",
+     "vues": "196K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/Tmzi9JEZxQm_NkY4Owh9CXY5zF1q1ZuSAv6CziaoetIdrYb6fRjNKLyNoacibwJRL6R0DLpL2Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "UM AVIÃO DE PAPEL",
+     [
+      {
+       "t": "QUE VOA LONGE",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fON_nAsd22k",
+     "titre": "Como fazer um AVIÃO DE PAPEL que voa longe e reto",
+     "chaine": "Mente Paper",
+     "vues": "587 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/a44mQowddlYlwYErcKdN5p36dM3hnre7B7JCv7T0dM7ug4GMu3LO4S6IcRwGM6nzWtUzTvjjdmc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "UZAĞA UÇAN",
+     [
+      {
+       "t": "KAĞIT UÇAK",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TeOmTzdvWFc",
+     "titre": "UZAKLARA GİDEN KAĞITTAN UÇAK YAPIMI - ( Çok Kolay ! )",
+     "chaine": "Sen De Yap",
+     "vues": "1,7 Mn görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "3:29",
+     "avatar": "https://yt3.ggpht.com/fKilsar4fxtgE08uJGjEq4Wpda3JBc3U1xSU1l10CjvQecc-QaUPlulfWah7_to5itqTvkNgMA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dk'da öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "UN AVION DE HÂRTIE",
+     [
+      {
+       "t": "CARE ZBOARĂ DEPARTE",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z6Ejfw5Phdo",
+     "titre": "Cum sa faci un avion de hartie super usor care zboara departe. Avioane de hartie.",
+     "chaine": "Lucruri din Hartie Pas cu Pas",
+     "vues": "468 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mkNX45qfCfLyWKTDqDUEFU5TC40WV771IrRIGs0q6R7Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VLAŠTOVKA",
+     [
+      {
+       "t": "CO LÉTÁ DALEKO",
+       "couleur": "#3a8fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "83g97o4v0fw",
+     "titre": "Jak složit papírové letadlo z papíru - Jak vyrobit papírové letadlo, které krásně letí",
+     "chaine": "Papírové Výrobky a PASTAVIA",
+     "vues": "195 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "3:07",
+     "avatar": "https://yt3.ggpht.com/RH64cntYTaxhYty7sD00aKGIROx5ZCn9TgwPCvF6mSBvj9IYSBqsB-0bSDJOddqWLuPdxxJS=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE LE",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6j9ordx8ZOw",
+     "titre": "Comment faire le moonwalk / Tuto danse MOONWALK en 5 minutes",
+     "chaine": "Super Mylo",
+     "vues": "528 k vues",
+     "date": "il y a 7 ans",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/Hc21e6TfjtWw3WO4-Yic6J0e8s0f7qRGKKCTfcCRSgQpQDveySq0EKdGnsbuCvUAwNBsChBV=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DO THE",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QGm6v9-1ZBU",
+     "titre": "How to Moonwalk (Dance Moves Tutorial) | Mihran Kirakosian",
+     "chaine": "MihranTV",
+     "vues": "15M views",
+     "date": "9 years ago",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh2ooSofRqRR5dqOeSdIZo_JGB3y15N-Gz2NoxMz1dXkw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEN",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ],
+     "TANZEN"
+    ],
+    "video": {
+     "id": "XmzqRCn0F_U",
+     "titre": "🕺 Lerne den Moonwalk in 2 Minuten – Einfach erklärt für Anfänger! (How do the moonwalk) @tanzen-waal",
+     "chaine": "ADTV Tanzschule Waal - Bianca Glaser",
+     "vues": "36.462 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/JB5iyhTq2ZGCqFFYCcIFdUxHBHkRcQT6tEyXWl9LN__dJzydfXzqg71dqJERxozY07PXm6Dv2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE IL",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DsaLUBmrVng",
+     "titre": "moonwalk tutorial italiano",
+     "chaine": "Light Movies",
+     "vues": "395K visualizzazioni",
+     "date": "17 anni fa",
+     "duree": "8:44",
+     "avatar": "https://yt3.ggpht.com/rBXlgk6oX8IQ-1TxkKK5immBKEXQGCOqgBouMGUjdTN_EHFJZKXV9CBfs_Qjj-yr70aAsZv4cA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER O",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EyhoaK0bzaA",
+     "titre": "Aprenda o VERDADEIRO MOONWALK - Ricardo Walker Ensina",
+     "chaine": "Ricardo Walker",
+     "vues": "792 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "12:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kHsbs5OZ7TJ4CbCt5iWiuJSk8OhvEEDIb8iYaVBuLDk1o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "jpeiIJ0yI-Y",
+     "titre": "michael jackson moonwalk ay yürüyüşü nasıl yapılır?",
+     "chaine": "ERHAN KIRCA DANCE ACADEMY",
+     "vues": "299 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "7:24",
+     "avatar": "https://yt3.ggpht.com/tJKGGozJ6rbQvP6FQEB8325JKSgQ_M3Wxzd_WQokK6KD5mllWSu-S1X_XBy_bhLMJpYuxLS3rg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "FĂ",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iC86V0UvMyQ",
+     "titre": "[RO] MoonWalk Tutorial in Romana",
+     "chaine": "Gabriel Sasu",
+     "vues": "7,4 K vizionări",
+     "date": "acum 12 ani",
+     "duree": "1:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfgnPwqkZ6C-67xFI7hvEhAmsHJlbFlkDRVzy5LwaNzuE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UMĚT",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#8a5cc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8WFDwnewc-s",
+     "titre": "Moonwalk tutorial",
+     "chaine": "pavel vala",
+     "vues": "17 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "1:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lEEle_RjZo5xhn5zvaVwVmJjryL_IrPvCAxqbgqApfeg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "UN TOUR DE MAGIE",
+     [
+      {
+       "t": "AVEC UN ÉLASTIQUE",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qUCag3qwOJw",
+     "titre": "Téléportez un Élastique sur le bras du spectateur ! (Tuto)",
+     "chaine": "MagieExpliquée",
+     "vues": "508 k vues",
+     "date": "il y a 11 ans",
+     "duree": "6:44",
+     "avatar": "https://yt3.ggpht.com/D3ST3O40NnJpFKDE_44oVzN9ZASnx4Mas8MalZXbvYSxUHxEmNlZFHC-4AJ3OcI7vhJwewcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "A MAGIC TRICK",
+     [
+      {
+       "t": "WITH A RUBBER BAND",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oBxVjJiN5LQ",
+     "titre": "3 EASY Rubber Band Magic Tricks! - Learn them FAST!",
+     "chaine": "Chris Ramsay",
+     "vues": "989K views",
+     "date": "9 years ago",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/6AGI5gkzdd22EXhRNWRsGvVkrpY3Rl67aitMn4T_W9LMe73vNDcea9M0c2MJtzMBZtaiHsvloR8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN ZAUBERTRICK",
+     [
+      {
+       "t": "MIT EINEM GUMMIBAND",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Xp-IpP2WhCc",
+     "titre": "VISUELLER Gummiband-Trick, den jeder lernen kann",
+     "chaine": "Soka Magic",
+     "vues": "154.016 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXK6KE9B9HoLrJB1YYZ44Il25GVY02Ls3oO-dqZKyQ-zA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UNA MAGIA",
+     [
+      {
+       "t": "CON UN ELASTICO",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O61XzT5tsDM",
+     "titre": "3 SEMPLICI MAGIE DA FARE CON UN ELASTICO - TUTORIAL",
+     "chaine": "Andrea Barci",
+     "vues": "41K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "5:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYTEQDOT2qimaYHvIa7fQS2poAVgd-g7l3IGkAexgh6oQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "UMA MÁGICA",
+     [
+      {
+       "t": "COM ELÁSTICO",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pE4jY3UpD3s",
+     "titre": "MÁGICA DO ELÁSTICO que se teletransporta (REVELADA!)",
+     "chaine": "Manual do Mundo",
+     "vues": "1,8 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "2:25",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "LASTİKLE",
+     [
+      {
+       "t": "SİHİR NUMARASI",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4qkDnbET-uA",
+     "titre": "LASTİKLE YAPABİLECEĞİNİZ EN İYİ 6 SİHİR NUMARASI VE SIRRI!-KOLAY SİHİRBAZLIK NUMARALARI ÖĞREN",
+     "chaine": "Magic Osman",
+     "vues": "252 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRv1TPqixf378bT1v8eYYQs2zoJW_HOJUFv-pMbeqNIOw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk'da öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "UN TRUC DE MAGIE",
+     [
+      {
+       "t": "CU UN ELASTIC",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "80u3PQwp_8E",
+     "titre": "Truc de magie cu elastic 😁 foarte simplu de invatat 😁 din seria de trucuri magice explicate",
+     "chaine": "Motanelul si Puiuletele",
+     "vues": "88 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k96BID3l77fXkGtd2KfGQcY4blqpLL7KCANuNOuGn9Vcw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "KOUZLO",
+     [
+      {
+       "t": "S GUMIČKOU",
+       "couleur": "#4f9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tp32HYw7QZs",
+     "titre": "Jednoduchý trik s gumičkou - předvedení & tutorial",
+     "chaine": "Exit8472",
+     "vues": "24 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEghG64tYjWfI7Hx0zD_In8vanBCx--wWhLq067wFfTrY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  }
+ ]
+}

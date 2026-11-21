@@ -5651,6 +5651,33 @@
    },
    "notes": "full test BLEO, cta A",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-capable-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7708456205689113889?variante=var-capable-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#competences #apprendre #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7708456205689113889_1",
+    "2": "7708456205689113889_2",
+    "3": "7708456205689113889_4",
+    "4": "7708456205689113889_3",
+    "5": "7708456205689113889_5",
+    "6": "7708456205689113889_6"
+   },
+   "notes": "declinaison G1 de 7708456205689113889, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "6f9d1d68-8901-49d1-b8d6-903c703904b6"
   }
  ]
 }

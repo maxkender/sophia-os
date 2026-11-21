@@ -63,4 +63,20 @@ describe("lignesPodz", () => {
     expect(l.enTest).toBe(true);
     expect(l.langues.every((x) => x.prochaine)).toBe(true);
   });
+
+  it("un label fermé ne s'affiche plus ; fermé pour une seule application, il reste pour l'autre", () => {
+    const marches = {
+      "id-sophia": [{ langue: "fr", pays: "FR", stats: [WBG("fr", 3, 0)] }],
+      "id-unswipe": [{ langue: "en", pays: "US", stats: [WBG("en", 2, 0)] }],
+    };
+    const R = REGLAGES_CHOIX_LABEL_DEFAUT;
+    // Fermé à la main pour toutes les applications : plus de ligne.
+    expect(lignesPodz([SOPHIA, UNSWIPE], marches, { ...R, fermes: ["wbg"] })).toEqual([]);
+    // Fermé par la nuit pour Sophia seulement : il reste, pour Unswipe.
+    const [l] = lignesPodz([SOPHIA, UNSWIPE], marches, { ...R, fermesApp: ["id-sophia:wbg"] });
+    expect(l.apps).toEqual(["unswipe"]);
+    expect(l.langues.map((x) => x.langue)).toEqual(["en"]);
+    // Rouvert à la main : il revient.
+    expect(lignesPodz([SOPHIA, UNSWIPE], marches, { ...R, fermes: ["wbg"], ouverts: ["wbg"] })).toHaveLength(1);
+  });
 });

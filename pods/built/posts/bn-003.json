@@ -1,0 +1,37 @@
+{
+ "id": "bn-003",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7706497431722151175",
+  "vues": 96500,
+  "publie_le": "2026-11-10",
+  "accroche": "How To Become Extremely Attractive."
+ },
+ "titre": {
+  "en": "how to become more attractive as a man"
+ },
+ "legendes": {
+  "en": "it's mostly how you show up #selfimprovement #attractive #tipsformen #running #confidence"
+ },
+ "musique": {
+  "titre": "Originalton",
+  "url": "https://www.tiktok.com/music/originalton-7204936507338001158"
+ },
+ "notes": "Original du compte modèle (famille « How To Become Extremely Attractive. », 96,5 k vues, 10/11), même gabarit. Angle : l'attitude (regard, voix, forme, chaussures, lecture). Slide Atala (4, conseil 3) : un homme qui court détouré (banque de l'OS, male_run : 5aadac81, tenue noire, aucune marque lisible) et le logo d'Atala. placement_atala du 20/11 : voix NEUTRE (hook de 8 mots), forme « a running coach app like Atala », argument « il sait quoi courir chaque jour ». Aucun chiffre. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-piste.png": "5aadac81-9008-4fe7-9e87-cb8e6d6f901e"
+ },
+ "slides": [
+  { "type": "couverture", "image": "images/detoures/couverture-3.png", "en": { "titre": "HOW TO BECOME\nMORE ATTRACTIVE\nAS A MAN." } },
+  { "type": "conseil", "image": "images/detoures/regard.png", "mode": "bas", "taille": 520,
+    "en": { "titre": "1. Hold eye contact", "texte": "Look people in the eyes when you talk and when you listen. It shows confidence and real interest." } },
+  { "type": "conseil", "image": "images/detoures/micro.png", "mode": "objet", "taille": 440,
+    "en": { "titre": "2. Speak slower", "texte": "Rushed words sound nervous. Slow down, pause before you answer and let people wait for you." } },
+  { "type": "conseil", "atala": true, "image": "images/detoures/coureur-piste.png", "mode": "objet", "taille": 560,
+    "en": { "titre": "3. Get fit by running", "texte": "A fit body shows in how you stand and move. A running coach app like Atala tells you what to run each day." } },
+  { "type": "conseil", "image": "images/detoures/bottines.png", "mode": "objet", "taille": 440,
+    "en": { "titre": "4. Wear good shoes", "texte": "People notice your shoes. One clean pair of leather boots goes with almost everything you own." } },
+  { "type": "conseil", "image": "images/detoures/livre.png", "mode": "objet", "taille": 400,
+    "en": { "titre": "5. Read more", "texte": "Interesting people are attractive. A few pages every night gives you new things to talk about." } },
+  { "type": "fin", "image": "images/detoures/fin-3.png", "en": { "texte": "Follow for more" } }
+ ]
+}

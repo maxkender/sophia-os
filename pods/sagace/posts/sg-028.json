@@ -1,0 +1,1324 @@
+{
+ "id": "sg-028",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6f7280f8-8673-4a05-8aae-9ed3374ec0dd",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7679488418337885473",
+  "vues": 153200,
+  "publie_le": "2026-08-29",
+  "accroche": "10 compétence 10/10 que tu peux apprendre au lieu de scrolle"
+ },
+ "titre": {
+  "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller",
+  "en": "10/10 skills you can learn instead of scrolling",
+  "de": "10/10 Skills, die du lernen kannst, statt zu scrollen",
+  "it": "Abilità 10/10 che puoi imparare invece di scrollare",
+  "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll",
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování"
+ },
+ "legendes": {
+  "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills you can learn instead of scrolling #learnontiktok #selfimprovement #skills",
+  "de": "10/10 Skills, die du lernen kannst, statt zu scrollen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che puoi imparare invece di scrollare #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Déclinaison G1 de sg-004 (21/11) : titre, légende et couverture de sg-004 mot pour mot ; 5 autres compétences (faire un paquet cadeau, chanter juste, cirer ses chaussures, se tenir à table, cuire des pâtes), d'autres vraies vidéos natives ; Sophia en étape 4, cta C « CONNAÎTRE / L'HISTOIRE ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCE",
+      "cap": 110
+     },
+     {
+      "t": "À APPRENDRE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "AU LIEU",
+      "cap": 118
+     },
+     {
+      "t": "DE SCROLLER",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 110
+     },
+     {
+      "t": "TO LEARN",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "INSTEAD OF",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLING",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 110
+     },
+     {
+      "t": "ZUM LERNEN",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "STATT ZU",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLEN",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 110
+     },
+     {
+      "t": "DA IMPARARE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "INVECE DI",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLARE",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 110
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "EM VEZ DE",
+      "cap": 118
+     },
+     {
+      "t": "ROLAR O FEED",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KAYDIRMAK",
+      "cap": 110
+     },
+     {
+      "t": "YERİNE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "ÖĞRENECEĞİN",
+      "cap": 118
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 110
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "ÎN LOC SĂ",
+      "cap": 118
+     },
+     {
+      "t": "DAI SCROLL",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 110
+     },
+     {
+      "t": "K NAUČENÍ",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "MÍSTO",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOVÁNÍ",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UN",
+     [
+      {
+       "t": "PAQUET CADEAU",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YiXhxA9a39A",
+     "titre": "🎁 Comment faire pour emballer un paquet cadeau ✨ TUTO FACILE",
+     "chaine": "Florie de Decobyflo",
+     "vues": "1,4 M de vues",
+     "date": "il y a 16 ans",
+     "duree": "5:39",
+     "avatar": "https://yt3.ggpht.com/blKncvql78n-gqab-NxyaPAMTtJFAUUK2D4BKJ4_h5lja-674K6kH4TW4CBZY4B_BScJJkcZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WRAP",
+     [
+      {
+       "t": "A GIFT",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l_pp-1qu9Ig",
+     "titre": "Giftology: How to Wrap a Box",
+     "chaine": "Hallmark",
+     "vues": "7.5M views",
+     "date": "12 years ago",
+     "duree": "1:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ny5sur7EQ9gYZjwwi9mDs-ImKPuKnyUVNK4SxTgvOI6Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GESCHENKE",
+     [
+      {
+       "t": "EINPACKEN",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5g-8JZnLD8A",
+     "titre": "Geschenke verpacken - einfache Anleitung",
+     "chaine": "MsWellpappe",
+     "vues": "778.702 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "3:50",
+     "avatar": "https://yt3.ggpht.com/SrnGxJ0PFerEkOxMTcJyRx8sJr8EaF28DJaEPq0xAKD7R0vzXWTV8Bjh3IUeZFb6L0tB1OEG=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "INCARTARE",
+     [
+      {
+       "t": "UN REGALO",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BmcBHAlEypU",
+     "titre": "Come impacchettare un regalo rettangolare | Gp Bimby &  co",
+     "chaine": "Miss. Giki",
+     "vues": "63K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "3:22",
+     "avatar": "https://yt3.ggpht.com/nUYfiHlsyrk2d_5gseC5pXeAxOVfAgRSbRhP8PaZu3lK-7lta15bkBwIH5u5a7tGPb0x1RyhYN8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "EMBRULHAR",
+     [
+      {
+       "t": "UM PRESENTE",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Big8XBTwxP8",
+     "titre": "Como embrulhar uma caixa de papel de presente",
+     "chaine": "Dicas da Carol",
+     "vues": "262 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/JkTCJrk1jVenqyXGa37vJoqq_tOgQS8sMYtregP63OsusPQqJxEz3jnPJqSbeB9FRU87x1vJJw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HEDİYE",
+     [
+      {
+       "t": "PAKETLEMEK",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EF1J68w82eM",
+     "titre": "Hediye Paketi Nasıl Yapılır? | Hediye Paketi Yapımı",
+     "chaine": "MigrosTV",
+     "vues": "363 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "1:53",
+     "avatar": "https://yt3.ggpht.com/v8tvBQgwpbSKT1DeOQTrW58c9piWUw8bZnRGry_0W6E8QXg_ByycMyJzq94tyxtNjvlat_pvSw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 10 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎMPACHETEZI",
+     [
+      {
+       "t": "UN CADOU",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mB-FFPpccek",
+     "titre": "Cum sa impachetezi un cadou/ o cutie",
+     "chaine": "Lena",
+     "vues": "174 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/jyq1DQ3rkr7UkHCFA3einpHlIA9c7aa7lmcntcBfcG3W3gi92vtZpuo9Oc1olwsvDEwTkU1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZABALIT",
+     [
+      {
+       "t": "DÁREK",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mClukoixbGU",
+     "titre": "Jak zabalit dárek - pevná krabice",
+     "chaine": "Slevomat",
+     "vues": "246 tis. zhlédnutí",
+     "date": "před 14 lety",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/kquQK1c_FWYVrimbo2gW1lCXxA1_Vbxn9rFC39BTaFNROAfs1n6amcAgidFqzvULdHoIKSABqw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CHANTER",
+     [
+      {
+       "t": "JUSTE",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nu2x4_0tguY",
+     "titre": "Comment chanter JUSTE la méthode INFAILLIBLE ! (apprendre à chanter juste)",
+     "chaine": "Elena Hurstel - Mentor et Coach Vocal",
+     "vues": "557 k vues",
+     "date": "il y a 5 ans",
+     "duree": "12:44",
+     "avatar": "https://yt3.ggpht.com/AES6WNyU6hhyvGyXrQLal2wUovpORrQ3rqJk1qnrOFqTLUlg0Mx-IMzx_twKBNc-dE0krgtisg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SING",
+     [
+      {
+       "t": "IN TUNE",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jog-nfLldRI",
+     "titre": "Your FIRST Singing Lesson (Beginner Lesson from a REAL Vocal Coach)",
+     "chaine": "Ramsey Voice Studio",
+     "vues": "3.8M views",
+     "date": "4 years ago",
+     "duree": "11:06",
+     "avatar": "https://yt3.ggpht.com/nGsh720GwAaYxrrWiE8vHC1-462uhIRlmTntEPuITZh6MUWXtNV4iYa8X1yh605PYD6sYdZUkQI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "SINGEN",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LCx3g9Q9YUY",
+     "titre": "Sing mit! Der 1. Gesangsunterricht zum Mitmachen - singen lernen für Anfänger | singdu.de",
+     "chaine": "singDu",
+     "vues": "405.948 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncihqViJ8SZ3PvDg1mx46Nvmaz4YgllQtjDnsznBiZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CANTARE",
+     [
+      {
+       "t": "INTONATO",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ShaUBylKdqw",
+     "titre": "Diventa un cantante intonato da fare invidia anche se credi di essere stonato come una campana.",
+     "chaine": "Salvatore Cilia - Voce al Top",
+     "vues": "110K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:40",
+     "avatar": "https://yt3.ggpht.com/rll1vEXgB6zzpBkf1jgi1UoF61xfgjbAFuumH6xwww5a-6uIvScnSxJaGrWy9u6fATr4ipOlIwk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CANTAR",
+     [
+      {
+       "t": "AFINADO",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "be2t3N5wgBI",
+     "titre": "COMO COMEÇAR A CANTAR: Primeiros Passos | Aula de Canto",
+     "chaine": "Cifra Club",
+     "vues": "2,8 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "9:39",
+     "avatar": "https://yt3.ggpht.com/8VnmfIL6fFhhvUex818rd9t9sv9TkvvbQJKOMMRsCxan-NTdNSiboXjIK4HS48wpYMU6cQHg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DOĞRU",
+     [
+      {
+       "t": "ŞARKI SÖYLEMEK",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EaxqMVBo_Xg",
+     "titre": "Sesim Kötü Şarkı Söyleyebilir Miyim?",
+     "chaine": "İzgi Gültekin",
+     "vues": "32 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "8:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYCzCvPyHkXdrZzdBX-lX6b5mQf7FZwR-lBCSkg5xxOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CÂNȚI",
+     [
+      {
+       "t": "CORECT",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uZ9Dkohl2k4",
+     "titre": "🎶 SET VOCALIZE ÎNCĂLZIRE🎶 cu Andra Dan, profă de canto, îndrumător terapie vocală",
+     "chaine": "Andra Dan",
+     "vues": "188 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "9:41",
+     "avatar": "https://yt3.ggpht.com/y2yECPrgUYg4l6rkXpnK_ZMs8aq2csNqEsilDpMO2BElWgPJw9ggKkO6P6bOce2f4jf1_AwdHw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZPÍVAT",
+     [
+      {
+       "t": "ČISTĚ",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4g6zYXpI720",
+     "titre": "JAK SE NAUČIT ZPÍVAT #1 || Jak cvičit? Dělám to správně? Rozezpívání?",
+     "chaine": "Kristýna Krčmová",
+     "vues": "107 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "13:26",
+     "avatar": "https://yt3.ggpht.com/XrnEcgwuu9ua0sM8s7GViwgD4_ISGbza8nk5XhViI1WnPDN-czo5YkWK0N4ZQRGLN-mz8H5h5A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "CONNAÎTRE",
+     [
+      {
+       "t": "L'HISTOIRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "KNOW",
+     [
+      {
+       "t": "YOUR HISTORY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GESCHICHTE",
+     [
+      {
+       "t": "VERSTEHEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CONOSCERE",
+     [
+      {
+       "t": "LA STORIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONHECER",
+     [
+      {
+       "t": "A HISTÓRIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "TARİHİ",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "ISTORIE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZNÁT",
+     [
+      {
+       "t": "HISTORII",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CIRER",
+     [
+      {
+       "t": "SES CHAUSSURES",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5lFgd8bIDUM",
+     "titre": "Comment bien cirer ses chaussures en cuir ?",
+     "chaine": "Verygoodlord",
+     "vues": "115 k vues",
+     "date": "il y a 10 ans",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHeAdbqzJ5eldbW8iT7Wa8LXybdq7R_dz2zP-8x3qHhEE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "POLISH",
+     [
+      {
+       "t": "YOUR SHOES",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "20Motb54GJI",
+     "titre": "How to Polish Your Leather Shoes | KIWI Shoe Care",
+     "chaine": "KIWI® Shoe Care UK",
+     "vues": "2.3M views",
+     "date": "11 years ago",
+     "duree": "1:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFSD0NDGoU8IwykMAa-s3zundxQSMftW4RV35axlpfSw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SCHUHE",
+     [
+      {
+       "t": "RICHTIG PUTZEN",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3qgQbFQfzoQ",
+     "titre": "Schuhe richtig putzen",
+     "chaine": "Maximilian Baumann",
+     "vues": "40.828 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "5:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kvN57Y95_EK2Swpgkj4VQLo7iUTO3iYsgI4NoV42PwHdY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "LUCIDARE",
+     [
+      {
+       "t": "LE SCARPE",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yo0ZJ9agV9o",
+     "titre": "Come LUCIDARE le scarpe eleganti in 5 MINUTI 👞",
+     "chaine": "Cura della Scarpa",
+     "vues": "30K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/UtLu1CWF-eOU-90V0979AgCaoI8BpzsZqTm5HUGX_GzwI12wU1FUepnnNUfTb3Ti1obUlIej2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENGRAXAR",
+     [
+      {
+       "t": "OS SAPATOS",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rUQ1T9nllLY",
+     "titre": "Como Engraxar os Sapatos",
+     "chaine": "Engravatando",
+     "vues": "253 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "2:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0xGZGFzMDK5SYpXrZ0vNLDbx6CSjj2c4QEGlU8udt0Pk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "AYAKKABI",
+     [
+      {
+       "t": "BOYAMAK",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ARsOqEHccV0",
+     "titre": "Ayakkabı nasıl boyanır?",
+     "chaine": "Mynet",
+     "vues": "53 B görüntüleme",
+     "date": "11 yıl önce",
+     "duree": "1:48",
+     "avatar": "https://yt3.ggpht.com/IdixDFIZLwUdq0ehR6KxdYTm0yY6jG-yk0MKdVZsv9UsWYmgZ-r18q4CPILZVf0biab6oNo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ LUSTRUIEȘTI",
+     [
+      {
+       "t": "PANTOFII",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vXU2_Pbx7Ig",
+     "titre": "Luciu la pantofi",
+     "chaine": "Valentin Frunze",
+     "vues": "7,8 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kK3p5zvgaupPh8bBFmxDgJ5fXGSj1-rvpJFKezKU7GjdE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYLEŠTIT",
+     [
+      {
+       "t": "BOTY",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bTMD7S6jXhQ",
+     "titre": "Jak krémovat boty a jak se starat o kožené boty",
+     "chaine": "StyleMate",
+     "vues": "37 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "12:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mxDN0PSKTObJFvKDnIr00_TTYFauAoOFNv_9JcMDghnw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "SE TENIR",
+     [
+      {
+       "t": "À TABLE",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ycHhNl-7zOE",
+     "titre": "Bonnes Manières à Table : Comment se tenir ? 74 règles d'étiquette indispensables",
+     "chaine": "Apprendre les Bonnes Manières",
+     "vues": "634 k vues",
+     "date": "il y a 7 ans",
+     "duree": "9:09",
+     "avatar": "https://yt3.ggpht.com/ulfCcMMeA-6PUQBfbWBhHPMgPabQOQr7Npfv6R_P78EOYmkZA5SzyAguTEkkZRG_iHQmtK1ZL90=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MASTER",
+     [
+      {
+       "t": "TABLE MANNERS",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FDGGv7z5r2c",
+     "titre": "Table Manners 101: Basic Dining Etiquette",
+     "chaine": "The Distilled Man",
+     "vues": "4.6M views",
+     "date": "9 years ago",
+     "duree": "9:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcQZlprkCtCD8v_lLh7dDZgpDnGvu0x5Z4HYxAgJHt6q4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GUTE",
+     [
+      {
+       "t": "TISCHMANIEREN",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Tkh1bg3K22k",
+     "titre": "Tischmanieren",
+     "chaine": "BildungsTV",
+     "vues": "136.509 Aufrufe",
+     "date": "vor 13 Jahren",
+     "duree": "9:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mu2V600UDyCJ-5tMke1vsH8F7gqzkTIuk0mxF9hjWUz_M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IL GALATEO",
+     [
+      {
+       "t": "A TAVOLA",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "agofe8DjA7w",
+     "titre": "Come usare il tovagliolo a tavola? 5 regole di Galateo utili! #GalateoDellaTavola #BonTon #Etiquette",
+     "chaine": "Elisa Motterle",
+     "vues": "2,8K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "4:40",
+     "avatar": "https://yt3.ggpht.com/Qxn_Auqb84vZSQAyyJhPIGBtV2rEQBCRHBW9sMy82R_XgOtzSbeRxOUTV2cpCNjLM-QkatN9ilk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ETIQUETA",
+     [
+      {
+       "t": "À MESA",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IABsvuVfkGI",
+     "titre": "ETIQUETA A MESA - 7 REGRAS INQUEBRÁVEIS | O que você nunca deve fazer durante a refeição!",
+     "chaine": "LaEtiqueta com Larissa",
+     "vues": "126 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/ypMDCxrWh2FJBnwBrMFkYbJB-cSWy3Njm-CEHYM_7BFHE-y6rZ3tBAW6rw5Z9cIrTANA2AS92ig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SOFRA",
+     [
+      {
+       "t": "ADABI",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H0oaqlQA_hY",
+     "titre": "Görgü kuralları, sofra adabı ve yemek kültürünün gizli sembolleri/ Yap-Yapma!",
+     "chaine": "Güneş Tulga",
+     "vues": "190 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "4:37",
+     "avatar": "https://yt3.ggpht.com/aHFCKjIX80y-TsKfIq9w9eQ_3EoPxJyoTqnkBzx3oQ9dzzxLucBH2JSOb2N8IG0fQBMMWpW8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "MANIERE",
+     [
+      {
+       "t": "LA MASĂ",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tLk8JgvzbZc",
+     "titre": "Bunele maniere la masa | Reguli de eticheta❤️",
+     "chaine": "Andreea Balaban",
+     "vues": "296 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "58:41",
+     "avatar": "https://yt3.ggpht.com/RlNLbWt93_okJFjSS0E80t3RIWAF6n8oZfFeswCmXLlmiqocQOXLfjQ3K1Fdom7zqLz3tg05LA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ETIKETA",
+     [
+      {
+       "t": "U STOLU",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SgbJmkiuYBI",
+     "titre": "Etiketa stolování - jak ano a jak ne",
+     "chaine": "FSE UJEP",
+     "vues": "13 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "10:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kz2wE5EdSjlsedqxxBuKMiJRvI56xEpsOpUWuLmuNTKQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CUIRE",
+     [
+      {
+       "t": "DES PÂTES PARFAITES",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LWde2ZX99Us",
+     "titre": "Comment cuire parfaitement les pâtes",
+     "chaine": "Ricardo Cuisine",
+     "vues": "112 k vues",
+     "date": "il y a 15 ans",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nf4llISJWONqrTLRQ8pA6ah8p_jsn59c4d_hzm_UP1jQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "COOK",
+     [
+      {
+       "t": "PERFECT PASTA",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "u0p_dBCEDs4",
+     "titre": "How to Cook Pasta Perfectly: Here's Everything You Need to Know",
+     "chaine": "America's Test Kitchen",
+     "vues": "3M views",
+     "date": "13 years ago",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/sKzhpJifGA4tZFt-KHpQ7iUbc3FohuxAY7Gqiea8xOfMK_sb2iRsjkWzy8VEe8zlymCX6L0s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "NUDELN",
+     [
+      {
+       "t": "RICHTIG KOCHEN",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FXlPKj66P6E",
+     "titre": "Nudeln kochen – Tipps & Tricks für die perfekte Pasta | REWE Deine Küche",
+     "chaine": "REWE Deine Küche",
+     "vues": "235.102 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "2:16",
+     "avatar": "https://yt3.ggpht.com/6ICLmrRXwxYi-Dtkm5yu8BPBeGYEwYsAGj5a3sP6dUOUNZir2D3Pz7EkOoG4dgxN17AT0z9k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CUOCERE",
+     [
+      {
+       "t": "LA PASTA",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_jetYnD_FrE",
+     "titre": "PASTA SENZA FUOCO (1) - Perché continuare a far bollire l'acqua è inutile",
+     "chaine": "Dario Bressanini",
+     "vues": "1,8 Mln visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "3:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n9Wb6xrZA-z9UKTiSTcP03OaiUyNHhA6Sz9uCUN3C8IBEq=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COZINHAR",
+     [
+      {
+       "t": "MACARRÃO",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3RgQQ4YM5q8",
+     "titre": "COMO COZINHAR MACARRÃO NO PONTO CERTO - RECEITA PARA INICIANTES",
+     "chaine": "Maristela Furtado Coelho",
+     "vues": "197 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "1:33",
+     "avatar": "https://yt3.ggpht.com/uBXfWSekKpwrIzH0_sq8ML0uW_gCwv4h0_V2ZYJz6OLNN5K6qfoVEpqrTe9VE--jI8Tikg4n=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "MAKARNA",
+     [
+      {
+       "t": "HAŞLAMAK",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dEVKXhNU6As",
+     "titre": "SADE MAKARNA NASIL PİŞİRİLİR? İLK DEFA MAKARNA PİŞİRENLER İÇİN PÜF NOKTALARI İLE",
+     "chaine": "Serkan'ın Mutfağı",
+     "vues": "69 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "4:20",
+     "avatar": "https://yt3.ggpht.com/5TRzBAXuO2Iy1--gbsytt5oGsYOLnEmpzb49kpnL2mOgaU3OwzYUdJDtO5byqqEIqgQYBtOsuA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 30 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FIERBI",
+     [
+      {
+       "t": "PASTELE",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hlbHmv38e60",
+     "titre": "Cum să fierbi pastele",
+     "chaine": "SoDelicious România",
+     "vues": "29 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "1:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHQ_Cg9NZPb_l8j74r127CZJ86r8Cohm2vrbU3rTgf=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "TĚSTOVINY",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CqLwOPAGdyE",
+     "titre": "Jak správně uvařit těstoviny al dente?",
+     "chaine": "pizzeriecz",
+     "vues": "26 tis. zhlédnutí",
+     "date": "před 17 lety",
+     "duree": "2:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kDNLnRbmM4IZpcXg3avj8nnzzHBJ9szGJYEyTZp7UJXg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1317 @@
+{
+ "id": "sg-029",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 que tes grands-parents savaient",
+  "en": "10/10 skills your grandparents had",
+  "de": "10/10-Skills, die deine Großeltern konnten",
+  "it": "Abilità 10/10 che i tuoi nonni sapevano",
+  "pt-BR": "Habilidades 10/10 que seus avós sabiam",
+  "tr": "Dedenin ve ninenin bildiği 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care le știau bunicii tăi",
+  "cs": "Dovednosti 10/10, které uměli tvoji prarodiče"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 que tes grands-parents savaient #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills your grandparents had #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die deine Großeltern konnten #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che i tuoi nonni sapevano #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que seus avós sabiam #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Dedenin ve ninenin bildiği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care le știau bunicii tăi #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které uměli tvoji prarodiče #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - Notmaster",
+  "url": "https://www.tiktok.com/music/original-sound-7229869367767485227"
+ },
+ "notes": "Full test du 21/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 que tes grands-parents savaient », sa couverture (décor, lignes brun/noir). 5 savoir-faire d'antan : confiture, crochet, potager, tarte aux pommes, ourlet ; vraies vidéos natives par langue (chaînes « wie bei Oma / della nonna / a bunicii / našich babiček » quand il y en a). Sophia en étape 4 sur 7, cta B « APPRENDRE / À L'ANCIENNE ». Belle écriture et pâtes écartées : déjà dans sg-028.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE TES",
+      "cap": 169
+     },
+     {
+      "t": "GRANDS-PARENTS",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "SAVAIENT",
+      "cap": 169
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "YOUR",
+      "cap": 169
+     },
+     {
+      "t": "GRANDPARENTS",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "HAD",
+      "cap": 169
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE DEINE",
+      "cap": 120
+     },
+     {
+      "t": "GROSSELTERN",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "KONNTEN",
+      "cap": 169
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CHE I TUOI",
+      "cap": 120
+     },
+     {
+      "t": "NONNI",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "SAPEVANO",
+      "cap": 169
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE SEUS",
+      "cap": 169
+     },
+     {
+      "t": "AVÓS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "SABIAM",
+      "cap": 169
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "DEDENİN VE",
+      "cap": 120
+     },
+     {
+      "t": "NİNENİN",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "BİLDİĞİ",
+      "cap": 169
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PE CARE LE ȘTIAU",
+      "cap": 110
+     },
+     {
+      "t": "BUNICII",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "TĂI",
+      "cap": 169
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "KTERÉ UMĚLI",
+      "cap": 120
+     },
+     {
+      "t": "TVOJI",
+      "cap": 169
+     },
+     {
+      "t": "PRARODIČE",
+      "couleur": "brun",
+      "cap": 220
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "SA CONFITURE",
+       "couleur": "#c0392b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7Hv6Jq0FQYU",
+     "titre": "🫙 Faire sa confiture maison",
+     "chaine": "Philippe Etchebest",
+     "vues": "281 k vues",
+     "date": "il y a 1 an",
+     "duree": "8:18",
+     "avatar": "https://yt3.ggpht.com/TETeWVwZ0hc-qP_wWMN74dFRRcZOipEhGJ4MegZgjgKoo47wv-9igEfwLlf2lVZx2LPCIAOO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "HOMEMADE JAM",
+       "couleur": "#c0392b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F5LhDkAfxA8",
+     "titre": "How to Make Strawberry Jam!! Homemade Small Batch Preserves Recipe",
+     "chaine": "Crouton Crackerjacks",
+     "vues": "2.4M views",
+     "date": "9 years ago",
+     "duree": "8:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nXRMQH6fgYXztggTi4GLXIcVt6P_cte64l0xt5h30o8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "MARMELADE",
+     [
+      {
+       "t": "EINKOCHEN",
+       "couleur": "#c0392b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BQ3p7-98_is",
+     "titre": "Erdbeermarmelade wie Oma es machte, wenig Zucker, ohne Zusatzstoffe! Fruchtig & lecker #119",
+     "chaine": "Drea - einfach selbstgemacht",
+     "vues": "370.994 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "5:31",
+     "avatar": "https://yt3.ggpht.com/AblFWs7G3nU2xM2w3zFqSpPu5TmxHHeNgAW2PNFNZmQD4FjTHEBkmllFegx7juRjadsoxexpCQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE LA",
+     [
+      {
+       "t": "MARMELLATA",
+       "couleur": "#c0392b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eIYhxC2Dtas",
+     "titre": "MARMELLATA di FICHI Ricetta della NONNA fatto in casa!",
+     "chaine": "Tutti a tavola con uccia",
+     "vues": "97K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "2:37",
+     "avatar": "https://yt3.ggpht.com/OncQa82SQ1wc7z61zVHgWmoT8Ku6fpCn-cZNo-UaMD-COi3fA3VfJZu6f6B6o9bpyg-VyXe27A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "GELEIA CASEIRA",
+       "couleur": "#c0392b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "C1PA-nxWJJg",
+     "titre": "GELEIA DE MORANGO CASEIRA SUPER FÁCIL E RÁPIDA | Menino Prendado",
+     "chaine": "Menino Prendado",
+     "vues": "1,9 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "5:12",
+     "avatar": "https://yt3.ggpht.com/1B5rDFEnQnvOPK4SuoIiukxhNlWtZuyexzYWdGUHzUGzpkQWlTqJXnOGxHjxHd6KZBSs8e2R=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "EV YAPIMI",
+     [
+      {
+       "t": "REÇEL",
+       "couleur": "#c0392b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6_-k3EeNoOY",
+     "titre": "Şekerlenmeyen, Küflenmeyen Tam Kıvamında Reçel Nasıl Yapılır? | Reçel Tarifi ; İncir, Çilek, Kayısı",
+     "chaine": "Refika'nın Mutfağı",
+     "vues": "264 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "18:13",
+     "avatar": "https://yt3.ggpht.com/cqoZ06A5fIOfkQOrHQI5xgf7V5uQ2qtm336J9kmaHSHy554jgIUBqHTM6p5fqhHT8QhR3nkU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "DULCEAȚĂ",
+       "couleur": "#c0392b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EmSqIu27-TI",
+     "titre": "Dulceata de capsuni (reteta veche) | Gina Bradea",
+     "chaine": "Poftă bună cu Gina Bradea",
+     "vues": "879 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "14:24",
+     "avatar": "https://yt3.ggpht.com/MSVdcNKdt-nlvPe9ZeD1dvfhhC5OhSYyX7UlspVPQNau-CDQuMpbCiD1s_AqXma15DBYlAoYTg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "MARMELÁDU",
+       "couleur": "#c0392b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "U6hfTylo_Rc",
+     "titre": "Meruňkový džem - Roman Paulus - Kulinářská Akademie Lidlu",
+     "chaine": "Kuchyně Lidlu",
+     "vues": "70 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "3:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnHNf9fovCFxmB1zs1daJyyEKBWmYOXRObn13YH-Q1TaE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "LE CROCHET",
+       "couleur": "#2aa198"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oJtFRE6V0I8",
+     "titre": "Apprendre le crochet Cours n°1 : Le matériel, tenir le crochet, chaînette : tuto facile débutant 🧶",
+     "chaine": "Retropicaly",
+     "vues": "1,4 M de vues",
+     "date": "il y a 4 ans",
+     "duree": "11:47",
+     "avatar": "https://yt3.ggpht.com/uIwSNXKnEd-kJUWGwcbt4BPRpYL8XXo-XChM86maC1mKojBnmow7kWGX506u8U1GurLxUnuVLFo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN TO",
+     [
+      {
+       "t": "CROCHET",
+       "couleur": "#2aa198"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aAxGTnVNJiE",
+     "titre": "How to Crochet for Absolute Beginners: Part 1",
+     "chaine": "simplydaisy",
+     "vues": "59M views",
+     "date": "11 years ago",
+     "duree": "8:36",
+     "avatar": "https://yt3.ggpht.com/zzV1RpIyT_M6UcyQ_0GeMJWged_T5U_BjkTvl8Jd1oGWfBQwvdf7_nBYWkTKGq45Z3PxMrwc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "HÄKELN",
+       "couleur": "#2aa198"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "96fEPEkK0sQ",
+     "titre": "Häkel Grundlagen DIY / Häkeln lernen Luftmaschen, feste Maschen, halbe Stäbchen, Stäbchen",
+     "chaine": "DIY Inspiration",
+     "vues": "3,8 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "15:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lC8BIscTMXYYyye1VtA71rfoq63HigQUK2kLAfgB06Tw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "L'UNCINETTO",
+       "couleur": "#2aa198"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XN3YTDAvAM8",
+     "titre": "Uncinetto corso basico - Lezione 1 - nodino iniziale e catenella",
+     "chaine": "Francesca Uncinettando Crochet&Love",
+     "vues": "2,7 Mln visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "12:19",
+     "avatar": "https://yt3.ggpht.com/eqd-ELUtTDgNt50P44r8yxyEXjBEL4yUog4HUnnbFdbrQR0oeU33BHizlkdhjvg7jsmZTbYJZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "CROCHÊ",
+       "couleur": "#2aa198"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZQM1GS3uDz8",
+     "titre": "Aula de crochê para iniciantes | Aprenda crochê do zero em 5 passos - JNY Crochê",
+     "chaine": "JNY Crochê",
+     "vues": "18 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "24:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kvuUSLIvaRkzLDSmNHRUzcXpnEhIK8eoDyLl-jCI20lss=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "TIĞ İŞİ",
+     [
+      {
+       "t": "ÖRMEK",
+       "couleur": "#2aa198"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8no-GUhiLA4",
+     "titre": "Yeni Başlayanlar İçin Tığ ile Örgü Nasıl Örülür?",
+     "chaine": "Liza Örgü",
+     "vues": "1,2 Mn görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "17:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_luiyyvMTVoOwHVpTYJG3DQB52_Y_w9NpzpzhK0Y31eUg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "CROȘETAT",
+       "couleur": "#2aa198"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z6AZ7aZOGEM",
+     "titre": "Prima lectie de crosetat: notiuni croset incepatori, nodurile de baza pentru incepatori",
+     "chaine": "Ane Cotovan",
+     "vues": "360 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "14:09",
+     "avatar": "https://yt3.ggpht.com/rMb6Nqsbk8NG8KxOtKGrJK_NCpOEd7IUbFY1O3LObDqqomfYhRQSLYW4GZ_z7hn9ffvNeFWlhQc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "HÁČKOVAT",
+       "couleur": "#2aa198"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_I4HhCwqd38",
+     "titre": "HÁČKOVÁNÍ PRO ZAČÁTEČNÍKY | annie's world",
+     "chaine": "annie’s world | tvořím si to hezké",
+     "vues": "471 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/acMhe_rhj0r-VqwTUGygBzIfI6oSCmB77h0saaljgt_iFhbHO8qMXQorPgQeXdOi0iGe0IAw7A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À L'ANCIENNE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "THE OLD WAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "LERNEN",
+     [
+      {
+       "t": "WIE FRÜHER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "ALL'ANTICA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "À MODA ANTIGA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ESKİ USUL",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "CA ODINIOARĂ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE",
+     [
+      {
+       "t": "POSTARU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "SON POTAGER",
+       "couleur": "#4f8a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NSUQO5PX0EE",
+     "titre": "DÉBUTER UN POTAGER : Mes conseils pour bien commencer",
+     "chaine": "Goran le Permaculteur",
+     "vues": "219 k vues",
+     "date": "il y a 2 ans",
+     "duree": "9:03",
+     "avatar": "https://yt3.ggpht.com/3T1yswItiBKD-k18PGI3hk-Plfkezg3hcvzhhLr32A53vP7Rcn4nIqyM93U2jCLyxPJa9F0JwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Une saison pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "GROW YOUR",
+     [
+      {
+       "t": "OWN VEGGIES",
+       "couleur": "#4f8a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NlS_dTDsHHQ",
+     "titre": "New Vegetable Garden: How To Get Started",
+     "chaine": "GrowVeg",
+     "vues": "1.4M views",
+     "date": "4 years ago",
+     "duree": "18:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYSOY3Tstu8-Ou1ZqEAWleFxrlqVgzUNiRbmgtQT5vw7y-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 season to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GEMÜSE",
+     [
+      {
+       "t": "ANBAUEN",
+       "couleur": "#4f8a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tTWAUADXAWM",
+     "titre": "Gemüse anbauen für Dummies: Schritt für Schritt zum eigenen Gemüsegarten!",
+     "chaine": "Wurzelwerk",
+     "vues": "535.873 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "18:19",
+     "avatar": "https://yt3.ggpht.com/qS3Vcj4S3tSOWTrcRXlIM3FCV6n6y8nTvvZvvUSsF1gPNbpQRcxMtjL6FpiHMqssVQNrmd9FsK4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Saison zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "L'ORTO",
+       "couleur": "#4f8a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rjGjZaY-T60",
+     "titre": "Come FACCIO L'ORTO partendo da ZERO",
+     "chaine": "Matt The Farmer",
+     "vues": "358K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "12:26",
+     "avatar": "https://yt3.ggpht.com/CApJDZCorVuzAAI4h80Bq9cyfds_F9NF_SS_14RyJ346sxGaUGR4EqbGsoORffEdOrMFqDwzBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 stagione per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UMA",
+     [
+      {
+       "t": "HORTA",
+       "couleur": "#4f8a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8IqecvY3IWg",
+     "titre": "COMO FAZER uma HORTA CASEIRA: passo a passo",
+     "chaine": "Minhas Plantas",
+     "vues": "577 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "32:54",
+     "avatar": "https://yt3.ggpht.com/Ewco-KaCJDaKkBrq9VGZLJqWYtv4nYm8Cb9EH36CYPtJ5KCofLOtabwzpUcwjk_vAYmNQXqS=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 estação para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SEBZE",
+     [
+      {
+       "t": "YETİŞTİRMEK",
+       "couleur": "#4f8a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "a4OjlJuynqY",
+     "titre": "Bahçe Düzenlemeden Önce Mutlaka İzleyin, Örnek Hobi Bahçesi",
+     "chaine": "Organik Yaşam",
+     "vues": "513 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "11:41",
+     "avatar": "https://yt3.ggpht.com/xPBhBIJCUg7NLe17pbG5pdtL7jl28WfLtc0nCWkIy1RLvULaF_XDU73Vl7BsesvuyMPzf6vqCPM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sezonda öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI FACI",
+     [
+      {
+       "t": "GRĂDINĂ",
+       "couleur": "#4f8a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VMW5SJcMsnY",
+     "titre": "Grădina de la zero. Cu ce începem? Câteva sfaturi utile.",
+     "chaine": "Secretele Gradinarului",
+     "vues": "49 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "15:05",
+     "avatar": "https://yt3.ggpht.com/e_kDEEsoGDRGKVmW48mZYljUpwCTFgNsWNl8x3n6CZwIKfHMkcXD6H2SgiwDcROOi_85qC2W=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sezon de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PĚSTOVAT",
+     [
+      {
+       "t": "ZELENINU",
+       "couleur": "#4f8a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2ijrxYlpht8",
+     "titre": "Pěstování pro začátečníky 1. díl - 15 tipů než začnete",
+     "chaine": "Zahrada",
+     "vues": "60 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "13:23",
+     "avatar": "https://yt3.ggpht.com/jVH4IfarNj0b1sVh1RbG2hvxVljmQWu6rheFyObp8AE3_3OBIm3bTq5GWVFS05WwoWYB2mDm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sezóna na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UNE",
+     [
+      {
+       "t": "TARTE AUX POMMES",
+       "couleur": "#d9a63a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "22TdtieB82Q",
+     "titre": "Tarte aux pommes façon grand-mère : la recette classique et super facile",
+     "chaine": "750g",
+     "vues": "482 k vues",
+     "date": "il y a 11 ans",
+     "duree": "7:06",
+     "avatar": "https://yt3.ggpht.com/JcO3vwva6-fbfK_Rm2dIdIRQ4-owfjiYZKQabYPcNMvdsN9ClM0JRf5K9_fgQKhrVl8Qrpn5AHI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BAKE AN",
+     [
+      {
+       "t": "APPLE PIE",
+       "couleur": "#d9a63a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KbyahTnzbKA",
+     "titre": "The Only APPLE PIE Recipe You'll Need",
+     "chaine": "Natashas Kitchen",
+     "vues": "9.9M views",
+     "date": "7 years ago",
+     "duree": "8:38",
+     "avatar": "https://yt3.ggpht.com/qn0csPh1Cz2uT57dPNw4P0u6vXXaUEvALgCSFPTadn_TLKomK47cn9NrXoW6hp84_jz-ZPe2MKI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "APFELKUCHEN",
+       "couleur": "#d9a63a"
+      }
+     ],
+     "BACKEN"
+    ],
+    "video": {
+     "id": "9BQ_yF4fIMc",
+     "titre": "Apfelkuchen backen - Rezept  von Oma",
+     "chaine": "CALLEkocht - Omas Rezepte",
+     "vues": "188.415 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "6:42",
+     "avatar": "https://yt3.ggpht.com/LN3EffT1uyF9SscFQihJ4jw_WiejK65BFk0WvK4eNmOyDDF2FWZXh7LGQLJui8J_-FogqrjWzrM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE LA",
+     [
+      {
+       "t": "TORTA DI MELE",
+       "couleur": "#d9a63a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7ijjc38eRjg",
+     "titre": "CROSTATA di MELE della Nonna 🍎 Ricetta Facile ⭐️",
+     "chaine": "Polvere di Riso",
+     "vues": "384K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/MNoZV3wTFwwRfJiiVx8L5KaG8aJTo6ewAWaPPSJwXPCrHAJzQ5cP1Y3Pi8IoiOyfQUU0u8dw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "TORTA DE MAÇÃ",
+       "couleur": "#d9a63a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ySDoOpg1shA",
+     "titre": "Torta de maçã alemã fácil e rápida de fazer",
+     "chaine": "Ana Zambrin",
+     "vues": "4,4 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "8:20",
+     "avatar": "https://yt3.ggpht.com/EjVBIMVDlKJsDRrEo-NvWxC72g9TR3rqC-zpFage_DunhZQdvZ8oKkeel6pJyy6JgVgpn7rEiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ELMALI",
+     [
+      {
+       "t": "TURTA YAPMAK",
+       "couleur": "#d9a63a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f2lb0uZ2mKY",
+     "titre": "Yiyenlerin Hayran Kaldığı 💯 ELMALI TART TARİFİ",
+     "chaine": "Nefis Yemek Tarifleri",
+     "vues": "13 Mn görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/tX0tJPs42-5_5cy9RbtEDs90jzkQuKvgWO3Hj-lzIG8aQdtME1ffs1jloPkNzBtFDZ0GNqY0rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "PLĂCINTĂ CU MERE",
+       "couleur": "#d9a63a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YF1Tp3keQkc",
+     "titre": "Plăcintă cu măr după rețeta bunicii❤",
+     "chaine": "Alex Basarabă",
+     "vues": "126 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "10:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mKRxjuDxlm6aXjrvlJcQnjjn85B1dD-ecQZLzEBaiFkoQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UPÉCT",
+     [
+      {
+       "t": "JABLEČNÝ KOLÁČ",
+       "couleur": "#d9a63a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fxDZ3YsBeI4",
+     "titre": "Legendární jablečný koláč/řezy našich babiček | Dvě v troubě | CZ/SK HD recipe",
+     "chaine": "Dvě v troubě",
+     "vues": "525 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "4:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lV1VNRC41Jo1vKGK43RvY-cPGTQSsLNxoZcLkVlnUj5A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UN",
+     [
+      {
+       "t": "OURLET",
+       "couleur": "#2f5fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ARe8U455dT4",
+     "titre": "Couture à la main : l'ourlet invisible",
+     "chaine": "Vanessa SALAUN",
+     "vues": "144 k vues",
+     "date": "il y a 8 ans",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3QHruiIwqhyFqv4k1BWQUGXt0ltwMBJylgchY9rDtlGc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HEM",
+     [
+      {
+       "t": "YOUR PANTS",
+       "couleur": "#2f5fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jqRrXJqD3Hg",
+     "titre": "How to Hem Pants by Hand - Step by Step",
+     "chaine": "Easy Sewing for Beginners",
+     "vues": "1.5M views",
+     "date": "11 years ago",
+     "duree": "13:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9JxtkfFcvtfDcCheffCZUpbzpFCxQckOReJjq6yGBtQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "HOSEN",
+     [
+      {
+       "t": "KÜRZEN",
+       "couleur": "#2f5fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rtdnn3O_Xe4",
+     "titre": "Meine schicke Hose kürzen - ohne Nähmaschine 🙈",
+     "chaine": "Schnittstelle Schneidpunkt",
+     "vues": "246.393 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "6:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k39Vojx5l6wIm4vIF8rHuI61EOLFGf8kpWhkYaQN4eAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE L'ORLO",
+     [
+      {
+       "t": "AI PANTALONI",
+       "couleur": "#2f5fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K88Y39aLz9g",
+     "titre": "Come fare l'orlo dei pantaloni a mano in 10 minuti",
+     "chaine": "Sartoria Adriana Zizolfi",
+     "vues": "294K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_krHDou_7JNIV-LaZhrT0i_7O5Y19eprknOpIDztUwCG-c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "BARRA DE CALÇA",
+       "couleur": "#2f5fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "E-XxcEAnUlI",
+     "titre": "Como fazer bainha invisível à mão",
+     "chaine": "Débora Nardello",
+     "vues": "117 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "10:37",
+     "avatar": "https://yt3.ggpht.com/GGIiiDPNeNuujsmg_4LT-YxrclqX8LoOulhtsaX5QOZingCwj7yoAWSW5-5Gq0BezJGp_Ud6sA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PANTOLON",
+     [
+      {
+       "t": "PAÇASI YAPMAK",
+       "couleur": "#2f5fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VbKJnZD9GiE",
+     "titre": "Elde, makinasız kumaş pantolon paçası kısaltma tekniği | Manually shortening fabric trouser legs",
+     "chaine": "Örgü ve Dikiş Teknikleri",
+     "vues": "261 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "13:52",
+     "avatar": "https://yt3.ggpht.com/UxK2P5LsN1FzAxzafdbPHR8zfY48vga_7eqwj0h34sppBhSY6b636-RcwZPWNDtxENTR98xa2OU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SCURTEZI",
+     [
+      {
+       "t": "PANTALONII",
+       "couleur": "#2f5fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ueo05aY8oCw",
+     "titre": "Cum Să Scurtăm Corect Pantalonii",
+     "chaine": "MARIARY DIY RO",
+     "vues": "70 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nj9WiGvyMdqPqJnqIbix1i-7ybMjA8l_w5lFHAzUVuTQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZKRÁTIT SI",
+     [
+      {
+       "t": "KALHOTY",
+       "couleur": "#2f5fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "clfl-r7BcDQ",
+     "titre": "Jak jednoduše zkrátit rifle se zachováním vzhledu originální záložky",
+     "chaine": "Šití s Danou",
+     "vues": "249 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "11:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nd3k4ovy4PHkGc5MV08hy6daGtYqZtgzh3Beh0zzI6_g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  }
+ ]
+}

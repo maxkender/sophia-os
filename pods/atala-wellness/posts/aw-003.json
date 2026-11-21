@@ -1,0 +1,118 @@
+{
+ "id": "aw-003",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7694962320807709984",
+  "vues": 5714,
+  "accroche": "les habitudes que j'ai volées aux filles toujours parfaites"
+ },
+ "titre": {
+  "en": "habits i stole from girls who always look put together"
+ },
+ "legendes": {
+  "en": "small things, every single day 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide, voie 2, rythme 1). Famille « les habitudes que j'ai volées aux filles toujours parfaites » de @healthy_with_emma6 (5,7 k ; 4,6 k et 4 k pour ses reprises), sujet : être « put together » au quotidien. 7 slides, Atala en 5e, texte selon placement_atala du 20/11 (un seul argument : quand ralentir ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : intérieur décrit comme encombré et cortisol du soir moins bien redescendu (Saxbe et Repetti, Personality and Social Psychology Bulletin 2010) ; écrire sa liste de tâches du lendemain avant de dormir et endormissement plus rapide qu'en écrivant ce qu'on a fini (Scullin et al., Journal of Experimental Psychology: General 2018). Les autres slides n'avancent aucun chiffre. Photos : banque de l'OS ; Atala : 3845bb15 (plage au coucher du soleil, de dos).",
+ "banque": {
+  "images/banque/couverture-e.jpg": "0aa89a19-b61f-43f6-9d81-abd17b63269f",
+  "images/banque/couverture-f.jpg": "2d4703ad-77ca-4cab-8c11-da36963ff1cf",
+  "images/banque/tenue.jpg": "cc76d8b9-7ab4-4877-b61f-cbfe5a696800",
+  "images/banque/gourde.jpg": "3617605c-e4b1-4451-b671-e996f5855896",
+  "images/banque/chambre.jpg": "0b796059-ad91-40fb-8972-83ece7b9d04f",
+  "images/banque/course-plage.jpg": "3845bb15-0a9f-453e-91d2-00974ff1c3c5",
+  "images/banque/cafe.jpg": "060f9bde-3a6d-4d81-84ee-e3b85a129b9d",
+  "images/banque/liste.jpg": "04454a82-1527-4b47-a7f3-2b6476689df7"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": ["images/banque/couverture-e.jpg", "images/banque/couverture-f.jpg"],
+   "en": { "titre": "habits i stole from girls who always look put together", "note": "(that actually work)" }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/tenue.jpg",
+   "en": {
+    "titre": "pick your outfit _the night before_",
+    "intro": "the morning version of you has _zero patience_",
+    "paragraphes": [
+     "one less decision when you wake up, and _no panic_ in front of the mirror",
+     "outfit on the chair, bag by the door, _done_"
+    ],
+    "chute": "that is the _whole secret_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/gourde.jpg",
+   "en": {
+    "titre": "carry _a water bottle_ everywhere",
+    "intro": "they're never the girl who _forgot to drink_ all day",
+    "paragraphes": [
+     "if it's in your bag, you sip without _even thinking_",
+     "lemon, cucumber, mint. _make it pretty_ and you'll drink more"
+    ],
+    "chute": "a cute bottle is _half the habit_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/chambre.jpg",
+   "en": {
+    "titre": "reset your room _every night_",
+    "intro": "a messy room follows you _into your evening_",
+    "paragraphes": [
+     "a study found that women who described their homes as cluttered _stayed more stressed_ in the evening",
+     "make the bed, clothes away, _10 minutes_ max"
+    ],
+    "chute": "calm room, _calm head_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course-plage.jpg",
+   "en": {
+    "titre": "run _before the day starts_",
+    "intro": "the girls who have it together _move first thing_",
+    "paragraphes": [
+     "i used to start way too fast, then i was _too tired to go back_ the next day",
+     "my tip: start slow. a running coach app like Atala tells you _when to slow down_, so you actually want to go again"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cafe.jpg",
+   "cadrage": { "x": 0 },
+   "en": {
+    "titre": "drink your coffee _slowly_",
+    "intro": "they never look rushed, because _they aren't_",
+    "paragraphes": [
+     "10 calm minutes before the day _changes the whole morning_",
+     "no phone, no emails. _just the coffee_ and the window"
+    ],
+    "chute": "slow mornings look _so good_ on you"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/liste.jpg",
+   "en": {
+    "titre": "write tomorrow's _to-do list_",
+    "intro": "your brain stops _replaying it_ in bed",
+    "paragraphes": [
+     "in a study, people who wrote their to-do list before bed _fell asleep faster_ than people who wrote about what they'd finished",
+     "3 lines, _5 minutes_, lights off"
+    ],
+    "chute": "plan it, then _let it go_"
+   }
+  }
+ ]
+}

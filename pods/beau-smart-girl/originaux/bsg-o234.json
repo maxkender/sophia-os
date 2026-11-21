@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o234",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "faa4b524-d919-4b0a-bddc-88f8cbd65dc2",
+  "titre": "5 habitudes qui font de toi la fille la plus cultivée de la pièce (conseils d'étudiante) #culture #etudes #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [
+    "faa4b524-d919-4b0a-bddc-88f8cbd65dc2"
+  ],
+  "notes": "G2, déclinaison de faa4b524 (« 5 habitudes pour devenir dangereusement sur-éduquée, venant d'une étudiante de l'ENS », G1 gagnante, génération 1 en français ; meilleur passage ru 3,8 k vues, r 2,41), en français, 1re déclinaison. Accroche reformulée : « 5 habitudes qui font de toi la fille la plus cultivée de la pièce (conseils d'étudiante) », sans citer l'ENS. cta C. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/Statue_of_Liberty : don de la France, inaugurée en 1886. Routine du 21/11 sur BLEO (par_jour passé à 13 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 9 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 10 full tests. Lignes sautées : 4 (« tinas ai », nom d'une autre appli à recopier mot pour mot), 5 (« validé par les neurosciences »), 6 (« je notes »), 7 (accroche illisible « ge things »), 8, 10, 11 et 12 (« backed by science », bienfaits invérifiables), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d94677ac",
+      "texte_overlay": "5 habitudes qui font de toi\nla fille la plus cultivée de la pièce\n(conseils d'étudiante)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b1daea31",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "335d1681",
+      "texte_overlay": "1. lire les notes de bas de page\n\nc'est là que les auteurs cachent\nleurs meilleures idées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c53d3645",
+      "texte_overlay": "2. lire deux livres qui ne sont pas d'accord\n\nsur le même sujet.\nton avis devient vraiment le tien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "960a142c",
+      "texte_overlay": "3. relier chaque fait à une histoire\n\nla statue de la liberté, offerte par la france,\ninaugurée en 1886. impossible à oublier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "97706ba6",
+      "texte_overlay": "4. expliquer à quelqu'un qui n'y connaît rien\n\nsi tu bloques,\nc'est que tu n'as pas compris.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0e60cc7c",
+      "texte_overlay": "5. garder un carnet de questions\n\nchaque question devient une recherche.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3a6926e0",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

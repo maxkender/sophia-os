@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o360",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "577ccc7c-0576-47be-b035-cb2f494dd31f",
+ "titre": "How to train your brain to be quicker and smarter #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "577ccc7c-0576-47be-b035-cb2f494dd31f"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 6 de la boîte (577ccc7c, tr 4 k r 2,27), 3e et dernière déclinaison après ay-o324 et ay-o342. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o324, o342.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "528f1b76-6ffb-4ab2-9579-209ee9ded162",
+   "texte_overlay": "How to train your brain\nto be quicker and smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Play games that make you think fast. Chess blitz, card games, quick puzzles. Speed under pressure trains your brain to process faster.",
+   "media_id": "3bd2dfcb-cf56-41df-be56-426999e14b85"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn a musical instrument. Reading notes, moving your hands and listening all at once is one of the best workouts your brain can get.",
+   "media_id": "3e073a31-2666-4478-bc90-d955cc28cd9c"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Memorise something every week. A poem, a speech, a list of capitals. Memory gets stronger the more you use it. Teaching is the best test.",
+   "media_id": "3e32b9a7-fe3b-4bda-9737-5537ec0d371f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Explain complex ideas simply. Try explaining how the internet works to a child. Simplifying forces you to understand deeply.",
+   "media_id": "3f1d4752-bfa1-4889-a2a0-4851f661af6c"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: my brain felt slow and foggy. After: five minutes a day of history, art or science, and I think faster and remember more.",
+   "texte_sophia": "Before: my brain felt slow and foggy. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I think faster and remember more.",
+   "media_id": "766b0c85-142f-4b46-a0c2-0866cb81940e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Change your routine on purpose. A new route to work, a new recipe, a new sport. Novelty keeps your brain active and alert.",
+   "media_id": "3f20e4e4-443a-4f75-bccb-a8fcaacb734b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Rest properly. Sleep, breaks and time without screens are when your brain recovers. A rested mind is always a sharper mind.",
+   "media_id": "40b4e548-5378-4ecf-8140-37daebcd5c24"
+  }
+ ]
+}

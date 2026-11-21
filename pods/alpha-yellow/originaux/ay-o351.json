@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o351",
+ "type_bleo": "full_test",
+ "titre": "Things a man should never stop doing #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Things a man should never stop doing » (retenue), « Habits to keep for life » (écartée : plat), « Don't ever quit these » (écartée : ton injonctif).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "20137360-ab08-44a7-8496-de54c9a17957",
+   "texte_overlay": "Things a man should\nnever stop doing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Training his body. At 25, at 45, at 70. Strength and mobility are what keep you independent, energetic and confident for your whole life.",
+   "media_id": "06e69b66-f186-42ab-8bcf-28962e77c0ed"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Making new friends. Many men stop after school and slowly become lonely. Keep meeting people through sport, work, hobbies and neighbours.",
+   "media_id": "07d9ed00-4f8c-4916-a244-ef49f5cc6bca"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Dating his partner. Dinners, surprises, little gestures. Relationships stay alive when you keep putting in the effort you did at the start.",
+   "media_id": "08da5961-060e-4262-98e3-ab722c182585"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learning new skills. A language, an instrument, a trade. Being a beginner again keeps your mind young and your life interesting.",
+   "media_id": "097004ae-b6d4-4f0a-a82f-5d647ce658d1"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I stopped learning after university. After: five minutes a day of history, art or science, and I feel curious again every single day.",
+   "texte_sophia": "Before: I stopped learning after university. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I feel curious again every single day.",
+   "media_id": "18f16b6b-06dd-4922-825a-5e6983b5a14a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Calling his parents. The calls feel routine until one day they stop. Ten minutes a week is something you'll never regret.",
+   "media_id": "09c34a5c-3772-4adf-b791-02c12a795544"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Having fun. Playing football with friends, dancing at weddings, laughing at silly things. Growing up doesn't mean becoming serious all the time.",
+   "media_id": "09ced615-a901-44e4-ab6a-6eb45e2400f7"
+  }
+ ]
+}

@@ -101,7 +101,7 @@ def main():
   def lum(k): return FP[k]["lum"]
   couv = sorted([k for k in IM if IM[k]["est_hook"] and k in FP and ok(k)], key=lambda k: (not 12 <= lum(k) < 95, IM[k]["used_count"], k))
   corps = sorted([k for k in IM if not IM[k]["est_hook"] and k in FP and ok(k)], key=lambda k: (IM[k]["used_count"], k))
-  soph = sorted([k for k in IM if k in FP and k not in SOPH_EXCLUS and lum(k) < 130  
+  soph = sorted([k for k in IM if k in FP and k not in SOPH_EXCLUS and lum(k) < 170  
                  and any(w in leg(k) for w in SOPH_OK) and not any(w in leg(k) for w in SOPH_NON)
                  and not (re.search(r"\b(man|men|person|people|boy|guy|player)\b", leg(k))
                           and not any(w in leg(k) for w in ["back to the camera", "silhouette", "swimming", "underwater", "diving", "surfer"]))],

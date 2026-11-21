@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o350",
+ "type_bleo": "full_test",
+ "titre": "How to wake up without feeling tired #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to wake up without feeling tired » (retenue), « Why you're tired every morning » (écartée : sans promesse), « The 5am secret » (écartée : promesse creuse).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0cc56d8a-cf69-40e8-9ac6-8bafa34b3976",
+   "texte_overlay": "How to wake up\nwithout feeling tired",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Wake up at the same time every day, weekends too. Your body loves rhythm. After two weeks, you'll start waking up naturally just before your alarm.",
+   "media_id": "01100a11-8ec6-4266-9aba-18f284a9e15f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Get light in your eyes within ten minutes. Open the curtains or step outside. Morning light tells your brain the day has started and clears the fog fast.",
+   "media_id": "02995969-5faf-4ea2-b8d1-4f5702fd97f2"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Drink a big glass of water first. After eight hours without drinking, your body is a little dehydrated. Water before coffee wakes you up surprisingly well.",
+   "media_id": "03e453c3-e25c-4bf3-ace3-0ccb3c656d24"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stop hitting snooze. Every snooze starts a new sleep cycle you never finish, which makes you groggier. Put your alarm across the room if you need to.",
+   "media_id": "051dc744-f327-493b-aa5c-2d33ffa02e90"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Give your mind something good to start with. I do five minutes a day of history, art or science, and it wakes my brain up better than scrolling.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It wakes my brain up better than scrolling.",
+   "media_id": "17f0d397-d039-4ea9-90d8-30427a1e1918"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Move for five minutes. Stretches, push-ups, a quick walk. Getting blood flowing tells your body it's time to be awake. Small changes, big mornings.",
+   "media_id": "05e518da-f54a-495f-b117-784b1030fafd"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Fix your evenings. Screens off an hour before bed, a cool dark room, no late heavy meals. Great mornings always start the night before.",
+   "media_id": "06c05bb9-ffba-4dde-9aa8-3c9f6b7fc7ea"
+  }
+ ]
+}

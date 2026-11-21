@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o363",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bc23da3b-ca45-4d2a-beac-a1d626c3d88b",
+ "titre": "Skills that make you the most capable guy you know #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "bc23da3b-ca45-4d2a-beac-a1d626c3d88b"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 9 de la boîte (bc23da3b, ro 4,2 k r 4,61), 2e déclinaison après ay-o345. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o345.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5776002a-f78d-44c0-b796-66f82aa92de1",
+   "texte_overlay": "Skills that make you\nthe most capable guy you know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Driving a manual car. It's useful abroad, in emergencies, and when someone else can't drive. A simple skill that makes you dependable.",
+   "media_id": "450074a0-14f4-4590-bc3e-d171fb284891"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Reading a map without your phone. Batteries die and signals drop. Knowing how to orient yourself makes you calm anywhere. Practise at a campsite.",
+   "media_id": "4510fdb1-605b-4d8b-99c8-59336ce4dfd4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Building a fire safely. Camping, a power cut, a cold night. Knowing how to make and control fire is an old skill that still matters.",
+   "media_id": "45382fc7-2ec8-4c70-87aa-87e9f59d5436"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Handling a difficult phone call. Complaining to a company, booking for a group, sorting a problem. Calm, clear calls get things done.",
+   "media_id": "45947512-98f8-452e-aeca-189f7eb147bc"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I knew a little about very little. After: five minutes a day of history, art or science, and now I can talk about almost anything.",
+   "texte_sophia": "Before: I knew a little about very little. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now I can talk about almost anything.",
+   "media_id": "d6c2e7e2-cc60-4913-9f5c-d320485f0bee"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Basic self-defence. Not to fight, but to stay calm and protect yourself and others if you ever need to. Learn it once, use it forever.",
+   "media_id": "4763c42f-2daa-4ab6-8210-2515d5506696"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Teaching others what you know. Explaining clearly and patiently makes you the person everyone comes to for help. Patience is a skill too, and people remember who helped them.",
+   "media_id": "48536bd5-7470-42ff-81ee-4fe4c6aee98b"
+  }
+ ]
+}

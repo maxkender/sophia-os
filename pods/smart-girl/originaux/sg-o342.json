@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o342",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c23e832a-314d-4da3-a914-b16937451073",
+ "titre": "6 things to do instead of scrolling #digitaldetox #slowliving #smartgirl #hobbies #screentime",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "c23e832a-314d-4da3-a914-b16937451073"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 84 de la boîte (parent c23e832a, langue source ar) : accroche du parent mot pour mot. Les six idées du parent (marcher dix minutes sans écouteurs, lire cinq pages, apprendre quelque chose d'utile, faire quelque chose de ses mains, un petit hobby, appeler quelqu'un). Sophia en 3 comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e29809f2",
+   "texte_overlay": "6 things to do instead\nof scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671401559942515998/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7e30e48b",
+   "texte_overlay": "1. a 10-minute walk\n\nno earphones, no phone in your hand.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671401559942515998/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "54a01241",
+   "texte_overlay": "2. read five pages\n\nof anything that interests you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671401559942515998/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "52b3d3b9",
+   "texte_overlay": "3. learn something useful\n\ninstead of scrolling with no aim.",
+   "texte_sophia": "3. learn something useful\n\ni use that time for short lessons on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671401559942515998/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ad4a2766",
+   "texte_overlay": "4. make something with\nyour hands\n\ncook, draw, a puzzle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671401559942515998/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cfe2a4ff",
+   "texte_overlay": "5. start a tiny hobby\n\nphotography, chess, a language.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671401559942515998/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "71e75d39",
+   "texte_overlay": "6. call someone\n\ninstead of watching strangers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671401559942515998/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5af40c58",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671401559942515998/7.jpg"
+  }
+ ]
+}

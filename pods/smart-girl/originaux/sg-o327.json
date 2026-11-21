@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o327",
+ "type_bleo": "full_test",
+ "titre": "how to shoot film photos like it's 1975 #filmphotography #35mm #analog #smartgirl #hobbies",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 6/7 (la jauge en demande 7 sur 24) : accroche jamais faite chez nous (« film photos » absent des accroches de donnees/label.json). Accroches écrites : « how to shoot film photos like it's 1975 » (retenue : hobby lent et esthétique), « film photography for beginners » (écartée : fade), « analog hobbies » (écartée : vague). Conseils classiques d'argentique (pellicule 400 ISO, lumière douce, surexposer plutôt que sous-exposer, 36 vues, garder la pellicule au frais, laboratoire et scans). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "49593980",
+   "texte_overlay": "how to shoot film photos\nlike it's 1975",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "81eae4f7",
+   "texte_overlay": "1. start with 400 iso film\n\nit forgives almost everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8e91380b",
+   "texte_overlay": "2. chase soft light\n\nmorning and golden hour.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f24c6df6",
+   "texte_overlay": "3. overexpose a little\n\nfilm hates the dark more\nthan the light.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9e679a7a",
+   "texte_overlay": "4. you only have 36\n\nthink before every shot.",
+   "texte_sophia": "4. you only have 36: think before every\nshot. i learned the basics on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "13a27a30",
+   "texte_overlay": "5. keep your film cool\n\nnever in a hot car.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "251de60e",
+   "texte_overlay": "6. find a good lab\n\nand ask for scans.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b030bcaf",
+   "texte_overlay": "the wait is half the magic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

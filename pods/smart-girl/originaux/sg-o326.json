@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o326",
+ "type_bleo": "full_test",
+ "titre": "gestures that mean something different abroad #travel #culture #etiquette #smartgirl #didyouknow",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 5/7 (la jauge en demande 7 sur 24) : accroche jamais faite chez nous (« gesture » absent des accroches de donnees/label.json). Accroches écrites : « gestures that mean something different abroad » (retenue : voyage + savoir-vivre, utile), « travel etiquette » (écartée : vague), « body language around the world » (écartée : proche du « body language » de la boîte). Faits couramment rapportés : pouce levé mal vu dans certains pays du Moyen-Orient, signe OK insultant au Brésil, hocher la tête pour dire non en Bulgarie, V paume vers soi insultant au Royaume-Uni, appeler du doigt impoli aux Philippines, montrer la semelle de ses chaussures mal vu en Thaïlande et au Moyen-Orient. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f54941c4",
+   "texte_overlay": "gestures that mean something\ndifferent abroad",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "30686f1e",
+   "texte_overlay": "thumbs up\n\nrude in parts of the middle east.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bf52e110",
+   "texte_overlay": "the \"ok\" sign\n\nan insult in brazil.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8bb695f4",
+   "texte_overlay": "nodding\n\nin bulgaria, it can mean no.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ddfa2af4",
+   "texte_overlay": "the v sign, palm inward\n\noffensive in the uk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bf061551",
+   "texte_overlay": "beckoning with one finger\n\nrude in the philippines.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ba3f19c2",
+   "texte_overlay": "showing the soles of your feet\n\ndisrespectful in thailand\nand the middle east.",
+   "texte_sophia": "showing the soles of your feet\n\ndisrespectful in thailand. i learn one\nthing like this a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "83fe1fbd",
+   "texte_overlay": "save this before\nyour next trip",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

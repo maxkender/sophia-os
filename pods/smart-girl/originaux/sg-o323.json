@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o323",
+ "type_bleo": "full_test",
+ "titre": "how to give a toast people will remember #toast #etiquette #dinnerparty #smartgirl #holidays",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 2/7 (la jauge en demande 7 sur 24) : accroche jamais faite chez nous (« toast » absent des accroches de donnees/label.json). Accroches écrites : « how to give a toast people will remember » (retenue : savoir-vivre utile avant les fêtes), « toast etiquette » (écartée : sèche), « what to say at a wedding » (écartée : étroite). Conseils classiques. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "91cfb342",
+   "texte_overlay": "how to give a toast\npeople will remember",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "029bda48",
+   "texte_overlay": "1. stand up and wait\nfor the room to go quiet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "68937257",
+   "texte_overlay": "2. thank the host first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b7063bc3",
+   "texte_overlay": "3. one story, not five",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ff96d1ea",
+   "texte_overlay": "4. under two minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d7381f53",
+   "texte_overlay": "5. look people in the eye\nwhen you clink",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dd7080ea",
+   "texte_overlay": "6. end with \"to…\" and a name\n\nand know one lovely quote by heart.\ni collect them every morning.",
+   "texte_sophia": "6. end with \"to…\" and a name\n\nand know one lovely quote by heart. i\ncollect them on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0868bc72",
+   "texte_overlay": "save this for the holidays",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

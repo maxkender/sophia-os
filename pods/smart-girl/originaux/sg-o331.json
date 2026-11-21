@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o331",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bf0f9610-0d44-4a63-858e-770b3b33cdd0",
+ "titre": "signs you're more well read than you think #booktok #wellread #smartgirl #reading #darkacademia",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 3 de la boîte (parent bf0f9610, langue source fr) : accroche reformulée (« signs you're more well read than you think »), différente de sg-o310 ; détails du parent. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "22012ea9",
+   "texte_overlay": "signs you're more well read\nthan you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fe142a66",
+   "texte_overlay": "you quote poetry without\nmeaning to",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7bde4add",
+   "texte_overlay": "you know where sayings\ncome from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "65701cc5",
+   "texte_overlay": "you know a little about\neverything",
+   "texte_sophia": "you know a little about everything\n\nyou learn one thing a day on an app\nlike Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a46b50fb",
+   "texte_overlay": "your books are full of\nnotes in the margins",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bd1c9063",
+   "texte_overlay": "you always know which book\nto recommend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ab8df484",
+   "texte_overlay": "you've read the classics,\nnot the summaries",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5ea2586d",
+   "texte_overlay": "how many are you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o337",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7c7800bf-2065-423a-9130-6585f6318d54",
+ "titre": "୨୧ 5 words only intellectual baddies use #vocabulary #words #smartgirl #english #wordoftheday",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "7c7800bf-2065-423a-9130-6585f6318d54"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 49 de la boîte (parent 7c7800bf, langue source en) : accroche du parent mot pour mot avec ୨୧. Mots du parent (erudite, perspicacious, sagacious, philomath, cerebral) avec prononciation. Sophia sur philomath comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a0d7df8",
+   "texte_overlay": "୨୧ 5 words only\nintellectual baddies use",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664274200349199638/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "220e4268",
+   "texte_overlay": "erudite\n(ER-uh-dyte)\n\nhaving deep knowledge\nfrom study.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664274200349199638/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "daefdb1b",
+   "texte_overlay": "perspicacious\n(pur-spih-KAY-shus)\n\nquick to understand,\nwith rare insight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664274200349199638/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8d7da309",
+   "texte_overlay": "sagacious\n(suh-GAY-shus)\n\nwise, with sharp judgement.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664274200349199638/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "46335c3c",
+   "texte_overlay": "philomath\n(FILL-oh-math)\n\na lover of learning.",
+   "texte_sophia": "philomath\n(FILL-oh-math)\n\na lover of learning: the kind who\nopens an app like Sophia every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664274200349199638/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a36b7f7c",
+   "texte_overlay": "cerebral\n(suh-REE-brul)\n\nled by thought\nrather than emotion.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664274200349199638/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0e96c545",
+   "texte_overlay": "follow for more\ndaily words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664274200349199638/6.jpg"
+  }
+ ]
+}

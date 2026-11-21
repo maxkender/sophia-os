@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o322",
+ "type_bleo": "full_test",
+ "titre": "where our favourite christmas traditions come from #christmas #history #traditions #smartgirl #cosy",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/7 (la jauge en demande 7 sur 24) : accroche jamais faite chez nous (« christmas » absent des accroches de donnees/label.json). Accroches écrites : « where our favourite christmas traditions come from » (retenue : de saison, histoire), « christmas facts » (écartée : plate), « christmas around the world » (écartée : proche des traditions de novembre). Faits vérifiés : sapin venu d'Allemagne et popularisé en Grande-Bretagne par la gravure de Victoria et Albert (1848), première carte de Noël de Henry Cole (1843), calendrier de l'Avent allemand du XIXe siècle, gui et baiser dans l'Angleterre du XVIIIe, chaussettes et légende de saint Nicolas, bûche pâtissière parisienne du XIXe. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9427cb6c",
+   "texte_overlay": "where our favourite christmas\ntraditions come from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cf9673e4",
+   "texte_overlay": "the christmas tree\n\nfrom germany. a drawing of queen\nvictoria's tree in 1848 made it famous.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a01a6210",
+   "texte_overlay": "christmas cards\n\nthe first was printed for\nhenry cole in 1843.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c34eaf00",
+   "texte_overlay": "the advent calendar\n\na german idea from\nthe 19th century.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e35fd801",
+   "texte_overlay": "kissing under the mistletoe\n\nan 18th-century english custom.",
+   "texte_sophia": "kissing under the mistletoe\n\nan 18th-century english custom. i read\nthis on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2d5c4ee4",
+   "texte_overlay": "stockings by the fire\n\nfrom the legend of saint nicholas\nleaving gold coins.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ca30fbf8",
+   "texte_overlay": "the bûche de noël\n\nparisian pastry chefs turned\nthe yule log into a cake.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5d3c3473",
+   "texte_overlay": "which one is your favourite?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

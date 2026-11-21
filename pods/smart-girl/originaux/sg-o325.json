@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o325",
+ "type_bleo": "full_test",
+ "titre": "jazz albums to start with if you know nothing about jazz #jazz #vinyl #music #smartgirl #culture",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Full test 4/7 (la jauge en demande 7 sur 24) : accroche jamais faite chez nous (« jazz » absent des accroches de donnees/label.json). Accroches écrites : « jazz albums to start with if you know nothing about jazz » (retenue : culture concrète, rituel du soir), « jazz for beginners » (écartée : fade), « how to listen to jazz » (écartée : abstraite). Albums vérifiés : Kind of Blue (Miles Davis, 1959), A Love Supreme (John Coltrane, 1965), Ella and Louis (1956), Time Out (Dave Brubeck, 1959), Lady in Satin (Billie Holiday, 1958), Getz/Gilberto (1964). Sophia à la fin comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0d736710",
+   "texte_overlay": "jazz albums to start with if\nyou know nothing about jazz",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "976f3ee3",
+   "texte_overlay": "kind of blue\nmiles davis, 1959\n\nthe best-selling jazz\nalbum of all time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6b63ecc8",
+   "texte_overlay": "ella and louis\n1956\n\ntwo voices, pure warmth.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ee78abf6",
+   "texte_overlay": "time out\ndave brubeck, 1959\n\nthe album with \"take five\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "98cc3e3e",
+   "texte_overlay": "getz/gilberto\n1964\n\nbossa nova for rainy evenings.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c13c1fd9",
+   "texte_overlay": "lady in satin\nbillie holiday, 1958",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "23ded414",
+   "texte_overlay": "a love supreme\njohn coltrane, 1965",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "58d3e438",
+   "texte_overlay": "one album, one lesson, one evening\nwithout scrolling.",
+   "texte_sophia": "one album, one lesson on an app like\nSophia, one evening without scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

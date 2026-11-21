@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o336",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a1aeb565-4d1b-4c0a-97dc-ecffac92302b",
+ "titre": "7 tips to dress elegant #elegance #style #oldmoney #smartgirl #fashion",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "a1aeb565-4d1b-4c0a-97dc-ecffac92302b"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 11 de la boîte (parent a1aeb565, langue source tr) : accroche du parent mot pour mot. Conseils du parent (la matière avant la marque, les proportions, des pièces structurées, un seul détail précieux, tout repasser, de la profondeur, l'assurance). Sophia en 6 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d408e1d1",
+   "texte_overlay": "7 tips to dress elegant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611965424510487824/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "311b5f00",
+   "texte_overlay": "1. fabric over logos\n\nwool, linen, silk, good cotton.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611965424510487824/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9cd6644a",
+   "texte_overlay": "2. balance proportions\n\nwide trousers, fitted top.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611965424510487824/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3d1c4802",
+   "texte_overlay": "3. structured pieces\n\na sharp blazer over anything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611965424510487824/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5e1d5e5d",
+   "texte_overlay": "4. one precious detail\n\ngold earrings, a silk scarf.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611965424510487824/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1e629cbc",
+   "texte_overlay": "5. iron everything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611965424510487824/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "22f8f55d",
+   "texte_overlay": "6. depth\n\nreal elegance shows when\nyou speak.",
+   "texte_sophia": "6. depth\n\nreal elegance shows when you speak.\ni learn a little every day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611965424510487824/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c405efbe",
+   "texte_overlay": "7. confidence\n\nstand tall, move slowly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611965424510487824/8.jpg"
+  }
+ ]
+}

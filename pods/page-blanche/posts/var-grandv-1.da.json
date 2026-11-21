@@ -60,7 +60,7 @@
       "constantly"
      ],
      "fr": "écouter un truc [[non-stop]]",
-     "texte": "du sidder stille [[hele dagen]]"
+     "texte": "du sidder helt stille [[hele dagen]]"
     },
     "T2": {
      "en": [
@@ -69,7 +69,7 @@
       "thing"
      ],
      "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
-     "texte": "forelæsning, skrivebord, sofa og så seng. din krop bevæger sig knap, og din hjerne [[sætter farten ned med den]]"
+     "texte": "forelæsning, skrivebord, sofa, seng. din krop bevæger sig knap, og hjernen [[sætter farten ned med den]]"
     },
     "T3": {
      "en": [
@@ -172,7 +172,7 @@
       "need constant density"
      ],
      "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
-     "texte": "din hjerne har brug for [[korte pauser]] for at holde sig skarp"
+     "texte": "hjernen har brug for [[korte pauser]] for at holde sig skarp"
     },
     "T4": {
      "en": [
@@ -214,7 +214,7 @@
       "appears"
      ],
      "fr": "pas besoin de régler chaque curiosité à la seconde où elle débarque",
-     "texte": "selv med skærmen nedad og på lydløs trækker den stadig i din opmærksomhed"
+     "texte": "selv med skærmen nedad og på lydløs trækker den i din opmærksomhed"
     },
     "T3": {
      "en": [
@@ -224,7 +224,7 @@
       "disappeared"
      ],
      "fr": "une recherche, puis cinq onglets, puis Reddit, et [[20 minutes se sont envolées]]",
-     "texte": "i et studie huskede folk mindre, [[bare fordi telefonen lå på bordet]]"
+     "texte": "i et studie huskede folk mindre, [[bare fordi deres telefon lå på bordet]]"
     },
     "T4": {
      "en": [
@@ -257,7 +257,7 @@
       "procrastinating all day"
      ],
      "fr": "procrastiner [[toute la journée]]",
-     "texte": "du drikker [[næsten intet vand]]"
+     "texte": "du drikker [[knap nok vand]]"
     },
     "T2": {
      "en": [

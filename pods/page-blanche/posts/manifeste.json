@@ -5496,7 +5496,8 @@
     "id": "7680674109893643040",
     "url_tiktok": "https://www.tiktok.com/music/x-7680674109893643040"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta C"
   },
   {
    "post_id": "7709839238006607136",
@@ -5515,7 +5516,8 @@
     "id": "7373989994559556385",
     "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta B"
   },
   {
    "post_id": "var-repartie-4",
@@ -5595,6 +5597,59 @@
     "6": "7689509565536177441_2"
    },
    "notes": "full test BLEO, cta B",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-greenflags-2",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#greenflags #intelligence #psychologie",
+   "musique": {
+    "titre": "Bliss",
+    "auteur": "Klsr",
+    "original": false,
+    "id": "7346226879747917826",
+    "url_tiktok": "https://www.tiktok.com/music/x-7346226879747917826"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696836327026724128_1",
+    "2": "7690642292855672096_2",
+    "3": "7697728269335924001_3",
+    "4": "7692093201968090401_6",
+    "5": "7691007701127564576_4",
+    "6": "7691336990419209505_2"
+   },
+   "notes": "declinaison G2 de var-greenflags-1, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "04d9d91b-9a4d-4b2e-b1e6-4b3206bc5e59"
+  },
+  {
+   "post_id": "original-096",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#learning #habits #selfimprovement",
+   "musique": {
+    "titre": "hold the line",
+    "auteur": "drifting.",
+    "original": false,
+    "id": "7694570671943534599",
+    "url_tiktok": "https://www.tiktok.com/music/x-7694570671943534599"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7704751322830064929_1",
+    "2": "7705091474748181792_2",
+    "3": "7705091474748181792_3",
+    "4": "7705091474748181792_4",
+    "5": "7705091474748181792_5",
+    "6": "7705091474748181792_6"
+   },
+   "notes": "full test BLEO, cta A",
    "type_bleo": "full_test"
   }
  ]

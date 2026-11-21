@@ -69,7 +69,7 @@
       "thing"
      ],
      "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
-     "texte": "σχολή, γραφείο, καναπές, μετά κρεβάτι. το σώμα σου σχεδόν δεν κινείται και ο εγκέφαλος [[κόβει ταχύτητα μαζί του]]"
+     "texte": "σχολή, γραφείο, καναπές, κρεβάτι. το σώμα σχεδόν δεν κινείται και το μυαλό [[κόβει ταχύτητα μαζί του]]"
     },
     "T3": {
      "en": [
@@ -112,7 +112,7 @@
       "doomscrolling everyday"
      ],
      "fr": "doomscroller [[tous les jours]]",
-     "texte": "τα διαβάζεις όλα [[στα πεταχτά]]"
+     "texte": "διαβάζεις [[στα πεταχτά]]"
     },
     "T2": {
      "en": [
@@ -132,14 +132,14 @@
       "book for 20 minutes"
      ],
      "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
-     "texte": "τα σημερινά μου 5 λεπτά [[στην εφαρμογή Sophia]]: γιατί η αναγέννηση ξεκίνησε στην ιταλία. το διάβασα μέχρι το τέλος"
+     "texte": "σήμερα 5 λεπτά [[στην εφαρμογή Sophia]]: γιατί η αναγέννηση ξεκίνησε στην ιταλία. το διάβασα ως το τέλος"
     },
     "T4": {
      "en": [
       "don't become illiterate!!"
      ],
      "fr": "deviens pas inculte !!",
-     "texte": "διάβαζε τα πράγματα ως το τέλος!!"
+     "texte": "διάβαζε μέχρι το τέλος!!"
     }
    },
    "images": {
@@ -172,7 +172,7 @@
       "need constant density"
      ],
      "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
-     "texte": "ο εγκέφαλος θέλει [[μικρά διαλείμματα]] για να μένει κοφτερός"
+     "texte": "ο εγκέφαλος θέλει [[μικρά διαλείμματα]] για να μένει φρέσκος"
     },
     "T4": {
      "en": [
@@ -181,7 +181,7 @@
       "seconds"
      ],
      "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
-     "texte": "κάθε 50 λεπτά σήκω, τεντώσου και κοίτα κάτι μακριά"
+     "texte": "κάθε 50 λεπτά σήκω, τεντώσου και κοίτα κάτι μακριά σου"
     }
    },
    "images": {
@@ -233,7 +233,7 @@
       "doing first"
      ],
      "fr": "note ton idée et [[finis d'abord ce que t'étais en train de faire]]",
-     "texte": "όταν θες να συγκεντρωθείς, βάλ' το [[στην τσάντα, μακριά από τα μάτια σου]]"
+     "texte": "όταν θες να συγκεντρωθείς, βάλ' το [[στην τσάντα, να μην το βλέπεις]]"
     }
    },
    "images": {
@@ -276,7 +276,7 @@
       "instantly"
      ],
      "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
-     "texte": "κράτα ένα γεμάτο μπουκάλι στο γραφείο και [[πίνε γουλιές όλη μέρα]]"
+     "texte": "έχε ένα γεμάτο μπουκάλι δίπλα σου και [[πίνε γουλιές όλη μέρα]]"
     }
    },
    "images": {

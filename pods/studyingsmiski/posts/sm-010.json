@@ -1,0 +1,432 @@
+{
+ "id": "sm-010",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "Cute Circus",
+  "url": "https://www.tiktok.com/music/cute-circus-7015613917703440386"
+ },
+ "notes": "Full test du 21/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « my most used apps as a student ». Sophia en 3e carte (slide 4, cta A), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Notion (notes, tâches et projets en pages), Study Time With Rain (pomodoro avec un petit fantôme, ambiance pluie, compte à rebours D-Day), Splitwise (dépenses partagées entre colocs). Toutes sur l'App Store des 10 pays (lookup iTunes du 20 et du 21/11) ; Study Time With Rain en iOS seul (Android non vérifié). Musique : la sienne de « reprogram your brain » (210 k).",
+ "titre": {
+  "en": "my most used apps as a student",
+  "fr": "mes applis les plus utilisées en tant qu'étudiante",
+  "es": "mis apps más usadas como estudiante",
+  "es-419": "mis apps más usadas como estudiante",
+  "it": "le mie app più usate da studentessa",
+  "tr": "öğrenci olarak en çok kullandığım uygulamalar",
+  "pt-BR": "meus apps mais usados como estudante",
+  "de": "die apps, die ich im studium am meisten nutze",
+  "sl": "moje najbolj uporabljene aplikacije kot študentka",
+  "hu": "a legtöbbet használt appjaim egyetemistaként"
+ },
+ "legendes": {
+  "en": "my screen time, but make it productive 📲📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "mon temps d'écran, mais productif 📲📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "mi tiempo de pantalla, pero productivo 📲📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "mi tiempo en pantalla, pero productivo 📲📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "il mio tempo di utilizzo, ma produttivo 📲📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "ekran sürem, ama verimli hali 📲📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "meu tempo de tela, mas produtivo 📲📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "meine bildschirmzeit, aber produktiv 📲📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "moj čas pred zaslonom, a produktiven 📲📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "a képernyőidőm, csak produktívan 📲📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 30,
+     "y": 160,
+     "l": 230,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/punaise.png",
+     "x": 520,
+     "y": 180,
+     "l": 80,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 800,
+     "y": 690,
+     "l": 220,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "my most used\napps as a\nstudent",
+    "sous": "screen time\ndoesn't lie"
+   },
+   "fr": {
+    "titre": "mes applis\nles plus\nutilisées",
+    "sous": "mon temps d'écran\nne ment pas"
+   },
+   "es": {
+    "titre": "mis apps\nmás usadas\nestudiando",
+    "sous": "el tiempo de\npantalla no miente"
+   },
+   "es-419": {
+    "titre": "mis apps\nmás usadas\nestudiando",
+    "sous": "el tiempo en\npantalla no miente"
+   },
+   "it": {
+    "titre": "le mie app\npiù usate da\nstudentessa",
+    "sous": "il tempo di utilizzo\nnon mente"
+   },
+   "tr": {
+    "titre": "en çok\nkullandığım\nuygulamalar",
+    "sous": "ekran süresi\nyalan söylemez"
+   },
+   "pt-BR": {
+    "titre": "meus apps\nmais usados\nna facul",
+    "sous": "o tempo de tela\nnão mente"
+   },
+   "de": {
+    "titre": "die apps, die\nich am meisten\nnutze",
+    "sous": "bildschirmzeit\nlügt nicht"
+   },
+   "sl": {
+    "titre": "moje najbolj\nuporabljene\naplikacije",
+    "sous": "čas pred zaslonom\nne laže"
+   },
+   "hu": {
+    "titre": "a legtöbbet\nhasznált\nappjaim",
+    "sous": "a képernyőidő\nnem hazudik"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/notion/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "my whole semester lives here: class notes, deadlines and a page for every project. it's basically my second brain."
+   },
+   "fr": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "tout mon semestre est là : notes de cours, dates limites et une page par projet. c'est carrément mon deuxième cerveau."
+   },
+   "es": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "todo mi cuatrimestre vive aquí: apuntes, fechas de entrega y una página por proyecto. es literalmente mi segundo cerebro."
+   },
+   "es-419": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "todo mi semestre vive aquí: apuntes, fechas de entrega y una página por proyecto. es literalmente mi segundo cerebro."
+   },
+   "it": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "tutto il mio semestre vive qui: appunti, scadenze e una pagina per ogni progetto. è praticamente il mio secondo cervello."
+   },
+   "tr": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "tüm dönemim burada: ders notları, teslim tarihleri ve her proje için bir sayfa. resmen ikinci beynim."
+   },
+   "pt-BR": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "meu semestre inteiro mora aqui: anotações, prazos e uma página pra cada projeto. é basicamente meu segundo cérebro."
+   },
+   "de": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "mein ganzes semester lebt hier: mitschriften, deadlines und eine seite pro projekt. quasi mein zweites gehirn."
+   },
+   "sl": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "cel moj semester živi tukaj: zapiski, roki in stran za vsak projekt. praktično moji drugi možgani."
+   },
+   "hu": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "itt él az egész félévem: jegyzetek, határidők és minden projektnek egy oldal. gyakorlatilag a második agyam."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/study-time-rain/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 60,
+     "y": 730,
+     "l": 250,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 730,
+     "y": 720,
+     "l": 300,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "my favorite study timer: a little ghost studies with me, rainy vibes in the background, and a d-day countdown before exams."
+   },
+   "fr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "mon minuteur préféré : un petit fantôme bosse avec moi, ambiance pluie en fond, et un compte à rebours avant les exams."
+   },
+   "es": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "mi temporizador favorito: un fantasmita estudia conmigo, ambiente de lluvia de fondo y una cuenta atrás antes de los exámenes."
+   },
+   "es-419": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "mi temporizador favorito: un fantasmita estudia conmigo, ambiente de lluvia de fondo y una cuenta regresiva antes de los exámenes."
+   },
+   "it": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "il mio timer preferito: un fantasmino studia con me, atmosfera di pioggia in sottofondo e un conto alla rovescia prima degli esami."
+   },
+   "tr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "en sevdiğim ders zamanlayıcısı: küçük bir hayalet benimle çalışıyor, arkada yağmur havası, sınavlardan önce de geri sayım."
+   },
+   "pt-BR": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "meu timer de estudo favorito: um fantasminha estuda comigo, clima de chuva no fundo e contagem regressiva antes das provas."
+   },
+   "de": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "mein liebster lerntimer: ein kleiner geist lernt mit mir, regenstimmung im hintergrund und ein countdown bis zu den prüfungen."
+   },
+   "sl": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "moj najljubši časovnik: mali duhec se uči z mano, v ozadju dežno vzdušje in odštevanje do izpitov."
+   },
+   "hu": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "a kedvenc tanulási időzítőm: egy kis szellem tanul velem, a háttérben esős hangulat, és visszaszámlálás a vizsgákig."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 800,
+     "y": 110,
+     "l": 230,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "10 minutes on the bus, every single day!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "10 minutes dans le bus, tous les jours !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡10 minutos en el bus, todos los días!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡10 minutos en el bus, todos los días!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "10 minuti sul bus, ogni singolo giorno!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "her gün otobüste 10 dakika!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "10 minutos no ônibus, todo santo dia!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "10 minuten im bus, jeden einzelnen tag!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "10 minut na avtobusu, vsak dan!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "10 perc a buszon, minden egyes nap!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/splitwise/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tirelire.png",
+     "x": 60,
+     "y": 740,
+     "l": 250,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "for every shared bill with my roommates: rent, groceries, takeout. it does the math so nobody has to."
+   },
+   "fr": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "pour chaque facture partagée avec mes colocs : loyer, courses, livraisons. elle fait les calculs pour que personne n'ait à les faire."
+   },
+   "es": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "para cada gasto compartido con mis compis de piso: alquiler, compra, comida a domicilio. hace las cuentas por nosotras."
+   },
+   "es-419": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "para cada gasto compartido con mis roomies: renta, súper, comida a domicilio. hace las cuentas por nosotras."
+   },
+   "it": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "per ogni spesa condivisa con le coinquiline: affitto, spesa, cibo a domicilio. fa i conti al posto nostro."
+   },
+   "tr": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "ev arkadaşlarımla tüm ortak masraflar için: kira, market, sipariş. hesabı o yapıyor, kimse uğraşmıyor."
+   },
+   "pt-BR": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "pra cada conta dividida com as colegas de casa: aluguel, mercado, delivery. ele faz a conta pra ninguém precisar fazer."
+   },
+   "de": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "für jede geteilte rechnung in der wg: miete, einkäufe, lieferdienst. sie rechnet, damit es keiner muss."
+   },
+   "sl": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "za vsak skupni račun s cimrami: najemnina, nakupi, dostava hrane. izračuna namesto nas."
+   },
+   "hu": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "minden közös számlához a lakótársaimmal: lakbér, bevásárlás, rendelés. kiszámolja helyettünk."
+   }
+  }
+ ]
+}

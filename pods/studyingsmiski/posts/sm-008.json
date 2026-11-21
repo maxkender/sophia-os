@@ -1,0 +1,432 @@
+{
+ "id": "sm-008",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "on & on",
+  "url": "https://www.tiktok.com/music/on-on-7122836057481021441"
+ },
+ "notes": "Full test du 21/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) et dans son ton doux : « cozy apps for a calmer study routine ». Sophia en 2e carte (slide 3, cta B), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Endel (paysages sonores pour la concentration, la détente et le sommeil), Daylio (micro-journal d'humeur et d'activités en deux touches), Calm (respiration, méditations, histoires pour dormir). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 21/11). Musique : la sienne de « smart girls don't gatekeep » (268 k).",
+ "titre": {
+  "en": "cozy apps for a calmer study routine",
+  "fr": "des applis cosy pour réviser plus sereine",
+  "es": "apps cozy para estudiar con más calma",
+  "es-419": "apps cozy para estudiar con más calma",
+  "it": "app cozy per una routine di studio più tranquilla",
+  "tr": "daha sakin bir ders rutini için cozy uygulamalar",
+  "pt-BR": "apps aconchegantes pra uma rotina de estudos mais calma",
+  "de": "gemütliche apps fürs ruhige lernen",
+  "sl": "prijetne aplikacije za bolj umirjeno učenje",
+  "hu": "cozy appok egy nyugodtabb tanulási rutinhoz"
+ },
+ "legendes": {
+  "en": "slow, soft and still productive ☁️🍵 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "doux, lent et quand même productif ☁️🍵 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "lento, suave y aun así productivo ☁️🍵 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "lento, suave y aun así productivo ☁️🍵 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "lento, morbido e comunque produttivo ☁️🍵 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "yavaş, yumuşak ama yine de verimli ☁️🍵 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "devagar, leve e ainda produtivo ☁️🍵 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "langsam, sanft und trotzdem produktiv ☁️🍵 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "počasi, nežno in še vedno produktivno ☁️🍵 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "lassan, puhán, mégis hatékonyan ☁️🍵 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 60,
+     "y": 160,
+     "l": 200,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 760,
+     "y": 120,
+     "l": 260,
+     "rotation": 6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 40,
+     "y": 740,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 810,
+     "y": 750,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "cozy apps for\na calmer\nstudy routine",
+    "sous": "soft girl\nstudy era"
+   },
+   "fr": {
+    "titre": "des applis cosy\npour réviser\nplus sereine",
+    "sous": "ère de la\nsoft girl studieuse"
+   },
+   "es": {
+    "titre": "apps cozy\npara estudiar\ncon más calma",
+    "sous": "era soft girl\nestudiosa"
+   },
+   "es-419": {
+    "titre": "apps cozy\npara estudiar\ncon más calma",
+    "sous": "era soft girl\nestudiosa"
+   },
+   "it": {
+    "titre": "app cozy per\nstudiare con\npiù calma",
+    "sous": "era soft girl\nstudiosa"
+   },
+   "tr": {
+    "titre": "daha sakin\nçalışmak\niçin cozy\nuygulamalar",
+    "sous": "soft girl\nders dönemi"
+   },
+   "pt-BR": {
+    "titre": "apps cozy pra\nestudar com\nmais calma",
+    "sous": "era soft girl\nestudiosa"
+   },
+   "de": {
+    "titre": "gemütliche\napps fürs\nruhige lernen",
+    "sous": "soft-girl-\nlernphase"
+   },
+   "sl": {
+    "titre": "prijetne\naplikacije\nza mirnejše\nučenje",
+    "sous": "soft girl\nučna doba"
+   },
+   "hu": {
+    "titre": "cozy appok a\nnyugodtabb\ntanuláshoz",
+    "sous": "soft girl\ntanulós korszak"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/endel/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "soundscapes that adapt to you, with modes for focus, relaxing and sleep. i put on focus mode and my brain just settles."
+   },
+   "fr": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "des ambiances sonores qui s'adaptent à toi, avec des modes concentration, détente et sommeil. en mode focus, mon cerveau se pose enfin."
+   },
+   "es": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisajes sonoros que se adaptan a ti, con modos para concentrarte, relajarte y dormir. pongo el modo focus y mi cerebro se calma."
+   },
+   "es-419": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisajes sonoros que se adaptan a ti, con modos para concentrarte, relajarte y dormir. pongo el modo focus y mi cerebro se calma."
+   },
+   "it": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paesaggi sonori che si adattano a te, con modalità per concentrarti, rilassarti e dormire. metto la modalità focus e il cervello si calma."
+   },
+   "tr": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "sana uyum sağlayan ses manzaraları: odak, rahatlama ve uyku modları. odak modunu açınca beynim sakinleşiyor."
+   },
+   "pt-BR": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisagens sonoras que se adaptam a você, com modos pra foco, relaxar e dormir. coloco no modo foco e meu cérebro sossega."
+   },
+   "de": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "klangwelten, die sich an dich anpassen, mit modi für fokus, entspannung und schlaf. im fokus-modus kommt mein kopf endlich zur ruhe."
+   },
+   "sl": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "zvočne kulise, ki se prilagodijo tebi, z načini za zbranost, sprostitev in spanje. v načinu za zbranost se moji možgani umirijo."
+   },
+   "hu": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "hozzád igazodó hangtájak fókusz, pihenés és alvás módokkal. fókusz módban az agyam végre megnyugszik."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 850,
+     "y": 100,
+     "l": 160,
+     "rotation": 8
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "my little calm moment every evening!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "mon petit moment calme chaque soir !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mi momento de calma cada noche!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mi momento de calma cada noche!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "il mio momento di calma ogni sera!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "her akşamki küçük sakin anım!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "meu momentinho de calma toda noite!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "mein kleiner ruhiger moment jeden abend!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "moj mali miren trenutek vsak večer!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "a kis nyugodt pillanatom minden este!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/daylio/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "a micro-journal where you log your mood and activities in two taps, then see what actually makes your weeks better."
+   },
+   "fr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un mini-journal où tu notes ton humeur et tes activités en deux clics, puis tu vois ce qui rend vraiment tes semaines meilleures."
+   },
+   "es": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un mini diario donde apuntas tu humor y tus actividades en dos toques, y ves qué hace que tus semanas vayan mejor."
+   },
+   "es-419": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un mini diario donde anotas tu ánimo y tus actividades en dos toques, y ves qué hace que tus semanas vayan mejor."
+   },
+   "it": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un mini diario dove segni umore e attività in due tocchi, e poi vedi cosa rende davvero migliori le tue settimane."
+   },
+   "tr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "ruh halini ve aktivitelerini iki dokunuşla kaydettiğin mini bir günlük; haftalarını neyin iyi yaptığını görürsün."
+   },
+   "pt-BR": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "um mini diário onde você marca seu humor e suas atividades em dois toques, e vê o que realmente melhora suas semanas."
+   },
+   "de": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "ein mini-tagebuch, in dem du stimmung und aktivitäten mit zwei taps einträgst und siehst, was deine wochen besser macht."
+   },
+   "sl": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "mini dnevnik, kamor z dvema dotikoma zapišeš razpoloženje in dejavnosti, nato vidiš, kaj ti res polepša tedne."
+   },
+   "hu": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "mini napló, ahol két koppintással rögzíted a hangulatod és a tevékenységeid, és látod, mitől lesznek jobbak a heteid."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/calm/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 60,
+     "y": 730,
+     "l": 230,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "breathing exercises, meditations and sleep stories for the nights before exams when your mind won't switch off."
+   },
+   "fr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "exercices de respiration, méditations et histoires pour dormir, pour les veilles d'exam où ta tête refuse de s'éteindre."
+   },
+   "es": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "ejercicios de respiración, meditaciones e historias para dormir para las noches antes de un examen en las que no desconectas."
+   },
+   "es-419": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "ejercicios de respiración, meditaciones e historias para dormir para las noches antes de un examen en las que no desconectas."
+   },
+   "it": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "esercizi di respirazione, meditazioni e storie per dormire per le sere prima degli esami in cui la testa non si spegne."
+   },
+   "tr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "sınavdan önceki, kafanın kapanmadığı geceler için nefes egzersizleri, meditasyonlar ve uyku hikayeleri."
+   },
+   "pt-BR": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "exercícios de respiração, meditações e histórias pra dormir, pras noites antes da prova em que a cabeça não desliga."
+   },
+   "de": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "atemübungen, meditationen und einschlafgeschichten für die nächte vor prüfungen, wenn der kopf nicht abschaltet."
+   },
+   "sl": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "dihalne vaje, meditacije in zgodbe za lahko noč za večere pred izpiti, ko se glava noče ugasniti."
+   },
+   "hu": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "légzőgyakorlatok, meditációk és esti mesék a vizsga előtti éjszakákra, amikor nem tudod kikapcsolni a fejed."
+   }
+  }
+ ]
+}

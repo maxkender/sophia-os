@@ -1,0 +1,432 @@
+{
+ "id": "sm-007",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "the way things go",
+  "url": "https://www.tiktok.com/music/the-way-things-go-7247627511276980225"
+ },
+ "notes": "Full test du 21/11 (pods/ROUTINE.md §5.4) : une accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, fond papier vert, stickers, bulle à la main), dans la veine de sa légende « these apps carried me through 4 years » mais tournée vers le regret : « apps i'd download first if i started college again ». Sophia en 3e carte (cta A), jamais la première ni la dernière. Autres applis, toutes douces et non concurrentes, lues sur leur fiche App Store : Splitwise (partage des dépenses entre colocs : loyer, factures), Tiimo (agenda visuel en blocs et routines), Goodnotes (notes manuscrites, carnets numériques). Toutes sur l'App Store des 10 pays du label et sur Android (lookup iTunes du 21/11). Musique : la sienne de sa version verte (« the way things go »).",
+ "titre": {
+  "en": "apps i'd download first if i started college again",
+  "fr": "les applis à avoir dès la 1re année de fac",
+  "es": "las apps que me descargaría primero si empezara la uni otra vez",
+  "es-419": "las apps que descargaría primero si empezara la universidad otra vez",
+  "it": "le app che scaricherei per prime se ricominciassi l'università",
+  "tr": "üniversiteye yeniden başlasam ilk indireceğim uygulamalar",
+  "pt-BR": "os apps que eu baixaria primeiro se começasse a faculdade de novo",
+  "de": "apps, die ich mir zuerst holen würde, wenn ich nochmal mit dem studium anfange",
+  "sl": "aplikacije, ki bi si jih najprej naložila, če bi znova začela faks",
+  "hu": "appok, amiket elsőként töltenék le, ha újrakezdeném az egyetemet"
+ },
+ "legendes": {
+  "en": "if i could start college over, these would be on my phone day one 📱🌿 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "si je recommençais la fac, elles seraient sur mon tél dès le premier jour 📱🌿 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "si empezara la uni de nuevo, las tendría en el móvil desde el primer día 📱🌿 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "si empezara la universidad de nuevo, las tendría en el celular desde el primer día 📱🌿 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "se ricominciassi l'università, le avrei sul telefono dal primo giorno 📱🌿 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "üniversiteye baştan başlasam ilk günden telefonumda olurlardı 📱🌿 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "se eu começasse a facul de novo, eles estariam no meu celular desde o primeiro dia 📱🌿 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "wenn ich nochmal anfangen würde, wären die ab tag eins auf meinem handy 📱🌿 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "če bi znova začela faks, bi jih imela na telefonu od prvega dne 📱🌿 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "ha újrakezdeném az egyetemet, az első naptól a telefonomon lennének 📱🌿 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 40,
+     "y": 150,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/toque.png",
+     "x": 810,
+     "y": 140,
+     "l": 220,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 800,
+     "y": 740,
+     "l": 230,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps i'd get\nfirst if i\nstarted college\nagain",
+    "sous": "learn from\nmy mistakes :)"
+   },
+   "fr": {
+    "titre": "les applis\nà avoir dès\nla 1re année\nde fac",
+    "sous": "apprends de\nmes erreurs :)"
+   },
+   "es": {
+    "titre": "las apps que\nme bajaría si\nempezara la\nuni otra vez",
+    "sous": "aprende de\nmis errores :)"
+   },
+   "es-419": {
+    "titre": "las apps que\ndescargaría si\nempezara la\nuni otra vez",
+    "sous": "aprende de\nmis errores :)"
+   },
+   "it": {
+    "titre": "le app che\nscaricherei se\nricominciassi\nl'uni",
+    "sous": "impara dai\nmiei errori :)"
+   },
+   "tr": {
+    "titre": "üniversiteye\nyeniden\nbaşlasam ilk\nindireceklerim",
+    "sous": "hatalarımdan\nders çıkar :)"
+   },
+   "pt-BR": {
+    "titre": "os apps que\neu baixaria se\ncomeçasse a\nfacul de novo",
+    "sous": "aprende com\nos meus erros :)"
+   },
+   "de": {
+    "titre": "apps, die ich\nmir zuerst\nholen würde",
+    "sous": "wenn ich nochmal\nanfangen könnte :)"
+   },
+   "sl": {
+    "titre": "aplikacije,\nki bi jih\nnaložila, če bi\nznova začela",
+    "sous": "uči se iz\nmojih napak :)"
+   },
+   "hu": {
+    "titre": "appok, amiket\nelőször\nletöltenék, ha\nújrakezdeném",
+    "sous": "tanulj a\nhibáimból :)"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/splitwise/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tirelire.png",
+     "x": 60,
+     "y": 740,
+     "l": 260,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "split rent, groceries and every shared bill with your roommates, and always know who owes who. no more awkward money talks!"
+   },
+   "fr": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "partage le loyer, les courses et chaque facture avec tes colocs, et sache toujours qui doit quoi. fini les discussions gênantes sur l'argent !"
+   },
+   "es": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "divide el alquiler, la compra y cada factura con tus compis de piso, y sabe siempre quién debe qué. ¡adiós a las charlas incómodas de dinero!"
+   },
+   "es-419": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "divide la renta, el súper y cada cuenta con tus roomies, y sabe siempre quién debe qué. ¡adiós a las pláticas incómodas de dinero!"
+   },
+   "it": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "dividi affitto, spesa e ogni bolletta con le coinquiline, e sai sempre chi deve cosa. basta discorsi imbarazzanti sui soldi!"
+   },
+   "tr": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "kirayı, market alışverişini ve tüm ortak faturaları ev arkadaşlarınla böl, kimin kime borçlu olduğunu hep bil. para konuşmalarına son!"
+   },
+   "pt-BR": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "divide aluguel, mercado e cada conta com as colegas de casa, e sabe sempre quem deve o quê. chega de climão com dinheiro!"
+   },
+   "de": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "teil miete, einkäufe und jede rechnung mit deiner wg und wisse immer, wer wem was schuldet. keine peinlichen geldgespräche mehr!"
+   },
+   "sl": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "razdeli najemnino, nakupe in vsak račun s cimrami in vedno vedi, kdo komu kaj dolguje. konec nerodnih pogovorov o denarju!"
+   },
+   "hu": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "oszd meg a lakbért, a bevásárlást és minden számlát a lakótársaiddal, és mindig tudd, ki kinek tartozik. nincs több kínos pénzügyi beszélgetés!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/tiimo/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "a visual planner that turns your day into colorful blocks and routines, so you always know what's next without the overwhelm."
+   },
+   "fr": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "un agenda visuel qui découpe ta journée en blocs colorés et en routines, pour toujours savoir la suite sans être débordée."
+   },
+   "es": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "una agenda visual que convierte tu día en bloques de colores y rutinas, para saber siempre qué toca sin agobiarte."
+   },
+   "es-419": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "una agenda visual que convierte tu día en bloques de colores y rutinas, para saber siempre qué sigue sin abrumarte."
+   },
+   "it": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "un'agenda visiva che trasforma la giornata in blocchi colorati e routine, così sai sempre cosa viene dopo senza ansia."
+   },
+   "tr": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "gününü renkli bloklara ve rutinlere ayıran görsel bir planlayıcı, sırada ne olduğunu hep bilirsin, bunalmadan."
+   },
+   "pt-BR": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "uma agenda visual que transforma seu dia em blocos coloridos e rotinas, pra você sempre saber o que vem depois sem surtar."
+   },
+   "de": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "ein visueller planer, der deinen tag in bunte blöcke und routinen teilt, damit du immer weißt, was als nächstes kommt."
+   },
+   "sl": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "vizualni planer, ki tvoj dan razdeli v barvne bloke in rutine, da vedno veš, kaj sledi, brez preobremenjenosti."
+   },
+   "hu": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "vizuális tervező, ami színes blokkokra és rutinokra bontja a napod, így mindig tudod, mi jön, túlterhelés nélkül."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 850,
+     "y": 110,
+     "l": 160,
+     "rotation": 10
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "wish i'd started this freshman year!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "j'aurais dû commencer dès la première année !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡ojalá la hubiera usado desde primero!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡ojalá la hubiera usado desde primer semestre!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "vorrei averla usata dal primo anno!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "keşke birinci sınıfta başlasaydım!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "queria ter começado no primeiro ano!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "hätte ich das mal im ersten semester gehabt!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "ko bi jo le imela že v prvem letniku!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "bárcsak már elsőben elkezdtem volna!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/goodnotes/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 740,
+     "y": 670,
+     "l": 300,
+     "rotation": -8
+    }
+   ],
+   "en": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "every class in its own digital notebook, handwritten like real paper. i'd never go back to messy paper notes."
+   },
+   "fr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "chaque cours dans son carnet numérique, écrit à la main comme sur du papier. je ne reviendrais jamais aux notes en vrac."
+   },
+   "es": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada asignatura en su cuaderno digital, escrito a mano como en papel. nunca volvería a los apuntes desordenados."
+   },
+   "es-419": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada materia en su cuaderno digital, escrito a mano como en papel. nunca volvería a los apuntes desordenados."
+   },
+   "it": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "ogni materia nel suo quaderno digitale, scritto a mano come su carta. non tornerei mai agli appunti disordinati."
+   },
+   "tr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "her ders kendi dijital defterinde, kağıttaymış gibi elle yazılmış. dağınık kağıt notlara asla dönmezdim."
+   },
+   "pt-BR": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada matéria no seu caderno digital, escrito à mão como no papel. nunca mais voltaria pras anotações bagunçadas."
+   },
+   "de": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "jedes fach in seinem digitalen heft, von hand geschrieben wie auf papier. nie wieder zettelchaos."
+   },
+   "sl": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "vsak predmet v svojem digitalnem zvezku, napisan na roko kot na papir. nikoli se ne bi vrnila k neurejenim zapiskom."
+   },
+   "hu": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "minden tárgy a saját digitális füzetében, kézzel írva, mint papíron. soha nem mennék vissza a kusza jegyzetekhez."
+   }
+  }
+ ]
+}

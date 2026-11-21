@@ -1,0 +1,437 @@
+{
+ "id": "sm-006",
+ "source": {
+  "url": "https://www.tiktok.com/@studyingsmiski/photo/7571992948288572703",
+  "vues": 13500,
+  "publie_le": "2025-11-13",
+  "accroche": "4 underrated apps for students! from a straight A student"
+ },
+ "musique": {
+  "titre": "Pretty",
+  "url": "https://www.tiktok.com/music/pretty-7257488448478153498"
+ },
+ "notes": "Remake de « 4 underrated apps for students! » (13,5 k vues, 13/11/2025, relevé du 20/11 : 5 slides façon iOS Notes, Flora, Study Bunny, Turbo AI, Pomocat), sa dernière liste d'applis avec Turbo AI pas encore faite ; preuve faible (13,5 k), prise pour le rythme du 21/11. Mêmes 5 slides dans le même ordre, sur notre gabarit de cartes en timbre et son ciel (pas son gabarit iOS Notes). Turbo AI (sa 4e) remplacée par Sophia, sa vraie icône, cta C. Flora (temps d'écran, concurrente) remplacée par Finch (un compagnon qu'on fait grandir, comme son arbre, mais pour prendre soin de soi) ; Study Bunny (fiches de révision intégrées : trop près de l'apprentissage) remplacée par Habitica (même mécanique de pièces et de récompenses). Gardée : Pomocat. Faits lus sur les fiches de l'App Store : Finch, animal de compagnie qui grandit avec des exercices de soin de soi ; Habitica, tâches en jeu de rôle (or, niveaux, PV) ; Pomocat, chat animé et bruit blanc. Toutes sur l'App Store des 10 pays (lookup iTunes du 21/11). Ses personnages (figurine, grenouille de marque, lapin) remplacés par nos stickers Seedream.",
+ "titre": {
+  "en": "4 underrated apps for students",
+  "fr": "4 applis sous-cotées pour les étudiantes",
+  "es": "4 apps infravaloradas para estudiantes",
+  "es-419": "4 apps subestimadas para estudiantes",
+  "it": "4 app sottovalutate per studenti",
+  "tr": "öğrenciler için değeri bilinmeyen 4 uygulama",
+  "pt-BR": "4 apps subestimados pra estudantes",
+  "de": "4 apps fürs studium, die keiner kennt",
+  "sl": "4 podcenjene aplikacije za študente",
+  "hu": "4 alulértékelt app diákoknak"
+ },
+ "legendes": {
+  "en": "the apps nobody talks about (but should) 🐸💭 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "les applis dont personne ne parle (et c'est dommage) 🐸💭 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "las apps de las que nadie habla (y deberían) 🐸💭 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "las apps de las que nadie habla (y deberían) 🐸💭 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "le app di cui nessuno parla (e dovrebbe) 🐸💭 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "kimsenin bahsetmediği (ama bahsetmesi gereken) uygulamalar 🐸💭 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "os apps que ninguém comenta (mas deveria) 🐸💭 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "die apps, über die keiner redet (aber sollte) 🐸💭 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "aplikacije, o katerih nihče ne govori (pa bi moral) 🐸💭 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "az appok, amikről senki nem beszél (pedig kéne) 🐸💭 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 70,
+     "y": 170,
+     "l": 190,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 800,
+     "y": 140,
+     "l": 190,
+     "rotation": 8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 230,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "4 underrated\napps for\nstudents!",
+    "sous": "from a straight\nA student"
+   },
+   "fr": {
+    "titre": "4 applis\nsous-cotées\npour étudier !",
+    "sous": "d'une élève\nà 18 de moyenne"
+   },
+   "es": {
+    "titre": "4 apps\ninfravaloradas\npara estudiar",
+    "sous": "de una estudiante\nde sobresaliente"
+   },
+   "es-419": {
+    "titre": "4 apps\nsubestimadas\npara estudiar",
+    "sous": "de una estudiante\nde puro 10"
+   },
+   "it": {
+    "titre": "4 app\nsottovalutate\nper studiare",
+    "sous": "da una studentessa\nda 30 e lode"
+   },
+   "tr": {
+    "titre": "değeri\nbilinmeyen\n4 uygulama!",
+    "sous": "hep AA alan\nbir öğrenciden"
+   },
+   "pt-BR": {
+    "titre": "4 apps\nsubestimados\npra estudar!",
+    "sous": "de uma aluna\nnota 10"
+   },
+   "de": {
+    "titre": "4 apps fürs\nstudium, die\nkeiner kennt!",
+    "sous": "von einer\n1,0-studentin"
+   },
+   "sl": {
+    "titre": "4 podcenjene\naplikacije\nza študij!",
+    "sous": "od študentke\ns samimi desetkami"
+   },
+   "hu": {
+    "titre": "4 alulértékelt\napp\ndiákoknak!",
+    "sous": "egy színötös\ndiáktól"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/finch/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 800,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "a self-care pet that grows when you take care of yourself: quick check-ins, little goals and calming exercises every day."
+   },
+   "fr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un petit compagnon qui grandit quand tu prends soin de toi : un check-in rapide, des petits objectifs et des exercices pour souffler."
+   },
+   "es": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota de autocuidado que crece cuando te cuidas: check-ins rápidos, metas pequeñas y ejercicios para relajarte."
+   },
+   "es-419": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota de autocuidado que crece cuando te cuidas: check-ins rápidos, metas pequeñas y ejercicios para relajarte."
+   },
+   "it": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un animaletto che cresce quando ti prendi cura di te: check-in veloci, piccoli obiettivi ed esercizi per rilassarti ogni giorno."
+   },
+   "tr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kendine iyi baktıkça büyüyen bir öz bakım dostu: her gün kısa check-in'ler, küçük hedefler ve sakinleştirici egzersizler."
+   },
+   "pt-BR": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "um bichinho de autocuidado que cresce quando você se cuida: check-ins rápidos, metinhas e exercícios pra relaxar todo dia."
+   },
+   "de": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ein self-care-haustier, das wächst, wenn du auf dich achtest: kurze check-ins, kleine ziele und entspannende übungen jeden tag."
+   },
+   "sl": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ljubljenček za skrb zase, ki raste, ko skrbiš zase: hitri check-ini, majhni cilji in sproščujoče vaje vsak dan."
+   },
+   "hu": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "egy önmagadról gondoskodó kis kedvenc, ami nő, ha vigyázol magadra: gyors check-inek, kis célok és nyugtató gyakorlatok."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/habitica/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/epee.png",
+     "x": 70,
+     "y": 700,
+     "l": 300,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "your to-dos become a game: finish tasks to earn gold and level up your character, skip them and you lose health!"
+   },
+   "fr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "tes to-do deviennent un jeu : tu finis une tâche, tu gagnes de l'or et ton perso monte de niveau. tu la sautes, tu perds des pv !"
+   },
+   "es": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "tus tareas se vuelven un juego: completas una y ganas oro y subes de nivel, ¡te la saltas y pierdes vida!"
+   },
+   "es-419": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "tus pendientes se vuelven un juego: completas uno y ganas oro y subes de nivel, ¡te lo saltas y pierdes vida!"
+   },
+   "it": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "i tuoi to-do diventano un gioco: completi un compito e guadagni oro e sali di livello, lo salti e perdi vita!"
+   },
+   "tr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "yapılacakların oyuna dönüşüyor: görevi bitir, altın kazan ve seviye atla; atlarsan can kaybedersin!"
+   },
+   "pt-BR": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "suas tarefas viram um jogo: termina uma e ganha ouro e sobe de nível, pula e perde vida!"
+   },
+   "de": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "deine to-dos werden ein spiel: erledigt heißt gold und level up, ausgelassen kostet lp!"
+   },
+   "sl": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "opravila postanejo igra: ko nalogo končaš, dobiš zlato in napreduješ, ko jo izpustiš, izgubiš življenje!"
+   },
+   "hu": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "a teendőidből játék lesz: ha elvégzed, aranyat kapsz és szintet lépsz, ha kihagyod, életet veszítesz!"
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 850,
+     "y": 100,
+     "l": 170,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "nobody talks about this one and it's so good!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "personne n'en parle et elle est trop bien !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡nadie habla de ella y es buenísima!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡nadie habla de ella y está buenísima!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "nessuno ne parla ed è bellissima!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "kimse bundan bahsetmiyor ama çok iyi!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "ninguém fala dele e é muito bom!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "keiner redet darüber, dabei ist sie so gut!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "nihče ne govori o njej, pa je super!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "senki nem beszél róla, pedig szuper!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/pomocat/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 790,
+     "y": 710,
+     "l": 230,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "a cute cat keeps you company during every pomodoro, with white noise in the background. focusing has never been this cozy."
+   },
+   "fr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un chat trop mignon te tient compagnie pendant chaque pomodoro, avec du bruit blanc en fond. se concentrer n'a jamais été aussi cosy."
+   },
+   "es": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gato adorable te acompaña en cada pomodoro, con ruido blanco de fondo. concentrarse nunca había sido tan cuqui."
+   },
+   "es-419": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gato adorable te acompaña en cada pomodoro, con ruido blanco de fondo. concentrarse nunca había sido tan cozy."
+   },
+   "it": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gatto adorabile ti fa compagnia durante ogni pomodoro, con il rumore bianco in sottofondo. concentrarsi non è mai stato così cozy."
+   },
+   "tr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "her pomodoroda sana eşlik eden tatlı bir kedi ve arkada beyaz gürültü. odaklanmak hiç bu kadar keyifli olmamıştı."
+   },
+   "pt-BR": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "um gatinho fofo te faz companhia em cada pomodoro, com ruído branco no fundo. focar nunca foi tão aconchegante."
+   },
+   "de": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "eine süße katze leistet dir bei jedem pomodoro gesellschaft, mit white noise im hintergrund. konzentrieren war noch nie so gemütlich."
+   },
+   "sl": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "prikupna mačka ti dela družbo pri vsakem pomodoru, v ozadju pa beli šum. zbranost še nikoli ni bila tako prijetna."
+   },
+   "hu": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "egy cuki cica tart veled minden pomodoro alatt, a háttérben fehér zajjal. a koncentrálás még sosem volt ilyen kényelmes."
+   }
+  }
+ ]
+}

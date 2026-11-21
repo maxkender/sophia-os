@@ -1,0 +1,149 @@
+{
+ "id": "dr-038",
+ "format": "liste",
+ "titre": {
+  "en": "5 animals that are genuinely smarter than you think",
+  "de": "5 tiere, die viel klüger sind, als du denkst",
+  "sv": "5 djur som är mycket smartare än du tror"
+ },
+ "legendes": {
+  "en": "#animals #science #smarttok #lockedin",
+  "de": "#tiere #wissenschaft #fakten #wissen",
+  "sv": "#djur #vetenskap #fakta #kunskap"
+ },
+ "musique": {
+  "titre": "original sound - ale",
+  "url": "https://www.tiktok.com/music/original-sound-7644418890860202765"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : corbeaux de Seattle et masque (Marzluff, Université de Washington) ; ~2/3 des neurones du poulpe dans les bras ; éléphante Happy, test du miroir (Plotnik, de Waal, Reiss, 2006) ; danse frétillante (von Frisch) ; pigeons Monet/Picasso (Watanabe et al., 1995). Images Seedream. En, de, sv ; une couverture par langue (cerveaux violet, vert, bleu). Sophia en item 3 sur 6 (cta B), écran accueil traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 animals that are genuinely smarter than you think",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(science backed)"
+   },
+   "de": {
+    "titre": "5 tiere, die viel klüger sind, als du denkst",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(wissenschaftlich belegt)"
+   },
+   "sv": {
+    "titre": "5 djur som är mycket smartare än du tror",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(vetenskapligt belagt)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Crows",
+    "texte": "they make and use tools, and they remember human faces for years. researchers in seattle found crows still scolded a mask that had trapped them years before",
+    "image": "images/corbeau.jpg"
+   },
+   "de": {
+    "titre": "Krähen",
+    "texte": "sie bauen und benutzen werkzeuge und merken sich menschliche gesichter jahrelang. forscher in seattle sahen krähen, die eine maske noch jahre später beschimpften",
+    "image": "images/corbeau.jpg"
+   },
+   "sv": {
+    "titre": "Kråkor",
+    "texte": "de tillverkar och använder verktyg och minns människoansikten i åratal. forskare i seattle såg kråkor som skällde på en mask flera år efter att de fångats av den",
+    "image": "images/corbeau.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Octopuses",
+    "texte": "about two thirds of their neurons are in their arms. each arm can taste and react on its own",
+    "image": "images/pieuvre.jpg"
+   },
+   "de": {
+    "titre": "Kraken",
+    "texte": "etwa zwei drittel ihrer nervenzellen sitzen in den armen. jeder arm kann selbst schmecken und reagieren",
+    "image": "images/pieuvre.jpg"
+   },
+   "sv": {
+    "titre": "Bläckfiskar",
+    "texte": "ungefär två tredjedelar av deras nervceller sitter i armarna. varje arm kan smaka och reagera på egen hand",
+    "image": "images/pieuvre.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "it's like a tiny lecture every morning: history, philosophy, science, economics. 10 minutes, then a quiz",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "wie eine kleine vorlesung jeden morgen: geschichte, philosophie, wissenschaft, wirtschaft. 10 minuten, dann ein quiz",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "som en liten föreläsning varje morgon: historia, filosofi, vetenskap, ekonomi. 10 minuter, sen ett quiz",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Elephants",
+    "texte": "they recognize themselves in a mirror, something only a few species can do. an asian elephant passed the test in 2006",
+    "image": "images/elephant.jpg"
+   },
+   "de": {
+    "titre": "Elefanten",
+    "texte": "sie erkennen sich im spiegel, das schaffen nur wenige arten. ein asiatischer elefant bestand den test 2006",
+    "image": "images/elephant.jpg"
+   },
+   "sv": {
+    "titre": "Elefanter",
+    "texte": "de känner igen sig själva i en spegel, något bara ett fåtal arter klarar. en asiatisk elefant klarade testet 2006",
+    "image": "images/elephant.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Bees",
+    "texte": "they tell each other where flowers are with a dance. the angle and length of the waggle give the direction and the distance",
+    "image": "images/abeilles.jpg"
+   },
+   "de": {
+    "titre": "Bienen",
+    "texte": "sie zeigen sich mit einem tanz, wo blumen sind. winkel und dauer des schwänzelns geben richtung und entfernung an",
+    "image": "images/abeilles.jpg"
+   },
+   "sv": {
+    "titre": "Bin",
+    "texte": "de berättar för varandra var blommorna finns med en dans. vinkeln och längden på vickandet anger riktning och avstånd",
+    "image": "images/abeilles.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Pigeons",
+    "texte": "in a 1995 study, pigeons learned to tell paintings by monet from paintings by picasso, even ones they had never seen",
+    "image": "images/pigeon.jpg"
+   },
+   "de": {
+    "titre": "Tauben",
+    "texte": "in einer studie von 1995 lernten tauben, bilder von monet und von picasso zu unterscheiden, sogar solche, die sie nie gesehen hatten",
+    "image": "images/pigeon.jpg"
+   },
+   "sv": {
+    "titre": "Duvor",
+    "texte": "i en studie från 1995 lärde sig duvor skilja målningar av monet från målningar av picasso, även sådana de aldrig sett",
+    "image": "images/pigeon.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o282",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d0724c7d-49ae-476e-8dbe-98c3023b8337",
+ "titre": "hobbies that turn you into a disciplined person #discipline #hobbies #habits #selfimprovement #motivation",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "4c740b93-4932-4afb-b567-cfaf14073b35"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4c740b93). déclinaison G2 de « hobbies that make discipline feel like an addiction » (parent d0724c7d). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9c8b46d4-2c69-4e5c-919b-9c3b183151e5",
+   "texte_overlay": "hobbies that turn you into\na disciplined person",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c1a7267d-4cb4-419d-b542-27c9c593059b",
+   "texte_overlay": "tracking your runs\n\nrun three times a week and log every run in a notebook. seeing your times slowly drop is so satisfying that you'll want to keep going just to beat yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "30c03752-a1e6-4c79-bfb9-537f9ccf25a3",
+   "texte_overlay": "learning one song\n\nlearn a full song on an instrument each month. the moment you play it through without a mistake makes all the boring practice feel completely and totally worth it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4f06eea4-4bc5-43f7-9259-be443996ec11",
+   "texte_overlay": "growing your own food\n\ngrow herbs or vegetables from seed. caring for them every day and waiting patiently teaches your brain that slow, steady effort really does pay off in the end.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e33b9ce4-ca6c-4a4f-9eb8-e1c5630ff6ef",
+   "texte_overlay": "a learning streak\n\nlearn something new for 5 minutes every day and protect the streak at all costs. not wanting to break a small daily chain is one of the strongest motivators there is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/5.jpg",
+   "texte_sophia": "a learning streak\n\nlearn something new for 5 minutes a day. the Sophia app turns it into one short lesson, a myth or a planet, and protecting that tiny streak made me disciplined in everything."
+  },
+  {
+   "position": 6,
+   "media_id": "c920310b-bae3-4ddd-90c9-0181cd816976",
+   "texte_overlay": "early cold walks\n\ngo for a twenty minute walk every morning before breakfast, even in winter. doing one hard thing first thing makes every other task of the day feel easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/6.jpg"
+  }
+ ]
+}

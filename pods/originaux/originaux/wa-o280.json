@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o280",
+ "type_bleo": "full_test",
+ "titre": "rare traits that make people impossible to forget #charisma #personality #psychology #socialskills #selfimprovement",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "f490daf5-f20d-4891-a1ce-4219bcb84d2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f490daf5). full test BLEO : accroche jamais faite (format « rare traits that make people impossible to X »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a4586c01-7d20-43ce-a8af-3a259b864c79",
+   "texte_overlay": "rare traits that make people\nimpossible to forget",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "acefe2e8-8256-4536-86e9-c1fc9cc08928",
+   "texte_overlay": "real warmth\n\nthey make everyone feel welcome, from the waiter to the boss. people forget what you said, but they always remember how warm and welcome you made them feel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b133b344-5336-489d-8370-5b1c5e3ca268",
+   "texte_overlay": "endless curiosity\n\nthey always have something fascinating to share, because they never stop learning. a little curiosity every day turns you into the person whose stories people repeat for weeks.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/3.jpg",
+   "texte_sophia": "endless curiosity\n\ni was the forgettable one in every group. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and people remember the stories i tell for weeks."
+  },
+  {
+   "position": 4,
+   "media_id": "d771d1cd-58ad-4a53-bc8b-1067d81bd76e",
+   "texte_overlay": "calm confidence\n\nthey don't need to be loud to be noticed. a calm voice, steady eyes and an easy smile leave a far deeper impression than trying hard to impress anyone at all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7fa03d35-3d36-4a34-a739-e0de33ae9ca4",
+   "texte_overlay": "a good memory for others\n\nthey remember your name, your dog and the exam you were nervous about. feeling remembered is so rare that people never forget the person who did it for them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d3062d0f-017d-4803-8bdf-18f7d2f84040",
+   "texte_overlay": "honest kindness\n\nthey tell the truth gently, even when it's not easy to hear. people trust and remember those who are honest and kind at exactly the same time, every time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/6.jpg"
+  }
+ ]
+}

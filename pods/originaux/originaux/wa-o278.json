@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o278",
+ "type_bleo": "full_test",
+ "titre": "habits of people who are happy in their own company #solitude #selfcare #peace #habits #selfimprovement",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "be8abcd5-6a13-49c3-8184-b8c7e8ba6081"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, be8abcd5). full test BLEO : accroche jamais faite (format « habits of people who are X in their own company »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "72b1a50a-a24c-4e9b-a95a-95466b80171c",
+   "texte_overlay": "habits of people who are\nhappy in their own company",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6b9c4585-a84b-43e4-87ed-8f54998bba9c",
+   "texte_overlay": "they take themselves out\n\nthey go to cafés, cinemas and museums alone without feeling strange about it. treating yourself like good company is the first step to actually enjoying it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a8295106-cedc-42f1-bf6f-e91f88529bda",
+   "texte_overlay": "they keep a slow routine\n\nthey make their mornings and evenings feel special, with good tea, music and candles. small rituals turn time alone into time they genuinely look forward to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7473301d-141f-47d9-b578-edd4f9f790ae",
+   "texte_overlay": "they stay curious\n\npeople who enjoy their own company always have something interesting going on in their heads: a myth, a planet, a painting they learned about that morning. a curious mind is never truly lonely.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/4.jpg",
+   "texte_sophia": "they stay curious\n\ni used to hate being alone. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and my own thoughts became the most interesting company i have."
+  },
+  {
+   "position": 5,
+   "media_id": "5c1c181b-974e-41a5-9c05-b4b7683a87c8",
+   "texte_overlay": "they don't fill every silence\n\nthey don't reach for noise the moment the room goes quiet. sitting comfortably with your own thoughts is a calm kind of strength most people never build.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fb918980-7dfa-4f1c-826f-1e20fac95cfd",
+   "texte_overlay": "they plan little adventures\n\nthey plan solo walks, day trips and new recipes just for themselves. when you stop waiting for others to start living, your weekends finally become your own.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/6.jpg"
+  }
+ ]
+}

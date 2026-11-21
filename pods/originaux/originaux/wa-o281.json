@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o281",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5ecd25d3-3b28-42f4-b36d-45dd24021d33",
+ "titre": "habits that make you fearless in any room #confidence #fearless #habits #socialskills #selfimprovement",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "2270832d-a014-4226-8bd2-d93b7d026920"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 2270832d). déclinaison G2 de « hobbies that will make you dangerously confident » (parent 5ecd25d3). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a8293c52-4b43-4cb4-8040-a630d259298a",
+   "texte_overlay": "habits that make you\nfearless in any room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "25bfbbc7-a1fb-4dc3-9ebf-b4d45e08a175",
+   "texte_overlay": "speaking first\n\nsay something in the first five minutes of any meeting or class. the longer you wait, the harder it gets, so speaking early takes the pressure off completely.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7306e400-75f7-45b8-afde-50528b5f90fa",
+   "texte_overlay": "holding eye contact\n\nhold someone's gaze for one extra second when you greet them. it feels small, but it tells everyone in the room that you're completely comfortable being seen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "aec13f44-1f34-454d-add9-18515f3575c5",
+   "texte_overlay": "always having a story\n\nspend 5 minutes a day learning something surprising, and you'll never be stuck for words again. having a story ready takes away most of the fear of walking into a room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/4.jpg",
+   "texte_sophia": "always having a story\n\ni used to go silent in new rooms. now i spend 5 minutes a day on one lesson in the Sophia app, a strange myth or a planet, and i always have a story ready to share."
+  },
+  {
+   "position": 5,
+   "media_id": "e8e04428-cfd2-4c57-8085-3240660380de",
+   "texte_overlay": "walking in slowly\n\nwalk into rooms a little slower than feels natural. a calm entrance makes you look settled and sure, and your body slowly convinces your mind to follow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "04053e07-d09c-4ad1-bfa8-938408bf02af",
+   "texte_overlay": "asking good questions\n\nask people about the things they love. curious questions take the attention off your nerves and make you the person everyone quietly enjoys talking to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/6.jpg"
+  }
+ ]
+}

@@ -188,6 +188,8 @@ Deno.serve(async (request) => {
     // 18/11 (Max) : relance « finir son installation Ruul » (KYC, banque, inscription) : email + dashboard + Slack,
     // dans la langue du posteur ; jeudi et samedi (cron), ou maintenant avec forcer: true ; simuler: true n'envoie rien.
     if (body?.action === "kyc_relances") return json(await kycRelances(supabase, body?.forcer === true, body?.simuler === true));
+    // 21/11 (Max) : renvoyer une fois la relance KYC revenue, à la vraie adresse (liste d'abord ; envoi avec confirmer: true).
+    if (body?.action === "kyc_renvoi") return json(await kycRenvoi(supabase, body?.confirmer === true));
     // 21/11 (Max) : bloqué sur Ruul depuis 7 jours malgré le support : on propose Upwork (une fois).
     if (body?.action === "upwork_7j") return json(await proposerUpwork7j(supabase, body?.simuler === true));
     // 19/11 (Max) : la relance KYC qui n'est pas arrivée par email (depuis une date) passe en bandeau sur le dashboard.
@@ -560,7 +562,26 @@ async function proposerUpwork7j(supabase: Supabase, simuler: boolean) {
 async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean) {
   const { data, error } = await supabase.rpc("ruul_kyc_relances_dues", { p_jour: null, p_forcer: forcer });
   if (error) throw error;
+  return await envoyerRelancesKyc(supabase, (data ?? []) as RelanceKyc[], simuler);
+}
+
+/**
+ * 21/11 (Max, point 1) : la dernière relance KYC revenue (login @sophia.com) renvoyée une fois, à la vraie adresse
+ * (email Ruul, puis de candidature, puis Upwork). Sans confirmer: true, rien ne part : la liste seulement.
+ */
+async function kycRenvoi(supabase: Supabase, confirmer: boolean) {
+  const { data, error } = await supabase.rpc("ruul_kyc_renvoi_liste");
+  if (error) throw error;
   const dues = (data ?? []) as RelanceKyc[];
+  if (!confirmer) {
+    const parManque: Record<string, string[]> = {};
+    for (const d of dues) (parManque[d.manque] ??= []).push((d.prenom ?? "?").trim().split(/\s+/)[0] ?? "?");
+    return { ok: true, simulation: true, a_renvoyer: dues.length, par_manque: parManque, consigne: "rien n'est parti : confirmer: true pour envoyer" };
+  }
+  return await envoyerRelancesKyc(supabase, dues, false);
+}
+
+async function envoyerRelancesKyc(supabase: Supabase, dues: RelanceKyc[], simuler: boolean) {
   const cache = new Map<string, string>();
   const debut = Date.now();
   const bilan: { poster: string; manque: string; canaux: string[]; erreur: string | null }[] = [];

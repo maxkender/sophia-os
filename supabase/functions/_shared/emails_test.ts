@@ -2,6 +2,8 @@ import { assertEquals } from "jsr:@std/assert@1";
 
 import {
   _journalPourTests,
+  ADRESSE_SOPHIA,
+  adresseInterdite,
   creditsEmail,
   delaiEssai,
   envoyerSuivi,
@@ -126,4 +128,23 @@ Deno.test("0797 : un posteur arrêté ne reçoit plus d'email, sauf le message d
   const fin = await envoyerSuivi({ ...M, tags: ["fin_collaboration"] }, compte);
   assertEquals(fin.ok, true);
   assertEquals(appels, 1);
+});
+
+Deno.test("0808 : jamais d'email vers un login @sophia.com ni vers une adresse revenue", async () => {
+  const { db, lignes } = journalFactice();
+  const avecRpc = {
+    ...db,
+    rpc: (fn: string, a: { p_adresse?: string }) =>
+      Promise.resolve({ data: fn === "email_adresse_interdite" && a.p_adresse === "morte@x.io" ? "adresse revenue" : null, error: null }),
+  };
+  _journalPourTests(avecRpc);
+  let appels = 0;
+  const compte = (() => { appels++; return Promise.resolve(new Response(JSON.stringify({ ok: true, message_id: "<m>" }), { status: 200 })); }) as unknown as typeof fetch;
+  const sophia = await envoyerSuivi({ ...M, to: "ana@sophia.com" }, compte);
+  assertEquals([sophia.ok, appels, lignes[0].statut], [false, 0, "refuse"]);
+  assertEquals(adresseInterdite("ana@SOPHIA.com "), ADRESSE_SOPHIA);
+  const morte = await envoyerSuivi({ ...M, to: "morte@x.io" }, compte);
+  assertEquals([morte.ok, morte.erreur, appels], [false, "adresse revenue", 0]);
+  const bonne = await envoyerSuivi({ ...M, to: "ok@x.io" }, compte);
+  assertEquals([bonne.ok, appels], [true, 1]);
 });

@@ -31,7 +31,7 @@ export async function lireDecisionsRuul(posteurs: string[]): Promise<Map<string,
   return new Map(((data ?? []) as InfoRuul[]).map((r) => [r.poster_id, r]));
 }
 
-export interface BilanNudgeRuul { ok: boolean; envoyes?: number; deja?: number; email?: number; bandeau?: number; erreurs?: string[]; error?: string }
+export interface BilanNudgeRuul { ok: boolean; envoyes?: number; deja?: number; email?: number; slack?: number; bandeau?: number; sans_canal?: number; erreurs?: string[]; error?: string }
 
 /** Le nudge du jeudi des posteurs Ruul : email + bandeau sur le dashboard (fonction support). */
 export async function nudgerRuul(lundi: string, comptes: string[]): Promise<BilanNudgeRuul> {

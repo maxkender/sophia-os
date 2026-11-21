@@ -1066,7 +1066,7 @@ async function nudgeJeudiRuul(db: Db, lundi: string, comptes: string[], simuler:
   if (pause === true && !simuler) return { ok: false, error: "automatisation en pause : rien n'est parti" };
   const { data, error } = await db.rpc("jeudi_nudges_ruul", { p_lundi: lundi, p_comptes: ids });
   if (error) throw new Error(error.message);
-  const bilan = { envoyes: 0, deja: 0, email: 0, bandeau: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; texte: string }[] };
+  const bilan = { envoyes: 0, deja: 0, email: 0, slack: 0, bandeau: 0, sans_canal: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; texte: string }[] };
   for (const n of (data ?? []) as NudgeRuul[]) {
     if (n.deja) {
       bilan.deja++;
@@ -1089,22 +1089,30 @@ async function nudgeJeudiRuul(db: Db, lundi: string, comptes: string[], simuler:
       canaux.push("dashboard");
       bilan.bandeau++;
     }
-    // L'email, à sa vraie adresse.
-    const c = await contactPosteur(db, n.poster_id);
-    if (c.email) {
+    // L'email, à sa vraie adresse (0808 : email Ruul, puis de candidature, puis Upwork ; jamais @sophia.com ni une adresse revenue).
+    const { data: adresse } = await db.rpc("ruul_adresse_joignable", { p_poster: n.poster_id });
+    if (typeof adresse === "string" && adresse) {
       const objet = await traduire("This week's posts", langue);
       const e = rendreEmailRuul({ objet, titre: "Vik Studios", corps: texte, lienStop: OS_URL, sansPied: true });
-      const r = await envoyerEmailSite(c.email, objet, e.html, e.texte, OS_URL, ["nudge_jeudi"]);
+      const r = await envoyerEmailSite(adresse, objet, e.html, e.texte, OS_URL, ["ruul", "nudge_jeudi"]);
       if (r.ok) {
         canaux.push("email");
         bilan.email++;
       } else erreurs.push(`email : ${String(r.erreur ?? "échec")}`);
-    } else erreurs.push("email : pas d'adresse connue");
+    } else erreurs.push("email : pas d'adresse valide");
+    // 0808 : Slack en plus, seulement si les DM aux posteurs sont activés (en pause : ce n'est pas une erreur).
+    const sl = await ecrireAuPosteur(db, n.poster_id, texte);
+    if (sl.statut === "envoye") {
+      canaux.push("slack");
+      bilan.slack++;
+    } else if (sl.statut === "erreur" && !/pause|stop|manquant|contacter/i.test(sl.erreur)) erreurs.push(`slack : ${sl.erreur}`);
     const { error: eN } = await db.rpc("jeudi_nudge_ruul_noter", {
       p_poster: n.poster_id, p_compte: n.compte_id, p_lundi: lundi, p_texte: texte, p_canaux: canaux, p_erreur: erreurs.length ? erreurs.join(" ; ") : null,
     });
     if (eN) erreurs.push(`noter : ${eN.message}`);
-    if (canaux.length) bilan.envoyes++;
+    // 0808 : « envoyé » seulement si l'email ou Slack est parti (le bandeau seul ne suffit pas).
+    if (canaux.includes("email") || canaux.includes("slack")) bilan.envoyes++;
+    else bilan.sans_canal++;
     if (erreurs.length) bilan.erreurs.push(`${n.poster_id} : ${erreurs.join(" ; ")}`);
   }
   return { ok: true, simulation: simuler, ...bilan };

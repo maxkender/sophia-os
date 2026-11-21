@@ -875,6 +875,8 @@ export interface PlanRegles {
   jour_compte?: string | null;
   /** 21/11 : un ticket dans #a-os-tickets (bug technique) ; la demande reste ouverte jusqu'à ce que ce soit réglé. */
   ticket?: string | null;
+  /** 21/11 (Max) : renvoyé au support Ruul, avec l'échéance après laquelle la collaboration s'arrête. */
+  support_ruul?: { cle: string; echeance: string } | null;
   /** 21/11 (Max) : le problème Ruul compté (le bot répond 2 fois au plus au même problème, puis escalade). */
   tentative_ruul: string | null;
   /** 21/11 : escalade Ruul (cas inconnu ou 3e message sur le même problème) → ticket dans #a-os-tickets. */
@@ -1543,11 +1545,13 @@ async function appliquerRegles(
       plan.tentative_ruul = casR;
       d.personnel = true;
       if (escalader(avant) && !r.upwork) {
-        fixe(TEXTES.equipe, "ruul");
-        d.niveau = "adrien";
-        plan.escalade_ruul = true;
-        plan.resume = `Ruul bloqué à l'étape « ${etapeBloquee(etapes)} » (${casR}) : le bot a déjà répondu ${avant} fois au même problème.`;
-        plan.action_proposee = `Réponse proposée : ${r.texte}${casR === "bug" ? " (ou contacter le support Ruul avec la capture)" : ""}`;
+        // 21/11 (Max) : un problème Ruul qu'on n'arrive pas à régler : le posteur contacte le support Ruul ; s'il n'est
+        // pas réglé à l'échéance (7 jours), la collaboration s'arrête (ruul_support_echeances, chaque jour).
+        const echeance = new Date(Date.now() + 7 * 86_400_000);
+        const dateClaire = new Intl.DateTimeFormat("en-US", { weekday: "long", month: "long", day: "numeric", timeZone: "Europe/Paris" }).format(echeance);
+        fixe(TEXTES_RUUL.support_ruul.replace("{date}", dateClaire), "ruul");
+        plan.support_ruul = { cle: casR, echeance: jourParisIso(echeance) };
+        plan.resume = `Ruul bloqué à l'étape « ${etapeBloquee(etapes)} » (${casR}) : renvoyé au support Ruul, échéance ${jourParisIso(echeance)}.`;
       } else {
         fixe(r.texte, "ruul");
         if (r.upwork) plan.upwork = "demander";
@@ -1686,6 +1690,13 @@ async function apresDemande(
     if (o.poster && plan.tentative_ruul) {
       const { error } = await db.rpc("support_ruul_tentative_noter", { p_poster: o.poster, p_cle: plan.tentative_ruul });
       if (error) fait.push(`tentative Ruul : ${error.message}`);
+    }
+    if (o.poster && plan.support_ruul) {
+      const { error } = await db.from("ruul_support_renvois").upsert(
+        { poster_id: o.poster, cle: plan.support_ruul.cle, echeance: plan.support_ruul.echeance, demande_id: o.demande, renvoye_at: new Date().toISOString(), resolu_at: null, arret_at: null },
+        { onConflict: "poster_id" },
+      );
+      fait.push(error ? `support Ruul : ${error.message}` : `renvoyé au support Ruul (échéance ${plan.support_ruul.echeance})`);
     }
     if (plan.escalade_ruul) {
       const r = await envoyerTicket(db, null, o.demande, "Ruul : le bot a échoué 2 fois sur le même problème. Adrien valide la réponse proposée en un clic (Boîte) ou contacte le support Ruul.");

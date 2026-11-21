@@ -1,0 +1,138 @@
+{
+ "id": "dr-035",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696252759917481236",
+  "vues": 382200,
+  "publie_le": "2026-10-13",
+  "accroche": "10/10 skills to learn if you have ADHD"
+ },
+ "titre": {
+  "en": "10/10 skills to learn if you get bored easily",
+  "de": "10/10 skills gegen schnelle langeweile",
+  "it": "skill 10/10 da imparare se ti annoi facilmente"
+ },
+ "legendes": {
+  "en": "#niche #skills #selfimprovement #lockedin",
+  "de": "#skills #hobbys #lernen #selbstverbesserung",
+  "it": "#skill #hobby #imparare #crescitapersonale"
+ },
+ "musique": {
+  "titre": "QUANTUM (Slowed) - PHNKR & dnvn & Phonk King",
+  "url": "https://www.tiktok.com/music/original-sound-7550638068775438337"
+ },
+ "notes": "Déclinaison G1 de dr-007 (famille gagnante de la boîte du 21/11) : titre du parent mot pour mot, autres compétences (speedcubing, origami, alphabet des signes, calligraphie), autres images, autre CTA (cta C), autre écran (quiz). Faits : méthode débutant en ~7 étapes ; légende du senbazuru ; DGS : 26 lettres plus ä, ö, ü, ß ; LIS : alphabet manuel. Images Seedream et tableau AIC Füssli. En, de, it ; une couverture par langue (cerveaux 21, 22, 23).",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "10/10 skills to learn if you get bored easily",
+    "image": "images/cerveau-21.jpg",
+    "legende": "(weekend projects)"
+   },
+   "de": {
+    "titre": "10/10 skills gegen schnelle langeweile",
+    "image": "images/cerveau-22.jpg",
+    "legende": "(fürs wochenende)"
+   },
+   "it": {
+    "titre": "skill 10/10 da imparare se ti annoi facilmente",
+    "image": "images/cerveau-23.jpg",
+    "legende": "(progetti da weekend)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Speedcubing",
+    "texte": "learn the beginner method in a weekend: seven steps, a handful of moves. after that, every solve is a little race against yourself",
+    "image": "images/objets/cube.png"
+   },
+   "de": {
+    "titre": "Speedcubing",
+    "texte": "die anfängermethode lernst du an einem wochenende: sieben schritte, eine handvoll züge. danach ist jedes lösen ein kleines rennen gegen dich selbst",
+    "image": "images/objets/cube.png"
+   },
+   "it": {
+    "titre": "Speedcubing",
+    "texte": "il metodo per principianti si impara in un weekend: sette passaggi, poche mosse. dopo, ogni risoluzione è una piccola gara contro te stesso",
+    "image": "images/objets/cube.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Origami",
+    "texte": "one square of paper, no glue, no scissors. a crane takes about 15 minutes. in japan, folding 1,000 of them is said to grant a wish",
+    "image": "images/grue-origami.jpg"
+   },
+   "de": {
+    "titre": "Origami",
+    "texte": "ein quadratisches blatt, kein kleber, keine schere. ein kranich dauert etwa 15 minuten. in japan heißt es, 1.000 davon erfüllen einen wunsch",
+    "image": "images/grue-origami.jpg"
+   },
+   "it": {
+    "titre": "Origami",
+    "texte": "un foglio quadrato, niente colla, niente forbici. una gru richiede circa 15 minuti. in giappone si dice che piegarne 1.000 esaudisca un desiderio",
+    "image": "images/grue-origami.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. a different topic every day, so it never gets boring",
+    "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. jeden tag ein anderes thema, also wird es nie langweilig",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. ogni giorno un argomento diverso, quindi non annoia mai",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The sign language alphabet",
+    "texte": "learn your country's fingerspelling alphabet: 26 hand shapes. one week and you can spell your name to someone who's deaf",
+    "image": "images/mains-signes.jpg"
+   },
+   "de": {
+    "titre": "Das Fingeralphabet",
+    "texte": "lern das fingeralphabet deines landes: 26 handzeichen plus ein paar extra. nach einer woche kannst du einem gehörlosen menschen deinen namen buchstabieren",
+    "image": "images/mains-signes.jpg"
+   },
+   "it": {
+    "titre": "L'alfabeto dei segni",
+    "texte": "impara l'alfabeto manuale del tuo paese: una ventina di forme della mano. in una settimana sai dire il tuo nome a una persona sorda",
+    "image": "images/mains-signes.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Calligraphy",
+    "texte": "a brush pen and lined paper. ten minutes a day of slow, deliberate letters is weirdly calming, and your handwriting gets better too",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "de": {
+    "titre": "Kalligrafie",
+    "texte": "ein pinselstift und liniertes papier. zehn minuten am tag langsame, bewusste buchstaben beruhigen seltsam gut, und deine handschrift wird besser",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "it": {
+    "titre": "Calligrafia",
+    "texte": "un brush pen e un foglio a righe. dieci minuti al giorno di lettere lente e precise calmano in modo strano, e migliora anche la tua grafia",
+    "image": "images/femme-ecrivant.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fa37c29e-fa61-4016-be74-182d284894dd"
+}

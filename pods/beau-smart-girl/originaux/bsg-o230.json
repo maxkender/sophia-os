@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o230",
+  "type_bleo": "full_test",
+  "titre": "les livres courts à lire en une seule soirée #lecture #livres #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/The_Little_Prince : première publication à New York en avril 1943. Routine du 21/11 sur BLEO (par_jour passé à 13 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 9 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 10 full tests. Lignes sautées : 4 (« tinas ai », nom d'une autre appli à recopier mot pour mot), 5 (« validé par les neurosciences »), 6 (« je notes »), 7 (accroche illisible « ge things »), 8, 10, 11 et 12 (« backed by science », bienfaits invérifiables), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f2778998",
+      "texte_overlay": "les livres courts\nà lire en une seule soirée",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "85ac3865",
+      "texte_overlay": "1. bonjour tristesse\n\nun été, une villa, une fille de 17 ans.\nlu d'une traite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0f25245b",
+      "texte_overlay": "2. le petit prince\n\nce matin, j'ai appris que le petit prince a été publié pour la première fois à new york, en 1943.\nje l'ai relu autrement.",
+      "texte_sophia": "2. le petit prince\n\nce matin, l'appli Sophia m'a appris que le petit prince a été publié pour la première fois à new york, en 1943.\nje l'ai relu autrement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "265270bb",
+      "texte_overlay": "3. l'étranger\n\ncamus, alger, le soleil.\ncourt et inoubliable.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "e0dc4efb",
+      "texte_overlay": "4. le vieil homme et la mer\n\nun pêcheur, un poisson, trois jours.\nhemingway en peu de pages.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "53d73308",
+      "texte_overlay": "5. la métamorphose\n\nkafka. un matin, gregor se réveille insecte.\non ne la lâche plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2d2b92ac",
+      "texte_overlay": "tu as lu lequel ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

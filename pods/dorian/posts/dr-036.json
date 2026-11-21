@@ -1,0 +1,281 @@
+{
+ "id": "dr-036",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of homebody hobbies",
+  "pt-BR": "Iceberg de hobbies de quem ama ficar em casa",
+  "sv": "Isberget av hemmamänniskans hobbyer"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #homebody #cozy #selfimprovement",
+  "pt-BR": "#iceberg #hobbies #caseira #autoconhecimento",
+  "sv": "#isberg #hobbyer #hemma #självutveckling"
+ },
+ "musique": {
+  "titre": "original sound - KRIS",
+  "url": "https://www.tiktok.com/music/original-sound-7697351034850560771"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « homebody hobbies ». Sophia au 2e étage (icône). En, pt-BR, sv ; variantes 6, 0, 1.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "homebody hobbies",
+    "variante": 6
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies caseiros",
+    "variante": 0
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "hemmakattens hobbyer",
+    "variante": 1
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "reading",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "tea",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "documentaries",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "jigsaw puzzles",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "baking bread",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "a sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "knitting",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "podcasts",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "houseplants",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "sketching",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "vinyl records",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "writing stories",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "learning piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "model ships",
+       "image": "images/objets/maquette-bateau.png"
+      }
+     ],
+     [
+      {
+       "t": "never leaving",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "ler",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "chá",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "docs",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "quebra-cabeça",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "fazer pão",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "tricô",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "podcasts",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "plantas",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "desenhar",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "discos de vinil",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "escrever histórias",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "aprender piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "navios em miniatura",
+       "image": "images/objets/maquette-bateau.png"
+      }
+     ],
+     [
+      {
+       "t": "nunca sair de casa",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "läsa",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "te",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "dokumentärer",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "pussel",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "baka bröd",
+       "image": "images/objets/pain.png"
+      },
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "sticka",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "poddar",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "krukväxter",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "skissa",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "vinylskivor",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "skriva berättelser",
+       "image": "images/objets/machine-ecrire.png"
+      },
+      {
+       "t": "lära sig piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "modellbåtar",
+       "image": "images/objets/maquette-bateau.png"
+      }
+     ],
+     [
+      {
+       "t": "aldrig gå ut",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

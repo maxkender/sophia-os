@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o235",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3cfcc7e1-479a-4220-aeb1-4c611a8d976e",
+  "titre": "ce que j'ai appris en lisant un vrai journal papier chaque matin pendant un mois #journal #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "3cfcc7e1-479a-4220-aeb1-4c611a8d976e"
+  ],
+  "notes": "G1, déclinaison de 3cfcc7e1 (« ce que j'ai appris en lisant un vrai journal papier chaque matin pendant un mois », génération 0 ; meilleur passage hr 2,8 k vues, r 2,11 ; he 2,5 k vues, r 3,63), en français. 1re déclinaison. cta A. Même structure que le parent, mots neufs. Routine du 21/11 sur BLEO (par_jour passé à 13 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 9 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 10 full tests. Lignes sautées : 4 (« tinas ai », nom d'une autre appli à recopier mot pour mot), 5 (« validé par les neurosciences »), 6 (« je notes »), 7 (accroche illisible « ge things »), 8, 10, 11 et 12 (« backed by science », bienfaits invérifiables), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "136720ee",
+      "texte_overlay": "ce que j'ai appris en lisant un vrai journal papier\nchaque matin pendant un mois",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "63811370",
+      "texte_overlay": "1. on lit ce sur quoi on ne cliquerait jamais\n\nles pages science, économie.\nles meilleures surprises.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "11d56010",
+      "texte_overlay": "2. il y a une fin\n\nle journal se termine.\nle fil d'actualité, jamais.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "770fdbe6",
+      "texte_overlay": "3. on retient mieux\n\nle papier, les colonnes, la photo.\nje sais où était chaque article.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "59cb0754",
+      "texte_overlay": "4. on a toujours un sujet de conversation\n\nau déjeuner, j'avais toujours une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "49f3eb37",
+      "texte_overlay": "5. la curiosité devient une habitude\n\navant, je ne savais rien de ce qui se passait ailleurs.\nmaintenant, j'apprends un truc sur le monde chaque matin. et le monde me paraît plus proche.",
+      "texte_sophia": "5. la curiosité devient une habitude\n\navant, je ne savais rien de ce qui se passait ailleurs.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et le monde me paraît plus proche.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "75019a1d",
+      "texte_overlay": "tu lis encore le journal papier ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

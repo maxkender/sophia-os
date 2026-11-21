@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o228",
+  "type_bleo": "full_test",
+  "titre": "la routine du soir d'une fille qui lit 50 livres par an #lecture #booktok #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 21/11 sur BLEO (par_jour passé à 13 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 9 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 10 full tests. Lignes sautées : 4 (« tinas ai », nom d'une autre appli à recopier mot pour mot), 5 (« validé par les neurosciences »), 6 (« je notes »), 7 (accroche illisible « ge things »), 8, 10, 11 et 12 (« backed by science », bienfaits invérifiables), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4d084409",
+      "texte_overlay": "la routine du soir\nd'une fille qui lit 50 livres par an",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5d468ccb",
+      "texte_overlay": "1. le téléphone dort ailleurs\n\nchargé dans le salon.\nle lit, c'est pour lire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "68d6933d",
+      "texte_overlay": "2. un livre toujours ouvert\n\nposé sur l'oreiller le matin.\nle soir, il m'attend.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "181bdae7",
+      "texte_overlay": "3. trente pages minimum\n\nchaque soir, sans exception.\nles livres s'enchaînent vite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0430b3c2",
+      "texte_overlay": "4. un carnet de lecture\n\nune phrase par livre.\npour ne rien oublier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "40b2414f",
+      "texte_overlay": "5. le matin aussi, je nourris ma tête\n\navant, je commençais la journée sur les réseaux.\nmaintenant, j'apprends un truc sur le monde chaque matin. et le soir, je lis la suite.",
+      "texte_sophia": "5. le matin aussi, je nourris ma tête\n\navant, je commençais la journée sur les réseaux.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et le soir, je lis la suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "92467483",
+      "texte_overlay": "tu lis combien de livres par an ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

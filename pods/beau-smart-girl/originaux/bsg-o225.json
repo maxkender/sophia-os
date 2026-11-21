@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o225",
+  "type_bleo": "full_test",
+  "titre": "les phrases latines à glisser dans une conversation #latin #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Fait vérifié le 21/11 sur https://fr.wikipedia.org/wiki/Alea_jacta_est : César « aurait prononcée » la phrase avant le passage du Rubicon ; d'où « attribuée à césar ». Carpe diem : Horace (Odes). Routine du 21/11 sur BLEO (par_jour passé à 13 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 9 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 10 full tests. Lignes sautées : 4 (« tinas ai », nom d'une autre appli à recopier mot pour mot), 5 (« validé par les neurosciences »), 6 (« je notes »), 7 (accroche illisible « ge things »), 8, 10, 11 et 12 (« backed by science », bienfaits invérifiables), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "af2f9f54",
+      "texte_overlay": "les phrases latines\nà glisser dans une conversation",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5d81a44f",
+      "texte_overlay": "1. carpe diem\n\ncueille le jour.\nhorace l'a écrit bien avant les tatouages.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "023d2a7d",
+      "texte_overlay": "2. alea jacta est\n\nle sort en est jeté.\nattribuée à césar, au passage du rubicon.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d76b4eaa",
+      "texte_overlay": "3. memento mori\n\nsouviens-toi que tu vas mourir.\nmoins triste que ça en a l'air.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f424c25c",
+      "texte_overlay": "4. in vino veritas\n\nla vérité est dans le vin.\nà garder pour les dîners.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "cb953be5",
+      "texte_overlay": "5. ça donne envie d'en apprendre d'autres\n\navant, je pensais que le latin, c'était pour les vieux livres.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque phrase a son histoire.",
+      "texte_sophia": "5. ça donne envie d'en apprendre d'autres\n\navant, je pensais que le latin, c'était pour les vieux livres.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque phrase a son histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c11aed0a",
+      "texte_overlay": "tu en connais une autre ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

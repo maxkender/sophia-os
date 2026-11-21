@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o226",
+  "type_bleo": "full_test",
+  "titre": "les films en noir et blanc à voir au moins une fois dans ta vie #cinema #films #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Différent de bsg-o214 (cinéma seule) : une liste de classiques. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/Roman_Holiday : Hepburn a gagné l'Oscar de la meilleure actrice pour ce rôle. Routine du 21/11 sur BLEO (par_jour passé à 13 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 9 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 10 full tests. Lignes sautées : 4 (« tinas ai », nom d'une autre appli à recopier mot pour mot), 5 (« validé par les neurosciences »), 6 (« je notes »), 7 (accroche illisible « ge things »), 8, 10, 11 et 12 (« backed by science », bienfaits invérifiables), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "36eca6ea",
+      "texte_overlay": "les films en noir et blanc\nà voir au moins une fois dans ta vie",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d31bd4f4",
+      "texte_overlay": "1. casablanca\n\nun bar, une guerre, un adieu.\ndes répliques qu'on cite encore.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6d39c789",
+      "texte_overlay": "2. vacances romaines\n\nce matin, j'ai appris qu'audrey hepburn a gagné l'oscar pour son rôle dans vacances romaines.\nrome en vespa, en noir et blanc.",
+      "texte_sophia": "2. vacances romaines\n\nce matin, l'appli Sophia m'a appris qu'audrey hepburn a gagné l'oscar pour son rôle dans vacances romaines.\nrome en vespa, en noir et blanc.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3024a3ba",
+      "texte_overlay": "3. les quatre cents coups\n\nparis, un ado, la mer à la fin.\nle premier long métrage de truffaut.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bc2831be",
+      "texte_overlay": "4. la dolce vita\n\nrome la nuit, la fontaine de trevi.\nun film qu'on regarde pour l'atmosphère.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ae4c96e5",
+      "texte_overlay": "5. le septième sceau\n\nune partie d'échecs avec la mort.\nplus beau qu'effrayant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "de6a9b54",
+      "texte_overlay": "lequel tu as déjà vu ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+ "id": "bm-002",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7698426564106554646",
+  "vues": 717600,
+  "publie_le": "2026-10-19",
+  "accroche": "Morning Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "morning tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "rate your morning honestly ☀️ #morningroutine #health #biohacking #running #wellness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/snooze.jpg": "6b621671-62f3-4336-9a14-bd4ed93d7aa6",
+  "images/banque/scroll-lit.jpg": "c555349c-d71a-44a5-bcd8-9ee7a28ba4b4",
+  "images/banque/cafe.jpg": "356bbc40-ce6b-4888-806b-720a22b49eba",
+  "images/banque/eau.jpg": "3617605c-e4b1-4451-b671-e996f5855896",
+  "images/banque/douche.jpg": "5b3107fe-e46f-4e86-aabb-9fba5419ff15",
+  "images/banque/etirement.jpg": "1b7a9e5d-ba80-49ec-8110-9c64a692ee4a",
+  "images/banque/petit-dej.jpg": "605b8545-48ee-4818-ae69-1b8bdd7a6793",
+  "images/banque/stores.jpg": "81323bee-6245-49dd-987d-9f45fcf3d96e",
+  "images/banque/marche-jour.jpg": "6cf67dce-acf4-483a-81b9-e3903b889de4",
+  "images/banque/footing-matin.jpg": "4b88f93a-47ba-4eed-a9c2-4ece5c47eb9b",
+  "images/banque/lever-mer.jpg": "55e0e3a5-7fa1-4718-ad08-5a0a86dcbcfb"
+ },
+ "notes": "Preuve : son tube « Morning Tierlist For Optimal Health (Science based) » (717,6 k vues, 19/10). Même gabarit que bm-001 (couverture : tête, croquis du réveil, jauge CORTISOL ; un élément par slide de F à S). Même famille d'accroche (« Morning Tierlist ») ; tous les éléments et les textes sont à nous. Slide Atala (11) : le premier S tier « An Easy Morning Run », une coureuse de la banque au soleil du matin et le logo d'Atala. Texte selon le prompt placement_atala du 20/11 : titre de 7 mots → voix TU, forme « a running coach app like Atala », un seul argument : la séance du jour déjà prévue (bm-001 : l'allure) ; version notée « cta B' ». Faits : le snooze fragmente le dernier sommeil et accroît l'inertie du réveil (Tassi & Muzet 2000, inertie du sommeil) ; la caféine bloque les récepteurs de l'adénosine (Fredholm 1999) ; une déshydratation légère baisse humeur et concentration (Armstrong et al., J Nutr 2012 ; Ganio et al., Br J Nutr 2011) ; douche froide : éveil ressenti, preuves limitées au-delà (Buijze et al., PLoS One 2016) ; la lumière est le premier synchroniseur de l'horloge circadienne, la lumière du jour dehors (milliers à dizaines de milliers de lux) dépasse de loin l'intérieur (quelques centaines) ; horaires de lever réguliers et sommeil (régularité du sommeil, Phillips et al. 2017). Rien de médical. Photos : banque de l'OS, aucune célébrité, aucune marque lisible.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/reveil.jpg",
+   "en": {
+    "lignes": [
+     "Morning Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/snooze.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Snoozing Your Alarm",
+    "paragraphes": [
+     "Every snooze drops you back into light sleep for a few minutes, then pulls you out again. You get up groggier than if you had just got up the first time.",
+     "Set the alarm for when you actually need to get up, and put the phone across the room."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/scroll-lit.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Scrolling In Bed",
+    "paragraphes": [
+     "The first thing your brain sees is a feed built to keep you lying there. Ten minutes turns into thirty, and the day starts with other people's news.",
+     "Feet on the floor first. The phone can wait until you're up and moving."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/cafe.jpg",
+   "cadrage": {
+    "y": 0.72
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Coffee Before Anything Else",
+    "paragraphes": [
+     "Caffeine works by blocking adenosine, the molecule that builds up sleep pressure. It hides tiredness, it doesn't remove it.",
+     "Coffee isn't the problem. It lands in D because most people drink it before a single glass of water."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/eau.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "No Water Until Lunch",
+    "paragraphes": [
+     "You wake up after seven or eight hours without drinking. Even mild dehydration has been linked to lower mood, focus and energy.",
+     "A glass of water before anything else is the easiest win of the whole morning."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/douche.jpg",
+   "cadrage": {
+    "y": 0.25
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Cold Showers",
+    "paragraphes": [
+     "Cold water makes your heart rate and breathing jump for a moment, and most people feel sharply awake afterwards.",
+     "It's a strong wake-up call, but most of the bigger promises around it still lack solid evidence."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/etirement.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "A Five-Minute Stretch",
+    "paragraphes": [
+     "After hours lying still, your hips, back and calves feel stiff. A few slow stretches get blood moving and make the first steps of the day easier.",
+     "Helpful, not life-changing. It stays in C until it comes with real movement outside."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/petit-dej.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Real Breakfast",
+    "paragraphes": [
+     "Eggs, yoghurt, oats or fruit give you protein and steady energy, instead of the quick sugar hit of a pastry on the go.",
+     "It misses A tier because what you eat matters less than getting outside early."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/stores.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Opening The Blinds",
+    "paragraphes": [
+     "Light is the main signal your internal clock uses to know the day has started. Letting it in straight away helps you feel awake sooner.",
+     "Daylight through a window is still far weaker than being outside, so it stays in B."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/marche-jour.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "A",
+    "nom": "A Walk In Daylight",
+    "paragraphes": [
+     "Outdoor morning light is many times brighter than indoor light, even on a cloudy day. It sets your body clock, so sleep comes easier at night.",
+     "It only misses S tier because a run gives you the daylight and the cardio at the same time."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/footing-matin.jpg",
+   "format": "carre",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "S",
+    "nom": "An Easy Morning Run",
+    "paragraphes": [
+     "A relaxed jog early in the day gets you daylight, raises your heart rate gently and leaves you clear-headed for the hours that follow.",
+     "Most people quit because they're deciding what to run half-awake. A running coach app like Atala tells you what to run today, so you just head out."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lever-mer.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "A Fixed Wake-Up Time",
+    "paragraphes": [
+     "Your internal clock runs on rhythm. Waking at the same time every day, weekends included, makes both falling asleep and waking up easier.",
+     "It sits at the top because every other habit on this list gets easier once your mornings are predictable."
+    ]
+   }
+  }
+ ]
+}

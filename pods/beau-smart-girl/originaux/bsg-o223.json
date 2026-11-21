@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o223",
+  "type_bleo": "full_test",
+  "titre": "les mots de tous les jours qui viennent de l'arabe #etymologie #langue #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Étymologies vérifiées le 21/11 sur le Wiktionnaire : algèbre (« de l'arabe الجبر, āl-ǧabr »), magasin (« de l'arabe مخازن, maḵāzin »), sucre (« de l'italien zucchero, de l'arabe سُكّر, sukkar »), chiffre (« emprunté à l'arabe صفر, ṣifr ») et zéro (« de l'arabe صفر, ṣifr (« vide ») », par l'italien), jupe (« de l'italien giubba ou jupa, issu de l'arabe جبة, jobba (« pelisse courte ») »). Routine du 21/11 sur BLEO (par_jour passé à 13 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 9 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 10 full tests. Lignes sautées : 4 (« tinas ai », nom d'une autre appli à recopier mot pour mot), 5 (« validé par les neurosciences »), 6 (« je notes »), 7 (accroche illisible « ge things »), 8, 10, 11 et 12 (« backed by science », bienfaits invérifiables), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "150e3a15",
+      "texte_overlay": "les mots de tous les jours\nqui viennent de l'arabe",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e2c1d9dc",
+      "texte_overlay": "1. algèbre\n\nde l'arabe al-jabr.\nles maths ont un accent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5d7b9135",
+      "texte_overlay": "2. magasin\n\nde makhâzin, les entrepôts.\non fait du shopping en arabe sans le savoir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6903a98e",
+      "texte_overlay": "3. sucre\n\nde sukkar, passé par l'italien.\nton café du matin a voyagé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ef6860f5",
+      "texte_overlay": "4. chiffre\n\nce matin, j'ai appris que « chiffre » et « zéro » viennent du même mot arabe, sifr, qui veut dire vide.\nje ne compte plus pareil.",
+      "texte_sophia": "4. chiffre\n\nce matin, l'appli Sophia m'a appris que « chiffre » et « zéro » viennent du même mot arabe, sifr, qui veut dire vide.\nje ne compte plus pareil.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "744f5e6c",
+      "texte_overlay": "5. jupe\n\nde jobba, une courte pelisse,\npassée par l'italien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "03d3cfd2",
+      "texte_overlay": "tu en connaissais combien ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

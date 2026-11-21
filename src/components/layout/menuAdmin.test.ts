@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { ANCIENNES_ADRESSES, ANCIENNES_PAGES, GROUPES_MENU, MENU_AUTO, PAGES_AUTO } from "@/features/auto/pages";
+import { ANCIENNES_PAGES, MENU_AUTO, PAGES_AUTO } from "@/features/auto/pages";
 
 const source = fs.readFileSync(path.join(process.cwd(), "src/components/layout/AdminLayout.tsx"), "utf8");
 
@@ -37,28 +37,19 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/logs",
       "/admin/auto/qualite",
     ]);
-    // 21/11 : le menu est en 7 groupes construits depuis GROUPES_MENU (plus de section « Recruitment Automation »).
-    expect(source).toContain("GROUPES_MENU.map((g) => ({");
+    // La section passe juste sous « Tracking », avant « Configuration ».
+    expect(source.indexOf('title: t("auto.section")')).toBeGreaterThan(source.indexOf('title: t("navSection.suivi")'));
+    expect(source.indexOf('title: t("auto.section")')).toBeLessThan(source.indexOf('title: t("navSection.config")'));
   });
 
-  it("21/11 : 7 groupes, Aujourd'hui en premier ; les pages de l'automatisation rangées par groupe", () => {
-    expect(GROUPES_MENU).toEqual(["aujourdhui", "posteurs", "contenu", "paie", "recrutement", "sante", "reglages"]);
-    expect(MENU_AUTO.filter((m) => m.groupe === "aujourdhui").map((m) => m.cle)).toEqual(["aujourdhui", "support", "decisions", "qualite"]);
-    expect(MENU_AUTO.filter((m) => m.groupe === "paie").map((m) => m.to)).toEqual(["/admin/auto/payroll", "/admin/auto/paie-ruul"]);
-    expect(source).toContain("items: [...auto(g), ...autres[g]]");
+  it("OS clair (12/11) : 7 entrées dans le menu, les autres pages rangées dans Réglages", () => {
+    expect(MENU_AUTO.map((m) => m.cle)).toEqual(["aujourdhui", "problemes", "posteurs", "ruul", "upwork", "decisions", "rapport_kills", "paie", "paie_ruul", "support", "reglages"]);
+    expect(source).toContain("items: MENU_AUTO.map((m) => ({");
     // Rien n'est perdu : chaque page est au menu ou dans Réglages.
     for (const p of PAGES_AUTO) {
       expect(MENU_AUTO.some((m) => m.page === p.cle) || ANCIENNES_PAGES.includes(p.cle), p.cle).toBe(true);
     }
-    for (const cachee of ["needs", "sent", "received", "cartes"] as const) expect(ANCIENNES_PAGES).toContain(cachee);
-  });
-
-  it("21/11 : Problèmes, Pays et File de relecture sortent du menu ; les routes restent, Needs you → Aujourd'hui", () => {
-    for (const r of ["/admin/auto/problemes", "/admin/pays", "/admin/file-reviews"]) {
-      expect(source).not.toContain(`to: "${r}"`);
-      expect(MENU_AUTO.some((m) => m.to === r)).toBe(false);
-    }
-    expect(ANCIENNES_ADRESSES["/admin/auto/needs-you"]).toBe("/admin/auto/aujourdhui");
+    for (const cachee of ["cohorts", "sent", "received", "cartes"] as const) expect(ANCIENNES_PAGES).toContain(cachee);
   });
 
   it("les pages remplacées ou retirées ne sont plus dans le menu", () => {
@@ -72,9 +63,9 @@ describe("menu admin (prompt 22)", () => {
     }
   });
 
-  it("Relecture native et Fiches restent avec BLEO, dans Contenu (30/10, 21/11)", () => {
-    const debut = source.indexOf('to: "/admin/bleo"');
-    const fin = source.indexOf('to: "/admin/bleo/reglages"');
+  it("Relecture native et Fiches sont dans la section BLEO (30/10)", () => {
+    const debut = source.indexOf('title: t("navSection.bleo")');
+    const fin = source.indexOf('title: t("navSection.tests")');
     for (const r of ["/admin/relecture-native", "/admin/fiches"]) {
       const i = source.indexOf(`to: "${r}"`);
       expect(i).toBeGreaterThan(debut);
@@ -85,7 +76,7 @@ describe("menu admin (prompt 22)", () => {
 
   it("le reste du menu ne bouge pas", () => {
     for (const r of [
-      "/admin/posters", "/admin/analytics", "/admin/suivi-rc",
+      "/admin/posters", "/admin/analytics", "/admin/suivi-rc", "/admin/file-reviews",
       "/admin/banc-relecture", "/admin/comment-masters", "/admin/reglages", "/admin/tests",
     ]) {
       expect(source).toContain(`to: "${r}"`);

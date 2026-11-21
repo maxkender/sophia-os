@@ -1,0 +1,313 @@
+{
+ "post_id": "var-productif-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 to habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "10/10 habitudes pour devenir ultra productive",
+     "texte": "10/10 navika za brutalnu produktivnost"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(neuronauka se slaže)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00f0a7a2.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop procrastinating and",
+      "make a first draft"
+     ],
+     "fr": "[[arrête de procrastiner]] et fais un premier jet",
+     "texte": "[[jedna stvar u isto vreme]], ne tri"
+    },
+    "T2": {
+     "en": [
+      "an idiot in motion goes",
+      "further than a genius at",
+      "rest"
+     ],
+     "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
+     "texte": "[[tvoj mozak ne ume da radi dve stvari dobro odjednom]]"
+    },
+    "T3": {
+     "en": [
+      "get the first draft out",
+      "first, even if it feels",
+      "embarrassing"
+     ],
+     "fr": "sors ton premier jet d'abord, [[même si t'as un peu honte]]",
+     "texte": "pri svakom prebacivanju [[deo glave ostaje]] na prethodnom zadatku"
+    },
+    "T4": {
+     "en": [
+      "once something exists, you can fix it. staring at a blank",
+      "page gives you nothing to improve"
+     ],
+     "fr": "une fois que t'as un truc, tu peux le corriger. une page blanche, y'a rien à améliorer",
+     "texte": "po jednoj studiji, skakanje između zadataka ti pojede i do 40% produktivnog vremena"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_02f74c80.jpg",
+      "boite": [
+       0,
+       0,
+       3008,
+       1376
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "pravi planove [[„ako… onda”]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "nemoj samo da kažeš „učiću više”, odluči kada i gde počinješ"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "na primer: „ako je 9h i sedim za stolom, [[otvaram beleške]]”"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "u 94 studije, uz ove planove ljudi su [[mnogo češće prelazili na delo]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_9340ebca.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone constantly"
+     ],
+     "fr": "arrête de checker ton tel [[H24]]",
+     "texte": "uzmi [[pravu pauzu]] svakog sata"
+    },
+    "T2": {
+     "en": [
+      "instagram, tiktok, snapchat, random notifications"
+     ],
+     "fr": "instagram, tiktok, snapchat, notifs en tout genre",
+     "texte": "kratka šetnja, čaša vode, pogled kroz prozor"
+    },
+    "T3": {
+     "en": [
+      "you're not going to miss",
+      "anything important by not",
+      "going on your phone!!"
+     ],
+     "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
+     "texte": "po jednoj studiji, [[kratke pauze čuvaju tvoj fokus]] kod dugih zadataka"
+    },
+    "T4": {
+     "en": [
+      "relax,"
+     ],
+     "fr": "relax,",
+     "texte": "relax,"
+    },
+    "T5": {
+     "en": [
+      "keep your phone away",
+      "when working/studying",
+      "until you're taking a break"
+     ],
+     "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
+     "texte": "[[5 minuta odmora]] čini sledeći sat rada mnogo oštrijim"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0872490a.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "ispričaj [[ono što naučiš]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "[[mnogo bolje pamtiš]] ono što nekome objasniš"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "objašnjavanje ti pokaže rupe u onome što misliš da znaš, i zauvek ih popuni"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "[[nekad je moje veče bilo samo skrolovanje]]"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "sad, kad sam već na telefonu, odradim [[lekciju od 5 minuta u aplikaciji Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think for yourself instead",
+      "of relying on AI"
+     ],
+     "fr": "[[pense par toi-même]], pas par [[l'IA]]",
+     "texte": "[[idi u šetnju]] kad ti se mozak zablokira"
+    },
+    "T2": {
+     "en": [
+      "don’t ask AI what to think the second you hit",
+      "friction"
+     ],
+     "fr": "[[demande pas à l'IA]] quoi penser dès que ça coince",
+     "texte": "[[ne bulji u ekran]] čekajući da ideja padne s neba"
+    },
+    "T3": {
+     "en": [
+      "sit with the problem, form your",
+      "own opinion, make a guess,",
+      "then use AI to challenge it"
+     ],
+     "fr": "creuse le problème, [[fais-toi ton avis]], tente une réponse, puis laisse l'IA la démonter",
+     "texte": "u jednoj studiji ljudi su u šetnji imali [[oko 60% više kreativnih ideja]] nego sedeći"
+    },
+    "T4": {
+     "en": [
+      "if you outsource every first",
+      "thought, your own judgment",
+      "never gets stronger"
+     ],
+     "fr": "si tu délègues toutes tes premières idées, [[ton jugement se muscle jamais]]",
+     "texte": "10 minuta oko bloka [[brže te odblokira]] nego još jedan sat za stolom"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1ff6149a.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/os_130692f7.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

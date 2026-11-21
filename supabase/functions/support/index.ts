@@ -1228,7 +1228,7 @@ async function posteurParIndices(db: Db, o: { texte: string; nom: string | null 
 /**
  * 21/11 (Max) : « les tickets de plus de 48 h → traités avec les nouvelles règles ». Chaque demande ouverte depuis plus
  * de 48 h repasse par l'agent (sa fiche, son historique) : réponse claire (niveau bot) → envoyée sur son canal, avec
- * « Sorry for the late reply » ; arrêt, posteur arrêté ou cas pour Max → rien n'est envoyé, la demande reste à Max avec
+ * (21/11 : sans « Sorry for the late reply ») ; arrêt, posteur arrêté ou cas pour Max → rien n'est envoyé, la demande reste à Max avec
  * son résumé. Une demande déjà rattrapée n'est jamais reprise (raison « rattrapage 21/11 »).
  */
 async function rattrapageTickets(db: Db, limite: number, simuler: boolean) {
@@ -1258,8 +1258,8 @@ async function rattrapageTickets(db: Db, limite: number, simuler: boolean) {
         if (bilan.exemples.length < 6) bilan.exemples.push({ id: dem.id, pour: "max", resume: r.plan?.resume ?? r.decision.raison });
         continue;
       }
-      const excuse = await traduire("Sorry for the late reply.", r.decision.langue);
-      const texte = `${excuse} ${r.texte}`;
+      // 21/11 (Max) : jamais « Sorry for the late reply ».
+      const texte = r.texte;
       if (simuler) {
         if (bilan.exemples.length < 6) bilan.exemples.push({ id: dem.id, source: dem.source, texte });
         bilan.envoyees++;
@@ -1613,7 +1613,7 @@ async function apresDemande(
       await db.rpc("texte_poster_envoye", { p_poster: o.poster, p_cle: "fin", p_erreur: null });
       const { data: deja } = await db.from("arrets").select("id").eq("poster_id", o.poster).is("annule_at", null).in("statut", ["a_faire", "fait"]).limit(1);
       if (!deja?.length) {
-        const { error } = await db.from("arrets").insert({ poster_id: o.poster, source: "stop_posteur", motif: `Demande du posteur : ${o.texte.slice(0, 300)}` });
+        const { error } = await db.from("arrets").insert({ poster_id: o.poster, source: "je_ne_veux_plus", motif: `Demande du posteur : ${o.texte.slice(0, 300)}` });
         fait.push(error ? `arrêt : ${error.message}` : "arrêt immédiat fait (OS, Slack, relances ; contrat fermé après la paie)");
       } else fait.push("arrêt : déjà fait");
       await db.from("support_demandes").update({ statut: "resolu", resolu_at: new Date().toISOString(), verdict_fermeture: "regle_bot" }).eq("id", o.demande);

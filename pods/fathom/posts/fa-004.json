@@ -22,7 +22,11 @@
   "pl": "10/10 umiejętności do nauczenia przed 25.",
   "ro": "10/10 abilități de învățat înainte de 25 de ani",
   "sv": "10/10 färdigheter att lära sig innan du fyller 25",
-  "tr": "25 yaşından önce öğrenmen gereken 10/10 beceri"
+  "tr": "25 yaşından önce öğrenmen gereken 10/10 beceri",
+  "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 25",
+  "no": "10/10 ferdigheter å lære før du fyller 25",
+  "et": "10/10 oskust, mida õppida enne 25",
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 25:tä"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 25 #selfimprovement #learnontiktok #selfmastery",
@@ -40,13 +44,17 @@
   "pl": "10/10 umiejętności do nauczenia przed 25. #umiejętności #rozwójosobisty #nauka",
   "ro": "10/10 abilități de învățat înainte de 25 de ani #abilități #dezvoltarepersonală #învățare",
   "sv": "10/10 färdigheter att lära sig innan du fyller 25 #färdigheter #självutveckling #lärande",
-  "tr": "25 yaşından önce öğrenmen gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme"
+  "tr": "25 yaşından önce öğrenmen gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme",
+  "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 25 #įgūdžiai #saviugda #mokymasis",
+  "no": "10/10 ferdigheter å lære før du fyller 25 #ferdigheter #selvutvikling #læring",
+  "et": "10/10 oskust, mida õppida enne 25 #oskused #eneseareng #õppimine",
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 25:tä #taidot #itsensäkehittäminen #oppiminen"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7478486760792673025"
  },
- "notes": "Sophia en carte d'appli à l'étape 3 « LEARN A BIT OF EVERYTHING », au milieu de la liste (leur slide Fathomly de fin disparaît). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en bandeau (une ligne en Inter Black) ; quatre compétences à nous, une vraie vidéo par langue. 19/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, « parler à n'importe qui » devient le langage corporel en sl, nl et sv.",
+ "notes": "Sophia en carte d'appli à l'étape 3 « LEARN A BIT OF EVERYTHING », au milieu de la liste (leur slide Fathomly de fin disparaît). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en bandeau (une ligne en Inter Black) ; quatre compétences à nous, une vraie vidéo par langue. 19/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, « parler à n'importe qui » devient le langage corporel en sl, nl et sv. 21/11 : ajouté en lt, no, et et fi ; faute de vidéo native, « parler à n'importe qui » devient « dire non » en lt, et et fi, et le langage corporel en no.",
  "slides": [
   {
    "type": "couverture",
@@ -370,6 +378,86 @@
       }
      ]
     ]
+   },
+   "lt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ĮGŪDŽIŲ IŠMOKTI",
+     [
+      {
+       "t": "IKI "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "no": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FERDIGHETER Å LÆRE",
+     [
+      {
+       "t": "FØR DU ER "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "et": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "OSKUST, MIDA ÕPPIDA",
+     [
+      {
+       "t": "ENNE "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fi": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TAITOA OPITTAVAKSI",
+     [
+      {
+       "t": "ENNEN "
+      },
+      {
+       "t": "25:TÄ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -602,6 +690,62 @@
      "date": "1 yıl önce",
      "duree": "14:46",
      "avatar": "https://yt3.ggpht.com/WrCzv6H1YPFKqWlGrl18ELH5O0JRHRJ5MbEfjHsB8xoEe7tioELX6JXRxp-Q9X4eNyL7txaGPw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "SUPRASK, KAIP VEIKIA PINIGAI"
+    ],
+    "video": {
+     "id": "c1Y6GaqM2gY",
+     "titre": "Ilja Laurs: Finansinis raštingumas, 2025",
+     "chaine": "Ilja Laurs",
+     "vues": "281 tūkst. peržiūrų",
+     "date": "prieš 1 metus",
+     "duree": "01:02:27",
+     "avatar": "https://yt3.ggpht.com/8cE-8K0srlA1lNl_c0sTF2QZay1wJdu0lknlBQ9Su7pKPZ9MV4GSS3SY3L4T_2Vyx78gVxLepg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LÆR HVORDAN PENGER FUNGERER"
+    ],
+    "video": {
+     "id": "310Q3pte96Y",
+     "titre": "Hvordan bli skikkelig god til å spare penger",
+     "chaine": "Marius Finans",
+     "vues": "5,7k avspillinger",
+     "date": "for 1 år siden",
+     "duree": "18:19",
+     "avatar": "https://yt3.ggpht.com/IXui6BcyTqj51Gd0gEfpQoAW_xLOVKMRbFKOs8CqJXlTnPa430uUdKHbJlGSdrhD16BVAtCaAA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "ÕPI, KUIDAS RAHA TÖÖTAB"
+    ],
+    "video": {
+     "id": "tolURP1TPw4",
+     "titre": "#1 Kristian Kuutok: Kuidas alustada investeerimist?",
+     "chaine": "Lumepall Fond",
+     "vues": "5,5 tuh vaatamist",
+     "date": "5 aasta eest",
+     "duree": "8:09",
+     "avatar": "https://yt3.ggpht.com/syvUnZm8T-NT0AHxXXSVTQ1dNcXopjYd7yqUZv4VeD7hNZL9QAWfwA5cUjSuixRZfljpn1YQdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "OPI, MITEN RAHA TOIMII"
+    ],
+    "video": {
+     "id": "67WEf8GSbpE",
+     "titre": "Taloudellinen hyvinvointi - omat raha asiat haltuun",
+     "chaine": "Säästöpankki",
+     "vues": "297 katselukertaa",
+     "date": "4 vuotta sitten",
+     "duree": "20.21",
+     "avatar": "https://yt3.ggpht.com/iovucgT8k-BLU8x-LW3oA9iAXYNCvbvOc8Tre5qIdkVaABNAh07kj9dzLIBRHz-4yw-dUHP_=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -836,6 +980,62 @@
      "duree": "4:00",
      "avatar": "https://yt3.ggpht.com/Og1-OmJNDMI6H_9kcC1TCWZ_-JNEFBsHg1Y_1Qo9WpSoULp9h0qGya96N8ZKgBHNPUO1gABF=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "lt": {
+    "titre": [
+     "IŠMOK PASAKYTI NE"
+    ],
+    "video": {
+     "id": "VOmyTEcRZsA",
+     "titre": "Nieko tokio arba kaip pasakyti NE",
+     "chaine": "LRTU",
+     "vues": "70 tūkst. peržiūrų",
+     "date": "prieš 4 mėnesius",
+     "duree": "05:18",
+     "avatar": "https://yt3.ggpht.com/VOhlR5wbNngKby1AE4jprOCoSnA3Kxf_TzIA6-tsFdd5wbIbDf2KybX02YV3_FwcTKnPfe1RuFo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LES KROPPSSPRÅK"
+    ],
+    "video": {
+     "id": "Wv6h4RKSCzw",
+     "titre": "Hva forteller kroppen din deg?",
+     "chaine": "Verdiverkstedet - selvhjelpsfilmer og annen moro",
+     "vues": "17k avspillinger",
+     "date": "for 6 år siden",
+     "duree": "2:23",
+     "avatar": "https://yt3.ggpht.com/UNP84n3P2E_85Z1JHHfJRhKhDwdt42gntaEbkzNYHWyOpRHp09IC_qtNNJiej1V3a7Nc2C7RRg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "ÕPI ÜTLEMA EI"
+    ],
+    "video": {
+     "id": "Yh_IdesoIYE",
+     "titre": "Julgus öelda “Ei!”",
+     "chaine": "Videoõps",
+     "vues": "9,4 tuh vaatamist",
+     "date": "1 kuu eest",
+     "duree": "5:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mEABBGl_lHgnJVW0DwMzR_v4H0p3ZyDOT0u7Ar-3bdRQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "OPI SANOMAAN EI"
+    ],
+    "video": {
+     "id": "798DovBzrzU",
+     "titre": "5 tapaa sanoa ei",
+     "chaine": "Kysy Psykologilta",
+     "vues": "59 katselukertaa",
+     "date": "4 vuotta sitten",
+     "duree": "1.53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqMgf1f05gceuH4flpvwmRytDUs6NIFtviWQDZXxqzGA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1036,6 +1236,54 @@
      "texte": [
       "her gün yeni bir şey öğren,",
       "5 dakikada."
+     ]
+    }
+   },
+   "lt": {
+    "titre": [
+     "ŽINOK PO TRUPUTĮ APIE VISKĄ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kasdien išmok ką nors naujo,",
+      "per 5 minutes."
+     ]
+    }
+   },
+   "no": {
+    "titre": [
+     "KUNN LITT OM ALT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lær noe nytt hver dag,",
+      "på 5 minutter."
+     ]
+    }
+   },
+   "et": {
+    "titre": [
+     "TEA NATUKE KÕIGEST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "õpi iga päev midagi uut,",
+      "5 minutiga."
+     ]
+    }
+   },
+   "fi": {
+    "titre": [
+     "TIEDÄ VÄHÄN KAIKESTA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "opi joka päivä jotain uutta,",
+      "5 minuutissa."
      ]
     }
    }
@@ -1271,6 +1519,62 @@
      "duree": "2:06",
      "avatar": "https://yt3.ggpht.com/1l50f91MjnPJt6xgKz9n6J-9NHizqc-lOspcAjM19g1Ev_7RoYiyxTGn9T3XTlbkwt_E5FKe=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "lt": {
+    "titre": [
+     "IŠMOK PIRMOSIOS PAGALBOS"
+    ],
+    "video": {
+     "id": "r7c-lvQ-h-A",
+     "titre": "Pirmoji pagalba: kaip gaivinti suaugusį žmogų?",
+     "chaine": "15min",
+     "vues": "61 tūkst. peržiūrų",
+     "date": "prieš 10 metų",
+     "duree": "05:10",
+     "avatar": "https://yt3.ggpht.com/oL35OP9o6_CkGAOtBQ4xtvwgYldMBOlpgJFOCxgEcnujx-7AivdfedmPVn8yi1UgIZ7ZZDc4ww=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LÆR FØRSTEHJELP"
+    ],
+    "video": {
+     "id": "KLI5PU5OOnU",
+     "titre": "Hjerte-lungeredning på voksne",
+     "chaine": "Røde Kors",
+     "vues": "25k avspillinger",
+     "date": "for 5 år siden",
+     "duree": "2:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_leAuQbrrqnTiYgSL-8BbYze9JCV4sgRfkUK8SAeFdPd_c=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "ÕPI ESMAABI"
+    ],
+    "video": {
+     "id": "MLv6uVsGzrI",
+     "titre": "Elustamine - kuidas tunda ära südame seiskumist ja kuidas aidata?",
+     "chaine": "Tartu Tervishoiu Kõrgkool",
+     "vues": "5,8 tuh vaatamist",
+     "date": "6 aasta eest",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/S82sbtl_zSNcCdFzz7K_zw6WlD0Fh69B5xK-D_rhJhYk12V3a6Lw7veLhY2ivrRZFxy1WqvTVw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "OPI ENSIAPU"
+    ],
+    "video": {
+     "id": "3dsqxuG9lEk",
+     "titre": "Aikuisen peruselvytys",
+     "chaine": "SuomenPunainenRisti",
+     "vues": "87 t. katselukertaa",
+     "date": "9 vuotta sitten",
+     "duree": "1.46",
+     "avatar": "https://yt3.ggpht.com/UXDu62BAwwm7orDDpwJP9QELAmxfwOdg2DMjGdywlxxv2W2GPbyI2fYn9Xavjn6iZUFOFUhL=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1503,6 +1807,62 @@
      "date": "2 yıl önce",
      "duree": "3:55",
      "avatar": "https://yt3.ggpht.com/Mfx0RRPl7s95oELIqV2l6we0DeFmXPN0hnvDB0U8d1SCYHP5Qx2_Ns3-BmpynMgJIJUGJ7UaIYs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "IŠMOK GAMINTI"
+    ],
+    "video": {
+     "id": "-jBqzhu9HWs",
+     "titre": "Kaip pasigaminti sushi? | Receptas | Tomas Kravec",
+     "chaine": "Mitybos Inžinerija",
+     "vues": "64 tūkst. peržiūrų",
+     "date": "prieš 6 metus",
+     "duree": "02:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kZYxy2VFYucvnjadqF2CdfoHJIFuN2urOi3Ft87RyVCR0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LÆR Å LAGE MAT"
+    ],
+    "video": {
+     "id": "s95aj3E-Pcs",
+     "titre": "Lapskaus | MatPrat",
+     "chaine": "Matprat",
+     "vues": "21k avspillinger",
+     "date": "for 2 år siden",
+     "duree": "4:22",
+     "avatar": "https://yt3.ggpht.com/XnDE1rC3xLAIdrPP6u3ZHzWmcomTvJaJxtIOJwS7K1crQo0e4ZpModjouTx3_CDYV9tc9pe2ew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "ÕPI SÜÜA TEGEMA"
+    ],
+    "video": {
+     "id": "hMY2OAekkEQ",
+     "titre": "Kodused toidud: Värskekapsa supp lihaga külmal talvepäeval. Kiire ja lihtne valmistada!",
+     "chaine": "Kodused toidud algajale",
+     "vues": "138 vaatamist",
+     "date": "9 kuu eest",
+     "duree": "4:51",
+     "avatar": "https://yt3.ggpht.com/PBRqAku1JK8CwLGKrd51wtJWZF2uvq65qJ4Wd-U6q_nCwprKSInBgUhaAVfPeCHB64KIlxDaHQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "OPI KOKKAAMAAN"
+    ],
+    "video": {
+     "id": "KerNGiPEzJ0",
+     "titre": "Helppo MAKARONILAATIKKO Resepti – Suomalainen Arkiruoka Koko Perheelle!",
+     "chaine": "JuHAHOO",
+     "vues": "10 t. katselukertaa",
+     "date": "10 kuukautta sitten",
+     "duree": "5.14",
+     "avatar": "https://yt3.ggpht.com/f0Nkecaa7GYE3pQKKrF8wrIXkq_KvDYttv3iaZQ59w_Yin6nXdmuto3DI5mWUTtNHOubtGY-rX8=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

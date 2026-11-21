@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o156",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6526ec3a-523d-407e-877e-40112c2a20b0",
+  "titre": "slightly toxic study habits i'm never letting go of #studytok #studytips #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "6526ec3a-523d-407e-877e-40112c2a20b0"
+  ],
+  "notes": "Déclinaison G2 de 6526ec3a (la famille de nos cs-o023 et cs-o062 : r 3,84 en espagnol d'Amérique latine), ligne 4 de la boîte. Même promesse (des habitudes d'étude un peu toxiques qu'on refuse d'abandonner), autres mots : « slightly toxic study habits i'm never letting go of ». Rivalité avec soi-même. Habitudes neuves, aucune de cs-o023 ni de cs-o062 : finir le chapitre avant de se lever, garder chaque contrôle raté comme une liste de travail, ne jamais copier la correction, apprendre un fait au hasard chaque soir (slide Sophia, 5), la même place à la bibliothèque, se poser une question après chaque cours. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3b3c6e6d",
+      "texte_overlay": "slightly toxic study habits\ni'm never letting go of",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "aa98157b",
+      "texte_overlay": "i don't get up until the chapter is finished.\nsnacks are a reward, not an escape.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5ad3cf2f",
+      "texte_overlay": "every failed test is kept.\nit's my to-do list now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d51b1a3a",
+      "texte_overlay": "i never copy the correction.\ni redo it until i don't need it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "42c6cbf3",
+      "texte_overlay": "one random fact every night before bed.\na painting, a war, a planet. no exceptions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "one random fact every night before bed\non a micro-learning app like the Sophia app.\na painting, a war, a planet. no exceptions."
+    },
+    {
+      "position": 6,
+      "media_id": "cea45657",
+      "texte_overlay": "same seat at the library. every time.\nmy brain knows the drill.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2a34a147",
+      "texte_overlay": "after every class, one question:\n\"could i teach this tomorrow?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

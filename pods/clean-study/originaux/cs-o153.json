@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o153",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8e0dd55c-4300-4b7c-8146-3dbb88fa75ce",
+  "titre": "the 3-day way i revise for tests so i never cram again #studytok #studytips #exams",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "8e0dd55c-4300-4b7c-8146-3dbb88fa75ce"
+  ],
+  "notes": "Déclinaison G2 de 8e0dd55c (la famille de nos cs-o066 et cs-o108), ligne 1 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o141 et cs-o147 : « the 3-day way i revise for tests so i never cram again ». Plan neuf, aucun geste de cs-o066, cs-o108, cs-o141 ni cs-o147 : jour 1 relire les contrôles passés de la matière, jour 1 au soir une liste des 10 notions clés, jour 2 se tester sur les 10 notions, jour 2 une vraie pause où l'on apprend autre chose (slide Sophia, 5), jour 3 refaire les exercices types, la veille dormir tôt. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "326d8cf2",
+      "texte_overlay": "the 3-day way i revise for tests\nso i never cram again",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1336da3b",
+      "texte_overlay": "day 1: i look at my old tests in this subject.\nhow does this teacher ask questions?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0f772f30",
+      "texte_overlay": "day 1, evening: the 10 key ideas of the chapter.\non one list.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9ccd7186",
+      "texte_overlay": "day 2: i quiz myself on those 10 ideas.\nnotes closed, out loud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "fb710f9b",
+      "texte_overlay": "day 2, break: 10 minutes of something new and unrelated.\nmy brain comes back fresher.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "day 2, break: 10 minutes learning something unrelated\non a micro-learning app like the Sophia app.\nmy brain comes back fresher."
+    },
+    {
+      "position": 6,
+      "media_id": "029490be",
+      "texte_overlay": "day 3: i redo the typical exercises.\nthe ones that always come up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2920979d",
+      "texte_overlay": "the night before: early bed.\nsleep is part of the plan.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+ "post_id": "var-greenflags-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "tylūs ženklai, kad žmogus tikrai protingas"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(ne tie, kuriuos galvoji)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_02d246a1.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "jie [[stabteli]] prieš atsakydami"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "užduodi jiems sudėtingą klausimą, o jie sako [[„hmm, duok sekundę“]], užuot išrėžę pirmą į galvą šovusią mintį"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "jiems geriau atsakyti gerai nei [[atsakyti greitai]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "greitį dažnai painiojame su protu, bet trumpa pauzė paprastai reiškia, kad [[jie tikrai apie tai galvoja]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3bb4f482.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "jie [[pastebi smulkmenas]]"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "tavo naujus akinius, knygą tavo lentynoje, tavo [[mėgstamą žodį]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "ir prisimena, ką jiems sakei [[prieš 3 savaites]]"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "tikras dėmesys žmonėms yra [[protingumo forma]], apie kurią niekas nekalba"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_05661402.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "dis [[à voix haute]] ce que t'as appris",
+     "texte": "jie ieško [[protingesnių už save]]"
+    },
+    "T2": {
+     "en": [
+      "close the book, article, or",
+      "video and explain the idea",
+      "from memory"
+     ],
+     "fr": "ferme le livre, l'article ou la vidéo et réexplique l'idée [[de tête]]",
+     "texte": "jei kas nors žino daugiau už juos, jiems tai ne grėsmė, [[jie užsirašinėja]]"
+    },
+    "T3": {
+     "en": [
+      "the moment you get vague",
+      "or confused, you’ve found",
+      "the gap"
+     ],
+     "fr": "dès que tu t'embrouilles, t'as trouvé ce que t'as pas compris",
+     "texte": "vakarėliuose jie užduoda [[šimtą klausimų]] tam, kuris išmano"
+    },
+    "T4": {
+     "en": [
+      "teaching exposes weak",
+      "understanding faster than",
+      "rereading does"
+     ],
+     "fr": "[[expliquer fait ressortir tes lacunes]] plus vite que relire",
+     "texte": "būti ne pačiu protingiausiu kambaryje yra jų būdas [[toliau augti]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_02df15bd.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "jie klausia [[„kodėl?“]]"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis que [[tu veux apprendre plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "kodėl duona sensta, kaip veikia užtrauktukas, kas išrado [[šviesoforą]]"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found readup which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "[[j'étais pareille]], jusqu'à ce que je remplace mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "jiems niekas nėra nuobodu, tiesiog to [[dar niekas nepaaiškino]]"
+    },
+    "T4": {
+     "en": [
+      "it builds patience, attention,",
+      "memory, and the ability to",
+      "keep going without constant",
+      "stimulation"
+     ],
+     "fr": "ça muscle ta patience, ton attention, ta mémoire, et tu tiens enfin [[sans stimulation non-stop]]",
+     "texte": "mano 5 min šiandien: kodėl Renesansas prasidėjo Italijoje, [[programėlėje Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "jie [[dalijasi nuopelnais]]"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "susirinkime, per paskaitą ar grupės pokalbyje jie sako [[„tai jos idėja, ne mano“]], net niekam neprašius"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "jiems nereikia blizgėti, [[jie leidžia spindėti kitiems]]"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "tikrai protingi žmonės nepasilieka dėmesio sau, jie pakelia visus aplinkui, todėl [[visi nori būti šalia jų]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2000c985.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

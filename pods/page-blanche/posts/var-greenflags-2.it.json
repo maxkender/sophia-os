@@ -1,0 +1,294 @@
+{
+ "post_id": "var-greenflags-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "i segnali discreti che qualcuno è davvero intelligente"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(non quelli che pensi)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2d09d0af.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "[[si prendono un attimo]] prima di rispondere"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "gli fai una domanda difficile e fanno [[«mmh, aspetta un secondo»]] invece di dire la prima cosa che gli passa per la testa"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "meglio rispondere bene che [[rispondere in fretta]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "spesso si confonde la velocità con l'intelligenza, ma una piccola pausa di solito vuol dire che [[ci stanno pensando davvero]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3bb4f482.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "[[notano i piccoli dettagli]]"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "i tuoi occhiali nuovi, il libro sulla mensola, la tua [[parola preferita]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "e si ricordano cosa gli hai detto [[3 settimane fa]]"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "fare davvero attenzione è [[una forma di intelligenza]] di cui nessuno parla"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_05661402.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "dis [[à voix haute]] ce que t'as appris",
+     "texte": "cercano [[chi ne sa di più]]"
+    },
+    "T2": {
+     "en": [
+      "close the book, article, or",
+      "video and explain the idea",
+      "from memory"
+     ],
+     "fr": "ferme le livre, l'article ou la vidéo et réexplique l'idée [[de tête]]",
+     "texte": "se qualcuno ne sa di più, non si sentono minacciati, [[prendono appunti]]"
+    },
+    "T3": {
+     "en": [
+      "the moment you get vague",
+      "or confused, you’ve found",
+      "the gap"
+     ],
+     "fr": "dès que tu t'embrouilles, t'as trouvé ce que t'as pas compris",
+     "texte": "alle feste fanno [[mille domande]] a chi se ne intende"
+    },
+    "T4": {
+     "en": [
+      "teaching exposes weak",
+      "understanding faster than",
+      "rereading does"
+     ],
+     "fr": "[[expliquer fait ressortir tes lacunes]] plus vite que relire",
+     "texte": "non essere il più bravo nella stanza è il modo in cui [[continuano a crescere]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_02df15bd.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "chiedono [[«perché?»]]"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis que [[tu veux apprendre plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "perché il pane diventa raffermo, come funziona una zip, chi ha inventato [[il semaforo]]"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found readup which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "[[j'étais pareille]], jusqu'à ce que je remplace mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "per loro niente è noioso, è solo qualcosa che [[nessuno gli ha ancora spiegato]]"
+    },
+    "T4": {
+     "en": [
+      "it builds patience, attention,",
+      "memory, and the ability to",
+      "keep going without constant",
+      "stimulation"
+     ],
+     "fr": "ça muscle ta patience, ton attention, ta mémoire, et tu tiens enfin [[sans stimulation non-stop]]",
+     "texte": "i miei 5 min di oggi: perché la porpora era il colore dei re, con [[l'app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "[[danno il merito]] agli altri"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "in riunione, in classe o nel gruppo, dicono [[«è stata un'idea sua, non mia»]] senza che nessuno glielo chieda"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "non serve brillare, [[fanno brillare gli altri]]"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "le persone davvero intelligenti non si tengono la scena, tirano su tutti quelli intorno, ed è per questo che [[tutti li vogliono vicino]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2000c985.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,461 @@
+{
+ "post_id": "7709839238006607136",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that are rapidly",
+      "destroying your focus"
+     ],
+     "fr": "10/10 habitudes qui flinguent ta concentration à toute vitesse",
+     "texte": "10/10 hábitos que destrozan tu concentración rapidísimo"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(según la neurociencia)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1329ac2e.jpg",
+      "boite": [
+       0,
+       200,
+       2048,
+       1575
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "reading AI summaries of",
+      "everything"
+     ],
+     "fr": "lire [[des résumés par IA]] de tout",
+     "texte": "leer [[resúmenes de IA]] de todo"
+    },
+    "T2": {
+     "en": [
+      "articles, youtube videos, even the book for",
+      "class, all shrunk into 5 bullet points"
+     ],
+     "fr": "articles, vidéos youtube, même le bouquin pour les cours, tout [[tient en 5 tirets]]",
+     "texte": "artículos, videos de youtube, hasta el libro de clase, todo [[reducido a 5 viñetas]]"
+    },
+    "T3": {
+     "en": [
+      "your brain stops",
+      "practicing",
+      "following an idea",
+      "from start to",
+      "finish"
+     ],
+     "fr": "ton cerveau perd l'habitude de [[suivre une idée]] du début à la fin",
+     "texte": "tu cerebro deja de practicar [[seguir una idea]] de principio a fin"
+    },
+    "T4": {
+     "en": [
+      "so anything longer than a paragraph",
+      "starts feeling impossible to focus on"
+     ],
+     "fr": "du coup, dès que ça dépasse un paragraphe, [[tu décroches]]",
+     "texte": "así que todo lo que pase de un párrafo [[se te hace eterno]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "taking breaks on your phone"
+     ],
+     "fr": "faire tes pauses [[sur ton tel]]",
+     "texte": "tomar descansos [[con el teléfono]]"
+    },
+    "T2": {
+     "en": [
+      "you think you’re resting, but just doomscroll on tiktok"
+     ],
+     "fr": "tu crois te reposer, mais en vrai tu doomscrolles sur tiktok",
+     "texte": "crees que descansas, pero solo haces doomscroll en tiktok"
+    },
+    "T3": {
+     "en": [
+      "that’s why you come",
+      "back more tired and less",
+      "focused"
+     ],
+     "fr": "du coup tu reviens [[avec moins d'énergie et de concentration]]",
+     "texte": "por eso vuelves [[con menos energía y menos foco]]"
+    },
+    "T4": {
+     "en": [
+      "instead, take a real",
+      "break, walk, stretch or",
+      "just look out the",
+      "window"
+     ],
+     "fr": "fais plutôt [[une vraie pause]] : marche, étire-toi ou regarde par la fenêtre",
+     "texte": "mejor haz [[una pausa real]]: camina, estírate o mira por la ventana"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[chaque jour]]",
+     "texte": "doomscroll [[a diario]]"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even",
+      "realising, then lose hours of",
+      "your day to it. that is frying",
+      "your focus"
+     ],
+     "fr": "tu ouvres tiktok [[sans même t'en rendre compte]], puis t'y perds des heures. ça grille ta concentration",
+     "texte": "entras a tiktok [[sin darte cuenta]] y pierdes horas de tu día. eso te está friendo la concentración"
+    },
+    "T3": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "mes 5 min du jour sur [[l'appli Sophia]] : Camus et le mythe de Sisyphe. j'y ai pensé toute la journée",
+     "texte": "mis 5 min de hoy en [[la app Sophia]]: por qué el cielo es azul. me quedé pensándolo todo el día"
+    },
+    "T4": {
+     "en": [
+      "don’t become illiterate!!"
+     ],
+     "fr": "[[l'illettrisme te guette !!]]",
+     "texte": "[[¡¡no dejes de leer!!]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 38,
+      "y": 236,
+      "l": 604,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 38,
+       "y": 236,
+       "l": 604,
+       "h": 56,
+       "base": 288
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 546,
+      "y": 324,
+      "l": 465,
+      "h": 888
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 254,
+      "y": 1195,
+      "l": 290,
+      "h": 121
+     }
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 364,
+      "l": 483,
+      "h": 166
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 364,
+       "l": 482,
+       "h": 36,
+       "base": 391
+      },
+      {
+       "x": 35,
+       "y": 406,
+       "l": 448,
+       "h": 38,
+       "base": 441
+      },
+      {
+       "x": 36,
+       "y": 451,
+       "l": 435,
+       "h": 36,
+       "base": 478
+      },
+      {
+       "x": 36,
+       "y": 494,
+       "l": 171,
+       "h": 36,
+       "base": 522
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 628,
+      "l": 434,
+      "h": 165
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 628,
+       "l": 390,
+       "h": 29,
+       "base": 655
+      },
+      {
+       "x": 40,
+       "y": 671,
+       "l": 370,
+       "h": 29,
+       "base": 699
+      },
+      {
+       "x": 37,
+       "y": 715,
+       "l": 434,
+       "h": 36,
+       "base": 748
+      },
+      {
+       "x": 37,
+       "y": 757,
+       "l": 237,
+       "h": 36,
+       "base": 792
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 918,
+      "l": 380,
+      "h": 35
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 918,
+       "l": 380,
+       "h": 35,
+       "base": 951
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 1040,
+      "y": 1302,
+      "l": 40,
+      "h": 40
+     },
+     "lignes": [
+      {
+       "x": 1040,
+       "y": 1302,
+       "l": 40,
+       "h": 40,
+       "base": 1304
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching productivity videos"
+     ],
+     "fr": "mater [[des vidéos de productivité]]",
+     "texte": "ver [[videos de productividad]]"
+    },
+    "T2": {
+     "en": [
+      "study with me, 5am routines, desk setups, “how i",
+      "stay focused” videos"
+     ],
+     "fr": "study with me, réveils à 5h, setups de bureau, les « comment je reste focus »",
+     "texte": "study with me, rutinas de las 5am, setups, videos de “cómo no pierdo el foco”"
+    },
+    "T3": {
+     "en": [
+      "your brain gets a hit of",
+      "dopamine like you’ve",
+      "actually done something,",
+      "so real work feels even",
+      "harder to start"
+     ],
+     "fr": "ton cerveau prend [[un shot de dopamine]] comme si t'avais bossé, alors [[s'y mettre devient encore plus dur]]",
+     "texte": "tu cerebro recibe [[un golpe de dopamina]] como si ya hubieras hecho algo, así que [[ponerte a trabajar cuesta aún más]]"
+    },
+    "T4": {
+     "en": [
+      "close the video and do",
+      "the thing instead"
+     ],
+     "fr": "ferme la vidéo et [[fais le truc]] pour de vrai",
+     "texte": "cierra el video y [[haz la tarea]] de una vez"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "studying with a show on"
+     ],
+     "fr": "bosser [[devant une série]]",
+     "texte": "estudiar [[con una serie]]"
+    },
+    "T2": {
+     "en": [
+      "you think it’s fine because",
+      "you’re still getting work",
+      "done, but your brain keeps",
+      "switching back and forth"
+     ],
+     "fr": "tu crois que ça va vu que t'avances, mais ton cerveau [[fait des allers-retours sans arrêt]]",
+     "texte": "crees que está bien porque igual avanzas, pero tu cerebro [[salta de una cosa a otra]] todo el rato"
+    },
+    "T3": {
+     "en": [
+      "every time it switches",
+      "back, it has to find its place",
+      "again"
+     ],
+     "fr": "à chaque fois qu'il revient, il doit [[retrouver où il en était]]",
+     "texte": "cada vez que vuelve, tiene que [[reencontrar dónde iba]]"
+    },
+    "T4": {
+     "en": [
+      "if you need sound, put on something",
+      "with no words and no story"
+     ],
+     "fr": "si t'as besoin de son, mets un truc [[sans paroles et sans histoire]]",
+     "texte": "si necesitas sonido, pon algo [[sin letra y sin historia]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

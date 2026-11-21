@@ -1,0 +1,296 @@
+{
+ "post_id": "var-ruin20s-5",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "top 5 načina da zauvek ostaneš smor"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(gorka istina)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_06e99919.jpg",
+      "boite": [
+       0,
+       250,
+       2048,
+       1540
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "nikad ne stiči nove prijatelje"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "tvoje društvo se zatvorilo u srednjoj. [[nema novih članova]], izvini"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "novi ljudi znače nove priče, nova mišljenja, novu muziku. zvuči [[naporno]], zar ne?"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "ako na žurci neko zanimljiv pokuša da priča s tobom, gledaj u telefon dok [[ne odustane]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0964a4c2.jpg",
+      "boite": [
+       0,
+       400,
+       2048,
+       1480
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop scrolling and start reading"
+     ],
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "žali se ceo dan da ti je dosadno"
+    },
+    "T2": {
+     "en": [
+      "short-form content keeps",
+      "your brain chasing novelty",
+      "every few seconds"
+     ],
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
+     "texte": "reci to 12 puta dnevno, pa opet otvori [[iste 3 aplikacije]] od malopre"
+    },
+    "T3": {
+     "en": [
+      "books force sustained",
+      "attention, memory and",
+      "imagination to stay",
+      "switched on"
+     ],
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "ako ti je dosadno, kriv je ceo svet, [[nikad ti]]. ionako nema šta da se radi"
+    },
+    "T4": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, replace",
+      "your scrolling with reading"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "nikad ne traži rešenje. [[ostani u dosadi]] i pobrini se da svi to čuju"
+    },
+    "T5": {
+     "en": [
+      "i use readup to block my",
+      "apps until i read, or you",
+      "can move your phone to a",
+      "different room"
+     ],
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
+     "texte": "i nikad ne menjaj skrolovanje za knjigu, podkast ili lekciju od 5 min u [[aplikaciji Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "train a martial art"
+     ],
+     "fr": "fais un sport de combat",
+     "texte": "nikad ne izlazi bez društva"
+    },
+    "T2": {
+     "en": [
+      "you get corrected constantly, exposed when your",
+      "technique is bad, and forced to keep going when",
+      "you're tired"
+     ],
+     "fr": "on te [[corrige sans arrêt]], on voit direct quand ta technique est nulle, et tu dois continuer [[même crevée]]",
+     "texte": "koncert, bioskop, putovanje? ako niko nema vremena, [[otkazano je]]. bolje ostati kod kuće nego da te vide bez društva"
+    },
+    "T3": {
+     "en": [
+      "martial arts teaches",
+      "you to stay calm under",
+      "pressure"
+     ],
+     "fr": "ça t'apprend à [[rester calme sous pression]]",
+     "texte": "sto za jednu osobu? šta će [[ljudi da kažu]]"
+    },
+    "T4": {
+     "en": [
+      "instead of quitting the",
+      "second something gets",
+      "uncomfortable"
+     ],
+     "fr": "au lieu de tout lâcher dès que ça devient inconfortable",
+     "texte": "zato čekaj. jednog dana će neko [[konačno reći da]]. možda"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_060f9bde.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "nikad više ne kroči u muzej"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "muzeji su tihi, spori i puni stvari [[starijih od tvog telefona]]"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "slika na kojoj je neko radio 4 godine? [[3 sekunde]], max. onda kukaj da te bole noge i pravo ka izlazu"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "umetnost je [[za druge]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_501b051b.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "na svaki odmor idi na potpuno isto mesto"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "nešto novo? [[previše stresno]]"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "ista plaža, isti hotel, isti restoran, isti ten. zemlja u kojoj ne možeš da pročitaš meni? [[nikad]]"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "ostani tačno ista osoba kao sa 16, iste priče, iste fore. biti smor nije mana, [[to je stil života]]!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0b1145c6.jpg",
+      "boite": [
+       430,
+       0,
+       1508,
+       1300
+      ]
+     }
+    }
+   }
+  }
+ }
+}

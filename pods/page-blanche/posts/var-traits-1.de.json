@@ -1,0 +1,281 @@
+{
+ "post_id": "var-traits-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "10/10 traits méconnus des gens qui réussissent",
+     "texte": "10/10 Eigenarten erfolgreicher Menschen"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(la science le dit)",
+     "alignement": "droite",
+     "texte": "(laut Studien)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07c01365.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "[[lâche youtube]] pendant les repas",
+     "texte": "sie [[schreiben ihre Gedanken auf]]"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
+     "texte": "Ideen, Pläne, Fehler: alles landet [[auf Papier]], statt im Kopf im Kreis zu laufen"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
+     "texte": "Schreiben zwingt vage Gedanken, zu [[klaren Sätzen]] zu werden"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to",
+      "watch something while you eat is destroying your",
+      "attention span"
+     ],
+     "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
+     "texte": "einen Plan, den du nie richtig angeschaut hast, kannst du nicht verbessern. Papier zeigt [[die Lücken, die dein Kopf versteckt]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_161ebd66.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone first thing",
+      "in the morning"
+     ],
+     "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
+     "texte": "sie sehen Schlaf als [[Teil der Arbeit]]"
+    },
+    "T2": {
+     "en": [
+      "the first thing you see sets the tone, and right",
+      "now it’s notifications and other people’s lives"
+     ],
+     "fr": "ce que tu vois en premier conditionne ta journée, et là c'est [[des notifs et la vie des autres]]",
+     "texte": "ein müdes Gehirn [[entscheidet schlechter]] und merkt sich weniger, und die eigene Müdigkeit unterschätzt man oft"
+    },
+    "T3": {
+     "en": [
+      "give yourself the",
+      "first 30 minutes",
+      "without your phone"
+     ],
+     "fr": "passe [[les 30 premières minutes]] sans ton tel",
+     "texte": "gleiche Schlafenszeit, [[auch am Wochenende]]"
+    },
+    "T4": {
+     "en": [
+      "you start the day doing what you chose, instead of",
+      "reacting to whatever your phone throws at you"
+     ],
+     "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
+     "texte": "sie prahlen nicht mit 4 Stunden Schlaf, sie planen ihre Abende so, dass sie [[genug schlafen]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4045e9b9.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "skipping every boring part"
+     ],
+     "fr": "zapper chaque passage chiant",
+     "texte": "sie holen sich [[früh Feedback]]"
+    },
+    "T2": {
+     "en": [
+      "you skip intros, speed up videos, skim paragraphs,",
+      "jump between chapters"
+     ],
+     "fr": "tu zappes les intros, [[tu mets en x2]], tu survoles, tu sautes des chapitres",
+     "texte": "sie zeigen Entwürfe, halbfertige Pläne und [[hässliche erste Versionen]]"
+    },
+    "T3": {
+     "en": [
+      "you’re teaching yourself that",
+      "anything slightly slow",
+      "deserves to be escaped"
+     ],
+     "fr": "t'apprends à ton cerveau que dès que c'est un peu lent, faut fuir",
+     "texte": "eine Korrektur am Anfang kostet [[viel weniger]] als eine am Ende"
+    },
+    "T4": {
+     "en": [
+      "then real work feels",
+      "unbearable because there’s",
+      "no “skip 10 seconds” button"
+     ],
+     "fr": "alors bosser devient insupportable, y'a [[pas de bouton « avancer de 10 s »]]",
+     "texte": "lieber hören sie jetzt „das ist schlecht“, als es [[zu spät zu merken]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_982da0c1.jpg",
+      "boite": [
+       0,
+       0,
+       2912,
+       1440
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "sie bleiben [[neugierig auf alles]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "sie lernen Dinge [[außerhalb ihres Fachs]]"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "Geschichte, Kunst, Wissenschaft: eine Idee aus einem Bereich löst oft ein Problem in einem anderen, so entstehen [[originelle Ideen]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "besser als mein Feed: der Urknall in 5 Minuten, meine Lektion von heute in [[der Sophia-App]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming while doing everything"
+     ],
+     "fr": "consommer [[pendant tout ce que tu fais]]",
+     "texte": "sie sagen [[viel öfter Nein]]"
+    },
+    "T2": {
+     "en": [
+      "eating with youtube, walking with podcasts, working",
+      "with music, scrolling while watching netflix"
+     ],
+     "fr": "[[manger devant youtube]], marcher avec un podcast, bosser en [[musique]], scroller devant netflix",
+     "texte": "zu Einladungen, Nebenprojekten und „kleinen Gefallen“, die nicht zu [[ihren Prioritäten]] passen"
+    },
+    "T3": {
+     "en": [
+      "you’re training your",
+      "brain to expect multiple",
+      "streams of input at once"
+     ],
+     "fr": "tu habitues ton cerveau à recevoir [[plusieurs flux d'infos]] à la fois",
+     "texte": "jedes Ja [[nimmt leise Zeit]] von etwas anderem weg"
+    },
+    "T4": {
+     "en": [
+      "eventually doing just",
+      "one thing starts to feel",
+      "painfully empty"
+     ],
+     "fr": "à force, faire une seule chose te paraît [[atrocement vide]]",
+     "texte": "durch Neinsagen halten sie sich Platz frei für [[das Wesentliche]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_09b9c364.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       1700
+      ]
+     }
+    }
+   }
+  }
+ }
+}

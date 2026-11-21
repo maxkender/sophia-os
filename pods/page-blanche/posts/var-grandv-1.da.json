@@ -1,0 +1,297 @@
+{
+ "post_id": "var-grandv-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things that are rapidly",
+      "destroying your ability to focus"
+     ],
+     "fr": "10/10 trucs qui flinguent ta concentration à vitesse grand V",
+     "texte": "10/10 ting, der lynhurtigt ødelægger din evne til at fokusere"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(ifølge hjerneforskning)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6e395487.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/os_0f60de98.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to something",
+      "constantly"
+     ],
+     "fr": "écouter un truc [[non-stop]]",
+     "texte": "du sidder helt stille [[hele dagen]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, YouTube in the background,",
+      "your brain is almost never doing just one",
+      "thing"
+     ],
+     "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
+     "texte": "forelæsning, skrivebord, sofa, seng. din krop bevæger sig knap, og hjernen [[sætter farten ned med den]]"
+    },
+    "T3": {
+     "en": [
+      "especially with",
+      "lyrics, part of",
+      "your attention is",
+      "still processing",
+      "language"
+     ],
+     "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots",
+     "texte": "selv [[en kort gåtur]] giver din opmærksomhed et ordentligt boost bagefter"
+    },
+    "T4": {
+     "en": [
+      "silence feels boring because you've stopped",
+      "practicing it"
+     ],
+     "fr": "le silence te paraît chiant parce que t'en as [[perdu l'habitude]]",
+     "texte": "tag trappen, gå til timen, [[rejs dig og bevæg dig hver time]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0161939d.jpg",
+      "boite": [
+       0,
+       0,
+       944,
+       1104
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "du skimmer [[bare alting]]"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even",
+      "realising, then lose hours of",
+      "your day to it. that is frying",
+      "your attention span"
+     ],
+     "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et t'y perds des heures. ça te grille la concentration",
+     "texte": "overskrifter, billedtekster, de første to linjer af et opslag, og så er du væk. din hjerne lærer at [[stå af før pointen]]"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower to",
+      "stop, but i use a thing that",
+      "blocks tiktok until i read a",
+      "book for 20 minutes"
+     ],
+     "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "dagens 5 min i [[Sophia-appen]] handlede om, hvorfor renæssancen startede i italien, og jeg læste det helt til ende"
+    },
+    "T4": {
+     "en": [
+      "don't become illiterate!!"
+     ],
+     "fr": "deviens pas inculte !!",
+     "texte": "læs tingene til ende!!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming everything at 2x speed"
+     ],
+     "fr": "tout mettre [[en vitesse x2]]",
+     "texte": "du arbejder 3 timer [[uden pause]]"
+    },
+    "T2": {
+     "en": [
+      "when every podcast, video",
+      "and voice note is sped up,",
+      "normal-speed information",
+      "starts feeling painfully slow"
+     ],
+     "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]",
+     "texte": "dit fokus falder helt naturligt efter et stykke tid, så hvis du bare presser på, er den sidste time [[mest spildt]]"
+    },
+    "T3": {
+     "en": [
+      "you're training yourself to",
+      "need constant density"
+     ],
+     "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
+     "texte": "hjernen har brug for [[korte pauser]] for at holde sig skarp"
+    },
+    "T4": {
+     "en": [
+      "instead, actually sit with an",
+      "idea for more than 10",
+      "seconds"
+     ],
+     "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
+     "texte": "rejs dig hvert 50. minut, stræk ud og kig på noget langt væk"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_26ae8ed8.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "googling every random thought",
+      "you have"
+     ],
+     "fr": "googler [[la moindre pensée]] qui te vient",
+     "texte": "du har din telefon [[lige ved siden af dig]]"
+    },
+    "T2": {
+     "en": [
+      "you don't need to solve every curiosity the second it",
+      "appears"
+     ],
+     "fr": "pas besoin de régler chaque curiosité à la seconde où elle débarque",
+     "texte": "selv med skærmen nedad og på lydløs trækker den i din opmærksomhed"
+    },
+    "T3": {
+     "en": [
+      "one search becomes five",
+      "tabs, then Reddit, then",
+      "somehow 20 minutes",
+      "disappeared"
+     ],
+     "fr": "une recherche, puis cinq onglets, puis Reddit, et [[20 minutes se sont envolées]]",
+     "texte": "i et studie huskede folk mindre, [[bare fordi deres telefon lå på bordet]]"
+    },
+    "T4": {
+     "en": [
+      "write the thought down",
+      "and finish what you were",
+      "doing first"
+     ],
+     "fr": "note ton idée et [[finis d'abord ce que t'étais en train de faire]]",
+     "texte": "når du skal fokusere, så læg den [[i tasken, ude af syne]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_31d533cb.jpg",
+      "boite": [
+       0,
+       1450,
+       1504,
+       1184
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "procrastinating all day"
+     ],
+     "fr": "procrastiner [[toute la journée]]",
+     "texte": "du drikker [[knap nok vand]]"
+    },
+    "T2": {
+     "en": [
+      "every time you tell",
+      "yourself you'll do then",
+      "dont, you lose trust in",
+      "yourself"
+     ],
+     "fr": "chaque fois que tu te dis « je le fais » et que non, tu [[perds confiance en toi]]",
+     "texte": "selv lidt væskemangel gør det [[sværere at fokusere]], længe før du bliver tørstig"
+    },
+    "T3": {
+     "en": [
+      "when you think about",
+      "doing something, do it",
+      "instantly"
+     ],
+     "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
+     "texte": "hav en fuld flaske på skrivebordet og [[tag tår hele dagen]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_028ba6dc.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

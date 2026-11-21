@@ -1,0 +1,294 @@
+{
+ "post_id": "var-repartie-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "kako uvijek imati [[duhovit odgovor]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(kao najzabavniji ljudi na tulumima)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_7b92f9da.jpg",
+      "boite": [
+       0,
+       150,
+       2048,
+       1375
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "va marcher sans rien dans les oreilles",
+     "texte": "vrati [[raniju foru]]"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique dès que tu sors",
+     "texte": "fora koja je nasmijala ekipu na početku večeri, zapamti je"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher boostait la créativité des gens de 60 % en moyenne",
+     "texte": "sat kasnije izvuci je u drugom kontekstu. komičari to zovu [[callback]]"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus intelligent à écouter, c'est tes propres pensées]]",
+     "texte": "upali gotovo uvijek, jer [[svi znaju o čemu je riječ]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3cd02ef1.jpg",
+      "boite": [
+       0,
+       100,
+       2048,
+       1520
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "pravilo [[tri]]"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "dvije normalne stvari, pa treća koja dođe niotkuda"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "«trebam spavati, jesti i [[novo ime]]». mozak očekuje nešto logično, a [[obrat ga nasmije]]"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "to je osnova pola stand-up točaka koje znaš"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1846016a.jpg",
+      "boite": [
+       0,
+       150,
+       2048,
+       1460
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit",
+     "texte": "nađi [[pravu usporedbu]]"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4.",
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
+     "texte": "najbolje fore uspoređuju situaciju s nečim neočekivanim, ali za to trebaš reference. prije beskrajno skrolanje, a sad učim nešto 5 min u [[aplikaciji Sophia]]. danas: zašto je renesansa nastala u Italiji"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop eating junk food"
+     ],
+     "texte": "ostani [[ozbiljnog lica]]"
+    },
+    "T2": {
+     "en": [
+      "junk food is made to hit your dopamine the same way",
+      "scrolling does"
+     ],
+     "texte": "reci najapsurdniju stvar s licem nekoga tko čita [[vremensku prognozu]]"
+    },
+    "T3": {
+     "en": [
+      "the more you eat, the",
+      "more your brain starts",
+      "craving it"
+     ],
+     "texte": "miran ton, nula osmijeha, i [[efekt je dvostruk]]"
+    },
+    "T4": {
+     "en": [
+      "every time you say no,",
+      "you practice",
+      "self-control, and that",
+      "gets easier too"
+     ],
+     "texte": "nasmijava upravo kontrast između lica i rečenice. što manje reagiraš, [[to je smješnije]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5ac41c47.jpg",
+      "boite": [
+       100,
+       0,
+       1840,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend every paycheck"
+     ],
+     "texte": "zezaj [[s osmijehom]]"
+    },
+    "T2": {
+     "en": [
+      "you only live once, so buy the clothes, the takeaway, the",
+      "new phone"
+     ],
+     "texte": "ista rečenica može zvučati kao šala ili kao napad"
+    },
+    "T3": {
+     "en": [
+      "saving is for boring people, future",
+      "you can deal with it"
+     ],
+     "texte": "odlučuje tvoj ton, [[ne riječi]]"
+    },
+    "T4": {
+     "en": [
+      "the money you waste in your 20s",
+      "is the money that could give you",
+      "freedom in your 30s"
+     ],
+     "texte": "jedan namig, jedan osmijeh, i čak i bockanje postane [[trenutak bliskosti]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0ee14e73.jpg",
+      "boite": [
+       190,
+       0,
+       1660,
+       2048
+      ]
+     }
+    }
+   }
+  }
+ }
+}

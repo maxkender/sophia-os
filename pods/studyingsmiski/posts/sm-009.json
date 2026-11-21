@@ -1,0 +1,432 @@
+{
+ "id": "sm-009",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "Juna",
+  "url": "https://www.tiktok.com/music/juna-7359782220351440912"
+ },
+ "notes": "Full test du 21/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle), sur la matinée d'étudiante : « apps that make my mornings so much better ». Sophia en 3e carte (cta C), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Sleep Cycle (suivi du sommeil et réveil intelligent), Structured (agenda visuel en frise), Headspace (méditations guidées, dont des « 3-minute resets »). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20 et du 21/11). Musique : la sienne de « the formula to ace every class » (311 k).",
+ "titre": {
+  "en": "apps that make my mornings better",
+  "fr": "les applis qui rendent mes matins tellement mieux",
+  "es": "apps que hacen mis mañanas mucho mejores",
+  "es-419": "apps que hacen mis mañanas mucho mejores",
+  "it": "app che rendono le mie mattine molto migliori",
+  "tr": "sabahlarımı çok daha güzel yapan uygulamalar",
+  "pt-BR": "apps que deixam minhas manhãs muito melhores",
+  "de": "apps, die meine morgen so viel besser machen",
+  "sl": "aplikacije, ki mi naredijo jutra veliko boljša",
+  "hu": "appok a jobb reggelekért"
+ },
+ "legendes": {
+  "en": "my morning routine in 4 apps ☀️🍵 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "ma routine du matin en 4 applis ☀️🍵 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "mi rutina de mañana en 4 apps ☀️🍵 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "mi rutina de la mañana en 4 apps ☀️🍵 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "la mia routine del mattino in 4 app ☀️🍵 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "4 uygulamada sabah rutinim ☀️🍵 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "minha rotina da manhã em 4 apps ☀️🍵 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "meine morgenroutine in 4 apps ☀️🍵 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "moja jutranja rutina v 4 aplikacijah ☀️🍵 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "a reggeli rutinom 4 appban ☀️🍵 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 40,
+     "y": 150,
+     "l": 220,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 820,
+     "y": 160,
+     "l": 180,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 740,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that\nmake my\nmornings\nbetter",
+    "sous": "slow morning\nedition"
+   },
+   "fr": {
+    "titre": "les applis\nqui rendent\nmes matins\nmeilleurs",
+    "sous": "spécial\nmatin tout doux"
+   },
+   "es": {
+    "titre": "apps que\nhacen mis\nmañanas\nmejores",
+    "sous": "edición\nmañana tranqui"
+   },
+   "es-419": {
+    "titre": "apps que\nhacen mis\nmañanas\nmejores",
+    "sous": "edición\nmañana tranqui"
+   },
+   "it": {
+    "titre": "app che\nrendono le mie\nmattine migliori",
+    "sous": "edizione\nmattina lenta"
+   },
+   "tr": {
+    "titre": "sabahlarımı\ndaha güzel\nyapan\nuygulamalar",
+    "sous": "yavaş sabah\nözel"
+   },
+   "pt-BR": {
+    "titre": "apps que\ndeixam minhas\nmanhãs\nmelhores",
+    "sous": "edição\nmanhã tranquila"
+   },
+   "de": {
+    "titre": "apps, die\nmeine morgen\nbesser machen",
+    "sous": "slow-morning-\nedition"
+   },
+   "sl": {
+    "titre": "aplikacije za\nveliko boljša\njutra",
+    "sous": "počasno jutro\nizdaja"
+   },
+   "hu": {
+    "titre": "appok a\njobb\nreggelekért",
+    "sous": "lassú reggel\nkiadás"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/sleep-cycle/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 60,
+     "y": 730,
+     "l": 230,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 730,
+     "y": 720,
+     "l": 300,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "a smart alarm that tracks your sleep and wakes you up in your lightest phase, so mornings feel way less brutal."
+   },
+   "fr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un réveil intelligent qui suit ton sommeil et te réveille dans ta phase la plus légère, pour des matins beaucoup moins durs."
+   },
+   "es": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un despertador inteligente que sigue tu sueño y te despierta en tu fase más ligera, para que las mañanas sean menos duras."
+   },
+   "es-419": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una alarma inteligente que mide tu sueño y te despierta en tu fase más ligera, para que las mañanas sean menos pesadas."
+   },
+   "it": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una sveglia intelligente che monitora il sonno e ti sveglia nella fase più leggera, così le mattine sono molto meno traumatiche."
+   },
+   "tr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "uykunu takip edip seni en hafif uyku evresinde uyandıran akıllı bir alarm, sabahlar çok daha az zor geçiyor."
+   },
+   "pt-BR": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "um despertador inteligente que acompanha seu sono e te acorda na fase mais leve, pra manhã ser bem menos sofrida."
+   },
+   "de": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "ein smarter wecker, der deinen schlaf misst und dich in der leichtesten phase weckt, damit der morgen weniger brutal ist."
+   },
+   "sl": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "pametna budilka, ki spremlja spanje in te zbudi v najlažji fazi, da so jutra veliko manj kruta."
+   },
+   "hu": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "okos ébresztő, ami figyeli az alvásod, és a legkönnyebb fázisban ébreszt, így a reggel sokkal kevésbé brutális."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/structured/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/pince.png",
+     "x": 70,
+     "y": 730,
+     "l": 220,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "i plan my whole day on its timeline over breakfast: classes, study blocks and breaks, all in one view."
+   },
+   "fr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "je planifie toute ma journée sur sa frise pendant le petit-déj : cours, sessions de révision et pauses, tout d'un coup d'œil."
+   },
+   "es": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "planifico todo mi día en su línea de tiempo mientras desayuno: clases, bloques de estudio y descansos, todo de un vistazo."
+   },
+   "es-419": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "planeo todo mi día en su línea de tiempo mientras desayuno: clases, bloques de estudio y descansos, todo de un vistazo."
+   },
+   "it": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "pianifico tutta la giornata sulla sua timeline a colazione: lezioni, blocchi di studio e pause, tutto in un colpo d'occhio."
+   },
+   "tr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "kahvaltıda tüm günümü onun zaman çizelgesinde planlıyorum: dersler, çalışma blokları ve molalar tek bakışta."
+   },
+   "pt-BR": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "planejo meu dia inteiro na linha do tempo dele no café da manhã: aulas, blocos de estudo e pausas, tudo numa tela só."
+   },
+   "de": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "beim frühstück plane ich meinen ganzen tag auf der zeitleiste: vorlesungen, lernblöcke und pausen auf einen blick."
+   },
+   "sl": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "ob zajtrku na njeni časovnici načrtujem cel dan: predavanja, učne bloke in odmore, vse na en pogled."
+   },
+   "hu": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "reggeli közben az idővonalán tervezem meg az egész napom: órák, tanulási blokkok és szünetek egy pillantással."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 850,
+     "y": 100,
+     "l": 170,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "my lesson with my coffee, every morning!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "ma leçon avec mon café, tous les matins !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi lección con el café, cada mañana!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi lección con el café, cada mañana!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "la lezione col caffè, ogni mattina!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "her sabah kahvemle dersimi yapıyorum!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "minha aula com o café, toda manhã!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "meine lektion zum kaffee, jeden morgen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "lekcija ob kavi, vsako jutro!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "a leckém a kávém mellett, minden reggel!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/headspace/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 800,
+     "y": 730,
+     "l": 220,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "a few minutes of guided meditation before leaving, and i actually start the day calm instead of rushing."
+   },
+   "fr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "quelques minutes de méditation guidée avant de partir, et je commence enfin la journée calme au lieu de courir."
+   },
+   "es": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "unos minutos de meditación guiada antes de salir, y por fin empiezo el día tranquila en vez de con prisas."
+   },
+   "es-419": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "unos minutos de meditación guiada antes de salir, y por fin empiezo el día tranquila en vez de con prisa."
+   },
+   "it": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "qualche minuto di meditazione guidata prima di uscire, e inizio la giornata calma invece che di corsa."
+   },
+   "tr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "çıkmadan önce birkaç dakikalık rehberli meditasyon, güne koşturmak yerine sakin başlıyorum."
+   },
+   "pt-BR": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "uns minutinhos de meditação guiada antes de sair, e eu começo o dia calma em vez de correndo."
+   },
+   "de": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "ein paar minuten geführte meditation, bevor ich losgehe, und ich starte ruhig in den tag statt gehetzt."
+   },
+   "sl": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "nekaj minut vodene meditacije pred odhodom in dan začnem mirno, namesto v naglici."
+   },
+   "hu": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "pár perc vezetett meditáció indulás előtt, és végre nyugodtan kezdem a napot rohanás helyett."
+   }
+  }
+ ]
+}

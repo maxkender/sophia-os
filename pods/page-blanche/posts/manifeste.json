@@ -5678,6 +5678,33 @@
    "notes": "declinaison G1 de 7708456205689113889, cta C",
    "type_bleo": "declinaison",
    "parent_contenu_id": "6f9d1d68-8901-49d1-b8d6-903c703904b6"
+  },
+  {
+   "post_id": "var-traits-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7690642292855672096?variante=var-traits-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#reussite #mindset #selfimprovement",
+   "musique": {
+    "titre": "original sound - ridgeclub",
+    "auteur": "ridgeclub",
+    "original": false,
+    "id": "7584564476481948428",
+    "url_tiktok": "https://www.tiktok.com/music/x-7584564476481948428"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7690642292855672096_1",
+    "2": "7699939278847085857_2",
+    "3": "7699939278847085857_4",
+    "4": "7695416366886604064_5",
+    "5": "7699939278847085857_5",
+    "6": "7695416366886604064_2"
+   },
+   "notes": "declinaison G1 de 7690642292855672096, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "916bf486-3e6d-4f4f-9a95-b7e1ac39429c"
   }
  ]
 }

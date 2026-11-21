@@ -1,0 +1,740 @@
+{
+ "id": "mi-010",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7704963592528989471",
+  "vues": 126800,
+  "publie_le": "2026-11-13",
+  "accroche": "How / to / quit / Doomscrolling"
+ },
+ "fond": "gris_noir",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7290646208069356321"
+ },
+ "notes": "Full test (boîte vide). Format de « How to quit Doomscrolling » de @bdnf.milly (126,8 k vues, 13/11, fond gris, texte noir), famille « How to [verbe] … », avec nos conseils (aucune autre appli citée). Slide Sophia (3) : remplacer le dernier scroll par une leçon, comme un entraînement, logo seul ; cta A. Faits vérifiés : limiter les réseaux sociaux à environ 30 minutes par jour pendant trois semaines a réduit la solitude et les symptômes dépressifs (Hunt, Marx, Lipson et Young, Journal of Social and Clinical Psychology 2018) ; désactiver Facebook quatre semaines a un peu augmenté le bien-être et le temps passé hors ligne (Allcott, Braghieri, Eichmeyer et Gentzkow, American Economic Review 2020) ; les habitudes se déclenchent sur des signaux (Wood et Neal, Psychological Review 2007) ; téléphone dans une autre pièce : meilleurs scores de mémoire et de raisonnement que téléphone retourné sur la table (Ward, Duke, Gneezy et Bos, Journal of the Association for Consumer Research 2017). 11 langues. Images : Seedream (irm-surlignee, irm-axiale, neurones-reseau), sans texte.",
+ "titre": {
+  "en": "How to quit Doomscrolling",
+  "fr": "Comment arrêter le doomscrolling",
+  "es": "Cómo dejar el doomscrolling",
+  "es-419": "Cómo dejar el doomscrolling",
+  "it": "Come smettere di fare doomscrolling",
+  "tr": "Doomscrolling'i nasıl bırakırsın",
+  "pt-BR": "Como parar com o doomscrolling",
+  "sl": "Kako nehati z doomscrollingom",
+  "hr": "Kako prestati s doomscrollingom",
+  "de": "Wie du mit dem Doomscrolling aufhörst",
+  "hu": "Hogyan hagyd abba a doomscrollingot"
+ },
+ "legendes": {
+  "en": "trade the feed for something you keep #doomscrolling #screentime #focus #brain #habits",
+  "fr": "échange le fil contre quelque chose qui reste #doomscrolling #tempsdécran #concentration #cerveau #habitudes",
+  "es": "cambia el feed por algo que se queda #doomscrolling #tiempodepantalla #concentración #cerebro #hábitos",
+  "es-419": "cambia el feed por algo que se queda contigo #doomscrolling #tiempoenpantalla #concentración #cerebro #hábitos",
+  "it": "scambia il feed con qualcosa che resta #doomscrolling #tempodischermo #concentrazione #cervello #abitudini",
+  "tr": "akışı, aklında kalacak bir şeyle değiştir #doomscrolling #ekransüresi #odaklanma #beyin #alışkanlıklar",
+  "pt-BR": "troque o feed por algo que fica #doomscrolling #tempodetela #foco #cerebro #habitos",
+  "sl": "zamenjaj vir z nečim, kar ostane #doomscrolling #časprizaslonu #zbranost #možgani #navade",
+  "hr": "zamijeni feed nečim što ostaje #doomscrolling #vrijemeekrana #koncentracija #mozak #navike",
+  "de": "tausch den feed gegen etwas, das bleibt #doomscrolling #bildschirmzeit #konzentration #gehirn #gewohnheiten",
+  "hu": "cseréld le a hírfolyamot valamire, ami megmarad #doomscrolling #képernyőidő #koncentráció #agy #szokások"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-surlignee.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Quit",
+      "taille": "grand"
+     },
+     {
+      "t": "Doomscrolling",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "arrêter le",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrolling",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "dejar el",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrolling",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "dejar el",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrolling",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come smettere",
+      "taille": "petit"
+     },
+     {
+      "t": "di fare",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrolling",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Doomscrolling'i",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Bırakırsın",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como parar",
+      "taille": "petit"
+     },
+     {
+      "t": "com o",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrolling",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "nehati z",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrollingom",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "prestati s",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrollingom",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du mit dem",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrolling",
+      "taille": "grand"
+     },
+     {
+      "t": "aufhörst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan hagyd",
+      "taille": "petit"
+     },
+     {
+      "t": "abba a",
+      "taille": "petit"
+     },
+     {
+      "t": "Doomscrollingot",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Know What It Costs",
+    "blocs": [
+     {
+      "p": "In one experiment, students who limited social media to about 30 minutes a day for three weeks reported less loneliness and fewer symptoms of depression than students who kept their usual habits."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "In another large study, people paid to deactivate Facebook for four weeks reported being slightly happier and more satisfied with life, and spent the freed time offline, with friends and family."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Sache ce que ça coûte",
+    "blocs": [
+     {
+      "p": "Dans une expérience, des étudiants qui ont limité les réseaux sociaux à environ 30 minutes par jour pendant trois semaines se sentaient moins seuls et avaient moins de symptômes dépressifs que ceux qui avaient gardé leurs habitudes."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Dans une autre grande étude, des gens payés pour désactiver Facebook pendant quatre semaines se disaient un peu plus heureux et plus satisfaits de leur vie, et passaient le temps libéré hors ligne, avec leurs amis et leur famille."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Conoce lo que cuesta",
+    "blocs": [
+     {
+      "p": "En un experimento, los estudiantes que limitaron las redes sociales a unos 30 minutos al día durante tres semanas se sintieron menos solos y tuvieron menos síntomas de depresión que los que mantuvieron sus hábitos."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "En otro gran estudio, personas a las que se pagó por desactivar Facebook durante cuatro semanas dijeron sentirse algo más felices y satisfechas con su vida, y dedicaron el tiempo libre a estar desconectadas, con amigos y familia."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Conoce lo que te cuesta",
+    "blocs": [
+     {
+      "p": "En un experimento, estudiantes que limitaron las redes sociales a unos 30 minutos al día durante tres semanas se sintieron menos solos y tuvieron menos síntomas de depresión que quienes siguieron con sus hábitos de siempre."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "En otro estudio grande, personas a las que les pagaron por desactivar Facebook durante cuatro semanas dijeron sentirse un poco más felices y satisfechas con su vida, y usaron ese tiempo fuera de línea, con amigos y familia."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Sappi quanto costa",
+    "blocs": [
+     {
+      "p": "In un esperimento, studenti che hanno limitato i social a circa 30 minuti al giorno per tre settimane si sono sentiti meno soli e hanno avuto meno sintomi depressivi di chi ha mantenuto le solite abitudini."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "In un altro ampio studio, persone pagate per disattivare Facebook per quattro settimane si sono dette un po' più felici e soddisfatte della propria vita, e hanno passato il tempo liberato offline, con amici e famiglia."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Bedelini bil",
+    "blocs": [
+     {
+      "p": "Bir deneyde, sosyal medyayı üç hafta boyunca günde yaklaşık 30 dakikayla sınırlayan öğrenciler, alışkanlıklarını sürdürenlere göre daha az yalnızlık ve daha az depresyon belirtisi bildirdi."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Büyük bir başka çalışmada, Facebook'u dört hafta kapatmaları için para ödenen kişiler biraz daha mutlu ve hayatlarından daha memnun olduklarını söyledi; kazandıkları zamanı da çevrim dışı, arkadaşları ve aileleriyle geçirdiler."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Saiba quanto custa",
+    "blocs": [
+     {
+      "p": "Em um experimento, estudantes que limitaram as redes sociais a cerca de 30 minutos por dia durante três semanas relataram menos solidão e menos sintomas de depressão do que os que mantiveram os hábitos de sempre."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Em outro grande estudo, pessoas pagas para desativar o Facebook por quatro semanas disseram estar um pouco mais felizes e satisfeitas com a vida, e passaram o tempo livre fora da internet, com amigos e família."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vedi, koliko stane",
+    "blocs": [
+     {
+      "p": "V enem poskusu so študenti, ki so družbena omrežja tri tedne omejili na približno 30 minut na dan, poročali o manj osamljenosti in manj znakih depresije kot tisti, ki so obdržali običajne navade."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "V drugi veliki raziskavi so ljudje, ki so jim plačali, da so štiri tedne izklopili Facebook, poročali, da so nekoliko srečnejši in bolj zadovoljni z življenjem, pridobljeni čas pa so preživeli brez povezave, s prijatelji in družino."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Znaj koliko košta",
+    "blocs": [
+     {
+      "p": "U jednom pokusu studenti koji su tri tjedna ograničili društvene mreže na oko 30 minuta dnevno osjećali su se manje usamljeno i imali manje simptoma depresije od onih koji su zadržali uobičajene navike."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "U drugom velikom istraživanju ljudi koji su bili plaćeni da četiri tjedna deaktiviraju Facebook rekli su da su nešto sretniji i zadovoljniji životom, a oslobođeno vrijeme proveli su izvan mreže, s prijateljima i obitelji."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Wisse, was es kostet",
+    "blocs": [
+     {
+      "p": "In einem Experiment fühlten sich Studierende, die soziale Medien drei Wochen lang auf etwa 30 Minuten am Tag begrenzten, weniger einsam und hatten weniger depressive Symptome als jene, die ihre Gewohnheiten beibehielten."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "In einer anderen großen Studie gaben Menschen, die dafür bezahlt wurden, Facebook vier Wochen lang zu deaktivieren, an, etwas glücklicher und zufriedener zu sein, und verbrachten die gewonnene Zeit offline, mit Freunden und Familie."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tudd, mibe kerül",
+    "blocs": [
+     {
+      "p": "Egy kísérletben azok a diákok, akik három hétig napi nagyjából 30 percre korlátozták a közösségi médiát, kevésbé érezték magukat magányosnak, és kevesebb depressziós tünetük volt, mint akik megtartották a szokásaikat."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Egy másik nagy vizsgálatban azok, akiket azért fizettek, hogy négy hétre kikapcsolják a Facebookot, kicsit boldogabbnak és elégedettebbnek mondták magukat, a felszabadult időt pedig offline töltötték, barátokkal és családdal."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Replace The Last Scroll",
+    "blocs": [
+     {
+      "p": "Quitting works better when something takes the habit's place. Habits are set off by cues, and the same cue, picking up your phone at night, can lead somewhere else."
+     },
+     {
+      "p": "Swap the last scroll of the day for one short lesson: a few minutes that end with you knowing something new, instead of an endless feed."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Remplace le dernier scroll",
+    "blocs": [
+     {
+      "p": "On arrête mieux quand quelque chose prend la place de l'habitude. Les habitudes se déclenchent sur des signaux, et le même signal, prendre ton téléphone le soir, peut mener ailleurs."
+     },
+     {
+      "p": "Échange le dernier scroll de la journée contre une courte leçon : quelques minutes qui se terminent avec quelque chose de nouveau en tête, au lieu d'un fil sans fin."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Sustituye el último scroll",
+    "blocs": [
+     {
+      "p": "Se deja mejor un hábito cuando algo ocupa su lugar. Los hábitos se disparan con señales, y la misma señal, coger el móvil por la noche, puede llevarte a otro sitio."
+     },
+     {
+      "p": "Cambia el último scroll del día por una lección corta: unos minutos que terminan con algo nuevo en la cabeza, en vez de un feed sin fin."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Reemplaza el último scroll",
+    "blocs": [
+     {
+      "p": "Dejar un hábito funciona mejor cuando algo toma su lugar. Los hábitos se activan con señales, y la misma señal, agarrar tu celular en la noche, puede llevarte a otro lado."
+     },
+     {
+      "p": "Cambia el último scroll del día por una lección corta: unos minutos que terminan contigo sabiendo algo nuevo, en lugar de un feed infinito."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Sostituisci l'ultimo scroll",
+    "blocs": [
+     {
+      "p": "Si smette meglio quando qualcosa prende il posto dell'abitudine. Le abitudini partono da segnali, e lo stesso segnale, prendere il telefono la sera, può portare altrove."
+     },
+     {
+      "p": "Scambia l'ultimo scroll della giornata con una breve lezione: pochi minuti che finiscono con qualcosa di nuovo in testa, invece di un feed infinito."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Son kaydırmayı değiştir",
+    "blocs": [
+     {
+      "p": "Bir alışkanlığın yerine başka bir şey koyunca bırakmak daha kolay olur. Alışkanlıklar işaretlerle tetiklenir ve aynı işaret, gece telefonu eline almak, seni başka bir yere götürebilir."
+     },
+     {
+      "p": "Günün son kaydırmasını kısa bir dersle değiştir: sonsuz bir akış yerine, yeni bir şey öğrenmiş olarak biten birkaç dakika."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Troque a última rolagem",
+    "blocs": [
+     {
+      "p": "Parar funciona melhor quando algo toma o lugar do hábito. Hábitos são disparados por sinais, e o mesmo sinal, pegar o celular à noite, pode levar a outro lugar."
+     },
+     {
+      "p": "Troque a última rolagem do dia por uma lição curta: alguns minutos que terminam com você sabendo algo novo, em vez de um feed sem fim."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Zamenjaj zadnje drsenje",
+    "blocs": [
+     {
+      "p": "Navade se lažje znebiš, če jo nekaj nadomesti. Navade sprožijo znaki, in isti znak, večerni prijem za telefon, te lahko pelje drugam."
+     },
+     {
+      "p": "Zadnje drsenje dneva zamenjaj s kratko lekcijo: nekaj minut, ki se končajo s tem, da veš nekaj novega, namesto neskončnega vira."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Zamijeni zadnje skrolanje",
+    "blocs": [
+     {
+      "p": "Navike se lakše riješiš kad nešto zauzme njezino mjesto. Navike pokreću znakovi, a isti znak, uzimanje mobitela navečer, može te odvesti negdje drugdje."
+     },
+     {
+      "p": "Zamijeni zadnje skrolanje u danu kratkom lekcijom: nekoliko minuta koje završe tako da znaš nešto novo, umjesto beskrajnog feeda."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Ersetze das letzte Scrollen",
+    "blocs": [
+     {
+      "p": "Aufhören klappt besser, wenn etwas den Platz der Gewohnheit einnimmt. Gewohnheiten werden durch Auslöser gestartet, und derselbe Auslöser, abends zum Handy greifen, kann woandershin führen."
+     },
+     {
+      "p": "Tausch das letzte Scrollen des Tages gegen eine kurze Lektion: ein paar Minuten, nach denen du etwas Neues weißt, statt eines endlosen Feeds."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Cseréld le az utolsó görgetést",
+    "blocs": [
+     {
+      "p": "Könnyebb leszokni, ha valami átveszi a szokás helyét. A szokásokat jelek indítják el, és ugyanaz a jel, esténként a telefonért nyúlni, máshová is vezethet."
+     },
+     {
+      "p": "Cseréld le a nap utolsó görgetését egy rövid leckére: néhány perc, amelynek a végén tudsz valami újat, egy végtelen hírfolyam helyett."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Add Some Distance",
+    "blocs": [
+     {
+      "p": "Small barriers matter. In one study, people whose phone was in another room scored higher on memory and reasoning tests than people whose phone lay face down on the desk."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "So charge it outside the bedroom, log out of the apps that pull you in most, and keep the feed one extra step away. Every bit of friction gives you a moment to choose."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Mets de la distance",
+    "blocs": [
+     {
+      "p": "Les petits obstacles comptent. Dans une étude, les personnes dont le téléphone était dans une autre pièce réussissaient mieux des tests de mémoire et de raisonnement que celles dont le téléphone était retourné sur la table."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Alors recharge-le hors de la chambre, déconnecte-toi des applis qui t'aspirent le plus, et garde le fil à un pas de plus. Chaque petite friction te laisse un moment pour choisir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Pon distancia",
+    "blocs": [
+     {
+      "p": "Las pequeñas barreras cuentan. En un estudio, las personas que tenían el móvil en otra habitación sacaron mejores resultados en pruebas de memoria y razonamiento que las que lo tenían boca abajo sobre la mesa."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Así que cárgalo fuera del dormitorio, cierra sesión en las apps que más te enganchan y mantén el feed un paso más lejos. Cada pequeña fricción te da un momento para elegir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Pon distancia",
+    "blocs": [
+     {
+      "p": "Las pequeñas barreras importan. En un estudio, las personas que tenían el celular en otro cuarto sacaron mejores resultados en pruebas de memoria y razonamiento que quienes lo tenían boca abajo en el escritorio."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Entonces cárgalo fuera de tu cuarto, cierra sesión en las apps que más te atrapan y deja el feed un paso más lejos. Cada pequeña fricción te da un momento para decidir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Metti distanza",
+    "blocs": [
+     {
+      "p": "Le piccole barriere contano. In uno studio, chi aveva il telefono in un'altra stanza ha ottenuto risultati migliori in test di memoria e ragionamento di chi lo aveva a faccia in giù sulla scrivania."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Quindi ricaricalo fuori dalla camera, esci dalle app che ti risucchiano di più e tieni il feed un passo più lontano. Ogni piccolo attrito ti dà un momento per scegliere."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Arana mesafe koy",
+    "blocs": [
+     {
+      "p": "Küçük engeller önemlidir. Bir çalışmada telefonu başka bir odada olanlar, telefonu masada ters duranlara göre hafıza ve akıl yürütme testlerinde daha yüksek puan aldı."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "O yüzden onu yatak odasının dışında şarj et, seni en çok içine çeken uygulamalardan çıkış yap ve akışı bir adım daha uzakta tut. Her küçük sürtünme, sana seçmek için bir an verir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Crie distância",
+    "blocs": [
+     {
+      "p": "Pequenas barreiras fazem diferença. Em um estudo, as pessoas que deixaram o celular em outro cômodo foram melhor em testes de memória e raciocínio do que as que o deixaram virado para baixo na mesa."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Então carregue o celular fora do quarto, saia dos apps que mais prendem você e deixe o feed um passo mais longe. Cada pequeno atrito dá a você um momento para escolher."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Ustvari razdaljo",
+    "blocs": [
+     {
+      "p": "Majhne ovire štejejo. V eni raziskavi so ljudje, ki so imeli telefon v drugi sobi, dosegli boljše rezultate na testih spomina in sklepanja kot tisti, ki so ga imeli obrnjenega na mizi."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Zato ga polni zunaj spalnice, odjavi se iz aplikacij, ki te najbolj posrkajo, in imej vir korak dlje. Vsako malo trenje ti da trenutek za odločitev."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Napravi razmak",
+    "blocs": [
+     {
+      "p": "Male prepreke su važne. U jednom istraživanju ljudi kojima je mobitel bio u drugoj sobi postigli su bolje rezultate na testovima pamćenja i zaključivanja od onih kojima je bio okrenut na stolu."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Zato ga puni izvan spavaće sobe, odjavi se iz aplikacija koje te najviše uvuku i drži feed korak dalje. Svako malo trenje daje ti trenutak da izabereš."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Schaff Abstand",
+    "blocs": [
+     {
+      "p": "Kleine Hürden zählen. In einer Studie schnitten Menschen, deren Handy in einem anderen Raum lag, in Gedächtnis- und Denktests besser ab als jene, deren Handy umgedreht auf dem Tisch lag."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Lade es also außerhalb des Schlafzimmers, melde dich bei den Apps ab, die dich am meisten reinziehen, und halte den Feed einen Schritt weiter weg. Jede kleine Hürde gibt dir einen Moment, dich zu entscheiden."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Teremts távolságot",
+    "blocs": [
+     {
+      "p": "A kis akadályok számítanak. Egy vizsgálatban azok, akiknek a telefonja egy másik szobában volt, jobban teljesítettek memória- és gondolkodási teszteken, mint akiknek lefordítva feküdt az asztalon."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Töltsd hát a hálószobán kívül, jelentkezz ki azokból az alkalmazásokból, amelyek a legjobban beszippantanak, és tartsd a hírfolyamot egy lépéssel távolabb. Minden kis súrlódás ad egy pillanatot, hogy dönts."
+     }
+    ]
+   }
+  }
+ ]
+}

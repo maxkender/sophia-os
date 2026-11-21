@@ -1,0 +1,764 @@
+{
+ "id": "mi-009",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7681333188714646814",
+  "vues": 367000,
+  "publie_le": "2026-09-03",
+  "accroche": "The secret / to / Memorizing / Anything"
+ },
+ "fond": "vert_fonce",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "son original",
+  "url": "https://www.tiktok.com/music/son-original-7487620221440674582"
+ },
+ "notes": "Full test (boîte vide). Format de « The secret to Memorizing Anything » de @bdnf.milly (367 k vues, 03/09), famille « The secret to … », fond vert foncé. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : répondre à « pourquoi ? » sur des phrases lues fait bien mieux retenir que les lire attentivement (Pressley, McDaniel, Turnure, Wood et Ahmad, Journal of Experimental Psychology: LMC 1987) ; de faibles lecteurs qui connaissaient bien le baseball comprenaient et retenaient mieux un texte de baseball que de bons lecteurs qui le connaissaient mal (Recht et Leslie, Journal of Educational Psychology 1988) ; dessiner un mot le fait mieux retenir que l'écrire plusieurs fois (Wammes, Meade et Fernandes, Quarterly Journal of Experimental Psychology 2016). 11 langues. Images : Seedream (irm-coronale, epines, irmf-axiale), sans texte.",
+ "titre": {
+  "en": "The secret to Understanding Anything",
+  "fr": "Le secret pour tout comprendre",
+  "es": "El secreto para entender cualquier cosa",
+  "es-419": "El secreto para entender cualquier cosa",
+  "it": "Il segreto per capire qualsiasi cosa",
+  "tr": "Her şeyi anlamanın sırrı",
+  "pt-BR": "O segredo para entender qualquer coisa",
+  "sl": "Skrivnost, kako razumeti karkoli",
+  "hr": "Tajna razumijevanja bilo čega",
+  "de": "Das Geheimnis, alles zu verstehen",
+  "hu": "A titok, hogy bármit megérts"
+ },
+ "legendes": {
+  "en": "ask why, then why again #learning #memory #brain #studytips #knowledge",
+  "fr": "demande pourquoi, puis encore pourquoi #apprendre #mémoire #cerveau #méthodedetravail #culturegénérale",
+  "es": "pregunta por qué, y otra vez por qué #aprender #memoria #cerebro #técnicasdeestudio #cultura",
+  "es-419": "pregunta por qué, y otra vez por qué #aprender #memoria #cerebro #tipsdeestudio #cultura",
+  "it": "chiediti perché, e poi ancora perché #imparare #memoria #cervello #metododistudio #cultura",
+  "tr": "neden diye sor, sonra yine sor #öğrenme #hafıza #beyin #dersçalışma #genelkültür",
+  "pt-BR": "pergunte por quê, e de novo por quê #aprender #memoria #cerebro #dicasdeestudo #conhecimento",
+  "sl": "vprašaj zakaj, in spet zakaj #učenje #spomin #možgani #učnetehnike #splošnaizobrazba",
+  "hr": "pitaj zašto, pa opet zašto #učenje #pamćenje #mozak #tehnikeučenja #općakultura",
+  "de": "frag warum, und dann noch mal warum #lernen #gedächtnis #gehirn #lerntipps #allgemeinbildung",
+  "hu": "kérdezd meg, miért, aztán újra #tanulás #memória #agy #tanulásimódszerek #műveltség"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-coronale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "The secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "to",
+      "taille": "petit"
+     },
+     {
+      "t": "Understanding",
+      "taille": "grand"
+     },
+     {
+      "t": "Anything",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Le secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "pour",
+      "taille": "petit"
+     },
+     {
+      "t": "tout",
+      "taille": "petit"
+     },
+     {
+      "t": "Comprendre",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "cualquier cosa",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "cualquier cosa",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Il segreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "per",
+      "taille": "petit"
+     },
+     {
+      "t": "Capire",
+      "taille": "grand"
+     },
+     {
+      "t": "qualsiasi cosa",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Her şeyi",
+      "taille": "moyen"
+     },
+     {
+      "t": "anlamanın",
+      "taille": "grand"
+     },
+     {
+      "t": "Sırrı",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O segredo",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Entender",
+      "taille": "grand"
+     },
+     {
+      "t": "qualquer coisa",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Skrivnost",
+      "taille": "grand"
+     },
+     {
+      "t": "kako razumeti",
+      "taille": "petit"
+     },
+     {
+      "t": "Karkoli",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Tajna",
+      "taille": "grand"
+     },
+     {
+      "t": "razumijevanja",
+      "taille": "petit"
+     },
+     {
+      "t": "bilo čega",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Das Geheimnis",
+      "taille": "moyen"
+     },
+     {
+      "t": "um alles zu",
+      "taille": "petit"
+     },
+     {
+      "t": "Verstehen",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "A titok",
+      "taille": "moyen"
+     },
+     {
+      "t": "hogy bármit",
+      "taille": "petit"
+     },
+     {
+      "t": "Megérts",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Ask Why, Then Why Again",
+    "blocs": [
+     {
+      "p": "When you learn a fact, ask yourself why it is true. In a classic study, adults who answered “why” questions about the sentences they read remembered far more of them than adults who simply read them carefully."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Answering “why” links the new fact to what you already know, and that link is what lets you find it again later."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Demande pourquoi, encore et encore",
+    "blocs": [
+     {
+      "p": "Quand tu apprends un fait, demande-toi pourquoi il est vrai. Dans une étude classique, des adultes qui répondaient à des questions « pourquoi ? » sur les phrases qu'ils lisaient en retenaient bien plus que ceux qui les lisaient simplement avec attention."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Répondre à « pourquoi ? » relie le fait nouveau à ce que tu sais déjà, et c'est ce lien qui te permet de le retrouver plus tard."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Pregunta por qué, una y otra vez",
+    "blocs": [
+     {
+      "p": "Cuando aprendas un dato, pregúntate por qué es cierto. En un estudio clásico, los adultos que respondían preguntas de «¿por qué?» sobre las frases que leían recordaban muchas más que los que simplemente las leían con atención."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Responder «¿por qué?» une el dato nuevo con lo que ya sabes, y esa unión es lo que te permite encontrarlo después."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Pregunta por qué, una y otra vez",
+    "blocs": [
+     {
+      "p": "Cuando aprendas un dato, pregúntate por qué es cierto. En un estudio clásico, los adultos que respondían preguntas de «¿por qué?» sobre las oraciones que leían recordaban muchas más que los que solo las leían con atención."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Responder «¿por qué?» conecta el dato nuevo con lo que ya sabes, y esa conexión es lo que te deja encontrarlo después."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Chiediti perché, e ancora perché",
+    "blocs": [
+     {
+      "p": "Quando impari un fatto, chiediti perché è vero. In uno studio classico, adulti che rispondevano a domande «perché?» sulle frasi che leggevano ne ricordavano molte di più di chi le leggeva soltanto con attenzione."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Rispondere a «perché?» collega il fatto nuovo a ciò che sai già, ed è quel collegamento che ti permette di ritrovarlo dopo."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Neden diye sor, tekrar sor",
+    "blocs": [
+     {
+      "p": "Bir bilgi öğrendiğinde, neden doğru olduğunu kendine sor. Klasik bir çalışmada, okudukları cümleler hakkında “neden?” sorularını yanıtlayan yetişkinler, onları sadece dikkatle okuyanlardan çok daha fazlasını hatırladı."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "“Neden?” sorusunu yanıtlamak, yeni bilgiyi zaten bildiklerine bağlar ve onu sonra yeniden bulmanı sağlayan şey bu bağdır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Pergunte por quê, e de novo",
+    "blocs": [
+     {
+      "p": "Quando aprender um fato, pergunte a si mesmo por que ele é verdade. Em um estudo clássico, adultos que respondiam a perguntas de “por quê?” sobre as frases que liam lembravam muito mais delas do que os que só as liam com atenção."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Responder “por quê?” liga o fato novo ao que você já sabe, e é essa ligação que deixa você encontrá-lo de novo depois."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vprašaj zakaj, in spet zakaj",
+    "blocs": [
+     {
+      "p": "Ko se naučiš dejstva, se vprašaj, zakaj drži. V klasični raziskavi so si odrasli, ki so odgovarjali na vprašanja »zakaj?« o prebranih stavkih, zapomnili veliko več kot tisti, ki so jih le pozorno prebrali."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Odgovor na »zakaj?« poveže novo dejstvo s tem, kar že veš, in prav ta povezava ti omogoči, da ga pozneje spet najdeš."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Pitaj zašto, pa opet zašto",
+    "blocs": [
+     {
+      "p": "Kad naučiš neku činjenicu, zapitaj se zašto je istinita. U klasičnom istraživanju odrasli koji su odgovarali na pitanja „zašto?“ o rečenicama koje su čitali zapamtili su ih mnogo više od onih koji su ih samo pažljivo pročitali."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Odgovor na „zašto?“ povezuje novu činjenicu s onim što već znaš, a upravo ti ta veza omogućuje da je poslije ponovno pronađeš."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Frag warum, und noch mal warum",
+    "blocs": [
+     {
+      "p": "Wenn du eine Tatsache lernst, frag dich, warum sie stimmt. In einer klassischen Studie erinnerten sich Erwachsene, die „Warum?“-Fragen zu gelesenen Sätzen beantworteten, an weit mehr davon als jene, die sie nur aufmerksam lasen."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Die Antwort auf „Warum?“ verknüpft die neue Tatsache mit dem, was du schon weißt, und genau diese Verknüpfung lässt dich sie später wiederfinden."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Kérdezd: miért? Aztán újra",
+    "blocs": [
+     {
+      "p": "Ha megtanulsz egy tényt, kérdezd meg magadtól, miért igaz. Egy klasszikus vizsgálatban azok a felnőttek, akik „miért?” kérdésekre feleltek az olvasott mondatokról, sokkal többre emlékeztek belőlük, mint akik csak figyelmesen elolvasták őket."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "A „miért?” megválaszolása összeköti az új tényt azzal, amit már tudsz, és ez a kapcsolat teszi lehetővé, hogy később újra megtaláld."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Build A Wide Base",
+    "blocs": [
+     {
+      "p": "What you already know shapes what you can understand. In one study, weak readers who knew a lot about baseball understood and remembered a baseball text better than strong readers who knew little about the game."
+     },
+     {
+      "p": "General knowledge is the ground every new idea stands on. Building it a little each evening, like a training session, makes every future text easier."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Construis une large base",
+    "blocs": [
+     {
+      "p": "Ce que tu sais déjà détermine ce que tu peux comprendre. Dans une étude, des élèves qui lisaient mal mais connaissaient bien le baseball comprenaient et retenaient mieux un texte sur le baseball que de bons lecteurs qui connaissaient peu ce sport."
+     },
+     {
+      "p": "La culture générale est le sol sur lequel repose chaque idée nouvelle. La construire un peu chaque soir, comme un entraînement, rend chaque texte à venir plus facile."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Construye una base amplia",
+    "blocs": [
+     {
+      "p": "Lo que ya sabes determina lo que puedes entender. En un estudio, alumnos que leían mal pero sabían mucho de béisbol entendían y recordaban un texto sobre béisbol mejor que buenos lectores que sabían poco de ese deporte."
+     },
+     {
+      "p": "La cultura general es el suelo sobre el que se apoya cada idea nueva. Construirla un poco cada noche, como un entrenamiento, hace más fácil cada texto futuro."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Arma una base amplia",
+    "blocs": [
+     {
+      "p": "Lo que ya sabes define lo que puedes entender. En un estudio, estudiantes que leían mal pero sabían mucho de béisbol entendían y recordaban un texto de béisbol mejor que buenos lectores que sabían poco de ese deporte."
+     },
+     {
+      "p": "La cultura general es el piso sobre el que se para cada idea nueva. Armarla un poco cada noche, como un entrenamiento, hace más fácil cada texto que venga."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Costruisci una base ampia",
+    "blocs": [
+     {
+      "p": "Ciò che sai già determina ciò che puoi capire. In uno studio, ragazzi che leggevano male ma sapevano molto di baseball capivano e ricordavano un testo sul baseball meglio di buoni lettori che sapevano poco di quello sport."
+     },
+     {
+      "p": "La cultura generale è il terreno su cui poggia ogni idea nuova. Costruirla un po' ogni sera, come un allenamento, rende più facile ogni testo futuro."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Geniş bir temel kur",
+    "blocs": [
+     {
+      "p": "Zaten bildiklerin, neyi anlayabileceğini belirler. Bir çalışmada, okuması zayıf ama beyzbolu iyi bilen öğrenciler, beyzbolla ilgili bir metni, okuması iyi ama bu sporu az bilenlerden daha iyi anladı ve hatırladı."
+     },
+     {
+      "p": "Genel kültür, her yeni fikrin üzerinde durduğu zemindir. Onu her akşam biraz, bir antrenman gibi kurmak, gelecekteki her metni kolaylaştırır."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Construa uma base ampla",
+    "blocs": [
+     {
+      "p": "O que você já sabe define o que você consegue entender. Em um estudo, alunos que liam mal mas sabiam muito de beisebol entenderam e lembraram um texto sobre beisebol melhor do que bons leitores que sabiam pouco do esporte."
+     },
+     {
+      "p": "O conhecimento geral é o chão em que toda ideia nova se apoia. Construí-lo um pouco toda noite, como um treino, deixa cada texto futuro mais fácil."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Zgradi široko podlago",
+    "blocs": [
+     {
+      "p": "Kar že veš, določa, kaj lahko razumeš. V eni raziskavi so slabši bralci, ki so veliko vedeli o baseballu, besedilo o baseballu bolje razumeli in si ga bolje zapomnili kot dobri bralci, ki so o tem športu vedeli malo."
+     },
+     {
+      "p": "Splošna izobrazba je tla, na katerih stoji vsaka nova zamisel. Če jo gradiš vsak večer malo, kot trening, ti je vsako prihodnje besedilo lažje."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Izgradi široku osnovu",
+    "blocs": [
+     {
+      "p": "Ono što već znaš određuje što možeš razumjeti. U jednom istraživanju slabiji čitači koji su mnogo znali o bejzbolu bolje su razumjeli i zapamtili tekst o bejzbolu od dobrih čitača koji su o tom sportu znali malo."
+     },
+     {
+      "p": "Opća kultura tlo je na kojem stoji svaka nova ideja. Ako je gradiš malo svake večeri, kao trening, svaki budući tekst bit će ti lakši."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Bau dir eine breite Basis",
+    "blocs": [
+     {
+      "p": "Was du schon weißt, bestimmt, was du verstehen kannst. In einer Studie verstanden und behielten schwache Leser, die viel über Baseball wussten, einen Baseballtext besser als starke Leser, die wenig über den Sport wussten."
+     },
+     {
+      "p": "Allgemeinbildung ist der Boden, auf dem jede neue Idee steht. Sie jeden Abend ein wenig aufzubauen, wie ein Training, macht jeden künftigen Text leichter."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Építs széles alapot",
+    "blocs": [
+     {
+      "p": "Amit már tudsz, az határozza meg, mit érthetsz meg. Egy vizsgálatban a gyengén olvasó, de a baseballt jól ismerő diákok jobban megértettek és megjegyeztek egy baseballról szóló szöveget, mint a jól olvasók, akik keveset tudtak erről a sportról."
+     },
+     {
+      "p": "Az általános műveltség az a talaj, amelyen minden új gondolat áll. Ha minden este egy kicsit építed, mint egy edzést, minden jövőbeli szöveg könnyebb lesz."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Draw What You Learn",
+    "blocs": [
+     {
+      "p": "Drawing is a powerful memory tool. In experiments, people remembered words they had drawn far better than words they had written out several times."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "You do not need talent: a rough sketch, a diagram or a timeline forces you to decide what the idea actually looks like."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Dessine ce que tu apprends",
+    "blocs": [
+     {
+      "p": "Dessiner est un puissant outil de mémoire. Dans des expériences, les gens retenaient bien mieux les mots qu'ils avaient dessinés que ceux qu'ils avaient recopiés plusieurs fois."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Pas besoin de talent : un croquis, un schéma ou une frise t'obligent à décider à quoi l'idée ressemble vraiment."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Dibuja lo que aprendes",
+    "blocs": [
+     {
+      "p": "Dibujar es una potente herramienta de memoria. En experimentos, la gente recordaba mucho mejor las palabras que había dibujado que las que había copiado varias veces."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "No hace falta talento: un boceto, un esquema o una línea del tiempo te obligan a decidir cómo es realmente la idea."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Dibuja lo que aprendes",
+    "blocs": [
+     {
+      "p": "Dibujar es una herramienta poderosa para la memoria. En experimentos, las personas recordaban mucho mejor las palabras que habían dibujado que las que habían escrito varias veces."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "No necesitas talento: un boceto, un diagrama o una línea de tiempo te obligan a decidir cómo se ve realmente la idea."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Disegna ciò che impari",
+    "blocs": [
+     {
+      "p": "Disegnare è un potente strumento di memoria. Negli esperimenti, le persone ricordavano molto meglio le parole che avevano disegnato rispetto a quelle che avevano ricopiato più volte."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Non serve talento: uno schizzo, uno schema o una linea del tempo ti costringono a decidere che aspetto ha davvero l'idea."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Öğrendiğini çiz",
+    "blocs": [
+     {
+      "p": "Çizmek güçlü bir hafıza aracıdır. Deneylerde insanlar, çizdikleri kelimeleri birkaç kez yazdıkları kelimelerden çok daha iyi hatırladı."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Yetenek gerekmez: kaba bir taslak, bir şema ya da bir zaman çizelgesi, fikrin aslında neye benzediğine karar vermeni sağlar."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Desenhe o que aprende",
+    "blocs": [
+     {
+      "p": "Desenhar é uma ferramenta poderosa para a memória. Em experimentos, as pessoas lembravam muito melhor das palavras que tinham desenhado do que das que tinham copiado várias vezes."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Não precisa de talento: um rascunho, um diagrama ou uma linha do tempo obrigam você a decidir como a ideia realmente é."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Nariši, kar se naučiš",
+    "blocs": [
+     {
+      "p": "Risanje je močno orodje za spomin. V poskusih so si ljudje besede, ki so jih narisali, zapomnili veliko bolje kot besede, ki so jih večkrat prepisali."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Talent ni potreben: groba skica, diagram ali časovnica te prisilijo, da se odločiš, kako zamisel v resnici izgleda."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nacrtaj ono što učiš",
+    "blocs": [
+     {
+      "p": "Crtanje je snažan alat za pamćenje. U pokusima su ljudi riječi koje su nacrtali pamtili mnogo bolje od riječi koje su nekoliko puta prepisali."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Ne treba ti talent: gruba skica, dijagram ili vremenska crta tjeraju te da odlučiš kako ideja zapravo izgleda."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Zeichne, was du lernst",
+    "blocs": [
+     {
+      "p": "Zeichnen ist ein starkes Werkzeug fürs Gedächtnis. In Experimenten erinnerten sich Menschen an gezeichnete Wörter weit besser als an Wörter, die sie mehrmals abgeschrieben hatten."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Du brauchst kein Talent: Eine grobe Skizze, ein Diagramm oder ein Zeitstrahl zwingen dich zu entscheiden, wie die Idee eigentlich aussieht."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Rajzold le, amit tanulsz",
+    "blocs": [
+     {
+      "p": "A rajzolás erős memóriaeszköz. Kísérletekben az emberek sokkal jobban emlékeztek a lerajzolt szavakra, mint azokra, amelyeket többször leírtak."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Nem kell tehetség: egy vázlat, egy ábra vagy egy idővonal arra kényszerít, hogy eldöntsd, hogyan is néz ki valójában a gondolat."
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o238",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4f85abc2-53da-44a9-acff-8c3db9ec362a",
+ "titre": "5 facts that will leave everyone speechless #psykologi #fakta #viden #mænd #hjernen",
+ "musique_titre": "why i do em like that (feat. billie essco)",
+ "musique_url": "https://www.tiktok.com/music/why-i-do-em-like-that-feat-billie-essco-7010274430282631169",
+ "inspirations": [
+  "4f85abc2-53da-44a9-acff-8c3db9ec362a"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Déclinaison G1 de la ligne 12 (parent 4f85abc2, @fremrag, langue source da : corps en danois, accroche de la boîte mot pour mot, en anglais comme chez le parent). Faits vrais et neufs, aucun du parent ; pas de slide « tag ». reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1813f6c7",
+   "texte_overlay": "5 facts that will leave\neveryone speechless",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675775461867162902/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1ed0d94c",
+   "texte_overlay": "1. Vi har bedre kort over Mars\nend over havets bund.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675775461867162902/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "555e50a8",
+   "texte_overlay": "2. Honning kan holde sig\ni tusindvis af år.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675775461867162902/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f88c5cb0",
+   "texte_overlay": "3. Oxford Universitet er ældre\nend aztekernes rige.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675775461867162902/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e6a85742",
+   "texte_overlay": "4. Dit hjerte slår cirka\n100.000 gange om dagen.\nLær ét nyt fact hver dag.",
+   "texte_sophia": "4. Dit hjerte slår cirka\n100.000 gange om dagen.\nJeg lærer ét nyt fact om dagen\ni Sophia-appen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675775461867162902/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "260dc939",
+   "texte_overlay": "5. Der falder sne\npå Sahara en gang imellem.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675775461867162902/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "32ddc0c1",
+   "texte_overlay": "Vi ses snart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675775461867162902/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o232",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "95abee3e-4da9-4690-912e-a55c447010fb",
+ "titre": "How to give your life a fresh start #men #reset #discipline #newbeginning #mindset",
+ "musique_titre": "sonido original",
+ "musique_url": "https://www.tiktok.com/music/sonido-original-7607213209031887638",
+ "inspirations": [
+  "95abee3e-4da9-4690-912e-a55c447010fb"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Déclinaison G2 de la ligne 5 (parent 95abee3e = notre am-o113 ; 2e après am-o211). Promesse reformulée. Même format « 0N Titre » + paragraphe. Étapes neuves. reference_url de am-o113 vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a8f9c6a0",
+   "texte_overlay": "How to give your life\na fresh start",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698865598402530582/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "13415fe2",
+   "texte_overlay": "01 Delete what drains you\n\nApps, contacts, habits.\nKeep what makes you better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698865598402530582/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3ba77308",
+   "texte_overlay": "02 Fix your sleep\n\nSame bedtime for 30 days.\nEverything else gets easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698865598402530582/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "96c47644",
+   "texte_overlay": "03 Feed your mind\n\nTen minutes of learning\nevery day.",
+   "texte_sophia": "03 Feed your mind\n\nTen minutes on the Sophia app\nevery day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698865598402530582/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b79c92a1",
+   "texte_overlay": "04 Walk every evening\n\nNo phone. Just think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698865598402530582/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3be94e5d",
+   "texte_overlay": "05 Write the man you want to be\n\nRead it every morning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698865598402530582/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o226",
+ "type_bleo": "full_test",
+ "titre": "Grill rules every man should know #men #grill #bbq #cooking #weekend",
+ "musique_titre": "i dont like sand",
+ "musique_url": "https://www.tiktok.com/music/i-dont-like-sand-7504007316666993430",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Full test du jour (6 sur 7, jauge : 7 sur 24). Accroche jamais faite chez nous : aucun « grill » ni « bbq » dans donnees/label.json. reference_url : post source de am-o110, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1405b6c5",
+   "texte_overlay": "Grill rules every man\nshould know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "489887bf",
+   "texte_overlay": "1. Let the grill heat up first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "103572dc",
+   "texte_overlay": "2. Flip once.\nStop poking it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "414cf18c",
+   "texte_overlay": "3. Let it rest before cutting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "63924724",
+   "texte_overlay": "4. The grill master doesn't\nleave the grill",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "02693d95",
+   "texte_overlay": "5. Feed your guests first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5a534bb1",
+   "texte_overlay": "6. Learn why it works\n\nHeat, fat, smoke. It's science.",
+   "texte_sophia": "6. Learn why it works\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/7.jpg"
+  }
+ ]
+}

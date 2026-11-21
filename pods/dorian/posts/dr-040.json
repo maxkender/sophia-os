@@ -1,0 +1,136 @@
+{
+ "id": "dr-040",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698306039745187073",
+  "vues": 568900,
+  "publie_le": "2026-10-19",
+  "accroche": "5 niche ways to disgustingly improve your critical thinking"
+ },
+ "titre": {
+  "en": "5 niche ways to disgustingly improve your sleep",
+  "pt-BR": "5 jeitos nichados de deixar seu sono absurdo",
+  "tr": "uykunu aşırı iyileştirmenin 5 niş yolu"
+ },
+ "legendes": {
+  "en": "#niche #sleep #lockedin #selfimprovement",
+  "pt-BR": "#sono #saúde #autodesenvolvimento #nicho",
+  "tr": "#uyku #sağlık #kişiselgelişim #niş"
+ },
+ "musique": {
+  "titre": "original sound - LanguFilms",
+  "url": "https://www.tiktok.com/music/original-sound-7291278974100622112"
+ },
+ "notes": "Original sur sa liste à 569 k (« 5 niche ways to disgustingly improve your critical thinking »), sujet sommeil. Faits : régularité de l'heure de lever et rythme circadien ; lumière du matin ; demi-vie de la caféine ~5 h ; chambre ~18 °C (recommandations courantes, Sleep Foundation). Images : objets Seedream, tableau AIC Vernet (« Morning »), chambre Seedream. En, pt-BR, tr ; une couverture par langue (cerveaux rouge, 08, irm). Sophia en item 3 sur 5 (cta C), écran « cours » traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche ways to disgustingly improve your sleep",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(science backed)"
+   },
+   "pt-BR": {
+    "titre": "5 jeitos nichados de deixar seu sono absurdo",
+    "image": "images/cerveau-08.jpg",
+    "legende": "(com base na ciência)"
+   },
+   "tr": {
+    "titre": "uykunu aşırı iyileştirmenin 5 niş yolu",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(bilimsel olarak kanıtlı)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Same wake-up time, every day",
+    "texte": "weekends too. your body clock sets itself on the time you wake up, not the time you go to bed",
+    "image": "images/objets/reveil.png"
+   },
+   "pt-BR": {
+    "titre": "Mesmo horário de acordar",
+    "texte": "inclusive no fim de semana. seu relógio biológico se acerta pela hora em que você acorda, não pela hora em que deita",
+    "image": "images/objets/reveil.png"
+   },
+   "tr": {
+    "titre": "Her gün aynı saatte uyan",
+    "texte": "hafta sonları da. biyolojik saatin yatma saatine değil, uyanma saatine göre ayarlanır",
+    "image": "images/objets/reveil.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Morning light",
+    "texte": "ten minutes outside in the first hour after waking. daylight tells your brain when the day starts, so it knows when to make you sleepy",
+    "image": "images/brume-vernet.jpg"
+   },
+   "pt-BR": {
+    "titre": "Luz da manhã",
+    "texte": "dez minutos ao ar livre na primeira hora depois de acordar. a luz do dia diz ao cérebro quando o dia começa, aí ele sabe quando te dar sono",
+    "image": "images/brume-vernet.jpg"
+   },
+   "tr": {
+    "titre": "Sabah ışığı",
+    "texte": "uyandıktan sonraki ilk saatte dışarıda on dakika. gün ışığı beynine günün ne zaman başladığını söyler, böylece seni ne zaman uykulu yapacağını bilir",
+    "image": "images/brume-vernet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open in bed instead of scrolling: one lesson, one quiz, done. 10 minutes, then the phone goes down",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro na cama em vez de rolar o feed: uma lição, um quiz, pronto. 10 minutos, e o celular fica de lado",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "yatakta kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. 10 dakika, sonra telefon kenara",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "No caffeine after noon",
+    "texte": "caffeine has a half-life of about five hours. a coffee at 4pm is still half in your body at 9pm",
+    "image": "images/objets/tasse-the.png"
+   },
+   "pt-BR": {
+    "titre": "Nada de cafeína depois do almoço",
+    "texte": "a cafeína tem meia-vida de umas cinco horas. um café às 16h ainda está pela metade no seu corpo às 21h",
+    "image": "images/objets/tasse-the.png"
+   },
+   "tr": {
+    "titre": "Öğleden sonra kafein yok",
+    "texte": "kafeinin yarı ömrü yaklaşık beş saattir. saat 16'da içilen kahvenin yarısı saat 21'de hâlâ vücudundadır",
+    "image": "images/objets/tasse-the.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "A cool, dark room",
+    "texte": "your body temperature has to drop to fall asleep. sleep experts usually suggest a bedroom around 18°c",
+    "image": "images/chambre-nuit.jpg"
+   },
+   "pt-BR": {
+    "titre": "Quarto fresco e escuro",
+    "texte": "a temperatura do corpo precisa cair pra você dormir. especialistas costumam sugerir um quarto por volta de 18°c",
+    "image": "images/chambre-nuit.jpg"
+   },
+   "tr": {
+    "titre": "Serin ve karanlık bir oda",
+    "texte": "uykuya dalmak için vücut ısının düşmesi gerekir. uyku uzmanları genelde 18°c civarında bir yatak odası önerir",
+    "image": "images/chambre-nuit.jpg"
+   }
+  }
+ ]
+}

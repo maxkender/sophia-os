@@ -1,0 +1,286 @@
+{
+ "id": "dr-039",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2000000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of gentleman hobbies",
+  "it": "Iceberg degli hobby da gentiluomo",
+  "nl": "IJsberg van hobby's van een gentleman"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #gentleman #lockedin #selfimprovement",
+  "it": "#iceberg #hobby #gentiluomo #crescitapersonale",
+  "nl": "#ijsberg #hobbys #gentleman #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "оригинальный звук - butazer",
+  "url": "https://www.tiktok.com/music/original-sound-7648276161688062742"
+ },
+ "notes": "Original sur son iceberg à 2 M (« Iceberg of Autistic hobbies »), sujet « gentleman ». Sophia au 2e étage (icône). En, it, nl ; variantes 2, 3, 4.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "gentleman hobbies",
+    "variante": 2
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da gentiluomo",
+    "variante": 3
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "gentleman-hobby's",
+    "variante": 4
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "reading",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "long walks",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "tea",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "one sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "writing letters",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "film photography",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "fencing",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "horse riding",
+       "image": "images/objets/selle.png"
+      },
+      {
+       "t": "sailing",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "fountain pens",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "old maps",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "learning latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "astronomy",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "writing a memoir",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "scacchi",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "leggere",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "lunghe passeggiate",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "tè",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "pianoforte",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "scrivere lettere",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "fotografia analogica",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "scherma",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "equitazione",
+       "image": "images/objets/selle.png"
+      },
+      {
+       "t": "vela",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "penne stilografiche",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "mappe antiche",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "latino",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "scrivere le memorie",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "lange wandelingen",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "thee",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "brieven schrijven",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "analoge fotografie",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "schermen",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "paardrijden",
+       "image": "images/objets/selle.png"
+      },
+      {
+       "t": "zeilen",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "vulpennen",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "oude kaarten",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "latijn leren",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "sterrenkunde",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "je memoires schrijven",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "id": "dr-037",
+ "format": "liste",
+ "titre": {
+  "en": "5 ancient inventions that genuinely still work today",
+  "tr": "bugün hâlâ işleyen 5 antik icat",
+  "nl": "5 oude uitvindingen die vandaag nog werken"
+ },
+ "legendes": {
+  "en": "#history #inventions #smarttok #lockedin",
+  "tr": "#tarih #icatlar #bilgi #ilginçbilgiler",
+  "nl": "#geschiedenis #uitvindingen #weetjes #kennis"
+ },
+ "musique": {
+  "titre": "original sound - splexedits",
+  "url": "https://www.tiktok.com/music/original-sound-7670769300528958239"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : coupole du Panthéon (v. 126), plus grande coupole en béton non armé ; qanats d'Iran (patrimoine UNESCO, certains plus de 2 000 ans) ; Dujiangyan (v. 256 av. J.-C., UNESCO, irrigue la plaine de Chengdu) ; roue hydraulique grecque (IIIe s. av. J.-C.) ; Aqua Virgo (19 av. J.-C.), qui alimente toujours la fontaine de Trevi. Images Seedream. En, tr, nl ; une couverture par langue (cerveaux 24, 25, 26). Sophia en item 3 sur 6 (cta A), écran « cours » traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 ancient inventions that genuinely still work today",
+    "image": "images/cerveau-24.jpg",
+    "legende": "(built to last)"
+   },
+   "tr": {
+    "titre": "bugün hâlâ işleyen 5 antik icat",
+    "image": "images/cerveau-25.jpg",
+    "legende": "(kalıcı yapıldı)"
+   },
+   "nl": {
+    "titre": "5 oude uitvindingen die vandaag nog werken",
+    "image": "images/cerveau-26.jpg",
+    "legende": "(gebouwd om te blijven)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Roman concrete",
+    "texte": "the pantheon's dome is almost 1,900 years old and still the largest unreinforced concrete dome in the world",
+    "image": "images/pantheon.jpg"
+   },
+   "tr": {
+    "titre": "Roma betonu",
+    "texte": "pantheon'un kubbesi yaklaşık 1.900 yaşında ve hâlâ dünyanın en büyük donatısız beton kubbesi",
+    "image": "images/pantheon.jpg"
+   },
+   "nl": {
+    "titre": "Romeins beton",
+    "texte": "de koepel van het pantheon is bijna 1.900 jaar oud en nog steeds de grootste ongewapende betonnen koepel ter wereld",
+    "image": "images/pantheon.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Qanats",
+    "texte": "underground channels dug in ancient persia to bring water from the mountains. some in iran have flowed for over 2,000 years",
+    "image": "images/qanat.jpg"
+   },
+   "tr": {
+    "titre": "Kehrizler",
+    "texte": "antik iran'da sularını dağlardan getirmek için kazılmış yeraltı kanalları. iran'da bazıları 2.000 yıldan uzun süredir akıyor",
+    "image": "images/qanat.jpg"
+   },
+   "nl": {
+    "titre": "Qanats",
+    "texte": "ondergrondse kanalen die in het oude perzië werden gegraven om water uit de bergen te halen. sommige in iran stromen al meer dan 2.000 jaar",
+    "image": "images/qanat.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. history, science, economics: a new topic every day",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. tarih, bilim, ekonomi: her gün yeni bir konu",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. geschiedenis, wetenschap, economie: elke dag een nieuw onderwerp",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Dujiangyan",
+    "texte": "built around 256 bc in china to split a river and stop floods, without a dam. it still irrigates a huge plain in sichuan",
+    "image": "images/dujiangyan.jpg"
+   },
+   "tr": {
+    "titre": "Dujiangyan",
+    "texte": "çin'de m.ö. 256 civarında bir nehri bölmek ve selleri durdurmak için baraj olmadan yapıldı. hâlâ sichuan'da dev bir ovayı suluyor",
+    "image": "images/dujiangyan.jpg"
+   },
+   "nl": {
+    "titre": "Dujiangyan",
+    "texte": "rond 256 v.chr. in china gebouwd om een rivier te splitsen en overstromingen te stoppen, zonder dam. het irrigeert nog steeds een enorme vlakte in sichuan",
+    "image": "images/dujiangyan.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The water wheel",
+    "texte": "greek engineers used it over 2,000 years ago. some traditional mills still grind flour with one today",
+    "image": "images/vis-archimede.jpg"
+   },
+   "tr": {
+    "titre": "Su çarkı",
+    "texte": "yunan mühendisler 2.000 yıldan uzun süre önce kullanıyordu. bazı geleneksel değirmenler bugün hâlâ onunla un öğütüyor",
+    "image": "images/vis-archimede.jpg"
+   },
+   "nl": {
+    "titre": "Het waterrad",
+    "texte": "griekse ingenieurs gebruikten het al meer dan 2.000 jaar geleden. sommige traditionele molens malen er vandaag nog meel mee",
+    "image": "images/vis-archimede.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The roman aqueduct",
+    "texte": "the aqua virgo was built in 19 bc to bring water to rome. it still feeds the trevi fountain today",
+    "image": "images/aqueduc.jpg"
+   },
+   "tr": {
+    "titre": "Roma su kemeri",
+    "texte": "aqua virgo, roma'ya su taşımak için m.ö. 19'da yapıldı. bugün hâlâ trevi çeşmesini besliyor",
+    "image": "images/aqueduc.jpg"
+   },
+   "nl": {
+    "titre": "Het romeinse aquaduct",
+    "texte": "de aqua virgo werd in 19 v.chr. gebouwd om water naar rome te brengen. hij voedt vandaag nog steeds de trevifontein",
+    "image": "images/aqueduc.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

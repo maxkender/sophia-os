@@ -402,11 +402,13 @@ export interface LigneToutes extends TraceDemande {
   cree_at: string;
   nom: string;
   email: string | null;
+  /** 21/11 : ce que le bot propose de faire (la ligne « Pour Max »). */
+  action_proposee?: string | null;
 }
 
 export async function lireToutes(limite = 400): Promise<LigneToutes[]> {
   const { data, error } = await supabase.from("support_demandes")
-    .select("id, poster_id, type, source, categorie, plateforme, statut, niveau, texte, bot_reponse, auto_action, auto_resultat, action_faite, ticket_at, ticket_regle_at, ticket_prevenu_at, equipe_at, escalade_at, resolu_par_bot, posteur_at, cree_at, slack_user, email_de, bot_responsable, bot_passages, regle_par_bot, remonte_par, remonte_pourquoi")
+    .select("id, poster_id, type, source, categorie, plateforme, statut, niveau, texte, bot_reponse, auto_action, auto_resultat, action_faite, ticket_at, ticket_regle_at, ticket_prevenu_at, equipe_at, escalade_at, resolu_par_bot, posteur_at, cree_at, slack_user, email_de, bot_responsable, bot_passages, regle_par_bot, remonte_par, remonte_pourquoi, action_proposee")
     .order("cree_at", { ascending: false }).limit(limite);
   if (error) throw new Error(error.message);
   const lignes = (data ?? []) as (Omit<LigneToutes, "nom" | "email"> & { slack_user: string | null; email_de: string | null })[];

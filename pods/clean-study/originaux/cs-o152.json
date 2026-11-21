@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o152",
+  "type_bleo": "full_test",
+  "titre": "the school morning routine that makes me actually ready to learn #studytok #studytips #thatgirl",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« school morning » absent du label ; cs-o140 parlait du soir). Accroches écrites : « the school morning routine that makes me actually ready to learn » (retenue : une routine enregistrable, promesse modeste), « 6am school routine » (écartée : heure qui exclut), « how i stopped being late to school » (écartée : autre promesse). Santé générale : se lever au premier réveil, la lumière du jour, un vrai petit-déjeuner, apprendre une chose nouvelle au lieu de scroller (slide Sophia, 4), regarder son emploi du temps, partir 5 minutes plus tôt. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2575ef2c",
+      "texte_overlay": "the school morning routine\nthat makes me actually ready to learn",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e6ec96fa",
+      "texte_overlay": "up at the first alarm.\nno snooze, it only makes me groggier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b297a6ae",
+      "texte_overlay": "curtains open right away.\ndaylight wakes me up better than coffee.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d6cfe654",
+      "texte_overlay": "no scrolling with breakfast.\ni read one interesting thing instead.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg",
+      "texte_sophia": "no scrolling with breakfast.\ni learn one new thing on a micro-learning app\nlike the Sophia app. 5 minutes, my brain is on."
+    },
+    {
+      "position": 5,
+      "media_id": "29b3b1f0",
+      "texte_overlay": "a real breakfast, sitting down.\nnot a granola bar on the bus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "950c3cf3",
+      "texte_overlay": "one look at today's timetable.\ni know what's coming.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c37280eb",
+      "texte_overlay": "out the door 5 minutes early.\nno running, no stress.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

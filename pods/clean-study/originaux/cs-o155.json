@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o155",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "fb8314c5-d882-45d1-b09f-1ac1acef71a3",
+  "titre": "a little toxic exam season motivation that works almost too well #studytok #studymotivation #exams",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "fb8314c5-d882-45d1-b09f-1ac1acef71a3"
+  ],
+  "notes": "Déclinaison G2 de fb8314c5 (la famille de nos cs-o020 et cs-o088 : r 6,95 en turc), ligne 3 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o149 : « a little toxic exam season motivation that works almost too well ». « Toxic » = rivalité avec soi-même. Rappels neufs, aucun de cs-o020, cs-o088 ni cs-o149 : la version de toi qui a réussi, le planning qui n'existe que dans ta tête, la peur qui n'apprend rien, une pause sans écran à scroller (slide Sophia, 5), l'excuse du « pas le temps », on ne regrette jamais d'avoir commencé. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3529b93d",
+      "texte_overlay": "a little toxic exam season motivation\nthat works almost too well",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a8d353d3",
+      "texte_overlay": "the version of you who passed\nstarted today. not \"monday\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "566e3e69",
+      "texte_overlay": "a plan that only exists in your head\nis not a plan.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d801a613",
+      "texte_overlay": "being scared of the exam doesn't teach you anything.\nopening the book does.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "78d05178",
+      "texte_overlay": "your breaks are for resting your brain,\nnot for 40 minutes of other people's lives.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "your breaks are for resting your brain.\n5 minutes on a micro-learning app like the Sophia app,\nnot 40 minutes of other people's lives."
+    },
+    {
+      "position": 6,
+      "media_id": "191b6ce2",
+      "texte_overlay": "\"no time\" says the person with 4 hours of screen time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "80b8395c",
+      "texte_overlay": "nobody ever regrets starting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

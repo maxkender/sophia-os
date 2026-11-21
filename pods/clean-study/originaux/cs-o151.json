@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o151",
+  "type_bleo": "full_test",
+  "titre": "what i actually do on my study breaks so i come back focused #studytok #studytips #focus",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 21/11 : 2 full tests sur 6). Premier original pour Sophia. Accroche jamais faite chez nous (« study breaks » n'est pas une accroche du label). Accroches écrites : « what i actually do on my study breaks so i come back focused » (retenue : un moment de tous les jours, et la place naturelle de Sophia), « the perfect study break » (écartée : vague), « stop scrolling on your study breaks » (écartée : injonction). Gestes vrais : se lever, de l'eau, regarder dehors, apprendre une chose qui n'a rien à voir (slide Sophia, 4), s'étirer, pas de réseaux, revenir à l'heure prévue. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "699e33f1",
+      "texte_overlay": "what i actually do on my study breaks\nso i come back focused",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "906efe25",
+      "texte_overlay": "i stand up. always.\nmy brain needs my body to move.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f3e60ed5",
+      "texte_overlay": "a big glass of water.\nmost of my \"tiredness\" was thirst.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1f5795c1",
+      "texte_overlay": "5 minutes on something totally unrelated.\na bit of history, a painting, a random fact.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg",
+      "texte_sophia": "5 minutes on something totally unrelated.\na micro-learning app like the Sophia app:\nhistory, art or science, then back to work."
+    },
+    {
+      "position": 5,
+      "media_id": "6196ad04",
+      "texte_overlay": "i look out the window for a minute.\nfar away, after hours of close-up pages.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8a6db9de",
+      "texte_overlay": "no social media.\n\"just 5 minutes\" never comes back as 5 minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1ed4089f",
+      "texte_overlay": "and i come back when the timer says so.\nnot one episode later.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

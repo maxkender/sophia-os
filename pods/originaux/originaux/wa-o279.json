@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o279",
+ "type_bleo": "full_test",
+ "titre": "how to stay calm under pressure #calm #pressure #anxiety #selfimprovement #mindset",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). full test BLEO : accroche jamais faite (format « how to stay X under pressure »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "809f9fe1-ff68-434f-9ef1-9b6ddad33178",
+   "texte_overlay": "how to stay calm\nunder pressure",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d90d2182-aa97-454f-abec-b6ff1d835edf",
+   "texte_overlay": "breathe out longer\n\nwhen pressure hits, make every breath out longer than the breath in. it slows your heart rate in seconds and tells your body that you're safe enough to think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e1edbd08-3451-4894-9a5a-989fc8981713",
+   "texte_overlay": "shrink the problem\n\nask yourself what the very next small step is, and only focus on that. huge problems feel lighter the moment you stop trying to solve all of them at once.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "45eb1372-bb20-4b14-9ce6-c5a06c7de357",
+   "texte_overlay": "talk slower\n\nunder stress, everyone speeds up. speaking a little slower on purpose makes you sound in control, and somehow it makes you actually feel more in control too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c2bffd8c-8517-4cff-a163-50755ee82c1d",
+   "texte_overlay": "train a calm mind daily\n\ncalm under pressure is built on ordinary days, by giving your mind a few quiet minutes of learning each day. a calm, curious mind is much harder to rattle when things get hard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg",
+   "texte_sophia": "train a calm mind daily\n\ncalm is built on ordinary days. the Sophia app turns learning into one short lesson a day, a star or a painting, and those 5 quiet minutes make pressure much easier to handle."
+  },
+  {
+   "position": 6,
+   "media_id": "229e95a6-9af4-4096-b9ab-de1825d4894b",
+   "texte_overlay": "remember past storms\n\nthink of a hard moment you already got through. reminding yourself that you've survived difficult days before makes this one feel far less frightening.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

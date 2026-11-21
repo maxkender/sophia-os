@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o277",
+ "type_bleo": "full_test",
+ "titre": "signs you're an overthinker (and what actually helps) #overthinking #anxiety #mentalhealth #mindset #selfimprovement",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "3bd02f3a-f092-4cb5-b051-5035c3f9f16a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3bd02f3a). full test BLEO : accroche jamais faite (format « signs you're an X (and what actually helps) »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5d1845d8-a3bd-4d9b-8a69-1c0f07eac2b6",
+   "texte_overlay": "signs you're an overthinker\n(and what actually helps)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "974874bb-1ef6-4b4e-ae36-a9e815ec7724",
+   "texte_overlay": "you replay conversations\n\nyou go over what you said hours later, looking for mistakes. what helps: write the thought down once, then close the notebook and let tomorrow handle it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bbe821f2-5b92-4ee8-8397-ab55d859cb53",
+   "texte_overlay": "you need every detail first\n\nyou can't start anything until you've planned every step. what helps: pick the smallest first step and do it now, before your brain finds another question.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bf213a70-fdf4-4f45-a348-7ba21ff6f0b7",
+   "texte_overlay": "your mind never rests\n\nyour thoughts keep looping because they have nothing better to chew on. what helps: give your mind something calm and genuinely interesting every single day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/4.jpg",
+   "texte_sophia": "your mind never rests\n\nmy mind used to loop all night. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and giving it something new to think about quiets the noise."
+  },
+  {
+   "position": 5,
+   "media_id": "cf72a9d1-1e42-43e5-b70f-765dd9f2714a",
+   "texte_overlay": "you read into short replies\n\na one word message ruins your afternoon. what helps: remember most people are just busy, and their short replies are almost never about you or anything you did.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7df032a9-cc6d-45d9-a319-da1ac83a84bb",
+   "texte_overlay": "decisions exhaust you\n\neven choosing lunch feels heavy. what helps: set small rules, like always picking the first good option, and save your energy for the choices that really matter to you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/6.jpg"
+  }
+ ]
+}

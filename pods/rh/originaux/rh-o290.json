@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o290",
+ "type_bleo": "full_test",
+ "titre": "les 5 trucs à faire le jour où tu reçois une offre d'emploi #offredemploi #rechercheemploi #emploi #salaire #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 21/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le jour de l'offre). Sujet juridique traité en général. Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "89f9f264",
+   "texte_overlay": "les 5 trucs à faire\nle jour où tu reçois\nune offre d'emploi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "87b8b3f2",
+   "texte_overlay": "dire merci, sans dire oui tout de suite\n« je vous réponds d'ici vendredi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ed91e38f",
+   "texte_overlay": "demander l'offre par écrit\nsalaire, date, avantages",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d1eae4c8",
+   "texte_overlay": "comparer avec le marché\nles fourchettes sont souvent publiques",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bc53a961",
+   "texte_overlay": "prévenir les autres recruteurs\nsi tu as d'autres entretiens en cours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8701d90a",
+   "texte_overlay": "préparer ton arrivée\nmes 3 trucs : relire mes notes d'entretien, dormir, 5 minutes par jour pour apprendre le secteur",
+   "texte_sophia": "préparer ton arrivée\nmes 3 trucs : relire mes notes d'entretien, dormir, 5 minutes par jour sur l'appli Sophia pour apprendre le secteur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "838c1f6b",
+   "texte_overlay": "t'as reçu une offre récemment ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

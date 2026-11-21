@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o299",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fac64dca-a686-4ead-ba70-ac4a629fa004",
+ "titre": "phrase de recruteur, pensée de recruteur : le décodeur #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 21/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G2 de la ligne #5 (parent fac64dca), 3e et dernière : même promesse, autres mots, phrases différentes de rh-o150, rh-o263 et rh-o287. Inspirations reprises de rh-o150. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a057ed2b",
+   "texte_overlay": "phrase de recruteur,\npensée de recruteur :\nle décodeur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "48d2e89a",
+   "texte_overlay": "« vous connaissez bien le poste ? »\npensée : a-t-elle compris ce qu'on attend ?\nrésume-le en 2 phrases",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cc0de45d",
+   "texte_overlay": "« comment vous gérez la pression ? »\npensée : il y a des rushs\ndonne un exemple réel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bc4d1887",
+   "texte_overlay": "« vous avez une question pour nous ? »\npensée : est-elle curieuse ?\npose-en une sur l'équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b6b098d7",
+   "texte_overlay": "« vous suivez l'actualité du secteur ? »\npensée : apprend-elle seule ?\ncite un truc récent",
+   "texte_sophia": "« vous suivez l'actualité du secteur ? »\npensée : apprend-elle seule ?\nutilise l'appli Sophia 5 minutes par jour, t'auras toujours un truc récent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4d7ac503",
+   "texte_overlay": "« merci, on vous recontacte »\npensée : rien n'est décidé\nenvoie un merci le soir même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e217d579",
+   "texte_overlay": "laquelle tu redoutes ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o292",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai appris de mes 3 premiers mois de manager #manager #management #carriere #travail #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 21/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (devenir manager). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "379989d8",
+   "texte_overlay": "ce que j'ai appris\nde mes 3 premiers mois\nde manager",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7fc5ccc2",
+   "texte_overlay": "je ne suis plus la meilleure de l'équipe\net c'est normal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f7a5a106",
+   "texte_overlay": "un point de 15 minutes par semaine avec chacun\nça évite 90 % des problèmes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "04507433",
+   "texte_overlay": "dire « je ne sais pas, je reviens vers toi »\nc'est permis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "69ec06ae",
+   "texte_overlay": "protéger l'équipe des urgences inutiles\nc'est la moitié du job",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e044c53f",
+   "texte_overlay": "continuer à apprendre pour moi\n5 minutes chaque matin, avant les mails",
+   "texte_sophia": "continuer à apprendre pour moi\n5 minutes chaque matin sur l'appli Sophia, avant les mails",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c1a34ed2",
+   "texte_overlay": "t'es manager, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

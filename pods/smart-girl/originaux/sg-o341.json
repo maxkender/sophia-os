@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o341",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b99a507e-5f50-460c-83c6-cd261ecc4bc8",
+ "titre": "how to actually have a calm life #calm #slowliving #mentalhealth #smartgirl #peace",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "b99a507e-5f50-460c-83c6-cd261ecc4bc8"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 79 de la boîte (parent b99a507e, langue source pl) : accroche du parent mot pour mot. Conseils du parent (surveiller ce qu'on regarde en ligne, apprendre une chose par jour) et neufs (matins sans téléphone, marcher, ranger le soir, dire non) ; pas de slide d'une autre appli. Sophia en 2 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6adcadc8",
+   "texte_overlay": "how to actually have\na calm life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657303962370002198/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "16ba60ac",
+   "texte_overlay": "1. watch what you watch\n\npositive content, no endless scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657303962370002198/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1e4f277f",
+   "texte_overlay": "2. learn one new thing a day",
+   "texte_sophia": "2. learn one new thing a day\n\nwith a micro-learning app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657303962370002198/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "88c8f43b",
+   "texte_overlay": "3. phone-free mornings",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657303962370002198/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6fae06d1",
+   "texte_overlay": "4. walk without a destination",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657303962370002198/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f84839f9",
+   "texte_overlay": "5. tidy for ten minutes\nevery evening",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657303962370002198/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "66a9337c",
+   "texte_overlay": "6. say no more often",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657303962370002198/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6731ec11",
+   "texte_overlay": "save this and tell me\nhow it went",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657303962370002198/4.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o344",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e1dec609-0f33-4a4f-bab6-c3f60cffc723",
+ "titre": "5 small habits that can improve your mental health #mentalhealth #selfcare #smartgirl #habits #wellbeing",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "e1dec609-0f33-4a4f-bab6-c3f60cffc723"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 96 de la boîte (parent e1dec609, langue source en) : accroche du parent mot pour mot. Habitudes du parent (finir une tâche en suspens par jour, arrêter de rejouer les conversations, vider ses favoris, une version « sans pression » de ses hobbies, remplacer le scroll du matin). Sophia en 5 comme chez le parent (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "39ce6085",
+   "texte_overlay": "5 small habits that can\nimprove your mental health",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655438025316437270/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "24e05be4",
+   "texte_overlay": "1. finish one \"unfinished\"\ntask every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655438025316437270/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7c24e755",
+   "texte_overlay": "2. stop replaying conversations\nin your head",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655438025316437270/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "949e01b0",
+   "texte_overlay": "3. clean out your saved videos\n\nyou'll never watch them all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655438025316437270/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2b140fd0",
+   "texte_overlay": "4. a \"no pressure\" version\nof your hobbies",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655438025316437270/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "478561a5",
+   "texte_overlay": "5. replace morning scrolling\nwith learning",
+   "texte_sophia": "5. replace morning scrolling with a\nmicro-learning app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655438025316437270/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bf624fd4",
+   "texte_overlay": "try one and report back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655438025316437270/6.jpg"
+  }
+ ]
+}

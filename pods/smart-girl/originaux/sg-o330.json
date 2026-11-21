@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o330",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2c6d1292-c12e-4d62-8755-c36a12b82584",
+ "titre": "everyday words to replace if you want to sound well spoken #vocabulary #eloquence #smartgirl #wellspoken #speakbetter",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 2 de la boîte (parent 2c6d1292, langue source ro) : accroche reformulée (« everyday words to replace if you want to sound well spoken »), différente de sg-o308 ; échanges du parent et neufs. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4fcbeee6",
+   "texte_overlay": "everyday words to replace if you\nwant to sound well spoken",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "07839725",
+   "texte_overlay": "\"very important\"\n\n→ \"essential\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b88f6241",
+   "texte_overlay": "\"really tired\"\n\n→ \"exhausted\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1a18805e",
+   "texte_overlay": "\"i think\"\n\n→ \"i'd argue\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c12fd2c4",
+   "texte_overlay": "\"a lot\"\n\n→ \"considerably\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "be7a8a75",
+   "texte_overlay": "\"sorry to bother you\"\n\n→ \"do you have a moment?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2d6e899d",
+   "texte_overlay": "and trade one scroll a day\nfor something worth saying",
+   "texte_sophia": "and trade one scroll a day for a lesson\non an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "326a8e65",
+   "texte_overlay": "save this and try one today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

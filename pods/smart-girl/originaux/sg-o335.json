@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o335",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1ea40b9e-39a2-4b6c-95ba-c4a8f9c8790d",
+ "titre": "7 girly habits that make you look expensive #elegance #thatgirl #smartgirl #classy #selfcare",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "1ea40b9e-39a2-4b6c-95ba-c4a8f9c8790d"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 7 de la boîte (parent 1ea40b9e, langue source en) : accroche du parent mot pour mot. Habitudes du parent (mains hydratées, chaussures propres, petite trousse dans le sac, rituels du soir, cheveux soignés, profondeur intérieure, bonnes manières). Sophia en 6 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9c442da1",
+   "texte_overlay": "7 girly habits that make\nyou look expensive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613508860866809089/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dac342cb",
+   "texte_overlay": "1. moisturised hands",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613508860866809089/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "087a2a63",
+   "texte_overlay": "2. clean shoes, always",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613508860866809089/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b90a7795",
+   "texte_overlay": "3. a tiny kit in your bag\n\nlip balm, hand cream, mini perfume.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613508860866809089/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c2b08eed",
+   "texte_overlay": "4. little self-care rituals",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613508860866809089/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "479533aa",
+   "texte_overlay": "5. healthy, shiny hair",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613508860866809089/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1e769c88",
+   "texte_overlay": "6. quiet depth\n\nintelligence is the most\nelegant detail.",
+   "texte_sophia": "6. quiet depth\n\ni read one lesson a day on an app like\nSophia: intelligence is the most elegant detail.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613508860866809089/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "76483420",
+   "texte_overlay": "7. good manners",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7613508860866809089/8.jpg"
+  }
+ ]
+}

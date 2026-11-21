@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o343",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d6251f29-7317-41b4-a80e-d41783705a49",
+ "titre": "7 hobbies to develop an insane memory #memory #hobbies #smartgirl #brain #learning",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "d6251f29-7317-41b4-a80e-d41783705a49"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 90 de la boîte (parent d6251f29, langue source en) : accroche du parent mot pour mot. Les hobbies du parent (un poème par cœur, le palais de mémoire, les échecs contre soi-même, le journal de la veille de mémoire, une langue par les chansons, le jeu de Kim, une chose nouvelle par jour). Sophia en 7 comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "971a4e31",
+   "texte_overlay": "7 hobbies to develop\nan insane memory",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "db04f5f9",
+   "texte_overlay": "1. learn a poem by heart\nevery week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7f0d76a3",
+   "texte_overlay": "2. the memory palace\n\nput what you learn in the rooms\nof a house you know.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2e600951",
+   "texte_overlay": "3. play chess against yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8074ffe9",
+   "texte_overlay": "4. write yesterday's details\nfrom memory",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "877b66c0",
+   "texte_overlay": "5. learn a language\nthrough songs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dd9f2e02",
+   "texte_overlay": "6. kim's game\n\nten objects on a tray, one minute,\nthen write them all down.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4357dba1",
+   "texte_overlay": "7. learn one new thing a day\n\nfive minutes exploring a new topic.",
+   "texte_sophia": "7. learn one new thing a day\n\ni spend five minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "5d69479f",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678307901781593364/9.jpg"
+  }
+ ]
+}

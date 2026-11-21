@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o334",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1e98b85f-3a86-4a67-a22b-fdebd044d1a8",
+ "titre": "things you should never say in public as an elegant woman #elegance #etiquette #smartgirl #classy #manners",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "1e98b85f-3a86-4a67-a22b-fdebd044d1a8"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 6 de la boîte (parent 1e98b85f, langue source fr) : accroche du parent mot pour mot. Phrases du parent (« combien ça t'a coûté ? », « c'est moche », « sans vouloir te vexer », « c'est pour quand le mariage ? », « je ne sais jamais quoi dire », « tu es trop sensible »), sans celle sur le poids. Sophia sur « je ne sais jamais quoi dire » comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4235440d",
+   "texte_overlay": "things you should never say in\npublic as an elegant woman",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624511545611013377/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c7b59942",
+   "texte_overlay": "\"how much did that cost?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624511545611013377/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "91861185",
+   "texte_overlay": "\"that's so ugly\"\n\nabout someone else's taste.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624511545611013377/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "af31adb4",
+   "texte_overlay": "\"no offence, but…\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624511545611013377/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "df7bfa57",
+   "texte_overlay": "\"so when's the wedding?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624511545611013377/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4449a69c",
+   "texte_overlay": "\"you're too sensitive\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624511545611013377/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "40a85b56",
+   "texte_overlay": "\"i never know what to say\"\n\nelegance is feeding a conversation.\ni read one story a day.",
+   "texte_sophia": "\"i never know what to say\"\n\nelegance is feeding a conversation. i read\none story a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624511545611013377/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8b036d8e",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624511545611013377/8.jpg"
+  }
+ ]
+}

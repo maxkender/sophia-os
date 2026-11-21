@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o324",
+ "type_bleo": "full_test",
+ "titre": "the history of the little black dress #littleblackdress #fashionhistory #chanel #smartgirl #elegance",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 3/7 (la jauge en demande 7 sur 24) : accroche jamais faite chez nous (« black dress » absent des accroches de donnees/label.json). Accroches écrites : « the history of the little black dress » (retenue : mode + histoire, très partageable), « why every woman owns a black dress » (écartée : vague), « iconic dresses » (écartée : large). Faits vérifiés : le noir réservé au deuil avant les années 1920 ; la robe de Chanel publiée par Vogue en 1926, qui la compare à une Ford ; Audrey Hepburn en Givenchy dans Breakfast at Tiffany's (1961) ; la « revenge dress » de Diana (1994). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e587e447",
+   "texte_overlay": "the history of the\nlittle black dress",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5d8c85a1",
+   "texte_overlay": "before the 1920s\n\nblack was for mourning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0d4e30e7",
+   "texte_overlay": "1926\n\nvogue publishes a simple black\ndress by coco chanel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1bc2b734",
+   "texte_overlay": "\"chanel's ford\"\n\nvogue compared it to the car:\nsimple, for every woman.",
+   "texte_sophia": "\"chanel's ford\"\n\nvogue compared it to the car. i learned\nthis on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "46ad2660",
+   "texte_overlay": "1961\n\naudrey hepburn in givenchy,\nbreakfast at tiffany's.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "52c9c7b7",
+   "texte_overlay": "1994\n\nprincess diana's\n\"revenge dress\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "622395a1",
+   "texte_overlay": "today\n\nthe one dress that\nnever goes out of style.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c0b43541",
+   "texte_overlay": "do you own one?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

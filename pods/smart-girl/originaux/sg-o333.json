@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o333",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e3bbeba8-102a-46b7-bc0b-d3930a763fe7",
+ "titre": "habits of unreasonably cultured women #selfeducation #smartgirl #culture #darkacademia #intellectual",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 5 de la boîte (parent e3bbeba8, langue source en) : accroche reformulée (« habits of unreasonably cultured women »), différente de sg-o311 ; conseils du parent. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "54849d81",
+   "texte_overlay": "habits of unreasonably\ncultured women",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7601577f",
+   "texte_overlay": "they read the original,\nnot the summary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a82a9c69",
+   "texte_overlay": "they know a little latin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "59f2aa9e",
+   "texte_overlay": "they take notes by hand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "920474c2",
+   "texte_overlay": "they finish the whole album",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fd5b8c15",
+   "texte_overlay": "they look up the history of\neverything they own",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6d82ce76",
+   "texte_overlay": "they swap a scroll for a lesson\n\ni do five minutes every morning.",
+   "texte_sophia": "they swap a scroll for a lesson\n\ni do five minutes every morning on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4457e59a",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

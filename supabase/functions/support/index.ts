@@ -234,13 +234,22 @@ Deno.serve(async (request) => {
       case "slack_suite": {
         // 13/11 : la suite d'un fil Slack d'une demande : elle entre dans le fil de la demande, qui repasse « à répondre ».
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        // 21/11 (Max) : le bot répond aussi à la suite d'un fil, dans le fil.
+        const canal = String(body.canal ?? "");
+        const parent = String(body.parent_ts ?? "");
+        const texteSuite = String(body.texte ?? "").trim();
         const { data: dem } = await db.from("support_demandes").select("id, poster_id")
-          .eq("slack_canal", String(body.canal ?? "")).eq("slack_ts", String(body.parent_ts ?? "")).limit(1).maybeSingle();
-        if (!dem?.id) return json({ ok: true, ignore: "pas une demande suivie" });
-        const maintenant = new Date().toISOString();
-        await db.from("support_messages").insert({ demande_id: dem.id, auteur: "posteur", auteur_id: dem.poster_id, texte: String(body.texte ?? "").slice(0, 4000) });
-        await db.from("support_demandes").update({ statut: "ouvert", posteur_at: maintenant, maj_at: maintenant }).eq("id", dem.id);
-        return json({ ok: true, id: dem.id });
+          .eq("slack_canal", canal).eq("slack_ts", parent).limit(1).maybeSingle();
+        if (!dem?.id) {
+          // Un fil qui n'est pas une demande suivie (la réponse d'un autre posteur, un message de l'équipe) : un message
+          // à part entière, la réponse va dans ce fil.
+          if (!body.auteur || !body.ts) return json({ ok: true, ignore: "pas une demande suivie" });
+          return json(await messageSlack(db, {
+            canal, ts: String(body.ts), fil: parent, auteur: String(body.auteur), texte: texteSuite,
+            nom: typeof body.nom === "string" ? body.nom : null, plateforme: body.plateforme === "ruul" || body.plateforme === "upwork" ? body.plateforme : null,
+          }));
+        }
+        return json(await suiteFilSlack(db, { canal, parent_ts: parent, texte: texteSuite, demande: dem.id as string, poster: (dem.poster_id as string | null) ?? null }));
       }
       case "lien_mot_de_passe":
         // 13/11 (Max) : envoyer (ou renvoyer, avec excuse) le login + lien « choisir mon mot de passe » par email.
@@ -2507,7 +2516,8 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
  * va à Max (« We're checking » dans le fil seulement pour une vraie remontée). Jamais de renvoi vers Help ni #questions
  * quand on connaît le posteur. Tout passe par la page Contrôle.
  */
-async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: string; texte: string; nom: string | null; plateforme: "ruul" | "upwork" | null }) {
+async function messageSlack(db: Db, o: { canal: string; ts: string; fil?: string; auteur: string; texte: string; nom: string | null; plateforme: "ruul" | "upwork" | null }) {
+  const filReponse = o.fil ?? o.ts;
   const texte = o.texte.trim();
   if (!o.canal || !o.ts || texte.length < 2) return { ok: false, error: "canal, ts et texte requis" };
   const { data: deja } = await db.from("support_demandes").select("id").eq("slack_canal", o.canal).eq("slack_ts", o.ts).limit(1);
@@ -2521,7 +2531,7 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
   const rouverte = poster ? await rouvrirSiPasRegle(db, poster, texte, "slack") : null;
   if (rouverte) {
     const jeton0 = jetonSlackFaq();
-    if (jeton0) await posterSlack(jeton0, o.canal, rouverte.reponse, o.ts);
+    if (jeton0) await posterSlack(jeton0, o.canal, rouverte.reponse, filReponse);
     return { ok: true, id: rouverte.id, rouverte: true };
   }
   const r = await deciderBot(db, { message: texte, source: "slack_salon", poster, profil: null, canal: "slack" });
@@ -2539,10 +2549,10 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
     if (parBot && d.personnel && poster) {
       const dm = await ecrireAuPosteur(db, poster, r.texte, fetch, undefined, { malgreStop: "reponse" });
       envoi = dm.statut === "envoye" ? "message privé" : `message privé : ${"erreur" in dm ? dm.erreur : dm.statut}`;
-      if (dm.statut === "envoye") await posterSlack(jeton, o.canal, "I've sent you a private message 👋", o.ts);
+      if (dm.statut === "envoye") await posterSlack(jeton, o.canal, "I've sent you a private message 👋", filReponse);
     } else {
       // 17/11 (Max, point 7) : chaque demande reçoit au minimum une réponse (dans sa langue).
-      const t = await posterSlack(jeton, o.canal, r.texte, o.ts);
+      const t = await posterSlack(jeton, o.canal, r.texte, filReponse);
       envoi = t.ok ? "fil" : `fil : ${t.error}`;
     }
   }
@@ -2567,6 +2577,39 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
     }
   }
   return { ok: true, id, niveau: parBot ? "bot" : d.niveau, envoi };
+}
+
+/**
+ * 21/11 (Max) : la suite d'un fil Slack suivi (le posteur répond au bot) : le bot lit le message, vérifie et répond dans
+ * le même fil. Un simple « thanks » / « ok » : noté vu, pas de réponse.
+ */
+async function suiteFilSlack(db: Db, o: { canal: string; parent_ts: string; texte: string; demande: string; poster: string | null }) {
+  const maintenant = new Date().toISOString();
+  if (o.texte.length < 1) return { ok: true, ignore: "vide" };
+  await db.from("support_messages").insert({ demande_id: o.demande, auteur: "posteur", auteur_id: o.poster, texte: o.texte.slice(0, 4000) });
+  if (accuseReception(o.texte)) {
+    await db.from("support_demandes").update({ posteur_at: maintenant, maj_at: maintenant }).eq("id", o.demande);
+    return { ok: true, id: o.demande, vu: true };
+  }
+  const r = await deciderBot(db, { message: o.texte, source: "slack_salon", poster: o.poster, profil: null, canal: "slack" });
+  const d = r.decision;
+  const parBot = d.niveau === "bot" && d.reponse !== TEXTE_ON_VERIFIE;
+  let envoi = "rien";
+  let action: string | null = null;
+  if (parBot && o.poster && d.action) action = await executerAction(db, o.poster, d, o.texte);
+  const jeton = jetonSlackFaq();
+  if (!r.controle.muet && jeton) {
+    const t = await posterSlack(jeton, o.canal, r.texte, o.parent_ts);
+    envoi = t.ok ? "fil" : `fil : ${t.error}`;
+    if (t.ok) await db.from("support_messages").insert({ demande_id: o.demande, auteur: "bot", texte: r.texte.slice(0, 4000) });
+  }
+  await db.from("support_demandes").update({
+    statut: parBot ? "bot" : "ouvert", niveau: parBot ? "bot" : d.niveau === "adrien" ? "max" : d.niveau,
+    bot_reponse: parBot ? r.texte : null, brouillon: parBot ? null : brouillonDe(r), action_faite: action,
+    posteur_at: maintenant, maj_at: maintenant,
+  }).eq("id", o.demande);
+  await apresDemande(db, { poster: o.poster, demande: o.demande, plan: r.plan, decision: d, source: "slack_salon", texte: o.texte });
+  return { ok: true, id: o.demande, niveau: parBot ? "bot" : d.niveau, envoi };
 }
 
 /** Les images jointes d'un email Brevo, téléchargées (API Brevo) et décrites par le modèle. Ne lève pas. */

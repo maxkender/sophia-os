@@ -383,7 +383,7 @@ export interface EvenementSlack {
 
 export type TriSlack =
   | { cas: "question"; canal: string; ts: string; auteur: string; texte: string }
-  | { cas: "suite"; canal: string; parentTs: string; auteur: string; texte: string }
+  | { cas: "suite"; canal: string; parentTs: string; ts: string; auteur: string; texte: string }
   | { cas: "ignore"; raison: string };
 
 /** Sous-types qui restent un vrai message de quelqu'un. */
@@ -408,7 +408,7 @@ export function trierEvenementSlack(
 
   const texte = (ev.text ?? "").trim().slice(0, QUESTION_MAX);
   if (ev.thread_ts && ev.thread_ts !== ev.ts) {
-    return { cas: "suite", canal: ev.channel, parentTs: ev.thread_ts, auteur: ev.user, texte };
+    return { cas: "suite", canal: ev.channel, parentTs: ev.thread_ts, ts: ev.ts, auteur: ev.user, texte };
   }
   if (opts.admins.has(ev.user)) return { cas: "ignore", raison: "équipe" };
   // Une capture seule : rien à lire. Si c'est un bug, l'IT guy la verra.

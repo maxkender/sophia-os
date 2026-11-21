@@ -231,6 +231,12 @@ Deno.serve(async (request) => {
         // 13/11 (refonte, 4 bis) : ✅ sur les tickets de #a-os-tickets → posteur prévenu (cron support-tickets-regles).
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
         return json(await ticketsRegles(db));
+      case "traduire_fr": {
+        // 21/11 (Max) : dans la Boîte, la traduction en français des messages (posteurs et réponses).
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        const textes = (Array.isArray(body.textes) ? body.textes : []).slice(0, 60).map((t: unknown) => String(t ?? "").slice(0, 2000));
+        return json({ ok: true, traductions: await traduireFr(textes) });
+      }
       case "slack_suite": {
         // 13/11 : la suite d'un fil Slack d'une demande : elle entre dans le fil de la demande, qui repasse « à répondre ».
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -919,6 +925,28 @@ async function traduire(texte: string, langue: string | null | undefined): Promi
   } catch {
     return texte;
   }
+}
+
+/** 21/11 : des messages traduits en français, dans l'ordre ; un message déjà en français reste tel quel. Ne lève pas. */
+async function traduireFr(textes: string[]): Promise<(string | null)[]> {
+  const sortie: (string | null)[] = textes.map(() => null);
+  const aFaire = textes.map((t, i) => ({ t: t.trim(), i })).filter((x) => x.t.length > 0);
+  for (let k = 0; k < aFaire.length; k += 15) {
+    const lot = aFaire.slice(k, k + 15);
+    try {
+      const r = await generateTextFast(
+        "Traduis chaque message en français, naturellement, sans rien ajouter. Garde les liens, les @, les nombres et « $ ». " +
+          "Si un message est déjà en français, recopie-le. Réponds uniquement par un tableau JSON de chaînes, dans le même ordre.\n\n" +
+          JSON.stringify(lot.map((x) => x.t)),
+      );
+      const m = r.match(/\[[\s\S]*\]/);
+      const tab = m ? JSON.parse(m[0]) as unknown[] : [];
+      lot.forEach((x, j) => { if (typeof tab[j] === "string") sortie[x.i] = tab[j] as string; });
+    } catch (e) {
+      console.warn(`[support] traduire_fr : ${messageErreur(e)}`);
+    }
+  }
+  return sortie;
 }
 
 /**

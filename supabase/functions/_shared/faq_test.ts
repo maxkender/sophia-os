@@ -201,6 +201,7 @@ Deno.test("Slack : une réponse dans un fil est une suite, même d'un admin", ()
     cas: "suite",
     canal: "C0BL56RJH7T",
     parentTs: "1.2",
+    ts: "2.0",
     auteur: "U0BL6E14JKH",
     texte: "Yes!",
   });

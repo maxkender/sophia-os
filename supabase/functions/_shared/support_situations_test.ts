@@ -12,6 +12,8 @@ Deno.test("contenu : jamais « we're checking »", () => {
   assert(faux?.qualite && faux.jourCompte && faux.fermer);
   assertEquals(cle("But it is impossible to do it. The text is too long. It couldn't be pasted all."), "contenu_texte_faux");
   assertEquals(cle("On today's post I have 2 identical pictures (the last 2). Should I post the slide as it is?"), "contenu_texte_faux");
+  assertEquals(cle("The images sometimes have nothing to do with the caption and sometimes are visibly worse in quality"), "contenu_texte_faux");
+  assertEquals(cle("today's slideshow doesn't make sense"), "contenu_texte_faux");
   assertEquals(cle("My profile identifies me as a teenage girl, but my posts are about men's fitness"), "contenu_hors_sujet");
 });
 

@@ -5543,6 +5543,59 @@
    "notes": "declinaison G2 de var-repartie-1, cta A",
    "type_bleo": "declinaison",
    "parent_contenu_id": "ceb6baa1-6227-4912-9e26-b949e995179b"
+  },
+  {
+   "post_id": "var-productif-2",
+   "url": "https://www.tiktok.com/@amayareading/video/7694340359056313632?variante=var-productif-2",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#productivite #habitudes #etudes",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7694340359056313632_1",
+    "2": "7694340359056313632_3",
+    "3": "7694340359056313632_6",
+    "4": "7694340359056313632_5",
+    "5": "7694340359056313632_4",
+    "6": "7694340359056313632_2"
+   },
+   "notes": "declinaison G1 de 7694340359056313632, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "73b70cd8-2eba-4719-9326-ff0822b5daef"
+  },
+  {
+   "post_id": "original-097",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#selfimprovement #learning #nightroutine",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7436056740669557536",
+    "url_tiktok": "https://www.tiktok.com/music/x-7436056740669557536"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7689509565536177441_1",
+    "2": "7697728269335924001_3",
+    "3": "7683541501007252758_5",
+    "4": "7689509565536177441_3",
+    "5": "7703525134610566433_5",
+    "6": "7689509565536177441_2"
+   },
+   "notes": "full test BLEO, cta B",
+   "type_bleo": "full_test"
   }
  ]
 }

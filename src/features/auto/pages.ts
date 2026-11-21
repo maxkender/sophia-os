@@ -49,7 +49,7 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   // 8/11 : les personnes désactivées dans l'OS encore membres actifs de Slack.
   { cle: "slack", to: "/admin/auto/retirer-slack" },
   { cle: "logs", to: "/admin/auto/logs" },
-  // 21/11 (Max, point 10) : le rapport qualité du support (le DM du lundi en est le résumé).
+  // 21/11 (Max, point 10) : le rapport qualité du support ; hors du menu (Réglages › anciennes pages).
   { cle: "qualite", to: "/admin/auto/qualite" },
 ];
 
@@ -63,28 +63,24 @@ export const cheminAuto = (cle: PageAuto): string => PAGES_AUTO.find((p) => p.cl
 export const HORS_MENU: readonly PageAuto[] = ["problems", "disputes"];
 
 /**
- * 21/11 (Max, point 7) : le menu admin en 7 groupes : Aujourd'hui · Posteurs · Contenu · Paie · Recrutement · Santé ·
- * Réglages. Ici, les pages de l'automatisation et leur groupe ; les autres liens (Contenu, Santé…) sont dans
- * AdminLayout. « Problèmes », « Pays » et « File de relecture » sortent du menu : leurs adresses restent ouvertes.
+ * 12/11 (OS clair) : le menu de la section, 7 entrées. Les autres pages restent
+ * ouvertes (même adresse) et rangées dans Réglages › Anciennes pages : rien n'est supprimé.
+ * Posteurs, Ruul, Décisions et Paie pointent vers les pages actuelles jusqu'à leur refonte.
  */
-export type GroupeMenu = "aujourdhui" | "posteurs" | "contenu" | "paie" | "recrutement" | "sante" | "reglages";
-export const GROUPES_MENU: readonly GroupeMenu[] = ["aujourdhui", "posteurs", "contenu", "paie", "recrutement", "sante", "reglages"];
-
-export type EntreeMenuAuto = "aujourdhui" | "support" | "decisions" | "qualite" | "posteurs" | "ruul" | "upwork" | "rapport_kills" | "paie" | "paie_ruul" | "cohortes" | "candidats" | "reglages";
-export const MENU_AUTO: readonly { cle: EntreeMenuAuto; to: string; page: PageAuto; groupe: GroupeMenu }[] = [
-  { cle: "aujourdhui", to: "/admin/auto/aujourdhui", page: "aujourdhui", groupe: "aujourdhui" },
-  { cle: "support", to: "/admin/auto/support", page: "support", groupe: "aujourdhui" },
-  { cle: "decisions", to: "/admin/auto/decisions", page: "decisions", groupe: "aujourdhui" },
-  { cle: "qualite", to: "/admin/auto/qualite", page: "qualite", groupe: "aujourdhui" },
-  { cle: "posteurs", to: "/admin/auto/recruits", page: "recruits", groupe: "posteurs" },
-  { cle: "ruul", to: "/admin/auto/ruul", page: "ruul_suivi", groupe: "posteurs" },
-  { cle: "upwork", to: "/admin/auto/upwork-a-ajouter", page: "upwork_ajouter", groupe: "posteurs" },
-  { cle: "rapport_kills", to: "/admin/auto/rapport-kills", page: "rapport_kills", groupe: "posteurs" },
-  { cle: "paie", to: "/admin/auto/payroll", page: "payroll", groupe: "paie" },
-  { cle: "paie_ruul", to: "/admin/auto/paie-ruul", page: "paie_ruul", groupe: "paie" },
-  { cle: "cohortes", to: "/admin/auto/cohorts", page: "cohorts", groupe: "recrutement" },
-  { cle: "candidats", to: "/admin/auto/candidats-ruul", page: "candidats_ruul", groupe: "recrutement" },
-  { cle: "reglages", to: "/admin/auto/reglages", page: "reglages", groupe: "reglages" },
+export type EntreeMenuAuto = "aujourdhui" | "problemes" | "posteurs" | "ruul" | "upwork" | "decisions" | "rapport_kills" | "paie" | "paie_ruul" | "support" | "reglages";
+export const MENU_AUTO: readonly { cle: EntreeMenuAuto; to: string; page: PageAuto }[] = [
+  { cle: "aujourdhui", to: "/admin/auto/aujourdhui", page: "aujourdhui" },
+  // 13/11 (Max) : UNE page « Problèmes » dans le menu (🔴 urgent, 🤖 chez les bots, 📅 samedi).
+  { cle: "problemes", to: "/admin/auto/problemes", page: "needs" },
+  { cle: "posteurs", to: "/admin/auto/recruits", page: "recruits" },
+  { cle: "ruul", to: "/admin/auto/ruul", page: "ruul_suivi" },
+  { cle: "upwork", to: "/admin/auto/upwork-a-ajouter", page: "upwork_ajouter" },
+  { cle: "decisions", to: "/admin/auto/decisions", page: "decisions" },
+  { cle: "rapport_kills", to: "/admin/auto/rapport-kills", page: "rapport_kills" },
+  { cle: "paie", to: "/admin/auto/payroll", page: "payroll" },
+  { cle: "paie_ruul", to: "/admin/auto/paie-ruul", page: "paie_ruul" },
+  { cle: "support", to: "/admin/auto/support", page: "support" },
+  { cle: "reglages", to: "/admin/auto/reglages", page: "reglages" },
 ];
 
 /** Les pages hors du menu, rangées dans Réglages (dans cet ordre). */
@@ -115,6 +111,6 @@ export const ANCIENNES_ADRESSES: Readonly<Record<string, string>> = {
   "/admin/reviews": "/admin/quality-feedback",
   "/admin/retours-contestes": "/admin/quality-feedback",
   "/admin/surveillance": "/admin/auto",
-  // Bloc C (2/11) : Needs you devient Problems ; 21/11 (Max) : tout arrive sur « Aujourd'hui ».
-  "/admin/auto/needs-you": "/admin/auto/aujourdhui",
+  // Bloc C (2/11) : Needs you devient Problems.
+  "/admin/auto/needs-you": "/admin/auto/problemes",
 };

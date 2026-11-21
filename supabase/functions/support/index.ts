@@ -9,6 +9,7 @@ import { type CasFin, estDemandePosteur, OBJET_FIN, raisonFixe, texteCompteArret
 import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rapport_samedi.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { type Aujourdhui, type LigneAujourdhui, type QualiteSemaine, texteAlertesUrgentes, texteQualite, texteResumeJour } from "../_shared/aujourdhui.ts";
+import { type CleSituation, estReactiver2eCompte, estRienPrevu, reponseRienPrevu, situationFixe, TEXTES_SITUATIONS } from "../_shared/support_situations.ts";
 import { lundiEnClair, reponseDouble, TEXTE_REFUS_DOUBLE, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "../_shared/doublement.ts";
 import {
   type CasRuul,
@@ -850,7 +851,15 @@ async function deciderBot(
 
 /** Ce qui doit se passer après la réponse (écritures faites par apresDemande, jamais en simulation). */
 export interface PlanRegles {
-  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | `ruul_${CasRuul}` | "double_jeudi" | null;
+  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | `ruul_${CasRuul}` | "double_jeudi" | `situation_${CleSituation}` | "annule" | null;
+  /** 21/11 (Max) : la demande se ferme dès la réponse envoyée. */
+  fermer?: boolean;
+  /** 21/11 : le contenu du jour est signalé à la qualité (jamais à Max). */
+  qualite?: string | null;
+  /** 21/11 : le jour compte comme fait (contenu faux de notre côté). */
+  jour_compte?: string | null;
+  /** 21/11 : un ticket dans #a-os-tickets (bug technique) ; la demande reste ouverte jusqu'à ce que ce soit réglé. */
+  ticket?: string | null;
   /** 21/11 (Max) : le problème Ruul compté (le bot répond 2 fois au plus au même problème, puis escalade). */
   tentative_ruul: string | null;
   /** 21/11 : escalade Ruul (cas inconnu ou 3e message sur le même problème) → ticket dans #a-os-tickets. */
@@ -876,6 +885,11 @@ async function etatReel(db: Db, poster: string): Promise<EtatReel | null> {
 }
 
 /** Un texte fixe (anglais) dans la langue du message du posteur ; l'anglais tel quel ; en cas d'échec, l'anglais. */
+/** Aujourd'hui à Paris, AAAA-MM-JJ. */
+function jourParisIso(d: Date): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
+}
+
 /** Le lundi qui suit (heure de Paris), AAAA-MM-JJ. */
 function lundiQuiSuit(d: Date): string {
   const paris = new Date(d.toLocaleString("en-US", { timeZone: "Europe/Paris" }));
@@ -1368,6 +1382,53 @@ async function appliquerRegles(
       }
     }
   }
+  // 21/11 (Max, « Les situations ») : vérifier avant de répondre, une réponse adaptée, et on ferme.
+  if (o.etat && situation(o.etat).statut === "kill" && !estDemandeArret(o.message)) {
+    // 5. Posteur killé qui écrit.
+    fixe(TEXTES_SITUATIONS.annule, "statut");
+    plan.cas = "annule";
+    plan.fermer = true;
+    d.reponse = await traduire(d.reponse, d.langue);
+    return plan;
+  }
+  const sit = situationFixe(o.message, { plateforme: o.plateforme });
+  if (sit) {
+    fixe(sit.texte, sit.categorie);
+    plan.cas = `situation_${sit.cle}`;
+    plan.fermer = sit.fermer;
+    if (sit.qualite) plan.qualite = o.message.slice(0, 500);
+    if (sit.jourCompte) plan.jour_compte = "Contenu faux signalé par le posteur : jour compté comme fait";
+    if (sit.ticket) plan.ticket = sit.ticket;
+    plan.resume = plan.resume ?? `Situation « ${sit.cle} » : réponse fixe.`;
+    d.reponse = await traduire(d.reponse, d.langue);
+    return plan;
+  }
+  if (o.poster && o.etat?.actif && estReactiver2eCompte(o.message)) {
+    // 17. Réactiver son 2e compte : automatique s'il existe (et n'a pas été arrêté pour une raison) ; sinon Max.
+    const { data: handle } = o.simulation ? { data: null } : await db.rpc("compte_reactiver_2e", { p_poster: o.poster });
+    if (typeof handle === "string" && handle) {
+      fixe(TEXTES_SITUATIONS.reactive, "tiktok");
+      plan.cas = "situation_reactiver_2e_compte";
+      plan.fermer = true;
+      plan.resume = `2e compte @${handle} réactivé automatiquement.`;
+      d.reponse = await traduire(d.reponse, d.langue);
+      return plan;
+    }
+    d.niveau = "max";
+    plan.action_proposee = "Réactiver son 2e compte : aucun 2e compte réactivable automatiquement (à vérifier).";
+  }
+  if (o.etat && estRienPrevu(o.message)) {
+    // 1 et 2. « Nothing planned » : reporté (nouvelle date et ce qui manquait), sinon un vrai incident.
+    const r = reponseRienPrevu({ aujourdhui: jourParisIso(new Date()), actif: o.etat.actif, cohorte: o.etat.cohorte, warmup: o.etat.warmup });
+    if (r.texte) {
+      fixe(r.texte, "posting");
+      plan.cas = "situation_rien_prevu";
+      plan.fermer = !r.incident;
+      if (r.incident) plan.incident = { cle: "posts_manquants", titre: "Posts manquants (« nothing planned »)", groupe_seul: false };
+      d.reponse = await traduire(d.reponse, d.langue);
+      return plan;
+    }
+  }
   const attente = o.etat?.upwork_exception?.statut === "lien_attendu";
   const det = detecterCas(o.message, { plateforme: o.plateforme, attenteLienUpwork: attente });
   const cas = det.cas ?? casDeCategorie(d.categorie, o.plateforme);
@@ -1605,6 +1666,24 @@ async function apresDemande(
       fait.push("rattachée à la demande d'origine (doublon)");
     }
     if (plan.incident) fait.push(await incidentAjouter(db, o.poster, o.demande, plan.incident, d.categorie));
+    if (o.poster && plan.jour_compte) {
+      // 21/11 (Max, règle 6) : texte vraiment faux → le jour compte comme fait.
+      const { data: c, error } = await db.rpc("jour_crediter", { p_poster: o.poster, p_jour: jourParisIso(new Date()), p_raison: plan.jour_compte });
+      fait.push(error ? `jour compté : ${error.message}` : `jour compté comme fait (${c ?? 0} post(s))`);
+    }
+    if (plan.ticket) {
+      // 21/11 (Max) : un bug technique → un ticket au format d'Adrien ; la demande reste ouverte jusqu'à ce que ce soit réglé.
+      const r = await envoyerTicket(db, null, o.demande, plan.ticket);
+      fait.push(r.ok ? "ticket #a-os-tickets" : `ticket : ${(r as { error?: string }).error ?? "échec"}`);
+    }
+    if (o.poster && plan.qualite) {
+      const { error } = await db.from("contenu_signalements").insert({ poster_id: o.poster, demande_id: o.demande, texte: plan.qualite });
+      fait.push(error ? `qualité : ${error.message}` : "contenu signalé à la qualité");
+    }
+    if (plan.fermer && !plan.incident) {
+      await db.from("support_demandes").update({ statut: "resolu", resolu_at: new Date().toISOString(), resolu_par_bot: true, verdict_fermeture: "regle_bot" }).eq("id", o.demande);
+      fait.push("fermée (réponse envoyée)");
+    }
     if (o.poster && plan.arret_immediat) {
       // La réponse (le message de fin) est déjà partie : elle devient aussi la page de fin, notée envoyée (le passage
       // des textes de fin ne la renvoie pas), puis l'arrêt est créé.

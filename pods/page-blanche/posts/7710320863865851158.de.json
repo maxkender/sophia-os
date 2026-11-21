@@ -1,0 +1,221 @@
+{
+ "post_id": "7710320863865851158",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "insanely interesting"
+     ],
+     "texte": "10/10 Hobbys, die dich unfassbar interessant machen"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "texte": "(Nischen-Edition)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_25857638.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "try pottery"
+     ],
+     "texte": "versuch's mit [[Töpfern]]"
+    },
+    "T2": {
+     "en": [
+      "you can’t rush clay, and the second your mind",
+      "wanders the whole thing collapses"
+     ],
+     "texte": "Ton kann man nicht hetzen, und schweifst du ab, [[fällt alles zusammen]]"
+    },
+    "T3": {
+     "en": [
+      "you have to give one",
+      "thing your full",
+      "attention, in a world",
+      "that runs on",
+      "short-form content"
+     ],
+     "texte": "du musst einer Sache [[volle Aufmerksamkeit]] schenken, in einer Welt voller [[Kurzvideos]]"
+    },
+    "T4": {
+     "en": [
+      "focus gets easier when your hands won’t let you think",
+      "about anything else"
+     ],
+     "texte": "Fokus fällt leichter, wenn [[deine Hände dich an nichts anderes denken lassen]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to do a handstand"
+     ],
+     "texte": "lern den [[Handstand]]"
+    },
+    "T2": {
+     "en": [
+      "you’ll fall over hundreds of times before you can",
+      "hold it for even 5 seconds"
+     ],
+     "texte": "du fällst [[hunderte Male]] um, bevor du ihn auch nur 5 Sekunden hältst"
+    },
+    "T3": {
+     "en": [
+      "your whole body has",
+      "to focus on one thing,",
+      "so there’s no room for",
+      "your phone"
+     ],
+     "texte": "dein Körper muss sich [[auf eine Sache konzentrieren]], kein Platz fürs Handy"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification, and it’s a fun party trick!!"
+     ],
+     "texte": "er lehrt dich [[Geduld, Ausdauer und Belohnungsaufschub]], und ist ein cooler Partytrick!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "texte": "lies [[jeden Tag]] ein Buch"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "texte": "du sagst, [[du willst mehr lesen]], und dann [[scrollst du den ganzen Tag]]"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found readup which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "texte": "statt Scrollen: abends ein Roman und [[die Sophia-App]], wenn ich doch zum Handy greife. gestern: der Urknall"
+    },
+    "T4": {
+     "en": [
+      "it trains your brain to focus",
+      "on one thing for longer than",
+      "a 15 second video"
+     ],
+     "texte": "es trainiert dein Gehirn, [[bei einer Sache zu bleiben]], länger als ein 15-Sekunden-Video"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on long hikes"
+     ],
+     "texte": "geh auf [[lange Wanderungen]]"
+    },
+    "T2": {
+     "en": [
+      "hours of walking with one goal, no notifications,",
+      "and nothing to entertain you but your own",
+      "thoughts"
+     ],
+     "texte": "stundenlang laufen mit [[einem Ziel]], keine Benachrichtigungen, nichts als deine eigenen Gedanken"
+    },
+    "T3": {
+     "en": [
+      "hiking teaches you to",
+      "keep going when you’re",
+      "tired"
+     ],
+     "texte": "Wandern lehrt dich, [[weiterzugehen, wenn du müde bist]]"
+    },
+    "T4": {
+     "en": [
+      "and your attention span",
+      "slowly comes back",
+      "when there’s nothing to",
+      "switch to"
+     ],
+     "texte": "und deine Aufmerksamkeit [[kommt langsam zurück]], wenn es nichts zum Wechseln gibt"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "try cold water swimming"
+     ],
+     "texte": "probier [[Kaltwasserschwimmen]]"
+    },
+    "T2": {
+     "en": [
+      "the cold hits and your brain wants to panic, so",
+      "you have to control your breathing"
+     ],
+     "texte": "die Kälte trifft dich, dein Kopf will Panik, also musst du [[ruhig atmen]]"
+    },
+    "T3": {
+     "en": [
+      "start with a few",
+      "minutes in a lake or",
+      "the sea, especially",
+      "fun with friends"
+     ],
+     "texte": "fang mit ein paar Minuten im See oder Meer an, am besten mit Freunden"
+    },
+    "T4": {
+     "en": [
+      "you’re training yourself to stay calm and focused",
+      "when everything in you wants to get out"
+     ],
+     "texte": "du trainierst, [[ruhig und fokussiert zu bleiben]], wenn alles in dir raus will"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

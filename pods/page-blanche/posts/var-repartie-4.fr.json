@@ -1,0 +1,294 @@
+{
+ "post_id": "var-repartie-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "comment avoir [[le sens de la répartie]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(comme les gens drôles en soirée)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0c9d5086.jpg",
+      "boite": [
+       0,
+       150,
+       2048,
+       1375
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "va marcher sans rien dans les oreilles",
+     "texte": "ressors [[une vanne d'avant]]"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique dès que tu sors",
+     "texte": "une blague qui a fait rire au début de la soirée, garde-la dans un coin de ta tête"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher boostait la créativité des gens de 60 % en moyenne",
+     "texte": "une heure plus tard, ressors-la dans un autre contexte. les humoristes appellent ça [[un callback]]"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus intelligent à écouter, c'est tes propres pensées]]",
+     "texte": "ça marche presque à tous les coups, parce que [[tout le monde est dans la blague]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3cd02ef1.jpg",
+      "boite": [
+       0,
+       100,
+       2048,
+       1520
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "la règle [[des trois]]"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "deux trucs normaux, puis un troisième qui sort de nulle part"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "«j'ai besoin de dormir, de manger et [[d'un nouveau prénom]]». le cerveau attend une suite logique, et [[le décalage le fait rire]]"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "c'est la structure de base de la moitié des sketchs que tu connais"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1846016a.jpg",
+      "boite": [
+       0,
+       150,
+       2048,
+       1460
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit",
+     "texte": "trouve [[la bonne comparaison]]"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4.",
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
+     "texte": "les répliques qui tuent comparent la situation à un truc inattendu, mais faut des références. avant je scrollais H24, maintenant j'apprends un truc en 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et le mythe de Sisyphe"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop eating junk food"
+     ],
+     "texte": "garde [[ton sérieux]]"
+    },
+    "T2": {
+     "en": [
+      "junk food is made to hit your dopamine the same way",
+      "scrolling does"
+     ],
+     "texte": "dis le truc le plus absurde avec la tête de quelqu'un qui présente [[la météo]]"
+    },
+    "T3": {
+     "en": [
+      "the more you eat, the",
+      "more your brain starts",
+      "craving it"
+     ],
+     "texte": "ton calme, zéro sourire, et [[l'effet est doublé]]"
+    },
+    "T4": {
+     "en": [
+      "every time you say no,",
+      "you practice",
+      "self-control, and that",
+      "gets easier too"
+     ],
+     "texte": "le contraste entre ta tête et ta phrase, c'est ça qui fait rire. moins tu réagis, [[plus c'est drôle]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5ac41c47.jpg",
+      "boite": [
+       100,
+       0,
+       1840,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend every paycheck"
+     ],
+     "texte": "vanne [[avec le sourire]]"
+    },
+    "T2": {
+     "en": [
+      "you only live once, so buy the clothes, the takeaway, the",
+      "new phone"
+     ],
+     "texte": "la même phrase peut passer pour une blague ou pour une attaque"
+    },
+    "T3": {
+     "en": [
+      "saving is for boring people, future",
+      "you can deal with it"
+     ],
+     "texte": "c'est ton ton qui décide, [[pas tes mots]]"
+    },
+    "T4": {
+     "en": [
+      "the money you waste in your 20s",
+      "is the money that could give you",
+      "freedom in your 30s"
+     ],
+     "texte": "un clin d'œil, un sourire, et même une petite pique devient [[un moment complice]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0ee14e73.jpg",
+      "boite": [
+       190,
+       0,
+       1660,
+       2048
+      ]
+     }
+    }
+   }
+  }
+ }
+}

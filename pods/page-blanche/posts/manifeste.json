@@ -5516,6 +5516,33 @@
     "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
    },
    "statut": "nouveau"
+  },
+  {
+   "post_id": "var-repartie-4",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#repartie #humour #confiance",
+   "musique": {
+    "titre": "Love is in the Air, Pt. 2",
+    "auteur": "Rock Burwell",
+    "original": false,
+    "id": "7636876081187588097",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636876081187588097"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685340052989398275_1",
+    "2": "7683541501007252758_4",
+    "3": "7691007701127564576_3",
+    "4": "7680975889932225814_5",
+    "5": "7703525134610566433_6",
+    "6": "7700620281760533792_6"
+   },
+   "notes": "declinaison G2 de var-repartie-1, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "ceb6baa1-6227-4912-9e26-b949e995179b"
   }
  ]
 }

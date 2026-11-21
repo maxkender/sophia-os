@@ -1,5 +1,5 @@
 import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
-import { dansFenetre, echeance, emailParcours, type EtatParcours, jourLundi, lignesPointSoirRuul, prochainEnvoi } from "./parcours_ruul.ts";
+import { blocRuul, dansFenetre, echeance, emailParcours, type EtatParcours, FRAIS_RUUL, guideRuul, jourLundi, lignesPointSoirRuul, prochainEnvoi } from "./parcours_ruul.ts";
 
 const base = (x: Partial<EtatParcours> = {}): EtatParcours => ({
   poster_id: "p", prenom: "Eduarda", login: "eduardas@sophia.com", email: "e@gmail.com", cohorte_lundi: "2026-11-16",
@@ -225,4 +225,10 @@ Deno.test("17/11 API Ruul : READY chez Ruul = plus de relance Ruul", () => {
   const e = base({ cohorte_lundi: "2026-11-16", ruul_compte: "invited", ruul_email_a_at: "2026-11-10T08:00:00Z", ruul_onboarding: "READY" });
   const d = prochainEnvoi(e, jeudi, { bienvenue: false, v2: true });
   assert(d?.type !== "ruul" && d?.type !== "invite_a" && d?.type !== "invite_b" && d?.type !== "carte_ruul");
+});
+
+Deno.test("21/11 : les frais Ruul payés par Vik Studios et le délai de 1 à 2 jours ouvrés, dans le guide et le bloc Ruul", () => {
+  assertStringIncludes(guideRuul("a@b.c"), FRAIS_RUUL);
+  assertStringIncludes(blocRuul({ ruul_email: "a@b.c", ruul_lien: "https://x" }, null), FRAIS_RUUL);
+  assertStringIncludes(FRAIS_RUUL, "1 to 2 business days");
 });

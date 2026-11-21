@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o225",
+ "type_bleo": "full_test",
+ "titre": "Unwritten rules of pickup basketball #men #basketball #sports #respect #brotherhood",
+ "musique_titre": "Expansion",
+ "musique_url": "https://www.tiktok.com/music/expansion-7383085187666184209",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Full test du jour (5 sur 7, jauge : 7 sur 24). Accroche jamais faite chez nous : aucun « basketball » dans donnees/label.json. reference_url : post source de am-o002, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2dd8bf98",
+   "texte_overlay": "Unwritten rules of\npickup basketball",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "108d6295",
+   "texte_overlay": "1. Winners stay on",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5e2d2619",
+   "texte_overlay": "2. Call your own fouls\n\nHonestly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b4bdfa3c",
+   "texte_overlay": "3. Pass to the new guy\n\nEveryone was new once.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6a81cde4",
+   "texte_overlay": "4. Know the game, not just\nthe moves\n\nRules, history, strategy.",
+   "texte_sophia": "4. Know the game, not just\nthe moves\n\nI learned its history\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "73ae3735",
+   "texte_overlay": "5. No trash talk you can't back up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "334dece1",
+   "texte_overlay": "6. Shake hands after.\nEvery time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

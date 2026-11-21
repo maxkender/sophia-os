@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o240",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9f023785-c4c0-443d-bee6-4a5b2ec2631d",
+ "titre": "5 uhyggelige psykologiske fakta #psykologi #fakta #hjernen #viden #mænd",
+ "musique_titre": "alkuperäinen ääni",
+ "musique_url": "https://www.tiktok.com/music/alkuperainen-aani-7438536346848742177",
+ "inspirations": [
+  "9f023785-c4c0-443d-bee6-4a5b2ec2631d"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Déclinaison G1 de la ligne 14 (parent 9f023785, @fremrag, langue source da : écrite en danois). Accroche du parent mot pour mot. Même format. Faits de psychologie connus et neufs (Baader-Meinhof, pareidolie, cécité d'inattention, effet Zeigarnik), aucun du parent ; rien de santé. reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "473dc9af",
+   "texte_overlay": "5 uhyggelige psykologiske fakta",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678015749344005398/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c0aa916f",
+   "texte_overlay": "1. Når du lærer et nyt ord,\nser du det pludselig overalt.\nDet var der hele tiden.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678015749344005398/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "07a113ad",
+   "texte_overlay": "2. Din hjerne ser ansigter\ni stikkontakter og skyer.\nDen leder altid efter mennesker.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678015749344005398/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "085a7194",
+   "texte_overlay": "3. Du kan overse noget helt\nåbenlyst, hvis du fokuserer\npå noget andet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678015749344005398/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f9a3b9b7",
+   "texte_overlay": "4. Interessante mennesker lærer\nhele tiden noget nyt.\nNysgerrighed kan trænes.",
+   "texte_sophia": "4. Interessante mennesker lærer\nhele tiden noget nyt,\nfx i en app som Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678015749344005398/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "385d9ed6",
+   "texte_overlay": "5. Du husker ufærdige opgaver\nbedre end færdige.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678015749344005398/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "156f90f4",
+   "texte_overlay": "Vi ses snart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678015749344005398/8.jpg"
+  }
+ ]
+}

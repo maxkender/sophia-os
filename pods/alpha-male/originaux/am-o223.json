@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o223",
+ "type_bleo": "full_test",
+ "titre": "Things every man should keep in his car #men #car #prepared #responsibility #selfimprovement",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Full test du jour (3 sur 7, jauge : 7 sur 24). Accroche jamais faite chez nous : aucun « in his car » dans donnees/label.json. reference_url : post source de am-o010, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "000f02fb",
+   "texte_overlay": "Things every man should keep\nin his car",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "07d8e0ac",
+   "texte_overlay": "1. Jumper cables",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "54db401d",
+   "texte_overlay": "2. A flashlight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0ed3e188",
+   "texte_overlay": "3. Water and a snack",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e446ba9a",
+   "texte_overlay": "4. An umbrella\n\nFor whoever needs it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e140aaa9",
+   "texte_overlay": "5. Something to learn while\nyou wait\n\nTraffic, parking, pickup.",
+   "texte_sophia": "5. Something to learn while\nyou wait\n\nI do a lesson on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  }
+ ]
+}

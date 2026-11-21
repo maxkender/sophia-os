@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o237",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1ce0b346-a1e9-4f76-91e7-4f719fef1535",
+ "titre": "5 mørke sandheder om menneskets natur #psykologi #sandhed #livet #mænd #fakta",
+ "musique_titre": "Elle Ta Tue Instrumental (Morena)",
+ "musique_url": "https://www.tiktok.com/music/elle-ta-tue-instrumental-morena-7430147882671508257",
+ "inspirations": [
+  "1ce0b346-a1e9-4f76-91e7-4f719fef1535"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Déclinaison G1 de la ligne 11 (parent 1ce0b346, @fremrag, langue source da : écrite en danois). Accroche du parent mot pour mot. Même format. Sandheder neuves, aucune du parent ; pas de slide « tag ». reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e2d77636",
+   "texte_overlay": "5 mørke sandheder om\nmenneskets natur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677596750818987286/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1f5b0e6c",
+   "texte_overlay": "1. Folk husker, hvordan du fik\ndem til at føle sig,\nikke hvad du sagde.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677596750818987286/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "10013eee",
+   "texte_overlay": "2. De fleste ringer først,\nnår de mangler noget.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677596750818987286/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "92475de9",
+   "texte_overlay": "3. Folk respekterer dem,\nder ved meget.\nLær noget hver dag.",
+   "texte_sophia": "3. Folk respekterer dem,\nder ved meget.\nJeg lærer noget hver dag\ni Sophia-appen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677596750818987286/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "063a0118",
+   "texte_overlay": "4. Ingen lægger mærke til din\nindsats, kun dine resultater.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677596750818987286/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "595f0c35",
+   "texte_overlay": "5. Dine venner ændrer sig,\nnår dit liv ændrer sig.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677596750818987286/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a720fd23",
+   "texte_overlay": "Vi ses snart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677596750818987286/8.jpg"
+  }
+ ]
+}

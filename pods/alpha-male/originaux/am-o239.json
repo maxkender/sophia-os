@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o239",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "529befc0-352c-47cd-b55a-b5b2427f49fc",
+ "titre": "5 mærkelige facts om dit kropssprog #kropssprog #psykologi #fakta #selvtillid #mænd",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "529befc0-352c-47cd-b55a-b5b2427f49fc"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Déclinaison G1 de la ligne 13 (parent 529befc0, @fremrag, langue source da : écrite en danois). Accroche du parent mot pour mot. Même format « N: » + fact. Facts neufs, aucun du parent ; pas de compte à rebours ni de slide « tag ». reference_url du parent (1, 4 à 9, 11) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35a78964",
+   "texte_overlay": "5 mærkelige facts om\ndit kropssprog",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676196585339964675/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2c4a18d8",
+   "texte_overlay": "1:\nDine fødder peger ofte mod det,\ndu helst vil hen til.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676196585339964675/4.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0287696d",
+   "texte_overlay": "2:\nKrydsede arme betyder ikke altid\nafvisning. Nogle gange fryser du bare.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676196585339964675/5.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "108b5fb2",
+   "texte_overlay": "3:\nFolk spejler ubevidst den,\nde kan lide.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676196585339964675/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b690c12e",
+   "texte_overlay": "4:\nSelvtillid kommer af viden.\nDen, der ved noget, står roligere.",
+   "texte_sophia": "4:\nSelvtillid kommer af viden.\nEn app med almen viden\nsom Sophia hjælper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676196585339964675/8.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3632b6e5",
+   "texte_overlay": "5:\nEt ægte smil når øjnene.\nEt falsk gør ikke.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676196585339964675/9.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "43647646",
+   "texte_overlay": "Vi ses snart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676196585339964675/11.jpg"
+  }
+ ]
+}

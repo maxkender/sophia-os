@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o233",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b3facded-5ca4-488b-b568-dfe6a47a4053",
+ "titre": "Moments that quietly make a man stronger #men #growth #life #maturity #strength",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [
+  "b3facded-5ca4-488b-b568-dfe6a47a4053"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Déclinaison G2 de la ligne 6 (parent b3facded = notre am-o103 ; 2e après am-o212). Promesse reformulée. Même format « N. Moment: » + trois lignes. Moments neufs. reference_url de am-o103 vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "64e9661c",
+   "texte_overlay": "Moments that quietly make\na man stronger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "11d50dca",
+   "texte_overlay": "1. The First Time He Had to\nSay No to His Friends:\n\nThey laughed.\nHe stayed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "22c804f7",
+   "texte_overlay": "2. The Day He Got Fired:\n\nHe drove home slowly.\nThen he started again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "19bb00cd",
+   "texte_overlay": "3. The Night He Sat With\nHis Own Mistakes:\n\nNo distractions.\nJust honesty.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e5ae3977",
+   "texte_overlay": "4. The Day His Parents\nAsked Him for Advice:\n\nThe roles had changed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9f8f5ff9",
+   "texte_overlay": "5. The Day He Chose Growth\nOver Comfort:\n\nNew habits. New skills.",
+   "texte_sophia": "5. The Day He Chose Growth\nOver Comfort:\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/6.jpg"
+  }
+ ]
+}

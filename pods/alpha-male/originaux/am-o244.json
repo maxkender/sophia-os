@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o244",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "891d8e81-816f-4f11-a593-f68efc297c94",
+ "titre": "5 ways to destroy social anxiety #socialskills #confidence #men #mindset #selfimprovement",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [
+  "891d8e81-816f-4f11-a593-f68efc297c94"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Déclinaison G1 de la ligne 27 (parent 891d8e81, @millyjhino, langue source en). Lignes 19 à 26 passées (garde-fous : santé, manifestation, argent, « douchebag », couple, bien-être vague). Accroche du parent mot pour mot. Format du parent : « N. Conseil! » + trois lignes. Conseils pratiques et neufs (aucun conseil médical), aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5c5ec933",
+   "texte_overlay": "5 ways to destroy\nsocial anxiety",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "511f66ec",
+   "texte_overlay": "1. Talk to one stranger a day!\n\nThe barista. The cashier.\nSmall reps.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "32e6725d",
+   "texte_overlay": "2. Arrive early to parties!\n\nIt's easier to meet\nfive people than fifty.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "39df46bb",
+   "texte_overlay": "3. Focus on them, not you!\n\nAsk a question.\nListen to the answer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c98f70d4",
+   "texte_overlay": "4. Always have something\nto talk about!\n\nLearn one new thing a day.",
+   "texte_sophia": "4. Always have something\nto talk about!\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8c5be194",
+   "texte_overlay": "5. Leave when you want to!\n\nNobody is keeping score.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688447401496972562/6.jpg"
+  }
+ ]
+}

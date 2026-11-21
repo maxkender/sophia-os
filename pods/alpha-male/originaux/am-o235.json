@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o235",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1515184b-9732-42b9-9b8c-0b6c06699f2e",
+ "titre": "5 psykologiske tricks til at dominere ethvert rum #psykologi #selvtillid #mænd #udstråling #fakta",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "1515184b-9732-42b9-9b8c-0b6c06699f2e"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 21/11. Déclinaison G1 de la ligne 8 (parent 1515184b, @fremrag, langue source da : écrite en danois, ROUTINE §4.3). Accroche du parent mot pour mot. Même format : « N. astuce » en une ou deux lignes, puis « Vi ses snart ». Astuces neuves et honnêtes (présence, pas manipulation), aucune du parent ; pas de slide « tag ». reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cae13a2c",
+   "texte_overlay": "5 psykologiske tricks til at\ndominere ethvert rum",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676220596967050518/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "488e2f56",
+   "texte_overlay": "1. Sig folks navn, når du hilser.\nDe husker dig med det samme.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676220596967050518/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c275290f",
+   "texte_overlay": "2. Gå langsomt ind i rummet.\nRo signalerer selvtillid.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676220596967050518/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "27c23e32",
+   "texte_overlay": "3. Hold øjenkontakt et sekund\nlængere, når du lytter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676220596967050518/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "94e8d45b",
+   "texte_overlay": "4. Hav noget at sige om alt.\nLær lidt nyt hver dag.",
+   "texte_sophia": "4. Hav noget at sige om alt.\nEn app med almen viden\nsom Sophia gør det let.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676220596967050518/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3822ff25",
+   "texte_overlay": "5. Stil spørgsmål i stedet for\nat fortælle. Folk elsker\nat blive lyttet til.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676220596967050518/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3d9abecd",
+   "texte_overlay": "Vi ses snart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676220596967050518/8.jpg"
+  }
+ ]
+}

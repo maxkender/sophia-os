@@ -55,6 +55,7 @@ import {
 import { langueTraduite, normaliserLangue, traduireChamps } from "../_shared/traduction_email.ts";
 import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
+import { type AbsenceLue, lireReponseAbsence, parleAbsence, promptAbsence } from "../_shared/absence_message.ts";
 import { estManque, OBJET_KYC, texteKyc } from "../_shared/ruul_kyc.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { ADRESSE_CONNEXION, adresseDeConnexion, slackEnPause } from "../_shared/ruul_adresses.ts";
@@ -189,6 +190,8 @@ Deno.serve(async (request) => {
     // dans la langue du posteur ; jeudi et samedi (cron), ou maintenant avec forcer: true ; simuler: true n'envoie rien.
     if (body?.action === "kyc_relances") return json(await kycRelances(supabase, body?.forcer === true, body?.simuler === true));
     // 21/11 (Max) : renvoyer une fois la relance KYC revenue, à la vraie adresse (liste d'abord ; envoi avec confirmer: true).
+    // 21/11 (Max, point 5) : un message « absent / malade / en voyage » d'un posteur Ruul → l'absence est créée (cron).
+    if (body?.action === "absences_messages") return json(await absencesMessages(supabase, body?.simuler === true));
     if (body?.action === "kyc_renvoi") return json(await kycRenvoi(supabase, body?.confirmer === true));
     // 21/11 (Max) : bloqué sur Ruul depuis 7 jours malgré le support : on propose Upwork (une fois).
     if (body?.action === "upwork_7j") return json(await proposerUpwork7j(supabase, body?.simuler === true));
@@ -645,6 +648,46 @@ async function envoyerRelancesKyc(supabase: Supabase, dues: RelanceKyc[], simule
     sans_canal: bilan.filter((b) => !simuler && !b.canaux.length).length,
     erreurs: bilan.filter((b) => b.erreur).slice(0, 20),
   };
+}
+
+/**
+ * 21/11 (Max, point 5) : les messages récents des posteurs Ruul (réponses, demandes au support) qui disent une absence
+ * (absent, malade, en voyage…) → absences_declarees (source « message ») avec les dates dites ; sans date : le jour du
+ * message et le lendemain. Chaque message n'est lu qu'une fois. simuler : rien n'est écrit.
+ */
+async function absencesMessages(supabase: Supabase, simuler: boolean) {
+  const depuis = new Date(Date.now() - 3 * 86_400_000).toISOString();
+  const { data, error } = await supabase.rpc("absences_messages_a_lire", { p_depuis: depuis });
+  if (error) throw error;
+  const liste = (data ?? []) as { ref: string; poster_id: string; texte: string; recu_at: string }[];
+  const bilan = { lus: 0, candidats: 0, absences: 0, exemples: [] as { ref: string; debut: string | null; fin: string | null; raison: string | null }[], erreurs: [] as string[] };
+  const debut = Date.now();
+  for (const m of liste) {
+    if (Date.now() - debut > 100_000) break;
+    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: PARIS }).format(new Date(m.recu_at));
+    bilan.lus++;
+    let lu: AbsenceLue | null = { absent: false, debut: null, fin: null, raison: null };
+    if (parleAbsence(m.texte)) {
+      bilan.candidats++;
+      try {
+        lu = lireReponseAbsence(await generateTextFast(promptAbsence(m.texte, jour)));
+      } catch (e) {
+        bilan.erreurs.push(`${m.ref} : ${messageErreur(e)}`);
+        continue; // relu au prochain passage
+      }
+      if (!lu) continue;
+    }
+    if (simuler) {
+      if (lu.absent && bilan.exemples.length < 10) bilan.exemples.push({ ref: m.ref, debut: lu.debut ?? jour, fin: lu.fin, raison: lu.raison });
+      continue;
+    }
+    const { data: cree, error: e } = await supabase.rpc("absence_depuis_message", {
+      p_ref: m.ref, p_poster: m.poster_id, p_absent: lu.absent, p_debut: lu.debut, p_fin: lu.fin, p_raison: lu.raison, p_jour: jour,
+    });
+    if (e) bilan.erreurs.push(`${m.ref} : ${e.message}`);
+    else if (cree === true) bilan.absences++;
+  }
+  return { ok: true, simulation: simuler, ...bilan };
 }
 
 /** La relance KYC en bandeau pour les posteurs dont l'email de relance est revenu (depuis `depuis`). */

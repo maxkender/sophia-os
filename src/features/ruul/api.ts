@@ -49,6 +49,8 @@ export interface SemaineLot {
   bonus_detail?: { type: string; montant: number; detail: string | null }[] | null;
   a_verifier?: string[];
   valide?: boolean;
+  /** 0809 : pourquoi ce montant (posts, comptes, doublement, bonus, Kill, absences, panne). */
+  pourquoi?: string | null;
 }
 
 export interface LigneLot {

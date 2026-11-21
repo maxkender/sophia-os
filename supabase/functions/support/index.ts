@@ -174,7 +174,8 @@ Deno.serve(async (request) => {
       case "messages_traiter":
         // 12/11 (0675) : les messages des posteurs rangés en « autre » passent par le bot v2 (cron */15).
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
-        return json(await messagesTraiter(db));
+        // 21/11 : les STOP arrivés par une carte passent aussi par le support (arrêt immédiat).
+        return json({ ...(await messagesTraiter(db)), stops: await stopsCartes(db) });
       case "liste_adrien":
         // 12/11 (0675) : la liste du soir d'Adrien (21 h Paris ; le cron passe à 19 h et 20 h UTC).
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
@@ -1488,13 +1489,16 @@ async function appliquerRegles(
     const surLeStatut = demandeArret || estQuestionStatut(o.message) || d.categorie === "arret" || d.categorie === "statut";
     // 19/11 (Max) : une demande d'arrêt déjà notée (demandes_arret, pas encore décidée) : le compte est encore actif
     // jusqu'au samedi, mais on ne lui dit jamais « continue de poster ».
-    const arretDejaDemande = surLeStatut && s.statut === "actif" && !!o.poster && await arretEnAttente(db, o.poster);
+    // 21/11 (Max) : avec l'arrêt immédiat, une demande claire est exécutée tout de suite, même si un arrêt était
+    // déjà noté pour le samedi.
+    const immediat = demandeArret && s.statut === "actif" && !!o.poster && await reglageVrai(db, "arret_immediat");
+    const arretDejaDemande = !immediat && surLeStatut && s.statut === "actif" && !!o.poster && await arretEnAttente(db, o.poster);
     if (surLeStatut) {
       plan.incoherences = s.incoherences;
       if (arretDejaDemande) {
         fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
         plan.cas = "arret";
-      } else if (demandeArret && s.statut === "actif" && o.poster && await reglageVrai(db, "arret_immediat")) {
+      } else if (immediat && o.poster) {
         // 21/11 (Max) : demande claire = fin immédiate : le message de fin (avec la dernière semaine si elle est due),
         // puis l'arrêt (arrets) : posteur et comptes désactivés, Slack, relances coupées, contrat fermé après la paie.
         const due = s.a_payer.length > 0 || (o.etat.posts_semaine?.publies ?? 0) > 0;
@@ -1809,28 +1813,68 @@ async function messagesTraiter(db: Db) {
   const resultats: { probleme: string; niveau: string; envoi: string }[] = [];
   for (const c of cartes) {
     if (deja.has(c.id) || resultats.length >= 15) continue;
-    const src = (c.sources ?? []).filter((x) => x.type === "reponse" || x.type === "slack");
-    const texte = src.map((x) => x.texte ?? "").filter(Boolean).join("\n").trim();
+    const r = await traiterCarteMessage(db, c, ["reponse", "slack"]);
+    if (r) resultats.push(r);
+  }
+  return { ok: true, traites: resultats.length, resultats };
+}
+
+/**
+ * 21/11 (Max) : un STOP est entièrement automatique. Les cartes « stop » (bouton « I want to stop », message Upwork ou
+ * Slack) arrivées depuis le réglage stops_cartes_depuis passent par le support, comme un message : une demande claire
+ * = message de fin et arrêt immédiat (arrets), puis la carte se ferme (0806) ; un doute = une seule question. La
+ * carte ne remonte à Max que si l'arrêt échoue (carte « arret_echec »).
+ */
+async function stopsCartes(db: Db) {
+  const { data: r } = await db.from("reglages").select("valeur").eq("cle", "stops_cartes_depuis").maybeSingle();
+  const depuis = typeof r?.valeur === "string" ? r.valeur : null;
+  if (!depuis) return { ok: true, traites: 0, raison: "stops_cartes_depuis absent" };
+  const { data, error } = await db.from("problemes").select("id, poster_id, sources, created_at")
+    .eq("statut", "ouvert").eq("categorie", "stop").not("poster_id", "is", null)
+    .gte("created_at", depuis).order("created_at").limit(20);
+  if (error) throw new Error(error.message);
+  const cartes = (data ?? []) as { id: string; poster_id: string; sources: SourceProbleme[] | null }[];
+  if (!cartes.length) return { ok: true, traites: 0 };
+  const { data: faits } = await db.from("support_demandes").select("probleme_id").in("probleme_id", cartes.map((c) => c.id));
+  const deja = new Set((faits ?? []).map((f) => f.probleme_id as string));
+  const resultats: { probleme: string; niveau: string; envoi: string }[] = [];
+  for (const c of cartes) {
+    if (deja.has(c.id) || resultats.length >= 10) continue;
+    const res = await traiterCarteMessage(db, c, ["reponse", "slack", "demande_arret"]);
+    if (res) resultats.push(res);
+  }
+  return { ok: true, traites: resultats.length, resultats };
+}
+
+/** Une carte (un message du posteur) traitée par le support comme un message reçu ; null si rien à traiter. */
+async function traiterCarteMessage(
+  db: Db,
+  c: { id: string; poster_id: string; sources: SourceProbleme[] | null },
+  types: readonly string[],
+): Promise<{ probleme: string; niveau: string; envoi: string } | null> {
+  {
+    const src = (c.sources ?? []).filter((x) => types.includes(x.type ?? ""));
+    // « Asked to stop (message) : … » (demande_arret) : le message du posteur, sans le préfixe interne.
+    const texte = src.map((x) => (x.texte ?? "").replace(/^Asked to stop \([^)]*\)\s*:\s*/i, "")).filter(Boolean).join("\n").trim();
     // 13/11 (Max) : la vraie source (Upwork ou Slack), plus « help ».
     const canal = src.some((x) => x.canal === "upwork") ? "upwork" : "slack";
-    if (!texte) continue;
+    if (!texte) return null;
     // 13/11 (Max) : un simple accusé (« thank you », « ok », « I'll do it tonight ») : pas de demande, « vu » dans le fil.
     if (accuseReception(texte)) {
       await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
-      continue;
+      return null;
     }
     const rouverte = await rouvrirSiPasRegle(db, c.poster_id, texte, canal);
     if (rouverte) {
       await db.from("support_demandes").update({ probleme_id: c.id }).eq("id", rouverte.id).is("probleme_id", null);
       const envoi = await envoyerAuPosteur(db, c.poster_id, rouverte.reponse);
-      resultats.push({ probleme: c.id, niveau: "rouverte", envoi });
-      continue;
+      return { probleme: c.id, niveau: "rouverte", envoi };
     }
     const r = await deciderBot(db, { message: texte, source: "help", poster: c.poster_id, profil: null, canal: canal === "upwork" ? "upwork" : "slack" });
     const d = r.decision;
     if (d.categorie === "salutation") {
       await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
-      continue;
+      return null;
     }
     const parBot = d.niveau === "bot" && d.reponse !== TEXTE_ON_VERIFIE;
     let envoi = "rien";
@@ -1848,10 +1892,7 @@ async function messagesTraiter(db: Db) {
         bot_decision: d.niveau, brouillon: parBot ? null : brouillonDe(r), escalader: !parBot,
       },
     });
-    if (e) {
-      resultats.push({ probleme: c.id, niveau: d.niveau, envoi: `support_ajouter : ${e.message}` });
-      continue;
-    }
+    if (e) return { probleme: c.id, niveau: d.niveau, envoi: `support_ajouter : ${e.message}` };
     const id = (aj as { id: string })?.id ?? null;
     if (id) {
       await db.from("support_demandes").update({
@@ -1868,9 +1909,8 @@ async function messagesTraiter(db: Db) {
         });
       }
     }
-    resultats.push({ probleme: c.id, niveau: parBot ? "bot" : d.niveau, envoi });
+    return { probleme: c.id, niveau: parBot ? "bot" : d.niveau, envoi };
   }
-  return { ok: true, traites: resultats.length, resultats };
 }
 
 /** La réponse du bot au posteur : Slack s'il est relié, sinon email. */

@@ -1,0 +1,143 @@
+{
+ "id": "at-008",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7700731258476727583",
+  "vues": 156700,
+  "publie_le": "2026-10-25",
+  "accroche": "how to be the / 6am *running girl*"
+ },
+ "titre": {
+  "en": "morning runs do and don’ts",
+  "fr": "courir le matin : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #morningrun #runningtips #girlswhorun #runningroutine",
+  "fr": "#courseapied #running #matin #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Preuve : « how to be the / 6am running girl » de @katrina.run (157 k vues, 25/10) : leur sujet (courir le matin) dans le format de leur tube, les do & don'ts en style `objets` (279 k de @hannah.run5). Objets neufs : coureuse-matin, reveil ; le reste d'at-001 à at-007. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (la veille : la sortie du lendemain déjà prévue). Légende selon placement_atala (voix NEUTRE, hook de 5 mots) : « a coach app like atala » / « appli coach comme atala ». Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-matin.png",
+   "en": {
+    "titre": "morning runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "courir le matin :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/tenue.png",
+    "atala",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "the night before",
+    "do": [
+     "kit laid out",
+     "a coach app\nlike atala",
+     "in bed early"
+    ],
+    "dont": [
+     "scrolling\ntill midnight",
+     "a late glass\nof wine"
+    ]
+   },
+   "fr": {
+    "titre": "la veille",
+    "do": [
+     "ta tenue prête",
+     "appli coach\ncomme atala",
+     "au lit tôt"
+    ],
+    "dont": [
+     "scroller\njusqu’à minuit",
+     "un verre\nde vin"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/verre-eau.png",
+    "images/objets/banane.png",
+    "images/objets/frontale.png"
+   ],
+   "dont": [
+    "images/objets/pates.png",
+    "images/objets/reveil.png"
+   ],
+   "en": {
+    "titre": "when you wake up",
+    "do": [
+     "a big glass\nof water",
+     "half a banana",
+     "a headlamp\nif it’s dark"
+    ],
+    "dont": [
+     "a heavy meal",
+     "hitting\nsnooze 5 times"
+    ]
+   },
+   "fr": {
+    "titre": "au réveil",
+    "do": [
+     "un grand\nverre d’eau",
+     "une banane",
+     "une frontale\ns’il fait nuit"
+    ],
+    "dont": [
+     "un repas lourd",
+     "snoozer\n5 fois"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/gilet.png",
+    "images/objets/ecouteurs.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/doudoune.png"
+   ],
+   "en": {
+    "titre": "the run",
+    "do": [
+     "start easy",
+     "a hi-vis vest",
+     "your playlist"
+    ],
+    "dont": [
+     "sprinting\nwith cold legs",
+     "overdressing"
+    ]
+   },
+   "fr": {
+    "titre": "la sortie",
+    "do": [
+     "pars doucement",
+     "du fluo",
+     "ta playlist"
+    ],
+    "dont": [
+     "sprinter\nà froid",
+     "trop couverte"
+    ]
+   }
+  }
+ ]
+}

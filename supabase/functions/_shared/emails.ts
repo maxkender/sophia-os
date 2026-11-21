@@ -119,6 +119,24 @@ async function ecrire(db: Db, ligne: Record<string, unknown>) {
   }
 }
 
+export const ADRESSE_SOPHIA = "adresse de connexion @sophia.com (pas une vraie boîte)";
+
+/** 0808 : un login @sophia.com n'est jamais un destinataire (refus 550, puis « blocked » chez Brevo). */
+export function adresseInterdite(to: string | null | undefined): string | null {
+  return /@sophia\.com\s*$/i.test(to ?? "") ? ADRESSE_SOPHIA : null;
+}
+
+/** 0808 : une adresse dont le dernier envoi est revenu (hard bounce, bloquée, plainte). Lecture impossible : on tente. */
+async function adresseRevenue(db: Db, to: string): Promise<string | null> {
+  try {
+    if (typeof db.rpc !== "function") return null;
+    const { data, error } = await db.rpc("email_adresse_interdite", { p_adresse: to });
+    return !error && typeof data === "string" && data ? data : null;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * L'envoi suivi : le seul chemin des emails de l'OS vers le site (et Brevo).
  * Le contenu est gardé tant que l'email n'est pas délivré (pour le réessayer), puis effacé.
@@ -130,6 +148,12 @@ export async function envoyerSuivi(m: Message, fetchFn: typeof fetch = fetch): P
   if (db && !emailMessageFin(m.tags) && await nePlusContacterEmail(db, m.to)) {
     await ecrire(db, { destinataire: m.to, objet: m.objet, tags: m.tags, statut: "refuse", erreur: NE_PLUS_CONTACTER, tentatives: 0 });
     return { ok: false, erreur: NE_PLUS_CONTACTER };
+  }
+  // 0808 (Max, 21/11) : jamais d'email vers un login @sophia.com (pas une vraie boîte) ni vers une adresse revenue.
+  const interdite = adresseInterdite(m.to) ?? (db ? await adresseRevenue(db, m.to) : null);
+  if (interdite) {
+    if (db) await ecrire(db, { destinataire: m.to, objet: m.objet, tags: m.tags, statut: "refuse", erreur: interdite, tentatives: 0 });
+    return { ok: false, erreur: interdite };
   }
   if (db && await brevoSansCredit(db)) {
     await ecrire(db, { ...base, statut: "en_file", erreur: "Brevo sans crédit", prochain_essai_at: new Date().toISOString() });

@@ -19,7 +19,7 @@ export function InjoignablesRuul() {
     <Card data-testid="injoignables-ruul">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-base">
-          <MailX className="size-4" aria-hidden /> Injoignable par email
+          <MailX className="size-4" aria-hidden /> Pas d'email valide
           {!!liste.length && <Badge variant="destructive">{liste.length}</Badge>}
         </CardTitle>
         <CardDescription>

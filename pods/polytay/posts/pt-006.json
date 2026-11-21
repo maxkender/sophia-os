@@ -1,0 +1,616 @@
+{
+ "id": "pt-006",
+ "titre": {
+  "en": "things to do instead of scrolling at night",
+  "fr": "quoi faire au lieu de scroller le soir",
+  "es": "qué hacer en vez de hacer scroll por la noche",
+  "es-419": "qué hacer en lugar de hacer scroll en la noche",
+  "it": "cosa fare invece di scrollare la sera",
+  "tr": "gece scroll yapmak yerine yapılacaklar",
+  "pt-BR": "o que fazer em vez de ficar no celular à noite",
+  "sl": "kaj početi zvečer namesto skrolanja",
+  "de": "was du abends statt scrollen machen kannst",
+  "sk": "čo robiť večer namiesto scrollovania",
+  "sv": "saker att göra i stället för att scrolla på kvällen"
+ },
+ "legendes": {
+  "en": "the last hour of the day is yours, not the feed's. pick one for tonight <3 #girlblogger #selfimprovement #nightroutine #learning #booktok",
+  "fr": "la dernière heure de la journée est à toi, pas au feed. choisis-en une pour ce soir <3 #girlblogger #developpementpersonnel #routinedusoir #apprendre #booktokfrance",
+  "es": "la última hora del día es tuya, no del feed. elige una para esta noche <3 #girlblogger #desarrollopersonal #rutinadenoche #aprender #booktokespaña",
+  "es-419": "la última hora del día es tuya, no del feed. elige una para hoy en la noche <3 #girlblogger #desarrollopersonal #rutinadenoche #aprender #booktoklatam",
+  "it": "l'ultima ora della giornata è tua, non del feed. scegline una per stasera <3 #girlblogger #crescitapersonale #routineserale #imparare #booktokitalia",
+  "tr": "günün son saati senin, akışın değil. bu gece için birini seç <3 #girlblogger #kişiselgelişim #gecerutini #öğrenmek #booktoktürkiye",
+  "pt-BR": "a última hora do dia é sua, não do feed. escolhe uma pra hoje à noite <3 #girlblogger #autodesenvolvimento #rotinanoturna #aprender #booktokbrasil",
+  "sl": "zadnja ura dneva je tvoja, ne feeda. izberi eno za nocoj <3 #girlblogger #osebnirazvoj #večernarutina #učenje #booktok",
+  "de": "die letzte stunde des tages gehört dir, nicht dem feed. such dir eins für heute abend aus <3 #girlblogger #selbstverbesserung #abendroutine #lernen #booktokdeutschland",
+  "sk": "posledná hodina dňa patrí tebe, nie feedu. vyber si jednu na dnešný večer <3 #girlblogger #osobnyrozvoj #vecernarutina #ucenie #booktok",
+  "sv": "dagens sista timme är din, inte flödets. välj en till i kväll <3 #girlblogger #självutveckling #kvällsrutin #lärande #booktoksverige"
+ },
+ "musique": {
+  "titre": "bleu de nuit",
+  "url": "https://www.tiktok.com/music/bleu-de-nuit-7617883902271457297"
+ },
+ "notes": "Full test (BLEO, 21/11) : accroche neuve chez nous, idée de l'AGENT.md (« five things to do instead of scrolling »), au gabarit de son tube. Éléments à nous : un chapitre sur papier, des mots croisés, Sophia, l'aquarelle ratée, un tableau avant de dormir. Slide Sophia (4) : « 3. one lesson, then lights off », cta C (« like why we dream »). Aucune ressource nommée. Photos neuves de la banque (aucune des 14 derniers jours).",
+ "banque": {
+  "images/banque/couv-lune-peinture.jpg": "316730b2-c3b9-4e4d-b047-b02a2e6a024f",
+  "images/banque/couv-bougie-livre.jpg": "544fbd82-005d-475e-b172-dc948398185d",
+  "images/banque/livre-lunettes-lit.jpg": "b8d4a725-d48e-400d-aa1e-e8b2b5a050c5",
+  "images/banque/bougies-notes.jpg": "3eeefc17-de29-4344-a7b9-dced5dacfec6",
+  "images/banque/mots-croises.jpg": "b06c2a15-1b00-403d-8043-ac4d3aee7f3c",
+  "images/banque/sudoku-carnet.jpg": "1bc9e185-84c3-4966-b51d-97692519fd64",
+  "images/banque/lampe-bougie.jpg": "5934e832-6456-42f2-89e3-3cd182202944",
+  "images/banque/aquarelle-palette.jpg": "0a900463-f764-4091-98bb-6f21685eb8d5",
+  "images/banque/chevalet-fleurs.jpg": "5f54b7a9-13ac-4449-8dce-41e9c8ad602d",
+  "images/banque/peinture-reverbere.jpg": "7f72d967-1ecd-4525-8cbd-90fb0c5cc1f0",
+  "images/banque/peinture-lune.jpg": "e5e6aaf2-d8a1-47e7-9931-8986eab4167c"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-lune-peinture.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-bougie-livre.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things to do instead\nof scrolling\nat night"
+   },
+   "fr": {
+    "titre": "quoi faire au lieu\nde scroller\nle soir"
+   },
+   "es": {
+    "titre": "qué hacer en vez de\nhacer scroll por\nla noche"
+   },
+   "es-419": {
+    "titre": "qué hacer en lugar\nde hacer scroll\nen la noche"
+   },
+   "it": {
+    "titre": "cosa fare invece\ndi scrollare\nla sera"
+   },
+   "tr": {
+    "titre": "gece scroll yapmak\nyerine yapılacaklar"
+   },
+   "pt-BR": {
+    "titre": "o que fazer em vez\nde ficar no celular\nà noite"
+   },
+   "sl": {
+    "titre": "kaj početi zvečer\nnamesto skrolanja"
+   },
+   "de": {
+    "titre": "was du abends\nstatt scrollen\nmachen kannst"
+   },
+   "sk": {
+    "titre": "čo robiť večer\nnamiesto\nscrollovania"
+   },
+   "sv": {
+    "titre": "saker att göra\ni stället för att\nscrolla på kvällen"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/livre-lunettes-lit.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bougies-notes.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. one chapter on paper",
+    "paragraphes": [
+     "Put the phone on the other side of the room and read one chapter of a real book. just one, the rest will follow by itself.",
+     "Your eyes stop buzzing, and you fall asleep inside a story instead of a feed"
+    ]
+   },
+   "fr": {
+    "titre": "1. un chapitre sur papier",
+    "paragraphes": [
+     "Pose ton téléphone de l'autre côté de la pièce et lis un chapitre d'un vrai livre. un seul, la suite vient toute seule.",
+     "Tes yeux arrêtent de grésiller, et tu t'endors dans une histoire au lieu d'un feed"
+    ]
+   },
+   "es": {
+    "titre": "1. un capítulo en papel",
+    "paragraphes": [
+     "Deja el móvil al otro lado de la habitación y lee un capítulo de un libro de verdad. solo uno, lo demás viene solo.",
+     "Tus ojos dejan de zumbar, y te duermes dentro de una historia en vez de un feed"
+    ]
+   },
+   "es-419": {
+    "titre": "1. un capítulo en papel",
+    "paragraphes": [
+     "Deja el celular del otro lado del cuarto y lee un capítulo de un libro de verdad. solo uno, lo demás llega solo.",
+     "Tus ojos dejan de zumbar, y te duermes dentro de una historia en lugar de un feed"
+    ]
+   },
+   "it": {
+    "titre": "1. un capitolo su carta",
+    "paragraphes": [
+     "Metti il telefono dall'altra parte della stanza e leggi un capitolo di un vero libro. uno solo, il resto arriva da sé.",
+     "Gli occhi smettono di ronzare, e ti addormenti dentro una storia invece che in un feed"
+    ]
+   },
+   "tr": {
+    "titre": "1. kâğıtta bir bölüm",
+    "paragraphes": [
+     "Telefonu odanın öbür ucuna koy ve gerçek bir kitaptan bir bölüm oku. sadece bir tane, gerisi kendiliğinden gelir.",
+     "Gözlerin vızıldamayı bırakır, ve bir akış yerine bir hikâyenin içinde uyursun"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. um capítulo no papel",
+    "paragraphes": [
+     "Deixa o celular do outro lado do quarto e lê um capítulo de um livro de verdade. só um, o resto vem sozinho.",
+     "Seus olhos param de zumbir, e você dorme dentro de uma história em vez de um feed"
+    ]
+   },
+   "sl": {
+    "titre": "1. eno poglavje na papirju",
+    "paragraphes": [
+     "Telefon odloži na drugo stran sobe in preberi eno poglavje prave knjige. samo eno, ostalo pride samo.",
+     "Oči nehajo brenčati, in zaspiš v zgodbi namesto v feedu"
+    ]
+   },
+   "de": {
+    "titre": "1. ein kapitel auf papier",
+    "paragraphes": [
+     "Leg das handy ans andere ende des zimmers und lies ein kapitel aus einem echten buch. nur eins, der rest kommt von allein.",
+     "Deine augen hören auf zu flimmern, und du schläfst in einer geschichte ein statt im feed"
+    ]
+   },
+   "sk": {
+    "titre": "1. jedna kapitola na papieri",
+    "paragraphes": [
+     "Polož mobil na druhý koniec izby a prečítaj si jednu kapitolu skutočnej knihy. len jednu, zvyšok príde sám.",
+     "Oči prestanú bzučať a zaspíš v príbehu namiesto vo feede"
+    ]
+   },
+   "sv": {
+    "titre": "1. ett kapitel på papper",
+    "paragraphes": [
+     "Lägg mobilen på andra sidan rummet och läs ett kapitel i en riktig bok. bara ett, resten kommer av sig själv.",
+     "Ögonen slutar surra, och du somnar inne i en berättelse i stället för ett flöde"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/mots-croises.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/sudoku-carnet.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a crossword in bed",
+    "paragraphes": [
+     "Keep a crossword book and a pen on your nightstand. one grid a night, and look up the answers you didn't know.",
+     "You fall asleep with five new words and a slightly smug feeling"
+    ]
+   },
+   "fr": {
+    "titre": "2. des mots croisés au lit",
+    "paragraphes": [
+     "Garde un livre de mots croisés et un stylo sur ta table de nuit. une grille par soir, et cherche les réponses que tu ne connaissais pas.",
+     "Tu t'endors avec cinq mots nouveaux et un petit air fier"
+    ]
+   },
+   "es": {
+    "titre": "2. un crucigrama en la cama",
+    "paragraphes": [
+     "Ten un libro de crucigramas y un boli en la mesita. uno por noche, y busca las respuestas que no sabías.",
+     "Te duermes con cinco palabras nuevas y cara de satisfecha"
+    ]
+   },
+   "es-419": {
+    "titre": "2. un crucigrama en la cama",
+    "paragraphes": [
+     "Ten un libro de crucigramas y una pluma en el buró. uno por noche, y busca las respuestas que no sabías.",
+     "Te duermes con cinco palabras nuevas y un poquito de orgullo"
+    ]
+   },
+   "it": {
+    "titre": "2. un cruciverba a letto",
+    "paragraphes": [
+     "Tieni un libro di cruciverba e una penna sul comodino. uno a sera, e cerca le risposte che non sapevi.",
+     "Ti addormenti con cinque parole nuove e un'aria un po' soddisfatta"
+    ]
+   },
+   "tr": {
+    "titre": "2. yatakta bulmaca",
+    "paragraphes": [
+     "Komodinin üstünde bir bulmaca kitabı ve bir kalem tut. her gece bir bulmaca, bilmediğin cevaplara da bak.",
+     "Beş yeni kelime ve biraz gururla uykuya dalarsın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. palavras cruzadas na cama",
+    "paragraphes": [
+     "Deixa uma revistinha de palavras cruzadas e uma caneta no criado-mudo. uma por noite, e pesquisa as respostas que você não sabia.",
+     "Você dorme com cinco palavras novas e uma carinha de orgulho"
+    ]
+   },
+   "sl": {
+    "titre": "2. križanka v postelji",
+    "paragraphes": [
+     "Na nočni omarici imej knjigo križank in pisalo. ena na večer, in poišči odgovore, ki jih nisi poznala.",
+     "Zaspiš s petimi novimi besedami in malce ponosnim nasmehom"
+    ]
+   },
+   "de": {
+    "titre": "2. rätseln im bett",
+    "paragraphes": [
+     "Leg ein rätselheft und einen stift auf den nachttisch. ein rätsel pro abend, und schlag die antworten nach, die du nicht wusstest.",
+     "Du schläfst mit fünf neuen wörtern ein und bist ein bisschen stolz"
+    ]
+   },
+   "sk": {
+    "titre": "2. krížovka v posteli",
+    "paragraphes": [
+     "Na nočnom stolíku maj knihu krížoviek a pero. jednu za večer, a vyhľadaj si odpovede, ktoré si nevedela.",
+     "Zaspávaš s piatimi novými slovami a trochu hrdá na seba"
+    ]
+   },
+   "sv": {
+    "titre": "2. ett korsord i sängen",
+    "paragraphes": [
+     "Ha en korsordsbok och en penna på nattduksbordet. ett om kvällen, och slå upp svaren du inte kunde.",
+     "Du somnar med fem nya ord och en liten nöjd min"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/lampe-bougie.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson, then lights off",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. I do it in bed, then the phone goes away.",
+     "Ten minutes, and I fall asleep thinking about something real"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon, puis j'éteins",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. je la fais au lit, puis le téléphone part.",
+     "Dix minutes, et je m'endors en pensant à quelque chose de vrai"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección y apago la luz",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. la hago en la cama y luego el móvil se va.",
+     "Diez minutos, y me duermo pensando en algo real"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección y apago la luz",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. la tomo en la cama y luego el celular se va.",
+     "Diez minutos, y me duermo pensando en algo real"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione, poi luci spente",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. la faccio a letto, poi il telefono va via.",
+     "Dieci minuti, e mi addormento pensando a qualcosa di vero"
+    ]
+   },
+   "tr": {
+    "titre": "3. bir ders, sonra ışıklar kapalı",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. yatakta yapıyorum, sonra telefon gidiyor.",
+     "On dakika, ve gerçek bir şey düşünerek uyuyorum"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula, depois luz apagada",
+    "paragraphes": [
+     "Uma aula por dia no Sophia, tipo por que a gente sonha, com um quiz no final. eu faço na cama, depois o celular vai embora.",
+     "Dez minutos, e eu durmo pensando em algo de verdade"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija, potem luč ugasne",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. naredim jo v postelji, potem telefon gre stran.",
+     "Deset minut, in zaspim z mislijo na nekaj resničnega"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion, dann licht aus",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. ich mache sie im bett, dann kommt das handy weg.",
+     "Zehn minuten, und ich schlafe ein und denke an etwas echtes"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia, potom zhasnem",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. robím ju v posteli, potom mobil ide preč.",
+     "Desať minút a zaspávam s myšlienkou na niečo skutočné"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion, sen släcker jag",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. jag gör den i sängen, sen åker mobilen bort.",
+     "Tio minuter, och jag somnar med tankarna på något riktigt"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/aquarelle-palette.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/chevalet-fleurs.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. watercolours, badly",
+    "paragraphes": [
+     "A small palette, one brush, a cheap notebook. paint the mug on your desk or the flowers by the window. it doesn't have to be good.",
+     "You start really looking at things. and your hands are too busy to scroll"
+    ]
+   },
+   "fr": {
+    "titre": "4. de l'aquarelle, mal",
+    "paragraphes": [
+     "Une petite palette, un pinceau, un carnet pas cher. peins la tasse sur ton bureau ou les fleurs près de la fenêtre. pas besoin que ce soit beau.",
+     "Tu commences à vraiment regarder les choses. et tes mains sont trop occupées pour scroller"
+    ]
+   },
+   "es": {
+    "titre": "4. acuarelas, mal hechas",
+    "paragraphes": [
+     "Una paleta pequeña, un pincel, una libreta barata. pinta la taza de tu escritorio o las flores de la ventana. no tiene que quedar bonito.",
+     "Empiezas a mirar las cosas de verdad. y tienes las manos demasiado ocupadas para hacer scroll"
+    ]
+   },
+   "es-419": {
+    "titre": "4. acuarelas, mal hechas",
+    "paragraphes": [
+     "Una paleta chiquita, un pincel, un cuaderno barato. pinta la taza de tu escritorio o las flores de la ventana. no tiene que quedar bonito.",
+     "Empiezas a mirar las cosas de verdad. y tus manos están demasiado ocupadas para hacer scroll"
+    ]
+   },
+   "it": {
+    "titre": "4. acquerelli, fatti male",
+    "paragraphes": [
+     "Una piccola tavolozza, un pennello, un quaderno economico. dipingi la tazza sulla scrivania o i fiori alla finestra. non deve essere bello.",
+     "Inizi a guardare davvero le cose. e hai le mani troppo occupate per scrollare"
+    ]
+   },
+   "tr": {
+    "titre": "4. kötü suluboya",
+    "paragraphes": [
+     "Küçük bir palet, bir fırça, ucuz bir defter. masandaki kupayı ya da penceredeki çiçekleri boya. güzel olmak zorunda değil.",
+     "Şeylere gerçekten bakmaya başlarsın. ve ellerin scroll yapamayacak kadar meşgul olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. aquarela, mal feita",
+    "paragraphes": [
+     "Uma paletinha, um pincel, um caderno baratinho. pinta a caneca da sua mesa ou as flores da janela. não precisa ficar bonito.",
+     "Você começa a olhar as coisas de verdade. e suas mãos ficam ocupadas demais pra rolar o feed"
+    ]
+   },
+   "sl": {
+    "titre": "4. akvarel, slabo",
+    "paragraphes": [
+     "Majhna paleta, en čopič, poceni zvezek. nariši skodelico na mizi ali rože ob oknu. ni treba, da je lepo.",
+     "Začneš zares gledati stvari. in roke so preveč zaposlene za skrolanje"
+    ]
+   },
+   "de": {
+    "titre": "4. aquarell, schlecht",
+    "paragraphes": [
+     "Eine kleine palette, ein pinsel, ein billiges heft. mal die tasse auf deinem schreibtisch oder die blumen am fenster. es muss nicht schön sein.",
+     "Du fängst an, dinge wirklich anzuschauen. und deine hände sind zu beschäftigt zum scrollen"
+    ]
+   },
+   "sk": {
+    "titre": "4. akvarel, zle",
+    "paragraphes": [
+     "Malá paleta, jeden štetec, lacný zošit. namaľuj hrnček na stole alebo kvety pri okne. nemusí to byť pekné.",
+     "Začneš sa na veci naozaj pozerať. a ruky máš príliš zamestnané na scrollovanie"
+    ]
+   },
+   "sv": {
+    "titre": "4. akvarell, dåligt",
+    "paragraphes": [
+     "En liten palett, en pensel, ett billigt block. måla muggen på skrivbordet eller blommorna i fönstret. det behöver inte bli fint.",
+     "Du börjar verkligen titta på saker. och händerna är för upptagna för att scrolla"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/peinture-reverbere.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/peinture-lune.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "5. one painting before sleep",
+    "paragraphes": [
+     "Choose one painting a night and look at it for a whole minute before lights out. read its name and the year it was painted.",
+     "By spring you have a little museum in your head, and very calm dreams"
+    ]
+   },
+   "fr": {
+    "titre": "5. un tableau avant de dormir",
+    "paragraphes": [
+     "Choisis un tableau par soir et regarde-le une minute entière avant d'éteindre. lis son nom et l'année où il a été peint.",
+     "Au printemps, tu as un petit musée dans la tête, et des rêves très calmes"
+    ]
+   },
+   "es": {
+    "titre": "5. un cuadro antes de dormir",
+    "paragraphes": [
+     "Elige un cuadro cada noche y míralo un minuto entero antes de apagar la luz. lee su nombre y el año en que se pintó.",
+     "En primavera tienes un pequeño museo en la cabeza, y sueños muy tranquilos"
+    ]
+   },
+   "es-419": {
+    "titre": "5. un cuadro antes de dormir",
+    "paragraphes": [
+     "Elige un cuadro cada noche y míralo un minuto completo antes de apagar la luz. lee su nombre y el año en que se pintó.",
+     "Para la primavera tienes un pequeño museo en la cabeza, y sueños muy tranquilos"
+    ]
+   },
+   "it": {
+    "titre": "5. un quadro prima di dormire",
+    "paragraphes": [
+     "Scegli un quadro ogni sera e guardalo per un minuto intero prima di spegnere la luce. leggi il titolo e l'anno in cui è stato dipinto.",
+     "A primavera hai un piccolo museo in testa, e sogni molto calmi"
+    ]
+   },
+   "tr": {
+    "titre": "5. uyumadan önce bir tablo",
+    "paragraphes": [
+     "Her gece bir tablo seç ve ışığı kapatmadan önce ona tam bir dakika bak. adını ve yapıldığı yılı oku.",
+     "Bahara kadar kafanda küçük bir müze olur, ve çok sakin rüyalar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. um quadro antes de dormir",
+    "paragraphes": [
+     "Escolhe um quadro por noite e olha pra ele um minuto inteiro antes de apagar a luz. lê o nome e o ano em que foi pintado.",
+     "Na primavera você tem um museuzinho na cabeça, e sonhos bem calmos"
+    ]
+   },
+   "sl": {
+    "titre": "5. ena slika pred spanjem",
+    "paragraphes": [
+     "Vsak večer izberi eno sliko in jo celo minuto glej, preden ugasneš luč. preberi njeno ime in leto, ko je nastala.",
+     "Do pomladi imaš v glavi majhen muzej, in zelo mirne sanje"
+    ]
+   },
+   "de": {
+    "titre": "5. ein bild vor dem schlafen",
+    "paragraphes": [
+     "Such dir jeden abend ein gemälde aus und schau es eine ganze minute an, bevor das licht ausgeht. lies den titel und das jahr.",
+     "Im frühling hast du ein kleines museum im kopf, und sehr ruhige träume"
+    ]
+   },
+   "sk": {
+    "titre": "5. jeden obraz pred spaním",
+    "paragraphes": [
+     "Každý večer si vyber jeden obraz a celú minútu sa naň pozeraj, kým zhasneš. prečítaj si jeho názov a rok, keď vznikol.",
+     "Do jari máš v hlave malé múzeum, a veľmi pokojné sny"
+    ]
+   },
+   "sv": {
+    "titre": "5. en tavla före sömnen",
+    "paragraphes": [
+     "Välj en tavla varje kväll och titta på den en hel minut innan du släcker. läs vad den heter och vilket år den målades.",
+     "Till våren har du ett litet museum i huvudet, och väldigt lugna drömmar"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

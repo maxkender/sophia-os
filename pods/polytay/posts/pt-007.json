@@ -1,0 +1,621 @@
+{
+ "id": "pt-007",
+ "source": {
+  "url": "https://www.tiktok.com/@polytay/photo/7705585154860829982",
+  "vues": 14700,
+  "publie_le": "2026-11-08",
+  "accroche": "five things to put in your week so you always have something new to talk about"
+ },
+ "titre": {
+  "en": "things to put in your week so you always have something new to talk about",
+  "fr": "quoi mettre dans ta semaine pour toujours avoir un sujet de conversation",
+  "es": "cosas para meter en tu semana y tener siempre algo nuevo de qué hablar",
+  "es-419": "cosas para poner en tu semana y siempre tener algo nuevo de qué hablar",
+  "it": "cose da mettere nella settimana per avere sempre qualcosa da dire",
+  "tr": "hep konuşacak yeni bir şeyin olsun diye haftana ekleyeceklerin",
+  "pt-BR": "coisas pra colocar na sua semana e sempre ter assunto novo",
+  "sl": "kaj dodati v teden, da imaš vedno kaj novega za povedati",
+  "de": "was in deine woche gehört, damit du immer etwas neues zu erzählen hast",
+  "sk": "čo pridať do týždňa, aby si mala vždy o čom rozprávať",
+  "sv": "saker att lägga in i veckan så att du alltid har något nytt att prata om"
+ },
+ "legendes": {
+  "en": "one small thing a day and you're never stuck for something to say. save the week <3 #girlblogger #selfimprovement #learning #studytok #thatgirl",
+  "fr": "une petite chose par jour et tu n'es plus jamais à court de sujets. enregistre la semaine <3 #girlblogger #developpementpersonnel #apprendre #studytok #thatgirl",
+  "es": "una cosita al día y nunca te quedas sin tema. guarda la semana <3 #girlblogger #desarrollopersonal #aprender #studytok #thatgirl",
+  "es-419": "una cosita al día y nunca te quedas sin tema. guarda la semana <3 #girlblogger #desarrollopersonal #aprender #studytok #thatgirl",
+  "it": "una piccola cosa al giorno e non resti mai senza argomenti. salva la settimana <3 #girlblogger #crescitapersonale #imparare #studytok #thatgirl",
+  "tr": "günde küçük bir şey ve asla konu sıkıntısı çekmezsin. haftayı kaydet <3 #girlblogger #kişiselgelişim #öğrenmek #studytok #thatgirl",
+  "pt-BR": "uma coisinha por dia e você nunca fica sem assunto. salva a semana <3 #girlblogger #autodesenvolvimento #aprender #studytok #thatgirl",
+  "sl": "ena majhna stvar na dan in nikoli ti ne zmanjka tem. shrani teden <3 #girlblogger #osebnirazvoj #učenje #studytok #thatgirl",
+  "de": "eine kleine sache am tag und dir gehen nie die themen aus. speicher dir die woche <3 #girlblogger #selbstverbesserung #lernen #studytok #thatgirl",
+  "sk": "jedna malá vec denne a nikdy ti nedôjdu témy. ulož si týždeň <3 #girlblogger #osobnyrozvoj #ucenie #studytok #thatgirl",
+  "sv": "en liten sak om dagen och du står aldrig utan samtalsämne. spara veckan <3 #girlblogger #självutveckling #lärande #studytok #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7041742373038066478"
+ },
+ "notes": "Preuve : « five things to put in your week so you always have something new to talk about » de @polytay (14,7 k vues, 08/11, 14,7 k et 1,9 k enregistrements), même promesse, nos éléments jour par jour. Éléments à nous : un tableau le lundi (les nymphéas de monet, réels), un mot le mardi, Sophia le mercredi, une recette et son histoire le jeudi (la carbonara, née à rome après-guerre selon l'histoire la plus répandue : formulé « they say »), une question le vendredi. Slide Sophia (4) : « 3. wednesday: one lesson », cta A (reformulé). Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-ordi-bougies.jpg": "622b6d44-7707-493c-a7c8-2530669f5f4a",
+  "images/banque/couv-bibliotheque-fleurs.jpg": "60bc84ba-ec70-479d-9297-38f8f5d74084",
+  "images/banque/nympheas.jpg": "67339c1a-08f1-48a0-97dd-ed4d632e9a73",
+  "images/banque/bal-peinture.jpg": "603c3a70-3146-449e-83a1-56f728f5cffb",
+  "images/banque/notes-lunettes.jpg": "0d01e06b-d5ad-4007-88de-3ad2311e90de",
+  "images/banque/lunettes-carnet.jpg": "a8a030f2-08cf-4eab-b7ad-52f5a0e02728",
+  "images/banque/recette.jpg": "b56960e4-afd2-43bf-9a5c-487d37f54779",
+  "images/banque/pates.jpg": "6107dbe5-84af-47d6-94d6-3059bf1c1fbe",
+  "images/banque/bureau-nuit.jpg": "9955d119-ab6f-49c0-8823-b2a897dd6577",
+  "images/banque/fleur-sechee.jpg": "5d97e5a7-e131-45e2-8b72-674bb20c2667",
+  "images/banque/lampe-bougies-2.jpg": "1df07ae0-70a2-40e3-86ba-e990c9ef59cc"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-ordi-bougies.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-bibliotheque-fleurs.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things to put in your\nweek so you always\nhave something new\nto talk about"
+   },
+   "fr": {
+    "titre": "quoi mettre dans ta\nsemaine pour avoir\ntoujours un sujet\nde conversation"
+   },
+   "es": {
+    "titre": "cosas para meter en\ntu semana y tener\nsiempre algo nuevo\nde qué hablar"
+   },
+   "es-419": {
+    "titre": "cosas para poner en\ntu semana y siempre\ntener algo nuevo\nde qué hablar"
+   },
+   "it": {
+    "titre": "cose da mettere\nnella settimana per\navere sempre\nqualcosa da dire"
+   },
+   "tr": {
+    "titre": "hep konuşacak yeni\nbir şeyin olsun diye\nhaftana\nekleyeceklerin"
+   },
+   "pt-BR": {
+    "titre": "coisas pra colocar\nna sua semana e\nsempre ter\nassunto novo"
+   },
+   "sl": {
+    "titre": "kaj dodati v teden,\nda imaš vedno kaj\nnovega povedati"
+   },
+   "de": {
+    "titre": "was in deine woche\ngehört, damit du\nimmer etwas neues\nzu erzählen hast"
+   },
+   "sk": {
+    "titre": "čo pridať do týždňa,\naby si mala vždy\no čom rozprávať"
+   },
+   "sv": {
+    "titre": "saker att lägga in i\nveckan så att du\nalltid har något nytt\natt prata om"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/nympheas.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bal-peinture.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. monday: one painting",
+    "paragraphes": [
+     "Look up one painting and its story. monet painted his water lilies over and over for almost thirty years, in his own garden.",
+     "It's the easiest thing to bring up at dinner, and everyone has an opinion"
+    ]
+   },
+   "fr": {
+    "titre": "1. lundi : un tableau",
+    "paragraphes": [
+     "Cherche un tableau et son histoire. monet a peint ses nymphéas encore et encore pendant presque trente ans, dans son propre jardin.",
+     "C'est le sujet le plus facile à sortir au dîner, et tout le monde a un avis"
+    ]
+   },
+   "es": {
+    "titre": "1. lunes: un cuadro",
+    "paragraphes": [
+     "Busca un cuadro y su historia. monet pintó sus nenúfares una y otra vez durante casi treinta años, en su propio jardín.",
+     "Es lo más fácil de sacar en una cena, y todo el mundo tiene opinión"
+    ]
+   },
+   "es-419": {
+    "titre": "1. lunes: una pintura",
+    "paragraphes": [
+     "Busca una pintura y su historia. monet pintó sus nenúfares una y otra vez durante casi treinta años, en su propio jardín.",
+     "Es lo más fácil de sacar en una cena, y todos tienen una opinión"
+    ]
+   },
+   "it": {
+    "titre": "1. lunedì: un quadro",
+    "paragraphes": [
+     "Cerca un quadro e la sua storia. monet ha dipinto le sue ninfee ancora e ancora per quasi trent'anni, nel suo giardino.",
+     "È la cosa più facile da tirare fuori a cena, e tutti hanno un'opinione"
+    ]
+   },
+   "tr": {
+    "titre": "1. pazartesi: bir tablo",
+    "paragraphes": [
+     "Bir tablo ve hikâyesini araştır. monet nilüferlerini kendi bahçesinde neredeyse otuz yıl boyunca tekrar tekrar resmetti.",
+     "Akşam yemeğinde açması en kolay konu bu, ve herkesin bir fikri vardır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. segunda: um quadro",
+    "paragraphes": [
+     "Pesquisa um quadro e a história dele. monet pintou suas ninfeias de novo e de novo por quase trinta anos, no próprio jardim.",
+     "É o assunto mais fácil de puxar no jantar, e todo mundo tem opinião"
+    ]
+   },
+   "sl": {
+    "titre": "1. ponedeljek: ena slika",
+    "paragraphes": [
+     "Poišči eno sliko in njeno zgodbo. monet je svoje lokvanje slikal znova in znova skoraj trideset let, na svojem vrtu.",
+     "To je najlažja tema za večerjo, in vsak ima svoje mnenje"
+    ]
+   },
+   "de": {
+    "titre": "1. montag: ein gemälde",
+    "paragraphes": [
+     "Such dir ein gemälde und seine geschichte. monet hat seine seerosen fast dreißig jahre lang immer wieder gemalt, in seinem eigenen garten.",
+     "Das ist das leichteste thema beim abendessen, und jeder hat eine meinung"
+    ]
+   },
+   "sk": {
+    "titre": "1. pondelok: jeden obraz",
+    "paragraphes": [
+     "Vyhľadaj si jeden obraz a jeho príbeh. monet maľoval svoje lekná znova a znova takmer tridsať rokov, vo vlastnej záhrade.",
+     "Je to najľahšia téma pri večeri, a každý má svoj názor"
+    ]
+   },
+   "sv": {
+    "titre": "1. måndag: en tavla",
+    "paragraphes": [
+     "Slå upp en tavla och dess historia. monet målade sina näckrosor om och om igen i nästan trettio år, i sin egen trädgård.",
+     "Det är det enklaste att ta upp vid middagen, och alla har en åsikt"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/notes-lunettes.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/lunettes-carnet.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "2. tuesday: one new word",
+    "paragraphes": [
+     "Pick one word you'd never use, like petrichor, the smell of rain on dry ground. learn where it comes from.",
+     "Say it once that week. people always ask, and now you have a story"
+    ]
+   },
+   "fr": {
+    "titre": "2. mardi : un mot nouveau",
+    "paragraphes": [
+     "Choisis un mot que tu n'utiliserais jamais, comme pétrichor, l'odeur de la pluie sur la terre sèche. apprends d'où il vient.",
+     "Dis-le une fois dans la semaine. on te demande toujours, et voilà ton histoire"
+    ]
+   },
+   "es": {
+    "titre": "2. martes: una palabra nueva",
+    "paragraphes": [
+     "Elige una palabra que nunca usarías, como petricor, el olor de la lluvia sobre la tierra seca. aprende de dónde viene.",
+     "Dila una vez esa semana. siempre te preguntan, y ya tienes una historia"
+    ]
+   },
+   "es-419": {
+    "titre": "2. martes: una palabra nueva",
+    "paragraphes": [
+     "Elige una palabra que nunca usarías, como petricor, el olor de la lluvia sobre la tierra seca. aprende de dónde viene.",
+     "Dila una vez esa semana. siempre te preguntan, y ya tienes una historia"
+    ]
+   },
+   "it": {
+    "titre": "2. martedì: una parola nuova",
+    "paragraphes": [
+     "Scegli una parola che non useresti mai, come petricore, l'odore della pioggia sulla terra secca. scopri da dove viene.",
+     "Usala una volta in settimana. te lo chiedono sempre, ed ecco la tua storia"
+    ]
+   },
+   "tr": {
+    "titre": "2. salı: yeni bir kelime",
+    "paragraphes": [
+     "Asla kullanmayacağın bir kelime seç, mesela petrikor, kuru toprağa düşen yağmurun kokusu. nereden geldiğini öğren.",
+     "O hafta bir kez söyle. herkes sorar, ve artık bir hikâyen var"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. terça: uma palavra nova",
+    "paragraphes": [
+     "Escolhe uma palavra que você nunca usaria, tipo petricor, o cheiro da chuva na terra seca. descobre de onde ela vem.",
+     "Usa ela uma vez na semana. sempre perguntam, e pronto, você tem uma história"
+    ]
+   },
+   "sl": {
+    "titre": "2. torek: nova beseda",
+    "paragraphes": [
+     "Izberi besedo, ki je nikoli ne bi uporabila, recimo petrihor, vonj dežja na suhi zemlji. ugotovi, od kod izhaja.",
+     "Uporabi jo enkrat ta teden. vedno vprašajo, in že imaš zgodbo"
+    ]
+   },
+   "de": {
+    "titre": "2. dienstag: ein neues wort",
+    "paragraphes": [
+     "Nimm ein wort, das du nie benutzen würdest, wie petrichor, den geruch von regen auf trockener erde. lern, woher es kommt.",
+     "Sag es einmal in der woche. alle fragen nach, und schon hast du eine geschichte"
+    ]
+   },
+   "sk": {
+    "titre": "2. utorok: nové slovo",
+    "paragraphes": [
+     "Vyber si slovo, ktoré by si nikdy nepoužila, napríklad petrichor, vôňa dažďa na suchej zemi. zisti, odkiaľ pochádza.",
+     "Povedz ho v ten týždeň raz. vždy sa pýtajú, a už máš príbeh"
+    ]
+   },
+   "sv": {
+    "titre": "2. tisdag: ett nytt ord",
+    "paragraphes": [
+     "Välj ett ord du aldrig skulle använda, som petrikor, doften av regn på torr jord. ta reda på var det kommer ifrån.",
+     "Säg det en gång den veckan. folk frågar alltid, och vips har du en historia"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/lampe-bougies-2.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. wednesday: one lesson",
+    "paragraphes": [
+     "I do one short lesson on Sophia that night instead of scrolling. history, philosophy or science, written by actual professors, with a little quiz after.",
+     "Thursday morning, I always have one thing I didn't know on tuesday"
+    ]
+   },
+   "fr": {
+    "titre": "3. mercredi : une leçon",
+    "paragraphes": [
+     "Ce soir-là, je fais une petite leçon sur Sophia au lieu de scroller. histoire, philosophie ou sciences, écrite par de vrais profs, avec un petit quiz après.",
+     "Jeudi matin, j'ai toujours un truc que je ne savais pas mardi"
+    ]
+   },
+   "es": {
+    "titre": "3. miércoles: una lección",
+    "paragraphes": [
+     "Esa noche hago una lección corta en Sophia en vez de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "El jueves por la mañana siempre sé algo que el martes no sabía"
+    ]
+   },
+   "es-419": {
+    "titre": "3. miércoles: una lección",
+    "paragraphes": [
+     "Esa noche tomo una lección corta en Sophia en lugar de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "El jueves en la mañana siempre sé algo que el martes no sabía"
+    ]
+   },
+   "it": {
+    "titre": "3. mercoledì: una lezione",
+    "paragraphes": [
+     "Quella sera faccio una breve lezione su Sophia invece di scrollare. storia, filosofia o scienze, scritta da veri professori, con un piccolo quiz alla fine.",
+     "Giovedì mattina so sempre una cosa che martedì non sapevo"
+    ]
+   },
+   "tr": {
+    "titre": "3. çarşamba: bir ders",
+    "paragraphes": [
+     "O gece scroll yapmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim; gerçek profesörler yazıyor, sonunda da küçük bir test var.",
+     "Perşembe sabahı salı günü bilmediğim bir şeyi hep biliyorum"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. quarta: uma aula",
+    "paragraphes": [
+     "Nessa noite eu faço uma aula curtinha no Sophia em vez de ficar rolando o feed. história, filosofia ou ciência, escrita por professores de verdade, com um quiz no final.",
+     "Quinta de manhã eu sempre sei uma coisa que não sabia na terça"
+    ]
+   },
+   "sl": {
+    "titre": "3. sreda: ena lekcija",
+    "paragraphes": [
+     "Tisti večer namesto skrolanja naredim eno kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, napisali so jo pravi profesorji, na koncu pa kratek kviz.",
+     "V četrtek zjutraj vedno vem nekaj, česar v torek nisem"
+    ]
+   },
+   "de": {
+    "titre": "3. mittwoch: eine lektion",
+    "paragraphes": [
+     "An dem abend mache ich eine kurze lektion auf Sophia, statt zu scrollen. geschichte, philosophie oder wissenschaft, von echten professoren, mit einem kleinen quiz.",
+     "Am donnerstagmorgen weiß ich immer etwas, das ich am dienstag nicht wusste"
+    ]
+   },
+   "sk": {
+    "titre": "3. streda: jedna lekcia",
+    "paragraphes": [
+     "V ten večer si namiesto scrollovania dám jednu krátku lekciu v aplikácii Sophia. dejiny, filozofia alebo veda, napísané skutočnými profesormi, a na konci malý kvíz.",
+     "Vo štvrtok ráno vždy viem niečo, čo som v utorok nevedela"
+    ]
+   },
+   "sv": {
+    "titre": "3. onsdag: en lektion",
+    "paragraphes": [
+     "Den kvällen gör jag en kort lektion på Sophia i stället för att scrolla. historia, filosofi eller naturvetenskap, skriven av riktiga professorer, med ett litet quiz efteråt.",
+     "På torsdagsmorgonen vet jag alltid något jag inte visste i tisdags"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/recette.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/pates.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. thursday: a recipe with a story",
+    "paragraphes": [
+     "Cook one dish and read where it comes from. they say carbonara was born in rome right after the war.",
+     "Food stories are the best conversation starters, and you get dinner out of it"
+    ]
+   },
+   "fr": {
+    "titre": "4. jeudi : une recette et son histoire",
+    "paragraphes": [
+     "Cuisine un plat et lis d'où il vient. on dit que la carbonara est née à rome juste après la guerre.",
+     "Les histoires de cuisine lancent les meilleures conversations, et tu y gagnes un dîner"
+    ]
+   },
+   "es": {
+    "titre": "4. jueves: una receta con historia",
+    "paragraphes": [
+     "Cocina un plato y lee de dónde viene. dicen que la carbonara nació en roma justo después de la guerra.",
+     "Las historias de comida son el mejor tema de conversación, y encima cenas"
+    ]
+   },
+   "es-419": {
+    "titre": "4. jueves: una receta con historia",
+    "paragraphes": [
+     "Cocina un platillo y lee de dónde viene. dicen que la carbonara nació en roma justo después de la guerra.",
+     "Las historias de comida son el mejor tema para platicar, y además cenas"
+    ]
+   },
+   "it": {
+    "titre": "4. giovedì: una ricetta con una storia",
+    "paragraphes": [
+     "Cucina un piatto e leggi da dove viene. si dice che la carbonara sia nata a roma subito dopo la guerra.",
+     "Le storie di cibo sono i migliori argomenti di conversazione, e in più ceni"
+    ]
+   },
+   "tr": {
+    "titre": "4. perşembe: hikâyesi olan bir tarif",
+    "paragraphes": [
+     "Bir yemek pişir ve nereden geldiğini oku. karbonaranın savaştan hemen sonra roma'da doğduğu söylenir.",
+     "Yemek hikâyeleri en iyi sohbet başlatıcılarıdır, üstelik akşam yemeğin de hazır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. quinta: uma receita com história",
+    "paragraphes": [
+     "Cozinha um prato e lê de onde ele vem. dizem que a carbonara nasceu em roma logo depois da guerra.",
+     "História de comida é o melhor puxa-assunto, e ainda rende um jantar"
+    ]
+   },
+   "sl": {
+    "titre": "4. četrtek: recept z zgodbo",
+    "paragraphes": [
+     "Skuhaj eno jed in preberi, od kod prihaja. pravijo, da se je carbonara rodila v rimu takoj po vojni.",
+     "Zgodbe o hrani so najboljši začetek pogovora, in še večerja je tu"
+    ]
+   },
+   "de": {
+    "titre": "4. donnerstag: essen mit geschichte",
+    "paragraphes": [
+     "Koch ein gericht und lies, woher es kommt. man sagt, die carbonara sei kurz nach dem krieg in rom entstanden.",
+     "Essensgeschichten sind die besten gesprächsöffner, und du hast dein abendessen"
+    ]
+   },
+   "sk": {
+    "titre": "4. štvrtok: recept s príbehom",
+    "paragraphes": [
+     "Uvar jedno jedlo a prečítaj si, odkiaľ pochádza. hovorí sa, že carbonara vznikla v ríme hneď po vojne.",
+     "Príbehy o jedle sú najlepší začiatok rozhovoru, a ešte máš aj večeru"
+    ]
+   },
+   "sv": {
+    "titre": "4. torsdag: ett recept med historia",
+    "paragraphes": [
+     "Laga en rätt och läs var den kommer ifrån. det sägs att carbonaran föddes i rom strax efter kriget.",
+     "Mathistorier är de bästa samtalsstartarna, och du får middag på köpet"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/bureau-nuit.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/fleur-sechee.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. friday: one real question",
+    "paragraphes": [
+     "Ask someone a question you've never asked them. what they wanted to be at ten, or the best thing they read this year.",
+     "You learn something new, and they leave the conversation thinking you're fascinating"
+    ]
+   },
+   "fr": {
+    "titre": "5. vendredi : une vraie question",
+    "paragraphes": [
+     "Pose à quelqu'un une question que tu ne lui as jamais posée. ce qu'il voulait faire à dix ans, ou la meilleure chose qu'il a lue cette année.",
+     "Tu apprends quelque chose, et la personne repart en te trouvant fascinante"
+    ]
+   },
+   "es": {
+    "titre": "5. viernes: una pregunta de verdad",
+    "paragraphes": [
+     "Hazle a alguien una pregunta que nunca le hayas hecho. qué quería ser a los diez años, o lo mejor que ha leído este año.",
+     "Aprendes algo nuevo, y se va de la conversación pensando que eres fascinante"
+    ]
+   },
+   "es-419": {
+    "titre": "5. viernes: una pregunta de verdad",
+    "paragraphes": [
+     "Hazle a alguien una pregunta que nunca le hayas hecho. qué quería ser a los diez años, o lo mejor que leyó este año.",
+     "Aprendes algo nuevo, y se va de la plática pensando que eres fascinante"
+    ]
+   },
+   "it": {
+    "titre": "5. venerdì: una vera domanda",
+    "paragraphes": [
+     "Fai a qualcuno una domanda che non gli hai mai fatto. cosa voleva fare a dieci anni, o la cosa più bella che ha letto quest'anno.",
+     "Impari qualcosa di nuovo, e se ne va pensando che sei affascinante"
+    ]
+   },
+   "tr": {
+    "titre": "5. cuma: gerçek bir soru",
+    "paragraphes": [
+     "Birine daha önce hiç sormadığın bir soru sor. on yaşındayken ne olmak istediğini ya da bu yıl okuduğu en iyi şeyi.",
+     "Yeni bir şey öğrenirsin, o da seni büyüleyici bularak ayrılır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. sexta: uma pergunta de verdade",
+    "paragraphes": [
+     "Faz pra alguém uma pergunta que você nunca fez. o que a pessoa queria ser aos dez anos, ou a melhor coisa que leu esse ano.",
+     "Você aprende algo novo, e a pessoa sai da conversa te achando fascinante"
+    ]
+   },
+   "sl": {
+    "titre": "5. petek: eno pravo vprašanje",
+    "paragraphes": [
+     "Vprašaj nekoga nekaj, česar ga še nisi. kaj je hotel postati pri desetih ali kaj najboljšega je letos prebral.",
+     "Naučiš se nekaj novega, in iz pogovora odide prepričan, da si fascinantna"
+    ]
+   },
+   "de": {
+    "titre": "5. freitag: eine echte frage",
+    "paragraphes": [
+     "Stell jemandem eine frage, die du ihm noch nie gestellt hast. was er mit zehn werden wollte, oder das beste, was er dieses jahr gelesen hat.",
+     "Du lernst etwas neues, und er geht und findet dich faszinierend"
+    ]
+   },
+   "sk": {
+    "titre": "5. piatok: jedna skutočná otázka",
+    "paragraphes": [
+     "Opýtaj sa niekoho otázku, ktorú si mu ešte nepoložila. čím chcel byť ako desaťročný, alebo čo najlepšie tento rok čítal.",
+     "Naučíš sa niečo nové, a on odchádza s pocitom, že si fascinujúca"
+    ]
+   },
+   "sv": {
+    "titre": "5. fredag: en riktig fråga",
+    "paragraphes": [
+     "Ställ en fråga till någon som du aldrig har ställt förut. vad hen ville bli som tioåring, eller det bästa hen har läst i år.",
+     "Du lär dig något nytt, och hen går därifrån och tycker att du är fascinerande"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ]
+}

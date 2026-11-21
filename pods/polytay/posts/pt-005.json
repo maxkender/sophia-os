@@ -1,0 +1,616 @@
+{
+ "id": "pt-005",
+ "titre": {
+  "en": "little habits of girls who know a bit about everything",
+  "fr": "petites habitudes des filles qui savent un peu tout",
+  "es": "pequeños hábitos de las chicas que saben un poco de todo",
+  "es-419": "pequeños hábitos de las chicas que saben un poco de todo",
+  "it": "piccole abitudini delle ragazze che sanno un po' di tutto",
+  "tr": "her şeyden biraz bilen kızların küçük alışkanlıkları",
+  "pt-BR": "pequenos hábitos das meninas que sabem um pouco de tudo",
+  "sl": "male navade punc, ki vedo malo o vsem",
+  "de": "kleine gewohnheiten von mädchen, die von allem ein bisschen wissen",
+  "sk": "malé zvyky dievčat, ktoré vedia trochu o všetkom",
+  "sv": "små vanor hos tjejer som kan lite om allt"
+ },
+ "legendes": {
+  "en": "she's not a genius, she just has these five habits. steal one this week <3 #girlblogger #selfimprovement #learning #thatgirl #booktok",
+  "fr": "ce n'est pas un génie, elle a juste ces cinq habitudes. pique-en une cette semaine <3 #girlblogger #developpementpersonnel #apprendre #thatgirl #booktokfrance",
+  "es": "no es un genio, solo tiene estos cinco hábitos. róbale uno esta semana <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktokespaña",
+  "es-419": "no es un genio, solo tiene estos cinco hábitos. róbate uno esta semana <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktoklatam",
+  "it": "non è un genio, ha solo queste cinque abitudini. rubane una questa settimana <3 #girlblogger #crescitapersonale #imparare #thatgirl #booktokitalia",
+  "tr": "dahi değil, sadece bu beş alışkanlığı var. bu hafta birini kap <3 #girlblogger #kişiselgelişim #öğrenmek #thatgirl #booktoktürkiye",
+  "pt-BR": "ela não é gênio, ela só tem esses cinco hábitos. rouba um essa semana <3 #girlblogger #autodesenvolvimento #aprender #thatgirl #booktokbrasil",
+  "sl": "ni genij, ima samo teh pet navad. ukradi eno ta teden <3 #girlblogger #osebnirazvoj #učenje #thatgirl #booktok",
+  "de": "sie ist kein genie, sie hat nur diese fünf gewohnheiten. klau dir eine diese woche <3 #girlblogger #selbstverbesserung #lernen #thatgirl #booktokdeutschland",
+  "sk": "nie je génius, má len týchto päť zvykov. ukradni si jeden tento týždeň <3 #girlblogger #osobnyrozvoj #ucenie #thatgirl #booktok",
+  "sv": "hon är inget geni, hon har bara de här fem vanorna. sno en den här veckan <3 #girlblogger #självutveckling #lärande #thatgirl #booktoksverige"
+ },
+ "musique": {
+  "titre": "Contemplation",
+  "url": "https://www.tiktok.com/music/Contemplation-6834268077673154561"
+ },
+ "notes": "Full test (BLEO, 21/11) : accroche neuve chez nous, idée de l'AGENT.md (« little habits of girls who know a bit about everything »), au gabarit de son tube (« hobbies that make you impossible to bore », 479 k). Éléments à nous : lire les cartels, chercher chaque mot, Sophia, un carnet de citations, la deuxième question. Slide Sophia (4) : « 3. she does one lesson a day », cta B (reformulé, à la 3e personne puis à la 1re). Aucune ressource nommée. Photos neuves de la banque (aucune des 14 derniers jours).",
+ "banque": {
+  "images/banque/couv-cheminee-tableau.jpg": "41d463bd-b6a4-4327-94a8-4141922850f5",
+  "images/banque/couv-bougie-the.jpg": "9a840f9f-d452-4cb1-a84f-dbfe795a5c89",
+  "images/banque/tableau-lys.jpg": "05053822-02ab-473a-a17e-72474206fce6",
+  "images/banque/musee-passante.jpg": "b4661cab-f28b-41d9-950e-222d19cd37c7",
+  "images/banque/livre-main.jpg": "767fab8d-fcf9-4c30-acab-1b659c2e068e",
+  "images/banque/tasse-fenetre-bougies.jpg": "4ee44fde-123a-4b7e-a800-2ed6762ebc78",
+  "images/banque/lampe-bougies.jpg": "1c3464cc-edcc-4271-988e-f99ffea6fce2",
+  "images/banque/carnet-bougie-ordi.jpg": "62cba85a-998d-47cd-9c41-0594bd358142",
+  "images/banque/carnet-timbres.jpg": "b3145ad5-974d-4276-b739-2e1074df025f",
+  "images/banque/cafe-lys.jpg": "59157958-36c8-4410-9f42-3832ff796eb5",
+  "images/banque/geranium-cafe.jpg": "034a553a-55b1-4743-9d08-fcb59b64e8c2"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-cheminee-tableau.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-bougie-the.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "little habits of girls\nwho know a bit\nabout everything"
+   },
+   "fr": {
+    "titre": "petites habitudes\ndes filles qui\nsavent un peu tout"
+   },
+   "es": {
+    "titre": "pequeños hábitos de\nlas chicas que saben\nun poco de todo"
+   },
+   "es-419": {
+    "titre": "pequeños hábitos de\nlas chicas que saben\nun poco de todo"
+   },
+   "it": {
+    "titre": "piccole abitudini\ndelle ragazze che\nsanno un po' di tutto"
+   },
+   "tr": {
+    "titre": "her şeyden biraz\nbilen kızların küçük\nalışkanlıkları"
+   },
+   "pt-BR": {
+    "titre": "pequenos hábitos\ndas meninas que\nsabem um pouco\nde tudo"
+   },
+   "sl": {
+    "titre": "male navade punc,\nki vedo malo\no vsem"
+   },
+   "de": {
+    "titre": "kleine gewohnheiten\nvon mädchen, die\nvon allem ein\nbisschen wissen"
+   },
+   "sk": {
+    "titre": "malé zvyky dievčat,\nktoré vedia trochu\no všetkom"
+   },
+   "sv": {
+    "titre": "små vanor hos\ntjejer som kan\nlite om allt"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/tableau-lys.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/musee-passante.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. she reads the little plaque",
+    "paragraphes": [
+     "In a museum, in a church, next to a statue in the park, she stops and reads the small sign. who made it, when, and for whom.",
+     "Two minutes each time. after a year, she knows the story of half her city"
+    ]
+   },
+   "fr": {
+    "titre": "1. elle lit le petit cartel",
+    "paragraphes": [
+     "Au musée, dans une église, devant une statue dans un parc, elle s'arrête et lit le petit panneau. qui l'a faite, quand, et pour qui.",
+     "Deux minutes à chaque fois. au bout d'un an, elle connaît l'histoire de la moitié de sa ville"
+    ]
+   },
+   "es": {
+    "titre": "1. lee el cartelito",
+    "paragraphes": [
+     "En un museo, en una iglesia, junto a una estatua del parque, se para y lee el cartelito. quién lo hizo, cuándo y para quién.",
+     "Dos minutos cada vez. al cabo de un año, se sabe la historia de media ciudad"
+    ]
+   },
+   "es-419": {
+    "titre": "1. lee la placa",
+    "paragraphes": [
+     "En un museo, en una iglesia, junto a una estatua del parque, se detiene y lee la placa. quién la hizo, cuándo y para quién.",
+     "Dos minutos cada vez. después de un año, se sabe la historia de media ciudad"
+    ]
+   },
+   "it": {
+    "titre": "1. legge la targhetta",
+    "paragraphes": [
+     "In un museo, in una chiesa, accanto a una statua nel parco, si ferma e legge la targhetta. chi l'ha fatta, quando e per chi.",
+     "Due minuti ogni volta. dopo un anno, conosce la storia di metà della sua città"
+    ]
+   },
+   "tr": {
+    "titre": "1. küçük tabelayı okur",
+    "paragraphes": [
+     "Bir müzede, bir kilisede, parktaki bir heykelin yanında durur ve küçük tabelayı okur. kim yapmış, ne zaman, kimin için.",
+     "Her seferinde iki dakika. bir yıl sonra şehrinin yarısının hikâyesini bilir"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. ela lê a plaquinha",
+    "paragraphes": [
+     "No museu, numa igreja, do lado de uma estátua no parque, ela para e lê a plaquinha. quem fez, quando e pra quem.",
+     "Dois minutos cada vez. depois de um ano, ela sabe a história de metade da cidade"
+    ]
+   },
+   "sl": {
+    "titre": "1. prebere tablico",
+    "paragraphes": [
+     "V muzeju, v cerkvi, ob kipu v parku se ustavi in prebere majhno tablico. kdo ga je naredil, kdaj in za koga.",
+     "Vsakič dve minuti. po enem letu pozna zgodbo pol svojega mesta"
+    ]
+   },
+   "de": {
+    "titre": "1. sie liest das kleine schild",
+    "paragraphes": [
+     "Im museum, in einer kirche, neben einer statue im park bleibt sie stehen und liest das kleine schild. wer, wann und für wen.",
+     "Jedes mal zwei minuten. nach einem jahr kennt sie die geschichte ihrer halben stadt"
+    ]
+   },
+   "sk": {
+    "titre": "1. prečíta si tabuľku",
+    "paragraphes": [
+     "V múzeu, v kostole, pri soche v parku sa zastaví a prečíta si malú tabuľku. kto to urobil, kedy a pre koho.",
+     "Zakaždým dve minúty. po roku pozná príbeh polovice svojho mesta"
+    ]
+   },
+   "sv": {
+    "titre": "1. hon läser den lilla skylten",
+    "paragraphes": [
+     "På ett museum, i en kyrka, vid en staty i parken stannar hon och läser den lilla skylten. vem gjorde den, när och för vem.",
+     "Två minuter varje gång. efter ett år kan hon historien om halva sin stad"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/livre-main.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/tasse-fenetre-bougies.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "2. she looks up every word",
+    "paragraphes": [
+     "When a word in a book stops her, she looks it up before turning the page. then she uses it once that week, on purpose.",
+     "That's how her sentences got so precise without her ever studying vocabulary"
+    ]
+   },
+   "fr": {
+    "titre": "2. elle cherche chaque mot",
+    "paragraphes": [
+     "Quand un mot l'arrête dans un livre, elle le cherche avant de tourner la page. puis elle l'utilise une fois dans la semaine, exprès.",
+     "C'est comme ça que ses phrases sont devenues si précises, sans jamais réviser de vocabulaire"
+    ]
+   },
+   "es": {
+    "titre": "2. busca cada palabra",
+    "paragraphes": [
+     "Cuando una palabra la frena en un libro, la busca antes de pasar la página. luego la usa una vez esa semana, a propósito.",
+     "Así se volvieron tan precisas sus frases, sin estudiar nunca vocabulario"
+    ]
+   },
+   "es-419": {
+    "titre": "2. busca cada palabra",
+    "paragraphes": [
+     "Cuando una palabra la detiene en un libro, la busca antes de cambiar de página. luego la usa una vez esa semana, a propósito.",
+     "Así sus frases se volvieron tan precisas, sin estudiar nunca vocabulario"
+    ]
+   },
+   "it": {
+    "titre": "2. cerca ogni parola",
+    "paragraphes": [
+     "Quando una parola la ferma in un libro, la cerca prima di girare pagina. poi la usa una volta quella settimana, apposta.",
+     "Ecco come le sue frasi sono diventate così precise, senza mai studiare il vocabolario"
+    ]
+   },
+   "tr": {
+    "titre": "2. her kelimeye bakar",
+    "paragraphes": [
+     "Kitapta bir kelime onu durdurduğunda, sayfayı çevirmeden önce anlamına bakar. sonra o hafta bilerek bir kez kullanır.",
+     "Hiç kelime çalışmadan cümleleri böyle bu kadar net oldu"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. ela pesquisa cada palavra",
+    "paragraphes": [
+     "Quando uma palavra trava a leitura, ela pesquisa antes de virar a página. depois usa uma vez naquela semana, de propósito.",
+     "Foi assim que as frases dela ficaram tão precisas, sem nunca estudar vocabulário"
+    ]
+   },
+   "sl": {
+    "titre": "2. poišče vsako besedo",
+    "paragraphes": [
+     "Ko jo v knjigi ustavi beseda, jo poišče, preden obrne stran. potem jo tisti teden enkrat uporabi, namerno.",
+     "Tako so njeni stavki postali tako natančni, ne da bi kdaj učila besedišče"
+    ]
+   },
+   "de": {
+    "titre": "2. sie schlägt jedes wort nach",
+    "paragraphes": [
+     "Wenn sie ein wort in einem buch stolpern lässt, schlägt sie es nach, bevor sie umblättert. dann benutzt sie es einmal in der woche, mit absicht.",
+     "So sind ihre sätze so präzise geworden, ohne je vokabeln zu lernen"
+    ]
+   },
+   "sk": {
+    "titre": "2. vyhľadá každé slovo",
+    "paragraphes": [
+     "Keď ju v knihe zastaví slovo, vyhľadá si ho skôr, než otočí stranu. potom ho v ten týždeň raz použije, naschvál.",
+     "Takto sa jej vety stali takými presnými, bez toho, aby sa kedy učila slovíčka"
+    ]
+   },
+   "sv": {
+    "titre": "2. hon slår upp varje ord",
+    "paragraphes": [
+     "När ett ord stoppar henne i en bok slår hon upp det innan hon vänder blad. sedan använder hon det en gång den veckan, med flit.",
+     "Så blev hennes meningar så precisa, utan att hon någonsin pluggade glosor"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/lampe-bougies.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. she does one lesson a day",
+    "paragraphes": [
+     "Sophia gives me one lesson a day, written by actual professors. history, philosophy, science, with a little quiz after.",
+     "That's my version of it. ten minutes, and something new to think about every single night"
+    ]
+   },
+   "fr": {
+    "titre": "3. elle fait une leçon par jour",
+    "paragraphes": [
+     "Sophia me donne une leçon par jour, écrite par de vrais profs. histoire, philosophie, sciences, avec un petit quiz après.",
+     "C'est ma version à moi. dix minutes, et quelque chose de nouveau à penser chaque soir"
+    ]
+   },
+   "es": {
+    "titre": "3. hace una lección al día",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, ciencia, con un pequeño quiz al final.",
+     "Esa es mi versión. diez minutos, y algo nuevo en lo que pensar cada noche"
+    ]
+   },
+   "es-419": {
+    "titre": "3. toma una lección al día",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, ciencia, con un pequeño quiz al final.",
+     "Esa es mi versión. diez minutos, y algo nuevo en qué pensar cada noche"
+    ]
+   },
+   "it": {
+    "titre": "3. fa una lezione al giorno",
+    "paragraphes": [
+     "Sophia mi dà una lezione al giorno, scritta da veri professori. storia, filosofia, scienze, con un piccolo quiz alla fine.",
+     "È la mia versione. dieci minuti, e qualcosa di nuovo a cui pensare ogni sera"
+    ]
+   },
+   "tr": {
+    "titre": "3. her gün bir ders yapar",
+    "paragraphes": [
+     "Sophia bana her gün gerçek profesörlerin yazdığı bir ders veriyor. tarih, felsefe, bilim, sonunda da küçük bir test.",
+     "Benim versiyonum bu. on dakika, ve her gece düşünecek yeni bir şey"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. ela faz uma aula por dia",
+    "paragraphes": [
+     "O Sophia me dá uma aula por dia, escrita por professores de verdade. história, filosofia, ciência, com um quiz no final.",
+     "Essa é a minha versão. dez minutos, e algo novo pra pensar toda noite"
+    ]
+   },
+   "sl": {
+    "titre": "3. vsak dan ena lekcija",
+    "paragraphes": [
+     "Sophia mi vsak dan da eno lekcijo, ki so jo napisali pravi profesorji. zgodovina, filozofija, znanost, na koncu pa kratek kviz.",
+     "To je moja različica. deset minut, in vsak večer nekaj novega za razmislek"
+    ]
+   },
+   "de": {
+    "titre": "3. sie macht eine lektion am tag",
+    "paragraphes": [
+     "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren. geschichte, philosophie, wissenschaft, mit einem kleinen quiz danach.",
+     "Das ist meine version davon. zehn minuten, und jeden abend etwas neues zum nachdenken"
+    ]
+   },
+   "sk": {
+    "titre": "3. každý deň jedna lekcia",
+    "paragraphes": [
+     "Sophia mi každý deň dá jednu lekciu, ktorú napísali skutoční profesori. dejiny, filozofia, veda a na konci malý kvíz.",
+     "To je moja verzia. desať minút a každý večer niečo nové na premýšľanie"
+    ]
+   },
+   "sv": {
+    "titre": "3. hon gör en lektion om dagen",
+    "paragraphes": [
+     "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. historia, filosofi, naturvetenskap, med ett litet quiz efteråt.",
+     "Det är min version. tio minuter, och något nytt att tänka på varje kväll"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/carnet-bougie-ordi.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/carnet-timbres.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. she keeps a notebook of lines",
+    "paragraphes": [
+     "Every sentence that stops her, from a book, a film, a conversation, goes into one notebook. with the name of who said it.",
+     "So when she quotes something, it's because she actually read it"
+    ]
+   },
+   "fr": {
+    "titre": "4. elle a un carnet de phrases",
+    "paragraphes": [
+     "Chaque phrase qui l'arrête, dans un livre, un film, une conversation, va dans un seul carnet. avec le nom de qui l'a dite.",
+     "Alors quand elle cite quelque chose, c'est qu'elle l'a vraiment lu"
+    ]
+   },
+   "es": {
+    "titre": "4. tiene una libreta de frases",
+    "paragraphes": [
+     "Cada frase que la frena, de un libro, una peli o una conversación, va a una sola libreta. con el nombre de quien la dijo.",
+     "Así que cuando cita algo, es porque de verdad lo ha leído"
+    ]
+   },
+   "es-419": {
+    "titre": "4. tiene un cuaderno de frases",
+    "paragraphes": [
+     "Cada frase que la detiene, de un libro, una película o una plática, va a un solo cuaderno. con el nombre de quien la dijo.",
+     "Así que cuando cita algo, es porque de verdad lo leyó"
+    ]
+   },
+   "it": {
+    "titre": "4. ha un quaderno di frasi",
+    "paragraphes": [
+     "Ogni frase che la ferma, da un libro, un film, una conversazione, finisce in un solo quaderno. con il nome di chi l'ha detta.",
+     "Così quando cita qualcosa, è perché l'ha letta davvero"
+    ]
+   },
+   "tr": {
+    "titre": "4. bir cümle defteri tutar",
+    "paragraphes": [
+     "Onu durduran her cümle, bir kitaptan, bir filmden, bir sohbetten, tek bir deftere gider. söyleyenin adıyla birlikte.",
+     "Yani bir şeyden alıntı yaptığında, onu gerçekten okumuştur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. ela tem um caderno de frases",
+    "paragraphes": [
+     "Toda frase que para ela, de um livro, um filme, uma conversa, vai pra um caderno só. com o nome de quem disse.",
+     "Então quando ela cita alguma coisa, é porque leu de verdade"
+    ]
+   },
+   "sl": {
+    "titre": "4. zvezek stavkov",
+    "paragraphes": [
+     "Vsak stavek, ki jo ustavi, iz knjige, filma ali pogovora, gre v en sam zvezek. z imenom tistega, ki ga je rekel.",
+     "Ko torej kaj citira, je to res prebrala"
+    ]
+   },
+   "de": {
+    "titre": "4. sie hat ein heft voller sätze",
+    "paragraphes": [
+     "Jeder satz, der sie anhält, aus einem buch, einem film, einem gespräch, kommt in ein einziges heft. mit dem namen, von wem er ist.",
+     "Wenn sie also etwas zitiert, hat sie es wirklich gelesen"
+    ]
+   },
+   "sk": {
+    "titre": "4. zošit viet",
+    "paragraphes": [
+     "Každá veta, ktorá ju zastaví, z knihy, filmu alebo rozhovoru, ide do jedného zošita. s menom toho, kto ju povedal.",
+     "Takže keď niečo cituje, naozaj to čítala"
+    ]
+   },
+   "sv": {
+    "titre": "4. hon har en bok med citat",
+    "paragraphes": [
+     "Varje mening som stoppar henne, från en bok, en film, ett samtal, hamnar i en enda anteckningsbok. med namnet på den som sa den.",
+     "Så när hon citerar något, har hon faktiskt läst det"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/cafe-lys.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/geranium-cafe.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. she asks the second question",
+    "paragraphes": [
+     "When someone tells her something, she doesn't nod and move on. she asks how, or why, or what happened next.",
+     "Everyone she talks to teaches her something. and they all leave liking her more"
+    ]
+   },
+   "fr": {
+    "titre": "5. elle pose la deuxième question",
+    "paragraphes": [
+     "Quand on lui raconte quelque chose, elle ne hoche pas la tête pour passer à autre chose. elle demande comment, pourquoi, ou ce qui s'est passé ensuite.",
+     "Chaque personne lui apprend quelque chose. et tout le monde repart en l'appréciant encore plus"
+    ]
+   },
+   "es": {
+    "titre": "5. hace la segunda pregunta",
+    "paragraphes": [
+     "Cuando alguien le cuenta algo, no asiente y pasa a otra cosa. pregunta cómo, por qué o qué pasó después.",
+     "Cada persona le enseña algo. y todos se van queriéndola un poco más"
+    ]
+   },
+   "es-419": {
+    "titre": "5. hace la segunda pregunta",
+    "paragraphes": [
+     "Cuando alguien le cuenta algo, no asiente y sigue de largo. pregunta cómo, por qué o qué pasó después.",
+     "Cada persona le enseña algo. y todos se van queriéndola un poco más"
+    ]
+   },
+   "it": {
+    "titre": "5. fa la seconda domanda",
+    "paragraphes": [
+     "Quando qualcuno le racconta qualcosa, non annuisce e passa oltre. chiede come, perché, o cosa è successo dopo.",
+     "Ognuno le insegna qualcosa. e tutti se ne vanno apprezzandola ancora di più"
+    ]
+   },
+   "tr": {
+    "titre": "5. ikinci soruyu sorar",
+    "paragraphes": [
+     "Biri ona bir şey anlattığında başını sallayıp geçmez. nasıl, neden ya da sonra ne olduğunu sorar.",
+     "Konuştuğu herkes ona bir şey öğretir. ve herkes onu daha çok severek ayrılır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. ela faz a segunda pergunta",
+    "paragraphes": [
+     "Quando alguém conta algo pra ela, ela não só concorda e muda de assunto. ela pergunta como, por quê, ou o que aconteceu depois.",
+     "Cada pessoa ensina algo pra ela. e todo mundo sai gostando ainda mais dela"
+    ]
+   },
+   "sl": {
+    "titre": "5. postavi drugo vprašanje",
+    "paragraphes": [
+     "Ko ji kdo kaj pove, ne le pokima in gre naprej. vpraša, kako, zakaj ali kaj se je zgodilo potem.",
+     "Vsak jo nečesa nauči. in vsi odidejo z mislijo, da je čudovita"
+    ]
+   },
+   "de": {
+    "titre": "5. sie stellt die zweite frage",
+    "paragraphes": [
+     "Wenn ihr jemand etwas erzählt, nickt sie nicht nur und macht weiter. sie fragt, wie, warum oder was danach passiert ist.",
+     "Jeder bringt ihr etwas bei. und alle gehen und mögen sie noch mehr"
+    ]
+   },
+   "sk": {
+    "titre": "5. položí druhú otázku",
+    "paragraphes": [
+     "Keď jej niekto niečo rozpráva, len nekývne a nejde ďalej. spýta sa ako, prečo alebo čo sa stalo potom.",
+     "Každý ju niečo naučí. a všetci odchádzajú s tým, že ju majú ešte radšej"
+    ]
+   },
+   "sv": {
+    "titre": "5. hon ställer den andra frågan",
+    "paragraphes": [
+     "När någon berättar något för henne nickar hon inte bara och går vidare. hon frågar hur, varför eller vad som hände sedan.",
+     "Alla hon pratar med lär henne något. och alla går därifrån och gillar henne ännu mer"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

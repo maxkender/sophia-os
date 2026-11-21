@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o294",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais le vendredi à 16h pour un lundi tranquille #travail #organisation #routine #weekend #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 21/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le vendredi après-midi). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5a78d6a4",
+   "texte_overlay": "ce que je fais\nle vendredi à 16h\npour un lundi tranquille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "30d05875",
+   "texte_overlay": "je note où j'en suis sur chaque dossier\n3 lignes, pas plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bcdd5f18",
+   "texte_overlay": "j'écris mes 3 priorités de lundi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "58f1a91a",
+   "texte_overlay": "je réponds aux mails qui attendent depuis 2 jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "af72f543",
+   "texte_overlay": "je range mon bureau\nréel et numérique",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1379049d",
+   "texte_overlay": "je m'accorde 5 minutes pour apprendre un truc\nrien à voir avec le boulot",
+   "texte_sophia": "je m'accorde 5 minutes pour apprendre un truc\nrien à voir avec le boulot, sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9ea7d2dc",
+   "texte_overlay": "et je ferme l'ordi. vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "50c1af32",
+   "texte_overlay": "tu fais quoi le vendredi à 16h ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

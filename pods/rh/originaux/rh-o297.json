@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o297",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a949048a-a974-4070-8f6d-a0dfcdd16be6",
+ "titre": "stage décroché : les réponses un peu arrangées que j'ai données (toutes vraies au fond) #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 21/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G2 de la ligne #3 (parent a949048a) : même promesse, autres mots. Chaque réponse arrangée reste vraie, rien d'inventé. Inspirations reprises de rh-o198. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2c01b745",
+   "texte_overlay": "stage décroché :\nles réponses un peu arrangées que j'ai données\n(toutes vraies au fond)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "800dd992",
+   "texte_overlay": "« vous avez déjà eu un job ? »\nj'ai parlé de mes baby-sittings\norganisation, confiance, horaires. c'était vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "19eb8265",
+   "texte_overlay": "« vous êtes à l'aise sur ordinateur ? »\nj'ai dit « oui, et j'apprends les tableurs »\nj'avais commencé 3 jours avant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4368fe7a",
+   "texte_overlay": "« qu'est-ce qui vous intéresse chez nous ? »\nj'ai cité un projet\nlu la veille. mais il me plaisait vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3efbe9fb",
+   "texte_overlay": "« vous lisez quoi en ce moment ? »\nj'ai dit « de l'histoire »\n5 minutes par jour. mais tous les jours",
+   "texte_sophia": "« vous lisez quoi en ce moment ? »\nj'ai dit « de l'histoire »\n5 minutes par jour sur l'appli Sophia. mais tous les jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3e84d05c",
+   "texte_overlay": "« une qualité ? »\nj'ai dit « je pose des questions »\nmon défaut aussi, d'après mes profs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b0c94f5a",
+   "texte_overlay": "t'en es où dans ta recherche de stage ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o295",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7b33b7b8-8b1e-43c6-ba58-064c45756e56",
+ "titre": "j'ai changé de job 3 fois. voilà ce que je referais #carriere #travail #emploi #reconversion #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 21/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #1 (parent 7b33b7b8), 3e et dernière : même promesse, autres mots, leçons différentes de rh-o228, rh-o271 et rh-o283. Inspirations reprises de rh-o228. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6cb193bf",
+   "texte_overlay": "j'ai changé de job\n3 fois.\nvoilà ce que je referais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2165c62a",
+   "texte_overlay": "chercher pendant que j'étais encore en poste\nmoins de stress, meilleure négo",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "83c38935",
+   "texte_overlay": "parler aux gens de la boîte avant de signer\nun café suffit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f6d972b7",
+   "texte_overlay": "négocier chaque fois\nmême 5 %, ça s'additionne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9111e470",
+   "texte_overlay": "partir en remerciant tout le monde\nj'ai recroisé la moitié d'entre eux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "521c224f",
+   "texte_overlay": "apprendre en dehors de mon poste\nc'est ce qui m'a ouvert les portes suivantes",
+   "texte_sophia": "apprendre en dehors de mon poste\nc'est ce qui m'a ouvert les portes suivantes. utilise l'appli Sophia 5 minutes par jour, ça s'empile",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "57f93449",
+   "texte_overlay": "et toi, tu referais quoi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

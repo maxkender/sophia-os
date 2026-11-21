@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o298",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cfc13876-ccf7-4798-a29b-a06b645b3b14",
+ "titre": "5 façons de tourner la vérité à ton avantage en entretien #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 21/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G2 de la ligne #4 (parent cfc13876), 3e et dernière : même promesse, autres mots. Rien d'inventé, seulement des tournures vraies. Inspirations reprises de rh-o160. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3f7cf12b",
+   "texte_overlay": "5 façons de tourner la vérité\nà ton avantage\nen entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "790732b8",
+   "texte_overlay": "1. un trou dans le CV\n« j'ai pris ce temps pour X » si c'est vrai. même X tout petit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c488c8fa",
+   "texte_overlay": "2. un échec\n« ça m'a appris à… » et un exemple de la fois d'après",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1dc11cff",
+   "texte_overlay": "3. pas d'expérience\n« voilà ce que j'ai fait qui s'en rapproche »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9bae2d70",
+   "texte_overlay": "4. une compétence en cours\n« je l'apprends en ce moment, voilà où j'en suis »\nmoi : 5 minutes par jour",
+   "texte_sophia": "4. une compétence en cours\n« je l'apprends en ce moment, voilà où j'en suis »\nmoi : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "82deeeba",
+   "texte_overlay": "5. tu stresses\n« je suis un peu nerveuse, c'est que ça compte pour moi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b7edb2c7",
+   "texte_overlay": "c'est pas mentir.\nc'est bien le dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "21c7dde1",
+   "texte_overlay": "laquelle tu gardes ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

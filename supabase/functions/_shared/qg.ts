@@ -38,7 +38,26 @@ export function jetonValide(fourni: string | null | undefined, attendu: string |
   return diff === 0;
 }
 
-/** La route : le dernier segment du chemin (`/functions/v1/qg/apps` comme `/api/qg/apps`). */
+/**
+ * La route, sans le préfixe : tout ce qui suit le segment `qg` (`/functions/v1/qg/apps` comme `/api/qg/apps` → « apps » ;
+ * `/api/qg/control/paie` → « control/paie »).
+ */
 export function routeQg(pathname: string): string {
-  return pathname.replace(/\/+$/, "").split("/").pop() ?? "";
+  const parts = pathname.split("/").filter(Boolean);
+  const i = parts.lastIndexOf("qg");
+  return (i >= 0 ? parts.slice(i + 1) : parts.slice(-1)).join("/");
 }
+
+/** Un lundi obligatoire (`cohorte`, `semaine`), AAAA-MM-JJ. */
+export function lireLundiQg(params: URLSearchParams, nom: string): { ok: true; lundi: string } | { ok: false; erreur: string } {
+  const v = (params.get(nom) ?? "").trim();
+  if (!v) return { ok: false, erreur: `${nom} est obligatoire (AAAA-MM-JJ, un lundi)` };
+  if (!dateValide(v)) return { ok: false, erreur: `${nom} invalide (AAAA-MM-JJ attendu)` };
+  if (new Date(`${v}T00:00:00Z`).getUTCDay() !== 1) return { ok: false, erreur: `${nom} doit être un lundi` };
+  return { ok: true, lundi: v };
+}
+
+/** Les routes connues et la fonction de la base qui répond à chacune. */
+export const ROUTES_QG = ["apps", "control/recrutement", "control/paie", "control/autres"] as const;
+export type RouteQg = (typeof ROUTES_QG)[number];
+export const estRouteQg = (r: string): r is RouteQg => (ROUTES_QG as readonly string[]).includes(r);

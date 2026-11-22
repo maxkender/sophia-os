@@ -1,0 +1,1317 @@
+{
+ "id": "sg-031",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 à apprendre avant de quitter la maison",
+  "en": "10/10 skills to learn before leaving home",
+  "de": "10/10-Skills, die du lernen solltest, bevor du ausziehst",
+  "it": "Abilità 10/10 da imparare prima di andare a vivere da solo",
+  "pt-BR": "Habilidades 10/10 para aprender antes de sair de casa",
+  "tr": "Evden ayrılmadan önce öğrenmen gereken 10/10 beceriler",
+  "ro": "Abilități 10/10 de învățat înainte să pleci de acasă",
+  "cs": "Dovednosti 10/10, které se musíš naučit, než se odstěhuješ"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 à apprendre avant de quitter la maison #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to learn before leaving home #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die du lernen solltest, bevor du ausziehst #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 da imparare prima di andare a vivere da solo #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para aprender antes de sair de casa #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Evden ayrılmadan önce öğrenmen gereken 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 de învățat înainte să pleci de acasă #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které se musíš naučit, než se odstěhuješ #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Full test du 22/11 (accroche neuve « Compétences 10/10 à apprendre avant de quitter la maison »). 5 compétences pour vivre seul : faire une lessive, cuire un riz parfait, Sophia en étape 4 sur 7 (cta C, « ÊTRE PRÊT / POUR LA VIE »), faire le ménage vite, faire ses courses moins cher, écrire son CV. Vraies vidéos natives par langue (fr : Panda Productif, Mama Ly, Marisa F., Amandine Poggioli, La Jobsetteuse).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "À APPRENDRE AVANT",
+      "cap": 93
+     },
+     {
+      "t": "DE QUITTER",
+      "cap": 150
+     },
+     {
+      "t": "LA MAISON",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO LEARN BEFORE",
+      "cap": 93
+     },
+     {
+      "t": "LEAVING",
+      "cap": 150
+     },
+     {
+      "t": "HOME",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE DU LERNEN SOLLTEST,",
+      "cap": 80
+     },
+     {
+      "t": "BEVOR DU",
+      "cap": 150
+     },
+     {
+      "t": "AUSZIEHST",
+      "couleur": "brun",
+      "cap": 220
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DA IMPARARE PRIMA DI",
+      "cap": 93
+     },
+     {
+      "t": "VIVERE",
+      "cap": 150
+     },
+     {
+      "t": "DA SOLO",
+      "couleur": "brun",
+      "cap": 250
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA APRENDER ANTES DE",
+      "cap": 80
+     },
+     {
+      "t": "SAIR DE",
+      "cap": 150
+     },
+     {
+      "t": "CASA",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "EVDEN",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "AYRILMADAN ÖNCE",
+      "cap": 110
+     },
+     {
+      "t": "ÖĞRENMEN GEREKEN",
+      "cap": 93
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 170
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DE ÎNVĂȚAT ÎNAINTE",
+      "cap": 93
+     },
+     {
+      "t": "SĂ PLECI DE",
+      "cap": 120
+     },
+     {
+      "t": "ACASĂ",
+      "couleur": "brun",
+      "cap": 250
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "KTERÉ SE MUSÍŠ NAUČIT,",
+      "cap": 80
+     },
+     {
+      "t": "NEŽ SE",
+      "cap": 150
+     },
+     {
+      "t": "ODSTĚHUJEŠ",
+      "couleur": "brun",
+      "cap": 200
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "UNE LESSIVE",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lmk3DahyWIU",
+     "titre": "Corvée de linge : 25 astuces pour mieux trier, laver, étendre/sécher, repasser, plier et ranger !",
+     "chaine": "Panda Productif",
+     "vues": "34 k vues",
+     "date": "il y a 5 ans",
+     "duree": "17:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_liXQiKFpfjmCIC87lFbrBOFJ4xWmMAB0f9FrgsOgpCKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DO",
+     [
+      {
+       "t": "YOUR LAUNDRY",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4QxmleZeu9s",
+     "titre": "How to Do Laundry",
+     "chaine": "How to Adult",
+     "vues": "1M views",
+     "date": "12 years ago",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kMCnQ6Dh_45fBfklMTqcpJx1tZRU85t1ZuBRRPynXvrA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "WÄSCHE WASCHEN",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fETFYe-lPe8",
+     "titre": "Wäsche waschen für Anfänger - SO kann JEDER richtig Wäsche waschen | 10 schnelle Tipps",
+     "chaine": "Krix - Der Hausgeräteprofi",
+     "vues": "53.019 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "2:50",
+     "avatar": "https://yt3.ggpht.com/nIA7EzzVQo_jPk9qr1S0F_Ur2yO1JP65fHlqZ51nNi6mHlJOADjGNZoFctN1jkupgYIhkLnIFQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "IL BUCATO",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GAy9j-eGBw0",
+     "titre": "I 10 ERRORI/ORRORI più comuni quando si fa il bucato! Tutti da evitare assolutamente!!",
+     "chaine": "La casa di Mattia",
+     "vues": "480K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "9:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nNE020XGcHpKq08p131o_bs8SccslhTeoTYqg5_e4Wtf8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LAVAR",
+     [
+      {
+       "t": "ROUPA",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XyCe-bGS8tE",
+     "titre": "como LAVAR ROUPAS na máquina CORRETAMENTE | MORAR SOZINHO 007",
+     "chaine": "Manual do Homem Moderno",
+     "vues": "505 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "15:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mVTK_vK_onbT2udbgwbUQPecgJlYAooLxVGpd4Gk7kv2I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ÇAMAŞIR",
+     [
+      {
+       "t": "YIKAMAK",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mbpWEzUVaXI",
+     "titre": "Renkli Çamaşırlar Nasıl Yıkanır? | Mis Gibi Koksun, Deterjan Kalıntısı Kalmasın!",
+     "chaine": "Emine Deligoz",
+     "vues": "232 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "14:37",
+     "avatar": "https://yt3.ggpht.com/4ry5yk1_tqx6W_gVf4JJNs8RBsJakxAYL5ITA0-5wZdO3DKU4qhsVpJXVrbgtuYKsl7Qt5NhEg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SPELI",
+     [
+      {
+       "t": "RUFELE",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Gn9R5mKcv7s",
+     "titre": "Cum să speli rufele corect",
+     "chaine": "eMAG",
+     "vues": "363 K vizionări",
+     "date": "acum 10 ani",
+     "duree": "2:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOWBHSHM5_ntiLKbUgGrDV6RngRGSBcqtHp_ZyvOM4pYg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PRÁT",
+     [
+      {
+       "t": "PRÁDLO",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RiJVB_4DaMY",
+     "titre": "Jak před praním třídit prádlo – Ariel",
+     "chaine": "Ariel Czech",
+     "vues": "5,4 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "0:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l0WXISY4U6XZRWw7HFCSqdsDMZjzrDT7GQ1v8sDREU9w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CUIRE",
+     [
+      {
+       "t": "UN RIZ PARFAIT",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3ox39HTY5nc",
+     "titre": "Comment cuire du riz à la casserole - 3 conseils pour obtenir un riz parfait 👌",
+     "chaine": "Mama Ly",
+     "vues": "272 k vues",
+     "date": "il y a 2 ans",
+     "duree": "2:51",
+     "avatar": "https://yt3.ggpht.com/91Yhvn9qB75WJAehOVf7mMBGDX5Yz4MT9RmT4YbwupRmMXakKfBzHnbLnwtoiTYlB5EqPsqS2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "COOK",
+     [
+      {
+       "t": "PERFECT RICE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Jf75I9LKhvg",
+     "titre": "How To Cook The Perfect Rice | Gordon Ramsay",
+     "chaine": "Gordon Ramsay",
+     "vues": "7.4M views",
+     "date": "12 years ago",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/iu8M-gugkNvz-lHxC1sMEfAlL7ONWbP91c5SM9bb98oCJAcYUl0HIAMZFFR2Dd-soGag1Y1y8A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "REIS",
+     [
+      {
+       "t": "RICHTIG KOCHEN",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m7HLPsQtjCQ",
+     "titre": "Fluffigen Reis kochen wie die Profis 🍚(ohne Reiskocher!)",
+     "chaine": "Tim - Brot mit Ei",
+     "vues": "139.046 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "5:43",
+     "avatar": "https://yt3.ggpht.com/XdOsM384UspvGaLWEcHNtb8du3TVKn5sYPok_i6z-TAMDYX70fSBBkomiLITmNJ8w-w35I1YZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CUOCERE",
+     [
+      {
+       "t": "IL RISO",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wxphGrQECAc",
+     "titre": "Quasi tutti fanno questi 3 errori nella cottura del riso",
+     "chaine": "De gustibus",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjLT8kw2YsbQbz2gXfJ1FlYZe_rtWpN5EJl3XHx9FreA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "ARROZ SOLTINHO",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AV-hJz0iwoc",
+     "titre": "Chega de Arroz EMPAPADO! DICA TOP para INICIANTES de Como Fazer o Arroz Branco SOLTINHO e GOSTOSO!",
+     "chaine": "Cozinha sem Misterio",
+     "vues": "421 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "5:36",
+     "avatar": "https://yt3.ggpht.com/yo8IfuZsd8eUxmr_VXMfQqaRtzut6LoNLfIIjfL7LHPt2U7SPzWFOeLpqWKGrTAFRyPtU_S52ag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PİLAV",
+     [
+      {
+       "t": "YAPMAK",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8eUFgKsstwQ",
+     "titre": "Tane Tane Pirinç Pilavı Nasıl Yapılır? | Nefis Yemek Tarifleri",
+     "chaine": "Nefis Yemek Tarifleri",
+     "vues": "17 Mn görüntüleme",
+     "date": "12 yıl önce",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/tX0tJPs42-5_5cy9RbtEDs90jzkQuKvgWO3Hj-lzIG8aQdtME1ffs1jloPkNzBtFDZ0GNqY0rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FIERBI",
+     [
+      {
+       "t": "OREZUL",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sYqjiOB0y2U",
+     "titre": "Cum să faci cel mai pufos orez basmati",
+     "chaine": "Sorin Logofatu",
+     "vues": "81 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "1:41",
+     "avatar": "https://yt3.ggpht.com/SVrVQ1wrMBQqxFccq8p8VOKNZk4KTNKnbNuDs9fhcu1flYrMdP8yrEIGV_dRS5BvSaDmEvYuxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "RÝŽI",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BMGSjsvot-U",
+     "titre": "Rýže recept. Jak uvařit sypkou rýži.",
+     "chaine": "Vaříme s Mozkem",
+     "vues": "33 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/puFJqFDXsGNPfMKZIATpECC-xcpBB17IrBx5HKe3i03hLcDL0T4xpzeeG73v941BfhkYJ0Pl5Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ÊTRE PRÊT",
+     [
+      {
+       "t": "POUR LA VIE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BE READY",
+     [
+      {
+       "t": "FOR LIFE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "BEREIT",
+     [
+      {
+       "t": "FÜRS LEBEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PRONTO",
+     [
+      {
+       "t": "PER LA VITA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PRONTO",
+     [
+      {
+       "t": "PARA A VIDA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HAYATA",
+     [
+      {
+       "t": "HAZIR OLMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "PREGĂTIT",
+     [
+      {
+       "t": "PENTRU VIAȚĂ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PŘIPRAVEN",
+     [
+      {
+       "t": "NA ŽIVOT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "LE MÉNAGE VITE",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LFlGrtM_S10",
+     "titre": "8 ASTUCES DE NETTOYAGE SIMPLE ET RAPIDE POUR UNE MAISON ÉTINCELANTE 🫧",
+     "chaine": "Marisa F.",
+     "vues": "274 k vues",
+     "date": "il y a 3 ans",
+     "duree": "12:23",
+     "avatar": "https://yt3.ggpht.com/OaRnftyO1IfSog0u09j9AhAvBQHwpnv0zJdzg1DvKBG216xHsydhDP5w-T_18VZ2zW78jznQ_cA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CLEAN",
+     [
+      {
+       "t": "YOUR PLACE FAST",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TqHX3pTeRdg",
+     "titre": "Cleaning Expert: My Secret System to Cleaning Fast & Effectively!",
+     "chaine": "Clean My Space",
+     "vues": "1.1M views",
+     "date": "7 years ago",
+     "duree": "10:33",
+     "avatar": "https://yt3.ggpht.com/wZCmwBsU9PWt3ku1s8OLp98CiMYxvvkNUokIj5C4_TbQzwo2vNbA1j2B7sLuPldwdkt7I19ldg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SCHNELL",
+     [
+      {
+       "t": "PUTZEN",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iOPKeUCdZGU",
+     "titre": "Einfach IMMER ordentlich in 15min 🤩| Die besten Tricks für den schnellen Haushalt | mamiblock",
+     "chaine": "mamiblock",
+     "vues": "613.763 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "13:51",
+     "avatar": "https://yt3.ggpht.com/HxjKfey4dEkvWm3F9U-7hJTRo4DAgu-QjFZsG3YKpZvNQyZ87JWjo2Ic-DPR0IQSDTc3zvl7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PULIRE CASA",
+     [
+      {
+       "t": "VELOCEMENTE",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m8S7E0zpQn4",
+     "titre": "Come PULIRE CASA VELOCEMENTE  (in meno di 1 ora)",
+     "chaine": "Elena Tee",
+     "vues": "165K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:09",
+     "avatar": "https://yt3.ggpht.com/dNuWRJg5y19kBrUFxjwo2TFHkjsagBNRB-7x020iXlDanZH7zOhSW6TCccdhvhEuJEBaYNL-mA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LIMPAR",
+     [
+      {
+       "t": "A CASA RÁPIDO",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r_jBwo348og",
+     "titre": "COMO LIMPAR A CASA RÁPIDO E BEM FEITO: DICAS PRÁTICAS E EFICIENTES Organize sem Frescuras",
+     "chaine": "Organize sem Frescuras!",
+     "vues": "670 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "7:09",
+     "avatar": "https://yt3.ggpht.com/hNVG-mCodjhysT8CGQovB4ycSsCcQRtE9VKQefJvO8P9dt_IZlzdT6fh1yu2WHyM6wAb5csa=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PRATİK",
+     [
+      {
+       "t": "EV TEMİZLİĞİ",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MqitRQAVrTQ",
+     "titre": "5 Adımda Pratik Ev Temizliği | İrem Güzey",
+     "chaine": "Irem Guzey",
+     "vues": "132 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJ2kUVR5Y-zIO-zFr2FzR-lXd42vMcoZ_3_KG1cv5jbFM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "CURĂȚENIE",
+     [
+      {
+       "t": "RAPIDĂ",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nRN7QldPNNA",
+     "titre": "Curatenie rapida in casa♡Rutina zilnica de curatenie♧Quick clean with me",
+     "chaine": "Alina Elena T",
+     "vues": "12 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kwpvZI0PWHS25qh1OiwvvKQ7E7ivAMVByPW1VJ8cS29hg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UKLIDIT",
+     [
+      {
+       "t": "RYCHLE",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_7MdHgTDqHA",
+     "titre": "Pojďte se mnou uklízet! | Speed clean | Motivace a tipy na úklid",
+     "chaine": "Marketa Frank",
+     "vues": "126 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "12:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k-l-B8dvBHcFiNrwYckzQQi-zKoI9_QdJAJTuykygka00=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE SES COURSES",
+     [
+      {
+       "t": "MOINS CHER",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OrmLig11dv8",
+     "titre": "20 astuces pour économiser beaucoup d'argent  | BUDGET EXTREME",
+     "chaine": "Amandine Poggioli",
+     "vues": "136 k vues",
+     "date": "il y a 1 an",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/Yf3edUDyxfn0w1bKSpCrVzlbA0Ij3VFaAqKEckQoL6wKQlFsFhNN_VTMt0hic0VhYKPznHHGoDE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SHOP",
+     [
+      {
+       "t": "ON A BUDGET",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ob-06o3TggE",
+     "titre": "How I Save 40% On My Food Bill (Money Saving Hacks)",
+     "chaine": "Gabe Bult",
+     "vues": "1M views",
+     "date": "1 year ago",
+     "duree": "8:13",
+     "avatar": "https://yt3.ggpht.com/Uv5Ak7LQd2TnTscQ3M4CLpBJb3Tqe-6_P2Dk8Qm5IhEmEKLxWjyzs3tv_XNfy_msz2T6gNXmpx8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GÜNSTIG",
+     [
+      {
+       "t": "EINKAUFEN",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XUtkAupSygk",
+     "titre": "Beim Essen Geld sparen: 10 Tipps um günstiger Lebensmittel einzukaufen | von einer Frugalistin",
+     "chaine": "Geldgarten",
+     "vues": "168.035 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "10:45",
+     "avatar": "https://yt3.ggpht.com/9wzebah-D1c2cFNhckG2O_fsTOv7Gi-wIRZF42_GnyGcQmdwsKV7MgPp8ka9Vh-ApbHO-sypJj4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RISPARMIARE",
+     [
+      {
+       "t": "SULLA SPESA",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V_gOFk0Txn0",
+     "titre": "Come Risparmio il 40% sulla Spesa Alimentare | 8 Trucchi per Risparmiare soldi",
+     "chaine": "Karim Mejri",
+     "vues": "66K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/kGgobHIiLs8R9LsUGYxFn66p97lBG_08Fxu3Zpmb0pTnX2W6B-OQR7N5TC8LQU3XWH2wR7M7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ECONOMIZAR",
+     [
+      {
+       "t": "NO MERCADO",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TdmPmzsVECQ",
+     "titre": "25 DICAS para ECONOMIZAR NO MERCADO",
+     "chaine": "Primo Pobre",
+     "vues": "862 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "28:13",
+     "avatar": "https://yt3.ggpht.com/Xxvah02LCiiaBuQ04C71Wnypcd3WaVEAZ3LpZOMI2Tlbh7ppcQGQdR1AT5MpzgTHPaTYKx-8Wg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "MARKETTE",
+     [
+      {
+       "t": "TASARRUF ETMEK",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IWWGts_DT1c",
+     "titre": "MARKET VE PAZAR ALIŞVERİŞİNDE NASIL TASARRUF EDİLİR?💸 PARA BİRİKTİRME YÖNTEMLERİ",
+     "chaine": "Merve Cenk",
+     "vues": "15 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "11:07",
+     "avatar": "https://yt3.ggpht.com/eQijrhxCVNwBNymVLchEEjfa4ClHbbDQ28xQXz3PBmRklf2bJtSI4gYcJgutjnd6SebNHdTL4A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ECONOMISEȘTI",
+     [
+      {
+       "t": "LA CUMPĂRĂTURI",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7_dPHERniCM",
+     "titre": "10 METODE  prin care supermarketurile te fac să cumperi mai mult (și cum să le eviți)",
+     "chaine": "Simply Alina",
+     "vues": "3,3 K vizionări",
+     "date": "acum 1 an",
+     "duree": "12:41",
+     "avatar": "https://yt3.ggpht.com/j_RNXWWhQA83fUs8M28iAgQTdtNMo5cT8mW-A2cxiE9lUlmWH8bCj0nV2iGN39Opol8d1Cfs8lI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UŠETŘIT",
+     [
+      {
+       "t": "NA NÁKUPU",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HoE5YtLRV7M",
+     "titre": "Jak ušetřit na jídle❓ Nakupuju ve velkém - CO A JAK a co se nevyplatí",
+     "chaine": "Spokojená s Málem",
+     "vues": "6,7 tis. zhlédnutí",
+     "date": "před 4 dny",
+     "duree": "15:15",
+     "avatar": "https://yt3.ggpht.com/8kZiTIWUymy2drusJOjNJ0uAKpW-e24LaST0baWluLI3naCl89iCMVhmuUwKfgmETKleQM93Uy0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÉCRIRE",
+     [
+      {
+       "t": "SON CV",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LWYoowR4ejw",
+     "titre": "Comment faire un CV qui passe TOUS les ATS ? (avec ou sans expérience)",
+     "chaine": "La Jobsetteuse",
+     "vues": "125 k vues",
+     "date": "il y a 1 an",
+     "duree": "12:30",
+     "avatar": "https://yt3.ggpht.com/j6GstXfljO5YlaL6FynXlWCJvTcl_9moI6ZUlTdzz-wIxN2kLVHHQw9XJYVm054LyB9lfS6AwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WRITE",
+     [
+      {
+       "t": "YOUR FIRST CV",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sqwK4Q4yfWU",
+     "titre": "HOW TO WRITE A CV WITH NO EXPERIENCE! (CV Writing Tips & TEMPLATES!)",
+     "chaine": "CareerVidz",
+     "vues": "239K views",
+     "date": "4 years ago",
+     "duree": "10:54",
+     "avatar": "https://yt3.ggpht.com/_9_ZC_CqNiQD9-ZLY63zpJbAulberC89AwhIksxU0SjFIJtAKOVU5QHZHKmU9JhlaCglymuStw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "LEBENSLAUF",
+     [
+      {
+       "t": "SCHREIBEN",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9QgO9mIeC8o",
+     "titre": "LEBENSLAUF schreiben: Das gehört (NICHT) rein 📝",
+     "chaine": "StepUp! Coaching & Karrieretipps",
+     "vues": "526.094 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "4:29",
+     "avatar": "https://yt3.ggpht.com/qlWWHJRFiM8CDsMlJHrMULhyGkEIODG6yb402QR8Q_t8dP_qLs7e59t3GDphhaUJ5ITDXkJ9Ew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCRIVERE",
+     [
+      {
+       "t": "IL CURRICULUM",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WY_Zv6BJCAs",
+     "titre": "CREARE un CURRICULUM EFFICACE senza ESPERIENZE LAVORATIVE 📝",
+     "chaine": "Marco Mazzella",
+     "vues": "244K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "7:30",
+     "avatar": "https://yt3.ggpht.com/8Ge4dU6Idb-Ykz3sxEBiOAydtj7FyXOPf0pDtG2YZaqNh8KpXIYDoM_AydOR8jJ6ljTPYfBl2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "UM CURRÍCULO",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cHFqdmmv2Is",
+     "titre": "CURRÍCULO PRIMEIRO EMPREGO: O QUE COLOCAR QUANDO VOCÊ AINDA NÃO TEM EXPERIÊNCIA?",
+     "chaine": "Hackeando a Carreira",
+     "vues": "716 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "7:41",
+     "avatar": "https://yt3.ggpht.com/MTbv5uwyo2eNowDzA_9waGWu67UBmOlCwxxZcjExjV9xB1XBRBj4YHsFC21K6DqkVIGjAVFOHA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "CV",
+     [
+      {
+       "t": "HAZIRLAMAK",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PMaaE6ZPK1c",
+     "titre": "Özgeçmiş nasıl hazırlanır?",
+     "chaine": "Baraneemo",
+     "vues": "248 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "12:32",
+     "avatar": "https://yt3.ggpht.com/r9g4Dmmovuf6grAbeRBleqnbmpERRHj_eUhEc1djR30wRHOy8XeOHhXBRgr4iweHLIk5cvHVn7M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI FACI",
+     [
+      {
+       "t": "UN CV",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q-kWeI0mvJM",
+     "titre": "Cum îți Faci un CV Bun pentru Angajare în 2025? | Un Recruiter Îți Dă Părerea Lui!",
+     "chaine": "Vlad Romuald",
+     "vues": "26 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "21:16",
+     "avatar": "https://yt3.ggpht.com/oDQCqZJlw1qCwAUaPFN9vZfp70VBUpb-bRy0ZtYPezglL_XF2ISjda2W09OU3fqKKmAFQv6AZw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAPSAT",
+     [
+      {
+       "t": "ŽIVOTOPIS",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zLvD5NGS0L0",
+     "titre": "Životopis, který tě dostane kamkoliv! - Jak ho napsat?",
+     "chaine": "Karel Kuruc",
+     "vues": "24 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "7:50",
+     "avatar": "https://yt3.ggpht.com/gMtt0kyugb-g4joN4B3VkIGWexP4QZ1ZlbLKMMU8o9omL4itaY-9GFaDigkVfZ1CMEG1j5SW-eI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   }
+  }
+ ]
+}

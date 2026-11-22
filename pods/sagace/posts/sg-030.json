@@ -1,0 +1,1313 @@
+{
+ "id": "sg-030",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0dfddb08-20b9-4bb9-8dec-8f4c371de0b2",
+ "titre": {
+  "fr": "Compétences 10/10 que l'école ne t'apprend pas",
+  "en": "10/10 skills school will never teach you",
+  "de": "10/10-Skills, die dir die Schule nie beibringt",
+  "it": "Abilità 10/10 che la scuola non ti insegna",
+  "pt-BR": "Habilidades 10/10 que a escola não te ensina",
+  "tr": "Okulun sana öğretmediği 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care școala nu te învață",
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills school will never teach you #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die dir die Schule nie beibringt #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che la scuola non ti insegna #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que a escola não te ensina #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Okulun sana öğretmediği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Déclinaison G1 de sg-008 (22/11) : titre, légende, couverture et musique de sg-008 mot pour mot ; 5 autres compétences que l'école n'apprend pas (écrire un CV, faire son budget, laver son linge, gérer un conflit, écouter vraiment), d'autres vraies vidéos natives ; Sophia en étape 4, cta A « APPRENDRE / POUR DE VRAI ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 111
+     },
+     {
+      "t": "QUE L'ÉCOLE",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "NE T'APPREND",
+      "cap": 120
+     },
+     {
+      "t": "PAS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 150
+     },
+     {
+      "t": "SCHOOL",
+      "cap": 230,
+      "couleur": "brun"
+     },
+     {
+      "t": "WILL NEVER",
+      "cap": 130
+     },
+     {
+      "t": "TEACH YOU",
+      "cap": 190,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS, DIE DIR",
+      "cap": 110
+     },
+     {
+      "t": "DIE SCHULE",
+      "cap": 180,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIE",
+      "cap": 150
+     },
+     {
+      "t": "BEIBRINGT",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 140
+     },
+     {
+      "t": "CHE LA SCUOLA",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "NON TI",
+      "cap": 140
+     },
+     {
+      "t": "INSEGNA",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "QUE A ESCOLA",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "NÃO TE",
+      "cap": 140
+     },
+     {
+      "t": "ENSINA",
+      "cap": 250,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "OKULUN SANA",
+      "cap": 120
+     },
+     {
+      "t": "ÖĞRETMEDİĞİ",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 130
+     },
+     {
+      "t": "PE CARE ȘCOALA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NU TE",
+      "cap": 150
+     },
+     {
+      "t": "ÎNVAȚĂ",
+      "cap": 215,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "cap": 111
+     },
+     {
+      "t": "KTERÉ TĚ ŠKOLA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIKDY",
+      "cap": 150
+     },
+     {
+      "t": "NENAUČÍ",
+      "cap": 220,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÉCRIRE",
+     [
+      {
+       "t": "UN BON CV",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LWYoowR4ejw",
+     "titre": "Comment faire un CV qui passe TOUS les ATS ? (avec ou sans expérience)",
+     "chaine": "La Jobsetteuse",
+     "vues": "125 k vues",
+     "date": "il y a 1 an",
+     "duree": "12:30",
+     "avatar": "https://yt3.ggpht.com/j6GstXfljO5YlaL6FynXlWCJvTcl_9moI6ZUlTdzz-wIxN2kLVHHQw9XJYVm054LyB9lfS6AwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WRITE",
+     [
+      {
+       "t": "A GREAT RESUME",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Tt08KmFfIYQ",
+     "titre": "Write an Incredible Resume: 5 Golden Rules!",
+     "chaine": "Jeff Su",
+     "vues": "4.4M views",
+     "date": "5 years ago",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/fHDMaIjQYS0XTz17AL-iIxdfyrGJfLliAJTQmJE931P1OareLsLIvFeJDcDtI3QpkD9HLnvI7Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "LEBENSLAUF",
+       "couleur": "#2f6fb5"
+      }
+     ],
+     "SCHREIBEN"
+    ],
+    "video": {
+     "id": "9QgO9mIeC8o",
+     "titre": "LEBENSLAUF schreiben: Das gehört (NICHT) rein 📝",
+     "chaine": "StepUp! Coaching & Karrieretipps",
+     "vues": "526.094 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "4:29",
+     "avatar": "https://yt3.ggpht.com/qlWWHJRFiM8CDsMlJHrMULhyGkEIODG6yb402QR8Q_t8dP_qLs7e59t3GDphhaUJ5ITDXkJ9Ew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCRIVERE",
+     [
+      {
+       "t": "UN BUON CV",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QOhEFKouK4M",
+     "titre": "Il Curriculum PERFETTO: 10 Cose da Fare (e da non fare)",
+     "chaine": "Pietro Michelangeli",
+     "vues": "147K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "16:41",
+     "avatar": "https://yt3.ggpht.com/-rOrDMmEMFy_rkmzNnNiDA9EkBfBqdC5nuKzwufGV6dvKt5Yh_OxP2gGBTj0XHmpJWOqoFEF300=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UM",
+     [
+      {
+       "t": "BOM CURRÍCULO",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FW0upUOjnTg",
+     "titre": "COMO MONTAR UM CURRÍCULO MATADOR! [FÁCIL E RÁPIDO]",
+     "chaine": "Nerds de Negócios",
+     "vues": "539 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "13:32",
+     "avatar": "https://yt3.ggpht.com/kWR6tINMMvP9J2_shYvBeojfWWdTW6Bs8Q1IBJ_TXU3_6ldt4MLvCWa6Ci3X5bjGhUW8GNrvZ3c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İYİ BİR",
+     [
+      {
+       "t": "CV HAZIRLAMAK",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PMaaE6ZPK1c",
+     "titre": "Özgeçmiş nasıl hazırlanır?",
+     "chaine": "Baraneemo",
+     "vues": "248 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "12:32",
+     "avatar": "https://yt3.ggpht.com/r9g4Dmmovuf6grAbeRBleqnbmpERRHj_eUhEc1djR30wRHOy8XeOHhXBRgr4iweHLIk5cvHVn7M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "UN CV BUN",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q-kWeI0mvJM",
+     "titre": "Cum îți Faci un CV Bun pentru Angajare în 2025? | Un Recruiter Îți Dă Părerea Lui!",
+     "chaine": "Vlad Romuald",
+     "vues": "26 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "21:16",
+     "avatar": "https://yt3.ggpht.com/oDQCqZJlw1qCwAUaPFN9vZfp70VBUpb-bRy0ZtYPezglL_XF2ISjda2W09OU3fqKKmAFQv6AZw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAPSAT",
+     [
+      {
+       "t": "DOBRÝ ŽIVOTOPIS",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zLvD5NGS0L0",
+     "titre": "Životopis, který tě dostane kamkoliv! - Jak ho napsat?",
+     "chaine": "Karel Kuruc",
+     "vues": "24 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "7:50",
+     "avatar": "https://yt3.ggpht.com/gMtt0kyugb-g4joN4B3VkIGWexP4QZ1ZlbLKMMU8o9omL4itaY-9GFaDigkVfZ1CMEG1j5SW-eI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "SON BUDGET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ACsP1ulY8zs",
+     "titre": "COMMENT GÉRER SON BUDGET FACILEMENT ? (règle du 50/30/20)",
+     "chaine": "Rachel Finance",
+     "vues": "359 k vues",
+     "date": "il y a 4 ans",
+     "duree": "7:10",
+     "avatar": "https://yt3.ggpht.com/7xH1wAfJ_cfpOivjA1LYIQ-gU_mEFImNNW93_mwsKk1lNBPwLKWEP4VreOaTe8KLrYvJsafxJg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "A BUDGET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xfPbT7HPkKA",
+     "titre": "Budgeting For Beginners | The Only Budgeting Method You Need To Worry About!",
+     "chaine": "George Kamel",
+     "vues": "367K views",
+     "date": "3 years ago",
+     "duree": "13:50",
+     "avatar": "https://yt3.ggpht.com/OO7y6SPAmgnh6b58IBe8dybH3pYoSknF7VRc8I3ZMaQeFwYYXXY6gInHsHR3SCVBO3yhPJamyg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "BUDGET",
+       "couleur": "#3a9d5d"
+      }
+     ],
+     "PLANEN"
+    ],
+    "video": {
+     "id": "sYIDezW70ZU",
+     "titre": "Wie viel sollte ich sparen? | 50-30-20-Regel",
+     "chaine": "Finanztip",
+     "vues": "265.755 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "14:07",
+     "avatar": "https://yt3.ggpht.com/s0gDzCwRGYGR_1AgsHa2Xqy7MXeL_Bq74Twa65vIWCpvSf5ViqjwXCryRnXIB9abTRgcBYFTlA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "UN BUDGET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5o16injgsNU",
+     "titre": "COME FARE UN BUDGET SEMPLICE: FINANZA PERSONALE PER VIVERE MEGLIO",
+     "chaine": "Cristina Nolli",
+     "vues": "14K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "12:21",
+     "avatar": "https://yt3.ggpht.com/SrmLchN4nF8e3cdi0qH9czfIbic1AramMaQzF9vQSZ_CWaNFyC8hrmSx7Udppex1gJ3BzC_OBQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UM",
+     [
+      {
+       "t": "ORÇAMENTO",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NbD9f4ntR8s",
+     "titre": "Como fazer um ORÇAMENTO MENSAL simples",
+     "chaine": "Gabi Teixeira",
+     "vues": "84 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "17:11",
+     "avatar": "https://yt3.ggpht.com/LCo8H61PK3qrfIMmUE91k1OcicVSuuzOI5siABT7fM24LEw7H-WcsAHptk4PnbQ_uhK7vB6S=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BÜTÇE",
+       "couleur": "#3a9d5d"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "mip-eBlBqfQ",
+     "titre": "Aylık Kişisel Bütçe Nasıl Hazırlanır? | Ücretsiz ve Otomatik Bütçe Takibi",
+     "chaine": "Burak Göç",
+     "vues": "23 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "14:43",
+     "avatar": "https://yt3.ggpht.com/ifekyx6NyK6B0siwBwS0gLnh7JTgu7WY8980ljAwvtq8R5bjevtsc5pkWjsX7aDxot0_ebnO_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI FACI",
+     [
+      {
+       "t": "UN BUGET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "skjCJLLhz6A",
+     "titre": "Cum îmi planific bugetul lunar și de ce e important să faci și tu asta",
+     "chaine": "Cristian Florea",
+     "vues": "3,5 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/cvjBQ4CJ_RDxwenu6Z7LMy1fF_j1IE3TwcERBGnZlnJMeqEqB56rmwQpsTCxe7qO8guIcysj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SESTAVIT",
+     [
+      {
+       "t": "ROZPOČET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S0y5J3gE8U8",
+     "titre": "💰 3. Jak si sestavit měsíční ROZPOČET❓",
+     "chaine": "Investuj! | Daniel Kostelecký",
+     "vues": "11 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/zcLRLRGqNCmwQBdAEah4VmNTtEBZClN6LlI6igFOcOEDonGLRdbgLOVNtYbhQzz6GooxAYVroww=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "POUR DE VRAI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "FOR REAL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WIRKLICH",
+     [
+      {
+       "t": "LERNEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "DAVVERO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "DE VERDADE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GERÇEKTEN",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "CU ADEVĂRAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE",
+     [
+      {
+       "t": "NAOSTRO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LAVER",
+     [
+      {
+       "t": "SON LINGE",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lmk3DahyWIU",
+     "titre": "Corvée de linge : 25 astuces pour mieux trier, laver, étendre/sécher, repasser, plier et ranger !",
+     "chaine": "Panda Productif",
+     "vues": "34 k vues",
+     "date": "il y a 5 ans",
+     "duree": "17:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_liXQiKFpfjmCIC87lFbrBOFJ4xWmMAB0f9FrgsOgpCKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DO YOUR",
+     [
+      {
+       "t": "LAUNDRY",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4QxmleZeu9s",
+     "titre": "How to Do Laundry",
+     "chaine": "How to Adult",
+     "vues": "1M views",
+     "date": "12 years ago",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kMCnQ6Dh_45fBfklMTqcpJx1tZRU85t1ZuBRRPynXvrA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "WÄSCHE",
+       "couleur": "#2a9d8f"
+      }
+     ],
+     "RICHTIG WASCHEN"
+    ],
+    "video": {
+     "id": "oL-519DPk4Y",
+     "titre": "Wie wasche ich meine Wäsche eigentlich richtig?",
+     "chaine": "Daniel Korte",
+     "vues": "56.408 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "9:58",
+     "avatar": "https://yt3.ggpht.com/zFRgJY7iKJBjeZFgLGhS-WkWWr0Hbhl-okJA4kSl0b0ARCvapPQliP8vU3CkLuiks-V9i4kj-g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "IL BUCATO",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GAy9j-eGBw0",
+     "titre": "I 10 ERRORI/ORRORI più comuni quando si fa il bucato! Tutti da evitare assolutamente!!",
+     "chaine": "La casa di Mattia",
+     "vues": "480K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "9:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nNE020XGcHpKq08p131o_bs8SccslhTeoTYqg5_e4Wtf8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LAVAR",
+     [
+      {
+       "t": "ROUPA DIREITO",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XyCe-bGS8tE",
+     "titre": "como LAVAR ROUPAS na máquina CORRETAMENTE | MORAR SOZINHO 007",
+     "chaine": "Manual do Homem Moderno",
+     "vues": "505 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "15:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mVTK_vK_onbT2udbgwbUQPecgJlYAooLxVGpd4Gk7kv2I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ÇAMAŞIR",
+       "couleur": "#2a9d8f"
+      }
+     ],
+     "YIKAMAK"
+    ],
+    "video": {
+     "id": "V-95iiqoZqk",
+     "titre": "Renkliler Kaç Derecede Yıkanıyor? | Renkliler Hangi Programda Yıkanır? | Renkliler Nasıl Yıkanır?",
+     "chaine": "Sevilay ile Pratik Bilgiler",
+     "vues": "215 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "1:29",
+     "avatar": "https://yt3.ggpht.com/_qD0v_1ZOSpbaWZ4TJJRD_TKgcxmjG1fSV6AZoJyiAYmdHgMHduH7bL1Iw3Yq-bPmTQWkNvftNI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk'da öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SPELI",
+     [
+      {
+       "t": "RUFELE",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Gn9R5mKcv7s",
+     "titre": "Cum să speli rufele corect",
+     "chaine": "eMAG",
+     "vues": "363 K vizionări",
+     "date": "acum 10 ani",
+     "duree": "2:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOWBHSHM5_ntiLKbUgGrDV6RngRGSBcqtHp_ZyvOM4pYg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SPRÁVNĚ",
+     [
+      {
+       "t": "PRÁT PRÁDLO",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RiJVB_4DaMY",
+     "titre": "Jak před praním třídit prádlo – Ariel",
+     "chaine": "Ariel Czech",
+     "vues": "5,4 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "0:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l0WXISY4U6XZRWw7HFCSqdsDMZjzrDT7GQ1v8sDREU9w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "GÉRER",
+     [
+      {
+       "t": "UN CONFLIT",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oJlLQU_cOd8",
+     "titre": "Gestion de Conflits | Comment mieux réagir au conflit",
+     "chaine": "Laetitia Valstar",
+     "vues": "28 k vues",
+     "date": "il y a 1 an",
+     "duree": "30:44",
+     "avatar": "https://yt3.ggpht.com/T4ekJ9CC5rF3i9qgauJ-xr2zOEW8AaiWGj5xj9nuMOKLJWfJL2NTJffQNtPAEIINEfu_orY3LnY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HANDLE",
+     [
+      {
+       "t": "A CONFLICT",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QLbGHQo4qnA",
+     "titre": "How To Deal With Conflict",
+     "chaine": "Litmos Heroes",
+     "vues": "713K views",
+     "date": "11 years ago",
+     "duree": "2:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBKNHmX8jHhPoZ55Wl4FJhJzo2jIgUcmS2EH3G74Qo0Ak=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KONFLIKTE",
+       "couleur": "#e07b39"
+      }
+     ],
+     "LÖSEN"
+    ],
+    "video": {
+     "id": "7R_IVkLWreY",
+     "titre": "Konflikte lösen mit dem Harvard-Konzept | #gesundesmiteinander | DAK-Gesundheit",
+     "chaine": "DAK niceones",
+     "vues": "50.549 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/p9ZLPdzL9A_K0OPKZOt8oaOYHrLNUOFUQcSUt_pff3I9MM7zbuDfCKpxWT_CiD9v9ktto7UG7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "GESTIRE",
+     [
+      {
+       "t": "UN CONFLITTO",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8c4Btx21HZE",
+     "titre": "Come gestire i conflitti (esercizi pratici)",
+     "chaine": "Enrico Gamba",
+     "vues": "28K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "12:29",
+     "avatar": "https://yt3.ggpht.com/yxrHnMfik9Aqqv1mGT7cKj-jRg6iYNi-aBRd2lVrws83J5i9SDsHo5FCjlT_uyqUXcIj0QVhl28=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "RESOLVER",
+     [
+      {
+       "t": "CONFLITOS",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_ZQPa9F6Ubs",
+     "titre": "4 TÉCNICAS PARA RESOLVER CONFLITOS  (Em Casa, No Trabalho, Etc) - Dr. Cesar Vasconcellos Psiquiatra",
+     "chaine": "Dr. Cesar Vasconcellos Psiquiatra",
+     "vues": "637 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "9:19",
+     "avatar": "https://yt3.ggpht.com/scV_cculJU9KYwt6EGwHYnlto4PsHn9E1fj4GjzeB25UwZhWZqq6B_foHzlxbajK0fuJ-iGfEBU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ÇATIŞMA",
+       "couleur": "#e07b39"
+      }
+     ],
+     "YÖNETMEK"
+    ],
+    "video": {
+     "id": "fgsh8nJtZgA",
+     "titre": "5 Adımda Çatışma Yönetimi | Evren Bingöl | DenizBank Deniz Akademi",
+     "chaine": "Deniz Akademi",
+     "vues": "46 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/hImfrknsg9zezKmMckWQInciITJxbXRggUTdz9sEwjf_OEbE3yOUyFc3kukvR7L5AS6-ItMA2Cg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ GESTIONEZI",
+     [
+      {
+       "t": "UN CONFLICT",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gqj4siGUJwU",
+     "titre": "CUM SĂ GESTIONEZI EFICIENT UN CONFLICT | 3 ABORDĂRI CONSTRUCTIVE",
+     "chaine": "Andy Szekely",
+     "vues": "2,5 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/66fteT0VlII6hGXD9r61btewDZpnws-UqmoWv0V6IUftap0db1QvPSpnOtzUEpQP3TqyEBDOpg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZVLÁDAT",
+     [
+      {
+       "t": "KONFLIKTY",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QXNyHwQGUIw",
+     "titre": "Konflikty ničí vztahy. Jak je zvládnout bez hádek?",
+     "chaine": "Pavel Procházka",
+     "vues": "102 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "15:42",
+     "avatar": "https://yt3.ggpht.com/7qkSLG6DKlK2W6XEWnTyvausSZCtVTpRyxtGC58uUFKYU4am-5ikSlkJePB6SUw6zlhL1aaK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÉCOUTER",
+     [
+      {
+       "t": "VRAIMENT",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N0UjYrJnLzM",
+     "titre": "Pratiquer l’écoute active au travail",
+     "chaine": "Aysseline de Lardemelle (AFTHONIOS)",
+     "vues": "187 k vues",
+     "date": "il y a 6 ans",
+     "duree": "9:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kPgDq_H175HrDOZMY3T5kRCjX8PX0XyG4TNOejrUa1NfY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BE A GOOD",
+     [
+      {
+       "t": "LISTENER",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "43e51vkffQE",
+     "titre": "How To Be A Good Listener",
+     "chaine": "The School of Life",
+     "vues": "679K views",
+     "date": "9 years ago",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ldJz69qUu_3sEO5c-lO5Cevt7X2gUE2YQ11iWAC-6TZFU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "AKTIV",
+       "couleur": "#7a4fb3"
+      }
+     ],
+     "ZUHÖREN"
+    ],
+    "video": {
+     "id": "PJklq_88PPs",
+     "titre": "AKTIVES ZUHÖREN nach Carl Rogers - die 7 Techniken einfach erklärt mit Beispielen | ERZIEHERKANAL",
+     "chaine": "Erzieherkanal - Wissen, Theorien & Infos",
+     "vues": "243.640 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTLIjj0tRulCXu8dOZJCvvuaczYEdjo3JXBxaSwDjdrRM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SAPER",
+     [
+      {
+       "t": "ASCOLTARE",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q4GulLveB1Y",
+     "titre": "L'Ascolto Attivo: Esercizi Semplici Per Sviluppare La Comunicazione",
+     "chaine": "Anthony Smith",
+     "vues": "16K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "15:06",
+     "avatar": "https://yt3.ggpht.com/3YbVR_LQ5V5_em_L9IYIHLitrM33DYKf7xHkvtsEoaCqfJGHztp5xzle11GNqMsVCzyEKk0iaFQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SABER",
+     [
+      {
+       "t": "ESCUTAR",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K5Kj-G7aVvY",
+     "titre": "Escuta Ativa: Essa técnica irá melhorar MUITO seus relacionamentos! com Dra Anahy",
+     "chaine": "Papo com Anahy D'Amico",
+     "vues": "60 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m6uUoU8EERjH4_o4awWuhQJn0XZ2W7_FN_iU8UzA2o9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ETKİLİ",
+       "couleur": "#7a4fb3"
+      }
+     ],
+     "DİNLEMEK"
+    ],
+    "video": {
+     "id": "4WgxPIsJo5U",
+     "titre": "Daha Etkili Bir Dinleyici Olmak [Aktif ve Verimli Dinlemek için 6 Tavsiye]",
+     "chaine": "Skop",
+     "vues": "19 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIdVe1zs4pfQ943TZDVvCnFfim0qC8cUc-ppgMPmlMN_4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ASCULȚI",
+     [
+      {
+       "t": "CU ADEVĂRAT",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RRhVzudaixM",
+     "titre": "5 Tehnici de ascultare activă",
+     "chaine": "Jassmine Glodeanu",
+     "vues": "8,6 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "6:34",
+     "avatar": "https://yt3.ggpht.com/uk5hn-FBWtVHkzEmQAVSBLYT7KUJpbSDsHTNNpmscH_6xNfV110COBWRReTaAU4_JJKwbIylag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UMĚT",
+     [
+      {
+       "t": "NASLOUCHAT",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "amz_C5wV7AI",
+     "titre": "UMĚNÍ NASLOUCHAT | Jak vnímat druhé SRDCEM, ne myslí",
+     "chaine": "BÝT ČLOVĚKEM",
+     "vues": "2,2 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "15:45",
+     "avatar": "https://yt3.ggpht.com/3syPS0kdJHx5Bv3zFryg30dYuJbOqJLOitNBwvgJJWZCbvoGRGBzIe4hIvSC_wA9kD21s8x41UY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  }
+ ]
+}

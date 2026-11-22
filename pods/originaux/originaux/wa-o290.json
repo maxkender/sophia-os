@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o290",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "80993929-b115-44a2-931b-ac96338c6cdc",
+ "titre": "quiet things self assured people do automatically #confidence #selfassured #psychology #habits #socialskills",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "ed8b88ee-49fc-42e9-8fed-99228b32ac7a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ed8b88ee). déclinaison G2 de « things confident people do without noticing » (parent 80993929). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "417ac926-339e-464a-8a6d-5410408332aa",
+   "texte_overlay": "quiet things self assured\npeople do automatically",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3691fad7-706a-43d8-89f8-72b96471b4d5",
+   "texte_overlay": "they disagree calmly\n\nthey don't take their words back just to avoid an argument. they say what they think, kindly, and calmly stand by it without ever needing to raise their voice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0e14e78f-c81b-4298-a0a3-d3b5f39355a4",
+   "texte_overlay": "they're fine with silence\n\nthey don't rush to fill every gap in a conversation. pauses don't make them nervous, and that relaxed feeling makes everyone feel easier around them all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "25aa005a-aa80-49fc-9245-9a1ecc99ac61",
+   "texte_overlay": "they bring surprising topics\n\nthey always have one unexpected story ready, because they learn a little every day. surprising topics make every conversation more fun, and people remember them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/4.jpg",
+   "texte_sophia": "they bring surprising topics\n\ni always have one unexpected story ready now. i spend 5 minutes a day on one lesson in the Sophia app, a strange myth or a fact, and conversations come alive instantly."
+  },
+  {
+   "position": 5,
+   "media_id": "7a505c86-a8df-4122-8057-264c8007ef08",
+   "texte_overlay": "they finish their sentences\n\nthey end their thoughts clearly instead of trailing off with or whatever. finishing sentences properly makes everything they say sound more certain and clear.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "73906251-db3b-4eaf-8bd9-8c443a4f9724",
+   "texte_overlay": "they keep their nerves quiet\n\nthey don't announce how anxious they are before doing something. they feel the nerves, and then they simply do it anyway, without making any big scene.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o288",
+ "type_bleo": "full_test",
+ "titre": "why boredom is secretly good for your brain #boredom #brain #psychology #creativity #mentalhealth",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "f490daf5-f20d-4891-a1ce-4219bcb84d2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f490daf5). full test BLEO : accroche jamais faite (format « why X is secretly good for your brain »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "20fda592-788c-49e1-b94e-defbbfec86a3",
+   "texte_overlay": "why boredom is secretly\ngood for your brain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "73f0f36a-0d83-44c8-a702-b22b70d01006",
+   "texte_overlay": "it sparks creativity\n\nwhen your brain has nothing to do, it starts making its own ideas. many of the best thoughts arrive in the shower or on a walk, never while you're scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8ea30c5e-3fb7-4cc7-9d37-cac240b0f729",
+   "texte_overlay": "it resets your focus\n\nconstant stimulation trains your brain to need more and more. short bored moments teach it to calm down, so it can focus deeply again when it matters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bf42c652-19f3-4c81-a66a-7b536f0b0534",
+   "texte_overlay": "it shows what you want\n\nboredom is a quiet signal that something in your life needs to change. listening to it instead of drowning it out often points you to what you really want.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a0bd3986-465d-400a-919f-a6c7c146329f",
+   "texte_overlay": "it makes room for curiosity\n\na bored mind gets curious, and feeding that curiosity with something real beats another hour of scrolling. boredom is often curiosity knocking on the door.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/5.jpg",
+   "texte_sophia": "it makes room for curiosity\n\na bored mind gets curious. the Sophia app turns that into one short lesson a day, a planet or a painting, and 5 minutes of real curiosity beats another hour of scrolling."
+  },
+  {
+   "position": 6,
+   "media_id": "32b636f2-b8c1-41bd-8b4c-cbb9b3469c56",
+   "texte_overlay": "it lowers stress\n\ndoing nothing for a few minutes gives your nervous system a break from constant input. a little boredom each day is one of the simplest forms of rest there is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/6.jpg"
+  }
+ ]
+}

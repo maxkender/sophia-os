@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o286",
+ "type_bleo": "full_test",
+ "titre": "habits of mentally strong people #mentalstrength #mindset #habits #resilience #selfimprovement",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "9d63e1c9-e7d4-481e-b65f-e6045adbfa5a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9d63e1c9). full test BLEO : accroche jamais faite (format « habits of mentally X people »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2d750b1b-96ac-40ea-bfbd-71b5003ecd4a",
+   "texte_overlay": "habits of mentally\nstrong people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9c42968b-0bdb-4eb7-b6c2-cd9d09954b5b",
+   "texte_overlay": "they let go of what they can't control\n\nthey focus on their own actions, not on other people's opinions or bad weather. letting go of what isn't theirs saves energy for the things that truly are.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "90950fd4-8906-4f57-87aa-349e34608215",
+   "texte_overlay": "they sit with discomfort\n\nthey don't run from boredom, nerves or awkward silences. staying with a difficult feeling for a few minutes teaches the mind it can handle much more than it thinks.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f9dbf5e9-f5b0-4899-befe-9ccd573e4fe2",
+   "texte_overlay": "they keep learning\n\nmentally strong people feed their minds a little every day, and it keeps them steady when life gets loud: a planet, a painting, a moment in history. a curious mind is far harder to knock off balance.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/4.jpg",
+   "texte_sophia": "they keep learning\n\ni used to feel thrown by every bad day. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a myth, and that small habit keeps my mind steady and calm."
+  },
+  {
+   "position": 5,
+   "media_id": "60c06ef1-9274-483c-a7e6-c51c646e443b",
+   "texte_overlay": "they celebrate others\n\nthey don't feel threatened by other people's success. being genuinely happy for others is a quiet sign of a mind that feels secure in its own path and pace.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "495b2196-8a1c-494a-aab2-ee2356ef5ae9",
+   "texte_overlay": "they rest without guilt\n\nthey know that rest is part of the work, not a reward for finishing it. a rested mind makes calmer decisions and bounces back far faster from setbacks.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/6.jpg"
+  }
+ ]
+}

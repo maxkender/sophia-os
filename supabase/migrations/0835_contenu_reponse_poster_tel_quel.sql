@@ -16,3 +16,7 @@ update public.reponses_officielles
    set formulations = formulations || array['the same image is repeated twice']
  where question like 'Content: text far too long%'
    and not ('the same image is repeated twice' = any(formulations));
+
+-- Changer la réponse retire sa validation : c'est la réponse demandée par Max, elle reste validée.
+update public.reponses_officielles set valide_at = now()
+ where question like 'Content: text far too long%' and valide_at is null;

@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o159",
+  "type_bleo": "full_test",
+  "titre": "how i stay curious about the subjects i'm not good at #studytok #studytips #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« curious » n'est pas une accroche du label). Accroches écrites : « how i stay curious about the subjects i'm not good at » (retenue : un angle positif sur la matière faible), « how to like a subject you hate » (écartée : proche de cs-o084, refusé le 10/11), « make boring subjects fun » (écartée : vague). Gestes vrais : chercher l'histoire derrière la notion, un exemple de la vraie vie, une question par cours, une petite dose de culture générale sur le sujet (slide Sophia, 5), comparer avec une matière qu'on aime, fêter les petits progrès. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "85f01e15",
+      "texte_overlay": "how i stay curious about\nthe subjects i'm not good at",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b2bcac21",
+      "texte_overlay": "i look for the story behind it.\nwho discovered this, and why did it matter?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5963c0af",
+      "texte_overlay": "one real-life example per lesson.\nphysics in my kitchen, history in my street.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d1e2a99e",
+      "texte_overlay": "i bring one question to every class.\neven a small one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b3e661a7",
+      "texte_overlay": "5 minutes of fun facts on that subject every few days.\nno pressure, no grades.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "5 minutes of fun facts on that subject every few days,\non a micro-learning app like the Sophia app.\nno pressure, no grades."
+    },
+    {
+      "position": 6,
+      "media_id": "eaa79930",
+      "texte_overlay": "i link it to a subject i love.\nmaths in music, chemistry in cooking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "49846c50",
+      "texte_overlay": "and i celebrate every small win.\n9/20 to 11/20 is progress.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

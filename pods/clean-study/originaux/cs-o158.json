@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o158",
+  "type_bleo": "full_test",
+  "titre": "how i make a revision timetable i actually stick to #studytok #studytips #exams",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« revision timetable » absent du label). Accroches écrites : « how i make a revision timetable i actually stick to » (retenue : un objet que tout le monde fait et abandonne), « my revision plan template » (écartée : plate), « the only study schedule you need » (écartée : promesse absolue). Gestes vrais : partir de la date des examens, des blocs courts et nommés, une case vide par jour, un jour de repos, des pauses qui reposent vraiment (slide Sophia, 5), le cocher en rouge. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03299b03",
+      "texte_overlay": "how i make a revision timetable\ni actually stick to",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b9d46048",
+      "texte_overlay": "i start from the exam dates and count backwards.\nnot from \"today\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "02213e75",
+      "texte_overlay": "short blocks with a name:\n\"biology, chapter 3, 40 min\". never just \"biology\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "f459e154",
+      "texte_overlay": "one empty slot every day.\nfor the stuff that runs late.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "24f7e1ba",
+      "texte_overlay": "breaks are on the timetable too.\n10 minutes, and something that isn't a feed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "breaks are on the timetable too.\n10 minutes on a micro-learning app like the Sophia app,\nnot a feed."
+    },
+    {
+      "position": 6,
+      "media_id": "4061dd4b",
+      "texte_overlay": "one full day off a week.\nrested brains keep going longer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "aa5bb9ff",
+      "texte_overlay": "every finished block gets ticked in red.\nthe page fills up, so does my motivation.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

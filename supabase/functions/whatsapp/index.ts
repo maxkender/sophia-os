@@ -46,6 +46,7 @@ Deno.serve(async (request) => {
       case "etat": return json(await etat(db));
       case "modeles_sync": return json(await modelesSync(db));
       case "modele_ruul_setup": return json(await modeleRuulSetup(db));
+      case "abonner": return json(await abonner(db));
       case "test_modeles": return json(await testModeles(db));
       case "relances": return json(await relances(db, body.simuler === true));
       case "envoyer": {
@@ -259,6 +260,18 @@ async function resteAPayer(db: Db, poster: string): Promise<boolean> {
 // ------------------------------------------------------------------------------------------------------------------
 // Administration
 // ------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Abonne l'application au compte WhatsApp Business (POST subscribed_apps) : sans cet abonnement, Meta n'envoie
+ * aucun webhook (messages reçus, statuts). Rien n'est envoyé à personne.
+ */
+async function abonner(db: Db) {
+  const waba = await wabaId(db);
+  if (!waba) return { ok: false, error: "WHATSAPP_BUSINESS_ACCOUNT_ID absent" };
+  const r = await graph(`${waba}/subscribed_apps`, { method: "POST", body: {} });
+  const apres = await graph(`${waba}/subscribed_apps`);
+  return { ok: r.ok, erreur: r.erreur, apps_abonnees: apres.ok ? apres.data?.data : apres.erreur };
+}
 
 async function etat(db: Db) {
   const s = { ...secretsWhatsApp(), waba: await wabaId(db) };

@@ -4,23 +4,31 @@ import { estReactiver2eCompte, estRienPrevu, reponseRienPrevu, situationFixe, TE
 
 const cle = (m: string) => situationFixe(m)?.cle ?? null;
 
-Deno.test("contenu : jamais « we're checking »", () => {
-  assertEquals(cle("I've replaced them twice. At the moment, none of the five images have any text."), "contenu_images_sans_texte");
-  assertEquals(cle("Good evening. None of the images have any text"), "contenu_images_sans_texte");
-  const faux = situationFixe("My morning post has an issue: the images I have do not match the text.");
-  assertEquals(faux?.cle, "contenu_texte_faux");
-  assert(faux?.qualite && faux.jourCompte && faux.fermer);
+Deno.test("contenu (22/11) : les 4 réponses officielles, jamais « we're checking »", () => {
+  const l = situationFixe("The text doesn't make any sense, it's in a different language");
+  assertEquals(l?.cle, "contenu_langue");
+  assertEquals(l?.texte, "Translate it into your language as best you can and post it.");
+  assert(l?.qualite && l.jourCompte && l.fermer);
+  assertEquals(cle("Today's slideshow is a mix of two languages"), "contenu_langue");
+  assertEquals(situationFixe("There is no text to paste for the slides today")?.texte, "That's normal, the text is already on the images, just post the photos.");
+  assertEquals(cle("the text is already on the images, what should I write?"), "contenu_texte_integre");
+  const vieux = situationFixe("My morning post has an issue: the images I have do not match the text.");
+  assertEquals(vieux?.texte, "Please post an old TikTok you already posted. Today counts as done.");
+  assert(vieux?.qualite && vieux.jourCompte);
+  assertEquals(cle("I've replaced them twice. At the moment, none of the five images have any text."), "contenu_texte_faux");
   assertEquals(cle("But it is impossible to do it. The text is too long. It couldn't be pasted all."), "contenu_texte_faux");
   assertEquals(cle("On today's post I have 2 identical pictures (the last 2). Should I post the slide as it is?"), "contenu_texte_faux");
   assertEquals(cle("The images sometimes have nothing to do with the caption and sometimes are visibly worse in quality"), "contenu_texte_faux");
-  assertEquals(cle("today's slideshow doesn't make sense"), "contenu_texte_faux");
+  assertEquals(cle("image 3 is broken"), "contenu_texte_faux");
+  const p = situationFixe("Hello! I used white instead of black font in order for the text to be visible.");
+  assertEquals(p?.texte, "That's fine.");
+  assert(p?.qualite);
   assertEquals(cle("My profile identifies me as a teenage girl, but my posts are about men's fitness"), "contenu_hors_sujet");
 });
 
 Deno.test("son, petites libertés, commentaires", () => {
   assertEquals(cle("For my second post for today, it says “sound isn’t available”. What should I do?"), "son_indisponible");
   assertEquals(cle("Today for my first post, the sound wasnt available so I used one of the previous ones. Is that fine?"), "petite_liberte");
-  assertEquals(cle("Hello! I used white instead of black font in order for the text to be visible."), "petite_liberte");
   assertEquals(cle("I get asked a lot in the comments about the sophia app link"), "commentaires");
   assertEquals(cle("I received this comment saying that what it's stated is not true"), "commentaires");
   assertEquals(cle("People comment that it's AI"), "commentaires");

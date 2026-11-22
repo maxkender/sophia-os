@@ -1,0 +1,202 @@
+:root {
+  --fond: #fafaf9;
+  --texte: #18181b;
+  --discret: #71717a;
+  --carte: #ffffff;
+  --bord: #e4e4e7;
+  --accent: #6d28d9;
+  --accent-texte: #ffffff;
+  --ok: #16a34a;
+  --erreur: #dc2626;
+  --test: #f59e0b;
+  --coque: #18181b;
+  --ecran: #f4f4f5;
+  --ligne: #d4d4d8;
+  --photo1: #c4b5fd;
+  --photo2: #fbcfe8;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #0f0f12;
+    --texte: #f4f4f5;
+    --discret: #a1a1aa;
+    --carte: #1c1c22;
+    --bord: #2e2e36;
+    --accent: #8b5cf6;
+    --coque: #000000;
+    --ecran: #26262d;
+    --ligne: #3f3f46;
+    --photo1: #5b21b6;
+    --photo2: #9d174d;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1 { font-size: clamp(1.6rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 12px; }
+h2 { font-size: 1.25rem; margin: 28px 0 12px; }
+h3 { font-size: 1rem; margin: 0; }
+
+.bandeau-test {
+  background: var(--test);
+  color: #18181b;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+}
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.entete-droite { display: flex; gap: 12px; align-items: center; }
+.marque { font-weight: 800; font-size: 1.1rem; background: none; border: 0; color: inherit; cursor: pointer; padding: 0; }
+
+.page { max-width: 1040px; margin: 0 auto; padding: 16px 16px 64px; }
+.page.etroite { max-width: 600px; }
+.centre { text-align: center; }
+
+.hero { display: grid; gap: 24px; align-items: center; grid-template-columns: 1fr; padding: 16px 0; }
+@media (min-width: 760px) { .hero { grid-template-columns: 1.2fr 1fr; } }
+.sous-titre { color: var(--discret); font-size: 1.1rem; margin: 0 0 20px; }
+.discret { color: var(--discret); font-size: 0.9rem; }
+
+.bouton {
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid var(--bord);
+  background: var(--carte);
+  color: var(--texte);
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+.bouton.principal { background: var(--accent); color: var(--accent-texte); border-color: var(--accent); padding: 14px 22px; }
+.bouton.petit { padding: 4px 10px; font-size: 0.85rem; }
+.bouton:disabled { opacity: 0.5; cursor: not-allowed; }
+.lien { background: none; border: 0; color: var(--accent); font: inherit; cursor: pointer; padding: 4px 0; text-decoration: underline; }
+
+.bloc { margin-top: 24px; }
+.etapes-liste, .conditions { padding-left: 22px; }
+.etapes-liste li, .conditions li { margin: 6px 0; }
+
+.zones { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.zone { background: var(--carte); border: 1px solid var(--bord); border-radius: 14px; padding: 16px; }
+.zone-tarif { font-size: 1.6rem; font-weight: 800; }
+.zone-nom { color: var(--discret); font-weight: 600; }
+.zone-pays { font-size: 0.85rem; color: var(--discret); margin: 8px 0 0; }
+
+/* Téléphone animé : 7 scènes de 18/7 s chacune, en boucle. */
+.telephone { margin: 0 auto; width: min(260px, 70vw); text-align: center; }
+.telephone svg { width: 100%; height: auto; display: block; }
+.svg-titre { font-size: 18px; font-weight: 800; fill: var(--texte); }
+.svg-txt { font-size: 12px; fill: var(--discret); }
+.svg-fort { font-size: 16px; font-weight: 700; fill: var(--texte); }
+.svg-bouton { font-size: 14px; font-weight: 700; fill: #fff; }
+.legendes { position: relative; height: 3em; margin-top: 10px; font-weight: 600; }
+.legendes span { position: absolute; inset: 0; }
+.scene { opacity: 0; animation: scene 18s infinite both; }
+@keyframes scene {
+  0% { opacity: 0; }
+  1.5% { opacity: 1; }
+  13% { opacity: 1; }
+  14.28% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene { animation: none; opacity: 0; }
+  .scene.s0 { opacity: 1; }
+}
+
+.pastille {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  background: var(--bord);
+  color: var(--texte);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.formulaire { display: grid; gap: 14px; }
+.formulaire label, .carte label { display: grid; gap: 6px; font-weight: 600; font-size: 0.95rem; }
+.formulaire small { color: var(--discret); font-weight: 400; }
+input, select, textarea {
+  font: inherit;
+  font-weight: 400;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--bord);
+  border-radius: 10px;
+  background: var(--carte);
+  color: var(--texte);
+}
+[aria-invalid="true"] input, [aria-invalid="true"] select, [aria-invalid="true"] textarea,
+input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="true"],
+fieldset[aria-invalid="true"], label.case[aria-invalid="true"] { border-color: var(--erreur); outline: 1px solid var(--erreur); }
+.deux-colonnes { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 420px) { .deux-colonnes { grid-template-columns: 1fr; } }
+.court { max-width: 140px; }
+.tel { display: flex; gap: 8px; }
+.tel select { width: auto; flex: 0 0 auto; }
+.tel input { flex: 1; }
+fieldset { border: 1px solid var(--bord); border-radius: 10px; padding: 10px 12px; margin: 0; }
+legend { font-weight: 600; font-size: 0.95rem; padding: 0 4px; }
+.choix { display: flex; gap: 8px; }
+.choix button { flex: 1; font: inherit; padding: 10px; border-radius: 10px; border: 1px solid var(--bord); background: var(--carte); color: var(--texte); cursor: pointer; }
+.choix button.actif { background: var(--accent); color: var(--accent-texte); border-color: var(--accent); }
+label.case { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; border-radius: 8px; padding: 4px; }
+label.case input { width: 20px; height: 20px; flex: 0 0 auto; margin-top: 2px; }
+
+.carte { background: var(--carte); border: 1px solid var(--bord); border-radius: 14px; padding: 16px; margin: 12px 0; }
+.code-test { background: var(--test); color: #18181b; border-radius: 8px; padding: 6px 10px; font-weight: 700; display: inline-block; }
+.ok { color: var(--ok); font-weight: 700; margin: 0; }
+.erreur { color: var(--erreur); }
+
+.resume { padding-left: 20px; }
+.resume li { margin: 6px 0; }
+.contrat {
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: var(--carte);
+  border: 1px solid var(--bord);
+  border-radius: 12px;
+  padding: 14px;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.annonce { background: var(--accent); color: var(--accent-texte); border-radius: 14px; padding: 14px 16px; margin-bottom: 16px; }
+.annonce p { margin: 6px 0 0; font-size: 0.9rem; opacity: 0.9; }
+.checklist { list-style: none; padding: 0; display: grid; gap: 12px; }
+.etape { background: var(--carte); border: 1px solid var(--bord); border-radius: 14px; padding: 14px 16px; }
+.etape.faite { opacity: 0.75; }
+.etape-tete { display: flex; align-items: center; gap: 10px; }
+.coche { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--bord); display: inline-grid; place-items: center; color: #fff; flex: 0 0 auto; font-size: 0.8rem; }
+.faite .coche { background: var(--ok); border-color: var(--ok); }
+.etape-corps { margin-top: 10px; display: grid; gap: 10px; justify-items: start; }
+.etape-corps p { margin: 0; }
+.copie { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; width: 100%; }
+.copie span { font-weight: 600; min-width: 48px; }
+.copie code { background: var(--ecran); padding: 4px 8px; border-radius: 6px; overflow-wrap: anywhere; flex: 1; }

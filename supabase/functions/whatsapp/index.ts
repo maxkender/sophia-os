@@ -21,7 +21,7 @@ import {
   CORPS_RUUL_SETUP, e164, estStopWhatsApp, lireWebhook, type MessageRecu, MODELES, numeroAutorise, signatureValide, type StatutRecu,
   texteFinWhatsApp,
 } from "../_shared/whatsapp.ts";
-import { envoyerWhatsApp, graph, lireModeWhatsApp, secretsWhatsApp } from "../_shared/whatsapp_envoi.ts";
+import { envoyerWhatsApp, graph, lireModeWhatsApp, secretsWhatsApp, wabaId } from "../_shared/whatsapp_envoi.ts";
 
 type Db = ReturnType<typeof serviceClient>;
 declare const EdgeRuntime: { waitUntil(p: Promise<unknown>): void } | undefined;
@@ -256,7 +256,7 @@ async function resteAPayer(db: Db, poster: string): Promise<boolean> {
 // ------------------------------------------------------------------------------------------------------------------
 
 async function etat(db: Db) {
-  const s = secretsWhatsApp();
+  const s = { ...secretsWhatsApp(), waba: await wabaId(db) };
   const presents = {
     WHATSAPP_TOKEN: !!s.token, WHATSAPP_PHONE_NUMBER_ID: !!s.phoneId, WHATSAPP_BUSINESS_ACCOUNT_ID: !!s.waba,
     WHATSAPP_APP_SECRET: !!Deno.env.get("WHATSAPP_APP_SECRET"), WHATSAPP_VERIFY_TOKEN: !!Deno.env.get("WHATSAPP_VERIFY_TOKEN"),
@@ -286,7 +286,7 @@ async function etat(db: Db) {
 }
 
 async function modelesSync(db: Db) {
-  const { waba } = secretsWhatsApp();
+  const waba = await wabaId(db);
   if (!waba) return { ok: false, error: "WHATSAPP_BUSINESS_ACCOUNT_ID absent" };
   const r = await graph(`${waba}/message_templates?fields=name,language,status,category,id,components,rejected_reason&limit=200`);
   if (!r.ok) return { ok: false, error: r.erreur };
@@ -302,7 +302,7 @@ async function modelesSync(db: Db) {
 }
 
 async function modeleRuulSetup(db: Db) {
-  const { waba } = secretsWhatsApp();
+  const waba = await wabaId(db);
   if (!waba) return { ok: false, error: "WHATSAPP_BUSINESS_ACCOUNT_ID absent" };
   const avant = await modelesSync(db);
   if (avant.ok && (avant.modeles ?? []).some((m) => m.nom === "ruul_setup" && m.langue === "en")) return { ok: true, deja: true };

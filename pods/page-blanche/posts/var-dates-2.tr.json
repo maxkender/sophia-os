@@ -1,0 +1,465 @@
+{
+ "post_id": "var-dates-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "kimsenin [[telefona dokunmadığı]] buluşma fikirleri"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(hiç tuhaf değil)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_67df5c4c.jpg",
+      "boite": [
+       0,
+       0,
+       832,
+       1248
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "evde [[mum ışığında]] bir akşam geçirin"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "ışıklar kapalı, wifi kapalı, telefonlar çekmecede. sadece [[mumlar]] var"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "birden [[gerçekten konuşmaktan]] başka yapacak bir şey kalmıyor"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "çocukluk anılarınızı anlatın. [[sohbet hemen derinleşiyor]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4ee44fde.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to do a handstand"
+     ],
+     "texte": "[[gözü kapalı]] tadım oyunu"
+    },
+    "T2": {
+     "en": [
+      "you’ll fall over hundreds of times before you can",
+      "hold it for even 5 seconds"
+     ],
+     "texte": "pazardan ikiniz de diğerinin [[hiç tatmadığı]] 5 tuhaf şey alıyorsunuz"
+    },
+    "T3": {
+     "en": [
+      "your whole body has",
+      "to focus on one thing,",
+      "so there’s no room for",
+      "your phone"
+     ],
+     "texte": "biriniz gözlerini bağlayıp tahmin ediyor. her doğru cevap [[bir puan]]"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification, and it’s a fun party trick!!"
+     ],
+     "texte": "birinin limonu ısırdığı andaki surat ifadesi [[her fotoğraftan çok daha değerli]]!!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_e8e3173c.jpg",
+      "boite": [
+       0,
+       500,
+       1504,
+       1700
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "develop opinions of your own"
+     ],
+     "fr": "forge-toi [[tes propres avis]]",
+     "texte": "[[rastgele bir trene]] binin"
+    },
+    "T2": {
+     "en": [
+      "agreeing with everyone",
+      "might make you easy to",
+      "like, but it rarely makes you",
+      "memorable"
+     ],
+     "fr": "être d'accord avec tout le monde, ça te rend sympa, mais [[rarement mémorable]]",
+     "texte": "istasyona gidin, ikinizin de [[hiç bilmediği]] bir kasabaya giden ilk trene binin"
+    },
+    "T3": {
+     "en": [
+      "form your own views,",
+      "explain why you believe",
+      "them, and disagree",
+      "without getting defensive"
+     ],
+     "fr": "fais-toi ton avis, explique pourquoi tu le penses, et [[sache contredire sans te braquer]]",
+     "texte": "plan yok, harita yok. dolaşıyor, canınız ne isterse onu yiyor ve birlikte [[biraz kayboluyorsunuz]]"
+    },
+    "T4": {
+     "en": [
+      "charisma comes from having a personality people can",
+      "actually get a read on"
+     ],
+     "fr": "le charisme, c'est avoir une personnalité que les gens [[arrivent à cerner]]",
+     "texte": "dönüş yolu en güzel kısmı: uykulusunuz ama [[susmak bilmiyorsunuz]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04e5c4f4.jpg",
+      "boite": [
+       0,
+       150,
+       752,
+       1000
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des [[livres au lieu de scroller]]",
+     "texte": "müzede birlikte [[çizim yapın]]"
+    },
+    "T2": {
+     "en": [
+      "a book makes you follow one idea for pages.",
+      "scrolling trains that out of your head"
+     ],
+     "fr": "un livre t'oblige à [[suivre une idée]] sur des pages. le scroll [[te désapprend ça]]",
+     "texte": "bir tablonun önüne oturun, herkese bir defter. [[10 dakika]], sonra defterleri değiştirin"
+    },
+    "T3": {
+     "en": [
+      "if you want to think",
+      "deeper, give your brain",
+      "something long before",
+      "anything short"
+     ],
+     "fr": "pour penser plus loin, donne d'abord [[un truc long]] à ton cerveau, le court après",
+     "texte": "kimse çizim bilmiyor, olayın güzelliği de bu. [[en kötü çizim]] kahveleri ısmarlar"
+    },
+    "T4": {
+     "en": [
+      "i use readup which blocks",
+      "my apps until i read for 20",
+      "minutes, which stopps me",
+      "from scrolling"
+     ],
+     "fr": "avant je [[scrollais dès que j'avais 2 min]], maintenant quand je prends mon tel, c'est [[5 min de leçon sur l'appli Sophia]]",
+     "texte": "bir bilgi de getirin. benimki, rönesansın neden italya'da doğduğu, 5 dakikalık dersten: [[Sophia uygulaması]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 217,
+      "l": 832,
+      "h": 62
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 217,
+       "l": 832,
+       "h": 62,
+       "base": 274
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 331,
+      "l": 801,
+      "h": 90
+     },
+     "lignes": [
+      {
+       "x": 37,
+       "y": 331,
+       "l": 801,
+       "h": 41,
+       "base": 369
+      },
+      {
+       "x": 37,
+       "y": 379,
+       "l": 650,
+       "h": 42,
+       "base": 417
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 496,
+      "l": 416,
+      "h": 186
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 496,
+       "l": 344,
+       "h": 40,
+       "base": 527
+      },
+      {
+       "x": 47,
+       "y": 545,
+       "l": 411,
+       "h": 40,
+       "base": 575
+      },
+      {
+       "x": 42,
+       "y": 592,
+       "l": 411,
+       "h": 41,
+       "base": 631
+      },
+      {
+       "x": 46,
+       "y": 642,
+       "l": 262,
+       "h": 40,
+       "base": 672
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 762,
+      "l": 474,
+      "h": 185
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 762,
+       "l": 469,
+       "h": 39,
+       "base": 799
+      },
+      {
+       "x": 41,
+       "y": 808,
+       "l": 472,
+       "h": 42,
+       "base": 847
+      },
+      {
+       "x": 40,
+       "y": 858,
+       "l": 474,
+       "h": 40,
+       "base": 896
+      },
+      {
+       "x": 41,
+       "y": 904,
+       "l": 243,
+       "h": 43,
+       "base": 937
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 541,
+      "y": 438,
+      "l": 434,
+      "h": 820
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 243,
+      "y": 1195,
+      "l": 292,
+      "h": 127
+     }
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "studying with a show on"
+     ],
+     "fr": "bosser [[devant une série]]",
+     "texte": "bir [[satranç gecesi]] yapın"
+    },
+    "T2": {
+     "en": [
+      "you think it’s fine because",
+      "you’re still getting work",
+      "done, but your brain keeps",
+      "switching back and forth"
+     ],
+     "fr": "tu crois que ça va vu que t'avances, mais ton cerveau [[fait des allers-retours sans arrêt]]",
+     "texte": "iyi oynamanıza hiç gerek yok. tahtayı kurun, bir mum yakın ve [[kuralları birlikte öğrenin]], o kadar"
+    },
+    "T3": {
+     "en": [
+      "every time it switches",
+      "back, it has to find its place",
+      "again"
+     ],
+     "fr": "à chaque fois qu'il revient, il doit [[retrouver où il en était]]",
+     "texte": "tek kural: kaybeden [[bir sonraki buluşmayı]] planlar. bahane yok"
+    },
+    "T4": {
+     "en": [
+      "if you need sound, put on something",
+      "with no words and no story"
+     ],
+     "fr": "si t'as besoin de son, mets un truc [[sans paroles et sans histoire]]",
+     "texte": "yavaş, sakin, ve [[kimsenin aklına telefonu bile gelmiyor]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3a475b4f.jpg",
+      "boite": [
+       0,
+       200,
+       1760,
+       2000
+      ]
+     }
+    }
+   }
+  }
+ }
+}

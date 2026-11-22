@@ -1,0 +1,469 @@
+{
+ "post_id": "var-dates-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "idées de rendez-vous où personne [[touche son tel]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(jamais gênant)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0e719fbb.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "une [[soirée bougies]], zéro lumière"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "lumières éteintes, wifi coupé, tels dans un tiroir. y'a que [[des bougies]]"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "d'un coup, plus rien à faire à part [[vraiment se parler]]"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "racontez-vous des souvenirs d'enfance. [[ça devient vite profond]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4ee44fde.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to do a handstand"
+     ],
+     "fr": "apprends à tenir [[sur les mains]]",
+     "texte": "un [[blind test du goût]]"
+    },
+    "T2": {
+     "en": [
+      "you’ll fall over hundreds of times before you can",
+      "hold it for even 5 seconds"
+     ],
+     "fr": "tu vas tomber [[des centaines de fois]] avant de tenir ne serait-ce que 5 secondes",
+     "texte": "chacun achète 5 trucs bizarres que l'autre [[a jamais goûtés]], au marché"
+    },
+    "T3": {
+     "en": [
+      "your whole body has",
+      "to focus on one thing,",
+      "so there’s no room for",
+      "your phone"
+     ],
+     "fr": "tout ton corps doit [[se concentrer sur une chose]], zéro place pour ton tel",
+     "texte": "l'un a les yeux bandés et doit deviner. chaque bonne réponse = [[un point]]"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification, and it’s a fun party trick!!"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité, à savoir attendre]], et ça claque en soirée !!",
+     "texte": "la tête que fait quelqu'un en croquant un citron [[vaut toutes les photos du monde]] !!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_e8e3173c.jpg",
+      "boite": [
+       0,
+       500,
+       1504,
+       1700
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "develop opinions of your own"
+     ],
+     "fr": "forge-toi [[tes propres avis]]",
+     "texte": "prenez un [[train au hasard]]"
+    },
+    "T2": {
+     "en": [
+      "agreeing with everyone",
+      "might make you easy to",
+      "like, but it rarely makes you",
+      "memorable"
+     ],
+     "fr": "être d'accord avec tout le monde, ça te rend sympa, mais [[rarement mémorable]]",
+     "texte": "allez à la gare, prenez le prochain train pour une ville [[que vous connaissez pas]]"
+    },
+    "T3": {
+     "en": [
+      "form your own views,",
+      "explain why you believe",
+      "them, and disagree",
+      "without getting defensive"
+     ],
+     "fr": "fais-toi ton avis, explique pourquoi tu le penses, et [[sache contredire sans te braquer]]",
+     "texte": "pas de plan, pas de carte. vous marchez, mangez ce qui vous tente et [[vous vous perdez un peu]]"
+    },
+    "T4": {
+     "en": [
+      "charisma comes from having a personality people can",
+      "actually get a read on"
+     ],
+     "fr": "le charisme, c'est avoir une personnalité que les gens [[arrivent à cerner]]",
+     "texte": "le meilleur moment, c'est le retour : [[vous arrêtez pas de parler]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04e5c4f4.jpg",
+      "boite": [
+       0,
+       150,
+       752,
+       1000
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des [[livres au lieu de scroller]]",
+     "texte": "allez [[dessiner]] dans un musée"
+    },
+    "T2": {
+     "en": [
+      "a book makes you follow one idea for pages.",
+      "scrolling trains that out of your head"
+     ],
+     "fr": "un livre t'oblige à [[suivre une idée]] sur des pages. le scroll [[te désapprend ça]]",
+     "texte": "posez-vous devant un tableau, un carnet chacun. [[10 minutes]], puis vous échangez"
+    },
+    "T3": {
+     "en": [
+      "if you want to think",
+      "deeper, give your brain",
+      "something long before",
+      "anything short"
+     ],
+     "fr": "pour penser plus loin, donne d'abord [[un truc long]] à ton cerveau, le court après",
+     "texte": "personne sait dessiner, c'est tout l'intérêt. [[le pire croquis]] paie le café"
+    },
+    "T4": {
+     "en": [
+      "i use readup which blocks",
+      "my apps until i read for 20",
+      "minutes, which stopps me",
+      "from scrolling"
+     ],
+     "fr": "avant je [[scrollais dès que j'avais 2 min]], maintenant quand je prends mon tel, c'est [[5 min de leçon sur l'appli Sophia]]",
+     "texte": "ramenez une anecdote. la mienne, Camus et le mythe de Sisyphe, vient de mes 5 min sur [[l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 217,
+      "l": 832,
+      "h": 62
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 217,
+       "l": 832,
+       "h": 62,
+       "base": 274
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 331,
+      "l": 801,
+      "h": 90
+     },
+     "lignes": [
+      {
+       "x": 37,
+       "y": 331,
+       "l": 801,
+       "h": 41,
+       "base": 369
+      },
+      {
+       "x": 37,
+       "y": 379,
+       "l": 650,
+       "h": 42,
+       "base": 417
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 496,
+      "l": 416,
+      "h": 186
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 496,
+       "l": 344,
+       "h": 40,
+       "base": 527
+      },
+      {
+       "x": 47,
+       "y": 545,
+       "l": 411,
+       "h": 40,
+       "base": 575
+      },
+      {
+       "x": 42,
+       "y": 592,
+       "l": 411,
+       "h": 41,
+       "base": 631
+      },
+      {
+       "x": 46,
+       "y": 642,
+       "l": 262,
+       "h": 40,
+       "base": 672
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 762,
+      "l": 474,
+      "h": 185
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 762,
+       "l": 469,
+       "h": 39,
+       "base": 799
+      },
+      {
+       "x": 41,
+       "y": 808,
+       "l": 472,
+       "h": 42,
+       "base": 847
+      },
+      {
+       "x": 40,
+       "y": 858,
+       "l": 474,
+       "h": 40,
+       "base": 896
+      },
+      {
+       "x": 41,
+       "y": 904,
+       "l": 243,
+       "h": 43,
+       "base": 937
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 541,
+      "y": 438,
+      "l": 434,
+      "h": 820
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 243,
+      "y": 1195,
+      "l": 292,
+      "h": 127
+     }
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "studying with a show on"
+     ],
+     "fr": "bosser [[devant une série]]",
+     "texte": "une [[soirée échecs]] à deux"
+    },
+    "T2": {
+     "en": [
+      "you think it’s fine because",
+      "you’re still getting work",
+      "done, but your brain keeps",
+      "switching back and forth"
+     ],
+     "fr": "tu crois que ça va vu que t'avances, mais ton cerveau [[fait des allers-retours sans arrêt]]",
+     "texte": "pas besoin de savoir jouer. installez l'échiquier, allumez une bougie et [[apprenez les règles ensemble]]"
+    },
+    "T3": {
+     "en": [
+      "every time it switches",
+      "back, it has to find its place",
+      "again"
+     ],
+     "fr": "à chaque fois qu'il revient, il doit [[retrouver où il en était]]",
+     "texte": "une seule règle : qui perd [[organise le prochain rendez-vous]]"
+    },
+    "T4": {
+     "en": [
+      "if you need sound, put on something",
+      "with no words and no story"
+     ],
+     "fr": "si t'as besoin de son, mets un truc [[sans paroles et sans histoire]]",
+     "texte": "c'est lent, c'est calme, et [[personne pense même à son tel]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3a475b4f.jpg",
+      "boite": [
+       0,
+       200,
+       1760,
+       2000
+      ]
+     }
+    }
+   }
+  }
+ }
+}

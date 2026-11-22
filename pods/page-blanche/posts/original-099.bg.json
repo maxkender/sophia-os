@@ -1,0 +1,302 @@
+{
+ "post_id": "original-099",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously disciplined"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra disciplinée",
+     "texte": "тихи знаци, че умнееш"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(дори в тъпите дни)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1d38757d.jpg",
+      "boite": [
+       0,
+       515,
+       2048,
+       1509
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching everything at 2x speed"
+     ],
+     "fr": "tout regarder [[en vitesse x2]]",
+     "texte": "задаваш [[по-добри въпроси]]"
+    },
+    "T2": {
+     "en": [
+      "youtube, podcasts, lectures, even voice notes from",
+      "your friends, everything gets sped up these days"
+     ],
+     "fr": "vidéos, podcasts, cours, même les vocaux de tes potes, aujourd'hui [[tout passe en accéléré]]",
+     "texte": "не просто „какъв е отговорът?“, а „защо работи така?“ и [[„откъде го знаем?“]]"
+    },
+    "T3": {
+     "en": [
+      "after a while,",
+      "anything at normal",
+      "speed starts to feel",
+      "painfully slow"
+     ],
+     "fr": "à force, tout ce qui passe à vitesse normale te paraît [[atrocement lent]]",
+     "texte": "предпочиташ да [[разбереш]], вместо просто да вземеш отговора и да продължиш"
+    },
+    "T4": {
+     "en": [
+      "so a real",
+      "conversation or a",
+      "book feels too",
+      "slow to focus on"
+     ],
+     "fr": "du coup une vraie discussion ou un livre, [[t'arrives plus à suivre]]",
+     "texte": "добрият въпрос ти показва [[какво да научиш после]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_629157ea.jpg",
+      "boite": [
+       493,
+       0,
+       1510,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build relationships with",
+      "people smarter than you"
+     ],
+     "fr": "entoure-toi de [[gens plus intelligents que toi]]",
+     "texte": "казваш [[„не знам“]] на глас"
+    },
+    "T2": {
+     "en": [
+      "if you're always the",
+      "smartest person in the",
+      "room, you stop getting",
+      "better"
+     ],
+     "fr": "si t'es toujours la personne la plus calée de la pièce, tu [[progresses plus]]",
+     "texte": "преди кимаше, за да не забележи никой. сега просто [[го признаваш и питаш]]"
+    },
+    "T3": {
+     "en": [
+      "smart people make you",
+      "explain your ideas,",
+      "defend them, and see",
+      "where you're wrong"
+     ],
+     "fr": "les gens brillants te font [[expliquer tes idées]], les défendre et voir où tu te trompes",
+     "texte": "това не е слабост, а [[точно мястото]], където ще научиш нещо ново"
+    },
+    "T4": {
+     "en": [
+      "and you slowly start",
+      "picking up how they think"
+     ],
+     "fr": "et petit à petit, tu prends [[leur façon de penser]]",
+     "texte": "който се прави, че знае, [[остава на същото място]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_13495b4d.jpg",
+      "boite": [
+       0,
+       136,
+       1760,
+       1528
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "bosse [[même quand t'as plus envie]]",
+     "texte": "можеш да [[го обясниш просто]]"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+     "texte": "можеш да обясниш на приятел как работи нещо, [[без бележки]]"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+     "texte": "ако го кажеш с 2 изречения, [[наистина го разбираш]], а не просто го повтаряш наизуст"
+    },
+    "T4": {
+     "en": [
+      "you're not just learning the subject, you're training",
+      "yourself to keep going when motivation disappears"
+     ],
+     "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+     "texte": "сложните думи криеха това, което не разбираше. [[простото]] значи, че най-накрая е щракнало"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_16ec4b9d.jpg",
+      "boite": [
+       130,
+       0,
+       2235,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "учиш [[по малко всеки ден]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "не защото се насилваш, просто [[вече е навик]]. по няколко минути тук и там и някак знаеш [[много повече от миналата година]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "[[без натиск]], само любопитство."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "преди скролвах безкрай. сега на телефона научавам защо ренесансът е започнал в Италия, за [[5 мин в приложението Sophia]]"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "същият телефон, но [[това, което влиза в главата ти]], е друго."
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take long walks",
+      "in the sun"
+     ],
+     "fr": "fais de longues balades [[au soleil]]",
+     "texte": "[[добра компания]] си за себе си"
+    },
+    "T2": {
+     "en": [
+      "sunlight is proven to wake your brain up and help",
+      "you sleep better at night"
+     ],
+     "fr": "c'est [[prouvé]] : le soleil réveille ton cerveau et t'aide à [[mieux dormir]] le soir",
+     "texte": "пътуване с влак, кафе насаме, разходка без подкаст, вече [[не ти се струва празно]]"
+    },
+    "T3": {
+     "en": [
+      "walking gets more",
+      "blood to your brain"
+     ],
+     "fr": "marcher, ça oxygène ton cerveau",
+     "texte": "главата ти има [[повече с какво да си играе]]"
+    },
+    "T4": {
+     "en": [
+      "that's when your",
+      "mind wanders and",
+      "connects ideas"
+     ],
+     "fr": "c'est là que ton esprit divague et [[relie les idées]]",
+     "texte": "затова се чудиш, мислиш и [[свързваш идеи]]"
+    },
+    "T5": {
+     "en": [
+      "darwin, nietzsche and steve jobs all did their best",
+      "thinking on long walks"
+     ],
+     "fr": "darwin, nietzsche et steve jobs trouvaient leurs [[meilleures idées]] en marchant",
+     "texte": "да си насаме с мислите си е [[много по-забавно]], когато мислите ти стават по-интересни"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00497a88.jpg",
+      "boite": [
+       12,
+       0,
+       2471,
+       1664
+      ]
+     }
+    }
+   }
+  }
+ }
+}

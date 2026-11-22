@@ -1,0 +1,298 @@
+{
+ "post_id": "var-greenflags-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously intelligent"
+     ],
+     "fr": "10/10 habitudes pour avoir un cerveau redoutable",
+     "texte": "comment repérer quelqu'un de brillant en 5 minutes"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(sans qu'il le dise)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01825226.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "try pottery"
+     ],
+     "fr": "essaie la [[poterie]]",
+     "texte": "leur réponse n°1 : [[« ça dépend »]]"
+    },
+    "T2": {
+     "en": [
+      "you can’t rush clay, and the second your mind",
+      "wanders the whole thing collapses"
+     ],
+     "fr": "l'argile, ça se brusque pas, et dès que ton esprit s'égare [[tout s'effondre]]",
+     "texte": "demande-leur si un film vaut le coup ou si tu dois accepter le job, ils diront jamais juste [[oui ou non]]"
+    },
+    "T3": {
+     "en": [
+      "you have to give one",
+      "thing your full",
+      "attention, in a world",
+      "that runs on",
+      "short-form content"
+     ],
+     "fr": "tu dois donner [[toute ton attention]] à un seul truc, à l'époque des [[vidéos de 10 secondes]]",
+     "texte": "d'abord ils veulent le contexte : [[pour qui ? quand ? comparé à quoi ?]] et après ils répondent"
+    },
+    "T4": {
+     "en": [
+      "focus gets easier when your hands won’t let you think",
+      "about anything else"
+     ],
+     "fr": "tu te concentres mieux quand [[tes mains t'empêchent de penser à autre chose]]",
+     "texte": "une réponse rapide a l'air sûre d'elle, mais voir [[les nuances]], c'est ça le vrai signe"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4780aef4.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get comfortable with silence"
+     ],
+     "fr": "sois à l'aise avec [[les silences]]",
+     "texte": "ils [[parlent différemment]] à chacun"
+    },
+    "T2": {
+     "en": [
+      "stop rushing to fill",
+      "every pause in a",
+      "conversation"
+     ],
+     "fr": "arrête de vouloir combler [[chaque blanc]] dans la discussion",
+     "texte": "à ta grand-mère, à un gamin de 6 ans, à [[leur boss]] en soirée"
+    },
+    "T3": {
+     "en": [
+      "speak slower, finish",
+      "your sentences, and",
+      "let your words land",
+      "before adding more"
+     ],
+     "fr": "[[parle moins vite]], finis tes phrases, [[laisse tes mots infuser]] avant d'en rajouter",
+     "texte": "même idée, mais [[d'autres mots]] pour que chacun capte"
+    },
+    "T4": {
+     "en": [
+      "people who seem comfortable with silence often",
+      "come across as more confident because they aren’t",
+      "desperately chasing approval"
+     ],
+     "fr": "les gens à l'aise avec le silence ont souvent l'air [[plus sûrs d'eux]], parce qu'ils cherchent pas à tout prix à plaire",
+     "texte": "sentir à qui tu parles et trouver les bons mots, c'est une intelligence que [[l'école note jamais]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3d666e7f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start working out"
+     ],
+     "fr": "mets-toi [[au sport]]",
+     "texte": "ils s'intéressent à [[ton truc à toi]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but it's true. the gym,",
+      "running, pilates, whatever you'll stick to"
+     ],
+     "fr": "JE SAIS, tout le monde le dit, mais c'est vrai. la salle, la course, le pilates, [[ce que tu tiendras sur la durée]]",
+     "texte": "tu parles de tricot ou de vieilles voitures et d'un coup ils veulent savoir [[comment tout ça marche]]"
+    },
+    "T3": {
+     "en": [
+      "exercise is proven to",
+      "boost your mood and",
+      "confidence, not just",
+      "how you look"
+     ],
+     "fr": "c'est [[prouvé]] : le sport booste ton [[moral et ta confiance]], pas juste ton physique",
+     "texte": "jamais de [[« bof, c'est chiant »]], pour eux chaque sujet cache un truc fascinant"
+    },
+    "T4": {
+     "en": [
+      "you have more energy, more confidence, and",
+      "that is what makes you attractive"
+     ],
+     "fr": "t'as plus d'énergie, [[plus confiance en toi]], et [[c'est exactement ça qui attire]]",
+     "texte": "les gens brillants trouvent [[presque tout intéressant]], même ce qu'ils auraient jamais choisi"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_c051120e.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "tu l'apprends [[par hasard]]"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "qu'ils parlent 3 langues, des mois après [[votre rencontre]]"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "ils parlent jamais de leurs notes ni de [[tout ce qu'ils lisent]]"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "parce que la vraie confiance [[a pas besoin de public]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_18e768b0.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "ils assument d'être [[débutants]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "se mettre aux échecs à 30 ans, [[nuls et ravis de l'être]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "avoir l'air un peu maladroits leur fait pas peur, c'est [[comme ça qu'ils progressent]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "ce qui a remplacé mon scroll : les échecs, un livre, et 5 min sur le mythe de Sisyphe selon Camus sur [[l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

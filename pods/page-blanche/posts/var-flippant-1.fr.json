@@ -1,0 +1,305 @@
+{
+ "post_id": "var-flippant-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously successful"
+     ],
+     "fr": "10/10 habitudes pour réussir à un niveau flippant",
+     "texte": "10/10 habitudes pour réussir à un niveau flippant"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(version niche)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0231dcd5.jpg",
+      "boite": [
+       0,
+       250,
+       1760,
+       1310
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become good at multiple things"
+     ],
+     "fr": "deviens bonne en [[plein de trucs]]",
+     "texte": "ose [[demander ce que tu veux]]"
+    },
+    "T2": {
+     "en": [
+      "learn to write, communicate, build, sell ideas, analyse,",
+      "and use technology well"
+     ],
+     "fr": "apprends à écrire, parler, créer, vendre tes idées, analyser et maîtriser la tech",
+     "texte": "une augmentation, une réduc, une 2e chance, un avis, un contact avec quelqu'un que t'admires"
+    },
+    "T3": {
+     "en": [
+      "you don’t need to be",
+      "world-class at",
+      "everything"
+     ],
+     "fr": "pas besoin d'être la meilleure au monde en tout",
+     "texte": "au pire on te dit non, et [[t'y survis]]"
+    },
+    "T4": {
+     "en": [
+      "being good across",
+      "several valuable skills",
+      "makes you unusually",
+      "hard to replace"
+     ],
+     "fr": "être bonne dans plusieurs compétences utiles te rend [[super dure à remplacer]]",
+     "texte": "la plupart des gens demandent jamais, alors ceux qui osent [[obtiennent plus, tout le temps]]"
+    },
+    "T5": {
+     "en": [
+      "a jack of all trades is better than a master of one"
+     ],
+     "fr": "[[mieux vaut être touche-à-tout qu'experte en un seul truc]]",
+     "texte": "[[qui demande rien n'a rien]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2e600951.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read classic books"
+     ],
+     "fr": "inspire-toi des [[classiques]]",
+     "texte": "recycle [[tes temps morts]]"
+    },
+    "T2": {
+     "en": [
+      "people have faced ambition, failure, and hard choices",
+      "for centuries"
+     ],
+     "fr": "l'ambition, l'échec, les choix durs : on vit ça [[depuis des siècles]]",
+     "texte": "la queue, le bus, les 10 min avant une réunion"
+    },
+    "T3": {
+     "en": [
+      "people are more illiterate",
+      "than ever and attention",
+      "spans across the world are",
+      "being destroyed by",
+      "short-form content"
+     ],
+     "fr": "[[on n'a jamais aussi peu lu]] et partout, notre attention est [[grillée par les vidéos courtes]]",
+     "texte": "ces petits trous font [[des heures chaque semaine]], et la plupart les remplissent de vidéos oubliées une seconde après"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "reading long books but i",
+      "found this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "j'arrivais plus à me concentrer, puis j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "ce matin dans le bus : pourquoi Camus imagine Sisyphe heureux, en 5 min sur [[l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening to something"
+     ],
+     "fr": "arrête d'[[écouter un truc non-stop]]",
+     "texte": "prépare [[demain avant de dormir]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, youtube, something constantly playing in",
+      "the background means your brain never gets to rest"
+     ],
+     "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]",
+     "texte": "3 priorités sur papier, pas plus, pour savoir direct par quoi commencer en te levant"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "leave parts of",
+      "your day",
+      "completely quiet",
+      "so your brain can",
+      "actually think",
+      "and come up with",
+      "its own ideas"
+     ],
+     "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
+     "texte": "le matin, ton cerveau perd plus de temps à choisir et [[attaque direct le plus dur]]"
+    },
+    "T6": {
+     "en": [
+      "you don't need music every time you go outside"
+     ],
+     "fr": "[[t'as pas besoin de musique dès que tu sors]]",
+     "texte": "[[5 min le soir t'évitent 2 h de flottement]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_09969cdb.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "fr": "apprends à [[supporter la routine chiante]]",
+     "texte": "tiens [[les promesses que tu te fais]]"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "fr": "réussir, c'est [[moins excitant]] que ça en a l'air",
+     "texte": "si t'as dit 6h, c'est 6h"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "fr": "c'est répéter les mêmes trucs utiles [[des mois]], bien après l'effet waouh",
+     "texte": "chaque promesse que tu casses t'apprend que [[ta parole vaut rien]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "fr": "[[la régularité]] devient une force quand les autres s'ennuient et lâchent",
+     "texte": "[[la confiance en soi]] vient des petites promesses tenues, pas des grands plans"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_24c63301.jpg",
+      "boite": [
+       0,
+       450,
+       1080,
+       950
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "make decisions before you feel ready"
+     ],
+     "fr": "décide [[avant de te sentir prête]]",
+     "texte": "traîne avec [[des gens plus avancés]]"
+    },
+    "T2": {
+     "en": [
+      "there will never be a",
+      "perfect moment, you will",
+      "never feel ready"
+     ],
+     "fr": "[[le moment parfait n'existe pas]], tu te sentiras jamais prête",
+     "texte": "tu finis par penser comme ceux que tu fréquentes"
+    },
+    "T3": {
+     "en": [
+      "take that risk you've",
+      "been thinking about, you",
+      "have nothing to lose"
+     ],
+     "fr": "prends ce risque auquel tu penses depuis longtemps, [[t'as rien à perdre]]",
+     "texte": "sois exprès [[la personne la moins expérimentée]] de la table"
+    },
+    "T4": {
+     "en": [
+      "procrastination is making you lose trust in yourself"
+     ],
+     "fr": "procrastiner te fait [[perdre confiance en toi]]",
+     "texte": "si t'apprends rien dans une pièce, [[change de pièce]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2a6b9d3e.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

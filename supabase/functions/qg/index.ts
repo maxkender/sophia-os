@@ -8,6 +8,7 @@
  *   GET /api/qg/control/recrutement?cohorte=AAAA-MM-JJ  (un lundi) → qg_recrutement(cohorte)
  *   GET /api/qg/control/paie?semaine=AAAA-MM-JJ         (un lundi) → qg_paie(semaine)
  *   GET /api/qg/control/autres                                    → qg_autres()
+ *   GET /api/qg/control/join[?test=1]                             → qg_join(test) (app Join, test exclus par défaut)
  *
  * apps → qg_apps(from, to) : par application (passages.application_id) et par jour, posts publiés, vues (total,
  * médiane), % de posts à 10 k+, comptes et posteurs qui ont posté, coût des posteurs ; le même découpage par label
@@ -16,6 +17,7 @@
  */
 import { json, serviceClient } from "../_shared/supabase.ts";
 import { estRouteQg, jetonDeRequete, jetonValide, lirePeriodeQg, lundiDe, lundiSouple, raisonRefus, routeQg } from "../_shared/qg.ts";
+import { lireTestQg } from "../_shared/qg.ts";
 
 const ENTETES = { "cache-control": "no-store" };
 
@@ -47,6 +49,8 @@ Deno.serve(async (request) => {
     const l = lundiSouple(url.searchParams, ["semaine", "week", "lundi", "monday", "date"], lundiDe(precedente));
     if (!l.ok) return json({ ok: false, error: l.erreur }, 400);
     rpc = { fn: "qg_paie", args: { p_semaine: l.lundi } };
+  } else if (route === "control/join") {
+    rpc = { fn: "qg_join", args: { p_test: String(lireTestQg(url.searchParams)) } };
   } else {
     rpc = { fn: "qg_autres", args: {} };
   }

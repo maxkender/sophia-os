@@ -301,3 +301,6 @@ verify_jwt = false
 
 [functions.whatsapp]
 verify_jwt = false
+
+[functions.join]
+verify_jwt = false

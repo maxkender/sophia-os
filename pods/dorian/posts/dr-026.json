@@ -10,12 +10,20 @@
  "titre": {
   "en": "5 niche ways to disgustingly improve your vocabulary",
   "de": "5 nischen-tricks für einen absurd großen wortschatz",
-  "tr": "kelime hazneni aşırı geliştirmenin 5 niş yolu"
+  "tr": "kelime hazneni aşırı geliştirmenin 5 niş yolu",
+  "it": "5 modi di nicchia per un vocabolario enorme",
+  "nl": "5 niche manieren voor een walgelijk grote woordenschat",
+  "pt-BR": "5 jeitos nichados de turbinar seu vocabulário",
+  "sv": "5 nischade sätt att få ett sjukt stort ordförråd"
  },
  "legendes": {
   "en": "#niche #vocabulary #lockedin #selfimprovement",
   "de": "#wortschatz #sprache #lernen #selbstverbesserung",
-  "tr": "#kelime #türkçe #öğrenmek #kişiselgelişim"
+  "tr": "#kelime #türkçe #öğrenmek #kişiselgelişim",
+  "it": "#vocabolario #italiano #imparare #crescitapersonale",
+  "nl": "#woordenschat #taal #leren #zelfontwikkeling",
+  "pt-BR": "#vocabulário #português #aprender #autodesenvolvimento",
+  "sv": "#ordförråd #svenska #lärande #självutveckling"
  },
  "musique": {
   "titre": "original sound - LanguFilms",
@@ -39,6 +47,26 @@
     "titre": "kelime hazneni aşırı geliştirmenin 5 niş yolu",
     "image": "images/cerveau-14.jpg",
     "legende": "(daha zeki duyul)"
+   },
+   "it": {
+    "titre": "5 modi di nicchia per un vocabolario enorme",
+    "image": "images/cerveau-28.jpg",
+    "legende": "(sembrerai più intelligente)"
+   },
+   "nl": {
+    "titre": "5 niche manieren voor een walgelijk grote woordenschat",
+    "image": "images/cerveau-29.jpg",
+    "legende": "(klink slimmer)"
+   },
+   "pt-BR": {
+    "titre": "5 jeitos nichados de turbinar seu vocabulário",
+    "image": "images/cerveau-30.jpg",
+    "legende": "(pareça mais inteligente)"
+   },
+   "sv": {
+    "titre": "5 nischade sätt att få ett sjukt stort ordförråd",
+    "image": "images/cerveau-31.jpg",
+    "legende": "(låt smartare)"
    }
   },
   {
@@ -57,6 +85,26 @@
     "titre": "Seviyenin biraz üstünü oku",
     "texte": "sana biraz zor gelen kitaplar seç. yazı dili, günlük konuşmadan çok daha fazla nadir kelime kullanır. yeni kelimeler oradan gelir",
     "image": "images/lectrice-manet.jpg"
+   },
+   "it": {
+    "titre": "Leggi un livello sopra di te",
+    "texte": "scegli libri un po' troppo difficili per te. la lingua scritta usa molte più parole rare della conversazione, ed è da lì che arrivano quelle nuove",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "nl": {
+    "titre": "Lees één niveau boven je",
+    "texte": "kies boeken die net te moeilijk voor je zijn. geschreven taal gebruikt veel meer zeldzame woorden dan gesprekken, daar komen nieuwe woorden vandaan",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "pt-BR": {
+    "titre": "Leia um nível acima de você",
+    "texte": "escolha livros um pouco difíceis demais pra você. a língua escrita usa muito mais palavras raras do que a conversa do dia a dia, e é daí que vêm as novas",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "sv": {
+    "titre": "Läs en nivå över din egen",
+    "texte": "välj böcker som är lite för svåra för dig. skriftspråk använder mycket fler ovanliga ord än vardagssamtal, det är där nya ord kommer ifrån",
+    "image": "images/lectrice-manet.jpg"
    }
   },
   {
@@ -74,6 +122,26 @@
    "tr": {
     "titre": "Kelime defteri tut",
     "texte": "her yeni kelimeyi bulduğun cümleyle birlikte yaz. akılda kalmasını sağlayan bağlamdır",
+    "image": "images/objets/carnet.png"
+   },
+   "it": {
+    "titre": "Tieni un diario di parole",
+    "texte": "scrivi ogni parola nuova con la frase in cui l'hai trovata. è il contesto che te la fa ricordare",
+    "image": "images/objets/carnet.png"
+   },
+   "nl": {
+    "titre": "Houd een woordenschrift bij",
+    "texte": "schrijf elk nieuw woord op met de zin waarin je het vond. de context zorgt dat het blijft hangen",
+    "image": "images/objets/carnet.png"
+   },
+   "pt-BR": {
+    "titre": "Tenha um diário de palavras",
+    "texte": "anote cada palavra nova com a frase em que você a encontrou. é o contexto que faz ela ficar",
+    "image": "images/objets/carnet.png"
+   },
+   "sv": {
+    "titre": "För en ordbok",
+    "texte": "skriv ner varje nytt ord med meningen du hittade det i. sammanhanget gör att det fastnar",
     "image": "images/objets/carnet.png"
    }
   },
@@ -94,6 +162,26 @@
     "titre": "Sophia'da günde bir ders",
     "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. her derste yeni kelimeler",
     "telephone": "accueil"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. parole nuove in ogni lezione",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. in elke les nieuwe woorden",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. palavras novas em toda lição",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. nya ord i varje lektion",
+    "telephone": "accueil"
    }
   },
   {
@@ -112,6 +200,26 @@
     "titre": "Kökleri öğren",
     "texte": "tek bir kök onlarca kelimenin kapısını açar. \"bil-\" kökü: bilgi, bilim, bilinç, bilgisayar. hiç görmediğin kelimeleri tahmin edebilirsin",
     "image": "images/homere-dictant.jpg"
+   },
+   "it": {
+    "titre": "Impara le radici",
+    "texte": "una radice apre decine di parole. dal latino \"scribere\": scrittura, scrittore, descrivere, prescrivere. così indovini parole che non hai mai visto",
+    "image": "images/homere-dictant.jpg"
+   },
+   "nl": {
+    "titre": "Leer de stammen",
+    "texte": "één stam opent tientallen woorden. latijn \"portare\" (dragen): transport, export, portier, rapport. zo raad je woorden die je nooit eerder zag",
+    "image": "images/homere-dictant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Aprenda as raízes",
+    "texte": "uma raiz abre dezenas de palavras. do grego \"grafo\" (escrever): biografia, caligrafia, fotografia, geografia. assim você adivinha palavras que nunca viu",
+    "image": "images/homere-dictant.jpg"
+   },
+   "sv": {
+    "titre": "Lär dig rötterna",
+    "texte": "en rot öppnar dussintals ord. grekiska \"tele\" (fjärran): telefon, teleskop, television, telegraf. så kan du gissa ord du aldrig sett",
+    "image": "images/homere-dictant.jpg"
    }
   },
   {
@@ -129,6 +237,26 @@
    "tr": {
     "titre": "Üç kez kullan",
     "texte": "yeni bir kelimeyi ilk gün üç kez kullan: bir mesajda, sesli, aklından. kullandığın kelime seninle kalır",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "it": {
+    "titre": "Usala tre volte",
+    "texte": "usa una parola nuova tre volte il primo giorno: in un messaggio, ad alta voce, nella tua testa. una parola che usi è una parola che tieni",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "nl": {
+    "titre": "Gebruik het drie keer",
+    "texte": "gebruik een nieuw woord de eerste dag drie keer: in een bericht, hardop, in je hoofd. een woord dat je gebruikt, houd je",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Use três vezes",
+    "texte": "use uma palavra nova três vezes no primeiro dia: numa mensagem, em voz alta, na cabeça. palavra usada é palavra que fica",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "sv": {
+    "titre": "Använd det tre gånger",
+    "texte": "använd ett nytt ord tre gånger första dagen: i ett meddelande, högt, i huvudet. ett ord du använder är ett ord du behåller",
     "image": "images/femme-ecrivant.jpg"
    }
   }

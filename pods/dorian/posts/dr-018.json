@@ -10,12 +10,20 @@
  "titre": {
   "en": "5 languages that are genuinely f*cking difficult to learn",
   "pt-BR": "5 idiomas difíceis pra c*ralho de aprender",
-  "tr": "öğrenmesi gerçekten çok zor 5 dil"
+  "tr": "öğrenmesi gerçekten çok zor 5 dil",
+  "de": "5 sprachen, die verdammt schwer zu lernen sind",
+  "it": "5 lingue difficili da c*zzo da imparare",
+  "nl": "5 talen die echt verdomd moeilijk zijn om te leren",
+  "sv": "5 språk som är sjukt jävla svåra att lära sig"
  },
  "legendes": {
   "en": "#niche #languagelearning #polyglot #lockedin",
   "pt-BR": "#idiomas #aprender #poliglota #nicho",
-  "tr": "#dilöğrenmek #yabancıdil #poliglot #niş"
+  "tr": "#dilöğrenmek #yabancıdil #poliglot #niş",
+  "de": "#sprachenlernen #sprachen #polyglott #lernen",
+  "it": "#lingue #imparare #poliglotta #nicchia",
+  "nl": "#talenleren #talen #polyglot #leren",
+  "sv": "#språkinlärning #språk #polyglott #lärande"
  },
  "musique": {
   "titre": "Room Full of Strangers - Danny Bluestone",
@@ -39,6 +47,26 @@
     "titre": "öğrenmesi gerçekten çok zor 5 dil",
     "image": "images/cerveau-hippocampe.jpg",
     "legende": "(ders saatine göre)"
+   },
+   "de": {
+    "titre": "5 sprachen, die verdammt schwer zu lernen sind",
+    "image": "images/cerveau-32.jpg",
+    "legende": "(in unterrichtsstunden)"
+   },
+   "it": {
+    "titre": "5 lingue difficili da c*zzo da imparare",
+    "image": "images/cerveau-24.jpg",
+    "legende": "(in ore di lezione)"
+   },
+   "nl": {
+    "titre": "5 talen die echt verdomd moeilijk zijn om te leren",
+    "image": "images/cerveau-25.jpg",
+    "legende": "(in lesuren)"
+   },
+   "sv": {
+    "titre": "5 språk som är sjukt jävla svåra att lära sig",
+    "image": "images/cerveau-26.jpg",
+    "legende": "(i lektionstimmar)"
    }
   },
   {
@@ -60,6 +88,30 @@
     "difficulte": "28/50",
     "texte": "15 hâl eki. bir isim düzinelerce biçim alabilir. abd dışişleri enstitüsü, ingilizce konuşanlar için yaklaşık 1.100 ders saati öngörüyor. türkçe de aynı grupta",
     "image": "images/neige-nordique.jpg"
+   },
+   "de": {
+    "titre": "Finnisch",
+    "difficulte": "28/50",
+    "texte": "15 fälle. ein substantiv kann dutzende formen haben. das diplomateninstitut der usa rechnet für englischsprachige mit etwa 1.100 unterrichtsstunden",
+    "image": "images/neige-nordique.jpg"
+   },
+   "it": {
+    "titre": "Finlandese",
+    "difficulte": "28/50",
+    "texte": "15 casi grammaticali. un sostantivo può avere decine di forme. l'istituto per i diplomatici degli usa stima circa 1.100 ore di lezione per chi parla inglese",
+    "image": "images/neige-nordique.jpg"
+   },
+   "nl": {
+    "titre": "Fins",
+    "difficulte": "28/50",
+    "texte": "15 naamvallen. één zelfstandig naamwoord kan tientallen vormen hebben. het amerikaanse diplomateninstituut rekent voor engelstaligen op zo'n 1.100 lesuren",
+    "image": "images/neige-nordique.jpg"
+   },
+   "sv": {
+    "titre": "Finska",
+    "difficulte": "28/50",
+    "texte": "15 kasus. ett substantiv kan ha dussintals former. usa:s diplomatinstitut räknar med ungefär 1 100 lektionstimmar för engelsktalande",
+    "image": "images/neige-nordique.jpg"
    }
   },
   {
@@ -80,6 +132,30 @@
     "titre": "Korece",
     "difficulte": "40/50",
     "texte": "alfabesi bir hafta sonunda öğrenilir: kral sejong onu 15. yüzyılda kolay olsun diye tasarlattı. dilbilgisi ve hitap biçimleri yıllar sürer. yaklaşık 2.200 saat",
+    "image": "images/flasque-coreenne.jpg"
+   },
+   "de": {
+    "titre": "Koreanisch",
+    "difficulte": "40/50",
+    "texte": "das alphabet lernst du an einem wochenende: könig sejong ließ es im 15. jahrhundert einfach entwerfen. grammatik und höflichkeitsstufen dauern jahre. etwa 2.200 stunden",
+    "image": "images/flasque-coreenne.jpg"
+   },
+   "it": {
+    "titre": "Coreano",
+    "difficulte": "40/50",
+    "texte": "l'alfabeto si impara in un weekend: re sejong lo fece creare nel xv secolo perché fosse facile. grammatica e livelli di cortesia richiedono anni. circa 2.200 ore",
+    "image": "images/flasque-coreenne.jpg"
+   },
+   "nl": {
+    "titre": "Koreaans",
+    "difficulte": "40/50",
+    "texte": "het alfabet leer je in een weekend: koning sejong liet het in de 15e eeuw ontwerpen om makkelijk te zijn. grammatica en beleefdheidsniveaus kosten jaren. zo'n 2.200 uur",
+    "image": "images/flasque-coreenne.jpg"
+   },
+   "sv": {
+    "titre": "Koreanska",
+    "difficulte": "40/50",
+    "texte": "alfabetet lär du dig på en helg: kung sejong lät skapa det på 1400-talet för att vara lätt. grammatiken och artighetsnivåerna tar år. ungefär 2 200 timmar",
     "image": "images/flasque-coreenne.jpg"
    }
   },
@@ -103,6 +179,30 @@
     "difficulte": "4/50",
     "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. zor şeylerden önce beyne ısınma",
     "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "difficulte": "4/50",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. ein aufwärmen fürs gehirn vor den schweren sachen",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "difficulte": "4/50",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. un riscaldamento per il cervello prima delle cose difficili",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "difficulte": "4/50",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. een warming-up voor je brein voor het zware werk",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "difficulte": "4/50",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. uppvärmning för hjärnan innan det svåra",
+    "telephone": "cours"
    }
   },
   {
@@ -123,6 +223,30 @@
     "titre": "Arapça",
     "difficulte": "44/50",
     "texte": "sağdan sola yazılır, kısa ünlüler çoğu zaman yazılmaz ve konuşulan lehçeler yazı dilinden çok farklıdır. yaklaşık 2.200 saat",
+    "image": "images/bol-calligraphie.jpg"
+   },
+   "de": {
+    "titre": "Arabisch",
+    "difficulte": "44/50",
+    "texte": "von rechts nach links geschrieben, kurze vokale meist weggelassen, und die gesprochenen dialekte weichen stark von der schriftsprache ab. etwa 2.200 stunden",
+    "image": "images/bol-calligraphie.jpg"
+   },
+   "it": {
+    "titre": "Arabo",
+    "difficulte": "44/50",
+    "texte": "si scrive da destra a sinistra, le vocali brevi spesso non si scrivono, e i dialetti parlati sono molto diversi dalla lingua scritta. circa 2.200 ore",
+    "image": "images/bol-calligraphie.jpg"
+   },
+   "nl": {
+    "titre": "Arabisch",
+    "difficulte": "44/50",
+    "texte": "van rechts naar links geschreven, korte klinkers meestal weggelaten, en de gesproken dialecten verschillen sterk van de schrijftaal. zo'n 2.200 uur",
+    "image": "images/bol-calligraphie.jpg"
+   },
+   "sv": {
+    "titre": "Arabiska",
+    "difficulte": "44/50",
+    "texte": "skrivs från höger till vänster, korta vokaler utelämnas oftast, och de talade dialekterna skiljer sig mycket från skriftspråket. ungefär 2 200 timmar",
     "image": "images/bol-calligraphie.jpg"
    }
   },
@@ -145,6 +269,30 @@
     "difficulte": "46/50",
     "texte": "aynı anda üç yazı sistemi: hiragana, katakana ve günlük kullanımda yaklaşık 2.000 kanji. yaklaşık 2.200 saat",
     "image": "images/grues-neige.jpg"
+   },
+   "de": {
+    "titre": "Japanisch",
+    "difficulte": "46/50",
+    "texte": "drei schriftsysteme gleichzeitig: hiragana, katakana und rund 2.000 alltags-kanji. etwa 2.200 stunden",
+    "image": "images/grues-neige.jpg"
+   },
+   "it": {
+    "titre": "Giapponese",
+    "difficulte": "46/50",
+    "texte": "tre sistemi di scrittura insieme: hiragana, katakana e circa 2.000 kanji d'uso comune. circa 2.200 ore",
+    "image": "images/grues-neige.jpg"
+   },
+   "nl": {
+    "titre": "Japans",
+    "difficulte": "46/50",
+    "texte": "drie schriftsystemen tegelijk: hiragana, katakana en zo'n 2.000 kanji voor dagelijks gebruik. zo'n 2.200 uur",
+    "image": "images/grues-neige.jpg"
+   },
+   "sv": {
+    "titre": "Japanska",
+    "difficulte": "46/50",
+    "texte": "tre skriftsystem på en gång: hiragana, katakana och omkring 2 000 vardagliga kanji. ungefär 2 200 timmar",
+    "image": "images/grues-neige.jpg"
    }
   },
   {
@@ -165,6 +313,30 @@
     "titre": "Mandarin Çincesi",
     "difficulte": "48/50",
     "texte": "dört ton, yani bir hece dört farklı anlama gelebilir. bir de gazete okumak için binlerce karakter. yaklaşık 2.200 saat",
+    "image": "images/bambous-encre.jpg"
+   },
+   "de": {
+    "titre": "Mandarin",
+    "difficulte": "48/50",
+    "texte": "vier töne, also kann eine silbe vier verschiedene dinge bedeuten. dazu tausende schriftzeichen, um eine zeitung zu lesen. etwa 2.200 stunden",
+    "image": "images/bambous-encre.jpg"
+   },
+   "it": {
+    "titre": "Cinese mandarino",
+    "difficulte": "48/50",
+    "texte": "quattro toni, quindi una sillaba può significare quattro cose diverse. più migliaia di caratteri per leggere un giornale. circa 2.200 ore",
+    "image": "images/bambous-encre.jpg"
+   },
+   "nl": {
+    "titre": "Mandarijn",
+    "difficulte": "48/50",
+    "texte": "vier tonen, dus één lettergreep kan vier dingen betekenen. plus duizenden tekens om een krant te lezen. zo'n 2.200 uur",
+    "image": "images/bambous-encre.jpg"
+   },
+   "sv": {
+    "titre": "Mandarin",
+    "difficulte": "48/50",
+    "texte": "fyra toner, så en stavelse kan betyda fyra olika saker. plus tusentals tecken för att läsa en tidning. ungefär 2 200 timmar",
     "image": "images/bambous-encre.jpg"
    }
   }

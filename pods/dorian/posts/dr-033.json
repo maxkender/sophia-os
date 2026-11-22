@@ -10,12 +10,20 @@
  "titre": {
   "en": "5 science ideas that are genuinely f*cking difficult",
   "it": "5 idee scientifiche difficili da c*zzo",
-  "tr": "gerçekten çok zor 5 bilimsel fikir"
+  "tr": "gerçekten çok zor 5 bilimsel fikir",
+  "de": "5 wissenschaftliche ideen, die verdammt schwer sind",
+  "nl": "5 wetenschappelijke ideeën die echt verdomd moeilijk zijn",
+  "pt-BR": "5 ideias da ciência difíceis pra c*ralho",
+  "sv": "5 vetenskapliga idéer som är sjukt jävla svåra"
  },
  "legendes": {
   "en": "#niche #science #physics #smarttok #lockedin",
   "it": "#scienza #fisica #curiosità #cultura",
-  "tr": "#bilim #fizik #bilgi #öğrenmek"
+  "tr": "#bilim #fizik #bilgi #öğrenmek",
+  "de": "#wissenschaft #physik #wissen #lernen",
+  "nl": "#wetenschap #natuurkunde #kennis #leren",
+  "pt-BR": "#ciência #física #conhecimento #aprender",
+  "sv": "#vetenskap #fysik #kunskap #lärande"
  },
  "musique": {
   "titre": "original sound - Spëāķèř",
@@ -39,6 +47,26 @@
     "titre": "gerçekten çok zor 5 bilimsel fikir",
     "image": "images/cerveau-20.jpg",
     "legende": "(anlatmayı dene)"
+   },
+   "de": {
+    "titre": "5 wissenschaftliche ideen, die verdammt schwer sind",
+    "image": "images/cerveau-15.jpg",
+    "legende": "(versuch sie zu erklären)"
+   },
+   "nl": {
+    "titre": "5 wetenschappelijke ideeën die echt verdomd moeilijk zijn",
+    "image": "images/cerveau-16.jpg",
+    "legende": "(probeer ze uit te leggen)"
+   },
+   "pt-BR": {
+    "titre": "5 ideias da ciência difíceis pra c*ralho",
+    "image": "images/cerveau-17.jpg",
+    "legende": "(tenta explicar)"
+   },
+   "sv": {
+    "titre": "5 vetenskapliga idéer som är sjukt jävla svåra",
+    "image": "images/cerveau-27.jpg",
+    "legende": "(försök förklara dem)"
    }
   },
   {
@@ -60,6 +88,30 @@
     "difficulte": "30/50",
     "texte": "einstein: saatler yüksekte daha hızlı, hızla hareket ederken daha yavaş işler. gps uydularındaki saatler günde yaklaşık 38 mikrosaniye kayar ve düzeltilmesi gerekir",
     "image": "images/satellite.jpg"
+   },
+   "de": {
+    "titre": "Die Zeit läuft verschieden schnell",
+    "difficulte": "30/50",
+    "texte": "einstein: uhren gehen weiter oben schneller und in schneller bewegung langsamer. die uhren der gps-satelliten weichen täglich um etwa 38 mikrosekunden ab und müssen korrigiert werden",
+    "image": "images/satellite.jpg"
+   },
+   "nl": {
+    "titre": "Tijd loopt niet overal even snel",
+    "difficulte": "30/50",
+    "texte": "einstein: klokken lopen hoger op sneller en bij hoge snelheid langzamer. de klokken van gps-satellieten wijken zo'n 38 microseconden per dag af en moeten worden gecorrigeerd",
+    "image": "images/satellite.jpg"
+   },
+   "pt-BR": {
+    "titre": "O tempo passa em velocidades diferentes",
+    "difficulte": "30/50",
+    "texte": "einstein: relógios andam mais rápido no alto e mais devagar em alta velocidade. os relógios dos satélites de gps desviam uns 38 microssegundos por dia e precisam ser corrigidos",
+    "image": "images/satellite.jpg"
+   },
+   "sv": {
+    "titre": "Tiden går olika fort",
+    "difficulte": "30/50",
+    "texte": "einstein: klockor går fortare högre upp och långsammare i hög fart. klockorna i gps-satelliterna drar iväg ungefär 38 mikrosekunder om dagen och måste rättas",
+    "image": "images/satellite.jpg"
    }
   },
   {
@@ -80,6 +132,30 @@
     "titre": "Bazı sonsuzluklar daha büyük",
     "difficulte": "36/50",
     "texte": "georg cantor, 0 ile 1 arasında tam sayılardan daha fazla sayı olduğunu kanıtladı, iki liste de hiç bitmese bile",
+    "image": "images/miroirs.jpg"
+   },
+   "de": {
+    "titre": "Manche Unendlichkeiten sind größer",
+    "difficulte": "36/50",
+    "texte": "georg cantor bewies, dass es zwischen 0 und 1 mehr zahlen gibt als ganze zahlen, obwohl beide listen nie enden",
+    "image": "images/miroirs.jpg"
+   },
+   "nl": {
+    "titre": "Sommige oneindigheden zijn groter",
+    "difficulte": "36/50",
+    "texte": "georg cantor bewees dat er tussen 0 en 1 meer getallen zijn dan er gehele getallen zijn, ook al houden beide lijsten nooit op",
+    "image": "images/miroirs.jpg"
+   },
+   "pt-BR": {
+    "titre": "Alguns infinitos são maiores",
+    "difficulte": "36/50",
+    "texte": "georg cantor provou que existem mais números entre 0 e 1 do que números inteiros, mesmo que as duas listas nunca acabem",
+    "image": "images/miroirs.jpg"
+   },
+   "sv": {
+    "titre": "Vissa oändligheter är större",
+    "difficulte": "36/50",
+    "texte": "georg cantor bevisade att det finns fler tal mellan 0 och 1 än det finns heltal, fast båda listorna aldrig tar slut",
     "image": "images/miroirs.jpg"
    }
   },
@@ -103,6 +179,30 @@
     "difficulte": "4/50",
     "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. baş ağrısı olmadan anlatılan bilim",
     "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. wissenschaft ohne kopfschmerzen",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. wetenschap zonder hoofdpijn",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. ciência explicada sem dor de cabeça",
+    "telephone": "quiz"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. vetenskap utan huvudvärk",
+    "telephone": "quiz"
    }
   },
   {
@@ -123,6 +223,30 @@
     "titre": "Kuantum dolanıklığı",
     "difficulte": "42/50",
     "texte": "bir parçacığı ölç, ne kadar uzakta olursa olsun eşi hakkında anında bir şey bilirsin. einstein buna \"uzaktan ürkütücü etki\" dedi",
+    "image": "images/particules.jpg"
+   },
+   "de": {
+    "titre": "Quantenverschränkung",
+    "difficulte": "42/50",
+    "texte": "miss ein teilchen, und du weißt sofort etwas über seinen partner, egal wie weit entfernt. einstein nannte das \"spukhafte fernwirkung\"",
+    "image": "images/particules.jpg"
+   },
+   "nl": {
+    "titre": "Kwantumverstrengeling",
+    "difficulte": "42/50",
+    "texte": "meet één deeltje en je weet meteen iets over zijn partner, hoe ver ook. einstein noemde het \"spookachtige werking op afstand\"",
+    "image": "images/particules.jpg"
+   },
+   "pt-BR": {
+    "titre": "Emaranhamento quântico",
+    "difficulte": "42/50",
+    "texte": "meça uma partícula e você sabe na hora algo sobre a parceira dela, não importa a distância. einstein chamou isso de \"ação fantasmagórica à distância\"",
+    "image": "images/particules.jpg"
+   },
+   "sv": {
+    "titre": "Kvantsammanflätning",
+    "difficulte": "42/50",
+    "texte": "mät en partikel och du vet direkt något om dess partner, hur långt bort den än är. einstein kallade det \"spöklik verkan på avstånd\"",
     "image": "images/particules.jpg"
    }
   },
@@ -145,6 +269,30 @@
     "difficulte": "45/50",
     "texte": "kapalı bir sistemde düzensizlik hep artma eğilimindedir. bazı fizikçiler zamanın yalnızca ileri akmasının nedeninin bu olduğunu düşünür",
     "image": "images/sablier-cosmos.jpg"
+   },
+   "de": {
+    "titre": "Entropie",
+    "difficulte": "45/50",
+    "texte": "die unordnung in einem geschlossenen system nimmt immer eher zu. manche physiker halten das für den grund, warum die zeit nur vorwärts läuft",
+    "image": "images/sablier-cosmos.jpg"
+   },
+   "nl": {
+    "titre": "Entropie",
+    "difficulte": "45/50",
+    "texte": "wanorde in een gesloten systeem neemt altijd toe. sommige natuurkundigen denken dat dat de reden is dat tijd alleen vooruit gaat",
+    "image": "images/sablier-cosmos.jpg"
+   },
+   "pt-BR": {
+    "titre": "Entropia",
+    "difficulte": "45/50",
+    "texte": "a desordem num sistema fechado sempre tende a aumentar. alguns físicos acham que é por isso que o tempo só anda pra frente",
+    "image": "images/sablier-cosmos.jpg"
+   },
+   "sv": {
+    "titre": "Entropi",
+    "difficulte": "45/50",
+    "texte": "oordningen i ett slutet system tenderar alltid att öka. vissa fysiker tror att det är därför tiden bara går framåt",
+    "image": "images/sablier-cosmos.jpg"
    }
   },
   {
@@ -165,6 +313,30 @@
     "titre": "Gödel'in eksiklik teoremi",
     "difficulte": "49/50",
     "texte": "1931'de kurt gödel, temel aritmetiği yapabilen her tutarlı matematik sisteminin asla kanıtlayamayacağı doğru önermeler içerdiğini kanıtladı",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "de": {
+    "titre": "Gödels Unvollständigkeit",
+    "difficulte": "49/50",
+    "texte": "1931 bewies kurt gödel, dass jedes widerspruchsfreie mathematische system, das rechnen kann, wahre aussagen enthält, die es nie beweisen kann",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "nl": {
+    "titre": "Gödels onvolledigheid",
+    "difficulte": "49/50",
+    "texte": "in 1931 bewees kurt gödel dat elk consistent wiskundig systeem dat kan rekenen ware uitspraken bevat die het nooit kan bewijzen",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "pt-BR": {
+    "titre": "A incompletude de Gödel",
+    "difficulte": "49/50",
+    "texte": "em 1931, kurt gödel provou que todo sistema matemático consistente capaz de fazer aritmética tem verdades que ele nunca vai conseguir provar",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "sv": {
+    "titre": "Gödels ofullständighet",
+    "difficulte": "49/50",
+    "texte": "år 1931 bevisade kurt gödel att varje motsägelsefritt matematiskt system som kan räkna innehåller sanna påståenden som det aldrig kan bevisa",
     "image": "images/vieil-homme-livre.jpg"
    }
   }

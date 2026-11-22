@@ -20,10 +20,11 @@ import { estRouteQg, jetonValide, lireLundiQg, lirePeriodeQg, routeQg } from "..
 const ENTETES = { "cache-control": "no-store" };
 
 Deno.serve(async (request) => {
-  if (request.method !== "GET") return json({ ok: false, error: "GET attendu" }, 405);
+  // Le jeton d'abord : sans lui, toujours 401 (le contrôle de démarrage du déploiement l'attend, quelle que soit la méthode).
   if (!jetonValide(request.headers.get("x-qg-token"), Deno.env.get("QG_TOKEN"))) {
     return json({ ok: false, error: "unauthorized" }, 401);
   }
+  if (request.method !== "GET") return json({ ok: false, error: "GET attendu" }, 405);
   const url = new URL(request.url);
   const route = routeQg(url.pathname);
   if (!estRouteQg(route)) {

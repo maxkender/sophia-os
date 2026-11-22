@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o368",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9fdbe8ad-9b09-4e7a-9ed6-ed513c4d3ec4",
+ "titre": "୨୧ 5 words only intellectual people use #vocabulary #words #smartgirl #english #wordoftheday",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "9fdbe8ad-9b09-4e7a-9ed6-ed513c4d3ec4"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 67 de la boîte (parent 9fdbe8ad, langue source en) : accroche du parent mot pour mot avec ୨୧. Mots du parent (limerence, pernicious, obfuscate, vicissitude, philomath). Sophia sur philomath comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dcee09aa",
+   "texte_overlay": "୨୧ 5 words only\nintellectual people use",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647592607396252950/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "654101c7",
+   "texte_overlay": "limerence (n)\n\nan intense, involuntary\nromantic infatuation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647592607396252950/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "764ee8fd",
+   "texte_overlay": "pernicious (adj)\n\nharmful in a slow,\nsubtle way.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647592607396252950/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8c93a31e",
+   "texte_overlay": "obfuscate (v)\n\nto make something deliberately\nunclear.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647592607396252950/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "95ef02e3",
+   "texte_overlay": "vicissitude (n)\n\na change of circumstances,\noften an unwelcome one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647592607396252950/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "26d975bf",
+   "texte_overlay": "philomath (n)\n\na lover of learning.",
+   "texte_sophia": "philomath (n)\n\na lover of learning: the kind who opens\nan app like Sophia every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647592607396252950/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f784da06",
+   "texte_overlay": "follow for more\ndaily words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647592607396252950/6.jpg"
+  }
+ ]
+}

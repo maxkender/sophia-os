@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o365",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4bae1684-3cc9-45ee-a483-c87126f0fc1e",
+ "titre": "why is natalie portman so elegant #natalieportman #elegance #smartgirl #harvard #classy",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "4bae1684-3cc9-45ee-a483-c87126f0fc1e"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 12 de la boîte (parent 4bae1684, langue source it) : accroche du parent mot pour mot. Raisons du parent (elle ne cherche pas l'attention, elle a vraiment étudié — diplôme de psychologie à Harvard, vérifié —, elle n'étale pas ce qu'elle sait, style net et classique, vie privée discrète). Sophia en 3 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c5bda82a",
+   "texte_overlay": "why is natalie portman\nso elegant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607980682060549392/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ca2984ae",
+   "texte_overlay": "1. she never tries to be noticed\n\nher elegance is intelligent.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607980682060549392/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "915f74e4",
+   "texte_overlay": "2. she really studied\n\na psychology degree from harvard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607980682060549392/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2d69bf69",
+   "texte_overlay": "3. she never shows off\nwhat she knows",
+   "texte_sophia": "3. she never shows off what she knows.\nwhen i want to learn more, i use an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607980682060549392/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1fde0c04",
+   "texte_overlay": "4. clean, classic style\n\nnothing loud or trendy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607980682060549392/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c1b89c33",
+   "texte_overlay": "5. she keeps her private life\nprivate",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607980682060549392/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "632fc0ff",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607980682060549392/6.jpg"
+  }
+ ]
+}

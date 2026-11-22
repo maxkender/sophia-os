@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o360",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c728dcfe-c439-420b-8fcb-78b44fc7708e",
+ "titre": "how to be the girl everyone notices (in the best way) #magnetic #socialskills #smartgirl #charisma #confidence",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 7 de la boîte (parent c728dcfe, langue source pl) : accroche reformulée (« how to be the girl everyone notices (in the best way) »), différente de sg-o332 ; conseils du parent. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "03b9f4a0",
+   "texte_overlay": "how to be the girl everyone\nnotices (in the best way)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0bd8eaf2",
+   "texte_overlay": "walk in slowly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "14cebf82",
+   "texte_overlay": "say hello to the host first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8fddd980",
+   "texte_overlay": "ask what people love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e1db137b",
+   "texte_overlay": "have one fresh story ready",
+   "texte_sophia": "have one fresh story ready: i find mine\non an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "253c1584",
+   "texte_overlay": "laugh easily",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "efefb1b5",
+   "texte_overlay": "leave while they still\nwant you to stay",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2f0d5bc3",
+   "texte_overlay": "save this before\nthe weekend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o358",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "67cca833-0dcb-47c1-abc5-0184123046ee",
+ "titre": "habits i dropped to become more elegant #elegance #habits #smartgirl #classy #selfimprovement",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 5 de la boîte (parent 67cca833, langue source en) : accroche reformulée (« habits i dropped to become more elegant »), les habitudes du parent (crier d'une pièce à l'autre, manger en marchant, notes vocales de cinq minutes, se plaindre de la météo, interrompre, scroller à table, s'excuser de tout, n'avoir rien à raconter). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "225d7ab6",
+   "texte_overlay": "habits i dropped to become\nmore elegant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f8d08102",
+   "texte_overlay": "shouting from another room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "780f3c8f",
+   "texte_overlay": "eating while walking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "26d15124",
+   "texte_overlay": "five-minute voice notes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1e6134b6",
+   "texte_overlay": "interrupting people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "032ce839",
+   "texte_overlay": "scrolling at the table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e0bfb273",
+   "texte_overlay": "apologising for everything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "16e865cb",
+   "texte_overlay": "having nothing to talk about\n\nnow i learn one thing a day.",
+   "texte_sophia": "having nothing to talk about\n\nnow i spend five minutes a day on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "d7aac958",
+   "texte_overlay": "which one will you drop?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/9.jpg"
+  }
+ ]
+}

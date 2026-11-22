@@ -1,0 +1,432 @@
+{
+ "id": "sm-012",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "doodle - Slowed",
+  "url": "https://www.tiktok.com/music/doodle-slowed-7397023128725833744"
+ },
+ "notes": "Full test du 22/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « apps that make studying actually fun ». Sophia en 3e carte (cta C : un fait par jour et un petit quiz, le côté jeu), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Habitica (tâches en jeu de rôle : or, niveaux, PV), Pomocat (pomodoro avec un chat animé et du bruit blanc), Study Time With Rain (pomodoro avec un petit fantôme, ambiance pluie, statistiques). Toutes sur l'App Store des 10 pays (lookup iTunes du 20 et du 21/11) ; Pomocat et Study Time With Rain en iOS seul (Android non vérifié). Musique : la sienne de son tube « 4 apps you need as a student! » (678 k).",
+ "titre": {
+  "en": "apps that make studying actually fun",
+  "fr": "les applis qui rendent les révisions vraiment fun",
+  "es": "apps que hacen que estudiar sea divertido",
+  "es-419": "apps que hacen que estudiar sea divertido",
+  "it": "app che rendono lo studio davvero divertente",
+  "tr": "ders çalışmayı gerçekten eğlenceli yapan uygulamalar",
+  "pt-BR": "apps que deixam o estudo divertido",
+  "de": "apps, die lernen wirklich spaßig machen",
+  "sl": "aplikacije, s katerimi je učenje res zabavno",
+  "hu": "appok a szórakoztató tanuláshoz"
+ },
+ "legendes": {
+  "en": "studying, but make it a game 🎮📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "réviser, mais comme un jeu 🎮📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "estudiar, pero como un juego 🎮📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "estudiar, pero como un juego 🎮📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "studiare, ma come un gioco 🎮📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "ders çalışmak, ama oyun gibi 🎮📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "estudar, mas como um jogo 🎮📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "lernen, aber als spiel 🎮📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "učenje, ampak kot igra 🎮📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "tanulás, de játékként 🎮📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/epee.png",
+     "x": 40,
+     "y": 150,
+     "l": 240,
+     "rotation": -15
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 820,
+     "y": 150,
+     "l": 180,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 230,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that make\nstudying\nactually fun",
+    "sous": "trust me\non this one"
+   },
+   "fr": {
+    "titre": "les applis qui\nrendent les\nrévisions fun",
+    "sous": "faites-moi\nconfiance"
+   },
+   "es": {
+    "titre": "apps que\nhacen que\nestudiar sea\ndivertido",
+    "sous": "confía\nen mí"
+   },
+   "es-419": {
+    "titre": "apps que\nhacen que\nestudiar sea\ndivertido",
+    "sous": "confía\nen mí"
+   },
+   "it": {
+    "titre": "app che\nrendono lo\nstudio\ndivertente",
+    "sous": "fidatevi\ndi me"
+   },
+   "tr": {
+    "titre": "ders çalışmayı\neğlenceli\nyapan\nuygulamalar",
+    "sous": "bana\ngüvenin"
+   },
+   "pt-BR": {
+    "titre": "apps que\ndeixam o\nestudo\ndivertido",
+    "sous": "confia\nem mim"
+   },
+   "de": {
+    "titre": "apps, die\nlernen spaßig\nmachen",
+    "sous": "vertraut\nmir"
+   },
+   "sl": {
+    "titre": "aplikacije za\nres zabavno\nučenje",
+    "sous": "zaupajte\nmi"
+   },
+   "hu": {
+    "titre": "appok a\nszórakoztató\ntanuláshoz",
+    "sous": "higgyétek\nel"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/habitica/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/epee.png",
+     "x": 70,
+     "y": 700,
+     "l": 300,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "your to-do list becomes an rpg: finish tasks to earn gold and level up, skip them and your character loses health!"
+   },
+   "fr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "ta to-do list devient un rpg : tu finis une tâche, tu gagnes de l'or et tu montes de niveau. tu la sautes, ton perso perd des pv !"
+   },
+   "es": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "tu lista de tareas se vuelve un rpg: completas tareas y ganas oro y subes de nivel, ¡te las saltas y tu personaje pierde vida!"
+   },
+   "es-419": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "tus pendientes se vuelven un rpg: los completas y ganas oro y subes de nivel, ¡te los saltas y pierdes vida!"
+   },
+   "it": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "la to-do list diventa un gioco di ruolo: completi i compiti e guadagni oro e sali di livello, li salti e il personaggio perde vita!"
+   },
+   "tr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "yapılacaklar listen bir rpg'ye dönüşüyor: görevleri bitir, altın kazan ve seviye atla; atlarsan karakterin can kaybeder!"
+   },
+   "pt-BR": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "sua lista de tarefas vira um rpg: termina tarefas e ganha ouro e sobe de nível, pula e seu personagem perde vida!"
+   },
+   "de": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "deine to-do-liste wird ein rollenspiel: aufgaben erledigen bringt gold und level ups, auslassen kostet deinen charakter lp!"
+   },
+   "sl": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "seznam opravil postane igra vlog: ko nalogo končaš, dobiš zlato in napreduješ, ko jo izpustiš, tvoj lik izgubi življenje!"
+   },
+   "hu": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "a teendőlistád szerepjáték lesz: ha elvégzed, aranyat kapsz és szintet lépsz, ha kihagyod, a karaktered életet veszít!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/pomocat/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 790,
+     "y": 710,
+     "l": 230,
+     "rotation": 5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    }
+   ],
+   "en": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "a cat sits with you during every pomodoro session, and you can't let it down. the cutest accountability buddy."
+   },
+   "fr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un chat reste avec toi pendant chaque pomodoro, et tu ne peux pas le décevoir. le binôme de motivation le plus mignon."
+   },
+   "es": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gato te acompaña en cada pomodoro y no puedes fallarle. el compañero de estudio más mono del mundo."
+   },
+   "es-419": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gato te acompaña en cada pomodoro y no puedes fallarle. el compañero de estudio más tierno del mundo."
+   },
+   "it": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gatto ti fa compagnia durante ogni pomodoro e non puoi deluderlo. il compagno di studio più tenero di sempre."
+   },
+   "tr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "her pomodoroda bir kedi seninle oturuyor ve onu hayal kırıklığına uğratamıyorsun. en tatlı çalışma arkadaşı."
+   },
+   "pt-BR": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "um gato fica com você em cada pomodoro e você não pode decepcionar ele. o parceiro de estudo mais fofo."
+   },
+   "de": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "eine katze sitzt bei jedem pomodoro mit dir, und du willst sie nicht enttäuschen. der süßeste lernbuddy."
+   },
+   "sl": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "mačka sedi s tabo pri vsakem pomodoru in je ne smeš razočarati. najsrčkanejši učni partner."
+   },
+   "hu": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "egy cica ül veled minden pomodoro alatt, és nem akarod cserben hagyni. a legcukibb tanulótárs."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 840,
+     "y": 110,
+     "l": 180,
+     "rotation": 12
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "the quiz is my favorite part, no joke!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "le quiz, c'est mon moment préféré !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡el quiz es mi parte favorita!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡el quiz es mi parte favorita!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "il quiz è la mia parte preferita!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "en sevdiğim kısım test, cidden!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "o quiz é minha parte favorita!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "das quiz ist mein lieblingsteil!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "kviz je moj najljubši del!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "a kvíz a kedvenc részem!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/study-time-rain/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 60,
+     "y": 730,
+     "l": 250,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 730,
+     "y": 720,
+     "l": 300,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "a little ghost studies next to you while it rains, and your study stats grow every day. weirdly motivating."
+   },
+   "fr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un petit fantôme bosse à côté de toi sous la pluie, et tes stats d'étude grimpent chaque jour. bizarrement motivant."
+   },
+   "es": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmita estudia a tu lado mientras llueve y tus estadísticas de estudio crecen cada día. motiva muchísimo."
+   },
+   "es-419": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmita estudia a tu lado mientras llueve y tus estadísticas de estudio crecen cada día. motiva muchísimo."
+   },
+   "it": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmino studia accanto a te mentre piove e le tue statistiche di studio crescono ogni giorno. stranamente motivante."
+   },
+   "tr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "yağmur yağarken küçük bir hayalet yanında çalışıyor ve çalışma istatistiklerin her gün artıyor. garip ama motive edici."
+   },
+   "pt-BR": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "um fantasminha estuda do seu lado enquanto chove e suas estatísticas de estudo crescem todo dia. estranhamente motivador."
+   },
+   "de": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "ein kleiner geist lernt neben dir, während es regnet, und deine lernstatistik wächst jeden tag. komisch motivierend."
+   },
+   "sl": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "mali duhec se uči ob tebi, medtem ko dežuje, tvoja statistika učenja pa raste vsak dan. čudno motivirajoče."
+   },
+   "hu": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "egy kis szellem tanul melletted, miközben esik, és a tanulási statisztikáid minden nap nőnek. furán motiváló."
+   }
+  }
+ ]
+}

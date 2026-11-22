@@ -1,6 +1,6 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
-import { lundiEnClair, reponseDouble, texteDemarrageDouble, texteOffreDouble } from "./doublement.ts";
+import { lundiEnClair, PAIE_RUUL_DEUX_COMPTES, reponseDouble, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "./doublement.ts";
 
 Deno.test("textes du doublement", () => {
   assertEquals(lundiEnClair("2026-11-23"), "Monday, November 23");
@@ -26,4 +26,13 @@ Deno.test("réponse courte à la proposition, toutes langues", () => {
   assertEquals(reponseDouble("Yes but how much will I be paid for the second account exactly?"), null);
   assertEquals(reponseDouble("I can't post today"), null);
   assertEquals(reponseDouble("no posts on my dashboard"), null);
+});
+
+Deno.test("doublement Ruul (22/11) : les 2 comptes payés au même endroit, sur le compte Ruul actuel", () => {
+  const r = texteOffreDouble({ prenom: "Ana", handle: "ana", tarif: 10, lundi: "2026-11-30", canal: "ruul" });
+  assert(r.endsWith(PAIE_RUUL_DEUX_COMPTES));
+  assert(!texteOffreDouble({ prenom: "Ana", handle: "ana", tarif: 10, lundi: "2026-11-30", canal: "upwork" }).includes("Ruul"));
+  assert(texteAccordDouble("2026-11-30", "ruul").endsWith(PAIE_RUUL_DEUX_COMPTES));
+  assert(!texteAccordDouble("2026-11-30", "upwork").includes("Ruul"));
+  assert(texteDemarrageDouble({ handle1: "a", handle2: "b", tarif: 7, lundi: "2026-11-30", canal: "ruul" }).endsWith(PAIE_RUUL_DEUX_COMPTES));
 });

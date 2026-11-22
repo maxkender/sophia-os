@@ -1227,7 +1227,7 @@ async function doublesDemarrages(db: Db, simuler: boolean) {
   const bilan = { envoyes: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; texte: string }[] };
   for (const o of (data ?? []) as { id: string; poster_id: string; canal_paie: string; pays: string | null; handle1: string | null; handle2: string | null; lundi: string; tarif: number | null }[]) {
     const langue = await langueDuPays(db, o.pays);
-    const en = texteDemarrageDouble({ handle1: o.handle1, handle2: o.handle2, tarif: o.tarif === null ? null : Number(o.tarif), lundi: o.lundi });
+    const en = texteDemarrageDouble({ handle1: o.handle1, handle2: o.handle2, tarif: o.tarif === null ? null : Number(o.tarif), lundi: o.lundi, canal: o.canal_paie });
     const texte = await traduireSoigne(en, langue);
     if (simuler) {
       bilan.exemples.push({ langue, texte });
@@ -1421,7 +1421,7 @@ async function appliquerRegles(
           const l = (rep as { lundi?: string } | null)?.lundi;
           if (l) lundi = l;
         }
-        fixe(r === "oui" ? texteAccordDouble(lundi) : TEXTE_REFUS_DOUBLE, "double");
+        fixe(r === "oui" ? texteAccordDouble(lundi, o.plateforme) : TEXTE_REFUS_DOUBLE, "double");
         plan.cas = "double_jeudi";
         d.personnel = true;
         d.reponse = await traduire(d.reponse, d.langue);

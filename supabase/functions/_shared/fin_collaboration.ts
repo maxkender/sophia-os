@@ -5,6 +5,7 @@
  * Jamais de code interne (ckd:absent…) : les raisons connues ont leur phrase, les autres passent par `raisonEnClair`.
  */
 import { dateCourte, type EtatReel, lundiDePaie, situation } from "./support_regles.ts";
+import { PAIE_RUUL_DEUX_COMPTES } from "./doublement.ts";
 
 export type CasFin = "kill" | "demande";
 
@@ -73,7 +74,9 @@ export function texteCompteArrete(p: { handle: string | null; le: string; raison
  * 19/11 (Max) : le bandeau du posteur dont Max a validé le 2e compte le jeudi : quel compte, quel label, quand il
  * démarre (le lundi, après son warm-up du jeudi au dimanche) et ce qu'il gagne en plus (tarif d'un compte par semaine).
  */
-export function texteDeuxiemeCompte(p: { handle: string | null; label: string | null; lundi: string; tarif: number | null }): string {
+export function texteDeuxiemeCompte(p: {
+  handle: string | null; label: string | null; lundi: string; tarif: number | null; canal?: string | null;
+}): string {
   const compte = p.handle ? `@${p.handle.replace(/^@/, "")}` : "your account";
   const style = p.label ? ` in the "${p.label}" style` : "";
   const jour = dateCourte(`${p.lundi}T12:00:00Z`);
@@ -81,7 +84,8 @@ export function texteDeuxiemeCompte(p: { handle: string | null; label: string | 
     ? `From that week you are paid for 2 accounts: +${p.tarif} $ per week (${2 * p.tarif} $ per week in total).`
     : "From that week you are paid for 2 accounts.";
   return `Good news: ${compte} is doing great, so you get a 2nd TikTok account${style}. It is on your dashboard now: ` +
-    `create it and do its warm-up from today to Sunday. It starts posting on Monday ${jour}. ${gain}`;
+    `create it and do its warm-up from today to Sunday. It starts posting on Monday ${jour}. ${gain}` +
+    (p.canal === "ruul" ? ` ${PAIE_RUUL_DEUX_COMPTES}` : "");
 }
 
 /** L'objet du message de fin. */

@@ -632,7 +632,7 @@ async function doubleJeudi(supabase: Supabase, id: string): Promise<{ ok: boolea
     const { data: profil } = await supabase.from("profiles").select("tarif_hebdo, ruul_tarif_semaine, canal_paie").eq("id", d.poster_id).maybeSingle();
     const { data: nomLabel } = await supabase.from("labels").select("nom").eq("id", labelId).maybeSingle();
     const tarif = Number((profil?.canal_paie === "ruul" ? profil?.ruul_tarif_semaine : null) ?? profil?.tarif_hebdo ?? 0) || null;
-    const en = texteDeuxiemeCompte({ handle: ancien.handle_tiktok, label: (nomLabel?.nom as string | undefined) ?? null, lundi, tarif });
+    const en = texteDeuxiemeCompte({ handle: ancien.handle_tiktok, label: (nomLabel?.nom as string | undefined) ?? null, lundi, tarif, canal: (profil?.canal_paie as string | null | undefined) ?? null });
     const lg = typeof langue === "string" ? langue : null;
     const texte = await traduireDouble(en, lg);
     const { error: e4 } = await supabase.rpc("texte_poster_ecrire", { p_poster: d.poster_id, p_cle: `compte_double:${cree.compteId}`, p_en: en, p_texte: texte, p_langue: lg });

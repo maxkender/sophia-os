@@ -69,3 +69,14 @@ Deno.test("tickets et 2e compte", () => {
   assert(estReactiver2eCompte("Could you please reactivate my second TikTok account (Personal) in the dashboard?"));
   assert(!estReactiver2eCompte("Can I have a second account?"));
 });
+
+Deno.test("Ruul (22/11) : 2 comptes TikTok, un seul compte Ruul", () => {
+  const r = situationFixe("I have two different email, to work with 2 different tiktok accounts. And i had to open account on ruul with same email that i had on sophia. But i can do just one verification on ruul");
+  assertEquals(r?.cle, "ruul_deux_comptes");
+  assert(r?.texte.includes("same place, your current Ruul account"));
+  assertEquals(situationFixe("Do I need a second verification for my 2nd account?", { plateforme: "ruul" })?.cle, "ruul_deux_comptes");
+  assertEquals(cle("Will I be paid for both accounts on Ruul?"), "ruul_deux_comptes");
+  // Upwork, sans Ruul : pas cette réponse.
+  assertEquals(cle("Do I need a second verification for my 2nd account?"), null);
+  assertEquals(cle("the ruul fee on the 10 dollars, do you send it on top?"), "frais_ruul");
+});

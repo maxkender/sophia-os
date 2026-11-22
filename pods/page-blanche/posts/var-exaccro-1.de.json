@@ -18,18 +18,18 @@
       "scroller"
      ],
      "fr": "par une ex-accro au scroll",
-     "texte": "von einem Ex-Scroll-Junkie"
+     "texte": "von einer Ex-Scroll-Süchtigen"
     }
    },
    "images": {
     "I1": {
      "remplacer": {
-      "source": "sources/os_0cf5be89.jpg",
+      "source": "sources/os_3778abf7.jpg",
       "boite": [
        0,
        0,
-       1760,
-       2368
+       2368,
+       1760
       ]
      }
     }

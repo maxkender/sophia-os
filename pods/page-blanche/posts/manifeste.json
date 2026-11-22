@@ -5752,6 +5752,61 @@
    "notes": "declinaison G2 de var-dates-1, cta B",
    "type_bleo": "declinaison",
    "parent_contenu_id": "1b176175-7014-4020-836b-1db3a1b09185"
+  },
+  {
+   "post_id": "var-exaccro-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7680975889932225814?variante=var-exaccro-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 8,
+   "legende": "#scroll #screentime #digitaldetox",
+   "musique": {
+    "titre": "kagefumi",
+    "auteur": "-",
+    "original": true,
+    "id": "7402610556690860833",
+    "url_tiktok": "https://www.tiktok.com/music/x-7402610556690860833"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7680975889932225814_1",
+    "2": "7681048823824649494_2",
+    "3": "7680975889932225814_2",
+    "4": "7680975889932225814_3",
+    "5": "7680975889932225814_4",
+    "6": "7680975889932225814_7",
+    "7": "7681048823824649494_5",
+    "8": "7680975889932225814_6"
+   },
+   "notes": "declinaison G1 de 7680975889932225814, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "97169fa5-8079-4f2f-9b74-d4123a2e7489"
+  },
+  {
+   "post_id": "original-099",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#learning #selfimprovement #smarter",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7691007701127564576_1",
+    "2": "7703982934369324320_2",
+    "3": "7707332670765813025_5",
+    "4": "7691007701127564576_6",
+    "5": "7691336990419209505_4",
+    "6": "7707332670765813025_3"
+   },
+   "notes": "full test BLEO, cta A",
+   "type_bleo": "full_test"
   }
  ]
 }

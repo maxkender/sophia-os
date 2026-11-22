@@ -283,8 +283,14 @@ async function etat(db: Db) {
       utilisateur_du_jeton: moi.ok ? moi.data : moi.erreur,
     };
   }
+  // Les droits réels du jeton (portées, comptes WhatsApp accessibles), jamais sa valeur.
+  const dbg = s.token ? await graph(`debug_token?input_token=${encodeURIComponent(s.token)}`) : null;
+  const d = (dbg?.data?.data ?? null) as { scopes?: string[]; granular_scopes?: { scope: string; target_ids?: string[] }[]; expires_at?: number; is_valid?: boolean; type?: string } | null;
+  const jeton = d
+    ? { valide: d.is_valid, type: d.type, expire: d.expires_at ? new Date(d.expires_at * 1000).toISOString() : "jamais", portees: d.scopes, comptes: d.granular_scopes }
+    : { erreur: dbg?.erreur ?? "lecture impossible" };
   return {
-    ok: true, secrets: presents, mode: await lireModeWhatsApp(db), pistes_waba: pistes,
+    ok: true, secrets: presents, mode: await lireModeWhatsApp(db), pistes_waba: pistes, jeton, waba_utilise: s.waba,
     numero: numero?.ok ? numero.data : { erreur: numero?.erreur ?? "pas d'identifiant" },
     apps_abonnees: abonnements?.ok ? abonnements.data : { erreur: abonnements?.erreur ?? "pas de WABA" },
   };

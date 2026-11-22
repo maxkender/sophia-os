@@ -185,6 +185,16 @@ Sans paramètre. Réponse : `jour` (Paris) et
 | `comptes_introuvables` | les @ TikTok introuvables (`handles_introuvables`) |
 | `shadowban_probable` | les comptes repérés en shadowban probable, pas encore recréés (`ckd_shadowban`) |
 
+## Compatibilité (22/11)
+
+- Jeton : en-tête `x-qg-token` **ou** `Authorization: Bearer <jeton>` (espaces de bord ignorés, 16 caractères au moins).
+  Un refus renvoie `{"ok":false,"error":"unauthorized","raison":"…"}` : jeton absent, différent, ou `QG_TOKEN` non
+  configuré côté serveur (jamais la valeur).
+- Noms anglais acceptés : `control/recruitment` = `control/recrutement`, `control/payroll` = `control/paie`,
+  `control/issues` = `control/autres`.
+- Paramètres : `cohorte` / `cohort` / `lundi` / `monday` / `date` et `semaine` / `week` / `lundi` / `monday` / `date` ;
+  une date quelconque est ramenée à son lundi. Sans paramètre : la cohorte de ce lundi, et la dernière semaine terminée.
+
 ## Mise en œuvre
 
 - `supabase/migrations/0834_qg_apps.sql` : la fonction `qg_apps(from, to)`, réservée au service (`service_role`).

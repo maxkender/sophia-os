@@ -15,20 +15,21 @@
  * plaintes) et les autres contrôles. Format : docs/qg-api.md.
  */
 import { json, serviceClient } from "../_shared/supabase.ts";
-import { estRouteQg, jetonValide, lireLundiQg, lirePeriodeQg, routeQg } from "../_shared/qg.ts";
+import { estRouteQg, jetonDeRequete, jetonValide, lirePeriodeQg, lundiDe, lundiSouple, raisonRefus, routeQg } from "../_shared/qg.ts";
 
 const ENTETES = { "cache-control": "no-store" };
 
 Deno.serve(async (request) => {
   // Le jeton d'abord : sans lui, toujours 401 (le contrôle de démarrage du déploiement l'attend, quelle que soit la méthode).
-  if (!jetonValide(request.headers.get("x-qg-token"), Deno.env.get("QG_TOKEN"))) {
-    return json({ ok: false, error: "unauthorized" }, 401);
+  const fourni = jetonDeRequete(request.headers);
+  if (!jetonValide(fourni, Deno.env.get("QG_TOKEN"))) {
+    return json({ ok: false, error: "unauthorized", raison: raisonRefus(fourni, Deno.env.get("QG_TOKEN")) }, 401);
   }
   if (request.method !== "GET") return json({ ok: false, error: "GET attendu" }, 405);
   const url = new URL(request.url);
   const route = routeQg(url.pathname);
   if (!estRouteQg(route)) {
-    return json({ ok: false, error: "route inconnue (apps, control/recrutement, control/paie, control/autres)" }, 404);
+    return json({ ok: false, error: "route inconnue (apps, control/recruitment|recrutement, control/payroll|paie, control/issues|autres)" }, 404);
   }
   let rpc: { fn: string; args: Record<string, string> };
   if (route === "apps") {
@@ -36,11 +37,14 @@ Deno.serve(async (request) => {
     if (!periode.ok) return json({ ok: false, error: periode.erreur }, 400);
     rpc = { fn: "qg_apps", args: { p_from: periode.from, p_to: periode.to } };
   } else if (route === "control/recrutement") {
-    const l = lireLundiQg(url.searchParams, "cohorte");
+    // Sans cohorte : celle qui a démarré ce lundi.
+    const l = lundiSouple(url.searchParams, ["cohorte", "cohort", "lundi", "monday", "date"], lundiDe(new Date().toISOString().slice(0, 10)));
     if (!l.ok) return json({ ok: false, error: l.erreur }, 400);
     rpc = { fn: "qg_recrutement", args: { p_cohorte: l.lundi } };
   } else if (route === "control/paie") {
-    const l = lireLundiQg(url.searchParams, "semaine");
+    // Sans semaine : la dernière semaine terminée (lundi précédent).
+    const precedente = new Date(Date.now() - 7 * 86_400_000).toISOString().slice(0, 10);
+    const l = lundiSouple(url.searchParams, ["semaine", "week", "lundi", "monday", "date"], lundiDe(precedente));
     if (!l.ok) return json({ ok: false, error: l.erreur }, 400);
     rpc = { fn: "qg_paie", args: { p_semaine: l.lundi } };
   } else {

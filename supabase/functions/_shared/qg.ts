@@ -28,14 +28,32 @@ export function lirePeriodeQg(params: URLSearchParams): PeriodeQg {
   return { ok: true, from, to };
 }
 
-/** Comparaison en temps constant : le temps de réponse ne dit rien du jeton attendu. */
+/** Comparaison en temps constant : le temps de réponse ne dit rien du jeton attendu. Espaces de bord ignorés. */
 export function jetonValide(fourni: string | null | undefined, attendu: string | null | undefined): boolean {
-  if (!attendu || attendu.length < 24 || !fourni) return false;
-  const a = new TextEncoder().encode(fourni);
-  const b = new TextEncoder().encode(attendu);
+  const f = (fourni ?? "").trim();
+  const t = (attendu ?? "").trim();
+  if (t.length < 16 || !f) return false;
+  const a = new TextEncoder().encode(f);
+  const b = new TextEncoder().encode(t);
   let diff = a.length ^ b.length;
   for (let i = 0; i < b.length; i++) diff |= (a[i] ?? 0) ^ b[i];
   return diff === 0;
+}
+
+/** Le jeton envoyé : en-tête x-qg-token, sinon Authorization: Bearer <jeton>. */
+export function jetonDeRequete(h: Headers): string | null {
+  const x = h.get("x-qg-token")?.trim();
+  if (x) return x;
+  const a = h.get("authorization")?.trim() ?? "";
+  const m = /^bearer\s+(.+)$/i.exec(a);
+  return m ? m[1].trim() : null;
+}
+
+/** Pourquoi le jeton est refusé (sans rien dire de sa valeur). */
+export function raisonRefus(fourni: string | null, attendu: string | null | undefined): string {
+  if ((attendu ?? "").trim().length < 16) return "QG_TOKEN absent ou trop court côté serveur (16 caractères au moins)";
+  if (!fourni) return "jeton absent : en-tête x-qg-token (ou Authorization: Bearer)";
+  return "jeton différent de QG_TOKEN";
 }
 
 /**
@@ -45,7 +63,32 @@ export function jetonValide(fourni: string | null | undefined, attendu: string |
 export function routeQg(pathname: string): string {
   const parts = pathname.split("/").filter(Boolean);
   const i = parts.lastIndexOf("qg");
-  return (i >= 0 ? parts.slice(i + 1) : parts.slice(-1)).join("/");
+  const r = (i >= 0 ? parts.slice(i + 1) : parts.slice(-1)).join("/").toLowerCase();
+  return ALIAS_ROUTES[r] ?? r;
+}
+
+/** Les noms anglais utilisés par le QG. */
+const ALIAS_ROUTES: Record<string, string> = {
+  "control/recruitment": "control/recrutement", "control/payroll": "control/paie", "control/pay": "control/paie",
+  "control/issues": "control/autres", "control/others": "control/autres", "control/other": "control/autres",
+};
+
+/**
+ * Un lundi tiré du premier paramètre présent parmi `noms` (une date quelconque est ramenée à son lundi) ; sans
+ * paramètre, le lundi par défaut. AAAA-MM-JJ.
+ */
+export function lundiSouple(params: URLSearchParams, noms: string[], defaut: string): { ok: true; lundi: string } | { ok: false; erreur: string } {
+  const v = noms.map((n) => (params.get(n) ?? "").trim()).find(Boolean);
+  if (!v) return { ok: true, lundi: defaut };
+  if (!dateValide(v)) return { ok: false, erreur: `${noms[0]} invalide (AAAA-MM-JJ attendu)` };
+  return { ok: true, lundi: lundiDe(v) };
+}
+
+/** Le lundi de la semaine d'une date (AAAA-MM-JJ). */
+export function lundiDe(jour: string): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+  return d.toISOString().slice(0, 10);
 }
 
 /** Un lundi obligatoire (`cohorte`, `semaine`), AAAA-MM-JJ. */

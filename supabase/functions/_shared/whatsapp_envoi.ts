@@ -14,6 +14,16 @@ export const secretsWhatsApp = () => ({
   waba: Deno.env.get("WHATSAPP_BUSINESS_ACCOUNT_ID") ?? "",
 });
 
+/**
+ * L'identifiant du compte WhatsApp Business : le réglage whatsapp_waba_id s'il existe (ce n'est pas un secret),
+ * sinon le secret WHATSAPP_BUSINESS_ACCOUNT_ID.
+ */
+export async function wabaId(db: Db): Promise<string> {
+  const { data } = await db.from("reglages").select("valeur").eq("cle", "whatsapp_waba_id").maybeSingle();
+  const v = typeof data?.valeur === "string" ? data.valeur.trim() : typeof data?.valeur === "number" ? String(data.valeur) : "";
+  return /^\d{6,25}$/.test(v) ? v : secretsWhatsApp().waba;
+}
+
 export async function lireModeWhatsApp(db: Db): Promise<unknown> {
   const { data } = await db.from("reglages").select("valeur").eq("cle", "whatsapp_mode").maybeSingle();
   return data?.valeur ?? { mode: "test", numeros_autorises: [] };

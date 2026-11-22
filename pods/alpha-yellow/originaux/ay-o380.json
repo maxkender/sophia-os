@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o380",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a8376bea-fda0-4bc3-8505-5134c686132f",
+ "titre": "Everyday habits that make you smarter over time #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "a8376bea-fda0-4bc3-8505-5134c686132f"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 8 de la boîte (a8376bea, fr 1,2 k), 3e et dernière déclinaison après ay-o343 et ay-o361. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o343, o361.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6d28a11b-9b14-4a8a-be07-7c923d68c372",
+   "texte_overlay": "Everyday habits that\nmake you smarter over time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Ask \"why\" more often. At work, in the news, in conversations. Looking for causes trains deeper thinking every single day.",
+   "media_id": "7ade78cd-6b23-4585-a4ec-4f54b8c311e6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Read before bed instead of scrolling. Twenty pages a night adds up to dozens of books a year. Keep a book on your pillow so it's the first thing you see.",
+   "media_id": "7b15061c-8ffd-4b0d-924c-312dfc801efe"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Explain what you learned to a friend. Teaching forces you to really understand and helps you remember it for years. Share one idea a week.",
+   "media_id": "7b1705df-e257-46ae-b53c-58b9ef3612f9"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Try new routes and new places. Exploring keeps your brain alert and builds better memory and orientation. Change one route this week.",
+   "media_id": "7c84e515-e082-4acd-aed3-b82e632282a6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Small daily lessons build real knowledge over months.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small daily lessons build real knowledge over months.",
+   "media_id": "8c3ea550-5ce2-47eb-8a4f-82ec8dd3cef0"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Take notes on what matters. A small notebook for ideas, quotes and lessons. Writing helps you think and remember. Keep it in your pocket.",
+   "media_id": "7cedb9dd-3162-4b2b-992a-ef58cd95d8e9"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Rest your mind properly. Sleep, walks and quiet time are when your brain sorts and stores what you learned. Don't skip it.",
+   "media_id": "7d79621f-d1d8-4ee5-b02c-f5ff71b7b8dd"
+  }
+ ]
+}

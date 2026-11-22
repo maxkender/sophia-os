@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o378",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "21fe21dc-eac1-47b4-9b85-72de876c7c4c",
+ "titre": "Les gestes qui sabotent ton charisme sans que tu le saches #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "21fe21dc-eac1-47b4-9b85-72de876c7c4c"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 6 de la boîte (21fe21dc, tr 5 k r 2,25), 2e déclinaison après ay-o359, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots. Gestes neufs, aucun repris du parent ni d'ay-o359.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6967638f-90bc-42a9-8013-db6df752f5f5",
+   "texte_overlay": "Les gestes qui sabotent\nton charisme sans que\ntu le saches",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679890123126885665/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Geste 1 : Toucher ton visage sans arrêt. Le nez, le menton, les cheveux. Ça trahit la nervosité. Garde tes mains calmes, posées ou sur la table.",
+   "media_id": "764256de-1621-426d-baf8-6f15e23062ee"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Geste 2 : Regarder ton téléphone pendant qu'on te parle. Même une seconde. Ça dit à l'autre qu'il n'est pas important. Range-le complètement.",
+   "media_id": "76a8352b-287a-44cd-b5ec-730d971032c4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Geste 3 : Te balancer d'un pied sur l'autre. Debout, ça donne l'air pressé de partir. Pose tes deux pieds bien à plat, largeur d'épaules.",
+   "media_id": "76e2d72b-3fd6-4f58-97c1-12708b55a7de"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Geste 4 : Sourire trop vite et trop souvent. Un sourire nerveux perd sa valeur. Garde un visage détendu et souris quand c'est sincère.",
+   "media_id": "783d0fc3-368c-4e87-ac43-706c7964086b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bonus : la confiance vient aussi de ce que tu sais. Je fais cinq minutes d'histoire, d'art ou de science par jour, et ça me rend plus serein.",
+   "texte_sophia": "Bonus : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Ça me rend plus serein.",
+   "media_id": "e835bac5-85d8-4313-9c90-a7580cb2f06f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pourquoi c'est important : les gens remarquent ces petits gestes sans même s'en rendre compte. Ils forment leur première impression de toi.",
+   "media_id": "785edd43-e6f3-4719-856a-7c92e5172b2c"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "La méthode : filme-toi pendant un appel ou une conversation. Tu verras tes tics en une minute, et tu pourras les corriger.",
+   "media_id": "78d63168-ab5f-4c67-8357-98592158cab1"
+  }
+ ]
+}

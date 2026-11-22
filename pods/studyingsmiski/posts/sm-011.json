@@ -1,0 +1,432 @@
+{
+ "id": "sm-011",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - Potato.",
+  "url": "https://www.tiktok.com/music/original-sound-potato-7259665564243905285"
+ },
+ "notes": "Full test du 22/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle) : « apps that make exam season less stressful ». Sophia en 3e carte (cta B), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Tide (sons de nature, minuteur d'étude, méditation guidée), Finch (animal de compagnie qui grandit avec des exercices de soin de soi), Sleep Cycle (suivi du sommeil et réveil intelligent). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 21 et du 22/11). Musique : la sienne de « how to stop procrastination. » (456 k).",
+ "titre": {
+  "en": "apps that make exam season less stressful",
+  "fr": "les applis qui rendent les partiels moins stressants",
+  "es": "apps que hacen los exámenes más llevaderos",
+  "es-419": "apps que hacen los exámenes más llevaderos",
+  "it": "app che rendono la sessione meno stressante",
+  "tr": "sınav dönemini kolaylaştıran uygulamalar",
+  "pt-BR": "apps que deixam as provas mais leves",
+  "de": "apps, die die prüfungsphase weniger stressig machen",
+  "sl": "aplikacije, ki naredijo izpitno obdobje manj stresno",
+  "hu": "appok, amiktől kevésbé stresszes a vizsgaidőszak"
+ },
+ "legendes": {
+  "en": "surviving finals, the soft way 🌿📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "survivre aux partiels, version douce 🌿📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "sobrevivir a los exámenes, en versión suave 🌿📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "sobrevivir a los exámenes, en versión suave 🌿📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "sopravvivere alla sessione, in versione soft 🌿📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "sınav haftasından yumuşak bir şekilde sağ çıkmak 🌿📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "sobrevivendo às provas, na versão leve 🌿📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "die prüfungsphase überleben, aber sanft 🌿📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "preživeti izpite, nežno 🌿📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "túlélni a vizsgaidőszakot, puhán 🌿📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 50,
+     "y": 160,
+     "l": 200,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 800,
+     "y": 140,
+     "l": 230,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 40,
+     "y": 740,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 810,
+     "y": 750,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that make\nexam season\nless stressful",
+    "sous": "finals survival\nkit"
+   },
+   "fr": {
+    "titre": "les applis\nqui rendent les\npartiels plus\ndoux",
+    "sous": "kit de survie\ndes partiels"
+   },
+   "es": {
+    "titre": "apps que\nhacen los\nexámenes más\nllevaderos",
+    "sous": "kit de\nsupervivencia"
+   },
+   "es-419": {
+    "titre": "apps que\nhacen los\nexámenes más\nllevaderos",
+    "sous": "kit de\nsupervivencia"
+   },
+   "it": {
+    "titre": "app che\nrendono la\nsessione meno\nstressante",
+    "sous": "kit di\nsopravvivenza"
+   },
+   "tr": {
+    "titre": "sınav\ndönemini\nkolaylaştıran\nuygulamalar",
+    "sous": "sınav haftası\nhayatta kalma kiti"
+   },
+   "pt-BR": {
+    "titre": "apps que\ndeixam as\nprovas mais\nleves",
+    "sous": "kit de\nsobrevivência"
+   },
+   "de": {
+    "titre": "apps für eine\nentspanntere\nprüfungsphase",
+    "sous": "überlebenskit\nfür prüfungen"
+   },
+   "sl": {
+    "titre": "aplikacije za\nmanj stresno\nizpitno\nobdobje",
+    "sous": "komplet za\npreživetje izpitov"
+   },
+   "hu": {
+    "titre": "appok a\nkevésbé\nstresszes\nvizsgákért",
+    "sous": "vizsgaidőszaki\ntúlélőcsomag"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/tide/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "rain, ocean and woods sounds with a study timer, so i can lock in without my brain spiraling about the exam."
+   },
+   "fr": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "des sons de pluie, d'océan et de forêt avec un minuteur d'étude, pour me concentrer sans que mon cerveau panique pour l'exam."
+   },
+   "es": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sonidos de lluvia, mar y bosque con un temporizador de estudio, para concentrarme sin que mi cerebro entre en pánico."
+   },
+   "es-419": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sonidos de lluvia, mar y bosque con un temporizador de estudio, para concentrarme sin que mi cerebro entre en pánico."
+   },
+   "it": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "suoni di pioggia, mare e bosco con un timer per lo studio, così mi concentro senza che il cervello vada in panico per l'esame."
+   },
+   "tr": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "yağmur, okyanus ve orman sesleriyle bir ders zamanlayıcısı, beynim sınav için panik yapmadan odaklanıyorum."
+   },
+   "pt-BR": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sons de chuva, mar e floresta com um timer de estudo, pra eu focar sem o cérebro surtar por causa da prova."
+   },
+   "de": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "regen-, meeres- und waldgeräusche mit lerntimer, damit ich mich konzentriere, ohne dass mein kopf wegen der prüfung durchdreht."
+   },
+   "sl": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "zvoki dežja, morja in gozda s časovnikom za učenje, da se zberem, ne da bi mi možgani panično mislili na izpit."
+   },
+   "hu": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "eső-, tenger- és erdőhangok tanulási időzítővel, így koncentrálok anélkül, hogy pánikolnék a vizsga miatt."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/finch/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "a little pet that grows when you take care of yourself. during exams it reminds me to drink water and take breaks."
+   },
+   "fr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un petit compagnon qui grandit quand tu prends soin de toi. pendant les partiels, il me rappelle de boire de l'eau et de faire des pauses."
+   },
+   "es": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece cuando te cuidas. en exámenes me recuerda beber agua y hacer descansos."
+   },
+   "es-419": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece cuando te cuidas. en exámenes me recuerda tomar agua y hacer descansos."
+   },
+   "it": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un animaletto che cresce quando ti prendi cura di te. durante la sessione mi ricorda di bere acqua e fare pause."
+   },
+   "tr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kendine baktıkça büyüyen küçük bir dost. sınav döneminde su içmemi ve mola vermemi hatırlatıyor."
+   },
+   "pt-BR": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "um bichinho que cresce quando você se cuida. na época de provas ele me lembra de beber água e fazer pausas."
+   },
+   "de": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ein kleines haustier, das wächst, wenn du auf dich achtest. in der prüfungsphase erinnert es mich an wasser und pausen."
+   },
+   "sl": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "mali ljubljenček, ki raste, ko skrbiš zase. med izpiti me opomni, naj pijem vodo in si vzamem odmor."
+   },
+   "hu": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kis kedvenc, ami nő, ha vigyázol magadra. vizsgaidőszakban emlékeztet, hogy igyak vizet és tartsak szünetet."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 850,
+     "y": 100,
+     "l": 170,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "my 10-minute break from revision!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "ma pause de 10 minutes entre deux révisions !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mi descanso de 10 minutos entre repasos!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mi descanso de 10 minutos entre repasos!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "la mia pausa di 10 minuti dal ripasso!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "tekrarlar arasında 10 dakikalık molam!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "minha pausa de 10 minutos entre as revisões!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "meine 10-minuten-pause vom lernen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "moj 10-minutni odmor od ponavljanja!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "a 10 perces szünetem az ismétlés között!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/sleep-cycle/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 60,
+     "y": 730,
+     "l": 230,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "a smart alarm that wakes you up in your lightest sleep phase, because a good night before an exam changes everything."
+   },
+   "fr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un réveil intelligent qui te réveille dans ton sommeil le plus léger, parce qu'une bonne nuit avant un exam change tout."
+   },
+   "es": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un despertador inteligente que te despierta en tu fase de sueño más ligera, porque dormir bien antes de un examen lo cambia todo."
+   },
+   "es-419": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una alarma inteligente que te despierta en tu fase de sueño más ligera, porque dormir bien antes de un examen lo cambia todo."
+   },
+   "it": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una sveglia intelligente che ti sveglia nella fase di sonno più leggera, perché una buona notte prima dell'esame cambia tutto."
+   },
+   "tr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "seni en hafif uyku evresinde uyandıran akıllı bir alarm, çünkü sınavdan önceki iyi bir gece her şeyi değiştirir."
+   },
+   "pt-BR": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "um despertador inteligente que te acorda na fase mais leve do sono, porque uma boa noite antes da prova muda tudo."
+   },
+   "de": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "ein smarter wecker, der dich in der leichtesten schlafphase weckt, denn eine gute nacht vor der prüfung ändert alles."
+   },
+   "sl": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "pametna budilka, ki te zbudi v najlažji fazi spanja, ker dobra noč pred izpitom spremeni vse."
+   },
+   "hu": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "okos ébresztő, ami a legkönnyebb alvási fázisban ébreszt, mert egy jó éjszaka a vizsga előtt mindent megváltoztat."
+   }
+  }
+ ]
+}

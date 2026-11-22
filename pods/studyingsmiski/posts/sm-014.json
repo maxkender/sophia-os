@@ -1,0 +1,432 @@
+{
+ "id": "sm-014",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "pipo pipo",
+  "url": "https://www.tiktok.com/music/pipo-pipo-7181874531974531886"
+ },
+ "notes": "Full test du 22/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « apps that keep my life organized as a student ». Sophia en 2e carte (slide 3, cta B), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Structured (agenda visuel en frise), Tiimo (planificateur visuel en blocs et routines), Goodnotes (notes manuscrites, carnets numériques). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20 et du 21/11). Musique : la sienne de « apps that will make you smarter instead of doomscrolling » (75 k).",
+ "titre": {
+  "en": "apps that keep my life organized as a student",
+  "fr": "les applis qui organisent ma vie d'étudiante",
+  "es": "apps que mantienen mi vida organizada como estudiante",
+  "es-419": "apps que mantienen mi vida organizada como estudiante",
+  "it": "app che tengono organizzata la mia vita da studentessa",
+  "tr": "öğrenci olarak hayatımı düzenli tutan uygulamalar",
+  "pt-BR": "apps que mantêm minha vida organizada na facul",
+  "de": "apps, die mein studentinnenleben organisiert halten",
+  "sl": "aplikacije, ki mi kot študentki držijo življenje v redu",
+  "hu": "appok, amik rendben tartanak az egyetemen"
+ },
+ "legendes": {
+  "en": "the apps holding my whole life together 🗂️🌷 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "les applis qui tiennent toute ma vie 🗂️🌷 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "las apps que sostienen toda mi vida 🗂️🌷 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "las apps que sostienen toda mi vida 🗂️🌷 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "le app che tengono in piedi la mia vita 🗂️🌷 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "tüm hayatımı ayakta tutan uygulamalar 🗂️🌷 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "os apps que seguram minha vida inteira 🗂️🌷 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "die apps, die mein ganzes leben zusammenhalten 🗂️🌷 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "aplikacije, ki držijo skupaj moje življenje 🗂️🌷 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "az appok, amik egyben tartják az életem 🗂️🌷 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/pince.png",
+     "x": 70,
+     "y": 150,
+     "l": 180,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 820,
+     "y": 140,
+     "l": 190,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 810,
+     "y": 750,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that keep\nmy life\norganized",
+    "sous": "student\nedition"
+   },
+   "fr": {
+    "titre": "les applis qui\norganisent\nma vie",
+    "sous": "version\nétudiante"
+   },
+   "es": {
+    "titre": "apps que\nmantienen mi\nvida en orden",
+    "sous": "edición\nestudiante"
+   },
+   "es-419": {
+    "titre": "apps que\nmantienen mi\nvida en orden",
+    "sous": "edición\nestudiante"
+   },
+   "it": {
+    "titre": "app che\norganizzano\nla mia vita",
+    "sous": "versione\nstudentessa"
+   },
+   "tr": {
+    "titre": "hayatımı\ndüzenli tutan\nuygulamalar",
+    "sous": "öğrenci\nversiyonu"
+   },
+   "pt-BR": {
+    "titre": "apps que\norganizam\nminha vida",
+    "sous": "versão\nestudante"
+   },
+   "de": {
+    "titre": "apps, die mein\nleben\norganisieren",
+    "sous": "studentinnen-\nedition"
+   },
+   "sl": {
+    "titre": "aplikacije, ki\nmi urejajo\nživljenje",
+    "sous": "študentska\nizdaja"
+   },
+   "hu": {
+    "titre": "appok, amik\nrendben\ntartanak",
+    "sous": "egyetemista\nkiadás"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/structured/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "my day on one timeline: classes, study blocks, gym and breaks. seeing it all laid out is what keeps me on track."
+   },
+   "fr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "ma journée sur une seule frise : cours, sessions de révision, sport et pauses. tout voir d'un coup, c'est ce qui me garde sur les rails."
+   },
+   "es": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "mi día en una sola línea de tiempo: clases, bloques de estudio, gym y descansos. verlo todo junto es lo que me mantiene al día."
+   },
+   "es-419": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "mi día en una sola línea de tiempo: clases, bloques de estudio, gym y descansos. verlo todo junto es lo que me mantiene al día."
+   },
+   "it": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "la mia giornata su un'unica linea del tempo: lezioni, blocchi di studio, palestra e pause. vederla tutta insieme mi tiene in carreggiata."
+   },
+   "tr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "günüm tek bir zaman çizelgesinde: dersler, çalışma blokları, spor ve molalar. hepsini bir arada görmek beni yolda tutuyor."
+   },
+   "pt-BR": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "meu dia numa linha do tempo só: aulas, blocos de estudo, academia e pausas. ver tudo junto é o que me mantém nos trilhos."
+   },
+   "de": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "mein tag auf einer zeitleiste: vorlesungen, lernblöcke, sport und pausen. alles auf einen blick hält mich auf kurs."
+   },
+   "sl": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "moj dan na eni časovnici: predavanja, učni bloki, telovadba in odmori. ko vidim vse skupaj, ostanem na pravi poti."
+   },
+   "hu": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "a napom egy idővonalon: órák, tanulási blokkok, edzés és szünetek. ha egyben látom, nem csúszok el."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 830,
+     "y": 110,
+     "l": 200,
+     "rotation": 12
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "the one thing i never skip, even on busy days!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "le seul truc que je ne saute jamais, même les jours chargés !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡lo único que nunca me salto, ni en los días caóticos!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡lo único que nunca me salto, ni en los días pesados!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "l'unica cosa che non salto mai, anche nei giorni pieni!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "yoğun günlerde bile asla atlamadığım tek şey!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "a única coisa que eu nunca pulo, nem nos dias corridos!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "das einzige, was ich nie auslasse, auch an vollen tagen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "edino, česar nikoli ne izpustim, tudi ob polnih dneh!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "az egyetlen, amit sosem hagyok ki, még a sűrű napokon sem!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/tiimo/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "my routines turned into colorful blocks with a visual timer, so getting ready and starting homework feel way less heavy."
+   },
+   "fr": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mes routines en blocs colorés avec un minuteur visuel, pour que se préparer et attaquer les devoirs paraisse beaucoup moins lourd."
+   },
+   "es": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mis rutinas en bloques de colores con un temporizador visual, para que arreglarme y empezar los deberes pese mucho menos."
+   },
+   "es-419": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mis rutinas en bloques de colores con un temporizador visual, para que arreglarme y empezar la tarea se sienta mucho más ligero."
+   },
+   "it": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "le mie routine in blocchi colorati con un timer visivo, così prepararmi e iniziare i compiti pesa molto meno."
+   },
+   "tr": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "rutinlerim görsel bir sayaçla renkli bloklara dönüşüyor, hazırlanmak ve ödeve başlamak çok daha kolay geliyor."
+   },
+   "pt-BR": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "minhas rotinas viram blocos coloridos com um timer visual, então me arrumar e começar a lição pesa bem menos."
+   },
+   "de": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "meine routinen als bunte blöcke mit visuellem timer, so fühlen sich fertigmachen und mit hausaufgaben anfangen viel leichter an."
+   },
+   "sl": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "moje rutine postanejo barvni bloki z vizualnim časovnikom, zato je priprava in začetek domače naloge veliko lažji."
+   },
+   "hu": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "a rutinjaim színes blokkok vizuális időzítővel, így a készülődés és a házi elkezdése sokkal könnyebb."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/goodnotes/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 60,
+     "y": 740,
+     "l": 250,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 740,
+     "y": 670,
+     "l": 300,
+     "rotation": -8
+    }
+   ],
+   "en": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "every class in its own notebook, handwritten like real paper and actually searchable. no more lost notes."
+   },
+   "fr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "chaque cours dans son carnet, écrit à la main comme sur du papier et en plus cherchable. fini les notes perdues."
+   },
+   "es": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada asignatura en su cuaderno, escrito a mano como en papel y además se puede buscar. adiós a los apuntes perdidos."
+   },
+   "es-419": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada materia en su cuaderno, escrito a mano como en papel y además se puede buscar. adiós a los apuntes perdidos."
+   },
+   "it": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "ogni materia nel suo quaderno, scritto a mano come su carta e pure ricercabile. basta appunti persi."
+   },
+   "tr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "her ders kendi defterinde, kağıttaymış gibi elle yazılmış ve aranabilir. kaybolan notlara son."
+   },
+   "pt-BR": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada matéria no seu caderno, escrito à mão como no papel e ainda dá pra pesquisar. chega de anotação perdida."
+   },
+   "de": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "jedes fach in seinem heft, von hand wie auf papier und trotzdem durchsuchbar. nie wieder verlorene notizen."
+   },
+   "sl": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "vsak predmet v svojem zvezku, napisan na roko kot na papir in še iskanje deluje. konec izgubljenih zapiskov."
+   },
+   "hu": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "minden tárgy a saját füzetében, kézzel írva, mint papíron, és még kereshető is. nincs több elveszett jegyzet."
+   }
+  }
+ ]
+}

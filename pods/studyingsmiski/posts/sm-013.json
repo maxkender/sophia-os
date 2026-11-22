@@ -1,0 +1,432 @@
+{
+ "id": "sm-013",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "New Jeans",
+  "url": "https://www.tiktok.com/music/new-jeans-7251860325203593218"
+ },
+ "notes": "Full test du 22/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle), dans la veine de son « you're not behind, you just need a reset » (193 k) : « 4 apps for a sunday reset ». Sophia en 3e carte (cta A), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Todoist (liste de tâches et calendrier), Daylio (micro-journal d'humeur et d'activités), Calm (respiration, méditations, histoires pour dormir). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 21 et du 22/11). Musique : la sienne de sa liste du 04/11 (70 k).",
+ "titre": {
+  "en": "4 apps for a sunday reset",
+  "fr": "4 applis pour un reset du dimanche",
+  "es": "4 apps para un reset de domingo",
+  "es-419": "4 apps para un reset de domingo",
+  "it": "4 app per il reset della domenica",
+  "tr": "pazar sıfırlaması için 4 uygulama",
+  "pt-BR": "4 apps pra um reset de domingo",
+  "de": "4 apps für den sonntags-reset",
+  "sl": "4 aplikacije za nedeljski reset",
+  "hu": "4 app a vasárnapi resethez"
+ },
+ "legendes": {
+  "en": "sunday reset, but make it cozy 🕯️🌿 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "le reset du dimanche, version cosy 🕯️🌿 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "reset de domingo, en versión cozy 🕯️🌿 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "reset de domingo, en versión cozy 🕯️🌿 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "il reset della domenica, in versione cozy 🕯️🌿 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "pazar sıfırlaması, ama cozy hali 🕯️🌿 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "reset de domingo, mas aconchegante 🕯️🌿 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "sonntags-reset, aber gemütlich 🕯️🌿 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "nedeljski reset, ampak prijeten 🕯️🌿 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "vasárnapi reset, cozy módra 🕯️🌿 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 50,
+     "y": 160,
+     "l": 200,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 800,
+     "y": 160,
+     "l": 220,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 40,
+     "y": 730,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 740,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "4 apps for a\nsunday\nreset",
+    "sous": "new week,\nnew me"
+   },
+   "fr": {
+    "titre": "4 applis pour\nun reset du\ndimanche",
+    "sous": "nouvelle semaine,\nnouvelle moi"
+   },
+   "es": {
+    "titre": "4 apps para\nun reset de\ndomingo",
+    "sous": "nueva semana,\nnueva yo"
+   },
+   "es-419": {
+    "titre": "4 apps para\nun reset de\ndomingo",
+    "sous": "nueva semana,\nnueva yo"
+   },
+   "it": {
+    "titre": "4 app per il\nreset della\ndomenica",
+    "sous": "nuova settimana,\nnuova me"
+   },
+   "tr": {
+    "titre": "pazar\nsıfırlaması\niçin 4\nuygulama",
+    "sous": "yeni hafta,\nyeni ben"
+   },
+   "pt-BR": {
+    "titre": "4 apps pra\num reset de\ndomingo",
+    "sous": "nova semana,\nnova eu"
+   },
+   "de": {
+    "titre": "4 apps für\nden sonntags-\nreset",
+    "sous": "neue woche,\nneues ich"
+   },
+   "sl": {
+    "titre": "4 aplikacije\nza nedeljski\nreset",
+    "sous": "nov teden,\nnova jaz"
+   },
+   "hu": {
+    "titre": "4 app a\nvasárnapi\nresethez",
+    "sous": "új hét,\núj én"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/todoist/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "i brain-dump everything for the week ahead, then sort it by day so monday doesn't feel like a wall."
+   },
+   "fr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "je vide ma tête de tout ce qui m'attend dans la semaine, puis je range par jour pour que lundi ne ressemble pas à un mur."
+   },
+   "es": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "vacío la cabeza con todo lo de la semana y lo ordeno por días para que el lunes no parezca un muro."
+   },
+   "es-419": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "saco de mi cabeza todo lo de la semana y lo ordeno por días para que el lunes no se sienta como un muro."
+   },
+   "it": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "svuoto la testa da tutto quello che mi aspetta in settimana e lo divido per giorni, così il lunedì non sembra un muro."
+   },
+   "tr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "haftanın tüm işlerini kafamdan boşaltıp günlere ayırıyorum, böylece pazartesi duvar gibi gelmiyor."
+   },
+   "pt-BR": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "despejo tudo da semana que vem e organizo por dia, pra segunda não parecer uma parede."
+   },
+   "de": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "ich schreibe alles für die neue woche auf und sortiere es nach tagen, damit der montag nicht wie eine wand wirkt."
+   },
+   "sl": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "iz glave stresem vse za prihodnji teden in razporedim po dnevih, da ponedeljek ni videti kot zid."
+   },
+   "hu": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "kiírok mindent a következő hétre, aztán napokra osztom, hogy a hétfő ne tűnjön falnak."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/daylio/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 820,
+     "y": 750,
+     "l": 190,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "two taps to log my mood and what i did each day. on sundays i look back at what actually made my week good."
+   },
+   "fr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "deux clics pour noter mon humeur et ma journée. le dimanche, je regarde ce qui a vraiment rendu ma semaine belle."
+   },
+   "es": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "dos toques para apuntar mi humor y lo que hice cada día. los domingos miro qué hizo que mi semana fuera buena."
+   },
+   "es-419": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "dos toques para anotar mi ánimo y lo que hice cada día. los domingos veo qué hizo que mi semana fuera buena."
+   },
+   "it": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "due tocchi per segnare umore e attività di ogni giorno. la domenica guardo cosa ha reso davvero bella la mia settimana."
+   },
+   "tr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "iki dokunuşla ruh halimi ve her gün ne yaptığımı kaydediyorum. pazarları haftamı neyin güzelleştirdiğine bakıyorum."
+   },
+   "pt-BR": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "dois toques pra marcar meu humor e o que fiz no dia. no domingo eu vejo o que realmente deixou minha semana boa."
+   },
+   "de": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "zwei taps, um stimmung und tag festzuhalten. sonntags schaue ich, was meine woche wirklich schön gemacht hat."
+   },
+   "sl": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "dva dotika, da zapišem razpoloženje in kaj sem počela. ob nedeljah pogledam, kaj mi je res polepšalo teden."
+   },
+   "hu": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "két koppintás, és rögzítem a hangulatom meg a napom. vasárnap megnézem, mitől volt igazán jó a hetem."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 860,
+     "y": 90,
+     "l": 160,
+     "rotation": 10
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "my sunday lesson with a matcha!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "ma leçon du dimanche avec un matcha !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡mi lección de domingo con un matcha!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡mi lección de domingo con un matcha!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "la mia lezione della domenica con un matcha!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "matcha eşliğinde pazar dersim!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "minha aula de domingo com um matcha!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "meine sonntagslektion mit matcha!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "nedeljska lekcija ob matchi!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "vasárnapi leckém egy matchával!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/calm/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 800,
+     "y": 730,
+     "l": 220,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "a few minutes of breathing or a sleep story on sunday night, so i start the week rested instead of anxious."
+   },
+   "fr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "quelques minutes de respiration ou une histoire pour dormir le dimanche soir, pour commencer la semaine reposée et pas stressée."
+   },
+   "es": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "unos minutos de respiración o una historia para dormir el domingo por la noche, para empezar la semana descansada."
+   },
+   "es-419": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "unos minutos de respiración o una historia para dormir el domingo en la noche, para empezar la semana descansada."
+   },
+   "it": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "qualche minuto di respirazione o una storia per dormire la domenica sera, per iniziare la settimana riposata."
+   },
+   "tr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "pazar akşamı birkaç dakika nefes egzersizi ya da uyku hikayesi, haftaya kaygılı değil dinlenmiş başlıyorum."
+   },
+   "pt-BR": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "uns minutinhos de respiração ou uma história pra dormir no domingo à noite, pra começar a semana descansada."
+   },
+   "de": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "ein paar minuten atmen oder eine einschlafgeschichte am sonntagabend, damit ich ausgeruht statt nervös in die woche starte."
+   },
+   "sl": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "nekaj minut dihanja ali zgodba za lahko noč v nedeljo zvečer, da teden začnem spočita, ne zaskrbljena."
+   },
+   "hu": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "pár perc légzés vagy esti mese vasárnap este, hogy kipihenten kezdjem a hetet, ne szorongva."
+   }
+  }
+ ]
+}

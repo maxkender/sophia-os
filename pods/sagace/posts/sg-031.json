@@ -1,0 +1,1317 @@
+{
+ "id": "sg-031",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 avant de quitter la maison",
+  "en": "10/10 skills to learn before leaving home",
+  "de": "10/10-Skills, die du lernen solltest, bevor du ausziehst",
+  "it": "Abilità 10/10 da imparare prima di andare a vivere da solo",
+  "pt-BR": "Habilidades 10/10 para aprender antes de sair de casa",
+  "tr": "Evden ayrılmadan önce öğrenmen gereken 10/10 beceriler",
+  "ro": "Abilități 10/10 de învățat înainte să pleci de acasă",
+  "cs": "Dovednosti 10/10, které se musíš naučit, než se odstěhuješ"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 avant de quitter la maison #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to learn before leaving home #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die du lernen solltest, bevor du ausziehst #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 da imparare prima di andare a vivere da solo #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para aprender antes de sair de casa #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Evden ayrılmadan önce öğrenmen gereken 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 de învățat înainte să pleci de acasă #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které se musíš naučit, než se odstěhuješ #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Full test du 22/11 (accroche neuve « Compétences 10/10 à apprendre avant de quitter la maison »). 5 compétences pour vivre seul : réparer un robinet qui fuit, cuire un riz parfait, Sophia en étape 4 sur 7 (cta C, « ÊTRE PRÊT / POUR LA VIE »), faire le ménage vite, faire ses courses moins cher, ranger son frigo. Lessive et CV écartés (déjà dans sg-030, mêmes vidéos). Vraies vidéos natives par langue (fr : Bricomarché, Mama Ly, Marisa F., Amandine Poggioli, Les bonheurs de Camille). Accroche fr raccourcie le 22/11 (« à apprendre » retiré) : le guichet la jugeait trop proche du thème gagnant « … à apprendre au lieu de scroller » (theme_gagnant).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "AVANT",
+      "cap": 120
+     },
+     {
+      "t": "DE QUITTER",
+      "cap": 150
+     },
+     {
+      "t": "LA MAISON",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO LEARN BEFORE",
+      "cap": 93
+     },
+     {
+      "t": "LEAVING",
+      "cap": 150
+     },
+     {
+      "t": "HOME",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE DU LERNEN SOLLTEST,",
+      "cap": 80
+     },
+     {
+      "t": "BEVOR DU",
+      "cap": 150
+     },
+     {
+      "t": "AUSZIEHST",
+      "couleur": "brun",
+      "cap": 220
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DA IMPARARE PRIMA DI",
+      "cap": 93
+     },
+     {
+      "t": "VIVERE",
+      "cap": 150
+     },
+     {
+      "t": "DA SOLO",
+      "couleur": "brun",
+      "cap": 250
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA APRENDER ANTES DE",
+      "cap": 80
+     },
+     {
+      "t": "SAIR DE",
+      "cap": 150
+     },
+     {
+      "t": "CASA",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "EVDEN",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "AYRILMADAN ÖNCE",
+      "cap": 110
+     },
+     {
+      "t": "ÖĞRENMEN GEREKEN",
+      "cap": 93
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 170
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DE ÎNVĂȚAT ÎNAINTE",
+      "cap": 93
+     },
+     {
+      "t": "SĂ PLECI DE",
+      "cap": 120
+     },
+     {
+      "t": "ACASĂ",
+      "couleur": "brun",
+      "cap": 250
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "KTERÉ SE MUSÍŠ NAUČIT,",
+      "cap": 80
+     },
+     {
+      "t": "NEŽ SE",
+      "cap": 150
+     },
+     {
+      "t": "ODSTĚHUJEŠ",
+      "couleur": "brun",
+      "cap": 200
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉPARER",
+     [
+      {
+       "t": "UN ROBINET QUI FUIT",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "foIo9dMTY7I",
+     "titre": "Comment réparer un robinet qui fuit ? I Bricomarché",
+     "chaine": "Bricomarché",
+     "vues": "463 k vues",
+     "date": "il y a 8 ans",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/QgI72oSysB0P7O_ldOAAfpM28RQSXdTBUtW7unRMK81X4RzxEm2117PO1_irIKvXkykgJZr-jg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FIX",
+     [
+      {
+       "t": "A LEAKY FAUCET",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SYPFon69vKs",
+     "titre": "How to Fix a Leaky Faucet | The Home Depot",
+     "chaine": "The Home Depot",
+     "vues": "1.7M views",
+     "date": "8 years ago",
+     "duree": "1:45",
+     "avatar": "https://yt3.ggpht.com/zb-CeccQq1pm8B_zvan3SZ5LGJ1EATwU6EeLye35F8wjG3nClyIzhNPA53xoUjGA4BEk6mYLmRg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WASSERHAHN",
+     [
+      {
+       "t": "REPARIEREN",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hA_GtpurrWM",
+     "titre": "Tipps gegen tropfenden Wasserhahn | ToolTown Heimwerken",
+     "chaine": "ToolTown - Home of Heimwerken",
+     "vues": "301.530 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKBPxEgR34Phezhbu_lUO-xO7wlMbq2h9qOF2hpaBNFQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RIPARARE",
+     [
+      {
+       "t": "UN RUBINETTO",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wL2DlsQyy5Y",
+     "titre": "rubinetto miscelatore SOSTITUZIONE O RIPARAZIONE ?",
+     "chaine": "Capezza72",
+     "vues": "378K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "7:21",
+     "avatar": "https://yt3.ggpht.com/GsPj_EY4ZsP6n95DXua_jav4ngDBSoFl2bAn2Z02oHPMwlofn8wgPyRW9IlAQxmLqA3EOVkkGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONSERTAR",
+     [
+      {
+       "t": "UMA TORNEIRA",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-sjVGnF-DwM",
+     "titre": "Como consertar torneira que não para de pingar",
+     "chaine": "Agiliza Lab, por Mari Pavan",
+     "vues": "481 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "5:28",
+     "avatar": "https://yt3.ggpht.com/fsfWGGsmMB9EM7ntxkaDaaZTs3cSJkgU0GJkql0arABCcBGHRZRkZODx8X65rT4jHWQbpeec=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "MUSLUK",
+     [
+      {
+       "t": "TAMİR ETMEK",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O5hay3F7op8",
+     "titre": "Damlatan musluk tamiri, musluk göbeği ve conta değişimi",
+     "chaine": "kendin yaparsın",
+     "vues": "725 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/iZu7lJSIPD1nuUOyqleeuILbN9CEMacjxGvBAnvlemXIuVNqe3BTkOSfm0RgHemelPFWZvQy4f4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ REPARI",
+     [
+      {
+       "t": "UN ROBINET",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IpvtR39Hizo",
+     "titre": "Remediere curgere baterie bucatarie",
+     "chaine": "Mesteru' Dexter",
+     "vues": "96 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/CVHEVf7dbHmRgZEqp5U-RKnXuv3j2VAUh155zNtIUUpsifeWRhWjrFWQ5fAK52lfDsxLdEfcZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OPRAVIT",
+     [
+      {
+       "t": "KAPAJÍCÍ KOHOUTEK",
+       "couleur": "#2f7fc1"
+      }
+     ]
+    ],
+    "video": {
+     "id": "En2wdSPYCCs",
+     "titre": "Výměna Kartuše - Oprava Kapající Pákové Vodovodní Baterie - Stojánková I Nástěnná - Návod, Postup",
+     "chaine": "Jdu do dílny",
+     "vues": "178 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "7:57",
+     "avatar": "https://yt3.ggpht.com/JxskVDeuzn4AfJCstq67AByB83Iwk8XMUu3ZZPDSYTrGVaZI1xXBg7YouLhk8if28dRO6SUXgQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CUIRE",
+     [
+      {
+       "t": "UN RIZ PARFAIT",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3ox39HTY5nc",
+     "titre": "Comment cuire du riz à la casserole - 3 conseils pour obtenir un riz parfait 👌",
+     "chaine": "Mama Ly",
+     "vues": "272 k vues",
+     "date": "il y a 2 ans",
+     "duree": "2:51",
+     "avatar": "https://yt3.ggpht.com/91Yhvn9qB75WJAehOVf7mMBGDX5Yz4MT9RmT4YbwupRmMXakKfBzHnbLnwtoiTYlB5EqPsqS2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "COOK",
+     [
+      {
+       "t": "PERFECT RICE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Jf75I9LKhvg",
+     "titre": "How To Cook The Perfect Rice | Gordon Ramsay",
+     "chaine": "Gordon Ramsay",
+     "vues": "7.4M views",
+     "date": "12 years ago",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/iu8M-gugkNvz-lHxC1sMEfAlL7ONWbP91c5SM9bb98oCJAcYUl0HIAMZFFR2Dd-soGag1Y1y8A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "REIS",
+     [
+      {
+       "t": "RICHTIG KOCHEN",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m7HLPsQtjCQ",
+     "titre": "Fluffigen Reis kochen wie die Profis 🍚(ohne Reiskocher!)",
+     "chaine": "Tim - Brot mit Ei",
+     "vues": "139.046 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "5:43",
+     "avatar": "https://yt3.ggpht.com/XdOsM384UspvGaLWEcHNtb8du3TVKn5sYPok_i6z-TAMDYX70fSBBkomiLITmNJ8w-w35I1YZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CUOCERE",
+     [
+      {
+       "t": "IL RISO",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wxphGrQECAc",
+     "titre": "Quasi tutti fanno questi 3 errori nella cottura del riso",
+     "chaine": "De gustibus",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjLT8kw2YsbQbz2gXfJ1FlYZe_rtWpN5EJl3XHx9FreA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "ARROZ SOLTINHO",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AV-hJz0iwoc",
+     "titre": "Chega de Arroz EMPAPADO! DICA TOP para INICIANTES de Como Fazer o Arroz Branco SOLTINHO e GOSTOSO!",
+     "chaine": "Cozinha sem Misterio",
+     "vues": "421 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "5:36",
+     "avatar": "https://yt3.ggpht.com/yo8IfuZsd8eUxmr_VXMfQqaRtzut6LoNLfIIjfL7LHPt2U7SPzWFOeLpqWKGrTAFRyPtU_S52ag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PİLAV",
+     [
+      {
+       "t": "YAPMAK",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8eUFgKsstwQ",
+     "titre": "Tane Tane Pirinç Pilavı Nasıl Yapılır? | Nefis Yemek Tarifleri",
+     "chaine": "Nefis Yemek Tarifleri",
+     "vues": "17 Mn görüntüleme",
+     "date": "12 yıl önce",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/tX0tJPs42-5_5cy9RbtEDs90jzkQuKvgWO3Hj-lzIG8aQdtME1ffs1jloPkNzBtFDZ0GNqY0rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FIERBI",
+     [
+      {
+       "t": "OREZUL",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sYqjiOB0y2U",
+     "titre": "Cum să faci cel mai pufos orez basmati",
+     "chaine": "Sorin Logofatu",
+     "vues": "81 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "1:41",
+     "avatar": "https://yt3.ggpht.com/SVrVQ1wrMBQqxFccq8p8VOKNZk4KTNKnbNuDs9fhcu1flYrMdP8yrEIGV_dRS5BvSaDmEvYuxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "RÝŽI",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BMGSjsvot-U",
+     "titre": "Rýže recept. Jak uvařit sypkou rýži.",
+     "chaine": "Vaříme s Mozkem",
+     "vues": "33 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/puFJqFDXsGNPfMKZIATpECC-xcpBB17IrBx5HKe3i03hLcDL0T4xpzeeG73v941BfhkYJ0Pl5Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ÊTRE PRÊT",
+     [
+      {
+       "t": "POUR LA VIE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BE READY",
+     [
+      {
+       "t": "FOR LIFE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "BEREIT",
+     [
+      {
+       "t": "FÜRS LEBEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PRONTO",
+     [
+      {
+       "t": "PER LA VITA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PRONTO",
+     [
+      {
+       "t": "PARA A VIDA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HAYATA",
+     [
+      {
+       "t": "HAZIR OLMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "PREGĂTIT",
+     [
+      {
+       "t": "PENTRU VIAȚĂ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PŘIPRAVEN",
+     [
+      {
+       "t": "NA ŽIVOT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "LE MÉNAGE VITE",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LFlGrtM_S10",
+     "titre": "8 ASTUCES DE NETTOYAGE SIMPLE ET RAPIDE POUR UNE MAISON ÉTINCELANTE 🫧",
+     "chaine": "Marisa F.",
+     "vues": "274 k vues",
+     "date": "il y a 3 ans",
+     "duree": "12:23",
+     "avatar": "https://yt3.ggpht.com/OaRnftyO1IfSog0u09j9AhAvBQHwpnv0zJdzg1DvKBG216xHsydhDP5w-T_18VZ2zW78jznQ_cA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CLEAN",
+     [
+      {
+       "t": "YOUR PLACE FAST",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TqHX3pTeRdg",
+     "titre": "Cleaning Expert: My Secret System to Cleaning Fast & Effectively!",
+     "chaine": "Clean My Space",
+     "vues": "1.1M views",
+     "date": "7 years ago",
+     "duree": "10:33",
+     "avatar": "https://yt3.ggpht.com/wZCmwBsU9PWt3ku1s8OLp98CiMYxvvkNUokIj5C4_TbQzwo2vNbA1j2B7sLuPldwdkt7I19ldg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SCHNELL",
+     [
+      {
+       "t": "PUTZEN",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iOPKeUCdZGU",
+     "titre": "Einfach IMMER ordentlich in 15min 🤩| Die besten Tricks für den schnellen Haushalt | mamiblock",
+     "chaine": "mamiblock",
+     "vues": "613.763 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "13:51",
+     "avatar": "https://yt3.ggpht.com/HxjKfey4dEkvWm3F9U-7hJTRo4DAgu-QjFZsG3YKpZvNQyZ87JWjo2Ic-DPR0IQSDTc3zvl7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PULIRE CASA",
+     [
+      {
+       "t": "VELOCEMENTE",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m8S7E0zpQn4",
+     "titre": "Come PULIRE CASA VELOCEMENTE  (in meno di 1 ora)",
+     "chaine": "Elena Tee",
+     "vues": "165K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:09",
+     "avatar": "https://yt3.ggpht.com/dNuWRJg5y19kBrUFxjwo2TFHkjsagBNRB-7x020iXlDanZH7zOhSW6TCccdhvhEuJEBaYNL-mA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LIMPAR",
+     [
+      {
+       "t": "A CASA RÁPIDO",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r_jBwo348og",
+     "titre": "COMO LIMPAR A CASA RÁPIDO E BEM FEITO: DICAS PRÁTICAS E EFICIENTES Organize sem Frescuras",
+     "chaine": "Organize sem Frescuras!",
+     "vues": "670 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "7:09",
+     "avatar": "https://yt3.ggpht.com/hNVG-mCodjhysT8CGQovB4ycSsCcQRtE9VKQefJvO8P9dt_IZlzdT6fh1yu2WHyM6wAb5csa=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PRATİK",
+     [
+      {
+       "t": "EV TEMİZLİĞİ",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MqitRQAVrTQ",
+     "titre": "5 Adımda Pratik Ev Temizliği | İrem Güzey",
+     "chaine": "Irem Guzey",
+     "vues": "132 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJ2kUVR5Y-zIO-zFr2FzR-lXd42vMcoZ_3_KG1cv5jbFM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "CURĂȚENIE",
+     [
+      {
+       "t": "RAPIDĂ",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VpW5zLbcNO4",
+     "titre": "O casă curată cu doar câteva minute pe zii: 13 obiceiuri zilnice",
+     "chaine": "Stef Banu",
+     "vues": "17 K vizionări",
+     "date": "acum 1 an",
+     "duree": "10:06",
+     "avatar": "https://yt3.ggpht.com/6N6WJNeUFhcPlvE--t9DGNi5XGSbaM-3rP3SdrxFj0GGg--XSgGWp3PQ9csr6ruqnCwSghVOUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UKLIDIT",
+     [
+      {
+       "t": "RYCHLE",
+       "couleur": "#8e5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_7MdHgTDqHA",
+     "titre": "Pojďte se mnou uklízet! | Speed clean | Motivace a tipy na úklid",
+     "chaine": "Marketa Frank",
+     "vues": "126 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "12:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k-l-B8dvBHcFiNrwYckzQQi-zKoI9_QdJAJTuykygka00=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE SES COURSES",
+     [
+      {
+       "t": "MOINS CHER",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OrmLig11dv8",
+     "titre": "20 astuces pour économiser beaucoup d'argent  | BUDGET EXTREME",
+     "chaine": "Amandine Poggioli",
+     "vues": "136 k vues",
+     "date": "il y a 1 an",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/Yf3edUDyxfn0w1bKSpCrVzlbA0Ij3VFaAqKEckQoL6wKQlFsFhNN_VTMt0hic0VhYKPznHHGoDE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SHOP",
+     [
+      {
+       "t": "ON A BUDGET",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ob-06o3TggE",
+     "titre": "How I Save 40% On My Food Bill (Money Saving Hacks)",
+     "chaine": "Gabe Bult",
+     "vues": "1M views",
+     "date": "1 year ago",
+     "duree": "8:13",
+     "avatar": "https://yt3.ggpht.com/Uv5Ak7LQd2TnTscQ3M4CLpBJb3Tqe-6_P2Dk8Qm5IhEmEKLxWjyzs3tv_XNfy_msz2T6gNXmpx8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GÜNSTIG",
+     [
+      {
+       "t": "EINKAUFEN",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XUtkAupSygk",
+     "titre": "Beim Essen Geld sparen: 10 Tipps um günstiger Lebensmittel einzukaufen | von einer Frugalistin",
+     "chaine": "Geldgarten",
+     "vues": "168.035 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "10:45",
+     "avatar": "https://yt3.ggpht.com/9wzebah-D1c2cFNhckG2O_fsTOv7Gi-wIRZF42_GnyGcQmdwsKV7MgPp8ka9Vh-ApbHO-sypJj4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RISPARMIARE",
+     [
+      {
+       "t": "SULLA SPESA",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V_gOFk0Txn0",
+     "titre": "Come Risparmio il 40% sulla Spesa Alimentare | 8 Trucchi per Risparmiare soldi",
+     "chaine": "Karim Mejri",
+     "vues": "66K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/kGgobHIiLs8R9LsUGYxFn66p97lBG_08Fxu3Zpmb0pTnX2W6B-OQR7N5TC8LQU3XWH2wR7M7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ECONOMIZAR",
+     [
+      {
+       "t": "NO MERCADO",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TdmPmzsVECQ",
+     "titre": "25 DICAS para ECONOMIZAR NO MERCADO",
+     "chaine": "Primo Pobre",
+     "vues": "862 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "28:13",
+     "avatar": "https://yt3.ggpht.com/Xxvah02LCiiaBuQ04C71Wnypcd3WaVEAZ3LpZOMI2Tlbh7ppcQGQdR1AT5MpzgTHPaTYKx-8Wg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "MARKETTE",
+     [
+      {
+       "t": "TASARRUF ETMEK",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IWWGts_DT1c",
+     "titre": "MARKET VE PAZAR ALIŞVERİŞİNDE NASIL TASARRUF EDİLİR?💸 PARA BİRİKTİRME YÖNTEMLERİ",
+     "chaine": "Merve Cenk",
+     "vues": "15 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "11:07",
+     "avatar": "https://yt3.ggpht.com/eQijrhxCVNwBNymVLchEEjfa4ClHbbDQ28xQXz3PBmRklf2bJtSI4gYcJgutjnd6SebNHdTL4A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ECONOMISEȘTI",
+     [
+      {
+       "t": "LA CUMPĂRĂTURI",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7_dPHERniCM",
+     "titre": "10 METODE  prin care supermarketurile te fac să cumperi mai mult (și cum să le eviți)",
+     "chaine": "Simply Alina",
+     "vues": "3,3 K vizionări",
+     "date": "acum 1 an",
+     "duree": "12:41",
+     "avatar": "https://yt3.ggpht.com/j_RNXWWhQA83fUs8M28iAgQTdtNMo5cT8mW-A2cxiE9lUlmWH8bCj0nV2iGN39Opol8d1Cfs8lI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UŠETŘIT",
+     [
+      {
+       "t": "NA NÁKUPU",
+       "couleur": "#d63b2f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HoE5YtLRV7M",
+     "titre": "Jak ušetřit na jídle❓ Nakupuju ve velkém - CO A JAK a co se nevyplatí",
+     "chaine": "Spokojená s Málem",
+     "vues": "6,7 tis. zhlédnutí",
+     "date": "před 4 dny",
+     "duree": "15:15",
+     "avatar": "https://yt3.ggpht.com/8kZiTIWUymy2drusJOjNJ0uAKpW-e24LaST0baWluLI3naCl89iCMVhmuUwKfgmETKleQM93Uy0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RANGER",
+     [
+      {
+       "t": "SON FRIGO",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xnP8zPgGAhY",
+     "titre": "Frigo & congélateur - Organisation & astuces",
+     "chaine": "Les bonheurs de Camille",
+     "vues": "240 k vues",
+     "date": "il y a 3 ans",
+     "duree": "18:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ls-w17H7LbgKRz_jZAUKuB1H9d3PiqXamI6UjuHc2A4hg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "ORGANIZE",
+     [
+      {
+       "t": "YOUR FRIDGE",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XRpDllJv24Y",
+     "titre": "How to Organize: The Fridge",
+     "chaine": "The Design Network",
+     "vues": "1.2M views",
+     "date": "11 years ago",
+     "duree": "5:12",
+     "avatar": "https://yt3.ggpht.com/Axb-PAyhB4igZemRZpj3RHVDTM3MNgOXCoawRBjiCfmeRGk8mwBBIhqDn4kE--XkKnv6ra0U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "KÜHLSCHRANK",
+     [
+      {
+       "t": "RICHTIG EINRÄUMEN",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "byA2ePG5PqY",
+     "titre": "Lifehack – Kühlschrank richtig einräumen / Sallys Welt",
+     "chaine": "Sallys Welt",
+     "vues": "639.085 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "12:48",
+     "avatar": "https://yt3.ggpht.com/bZeKSjJMUYfIt2VFJ-kQC0IBgFc5rtBk-ymrUZDB6um7mF4smkXyH90uUXiqe2277Pq_Ua7dKYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ORGANIZZARE",
+     [
+      {
+       "t": "IL FRIGO",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AyvHIWTM5F4",
+     "titre": "Come bisogna riporre gli alimenti nel frigorifero?",
+     "chaine": "IZSVe",
+     "vues": "131K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "2:18",
+     "avatar": "https://yt3.ggpht.com/FrKu6QaMdrYTJxqNg1nD-CYOrhgI5Ooe2T1OvUZjrKLdE64YzmLj2Ga5iYUJ7yC2oJIJhBHQbw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ORGANIZAR",
+     [
+      {
+       "t": "A GELADEIRA",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3jC83ZZmQnA",
+     "titre": "Como organizar a geladeira? Aprenda com Rafa Oliveira - CASA DE VERDADE",
+     "chaine": "Casa de Verdade",
+     "vues": "651 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0GGfq83HRHrsvZrqkpCQPttrXz-8VZQ3uXgrNTVYraQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BUZDOLABINI",
+     [
+      {
+       "t": "DÜZENLEMEK",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TjJ9zsGLhBE",
+     "titre": "Buzdolabı Nasıl Düzenlenir ? | Pratik Mutfak - Bölüm 17",
+     "chaine": "İdil Yazar",
+     "vues": "376 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "8:42",
+     "avatar": "https://yt3.ggpht.com/GVB_VikMfqnVhYX-lEaNOntOduX83NiNuq_s0lVgrYwXSYfRbIt4WQvhENR-R7rOerQPbWzdsww=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ORGANIZEZI",
+     [
+      {
+       "t": "FRIGIDERUL",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "h3LMO1ECW5s",
+     "titre": "Cum sa iti organizezi frigiderul • Ajutor in Bucatarie",
+     "chaine": "LidlRomania",
+     "vues": "88 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "0:55",
+     "avatar": "https://yt3.ggpht.com/f1hZke-aLAMXJN3E__8tckDl7b5Pc8n4e1xAzEEK_o47MbSBUalaGyvpgvcRQZG6nB8jjbb59Iw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "USPOŘÁDAT",
+     [
+      {
+       "t": "LEDNICI",
+       "couleur": "#3f8f5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dnbM2DLlDOU",
+     "titre": "Tipy, jak udržet jídlo v lednici dlouho čerstvé | O domově",
+     "chaine": "Královny pořádku | O domově",
+     "vues": "10 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "2:33",
+     "avatar": "https://yt3.ggpht.com/SrwRpRQk_Zwn0axO-oG8xSdNcHeqCQsGbiCKRybOVgttPeLQ2j8BzfH8ewd9z2KgYOfWuxYrG-Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  }
+ ]
+}

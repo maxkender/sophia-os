@@ -12,16 +12,20 @@
  *        modele_ruul_setup soumet le modèle ruul_setup (Utility, anglais) s'il n'existe pas
  *        test_modeles      envoie chaque modèle approuvé aux numéros autorisés (mode test)
  *        envoyer           { e164, texte } ou { e164, modele, langue, variables } (règles du mode test)
+ *        relances          (cron horaire whatsapp-relances, 0839) les relances automatiques, en plus des emails ;
+ *                          { simuler: true } : la liste seulement, rien ne part. Mode test : numéros autorisés seuls ;
+ *                          live : seulement si le réglage whatsapp_relances.live est vrai.
  *
  * Les secrets ne sont jamais écrits dans la base ni dans les journaux.
  */
 import { assertRole, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 import { callWithFallback, TEXT_MODELS, textOf } from "../_shared/gemini.ts";
 import {
-  CORPS_RUUL_SETUP, e164, estStopWhatsApp, lireWebhook, type MessageRecu, MODELES, numeroAutorise, signatureValide, type StatutRecu,
-  texteFinWhatsApp,
+  CORPS_RUUL_SETUP, e164, estStopWhatsApp, lireWebhook, type MessageRecu, modeLive, MODELES, numeroAutorise, signatureValide,
+  type StatutRecu, texteFinWhatsApp,
 } from "../_shared/whatsapp.ts";
 import { envoyerWhatsApp, graph, lireModeWhatsApp, secretsWhatsApp, wabaId } from "../_shared/whatsapp_envoi.ts";
+import { deciderRelance, type FaitsRelance } from "../_shared/whatsapp_relances.ts";
 
 type Db = ReturnType<typeof serviceClient>;
 declare const EdgeRuntime: { waitUntil(p: Promise<unknown>): void } | undefined;
@@ -43,6 +47,7 @@ Deno.serve(async (request) => {
       case "modeles_sync": return json(await modelesSync(db));
       case "modele_ruul_setup": return json(await modeleRuulSetup(db));
       case "test_modeles": return json(await testModeles(db));
+      case "relances": return json(await relances(db, body.simuler === true));
       case "envoyer": {
         const numero = e164(String(body.e164 ?? ""));
         if (!numero) return json({ ok: false, error: "e164 invalide" }, 400);
@@ -341,4 +346,46 @@ async function testModeles(db: Db) {
     }
   }
   return { ok: true, resultats };
+}
+
+// ------------------------------------------------------------------------------------------------------------------
+// Relances automatiques (0839), en plus des emails
+// ------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Chaque numéro connu : la relance due aujourd'hui (une seule), ses garde-fous, puis l'envoi du modèle. Le mode test
+ * est vérifié deux fois : ici (un numéro non autorisé n'est même pas tenté) et dans envoyerWhatsApp.
+ */
+async function relances(db: Db, simuler: boolean) {
+  const mode = await lireModeWhatsApp(db);
+  const { data: reglage } = await db.from("reglages").select("valeur").eq("cle", "whatsapp_relances").maybeSingle();
+  // Deuxième verrou : en live, rien ne part aux posteurs tant que whatsapp_relances.live n'est pas vrai.
+  const liveAutorise = (reglage?.valeur as { live?: unknown } | null)?.live === true;
+  if (modeLive(mode) && !liveAutorise) return { ok: true, envoyees: 0, raison: "live : réglage whatsapp_relances.live éteint" };
+
+  const { data, error } = await db.rpc("whatsapp_relances_faits");
+  if (error) return { ok: false, error: error.message };
+  const bilan = { ok: true, simulation: simuler, numeros: 0, dues: 0, envoyees: 0, refusees: 0, erreurs: 0, detail: [] as Record<string, unknown>[] };
+  const maintenant = new Date();
+  for (const f of (data ?? []) as FaitsRelance[]) {
+    bilan.numeros++;
+    const d = deciderRelance(f, { modeAutorise: numeroAutorise(mode, f.e164), maintenant });
+    if (!d) continue;
+    bilan.dues++;
+    const ligne: Record<string, unknown> = { poster_id: f.poster_id, site_id: f.site_id, type: d.type };
+    if (d.refus) {
+      bilan.refusees++;
+      bilan.detail.push({ ...ligne, refus: d.refus });
+      continue;
+    }
+    if (simuler) {
+      bilan.detail.push({ ...ligne, simule: true });
+      continue;
+    }
+    const r = await envoyerWhatsApp(db, { e164: f.e164, posterId: f.poster_id, motif: d.motif, cle: d.cle, modele: d.modele });
+    if (r.ok) bilan.envoyees++;
+    else bilan.erreurs++;
+    bilan.detail.push({ ...ligne, statut: r.statut, erreur: r.erreur ?? null });
+  }
+  return bilan;
 }

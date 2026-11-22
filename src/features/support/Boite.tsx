@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 import { type LigneToutes, lireToutes } from "./api";
 import { ConversationPosteur } from "./Conversation";
+import { IconeWhatsApp } from "./IconeWhatsApp";
 import { attenduDemande, attenduProbleme } from "./pourMax";
 
 const ICONES: Record<string, string> = { help: "🛟", email: "✉️", upwork: "🟢", slack: "💬", slack_salon: "💬", slack_aide: "💬" };
@@ -133,7 +134,12 @@ function Ligne({ f, actif, onClick }: { f: FilPosteur; actif: boolean; onClick: 
           <span className="ml-auto shrink-0 text-[11px] text-muted-foreground">{f.dernier ? quand(f.dernier) : ""}</span>
         </span>
         <span className="flex items-center gap-1 text-muted-foreground text-xs">
-          <span>{f.sources.map((s) => ICONES[s] ?? "•").join("")}{f.problemes.length ? "⚠️" : ""}</span>
+          <span className="inline-flex items-center">
+            {f.sources.filter((s) => s !== "whatsapp").map((s) => ICONES[s] ?? "•").join("")}
+            {/* 0839 : la demande vient de WhatsApp. */}
+            {f.sources.includes("whatsapp") && <IconeWhatsApp />}
+            {f.problemes.length ? "⚠️" : ""}
+          </span>
           <span className={cn("truncate", f.attendu && "text-red-700 dark:text-red-300")} data-testid={f.attendu ? "attendu-ligne" : undefined}>
             {f.attendu ?? f.apercu}
           </span>

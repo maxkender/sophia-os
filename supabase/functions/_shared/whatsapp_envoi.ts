@@ -5,6 +5,7 @@
  */
 import { messageErreur, type serviceClient } from "./supabase.ts";
 import { corpsModele, corpsTexte, coutEstime, e164, fenetreOuverte, GRAPH, numeroAutorise, paysDuNumero } from "./whatsapp.ts";
+import { avecPiedWhatsApp, banniereActive } from "./whatsapp_relances.ts";
 
 type Db = ReturnType<typeof serviceClient>;
 
@@ -110,4 +111,13 @@ export async function envoyerWhatsApp(db: Db, o: EnvoiWhatsApp): Promise<{ ok: b
 export async function contactWhatsApp(db: Db, posterId: string): Promise<{ e164: string | null; optin: boolean; optout: boolean }> {
   const { data } = await db.from("posteur_contacts").select("whatsapp_e164, whatsapp_optin_at, whatsapp_optout_at").eq("poster_id", posterId).maybeSingle();
   return { e164: (data?.whatsapp_e164 as string | null) ?? null, optin: !!data?.whatsapp_optin_at, optout: !!data?.whatsapp_optout_at };
+}
+
+/**
+ * 0839 : le texte d'un prochain email avec la phrase WhatsApp au pied, seulement si le réglage whatsapp_banniere est
+ * allumé (éteint par défaut : le texte revient alors tel quel). Préparé, branché nulle part pour l'instant.
+ */
+export async function avecPiedWhatsAppSiActif(db: Db, texte: string): Promise<string> {
+  const { data } = await db.from("reglages").select("valeur").eq("cle", "whatsapp_banniere").maybeSingle();
+  return avecPiedWhatsApp(texte, banniereActive(data?.valeur));
 }

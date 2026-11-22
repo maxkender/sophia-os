@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o246",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0a11d270-4ca2-4633-ae81-8eca674135cf",
+  "titre": "les idées de cadeaux qui rendent plus cultivée et qui coûtent presque rien #cadeaux #noel #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [
+    "0a11d270-4ca2-4633-ae81-8eca674135cf"
+  ],
+  "notes": "G1, déclinaison de 0a11d270 (« les idées de cadeaux qui rendent plus cultivée et qui coûtent presque rien », génération 0 ; meilleur passage it 4,8 k vues, r 3,73), en français. 1re déclinaison. cta B. Idées neuves (rien du parent : ni carte de bibliothèque, ni musée gratuit). Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Symphony_No._1_(Mozart) : écrite à 8 ans. Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests. Lignes sautées : 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4b0f2d8d",
+      "texte_overlay": "les idées de cadeaux\nqui rendent plus cultivée\net qui coûtent presque rien",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "da7d63ff",
+      "texte_overlay": "1. un livre d'occasion annoté\n\ntes passages préférés soulignés.\nun cadeau et une lettre à la fois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d56898e2",
+      "texte_overlay": "2. un carnet de citations\n\nles dix premières déjà écrites.\nà elle d'écrire la suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "795af104",
+      "texte_overlay": "3. un vinyle de musique classique d'occasion\n\nce matin, j'ai appris que mozart a écrit sa première symphonie à 8 ans.\ndepuis, j'en offre à tout le monde.",
+      "texte_sophia": "3. un vinyle de musique classique d'occasion\n\nce matin, l'appli Sophia m'a appris que mozart a écrit sa première symphonie à 8 ans.\ndepuis, j'en offre à tout le monde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d2ef5890",
+      "texte_overlay": "4. un vieux plan de sa ville\n\nchiné en brocante.\nl'histoire de chaque rue.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "252bb606",
+      "texte_overlay": "5. un poème recopié à la main\n\nsur un beau papier.\nça ne coûte rien et on le garde à vie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "836f0366",
+      "texte_overlay": "garde-la pour noël.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

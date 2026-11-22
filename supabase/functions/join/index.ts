@@ -175,6 +175,8 @@ function vueCandidature(c: Candidature) {
 
 async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
   const action = String(b.action ?? "");
+  // Sans action : 401 (le contrôle de démarrage du déploiement attend 401/403 sur un appel vide).
+  if (!action) return erreur("action", 401);
   const mode = await lireMode(db);
   const enTest = mode.mode === "test";
 

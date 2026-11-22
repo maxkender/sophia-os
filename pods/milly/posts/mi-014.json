@@ -1,0 +1,784 @@
+{
+ "id": "mi-014",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7674650911158930718",
+  "vues": 134500,
+  "publie_le": "2026-08-16",
+  "accroche": "Games that can / Literally / Grow your / Brain"
+ },
+ "fond": "vert",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7672099981112658702"
+ },
+ "notes": "Full test (boîte vide). Format de « Games that can Literally Grow your Brain » de @bdnf.milly (134,5 k vues, 16/08), même accroche reprise en full test chez nous (aucune version chez nous), fond vert. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : 30 minutes par jour d'un jeu vidéo de plateforme en 3D pendant deux mois augmentent la matière grise de l'hippocampe, du cortex préfrontal et du cervelet (Kühn, Gleich, Lorenz, Lindenberger et Gallinat, Molecular Psychiatry 2014) ; trois mois de Tetris : cortex plus épais dans certaines zones chez des adolescentes (Haier, Karama, Leyba et Jung, BMC Research Notes 2009) ; les jeux d'entraînement cérébral transfèrent peu à la vie courante (Simons et al., Psychological Science in the Public Interest 2016) ; dix jours de jeu d'action améliorent l'attention visuelle, pas un jeu de puzzle (Green et Bavelier, Nature 2003). Aucun jeu nommé, aucune appli. 11 langues. Images : Seedream (irm-axiale, irm-activite, tractographie), sans texte.",
+ "titre": {
+  "en": "Games that can Literally Grow your Brain",
+  "fr": "Les jeux qui font littéralement grandir ton cerveau",
+  "es": "Juegos que literalmente hacen crecer tu cerebro",
+  "es-419": "Juegos que literalmente hacen crecer tu cerebro",
+  "it": "Giochi che fanno letteralmente crescere il cervello",
+  "tr": "Beynini gerçekten büyütebilen oyunlar",
+  "pt-BR": "Jogos que literalmente fazem seu cérebro crescer",
+  "sl": "Igre, ob katerih možgani dobesedno rastejo",
+  "hr": "Igre od kojih mozak doslovno raste",
+  "de": "Spiele, die dein Gehirn buchstäblich wachsen lassen",
+  "hu": "Játékok, amelyektől szó szerint nő az agyad"
+ },
+ "legendes": {
+  "en": "what games really do to your brain #brain #games #neuroscience #learning #neuroplasticity",
+  "fr": "ce que les jeux font vraiment au cerveau #cerveau #jeux #neurosciences #apprendre #neuroplasticité",
+  "es": "lo que los juegos hacen de verdad al cerebro #cerebro #juegos #neurociencia #aprender #neuroplasticidad",
+  "es-419": "lo que los juegos le hacen de verdad a tu cerebro #cerebro #juegos #neurociencia #aprender #neuroplasticidad",
+  "it": "cosa fanno davvero i giochi al cervello #cervello #giochi #neuroscienze #imparare #neuroplasticità",
+  "tr": "oyunların beyne gerçekte yaptığı #beyin #oyunlar #nörobilim #öğrenme #nöroplastisite",
+  "pt-BR": "o que os jogos fazem de verdade com o cérebro #cerebro #jogos #neurociencia #aprender #neuroplasticidade",
+  "sl": "kaj igre res naredijo možganom #možgani #igre #nevroznanost #učenje #nevroplastičnost",
+  "hr": "što igre stvarno rade mozgu #mozak #igre #neuroznanost #učenje #neuroplastičnost",
+  "de": "was spiele wirklich mit dem gehirn machen #gehirn #spiele #neurowissenschaft #lernen #neuroplastizität",
+  "hu": "mit tesznek valójában a játékok az aggyal #agy #játékok #idegtudomány #tanulás #neuroplaszticitás"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-axiale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "Games that can",
+      "taille": "petit"
+     },
+     {
+      "t": "Literally",
+      "taille": "moyen"
+     },
+     {
+      "t": "Grow your",
+      "taille": "petit"
+     },
+     {
+      "t": "Brain",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Les jeux qui font",
+      "taille": "petit"
+     },
+     {
+      "t": "Littéralement",
+      "taille": "moyen"
+     },
+     {
+      "t": "grandir ton",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerveau",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Juegos que",
+      "taille": "petit"
+     },
+     {
+      "t": "Literalmente",
+      "taille": "moyen"
+     },
+     {
+      "t": "hacen crecer tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Juegos que",
+      "taille": "petit"
+     },
+     {
+      "t": "Literalmente",
+      "taille": "moyen"
+     },
+     {
+      "t": "hacen crecer tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Giochi che",
+      "taille": "petit"
+     },
+     {
+      "t": "Letteralmente",
+      "taille": "moyen"
+     },
+     {
+      "t": "fanno crescere il",
+      "taille": "petit"
+     },
+     {
+      "t": "Cervello",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Beynini",
+      "taille": "grand"
+     },
+     {
+      "t": "Gerçekten",
+      "taille": "moyen"
+     },
+     {
+      "t": "büyütebilen",
+      "taille": "petit"
+     },
+     {
+      "t": "Oyunlar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Jogos que",
+      "taille": "petit"
+     },
+     {
+      "t": "Literalmente",
+      "taille": "moyen"
+     },
+     {
+      "t": "fazem crescer seu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cérebro",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Igre, ob katerih",
+      "taille": "petit"
+     },
+     {
+      "t": "možgani",
+      "taille": "petit"
+     },
+     {
+      "t": "Dobesedno",
+      "taille": "moyen"
+     },
+     {
+      "t": "Rastejo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Igre od kojih",
+      "taille": "petit"
+     },
+     {
+      "t": "mozak",
+      "taille": "petit"
+     },
+     {
+      "t": "Doslovno",
+      "taille": "moyen"
+     },
+     {
+      "t": "Raste",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Spiele, die dein",
+      "taille": "petit"
+     },
+     {
+      "t": "Gehirn",
+      "taille": "grand"
+     },
+     {
+      "t": "buchstäblich",
+      "taille": "moyen"
+     },
+     {
+      "t": "wachsen lassen",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Játékok, amelyektől",
+      "taille": "petit"
+     },
+     {
+      "t": "Szó szerint",
+      "taille": "moyen"
+     },
+     {
+      "t": "nő az",
+      "taille": "petit"
+     },
+     {
+      "t": "Agyad",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "3D Exploration Games",
+    "blocs": [
+     {
+      "p": "In one study, adults who played a 3D platform video game for 30 minutes a day for two months showed grey matter increases in the hippocampus, the prefrontal cortex and the cerebellum, compared with a group that did not play."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "In another, teenage girls who practised a falling-blocks puzzle game for three months showed a thicker cortex in some areas than girls who did not."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Les jeux d'exploration en 3D",
+    "blocs": [
+     {
+      "p": "Dans une étude, des adultes qui ont joué 30 minutes par jour pendant deux mois à un jeu vidéo de plateforme en 3D ont gagné de la matière grise dans l'hippocampe, le cortex préfrontal et le cervelet, par rapport à un groupe qui ne jouait pas."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Dans une autre, des adolescentes qui ont pratiqué un jeu de blocs qui tombent pendant trois mois avaient un cortex plus épais dans certaines zones que celles qui n'y jouaient pas."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Juegos de exploración en 3D",
+    "blocs": [
+     {
+      "p": "En un estudio, adultos que jugaron 30 minutos al día durante dos meses a un videojuego de plataformas en 3D mostraron aumentos de materia gris en el hipocampo, la corteza prefrontal y el cerebelo, frente a un grupo que no jugó."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "En otro, chicas adolescentes que practicaron un juego de bloques que caen durante tres meses tenían la corteza más gruesa en algunas zonas que las que no jugaron."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Juegos de exploración en 3D",
+    "blocs": [
+     {
+      "p": "En un estudio, adultos que jugaron 30 minutos al día durante dos meses un videojuego de plataformas en 3D tuvieron aumentos de materia gris en el hipocampo, la corteza prefrontal y el cerebelo, comparados con un grupo que no jugó."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "En otro, adolescentes que practicaron un juego de bloques que caen durante tres meses tenían la corteza más gruesa en algunas áreas que las que no jugaron."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Giochi di esplorazione in 3D",
+    "blocs": [
+     {
+      "p": "In uno studio, adulti che hanno giocato 30 minuti al giorno per due mesi a un videogioco platform in 3D hanno mostrato aumenti di materia grigia nell'ippocampo, nella corteccia prefrontale e nel cervelletto, rispetto a un gruppo che non giocava."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "In un altro, ragazze adolescenti che si sono esercitate per tre mesi con un gioco di blocchi che cadono avevano una corteccia più spessa in alcune aree rispetto a quelle che non giocavano."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "3D keşif oyunları",
+    "blocs": [
+     {
+      "p": "Bir çalışmada, iki ay boyunca günde 30 dakika 3D bir platform video oyunu oynayan yetişkinlerde, oynamayan bir gruba kıyasla hipokampusta, prefrontal kortekste ve beyincikte gri madde artışı görüldü."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Bir başkasında, üç ay boyunca düşen bloklarla oynanan bir bulmaca oyunu oynayan genç kızların bazı bölgelerde korteksi, oynamayanlara göre daha kalındı."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Jogos de exploração em 3D",
+    "blocs": [
+     {
+      "p": "Em um estudo, adultos que jogaram 30 minutos por dia durante dois meses um videogame de plataforma em 3D tiveram aumento de massa cinzenta no hipocampo, no córtex pré-frontal e no cerebelo, em comparação com um grupo que não jogou."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Em outro, meninas adolescentes que praticaram um jogo de blocos que caem por três meses tinham o córtex mais espesso em algumas áreas do que as que não jogaram."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "3D raziskovalne igre",
+    "blocs": [
+     {
+      "p": "V eni raziskavi se je odraslim, ki so dva meseca po 30 minut na dan igrali 3D ploščadno videoigro, v primerjavi s skupino, ki ni igrala, povečala siva možganovina v hipokampusu, predčelni skorji in malih možganih."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "V drugi so imele najstnice, ki so tri mesece igrale igro s padajočimi kockami, v nekaterih predelih debelejšo skorjo kot tiste, ki je niso igrale."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "3D istraživačke igre",
+    "blocs": [
+     {
+      "p": "U jednom istraživanju odrasli koji su dva mjeseca igrali 3D platformsku videoigru 30 minuta dnevno imali su, u usporedbi sa skupinom koja nije igrala, povećanje sive tvari u hipokampu, prefrontalnoj kori i malom mozgu."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "U drugom su tinejdžerice koje su tri mjeseca igrale igru s padajućim kockama imale deblju koru u nekim područjima od onih koje je nisu igrale."
+     }
+    ]
+   },
+   "de": {
+    "titre": "3D-Erkundungsspiele",
+    "blocs": [
+     {
+      "p": "In einer Studie zeigten Erwachsene, die zwei Monate lang täglich 30 Minuten ein 3D-Jump-'n'-Run-Videospiel spielten, im Vergleich zu einer Gruppe ohne Spiel mehr graue Substanz im Hippocampus, im präfrontalen Cortex und im Kleinhirn."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "In einer anderen hatten Mädchen im Teenageralter, die drei Monate lang ein Spiel mit fallenden Blöcken übten, in einigen Arealen eine dickere Hirnrinde als Mädchen, die es nicht spielten."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "3D felfedezős játékok",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban azoknál a felnőtteknél, akik két hónapig napi 30 percet játszottak egy 3D-s platformjátékkal, egy nem játszó csoporthoz képest megnőtt a szürkeállomány a hippokampuszban, a prefrontális kéregben és a kisagyban."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Egy másikban azoknak a tinédzser lányoknak, akik három hónapig egy lehulló kockás játékot gyakoroltak, egyes területeken vastagabb lett az agykérgük, mint azoknak, akik nem játszottak vele."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Games Do Not Teach Everything",
+    "blocs": [
+     {
+      "p": "Be careful with brain-training promises: large reviews found that practising a game mostly makes you better at that game, with little transfer to everyday thinking."
+     },
+     {
+      "p": "For broad knowledge, nothing replaces learning itself, a little every evening, like a training session."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Les jeux n'apprennent pas tout",
+    "blocs": [
+     {
+      "p": "Méfie-toi des promesses d'entraînement cérébral : de grandes revues ont montré qu'un jeu rend surtout meilleur à ce jeu, avec peu d'effet sur la réflexion de tous les jours."
+     },
+     {
+      "p": "Pour une vraie culture générale, rien ne remplace l'apprentissage lui-même, un peu chaque soir, comme un entraînement."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Los juegos no lo enseñan todo",
+    "blocs": [
+     {
+      "p": "Cuidado con las promesas de entrenamiento cerebral: grandes revisiones han visto que practicar un juego te hace sobre todo mejor en ese juego, con poco efecto en el pensamiento del día a día."
+     },
+     {
+      "p": "Para una cultura amplia, nada sustituye a aprender de verdad, un poco cada noche, como un entrenamiento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Los juegos no enseñan todo",
+    "blocs": [
+     {
+      "p": "Ojo con las promesas de entrenamiento cerebral: grandes revisiones encontraron que practicar un juego sobre todo te hace mejor en ese juego, con poco efecto en tu forma de pensar en el día a día."
+     },
+     {
+      "p": "Para una cultura amplia, nada reemplaza aprender de verdad, un poco cada noche, como un entrenamiento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "I giochi non insegnano tutto",
+    "blocs": [
+     {
+      "p": "Attenzione alle promesse del brain training: ampie revisioni hanno rilevato che esercitarsi con un gioco rende soprattutto più bravi in quel gioco, con poco effetto sul pensiero di tutti i giorni."
+     },
+     {
+      "p": "Per una cultura ampia, niente sostituisce l'imparare vero e proprio, un po' ogni sera, come un allenamento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Oyunlar her şeyi öğretmez",
+    "blocs": [
+     {
+      "p": "Beyin antrenmanı vaatlerine dikkat: büyük derlemeler, bir oyunu oynamanın seni çoğunlukla o oyunda daha iyi yaptığını, gündelik düşünmeye ise pek az etkisi olduğunu buldu."
+     },
+     {
+      "p": "Geniş bir genel kültür için öğrenmenin kendisinin yerini hiçbir şey tutmaz: her akşam biraz, bir antrenman gibi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Jogos não ensinam tudo",
+    "blocs": [
+     {
+      "p": "Cuidado com as promessas de treino cerebral: grandes revisões mostraram que praticar um jogo deixa você melhor principalmente naquele jogo, com pouco efeito no raciocínio do dia a dia."
+     },
+     {
+      "p": "Para um conhecimento amplo, nada substitui aprender de verdade, um pouco toda noite, como um treino."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Igre ne naučijo vsega",
+    "blocs": [
+     {
+      "p": "Previdno z obljubami možganskega treninga: obsežni pregledi so pokazali, da te vadba igre izboljša predvsem v tej igri, na vsakdanje razmišljanje pa vpliva malo."
+     },
+     {
+      "p": "Za široko znanje nič ne nadomesti samega učenja, vsak večer malo, kot trening."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Igre ne uče svemu",
+    "blocs": [
+     {
+      "p": "Oprezno s obećanjima treninga mozga: veliki pregledi pokazali su da te vježbanje igre čini ponajprije boljim u toj igri, uz malo učinka na svakodnevno razmišljanje."
+     },
+     {
+      "p": "Za široko znanje ništa ne zamjenjuje samo učenje, malo svake večeri, kao trening."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Spiele lehren nicht alles",
+    "blocs": [
+     {
+      "p": "Vorsicht bei Versprechen von Gehirntraining: Große Übersichtsarbeiten fanden, dass Üben an einem Spiel vor allem in diesem Spiel besser macht, mit wenig Wirkung auf das alltägliche Denken."
+     },
+     {
+      "p": "Für breites Wissen ersetzt nichts das Lernen selbst, jeden Abend ein wenig, wie ein Training."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A játékok nem tanítanak meg mindent",
+    "blocs": [
+     {
+      "p": "Óvatosan az agytréning ígéreteivel: nagy áttekintések szerint egy játék gyakorlása főleg abban a játékban tesz jobbá, a hétköznapi gondolkodásra alig hat."
+     },
+     {
+      "p": "A széles műveltséget semmi sem pótolja, csak maga a tanulás, minden este egy kicsit, mint egy edzés."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Fast Action Games",
+    "blocs": [
+     {
+      "p": "Action games have one of the more solid effects: in a classic study, non-players who trained on an action game for ten days improved on tests of visual attention, while those who trained on a slower puzzle game did not."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "The effect is real but narrow: it sharpens attention to what you see. Play for fun, and learn for knowledge."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Les jeux d'action rapides",
+    "blocs": [
+     {
+      "p": "Les jeux d'action ont l'un des effets les plus solides : dans une étude classique, des non-joueurs entraînés dix jours sur un jeu d'action ont progressé aux tests d'attention visuelle, contrairement à ceux entraînés sur un jeu de réflexion plus lent."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "L'effet est réel mais étroit : il aiguise l'attention à ce que tu vois. Joue pour le plaisir, et apprends pour le savoir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Juegos de acción rápidos",
+    "blocs": [
+     {
+      "p": "Los juegos de acción tienen uno de los efectos más sólidos: en un estudio clásico, personas que no jugaban y entrenaron diez días con un juego de acción mejoraron en pruebas de atención visual, y las que entrenaron con un juego de puzles más lento, no."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "El efecto es real pero limitado: afina la atención a lo que ves. Juega por diversión, y aprende para saber."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Juegos de acción rápidos",
+    "blocs": [
+     {
+      "p": "Los juegos de acción tienen uno de los efectos más sólidos: en un estudio clásico, personas que no jugaban y entrenaron diez días con un juego de acción mejoraron en pruebas de atención visual, y quienes entrenaron con un juego de rompecabezas más lento no."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "El efecto es real pero limitado: afina tu atención a lo que ves. Juega para divertirte y aprende para saber."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Giochi d'azione veloci",
+    "blocs": [
+     {
+      "p": "I giochi d'azione hanno uno degli effetti più solidi: in uno studio classico, non giocatori allenati per dieci giorni con un gioco d'azione sono migliorati nei test di attenzione visiva, mentre quelli allenati con un puzzle più lento no."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "L'effetto è reale ma ristretto: affina l'attenzione a ciò che vedi. Gioca per divertirti, e impara per sapere."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Hızlı aksiyon oyunları",
+    "blocs": [
+     {
+      "p": "Aksiyon oyunlarının etkisi en sağlam olanlardan biridir: klasik bir çalışmada, oyun oynamayan kişiler on gün aksiyon oyunuyla antrenman yapınca görsel dikkat testlerinde ilerledi; daha yavaş bir bulmaca oyunuyla çalışanlarda ise bu olmadı."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Etki gerçek ama sınırlı: gördüğün şeye karşı dikkatini keskinleştirir. Eğlenmek için oyna, bilmek için öğren."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Jogos de ação rápidos",
+    "blocs": [
+     {
+      "p": "Os jogos de ação têm um dos efeitos mais sólidos: em um estudo clássico, pessoas que não jogavam e treinaram dez dias com um jogo de ação melhoraram em testes de atenção visual, enquanto as que treinaram com um jogo de quebra-cabeça mais lento, não."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "O efeito é real, mas limitado: afia a atenção ao que você vê. Jogue por diversão, e aprenda para saber."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Hitre akcijske igre",
+    "blocs": [
+     {
+      "p": "Akcijske igre imajo enega trdnejših učinkov: v klasični raziskavi so se neigralci, ki so deset dni trenirali z akcijsko igro, izboljšali na testih vidne pozornosti, tisti s počasnejšo miselno igro pa ne."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Učinek je resničen, a ozek: izostri pozornost za to, kar vidiš. Igraj za zabavo, uči se za znanje."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Brze akcijske igre",
+    "blocs": [
+     {
+      "p": "Akcijske igre imaju jedan od čvršćih učinaka: u klasičnom istraživanju oni koji nisu igrali, a deset su dana trenirali akcijsku igru, napredovali su na testovima vizualne pažnje, dok oni sa sporijom logičkom igrom nisu."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Učinak je stvaran, ali uzak: izoštrava pažnju za ono što vidiš. Igraj iz zabave, uči radi znanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Schnelle Actionspiele",
+    "blocs": [
+     {
+      "p": "Actionspiele haben einen der solideren Effekte: In einer klassischen Studie verbesserten sich Nichtspieler, die zehn Tage mit einem Actionspiel trainierten, in Tests der visuellen Aufmerksamkeit, wer mit einem langsameren Puzzlespiel trainierte, dagegen nicht."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Der Effekt ist echt, aber eng: Er schärft die Aufmerksamkeit für das, was du siehst. Spiel zum Spaß, und lerne fürs Wissen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Gyors akciójátékok",
+    "blocs": [
+     {
+      "p": "Az akciójátékoknak van az egyik szilárdabb hatása: egy klasszikus vizsgálatban a nem játszók, akik tíz napig akciójátékkal edzettek, jobban teljesítettek a vizuális figyelmi teszteken, akik lassabb logikai játékkal, azok nem."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "A hatás valódi, de szűk: a látott dolgokra irányuló figyelmet élesíti. Játssz a szórakozásért, és tanulj a tudásért."
+     }
+    ]
+   }
+  }
+ ]
+}

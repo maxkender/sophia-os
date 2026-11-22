@@ -1,0 +1,768 @@
+{
+ "id": "mi-013",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7704962002870865182",
+  "vues": 227000,
+  "publie_le": "2026-11-07",
+  "accroche": "How to become / obsessed / with / Productivity"
+ },
+ "fond": "orange",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Full test (boîte vide). Format de « How to become obsessed with Productivity » de @bdnf.milly (227 k vues, 07/11), famille « How to become obsessed with … », fond orange. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Faits vérifiés : la curiosité pour une question de culture générale fait mieux retenir la réponse un jour plus tard, et même des visages sans rapport vus pendant l'attente ; elle active ensemble le circuit de la récompense et l'hippocampe (Gruber, Gelman et Ranganath, Neuron 2014) ; la curiosité culmine quand on est à moitié sûr de la réponse (Kang et al., Psychological Science 2009) ; près de 12 000 entrées de journal de 238 professionnels : la motivation est la plus haute les jours de progrès, même petits (Amabile et Kramer, The Progress Principle, 2011). 11 langues. Images : Seedream (golgi, irmf-axiale, epines), sans texte.",
+ "titre": {
+  "en": "How to become obsessed with Learning",
+  "fr": "Comment devenir obsédé par l'apprentissage",
+  "es": "Cómo obsesionarte con aprender",
+  "es-419": "Cómo obsesionarte con aprender",
+  "it": "Come diventare ossessionato dall'imparare",
+  "tr": "Öğrenmeye nasıl takıntılı olursun",
+  "pt-BR": "Como ficar obcecado por aprender",
+  "sl": "Kako postati obseden z učenjem",
+  "hr": "Kako postati opsjednut učenjem",
+  "de": "Wie du besessen vom Lernen wirst",
+  "hu": "Hogyan legyél a tanulás megszállottja"
+ },
+ "legendes": {
+  "en": "curiosity is a memory booster #learning #curiosity #brain #motivation #studytips",
+  "fr": "la curiosité dope la mémoire #apprendre #curiosité #cerveau #motivation #méthodedetravail",
+  "es": "la curiosidad dispara la memoria #aprender #curiosidad #cerebro #motivación #técnicasdeestudio",
+  "es-419": "la curiosidad dispara la memoria #aprender #curiosidad #cerebro #motivación #tipsdeestudio",
+  "it": "la curiosità potenzia la memoria #imparare #curiosità #cervello #motivazione #metododistudio",
+  "tr": "merak hafızayı güçlendirir #öğrenme #merak #beyin #motivasyon #dersçalışma",
+  "pt-BR": "a curiosidade turbina a memória #aprender #curiosidade #cerebro #motivacao #dicasdeestudo",
+  "sl": "radovednost okrepi spomin #učenje #radovednost #možgani #motivacija #učnetehnike",
+  "hr": "znatiželja jača pamćenje #učenje #znatiželja #mozak #motivacija #tehnikeučenja",
+  "de": "neugier stärkt das gedächtnis #lernen #neugier #gehirn #motivation #lerntipps",
+  "hu": "a kíváncsiság erősíti a memóriát #tanulás #kíváncsiság #agy #motiváció #tanulásimódszerek"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/golgi.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to become",
+      "taille": "petit"
+     },
+     {
+      "t": "Obsessed",
+      "taille": "grand"
+     },
+     {
+      "t": "with",
+      "taille": "petit"
+     },
+     {
+      "t": "Learning",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment devenir",
+      "taille": "petit"
+     },
+     {
+      "t": "Obsédé",
+      "taille": "grand"
+     },
+     {
+      "t": "par",
+      "taille": "petit"
+     },
+     {
+      "t": "l'Apprentissage",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Obsesionarte",
+      "taille": "grand"
+     },
+     {
+      "t": "con",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Obsesionarte",
+      "taille": "grand"
+     },
+     {
+      "t": "con",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come diventare",
+      "taille": "petit"
+     },
+     {
+      "t": "Ossessionato",
+      "taille": "grand"
+     },
+     {
+      "t": "dall'Imparare",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Öğrenmeye",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Takıntılı",
+      "taille": "grand"
+     },
+     {
+      "t": "olursun",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como ficar",
+      "taille": "petit"
+     },
+     {
+      "t": "Obcecado",
+      "taille": "grand"
+     },
+     {
+      "t": "por",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako postati",
+      "taille": "petit"
+     },
+     {
+      "t": "Obseden",
+      "taille": "grand"
+     },
+     {
+      "t": "z Učenjem",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako postati",
+      "taille": "petit"
+     },
+     {
+      "t": "Opsjednut",
+      "taille": "grand"
+     },
+     {
+      "t": "Učenjem",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du",
+      "taille": "petit"
+     },
+     {
+      "t": "Besessen",
+      "taille": "grand"
+     },
+     {
+      "t": "vom",
+      "taille": "petit"
+     },
+     {
+      "t": "Lernen wirst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan legyél",
+      "taille": "petit"
+     },
+     {
+      "t": "a tanulás",
+      "taille": "petit"
+     },
+     {
+      "t": "Megszállottja",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Curiosity Boosts Memory",
+    "blocs": [
+     {
+      "p": "When you are curious, your brain learns better. In one study, people who were curious about the answer to a trivia question remembered it better a day later, and even remembered unrelated faces they saw while waiting for it."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Brain scans showed curiosity switching on the reward circuit and the hippocampus together. Curiosity puts the brain in a state where it is ready to store what comes next."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "La curiosité dope la mémoire",
+    "blocs": [
+     {
+      "p": "Quand tu es curieux, ton cerveau apprend mieux. Dans une étude, les gens curieux de connaître la réponse à une question de culture générale la retenaient mieux un jour plus tard, et retenaient même des visages sans rapport vus pendant qu'ils l'attendaient."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "L'imagerie a montré que la curiosité allume en même temps le circuit de la récompense et l'hippocampe. Elle met le cerveau dans un état où il est prêt à stocker ce qui vient ensuite."
+     }
+    ]
+   },
+   "es": {
+    "titre": "La curiosidad potencia la memoria",
+    "blocs": [
+     {
+      "p": "Cuando sientes curiosidad, tu cerebro aprende mejor. En un estudio, las personas curiosas por la respuesta a una pregunta de cultura general la recordaban mejor al día siguiente, e incluso recordaban caras sin relación que vieron mientras la esperaban."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Las imágenes cerebrales mostraron que la curiosidad enciende a la vez el circuito de recompensa y el hipocampo. Pone al cerebro en un estado en el que está listo para guardar lo que venga."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "La curiosidad potencia la memoria",
+    "blocs": [
+     {
+      "p": "Cuando sientes curiosidad, tu cerebro aprende mejor. En un estudio, las personas curiosas por la respuesta a una pregunta de cultura general la recordaron mejor al día siguiente, y hasta recordaron caras sin relación que vieron mientras esperaban."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Los escaneos cerebrales mostraron que la curiosidad activa al mismo tiempo el circuito de recompensa y el hipocampo. Deja al cerebro listo para guardar lo que venga después."
+     }
+    ]
+   },
+   "it": {
+    "titre": "La curiosità potenzia la memoria",
+    "blocs": [
+     {
+      "p": "Quando sei curioso, il cervello impara meglio. In uno studio, le persone curiose della risposta a una domanda di cultura generale la ricordavano meglio il giorno dopo, e ricordavano persino volti senza alcun legame visti mentre la aspettavano."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Le immagini cerebrali hanno mostrato che la curiosità accende insieme il circuito della ricompensa e l'ippocampo. Mette il cervello in uno stato in cui è pronto a conservare ciò che arriva dopo."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Merak hafızayı güçlendirir",
+    "blocs": [
+     {
+      "p": "Merak ettiğinde beynin daha iyi öğrenir. Bir çalışmada, bir genel kültür sorusunun cevabını merak eden kişiler onu bir gün sonra daha iyi hatırladı, hatta cevabı beklerken gördükleri alakasız yüzleri bile daha iyi hatırladı."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Beyin taramaları, merakın ödül devresini ve hipokampusu birlikte harekete geçirdiğini gösterdi. Merak, beyni sırada gelecek olanı saklamaya hazır bir duruma sokar."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "A curiosidade turbina a memória",
+    "blocs": [
+     {
+      "p": "Quando você está curioso, seu cérebro aprende melhor. Em um estudo, pessoas curiosas pela resposta a uma pergunta de conhecimentos gerais lembraram melhor dela um dia depois, e até lembraram rostos sem relação que viram enquanto esperavam."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Exames de imagem mostraram a curiosidade ativando ao mesmo tempo o circuito de recompensa e o hipocampo. Ela deixa o cérebro pronto para guardar o que vem a seguir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Radovednost okrepi spomin",
+    "blocs": [
+     {
+      "p": "Ko si radoveden, se možgani bolje učijo. V eni raziskavi so si ljudje, ki so bili radovedni glede odgovora na vprašanje iz splošne razgledanosti, tega naslednji dan bolje zapomnili, zapomnili pa so si celo nepovezane obraze, ki so jih videli med čakanjem."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Slikanja možganov so pokazala, da radovednost hkrati vklopi sistem nagrajevanja in hipokampus. Možgane spravi v stanje, ko so pripravljeni shraniti, kar pride naslednje."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Znatiželja jača pamćenje",
+    "blocs": [
+     {
+      "p": "Kad si znatiželjan, mozak bolje uči. U jednom istraživanju ljudi koji su bili znatiželjni oko odgovora na pitanje iz opće kulture bolje su ga zapamtili dan kasnije, a zapamtili su čak i nepovezana lica koja su vidjeli dok su čekali."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Snimke mozga pokazale su da znatiželja istodobno pali sustav nagrađivanja i hipokampus. Dovodi mozak u stanje u kojem je spreman pohraniti ono što slijedi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Neugier stärkt das Gedächtnis",
+    "blocs": [
+     {
+      "p": "Wenn du neugierig bist, lernt dein Gehirn besser. In einer Studie erinnerten sich Menschen, die auf die Antwort einer Quizfrage neugierig waren, einen Tag später besser daran, und sogar an fremde Gesichter, die sie beim Warten gesehen hatten."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Hirnscans zeigten, dass Neugier das Belohnungssystem und den Hippocampus gleichzeitig aktiviert. Sie versetzt das Gehirn in einen Zustand, in dem es bereit ist, das Nächste zu speichern."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A kíváncsiság erősíti a memóriát",
+    "blocs": [
+     {
+      "p": "Ha kíváncsi vagy, az agyad jobban tanul. Egy vizsgálatban azok, akik kíváncsiak voltak egy műveltségi kérdés válaszára, másnap jobban emlékeztek rá, sőt a várakozás közben látott, egészen más arcokra is."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Az agyi felvételek szerint a kíváncsiság egyszerre kapcsolja be a jutalmazó rendszert és a hippokampuszt. Olyan állapotba hozza az agyat, amelyben kész elraktározni, ami jön."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Know A Little About A Lot",
+    "blocs": [
+     {
+      "p": "Curiosity peaks when you know a little: not nothing, and not everything. In one study, people were most curious about the questions they were only half sure of."
+     },
+     {
+      "p": "So a little knowledge in many fields is fuel. One short lesson every evening opens new questions you will want to answer."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Sache un peu de tout",
+    "blocs": [
+     {
+      "p": "La curiosité culmine quand on en sait un peu : ni rien, ni tout. Dans une étude, les gens étaient le plus curieux des questions dont ils n'étaient qu'à moitié sûrs."
+     },
+     {
+      "p": "Un peu de savoir dans beaucoup de domaines, c'est donc du carburant. Une courte leçon chaque soir ouvre de nouvelles questions auxquelles tu auras envie de répondre."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Sabe un poco de mucho",
+    "blocs": [
+     {
+      "p": "La curiosidad alcanza su máximo cuando sabes un poco: ni nada, ni todo. En un estudio, la gente sentía más curiosidad por las preguntas de las que solo estaba medio segura."
+     },
+     {
+      "p": "Así que un poco de saber en muchos campos es combustible. Una lección corta cada noche abre preguntas nuevas que vas a querer responder."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Sabe un poco de muchas cosas",
+    "blocs": [
+     {
+      "p": "La curiosidad llega a su punto máximo cuando sabes un poco: ni nada, ni todo. En un estudio, las personas sentían más curiosidad por las preguntas de las que estaban medio seguras."
+     },
+     {
+      "p": "Entonces, saber un poco de muchos temas es combustible. Una lección corta cada noche abre preguntas nuevas que vas a querer responder."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Sappi un po' di tutto",
+    "blocs": [
+     {
+      "p": "La curiosità raggiunge il picco quando sai un po': né niente, né tutto. In uno studio, le persone erano più curiose delle domande di cui erano sicure solo a metà."
+     },
+     {
+      "p": "Un po' di sapere in molti campi è quindi carburante. Una breve lezione ogni sera apre nuove domande a cui vorrai rispondere."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Pek çok şeyi biraz bil",
+    "blocs": [
+     {
+      "p": "Merak, biraz bildiğinde zirve yapar: ne hiç, ne de her şey. Bir çalışmada insanlar en çok, cevabından yarı yarıya emin oldukları soruları merak etti."
+     },
+     {
+      "p": "Yani pek çok alanda biraz bilgi, yakıttır. Her akşam kısa bir ders, cevaplamak isteyeceğin yeni sorular açar."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Saiba um pouco de muita coisa",
+    "blocs": [
+     {
+      "p": "A curiosidade chega ao pico quando você sabe um pouco: nem nada, nem tudo. Em um estudo, as pessoas ficavam mais curiosas com as perguntas das quais tinham só meia certeza."
+     },
+     {
+      "p": "Então um pouco de conhecimento em muitas áreas é combustível. Uma lição curta toda noite abre perguntas novas que você vai querer responder."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vedi malo o veliko stvareh",
+    "blocs": [
+     {
+      "p": "Radovednost doseže vrh, ko veš malo: ne nič in ne vsega. V eni raziskavi so bili ljudje najbolj radovedni glede vprašanj, pri katerih so bili le napol prepričani."
+     },
+     {
+      "p": "Malo znanja na veliko področjih je torej gorivo. Kratka lekcija vsak večer odpre nova vprašanja, na katera boš hotel odgovoriti."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Znaj malo o mnogočemu",
+    "blocs": [
+     {
+      "p": "Znatiželja je najveća kad znaš malo: ni ništa, ni sve. U jednom istraživanju ljudi su bili najznatiželjniji oko pitanja u čiji su odgovor bili tek napola sigurni."
+     },
+     {
+      "p": "Malo znanja u mnogo područja zato je gorivo. Kratka lekcija svake večeri otvara nova pitanja na koja ćeš htjeti odgovoriti."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Wisse ein wenig über vieles",
+    "blocs": [
+     {
+      "p": "Neugier ist am größten, wenn du ein wenig weißt: nicht nichts und nicht alles. In einer Studie waren Menschen am neugierigsten auf Fragen, bei denen sie sich nur halb sicher waren."
+     },
+     {
+      "p": "Ein wenig Wissen in vielen Gebieten ist also Treibstoff. Eine kurze Lektion jeden Abend öffnet neue Fragen, die du beantworten willst."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tudj egy kicsit sok mindenről",
+    "blocs": [
+     {
+      "p": "A kíváncsiság akkor a legnagyobb, ha tudsz egy keveset: se semmit, se mindent. Egy vizsgálatban az emberek azokra a kérdésekre voltak a legkíváncsibbak, amelyek válaszában csak félig voltak biztosak."
+     },
+     {
+      "p": "Egy kis tudás sok területen tehát üzemanyag. Minden este egy rövid lecke új kérdéseket nyit, amelyekre választ akarsz majd."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Make Progress Visible",
+    "blocs": [
+     {
+      "p": "In a study of nearly 12,000 diary entries from 238 professionals, people felt most motivated on the days they made progress in meaningful work, even small progress."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Keep a list of what you learned each day. Watching it grow is one of the simplest ways to want to add to it."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Rends tes progrès visibles",
+    "blocs": [
+     {
+      "p": "Dans une étude portant sur près de 12 000 entrées de journal de 238 professionnels, les gens se sentaient le plus motivés les jours où ils avançaient dans un travail qui avait du sens, même un peu."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Tiens une liste de ce que tu apprends chaque jour. La voir s'allonger est l'un des moyens les plus simples d'avoir envie d'y ajouter quelque chose."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Haz visible tu progreso",
+    "blocs": [
+     {
+      "p": "En un estudio con casi 12.000 entradas de diario de 238 profesionales, la gente se sentía más motivada los días en que avanzaba en un trabajo con sentido, aunque fuera poco."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Lleva una lista de lo que aprendes cada día. Verla crecer es una de las formas más sencillas de querer añadirle algo."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Haz visible tu avance",
+    "blocs": [
+     {
+      "p": "En un estudio con casi 12,000 entradas de diario de 238 profesionales, las personas se sentían más motivadas los días en que avanzaban en un trabajo con sentido, aunque fuera un poco."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Lleva una lista de lo que aprendes cada día. Verla crecer es una de las formas más simples de querer agregarle algo."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Rendi visibili i progressi",
+    "blocs": [
+     {
+      "p": "In uno studio su quasi 12.000 voci di diario di 238 professionisti, le persone si sentivano più motivate nei giorni in cui facevano progressi in un lavoro significativo, anche piccoli."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Tieni una lista di ciò che impari ogni giorno. Vederla crescere è uno dei modi più semplici per avere voglia di aggiungerci qualcosa."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "İlerlemeni görünür kıl",
+    "blocs": [
+     {
+      "p": "238 profesyonelden alınan yaklaşık 12.000 günlük kaydını inceleyen bir çalışmada insanlar, anlamlı bir işte küçük de olsa ilerleme kaydettikleri günlerde kendilerini en motive hissetti."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Her gün ne öğrendiğinin bir listesini tut. Onun büyüdüğünü görmek, ona bir şey eklemek istemenin en basit yollarından biridir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Deixe seu progresso visível",
+    "blocs": [
+     {
+      "p": "Em um estudo com quase 12 mil registros de diário de 238 profissionais, as pessoas se sentiam mais motivadas nos dias em que avançavam em um trabalho com sentido, mesmo que pouco."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Mantenha uma lista do que você aprende a cada dia. Vê-la crescer é um dos jeitos mais simples de querer acrescentar algo a ela."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Naj bo napredek viden",
+    "blocs": [
+     {
+      "p": "V raziskavi skoraj 12.000 dnevniških zapisov 238 strokovnjakov so se ljudje počutili najbolj motivirane na dneve, ko so napredovali pri smiselnem delu, četudi malo."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Vodi seznam tega, kar se vsak dan naučiš. Ko ga vidiš rasti, si najlaže zaželiš, da mu dodaš še kaj."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Neka napredak bude vidljiv",
+    "blocs": [
+     {
+      "p": "U istraživanju gotovo 12.000 dnevničkih zapisa 238 stručnjaka ljudi su se osjećali najmotiviranije onih dana kad su napredovali u smislenom poslu, makar i malo."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Vodi popis onoga što svaki dan naučiš. Gledati kako raste jedan je od najjednostavnijih načina da poželiš nešto dodati."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Mach Fortschritt sichtbar",
+    "blocs": [
+     {
+      "p": "In einer Studie mit fast 12.000 Tagebucheinträgen von 238 Berufstätigen fühlten sich Menschen an den Tagen am motiviertesten, an denen sie in sinnvoller Arbeit vorankamen, selbst ein kleines Stück."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Führe eine Liste mit dem, was du jeden Tag lernst. Zu sehen, wie sie wächst, ist einer der einfachsten Wege, etwas hinzufügen zu wollen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tedd láthatóvá a fejlődést",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban, amely 238 szakember közel 12 000 naplóbejegyzését elemezte, az emberek azokon a napokon voltak a legmotiváltabbak, amikor értelmes munkában haladtak, akár csak egy kicsit."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Vezess listát arról, mit tanulsz meg naponta. Ha látod nőni, az az egyik legegyszerűbb módja annak, hogy hozzá akarj tenni valamit."
+     }
+    ]
+   }
+  }
+ ]
+}

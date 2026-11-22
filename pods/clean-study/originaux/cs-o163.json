@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o163",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "602efb01-41a0-4dc3-86f0-cdf22cadefef",
+  "titre": "how to be the BEST student in your class ɛɞ 𖦹 not just good grades. the one who's always on top of everything #studytok #studytips #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "602efb01-41a0-4dc3-86f0-cdf22cadefef"
+  ],
+  "notes": "Déclinaison G1 de 602efb01 (notre cs-o015 : r 7,88 et 4,86 en turc), ligne 7 de la boîte. Lignes 4 à 6 écartées (attribution invérifiable, journaux aux chiffres inventés). Accroche du parent mot pour mot, avec « ɛɞ 𖦹 » (lettres pour le guichet). Gestes neufs, aucun de cs-o015 ni du parent : préparer son sac la veille, résumer chaque cours en une phrase, savoir à l'avance ce qui tombe, une pause curieuse au lieu des réseaux (slide Sophia, 5), garder un dossier par matière, aider un camarade. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7a7d6fd1",
+      "texte_overlay": "how to be the BEST student\nin your class ɛɞ 𖦹\nnot just good grades.\nthe one who's always on top of everything",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e99d486f",
+      "texte_overlay": "her bag is packed the night before.\nnever \"wait, i forgot my book\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d33db975",
+      "texte_overlay": "she sums up every class in one sentence.\nif she can't, she asks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "03972f9c",
+      "texte_overlay": "she knows what's on the next test before anyone asks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "28ac2514",
+      "texte_overlay": "her breaks make her smarter.\n5 minutes of something new, not a feed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "her breaks make her smarter.\n5 minutes on a micro-learning app like the Sophia app,\nnot a feed."
+    },
+    {
+      "position": 6,
+      "media_id": "e8a0189f",
+      "texte_overlay": "one folder per subject. always up to date.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "95637c0f",
+      "texte_overlay": "and she helps others.\nexplaining is how she learns twice.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

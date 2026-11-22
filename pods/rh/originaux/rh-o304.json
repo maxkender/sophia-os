@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o304",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais maintenant quand je fais une erreur au travail #travail #erreur #manager #confiance #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 22/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (gérer une erreur au travail). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a99c1ef3",
+   "texte_overlay": "ce que je fais maintenant\nquand je fais une erreur\nau travail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dfaf8473",
+   "texte_overlay": "je préviens tout de suite\navant qu'on la découvre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7f1088a8",
+   "texte_overlay": "je dis ce qui s'est passé\nsans me cacher, sans me flageller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "da05f240",
+   "texte_overlay": "j'arrive avec une solution\nou au moins une piste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f2f5759e",
+   "texte_overlay": "je note ce que j'ai appris\npour ne pas la refaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fdcabd2e",
+   "texte_overlay": "et je comble le trou\nsi c'est un truc que je ne savais pas, je l'apprends. 5 minutes par jour",
+   "texte_sophia": "et je comble le trou\nsi c'est un truc que je ne savais pas, je l'apprends. 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "101b3af5",
+   "texte_overlay": "ta pire erreur au boulot ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

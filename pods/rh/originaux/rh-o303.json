@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o303",
+ "type_bleo": "full_test",
+ "titre": "comment je prépare un entretien en visio #entretien #visio #teletravail #rechercheemploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 22/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (entretien en visio). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4e805eba",
+   "texte_overlay": "comment je prépare\nun entretien\nen visio",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7f353f82",
+   "texte_overlay": "je teste le lien la veille\net mon micro, avec une amie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b5cd4c8e",
+   "texte_overlay": "la caméra à hauteur des yeux\nune pile de livres suffit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4cf10bb1",
+   "texte_overlay": "la lumière face à moi\njamais une fenêtre dans le dos",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ead0d925",
+   "texte_overlay": "un post-it sous la caméra\nmes 3 histoires en 3 mots",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8ba5d8b1",
+   "texte_overlay": "je me connecte 5 minutes avant\net j'en profite pour relire ce que j'ai appris sur la boîte",
+   "texte_sophia": "je me connecte 5 minutes avant\net j'en profite pour relire ce que j'ai appris sur la boîte et sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a9e95045",
+   "texte_overlay": "tu préfères en vrai ou en visio ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

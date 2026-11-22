@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o309",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "241d26c1-3999-4ae4-a130-506170ed7e3f",
+ "titre": "comment j'ai dit non à une promotion (et pourquoi je ne le regrette pas), partie 2 #travail #promotion #carriere #emploi #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 22/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 7. Déclinaison G1 de la ligne #3 (parent 241d26c1) : accroche du parent mot pour mot, autre histoire (inventée, aucune vraie entreprise). Inspirations reprises de rh-o153. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "521c58df",
+   "texte_overlay": "comment j'ai dit non à une promotion\n(et pourquoi je ne le regrette pas)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cade325d",
+   "texte_overlay": "on me proposait de manager mon équipe\ndu jour au lendemain, mes amis devenaient mes « n-1 »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7f7afe63",
+   "texte_overlay": "l'augmentation était de 80 € par mois\npour 10 heures de plus par semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e3ef0d0d",
+   "texte_overlay": "j'ai demandé ce que le poste demandait vraiment\nréunions, budgets, recrutement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a1e4ce89",
+   "texte_overlay": "j'ai réalisé que je n'aimais rien de tout ça\nce que j'aime, c'est apprendre et transmettre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "638b5825",
+   "texte_overlay": "j'ai proposé autre chose\nformer les nouveaux, avec un titre et une prime",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e5de51b5",
+   "texte_overlay": "et j'ai continué à apprendre pour moi\nmes 3 sources : un mentor, des livres, 5 minutes par jour",
+   "texte_sophia": "et j'ai continué à apprendre pour moi\nmes 3 sources : un mentor, des livres, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5ad6dd47",
+   "texte_overlay": "tu dirais oui, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

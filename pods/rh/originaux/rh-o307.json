@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o307",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0c51e90c-42c8-45e9-83bc-fe0028d15f0e",
+ "titre": "ce que je réponds à ma manager quand je ne peux pas tout dire #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 22/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G2 de la ligne #1 (parent 0c51e90c) : même promesse, autres mots. Des réponses vraies mais bien tournées, rien d'inventé. Inspirations reprises de rh-o194. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1da5b137",
+   "texte_overlay": "ce que je réponds\nà ma manager\nquand je ne peux pas tout dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3e11c917",
+   "texte_overlay": "« t'es dispo pour ce projet ? »\nje dis « oui, si on décale X »\nau lieu de « je suis noyée »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "063a0523",
+   "texte_overlay": "« t'as aimé la réunion ? »\nje dis « le point 2 m'a été utile »\nau lieu de « c'était trop long »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e66002e9",
+   "texte_overlay": "« tu maîtrises ce logiciel ? »\nje dis « les bases, et je m'y forme cette semaine »\net je le fais, 5 minutes chaque soir",
+   "texte_sophia": "« tu maîtrises ce logiciel ? »\nje dis « les bases, et je m'y forme cette semaine »\net je le fais, 5 minutes chaque soir sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "76fc61cd",
+   "texte_overlay": "« ça va avec ton collègue ? »\nje dis « on a trouvé notre rythme »\nau lieu de raconter les détails",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7b92ed27",
+   "texte_overlay": "« t'as des idées ? »\nje dis « une, je te l'écris demain »\nau lieu d'improviser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a1173e2f",
+   "texte_overlay": "ta réponse à toi, c'est laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o308",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a949048a-a974-4070-8f6d-a0dfcdd16be6",
+ "titre": "entretien de stage : ce que j'ai dit, et ce qui était vrai derrière #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 22/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G2 de la ligne #2 (parent a949048a), 2e : même promesse, autres mots. Tout est recadré, rien d'inventé. Inspirations reprises de rh-o198. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1477c1a9",
+   "texte_overlay": "entretien de stage :\nce que j'ai dit,\net ce qui était vrai derrière",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1a704e57",
+   "texte_overlay": "« j'aime le contact »\nderrière : 2 étés en caisse. j'ai raconté un client difficile",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4d9ba39f",
+   "texte_overlay": "« je suis rigoureuse »\nderrière : je relis tout 2 fois depuis une mauvaise note",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "84b353cd",
+   "texte_overlay": "« je m'intéresse à l'économie »\nderrière : depuis 3 semaines. un peu chaque jour",
+   "texte_sophia": "« je m'intéresse à l'économie »\nderrière : depuis 3 semaines. un peu chaque jour. utilise l'appli Sophia 5 minutes, tu pourras le dire aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "34f8bfa0",
+   "texte_overlay": "« je suis prête à apprendre »\nderrière : j'avais déjà commencé, et je l'ai montré",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "94efc800",
+   "texte_overlay": "« vous êtes mon premier choix »\nderrière : c'était vrai. sinon, je ne l'aurais pas dit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "69b6683d",
+   "texte_overlay": "tu cherches ton stage pour quand ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "id": "bn-004",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7708629737287044359",
+  "vues": 60400,
+  "publie_le": "2026-11-16",
+  "accroche": "6 RULES FOR MEN."
+ },
+ "titre": {
+  "en": "5 rules every man should live by"
+ },
+ "legendes": {
+  "en": "simple rules, hard to keep #selfimprovement #discipline #tipsformen #running #mindset"
+ },
+ "musique": {
+  "titre": "Keep On Winning",
+  "url": "https://www.tiktok.com/music/keep-on-winning-7686584884982269978"
+ },
+ "notes": "Full test (boîte vide). Famille « N RULES FOR MEN » : « 6 RULES FOR MEN. » de @built.not.born61 (60,4 k vues, 16/11), même gabarit. Angle : discipline du quotidien. Slide Atala (4, conseil 3) : la silhouette d'un homme qui court (banque male_run : 8378e69b, déjà prise le 20/11 pour bn-002, pas la veille ; aucun autre coureur sans marque ni célébrité dans la banque ce jour) et le logo d'Atala. placement_atala : voix TU (hook de 7 mots), forme « a running coach app like Atala », argument « il lâche : écrire au coach quand la semaine déborde ». Chiffres prudents : 2 à 3 séances de force par semaine (recommandation OMS : renforcement 2 jours ou plus par semaine). Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-colline.png": "8378e69b-3ec0-4691-af1c-29cc81e6b64e"
+ },
+ "slides": [
+  { "type": "couverture", "image": "images/detoures/couverture-4.png", "en": { "titre": "5 RULES EVERY\nMAN SHOULD\nLIVE BY." } },
+  { "type": "conseil", "image": "images/detoures/agenda.png", "mode": "objet", "taille": 440,
+    "en": { "titre": "1. Plan tomorrow tonight", "texte": "Write down your 3 priorities before bed. You wake up with a plan instead of a phone in your hand." } },
+  { "type": "conseil", "image": "images/detoures/telephone.png", "mode": "objet", "taille": 440,
+    "en": { "titre": "2. Skip the morning scroll", "texte": "The first hour sets your mood. Leave your phone alone until you've moved and eaten." } },
+  { "type": "conseil", "atala": true, "image": "images/detoures/coureur-colline.png", "mode": "objet", "taille": 560,
+    "en": { "titre": "3. Run every week", "texte": "Discipline is running on busy weeks too. A running coach app like Atala adjusts your plan when your week gets packed." } },
+  { "type": "conseil", "image": "images/detoures/haltere.png", "mode": "objet", "taille": 440,
+    "en": { "titre": "4. Lift something heavy", "texte": "Train strength 2 to 3 times a week. A strong body changes how you carry yourself." } },
+  { "type": "conseil", "image": "images/detoures/montre.png", "mode": "objet", "taille": 420,
+    "en": { "titre": "5. Be early", "texte": "Being late tells people their time matters less. Show up 5 minutes early, every time." } },
+  { "type": "fin", "image": "images/detoures/fin-4.png", "en": { "texte": "Follow for more" } }
+ ]
+}

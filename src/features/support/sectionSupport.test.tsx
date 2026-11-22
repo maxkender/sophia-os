@@ -30,7 +30,7 @@ vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ user: { id: "a
 import i18n from "@/locales";
 import { cleRegle } from "@/features/bot/api";
 
-import { SectionSupport } from "./SectionSupport";
+import { ARepondre, SectionSupport, Toutes } from "./SectionSupport";
 
 function rendu(el: React.ReactElement, url = "/admin/auto/support") {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -73,7 +73,8 @@ describe("Support (OS clair)", () => {
     }));
     sup.envoyerReponse.mockResolvedValue({ envois: { email: "ok" } });
     bot.enregistrerConsigne.mockResolvedValue("c1");
-    rendu(<SectionSupport />, "/admin/auto/support?onglet=repondre");
+    // 22/11 (Max) : la vue n'est plus dans la Boîte (seulement « Par posteur ») ; le composant reste et est testé seul.
+    rendu(<ARepondre lignes={await sup.lireToutes()} charge={false} />);
     const cartes = await screen.findAllByTestId("carte-a-repondre");
     expect(cartes).toHaveLength(2);
     // L'argent (Pour Max) d'abord.
@@ -99,13 +100,19 @@ describe("Support (OS clair)", () => {
         bot_reponse: "Sent.", auto_action: "lien_mot_de_passe", auto_resultat: "envoyé", action_faite: "envoyé", ticket_at: null, equipe_at: null, escalade_at: null,
         resolu_par_bot: true, cree_at: "2026-11-13T08:00:00Z", nom: "Mia K.", email: "mia@test.zz" },
     ]);
-    rendu(<SectionSupport />, "/admin/auto/support?onglet=toutes");
+    rendu(<Toutes lignes={await sup.lireToutes()} />);
     expect(await screen.findAllByTestId("ligne-toutes")).toHaveLength(2);
     fireEvent.change(screen.getByLabelText("Qui a agi"), { target: { value: "os_tickets" } });
     expect(screen.getAllByTestId("ligne-toutes")).toHaveLength(1);
     expect(screen.getByTestId("ligne-toutes")).toHaveTextContent("→ OS tickets");
     fireEvent.change(screen.getByLabelText("Qui a agi"), { target: { value: "mot_de_passe" } });
     expect(screen.getByTestId("ligne-toutes")).toHaveTextContent("Mia K.");
+  });
+
+  it("22/11 : la Boîte n'a plus que « Par posteur » ; les anciennes adresses (?onglet=repondre) y mènent", async () => {
+    rendu(<SectionSupport />, "/admin/auto/support?onglet=repondre");
+    expect(await screen.findByTestId("boite")).toBeTruthy();
+    expect(screen.queryByText("Toutes les demandes")).toBeNull();
   });
 
   it("l'onglet vient de l'adresse (?onglet=regles) : une règle se modifie en 2 clics et garde son historique", async () => {

@@ -1820,7 +1820,8 @@ async function incidentAjouter(db: Db, poster: string | null, demande: string, i
  * le contexte, au lieu d'une nouvelle demande. Rend la réponse à lui envoyer, ou null.
  */
 async function rouvrirSiPasRegle(db: Db, poster: string, texte: string, canal: string): Promise<{ id: string; reponse: string } | null> {
-  if (!estPasRegle(texte)) return null;
+  // 22/11 (Max) : une question de contenu qui revient reçoit à nouveau sa réponse (jamais « rouverte » sans réponse).
+  if (!estPasRegle(texte) || situationFixe(texte)) return null;
   const { data: d } = await db.from("support_demandes").select("id, niveau, langue, statut")
     .eq("poster_id", poster).in("statut", ["bot", "attente_posteur", "resolu"]).is("doublon_de", null)
     .gte("cree_at", new Date(Date.now() - 7 * 86_400_000).toISOString()).order("cree_at", { ascending: false }).limit(1).maybeSingle();

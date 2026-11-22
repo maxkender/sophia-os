@@ -1,0 +1,281 @@
+{
+ "id": "dr-042",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of mythology nerd hobbies",
+  "de": "Der Eisberg der Mythologie-Nerd-Hobbys",
+  "sv": "Isberget av mytologinördens hobbyer"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #mythology #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #mythologie #selbstverbesserung",
+  "sv": "#isberg #hobbyer #mytologi #självutveckling"
+ },
+ "musique": {
+  "titre": "A Song of Ice and Fire - Ramin Djawadi",
+  "url": "https://www.tiktok.com/music/original-sound-6723045131219372033"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « mythology nerd hobbies ». Sophia au 2e étage (icône). En, de, sv ; variantes 5, 6, 0.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "mythology nerd hobbies",
+    "variante": 5
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Mythologie-Hobbys",
+    "variante": 6
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "mytologinördens hobbyer",
+    "variante": 0
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "greek myths",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "norse myths",
+       "image": "images/objets/pierre-runique.png"
+      },
+      {
+       "t": "egyptian gods",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "roman history",
+       "image": "images/objets/casque-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "a sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "reading the odyssey",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "sea legends",
+       "image": "images/objets/trident.png"
+      },
+      {
+       "t": "arthurian tales",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "hieroglyphs",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "latin poems",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "old maps",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "museum trips",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "comparing myths",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "stories by candlelight",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "sumerian epics",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "inventing a pantheon",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "griechische mythen",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "nordische mythen",
+       "image": "images/objets/pierre-runique.png"
+      },
+      {
+       "t": "ägyptische götter",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "römische geschichte",
+       "image": "images/objets/casque-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "täglich sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "die odyssee lesen",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "meeressagen",
+       "image": "images/objets/trident.png"
+      },
+      {
+       "t": "artussagen",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "hieroglyphen",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "lateinische gedichte",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "alte karten",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "ins museum",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "mythen vergleichen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "geschichten bei kerzenlicht",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "sumerische epen",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "eigene götter erfinden",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "grekiska myter",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "nordiska myter",
+       "image": "images/objets/pierre-runique.png"
+      },
+      {
+       "t": "egyptiska gudar",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "romersk historia",
+       "image": "images/objets/casque-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "läsa odysséen",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "havssägner",
+       "image": "images/objets/trident.png"
+      },
+      {
+       "t": "sagor om kung arthur",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "hieroglyfer",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "latinska dikter",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "gamla kartor",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "museibesök",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "jämföra myter",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "sagor i levande ljus",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "sumeriska epos",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "hitta på egna gudar",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

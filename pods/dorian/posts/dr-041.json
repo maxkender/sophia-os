@@ -1,0 +1,138 @@
+{
+ "id": "dr-041",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696252759917481236",
+  "vues": 382200,
+  "publie_le": "2026-10-13",
+  "accroche": "10/10 skills to learn if you have ADHD"
+ },
+ "titre": {
+  "en": "10/10 skills to learn if you get bored easily",
+  "tr": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
+  "it": "skill 10/10 da imparare se ti annoi facilmente"
+ },
+ "legendes": {
+  "en": "#niche #skills #selfimprovement #lockedin",
+  "tr": "#beceri #hobi #öğrenmek #kişiselgelişim",
+  "it": "#skill #hobby #imparare #crescitapersonale"
+ },
+ "musique": {
+  "titre": "original sound - mel - mel",
+  "url": "https://www.tiktok.com/music/original-sound-7430692417982057249"
+ },
+ "notes": "Déclinaison G1 n° 2 de dr-007 (meilleur passage en tr, 22,4 k) : titre mot pour mot, autres compétences (nœuds, cartes, échecs, crochetage sur ses propres cadenas), autres images, autre CTA (cta A), autre écran (cours). Fait : sept mélanges suffisent (Bayer et Diaconis, 1992). Images Seedream. En, tr, it ; une couverture par langue (cerveaux 27, 28, 29). Refusée au guichet le 22/11 (accroche_voisine : le rattrapage de dr-035 du jour porte la même accroche) : à déposer un autre jour.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "10/10 skills to learn if you get bored easily",
+    "image": "images/cerveau-27.jpg",
+    "legende": "(one evening each)"
+   },
+   "tr": {
+    "titre": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
+    "image": "images/cerveau-28.jpg",
+    "legende": "(her biri bir akşam)"
+   },
+   "it": {
+    "titre": "skill 10/10 da imparare se ti annoi facilmente",
+    "image": "images/cerveau-29.jpg",
+    "legende": "(una sera ciascuna)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Five knots",
+    "texte": "figure-eight, bowline, clove hitch, reef knot, sheet bend. one evening with a piece of rope and you'll use them for life",
+    "image": "images/objets/corde-noeud.png"
+   },
+   "tr": {
+    "titre": "Beş düğüm",
+    "texte": "sekiz düğümü, izbarço, kazık bağı, camadan bağı, ıskota bağı. bir ip parçasıyla bir akşam, ömür boyu kullanırsın",
+    "image": "images/objets/corde-noeud.png"
+   },
+   "it": {
+    "titre": "Cinque nodi",
+    "texte": "nodo savoia, gassa d'amante, parlato, nodo piano, nodo di scotta. una sera con un pezzo di corda e li userai per sempre",
+    "image": "images/objets/corde-noeud.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "One card trick",
+    "texte": "start with the riffle shuffle. fun fact: mathematicians showed seven riffle shuffles are enough to properly mix a deck",
+    "image": "images/objets/cartes.png"
+   },
+   "tr": {
+    "titre": "Bir kart numarası",
+    "texte": "şelale karıştırmayla başla. ilginç bilgi: matematikçiler bir desteyi iyice karıştırmak için yedi şelale karıştırmanın yettiğini gösterdi",
+    "image": "images/objets/cartes.png"
+   },
+   "it": {
+    "titre": "Un trucco con le carte",
+    "texte": "inizia con il miscuglio all'americana. curiosità: i matematici hanno dimostrato che sette mescolate così bastano a mischiare bene un mazzo",
+    "image": "images/objets/cartes.png"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. a new topic every day",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. her gün yeni bir konu",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. ogni giorno un argomento nuovo",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Chess puzzles",
+    "texte": "one puzzle a day. strong players mostly recognize patterns they've seen before, so every puzzle is a pattern saved",
+    "image": "images/echiquier.jpg"
+   },
+   "tr": {
+    "titre": "Satranç bulmacaları",
+    "texte": "günde bir bulmaca. güçlü oyuncular çoğunlukla daha önce gördükleri kalıpları tanır, yani her bulmaca kaydedilmiş bir kalıptır",
+    "image": "images/echiquier.jpg"
+   },
+   "it": {
+    "titre": "Problemi di scacchi",
+    "texte": "un problema al giorno. i giocatori forti riconoscono soprattutto schemi già visti, quindi ogni problema è uno schema in più",
+    "image": "images/echiquier.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Lockpicking",
+    "texte": "only on locks you own. a basic pin tumbler lock teaches you more about mechanics in one hour than most videos",
+    "image": "images/objets/cadenas.png"
+   },
+   "tr": {
+    "titre": "Kilit açmak",
+    "texte": "sadece sana ait kilitlerde. basit bir pimli kilit, bir saatte sana çoğu videodan daha fazla mekanik öğretir",
+    "image": "images/objets/cadenas.png"
+   },
+   "it": {
+    "titre": "Scassinare lucchetti",
+    "texte": "solo su lucchetti tuoi. una semplice serratura a perni ti insegna più meccanica in un'ora della maggior parte dei video",
+    "image": "images/objets/cadenas.png"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fa37c29e-fa61-4016-be74-182d284894dd"
+}

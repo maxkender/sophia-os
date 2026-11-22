@@ -1,0 +1,136 @@
+{
+ "id": "dr-046",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7693311352689118485",
+  "vues": 293200,
+  "publie_le": "2026-10-05",
+  "accroche": "5 niche habits of superintelligent people"
+ },
+ "titre": {
+  "en": "5 niche habits of people who never seem stressed",
+  "pt-BR": "5 hábitos nichados de quem nunca parece estressado",
+  "nl": "5 niche gewoontes van mensen die nooit gestrest zijn"
+ },
+ "legendes": {
+  "en": "#niche #stress #calm #selfimprovement",
+  "pt-BR": "#ansiedade #calma #autodesenvolvimento #nicho",
+  "nl": "#stress #rust #zelfontwikkeling #niche"
+ },
+ "musique": {
+  "titre": "WISTED - Slowed - UdieNnx & HXVSAGE & DXNOHU",
+  "url": "https://www.tiktok.com/music/original-sound-7498688645760944129"
+ },
+ "notes": "Original sur sa liste « 5 niche habits of superintelligent people » (293 k), sujet calme. Faits : Balban et al. 2023 (Stanford, Cell Reports Medicine : soupir cyclique > méditation pour l'humeur) ; Lieberman et al. 2007 (UCLA, étiquetage affectif et amygdale) ; Scullin et al. 2018 (liste de tâches, ~9 min plus vite) ; marche et stress. Tableaux AIC La Farge, d'Agescy, Breton ; objet Seedream. En, pt-BR, nl ; une couverture par langue (cerveaux 09, 10, 11). Sophia en item 3 sur 5 (cta B), écran accueil traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche habits of people who never seem stressed",
+    "image": "images/cerveau-09.jpg",
+    "legende": "(science backed)"
+   },
+   "pt-BR": {
+    "titre": "5 hábitos nichados de quem nunca parece estressado",
+    "image": "images/cerveau-10.jpg",
+    "legende": "(com base na ciência)"
+   },
+   "nl": {
+    "titre": "5 niche gewoontes van mensen die nooit gestrest zijn",
+    "image": "images/cerveau-11.jpg",
+    "legende": "(wetenschappelijk onderbouwd)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The double inhale",
+    "texte": "two inhales through the nose, then one long exhale. in a 2023 stanford study, five minutes a day of this improved mood more than meditation",
+    "image": "images/neige-nordique.jpg"
+   },
+   "pt-BR": {
+    "titre": "A inspiração dupla",
+    "texte": "duas inspirações pelo nariz e uma expiração longa. num estudo de stanford de 2023, cinco minutos por dia disso melhoraram o humor mais do que meditação",
+    "image": "images/neige-nordique.jpg"
+   },
+   "nl": {
+    "titre": "De dubbele inademing",
+    "texte": "twee keer inademen door je neus, dan één lange uitademing. in een studie van stanford uit 2023 verbeterden vijf minuten per dag de stemming meer dan meditatie",
+    "image": "images/neige-nordique.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Name the feeling",
+    "texte": "say it in words: \"i'm anxious\". a 2007 ucla brain-scan study found naming an emotion calms the amygdala, the brain's alarm",
+    "image": "images/lectrice-endormie.jpg"
+   },
+   "pt-BR": {
+    "titre": "Dê nome ao sentimento",
+    "texte": "diga em palavras: \"estou ansioso\". um estudo da ucla de 2007 com exames de cérebro mostrou que nomear a emoção acalma a amígdala, o alarme do cérebro",
+    "image": "images/lectrice-endormie.jpg"
+   },
+   "nl": {
+    "titre": "Benoem het gevoel",
+    "texte": "zeg het in woorden: \"ik ben gespannen\". een hersenscanstudie van ucla uit 2007 liet zien dat een emotie benoemen de amygdala kalmeert, het alarm van je brein",
+    "image": "images/lectrice-endormie.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "it's like a tiny lecture every morning: history, philosophy, science, economics. 10 calm minutes instead of the news feed",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "tipo uma mini aula toda manhã: história, filosofia, ciência, economia. 10 minutos de calma no lugar do feed de notícias",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "een soort mini-college elke ochtend: geschiedenis, filosofie, wetenschap, economie. 10 rustige minuten in plaats van het nieuws",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Tomorrow's list, tonight",
+    "texte": "write tomorrow's to-do list before bed. in a 2018 study, people who did fell asleep about nine minutes faster",
+    "image": "images/objets/fiches.png"
+   },
+   "pt-BR": {
+    "titre": "A lista de amanhã, hoje",
+    "texte": "escreva a lista de tarefas de amanhã antes de dormir. num estudo de 2018, quem fez isso dormiu uns nove minutos mais rápido",
+    "image": "images/objets/fiches.png"
+   },
+   "nl": {
+    "titre": "De lijst van morgen, vanavond",
+    "texte": "schrijf je to-dolijst voor morgen voor het slapengaan. in een studie uit 2018 vielen mensen die dat deden zo'n negen minuten sneller in slaap",
+    "image": "images/objets/fiches.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Walk without your phone",
+    "texte": "even a short walk outside can lower stress. leave the phone at home and let your thoughts finish on their own",
+    "image": "images/glaneuse-couchant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Caminhe sem o celular",
+    "texte": "até uma caminhada curta ao ar livre pode baixar o estresse. deixe o celular em casa e deixe seus pensamentos terminarem sozinhos",
+    "image": "images/glaneuse-couchant.jpg"
+   },
+   "nl": {
+    "titre": "Wandel zonder telefoon",
+    "texte": "zelfs een korte wandeling buiten kan stress verlagen. laat je telefoon thuis en laat je gedachten zelf uitrazen",
+    "image": "images/glaneuse-couchant.jpg"
+   }
+  }
+ ]
+}

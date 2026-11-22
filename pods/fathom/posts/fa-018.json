@@ -13,7 +13,20 @@
   "it": "10/10 abilità da imparare prima dei 30 anni",
   "es-419": "10/10 habilidades para aprender antes de los 30",
   "fr": "10/10 compétences à apprendre avant 30 ans",
-  "es": "10/10 habilidades que aprender antes de los 30"
+  "es": "10/10 habilidades que aprender antes de los 30",
+  "cs": "10/10 dovedností na naučení do třicítky",
+  "sk": "10/10 zručností na naučenie do tridsiatky",
+  "hr": "10/10 vještina koje trebaš naučiti prije 30.",
+  "sl": "10/10 veščin, ki se jih naučiš pred 30. letom",
+  "hu": "10/10 készség, amit 30 éves korod előtt tanulj meg",
+  "nl": "10/10 skills om te leren voor je 30e",
+  "pl": "10/10 umiejętności do nauczenia przed 30.",
+  "sv": "10/10 färdigheter att lära sig innan du fyller 30",
+  "tr": "30 yaşından önce öğrenmen gereken 10/10 beceri",
+  "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 30",
+  "no": "10/10 ferdigheter å lære før du fyller 30",
+  "et": "10/10 oskust, mida õppida enne 30",
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #skills #learnontiktok #selfimprovement",
@@ -22,13 +35,26 @@
   "it": "10/10 abilità da imparare prima dei 30 anni #imparacontiktok #crescitapersonale #abilità",
   "es-419": "10/10 habilidades para aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades",
   "fr": "10/10 compétences à apprendre avant 30 ans #apprendresurtiktok #développementpersonnel #compétences",
-  "es": "10/10 habilidades que aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades"
+  "es": "10/10 habilidades que aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades",
+  "cs": "10/10 dovedností na naučení do třicítky #dovednosti #seberozvoj #vzdělávání",
+  "sk": "10/10 zručností na naučenie do tridsiatky #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "10/10 vještina koje trebaš naučiti prije 30. #vještine #osobnirazvoj #učenje",
+  "sl": "10/10 veščin, ki se jih naučiš pred 30. letom #veščine #osebnarast #učenje",
+  "hu": "10/10 készség, amit 30 éves korod előtt tanulj meg #készségek #önfejlesztés #tanulás",
+  "nl": "10/10 skills om te leren voor je 30e #skills #zelfontwikkeling #leren",
+  "pl": "10/10 umiejętności do nauczenia przed 30. #umiejętności #rozwójosobisty #nauka",
+  "sv": "10/10 färdigheter att lära sig innan du fyller 30 #färdigheter #självutveckling #lärande",
+  "tr": "30 yaşından önce öğrenmen gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme",
+  "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 30 #įgūdžiai #saviugda #mokymasis",
+  "no": "10/10 ferdigheter å lære før du fyller 30 #ferdigheter #selvutvikling #læring",
+  "et": "10/10 oskust, mida õppida enne 30 #oskused #eneseareng #õppimine",
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä #taidot #itsensäkehittäminen #oppiminen"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
  },
- "notes": "Variante de l'accroche de fa-004 (« Before You Are 25 »), « 30 » au lieu de « 25 ». cta C (1re personne). Sophia à l'étape 3 « WHAT I DO INSTEAD OF SCROLLING ». Pas d'UnSwipe. Autres compétences (budget, prise de parole, massage cardiaque, gestion du temps), autres vidéos. en, de et pt (Portugal).",
+ "notes": "Variante de l'accroche de fa-004 (« Before You Are 25 »), « 30 » au lieu de « 25 ». cta C (1re personne). Sophia à l'étape 3 « WHAT I DO INSTEAD OF SCROLLING ». Pas d'UnSwipe. Autres compétences (budget, prise de parole, massage cardiaque, gestion du temps), autres vidéos. en, de et pt (Portugal). 22/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, sv, tr, lt, no, et et fi (titre et couverture de fa-047, même famille) ; faute de vidéo native, la prise de parole devient le langage corporel en sl, et la gestion du temps devient « dire non » en nl, sv et no.",
  "slides": [
   {
    "type": "couverture",
@@ -153,6 +179,234 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "DOVEDNOSTÍ",
+     "NA NAUČENÍ",
+     [
+      {
+       "t": "DO TŘICÍTKY",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ZRUČNOSTÍ",
+     "NA NAUČENIE",
+     [
+      {
+       "t": "DO TRIDSIATKY",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VJEŠTINA KOJE",
+     "TREBAŠ NAUČITI",
+     [
+      {
+       "t": "PRIJE 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠČIN",
+     "KI SE JIH NAUČIŠ",
+     [
+      {
+       "t": "PRED 30. LETOM",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KÉSZSÉG, AMIT",
+     "MEG KELL TANULNOD",
+     [
+      {
+       "t": "30 ELŐTT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS OM TE LEREN",
+     [
+      {
+       "t": "VOOR JE 30E",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "UMIEJĘTNOŚCI",
+     "DO NAUCZENIA",
+     [
+      {
+       "t": "PRZED 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FÄRDIGHETER ATT LÄRA",
+     [
+      {
+       "t": "INNAN DU FYLLER 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "30 YAŞINDAN ÖNCE",
+     "ÖĞRENMEN GEREKEN",
+     [
+      {
+       "t": "BECERİ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "lt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ĮGŪDŽIŲ IŠMOKTI",
+     [
+      {
+       "t": "IKI 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "no": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FERDIGHETER Å LÆRE",
+     [
+      {
+       "t": "FØR DU ER 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "et": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "OSKUST, MIDA ÕPPIDA",
+     [
+      {
+       "t": "ENNE 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fi": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "TAITOA OPITTAVAKSI",
+     [
+      {
+       "t": "ENNEN 30:TÄ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -260,6 +514,201 @@
      "date": "hace 4 años",
      "duree": "13:46",
      "avatar": "https://yt3.ggpht.com/cIr0soR9lJgvp54ZznA6CwRpN9Nd09_OiIMjaAI_F_--5qraoZp-W0aOPEKSdu_noRZD4cUgEA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "SESTAV SI",
+     "ROZPOČET"
+    ],
+    "video": {
+     "id": "S0y5J3gE8U8",
+     "titre": "💰 3. Jak si sestavit měsíční ROZPOČET❓",
+     "chaine": "Investuj! | Daniel Kostelecký",
+     "vues": "11 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/zcLRLRGqNCmwQBdAEah4VmNTtEBZClN6LlI6igFOcOEDonGLRdbgLOVNtYbhQzz6GooxAYVroww=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "ZOSTAV SI",
+     "ROZPOČET"
+    ],
+    "video": {
+     "id": "du0gTWD19gc",
+     "titre": "Ako urobiť jednoduchý rozpočet v 3 krokoch (animované)",
+     "chaine": "Peniaze_lepšie",
+     "vues": "510 zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxX5yACPUhNvLLGT9X6ZE3ssrW6rTcDO9MKWi4JzlV8g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAPRAVI",
+     "BUDŽET"
+    ],
+    "video": {
+     "id": "-TBJgTN-I1o",
+     "titre": "Osnove Budžeta | Budžetiranje za početnike | Kako napraviti kućni budžet?",
+     "chaine": "Lične Finansije",
+     "vues": "8 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "7:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY1aNdZ1f69JR35wXAEAJsJaHCMQRJcB6NIStnXcCHlw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAREDI",
+     "PRORAČUN"
+    ],
+    "video": {
+     "id": "HRg--v6gPJQ",
+     "titre": "Mesečni družinski proračun (Family Monthly Budget)",
+     "chaine": "Barbara Smrkolj",
+     "vues": "2,1 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "10:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfhdqQj2u64KWoCoa-dJx6f1x5DV6l8QH8qpqot-9_2bs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "KÉSZÍTS",
+     "KÖLTSÉGVETÉST"
+    ],
+    "video": {
+     "id": "2ozZgiGg8Ac",
+     "titre": "Mi a költségvetés, és hogyan készítsük el?",
+     "chaine": "Pénzbook",
+     "vues": "26 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgDXDxp3bMI0cl5obUE36XB2fBZV6aGmSAep4KOfSVZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "MAAK EEN",
+     "BUDGET"
+    ],
+    "video": {
+     "id": "SXlMK_RPyRw",
+     "titre": "Budgetteren - Een begroting maken",
+     "chaine": "Meneer Katerbarg legt uit",
+     "vues": "14K weergaven",
+     "date": "4 jaar geleden",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nDG5ds1iwqCAxSC16801tyh257kXzuYsTtCWpO-BL5n40=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZRÓB",
+     "BUDŻET"
+    ],
+    "video": {
+     "id": "tu1zZQuXmZw",
+     "titre": "Budżet domowy - jak go ogarnąć? | Ula Pedantula #196",
+     "chaine": "Ula Pedantula",
+     "vues": "138 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "8:25",
+     "avatar": "https://yt3.ggpht.com/ttih9JnLAn59lcaSTi1vtA6zINT_wX1vPU3VcXJh6tdvCmjwq1qxdh0tpB9X9HP7ARWZD_-LcQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "GÖR EN",
+     "BUDGET"
+    ],
+    "video": {
+     "id": "RKC_f9-rjfU",
+     "titre": "Hur gör man en budget?",
+     "chaine": "PankaPappan",
+     "vues": "14 061 visningar",
+     "date": "för 7 år sen",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k0dCXpmNboeQQA23B0zu1VeFT7QW6BsxGpyR-GN7_lrg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "BÜTÇE",
+     "YAP"
+    ],
+    "video": {
+     "id": "loquLauxOy0",
+     "titre": "Bütçenizi Nasıl Yönetmelisiniz? (50/30/20 Kuralı)",
+     "chaine": "Doç. Dr. Serkan Ünal",
+     "vues": "23 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "6:59",
+     "avatar": "https://yt3.ggpht.com/Wyez-G2OzNwEb8eO9TG9JAg66bhSHjmy8toS8jll7lkF54O7ANePf_1UE-EpYB12cmuzt2ZzEw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "SUDARYK",
+     "BIUDŽETĄ"
+    ],
+    "video": {
+     "id": "WHenmFyKYqI",
+     "titre": "Finansinė sveikata su Ugne: kaip sudaryti asmeninį biudžetą",
+     "chaine": "Swedbank Lietuvoje",
+     "vues": "129 tūkst. peržiūrų",
+     "date": "prieš 2 metus",
+     "duree": "23:23",
+     "avatar": "https://yt3.ggpht.com/pOK2PyCEESaNlUtN9thfLLQfxUDYtNIzQTUnpoJ5fAlvDETXFXCcttnVQNMU2EipOUW3Dd4B-Ls=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LAG ET",
+     "BUDSJETT"
+    ],
+    "video": {
+     "id": "UHEScq6qZkA",
+     "titre": "Hvordan sette opp et budsjett",
+     "chaine": "NRK Skole",
+     "vues": "24k avspillinger",
+     "date": "for 8 år siden",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nIRnOXb8yGhybdJKqxhHMFnljRWTbQUs6uogI6PHWUTpY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "KOOSTA",
+     "EELARVE"
+    ],
+    "video": {
+     "id": "02NSSLhn5-g",
+     "titre": "Kuu-eelarve koostamine koos ilusa Exceli templatega! Hoia oma raha-asjad korras!",
+     "chaine": "Katriinhu",
+     "vues": "31 tuh vaatamist",
+     "date": "6 aasta eest",
+     "duree": "17:20",
+     "avatar": "https://yt3.ggpht.com/ejx-C7bgrE81smPNRJ8O5lT1CTR9mGkmbDvqth4kCYd_8SjJ3HGSTFhDIAWNZDufhUrHzSXKB34=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "TEE",
+     "BUDJETTI"
+    ],
+    "video": {
+     "id": "NC9ckQX6JEI",
+     "titre": "Kuinka aloittaa budjetointi - Kuluseuranta",
+     "chaine": "Budjettitäti",
+     "vues": "890 katselukertaa",
+     "date": "2 vuotta sitten",
+     "duree": "13.29",
+     "avatar": "https://yt3.ggpht.com/A8dkj2bNg4uCzPQFCHPgP9U8biqJDIoM5U8_qmZtkFHz1DnBJoj29IzyI71pKK8ML39-_KZ9Jo4=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -369,6 +818,201 @@
      "duree": "13:26",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKRxIBJIfdJogx8ZfaWord-96w2CQvJiv1Z_At6ZN3iS4=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "MLUV PŘED",
+     "LIDMI"
+    ],
+    "video": {
+     "id": "iaPmCqw5T3Q",
+     "titre": "1. Jak zkrotíte stres před prezentací?",
+     "chaine": "odprezentuj",
+     "vues": "4,5 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "1:15",
+     "avatar": "https://yt3.ggpht.com/Xc2MEBIPz6brjhtCfDt9-B-fyJz9SU4J0h5DxDg48YaS9EV7AJslyihBTAAKsUdTnVRk3w-2=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "HOVOR PRED",
+     "ĽUĎMI"
+    ],
+    "video": {
+     "id": "5NGmmwpF-NQ",
+     "titre": "Ako nemať trému - Ako sa nebáť vystupovať na verejnosti ( JEDNODUCHÉ TRIKY )",
+     "chaine": "Growth",
+     "vues": "10 tis. zhliadnutí",
+     "date": "pred 9 rokmi",
+     "duree": "3:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtbW3GwN17iM7J5UZLsX7mKMof-7zoGk9D0T5055xlSHI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "GOVORI",
+     "U JAVNOSTI"
+    ],
+    "video": {
+     "id": "Ok8ayYTOMYE",
+     "titre": "Vežba 7: Opuštanje pred javni nastup",
+     "chaine": "Boris Teodosijević",
+     "vues": "8,5 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "9:35",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "BERI GOVORICO",
+     "TELESA"
+    ],
+    "video": {
+     "id": "6CWfqIsuN1o",
+     "titre": "Zakaj je govorica telesa tako pomembna?",
+     "chaine": "Vesna Sodnik - Beseda",
+     "vues": "73 ogledov",
+     "date": "pred 4 leti",
+     "duree": "0:55",
+     "avatar": "https://yt3.ggpht.com/9VtpOJa43c5h4Lp1-nFBefgk14d4Z9zCRlRMM4LqGbFPrAXDuhnO6hwDrpPfmfo6fe-gwNflOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "BESZÉLJ",
+     "KÖZÖNSÉG ELŐTT"
+    ],
+    "video": {
+     "id": "Vjxb7VZYsqo",
+     "titre": "Nyilvános beszéd - így hiteles és hatásos | kommunikációs tréning gyakorlatok, tanfolyam",
+     "chaine": "Manhertz József",
+     "vues": "9,9 E megtekintés",
+     "date": "11 évvel ezelőtt",
+     "duree": "7:25",
+     "avatar": "https://yt3.ggpht.com/An87dMqK7Cm8bvaDDRvKH15a-IdNOoqW9cVIM3DFtYcYpt-hm8g_JJaY0Ft06h1u-DDr5Dd8gD4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "SPREEK IN",
+     "HET OPENBAAR"
+    ],
+    "video": {
+     "id": "sSVvIQ5EXDA",
+     "titre": "Presenteren als een Pro: 3 Tips voor Meer Zelfvertrouwen en Impact! | MindTuning YOUTH",
+     "chaine": "MindTuning YOUTH",
+     "vues": "1,6K weergaven",
+     "date": "2 jaar geleden",
+     "duree": "10:58",
+     "avatar": "https://yt3.ggpht.com/NpjuQMj3Iqjh1QeuxUSLgN9SWJIZMGVggkFTkwoQ8IqtbVbMqERjTSuZFIq3zdMxZzBC7sfv=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "MÓW",
+     "PUBLICZNIE"
+    ],
+    "video": {
+     "id": "3mpMKGiJzWg",
+     "titre": "JAK MÓWIĆ ŁADNIE I ZGRABNIE / 5 PROSTYCH PODPOWIEDZI DO WYSTĄPIEŃ PUBLICZNYCH I ROZMÓW",
+     "chaine": "DOBRA MOWA. Wystąpienia publiczne",
+     "vues": "79 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "4:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nbfbe_iFkKmZJhsgYPbm2_jHV3lDygwnMwg2vbZM9NamM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "TALA INFÖR",
+     "PUBLIK"
+    ],
+    "video": {
+     "id": "Lm1n5zaB0Do",
+     "titre": "Hur man talar inför folk - 7 tips",
+     "chaine": "Fredrik Möller",
+     "vues": "1 860 visningar",
+     "date": "för 7 år sen",
+     "duree": "12:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lxeO9onSDZWOPDT3pBqO-pIxnskhEz3iod9KsZHz_xGJE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "TOPLULUK ÖNÜNDE",
+     "KONUŞ"
+    ],
+    "video": {
+     "id": "P6NcsDxfo5I",
+     "titre": "Topluluk Önünde Konuşma Korkusunu 3 Dakikada YENİN!",
+     "chaine": "Neymiş Bakalım?",
+     "vues": "245 görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "3:27",
+     "avatar": "https://yt3.ggpht.com/6wfgyd6uKRBwPKiFqJ0c6TOs54DCoJSaEYCbHxvwBS0cCRdtX5ujXTgKmiW2P_OItr5g_lVv0EQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "KALBĖK",
+     "VIEŠAI"
+    ],
+    "video": {
+     "id": "JfbKfjQXhy8",
+     "titre": "Viešasis kalbėjimas. Pusvalandis prieš viešą kalbą.",
+     "chaine": "Retorika Lt - viesasis kalbejimas",
+     "vues": "10 tūkst. peržiūrų",
+     "date": "prieš 6 metus",
+     "duree": "10:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kp-rHm7ozS3JSB7-INCcicLB2EGfP2RzGlFmLdDR22cXM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "SNAKK FORAN",
+     "FOLK"
+    ],
+    "video": {
+     "id": "ij9QgHrLUQU",
+     "titre": "Presentasjoner - råd og tips som hjelper deg å presentere",
+     "chaine": "Nasjonal digital læringsarena",
+     "vues": "85k avspillinger",
+     "date": "for 14 år siden",
+     "duree": "2:37",
+     "avatar": "https://yt3.ggpht.com/JnD0p-xOJjODfKi0lcJI0U2QCLGQQ4FirMSD8hAtCpkglskZq0YbTorQ3bS_3bE_DrM_q07q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "ESINE",
+     "AVALIKULT"
+    ],
+    "video": {
+     "id": "00YjI0Px_CE",
+     "titre": "Kuidas teha sissejuhatus, mis meid kuulama paneb?",
+     "chaine": "Avalik Esinemine",
+     "vues": "1,3 tuh vaatamist",
+     "date": "7 aasta eest",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyLOihsDgFwEk99n1yXf09ycH8pYeK4aeETuZgTTl_FA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "ESIINNY",
+     "YLEISÖLLE"
+    ],
+    "video": {
+     "id": "QnVlLlyQurs",
+     "titre": "Esiintymisjännitys - kokeile näitä kolmea vinkkiä!",
+     "chaine": "Puhujaksi -valmennus",
+     "vues": "6,9 t. katselukertaa",
+     "date": "8 vuotta sitten",
+     "duree": "2.55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n6ODMF21M14HNDVHpr4h6AnbQW6_zVNn2nY6zFqmqT2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -462,6 +1106,175 @@
      "texte": [
       "lo que abro",
       "en vez de hacer scroll."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "NĚCO NOVÉHO",
+     "KAŽDÝ DEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "NIEČO NOVÉ",
+     "KAŽDÝ DEŇ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "čo otváram",
+      "namiesto scrollovania."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "NEŠTO NOVO",
+     "SVAKI DAN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ono što otvaram",
+      "umjesto skrolanja."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "NEKAJ NOVEGA",
+     "VSAK DAN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kar odprem",
+      "namesto skrolanja."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "VALAMI ÚJ",
+     "MINDEN NAP"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "IETS NIEUWS",
+     "ELKE DAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wat ik open",
+      "in plaats van te scrollen."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "COŚ NOWEGO",
+     "CODZIENNIE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otwieram",
+      "zamiast scrollowania."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "NÅGOT NYTT",
+     "VARJE DAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "det jag öppnar",
+      "i stället för att scrolla."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER GÜN",
+     "YENİ BİR ŞEY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    }
+   },
+   "lt": {
+    "titre": [
+     "KAŽKAS NAUJO",
+     "KASDIEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ką atidarau",
+      "vietoj naršymo."
+     ]
+    }
+   },
+   "no": {
+    "titre": [
+     "NOE NYTT",
+     "HVER DAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "det jeg åpner",
+      "i stedet for å scrolle."
+     ]
+    }
+   },
+   "et": {
+    "titre": [
+     "MIDAGI UUT",
+     "IGA PÄEV"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "mida ma avan",
+      "kerimise asemel."
+     ]
+    }
+   },
+   "fi": {
+    "titre": [
+     "JOTAIN UUTTA",
+     "JOKA PÄIVÄ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "mitä avaan",
+      "selaamisen sijaan."
      ]
     }
    }
@@ -567,6 +1380,201 @@
      "date": "hace 10 años",
      "duree": "3:38",
      "avatar": "https://yt3.ggpht.com/c8gFOAAPHqPvkYaUVYDGo5NtqYEmdvigbyj-7ZAlVXRGSwU_M_7WaieLULGL1zgRzUcnIUIPAQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     "RESUSCITACI"
+    ],
+    "video": {
+     "id": "jJtjboa1onU",
+     "titre": "Metodické video - \"resuscitace\"",
+     "chaine": "Horská Služba - Jizerské hory",
+     "vues": "18 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nGsPUxmg3OV6dLlplLdMTy9kGJuev9kKZBKX0E5K6lJco=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     "RESUSCITÁCIU"
+    ],
+    "video": {
+     "id": "4d7WVF0-ZN8",
+     "titre": "Postup resuscitácie dospelého dvomi záchrancami",
+     "chaine": "Slovenská Resuscitačná Rada",
+     "vues": "4,7 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "4:49",
+     "avatar": "https://yt3.ggpht.com/2-RUrlj7ZaFp1sOT2WJS4MYpSZkHdnYEJHp8V07csMzbqNIL3P5_e_bxD_IX51cX9W_XE4X7ox4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAUČI",
+     "OŽIVLJAVANJE"
+    ],
+    "video": {
+     "id": "gLLJApyDN1E",
+     "titre": "Postupak oživljavanja odrasle osobe",
+     "chaine": "Croatian Red Cross Hrvatski Crveni kriz",
+     "vues": "744 pregleda",
+     "date": "prije 2 tjedna",
+     "duree": "1:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lT4bqcKKpQdza7f35t5bbUbAnjCox5oIyPYJGbSVO7XpI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAUČI SE",
+     "OŽIVLJANJE"
+    ],
+    "video": {
+     "id": "_GJdHbEv-Y4",
+     "titre": "Tudi sam lahko pomagam pri oživljanju - Temeljni postopki oživljanja z uporabo defibrilatorja (AED)",
+     "chaine": "Alpacem Cement",
+     "vues": "5,4 tis. ogledov",
+     "date": "pred 7 leti",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/ZxcIPMAdWE0r8OQit82Cjvm-6zYtn85Lfv2zrj5Nan7s98GrJ-dopUnv95IIQsBlgJc_AY4jfA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ",
+     "ÚJRAÉLESZTÉST"
+    ],
+    "video": {
+     "id": "UghNXnLlZqo",
+     "titre": "Alapszintű újraélesztés (BLS)",
+     "chaine": "Mozaik Education",
+     "vues": "272 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "3:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFuMlZBgAiNUPV_CSzigZFr7r17cXeiX_tb02q72aEVG4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER",
+     "REANIMEREN"
+    ],
+    "video": {
+     "id": "Qj2TjF0yZIs",
+     "titre": "Hoe Moet Je Reanimeren met een AED? | EHBO Doe Je Zo - Rode Kruis",
+     "chaine": "Rode Kruis",
+     "vues": "359K weergaven",
+     "date": "8 jaar geleden",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/yeobI--l8-10uRyaXHarmtV_jFCErFA1BlFKY0t2qmIwepUFLxG8P_dRtbUtjwnThZ3vi_ZwMA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ",
+     "RESUSCYTACJI"
+    ],
+    "video": {
+     "id": "cEjv65ANBUg",
+     "titre": "Reanimacja - pierwsza pomoc przedmedyczna #reanimacja 🚑",
+     "chaine": "Kursy pierwszej pomocy Adrian Zadorecki",
+     "vues": "73 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfV9kHj2uInlqhtUc-jXJD_nhb6wgZvz-eu01kHaNym363=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     "HLR"
+    ],
+    "video": {
+     "id": "fyPcYwnlbBI",
+     "titre": "HLR VUXEN – så gör du kompressioner och inblåsningar (hjärt- och lungräddning)",
+     "chaine": "Hjärtochlungräddning.se",
+     "vues": "104 750 visningar",
+     "date": "för 11 år sen",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/WQvwZerPlXcbsOChN5e5OMxdukbVfBHDngtIyvyIdWBTPbGwKepYpj-2fkluFxLFsFQYq1mFrNs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "KALP MASAJINI",
+     "ÖĞREN"
+    ],
+    "video": {
+     "id": "pXt_Rc7HOAg",
+     "titre": "YETİŞKİNLERDE TEMEL YAŞAM DESTEĞİ 8 YAŞ ÜSTÜ KİŞİLER",
+     "chaine": "Türk Kızılay",
+     "vues": "437 B görüntüleme",
+     "date": "11 yıl önce",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/1l50f91MjnPJt6xgKz9n6J-9NHizqc-lOspcAjM19g1Ev_7RoYiyxTGn9T3XTlbkwt_E5FKe=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "IŠMOK",
+     "GAIVINTI"
+    ],
+    "video": {
+     "id": "r7c-lvQ-h-A",
+     "titre": "Pirmoji pagalba: kaip gaivinti suaugusį žmogų?",
+     "chaine": "15min",
+     "vues": "61 tūkst. peržiūrų",
+     "date": "prieš 10 metų",
+     "duree": "05:10",
+     "avatar": "https://yt3.ggpht.com/oL35OP9o6_CkGAOtBQ4xtvwgYldMBOlpgJFOCxgEcnujx-7AivdfedmPVn8yi1UgIZ7ZZDc4ww=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LÆR",
+     "HJERTE-LUNGEREDNING"
+    ],
+    "video": {
+     "id": "KLI5PU5OOnU",
+     "titre": "Hjerte-lungeredning på voksne",
+     "chaine": "Røde Kors",
+     "vues": "25k avspillinger",
+     "date": "for 5 år siden",
+     "duree": "2:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_leAuQbrrqnTiYgSL-8BbYze9JCV4sgRfkUK8SAeFdPd_c=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "ÕPI",
+     "ELUSTAMIST"
+    ],
+    "video": {
+     "id": "MLv6uVsGzrI",
+     "titre": "Elustamine - kuidas tunda ära südame seiskumist ja kuidas aidata?",
+     "chaine": "Tartu Tervishoiu Kõrgkool",
+     "vues": "5,8 tuh vaatamist",
+     "date": "6 aasta eest",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/S82sbtl_zSNcCdFzz7K_zw6WlD0Fh69B5xK-D_rhJhYk12V3a6Lw7veLhY2ivrRZFxy1WqvTVw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "OPI",
+     "ELVYTTÄMÄÄN"
+    ],
+    "video": {
+     "id": "3dsqxuG9lEk",
+     "titre": "Aikuisen peruselvytys",
+     "chaine": "SuomenPunainenRisti",
+     "vues": "87 t. katselukertaa",
+     "date": "9 vuotta sitten",
+     "duree": "1.46",
+     "avatar": "https://yt3.ggpht.com/UXDu62BAwwm7orDDpwJP9QELAmxfwOdg2DMjGdywlxxv2W2GPbyI2fYn9Xavjn6iZUFOFUhL=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -675,6 +1683,201 @@
      "date": "hace 3 años",
      "duree": "4:43",
      "avatar": "https://yt3.ggpht.com/gp1WyTl_BqychSyQv3WsX5vC1o9kNzSLe3RHKwtrMnP6liqdYS03ECFOHJtElsJa_CPQDAiQ-A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ZVLÁDNI",
+     "SVŮJ ČAS"
+    ],
+    "video": {
+     "id": "zaXkTtxtbOc",
+     "titre": "PRACUJTE LÉPE NEŽ 99 % lidí: 5 strategií, které vám změní život",
+     "chaine": "TrochuLepší",
+     "vues": "52 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "15:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjInIyfhJFAa4OsEBFfvoCXUIWyc868ZwkwJmlg5fdhQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "ZVLÁDNI",
+     "SVOJ ČAS"
+    ],
+    "video": {
+     "id": "gmF8BvmiVfg",
+     "titre": "Praktický time management",
+     "chaine": "Lenka Procházka - Černá",
+     "vues": "2,9 tis. zhliadnutí",
+     "date": "pred 13 rokmi",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/6ifOUL3p9477mhCQnTaLckbqHzGGUbSIts6_SU8LloJzz1DtkM34HlW0FZLdEfIbMpuWEbmOwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ORGANIZIRAJ",
+     "SVOJE VRIJEME"
+    ],
+    "video": {
+     "id": "yq-Jlgs1_uw",
+     "titre": "Organizacija vremena - 5 osnovnih pravila",
+     "chaine": "SLAGALICA organiziranje Tamara Kajari (SLAGALICA organiziranje)",
+     "vues": "4,5 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "10:35",
+     "avatar": "https://yt3.ggpht.com/erRY92z6a5jsPA5uWgr0-sNUpQ7ubG_VZ1mgcYswcHAc0S-zCSSYX9z4wZ1bO8MWH-v3B9vP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "UPRAVLJAJ",
+     "S ČASOM"
+    ],
+    "video": {
+     "id": "LatNUCo2J00",
+     "titre": "Učinkovito upravljanje s časom",
+     "chaine": "Matjaž Bregar",
+     "vues": "351 ogledov",
+     "date": "pred 12 leti",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCUAVKGbnm6wgeQRK-YGx2oTb0SOOMIYghbI7DmTdD27s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "GAZDÁLKODJ",
+     "AZ IDŐDDEL"
+    ],
+    "video": {
+     "id": "lom1loz8eYg",
+     "titre": "Időgazdálkodás - 26 bevált tipp | a halogatás leküzdése",
+     "chaine": "Manhertz József",
+     "vues": "14 E megtekintés",
+     "date": "11 évvel ezelőtt",
+     "duree": "18:12",
+     "avatar": "https://yt3.ggpht.com/An87dMqK7Cm8bvaDDRvKH15a-IdNOoqW9cVIM3DFtYcYpt-hm8g_JJaY0Ft06h1u-DDr5Dd8gD4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER",
+     "NEE ZEGGEN"
+    ],
+    "video": {
+     "id": "91yvHJ8P4fY",
+     "titre": "Nee zeggen",
+     "chaine": "Thinking Caterpillar",
+     "vues": "300 weergaven",
+     "date": "8 jaar geleden",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDb6M8fyyEJejAI-3GGcyFoqB6yyNSNIw3Mh7sze4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZARZĄDZAJ",
+     "CZASEM"
+    ],
+    "video": {
+     "id": "oOdrrSFUDVo",
+     "titre": "Jak Zyskać Więcej Czasu? Sekrety Mistrzów Zarządzania Czasem",
+     "chaine": "Przeciętny Człowiek",
+     "vues": "20 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "9:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwZtzflFpP0qhUiZtsM11LR01co0oSv34IMczHFgDw_A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG ATT",
+     "SÄGA NEJ"
+    ],
+    "video": {
+     "id": "TUe268JKgfo",
+     "titre": "Avsnitt 407. Svårt att säga nej",
+     "chaine": "Lätt Svenska Med Oskar",
+     "vues": "2 139 visningar",
+     "date": "för 5 mån. sen",
+     "duree": "9:26",
+     "avatar": "https://yt3.ggpht.com/ebkIYPHR_BFTeh0KZ_RERLhoTjhZL7FiD2Apd0r9D_pMcVyhiTQ7mfvlqoKKlPSFaeT26u1uow=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "ZAMANINI",
+     "YÖNET"
+    ],
+    "video": {
+     "id": "LDwciFMyuS0",
+     "titre": "10 Tane Zaman Yönetimi Taktiği (gayet iyiler)",
+     "chaine": "Baraneemo",
+     "vues": "350 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "12:01",
+     "avatar": "https://yt3.ggpht.com/r9g4Dmmovuf6grAbeRBleqnbmpERRHj_eUhEc1djR30wRHOy8XeOHhXBRgr4iweHLIk5cvHVn7M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "lt": {
+    "titre": [
+     "PLANUOK",
+     "SAVO LAIKĄ"
+    ],
+    "video": {
+     "id": "QAcF72FPUaU",
+     "titre": "LAIKO PLANAVIMAS. Kaip aš planuoju savo dieną?",
+     "chaine": "Zilvinas Butkevicius",
+     "vues": "120 tūkst. peržiūrų",
+     "date": "prieš 3 metus",
+     "duree": "06:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdrg_kqkRhwO3PBR6_mx_t5ie5ydrZ0JtEYXVGO4nYq9xZ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LÆR Å",
+     "SI NEI"
+    ],
+    "video": {
+     "id": "uuAPMv1NSwo",
+     "titre": "Lær å si nei på ett minutt",
+     "chaine": "Bypsykologene",
+     "vues": "1,1k avspillinger",
+     "date": "for 7 år siden",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLwanM4JUCdiQFLU9DRF3AP2uoRtDoT_Cc6R-szyn9oOY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "et": {
+    "titre": [
+     "PLANEERI",
+     "OMA AEGA"
+    ],
+    "video": {
+     "id": "kNDFg1jcJZI",
+     "titre": "7 HÄKKI, mis kasvatavad sinust ajaplaneerimise kunni!",
+     "chaine": "Karin K",
+     "vues": "3 tuh vaatamist",
+     "date": "8 aasta eest",
+     "duree": "12:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nB5WztQX0FalLsjPqjZbaRgEJvwOo3hdpPEndz8J4lCUux=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "HALLITSE",
+     "AIKAASI"
+    ],
+    "video": {
+     "id": "eI95W1bSy6Q",
+     "titre": "Ajanhallinta - Miten yhdistää opiskelu, työ ja harrastukset",
+     "chaine": "Jalmafi",
+     "vues": "23 t. katselukertaa",
+     "date": "7 vuotta sitten",
+     "duree": "11.31",
+     "avatar": "https://yt3.ggpht.com/XVu_rdLyCXaNExvnkcvQ5-7y9Zsg9BIXkUs-pxgqUd2rY1oOgsCcdxo7q6dQqBno02ORNJyUZw=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

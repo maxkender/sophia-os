@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o162",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0804923e-e66b-4a71-88f1-a43b4e5163e0",
+  "titre": "how to survive having no friends at school (no bs, personal advice) #studytok #school #highschool",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "0804923e-e66b-4a71-88f1-a43b4e5163e0"
+  ],
+  "notes": "Déclinaison G1 de 0804923e (r 2,32 en roumain), ligne 3 de la boîte. Accroche du parent mot pour mot, avec ses lettres « 𐐪 𐑂 » (lettres déserétiennes : le guichet les compte comme des mots ; l'aperçu les affiche en cases, comme les émojis, ce qui ne préjuge pas du rendu final). Ton bienveillant, aucun mépris des autres, rien de médical. Conseils neufs, aucun du parent (s'asseoir seul, se connaître, créer un lien, ne pas s'adapter) : les clubs, saluer une personne par jour, la bibliothèque à la pause, devenir la personne qui sait plein de choses (slide Sophia, 5), le travail en binôme en classe, parler à un adulte de confiance si c'est lourd. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ade975a3",
+      "texte_overlay": "𐐪 𐑂 how to survive having no friends\nat school\n(no bs, personal advice) 𐐪 𐑂",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "933958d9",
+      "texte_overlay": "1) join one club\na shared interest does half the talking for you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7e1ee2e0",
+      "texte_overlay": "2) say hi to one person a day\nsmall hellos turn into conversations.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0a7580ff",
+      "texte_overlay": "3) the library at lunch is a real option\nquiet, calm, and other people go there too.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "25c9c10b",
+      "texte_overlay": "4) become the person who knows interesting things\nfun facts are the easiest conversation starters.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "4) become the person who knows interesting things\ni learn a few on a micro-learning app like the Sophia app.\nfun facts start conversations."
+    },
+    {
+      "position": 6,
+      "media_id": "8034c793",
+      "texte_overlay": "5) say yes to group work\nworking together is the easiest way to get closer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "8f466681",
+      "texte_overlay": "and if it feels heavy, talk to an adult you trust.\nyou don't have to carry it alone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

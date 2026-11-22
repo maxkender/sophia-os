@@ -10,6 +10,7 @@ import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rap
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { type Aujourdhui, type LigneAujourdhui, type QualiteSemaine, texteAlertesUrgentes, texteQualite, texteResumeJour } from "../_shared/aujourdhui.ts";
 import { type CleSituation, estReactiver2eCompte, estRienPrevu, reponseRienPrevu, situationFixe, TEXTES_SITUATIONS } from "../_shared/support_situations.ts";
+import { envoyerWhatsApp } from "../_shared/whatsapp_envoi.ts";
 import { lundiEnClair, reponseDouble, TEXTE_REFUS_DOUBLE, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "../_shared/doublement.ts";
 import {
   type CasRuul,
@@ -207,6 +208,13 @@ Deno.serve(async (request) => {
         // par le bouton existant, une fois chacune (cron support-tickets, toutes les 15 min).
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
         return json(await ticketsAuto(db));
+      case "whatsapp_message":
+        // 22/11 (Max) : un message WhatsApp reçu par le webhook (fonction whatsapp) : même cerveau, réponse sur WhatsApp.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await messageWhatsApp(db, {
+          e164: String(body.e164 ?? ""), wamid: String(body.wamid ?? ""), texte: String(body.texte ?? ""),
+          poster: typeof body.poster_id === "string" && body.poster_id ? body.poster_id : null, apresFin: body.apres_fin === true,
+        }));
       case "slack_message":
         // 13/11 (refonte, un seul cerveau) : un message d'un posteur dans un salon Slack (#posting-help…), passé par slack-faq.
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -643,13 +651,24 @@ async function repondre(db: Db, auteur: string | null, id: string, texte: string
   if (!d) return { ok: false, error: "demande introuvable" };
 
   const envois: Record<string, string> = {};
+  // 22/11 (Max) : une demande venue de WhatsApp : la réponse repart sur WhatsApp tant que la fenêtre de 24 h est
+  // ouverte ; sinon par email et Slack (plus bas).
+  let whatsappOk = false;
+  if (d.source === "whatsapp") {
+    const { data: rec } = await db.from("whatsapp_recus").select("de").eq("demande_id", id).order("recu_at", { ascending: false }).limit(1).maybeSingle();
+    if (rec?.de) {
+      const w = await envoyerWhatsApp(db, { e164: rec.de as string, posterId: d.poster_id, motif: "reponse_support", demandeId: id, texte });
+      envois.whatsapp = w.ok ? "ok" : `pas envoyé : ${w.erreur ?? w.statut}`;
+      whatsappOk = w.ok;
+    }
+  }
   // Une question venue d'un salon Slack : la réponse repart dans son fil.
   if (d.source === "slack_salon" && d.slack_canal && d.slack_ts) {
     const jeton = jetonSlackFaq();
     const r = jeton ? await posterSlack(jeton, d.slack_canal, texte, d.slack_ts) : { ok: false, error: "jeton Slack absent" };
     envois.slack_fil = r.ok ? "ok" : `erreur : ${r.error}`;
   }
-  if (d.poster_id) {
+  if (d.poster_id && !whatsappOk) {
     const c = await contactPosteur(db, d.poster_id);
     if (c.email) {
       const m = texteEmailReponse(c.prenom, texte, OS_URL);
@@ -2682,6 +2701,78 @@ async function decrireImagesBrevo(images: { nom: string; type: string; jeton: st
 }
 
 /** 13/11 (Max) : un accusé reçu, gardé pour le fil (« vu »), sans demande. Une seule fois par message. */
+/**
+ * 22/11 (Max) : un message WhatsApp d'un posteur (ou d'un numéro de test). Mêmes règles que Help et Slack (vrai statut,
+ * réponses officielles, jamais « we're checking » pour une question générale), dans sa langue ; la réponse part sur
+ * WhatsApp (fenêtre de 24 h ouverte : il vient d'écrire). Ce qui doit remonter va dans « Pour Max ». Une réponse
+ * dans les 24 h qui suivent la confirmation de fin (STOP) remonte toujours à Max.
+ */
+async function messageWhatsApp(db: Db, o: { e164: string; wamid: string; texte: string; poster: string | null; apresFin: boolean }) {
+  const texte = o.texte.trim().slice(0, 3900);
+  if (!o.e164 || texte.length < 2) return { ok: false, error: "e164 et texte requis" };
+  const poster = o.poster;
+  const { data: prof } = poster ? await db.from("profiles").select("prenom, nom, canal_paie").eq("id", poster).maybeSingle() : { data: null };
+  const plateforme = prof?.canal_paie === "ruul" ? "ruul" : poster ? "upwork" : null;
+  const nom = prof ? [prof.prenom, prof.nom].filter(Boolean).join(" ") : o.e164;
+
+  if (o.apresFin) {
+    const { data: aj, error } = await db.rpc("support_ajouter", {
+      p: { poster_id: poster, type: "question", categorie: "arret", texte, source: "whatsapp", escalader: true, plateforme, bot_decision: "max" },
+    });
+    if (error) return { ok: false, error: `support_ajouter : ${error.message}` };
+    const id = (aj as { id?: string } | null)?.id ?? null;
+    if (id) {
+      await db.from("support_demandes").update({
+        niveau: "max", raison: "Réponse dans les 24 h après la confirmation de fin (STOP sur WhatsApp) : voulait peut-être seulement arrêter les messages WhatsApp.",
+        action_proposee: "Vérifier : arrêter seulement WhatsApp, ou bien la collaboration ?",
+      }).eq("id", id);
+      await alerterMax(db, id, { nom, plateforme: plateforme ?? "upwork", categorie: "arret", texte, raison: "urgent", os: "Réponse après un STOP WhatsApp", action: "Arrêter seulement WhatsApp, ou la collaboration ?" });
+    }
+    return { ok: true, id, niveau: "max", envoi: "rien (remonté à Max)" };
+  }
+
+  if (poster && accuseReception(texte)) {
+    await noterVu(db, poster, "whatsapp", texte, `whatsapp:${o.wamid}`);
+    return { ok: true, vu: true, niveau: "vu", envoi: "rien" };
+  }
+  const r = await deciderBot(db, { message: texte, source: "help", poster, profil: null, canal: "help" });
+  const d = r.decision;
+  if (d.categorie === "salutation" && poster) {
+    await noterVu(db, poster, "whatsapp", texte, `whatsapp:${o.wamid}`);
+  }
+  const parBot = d.niveau === "bot" && d.reponse !== TEXTE_ON_VERIFIE;
+  let action: string | null = null;
+  if (parBot && poster && d.action) action = await executerAction(db, poster, d, texte);
+  let envoi = "rien";
+  if (!r.controle.muet) {
+    const w = await envoyerWhatsApp(db, { e164: o.e164, posterId: poster, motif: "reponse_bot", cle: `bot:${o.wamid}`, texte: r.texte });
+    envoi = w.ok ? "whatsapp" : `whatsapp : ${w.erreur ?? w.statut}`;
+  }
+  const { data: aj, error } = await db.rpc("support_ajouter", {
+    p: {
+      poster_id: poster, type: "question", categorie: d.categorie, texte, source: "whatsapp", escalader: !parBot, plateforme,
+      bot_reponse: parBot ? r.texte : null, bot_decision: d.niveau, brouillon: parBot ? null : brouillonDe(r),
+    },
+  });
+  if (error) return { ok: false, error: `support_ajouter : ${error.message}` };
+  const id = (aj as { id?: string } | null)?.id ?? null;
+  if (id) {
+    await db.from("support_demandes").update({
+      niveau: parBot ? "bot" : d.niveau === "adrien" ? "max" : d.niveau, risque: d.risque, action_faite: action, regle: r.regle_utilisee,
+      raison: `${d.raison} (WhatsApp ; réponse : ${envoi})`, langue: d.langue, ...(parBot ? { statut: "bot" } : {}),
+    }).eq("id", id);
+    await db.from("whatsapp_envois").update({ demande_id: id }).eq("cle", `bot:${o.wamid}`);
+    if (poster) {
+      await noterControle(db, poster, id, "whatsapp", parBot ? r.texte : null, r.controle);
+      await apresDemande(db, { poster, demande: id, plan: r.plan, decision: d, source: "whatsapp", texte });
+    }
+    if (d.niveau === "max") {
+      await alerterMax(db, id, { nom, plateforme: plateforme ?? "upwork", categorie: d.categorie, texte, raison: "urgent", os: d.raison, action: brouillonDe(r) });
+    }
+  }
+  return { ok: true, id, niveau: parBot ? "bot" : d.niveau, envoi };
+}
+
 async function noterVu(db: Db, poster: string, canal: string, texte: string, ref: string) {
   await db.from("support_vus").upsert({ poster_id: poster, canal, texte: texte.slice(0, 2000), ref }, { onConflict: "ref", ignoreDuplicates: true });
 }

@@ -15,7 +15,11 @@
       "destination": "https://mbikecieskoobeizixig.supabase.co/functions/v1/qg/:path*"
     },
     {
-      "source": "/((?!assets/|api/qg/).*)",
+      "source": "/api/whatsapp/:path*",
+      "destination": "https://mbikecieskoobeizixig.supabase.co/functions/v1/whatsapp/:path*"
+    },
+    {
+      "source": "/((?!assets/|api/qg/|api/whatsapp/).*)",
       "destination": "/index.html"
     }
   ]

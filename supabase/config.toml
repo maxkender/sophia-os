@@ -298,3 +298,6 @@ verify_jwt = false
 # 18/11 : la Bible des comptes (miniatures). Contrôle d'accès interne : admin au sens strict (assertRole), ou x-cron-secret.
 [functions.bible]
 verify_jwt = false
+
+[functions.whatsapp]
+verify_jwt = false

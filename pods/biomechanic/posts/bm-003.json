@@ -1,0 +1,214 @@
+{
+ "id": "bm-003",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7695054241534168342",
+  "vues": 397500,
+  "publie_le": "2026-10-10",
+  "accroche": "Sports Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "cardio tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "where does your cardio rank? 🫀 #cardio #running #health #biohacking #fitness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/canape.jpg": "08340823-3148-4758-8db7-b569aeb0455d",
+  "images/banque/hiit.jpg": "18b46e13-e2d9-4f05-b1b3-2a46214052f6",
+  "images/banque/tapis-lent.jpg": "126a5e8b-d7f5-4543-b7eb-9767142202fb",
+  "images/banque/pas.jpg": "0df2cf61-0e20-4a38-9eb3-ccde3bcd9e05",
+  "images/banque/escaliers.jpg": "e0adb30e-5a1d-45c7-a183-c41952ec6e8b",
+  "images/banque/velo.jpg": "937fda15-fe2c-41ad-a900-9956d909cb29",
+  "images/banque/nage.jpg": "2eae272f-76e9-4861-8ad0-e5b0f74936c9",
+  "images/banque/rando.jpg": "9bd8c2eb-2c05-4e2b-aa1d-98dc6f8ccac3",
+  "images/banque/footing-facile.jpg": "dcb001c3-c255-4077-b0ed-a1190b3c40de",
+  "images/banque/piste-8020.jpg": "4b0f3f1c-e89e-4033-be02-8f82c78efabc",
+  "images/banque/sprints.jpg": "81b93090-5fb9-4574-96b0-a8bde17e006c"
+ },
+ "notes": "Full test du 22/11 (boîte vide, jauge : 1 full test) : accroche neuve chez nous, « Cardio Tierlist For Optimal Health (Science based) », famille « Sports Tierlist » de @thebiomechanic (397,5 k, 10/10) ; `source` gardée pour mémoire, non envoyée (full test). Même gabarit que bm-001/002 ; croquis de couverture neuf (cardio.jpg, Seedream : course, vélo, nage). Slide Atala (11) : le premier S tier « Easy Runs », une coureuse de la banque et le logo d'Atala. Texte selon placement_atala : titre de 7 mots → voix TU, forme « a running coach app like Atala », un seul argument : le plan part de ton niveau et monte petit à petit (bm-001 : l'allure ; bm-002 : la séance déjà prévue) ; version « cta C' ». Faits : faible capacité cardiorespiratoire, l'un des plus forts prédicteurs de mortalité (Kodama et al., JAMA 2009 ; Mandsager et al., JAMA Netw Open 2018) ; le désentraînement remonte la fréquence cardiaque de repos ; vélo et natation chargent peu l'os, la course et la marche en côte le chargent (Rector et al., Osteoporos Int 2008 ; revues sur la densité osseuse des nageurs et cyclistes) ; la plupart des athlètes d'endurance font l'essentiel de leur entraînement à faible intensité (Seiler, distribution polarisée) ; HIIT : 2 à 3 séances par semaine dans les recommandations courantes. Rien de médical. Photos : banque de l'OS, aucune célébrité, aucune marque lisible.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/cardio.jpg",
+   "en": {
+    "lignes": [
+     "Cardio Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/canape.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "No Cardio At All",
+    "paragraphes": [
+     "Your heart is a muscle. Without regular cardio, your resting heart rate creeps up and even a flight of stairs starts to leave you out of breath.",
+     "Low cardio fitness is one of the strongest predictors of poor health as you age. Anything else beats it."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hiit.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "F",
+    "nom": "HIIT Every Single Day",
+    "paragraphes": [
+     "Hard intervals are a big stress on your body. Done every day, your muscles and nervous system never get the easy days they need to adapt.",
+     "Two hard sessions a week is plenty. Every day, it's the fastest way to burn out or get hurt."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/tapis-lent.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Slow Treadmill Scrolling",
+    "paragraphes": [
+     "Walking slowly while scrolling barely lifts your heart rate. It's movement, but your heart and lungs are hardly asked to work.",
+     "Better than the sofa. It lands in D because most people stop there and call it cardio."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/pas.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Counting Steps Only",
+    "paragraphes": [
+     "Steps are a great daily base, but most of them happen at a pace that never leaves you out of breath.",
+     "Keep the steps. They just need a few sessions a week where your heart rate actually goes up."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sprints.jpg",
+   "cadrage": {
+    "y": 0.12
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Sprints Only",
+    "paragraphes": [
+     "Short all-out sprints build speed and power, and the whole session is over before you know it.",
+     "Great as a small part of your week. On their own, they skip the easy aerobic work your heart needs."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/escaliers.jpg",
+   "cadrage": {
+    "y": 0.1
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Stair Climbing",
+    "paragraphes": [
+     "Climbing stairs drives your heart rate up fast and works your legs hard with every single step.",
+     "It's brutal for a few minutes, but most people can't keep it up long enough to build a real aerobic base."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/velo.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Cycling",
+    "paragraphes": [
+     "Long rides train your heart and lungs with almost no impact on your joints, so you can go for hours.",
+     "It misses A tier because it barely loads your bones, and they need some impact to stay strong."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/nage.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Swimming",
+    "paragraphes": [
+     "Swimming works your whole body and your breathing at once, with zero impact on your joints.",
+     "Like cycling, it gives your bones almost no load, and technique limits how long most people can swim."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rando.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Hiking Uphill",
+    "paragraphes": [
+     "Hours outside at a steady effort, with your legs carrying your weight up every climb. Your heart works without you noticing.",
+     "It only misses S tier because most people can't get to a hill more than once a week."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/footing-facile.jpg",
+   "format": "carre",
+   "cadrage": {
+    "y": 0.65
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Easy Runs",
+    "paragraphes": [
+     "Running at a relaxed pace trains your heart, loads your bones and needs nothing but shoes and a door.",
+     "Most beginners do too much too soon and stop after two weeks. A running coach app like Atala starts from your level and builds up little by little."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/piste-8020.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Mostly Easy, Some Hard",
+    "paragraphes": [
+     "The best endurance athletes keep most of their training easy and save a small part for hard efforts.",
+     "That mix beats any single type of cardio: it builds a big aerobic base without wearing you out."
+    ]
+   }
+  }
+ ]
+}

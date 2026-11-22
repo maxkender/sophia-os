@@ -263,8 +263,23 @@ async function etat(db: Db) {
   };
   const numero = s.phoneId ? await graph(`${s.phoneId}?fields=display_phone_number,verified_name,quality_rating,code_verification_status,platform_type,throughput`) : null;
   const abonnements = s.waba ? await graph(`${s.waba}/subscribed_apps`) : null;
+  // L'identifiant donné n'est pas un compte WhatsApp Business ? Peut-être celui du portefeuille Business : on cherche
+  // les comptes WhatsApp qu'il possède (les identifiants seuls, jamais le jeton).
+  let pistes: Record<string, unknown> | null = null;
+  if (s.waba && !abonnements?.ok) {
+    const [possedes, clients, moi] = await Promise.all([
+      graph(`${s.waba}/owned_whatsapp_business_accounts?fields=id,name`),
+      graph(`${s.waba}/client_whatsapp_business_accounts?fields=id,name`),
+      graph("me?fields=id,name"),
+    ]);
+    pistes = {
+      comptes_possedes: possedes.ok ? possedes.data?.data : possedes.erreur,
+      comptes_clients: clients.ok ? clients.data?.data : clients.erreur,
+      utilisateur_du_jeton: moi.ok ? moi.data : moi.erreur,
+    };
+  }
   return {
-    ok: true, secrets: presents, mode: await lireModeWhatsApp(db),
+    ok: true, secrets: presents, mode: await lireModeWhatsApp(db), pistes_waba: pistes,
     numero: numero?.ok ? numero.data : { erreur: numero?.erreur ?? "pas d'identifiant" },
     apps_abonnees: abonnements?.ok ? abonnements.data : { erreur: abonnements?.erreur ?? "pas de WABA" },
   };

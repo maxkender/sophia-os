@@ -7,7 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 import { appeler } from "./api";
-import { type CanalReponse, canalDefaut, type ElementFil, LIBELLE_CANAL, lireConversation, repondreCanal } from "./conversation";
+import { type CanalReponse, canalDefaut, type ElementFil, LIBELLE_CANAL, lireConversation, repondreCanal, whatsappPossible } from "./conversation";
+import { IconeWhatsApp } from "./IconeWhatsApp";
 
 const quand = (at: string) => new Date(at).toLocaleString("fr-FR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
 
@@ -52,6 +53,8 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
     ...(c.canaux.email ? (["email"] as const) : []),
     ...(c.canaux.slack ? (["slack"] as const) : []),
     ...(c.canaux.upwork && c.canaux.plateforme !== "ruul" ? (["upwork"] as const) : []),
+    // 0839 : WhatsApp (texte libre, fenêtre de 24 h ; sinon le support renvoie une erreur claire).
+    ...(whatsappPossible(source, c.fil) ? (["whatsapp"] as const) : []),
   ];
   return (
     <div className="grid gap-3 md:grid-cols-[1fr_16rem]" data-testid="conversation">
@@ -72,7 +75,7 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
             >
               <div className="flex flex-wrap items-center gap-1 text-[11px] text-muted-foreground">
                 <span className="font-medium">{qui(e)}</span>
-                <span>· {LIBELLE_CANAL[e.canal] ?? e.canal}</span>
+                <span>· {e.canal === "whatsapp" && <IconeWhatsApp />} {LIBELLE_CANAL[e.canal] ?? e.canal}</span>
                 {e.type && !["message", "fil", "demande", "action"].includes(e.type) && <span>· {e.type}</span>}
                 <span>· {quand(e.at)}</span>
                 {e.vu && <Badge variant="outline" className="h-4 px-1 text-[10px]" data-testid="vu">vu</Badge>}
@@ -94,7 +97,8 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
             <span className="text-muted-foreground">Répondre sur :</span>
             {canauxPossibles.map((k) => (
               <label key={k} className="flex items-center gap-1">
-                <input type="radio" name={`canal-${posterId}`} checked={canalChoisi === k} onChange={() => setCanal(k)} /> {LIBELLE_CANAL[k]}
+                <input type="radio" name={`canal-${posterId}`} checked={canalChoisi === k} onChange={() => setCanal(k)} />
+                {k === "whatsapp" && <IconeWhatsApp />} {LIBELLE_CANAL[k]}
               </label>
             ))}
           </div>

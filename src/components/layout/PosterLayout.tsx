@@ -19,6 +19,7 @@ import { useParrainageActif } from "@/features/bonus/parrainageActif";
 import { useAuth } from "@/features/auth/AuthContext";
 import { BandeauEmailRuul } from "@/features/ruul/BandeauEmailRuul";
 import { BandeauCompteArrete } from "@/features/fin/BandeauCompteArrete";
+import { BanniereWhatsApp } from "@/features/whatsapp/BanniereWhatsApp";
 import { BoutonHelp } from "@/features/support/BoutonHelp";
 import { QuestionnairePopup } from "@/features/questionnaire/QuestionnairePopup";
 import { OffreCommentMasterPopup } from "@/features/commentMasters/OffreCommentMasterPopup";
@@ -63,6 +64,10 @@ export function PosterLayout() {
       <BandeauEmailRuul />
       {/* 18/11 (Max) : un de ses 2 comptes a été désactivé : en haut, jusqu'à « Got it ». */}
       <BandeauCompteArrete />
+      {/* 0839 : numéro WhatsApp + accord ; rien tant que le réglage whatsapp_banniere est éteint (par défaut). */}
+      <SectionSure nom="WhatsApp">
+        <BanniereWhatsApp />
+      </SectionSure>
       {/*
         11/11 : chaque pop-up dans sa SectionSure. Ils s'ouvrent par-dessus le
         calendrier et ne se ferment que par leur bouton : un pop-up qui plantait

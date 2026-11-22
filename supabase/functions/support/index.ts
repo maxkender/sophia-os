@@ -10,7 +10,7 @@ import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rap
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { type Aujourdhui, type LigneAujourdhui, type QualiteSemaine, texteAlertesUrgentes, texteQualite, texteResumeJour } from "../_shared/aujourdhui.ts";
 import { type CleSituation, estReactiver2eCompte, estRienPrevu, reponseRienPrevu, situationFixe, TEXTES_SITUATIONS } from "../_shared/support_situations.ts";
-import { envoyerWhatsApp } from "../_shared/whatsapp_envoi.ts";
+import { contactWhatsApp, envoyerWhatsApp } from "../_shared/whatsapp_envoi.ts";
 import { lundiEnClair, reponseDouble, TEXTE_REFUS_DOUBLE, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "../_shared/doublement.ts";
 import {
   type CasRuul,
@@ -2814,8 +2814,26 @@ async function repondreCanal(db: Db, auteur: string | null, o: { poster_id: stri
     const data = await rep.json().catch(() => ({})) as { ok?: boolean; error?: string };
     if (!rep.ok || data.ok === false) return { ok: false, error: `Upwork : ${data.error ?? `HTTP ${rep.status}`}` };
     envoi = "upwork";
+  } else if (o.canal === "whatsapp") {
+    // 0839 : sur WhatsApp, en texte libre, seulement dans la fenêtre de 24 h (règles du mode test dans envoyerWhatsApp).
+    const c = await contactWhatsApp(db, o.poster_id);
+    let numero = c.e164;
+    if (!numero) {
+      const { data: rec } = await db.from("whatsapp_recus").select("de").eq("poster_id", o.poster_id).order("recu_at", { ascending: false }).limit(1).maybeSingle();
+      numero = (rec?.de as string | undefined) ?? null;
+    }
+    if (!numero) return { ok: false, error: "WhatsApp : pas de numéro WhatsApp pour ce posteur" };
+    if (c.optout) return { ok: false, error: "WhatsApp : le posteur a retiré son accord (STOP) : réponds par Email, Slack ou Upwork" };
+    const w = await envoyerWhatsApp(db, { e164: numero, posterId: o.poster_id, motif: "support_reponse", demandeId: o.demande_id, texte });
+    if (!w.ok) {
+      if (w.erreur === "fenêtre de 24 h fermée") {
+        return { ok: false, error: "WhatsApp : fenêtre de 24 h fermée (pas de message du posteur depuis plus de 24 h) : réponds par Email, Slack ou Upwork" };
+      }
+      return { ok: false, error: `WhatsApp : ${w.erreur ?? w.statut}` };
+    }
+    envoi = "whatsapp";
   } else {
-    return { ok: false, error: "canal : help, email, slack ou upwork" };
+    return { ok: false, error: "canal : help, email, slack, upwork ou whatsapp" };
   }
   if (o.demande_id) {
     const maintenant = new Date().toISOString();

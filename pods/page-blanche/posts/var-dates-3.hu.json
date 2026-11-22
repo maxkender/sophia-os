@@ -1,0 +1,308 @@
+{
+ "post_id": "var-dates-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that are rapidly",
+      "destroying your focus"
+     ],
+     "fr": "10/10 habitudes qui flinguent ta concentration à toute vitesse",
+     "texte": "képernyő nélküli randik, hogy [[tényleg megismerj]] valakit"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(kipróbálva, bevált)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_39e9b166.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start before you feel ready"
+     ],
+     "fr": "lance-toi [[avant que tout soit prêt]]",
+     "texte": "egy [[kis klasszikus koncert]]"
+    },
+    "T2": {
+     "en": [
+      "the business, the gym, the youtube channel, you",
+      "keep waiting until you feel confident enough"
+     ],
+     "fr": "le projet, la salle, la chaîne, t'attends toujours le jour où t'auras [[assez confiance]]",
+     "texte": "a zeneiskolák és kis termek olcsó esti koncerteket tartanak. menjetek, akkor is, ha [[nem értetek hozzá]]"
+    },
+    "T3": {
+     "en": [
+      "but motivation usually",
+      "comes after you start,",
+      "not before"
+     ],
+     "fr": "mais la motivation arrive [[quand t'as commencé]], pas avant",
+     "texte": "utána mindketten elmondjátok, [[mit láttatok a zenében]]"
+    },
+    "T4": {
+     "en": [
+      "successful people feel",
+      "scared too, they just",
+      "start anyway"
+     ],
+     "fr": "les gens qui réussissent [[ont peur aussi]], ils y vont quand même",
+     "texte": "sosem ugyanaz jön ki, és [[pont ebből lesz a beszélgetés]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_19862a9a.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching everything",
+      "at 2x speed"
+     ],
+     "fr": "arrête de tout regarder [[en vitesse x2]]",
+     "texte": "éjszaka [[a csillagok alatt]], városon kívül"
+    },
+    "T2": {
+     "en": [
+      "you watch everything at 2x",
+      "and feel like you're learning",
+      "so much"
+     ],
+     "fr": "tu regardes tout en x2 et t'as l'impression [[d'apprendre plein de trucs]]",
+     "texte": "feküdjetek egy plédre, és [[várjatok 20 percet]], hogy a szemetek megszokja"
+    },
+    "T3": {
+     "en": [
+      "but your brain never gets",
+      "time to actually think"
+     ],
+     "fr": "mais ton cerveau a jamais le temps de [[vraiment réfléchir]]",
+     "texte": "nincs csillagtérkép: [[találjátok ki ti]] a csillagképeket"
+    },
+    "T4": {
+     "en": [
+      "and normal speed starts to",
+      "feel boring. why are you",
+      "rushing to finish a tiktok?"
+     ],
+     "fr": "et la vitesse normale [[te saoule]]. [[pourquoi tu te presses de finir un tiktok ?]]",
+     "texte": "hülye nevek, kényelmes csendek, és [[a nagy kérdések maguktól előjönnek]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6f28a24e.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "taking breaks on your phone"
+     ],
+     "fr": "faire tes pauses [[sur ton tel]]",
+     "texte": "[[levélváltás]] egy évre előre"
+    },
+    "T2": {
+     "en": [
+      "you think you’re resting, but just doomscroll on tiktok"
+     ],
+     "fr": "tu crois te reposer, mais en vrai tu doomscrolles sur tiktok",
+     "texte": "üljetek be egy kávézóba, írjatok egymásnak [[egy őszinte oldalt]]"
+    },
+    "T3": {
+     "en": [
+      "that’s why you come",
+      "back more tired and less",
+      "focused"
+     ],
+     "fr": "du coup tu reviens [[avec moins d'énergie et de concentration]]",
+     "texte": "mit veszel észre, mit remélsz, [[mit nem mersz megkérdezni]]"
+    },
+    "T4": {
+     "en": [
+      "instead, take a real",
+      "break, walk, stretch or",
+      "just look out the",
+      "window"
+     ],
+     "fr": "fais plutôt [[une vraie pause]] : marche, étire-toi ou regarde par la fenêtre",
+     "texte": "ragasszátok le, dugjátok el, és [[csak egy év múlva]] nyissátok ki"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1dd5bc46.jpg",
+      "boite": [
+       0,
+       0,
+       2208,
+       1888
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[chaque jour]]",
+     "texte": "[[előadásest]] otthon"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis [[vouloir lire plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "mindketten készültök 5 percet egy [[véletlen témából]], diák nélkül"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found this thing which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "[[c'était moi avant]]. maintenant c'est un livre au lit, des balades, et [[l'appli Sophia]] quand je prends mon tel",
+     "texte": "a szabály: olyasmi legyen, amiről a másik [[semmit nem tud]]. kérdezni szabad, beszólni kötelező"
+    },
+    "T4": {
+     "en": [
+      "warren buffett spends most",
+      "of his day reading. it builds",
+      "focus, patience and the",
+      "ability to think for yourself"
+     ],
+     "fr": "warren buffett [[lit presque toute la journée]]. ça muscle ta concentration, ta patience et [[ton esprit critique]]",
+     "texte": "honnan jönnek a témáim? régen csak görgettem, most ha úgyis a telefonon vagyok, veszek [[egy 5 perces leckét a Sophia appban]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "studying with a show on"
+     ],
+     "fr": "bosser [[devant une série]]",
+     "texte": "felolvasás [[egymásnak]]"
+    },
+    "T2": {
+     "en": [
+      "you think it’s fine because",
+      "you’re still getting work",
+      "done, but your brain keeps",
+      "switching back and forth"
+     ],
+     "fr": "tu crois que ça va vu que t'avances, mais ton cerveau [[fait des allers-retours sans arrêt]]",
+     "texte": "egy pléd, tea, egy könyv, amit egyikőtök sem olvasott. felváltva, [[fejezetenként]], egész este"
+    },
+    "T3": {
+     "en": [
+      "every time it switches",
+      "back, it has to find its place",
+      "again"
+     ],
+     "fr": "à chaque fois qu'il revient, il doit [[retrouver où il en était]]",
+     "texte": "egy botladozó hang többet elárul, mint [[a tökéletes első randi]]"
+    },
+    "T4": {
+     "en": [
+      "if you need sound, put on something",
+      "with no words and no story"
+     ],
+     "fr": "si t'as besoin de son, mets un truc [[sans paroles et sans histoire]]",
+     "texte": "és mindketten tudni akarjátok majd, [[mi lesz a folytatás]] (a könyvben is)"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5183823a.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

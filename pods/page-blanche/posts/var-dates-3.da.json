@@ -1,0 +1,308 @@
+{
+ "post_id": "var-dates-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that are rapidly",
+      "destroying your focus"
+     ],
+     "fr": "10/10 habitudes qui flinguent ta concentration à toute vitesse",
+     "texte": "skærmfri dates, hvor du [[virkelig lærer nogen at kende]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(testet og godkendt)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_17788c0d.jpg",
+      "boite": [
+       0,
+       1580,
+       1504,
+       1180
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start before you feel ready"
+     ],
+     "fr": "lance-toi [[avant que tout soit prêt]]",
+     "texte": "en [[lille klassisk koncert]]"
+    },
+    "T2": {
+     "en": [
+      "the business, the gym, the youtube channel, you",
+      "keep waiting until you feel confident enough"
+     ],
+     "fr": "le projet, la salle, la chaîne, t'attends toujours le jour où t'auras [[assez confiance]]",
+     "texte": "musikskoler og små sale holder billige aftenkoncerter. tag afsted, også selvom I [[intet ved om det]]"
+    },
+    "T3": {
+     "en": [
+      "but motivation usually",
+      "comes after you start,",
+      "not before"
+     ],
+     "fr": "mais la motivation arrive [[quand t'as commencé]], pas avant",
+     "texte": "bagefter fortæller I, [[hvad musikken fik jer til at se]]"
+    },
+    "T4": {
+     "en": [
+      "successful people feel",
+      "scared too, they just",
+      "start anyway"
+     ],
+     "fr": "les gens qui réussissent [[ont peur aussi]], ils y vont quand même",
+     "texte": "det er aldrig det samme, og [[det er dér, samtalen starter]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_19862a9a.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching everything",
+      "at 2x speed"
+     ],
+     "fr": "arrête de tout regarder [[en vitesse x2]]",
+     "texte": "en nat [[under stjernerne]], langt fra byen"
+    },
+    "T2": {
+     "en": [
+      "you watch everything at 2x",
+      "and feel like you're learning",
+      "so much"
+     ],
+     "fr": "tu regardes tout en x2 et t'as l'impression [[d'apprendre plein de trucs]]",
+     "texte": "læg jer på et tæppe og [[vent 20 minutter]], til øjnene vænner sig til mørket"
+    },
+    "T3": {
+     "en": [
+      "but your brain never gets",
+      "time to actually think"
+     ],
+     "fr": "mais ton cerveau a jamais le temps de [[vraiment réfléchir]]",
+     "texte": "intet stjernekort: [[find selv på]] stjernebillederne"
+    },
+    "T4": {
+     "en": [
+      "and normal speed starts to",
+      "feel boring. why are you",
+      "rushing to finish a tiktok?"
+     ],
+     "fr": "et la vitesse normale [[te saoule]]. [[pourquoi tu te presses de finir un tiktok ?]]",
+     "texte": "fjollede navne, stilhed der ikke er akavet, og [[de store spørgsmål kommer]] helt af sig selv"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6f28a24e.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "taking breaks on your phone"
+     ],
+     "fr": "faire tes pauses [[sur ton tel]]",
+     "texte": "[[breve]], I åbner om et år"
+    },
+    "T2": {
+     "en": [
+      "you think you’re resting, but just doomscroll on tiktok"
+     ],
+     "fr": "tu crois te reposer, mais en vrai tu doomscrolles sur tiktok",
+     "texte": "sæt jer på en café og skriv [[én ærlig side]] til hinanden"
+    },
+    "T3": {
+     "en": [
+      "that’s why you come",
+      "back more tired and less",
+      "focused"
+     ],
+     "fr": "du coup tu reviens [[avec moins d'énergie et de concentration]]",
+     "texte": "hvad du ser, hvad du håber, [[hvad du ikke tør spørge om]]"
+    },
+    "T4": {
+     "en": [
+      "instead, take a real",
+      "break, walk, stretch or",
+      "just look out the",
+      "window"
+     ],
+     "fr": "fais plutôt [[une vraie pause]] : marche, étire-toi ou regarde par la fenêtre",
+     "texte": "luk dem, gem dem, og [[åbn dem først]] på præcis samme dag næste år"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1dd5bc46.jpg",
+      "boite": [
+       0,
+       0,
+       2208,
+       1888
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[chaque jour]]",
+     "texte": "en [[foredragsaften]]"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis [[vouloir lire plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "I forbereder hver 5 minutter om et [[tilfældigt emne]], uden slides"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found this thing which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "[[c'était moi avant]]. maintenant c'est un livre au lit, des balades, et [[l'appli Sophia]] quand je prends mon tel",
+     "texte": "reglen: det skal være noget, den anden [[intet ved om]]. spørgsmål er tilladt, drillerier er et must"
+    },
+    "T4": {
+     "en": [
+      "warren buffett spends most",
+      "of his day reading. it builds",
+      "focus, patience and the",
+      "ability to think for yourself"
+     ],
+     "fr": "warren buffett [[lit presque toute la journée]]. ça muscle ta concentration, ta patience et [[ton esprit critique]]",
+     "texte": "mine emner? før doomscrollede jeg, nu når jeg alligevel er på telefonen, tager jeg [[en 5 min lektion i Sophia-appen]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "studying with a show on"
+     ],
+     "fr": "bosser [[devant une série]]",
+     "texte": "læs [[højt for hinanden]]"
+    },
+    "T2": {
+     "en": [
+      "you think it’s fine because",
+      "you’re still getting work",
+      "done, but your brain keeps",
+      "switching back and forth"
+     ],
+     "fr": "tu crois que ça va vu que t'avances, mais ton cerveau [[fait des allers-retours sans arrêt]]",
+     "texte": "et tæppe, en kop te og en bog, ingen af jer har læst. I skiftes, [[ét kapitel hver]], hele aftenen"
+    },
+    "T3": {
+     "en": [
+      "every time it switches",
+      "back, it has to find its place",
+      "again"
+     ],
+     "fr": "à chaque fois qu'il revient, il doit [[retrouver où il en était]]",
+     "texte": "en stemme, der snubler, siger mere end [[den perfekte første date]]"
+    },
+    "T4": {
+     "en": [
+      "if you need sound, put on something",
+      "with no words and no story"
+     ],
+     "fr": "si t'as besoin de son, mets un truc [[sans paroles et sans histoire]]",
+     "texte": "og I vil begge gerne vide, [[hvad der sker bagefter]] (også i bogen)"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5183823a.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

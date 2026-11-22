@@ -21,7 +21,7 @@
 import { assertRole, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 import { callWithFallback, TEXT_MODELS, textOf } from "../_shared/gemini.ts";
 import {
-  CORPS_RUUL_SETUP, e164, estStopWhatsApp, lireWebhook, type MessageRecu, modeLive, MODELES, numeroAutorise, signatureValide,
+  champsProfil, CORPS_RUUL_SETUP, e164, GRAPH, estStopWhatsApp, lireWebhook, type MessageRecu, modeLive, MODELES, numeroAutorise, signatureValide,
   type StatutRecu, texteFinWhatsApp,
 } from "../_shared/whatsapp.ts";
 import { envoyerWhatsApp, graph, lireModeWhatsApp, secretsWhatsApp, wabaId } from "../_shared/whatsapp_envoi.ts";
@@ -47,6 +47,7 @@ Deno.serve(async (request) => {
       case "modeles_sync": return json(await modelesSync(db));
       case "modele_ruul_setup": return json(await modeleRuulSetup(db));
       case "abonner": return json(await abonner(db));
+      case "profil": return json(await profil(db, body));
       case "test_modeles": return json(await testModeles(db));
       case "relances": return json(await relances(db, body.simuler === true));
       case "envoyer": {
@@ -271,6 +272,68 @@ async function abonner(db: Db) {
   const r = await graph(`${waba}/subscribed_apps`, { method: "POST", body: {} });
   const apres = await graph(`${waba}/subscribed_apps`);
   return { ok: r.ok, erreur: r.erreur, apps_abonnees: apres.ok ? apres.data?.data : apres.erreur };
+}
+
+const CHAMPS_PROFIL = "about,address,description,email,profile_picture_url,websites,vertical";
+
+/**
+ * Le profil WhatsApp Business du numéro. Sans champ : lecture seule. Avec des champs (about, description, email,
+ * address, websites, vertical) et/ou photo_url (image JPG/PNG en https) : mise à jour, puis relecture.
+ * La photo passe par l'envoi « resumable » de Meta (application abonnée au compte), jamais par la base.
+ */
+async function profil(db: Db, b: Record<string, unknown>) {
+  const { phoneId, token } = secretsWhatsApp();
+  if (!phoneId || !token) return { ok: false, error: "WHATSAPP_PHONE_NUMBER_ID ou WHATSAPP_TOKEN absent" };
+  const { champs, erreurs } = champsProfil(b);
+  const photoUrl = typeof b.photo_url === "string" ? b.photo_url.trim() : "";
+  if (photoUrl && !/^https:\/\/\S+$/i.test(photoUrl)) erreurs.push("photo_url : adresse https");
+  if (erreurs.length) return { ok: false, erreurs };
+  const avant = await graph(`${phoneId}/whatsapp_business_profile?fields=${CHAMPS_PROFIL}`);
+  if (!Object.keys(champs).length && !photoUrl) {
+    return { ok: avant.ok, erreur: avant.erreur, profil: (avant.data?.data as unknown[] | undefined)?.[0] ?? null };
+  }
+
+  const maj: Record<string, unknown> = { messaging_product: "whatsapp", ...champs };
+  if (photoUrl) {
+    const h = await envoyerPhotoProfil(db, photoUrl, token);
+    if ("erreur" in h) return { ok: false, erreur: h.erreur };
+    maj.profile_picture_handle = h.handle;
+  }
+  const r = await graph(`${phoneId}/whatsapp_business_profile`, { method: "POST", body: maj });
+  const apres = await graph(`${phoneId}/whatsapp_business_profile?fields=${CHAMPS_PROFIL}`);
+  return {
+    ok: r.ok, erreur: r.erreur, modifie: Object.keys(maj).filter((k) => k !== "messaging_product"),
+    profil: (apres.data?.data as unknown[] | undefined)?.[0] ?? null,
+  };
+}
+
+/** Télécharge l'image (JPG/PNG, 5 Mo au plus) et l'envoie à Meta : renvoie le « handle » à mettre au profil. */
+async function envoyerPhotoProfil(db: Db, url: string, token: string): Promise<{ handle: string } | { erreur: string }> {
+  const img = await fetch(url).catch(() => null);
+  if (!img?.ok) return { erreur: `photo illisible (${img?.status ?? "réseau"})` };
+  const type = (img.headers.get("content-type") ?? "").split(";")[0].trim().toLowerCase();
+  if (type !== "image/jpeg" && type !== "image/png") return { erreur: `photo : JPG ou PNG attendu (reçu ${type || "?"})` };
+  const octets = await img.arrayBuffer();
+  if (!octets.byteLength || octets.byteLength > 5 * 1024 * 1024) return { erreur: "photo : 5 Mo au plus" };
+
+  // L'application abonnée au compte WhatsApp Business porte l'envoi.
+  const waba = await wabaId(db);
+  const apps = await graph(`${waba}/subscribed_apps`);
+  const appId = ((apps.data?.data as { whatsapp_business_api_data?: { id?: string } }[] | undefined)?.[0]?.whatsapp_business_api_data?.id) ?? "";
+  if (!appId) return { erreur: "aucune application abonnée au compte (action abonner)" };
+
+  const ext = type === "image/png" ? "png" : "jpg";
+  const session = await graph(`${appId}/uploads?file_name=profil.${ext}&file_length=${octets.byteLength}&file_type=${encodeURIComponent(type)}`, { method: "POST" });
+  const uploadId = session.data?.id as string | undefined;
+  if (!session.ok || !uploadId) return { erreur: `ouverture de l'envoi : ${session.erreur ?? "pas d'identifiant"}` };
+  const envoi = await fetch(`${GRAPH}/${uploadId}`, {
+    method: "POST",
+    headers: { authorization: `OAuth ${token}`, file_offset: "0" },
+    body: octets,
+  }).catch(() => null);
+  const donnees = await envoi?.json().catch(() => null) as { h?: string; error?: { message?: string } } | null;
+  if (!envoi?.ok || !donnees?.h) return { erreur: `envoi de la photo : ${donnees?.error?.message ?? envoi?.status ?? "réseau"}` };
+  return { handle: donnees.h };
 }
 
 async function etat(db: Db) {

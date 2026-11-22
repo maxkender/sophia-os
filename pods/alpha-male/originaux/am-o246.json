@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o246",
+ "type_bleo": "full_test",
+ "titre": "Fishing trip rules every man should follow #men #fishing #outdoors #friends #brotherhood",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Full test du jour (2 sur 11 : jauge 8 sur 24, plus 3 à la place des lignes de la boîte écartées par les garde-fous, ROUTINE §4.2). Accroche jamais faite chez nous : aucun « fishing » dans donnees/label.json. reference_url : post source de am-o117, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ab75dfc9",
+   "texte_overlay": "Fishing trip rules every man\nshould follow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f2636e9e",
+   "texte_overlay": "1. Be on the water before sunrise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "57707f75",
+   "texte_overlay": "2. Whoever catches nothing\ncooks dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d6c64a69",
+   "texte_overlay": "3. Know what you're catching\n\nFish, seasons, knots.",
+   "texte_sophia": "3. Know what you're catching\n\nI learned the basics\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a77830fc",
+   "texte_overlay": "4. Leave the spot cleaner\nthan you found it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3d8239d9",
+   "texte_overlay": "5. The best talks happen\nwhen the fish aren't biting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  }
+ ]
+}

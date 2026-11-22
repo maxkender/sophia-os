@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o251",
+ "type_bleo": "full_test",
+ "titre": "Rules for visiting a new country #men #travel #culture #respect #adventure",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Full test du jour (7 sur 11 : jauge 8 sur 24, plus 3 à la place des lignes de la boîte écartées par les garde-fous, ROUTINE §4.2). Accroche jamais faite chez nous : aucun « new country » dans donnees/label.json. reference_url : post source de am-o099, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "27650810",
+   "texte_overlay": "Rules for visiting a new country",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6c7f200c",
+   "texte_overlay": "1. Learn \"hello\" and \"thank you\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ee42f4d4",
+   "texte_overlay": "2. Eat where the locals eat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "73ad5633",
+   "texte_overlay": "3. Know its history before\nyou land",
+   "texte_sophia": "3. Know its history before\nyou land\n\nI read up on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2c8329c1",
+   "texte_overlay": "4. Respect the dress codes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "31d45a6d",
+   "texte_overlay": "5. Walk without a plan\nfor one afternoon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5e8cc5d8",
+   "texte_overlay": "6. Take the train,\nnot the taxi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/7.jpg"
+  }
+ ]
+}

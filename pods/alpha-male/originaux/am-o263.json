@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o263",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5ba2ff06-171a-4cde-ab69-5bb644d4f1b9",
+ "titre": "6 psykologiske tricks ingen fortæller dig om #psykologi #fakta #mænd #selvtillid #viden",
+ "musique_titre": "why i do em like that (feat. billie essco)",
+ "musique_url": "https://www.tiktok.com/music/why-i-do-em-like-that-feat-billie-essco-7010274430282631169",
+ "inspirations": [
+  "5ba2ff06-171a-4cde-ab69-5bb644d4f1b9"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Déclinaison G1 de la ligne 9 (parent 5ba2ff06, @fremrag, langue source da : écrite en danois). Accroche du parent mot pour mot. Même format. Astuces honnêtes et neuves (rien de manipulateur ni de santé), aucune du parent ; pas de slide « tag ». reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2da2aaf7",
+   "texte_overlay": "6 psykologiske tricks\ningen fortæller dig om",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677199042799095062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "43ddb512",
+   "texte_overlay": "1. skriv din plan ned.\nså holder du den oftere.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677199042799095062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "027eb5cc",
+   "texte_overlay": "2. sig folks navn i samtalen.\nde lytter mere.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677199042799095062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4532c9d7",
+   "texte_overlay": "3. gå en tur, når du sidder fast.\nhjernen løser problemer i bevægelse.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677199042799095062/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1c81ee82",
+   "texte_overlay": "4. læg telefonen væk en time\nfør sengetid. du sover bedre.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677199042799095062/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "30caecfd",
+   "texte_overlay": "5. vil du lyttes til?\nhav noget at sige.\nlær lidt nyt hver dag.",
+   "texte_sophia": "5. vil du lyttes til?\njeg finder emner i en app\nmed almen viden som Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677199042799095062/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0f604666",
+   "texte_overlay": "6. smil, når du hilser.\nfolk husker det som venlighed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677199042799095062/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "19417ad8",
+   "texte_overlay": "vi ses igen",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677199042799095062/8.jpg"
+  }
+ ]
+}

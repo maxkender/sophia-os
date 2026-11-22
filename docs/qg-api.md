@@ -221,3 +221,42 @@ Sans paramètre. Réponse : `jour` (Paris) et
 **`control/autres`, 22/11** : 46 incohérences de kill, 22 incidents ouverts, 1 ticket, 15 demandes ouvertes depuis
 plus de 24 h (8 depuis plus de 48 h), 136 crons (aucun en échec sur 24 h), 13 comptes sans post aujourd'hui,
 3 @ introuvables, 15 shadowbans probables ; 77 Ko.
+
+## `GET /api/qg/control/join` (app Join, 22/11)
+
+L'entonnoir de l'app « Join » (nouveau parcours posteur, en MODE TEST). Même en-tête `x-qg-token`.
+
+```
+GET https://sophia-marketing-orga.vercel.app/api/qg/control/join          (test exclus)
+GET https://sophia-marketing-orga.vercel.app/api/qg/control/join?test=1   (test inclus)
+```
+
+Fonction de la base : `qg_join(p_test boolean default false)` (`supabase/migrations/0840_join.sql`, réservée au
+service). Les chiffres viennent de `join_evenements` (et `join_candidatures` pour les décisions) ; les lignes
+`test = true` sont exclues sauf avec `?test=1` (`1` ou `true`). Pour l'instant toutes les candidatures sont en test :
+sans `?test=1`, tout vaut 0.
+
+```json
+{
+  "ok": true,
+  "test_inclus": false,
+  "entonnoir": [
+    { "etape": "visite", "n": 0 }, { "etape": "candidature", "n": 0 }, { "etape": "verifiee", "n": 0 },
+    { "etape": "acceptee", "n": 0 }, { "etape": "a_traiter", "n": 0 }, { "etape": "signee", "n": 0 },
+    { "etape": "connectee", "n": 0 }, { "etape": "tiktok_ok", "n": 0 }, { "etape": "warmup", "n": 0 },
+    { "etape": "slack", "n": 0 }, { "etape": "premier_post", "n": 0 }, { "etape": "ruul_ready", "n": 0 }
+  ],
+  "candidatures": { "total": 0, "auto": 0, "a_traiter": 0 },
+  "par_jour": [{ "jour": "2026-11-22", "visite": 12, "candidature": 3, "verifiee": 2 }],
+  "genere_at": "…"
+}
+```
+
+| Clé | Contenu |
+|---|---|
+| `entonnoir` | `visite` = nombre de visites (événements) ; les autres étapes = candidatures distinctes ayant atteint l'étape : candidatures, vérifiées (email ET WhatsApp), acceptées automatiquement, à traiter (réponse sous 48 h), contrat signé, connectées, TikTok vérifié, warm-up terminé, Slack (simulé en test), premier post, Ruul READY |
+| `candidatures` | total et répartition des décisions (`auto`, `a_traiter`) |
+| `par_jour` | par jour de Paris, les mêmes compteurs (seules les étapes non nulles sont présentes) |
+
+Les actions réelles non faites en test (invitation Slack, Ruul, création du compte OS) sont journalisées en
+`type = 'simule'` et ne comptent pas dans l'entonnoir.

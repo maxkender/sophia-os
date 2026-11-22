@@ -58,3 +58,13 @@ Deno.test("QG réel : noms anglais, jeton en Bearer, paramètres souples", () =>
   assertEquals(lundiSouple(new URLSearchParams("week=2026-11-12"), ["semaine", "week"], "2026-11-16"), { ok: true, lundi: "2026-11-09" });
   assertEquals(lundiSouple(new URLSearchParams(""), ["semaine", "week"], "2026-11-16"), { ok: true, lundi: "2026-11-16" });
 });
+
+Deno.test("control/join : route connue, test exclu par défaut", async () => {
+  const { lireTestQg } = await import("./qg.ts");
+  assert(estRouteQg("control/join"));
+  assertEquals(routeQg("/api/qg/control/join"), "control/join");
+  assertEquals(lireTestQg(new URLSearchParams("")), false);
+  assertEquals(lireTestQg(new URLSearchParams("test=1")), true);
+  assertEquals(lireTestQg(new URLSearchParams("test=true")), true);
+  assertEquals(lireTestQg(new URLSearchParams("test=0")), false);
+});

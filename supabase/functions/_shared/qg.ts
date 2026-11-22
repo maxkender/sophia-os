@@ -101,6 +101,12 @@ export function lireLundiQg(params: URLSearchParams, nom: string): { ok: true; l
 }
 
 /** Les routes connues et la fonction de la base qui répond à chacune. */
-export const ROUTES_QG = ["apps", "control/recrutement", "control/paie", "control/autres"] as const;
+export const ROUTES_QG = ["apps", "control/recrutement", "control/paie", "control/autres", "control/join"] as const;
 export type RouteQg = (typeof ROUTES_QG)[number];
 export const estRouteQg = (r: string): r is RouteQg => (ROUTES_QG as readonly string[]).includes(r);
+
+/** control/join : `?test=1` inclut les candidatures de test (exclues par défaut). */
+export function lireTestQg(params: URLSearchParams): boolean {
+  const v = (params.get("test") ?? "").trim().toLowerCase();
+  return v === "1" || v === "true";
+}

@@ -62,6 +62,9 @@ describe("Boîte unique (13/11)", () => {
 
   it("écran : Pour Max en haut avec son problème, conversation à droite, apprendre au bot", async () => {
     rendu();
+    // 22/11 : la Boîte s'ouvre sur « À répondre » ; « Tout » montre aussi les fils réglés.
+    expect(await screen.findAllByTestId("fil-posteur")).toHaveLength(1);
+    fireEvent.click(screen.getByRole("button", { name: "Tout" }));
     const fils = await screen.findAllByTestId("fil-posteur");
     expect(fils[0]).toHaveTextContent("Leo M.");
     expect(within(fils[0]!).getByTestId("point-rouge")).toBeTruthy();

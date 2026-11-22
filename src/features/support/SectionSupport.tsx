@@ -50,12 +50,7 @@ const ONGLETS_SUPPORT: readonly { cle: OngletSupport; contenu: string }[] = [
   { cle: "controle", contenu: "🎛️ Contrôle" },
   { cle: "bot", contenu: "⚙️ Réglages du bot" },
 ];
-type VueBoite = "messagerie" | "repondre" | "toutes";
-const VUES_BOITE: readonly { cle: VueBoite; contenu: string }[] = [
-  { cle: "messagerie", contenu: "Par posteur" },
-  { cle: "repondre", contenu: "À répondre" },
-  { cle: "toutes", contenu: "Toutes les demandes" },
-];
+type VueBoite = "messagerie";
 /** Les anciens onglets (liens déjà partagés : ?onglet=boite, ?onglet=tester…) mènent au bon endroit. */
 const ANCIENS: Record<string, OngletSupport> = {
   repondre: "boite", toutes: "boite", apercu: "bot", tester: "bot", consignes: "bot", regles: "bot", catalogue: "bot", documents: "bot", exemples: "bot", tests: "bot", suivi: "bot",
@@ -71,7 +66,6 @@ export function SectionSupport() {
   const [params, setParams] = useSearchParams();
   const brut = params.get("onglet") ?? "";
   const onglet: OngletSupport = ONGLETS_SUPPORT.some((o) => o.cle === brut) ? (brut as OngletSupport) : ANCIENS[brut] ?? "boite";
-  const vue: VueBoite = brut === "repondre" || brut === "toutes" ? brut : "messagerie";
   const choisir = (o: OngletSupport | VueBoite) => {
     const p = new URLSearchParams(params);
     p.set("onglet", o === "messagerie" ? "boite" : o);
@@ -91,12 +85,9 @@ export function SectionSupport() {
         />
       </div>
       {toutes.error && <p className="text-sm text-destructive">{(toutes.error as Error).message}</p>}
-      {onglet === "boite" && (
-        <Segments libelle="Vue de la boîte" options={VUES_BOITE.map((o) => (o.cle === "repondre" && n > 0 ? { ...o, contenu: `${o.contenu} (${n})` } : o))} actif={vue} onChange={choisir} />
-      )}
-      {onglet === "boite" && vue === "messagerie" && <Boite />}
-      {onglet === "boite" && vue === "repondre" && <ARepondre lignes={toutes.data ?? []} charge={toutes.isLoading} />}
-      {onglet === "boite" && vue === "toutes" && <Toutes lignes={toutes.data ?? []} />}
+      {/* 22/11 (Max) : une seule vue « Par posteur », avec un filtre « À répondre / Tout » (les anciennes vues
+          « À répondre » et « Toutes les demandes » ne sont plus affichées ; leurs adresses mènent ici). */}
+      {onglet === "boite" && <Boite />}
       {onglet === "entrainer" && <Entrainer />}
       {onglet === "controle" && <Controle />}
       {onglet === "bot" && <BotSait initial={(SOUS_BOT as readonly string[]).includes(brut) ? (brut as SousBot) : "tester"} />}
@@ -165,7 +156,7 @@ const quand = (at: string) => new Date(at).toLocaleString("fr-FR", { day: "2-dig
 
 // --- a) À répondre ----------------------------------------------------------------
 
-function ARepondre({ lignes, charge }: { lignes: LigneToutes[]; charge: boolean }) {
+export function ARepondre({ lignes, charge }: { lignes: LigneToutes[]; charge: boolean }) {
   const [bot, setBot] = React.useState("");
   const liste = aRepondre(lignes).filter((l) => !bot || l.bot_responsable === bot || l.regle_par_bot === bot || l.remonte_par === bot);
   return (
@@ -300,7 +291,7 @@ function BoutonCapture({ capture }: { capture: string }) {
 
 // --- b) Toutes les demandes ----------------------------------------------------------
 
-function Toutes({ lignes }: { lignes: LigneToutes[] }) {
+export function Toutes({ lignes }: { lignes: LigneToutes[] }) {
   const [f, setF] = React.useState<FiltresToutes>({ q: "", source: "", statut: "", niveau: "", qui: "", bot: "" });
   const [ouverte, setOuverte] = React.useState<string | null>(null);
   const liste = filtrerToutes(lignes, f);

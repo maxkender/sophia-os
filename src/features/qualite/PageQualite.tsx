@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 
+import { SignalementsPosteurs } from "./SignalementsPosteurs";
 import { lireQc, lireSignalementsQc, MOTIFS_QC, type MotifQc, parLabel, type PostQc, preparerQc, signalerQc } from "./api";
 
 const P = "qualite";
@@ -224,6 +225,7 @@ export function PageQualite() {
           </div>
         </section>
       ))}
+      <SignalementsPosteurs />
       <Signalements />
     </div>
   );

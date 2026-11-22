@@ -84,17 +84,27 @@ export function Boite() {
   const demandes = useQuery({ queryKey: ["support", "toutes"], queryFn: () => lireToutes(), refetchInterval: 60_000 });
   const problemes = useQuery({ queryKey: ["problemes", "ouverts"], queryFn: () => lireProblemes("ouverts"), refetchInterval: 120_000 });
   const [q, setQ] = React.useState("");
+  // 22/11 (Max) : « À répondre » (un fil qui attend un humain) ou « Tout ».
+  const [seulement, setSeulement] = React.useState<"repondre" | "tout">("repondre");
   const [choisi, setChoisi] = React.useState<string | null>(null);
   if (demandes.error) return <p className="text-destructive text-sm">{(demandes.error as Error).message}</p>;
   if (!demandes.data) return <p className="text-muted-foreground text-sm">Chargement…</p>;
   const { pourMax, autres } = filsParPosteur(demandes.data, problemes.data ?? []);
-  const filtre = (l: FilPosteur[]) => (q.trim() ? l.filter((f) => `${f.nom} ${f.apercu}`.toLowerCase().includes(q.trim().toLowerCase())) : l);
+  const filtre = (l: FilPosteur[]) => (q.trim() ? l.filter((f) => `${f.nom} ${f.apercu}`.toLowerCase().includes(q.trim().toLowerCase())) : l)
+    .filter((f) => seulement === "tout" || f.attente || f.pourMax);
   const tous = [...pourMax, ...autres];
   const actif = tous.find((f) => f.cle === choisi) ?? tous.find((f) => f.attente) ?? tous[0] ?? null;
   return (
     <div className="grid gap-3 md:grid-cols-[18rem_1fr]" data-testid="boite">
       <div className="space-y-2">
         <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Chercher un posteur…" aria-label="Chercher un posteur" />
+        <div className="flex gap-1 text-xs" role="group" aria-label="Filtre de la boîte">
+          {(["repondre", "tout"] as const).map((k) => (
+            <Button key={k} size="xs" variant={seulement === k ? "default" : "outline"} onClick={() => setSeulement(k)} aria-pressed={seulement === k}>
+              {k === "repondre" ? `À répondre (${[...pourMax, ...autres].filter((f) => f.attente || f.pourMax).length})` : "Tout"}
+            </Button>
+          ))}
+        </div>
         <div className="max-h-[70vh] overflow-y-auto rounded-md border">
           {pourMax.length > 0 && <p className="bg-red-50 px-3 py-1 font-medium text-red-800 text-xs dark:bg-red-950/40 dark:text-red-200">🔴 Pour Max ({pourMax.length})</p>}
           {filtre(pourMax).map((f) => <Ligne key={f.cle} f={f} actif={actif?.cle === f.cle} onClick={() => setChoisi(f.cle)} />)}

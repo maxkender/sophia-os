@@ -6,7 +6,7 @@
  */
 
 export type CleSituation =
-  | "contenu_images_sans_texte" | "contenu_texte_faux" | "contenu_hors_sujet" | "son_indisponible" | "petite_liberte"
+  | "contenu_langue" | "contenu_texte_integre" | "contenu_police" | "contenu_texte_faux" | "contenu_hors_sujet" | "son_indisponible" | "petite_liberte"
   | "commentaires" | "frais_ruul" | "pas_freelance" | "test_app" | "bon_avis" | "nom_compte" | "rien_prevu"
   | "assistant_boucle" | "reactiver_2e_compte";
 
@@ -25,8 +25,11 @@ export interface SituationFixe {
 }
 
 export const TEXTES_SITUATIONS = {
-  images_sans_texte: "That's normal, just post the photos as they are.",
-  texte_faux: "Please post an old post you already posted that worked. Today counts as done.",
+  /** 22/11 (Max) : les 4 réponses officielles aux problèmes de contenu. */
+  langue: "Translate it into your language as best you can and post it.",
+  texte_faux: "Please post an old TikTok you already posted. Today counts as done.",
+  texte_integre: "That's normal, the text is already on the images, just post the photos.",
+  police: "That's fine.",
   hors_sujet: "Post it anyway. If it's really off-topic, post an old post that worked.",
   son: "Use the sound shown on your dashboard. If it's unavailable, pick a similar trending sound. A post already published with another sound can stay up, no need to delete it.",
   liberte: "That's fine, thanks for letting us know.",
@@ -44,8 +47,14 @@ export const TEXTES_SITUATIONS = {
 
 const n = (t: string) => t.replace(/[’‘`]/g, "'");
 
-const IMAGES_SANS_TEXTE = /(images?|photos?|slides?|pictures?)[^.?!]{0,40}\b(no|without|have\s+no|don'?t\s+have|do\s+not\s+have|missing|has\s+no)\s+(any\s+)?(the\s+)?text|no\s+text\s+(on|in)\s+(the\s+)?(images?|slides?|photos?|pictures?)|none\s+of\s+the\s+(\w+\s+)?(images?|photos?|slides?|pictures?)\s+(have|has)\s+(any\s+)?text/i;
-const TEXTE_FAUX = /(text|caption|texte|texto|testo)[^.?!]{0,40}\b(wrong|too\s+long|doesn'?t\s+(match|fit)|does\s+not\s+(match|fit)|not\s+(matching|fit)|mistakes?|errors?|incorrect|cut\s+off|strangely\s+long)|(images?|pictures?|photos?)[^.?!]{0,30}\b(don'?t|do\s+not|doesn'?t|does\s+not)\s+match|\b(identical|same|duplicate)\s+(pictures?|images?|photos?|slides?)|nothing\s+to\s+do\s+with\s+(the\s+)?(caption|text|topic|post)|(images?|pictures?|photos?|slides?)[^.?!]{0,40}\b(worse|bad|low|poor)\s+quality|doesn'?t\s+make\s+(any\s+)?sense|not\s+coherent|incoherent|(post|slideshow|content)\s+(is|looks)\s+(wrong|broken|bad|weird)/i;
+// 22/11 (Max) : 1. texte sans sens, mauvaise langue, mélange de langues.
+const LANGUE = /\b(wrong|different|another|other)\s+language|not\s+in\s+my\s+language|in\s+english\s+(but|instead)|(mixed|mix\s+of|two|several|multiple)\s+languages|languages?\s+(are\s+)?mixed|(text|caption|it|this)\s+(doesn'?t|does\s+not)\s+make\s+(any\s+)?sense|makes\s+no\s+sense|nonsense|gibberish|doesn'?t\s+make\s+(any\s+)?sense/i;
+// 3. post Fully Podz : le texte est déjà sur les images (rien à coller).
+const TEXTE_INTEGRE = /(no|missing|without|there'?s\s+no|there\s+is\s+no|where('?s|\s+is)\s+(the\s+)?)\s*(text|caption)\s+(to\s+(paste|copy|add)|for\s+(the\s+)?(slides?|post|images?)|on\s+(my\s+)?dashboard)|text\s+is\s+(already\s+)?(on|in|written\s+on)\s+the\s+(images?|photos?|slides?)|(images?|photos?|slides?)\s+already\s+(have|has|contain)\s+(the\s+)?text/i;
+// 2. texte beaucoup trop long, images sans rapport, image cassée, vrai problème sur TikTok → un ancien TikTok.
+const ANCIEN_TIKTOK = /(text|caption|texte|texto|testo)[^.?!]{0,40}\b(wrong|too\s+long|doesn'?t\s+(match|fit)|does\s+not\s+(match|fit)|not\s+(matching|fit)|mistakes?|errors?|incorrect|cut\s+off|strangely\s+long)|(images?|pictures?|photos?)[^.?!]{0,30}\b(don'?t|do\s+not|doesn'?t|does\s+not)\s+match|\b(identical|same|duplicate)\s+(pictures?|images?|photos?|slides?)|nothing\s+to\s+do\s+with\s+(the\s+)?(caption|text|topic|post)|(images?|pictures?|photos?|slides?)[^.?!]{0,40}\b(worse|bad|low|poor)\s+quality|not\s+coherent|incoherent|(post|slideshow|content)\s+(is|looks)\s+(wrong|broken|bad|weird)|(images?|photos?|slides?|pictures?)[^.?!]{0,40}\b(no|without|have\s+no|don'?t\s+have|do\s+not\s+have|missing|has\s+no)\s+(any\s+)?(the\s+)?text|no\s+text\s+(on|in)\s+(the\s+)?(images?|slides?|photos?|pictures?)|none\s+of\s+the\s+(\w+\s+)?(images?|photos?|slides?|pictures?)\s+(have|has)\s+(any\s+)?text|(images?|photos?|pictures?|slides?)[^.?!]{0,15}\b(broken|corrupt(ed)?|not\s+loading|won'?t\s+load|doesn'?t\s+load|blank)|tiktok[^.?!]{0,50}\b(won'?t\s+let|doesn'?t\s+let|error|can'?t\s+(upload|post|publish)|fails?\s+to\s+(upload|post))/i;
+// 4. police ou couleur changée pour que le texte soit lisible.
+const POLICE = /\b(font|colou?r)\b[^.?!]{0,60}\b(read|readable|visible|see|legible)|\b(change|changed|use|used|put|chose|switched)\b[^.?!]{0,40}\b(font|colou?r)\b|\b(white|black)\s+(instead\s+of|font|text)/i;
 const HORS_SUJET = /(content|posts?|slideshows?|topics?)[^.?!]{0,50}\b(doesn'?t|don'?t|do\s+not|does\s+not|not)\s+(fit|match|suit|correspond)[^.?!]{0,40}(profile|account|country|niche|persona)|my\s+(profile|account)\s+(identifies|is\s+(about|for)|shows)[^.?!]{0,80}\bbut\b|off[-\s]topic/i;
 const SON = /(sound|song|music|audio|musique|sonido|música|suono|dźwięk|ses|hang)[^.?!]{0,40}\b(not\s+available|unavailable|isn'?t\s+available|wasn'?t\s+available|can'?t\s+(find|use)|doesn'?t\s+exist|no\s+longer|not\s+found|indisponible|no\s+disponible|non\s+disponibile|niedostępn|mevcut\s+değil|nem\s+elérhető)/i;
 const LIBERTE = /\b(i\s+)?(used|changed|put|chose|picked|switched\s+to|replaced)\b[^.?!]{0,40}\b(font|colou?r|old(er)?\s+sound|previous\s+(sound|ones?|post)|one\s+of\s+the\s+(previous|old(er)?)\s+ones?|another\s+(sound|slide|font|image)|different\s+(sound|slide|font|image|colou?r)|white|black)\b/i;
@@ -76,8 +85,12 @@ export function situationFixe(message: string, o: { plateforme: "ruul" | "upwork
   if (ASSISTANT_BOUCLE.test(t)) {
     return { cle: "assistant_boucle", texte: TEXTES_SITUATIONS.assistant_boucle, categorie: "bug", fermer: false, ticket: "L'assistant Help du dashboard répète la même réponse en boucle." };
   }
-  if (IMAGES_SANS_TEXTE.test(t)) return { cle: "contenu_images_sans_texte", texte: TEXTES_SITUATIONS.images_sans_texte, categorie: "contenu", fermer: true };
-  if (TEXTE_FAUX.test(t)) return { cle: "contenu_texte_faux", texte: TEXTES_SITUATIONS.texte_faux, categorie: "contenu", fermer: true, qualite: true, jourCompte: true };
+  // 22/11 (Max) : les problèmes de contenu : réponse tout de suite, jamais « we're checking » ni ticket, signalés à Quality
+  // Control ; le jour compte comme fait quand le post ne peut pas être publié tel quel.
+  if (LANGUE.test(t)) return { cle: "contenu_langue", texte: TEXTES_SITUATIONS.langue, categorie: "contenu", fermer: true, qualite: true, jourCompte: true };
+  if (TEXTE_INTEGRE.test(t)) return { cle: "contenu_texte_integre", texte: TEXTES_SITUATIONS.texte_integre, categorie: "contenu", fermer: true, qualite: true };
+  if (ANCIEN_TIKTOK.test(t)) return { cle: "contenu_texte_faux", texte: TEXTES_SITUATIONS.texte_faux, categorie: "contenu", fermer: true, qualite: true, jourCompte: true };
+  if (POLICE.test(t)) return { cle: "contenu_police", texte: TEXTES_SITUATIONS.police, categorie: "contenu", fermer: true, qualite: true };
   if (HORS_SUJET.test(t)) return { cle: "contenu_hors_sujet", texte: TEXTES_SITUATIONS.hors_sujet, categorie: "contenu", fermer: true, qualite: true };
   if (LIBERTE.test(t)) return { cle: "petite_liberte", texte: TEXTES_SITUATIONS.liberte, categorie: "posting", fermer: true };
   if (SON.test(t)) return { cle: "son_indisponible", texte: TEXTES_SITUATIONS.son, categorie: "posting", fermer: true };

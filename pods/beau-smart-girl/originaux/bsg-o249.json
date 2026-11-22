@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o249",
+  "type_bleo": "full_test",
+  "titre": "les classiques de la littérature à lire avant 25 ans #livres #classiques #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta C. Remplace la ligne 9 de la boîte (accroche de 136 caractères, au-delà des 120 permis). Descriptions sans date. Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests ; au dépôt, les lignes 7 et 9 ont dépassé 120 caractères en slide 1 et la ligne 8 exigeait une accroche bancale, donc 6 déclinaisons et 8 full tests. Lignes sautées : 7, 8, 9, 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "156ab64f",
+      "texte_overlay": "les classiques de la littérature\nà lire avant 25 ans",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5df2ca2f",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "41fc94b3",
+      "texte_overlay": "1. orgueil et préjugés\n\ndes premières impressions trompeuses,\net le plus beau des malentendus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9cde1160",
+      "texte_overlay": "2. madame bovary\n\nrêver d'une autre vie.\nun roman qui n'a pas pris une ride.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ae8bef6b",
+      "texte_overlay": "3. le comte de monte-cristo\n\nune évasion, un trésor, une vengeance.\nimpossible de le lâcher.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "49d18832",
+      "texte_overlay": "4. l'écume des jours\n\nun amour, un nénuphar, un monde inventé.\nle plus poétique de la liste.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "210800c6",
+      "texte_overlay": "5. les liaisons dangereuses\n\ndes lettres, des manipulations.\non lit en retenant son souffle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "196e7df7",
+      "texte_overlay": "tu en as lu combien ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

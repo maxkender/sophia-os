@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o247",
+  "type_bleo": "full_test",
+  "titre": "ce qu'il faut savoir avant de visiter versailles #versailles #histoire #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Remplace la ligne 7 de la boîte (accroche de 136 caractères, au-delà des 120 permis). Fait vérifié le 11/11 sur https://en.wikipedia.org/wiki/Palace_of_Versailles : pavillon de chasse de Louis XIII en 1623. Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests ; au dépôt, les lignes 7 et 9 ont dépassé 120 caractères en slide 1 et la ligne 8 exigeait une accroche bancale, donc 6 déclinaisons et 8 full tests. Lignes sautées : 7, 8, 9, 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c89fa37f",
+      "texte_overlay": "ce qu'il faut savoir\navant de visiter versailles",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5c8e8aa7",
+      "texte_overlay": "1. au début, c'était un pavillon de chasse\n\nce matin, j'ai appris que versailles a commencé comme un simple pavillon de chasse de louis xiii, en 1623.\nje n'ai plus vu le château pareil.",
+      "texte_sophia": "1. au début, c'était un pavillon de chasse\n\nce matin, l'appli Sophia m'a appris que versailles a commencé comme un simple pavillon de chasse de louis xiii, en 1623.\nje n'ai plus vu le château pareil.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b14770e4",
+      "texte_overlay": "2. venir tôt le matin\n\nla galerie des glaces presque vide.\nun autre monde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "acbb9105",
+      "texte_overlay": "3. garder du temps pour les jardins\n\nles bosquets, les fontaines, le grand canal.\nle château n'est que la moitié.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "9db12acb",
+      "texte_overlay": "4. aller jusqu'au hameau de la reine\n\nles petites maisons de marie-antoinette.\nle coin le plus doux du domaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "92ab505c",
+      "texte_overlay": "5. lire un peu d'histoire avant\n\nchaque salle raconte une vie de cour.\nça change toute la visite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "adb8880e",
+      "texte_overlay": "tu y es déjà allée ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o248",
+  "type_bleo": "full_test",
+  "titre": "comment je prépare un week-end culturel avec un petit budget #weekend #culture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Remplace la ligne 8 de la boîte (accroche à recopier bancale : « how to destroy yourself… »). Récit « je », sans prix ni lieu daté. Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests ; au dépôt, les lignes 7 et 9 ont dépassé 120 caractères en slide 1 et la ligne 8 exigeait une accroche bancale, donc 6 déclinaisons et 8 full tests. Lignes sautées : 7, 8, 9, 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "abb8eebd",
+      "texte_overlay": "comment je prépare un week-end culturel\navec un petit budget",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5604a865",
+      "texte_overlay": "1. je choisis une ville en train\n\nà deux heures de chez moi.\nl'aventure commence dans le wagon.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "94b865e9",
+      "texte_overlay": "2. je repère les visites gratuites\n\ncathédrales, jardins, quartiers anciens.\nles plus belles choses ne coûtent rien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "5d6a7265",
+      "texte_overlay": "3. un seul musée, bien choisi\n\nplutôt que trois en courant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "9afb45b9",
+      "texte_overlay": "4. je mange au marché\n\nles produits du coin,\net les conversations avec les vendeurs.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ae43d1a4",
+      "texte_overlay": "5. je lis l'histoire de la ville avant\n\navant, j'arrivais quelque part sans rien savoir.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque rue me raconte quelque chose.",
+      "texte_sophia": "5. je lis l'histoire de la ville avant\n\navant, j'arrivais quelque part sans rien savoir.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque rue me raconte quelque chose.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "94b1ef1f",
+      "texte_overlay": "tu partirais où ce week-end ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

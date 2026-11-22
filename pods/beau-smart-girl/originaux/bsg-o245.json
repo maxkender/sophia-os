@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o245",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "faa4b524-d919-4b0a-bddc-88f8cbd65dc2",
+  "titre": "les habitudes des filles qui ont réponse à tout (version étudiante) #culture #etudes #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [
+    "faa4b524-d919-4b0a-bddc-88f8cbd65dc2"
+  ],
+  "notes": "G2, déclinaison de faa4b524 (« 5 habitudes pour devenir dangereusement sur-éduquée, venant d'une étudiante de l'ENS », G1 gagnante, génération 1 en français ; meilleur passage ru 3,8 k vues, r 2,07), en français, 2e déclinaison (après bsg-o234). Accroche reformulée : « les habitudes des filles qui ont réponse à tout (version étudiante) ». cta C. Habitudes neuves (rien de bsg-o234). Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests. Lignes sautées : 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4b9b23ab",
+      "texte_overlay": "les habitudes des filles\nqui ont réponse à tout\n(version étudiante)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "dbb7164d",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d416dc5d",
+      "texte_overlay": "1. un vrai journal le dimanche\n\nun café, une heure, toutes les rubriques.\nmême celles qu'on n'aime pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "42a6d0b1",
+      "texte_overlay": "2. un documentaire au lieu d'une série\n\nune fois par semaine.\nautant de plaisir, plus de souvenirs.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cc892513",
+      "texte_overlay": "3. une date liée à un lieu\n\nchaque événement a une adresse.\nles deux se retiennent ensemble.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4b4c6f22",
+      "texte_overlay": "4. une liste de « je ne sais pas »\n\nchaque question devient une recherche\nle week-end.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "45da8c3e",
+      "texte_overlay": "5. un sujet nouveau chaque mois\n\nl'opéra, les volcans, le japon.\non devient curieuse de tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "d3673f2e",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

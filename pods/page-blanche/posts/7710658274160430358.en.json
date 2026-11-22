@@ -1,0 +1,443 @@
+{
+ "post_id": "7710658274160430358",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "extremely disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de fer",
+     "texte": "10/10 habits to make you extremely disciplined"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(niche edition)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop buying stuff for a new habit"
+     ],
+     "fr": "arrête d'acheter [[pour t'y mettre]]",
+     "texte": "stop buying stuff [[for a new habit]]"
+    },
+    "T2": {
+     "en": [
+      "new gym clothes, a planner, a nice notebook,",
+      "buying it feels like you've already started"
+     ],
+     "fr": "fringues de sport, agenda, joli carnet… acheter, c'est [[comme si t'avais déjà commencé]]",
+     "texte": "new gym clothes, a planner, a nice notebook, buying it feels like [[you've already started]]"
+    },
+    "T3": {
+     "en": [
+      "your brain gets a",
+      "hit of dopamine",
+      "from the idea of",
+      "changing"
+     ],
+     "fr": "ton cerveau prend [[un shot de dopamine]] juste à l'idée de changer",
+     "texte": "your brain gets [[a hit of dopamine]] from the idea of changing"
+    },
+    "T4": {
+     "en": [
+      "without doing any",
+      "of the work"
+     ],
+     "fr": "[[sans bosser une seule seconde]]",
+     "texte": "[[without doing any of the work]]"
+    },
+    "T5": {
+     "en": [
+      "start with what you already have. the habit is the hard",
+      "part, not the equipment"
+     ],
+     "fr": "commence avec ce que t'as déjà. le dur, c'est l'habitude, [[pas le matos]]",
+     "texte": "start with what you already have. the habit is the hard part, [[not the equipment]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "fais du sport [[le matin]]",
+     "texte": "work out [[in the morning]]"
+    },
+    "T2": {
+     "en": [
+      "before your brain has time to talk you out of it"
+     ],
+     "fr": "avant que ton cerveau [[trouve une excuse]]",
+     "texte": "before your brain has time to [[talk you out of it]]"
+    },
+    "T3": {
+     "en": [
+      "your cortisol is at its peak",
+      "in the morning, so it's",
+      "when you have the most",
+      "energy to do hard things"
+     ],
+     "fr": "ton cortisol est [[au max le matin]], c'est là que t'as le plus d'énergie pour les trucs durs",
+     "texte": "your cortisol is [[at its peak in the morning]], so it's when you have the most energy to do hard things"
+    },
+    "T4": {
+     "en": [
+      "and how you start your",
+      "day sets the tone for the",
+      "rest of it"
+     ],
+     "fr": "et ton début de journée [[conditionne tout le reste]]",
+     "texte": "and how you start your day [[sets the tone for the rest of it]]"
+    },
+    "T5": {
+     "en": [
+      "discipline gets easier when the hardest thing is already",
+      "done by 8am"
+     ],
+     "fr": "la discipline devient facile quand le plus dur est [[déjà fait avant 8h]]",
+     "texte": "discipline gets easier when the hardest thing is [[already done by 8am]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "read books [[instead of scrolling]]"
+    },
+    "T2": {
+     "en": [
+      "every hour you spend scrolling is an hour you could",
+      "spend developing your mind"
+     ],
+     "fr": "chaque heure à scroller, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "every hour you spend scrolling is an hour you could spend [[developing your mind]]"
+    },
+    "T3": {
+     "en": [
+      "read 10 pages a day, even",
+      "when you don't feel like it"
+     ],
+     "fr": "[[lis 10 pages par jour]], même sans en avoir envie",
+     "texte": "[[read 10 pages a day]], even when you don't feel like it"
+    },
+    "T4": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis [[vouloir lire plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "you say [[you want to read more]], then find yourself [[scrolling all day]]"
+    },
+    "T5": {
+     "en": [
+      "i used to be the same until i",
+      "found this thing that blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "avant je scrollais H24, maintenant c'est [[5 min sur l'appli Sophia]], genre Camus et Sisyphe",
+     "texte": "i used to doomscroll, now i do [[a 5 min lesson on the Sophia app]], like why the renaissance began in italy"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 47,
+      "y": 229,
+      "l": 830,
+      "h": 60
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 229,
+       "l": 830,
+       "h": 60,
+       "base": 286
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 39,
+      "y": 335,
+      "l": 833,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 335,
+       "l": 833,
+       "h": 36,
+       "base": 362
+      },
+      {
+       "x": 40,
+       "y": 378,
+       "l": 461,
+       "h": 36,
+       "base": 412
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 553,
+      "y": 385,
+      "l": 438,
+      "h": 826
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 691,
+      "y": 1213,
+      "l": 292,
+      "h": 124
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 33,
+      "y": 495,
+      "l": 426,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 33,
+       "y": 495,
+       "l": 426,
+       "h": 36,
+       "base": 528
+      },
+      {
+       "x": 35,
+       "y": 536,
+       "l": 412,
+       "h": 38,
+       "base": 566
+      }
+     ],
+     "pas": 38,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 32,
+      "y": 627,
+      "l": 414,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 627,
+       "l": 411,
+       "h": 36,
+       "base": 660
+      },
+      {
+       "x": 32,
+       "y": 670,
+       "l": 391,
+       "h": 37,
+       "base": 704
+      },
+      {
+       "x": 33,
+       "y": 714,
+       "l": 251,
+       "h": 37,
+       "base": 747
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 30,
+      "y": 818,
+      "l": 449,
+      "h": 166
+     },
+     "lignes": [
+      {
+       "x": 31,
+       "y": 818,
+       "l": 446,
+       "h": 36,
+       "base": 852
+      },
+      {
+       "x": 32,
+       "y": 861,
+       "l": 447,
+       "h": 38,
+       "base": 896
+      },
+      {
+       "x": 30,
+       "y": 904,
+       "l": 426,
+       "h": 38,
+       "base": 939
+      },
+      {
+       "x": 30,
+       "y": 949,
+       "l": 132,
+       "h": 35,
+       "base": 983
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching motivational edits"
+     ],
+     "fr": "arrête les [[edits de motivation]]",
+     "texte": "stop watching [[motivational edits]]"
+    },
+    "T2": {
+     "en": [
+      "david goggins clips, gym edits at 1am, speeches",
+      "with sad piano music"
+     ],
+     "fr": "clips de david goggins, edits muscu à 1h, discours [[sur du piano triste]]",
+     "texte": "david goggins clips, gym edits at 1am, speeches with [[sad piano music]]"
+    },
+    "T3": {
+     "en": [
+      "you feel ready to",
+      "change your whole life,",
+      "then go straight back to",
+      "scrolling"
+     ],
+     "fr": "t'as l'impression de pouvoir changer ta vie entière, puis [[tu retournes direct scroller]]",
+     "texte": "you feel ready to change your whole life, then [[go straight back to scrolling]]"
+    },
+    "T4": {
+     "en": [
+      "your brain gets the",
+      "feeling of progress",
+      "without doing",
+      "anything"
+     ],
+     "fr": "ton cerveau a [[l'impression d'avancer]] sans que tu fasses rien",
+     "texte": "your brain gets [[the feeling of progress]] without doing anything"
+    },
+    "T5": {
+     "en": [
+      "close the video and go",
+      "do the thing"
+     ],
+     "fr": "ferme la vidéo et [[va le faire]]",
+     "texte": "close the video and [[go do the thing]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "train a martial art"
+     ],
+     "fr": "fais un [[art martial]]",
+     "texte": "train a [[martial art]]"
+    },
+    "T2": {
+     "en": [
+      "boxing, jiu jitsu, muay thai, whatever is closest to",
+      "you"
+     ],
+     "fr": "boxe, jiu jitsu, muay thai, ce qu'il y a de plus près de chez toi",
+     "texte": "boxing, jiu jitsu, muay thai, whatever is closest to you"
+    },
+    "T3": {
+     "en": [
+      "you get corrected",
+      "constantly and have to",
+      "keep going when you're",
+      "exhausted"
+     ],
+     "fr": "on te [[corrige sans arrêt]] et tu dois continuer [[même quand t'es à bout]]",
+     "texte": "you get [[corrected constantly]] and have to keep going [[when you're exhausted]]"
+    },
+    "T4": {
+     "en": [
+      "it teaches you to stay",
+      "calm under pressure",
+      "instead of quitting the",
+      "second it gets",
+      "uncomfortable"
+     ],
+     "fr": "ça t'apprend à [[rester calme sous la pression]] au lieu de lâcher dès que ça devient inconfortable",
+     "texte": "it teaches you to stay [[calm under pressure]] instead of quitting the second it gets uncomfortable"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

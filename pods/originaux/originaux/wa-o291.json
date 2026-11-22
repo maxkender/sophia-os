@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o291",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d0724c7d-49ae-476e-8dbe-98c3023b8337",
+ "titre": "fun hobbies that quietly build iron discipline #discipline #hobbies #habits #motivation #selfimprovement",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "b116e4f9-f5fc-4b54-acd9-370ac96459d2"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, b116e4f9). déclinaison G2 de « hobbies that make discipline feel like an addiction » (parent d0724c7d). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5b7e1ce2-94fe-4b7f-a6d0-21440c62e4d0",
+   "texte_overlay": "fun hobbies that quietly\nbuild iron discipline",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3e4ce03d-dbb2-491b-8278-c1f0a398cff1",
+   "texte_overlay": "keeping a run log\n\nrun three times a week and write each run in a notebook. watching your times slowly improve becomes addictive, and it keeps you showing up every week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f86f8e61-f393-4b60-a6ba-bd078eaac330",
+   "texte_overlay": "one song a month\n\nlearn one complete song on an instrument every month. the first time you play it without a mistake gives you a rush that makes practising feel worth it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d89f03a0-1e58-4411-9e67-6bd20fc6e348",
+   "texte_overlay": "a balcony garden\n\ngrow herbs or vegetables from seed. watering them every day and waiting for results quietly teaches your brain that slow, patient effort really pays off.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ab9de12c-4de4-4352-a1ab-b5a8e8951eca",
+   "texte_overlay": "a learning streak\n\n5 minutes of learning every day, protected like a streak, builds discipline that slowly spreads into every other part of your life, from work to sleep to fitness.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/5.jpg",
+   "texte_sophia": "a learning streak\n\nprotect a daily learning streak. the Sophia app turns it into one short lesson a day, a myth or a planet, and keeping that tiny chain made me disciplined in everything."
+  },
+  {
+   "position": 6,
+   "media_id": "54fc3e3b-1602-4f7b-9b4e-d32889554224",
+   "texte_overlay": "cold morning walks\n\nwalk for twenty minutes every morning before breakfast, even in winter. doing something hard first thing makes every other task of the day feel easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/6.jpg"
+  }
+ ]
+}

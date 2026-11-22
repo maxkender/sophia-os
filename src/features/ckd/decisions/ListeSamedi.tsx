@@ -81,6 +81,8 @@ import { BarreFiltres, CelluleCompte, CellulesJours, CelluleVues, Choix, EnTetes
 import { useFicheSamedi } from "./useFicheSamedi";
 import { BadgePosteur } from "@/features/ruul/BadgePlateforme";
 import { plateformeDe, useIdsRuul, usePlateformeDecisions } from "@/features/ruul/canal";
+import { InfosCarteRuul } from "./InfosCarteRuul";
+import { choixRuulImpose, lireCartesRuul } from "./ruulDecisions";
 
 const CHOIX: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "repondre"];
 // Lundi 2/11 : le samedi ne reporte plus personne (les reports se décident le dimanche soir).
@@ -308,6 +310,13 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     () => (lu.data ?? []).filter((c) => !plateforme || plateformeDe(idsRuul, c.poster_id) === plateforme),
     [lu.data, plateforme, idsRuul],
   );
+  // 21/11 (Max, point 5) : posteurs Ruul : absences (Away du X au Y), attente d'une réponse, compte jamais trouvé.
+  const posteursRuul = React.useMemo(() => [...new Set(liste.filter((c) => idsRuul.has(c.poster_id)).map((c) => c.poster_id))].sort(), [liste, idsRuul]);
+  const cartesRuul = useQuery({
+    queryKey: ["cartes-ruul", lundi, posteursRuul],
+    queryFn: () => lireCartesRuul(posteursRuul, lundi),
+    enabled: posteursRuul.length > 0,
+  });
   // La cohorte qui arrive : visible, en Keep, sans autre choix ; Validate ne la touche pas
   // (ses reports se décident le dimanche soir, onglet « Sunday: warm-up »).
   // 0494 : sauf un posteur qui ne démarre jamais (reporté 2 fois ou plus) : il se décide samedi.
@@ -334,6 +343,10 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     const prise = decisionSamedi(c);
     if (prise) return prise;
     // 0494 : reporté 2 fois ou plus, ou toujours 0 post après sa première semaine : Kill & don't pay proposé.
+    // 21/11 (Max) : un posteur Ruul qui demande l'arrêt reste en Kill ; sinon absent plus de 7 jours, en attente de notre
+    // réponse, ou compte jamais trouvé : Keep.
+    const impose = idsRuul.has(c.poster_id) && !demandeCompte(c) ? choixRuulImpose(cartesRuul.data?.get(c.poster_id), lundi) : null;
+    if (impose) return impose;
     if (jamais(c)) return "kill_np";
     if (demandeCompte(c)) return "kill";
     // « Kill Saturday » choisi jeudi : Kill & pay pré-sélectionné (Max valide toujours samedi).
@@ -346,6 +359,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     // « Pas maintenant » toujours régulier : Doubler, seulement si le calcul le propose (≥ 2 semaines, pays ≥ 50 par compte).
     const propose = choixPropose(e(c));
     if (alerte?.choix === "double" && propose === "double") return "double";
+    // 21/11 (Max) : Ruul : jours d'absence ou de panne cette semaine et plus de Kill proposé par l'OS (recalculé) : Keep.
+    if (propose === "kill" && idsRuul.has(c.poster_id) && c.ckd_samedi_action !== "ne_pas_renouveler"
+        && (cartesRuul.data?.get(c.poster_id)?.absences ?? []).some((a) => a.fin >= lundi)) return "keep";
     return propose;
   };
   const filtres_ = filtrerComptes(liste, filtres);
@@ -541,6 +557,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           <td className={TD}>
             <BadgePosteur posterId={c.poster_id} className="mr-1" />
             {demandeCompte(c) && !prise ? <BadgeDemande d={demandeCompte(c)!} /> : <StatutCompte e={ev} x={ex} />}
+            {idsRuul.has(c.poster_id) && <InfosCarteRuul c={cartesRuul.data?.get(c.poster_id)} lundi={lundi} />}
             {decideDansProblemes(brouillons.data?.get(c.compte_id)) ? (
               <BadgeProblemes b={brouillons.data!.get(c.compte_id)!} choix={choixDe(c)} />
             ) : preparee(c) && <BadgePreparee b={brouillons.data!.get(c.compte_id)!} />}

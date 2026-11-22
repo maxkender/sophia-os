@@ -26,6 +26,7 @@ import { AgentRuul, DernierImportRuul } from "@/features/ruul/AgentRuul";
 import { PagePaieRuul } from "@/features/ruul/PagePaieRuul";
 import { PageRapportKills } from "@/features/ckd/rapportKills/PageRapportKills";
 import { InjoignablesRuul } from "@/features/ruul/InjoignablesRuul";
+import { SuiviRuul } from "@/features/ruul/SuiviRuul";
 import { PlateformesPosteurs } from "@/features/ruul/PlateformesPosteurs";
 import { StatutsRuulApi } from "@/features/ruul/StatutsRuulApi";
 import { VueParcoursRuul } from "@/features/ruul/VueParcoursRuul";
@@ -341,6 +342,7 @@ export function RuulSuiviPage() {
   return (
     <PageAuto cle="ruul_suivi">
       <div className="space-y-4">
+        <SuiviRuul />
         <PlateformesPosteurs />
         <StatutsRuulApi />
         <InjoignablesRuul />

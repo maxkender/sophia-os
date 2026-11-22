@@ -1,0 +1,144 @@
+{
+ "id": "at-009",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "long run do and don’ts",
+  "fr": "sortie longue : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #longrun #runningtips #girlswhorun #runningroutine",
+  "fr": "#courseapied #sortielongue #running #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Housewife",
+  "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube : « courir l’hiver : / les do & don’ts » de @hannah.run5 (279 k vues, 31/10), style `objets`. Objet neuf : coureuse-longue ; le reste d'at-001 à at-008. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (la veille : la sortie longue prévue dans le plan). Légende selon placement_atala (voix NEUTRE, hook de 5 mots) : « a plan from an app like atala » / « appli de coach comme atala ». Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-longue.png",
+   "en": {
+    "titre": "long run\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "sortie longue :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/pates.png",
+    "atala",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/halteres.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "the day before",
+    "do": [
+     "a pasta dinner",
+     "a plan from an\napp like atala",
+     "kit laid out"
+    ],
+    "dont": [
+     "heavy squats",
+     "a late night"
+    ]
+   },
+   "fr": {
+    "titre": "la veille",
+    "do": [
+     "des pâtes\nle soir",
+     "appli de coach\ncomme atala",
+     "ta tenue prête"
+    ],
+    "dont": [
+     "squats lourds",
+     "te coucher\ntrès tard"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/gel.png",
+    "images/objets/gourde.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/boite-chaussures.png"
+   ],
+   "en": {
+    "titre": "on the run",
+    "do": [
+     "a pace you can\ntalk at",
+     "the gel\nyou know",
+     "sips of water"
+    ],
+    "dont": [
+     "racing\nthe last km",
+     "new shoes"
+    ]
+   },
+   "fr": {
+    "titre": "pendant",
+    "do": [
+     "une allure\nde discussion",
+     "un gel\ndéjà testé",
+     "de l’eau\npar gorgées"
+    ],
+    "dont": [
+     "le dernier km\nà fond",
+     "baskets neuves"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/banane.png",
+    "images/objets/rouleau.png",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/sac-sport.png"
+   ],
+   "en": {
+    "titre": "after",
+    "do": [
+     "a banana\nright after",
+     "a foam roller",
+     "an early night"
+    ],
+    "dont": [
+     "sitting on the\ncouch all day",
+     "a gym session\nthe same day"
+    ]
+   },
+   "fr": {
+    "titre": "après",
+    "do": [
+     "une banane\njuste après",
+     "ton rouleau",
+     "au lit tôt"
+    ],
+    "dont": [
+     "rester assise\ntout l’aprèm",
+     "la salle\nle même jour"
+    ]
+   }
+  }
+ ]
+}

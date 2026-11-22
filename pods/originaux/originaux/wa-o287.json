@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o287",
+ "type_bleo": "full_test",
+ "titre": "sunday habits that make your whole week better #sunday #routine #habits #productivity #selfcare",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "be8abcd5-6a13-49c3-8184-b8c7e8ba6081"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, be8abcd5). full test BLEO : accroche jamais faite (format « sunday habits that make your whole X better »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b98d16bb-cf4c-4346-bd90-71f3bc9e754e",
+   "texte_overlay": "sunday habits that make\nyour whole week better",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5ea6bc15-00df-4ec1-9ef4-377326672125",
+   "texte_overlay": "a slow morning\n\nstart sunday with no alarm, no rush and a long breakfast. a calm morning resets your nervous system after a busy week and makes the whole day feel lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8bba5a32-a9fe-4c1b-be78-dc0af9dd44fd",
+   "texte_overlay": "a ten minute plan\n\nwrite down the three things that really matter this week, nothing more. a short, clear plan stops monday from feeling chaotic before it has even begun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9ecb5015-9cbc-4cc5-b54b-955d5859cbc6",
+   "texte_overlay": "learning something for fun\n\nspend a few minutes on sunday learning something just because it's interesting, and start the week curious. a curious mind walks into monday with energy instead of dread.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/4.jpg",
+   "texte_sophia": "learning something for fun\n\ni spend 5 minutes every sunday morning on one lesson in the Sophia app, a myth or a painting, and starting the week curious instead of anxious changes everything."
+  },
+  {
+   "position": 5,
+   "media_id": "52a0442a-a238-455e-a745-cefe0d3ece6e",
+   "texte_overlay": "a reset of one space\n\ntidy one room or one desk before the week starts. walking into a calm, clean space on monday morning makes it so much easier to focus and get going again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d25aa2e5-a256-47a1-98a6-d95467b3e813",
+   "texte_overlay": "an early night\n\ngo to bed thirty minutes earlier on sunday than usual. a well rested start to the week makes every hard task on monday feel smaller and more manageable.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/6.jpg"
+  }
+ ]
+}

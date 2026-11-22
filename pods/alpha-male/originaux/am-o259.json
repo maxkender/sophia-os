@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o259",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b3facded-5ca4-488b-b568-dfe6a47a4053",
+ "titre": "The day a man finally grows up #men #growth #life #maturity #strength",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "b3facded-5ca4-488b-b568-dfe6a47a4053"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Déclinaison G2 de la ligne 4 (parent b3facded = notre am-o103 ; 3e et dernière après am-o212 et am-o233). Promesse reformulée. Même format. Moments neufs. reference_url de am-o103 vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f1b4a16f",
+   "texte_overlay": "The day a man finally grows up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "12b366d6",
+   "texte_overlay": "1. The Day He Cooked for\nHis Mother:\n\nShe cried.\nHe understood why.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4f30385f",
+   "texte_overlay": "2. The Day He Kept His Word\nWhen It Cost Him:\n\nHe lost money.\nHe kept respect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8cc81a83",
+   "texte_overlay": "3. The Day He Admitted\nHe Didn't Know:\n\nAnd went to learn.",
+   "texte_sophia": "3. The Day He Admitted\nHe Didn't Know:\n\nOne lesson a day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "aa4d736f",
+   "texte_overlay": "4. The Night He Drove\nSomeone Home Safe:\n\nNo thanks needed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3d319289",
+   "texte_overlay": "5. The Day He Apologized First:\n\nPride lost.\nFriendship won.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/6.jpg"
+  }
+ ]
+}

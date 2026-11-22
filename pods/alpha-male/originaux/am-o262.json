@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o262",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "57e07a8c-cb08-4a4f-b6b0-2f578d78daa8",
+ "titre": "5 uskrevne regler for mænd #mænd #regler #respekt #gentleman #mindset",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "57e07a8c-cb08-4a4f-b6b0-2f578d78daa8"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Déclinaison G1 de la ligne 8 (parent 57e07a8c, @fremrag, langue source da : écrite en danois). Accroche du parent mot pour mot. Même format. Règles neuves, aucune du parent ; pas de slide « tag ». reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4decb0d3",
+   "texte_overlay": "5 uskrevne regler for mænd",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1641131a",
+   "texte_overlay": "1. hvis nogen giver dig mad,\nså ros den. altid.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "060bcbf4",
+   "texte_overlay": "2. lån aldrig en bil og giv den\ntilbage med tom tank.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3c08ad7c",
+   "texte_overlay": "3. tal aldrig dårligt om en ven,\nnår han ikke er der.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d4f5bb31",
+   "texte_overlay": "4. hav altid noget interessant\nat fortælle. lær lidt hver dag.",
+   "texte_sophia": "4. hav altid noget interessant\nat fortælle. en app med almen\nviden som Sophia hjælper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "032fdcc3",
+   "texte_overlay": "5. kom til tiden.\nandres tid er også værd noget.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "48eb2376",
+   "texte_overlay": "vi ses snart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676864447297703190/8.jpg"
+  }
+ ]
+}

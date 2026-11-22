@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 import { type LigneToutes, lireToutes } from "./api";
 import { ConversationPosteur } from "./Conversation";
+import { attenduDemande, attenduProbleme } from "./pourMax";
 
 const ICONES: Record<string, string> = { help: "🛟", email: "✉️", upwork: "🟢", slack: "💬", slack_salon: "💬", slack_aide: "💬" };
 
@@ -22,6 +23,8 @@ export interface FilPosteur {
   /** Une demande attend un humain (ouverte, pas réglée par le bot) ou un problème urgent. */
   attente: boolean;
   pourMax: boolean;
+  /** 21/11 : en une ligne, ce qu'on attend de Max (null : rien pour lui). */
+  attendu: string | null;
   sources: string[];
   demande: LigneToutes | null;
   problemes: Probleme[];
@@ -29,12 +32,16 @@ export interface FilPosteur {
 }
 
 /** Les demandes et problèmes regroupés par posteur, le plus récent d'abord ; « Pour Max » à part. */
-export function filsParPosteur(demandes: readonly LigneToutes[], problemes: readonly Probleme[]): { pourMax: FilPosteur[]; autres: FilPosteur[] } {
+export function filsParPosteur(
+  demandes: readonly LigneToutes[],
+  problemes: readonly Probleme[],
+  maintenant = Date.now(),
+): { pourMax: FilPosteur[]; autres: FilPosteur[] } {
   const fils = new Map<string, FilPosteur>();
   const prendre = (cle: string, poster: string | null, nom: string): FilPosteur => {
     let f = fils.get(cle);
     if (!f) {
-      f = { cle, poster_id: poster, nom, dernier: "", attente: false, pourMax: false, sources: [], demande: null, problemes: [], apercu: "" };
+      f = { cle, poster_id: poster, nom, dernier: "", attente: false, pourMax: false, attendu: null, sources: [], demande: null, problemes: [], apercu: "" };
       fils.set(cle, f);
     }
     return f;
@@ -46,14 +53,19 @@ export function filsParPosteur(demandes: readonly LigneToutes[], problemes: read
     if (!f.sources.includes(d.source)) f.sources.push(d.source);
     const ouverte = d.statut === "ouvert";
     if (ouverte && d.niveau !== "bot") f.attente = true;
-    if (ouverte && d.niveau === "max") f.pourMax = true;
+    const attendu = attenduDemande(d, maintenant);
+    if (attendu) { f.pourMax = true; f.attente = true; f.attendu ??= attendu; }
     if ((ouverte && (!f.demande || f.demande.statut !== "ouvert")) || !f.demande) f.demande = d;
   }
   for (const p of problemes) {
     if (p.statut !== "ouvert" || !p.poster_id) continue;
+    // 21/11 (Max) : un problème ne remonte que s'il a vraiment besoin de Max (jamais un STOP, une relance…) ; sinon il
+    // s'affiche seulement dans le fil d'un posteur déjà là (il reste dans Problèmes et les décisions du samedi).
+    const attendu = attenduProbleme(p, maintenant);
+    if (!attendu && !fils.has(p.poster_id)) continue;
     const f = prendre(p.poster_id, p.poster_id, p.nom ?? "?");
     f.problemes.push(p);
-    if (p.niveau === "urgent") { f.pourMax = true; f.attente = true; }
+    if (attendu) { f.pourMax = true; f.attente = true; f.attendu ??= attendu; }
     const at = p.maj_at ?? p.created_at;
     if (at > f.dernier) { f.dernier = at; f.apercu = p.resume; }
   }
@@ -72,17 +84,27 @@ export function Boite() {
   const demandes = useQuery({ queryKey: ["support", "toutes"], queryFn: () => lireToutes(), refetchInterval: 60_000 });
   const problemes = useQuery({ queryKey: ["problemes", "ouverts"], queryFn: () => lireProblemes("ouverts"), refetchInterval: 120_000 });
   const [q, setQ] = React.useState("");
+  // 22/11 (Max) : « À répondre » (un fil qui attend un humain) ou « Tout ».
+  const [seulement, setSeulement] = React.useState<"repondre" | "tout">("repondre");
   const [choisi, setChoisi] = React.useState<string | null>(null);
   if (demandes.error) return <p className="text-destructive text-sm">{(demandes.error as Error).message}</p>;
   if (!demandes.data) return <p className="text-muted-foreground text-sm">Chargement…</p>;
   const { pourMax, autres } = filsParPosteur(demandes.data, problemes.data ?? []);
-  const filtre = (l: FilPosteur[]) => (q.trim() ? l.filter((f) => `${f.nom} ${f.apercu}`.toLowerCase().includes(q.trim().toLowerCase())) : l);
+  const filtre = (l: FilPosteur[]) => (q.trim() ? l.filter((f) => `${f.nom} ${f.apercu}`.toLowerCase().includes(q.trim().toLowerCase())) : l)
+    .filter((f) => seulement === "tout" || f.attente || f.pourMax);
   const tous = [...pourMax, ...autres];
   const actif = tous.find((f) => f.cle === choisi) ?? tous.find((f) => f.attente) ?? tous[0] ?? null;
   return (
     <div className="grid gap-3 md:grid-cols-[18rem_1fr]" data-testid="boite">
       <div className="space-y-2">
         <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Chercher un posteur…" aria-label="Chercher un posteur" />
+        <div className="flex gap-1 text-xs" role="group" aria-label="Filtre de la boîte">
+          {(["repondre", "tout"] as const).map((k) => (
+            <Button key={k} size="xs" variant={seulement === k ? "default" : "outline"} onClick={() => setSeulement(k)} aria-pressed={seulement === k}>
+              {k === "repondre" ? `À répondre (${[...pourMax, ...autres].filter((f) => f.attente || f.pourMax).length})` : "Tout"}
+            </Button>
+          ))}
+        </div>
         <div className="max-h-[70vh] overflow-y-auto rounded-md border">
           {pourMax.length > 0 && <p className="bg-red-50 px-3 py-1 font-medium text-red-800 text-xs dark:bg-red-950/40 dark:text-red-200">🔴 Pour Max ({pourMax.length})</p>}
           {filtre(pourMax).map((f) => <Ligne key={f.cle} f={f} actif={actif?.cle === f.cle} onClick={() => setChoisi(f.cle)} />)}
@@ -112,7 +134,9 @@ function Ligne({ f, actif, onClick }: { f: FilPosteur; actif: boolean; onClick: 
         </span>
         <span className="flex items-center gap-1 text-muted-foreground text-xs">
           <span>{f.sources.map((s) => ICONES[s] ?? "•").join("")}{f.problemes.length ? "⚠️" : ""}</span>
-          <span className="truncate">{f.apercu}</span>
+          <span className={cn("truncate", f.attendu && "text-red-700 dark:text-red-300")} data-testid={f.attendu ? "attendu-ligne" : undefined}>
+            {f.attendu ?? f.apercu}
+          </span>
         </span>
       </span>
     </button>
@@ -127,6 +151,11 @@ function Detail({ f }: { f: FilPosteur }) {
         {f.pourMax && <Badge variant="destructive">Pour Max</Badge>}
         {f.demande?.ticket_at && <Badge variant="outline">→ OS tickets{f.demande.ticket_prevenu_at ? " · ✅ prévenu" : f.demande.ticket_regle_at ? " · ✅ réglé" : ""}</Badge>}
       </div>
+      {f.attendu && (
+        <p className="rounded-md border border-red-200 bg-red-50 px-2 py-1 text-red-900 text-sm dark:border-red-900 dark:bg-red-950/30 dark:text-red-100" data-testid="attendu">
+          <b>Ce qu'on attend de toi :</b> {f.attendu}
+        </p>
+      )}
       {f.problemes.length > 0 && (
         <div className="space-y-1 rounded-md border bg-amber-50/60 p-2 text-sm dark:bg-amber-950/20" data-testid="problemes-posteur">
           <p className="font-medium text-xs">Problèmes ouverts</p>

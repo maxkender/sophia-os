@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o356",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2a7cf8d6-9853-445c-9c46-494d7f1d613e",
+ "titre": "how to stop just existing and start living #mindset #slowliving #smartgirl #selfimprovement #life",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 3 de la boîte (parent 2a7cf8d6, langue source cs) : accroche reformulée (« how to stop just existing and start living »), conseils du parent (ne plus attendre le moment parfait, dire oui à une chose nouvelle par semaine, sortir sans écouteurs, dîner à une vraie table, appeler plutôt qu'écrire, apprendre chaque jour). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ed8539c",
+   "texte_overlay": "how to stop just existing\nand start living",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fb4d256f",
+   "texte_overlay": "stop waiting for the\nperfect moment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "987f9872",
+   "texte_overlay": "say yes to one new thing\nevery week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1b113923",
+   "texte_overlay": "go out without earphones",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b6f3a578",
+   "texte_overlay": "eat dinner at a real table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2ba7430d",
+   "texte_overlay": "call instead of texting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d801a613",
+   "texte_overlay": "learn something every day\n\ni swap one scroll for five\nminutes of learning.",
+   "texte_sophia": "learn something every day\n\ni swap one scroll for five minutes on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "77eb98d7",
+   "texte_overlay": "try one and tell me <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

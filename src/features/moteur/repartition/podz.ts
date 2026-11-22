@@ -4,7 +4,7 @@
  * peuvent prendre le prochain compte (même règle que `enAvanceRemplissage`).
  */
 import type { ApplicationCandidate } from "./scoreApplication";
-import { enTestPod, type ReglagesChoixLabel, type StatLabel } from "./scoreLabel";
+import { enTestPod, estFerme, type ReglagesChoixLabel, type StatLabel } from "./scoreLabel";
 
 export interface LanguePod {
   langue: string;
@@ -25,7 +25,15 @@ export interface LignePod {
   nonLivrees: string[];
 }
 
-/** Une ligne par label 100 % podz, toutes applications réunies. */
+/**
+ * Une ligne par label 100 % podz OUVERT, toutes applications réunies.
+ *
+ * Un label FERMÉ pour une application (à la main, par la nuit ou par ses
+ * chiffres : la même règle que la colonne « État » de la carte Labels,
+ * `estFerme`) n'y reçoit plus de compte : il n'a rien à faire dans une carte
+ * qui dit où iront les prochains. Fermé dans toutes ses applications, il
+ * disparaît ; fermé dans une seule, il reste pour les autres.
+ */
 export function lignesPodz(
   applications: ApplicationCandidate[],
   marchesParApp: Record<string, Array<{ langue: string; pays: string | null; stats: StatLabel[] }>>,
@@ -39,6 +47,7 @@ export function lignesPodz(
     for (const m of marchesParApp[app.id] ?? []) {
       for (const s of m.stats) {
         if (!s.pod_seul) continue;
+        if (estFerme(s.label_id, app.id, reglages, s)) continue;
         let e = parLabel.get(s.label_id);
         if (!e) {
           e = {

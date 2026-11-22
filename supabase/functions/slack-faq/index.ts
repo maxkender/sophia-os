@@ -192,7 +192,9 @@ async function traiter(ev: EvenementSlack, botUserId: string | null): Promise<vo
   if (!admins.has(tri.auteur) && !managers.has(tri.auteur)) {
     try {
       if (tri.cas === "suite") {
-        await appelSupport({ action: "slack_suite", canal: tri.canal, parent_ts: tri.parentTs, texte: tri.texte });
+        // 21/11 (Max) : le bot répond aussi dans le fil ; l'auteur et le ts servent quand le fil n'est pas une demande suivie.
+        const nom = token ? await nomSlack(token, tri.auteur) : null;
+        await appelSupport({ action: "slack_suite", canal: tri.canal, parent_ts: tri.parentTs, ts: tri.ts, auteur: tri.auteur, nom, texte: tri.texte, plateforme: plateformeDuSalon(tri.canal) });
       } else {
         const nom = token ? await nomSlack(token, tri.auteur) : null;
         await appelSupport({ action: "slack_message", canal: tri.canal, ts: tri.ts, auteur: tri.auteur, texte: tri.texte, nom, plateforme: plateformeDuSalon(tri.canal) });

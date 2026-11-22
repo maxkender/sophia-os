@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o363",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0e31d746-32cb-4b88-976f-2175dd6c2d96",
+ "titre": "new elegant hobbies to try out pt2 #hobbies #elegance #smartgirl #slowliving #thatgirl",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "0e31d746-32cb-4b88-976f-2175dd6c2d96"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 10 de la boîte (parent 0e31d746, langue source hu) : accroche du parent mot pour mot. Hobbies du parent (café seule sans téléphone, étirements, peinture en plein air, marche du soir sans musique, art floral, sujets classiques, écriture à la main). Sophia en 6 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "11da7e1d",
+   "texte_overlay": "new elegant hobbies\nto try out pt2",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609607488060525841/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "831c9127",
+   "texte_overlay": "1. café dates alone\n\nno phone. just coffee\nand your thoughts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609607488060525841/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4b46dd74",
+   "texte_overlay": "2. slow stretching at home",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609607488060525841/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f1082c1e",
+   "texte_overlay": "3. painting outdoors\n\na park, a street, the seaside.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609607488060525841/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "eb6d5ba5",
+   "texte_overlay": "4. evening walks without music",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609607488060525841/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eb864086",
+   "texte_overlay": "5. flower arranging",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609607488060525841/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5f54b7a9",
+   "texte_overlay": "6. exploring classic topics\n\nart, history, philosophy.",
+   "texte_sophia": "6. exploring classic topics\n\ni use a general knowledge app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609607488060525841/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3431ced2",
+   "texte_overlay": "7. practising handwriting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609607488060525841/8.jpg"
+  }
+ ]
+}

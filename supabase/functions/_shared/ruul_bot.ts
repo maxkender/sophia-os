@@ -14,6 +14,8 @@ export type CasRuul = "code" | "autre_email" | "nom" | "identite" | "pays" | "bu
 export type EtapeRuul = "inscrit" | "identite" | "banque";
 
 export const TEXTES_RUUL = {
+  /** 21/11 (Max) : un problème Ruul qu'on ne règle pas : le posteur contacte le support Ruul ; sans solution, fin. */
+  support_ruul: "We can't fix this from our side: please contact Ruul support directly (on app.ruul.io, \"Help\" or the chat) and show them this problem. If it isn't solved by {date}, we'll have to end our collaboration.",
   persuasion: "We pay through Ruul: no fees for you, paid every Monday. Setup takes about 5 minutes, here's your next step: {etape}. Need help? Tell us what's blocking you.",
   etape_inscrit: "sign up on app.ruul.io with {email}",
   etape_identite: "verify your identity on app.ruul.io",

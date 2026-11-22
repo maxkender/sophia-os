@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o157",
+  "type_bleo": "full_test",
+  "titre": "how i get back into studying after a long break #studytok #studytips #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 22/11 : 3 full tests sur 8). Accroche jamais faite chez nous (« after a long break » absent du label). Accroches écrites : « how i get back into studying after a long break » (retenue : la rentrée après des vacances, très partagée), « post-holiday study reset » (écartée : anglicisme vague), « i forgot everything over the holidays » (écartée : plainte sans promesse). Gestes vrais : une séance courte le premier jour, relire ses notes d'avant la pause, se tester pour voir ce qui reste, garder une habitude de curiosité des vacances (slide Sophia, 5), ranger le bureau, un horaire fixe dès la première semaine. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4ad83cfc",
+      "texte_overlay": "how i get back into studying\nafter a long break",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e95ec7b5",
+      "texte_overlay": "day 1: 20 minutes only.\nthe goal is just to sit down again.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "96ee3a56",
+      "texte_overlay": "i reread my notes from before the break.\nthe last chapter first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a46e7102",
+      "texte_overlay": "i quiz myself to see what's left.\nusually more than i feared.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c2eb4904",
+      "texte_overlay": "i keep one good holiday habit:\n5 minutes a day learning something new, just for fun.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i keep one good holiday habit:\n5 minutes a day on a micro-learning app like the Sophia app.\nhistory, art, science. just for fun."
+    },
+    {
+      "position": 6,
+      "media_id": "a56f6bb0",
+      "texte_overlay": "desk cleared before the first real session.\na fresh start feels like one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4894b62b",
+      "texte_overlay": "same study time every day from week one.\nthe routine comes back fast.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

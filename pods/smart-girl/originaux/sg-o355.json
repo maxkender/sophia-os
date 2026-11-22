@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o355",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b0766556-f916-4ca9-a5b0-d45e8b0c08d7",
+ "titre": "psychology tricks that make people say yes #psychology #conversation #smartgirl #socialskills #persuasion",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 2 de la boîte (parent b0766556, langue source en) : accroche reformulée (« psychology tricks that make people say yes »), différente de sg-o307 et sg-o329 ; conseils du parent. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a4ac10cb",
+   "texte_overlay": "psychology tricks that make\npeople say yes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2d09d0af",
+   "texte_overlay": "ask for their advice first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0fa6462d",
+   "texte_overlay": "use their name, once",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "68b025c1",
+   "texte_overlay": "leave a silence after\nyour question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3c2ccd3a",
+   "texte_overlay": "start with something\nyou agree on",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "55cf9a0c",
+   "texte_overlay": "end on a warm note",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "90c88feb",
+   "texte_overlay": "and always have something\ninteresting to say, instead\nof scrolling",
+   "texte_sophia": "and always have something interesting to\nsay: i read one lesson a day on an app\nlike Sophia instead of scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0ff7620f",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

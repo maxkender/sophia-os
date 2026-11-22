@@ -28,6 +28,9 @@ export function texteInviteRuul(email: string | null): string {
  * 13/11 (Max) : le guide Ruul pas à pas (posteurs Ruul seulement), dans la bienvenue, les relances Ruul
  * et l'étape 6 du dashboard. Tout est fait avant le premier post (dimanche minuit, heure de Paris).
  */
+/** 21/11 (Max) : les frais Ruul sont payés par Vik Studios ; le délai de la banque reste dit. */
+export const FRAIS_RUUL = "Ruul fees are paid by Vik Studios: you receive the full amount (10 $ sent = 10 $ received). It usually reaches your bank 1 to 2 business days after Monday (Tuesday or Wednesday).";
+
 export function guideRuul(email: string | null, avant: string | null = "Sunday midnight (Paris time)"): string {
   return [
     "Set up Ruul — required to get paid (5 minutes)",
@@ -45,6 +48,7 @@ export function guideRuul(email: string | null, avant: string | null = "Sunday m
     "8. That's it. Nothing else to do on Ruul.",
     "",
     "How you get paid: every Monday, the money for the week you posted arrives in your Ruul space, then goes to your bank. Your first payment: the Monday after your first week.",
+    FRAIS_RUUL,
     "",
     "Problem with Ruul? Click Help in your dashboard.",
   ].join("\n");
@@ -77,6 +81,7 @@ export function blocRuul(d: { ruul_email: string | null; ruul_lien?: string | nu
     ...(avant ? [`Best done before ${avant}, so your first Monday pay isn't delayed.`] : []),
     "You don't need Ruul to start posting — it's only to get paid.",
     "How you get paid: every Monday, the money for the week you posted arrives in your Ruul space, then goes to your bank.",
+    FRAIS_RUUL,
     "Problem with Ruul? Click Help in your dashboard.",
   ].join("\n");
 }

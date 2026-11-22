@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o311",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b354d228-6a89-4490-bd6e-0b0e36e32eaa",
+ "titre": "ex-rh, je traduis les phrases que les recruteurs disent en entretien (partie 3) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 22/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne #12 (parent b354d228), 2e : accroche du parent mot pour mot, phrases différentes de rh-o033 et rh-o250. Inspirations reprises de rh-o033. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b0b2c33e",
+   "texte_overlay": "ex-rh, je traduis les phrases\nque les recruteurs disent\nen entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "10f2528f",
+   "texte_overlay": "« le salaire est à discuter »\n= on a une fourchette. demande-la",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b696960e",
+   "texte_overlay": "« on cherche quelqu'un qui reste »\n= le poste a beaucoup tourné. demande pourquoi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ee9bb3ea",
+   "texte_overlay": "« vous êtes surqualifiée »\n= on a peur que tu t'ennuies. dis ce qui te motive ici",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e1d529e3",
+   "texte_overlay": "« vous seriez prête à évoluer ? »\n= on veut voir si tu apprends. mes 3 sources : une formation, des livres, 5 minutes par jour",
+   "texte_sophia": "« vous seriez prête à évoluer ? »\n= on veut voir si tu apprends. mes 3 sources : une formation, des livres, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8fcbb1c1",
+   "texte_overlay": "« on vous écrit d'ici la fin de semaine »\n= relance lundi si rien n'arrive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d989fbe6",
+   "texte_overlay": "quelle phrase je traduis ensuite ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  }
+ ]
+}

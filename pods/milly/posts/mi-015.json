@@ -1,0 +1,784 @@
+{
+ "id": "mi-015",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7678001221331930398",
+  "vues": 95300,
+  "publie_le": "2026-08-25",
+  "accroche": "What happens to your / brain / at / 200 IQ"
+ },
+ "fond": "bleu",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
+ "notes": "Full test (boîte vide). Format de « What happens to your brain at 200 IQ » de @bdnf.milly (95,3 k vues, 25/08), famille « What happens to your brain … », fond bleu (texte noir). Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : apprendre à lire recrute une zone du système visuel (aire de la forme visuelle des mots), y compris chez des adultes alphabétisés tard (Dehaene et al., Science 2010) ; six mois d'apprentissage de la lecture chez des adultes en Inde changent jusqu'au thalamus et au tronc cérébral (Skeide et al., Science Advances 2017) ; la quantité de lecture prédit le vocabulaire et la culture générale, même à capacités égales (Stanovich et Cunningham, Journal of Educational Psychology 1993 ; Cunningham et Stanovich, American Educator 1998) ; lire un roman sur neuf soirs augmente la connectivité de zones du langage, en partie encore des jours après (Berns, Blaine, Prietula et Pye, Brain Connectivity 2013). 11 langues. Images : Seedream (irm-sagittale, neurones-reseau, synapse), sans texte.",
+ "titre": {
+  "en": "What happens to your Brain when you Read",
+  "fr": "Ce qui arrive à ton cerveau quand tu lis",
+  "es": "Qué le pasa a tu cerebro cuando lees",
+  "es-419": "Qué le pasa a tu cerebro cuando lees",
+  "it": "Cosa succede al tuo cervello quando leggi",
+  "tr": "Okurken beynine ne olur",
+  "pt-BR": "O que acontece com seu cérebro quando você lê",
+  "sl": "Kaj se zgodi z možgani, ko bereš",
+  "hr": "Što se događa tvom mozgu kad čitaš",
+  "de": "Was mit deinem Gehirn passiert, wenn du liest",
+  "hu": "Mi történik az agyaddal, amikor olvasol"
+ },
+ "legendes": {
+  "en": "reading changes the brain that reads #reading #brain #neuroscience #learning #books",
+  "fr": "lire change le cerveau qui lit #lecture #cerveau #neurosciences #apprendre #livres",
+  "es": "leer cambia el cerebro que lee #lectura #cerebro #neurociencia #aprender #libros",
+  "es-419": "leer cambia el cerebro que lee #lectura #cerebro #neurociencia #aprender #libros",
+  "it": "leggere cambia il cervello che legge #lettura #cervello #neuroscienze #imparare #libri",
+  "tr": "okumak, okuyan beyni değiştirir #okuma #beyin #nörobilim #öğrenme #kitap",
+  "pt-BR": "ler muda o cérebro que lê #leitura #cerebro #neurociencia #aprender #livros",
+  "sl": "branje spremeni možgane, ki berejo #branje #možgani #nevroznanost #učenje #knjige",
+  "hr": "čitanje mijenja mozak koji čita #čitanje #mozak #neuroznanost #učenje #knjige",
+  "de": "lesen verändert das gehirn, das liest #lesen #gehirn #neurowissenschaft #lernen #bücher",
+  "hu": "az olvasás megváltoztatja az olvasó agyat #olvasás #agy #idegtudomány #tanulás #könyvek"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-sagittale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "What happens to your",
+      "taille": "petit"
+     },
+     {
+      "t": "Brain",
+      "taille": "grand"
+     },
+     {
+      "t": "when you",
+      "taille": "petit"
+     },
+     {
+      "t": "Read",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Ce qui arrive à ton",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerveau",
+      "taille": "grand"
+     },
+     {
+      "t": "quand tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Lis",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Qué le pasa a tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     },
+     {
+      "t": "cuando",
+      "taille": "petit"
+     },
+     {
+      "t": "Lees",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Qué le pasa a tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     },
+     {
+      "t": "cuando",
+      "taille": "petit"
+     },
+     {
+      "t": "Lees",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Cosa succede al tuo",
+      "taille": "petit"
+     },
+     {
+      "t": "Cervello",
+      "taille": "grand"
+     },
+     {
+      "t": "quando",
+      "taille": "petit"
+     },
+     {
+      "t": "Leggi",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Okurken",
+      "taille": "moyen"
+     },
+     {
+      "t": "Beynine",
+      "taille": "grand"
+     },
+     {
+      "t": "ne",
+      "taille": "petit"
+     },
+     {
+      "t": "Olur?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O que acontece com seu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cérebro",
+      "taille": "grand"
+     },
+     {
+      "t": "quando você",
+      "taille": "petit"
+     },
+     {
+      "t": "Lê",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kaj se zgodi z",
+      "taille": "petit"
+     },
+     {
+      "t": "Možgani",
+      "taille": "grand"
+     },
+     {
+      "t": "ko",
+      "taille": "petit"
+     },
+     {
+      "t": "Bereš",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Što se događa tvom",
+      "taille": "petit"
+     },
+     {
+      "t": "Mozgu",
+      "taille": "grand"
+     },
+     {
+      "t": "kad",
+      "taille": "petit"
+     },
+     {
+      "t": "Čitaš",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Was mit deinem",
+      "taille": "petit"
+     },
+     {
+      "t": "Gehirn",
+      "taille": "grand"
+     },
+     {
+      "t": "passiert, wenn du",
+      "taille": "petit"
+     },
+     {
+      "t": "liest",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Mi történik az",
+      "taille": "petit"
+     },
+     {
+      "t": "Agyaddal",
+      "taille": "grand"
+     },
+     {
+      "t": "amikor",
+      "taille": "petit"
+     },
+     {
+      "t": "Olvasol",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "It Rewires Itself",
+    "blocs": [
+     {
+      "p": "Writing is too recent an invention to have its own brain area, so learning to read takes over part of the visual system, now called the visual word form area. Brain scans show it even in adults who learned to read late in life."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "In one study, adults in India who learned to read over six months showed changes even deep in the brain, in regions that relay visual information."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Il se recâble",
+    "blocs": [
+     {
+      "p": "L'écriture est une invention trop récente pour avoir sa propre zone dans le cerveau : apprendre à lire recrute donc une partie du système visuel, qu'on appelle aujourd'hui l'aire de la forme visuelle des mots. L'imagerie la montre même chez des adultes qui ont appris à lire tard."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Dans une étude, des adultes en Inde qui ont appris à lire pendant six mois ont montré des changements jusque dans les profondeurs du cerveau, dans des régions qui relaient l'information visuelle."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Se recablea",
+    "blocs": [
+     {
+      "p": "La escritura es un invento demasiado reciente para tener su propia zona en el cerebro, así que aprender a leer ocupa parte del sistema visual, hoy llamada área de la forma visual de las palabras. Las imágenes cerebrales la muestran incluso en adultos que aprendieron a leer tarde."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "En un estudio, adultos en la India que aprendieron a leer durante seis meses mostraron cambios incluso en lo más profundo del cerebro, en regiones que transmiten la información visual."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Se reconecta",
+    "blocs": [
+     {
+      "p": "La escritura es un invento demasiado reciente para tener su propia área en el cerebro, así que aprender a leer ocupa una parte del sistema visual, que hoy se llama área de la forma visual de las palabras. Los escaneos la muestran incluso en adultos que aprendieron a leer de grandes."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "En un estudio, adultos en India que aprendieron a leer durante seis meses tuvieron cambios hasta en lo más profundo del cerebro, en regiones que transmiten la información visual."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Si ricabla",
+    "blocs": [
+     {
+      "p": "La scrittura è un'invenzione troppo recente per avere una sua area nel cervello, così imparare a leggere occupa una parte del sistema visivo, oggi chiamata area della forma visiva delle parole. Le immagini cerebrali la mostrano anche in adulti che hanno imparato a leggere tardi."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "In uno studio, adulti in India che hanno imparato a leggere in sei mesi hanno mostrato cambiamenti fin nelle profondità del cervello, in regioni che trasmettono l'informazione visiva."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Kendini yeniden bağlar",
+    "blocs": [
+     {
+      "p": "Yazı, beyinde kendine ait bir bölgesi olamayacak kadar yeni bir icattır; bu yüzden okumayı öğrenmek, görsel sistemin bugün görsel kelime biçimi alanı denen bir kısmını devralır. Beyin taramaları bunu geç yaşta okumayı öğrenen yetişkinlerde bile gösteriyor."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Bir çalışmada, Hindistan'da altı ay boyunca okumayı öğrenen yetişkinlerde, görsel bilgiyi ileten derin beyin bölgelerinde bile değişiklikler görüldü."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ele se reconecta",
+    "blocs": [
+     {
+      "p": "A escrita é uma invenção recente demais para ter sua própria área no cérebro, então aprender a ler ocupa uma parte do sistema visual, hoje chamada de área da forma visual das palavras. Exames de imagem mostram isso até em adultos que aprenderam a ler tarde."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Em um estudo, adultos na Índia que aprenderam a ler ao longo de seis meses tiveram mudanças até nas partes profundas do cérebro, em regiões que retransmitem a informação visual."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Na novo se povežejo",
+    "blocs": [
+     {
+      "p": "Pisava je prenov izum, da bi imela v možganih svoje območje, zato učenje branja zasede del vidnega sistema, ki ga danes imenujemo območje vidne oblike besed. Slikanja ga pokažejo celo pri odraslih, ki so se brati naučili pozno."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "V eni raziskavi so se odraslim v Indiji, ki so se šest mesecev učili brati, spremembe pokazale celo globoko v možganih, v predelih, ki prenašajo vidne informacije."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Ponovno se povezuje",
+    "blocs": [
+     {
+      "p": "Pismo je prenov izum da bi imalo vlastito područje u mozgu, pa učenje čitanja preuzima dio vidnog sustava, danas nazvan područje vizualnog oblika riječi. Snimke ga pokazuju čak i kod odraslih koji su kasno naučili čitati."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "U jednom istraživanju odrasli u Indiji koji su šest mjeseci učili čitati pokazali su promjene čak i duboko u mozgu, u područjima koja prenose vidne informacije."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Es verdrahtet sich neu",
+    "blocs": [
+     {
+      "p": "Schrift ist eine zu junge Erfindung, um ein eigenes Hirnareal zu haben, also übernimmt Lesenlernen einen Teil des Sehsystems, heute visuelles Wortformareal genannt. Hirnscans zeigen es sogar bei Erwachsenen, die spät lesen gelernt haben."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "In einer Studie zeigten Erwachsene in Indien, die sechs Monate lang lesen lernten, Veränderungen bis tief ins Gehirn, in Regionen, die visuelle Informationen weiterleiten."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Újrahuzalozza magát",
+    "blocs": [
+     {
+      "p": "Az írás túl új találmány ahhoz, hogy saját agyterülete legyen, ezért az olvasás tanulása a látórendszer egy részét veszi át, amelyet ma a szavak vizuális formájának területeként ismerünk. Az agyi felvételek még a későn olvasni tanult felnőtteknél is kimutatják."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Egy vizsgálatban az Indiában hat hónap alatt olvasni tanuló felnőtteknél még az agy mély részeiben is változásokat láttak, a látási információt továbbító területeken."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "It Builds Knowledge",
+    "blocs": [
+     {
+      "p": "People who read more know more: in studies, how much people read predicted their vocabulary and general knowledge, even after accounting for their general ability."
+     },
+     {
+      "p": "Every page adds to the store, and short daily reading counts. A lesson every evening is reading done like a training session."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Il construit du savoir",
+    "blocs": [
+     {
+      "p": "Ceux qui lisent plus en savent plus : dans des études, la quantité de lecture prédisait le vocabulaire et la culture générale, même à capacités égales."
+     },
+     {
+      "p": "Chaque page enrichit la réserve, et quelques minutes par jour comptent. Une leçon chaque soir, c'est la lecture faite comme un entraînement."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Construye conocimiento",
+    "blocs": [
+     {
+      "p": "Quien más lee, más sabe: en estudios, cuánto leía la gente predecía su vocabulario y su cultura general, incluso teniendo en cuenta su capacidad."
+     },
+     {
+      "p": "Cada página suma a la reserva, y leer un poco cada día cuenta. Una lección cada noche es leer como quien entrena."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Construye conocimiento",
+    "blocs": [
+     {
+      "p": "Quienes leen más saben más: en estudios, cuánto leían las personas predecía su vocabulario y su cultura general, aun tomando en cuenta su capacidad."
+     },
+     {
+      "p": "Cada página suma a la reserva, y leer un poco cada día cuenta. Una lección cada noche es leer como si fuera un entrenamiento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Costruisce conoscenza",
+    "blocs": [
+     {
+      "p": "Chi legge di più sa di più: negli studi, quanto le persone leggevano prevedeva il loro vocabolario e la loro cultura generale, anche a parità di capacità."
+     },
+     {
+      "p": "Ogni pagina si aggiunge alla riserva, e anche poca lettura al giorno conta. Una lezione ogni sera è lettura fatta come un allenamento."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Bilgi inşa eder",
+    "blocs": [
+     {
+      "p": "Daha çok okuyan daha çok bilir: çalışmalarda insanların ne kadar okuduğu, genel yetenekleri hesaba katıldığında bile kelime dağarcıklarını ve genel kültürlerini öngördü."
+     },
+     {
+      "p": "Her sayfa depoya bir şey ekler ve günde biraz okumak da sayılır. Her akşam bir ders, antrenman gibi yapılan bir okumadır."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ele constrói conhecimento",
+    "blocs": [
+     {
+      "p": "Quem lê mais sabe mais: em estudos, o quanto as pessoas liam previa seu vocabulário e seu conhecimento geral, mesmo levando em conta sua capacidade."
+     },
+     {
+      "p": "Cada página soma à reserva, e ler um pouco por dia conta. Uma lição toda noite é leitura feita como um treino."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Gradijo znanje",
+    "blocs": [
+     {
+      "p": "Kdor več bere, več ve: v raziskavah je količina branja napovedala besedišče in splošno razgledanost, tudi ob upoštevanju splošnih sposobnosti."
+     },
+     {
+      "p": "Vsaka stran doda nekaj zalogi in tudi malo branja na dan šteje. Lekcija vsak večer je branje, opravljeno kot trening."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Gradi znanje",
+    "blocs": [
+     {
+      "p": "Tko više čita, više zna: u istraživanjima je količina čitanja predviđala rječnik i opću kulturu, čak i uz uzimanje u obzir općih sposobnosti."
+     },
+     {
+      "p": "Svaka stranica dodaje nešto zalihi, a i malo čitanja dnevno se računa. Lekcija svake večeri čitanje je odrađeno kao trening."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Es baut Wissen auf",
+    "blocs": [
+     {
+      "p": "Wer mehr liest, weiß mehr: In Studien sagte die Lesemenge Wortschatz und Allgemeinwissen voraus, selbst wenn man die allgemeine Begabung berücksichtigte."
+     },
+     {
+      "p": "Jede Seite vergrößert den Vorrat, und schon ein wenig Lesen am Tag zählt. Eine Lektion jeden Abend ist Lesen als Training."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tudást épít",
+    "blocs": [
+     {
+      "p": "Aki többet olvas, többet tud: vizsgálatokban az olvasás mennyisége előre jelezte a szókincset és az általános műveltséget, még az általános képességek figyelembevételével is."
+     },
+     {
+      "p": "Minden oldal gyarapítja a készletet, és a napi kevés olvasás is számít. Egy lecke minden este edzésként végzett olvasás."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "It Keeps Working Afterwards",
+    "blocs": [
+     {
+      "p": "In one study, people read a novel over nine evenings and had their brains scanned each morning. Connectivity in language areas increased, and some changes lasted for days after they finished the book."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Reading is not passive. Long after you close the page, your brain is still working with what it took in."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Il continue de travailler après",
+    "blocs": [
+     {
+      "p": "Dans une étude, des participants ont lu un roman sur neuf soirées, avec une imagerie du cerveau chaque matin. La connectivité des zones du langage a augmenté, et certains changements ont duré des jours après la fin du livre."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Lire n'est pas passif. Longtemps après avoir refermé la page, ton cerveau travaille encore avec ce qu'il a reçu."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Sigue trabajando después",
+    "blocs": [
+     {
+      "p": "En un estudio, los participantes leyeron una novela durante nueve noches y se les escaneó el cerebro cada mañana. La conectividad de las zonas del lenguaje aumentó, y algunos cambios duraron días después de terminar el libro."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Leer no es pasivo. Mucho después de cerrar la página, tu cerebro sigue trabajando con lo que recibió."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Sigue trabajando después",
+    "blocs": [
+     {
+      "p": "En un estudio, las personas leyeron una novela durante nueve noches y les escanearon el cerebro cada mañana. La conectividad en las áreas del lenguaje aumentó, y algunos cambios duraron días después de terminar el libro."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Leer no es pasivo. Mucho después de cerrar la página, tu cerebro sigue trabajando con lo que recibió."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Continua a lavorare dopo",
+    "blocs": [
+     {
+      "p": "In uno studio, i partecipanti hanno letto un romanzo nell'arco di nove sere, con una scansione del cervello ogni mattina. La connettività delle aree del linguaggio è aumentata, e alcuni cambiamenti sono durati giorni dopo la fine del libro."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Leggere non è passivo. Molto dopo aver chiuso la pagina, il cervello sta ancora lavorando con ciò che ha ricevuto."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Sonra da çalışmaya devam eder",
+    "blocs": [
+     {
+      "p": "Bir çalışmada katılımcılar dokuz akşam boyunca bir roman okudu ve her sabah beyinleri tarandı. Dil bölgelerindeki bağlantısallık arttı ve bazı değişiklikler kitabı bitirdikten sonra günlerce sürdü."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Okumak pasif değildir. Sayfayı kapattıktan çok sonra bile beynin aldıklarıyla çalışmaya devam eder."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ele continua trabalhando depois",
+    "blocs": [
+     {
+      "p": "Em um estudo, os participantes leram um romance ao longo de nove noites e fizeram exames do cérebro toda manhã. A conectividade nas áreas da linguagem aumentou, e algumas mudanças duraram dias depois que terminaram o livro."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Ler não é passivo. Muito depois de você fechar a página, seu cérebro ainda está trabalhando com o que recebeu."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Delajo še naprej",
+    "blocs": [
+     {
+      "p": "V eni raziskavi so udeleženci devet večerov brali roman, njihove možgane pa so vsako jutro slikali. Povezanost jezikovnih predelov se je povečala, nekatere spremembe pa so trajale še dneve po koncu knjige."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Branje ni pasivno. Še dolgo potem, ko zapreš stran, možgani delajo s tem, kar so prejeli."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nastavlja raditi poslije",
+    "blocs": [
+     {
+      "p": "U jednom istraživanju sudionici su devet večeri čitali roman, a mozak im je snimljen svakog jutra. Povezanost jezičnih područja se povećala, a neke su promjene trajale danima nakon što su završili knjigu."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Čitanje nije pasivno. Dugo nakon što zatvoriš stranicu, mozak i dalje radi s onim što je primio."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Es arbeitet danach weiter",
+    "blocs": [
+     {
+      "p": "In einer Studie lasen Teilnehmende über neun Abende einen Roman, und jeden Morgen wurde ihr Gehirn gescannt. Die Vernetzung in Spracharealen nahm zu, und manche Veränderungen hielten noch Tage nach dem Ende des Buchs an."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Lesen ist nicht passiv. Lange nachdem du die Seite geschlossen hast, arbeitet dein Gehirn noch mit dem, was es aufgenommen hat."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Utána is dolgozik tovább",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban a résztvevők kilenc estén át olvastak egy regényt, és minden reggel felvételt készítettek az agyukról. A nyelvi területek összekapcsoltsága nőtt, és egyes változások napokig megmaradtak a könyv befejezése után."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Az olvasás nem passzív. Jóval azután is, hogy becsuktad a könyvet, az agyad még dolgozik azzal, amit befogadott."
+     }
+    ]
+   }
+  }
+ ]
+}

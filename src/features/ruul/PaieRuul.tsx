@@ -378,7 +378,7 @@ function LotRuulCarte() {
             <table className="w-full text-sm" data-testid="lignes-ruul">
               <thead>
                 <tr className="border-b text-left text-xs text-muted-foreground">
-                  {["Nom", "Email Ruul", "Statut Ruul", "Comptes", "Posts faits / prévus", "Tarif", "Retenue", "Bonus", "Semaine(s)", "TOTAL net", "OK"].map((h) => (
+                  {["Nom", "Email Ruul", "Statut Ruul", "Comptes", "Posts faits / prévus", "Tarif", "Retenue", "Bonus", "Semaine(s)", "Pourquoi ce montant", "TOTAL net", "OK"].map((h) => (
                     <th key={h} className="py-2 pr-3">{h}</th>
                   ))}
                 </tr>
@@ -406,6 +406,9 @@ function LotRuulCarte() {
                             {s.ecart ? <span className="text-destructive"> · {s.ecart}</span> : null}
                           </div>
                         ))}
+                      </td>
+                      <td className="max-w-72 py-1.5 pr-3 text-xs text-muted-foreground" data-testid="pourquoi-montant">
+                        {l.semaines.map((s) => s.pourquoi ? <div key={s.id}>{l.semaines.length > 1 ? `${jourMois(s.semaine)} : ` : ""}{s.pourquoi}</div> : null)}
                       </td>
                       <td className="py-1.5 pr-3 font-semibold tabular-nums">{dollars(l.total)}</td>
                       <td className="py-1.5 pr-3 text-xs">{l.valide === false ? <span className="text-amber-600">à valider</span> : "✓"}</td>

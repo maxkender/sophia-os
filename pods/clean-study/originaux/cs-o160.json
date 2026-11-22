@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o160",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "fb8314c5-d882-45d1-b09f-1ac1acef71a3",
+  "titre": "toxic but true reminders for exam season that hit way too hard #studytok #studymotivation #exams",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "fb8314c5-d882-45d1-b09f-1ac1acef71a3"
+  ],
+  "notes": "Déclinaison G2 de fb8314c5 (la famille de nos cs-o020 et cs-o088 : r 6,95 en turc), ligne 1 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o149 et cs-o155 : « toxic but true reminders for exam season that hit way too hard ». Rivalité avec soi-même. Rappels neufs, aucun de cs-o020, cs-o088, cs-o149 ni cs-o155 : la liste de tâches n'est pas le travail, la note de ce trimestre arrive quand même, une vraie pause qui recharge (slide Sophia, 4), les révisions en groupe qui deviennent une sortie, le réveil à 11 h, commencer par la matière la plus dure. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "34fb1994",
+      "texte_overlay": "toxic but true reminders for exam season\nthat hit way too hard",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "371d6a12",
+      "texte_overlay": "making a to-do list isn't doing the to-do list.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ebfdff28",
+      "texte_overlay": "this term's grade is coming either way.\nchoose which one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "216a642c",
+      "texte_overlay": "a break should recharge you.\nscrolling for an hour doesn't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg",
+      "texte_sophia": "a break should recharge you.\n5 minutes on a micro-learning app like the Sophia app does.\nscrolling for an hour doesn't."
+    },
+    {
+      "position": 5,
+      "media_id": "62c79c49",
+      "texte_overlay": "a \"group study session\" with no books open\nis just hanging out.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ab650a30",
+      "texte_overlay": "waking up at 11 during exam week\nis a choice. a bad one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3d042c1b",
+      "texte_overlay": "hardest subject first. while you still have energy.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

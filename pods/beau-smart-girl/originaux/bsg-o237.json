@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o237",
+  "type_bleo": "full_test",
+  "titre": "les mots français dont l'origine va te surprendre #etymologie #francais #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Différent de bsg-o223 (mots venus de l'arabe) : mots tirés du latin et du grec. Étymologies vérifiées sur le Wiktionnaire (salaire : salarium, du sel ; copain : compain, celui qui partage le pain ; travail : tripalium). Alphabet (alpha + bêta) et musée (mouseion, le temple des Muses) : étymologies classiques. Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests. Lignes sautées : 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4b5a400d",
+      "texte_overlay": "les mots français\ndont l'origine va te surprendre",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7b1bd347",
+      "texte_overlay": "1. salaire\n\nce matin, j'ai appris que le mot salaire vient du latin salarium, lié au sel.\nje regarde ma fiche de paie autrement.",
+      "texte_sophia": "1. salaire\n\nce matin, l'appli Sophia m'a appris que le mot salaire vient du latin salarium, lié au sel.\nje regarde ma fiche de paie autrement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5dc6aaec",
+      "texte_overlay": "2. copain\n\nde compain :\ncelui avec qui on partage le pain.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "77d153f7",
+      "texte_overlay": "3. alphabet\n\nalpha et bêta,\nles deux premières lettres grecques.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "63d45346",
+      "texte_overlay": "4. musée\n\ndu grec mouseion,\nle temple des muses.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "75a1b2ea",
+      "texte_overlay": "5. travail\n\nviendrait du latin tripalium.\nça explique le lundi matin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "637b508d",
+      "texte_overlay": "tu en connaissais combien ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

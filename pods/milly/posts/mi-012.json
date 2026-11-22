@@ -1,0 +1,768 @@
+{
+ "id": "mi-012",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7676523516900019486",
+  "vues": 379500,
+  "publie_le": "2026-08-21",
+  "accroche": "Every / form / of / Intelligence"
+ },
+ "fond": "gris",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7358342888574470945"
+ },
+ "notes": "Full test (boîte vide). Format de « Every form of Intelligence » de @bdnf.milly (379,5 k vues, 21/08, son plus vu), famille « Every form of … », fond gris. Slide Sophia (3) : la mémoire sémantique, une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : la mémoire de travail tient environ quatre éléments à la fois (Cowan, Behavioral and Brain Sciences 2001) ; la mémoire épisodique dépend de l'hippocampe, le patient H.M. ne formait plus de nouveaux souvenirs après son ablation en 1953 (Scoville et Milner, Journal of Neurology, Neurosurgery and Psychiatry 1957) ; H.M. progressait pourtant au dessin en miroir jour après jour sans s'en souvenir (Milner 1962) ; plus on en sait, plus les faits nouveaux se placent facilement (effet des connaissances préalables). 11 langues. Images : Seedream (dti, hippocampe, cerveau-3d), sans texte.",
+ "titre": {
+  "en": "Every form of Memory",
+  "fr": "Toutes les formes de mémoire",
+  "es": "Todas las formas de memoria",
+  "es-419": "Todas las formas de memoria",
+  "it": "Tutte le forme di memoria",
+  "tr": "Hafızanın tüm biçimleri",
+  "pt-BR": "Todas as formas de memória",
+  "sl": "Vse oblike spomina",
+  "hr": "Svi oblici pamćenja",
+  "de": "Alle Formen des Gedächtnisses",
+  "hu": "Az emlékezet minden formája"
+ },
+ "legendes": {
+  "en": "memory is not one thing #memory #brain #neuroscience #learning #psychology",
+  "fr": "la mémoire n'est pas une seule chose #mémoire #cerveau #neurosciences #apprendre #psychologie",
+  "es": "la memoria no es una sola cosa #memoria #cerebro #neurociencia #aprender #psicología",
+  "es-419": "la memoria no es una sola cosa #memoria #cerebro #neurociencia #aprender #psicología",
+  "it": "la memoria non è una cosa sola #memoria #cervello #neuroscienze #imparare #psicologia",
+  "tr": "hafıza tek bir şey değildir #hafıza #beyin #nörobilim #öğrenme #psikoloji",
+  "pt-BR": "a memória não é uma coisa só #memoria #cerebro #neurociencia #aprender #psicologia",
+  "sl": "spomin ni ena sama stvar #spomin #možgani #nevroznanost #učenje #psihologija",
+  "hr": "pamćenje nije jedna stvar #pamćenje #mozak #neuroznanost #učenje #psihologija",
+  "de": "das gedächtnis ist nicht nur eines #gedächtnis #gehirn #neurowissenschaft #lernen #psychologie",
+  "hu": "az emlékezet nem egyetlen dolog #memória #agy #idegtudomány #tanulás #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/dti.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "Every",
+      "taille": "moyen"
+     },
+     {
+      "t": "form",
+      "taille": "grand"
+     },
+     {
+      "t": "of",
+      "taille": "petit"
+     },
+     {
+      "t": "Memory",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Toutes",
+      "taille": "moyen"
+     },
+     {
+      "t": "les formes",
+      "taille": "grand"
+     },
+     {
+      "t": "de",
+      "taille": "petit"
+     },
+     {
+      "t": "Mémoire",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Todas",
+      "taille": "moyen"
+     },
+     {
+      "t": "las formas",
+      "taille": "grand"
+     },
+     {
+      "t": "de",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Todas",
+      "taille": "moyen"
+     },
+     {
+      "t": "las formas",
+      "taille": "grand"
+     },
+     {
+      "t": "de",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Tutte",
+      "taille": "moyen"
+     },
+     {
+      "t": "le forme",
+      "taille": "grand"
+     },
+     {
+      "t": "di",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Hafızanın",
+      "taille": "grand"
+     },
+     {
+      "t": "tüm",
+      "taille": "petit"
+     },
+     {
+      "t": "Biçimleri",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Todas",
+      "taille": "moyen"
+     },
+     {
+      "t": "as formas",
+      "taille": "grand"
+     },
+     {
+      "t": "de",
+      "taille": "petit"
+     },
+     {
+      "t": "Memória",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Vse",
+      "taille": "moyen"
+     },
+     {
+      "t": "oblike",
+      "taille": "grand"
+     },
+     {
+      "t": "Spomina",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Svi",
+      "taille": "moyen"
+     },
+     {
+      "t": "oblici",
+      "taille": "grand"
+     },
+     {
+      "t": "Pamćenja",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Alle",
+      "taille": "moyen"
+     },
+     {
+      "t": "Formen",
+      "taille": "grand"
+     },
+     {
+      "t": "des",
+      "taille": "petit"
+     },
+     {
+      "t": "Gedächtnisses",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Az emlékezet",
+      "taille": "moyen"
+     },
+     {
+      "t": "minden",
+      "taille": "grand"
+     },
+     {
+      "t": "Formája",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Working And Episodic Memory",
+    "blocs": [
+     {
+      "p": "Working memory is the mental notepad you think with. It is small: most researchers estimate it holds about four chunks of information at once, which is why writing things down and grouping them helps."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Episodic memory stores events: what happened, where and when. It depends heavily on the hippocampus, and damage there can take away the ability to form new memories of daily life."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Mémoire de travail et épisodique",
+    "blocs": [
+     {
+      "p": "La mémoire de travail est le bloc-notes mental avec lequel tu réfléchis. Elle est petite : la plupart des chercheurs estiment qu'elle tient environ quatre éléments à la fois, d'où l'intérêt de noter les choses et de les regrouper."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "La mémoire épisodique stocke les événements : ce qui s'est passé, où et quand. Elle dépend beaucoup de l'hippocampe, et une lésion à cet endroit peut supprimer la capacité de former de nouveaux souvenirs du quotidien."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Memoria de trabajo y episódica",
+    "blocs": [
+     {
+      "p": "La memoria de trabajo es el bloc de notas mental con el que piensas. Es pequeña: la mayoría de los investigadores calcula que guarda unos cuatro elementos a la vez, por eso ayuda apuntar las cosas y agruparlas."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "La memoria episódica guarda los acontecimientos: qué pasó, dónde y cuándo. Depende mucho del hipocampo, y una lesión ahí puede quitar la capacidad de formar recuerdos nuevos de la vida diaria."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Memoria de trabajo y episódica",
+    "blocs": [
+     {
+      "p": "La memoria de trabajo es la libreta mental con la que piensas. Es pequeña: la mayoría de los investigadores calcula que guarda unos cuatro elementos al mismo tiempo, por eso ayuda anotar las cosas y agruparlas."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "La memoria episódica guarda los eventos: qué pasó, dónde y cuándo. Depende mucho del hipocampo, y una lesión ahí puede quitarte la capacidad de formar recuerdos nuevos de la vida diaria."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Memoria di lavoro ed episodica",
+    "blocs": [
+     {
+      "p": "La memoria di lavoro è il blocco note mentale con cui pensi. È piccola: la maggior parte dei ricercatori stima che contenga circa quattro elementi alla volta, ed è per questo che aiuta scrivere le cose e raggrupparle."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "La memoria episodica conserva gli eventi: cosa è successo, dove e quando. Dipende molto dall'ippocampo, e un danno lì può togliere la capacità di formare nuovi ricordi della vita quotidiana."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Çalışma belleği ve epizodik bellek",
+    "blocs": [
+     {
+      "p": "Çalışma belleği, düşünürken kullandığın zihinsel not defteridir. Küçüktür: araştırmacıların çoğu aynı anda yaklaşık dört bilgi parçası tuttuğunu düşünüyor; bir şeyleri yazmanın ve gruplamanın faydası da buradan gelir."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Epizodik bellek olayları saklar: ne oldu, nerede ve ne zaman. Büyük ölçüde hipokampusa bağlıdır ve oradaki bir hasar, günlük hayata dair yeni anılar oluşturma yeteneğini ortadan kaldırabilir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Memória de trabalho e episódica",
+    "blocs": [
+     {
+      "p": "A memória de trabalho é o bloco de notas mental com que você pensa. Ela é pequena: a maioria dos pesquisadores estima que guarde cerca de quatro itens ao mesmo tempo, por isso anotar as coisas e agrupá-las ajuda."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "A memória episódica guarda os acontecimentos: o que aconteceu, onde e quando. Ela depende muito do hipocampo, e uma lesão ali pode tirar a capacidade de formar novas memórias do dia a dia."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Delovni in epizodični spomin",
+    "blocs": [
+     {
+      "p": "Delovni spomin je miselna beležnica, s katero razmišljaš. Je majhen: večina raziskovalcev ocenjuje, da hkrati drži približno štiri enote informacij, zato pomaga, če stvari zapišeš in jih združiš v skupine."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Epizodični spomin hrani dogodke: kaj se je zgodilo, kje in kdaj. Močno je odvisen od hipokampusa, poškodba tam pa lahko odvzame sposobnost oblikovanja novih spominov na vsakdanje življenje."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Radno i epizodičko pamćenje",
+    "blocs": [
+     {
+      "p": "Radno pamćenje mentalni je blok za bilješke kojim razmišljaš. Malo je: većina istraživača procjenjuje da istodobno drži oko četiri jedinice informacija, pa pomaže da stvari zapišeš i grupiraš."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Epizodičko pamćenje čuva događaje: što se dogodilo, gdje i kada. Uvelike ovisi o hipokampu, a oštećenje tog dijela može oduzeti sposobnost stvaranja novih sjećanja na svakodnevni život."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Arbeits- und episodisches Gedächtnis",
+    "blocs": [
+     {
+      "p": "Das Arbeitsgedächtnis ist der geistige Notizblock, mit dem du denkst. Es ist klein: Die meisten Forschenden schätzen, dass es etwa vier Informationseinheiten auf einmal hält, deshalb hilft es, Dinge aufzuschreiben und zu gruppieren."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Das episodische Gedächtnis speichert Ereignisse: was passiert ist, wo und wann. Es hängt stark vom Hippocampus ab, und eine Schädigung dort kann die Fähigkeit nehmen, neue Erinnerungen an den Alltag zu bilden."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Munkamemória és epizodikus emlékezet",
+    "blocs": [
+     {
+      "p": "A munkamemória az a mentális jegyzettömb, amellyel gondolkodsz. Kicsi: a legtöbb kutató szerint nagyjából négy információegységet tart egyszerre, ezért segít, ha leírod és csoportosítod a dolgokat."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Az epizodikus emlékezet az eseményeket tárolja: mi történt, hol és mikor. Erősen függ a hippokampusztól, és az ottani sérülés elveheti a hétköznapokról szóló új emlékek kialakításának képességét."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Semantic Memory",
+    "blocs": [
+     {
+      "p": "Semantic memory holds what you know about the world: facts, words, ideas, history. No practical limit to it has ever been found, and every fact you add makes the next one easier to place."
+     },
+     {
+      "p": "It is the form you can grow most deliberately: one short lesson every evening, like a training session, adds to it night after night."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "La mémoire sémantique",
+    "blocs": [
+     {
+      "p": "La mémoire sémantique contient ce que tu sais du monde : faits, mots, idées, histoire. On ne lui a jamais trouvé de limite pratique, et chaque fait ajouté aide à placer le suivant."
+     },
+     {
+      "p": "C'est la forme que tu peux faire grandir le plus volontairement : une courte leçon chaque soir, comme un entraînement, l'enrichit soir après soir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "La memoria semántica",
+    "blocs": [
+     {
+      "p": "La memoria semántica guarda lo que sabes del mundo: datos, palabras, ideas, historia. Nunca se le ha encontrado un límite práctico, y cada dato que añades ayuda a colocar el siguiente."
+     },
+     {
+      "p": "Es la forma que puedes hacer crecer de manera más deliberada: una lección corta cada noche, como un entrenamiento, la amplía noche tras noche."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "La memoria semántica",
+    "blocs": [
+     {
+      "p": "La memoria semántica guarda lo que sabes del mundo: datos, palabras, ideas, historia. Nunca se le ha encontrado un límite práctico, y cada dato que agregas ayuda a acomodar el siguiente."
+     },
+     {
+      "p": "Es la forma que más puedes hacer crecer a propósito: una lección corta cada noche, como un entrenamiento, la amplía noche tras noche."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "La memoria semantica",
+    "blocs": [
+     {
+      "p": "La memoria semantica contiene ciò che sai del mondo: fatti, parole, idee, storia. Non le è mai stato trovato un limite pratico, e ogni fatto che aggiungi aiuta a collocare il successivo."
+     },
+     {
+      "p": "È la forma che puoi far crescere in modo più deliberato: una breve lezione ogni sera, come un allenamento, la arricchisce sera dopo sera."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Anlamsal bellek",
+    "blocs": [
+     {
+      "p": "Anlamsal bellek dünya hakkında bildiklerini tutar: bilgiler, kelimeler, fikirler, tarih. Bugüne kadar pratik bir sınırı bulunamadı ve eklediğin her bilgi bir sonrakini yerleştirmeyi kolaylaştırır."
+     },
+     {
+      "p": "En bilinçli şekilde büyütebileceğin biçim budur: her akşam kısa bir ders, bir antrenman gibi, onu her gece biraz daha genişletir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "A memória semântica",
+    "blocs": [
+     {
+      "p": "A memória semântica guarda o que você sabe sobre o mundo: fatos, palavras, ideias, história. Nunca se encontrou um limite prático para ela, e cada fato que você acrescenta ajuda a encaixar o próximo."
+     },
+     {
+      "p": "É a forma que você pode fazer crescer de propósito: uma lição curta toda noite, como um treino, aumenta essa memória noite após noite."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Semantični spomin",
+    "blocs": [
+     {
+      "p": "Semantični spomin hrani, kar veš o svetu: dejstva, besede, ideje, zgodovino. Praktične meje mu doslej niso našli, vsako dodano dejstvo pa olajša umestitev naslednjega."
+     },
+     {
+      "p": "To je oblika, ki jo lahko najbolj načrtno krepiš: kratka lekcija vsak večer, kot trening, ga dopolnjuje večer za večerom."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Semantičko pamćenje",
+    "blocs": [
+     {
+      "p": "Semantičko pamćenje čuva ono što znaš o svijetu: činjenice, riječi, ideje, povijest. Praktična granica nikad mu nije pronađena, a svaka nova činjenica olakšava smještanje sljedeće."
+     },
+     {
+      "p": "To je oblik koji možeš najsvjesnije razvijati: kratka lekcija svake večeri, kao trening, obogaćuje ga večer za večeri."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Das semantische Gedächtnis",
+    "blocs": [
+     {
+      "p": "Das semantische Gedächtnis enthält, was du über die Welt weißt: Fakten, Wörter, Ideen, Geschichte. Eine praktische Grenze wurde nie gefunden, und jede neue Tatsache hilft, die nächste einzuordnen."
+     },
+     {
+      "p": "Es ist die Form, die du am gezieltesten wachsen lassen kannst: Eine kurze Lektion jeden Abend, wie ein Training, erweitert es Abend für Abend."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A szemantikus emlékezet",
+    "blocs": [
+     {
+      "p": "A szemantikus emlékezet azt tárolja, amit a világról tudsz: tényeket, szavakat, gondolatokat, történelmet. Gyakorlati határát még soha nem találták meg, és minden új tény segít elhelyezni a következőt."
+     },
+     {
+      "p": "Ezt a formát tudod a legtudatosabban növelni: minden este egy rövid lecke, mint egy edzés, estéről estére bővíti."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Procedural Memory",
+    "blocs": [
+     {
+      "p": "Procedural memory stores skills: riding a bike, typing, playing a scale. The famous patient H.M. could no longer form new memories of events, yet he got better at a mirror-drawing task day after day, without remembering ever having done it."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Skills live in different brain systems from facts. That is why practice, not rereading, is how you build them."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "La mémoire procédurale",
+    "blocs": [
+     {
+      "p": "La mémoire procédurale stocke les savoir-faire : faire du vélo, taper au clavier, jouer une gamme. Le célèbre patient H.M. ne pouvait plus former de nouveaux souvenirs d'événements, mais il progressait jour après jour à une tâche de dessin en miroir, sans se rappeler l'avoir jamais faite."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Les savoir-faire vivent dans d'autres systèmes du cerveau que les faits. C'est pour ça qu'on les construit en pratiquant, pas en relisant."
+     }
+    ]
+   },
+   "es": {
+    "titre": "La memoria procedimental",
+    "blocs": [
+     {
+      "p": "La memoria procedimental guarda las habilidades: montar en bici, escribir a máquina, tocar una escala. El famoso paciente H.M. ya no podía formar recuerdos nuevos de acontecimientos, pero mejoraba día tras día en una tarea de dibujo en espejo, sin recordar haberla hecho nunca."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Las habilidades viven en sistemas del cerebro distintos de los datos. Por eso se construyen practicando, no releyendo."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "La memoria procedimental",
+    "blocs": [
+     {
+      "p": "La memoria procedimental guarda las habilidades: andar en bici, escribir en el teclado, tocar una escala. El famoso paciente H.M. ya no podía formar recuerdos nuevos de eventos, pero mejoraba día con día en una tarea de dibujo en espejo, sin recordar haberla hecho nunca."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Las habilidades viven en sistemas del cerebro distintos a los de los datos. Por eso se construyen practicando, no volviendo a leer."
+     }
+    ]
+   },
+   "it": {
+    "titre": "La memoria procedurale",
+    "blocs": [
+     {
+      "p": "La memoria procedurale conserva le abilità: andare in bici, scrivere alla tastiera, suonare una scala. Il celebre paziente H.M. non riusciva più a formare nuovi ricordi di eventi, eppure migliorava giorno dopo giorno in un compito di disegno allo specchio, senza ricordare di averlo mai fatto."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Le abilità vivono in sistemi del cervello diversi da quelli dei fatti. Per questo si costruiscono con la pratica, non rileggendo."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Prosedürel bellek",
+    "blocs": [
+     {
+      "p": "Prosedürel bellek becerileri saklar: bisiklete binmek, klavyede yazmak, bir gam çalmak. Ünlü hasta H.M. artık olaylarla ilgili yeni anılar oluşturamıyordu, ama ayna çizimi görevinde gün geçtikçe ilerledi, üstelik bunu daha önce yaptığını hiç hatırlamadan."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Beceriler, bilgilerden farklı beyin sistemlerinde yaşar. Bu yüzden onları yeniden okuyarak değil, pratik yaparak geliştirirsin."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "A memória procedural",
+    "blocs": [
+     {
+      "p": "A memória procedural guarda habilidades: andar de bicicleta, digitar, tocar uma escala. O famoso paciente H.M. não conseguia mais formar novas memórias de acontecimentos, mas melhorava dia após dia numa tarefa de desenho no espelho, sem lembrar de já tê-la feito."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "As habilidades vivem em sistemas do cérebro diferentes dos fatos. Por isso elas se constroem praticando, não relendo."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Proceduralni spomin",
+    "blocs": [
+     {
+      "p": "Proceduralni spomin hrani veščine: vožnjo s kolesom, tipkanje, igranje lestvice. Slavni bolnik H.M. ni mogel več oblikovati novih spominov na dogodke, a se je dan za dnem izboljševal pri risanju v ogledalu, ne da bi se spomnil, da je to kdaj počel."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Veščine živijo v drugih možganskih sistemih kot dejstva. Zato jih gradiš z vajo, ne s ponovnim branjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Proceduralno pamćenje",
+    "blocs": [
+     {
+      "p": "Proceduralno pamćenje čuva vještine: vožnju bicikla, tipkanje, sviranje ljestvice. Slavni pacijent H.M. više nije mogao stvarati nova sjećanja na događaje, ali je iz dana u dan bio sve bolji u crtanju u zrcalu, a da se nije sjećao da je to ikad radio."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Vještine žive u drugim sustavima mozga nego činjenice. Zato se grade vježbom, a ne ponovnim čitanjem."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Das prozedurale Gedächtnis",
+    "blocs": [
+     {
+      "p": "Das prozedurale Gedächtnis speichert Fertigkeiten: Radfahren, Tippen, eine Tonleiter spielen. Der berühmte Patient H.M. konnte keine neuen Erinnerungen an Ereignisse mehr bilden, wurde aber Tag für Tag besser im Spiegelzeichnen, ohne sich zu erinnern, es je getan zu haben."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Fertigkeiten liegen in anderen Hirnsystemen als Fakten. Deshalb baut man sie durch Üben auf, nicht durch erneutes Lesen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A procedurális emlékezet",
+    "blocs": [
+     {
+      "p": "A procedurális emlékezet a készségeket tárolja: biciklizést, gépelést, egy skála eljátszását. A híres H.M. nevű beteg már nem tudott új emlékeket kialakítani az eseményekről, mégis napról napra ügyesebb lett egy tükörrajzolási feladatban, anélkül hogy emlékezett volna rá, hogy valaha csinálta."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "A készségek más agyi rendszerekben élnek, mint a tények. Ezért gyakorlással építed őket, nem újraolvasással."
+     }
+    ]
+   }
+  }
+ ]
+}

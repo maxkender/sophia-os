@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o351",
+ "type_bleo": "full_test",
+ "titre": "the art of the french apéritif #apero #france #slowliving #smartgirl #hosting",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 6/8 (la jauge en demande 8 sur 25) : accroche jamais faite chez nous (« apéritif » absent des accroches de donnees/label.json). Accroches écrites : « the art of the french apéritif » (retenue : art de vivre, convivial), « what is an apéro » (écartée : sèche), « french habits » (écartée : vague). Faits vérifiés : du latin aperire, « ouvrir » (l'appétit), vers 19 h avant le dîner, petites bouchées (olives, radis beurre, saucisson), kir nommé d'après le chanoine Félix Kir, maire de Dijon. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "784f03d1",
+   "texte_overlay": "the art of the french\napéritif",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "00c54044",
+   "texte_overlay": "the name\n\nfrom the latin \"aperire\",\nto open (the appetite).",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c158ee32",
+   "texte_overlay": "the time\n\naround 7pm, before dinner,\nnever instead of it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "273bcf13",
+   "texte_overlay": "the kir\n\nnamed after félix kir,\nmayor of dijon.",
+   "texte_sophia": "the kir\n\nnamed after félix kir, mayor of dijon.\ni learned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c5c79ed6",
+   "texte_overlay": "the bites\n\nolives, radishes with butter,\na little saucisson.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8f5ab871",
+   "texte_overlay": "the rule\n\nsmall plates, long conversations.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "093d14c0",
+   "texte_overlay": "the italian cousin\n\nthe aperitivo, with a spritz.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "931480d5",
+   "texte_overlay": "santé!",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

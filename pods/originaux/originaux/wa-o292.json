@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o292",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a6e4805f-e1ef-4fee-98b4-a8976aa1051b",
+ "titre": "things that instantly make you more interesting #interesting #socialskills #conversation #selfimprovement #mindset",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "ff08dbe6-59fc-4d62-b938-c2fec3885344"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ff08dbe6). déclinaison G1 de « things that instantly make you more interesting » (parent a6e4805f). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4878b904-a255-4f34-83a9-85a2c09a7222",
+   "texte_overlay": "things that instantly make\nyou more interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3c687c2d-b8b2-40b5-b73f-8bb809e672bc",
+   "texte_overlay": "a strange hobby\n\npick up one unusual hobby, like fencing, beekeeping or calligraphy. people are always curious about someone with a hobby they've never even heard of before.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d0c14762-0959-4bd7-8d15-18211b0802f9",
+   "texte_overlay": "opinions about books\n\nread a few books that truly move you and form real thoughts about them. people love talking to someone who reads widely and actually thinks about what they read.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8ccade5c-626c-4fd4-bbe4-cb1046463efd",
+   "texte_overlay": "knowing odd facts\n\nodd facts are the easiest way to become interesting, and you only need 5 minutes a day to collect them. one surprising fact can carry a whole conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/4.jpg",
+   "texte_sophia": "knowing odd facts\n\ni spend 5 minutes a day learning one odd fact, like why cats purr. i do it with the Sophia app, one lesson a day, and odd facts are the easiest way to become interesting."
+  },
+  {
+   "position": 5,
+   "media_id": "de9db88b-2f48-4bcd-8d05-e2c1e92d24e3",
+   "texte_overlay": "telling stories well\n\npractise telling short stories with a beginning, a twist and an ending. a good storyteller is magnetic at any table, and it's a skill anyone can learn.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8204df16-b235-48d7-be7d-231d308bcc41",
+   "texte_overlay": "real curiosity about people\n\nask people about their lives and genuinely listen. the most interesting people are almost always the ones most interested in everyone else around them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/6.jpg"
+  }
+ ]
+}

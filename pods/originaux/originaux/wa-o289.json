@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o289",
+ "type_bleo": "full_test",
+ "titre": "small joys that make ordinary days feel special #smalljoys #simpleliving #happiness #selfcare #mindset",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "d44988d2-cdb3-45fa-86f0-7f140e11af99"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d44988d2). full test BLEO : accroche jamais faite (format « small joys that make ordinary days feel X »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "16e4ee48-e5f1-4870-a3d6-baf809ecce6d",
+   "texte_overlay": "small joys that make\nordinary days feel special",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1a1d21ac-94f5-4b18-aefa-f2085bbbaac2",
+   "texte_overlay": "the first sip of coffee\n\ndrink your first coffee slowly, sitting down, with nothing else to do. it's a tiny pause, but it turns the start of an ordinary day into a quiet ritual.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0b64427e-0b4d-471e-a9f5-4a13d5f54099",
+   "texte_overlay": "learning one beautiful thing\n\nlearn one lovely fact every day, about a star, a painting or an old myth. a tiny moment of wonder makes even the greyest day feel a little more special.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/3.jpg",
+   "texte_sophia": "learning one beautiful thing\n\ni learn one beautiful thing every morning, a star or an old myth. i do it with the Sophia app, 5 minutes a day, and even grey days now hold a small moment of wonder."
+  },
+  {
+   "position": 4,
+   "media_id": "28d51523-b44c-4b9e-84a8-a71092bb1700",
+   "texte_overlay": "a walk without headphones\n\ntake a short walk and simply listen to the world: birds, voices, wind in the trees. it's surprising how alive an ordinary street feels when you really pay attention to it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ff1d46e6-9d77-4b8a-978b-fc4836cac143",
+   "texte_overlay": "fresh sheets\n\nchange your sheets and get into a freshly made bed at night. it's one of the cheapest and most underrated small luxuries that any of us can enjoy at home.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a3e766cf-4db8-4db4-b10a-e9301b3bb382",
+   "texte_overlay": "a song you loved at fifteen\n\nplay a song you loved as a teenager and let yourself sing along. a few minutes of pure nostalgia can turn a heavy day into a surprisingly happy, light one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/6.jpg"
+  }
+ ]
+}

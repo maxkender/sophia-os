@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o241",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6fbf674e-8140-41b1-b43f-798c536cb347",
+  "titre": "papa, je lâche ma licence d'histoire : je vais créer une appli qui donne envie aux jeunes d'apprendre #sophia #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [
+    "6fbf674e-8140-41b1-b43f-798c536cb347"
+  ],
+  "notes": "G2, déclinaison de 6fbf674e (« papa j'arrête mes études d'histoire, je veux créer une appli pour aider les jeunes à se cultiver », G1 gagnante, génération 1 en français ; meilleur passage en 811 vues, r 5,88), en français, 1re déclinaison. Accroche reformulée : « papa, je lâche ma licence d'histoire : je vais créer une appli qui donne envie aux jeunes d'apprendre ». cta : la slide Sophia est la chute du dialogue, comme le parent. Faits : Sophia veut dire sagesse en grec ; tour Eiffel plus haute structure du monde jusqu'en 1930 (vérifié le 11/11 sur https://en.wikipedia.org/wiki/Eiffel_Tower). Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests. Lignes sautées : 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "86b80705",
+      "texte_overlay": "papa, je lâche ma licence d'histoire…\nje vais créer une appli\nqui donne envie aux jeunes d'apprendre",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "303fab3a",
+      "texte_overlay": "et tu crois vraiment que les jeunes\nont envie d'apprendre ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7790a3a9",
+      "texte_overlay": "oui. on passe des heures à scroller.\net si quelques minutes servaient\nà découvrir l'histoire, l'art, les sciences ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3fe8b3a3",
+      "texte_overlay": "et tu vas l'appeler comment ?\n\nd'après un mot grec\nqui veut dire sagesse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6304d4fa",
+      "texte_overlay": "et tu vas leur raconter quoi ?\n\ndes histoires courtes et vraies.\ncomme la tour eiffel, plus haute structure du monde\njusqu'en 1930.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "40e02e1a",
+      "texte_overlay": "d'accord. et il te manque quoi, alors ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "40bfdcd5",
+      "texte_overlay": "des gens prêts à remplacer\nleur scroll du matin\npar une histoire vraie !!",
+      "texte_sophia": "des gens prêts à remplacer\nleur scroll du matin\npar l'appli Sophia !!",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

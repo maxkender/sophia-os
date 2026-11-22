@@ -9,6 +9,7 @@ import { type CasFin, estDemandePosteur, OBJET_FIN, raisonFixe, texteCompteArret
 import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rapport_samedi.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { type Aujourdhui, type LigneAujourdhui, type QualiteSemaine, texteAlertesUrgentes, texteQualite, texteResumeJour } from "../_shared/aujourdhui.ts";
+import { type CleSituation, estReactiver2eCompte, estRienPrevu, reponseRienPrevu, situationFixe, TEXTES_SITUATIONS } from "../_shared/support_situations.ts";
 import { lundiEnClair, reponseDouble, TEXTE_REFUS_DOUBLE, texteAccordDouble, texteDemarrageDouble, texteOffreDouble } from "../_shared/doublement.ts";
 import {
   type CasRuul,
@@ -174,7 +175,8 @@ Deno.serve(async (request) => {
       case "messages_traiter":
         // 12/11 (0675) : les messages des posteurs rangés en « autre » passent par le bot v2 (cron */15).
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
-        return json(await messagesTraiter(db));
+        // 21/11 : les STOP arrivés par une carte passent aussi par le support (arrêt immédiat).
+        return json({ ...(await messagesTraiter(db)), stops: await stopsCartes(db) });
       case "liste_adrien":
         // 12/11 (0675) : la liste du soir d'Adrien (21 h Paris ; le cron passe à 19 h et 20 h UTC).
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
@@ -229,16 +231,31 @@ Deno.serve(async (request) => {
         // 13/11 (refonte, 4 bis) : ✅ sur les tickets de #a-os-tickets → posteur prévenu (cron support-tickets-regles).
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
         return json(await ticketsRegles(db));
+      case "traduire_fr": {
+        // 21/11 (Max) : dans la Boîte, la traduction en français des messages (posteurs et réponses).
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        const textes = (Array.isArray(body.textes) ? body.textes : []).slice(0, 60).map((t: unknown) => String(t ?? "").slice(0, 2000));
+        return json({ ok: true, traductions: await traduireFr(textes) });
+      }
       case "slack_suite": {
         // 13/11 : la suite d'un fil Slack d'une demande : elle entre dans le fil de la demande, qui repasse « à répondre ».
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        // 21/11 (Max) : le bot répond aussi à la suite d'un fil, dans le fil.
+        const canal = String(body.canal ?? "");
+        const parent = String(body.parent_ts ?? "");
+        const texteSuite = String(body.texte ?? "").trim();
         const { data: dem } = await db.from("support_demandes").select("id, poster_id")
-          .eq("slack_canal", String(body.canal ?? "")).eq("slack_ts", String(body.parent_ts ?? "")).limit(1).maybeSingle();
-        if (!dem?.id) return json({ ok: true, ignore: "pas une demande suivie" });
-        const maintenant = new Date().toISOString();
-        await db.from("support_messages").insert({ demande_id: dem.id, auteur: "posteur", auteur_id: dem.poster_id, texte: String(body.texte ?? "").slice(0, 4000) });
-        await db.from("support_demandes").update({ statut: "ouvert", posteur_at: maintenant, maj_at: maintenant }).eq("id", dem.id);
-        return json({ ok: true, id: dem.id });
+          .eq("slack_canal", canal).eq("slack_ts", parent).limit(1).maybeSingle();
+        if (!dem?.id) {
+          // Un fil qui n'est pas une demande suivie (la réponse d'un autre posteur, un message de l'équipe) : un message
+          // à part entière, la réponse va dans ce fil.
+          if (!body.auteur || !body.ts) return json({ ok: true, ignore: "pas une demande suivie" });
+          return json(await messageSlack(db, {
+            canal, ts: String(body.ts), fil: parent, auteur: String(body.auteur), texte: texteSuite,
+            nom: typeof body.nom === "string" ? body.nom : null, plateforme: body.plateforme === "ruul" || body.plateforme === "upwork" ? body.plateforme : null,
+          }));
+        }
+        return json(await suiteFilSlack(db, { canal, parent_ts: parent, texte: texteSuite, demande: dem.id as string, poster: (dem.poster_id as string | null) ?? null }));
       }
       case "lien_mot_de_passe":
         // 13/11 (Max) : envoyer (ou renvoyer, avec excuse) le login + lien « choisir mon mot de passe » par email.
@@ -849,7 +866,17 @@ async function deciderBot(
 
 /** Ce qui doit se passer après la réponse (écritures faites par apresDemande, jamais en simulation). */
 export interface PlanRegles {
-  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | `ruul_${CasRuul}` | "double_jeudi" | null;
+  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | "code_ruul" | "paie_ruul" | `ruul_${CasRuul}` | "double_jeudi" | `situation_${CleSituation}` | "annule" | null;
+  /** 21/11 (Max) : la demande se ferme dès la réponse envoyée. */
+  fermer?: boolean;
+  /** 21/11 : le contenu du jour est signalé à la qualité (jamais à Max). */
+  qualite?: string | null;
+  /** 21/11 : le jour compte comme fait (contenu faux de notre côté). */
+  jour_compte?: string | null;
+  /** 21/11 : un ticket dans #a-os-tickets (bug technique) ; la demande reste ouverte jusqu'à ce que ce soit réglé. */
+  ticket?: string | null;
+  /** 21/11 (Max) : renvoyé au support Ruul, avec l'échéance après laquelle la collaboration s'arrête. */
+  support_ruul?: { cle: string; echeance: string } | null;
   /** 21/11 (Max) : le problème Ruul compté (le bot répond 2 fois au plus au même problème, puis escalade). */
   tentative_ruul: string | null;
   /** 21/11 : escalade Ruul (cas inconnu ou 3e message sur le même problème) → ticket dans #a-os-tickets. */
@@ -875,6 +902,11 @@ async function etatReel(db: Db, poster: string): Promise<EtatReel | null> {
 }
 
 /** Un texte fixe (anglais) dans la langue du message du posteur ; l'anglais tel quel ; en cas d'échec, l'anglais. */
+/** Aujourd'hui à Paris, AAAA-MM-JJ. */
+function jourParisIso(d: Date): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
+}
+
 /** Le lundi qui suit (heure de Paris), AAAA-MM-JJ. */
 function lundiQuiSuit(d: Date): string {
   const paris = new Date(d.toLocaleString("en-US", { timeZone: "Europe/Paris" }));
@@ -895,6 +927,28 @@ async function traduire(texte: string, langue: string | null | undefined): Promi
   } catch {
     return texte;
   }
+}
+
+/** 21/11 : des messages traduits en français, dans l'ordre ; un message déjà en français reste tel quel. Ne lève pas. */
+async function traduireFr(textes: string[]): Promise<(string | null)[]> {
+  const sortie: (string | null)[] = textes.map(() => null);
+  const aFaire = textes.map((t, i) => ({ t: t.trim(), i })).filter((x) => x.t.length > 0);
+  for (let k = 0; k < aFaire.length; k += 15) {
+    const lot = aFaire.slice(k, k + 15);
+    try {
+      const r = await generateTextFast(
+        "Traduis chaque message en français, naturellement, sans rien ajouter. Garde les liens, les @, les nombres et « $ ». " +
+          "Si un message est déjà en français, recopie-le. Réponds uniquement par un tableau JSON de chaînes, dans le même ordre.\n\n" +
+          JSON.stringify(lot.map((x) => x.t)),
+      );
+      const m = r.match(/\[[\s\S]*\]/);
+      const tab = m ? JSON.parse(m[0]) as unknown[] : [];
+      lot.forEach((x, j) => { if (typeof tab[j] === "string") sortie[x.i] = tab[j] as string; });
+    } catch (e) {
+      console.warn(`[support] traduire_fr : ${messageErreur(e)}`);
+    }
+  }
+  return sortie;
 }
 
 /**
@@ -1042,7 +1096,7 @@ async function nudgeJeudiRuul(db: Db, lundi: string, comptes: string[], simuler:
   if (pause === true && !simuler) return { ok: false, error: "automatisation en pause : rien n'est parti" };
   const { data, error } = await db.rpc("jeudi_nudges_ruul", { p_lundi: lundi, p_comptes: ids });
   if (error) throw new Error(error.message);
-  const bilan = { envoyes: 0, deja: 0, email: 0, bandeau: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; texte: string }[] };
+  const bilan = { envoyes: 0, deja: 0, email: 0, slack: 0, bandeau: 0, sans_canal: 0, erreurs: [] as string[], exemples: [] as { langue: string | null; texte: string }[] };
   for (const n of (data ?? []) as NudgeRuul[]) {
     if (n.deja) {
       bilan.deja++;
@@ -1065,22 +1119,30 @@ async function nudgeJeudiRuul(db: Db, lundi: string, comptes: string[], simuler:
       canaux.push("dashboard");
       bilan.bandeau++;
     }
-    // L'email, à sa vraie adresse.
-    const c = await contactPosteur(db, n.poster_id);
-    if (c.email) {
+    // L'email, à sa vraie adresse (0808 : email Ruul, puis de candidature, puis Upwork ; jamais @sophia.com ni une adresse revenue).
+    const { data: adresse } = await db.rpc("ruul_adresse_joignable", { p_poster: n.poster_id });
+    if (typeof adresse === "string" && adresse) {
       const objet = await traduire("This week's posts", langue);
       const e = rendreEmailRuul({ objet, titre: "Vik Studios", corps: texte, lienStop: OS_URL, sansPied: true });
-      const r = await envoyerEmailSite(c.email, objet, e.html, e.texte, OS_URL, ["nudge_jeudi"]);
+      const r = await envoyerEmailSite(adresse, objet, e.html, e.texte, OS_URL, ["ruul", "nudge_jeudi"]);
       if (r.ok) {
         canaux.push("email");
         bilan.email++;
       } else erreurs.push(`email : ${String(r.erreur ?? "échec")}`);
-    } else erreurs.push("email : pas d'adresse connue");
+    } else erreurs.push("email : pas d'adresse valide");
+    // 0808 : Slack en plus, seulement si les DM aux posteurs sont activés (en pause : ce n'est pas une erreur).
+    const sl = await ecrireAuPosteur(db, n.poster_id, texte);
+    if (sl.statut === "envoye") {
+      canaux.push("slack");
+      bilan.slack++;
+    } else if (sl.statut === "erreur" && !/pause|stop|manquant|contacter/i.test(sl.erreur)) erreurs.push(`slack : ${sl.erreur}`);
     const { error: eN } = await db.rpc("jeudi_nudge_ruul_noter", {
       p_poster: n.poster_id, p_compte: n.compte_id, p_lundi: lundi, p_texte: texte, p_canaux: canaux, p_erreur: erreurs.length ? erreurs.join(" ; ") : null,
     });
     if (eN) erreurs.push(`noter : ${eN.message}`);
-    if (canaux.length) bilan.envoyes++;
+    // 0808 : « envoyé » seulement si l'email ou Slack est parti (le bandeau seul ne suffit pas).
+    if (canaux.includes("email") || canaux.includes("slack")) bilan.envoyes++;
+    else bilan.sans_canal++;
     if (erreurs.length) bilan.erreurs.push(`${n.poster_id} : ${erreurs.join(" ; ")}`);
   }
   return { ok: true, simulation: simuler, ...bilan };
@@ -1227,7 +1289,7 @@ async function posteurParIndices(db: Db, o: { texte: string; nom: string | null 
 /**
  * 21/11 (Max) : « les tickets de plus de 48 h → traités avec les nouvelles règles ». Chaque demande ouverte depuis plus
  * de 48 h repasse par l'agent (sa fiche, son historique) : réponse claire (niveau bot) → envoyée sur son canal, avec
- * « Sorry for the late reply » ; arrêt, posteur arrêté ou cas pour Max → rien n'est envoyé, la demande reste à Max avec
+ * (21/11 : sans « Sorry for the late reply ») ; arrêt, posteur arrêté ou cas pour Max → rien n'est envoyé, la demande reste à Max avec
  * son résumé. Une demande déjà rattrapée n'est jamais reprise (raison « rattrapage 21/11 »).
  */
 async function rattrapageTickets(db: Db, limite: number, simuler: boolean) {
@@ -1257,8 +1319,8 @@ async function rattrapageTickets(db: Db, limite: number, simuler: boolean) {
         if (bilan.exemples.length < 6) bilan.exemples.push({ id: dem.id, pour: "max", resume: r.plan?.resume ?? r.decision.raison });
         continue;
       }
-      const excuse = await traduire("Sorry for the late reply.", r.decision.langue);
-      const texte = `${excuse} ${r.texte}`;
+      // 21/11 (Max) : jamais « Sorry for the late reply ».
+      const texte = r.texte;
       if (simuler) {
         if (bilan.exemples.length < 6) bilan.exemples.push({ id: dem.id, source: dem.source, texte });
         bilan.envoyees++;
@@ -1367,6 +1429,53 @@ async function appliquerRegles(
       }
     }
   }
+  // 21/11 (Max, « Les situations ») : vérifier avant de répondre, une réponse adaptée, et on ferme.
+  if (o.etat && situation(o.etat).statut === "kill" && !estDemandeArret(o.message)) {
+    // 5. Posteur killé qui écrit.
+    fixe(TEXTES_SITUATIONS.annule, "statut");
+    plan.cas = "annule";
+    plan.fermer = true;
+    d.reponse = await traduire(d.reponse, d.langue);
+    return plan;
+  }
+  const sit = situationFixe(o.message, { plateforme: o.plateforme });
+  if (sit) {
+    fixe(sit.texte, sit.categorie);
+    plan.cas = `situation_${sit.cle}`;
+    plan.fermer = sit.fermer;
+    if (sit.qualite) plan.qualite = o.message.slice(0, 500);
+    if (sit.jourCompte) plan.jour_compte = "Contenu faux signalé par le posteur : jour compté comme fait";
+    if (sit.ticket) plan.ticket = sit.ticket;
+    plan.resume = plan.resume ?? `Situation « ${sit.cle} » : réponse fixe.`;
+    d.reponse = await traduire(d.reponse, d.langue);
+    return plan;
+  }
+  if (o.poster && o.etat?.actif && estReactiver2eCompte(o.message)) {
+    // 17. Réactiver son 2e compte : automatique s'il existe (et n'a pas été arrêté pour une raison) ; sinon Max.
+    const { data: handle } = o.simulation ? { data: null } : await db.rpc("compte_reactiver_2e", { p_poster: o.poster });
+    if (typeof handle === "string" && handle) {
+      fixe(TEXTES_SITUATIONS.reactive, "tiktok");
+      plan.cas = "situation_reactiver_2e_compte";
+      plan.fermer = true;
+      plan.resume = `2e compte @${handle} réactivé automatiquement.`;
+      d.reponse = await traduire(d.reponse, d.langue);
+      return plan;
+    }
+    d.niveau = "max";
+    plan.action_proposee = "Réactiver son 2e compte : aucun 2e compte réactivable automatiquement (à vérifier).";
+  }
+  if (o.etat && estRienPrevu(o.message)) {
+    // 1 et 2. « Nothing planned » : reporté (nouvelle date et ce qui manquait), sinon un vrai incident.
+    const r = reponseRienPrevu({ aujourdhui: jourParisIso(new Date()), actif: o.etat.actif, cohorte: o.etat.cohorte, warmup: o.etat.warmup });
+    if (r.texte) {
+      fixe(r.texte, "posting");
+      plan.cas = "situation_rien_prevu";
+      plan.fermer = !r.incident;
+      if (r.incident) plan.incident = { cle: "posts_manquants", titre: "Posts manquants (« nothing planned »)", groupe_seul: false };
+      d.reponse = await traduire(d.reponse, d.langue);
+      return plan;
+    }
+  }
   const attente = o.etat?.upwork_exception?.statut === "lien_attendu";
   const det = detecterCas(o.message, { plateforme: o.plateforme, attenteLienUpwork: attente });
   const cas = det.cas ?? casDeCategorie(d.categorie, o.plateforme);
@@ -1436,11 +1545,13 @@ async function appliquerRegles(
       plan.tentative_ruul = casR;
       d.personnel = true;
       if (escalader(avant) && !r.upwork) {
-        fixe(TEXTES.equipe, "ruul");
-        d.niveau = "adrien";
-        plan.escalade_ruul = true;
-        plan.resume = `Ruul bloqué à l'étape « ${etapeBloquee(etapes)} » (${casR}) : le bot a déjà répondu ${avant} fois au même problème.`;
-        plan.action_proposee = `Réponse proposée : ${r.texte}${casR === "bug" ? " (ou contacter le support Ruul avec la capture)" : ""}`;
+        // 21/11 (Max) : un problème Ruul qu'on n'arrive pas à régler : le posteur contacte le support Ruul ; s'il n'est
+        // pas réglé à l'échéance (7 jours), la collaboration s'arrête (ruul_support_echeances, chaque jour).
+        const echeance = new Date(Date.now() + 7 * 86_400_000);
+        const dateClaire = new Intl.DateTimeFormat("en-US", { weekday: "long", month: "long", day: "numeric", timeZone: "Europe/Paris" }).format(echeance);
+        fixe(TEXTES_RUUL.support_ruul.replace("{date}", dateClaire), "ruul");
+        plan.support_ruul = { cle: casR, echeance: jourParisIso(echeance) };
+        plan.resume = `Ruul bloqué à l'étape « ${etapeBloquee(etapes)} » (${casR}) : renvoyé au support Ruul, échéance ${jourParisIso(echeance)}.`;
       } else {
         fixe(r.texte, "ruul");
         if (r.upwork) plan.upwork = "demander";
@@ -1488,13 +1599,16 @@ async function appliquerRegles(
     const surLeStatut = demandeArret || estQuestionStatut(o.message) || d.categorie === "arret" || d.categorie === "statut";
     // 19/11 (Max) : une demande d'arrêt déjà notée (demandes_arret, pas encore décidée) : le compte est encore actif
     // jusqu'au samedi, mais on ne lui dit jamais « continue de poster ».
-    const arretDejaDemande = surLeStatut && s.statut === "actif" && !!o.poster && await arretEnAttente(db, o.poster);
+    // 21/11 (Max) : avec l'arrêt immédiat, une demande claire est exécutée tout de suite, même si un arrêt était
+    // déjà noté pour le samedi.
+    const immediat = demandeArret && s.statut === "actif" && !!o.poster && await reglageVrai(db, "arret_immediat");
+    const arretDejaDemande = !immediat && surLeStatut && s.statut === "actif" && !!o.poster && await arretEnAttente(db, o.poster);
     if (surLeStatut) {
       plan.incoherences = s.incoherences;
       if (arretDejaDemande) {
         fixe(texteArret(o.etat.canal_paie, new Date()), "arret");
         plan.cas = "arret";
-      } else if (demandeArret && s.statut === "actif" && o.poster && await reglageVrai(db, "arret_immediat")) {
+      } else if (immediat && o.poster) {
         // 21/11 (Max) : demande claire = fin immédiate : le message de fin (avec la dernière semaine si elle est due),
         // puis l'arrêt (arrets) : posteur et comptes désactivés, Slack, relances coupées, contrat fermé après la paie.
         const due = s.a_payer.length > 0 || (o.etat.posts_semaine?.publies ?? 0) > 0;
@@ -1577,6 +1691,13 @@ async function apresDemande(
       const { error } = await db.rpc("support_ruul_tentative_noter", { p_poster: o.poster, p_cle: plan.tentative_ruul });
       if (error) fait.push(`tentative Ruul : ${error.message}`);
     }
+    if (o.poster && plan.support_ruul) {
+      const { error } = await db.from("ruul_support_renvois").upsert(
+        { poster_id: o.poster, cle: plan.support_ruul.cle, echeance: plan.support_ruul.echeance, demande_id: o.demande, renvoye_at: new Date().toISOString(), resolu_at: null, arret_at: null },
+        { onConflict: "poster_id" },
+      );
+      fait.push(error ? `support Ruul : ${error.message}` : `renvoyé au support Ruul (échéance ${plan.support_ruul.echeance})`);
+    }
     if (plan.escalade_ruul) {
       const r = await envoyerTicket(db, null, o.demande, "Ruul : le bot a échoué 2 fois sur le même problème. Adrien valide la réponse proposée en un clic (Boîte) ou contacte le support Ruul.");
       fait.push(r.ok ? "escalade Ruul : ticket #a-os-tickets" : `escalade Ruul : ${(r as { error?: string }).error ?? "échec"}`);
@@ -1601,6 +1722,24 @@ async function apresDemande(
       fait.push("rattachée à la demande d'origine (doublon)");
     }
     if (plan.incident) fait.push(await incidentAjouter(db, o.poster, o.demande, plan.incident, d.categorie));
+    if (o.poster && plan.jour_compte) {
+      // 21/11 (Max, règle 6) : texte vraiment faux → le jour compte comme fait.
+      const { data: c, error } = await db.rpc("jour_crediter", { p_poster: o.poster, p_jour: jourParisIso(new Date()), p_raison: plan.jour_compte });
+      fait.push(error ? `jour compté : ${error.message}` : `jour compté comme fait (${c ?? 0} post(s))`);
+    }
+    if (plan.ticket) {
+      // 21/11 (Max) : un bug technique → un ticket au format d'Adrien ; la demande reste ouverte jusqu'à ce que ce soit réglé.
+      const r = await envoyerTicket(db, null, o.demande, plan.ticket);
+      fait.push(r.ok ? "ticket #a-os-tickets" : `ticket : ${(r as { error?: string }).error ?? "échec"}`);
+    }
+    if (o.poster && plan.qualite) {
+      const { error } = await db.from("contenu_signalements").insert({ poster_id: o.poster, demande_id: o.demande, texte: plan.qualite });
+      fait.push(error ? `qualité : ${error.message}` : "contenu signalé à la qualité");
+    }
+    if (plan.fermer && !plan.incident) {
+      await db.from("support_demandes").update({ statut: "resolu", resolu_at: new Date().toISOString(), resolu_par_bot: true, verdict_fermeture: "regle_bot" }).eq("id", o.demande);
+      fait.push("fermée (réponse envoyée)");
+    }
     if (o.poster && plan.arret_immediat) {
       // La réponse (le message de fin) est déjà partie : elle devient aussi la page de fin, notée envoyée (le passage
       // des textes de fin ne la renvoie pas), puis l'arrêt est créé.
@@ -1609,7 +1748,7 @@ async function apresDemande(
       await db.rpc("texte_poster_envoye", { p_poster: o.poster, p_cle: "fin", p_erreur: null });
       const { data: deja } = await db.from("arrets").select("id").eq("poster_id", o.poster).is("annule_at", null).in("statut", ["a_faire", "fait"]).limit(1);
       if (!deja?.length) {
-        const { error } = await db.from("arrets").insert({ poster_id: o.poster, source: "stop_posteur", motif: `Demande du posteur : ${o.texte.slice(0, 300)}` });
+        const { error } = await db.from("arrets").insert({ poster_id: o.poster, source: "je_ne_veux_plus", motif: `Demande du posteur : ${o.texte.slice(0, 300)}` });
         fait.push(error ? `arrêt : ${error.message}` : "arrêt immédiat fait (OS, Slack, relances ; contrat fermé après la paie)");
       } else fait.push("arrêt : déjà fait");
       await db.from("support_demandes").update({ statut: "resolu", resolu_at: new Date().toISOString(), verdict_fermeture: "regle_bot" }).eq("id", o.demande);
@@ -1681,7 +1820,8 @@ async function incidentAjouter(db: Db, poster: string | null, demande: string, i
  * le contexte, au lieu d'une nouvelle demande. Rend la réponse à lui envoyer, ou null.
  */
 async function rouvrirSiPasRegle(db: Db, poster: string, texte: string, canal: string): Promise<{ id: string; reponse: string } | null> {
-  if (!estPasRegle(texte)) return null;
+  // 22/11 (Max) : une question de contenu qui revient reçoit à nouveau sa réponse (jamais « rouverte » sans réponse).
+  if (!estPasRegle(texte) || situationFixe(texte)) return null;
   const { data: d } = await db.from("support_demandes").select("id, niveau, langue, statut")
     .eq("poster_id", poster).in("statut", ["bot", "attente_posteur", "resolu"]).is("doublon_de", null)
     .gte("cree_at", new Date(Date.now() - 7 * 86_400_000).toISOString()).order("cree_at", { ascending: false }).limit(1).maybeSingle();
@@ -1809,28 +1949,68 @@ async function messagesTraiter(db: Db) {
   const resultats: { probleme: string; niveau: string; envoi: string }[] = [];
   for (const c of cartes) {
     if (deja.has(c.id) || resultats.length >= 15) continue;
-    const src = (c.sources ?? []).filter((x) => x.type === "reponse" || x.type === "slack");
-    const texte = src.map((x) => x.texte ?? "").filter(Boolean).join("\n").trim();
+    const r = await traiterCarteMessage(db, c, ["reponse", "slack"]);
+    if (r) resultats.push(r);
+  }
+  return { ok: true, traites: resultats.length, resultats };
+}
+
+/**
+ * 21/11 (Max) : un STOP est entièrement automatique. Les cartes « stop » (bouton « I want to stop », message Upwork ou
+ * Slack) arrivées depuis le réglage stops_cartes_depuis passent par le support, comme un message : une demande claire
+ * = message de fin et arrêt immédiat (arrets), puis la carte se ferme (0806) ; un doute = une seule question. La
+ * carte ne remonte à Max que si l'arrêt échoue (carte « arret_echec »).
+ */
+async function stopsCartes(db: Db) {
+  const { data: r } = await db.from("reglages").select("valeur").eq("cle", "stops_cartes_depuis").maybeSingle();
+  const depuis = typeof r?.valeur === "string" ? r.valeur : null;
+  if (!depuis) return { ok: true, traites: 0, raison: "stops_cartes_depuis absent" };
+  const { data, error } = await db.from("problemes").select("id, poster_id, sources, created_at")
+    .eq("statut", "ouvert").eq("categorie", "stop").not("poster_id", "is", null)
+    .gte("created_at", depuis).order("created_at").limit(20);
+  if (error) throw new Error(error.message);
+  const cartes = (data ?? []) as { id: string; poster_id: string; sources: SourceProbleme[] | null }[];
+  if (!cartes.length) return { ok: true, traites: 0 };
+  const { data: faits } = await db.from("support_demandes").select("probleme_id").in("probleme_id", cartes.map((c) => c.id));
+  const deja = new Set((faits ?? []).map((f) => f.probleme_id as string));
+  const resultats: { probleme: string; niveau: string; envoi: string }[] = [];
+  for (const c of cartes) {
+    if (deja.has(c.id) || resultats.length >= 10) continue;
+    const res = await traiterCarteMessage(db, c, ["reponse", "slack", "demande_arret"]);
+    if (res) resultats.push(res);
+  }
+  return { ok: true, traites: resultats.length, resultats };
+}
+
+/** Une carte (un message du posteur) traitée par le support comme un message reçu ; null si rien à traiter. */
+async function traiterCarteMessage(
+  db: Db,
+  c: { id: string; poster_id: string; sources: SourceProbleme[] | null },
+  types: readonly string[],
+): Promise<{ probleme: string; niveau: string; envoi: string } | null> {
+  {
+    const src = (c.sources ?? []).filter((x) => types.includes(x.type ?? ""));
+    // « Asked to stop (message) : … » (demande_arret) : le message du posteur, sans le préfixe interne.
+    const texte = src.map((x) => (x.texte ?? "").replace(/^Asked to stop \([^)]*\)\s*:\s*/i, "")).filter(Boolean).join("\n").trim();
     // 13/11 (Max) : la vraie source (Upwork ou Slack), plus « help ».
     const canal = src.some((x) => x.canal === "upwork") ? "upwork" : "slack";
-    if (!texte) continue;
+    if (!texte) return null;
     // 13/11 (Max) : un simple accusé (« thank you », « ok », « I'll do it tonight ») : pas de demande, « vu » dans le fil.
     if (accuseReception(texte)) {
       await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
-      continue;
+      return null;
     }
     const rouverte = await rouvrirSiPasRegle(db, c.poster_id, texte, canal);
     if (rouverte) {
       await db.from("support_demandes").update({ probleme_id: c.id }).eq("id", rouverte.id).is("probleme_id", null);
       const envoi = await envoyerAuPosteur(db, c.poster_id, rouverte.reponse);
-      resultats.push({ probleme: c.id, niveau: "rouverte", envoi });
-      continue;
+      return { probleme: c.id, niveau: "rouverte", envoi };
     }
     const r = await deciderBot(db, { message: texte, source: "help", poster: c.poster_id, profil: null, canal: canal === "upwork" ? "upwork" : "slack" });
     const d = r.decision;
     if (d.categorie === "salutation") {
       await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
-      continue;
+      return null;
     }
     const parBot = d.niveau === "bot" && d.reponse !== TEXTE_ON_VERIFIE;
     let envoi = "rien";
@@ -1848,10 +2028,7 @@ async function messagesTraiter(db: Db) {
         bot_decision: d.niveau, brouillon: parBot ? null : brouillonDe(r), escalader: !parBot,
       },
     });
-    if (e) {
-      resultats.push({ probleme: c.id, niveau: d.niveau, envoi: `support_ajouter : ${e.message}` });
-      continue;
-    }
+    if (e) return { probleme: c.id, niveau: d.niveau, envoi: `support_ajouter : ${e.message}` };
     const id = (aj as { id: string })?.id ?? null;
     if (id) {
       await db.from("support_demandes").update({
@@ -1868,9 +2045,8 @@ async function messagesTraiter(db: Db) {
         });
       }
     }
-    resultats.push({ probleme: c.id, niveau: parBot ? "bot" : d.niveau, envoi });
+    return { probleme: c.id, niveau: parBot ? "bot" : d.niveau, envoi };
   }
-  return { ok: true, traites: resultats.length, resultats };
 }
 
 /** La réponse du bot au posteur : Slack s'il est relié, sinon email. */
@@ -2388,7 +2564,8 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
  * va à Max (« We're checking » dans le fil seulement pour une vraie remontée). Jamais de renvoi vers Help ni #questions
  * quand on connaît le posteur. Tout passe par la page Contrôle.
  */
-async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: string; texte: string; nom: string | null; plateforme: "ruul" | "upwork" | null }) {
+async function messageSlack(db: Db, o: { canal: string; ts: string; fil?: string; auteur: string; texte: string; nom: string | null; plateforme: "ruul" | "upwork" | null }) {
+  const filReponse = o.fil ?? o.ts;
   const texte = o.texte.trim();
   if (!o.canal || !o.ts || texte.length < 2) return { ok: false, error: "canal, ts et texte requis" };
   const { data: deja } = await db.from("support_demandes").select("id").eq("slack_canal", o.canal).eq("slack_ts", o.ts).limit(1);
@@ -2402,7 +2579,7 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
   const rouverte = poster ? await rouvrirSiPasRegle(db, poster, texte, "slack") : null;
   if (rouverte) {
     const jeton0 = jetonSlackFaq();
-    if (jeton0) await posterSlack(jeton0, o.canal, rouverte.reponse, o.ts);
+    if (jeton0) await posterSlack(jeton0, o.canal, rouverte.reponse, filReponse);
     return { ok: true, id: rouverte.id, rouverte: true };
   }
   const r = await deciderBot(db, { message: texte, source: "slack_salon", poster, profil: null, canal: "slack" });
@@ -2420,10 +2597,10 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
     if (parBot && d.personnel && poster) {
       const dm = await ecrireAuPosteur(db, poster, r.texte, fetch, undefined, { malgreStop: "reponse" });
       envoi = dm.statut === "envoye" ? "message privé" : `message privé : ${"erreur" in dm ? dm.erreur : dm.statut}`;
-      if (dm.statut === "envoye") await posterSlack(jeton, o.canal, "I've sent you a private message 👋", o.ts);
+      if (dm.statut === "envoye") await posterSlack(jeton, o.canal, "I've sent you a private message 👋", filReponse);
     } else {
       // 17/11 (Max, point 7) : chaque demande reçoit au minimum une réponse (dans sa langue).
-      const t = await posterSlack(jeton, o.canal, r.texte, o.ts);
+      const t = await posterSlack(jeton, o.canal, r.texte, filReponse);
       envoi = t.ok ? "fil" : `fil : ${t.error}`;
     }
   }
@@ -2448,6 +2625,39 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
     }
   }
   return { ok: true, id, niveau: parBot ? "bot" : d.niveau, envoi };
+}
+
+/**
+ * 21/11 (Max) : la suite d'un fil Slack suivi (le posteur répond au bot) : le bot lit le message, vérifie et répond dans
+ * le même fil. Un simple « thanks » / « ok » : noté vu, pas de réponse.
+ */
+async function suiteFilSlack(db: Db, o: { canal: string; parent_ts: string; texte: string; demande: string; poster: string | null }) {
+  const maintenant = new Date().toISOString();
+  if (o.texte.length < 1) return { ok: true, ignore: "vide" };
+  await db.from("support_messages").insert({ demande_id: o.demande, auteur: "posteur", auteur_id: o.poster, texte: o.texte.slice(0, 4000) });
+  if (accuseReception(o.texte)) {
+    await db.from("support_demandes").update({ posteur_at: maintenant, maj_at: maintenant }).eq("id", o.demande);
+    return { ok: true, id: o.demande, vu: true };
+  }
+  const r = await deciderBot(db, { message: o.texte, source: "slack_salon", poster: o.poster, profil: null, canal: "slack" });
+  const d = r.decision;
+  const parBot = d.niveau === "bot" && d.reponse !== TEXTE_ON_VERIFIE;
+  let envoi = "rien";
+  let action: string | null = null;
+  if (parBot && o.poster && d.action) action = await executerAction(db, o.poster, d, o.texte);
+  const jeton = jetonSlackFaq();
+  if (!r.controle.muet && jeton) {
+    const t = await posterSlack(jeton, o.canal, r.texte, o.parent_ts);
+    envoi = t.ok ? "fil" : `fil : ${t.error}`;
+    if (t.ok) await db.from("support_messages").insert({ demande_id: o.demande, auteur: "bot", texte: r.texte.slice(0, 4000) });
+  }
+  await db.from("support_demandes").update({
+    statut: parBot ? "bot" : "ouvert", niveau: parBot ? "bot" : d.niveau === "adrien" ? "max" : d.niveau,
+    bot_reponse: parBot ? r.texte : null, brouillon: parBot ? null : brouillonDe(r), action_faite: action,
+    posteur_at: maintenant, maj_at: maintenant,
+  }).eq("id", o.demande);
+  await apresDemande(db, { poster: o.poster, demande: o.demande, plan: r.plan, decision: d, source: "slack_salon", texte: o.texte });
+  return { ok: true, id: o.demande, niveau: parBot ? "bot" : d.niveau, envoi };
 }
 
 /** Les images jointes d'un email Brevo, téléchargées (API Brevo) et décrites par le modèle. Ne lève pas. */

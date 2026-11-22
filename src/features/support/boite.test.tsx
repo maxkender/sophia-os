@@ -44,10 +44,27 @@ describe("Boîte unique (13/11)", () => {
     expect(f.pourMax.map((x) => [x.cle, x.attente, x.sources.join(",")])).toEqual([["p2", true, "upwork,email"]]);
     expect(f.autres.map((x) => [x.cle, x.attente])).toEqual([["p1", false]]);
     expect(f.pourMax[0]!.demande?.id).toBe("b");
+    expect(f.pourMax[0]!.attendu).toBe("Le bot n'a pas su : valide ou corrige la réponse proposée.");
+  });
+
+  it("21/11 : un STOP urgent n'est jamais « Pour Max » ; une question d'argent urgente l'est, avec sa ligne", () => {
+    const pb = (o: Record<string, unknown>) => ({ id: "x", poster_id: "p3", nom: "Bea S.", statut: "ouvert", niveau: "urgent", resume: "I want to stop",
+      created_at: "2026-11-15T17:00:00Z", maj_at: "2026-11-15T17:00:00Z", ...o }) as unknown as Parameters<typeof filsParPosteur>[1][number];
+    // Seul, il n'ouvre même pas de fil ; avec une conversation, il s'y affiche sans la faire remonter.
+    expect(filsParPosteur([], [pb({ categorie: "stop" })])).toEqual({ pourMax: [], autres: [] });
+    const avec = filsParPosteur([d({ id: "z", poster_id: "p3", statut: "resolu" })], [pb({ categorie: "stop" })]);
+    expect(avec.pourMax).toHaveLength(0);
+    expect(avec.autres[0]!.problemes).toHaveLength(1);
+    expect(avec.autres[0]!.attente).toBe(false);
+    const paie = filsParPosteur([], [pb({ categorie: "paie", resume: "Referral to confirm" })]);
+    expect(paie.pourMax[0]!.attendu).toBe("Décide : une question d'argent hors des règles.");
   });
 
   it("écran : Pour Max en haut avec son problème, conversation à droite, apprendre au bot", async () => {
     rendu();
+    // 22/11 : la Boîte s'ouvre sur « À répondre » ; « Tout » montre aussi les fils réglés.
+    expect(await screen.findAllByTestId("fil-posteur")).toHaveLength(1);
+    fireEvent.click(screen.getByRole("button", { name: "Tout" }));
     const fils = await screen.findAllByTestId("fil-posteur");
     expect(fils[0]).toHaveTextContent("Leo M.");
     expect(within(fils[0]!).getByTestId("point-rouge")).toBeTruthy();

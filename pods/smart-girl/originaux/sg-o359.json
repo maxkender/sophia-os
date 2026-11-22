@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o359",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bf0f9610-0d44-4a63-858e-770b3b33cdd0",
+ "titre": "the quiet habits of very well read women #booktok #wellread #smartgirl #reading #darkacademia",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 6 de la boîte (parent bf0f9610, langue source fr) : accroche reformulée (« the quiet habits of very well read women »), différente de sg-o310 et sg-o331 ; détails du parent. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ecc621e8",
+   "texte_overlay": "the quiet habits of very\nwell read women",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9a36d925",
+   "texte_overlay": "a book in every bag",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "41caed23",
+   "texte_overlay": "a pencil for the margins",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fff8632f",
+   "texte_overlay": "the classics, not the summaries",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "02b78525",
+   "texte_overlay": "a poem for every occasion",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "82ff6202",
+   "texte_overlay": "the right book for every friend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "905abed3",
+   "texte_overlay": "one lesson a day instead\nof one more scroll",
+   "texte_sophia": "one lesson a day on an app like Sophia\ninstead of one more scroll",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7f88c97a",
+   "texte_overlay": "are you one of them?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

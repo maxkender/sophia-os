@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o368",
+ "type_bleo": "full_test",
+ "titre": "Easy meals every man should know how to cook #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Easy meals every man should know how to cook » (retenue), « Cooking basics for men » (écartée : plat), « Stop ordering takeaway » (écartée : négatif).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "26905d30-32cc-446d-a87d-3945ff61d941",
+   "texte_overlay": "Easy meals every man\nshould know how to cook",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A proper omelette. Eggs, butter, salt, a little cheese. Ready in five minutes, perfect for breakfast, lunch or a late dinner when you're tired.",
+   "media_id": "6127bdcc-bb8b-4e4d-9043-e468ca604e53"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "A simple tomato pasta. Garlic, olive oil, a tin of tomatoes, basil. Cheap, quick and good enough to cook for a date or for friends.",
+   "media_id": "613b7849-2a94-4c93-9cba-16505792d920"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A roast chicken with vegetables. Put everything in one tray and let the oven do the work. It feeds four people and leftovers make great lunches.",
+   "media_id": "61f1eb65-ec8c-4e31-a8d4-72bb3665f2c3"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "A stir fry. Any vegetables, a protein, soy sauce, rice. Fast, healthy and a great way to use whatever is left in the fridge.",
+   "media_id": "61f40ede-0009-4703-8b6f-a32644ab5645"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Learning the story behind dishes makes cooking even more fun.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Learning the story behind dishes makes cooking even more fun.",
+   "media_id": "696c1959-b0ab-4152-9a77-d09ea6b5c1cd"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A big pot of chilli. Beans, meat or not, spices, tomatoes. Cook once, eat three times. Perfect for busy weeks and cold evenings.",
+   "media_id": "629157ea-202c-47eb-b8a1-bf35b91a970a"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "A good steak. Hot pan, salt, rest it before cutting. Knowing how to cook a steak properly is a small skill that always impresses.",
+   "media_id": "62c02c15-43fe-4608-abae-85bd4ae0672d"
+  }
+ ]
+}

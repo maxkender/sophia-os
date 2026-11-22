@@ -55,10 +55,11 @@ import {
 import { langueTraduite, normaliserLangue, traduireChamps } from "../_shared/traduction_email.ts";
 import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
+import { type AbsenceLue, lireReponseAbsence, parleAbsence, promptAbsence } from "../_shared/absence_message.ts";
 import { estManque, OBJET_KYC, texteKyc } from "../_shared/ruul_kyc.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { ADRESSE_CONNEXION, adresseDeConnexion, slackEnPause } from "../_shared/ruul_adresses.ts";
-import { lienRuul, lireReglageConnect } from "../_shared/ruul_connect.ts";
+import { connecter, lienRuul, lireReglageConnect } from "../_shared/ruul_connect.ts";
 import { dansFenetre, type Decision, emailParcours, etatRuul, type EtatParcours, PARIS, prochainEnvoi, ruulPret, type TypeParcours } from "../_shared/parcours_ruul.ts";
 import { partiesLocales as partiesParis } from "../_shared/relances.ts";
 import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
@@ -153,6 +154,23 @@ Deno.serve(async (request) => {
       return PAGE("Your new password",
         `Dashboard: <a href="${URL_DASHBOARD_OS}">${URL_DASHBOARD_OS}</a><br>Login: <b>${String(pr.email ?? "")}</b><br>Password: <b>${nouveau}</b>`);
     }
+    // 21/11 (Max, point 7) : « I want to be paid on Upwork » → « Are you sure? » → To add on Upwork, retiré de Ruul.
+    const upwork = url.searchParams.get("upwork");
+    if (upwork) {
+      if (!JETON.test(upwork)) return PAGE("Link not valid", "This link is not valid.");
+      const { data: qui } = await supabase.from("profiles").select("id, canal_paie").eq("ruul_jeton", upwork).maybeSingle();
+      if (!qui?.id || qui.canal_paie !== "ruul") return PAGE("Link not valid", "This link is not valid.");
+      if (url.searchParams.get("confirme") !== "1") {
+        const oui = `${URL_FONCTION}?upwork=${upwork}&confirme=1`;
+        return PAGE("Get paid on Upwork?",
+          `We'll pay you through Upwork instead of Ruul. You'll receive an Upwork invitation; your posts don't change.<br><br><a href="${oui}" style="display:inline-block;background:#18181b;color:#fff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:8px">I want to be paid on Upwork</a>`);
+      }
+      const r = await passerUpwork(supabase, qui.id, "email", null);
+      if (!r.ok) return PAGE("Something went wrong", "Please try again later, or click Help on your dashboard.");
+      return PAGE("Done", r.lien_attendu
+        ? "We'll pay you on Upwork. Please send us the link to your Upwork profile: click Help on your dashboard and paste it there."
+        : "We'll pay you on Upwork. You'll receive an Upwork invitation soon.");
+    }
     if (stop) {
       if (!JETON.test(stop)) return PAGE("Link not valid", "This link is not valid.");
       const { data, error } = await supabase.rpc("ruul_stop_jeton", { p_jeton: stop, p_source: "email" });
@@ -188,6 +206,18 @@ Deno.serve(async (request) => {
     // 18/11 (Max) : relance « finir son installation Ruul » (KYC, banque, inscription) : email + dashboard + Slack,
     // dans la langue du posteur ; jeudi et samedi (cron), ou maintenant avec forcer: true ; simuler: true n'envoie rien.
     if (body?.action === "kyc_relances") return json(await kycRelances(supabase, body?.forcer === true, body?.simuler === true));
+    // 21/11 (Max) : renvoyer une fois la relance KYC revenue, à la vraie adresse (liste d'abord ; envoi avec confirmer: true).
+    // 21/11 (Max, point 5) : un message « absent / malade / en voyage » d'un posteur Ruul → l'absence est créée (cron).
+    if (body?.action === "absences_messages") return json(await absencesMessages(supabase, body?.simuler === true));
+    // 21/11 (Max, point 7) : mécanismes appelés par le bot du support.
+    if (body?.action === "passer_upwork") return json(await passerUpwork(supabase, String(body?.poster_id ?? ""), String(body?.source ?? "help"), body?.upwork_url ? String(body.upwork_url) : null));
+    if (body?.action === "identite_refusee") return json(await identiteRefusee(supabase, String(body?.poster_id ?? ""), body?.simuler === true));
+    if (body?.action === "nouvelle_invitation") return json(await nouvelleInvitation(supabase, String(body?.poster_id ?? "")));
+    // 21/11 (Max, point 9 B) : une relance de signature en plus des J+1/J+3/J+6, une seule fois (liste d'abord).
+    if (body?.action === "relance_signature_unique") return json(await relanceSignatureUnique(supabase, body?.confirmer === true));
+    // 21/11 (Max, point 9 A) : la relance « posts » une seule fois (email + bandeau, texte du point 2) ; liste d'abord.
+    if (body?.action === "relance_posts_unique") return json(await relancePostsUnique(supabase, String(body?.lundi ?? ""), body?.confirmer === true));
+    if (body?.action === "kyc_renvoi") return json(await kycRenvoi(supabase, body?.confirmer === true));
     // 21/11 (Max) : bloqué sur Ruul depuis 7 jours malgré le support : on propose Upwork (une fois).
     if (body?.action === "upwork_7j") return json(await proposerUpwork7j(supabase, body?.simuler === true));
     // 19/11 (Max) : la relance KYC qui n'est pas arrivée par email (depuis une date) passe en bandeau sur le dashboard.
@@ -294,7 +324,7 @@ async function envoyer(supabase: Supabase) {
   const { data: invites, error } = await supabase
     .from("profiles")
     .select("id, prenom, ruul_email, ruul_statut, ruul_ajoute_at, ruul_relances, relances_stop_at, ruul_jeton, slack_user_id, ruul_compte, ruul_email_a_at, ruul_email_b_at")
-    .eq("canal_paie", "ruul").eq("ruul_statut", "invite").eq("is_active", true).is("relances_stop_at", null);
+    .eq("canal_paie", "ruul").eq("ruul_statut", "invite").eq("is_active", true).is("relances_stop_at", null).is("ruul_retire_at", null);
   if (error) throw error;
   // 0681 (Agent Ruul) : l'email A (« Invited » dans Ruul) ou B (« Active »), une seule fois chacun,
   // seulement quand Max a mis ruul_emails_ab sur on. L'email A remplace l'ancienne invitation.
@@ -560,7 +590,26 @@ async function proposerUpwork7j(supabase: Supabase, simuler: boolean) {
 async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean) {
   const { data, error } = await supabase.rpc("ruul_kyc_relances_dues", { p_jour: null, p_forcer: forcer });
   if (error) throw error;
+  return await envoyerRelancesKyc(supabase, (data ?? []) as RelanceKyc[], simuler);
+}
+
+/**
+ * 21/11 (Max, point 1) : la dernière relance KYC revenue (login @sophia.com) renvoyée une fois, à la vraie adresse
+ * (email Ruul, puis de candidature, puis Upwork). Sans confirmer: true, rien ne part : la liste seulement.
+ */
+async function kycRenvoi(supabase: Supabase, confirmer: boolean) {
+  const { data, error } = await supabase.rpc("ruul_kyc_renvoi_liste");
+  if (error) throw error;
   const dues = (data ?? []) as RelanceKyc[];
+  if (!confirmer) {
+    const parManque: Record<string, string[]> = {};
+    for (const d of dues) (parManque[d.manque] ??= []).push((d.prenom ?? "?").trim().split(/\s+/)[0] ?? "?");
+    return { ok: true, simulation: true, a_renvoyer: dues.length, par_manque: parManque, consigne: "rien n'est parti : confirmer: true pour envoyer" };
+  }
+  return await envoyerRelancesKyc(supabase, dues, false);
+}
+
+async function envoyerRelancesKyc(supabase: Supabase, dues: RelanceKyc[], simuler: boolean) {
   const cache = new Map<string, string>();
   const debut = Date.now();
   const bilan: { poster: string; manque: string; canaux: string[]; erreur: string | null }[] = [];
@@ -624,6 +673,209 @@ async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean
     sans_canal: bilan.filter((b) => !simuler && !b.canaux.length).length,
     erreurs: bilan.filter((b) => b.erreur).slice(0, 20),
   };
+}
+
+/**
+ * 21/11 (Max, point 5) : les messages récents des posteurs Ruul (réponses, demandes au support) qui disent une absence
+ * (absent, malade, en voyage…) → absences_declarees (source « message ») avec les dates dites ; sans date : le jour du
+ * message et le lendemain. Chaque message n'est lu qu'une fois. simuler : rien n'est écrit.
+ */
+async function absencesMessages(supabase: Supabase, simuler: boolean) {
+  const depuis = new Date(Date.now() - 3 * 86_400_000).toISOString();
+  const { data, error } = await supabase.rpc("absences_messages_a_lire", { p_depuis: depuis });
+  if (error) throw error;
+  const liste = (data ?? []) as { ref: string; poster_id: string; texte: string; recu_at: string }[];
+  const bilan = { lus: 0, candidats: 0, absences: 0, exemples: [] as { ref: string; debut: string | null; fin: string | null; raison: string | null }[], erreurs: [] as string[] };
+  const debut = Date.now();
+  for (const m of liste) {
+    if (Date.now() - debut > 100_000) break;
+    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: PARIS }).format(new Date(m.recu_at));
+    bilan.lus++;
+    let lu: AbsenceLue | null = { absent: false, debut: null, fin: null, raison: null };
+    if (parleAbsence(m.texte)) {
+      bilan.candidats++;
+      try {
+        lu = lireReponseAbsence(await generateTextFast(promptAbsence(m.texte, jour)));
+      } catch (e) {
+        bilan.erreurs.push(`${m.ref} : ${messageErreur(e)}`);
+        continue; // relu au prochain passage
+      }
+      if (!lu) continue;
+    }
+    if (simuler) {
+      if (lu.absent && bilan.exemples.length < 10) bilan.exemples.push({ ref: m.ref, debut: lu.debut ?? jour, fin: lu.fin, raison: lu.raison });
+      continue;
+    }
+    const { data: cree, error: e } = await supabase.rpc("absence_depuis_message", {
+      p_ref: m.ref, p_poster: m.poster_id, p_absent: lu.absent, p_debut: lu.debut, p_fin: lu.fin, p_raison: lu.raison, p_jour: jour,
+    });
+    if (e) bilan.erreurs.push(`${m.ref} : ${e.message}`);
+    else if (cree === true) bilan.absences++;
+  }
+  return { ok: true, simulation: simuler, ...bilan };
+}
+
+/** Le texte du nudge Ruul (point 2), en anglais : pas commencé, ou X posts sur Y. */
+function texteNudgeRuul(prenom: string | null, liens: number, prevus: number, pasCommence: boolean): string {
+  const debut = `Hi ${(prenom ?? "").trim() || "there"}, `;
+  return pasCommence
+    ? `${debut}you haven't started posting yet. Your posts are on your dashboard: ${URL_DASHBOARD}. If you don't want to continue, just reply STOP.`
+    : `${debut}you've posted ${liens} of ${prevus} this week. Please post twice a day and paste each link the same day. If you don't want to continue, just reply STOP.`;
+}
+
+/**
+ * 21/11 (Max, point 9 A) : posteurs Ruul avec posts prévus du lundi au vendredi et 0 post avec lien ou moins de la
+ * moitié (absences, panne, killés, STOP exclus) : email à la vraie adresse + bandeau du dashboard, une seule fois.
+ * Sans confirmer: true, rien ne part : la liste seulement.
+ */
+async function relancePostsUnique(supabase: Supabase, lundi: string, confirmer: boolean) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(lundi)) return { ok: false, erreur: "lundi (AAAA-MM-JJ) requis" };
+  const { data, error } = await supabase.rpc("ruul_relance_posts_liste", { p_lundi: lundi });
+  if (error) throw error;
+  const liste = (data ?? []) as { poster_id: string; prenom: string | null; liens: number; prevus: number; jamais_poste: boolean }[];
+  const cle = `nudge_jeudi:relance-${lundi}`;
+  const { data: faits } = await supabase.from("posteur_textes").select("poster_id").eq("cle", cle);
+  const deja = new Set(((faits ?? []) as { poster_id: string }[]).map((x) => x.poster_id));
+  const reste = liste.filter((p) => !deja.has(p.poster_id));
+  if (!confirmer) {
+    return {
+      ok: true, simulation: true, a_relancer: reste.length, deja: liste.length - reste.length,
+      liste: reste.map((p) => `${(p.prenom ?? "?").trim().split(/\s+/)[0]} (${p.liens}/${p.prevus}${p.jamais_poste ? ", pas commencé" : ""})`),
+      consigne: "rien n'est parti : confirmer: true pour envoyer",
+    };
+  }
+  const cache = new Map<string, string>();
+  const bilan = { email: 0, bandeau: 0, sans_canal: 0, erreurs: [] as string[] };
+  const debut = Date.now();
+  for (const p of reste) {
+    if (Date.now() - debut > 100_000) break;
+    const en = texteNudgeRuul(p.prenom, p.liens, p.prevus, p.jamais_poste);
+    const langue = await langueDuPosteur(supabase, p.poster_id);
+    const texte = await traduireRuul(en, langue, cache);
+    let email = false;
+    const { data: adresse } = await supabase.rpc("ruul_adresse_joignable", { p_poster: p.poster_id });
+    const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", p.poster_id).maybeSingle();
+    if (typeof adresse === "string" && adresse && pr?.ruul_jeton) {
+      const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
+      const e = await emailTraduit(supabase, p.poster_id, { objet: "This week's posts", corps: en, lienStop }, [p.prenom]);
+      const r = await envoyerEmail(adresse, e.objet, e.html, e.texte, lienStop, ["ruul", "nudge_jeudi", "relance_unique"]);
+      if (r.ok) { email = true; bilan.email++; } else bilan.erreurs.push(`${p.poster_id} : email ${r.erreur}`);
+    } else bilan.erreurs.push(`${p.poster_id} : pas d'adresse valide`);
+    const { error: eB } = await supabase.rpc("texte_poster_ecrire", { p_poster: p.poster_id, p_cle: cle, p_en: en, p_texte: texte, p_langue: langue ?? "en" });
+    if (eB) bilan.erreurs.push(`${p.poster_id} : bandeau ${eB.message}`);
+    else bilan.bandeau++;
+    if (!email) bilan.sans_canal++;
+  }
+  return { ok: true, a_relancer: reste.length, ...bilan };
+}
+
+/**
+ * 21/11 (Max, point 9 B) : candidatures acceptées, pas signées, pas désinscrites, pas expirées : une relance de signature
+ * par le site (remind_signature), une seule fois, en plus des J+1/J+3/J+6 (leur compteur et l'expiration J+7 ne
+ * changent pas). Sans confirmer: true, rien ne part : la liste seulement.
+ */
+async function relanceSignatureUnique(supabase: Supabase, confirmer: boolean) {
+  const { data, error } = await supabase.from("ruul_candidatures")
+    .select("site_id, nom, relances_signature, expire_at, start_monday")
+    .eq("statut_site", "accepted").is("signe_at", null).is("desinscrit_at", null).is("relance_extra_at", null);
+  if (error) throw error;
+  const maintenant = Date.now();
+  const liste = ((data ?? []) as { site_id: string; nom: string | null; relances_signature: number | null; expire_at: string | null; start_monday: string | null }[])
+    .filter((c) => !c.expire_at || Date.parse(c.expire_at) > maintenant);
+  if (!confirmer) {
+    return { ok: true, simulation: true, a_relancer: liste.length, prenoms: liste.map((c) => (c.nom ?? "?").trim().split(/\s+/)[0]), consigne: "rien n'est parti : confirmer: true pour envoyer" };
+  }
+  const bilan = { relancees: 0, erreurs: [] as string[] };
+  for (const c of liste) {
+    const n = Number(c.relances_signature ?? 0);
+    const r = await appelSite("POST", { action: "remind_signature", id: c.site_id, step: n <= 0 ? 1 : n === 1 ? 3 : 6 });
+    if (r.ok) {
+      await supabase.from("ruul_candidatures").update({ relance_extra_at: new Date().toISOString() }).eq("site_id", c.site_id);
+      bilan.relancees++;
+    } else bilan.erreurs.push(`${c.site_id} : ${r.erreur}`);
+  }
+  return { ok: true, ...bilan };
+}
+
+// ---------------------------------------------------------------------------
+// 21/11 (Max, point 7) : identité refusée, déjà un compte Ruul, lien expiré — les mécanismes du bot du support.
+// ---------------------------------------------------------------------------
+
+const SLACK_MAX = "U0BL5FRLBEU";
+
+/** Le lien du bouton « I want to be paid on Upwork » (page de confirmation, puis To add on Upwork). */
+function lienUpwork(jeton: string): string {
+  return `${URL_FONCTION}?upwork=${jeton}`;
+}
+
+/** Le posteur veut être payé sur Upwork : ligne « To add on Upwork » (avec son lien de profil s'il est connu), retiré de Ruul. */
+async function passerUpwork(supabase: Supabase, posterId: string, source: string, upworkUrl: string | null) {
+  if (!JETON.test(posterId)) return { ok: false, erreur: "poster_id invalide", lien_attendu: false };
+  const { data, error } = await supabase.rpc("ruul_passer_upwork", { p_poster: posterId, p_source: source, p_url: upworkUrl });
+  if (error) return { ok: false, erreur: error.message, lien_attendu: false };
+  const r = data as { ok: boolean; erreur?: string; upwork_url: string | null; lien_attendu: boolean };
+  return { ...r, ok: r.ok === true, lien_attendu: r.lien_attendu === true };
+}
+
+/**
+ * Identité refusée ou déjà un compte Ruul : ce que le bot doit proposer.
+ *   venu d'Upwork → le bouton « I want to be paid on Upwork » (lien_bouton) et le lien de son profil Upwork ;
+ *   sinon → refaire la vérification (etapes) ; au 2e refus, un message Slack à Max (une fois par posteur et par jour).
+ */
+async function identiteRefusee(supabase: Supabase, posterId: string, simuler: boolean) {
+  if (!JETON.test(posterId)) return { ok: false, erreur: "poster_id invalide" };
+  const { data, error } = await supabase.rpc("ruul_identite_situation", { p_poster: posterId });
+  if (error) return { ok: false, erreur: error.message };
+  const s = data as { prenom: string | null; refus: number; upwork_url: string | null; venu_upwork: boolean; jeton: string | null; retire_de_ruul: boolean } | null;
+  if (!s) return { ok: false, erreur: "posteur introuvable" };
+  const etapes = "Open app.ruul.io, go to « Payment accounts » → « Add my ID », and verify again with a valid ID (not expired, all 4 corners visible, no glare) and a clear selfie in good light. Use the same name as on your ID.";
+  let slackMax: string | null = null;
+  if (!s.venu_upwork && s.refus >= 2 && !simuler) {
+    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: PARIS }).format(new Date());
+    const { data: deja } = await supabase.from("ruul_alertes_max").select("poster_id").eq("poster_id", posterId).eq("cle", `identite:${jour}`).maybeSingle();
+    if (!deja) {
+      const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+      const texte = `:warning: Ruul : identité refusée ${s.refus} fois pour *${s.prenom ?? "un posteur"}* (pas venu d'Upwork). À regarder : https://sophia-marketing-orga.vercel.app/admin/auto/ruul`;
+      if (jeton) {
+        const r = await fetch("https://slack.com/api/chat.postMessage", {
+          method: "POST",
+          headers: { authorization: `Bearer ${jeton}`, "content-type": "application/json; charset=utf-8" },
+          body: JSON.stringify({ channel: SLACK_MAX, text: texte, unfurl_links: false }),
+        }).then((x) => x.json()).catch(() => ({ ok: false, error: "réseau" })) as { ok?: boolean; error?: string };
+        slackMax = r.ok ? "envoyé" : `échec : ${r.error ?? "?"}`;
+        if (r.ok) await supabase.from("ruul_alertes_max").insert({ poster_id: posterId, cle: `identite:${jour}` });
+      } else slackMax = "SLACK_HM_BOT_TOKEN manquant";
+    } else slackMax = "déjà prévenu aujourd'hui";
+  }
+  return {
+    ok: true,
+    venu_upwork: s.venu_upwork,
+    upwork_url: s.upwork_url,
+    lien_bouton: s.venu_upwork && s.jeton ? lienUpwork(s.jeton) : null,
+    texte_bouton: s.venu_upwork ? "I want to be paid on Upwork" : null,
+    refus: s.refus,
+    etapes: s.venu_upwork ? null : etapes,
+    slack_max: slackMax,
+    retire_de_ruul: s.retire_de_ruul,
+  };
+}
+
+/** Lien d'inscription Ruul expiré : une nouvelle invitation par l'API Ruul (POST /connect), le lien neuf est rendu. */
+async function nouvelleInvitation(supabase: Supabase, posterId: string) {
+  if (!JETON.test(posterId)) return { ok: false, erreur: "poster_id invalide" };
+  const reglage = await lireReglageConnect(supabase);
+  if (!reglage.connect_actif) return { ok: false, erreur: "invitation automatique Ruul éteinte (ruul_api.connect_actif)" };
+  const { data: p } = await supabase.from("profiles").select("id, ruul_email, prenom, nom, ruul_onboarding, canal_paie, ruul_retire_at").eq("id", posterId).maybeSingle();
+  if (!p || p.canal_paie !== "ruul") return { ok: false, erreur: "pas un posteur Ruul" };
+  if (p.ruul_retire_at) return { ok: false, erreur: "retiré de Ruul (payé sur Upwork)" };
+  if (p.ruul_onboarding === "READY") return { ok: false, erreur: "déjà READY chez Ruul : pas besoin de nouveau lien" };
+  const email = (p.ruul_email as string | null)?.trim().toLowerCase();
+  if (!email) return { ok: false, erreur: "email Ruul manquant" };
+  const c = await connecter(supabase, reglage.env, {
+    poster_id: posterId, email, prenom: (p.prenom as string | null)?.trim() || email.split("@")[0]!, nom: (p.nom as string | null)?.trim() || "-",
+  });
+  if (!c.url) return { ok: false, erreur: c.erreur ?? "pas de lien" };
+  return { ok: true, url: c.url, texte: `Here's your new link: ${c.url}`, statut: c.statut, avertissement: c.erreur };
 }
 
 /** La relance KYC en bandeau pour les posteurs dont l'email de relance est revenu (depuis `depuis`). */
@@ -985,6 +1237,9 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   // Les posteurs que Max a mis de côté (« ne pas inviter ») ne reçoivent rien.
   const { data: exclus } = await supabase.from("profiles").select("id").eq("canal_paie", "ruul").eq("ruul_ne_pas_inviter", true);
   const deCote = new Set(((exclus ?? []) as { id: string }[]).map((x) => x.id));
+  // 21/11 (Max, point 7) : retiré de Ruul (passé sur Upwork) : plus aucune relance Ruul.
+  const { data: retires } = await supabase.from("profiles").select("id").eq("canal_paie", "ruul").not("ruul_retire_at", "is", null);
+  const retire = new Set(((retires ?? []) as { id: string }[]).map((x) => x.id));
   // 17/11 (API Ruul) : le statut lu chez Ruul ; READY = payable, plus de relance Ruul.
   const { data: onbs } = await supabase.from("profiles").select("id, ruul_onboarding").eq("canal_paie", "ruul").not("ruul_onboarding", "is", null);
   const onboarding = new Map(((onbs ?? []) as { id: string; ruul_onboarding: string }[]).map((x) => [x.id, x.ruul_onboarding]));
@@ -997,6 +1252,7 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
     if (id) { e.identite = id.identite; e.identite_refus = id.refus; }
     const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis, v2 });
     if (!d) continue;
+    if (retire.has(e.poster_id) && ["ruul", "carte_ruul", "invite_a", "invite_b", "samedi_ruul", "identite_refusee", "identite_fin"].includes(d.type)) continue;
     // Simulation : ce qui partirait maintenant, sans rien envoyer ni écrire.
     // 13/11 : hors de 9 h–20 h (Paris), l'email attend le prochain passage dans la fenêtre.
     if (!dansFenetre(maintenant, d.type)) {

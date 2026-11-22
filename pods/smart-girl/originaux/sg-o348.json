@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o348",
+ "type_bleo": "full_test",
+ "titre": "clothes named after real people #fashionhistory #history #style #smartgirl #didyouknow",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/8 (la jauge en demande 8 sur 25) : accroche jamais faite chez nous (« named after » (seulement chez nous, pour les planètes) absent des accroches de donnees/label.json). Accroches écrites : « clothes named after real people » (retenue : mode + histoire, curiosité), « the history of fashion words » (écartée : proche des mots gagnants), « fashion facts » (écartée : plate). Faits vérifiés : cardigan (7e comte de Cardigan, guerre de Crimée), léotard (Jules Léotard, trapéziste), bloomers (Amelia Bloomer), mackintosh (Charles Macintosh, tissu imperméable de 1824), bottes Wellington (duc de Wellington), col Claudine (roman de Colette). Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e188fa54",
+   "texte_overlay": "clothes named after\nreal people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ece55613",
+   "texte_overlay": "the cardigan\n\nthe earl of cardigan wore one\nin the crimean war.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ba3449bd",
+   "texte_overlay": "the leotard\n\njules léotard, a 19th-century\ntrapeze artist.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9c5d821f",
+   "texte_overlay": "bloomers\n\namelia bloomer, who campaigned\nfor practical women's clothes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "00c2ca63",
+   "texte_overlay": "the mackintosh\n\ncharles macintosh invented\nthe waterproof fabric in 1824.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d6dbfeb8",
+   "texte_overlay": "wellington boots\n\nthe duke of wellington had his\nboots made to measure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9371b6d1",
+   "texte_overlay": "the claudine collar\n\nfrom colette's claudine novels.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "39b44bbe",
+   "texte_overlay": "one story like this a day beats\nan hour of scrolling.",
+   "texte_sophia": "one story like this a day beats an hour\nof scrolling. mine come from an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

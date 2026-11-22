@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o236",
+  "type_bleo": "full_test",
+  "titre": "ce que je fais au musée pour en ressortir avec de vrais souvenirs #musee #art #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests. Lignes sautées : 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ed594016",
+      "texte_overlay": "ce que je fais au musée\npour en ressortir avec de vrais souvenirs",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4dcf8b28",
+      "texte_overlay": "1. je choisis une seule salle\n\npas tout le musée.\nune salle, bien regardée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "78e0c187",
+      "texte_overlay": "2. je lis le cartel après\n\nd'abord je regarde, ensuite je lis.\nl'œil d'abord, la tête ensuite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4826f7bc",
+      "texte_overlay": "3. je cherche un détail\n\nune main, un chien, une fenêtre.\nle tableau devient une énigme.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "479cf65d",
+      "texte_overlay": "4. je dessine, même mal\n\ncinq minutes sur un carnet.\nje m'en souviens des années après.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "773ed41d",
+      "texte_overlay": "5. je garde une question pour le soir\n\navant, je sortais du musée et j'oubliais tout.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque visite me laisse une histoire.",
+      "texte_sophia": "5. je garde une question pour le soir\n\navant, je sortais du musée et j'oubliais tout.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque visite me laisse une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a83cf4f7",
+      "texte_overlay": "c'est quoi, ton musée préféré ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

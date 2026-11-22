@@ -36,13 +36,15 @@ SONS = [
 SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimming", "underwater", "diving", "laptop",
            "desk", "book", "coffee", "flat lay", "tennis court", "lighthouse", "skyline", "mountain", "landscape",
            "beach", "sunset", "sky", "forest", "lake", "river", "road", "bridge", "building", "field", "clouds", "plate",
-           "notebook", "chess", "piano", "guitar", "watch", "sea"]
+           "notebook", "chess", "piano", "guitar", "watch", "sea",
+           "street", "night", "window", "rain", "snow", "interior", "kitchen", "food", "shoes", "sneakers", "jacket",
+           "shelf", "vinyl", "record", "camera", "bicycle", "boat", "sail", "tree", "garden", "flower", "stairs", "sunrise"]
 SOPH_NON = ["edge of a swimming pool", "face", "portrait", "smiling", "looking at the camera", "two people", "three people",
             "group", "woman", "girl", "child", "showroom", "mercedes", "car",
-            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama"]
+            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama", "joker", "prison", "bars", "jail"]
 
 # images vues sur un aperçu avec un visage reconnaissable : jamais sur la slide Sophia
-SOPH_EXCLUS = {"4d3a1468"}
+SOPH_EXCLUS = {"4d3a1468", "99d2bcf3", "a71f427e"}
 
 CACHE = "donnees/cache/empreintes.json"
 
@@ -103,7 +105,7 @@ def main():
   def texte(k): return any(w in leg(k) for w in ["text", "quote", "words", "caption", "collage", "written", "letter"])
   couv = sorted([k for k in IM if IM[k]["est_hook"] and k in FP and ok(k)], key=lambda k: (not 12 <= lum(k) < 95 or texte(k), IM[k]["used_count"], k))
   corps = sorted([k for k in IM if not IM[k]["est_hook"] and k in FP and ok(k)], key=lambda k: (lum(k) >= 90 or texte(k), IM[k]["used_count"], k))
-  soph = sorted([k for k in IM if k in FP and k not in SOPH_EXCLUS and lum(k) < 170  
+  soph = sorted([k for k in IM if k in FP and k not in SOPH_EXCLUS and lum(k) < 200  
                  and any(w in leg(k) for w in SOPH_OK) and not any(w in leg(k) for w in SOPH_NON)
                  and not (re.search(r"\b(man|men|person|people|boy|guy|player)\b", leg(k))
                           and not any(w in leg(k) for w in ["back to the camera", "silhouette", "swimming", "underwater", "diving", "surfer"]))],

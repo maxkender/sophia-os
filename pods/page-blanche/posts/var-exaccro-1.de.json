@@ -1,0 +1,323 @@
+{
+ "post_id": "var-exaccro-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "7 Tipps gegen Doomscrolling: hol dir dein Leben zurück"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "von einer Ex-Scroll-Süchtigen"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3778abf7.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. set my phone to greyscale"
+     ],
+     "fr": "1. mon tel en noir et blanc",
+     "texte": "1. Stell dein Handy auf Graustufen"
+    },
+    "T2": {
+     "en": [
+      "everyone says to do it",
+      "but it actually helps,",
+      "keep it grey for tiktok",
+      "and reels too."
+     ],
+     "fr": "tout le monde le dit, mais ça marche vraiment. et laisse le gris même sur tiktok et les reels.",
+     "texte": "Ohne Farben sind deine Apps [[viel weniger verlockend]], sogar tiktok"
+    },
+    "T3": {
+     "en": [
+      "scrolling is so",
+      "boring now"
+     ],
+     "fr": "scroller me saoule trop",
+     "texte": "Scrollen wird [[echt öde]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_2eec1c4a.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. Stop taking your phone",
+      "everywhere with you"
+     ],
+     "fr": "1. Arrête de traîner ton tel [[partout]] avec toi",
+     "alignement": "gauche",
+     "texte": "2. Log dich nach [[jeder Session]] aus"
+    },
+    "T2": {
+     "en": [
+      "You don't need your",
+      "phone to go",
+      "to the bathroom,",
+      "stop taking it with",
+      "you everywhere!!"
+     ],
+     "fr": "T'as pas besoin de ton tel pour aller aux toilettes, arrête de le traîner partout !!",
+     "texte": "Wenn du jedes Mal dein Passwort neu eintippen musst, lässt du es oft einfach sein!!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_024807af.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. Stop pretending like"
+     ],
+     "fr": "2. Arrête de te dire que",
+     "texte": "3. Kein Handy vor"
+    },
+    "T2": {
+     "en": [
+      "scrolling Substack is better"
+     ],
+     "fr": "scroller Substack, c'est mieux",
+     "texte": "dem [[ersten Kaffee]]"
+    },
+    "T3": {
+     "en": [
+      "It feels productive but",
+      "doomscrolling on substack",
+      "or pinterest is just as",
+      "bad as tiktok"
+     ],
+     "fr": "On a l'impression d'être productive, mais scroller sur substack ou pinterest, c'est aussi nul que tiktok",
+     "texte": "Fängt dein Tag mit tiktok an, ist dein Kopf schon voll, bevor du den ersten Schluck trinkst"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0a6bccee.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "3. Relearn how to be bored"
+     ],
+     "fr": "3. Réapprends à t'ennuyer",
+     "texte": "4. Geh ohne Handy raus"
+    },
+    "T2": {
+     "en": [
+      "All best ideas come",
+      "when you give them",
+      "space to grow"
+     ],
+     "fr": "Les bonnes idées ont besoin d'espace pour pousser",
+     "texte": "10 Minuten draußen, nichts in den Ohren, nichts zum Gucken"
+    },
+    "T3": {
+     "en": [
+      "Stop scrolling",
+      "anytime you're free"
+     ],
+     "fr": "Arrête de scroller dès que t'as 2 min",
+     "texte": "Dein Kopf [[sortiert sich]] von selbst"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_08a2703e.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6."
+     ],
+     "fr": "6.",
+     "texte": "5."
+    },
+    "T2": {
+     "en": [
+      "Keep your phone in",
+      "a different room"
+     ],
+     "fr": "Laisse ton tel dans une autre pièce",
+     "texte": "Such dir was für [[deine Hände]]"
+    },
+    "T3": {
+     "en": [
+      "Leave it in another",
+      "room or across from",
+      "you, you'll never get",
+      "any work done with",
+      "your phone by you"
+     ],
+     "fr": "Laisse-le dans une autre pièce ou loin de toi : avec ton tel à côté, tu feras jamais rien",
+     "texte": "Töpfern, Zeichnen, Stricken, Kochen... solange deine Hände beschäftigt sind, greifen sie nicht zum Handy"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_b9bd99b3.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. started reading books instead"
+     ],
+     "fr": "4. j'apprends des trucs à la place",
+     "texte": "6. Lern was, statt zu scrollen"
+    },
+    "T2": {
+     "en": [
+      "i found an app that blocks",
+      "tiktok until I read for 30 minutes",
+      "and it's helped me finish three",
+      "books so far"
+     ],
+     "fr": "j'ai remplacé tiktok par 5 min par jour sur l'appli Sophia, et j'ai déjà appris plein de trucs",
+     "texte": "Früher hab ich ständig gescrollt, jetzt lern ich, wenn ich eh am Handy bin, in 5 Min was Neues mit [[der Sophia-App]]"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "I3"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "8": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe tes notifications",
+     "texte": "Check deine Bildschirmzeit"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5.",
+     "texte": "7."
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
+     "texte": "Schreib sie jeden Sonntag auf. Die Zahl schwarz auf weiß zu sehen, [[rüttelt dich wach]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_d7002977.jpg",
+      "boite": [
+       0,
+       0,
+       832,
+       1248
+      ]
+     }
+    }
+   }
+  }
+ }
+}

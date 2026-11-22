@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o243",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "48adbf07-7cc8-448e-9b29-86a0776944d2",
+  "titre": "les carrières à viser si les tribunaux et les enquêtes te fascinent #metiers #droit #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "48adbf07-7cc8-448e-9b29-86a0776944d2"
+  ],
+  "notes": "G2, déclinaison de 48adbf07 (« jobs for people who love law & criminology », G1 gagnante, mon bsg-o114, génération 1 en français ; meilleur passage sl 2,6 k vues, r 2,39), en français, 3e et dernière déclinaison (après bsg-o219 et bsg-o233). Accroche reformulée : « les carrières à viser si les tribunaux et les enquêtes te fascinent ». cta C. Métiers neufs (aucun de bsg-o114, o219, o233), sans salaires ni chiffres. Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests. Lignes sautées : 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "30b7ccbd",
+      "texte_overlay": "les carrières à viser\nsi les tribunaux et les enquêtes te fascinent",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "161ebd66",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0a2e88db",
+      "texte_overlay": "1. procureure\n\nmener l'accusation\nau nom de la société.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "155af1e4",
+      "texte_overlay": "2. commissaire de police\n\ndiriger les enquêtes\net les équipes sur le terrain.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01b0d0fd",
+      "texte_overlay": "3. avocate en droit international\n\nles affaires entre pays,\nles grands procès du monde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "566cf2f5",
+      "texte_overlay": "4. experte en écritures\n\nune lettre, une signature.\nqui l'a vraiment écrite ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "26a30cba",
+      "texte_overlay": "5. détective privée\n\ndes filatures, des recherches,\ndes vérités qu'on cherchait.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "22557605",
+      "texte_overlay": "tu choisirais laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

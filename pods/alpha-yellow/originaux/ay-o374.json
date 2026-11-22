@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o374",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a8a079e4-5469-401a-8978-e18fabc353cb",
+ "titre": "Money lessons nobody teaches young men #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "a8a079e4-5469-401a-8978-e18fabc353cb"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (a8a079e4, en 11,9 k r 1,78), 3e et dernière déclinaison après ay-o340 et ay-o356. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o340, o356.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5f89d37f-1a0e-4307-84e3-caa2923feaf9",
+   "texte_overlay": "Money lessons nobody teaches\nyoung men",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672848309135920417/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Your first salary sets your habits. If you spend it all, you'll keep spending it all. Save a part from the very first month.",
+   "media_id": "6df93324-0d2d-4d41-8a76-feb598127f64"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Cars are expensive in ways you don't see. Insurance, repairs, parking, fuel. Buy cheaper than you can afford and keep it longer.",
+   "media_id": "6dfe17ce-fa9b-45dc-87da-8fd9e1a0fea5"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Friends spend differently. You don't have to follow the most expensive one. Suggest cheaper plans, good friends will be happy to join.",
+   "media_id": "6e25bc63-7c49-4db0-b0bf-bb3c91db9c19"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Your time has value. Before buying something, think about how many hours of work it costs. It changes many decisions. Think in hours, not prices.",
+   "media_id": "6e5538fe-969f-44c3-8463-fe744c29121e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Learning is the cheapest upgrade you'll ever make. Start small.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Learning is the cheapest upgrade you'll ever make.",
+   "media_id": "b403e13a-cd3b-47f0-b0c6-c54bd10959ff"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Debt for things that lose value is a trap. Phones, clothes, holidays on credit. Pay cash for what you can, wait for what you can't.",
+   "media_id": "6e71823e-a04b-4066-951e-83ba4f8b43ea"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Ask questions about money. To parents, older friends, colleagues. Most people are happy to share what they learned the hard way.",
+   "media_id": "6ec5e7bb-c3cc-4ccc-b915-0a84e27bf72b"
+  }
+ ]
+}

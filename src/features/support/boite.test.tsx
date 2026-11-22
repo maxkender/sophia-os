@@ -2,9 +2,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const a = vi.hoisted(() => ({ lireToutes: vi.fn() }));
+const a = vi.hoisted(() => ({ lireToutes: vi.fn(), changer: vi.fn() }));
 vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), ...a }));
-const p = vi.hoisted(() => ({ lireProblemes: vi.fn() }));
+const p = vi.hoisted(() => ({ lireProblemes: vi.fn(), agirProbleme: vi.fn() }));
 vi.mock("@/features/problemes/api", async (orig) => ({ ...(await orig<typeof import("@/features/problemes/api")>()), ...p }));
 const b = vi.hoisted(() => ({ enregistrerConsigne: vi.fn() }));
 vi.mock("@/features/bot/api", async (orig) => ({ ...(await orig<typeof import("@/features/bot/api")>()), ...b }));
@@ -76,5 +76,16 @@ describe("Boîte unique (13/11)", () => {
     fireEvent.change(screen.getByLabelText("Consigne pour le bot"), { target: { value: "Always give the @ from the dashboard." } });
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer la consigne" }));
     await waitFor(() => expect(b.enregistrerConsigne).toHaveBeenCalledWith(null, "Always give the @ from the dashboard.", true));
+  });
+
+  it("22/11 : « Ce problème a été réglé » ferme ses demandes ouvertes et ses problèmes, sans rien envoyer", async () => {
+    a.changer.mockResolvedValue(undefined);
+    p.agirProbleme.mockResolvedValue(undefined);
+    rendu();
+    fireEvent.click((await screen.findAllByTestId("fil-posteur")).find((el) => el.textContent?.includes("Leo M."))!);
+    fireEvent.click(await screen.findByTestId("probleme-regle"));
+    await waitFor(() => expect(a.changer).toHaveBeenCalledWith("d2", { statut: "resolu" }));
+    expect(p.agirProbleme).toHaveBeenCalledWith("pb", "fermer", { raison: "réglé (Boîte)" });
+    expect(await screen.findByText("✅ Réglé")).toBeTruthy();
   });
 });

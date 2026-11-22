@@ -245,6 +245,24 @@ Deno.serve(async (request) => {
         const textes = (Array.isArray(body.textes) ? body.textes : []).slice(0, 60).map((t: unknown) => String(t ?? "").slice(0, 2000));
         return json({ ok: true, traductions: await traduireFr(textes) });
       }
+      case "aide_reponse": {
+        // 22/11 (Max) : dans la Boîte, le résumé du problème (en français) et la réponse que le bot propose (en anglais,
+        // avec sa traduction). Ne fait que lire : rien n'est écrit ni envoyé.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        const poster = typeof body.poster_id === "string" && body.poster_id ? body.poster_id : null;
+        const fil = (Array.isArray(body.fil) ? body.fil : []).slice(-25)
+          .map((e: unknown) => e && typeof e === "object" ? e as { sens?: unknown; qui?: unknown; texte?: unknown } : {})
+          .map((e: { sens?: unknown; qui?: unknown; texte?: unknown }) => ({ sens: String(e.sens ?? ""), qui: String(e.qui ?? ""), texte: String(e.texte ?? "").trim().slice(0, 1500) }))
+          .filter((e: { texte: string }) => e.texte);
+        return json({ ok: true, ...(await aideReponse(db, poster, fil)) });
+      }
+      case "traduire_en": {
+        // 22/11 (Max) : Max écrit en français, l'OS met sa réponse en anglais avant l'envoi (il la relit).
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        const texte = String(body.texte ?? "").trim().slice(0, 4000);
+        if (!texte) return json({ ok: false, error: "texte vide" }, 400);
+        return json({ ok: true, texte: await traduireEn(texte) });
+      }
       case "slack_suite": {
         // 13/11 : la suite d'un fil Slack d'une demande : elle entre dans le fil de la demande, qui repasse « à répondre ».
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -946,6 +964,55 @@ async function traduire(texte: string, langue: string | null | undefined): Promi
   } catch {
     return texte;
   }
+}
+
+/** 22/11 : un texte mis en anglais (une réponse de Max écrite en français). Ne lève pas : en cas d'échec, le texte d'origine. */
+async function traduireEn(texte: string): Promise<string> {
+  try {
+    const r = (await generateTextFast(
+      "Translate this message into natural, friendly English, as written by a support team to a freelancer. Keep links, @ handles, " +
+        "numbers, dates, \"$\", \"Ruul\", \"Upwork\", \"TikTok\" and \"Slack\" unchanged. If it is already in English, return it as is. " +
+        `Reply with the message only.\n\n${texte}`,
+    )).trim().replace(/^["«“]+|["»”]+$/g, "");
+    return r && r.length < texte.length * 3 ? r : texte;
+  } catch (e) {
+    console.warn(`[support] traduire_en : ${messageErreur(e)}`);
+    return texte;
+  }
+}
+
+/**
+ * 22/11 : pour la Boîte, à partir du fil (25 derniers éléments) : le résumé du problème en français (2 phrases au plus) et
+ * la réponse proposée par le bot au dernier message du posteur (en anglais, avec sa traduction). Ne lève pas.
+ */
+async function aideReponse(db: Db, poster: string | null, fil: { sens: string; qui: string; texte: string }[]):
+  Promise<{ resume: string | null; suggestion: string | null; suggestion_fr: string | null; sur: boolean }> {
+  const lignes = fil.map((e) => `${e.sens === "in" ? "POSTER" : e.sens === "action" ? "ACTION" : (e.qui || "TEAM").toUpperCase()}: ${e.texte}`);
+  const dernier = [...fil].reverse().find((e) => e.sens === "in")?.texte ?? "";
+  let resume: string | null = null;
+  if (lignes.length) {
+    try {
+      resume = (await generateTextFast(
+        "Voici une conversation entre un posteur (freelance qui publie des slideshows TikTok pour nous) et notre support. " +
+          "Résume en français, en 2 phrases courtes au plus : quel est son problème ou sa demande, et où on en est (réglé, en attente de quoi). " +
+          "Pas de formule d'introduction.\n\n" + lignes.join("\n"),
+      )).trim() || null;
+    } catch (e) {
+      console.warn(`[support] aide_reponse résumé : ${messageErreur(e)}`);
+    }
+  }
+  let suggestion: string | null = null;
+  let sur = false;
+  if (dernier) {
+    const [f, ctx] = poster ? await Promise.all([fiche(db, poster), contexte(db, poster)]) : [null, ""];
+    const historique = lignes.slice(-10).join("\n");
+    const b = await cerveau(db, f, `${dernier}\n\n(Conversation so far, for context only:\n${historique})`, ctx);
+    sur = b.sur;
+    suggestion = (b.sur ? b.reponse : b.brouillon)?.trim() || null;
+    if (suggestion === TEXTE_ON_VERIFIE) suggestion = null;
+  }
+  const suggestion_fr = suggestion ? (await traduireFr([suggestion]))[0] : null;
+  return { resume, suggestion, suggestion_fr, sur };
 }
 
 /** 21/11 : des messages traduits en français, dans l'ordre ; un message déjà en français reste tel quel. Ne lève pas. */

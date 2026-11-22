@@ -10,6 +10,8 @@ import { appeler } from "./api";
 import { type CanalReponse, canalDefaut, type ElementFil, LIBELLE_CANAL, lireConversation, repondreCanal, whatsappPossible } from "./conversation";
 import { IconeWhatsApp } from "./IconeWhatsApp";
 
+interface AideReponse { resume: string | null; suggestion: string | null; suggestion_fr: string | null; sur: boolean }
+
 const quand = (at: string) => new Date(at).toLocaleString("fr-FR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
 
 function qui(e: ElementFil): string {
@@ -36,6 +38,22 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
     staleTime: Infinity,
     queryFn: async () => (await appeler<{ traductions: (string | null)[] }>({ action: "traduire_fr", textes: (c?.fil ?? []).map((e) => e.texte ?? "") })).traductions,
   });
+  // 22/11 (Max) : le résumé du problème et la réponse que propose le bot (rien n'est envoyé sans son clic).
+  const dernierIn = c ? [...c.fil].reverse().find((e) => e.sens === "in")?.at ?? "" : "";
+  const aide = useQuery({
+    queryKey: ["support", "conversation", posterId, "aide", c?.fil.length ?? 0, dernierIn],
+    enabled: !!c && c.fil.length > 0,
+    staleTime: Infinity,
+    retry: false,
+    queryFn: () => appeler<AideReponse>({
+      action: "aide_reponse", poster_id: posterId,
+      fil: (c?.fil ?? []).slice(-25).map((e) => ({ sens: e.sens, qui: e.qui, texte: e.texte ?? "" })),
+    }),
+  });
+  const enAnglais = useMutation({
+    mutationFn: async () => (await appeler<{ texte: string }>({ action: "traduire_en", texte: texte.trim() })).texte,
+    onSuccess: (t) => setTexte(t),
+  });
   const canalChoisi: CanalReponse = canal ?? canalDefaut(source, c?.canaux);
   const envoyer = useMutation({
     mutationFn: () => repondreCanal({ poster_id: posterId, canal: canalChoisi, texte: texte.trim(), demande_id: demandeId }),
@@ -57,7 +75,7 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
     ...(whatsappPossible(source, c.fil) ? (["whatsapp"] as const) : []),
   ];
   return (
-    <div className="grid gap-3 md:grid-cols-[1fr_16rem]" data-testid="conversation">
+    <div className="grid gap-3 md:grid-cols-[1fr_18rem]" data-testid="conversation">
       <div className="space-y-2">
         <div className="max-h-[28rem] space-y-1.5 overflow-y-auto rounded-md border bg-muted/20 p-2" data-testid="fil-conversation">
           {c.fil.length === 0 && <p className="p-2 text-muted-foreground text-sm">Aucun échange sur les 60 derniers jours.</p>}
@@ -102,16 +120,41 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
               </label>
             ))}
           </div>
-          <Textarea value={texte} onChange={(e) => setTexte(e.target.value)} rows={3} placeholder="Ta réponse (en anglais)…" aria-label="Répondre au posteur" />
+          <Textarea value={texte} onChange={(e) => setTexte(e.target.value)} rows={3} placeholder="Ta réponse (en français ou en anglais)…" aria-label="Répondre au posteur" />
           <div className="flex items-center gap-2">
             <Button size="sm" disabled={texte.trim().length < 2 || envoyer.isPending || !canauxPossibles.includes(canalChoisi)} onClick={() => envoyer.mutate()} data-testid="envoyer-conversation">
               Envoyer sur {LIBELLE_CANAL[canalChoisi]}
             </Button>
+            <Button size="sm" variant="outline" disabled={texte.trim().length < 2 || enAnglais.isPending} onClick={() => enAnglais.mutate()} data-testid="mettre-en-anglais">
+              {enAnglais.isPending ? "Traduction…" : "🇬🇧 Mettre en anglais"}
+            </Button>
             {envoyer.isSuccess && <span className="text-success text-xs">Envoyé.</span>}
+            {enAnglais.error && <span className="text-destructive text-xs">{(enAnglais.error as Error).message}</span>}
             {envoyer.error && <span className="text-destructive text-xs">{(envoyer.error as Error).message}</span>}
           </div>
         </div>
       </div>
+      <div className="space-y-3">
+      <aside className="space-y-2 rounded-md border bg-background p-3 text-xs" data-testid="aide-reponse">
+        <div>
+          <p className="font-semibold text-sm">📝 Résumé</p>
+          {aide.isLoading ? <p className="text-muted-foreground">…</p>
+            : <p className="whitespace-pre-wrap" data-testid="resume-probleme">{aide.data?.resume ?? "—"}</p>}
+        </div>
+        <div className="border-t pt-2">
+          <p className="font-semibold text-sm">🤖 Suggestion du bot{aide.data && !aide.data.sur && aide.data.suggestion ? " (à relire)" : ""}</p>
+          {aide.isLoading ? <p className="text-muted-foreground">…</p>
+            : aide.data?.suggestion ? (
+              <>
+                <p className="whitespace-pre-wrap" data-testid="suggestion-bot">{aide.data.suggestion}</p>
+                {aide.data.suggestion_fr && aide.data.suggestion_fr.trim() !== aide.data.suggestion.trim() && (
+                  <p className="mt-1 whitespace-pre-wrap text-muted-foreground italic">🇫🇷 {aide.data.suggestion_fr}</p>
+                )}
+                <Button size="xs" className="mt-1.5" onClick={() => setTexte(aide.data?.suggestion ?? "")} data-testid="utiliser-suggestion">Utiliser cette réponse</Button>
+              </>
+            ) : <p className="text-muted-foreground">{aide.error ? (aide.error as Error).message : "Pas de suggestion."}</p>}
+        </div>
+      </aside>
       <aside className="space-y-1 rounded-md border bg-muted/30 p-3 text-xs" data-testid="fiche-conversation">
         <p className="font-semibold text-sm">{f?.nom ?? "?"}</p>
         {f ? (
@@ -126,6 +169,7 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
           </dl>
         ) : <p className="text-muted-foreground">Pas de fiche.</p>}
       </aside>
+      </div>
     </div>
   );
 }

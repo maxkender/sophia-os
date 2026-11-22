@@ -237,3 +237,51 @@ export function texteFinWhatsApp(resteAPayer: boolean): string {
     (resteAPayer ? " Your last week will be paid." : "") +
     " If you only wanted to stop WhatsApp messages, reply here within 24h.";
 }
+
+// ---------------------------------------------------------------------------------------------------------------
+// Profil WhatsApp Business (photo, à propos, description, email, sites, adresse, catégorie)
+// ---------------------------------------------------------------------------------------------------------------
+
+/** Les catégories acceptées par Meta pour le profil. */
+export const VERTICALES_WHATSAPP = [
+  "UNDEFINED", "OTHER", "AUTO", "BEAUTY", "APPAREL", "EDU", "ENTERTAIN", "EVENT_PLAN", "FINANCE", "GROCERY", "GOVT",
+  "HOTEL", "HEALTH", "NONPROFIT", "PROF_SERVICES", "RETAIL", "TRAVEL", "RESTAURANT", "NOT_A_BIZ",
+] as const;
+
+export type ChampsProfil = { about?: string; description?: string; email?: string; address?: string; websites?: string[]; vertical?: string };
+
+/**
+ * Valide les champs du profil demandés (limites de Meta : à propos 1–139, description 512, adresse 256, email 128,
+ * 2 sites http(s) de 256 au plus). Seuls les champs fournis sont gardés ; une erreur par champ invalide.
+ */
+export function champsProfil(b: Record<string, unknown>): { champs: ChampsProfil; erreurs: string[] } {
+  const champs: ChampsProfil = {};
+  const erreurs: string[] = [];
+  const texte = (k: string, max: number, min = 0) => {
+    if (b[k] === undefined) return;
+    const v = String(b[k] ?? "").trim();
+    if (v.length < min || v.length > max) erreurs.push(`${k} : ${min}–${max} caractères`);
+    else (champs as Record<string, unknown>)[k] = v;
+  };
+  texte("about", 139, 1);
+  texte("description", 512);
+  texte("address", 256);
+  if (b.email !== undefined) {
+    const v = String(b.email ?? "").trim();
+    if (v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) erreurs.push("email invalide");
+    else if (v.length > 128) erreurs.push("email : 128 caractères au plus");
+    else champs.email = v;
+  }
+  if (b.websites !== undefined) {
+    const l = (Array.isArray(b.websites) ? b.websites : [b.websites]).map((s) => String(s ?? "").trim()).filter(Boolean);
+    if (l.length > 2) erreurs.push("websites : 2 au plus");
+    else if (l.some((s) => !/^https?:\/\/\S+$/i.test(s) || s.length > 256)) erreurs.push("websites : adresses http(s) de 256 caractères au plus");
+    else champs.websites = l;
+  }
+  if (b.vertical !== undefined) {
+    const v = String(b.vertical ?? "").trim().toUpperCase();
+    if (!(VERTICALES_WHATSAPP as readonly string[]).includes(v)) erreurs.push(`vertical : une de ${VERTICALES_WHATSAPP.join(", ")}`);
+    else champs.vertical = v;
+  }
+  return { champs, erreurs };
+}

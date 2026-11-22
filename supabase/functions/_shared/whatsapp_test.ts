@@ -1,7 +1,7 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
-  corpsModele, coutEstime, e164, estStopWhatsApp, fenetreOuverte, heureOk, lireWebhook, numeroAutorise, paysDuNumero,
+  champsProfil, corpsModele, coutEstime, e164, estStopWhatsApp, fenetreOuverte, heureOk, lireWebhook, numeroAutorise, paysDuNumero,
   refusRelance, signatureValide, texteFinWhatsApp,
 } from "./whatsapp.ts";
 
@@ -100,4 +100,14 @@ Deno.test("mode test, coût, modèle, texte de fin", () => {
   assert(texteFinWhatsApp(true).includes("Your last week will be paid."));
   assert(!texteFinWhatsApp(false).includes("paid"));
   assert(texteFinWhatsApp(false).endsWith("reply here within 24h."));
+});
+
+Deno.test("profil : champs gardés, limites de Meta", () => {
+  const ok = champsProfil({ about: " Vik Studios ", websites: ["https://vikstudios.com"], vertical: "edu", email: "hello@vikstudios.com" });
+  assertEquals(ok.erreurs, []);
+  assertEquals(ok.champs, { about: "Vik Studios", websites: ["https://vikstudios.com"], vertical: "EDU", email: "hello@vikstudios.com" });
+  assertEquals(champsProfil({}).champs, {});
+  const ko = champsProfil({ about: "x".repeat(140), websites: ["a", "b", "c"], vertical: "BOF", email: "pas-un-email" });
+  assertEquals(ko.erreurs.length, 4);
+  assertEquals(champsProfil({ about: "" }).erreurs, ["about : 1–139 caractères"]);
 });

@@ -1,0 +1,123 @@
+{
+ "id": "aw-004",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687141407273798944",
+  "vues": 5076,
+  "accroche": "Mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment)"
+ },
+ "titre": {
+  "en": "my weird little habits that actually work"
+ },
+ "legendes": {
+  "en": "don't judge me, they work 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide, jauge : 1 full test). Famille « mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment) » de @healthy_with_emma6 (5,1 k). 7 slides, Atala en 5e, texte selon placement_atala du 20/11 (un seul argument : l'allure ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : bain ou douche chaude 1 à 2 h avant le coucher et endormissement plus rapide (Haghayegh et al., Sleep Medicine Reviews 2019, méta-analyse) ; eau froide sur le visage et réflexe de plongée qui ralentit le cœur (réflexe physiologique connu, sans chiffre) ; téléphone dans une autre pièce et meilleurs scores d'attention qu'avec le téléphone sur la table, même en silencieux (Ward et al., Journal of the Association for Consumer Research 2017) ; se parler à soi-même avec son prénom et moins d'anxiété sous stress (Kross et al., Journal of Personality and Social Psychology 2014) ; « three good things » chaque soir pendant une semaine et plus de bonheur pendant des mois (Seligman et al., American Psychologist 2005). Photos : banque de l'OS ; Atala : 0b94faf1 (bord de mer au coucher du soleil, de dos).",
+ "banque": {
+  "images/banque/couverture-g.jpg": "0e2b3bab-f51a-4fba-bbc2-8d53e7ad0d7e",
+  "images/banque/couverture-h.jpg": "02d539e6-aea8-4097-a5ba-91e9a900dd07",
+  "images/banque/bain.jpg": "1ed25988-e2ed-4d33-a821-ffbea331cc32",
+  "images/banque/lavabo.jpg": "920592ef-6e73-4f40-a1b8-e68ca6eb4fa5",
+  "images/banque/course-galets.jpg": "0b94faf1-59fc-4a2c-a488-3c9d26e92de0",
+  "images/banque/miroir.jpg": "3740018e-55fb-4af3-aae1-e0786c1e41b7",
+  "images/banque/carnet.jpg": "d7002977-940b-42e9-bb74-ed5bac9a78dc",
+  "images/banque/tasse.jpg": "04b6c542-df00-44ed-9456-a7ea9dbd4e06"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/couverture-h.jpg",
+    "images/banque/couverture-g.jpg"
+   ],
+   "en": {
+    "titre": "my weird little habits that actually work",
+    "note": "(backed by science)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/bain.jpg",
+   "en": {
+    "titre": "a _warm bath_ before bed",
+    "intro": "warm first, and your body _cools down_ right after",
+    "paragraphes": [
+     "a review found that a warm bath or shower 1 to 2 hours before bed helped people _fall asleep faster_",
+     "candle on, music low, _no phone_ in the bathroom"
+    ],
+    "chute": "my favorite part of _the whole day_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/lavabo.jpg",
+   "en": {
+    "titre": "_cold water_ on my face",
+    "intro": "when i'm stressed, i go _straight to the sink_",
+    "paragraphes": [
+     "cold water on your face triggers a reflex that _slows your heart rate_",
+     "10 seconds, _very cold_, breathe out slowly"
+    ],
+    "chute": "weird? yes. _it works_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/tasse.jpg",
+   "en": {
+    "titre": "my phone _in another room_",
+    "intro": "even on silent, it still _steals your focus_",
+    "paragraphes": [
+     "in a study, people with their phone in another room _did better on focus tests_ than with it on the desk, even on silent",
+     "kitchen, hallway, anywhere. _just not next to you_"
+    ],
+    "chute": "out of sight, _out of mind_. literally"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course-galets.jpg",
+   "en": {
+    "titre": "run _so slow it feels silly_",
+    "intro": "my weirdest habit: i run slow enough _to still talk_",
+    "paragraphes": [
+     "when i was out of breath every time, i _dreaded every run_ and stopped",
+     "my tip: a running coach app like Atala gives you _your pace_ for each run, so you stop racing yourself"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/miroir.jpg",
+   "en": {
+    "titre": "talk to myself _by my name_",
+    "intro": "yes, _out loud_. in the third person",
+    "paragraphes": [
+     "a study found that using your own name when you talk to yourself helps you _stay calmer_ under stress",
+     "\"okay, _your name_, you've got this\". it sounds crazy, i know"
+    ],
+    "chute": "be your own _best friend_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/carnet.jpg",
+   "en": {
+    "titre": "_3 good things_ every night",
+    "intro": "before sleep, i write down _what went well_",
+    "paragraphes": [
+     "in a study, people who did it every night for one week were _happier for months_",
+     "a good coffee counts. _small wins count_"
+    ],
+    "chute": "end the day on _a good note_"
+   }
+  }
+ ]
+}

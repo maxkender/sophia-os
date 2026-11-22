@@ -2,7 +2,7 @@
  "id": "sg-031",
  "type_bleo": "full_test",
  "titre": {
-  "fr": "Compétences 10/10 à apprendre avant de quitter la maison",
+  "fr": "Compétences 10/10 avant de quitter la maison",
   "en": "10/10 skills to learn before leaving home",
   "de": "10/10-Skills, die du lernen solltest, bevor du ausziehst",
   "it": "Abilità 10/10 da imparare prima di andare a vivere da solo",
@@ -12,7 +12,7 @@
   "cs": "Dovednosti 10/10, které se musíš naučit, než se odstěhuješ"
  },
  "legendes": {
-  "fr": "Compétences 10/10 à apprendre avant de quitter la maison #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "fr": "Compétences 10/10 avant de quitter la maison #apprendresurtiktok #learnontiktok #developpementpersonnel",
   "en": "10/10 skills to learn before leaving home #learnontiktok #selfimprovement #skills",
   "de": "10/10-Skills, die du lernen solltest, bevor du ausziehst #lernenmittiktok #persönlichkeitsentwicklung #skills",
   "it": "Abilità 10/10 da imparare prima di andare a vivere da solo #imparacontiktok #crescitapersonale #skills",
@@ -25,7 +25,7 @@
   "titre": "original sound - クリスティーナ",
   "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
  },
- "notes": "Full test du 22/11 (accroche neuve « Compétences 10/10 à apprendre avant de quitter la maison »). 5 compétences pour vivre seul : faire une lessive, cuire un riz parfait, Sophia en étape 4 sur 7 (cta C, « ÊTRE PRÊT / POUR LA VIE »), faire le ménage vite, faire ses courses moins cher, écrire son CV. Vraies vidéos natives par langue (fr : Panda Productif, Mama Ly, Marisa F., Amandine Poggioli, La Jobsetteuse).",
+ "notes": "Full test du 22/11 (accroche neuve « Compétences 10/10 à apprendre avant de quitter la maison »). 5 compétences pour vivre seul : réparer un robinet qui fuit, cuire un riz parfait, Sophia en étape 4 sur 7 (cta C, « ÊTRE PRÊT / POUR LA VIE »), faire le ménage vite, faire ses courses moins cher, ranger son frigo. Lessive et CV écartés (déjà dans sg-030, mêmes vidéos). Vraies vidéos natives par langue (fr : Bricomarché, Mama Ly, Marisa F., Amandine Poggioli, Les bonheurs de Camille). Accroche fr raccourcie le 22/11 (« à apprendre » retiré) : le guichet la jugeait trop proche du thème gagnant « … à apprendre au lieu de scroller » (theme_gagnant).",
  "slides": [
   {
    "type": "couverture",
@@ -37,8 +37,8 @@
       "cap": 144
      },
      {
-      "t": "À APPRENDRE AVANT",
-      "cap": 93
+      "t": "AVANT",
+      "cap": 120
      },
      {
       "t": "DE QUITTER",
@@ -210,22 +210,22 @@
    "type": "etape",
    "fr": {
     "titre": [
-     "FAIRE",
+     "RÉPARER",
      [
       {
-       "t": "UNE LESSIVE",
+       "t": "UN ROBINET QUI FUIT",
        "couleur": "#2f7fc1"
       }
      ]
     ],
     "video": {
-     "id": "lmk3DahyWIU",
-     "titre": "Corvée de linge : 25 astuces pour mieux trier, laver, étendre/sécher, repasser, plier et ranger !",
-     "chaine": "Panda Productif",
-     "vues": "34 k vues",
-     "date": "il y a 5 ans",
-     "duree": "17:40",
-     "avatar": "https://yt3.ggpht.com/ytc/AIdro_liXQiKFpfjmCIC87lFbrBOFJ4xWmMAB0f9FrgsOgpCKA=s176-c-k-c0x00ffffff-no-rj"
+     "id": "foIo9dMTY7I",
+     "titre": "Comment réparer un robinet qui fuit ? I Bricomarché",
+     "chaine": "Bricomarché",
+     "vues": "463 k vues",
+     "date": "il y a 8 ans",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/QgI72oSysB0P7O_ldOAAfpM28RQSXdTBUtW7unRMK81X4RzxEm2117PO1_irIKvXkykgJZr-jg=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "30 min pour apprendre"
@@ -233,22 +233,22 @@
    },
    "en": {
     "titre": [
-     "DO",
+     "FIX",
      [
       {
-       "t": "YOUR LAUNDRY",
+       "t": "A LEAKY FAUCET",
        "couleur": "#2f7fc1"
       }
      ]
     ],
     "video": {
-     "id": "4QxmleZeu9s",
-     "titre": "How to Do Laundry",
-     "chaine": "How to Adult",
-     "vues": "1M views",
-     "date": "12 years ago",
-     "duree": "5:45",
-     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kMCnQ6Dh_45fBfklMTqcpJx1tZRU85t1ZuBRRPynXvrA=s176-c-k-c0x00ffffff-no-rj"
+     "id": "SYPFon69vKs",
+     "titre": "How to Fix a Leaky Faucet | The Home Depot",
+     "chaine": "The Home Depot",
+     "vues": "1.7M views",
+     "date": "8 years ago",
+     "duree": "1:45",
+     "avatar": "https://yt3.ggpht.com/zb-CeccQq1pm8B_zvan3SZ5LGJ1EATwU6EeLye35F8wjG3nClyIzhNPA53xoUjGA4BEk6mYLmRg=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "30 min to learn"
@@ -256,22 +256,22 @@
    },
    "de": {
     "titre": [
-     "RICHTIG",
+     "WASSERHAHN",
      [
       {
-       "t": "WÄSCHE WASCHEN",
+       "t": "REPARIEREN",
        "couleur": "#2f7fc1"
       }
      ]
     ],
     "video": {
-     "id": "fETFYe-lPe8",
-     "titre": "Wäsche waschen für Anfänger - SO kann JEDER richtig Wäsche waschen | 10 schnelle Tipps",
-     "chaine": "Krix - Der Hausgeräteprofi",
-     "vues": "53.019 Aufrufe",
-     "date": "vor 5 Jahren",
-     "duree": "2:50",
-     "avatar": "https://yt3.ggpht.com/nIA7EzzVQo_jPk9qr1S0F_Ur2yO1JP65fHlqZ51nNi6mHlJOADjGNZoFctN1jkupgYIhkLnIFQ=s176-c-k-c0x00ffffff-no-rj"
+     "id": "hA_GtpurrWM",
+     "titre": "Tipps gegen tropfenden Wasserhahn | ToolTown Heimwerken",
+     "chaine": "ToolTown - Home of Heimwerken",
+     "vues": "301.530 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKBPxEgR34Phezhbu_lUO-xO7wlMbq2h9qOF2hpaBNFQ=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "30 Min. zum Lernen"
@@ -279,22 +279,22 @@
    },
    "it": {
     "titre": [
-     "FARE",
+     "RIPARARE",
      [
       {
-       "t": "IL BUCATO",
+       "t": "UN RUBINETTO",
        "couleur": "#2f7fc1"
       }
      ]
     ],
     "video": {
-     "id": "GAy9j-eGBw0",
-     "titre": "I 10 ERRORI/ORRORI più comuni quando si fa il bucato! Tutti da evitare assolutamente!!",
-     "chaine": "La casa di Mattia",
-     "vues": "480K visualizzazioni",
-     "date": "5 anni fa",
-     "duree": "9:11",
-     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nNE020XGcHpKq08p131o_bs8SccslhTeoTYqg5_e4Wtf8=s176-c-k-c0x00ffffff-no-rj"
+     "id": "wL2DlsQyy5Y",
+     "titre": "rubinetto miscelatore SOSTITUZIONE O RIPARAZIONE ?",
+     "chaine": "Capezza72",
+     "vues": "378K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "7:21",
+     "avatar": "https://yt3.ggpht.com/GsPj_EY4ZsP6n95DXua_jav4ngDBSoFl2bAn2Z02oHPMwlofn8wgPyRW9IlAQxmLqA3EOVkkGg=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "30 min per imparare"
@@ -302,22 +302,22 @@
    },
    "pt-BR": {
     "titre": [
-     "LAVAR",
+     "CONSERTAR",
      [
       {
-       "t": "ROUPA",
+       "t": "UMA TORNEIRA",
        "couleur": "#2f7fc1"
       }
      ]
     ],
     "video": {
-     "id": "XyCe-bGS8tE",
-     "titre": "como LAVAR ROUPAS na máquina CORRETAMENTE | MORAR SOZINHO 007",
-     "chaine": "Manual do Homem Moderno",
-     "vues": "505 mil visualizações",
-     "date": "há 5 anos",
-     "duree": "15:43",
-     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mVTK_vK_onbT2udbgwbUQPecgJlYAooLxVGpd4Gk7kv2I=s176-c-k-c0x00ffffff-no-rj"
+     "id": "-sjVGnF-DwM",
+     "titre": "Como consertar torneira que não para de pingar",
+     "chaine": "Agiliza Lab, por Mari Pavan",
+     "vues": "481 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "5:28",
+     "avatar": "https://yt3.ggpht.com/fsfWGGsmMB9EM7ntxkaDaaZTs3cSJkgU0GJkql0arABCcBGHRZRkZODx8X65rT4jHWQbpeec=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "30 min para aprender"
@@ -325,22 +325,22 @@
    },
    "tr": {
     "titre": [
-     "ÇAMAŞIR",
+     "MUSLUK",
      [
       {
-       "t": "YIKAMAK",
+       "t": "TAMİR ETMEK",
        "couleur": "#2f7fc1"
       }
      ]
     ],
     "video": {
-     "id": "mbpWEzUVaXI",
-     "titre": "Renkli Çamaşırlar Nasıl Yıkanır? | Mis Gibi Koksun, Deterjan Kalıntısı Kalmasın!",
-     "chaine": "Emine Deligoz",
-     "vues": "232 B görüntüleme",
-     "date": "4 yıl önce",
-     "duree": "14:37",
-     "avatar": "https://yt3.ggpht.com/4ry5yk1_tqx6W_gVf4JJNs8RBsJakxAYL5ITA0-5wZdO3DKU4qhsVpJXVrbgtuYKsl7Qt5NhEg=s176-c-k-c0x00ffffff-no-rj"
+     "id": "O5hay3F7op8",
+     "titre": "Damlatan musluk tamiri, musluk göbeği ve conta değişimi",
+     "chaine": "kendin yaparsın",
+     "vues": "725 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/iZu7lJSIPD1nuUOyqleeuILbN9CEMacjxGvBAnvlemXIuVNqe3BTkOSfm0RgHemelPFWZvQy4f4=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "30 dakikada öğrenilir"
@@ -348,22 +348,22 @@
    },
    "ro": {
     "titre": [
-     "SĂ SPELI",
+     "SĂ REPARI",
      [
       {
-       "t": "RUFELE",
+       "t": "UN ROBINET",
        "couleur": "#2f7fc1"
       }
      ]
     ],
     "video": {
-     "id": "Gn9R5mKcv7s",
-     "titre": "Cum să speli rufele corect",
-     "chaine": "eMAG",
-     "vues": "363 K vizionări",
-     "date": "acum 10 ani",
-     "duree": "2:07",
-     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOWBHSHM5_ntiLKbUgGrDV6RngRGSBcqtHp_ZyvOM4pYg=s176-c-k-c0x00ffffff-no-rj"
+     "id": "IpvtR39Hizo",
+     "titre": "Remediere curgere baterie bucatarie",
+     "chaine": "Mesteru' Dexter",
+     "vues": "96 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/CVHEVf7dbHmRgZEqp5U-RKnXuv3j2VAUh155zNtIUUpsifeWRhWjrFWQ5fAK52lfDsxLdEfcZA=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "30 min de învățat"
@@ -371,22 +371,22 @@
    },
    "cs": {
     "titre": [
-     "PRÁT",
+     "OPRAVIT",
      [
       {
-       "t": "PRÁDLO",
+       "t": "KAPAJÍCÍ KOHOUTEK",
        "couleur": "#2f7fc1"
       }
      ]
     ],
     "video": {
-     "id": "RiJVB_4DaMY",
-     "titre": "Jak před praním třídit prádlo – Ariel",
-     "chaine": "Ariel Czech",
-     "vues": "5,4 tis. zhlédnutí",
-     "date": "před 10 lety",
-     "duree": "0:58",
-     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l0WXISY4U6XZRWw7HFCSqdsDMZjzrDT7GQ1v8sDREU9w=s176-c-k-c0x00ffffff-no-rj"
+     "id": "En2wdSPYCCs",
+     "titre": "Výměna Kartuše - Oprava Kapající Pákové Vodovodní Baterie - Stojánková I Nástěnná - Návod, Postup",
+     "chaine": "Jdu do dílny",
+     "vues": "178 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "7:57",
+     "avatar": "https://yt3.ggpht.com/JxskVDeuzn4AfJCstq67AByB83Iwk8XMUu3ZZPDSYTrGVaZI1xXBg7YouLhk8if28dRO6SUXgQ=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "30 min na naučení"
@@ -903,13 +903,13 @@
      ]
     ],
     "video": {
-     "id": "nRN7QldPNNA",
-     "titre": "Curatenie rapida in casa♡Rutina zilnica de curatenie♧Quick clean with me",
-     "chaine": "Alina Elena T",
-     "vues": "12 K vizionări",
-     "date": "acum 5 ani",
-     "duree": "10:29",
-     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kwpvZI0PWHS25qh1OiwvvKQ7E7ivAMVByPW1VJ8cS29hg=s176-c-k-c0x00ffffff-no-rj"
+     "id": "VpW5zLbcNO4",
+     "titre": "O casă curată cu doar câteva minute pe zii: 13 obiceiuri zilnice",
+     "chaine": "Stef Banu",
+     "vues": "17 K vizionări",
+     "date": "acum 1 an",
+     "duree": "10:06",
+     "avatar": "https://yt3.ggpht.com/6N6WJNeUFhcPlvE--t9DGNi5XGSbaM-3rP3SdrxFj0GGg--XSgGWp3PQ9csr6ruqnCwSghVOUA=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "1 oră de învățat"
@@ -1130,186 +1130,186 @@
    "type": "etape",
    "fr": {
     "titre": [
-     "ÉCRIRE",
+     "RANGER",
      [
       {
-       "t": "SON CV",
+       "t": "SON FRIGO",
        "couleur": "#3f8f5a"
       }
      ]
     ],
     "video": {
-     "id": "LWYoowR4ejw",
-     "titre": "Comment faire un CV qui passe TOUS les ATS ? (avec ou sans expérience)",
-     "chaine": "La Jobsetteuse",
-     "vues": "125 k vues",
-     "date": "il y a 1 an",
-     "duree": "12:30",
-     "avatar": "https://yt3.ggpht.com/j6GstXfljO5YlaL6FynXlWCJvTcl_9moI6ZUlTdzz-wIxN2kLVHHQw9XJYVm054LyB9lfS6AwA=s176-c-k-c0x00ffffff-no-rj"
+     "id": "xnP8zPgGAhY",
+     "titre": "Frigo & congélateur - Organisation & astuces",
+     "chaine": "Les bonheurs de Camille",
+     "vues": "240 k vues",
+     "date": "il y a 3 ans",
+     "duree": "18:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ls-w17H7LbgKRz_jZAUKuB1H9d3PiqXamI6UjuHc2A4hg=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
-     "2 heures pour apprendre"
+     "15 min pour apprendre"
     ]
    },
    "en": {
     "titre": [
-     "WRITE",
+     "ORGANIZE",
      [
       {
-       "t": "YOUR FIRST CV",
+       "t": "YOUR FRIDGE",
        "couleur": "#3f8f5a"
       }
      ]
     ],
     "video": {
-     "id": "sqwK4Q4yfWU",
-     "titre": "HOW TO WRITE A CV WITH NO EXPERIENCE! (CV Writing Tips & TEMPLATES!)",
-     "chaine": "CareerVidz",
-     "vues": "239K views",
-     "date": "4 years ago",
-     "duree": "10:54",
-     "avatar": "https://yt3.ggpht.com/_9_ZC_CqNiQD9-ZLY63zpJbAulberC89AwhIksxU0SjFIJtAKOVU5QHZHKmU9JhlaCglymuStw=s176-c-k-c0x00ffffff-no-rj"
+     "id": "XRpDllJv24Y",
+     "titre": "How to Organize: The Fridge",
+     "chaine": "The Design Network",
+     "vues": "1.2M views",
+     "date": "11 years ago",
+     "duree": "5:12",
+     "avatar": "https://yt3.ggpht.com/Axb-PAyhB4igZemRZpj3RHVDTM3MNgOXCoawRBjiCfmeRGk8mwBBIhqDn4kE--XkKnv6ra0U=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
-     "2 hours to learn"
+     "15 min to learn"
     ]
    },
    "de": {
     "titre": [
-     "LEBENSLAUF",
+     "KÜHLSCHRANK",
      [
       {
-       "t": "SCHREIBEN",
+       "t": "RICHTIG EINRÄUMEN",
        "couleur": "#3f8f5a"
       }
      ]
     ],
     "video": {
-     "id": "9QgO9mIeC8o",
-     "titre": "LEBENSLAUF schreiben: Das gehört (NICHT) rein 📝",
-     "chaine": "StepUp! Coaching & Karrieretipps",
-     "vues": "526.094 Aufrufe",
-     "date": "vor 2 Jahren",
-     "duree": "4:29",
-     "avatar": "https://yt3.ggpht.com/qlWWHJRFiM8CDsMlJHrMULhyGkEIODG6yb402QR8Q_t8dP_qLs7e59t3GDphhaUJ5ITDXkJ9Ew=s176-c-k-c0x00ffffff-no-rj"
+     "id": "byA2ePG5PqY",
+     "titre": "Lifehack – Kühlschrank richtig einräumen / Sallys Welt",
+     "chaine": "Sallys Welt",
+     "vues": "639.085 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "12:48",
+     "avatar": "https://yt3.ggpht.com/bZeKSjJMUYfIt2VFJ-kQC0IBgFc5rtBk-ymrUZDB6um7mF4smkXyH90uUXiqe2277Pq_Ua7dKYA=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
-     "2 Stunden zum Lernen"
+     "15 Min. zum Lernen"
     ]
    },
    "it": {
     "titre": [
-     "SCRIVERE",
+     "ORGANIZZARE",
      [
       {
-       "t": "IL CURRICULUM",
+       "t": "IL FRIGO",
        "couleur": "#3f8f5a"
       }
      ]
     ],
     "video": {
-     "id": "WY_Zv6BJCAs",
-     "titre": "CREARE un CURRICULUM EFFICACE senza ESPERIENZE LAVORATIVE 📝",
-     "chaine": "Marco Mazzella",
-     "vues": "244K visualizzazioni",
-     "date": "5 anni fa",
-     "duree": "7:30",
-     "avatar": "https://yt3.ggpht.com/8Ge4dU6Idb-Ykz3sxEBiOAydtj7FyXOPf0pDtG2YZaqNh8KpXIYDoM_AydOR8jJ6ljTPYfBl2w=s176-c-k-c0x00ffffff-no-rj"
+     "id": "AyvHIWTM5F4",
+     "titre": "Come bisogna riporre gli alimenti nel frigorifero?",
+     "chaine": "IZSVe",
+     "vues": "131K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "2:18",
+     "avatar": "https://yt3.ggpht.com/FrKu6QaMdrYTJxqNg1nD-CYOrhgI5Ooe2T1OvUZjrKLdE64YzmLj2Ga5iYUJ7yC2oJIJhBHQbw=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
-     "2 ore per imparare"
+     "15 min per imparare"
     ]
    },
    "pt-BR": {
     "titre": [
-     "FAZER",
+     "ORGANIZAR",
      [
       {
-       "t": "UM CURRÍCULO",
+       "t": "A GELADEIRA",
        "couleur": "#3f8f5a"
       }
      ]
     ],
     "video": {
-     "id": "cHFqdmmv2Is",
-     "titre": "CURRÍCULO PRIMEIRO EMPREGO: O QUE COLOCAR QUANDO VOCÊ AINDA NÃO TEM EXPERIÊNCIA?",
-     "chaine": "Hackeando a Carreira",
-     "vues": "716 mil visualizações",
-     "date": "há 5 anos",
-     "duree": "7:41",
-     "avatar": "https://yt3.ggpht.com/MTbv5uwyo2eNowDzA_9waGWu67UBmOlCwxxZcjExjV9xB1XBRBj4YHsFC21K6DqkVIGjAVFOHA=s176-c-k-c0x00ffffff-no-rj"
+     "id": "3jC83ZZmQnA",
+     "titre": "Como organizar a geladeira? Aprenda com Rafa Oliveira - CASA DE VERDADE",
+     "chaine": "Casa de Verdade",
+     "vues": "651 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0GGfq83HRHrsvZrqkpCQPttrXz-8VZQ3uXgrNTVYraQ=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
-     "2 horas para aprender"
+     "15 min para aprender"
     ]
    },
    "tr": {
     "titre": [
-     "CV",
+     "BUZDOLABINI",
      [
       {
-       "t": "HAZIRLAMAK",
+       "t": "DÜZENLEMEK",
        "couleur": "#3f8f5a"
       }
      ]
     ],
     "video": {
-     "id": "PMaaE6ZPK1c",
-     "titre": "Özgeçmiş nasıl hazırlanır?",
-     "chaine": "Baraneemo",
-     "vues": "248 B görüntüleme",
-     "date": "2 yıl önce",
-     "duree": "12:32",
-     "avatar": "https://yt3.ggpht.com/r9g4Dmmovuf6grAbeRBleqnbmpERRHj_eUhEc1djR30wRHOy8XeOHhXBRgr4iweHLIk5cvHVn7M=s176-c-k-c0x00ffffff-no-rj"
+     "id": "TjJ9zsGLhBE",
+     "titre": "Buzdolabı Nasıl Düzenlenir ? | Pratik Mutfak - Bölüm 17",
+     "chaine": "İdil Yazar",
+     "vues": "376 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "8:42",
+     "avatar": "https://yt3.ggpht.com/GVB_VikMfqnVhYX-lEaNOntOduX83NiNuq_s0lVgrYwXSYfRbIt4WQvhENR-R7rOerQPbWzdsww=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
-     "2 saatte öğrenilir"
+     "15 dakikada öğrenilir"
     ]
    },
    "ro": {
     "titre": [
-     "SĂ-ȚI FACI",
+     "SĂ ORGANIZEZI",
      [
       {
-       "t": "UN CV",
+       "t": "FRIGIDERUL",
        "couleur": "#3f8f5a"
       }
      ]
     ],
     "video": {
-     "id": "Q-kWeI0mvJM",
-     "titre": "Cum îți Faci un CV Bun pentru Angajare în 2025? | Un Recruiter Îți Dă Părerea Lui!",
-     "chaine": "Vlad Romuald",
-     "vues": "26 K vizionări",
-     "date": "acum 2 ani",
-     "duree": "21:16",
-     "avatar": "https://yt3.ggpht.com/oDQCqZJlw1qCwAUaPFN9vZfp70VBUpb-bRy0ZtYPezglL_XF2ISjda2W09OU3fqKKmAFQv6AZw=s176-c-k-c0x00ffffff-no-rj"
+     "id": "h3LMO1ECW5s",
+     "titre": "Cum sa iti organizezi frigiderul • Ajutor in Bucatarie",
+     "chaine": "LidlRomania",
+     "vues": "88 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "0:55",
+     "avatar": "https://yt3.ggpht.com/f1hZke-aLAMXJN3E__8tckDl7b5Pc8n4e1xAzEEK_o47MbSBUalaGyvpgvcRQZG6nB8jjbb59Iw=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
-     "2 ore de învățat"
+     "15 min de învățat"
     ]
    },
    "cs": {
     "titre": [
-     "NAPSAT",
+     "USPOŘÁDAT",
      [
       {
-       "t": "ŽIVOTOPIS",
+       "t": "LEDNICI",
        "couleur": "#3f8f5a"
       }
      ]
     ],
     "video": {
-     "id": "zLvD5NGS0L0",
-     "titre": "Životopis, který tě dostane kamkoliv! - Jak ho napsat?",
-     "chaine": "Karel Kuruc",
-     "vues": "24 tis. zhlédnutí",
+     "id": "dnbM2DLlDOU",
+     "titre": "Tipy, jak udržet jídlo v lednici dlouho čerstvé | O domově",
+     "chaine": "Královny pořádku | O domově",
+     "vues": "10 tis. zhlédnutí",
      "date": "před 4 lety",
-     "duree": "7:50",
-     "avatar": "https://yt3.ggpht.com/gMtt0kyugb-g4joN4B3VkIGWexP4QZ1ZlbLKMMU8o9omL4itaY-9GFaDigkVfZ1CMEG1j5SW-eI=s176-c-k-c0x00ffffff-no-rj"
+     "duree": "2:33",
+     "avatar": "https://yt3.ggpht.com/SrwRpRQk_Zwn0axO-oG8xSdNcHeqCQsGbiCKRybOVgttPeLQ2j8BzfH8ewd9z2KgYOfWuxYrG-Y=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
-     "2 hodiny na naučení"
+     "15 min na naučení"
     ]
    }
   }

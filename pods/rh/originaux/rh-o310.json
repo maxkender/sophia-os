@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o310",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "592b74ca-f2bc-4427-ae72-af02a823e558",
+ "titre": "les questions pièges que je posais en entretien quand j'étais rh (partie 2) #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 22/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 3. Déclinaison G1 de la ligne #4 (parent 592b74ca) : accroche du parent mot pour mot, autres questions. Inspirations reprises de rh-o044. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bf0cfc20",
+   "texte_overlay": "les questions pièges que je posais en entretien\nquand j'étais rh\n(et ce que je voulais entendre)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cb419a6c",
+   "texte_overlay": "1. « qu'est-ce que vous n'aimez pas faire ? »\nle piège : « rien ».\nce que je voulais : une vraie tâche, et comment tu la fais quand même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "511ad09e",
+   "texte_overlay": "2. « qu'avez-vous appris le mois dernier ? »\nle piège : « je ne sais pas ».\nce que je voulais : un truc précis. moi, j'adorais les candidats qui apprenaient 5 minutes par jour",
+   "texte_sophia": "2. « qu'avez-vous appris le mois dernier ? »\nle piège : « je ne sais pas ».\nce que je voulais : un truc précis. moi, j'adorais celles qui apprenaient 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a006737a",
+   "texte_overlay": "3. « combien de temps vous resteriez ? »\nle piège : promettre 10 ans.\nce que je voulais : un projet sur 2 ou 3 ans",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "04cfe1cc",
+   "texte_overlay": "4. « décrivez votre pire manager »\nle piège : le descendre.\nce que je voulais : ce que tu as appris de lui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "679dd47f",
+   "texte_overlay": "5. « vous avez des questions ? »\nle piège : « non ».\nce que je voulais : une question qui montre que tu te projettes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ecdfa3da",
+   "texte_overlay": "réponds à la n°2 en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

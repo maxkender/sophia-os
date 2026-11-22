@@ -1,6 +1,6 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
-import { jetonValide, lirePeriodeQg, QG_JOURS_MAX, routeQg } from "./qg.ts";
+import { estRouteQg, jetonValide, lireLundiQg, lirePeriodeQg, QG_JOURS_MAX, routeQg } from "./qg.ts";
 
 const p = (q: string) => lirePeriodeQg(new URLSearchParams(q));
 
@@ -26,9 +26,20 @@ Deno.test("jeton : égalité stricte, jamais sans jeton configuré", () => {
   assert(!jetonValide("court", "court"));
 });
 
-Deno.test("route : dernier segment du chemin", () => {
+Deno.test("routes : tout ce qui suit qg", () => {
   assertEquals(routeQg("/functions/v1/qg/apps"), "apps");
   assertEquals(routeQg("/qg/apps/"), "apps");
   assertEquals(routeQg("/api/qg/apps"), "apps");
-  assertEquals(routeQg("/qg"), "qg");
+  assertEquals(routeQg("/api/qg/control/recrutement"), "control/recrutement");
+  assertEquals(routeQg("/functions/v1/qg/control/paie"), "control/paie");
+  assert(estRouteQg("control/autres"));
+  assert(!estRouteQg("control"));
+  assert(!estRouteQg("qg"));
+});
+
+Deno.test("lundi obligatoire pour cohorte et semaine", () => {
+  assertEquals(lireLundiQg(new URLSearchParams("cohorte=2026-11-16"), "cohorte"), { ok: true, lundi: "2026-11-16" });
+  assertEquals(lireLundiQg(new URLSearchParams("semaine=2026-11-17"), "semaine").ok, false);
+  assertEquals(lireLundiQg(new URLSearchParams(""), "semaine").ok, false);
+  assertEquals(lireLundiQg(new URLSearchParams("cohorte=16/11/2026"), "cohorte").ok, false);
 });

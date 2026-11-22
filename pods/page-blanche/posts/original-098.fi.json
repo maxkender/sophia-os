@@ -8,13 +8,13 @@
       "10/10 uncommon habits of",
       "extremely successful people"
      ],
-     "texte": "näin kuulostat fiksummalta missä tahansa keskustelussa"
+     "texte": "näin et ikinä jää sanattomaksi"
     },
     "T2": {
      "en": [
       "(niche edition)"
      ],
-     "texte": "(yrittämättä liikaa)",
+     "texte": "(edes vieraiden kanssa)",
      "alignement": "droite"
     }
    },
@@ -38,28 +38,28 @@
      "en": [
       "say no to almost everything"
      ],
-     "texte": "kysy [[yksi kysymys lisää]]"
+     "texte": "pidä [[3 aihetta]] taskussa"
     },
     "T2": {
      "en": [
       "warren buffett said really successful people say",
       "no to almost everything"
      ],
-     "texte": "älä hyppää omaan juttuusi. kysy [[\"hetkinen, miten se kävi?\"]]"
+     "texte": "jotain mitä katsoit, jotain mitä luit ja [[jotain mitä sulle sattui]]"
     },
     "T3": {
      "en": [
       "stop being a people's",
       "pleaser"
      ],
-     "texte": "ihmiset [[avautuvat]] heti"
+     "texte": "valitse ne [[ennen kuin lähdet]]"
     },
     "T4": {
      "en": [
       "you'll have less time for",
       "what actually matters"
      ],
-     "texte": "ja kuulet [[oikean tarinan]]"
+     "texte": "kun tulee hiljaista, [[otat yhden esiin]]"
     },
     "T5": {
      "en": [
@@ -67,7 +67,7 @@
       "it's the most valuable",
       "thing you have"
      ],
-     "texte": "uteliaisuus [[kuulostaa fiksummalta]] kuin mikään fakta, jonka heität"
+     "texte": "ei enää [[tyhjää päätä]] heti kun joku katsoo sua"
     }
    },
    "images": {
@@ -242,21 +242,21 @@
      "en": [
       "understand it's all your fault"
      ],
-     "texte": "sano [[\"en tiedä\"]] ääneen"
+     "texte": "[[huomaa yksi yksityiskohta]]"
     },
     "T2": {
      "en": [
       "your job, your body, your grades, your habits, your",
       "position it's all your fault"
      ],
-     "texte": "nyökyttely, kun et tajua mitään, [[näkyy heti]]"
+     "texte": "kirja, kangaskassi, kahvi jonka hän tilasi. [[kysy siitä]]"
     },
     "T3": {
      "en": [
       "that sounds harsh, but",
       "it's actually good news"
      ],
-     "texte": "\"ei hajuakaan, selitätkö?\" [[toimii paremmin]]"
+     "texte": "\"onko toi kirja hyvä?\" [[avaa kokonaisen aiheen]]"
     },
     "T4": {
      "en": [
@@ -266,7 +266,7 @@
       "you were yesterday, you",
       "can change"
      ],
-     "texte": "ihmiset tykkää selittää sitä, mitä ne tietää, sinä [[opit sen oikeasti]] ja ensi kerralla [[voit puhua siitä itse]]"
+     "texte": "ihmiset tykkää puhua siitä, mitä ne on valinnut, eikä sun tarvitse keksiä mitään, [[aihe on suoraan edessä]]"
     }
    },
    "images": {
@@ -427,20 +427,20 @@
      "en": [
       "read books instead of scrolling"
      ],
-     "texte": "hanki [[kerrottavaa]]"
+     "texte": "kerro [[yksi asia]], jonka opit tällä viikolla"
     },
     "T2": {
      "en": [
       "bill gates reads around 50 books a year"
      ],
-     "texte": "parhailla puhujilla on aina [[uusi tarina]]"
+     "texte": "outo tarina [[voittaa sääpuheet]]"
     },
     "T3": {
      "en": [
       "doomscrolling is rotting your",
       "brain"
      ],
-     "texte": "et voi kertoa [[mitä et ole oppinut]]"
+     "texte": "voit kertoa vain [[sen, minkä olet oppinut]]"
     },
     "T4": {
      "en": [
@@ -448,7 +448,7 @@
       "make you focus and think for",
       "yourself"
      ],
-     "texte": "viime viikolla selitin illallisella, [[miksi renessanssi alkoi italiasta]]"
+     "texte": "tällä viikolla mulla se oli [[miksi renessanssi alkoi italiasta]]"
     },
     "T5": {
      "en": [
@@ -641,14 +641,14 @@
       "dont go on your phone first thing in the",
       "morning"
      ],
-     "texte": "[[yhdistä kaksi asiaa]], joilla ei ole mitään yhteistä"
+     "texte": "kysy [[\"mitä sä tekisit?\"]] eikä \"mitä teet työksesi?\""
     },
     "T2": {
      "en": [
       "messages, news, tiktok, you're reacting to",
       "everyone else before you've even got out of bed"
      ],
-     "texte": "\"ruoanlaitto on käytännössä kemiaa\" tai \"tää muistuttaa roomaa\""
+     "texte": "\"vuosi missä tahansa kaupungissa, minkä valitset?\" antaa [[paljon enemmän]]"
     },
     "T3": {
      "en": [
@@ -656,7 +656,7 @@
       "dopamine before you've",
       "done anything"
      ],
-     "texte": "se näyttää, että [[ajattelet]], etkä vain muista"
+     "texte": "kaikilla [[on vastaus]], ujoillakin"
     },
     "T4": {
      "en": [
@@ -666,7 +666,7 @@
       "minutes without your",
       "phone"
      ],
-     "texte": "ja small talkista tulee keskustelu, jota [[kukaan ei halua lopettaa]]"
+     "texte": "ja vastaus antaa sulle [[kolme uutta asiaa]] kysyttäväksi"
     }
    },
    "images": {
@@ -841,13 +841,13 @@
      "en": [
       "wake up before everyone else"
      ],
-     "texte": "[[tiivistä]], mitä toinen just sanoi"
+     "texte": "[[kestä 3 sekuntia]] hiljaisuutta"
     },
     "T2": {
      "en": [
       "no messages, no notifications, no one needs you yet"
      ],
-     "texte": "\"eli tarkoitat siis...\" ennen omaa mielipidettä"
+     "texte": "älä täytä jokaista taukoa sanomalla [[\"no joo...\"]]"
     },
     "T3": {
      "en": [
@@ -856,20 +856,20 @@
       "best, so use it for your",
       "own goals"
      ],
-     "texte": "se näyttää, että [[pysyit kärryillä]], ja jos ymmärsit väärin, he korjaa ennen kuin riitelette"
+     "texte": "yleensä toinen [[jatkaa itse]] sillä, mitä oikeasti halusi sanoa"
     },
     "T4": {
      "en": [
       "before anyone else can",
       "take your attention"
      ],
-     "texte": "ja he tuntevat, että [[oikeasti kuuntelet]]"
+     "texte": "tauko [[ei ole epäonnistuminen]]"
     },
     "T5": {
      "en": [
       "even 30 minutes earlier makes a difference"
      ],
-     "texte": "fiksuin liike keskustelussa on [[kuunnella paremmin]]"
+     "texte": "parhaat keskustelut alkaa [[heti hiljaisuuden jälkeen]]"
     }
    },
    "images": {

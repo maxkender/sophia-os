@@ -8,13 +8,13 @@
       "10/10 uncommon habits of",
       "extremely successful people"
      ],
-     "texte": "come sembrare più intelligente in qualsiasi conversazione"
+     "texte": "come non restare mai senza argomenti"
     },
     "T2": {
      "en": [
       "(niche edition)"
      ],
-     "texte": "(senza sforzarti troppo)",
+     "texte": "(anche con chi non conosci)",
      "alignement": "droite"
     }
    },
@@ -38,28 +38,28 @@
      "en": [
       "say no to almost everything"
      ],
-     "texte": "fai [[una domanda in più]]"
+     "texte": "tieni [[3 argomenti]] di scorta"
     },
     "T2": {
      "en": [
       "warren buffett said really successful people say",
       "no to almost everything"
      ],
-     "texte": "non partire con la tua storia. chiedi [[\"aspetta, com'è successo?\"]]"
+     "texte": "una cosa che hai visto, una che hai letto e [[una che ti è successa]]"
     },
     "T3": {
      "en": [
       "stop being a people's",
       "pleaser"
      ],
-     "texte": "le persone [[si aprono]] subito"
+     "texte": "sceglili [[prima di uscire]]"
     },
     "T4": {
      "en": [
       "you'll have less time for",
       "what actually matters"
      ],
-     "texte": "e senti [[la storia vera]], non il riassunto"
+     "texte": "quando cala il silenzio, [[ne tiri fuori uno]]"
     },
     "T5": {
      "en": [
@@ -67,7 +67,7 @@
       "it's the most valuable",
       "thing you have"
      ],
-     "texte": "la curiosità [[suona più intelligente]] di qualsiasi dato tu possa citare"
+     "texte": "basta [[testa vuota]] appena qualcuno ti guarda"
     }
    },
    "images": {
@@ -242,21 +242,21 @@
      "en": [
       "understand it's all your fault"
      ],
-     "texte": "di' [[\"non lo so\"]] ad alta voce"
+     "texte": "[[nota un dettaglio]] dell'altra persona"
     },
     "T2": {
      "en": [
       "your job, your body, your grades, your habits, your",
       "position it's all your fault"
      ],
-     "texte": "annuire senza capire [[si nota subito]]"
+     "texte": "il suo libro, la sua borsa, il caffè che ha preso. [[chiedi di quello]]"
     },
     "T3": {
      "en": [
       "that sounds harsh, but",
       "it's actually good news"
      ],
-     "texte": "\"non ne ho idea, me lo spieghi?\" [[funziona meglio]]"
+     "texte": "\"è bello quel libro?\" [[apre un argomento intero]]"
     },
     "T4": {
      "en": [
@@ -266,7 +266,7 @@
       "you were yesterday, you",
       "can change"
      ],
-     "texte": "alla gente piace spiegare quello che sa, tu [[lo impari davvero]] e la prossima volta sei tu a [[poterne parlare]]"
+     "texte": "alla gente piace parlare di quello che ha scelto, e non devi inventarti niente, [[l'argomento è davanti a te]]"
     }
    },
    "images": {
@@ -427,20 +427,20 @@
      "en": [
       "read books instead of scrolling"
      ],
-     "texte": "abbi [[cose da raccontare]]"
+     "texte": "racconta [[una scoperta]] della settimana"
     },
     "T2": {
      "en": [
       "bill gates reads around 50 books a year"
      ],
-     "texte": "chi parla meglio ha sempre [[una storia nuova]]"
+     "texte": "una storia curiosa [[batte il meteo]]"
     },
     "T3": {
      "en": [
       "doomscrolling is rotting your",
       "brain"
      ],
-     "texte": "non puoi raccontare [[ciò che non hai mai imparato]]"
+     "texte": "puoi raccontare solo [[quello che hai imparato]]"
     },
     "T4": {
      "en": [
@@ -448,7 +448,7 @@
       "make you focus and think for",
       "yourself"
      ],
-     "texte": "la settimana scorsa a cena ho spiegato [[perché la porpora era il colore dei re]]"
+     "texte": "questa settimana la mia era [[perché la porpora era il colore dei re]]"
     },
     "T5": {
      "en": [
@@ -641,14 +641,14 @@
       "dont go on your phone first thing in the",
       "morning"
      ],
-     "texte": "[[collega due cose]] che non c'entrano niente"
+     "texte": "chiedi [[\"tu cosa faresti?\"]] invece di \"che lavoro fai?\""
     },
     "T2": {
      "en": [
       "messages, news, tiktok, you're reacting to",
       "everyone else before you've even got out of bed"
      ],
-     "texte": "\"cucinare è praticamente chimica\" o \"è come quello che è successo a roma\""
+     "texte": "\"un anno in qualsiasi città, quale scegli?\" dà [[molto di più]] delle chiacchiere"
     },
     "T3": {
      "en": [
@@ -656,7 +656,7 @@
       "dopamine before you've",
       "done anything"
      ],
-     "texte": "dimostra che [[ragioni]], non che ricordi e basta"
+     "texte": "tutti [[hanno una risposta]], anche i timidi"
     },
     "T4": {
      "en": [
@@ -666,7 +666,7 @@
       "minutes without your",
       "phone"
      ],
-     "texte": "e trasforma due chiacchiere in una conversazione che [[nessuno vuole chiudere]]"
+     "texte": "e la sua risposta ti dà [[tre cose nuove]] da chiedere"
     }
    },
    "images": {
@@ -841,13 +841,13 @@
      "en": [
       "wake up before everyone else"
      ],
-     "texte": "[[riassumi]] quello che hanno appena detto"
+     "texte": "[[reggi 3 secondi]] di silenzio"
     },
     "T2": {
      "en": [
       "no messages, no notifications, no one needs you yet"
      ],
-     "texte": "\"quindi in pratica intendi...\" prima della tua opinione"
+     "texte": "non riempire ogni pausa con [[\"vabbè, niente...\"]]"
     },
     "T3": {
      "en": [
@@ -856,20 +856,20 @@
       "best, so use it for your",
       "own goals"
      ],
-     "texte": "dimostra che [[li stavi seguendo]], e se hai capito male ti correggono prima di discutere"
+     "texte": "quasi sempre l'altra persona [[riprende il discorso]] con quello che voleva davvero dire"
     },
     "T4": {
      "en": [
       "before anyone else can",
       "take your attention"
      ],
-     "texte": "e sentono che [[ascolti davvero]]"
+     "texte": "una pausa [[non è un fallimento]]"
     },
     "T5": {
      "en": [
       "even 30 minutes earlier makes a difference"
      ],
-     "texte": "la persona più intelligente nella stanza è [[quella che ascolta meglio]]"
+     "texte": "i discorsi migliori iniziano [[subito dopo un silenzio]]"
     }
    },
    "images": {

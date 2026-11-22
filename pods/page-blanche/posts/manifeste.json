@@ -5807,6 +5807,140 @@
    },
    "notes": "full test BLEO, cta A",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-arrete-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#digitaldetox #focus #lecture",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7691007701127564576_1",
+    "2": "7688807102764092705_4",
+    "3": "7689918962905124129_2",
+    "4": "7691007701127564576_6",
+    "5": "7689918962905124129_4",
+    "6": "7688807102764092705_3"
+   },
+   "notes": "declinaison G1 de original-006, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "95a15b82-c8b0-41f1-b127-6e68ae818c0c"
+  },
+  {
+   "post_id": "var-dates-3",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#dateideas #couple #sansecran",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7709839238006607136_1",
+    "2": "7708068157784591649_2",
+    "3": "7703619977630190881_3",
+    "4": "7709839238006607136_3",
+    "5": "7708068157784591649_4",
+    "6": "7709839238006607136_6"
+   },
+   "notes": "declinaison G2 de var-dates-1, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "1b176175-7014-4020-836b-1db3a1b09185"
+  },
+  {
+   "post_id": "var-greenflags-3",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#greenflags #intelligence #psychologie",
+   "musique": {
+    "titre": "Bliss",
+    "auteur": "Klsr",
+    "original": false,
+    "id": "7346226879747917826",
+    "url_tiktok": "https://www.tiktok.com/music/x-7346226879747917826"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7698667830635400470_1",
+    "2": "7710320863865851158_2",
+    "3": "7696527080426655009_5",
+    "4": "7702412215902571809_2",
+    "5": "7699386616988650774_2",
+    "6": "7699523873712164128_4"
+   },
+   "notes": "declinaison G2 de var-greenflags-1, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "04d9d91b-9a4d-4b2e-b1e6-4b3206bc5e59"
+  },
+  {
+   "post_id": "var-flippant-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7694778035337235744?variante=var-flippant-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#reussite #habitudes #discipline",
+   "musique": {
+    "titre": "original sound - Sean | Bangkok Photographer",
+    "auteur": "Sean | Bangkok Photographer",
+    "original": true,
+    "id": "7670141900171217672",
+    "url_tiktok": "https://www.tiktok.com/music/x-7670141900171217672"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7694778035337235744_1",
+    "2": "7694778035337235744_5",
+    "3": "7694778035337235744_4",
+    "4": "7694778035337235744_2",
+    "5": "7694778035337235744_6",
+    "6": "7694778035337235744_3"
+   },
+   "notes": "declinaison G1 de 7694778035337235744, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "95b3fec9-bcbf-40f2-b35a-65d8f15076ce"
+  },
+  {
+   "post_id": "original-098",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#conversation #socialskills #selfimprovement",
+   "musique": {
+    "titre": "hold the line",
+    "auteur": "drifting.",
+    "original": false,
+    "id": "7694570671943534599",
+    "url_tiktok": "https://www.tiktok.com/music/x-7694570671943534599"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7705457734870699296_1",
+    "2": "7705457734870699296_2",
+    "3": "7705457734870699296_3",
+    "4": "7705457734870699296_4",
+    "5": "7705457734870699296_5",
+    "6": "7705457734870699296_6"
+   },
+   "notes": "full test BLEO, cta C",
+   "type_bleo": "full_test"
   }
  ]
 }

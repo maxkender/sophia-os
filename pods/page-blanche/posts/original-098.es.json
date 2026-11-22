@@ -8,13 +8,13 @@
       "10/10 uncommon habits of",
       "extremely successful people"
      ],
-     "texte": "cómo sonar más inteligente en cualquier conversación"
+     "texte": "cómo no quedarte nunca sin tema de conversación"
     },
     "T2": {
      "en": [
       "(niche edition)"
      ],
-     "texte": "(sin esforzarte demasiado)",
+     "texte": "(incluso con desconocidos)",
      "alignement": "droite"
     }
    },
@@ -38,28 +38,28 @@
      "en": [
       "say no to almost everything"
      ],
-     "texte": "haz [[una pregunta más]]"
+     "texte": "ten [[3 temas]] guardados"
     },
     "T2": {
      "en": [
       "warren buffett said really successful people say",
       "no to almost everything"
      ],
-     "texte": "no saltes a tu historia. pregunta [[\"¿y cómo pasó eso?\"]]"
+     "texte": "algo que viste, algo que leíste y [[algo que te pasó]]"
     },
     "T3": {
      "en": [
       "stop being a people's",
       "pleaser"
      ],
-     "texte": "la gente [[se abre]] al momento"
+     "texte": "elígelos [[antes de salir]]"
     },
     "T4": {
      "en": [
       "you'll have less time for",
       "what actually matters"
      ],
-     "texte": "y oyes [[la historia real]], no el resumen"
+     "texte": "cuando hay silencio, [[sacas uno y listo]]"
     },
     "T5": {
      "en": [
@@ -67,7 +67,7 @@
       "it's the most valuable",
       "thing you have"
      ],
-     "texte": "la curiosidad [[suena más lista]] que cualquier dato que sueltes"
+     "texte": "se acabó [[quedarte en blanco]] cuando alguien te mira"
     }
    },
    "images": {
@@ -242,21 +242,21 @@
      "en": [
       "understand it's all your fault"
      ],
-     "texte": "di [[\"no lo sé\"]] en voz alta"
+     "texte": "[[fíjate en un detalle]]"
     },
     "T2": {
      "en": [
       "your job, your body, your grades, your habits, your",
       "position it's all your fault"
      ],
-     "texte": "asentir sin entender nada [[se nota muchísimo]]"
+     "texte": "su libro, su bolsa, el café que pidió. [[pregunta por eso]]"
     },
     "T3": {
      "en": [
       "that sounds harsh, but",
       "it's actually good news"
      ],
-     "texte": "\"ni idea, ¿me lo explicas?\" [[funciona mejor]]"
+     "texte": "\"¿está bueno ese libro?\" [[abre todo un tema]]"
     },
     "T4": {
      "en": [
@@ -266,7 +266,7 @@
       "you were yesterday, you",
       "can change"
      ],
-     "texte": "a la gente le encanta explicar lo que sabe, tú [[lo aprendes de verdad]] y la próxima vez eres quien [[puede hablar de ello]]"
+     "texte": "a la gente le encanta hablar de lo que eligió, y no tienes que inventar nada, [[el tema está delante de ti]]"
     }
    },
    "images": {
@@ -427,20 +427,20 @@
      "en": [
       "read books instead of scrolling"
      ],
-     "texte": "ten [[cosas que contar]]"
+     "texte": "cuenta [[algo que aprendiste]] esta semana"
     },
     "T2": {
      "en": [
       "bill gates reads around 50 books a year"
      ],
-     "texte": "quien mejor habla siempre trae [[una historia nueva]]"
+     "texte": "una historia curiosa [[gana a hablar del tiempo]]"
     },
     "T3": {
      "en": [
       "doomscrolling is rotting your",
       "brain"
      ],
-     "texte": "no puedes contar [[lo que nunca aprendiste]]"
+     "texte": "solo puedes contar [[lo que aprendiste]]"
     },
     "T4": {
      "en": [
@@ -448,7 +448,7 @@
       "make you focus and think for",
       "yourself"
      ],
-     "texte": "la semana pasada expliqué en una cena [[por qué el cielo es azul]]"
+     "texte": "esta semana la mía fue [[por qué el cielo es azul]]"
     },
     "T5": {
      "en": [
@@ -641,14 +641,14 @@
       "dont go on your phone first thing in the",
       "morning"
      ],
-     "texte": "[[conecta dos cosas]] que no tienen nada que ver"
+     "texte": "pregunta [[\"¿tú qué harías?\"]] en vez de \"¿a qué te dedicas?\""
     },
     "T2": {
      "en": [
       "messages, news, tiktok, you're reacting to",
       "everyone else before you've even got out of bed"
      ],
-     "texte": "\"cocinar es básicamente química\" o \"esto es como lo que pasó en roma\""
+     "texte": "\"un año en cualquier ciudad, ¿cuál eliges?\" da [[mucho más]] que una charla vacía"
     },
     "T3": {
      "en": [
@@ -656,7 +656,7 @@
       "dopamine before you've",
       "done anything"
      ],
-     "texte": "demuestra que [[piensas]], no solo que recuerdas"
+     "texte": "todo el mundo [[tiene respuesta]], incluso la gente tímida"
     },
     "T4": {
      "en": [
@@ -666,7 +666,7 @@
       "minutes without your",
       "phone"
      ],
-     "texte": "y convierte una charla de relleno en una conversación que [[nadie quiere cortar]]"
+     "texte": "y su respuesta te da [[tres cosas nuevas]] para preguntar"
     }
    },
    "images": {
@@ -841,13 +841,13 @@
      "en": [
       "wake up before everyone else"
      ],
-     "texte": "[[resume]] lo que acaban de decir"
+     "texte": "[[aguanta 3 segundos]] de silencio"
     },
     "T2": {
      "en": [
       "no messages, no notifications, no one needs you yet"
      ],
-     "texte": "\"o sea, lo que quieres decir es...\" antes de opinar"
+     "texte": "no rellenes cada pausa con [[\"bueno, pues...\"]]"
     },
     "T3": {
      "en": [
@@ -856,20 +856,20 @@
       "best, so use it for your",
       "own goals"
      ],
-     "texte": "demuestra que [[estabas siguiendo]], y si lo entendiste mal, te corrigen antes de discutir"
+     "texte": "casi siempre la otra persona [[retoma la charla]] con lo que de verdad quería contar"
     },
     "T4": {
      "en": [
       "before anyone else can",
       "take your attention"
      ],
-     "texte": "y notan que [[de verdad escuchas]]"
+     "texte": "una pausa [[no es un fracaso]]"
     },
     "T5": {
      "en": [
       "even 30 minutes earlier makes a difference"
      ],
-     "texte": "la persona más lista de la sala es [[la que mejor escucha]]"
+     "texte": "las mejores charlas empiezan [[justo después de un silencio]]"
     }
    },
    "images": {

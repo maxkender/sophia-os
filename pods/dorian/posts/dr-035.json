@@ -10,12 +10,20 @@
  "titre": {
   "en": "10/10 skills to learn if you get bored easily",
   "de": "10/10 skills gegen schnelle langeweile",
-  "it": "skill 10/10 da imparare se ti annoi facilmente"
+  "it": "skill 10/10 da imparare se ti annoi facilmente",
+  "nl": "10/10 skills om te leren als je je snel verveelt",
+  "pt-BR": "habilidades 10/10 pra aprender se você se entedia fácil",
+  "sv": "10/10-färdigheter att lära sig om du lätt blir uttråkad",
+  "tr": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler"
  },
  "legendes": {
   "en": "#niche #skills #selfimprovement #lockedin",
   "de": "#skills #hobbys #lernen #selbstverbesserung",
-  "it": "#skill #hobby #imparare #crescitapersonale"
+  "it": "#skill #hobby #imparare #crescitapersonale",
+  "nl": "#skills #hobbys #leren #zelfontwikkeling",
+  "pt-BR": "#habilidades #hobbies #aprender #autodesenvolvimento",
+  "sv": "#färdigheter #hobbyer #lärande #självutveckling",
+  "tr": "#beceri #hobi #öğrenmek #kişiselgelişim"
  },
  "musique": {
   "titre": "QUANTUM (Slowed) - PHNKR & dnvn & Phonk King",
@@ -39,6 +47,26 @@
     "titre": "skill 10/10 da imparare se ti annoi facilmente",
     "image": "images/cerveau-23.jpg",
     "legende": "(progetti da weekend)"
+   },
+   "nl": {
+    "titre": "10/10 skills om te leren als je je snel verveelt",
+    "image": "images/cerveau-03.jpg",
+    "legende": "(weekendprojecten)"
+   },
+   "pt-BR": {
+    "titre": "habilidades 10/10 pra aprender se você se entedia fácil",
+    "image": "images/cerveau-05.jpg",
+    "legende": "(projetos de fim de semana)"
+   },
+   "sv": {
+    "titre": "10/10-färdigheter att lära sig om du lätt blir uttråkad",
+    "image": "images/cerveau-06.jpg",
+    "legende": "(helgprojekt)"
+   },
+   "tr": {
+    "titre": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
+    "image": "images/cerveau-07.jpg",
+    "legende": "(hafta sonu projeleri)"
    }
   },
   {
@@ -57,6 +85,26 @@
     "titre": "Speedcubing",
     "texte": "il metodo per principianti si impara in un weekend: sette passaggi, poche mosse. dopo, ogni risoluzione è una piccola gara contro te stesso",
     "image": "images/objets/cube.png"
+   },
+   "nl": {
+    "titre": "Speedcubing",
+    "texte": "de beginnersmethode leer je in een weekend: zeven stappen, een handvol zetten. daarna is elke oplossing een kleine race tegen jezelf",
+    "image": "images/objets/cube.png"
+   },
+   "pt-BR": {
+    "titre": "Speedcubing",
+    "texte": "o método para iniciantes se aprende num fim de semana: sete etapas, poucos movimentos. depois, cada resolução vira uma corridinha contra você mesmo",
+    "image": "images/objets/cube.png"
+   },
+   "sv": {
+    "titre": "Speedcubing",
+    "texte": "nybörjarmetoden lär du dig på en helg: sju steg, en handfull drag. sen blir varje lösning ett litet race mot dig själv",
+    "image": "images/objets/cube.png"
+   },
+   "tr": {
+    "titre": "Zeka küpü",
+    "texte": "başlangıç yöntemini bir hafta sonunda öğrenirsin: yedi adım, birkaç hamle. sonra her çözüm kendine karşı küçük bir yarışa dönüşür",
+    "image": "images/objets/cube.png"
    }
   },
   {
@@ -74,6 +122,26 @@
    "it": {
     "titre": "Origami",
     "texte": "un foglio quadrato, niente colla, niente forbici. una gru richiede circa 15 minuti. in giappone si dice che piegarne 1.000 esaudisca un desiderio",
+    "image": "images/grue-origami.jpg"
+   },
+   "nl": {
+    "titre": "Origami",
+    "texte": "één vierkant vel, geen lijm, geen schaar. een kraanvogel kost zo'n 15 minuten. in japan zeggen ze dat 1.000 ervan een wens laten uitkomen",
+    "image": "images/grue-origami.jpg"
+   },
+   "pt-BR": {
+    "titre": "Origami",
+    "texte": "um quadrado de papel, sem cola, sem tesoura. um tsuru leva uns 15 minutos. no japão, dizem que dobrar 1.000 deles realiza um desejo",
+    "image": "images/grue-origami.jpg"
+   },
+   "sv": {
+    "titre": "Origami",
+    "texte": "ett kvadratiskt papper, inget lim, ingen sax. en trana tar ungefär 15 minuter. i japan sägs det att 1 000 av dem uppfyller en önskan",
+    "image": "images/grue-origami.jpg"
+   },
+   "tr": {
+    "titre": "Origami",
+    "texte": "bir kare kâğıt, yapıştırıcı yok, makas yok. bir turna yaklaşık 15 dakika sürer. japonya'da 1.000 tane katlamanın bir dileği gerçekleştirdiği söylenir",
     "image": "images/grue-origami.jpg"
    }
   },
@@ -94,6 +162,26 @@
     "titre": "Una lezione al giorno su Sophia",
     "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. ogni giorno un argomento diverso, quindi non annoia mai",
     "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. elke dag een ander onderwerp, dus het wordt nooit saai",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. um assunto diferente por dia, então nunca fica chato",
+    "telephone": "quiz"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. ett nytt ämne varje dag, så det blir aldrig tråkigt",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. her gün farklı bir konu, yani asla sıkıcı olmaz",
+    "telephone": "quiz"
    }
   },
   {
@@ -112,6 +200,26 @@
     "titre": "L'alfabeto dei segni",
     "texte": "impara l'alfabeto manuale del tuo paese: una ventina di forme della mano. in una settimana sai dire il tuo nome a una persona sorda",
     "image": "images/mains-signes.jpg"
+   },
+   "nl": {
+    "titre": "Het vingeralfabet",
+    "texte": "leer het vingeralfabet van je land: 26 handvormen. na een week kun je je naam spellen voor iemand die doof is",
+    "image": "images/mains-signes.jpg"
+   },
+   "pt-BR": {
+    "titre": "O alfabeto de libras",
+    "texte": "aprenda o alfabeto manual da libras: uma forma de mão pra cada letra. em uma semana você soletra seu nome pra uma pessoa surda",
+    "image": "images/mains-signes.jpg"
+   },
+   "sv": {
+    "titre": "Handalfabetet",
+    "texte": "lär dig det svenska handalfabetet: en handform per bokstav. på en vecka kan du bokstavera ditt namn för någon som är döv",
+    "image": "images/mains-signes.jpg"
+   },
+   "tr": {
+    "titre": "İşaret dili alfabesi",
+    "texte": "türk işaret dilinin parmak alfabesini öğren. bir haftada adını işitme engelli birine kodlayabilirsin",
+    "image": "images/mains-signes.jpg"
    }
   },
   {
@@ -129,6 +237,26 @@
    "it": {
     "titre": "Calligrafia",
     "texte": "un brush pen e un foglio a righe. dieci minuti al giorno di lettere lente e precise calmano in modo strano, e migliora anche la tua grafia",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "nl": {
+    "titre": "Kalligrafie",
+    "texte": "een brushpen en gelinieerd papier. tien minuten per dag langzame, bewuste letters is vreemd rustgevend, en je handschrift wordt ook beter",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Caligrafia",
+    "texte": "uma brush pen e papel pautado. dez minutos por dia de letras lentas e caprichadas acalmam de um jeito estranho, e sua letra melhora junto",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "sv": {
+    "titre": "Kalligrafi",
+    "texte": "en penselpenna och linjerat papper. tio minuter om dagen med långsamma, noggranna bokstäver är konstigt lugnande, och din handstil blir bättre",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "tr": {
+    "titre": "Kaligrafi",
+    "texte": "bir fırça kalem ve çizgili kâğıt. günde on dakika yavaş, özenli harfler tuhaf derecede rahatlatır, el yazın da güzelleşir",
     "image": "images/femme-ecrivant.jpg"
    }
   }

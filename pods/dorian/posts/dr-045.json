@@ -1,0 +1,149 @@
+{
+ "id": "dr-045",
+ "format": "liste",
+ "titre": {
+  "en": "5 psychology effects that genuinely run your life",
+  "de": "5 psychologische effekte, die dein leben steuern",
+  "tr": "hayatını yöneten 5 psikoloji etkisi"
+ },
+ "legendes": {
+  "en": "#psychology #mindset #smarttok #lockedin",
+  "de": "#psychologie #wissen #fakten #selbstverbesserung",
+  "tr": "#psikoloji #bilgi #zihin #kişiselgelişim"
+ },
+ "musique": {
+  "titre": "original sound - 432pa.hp",
+  "url": "https://www.tiktok.com/music/original-sound-7603872322981874462"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : Kruger et Dunning 1999 ; Zeigarnik 1927 ; Gilovich, Medvec et Savitsky 2000 (t-shirt : ~50 % estimés, ~25 % réels) ; illusion de fréquence (Zwicky 2005) ; Franklin, Autobiographie, et Jecker et Landy 1969. Images Seedream, tableaux AIC déjà dans la banque. En, de, tr ; une couverture par langue (cerveaux 30, 31, 32). Sophia en item 3 sur 6 (cta C), écran quiz traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 psychology effects that genuinely run your life",
+    "image": "images/cerveau-30.jpg",
+    "legende": "(you've felt all of them)"
+   },
+   "de": {
+    "titre": "5 psychologische effekte, die dein leben steuern",
+    "image": "images/cerveau-31.jpg",
+    "legende": "(du kennst sie alle)"
+   },
+   "tr": {
+    "titre": "hayatını yöneten 5 psikoloji etkisi",
+    "image": "images/cerveau-32.jpg",
+    "legende": "(hepsini yaşadın)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Dunning-Kruger effect",
+    "texte": "in a 1999 study, the people who scored lowest on a test overestimated their score the most. knowing a little feels like knowing a lot",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "de": {
+    "titre": "Der Dunning-Kruger-Effekt",
+    "texte": "in einer studie von 1999 überschätzten die leute mit den schlechtesten ergebnissen sich am meisten. ein bisschen wissen fühlt sich an wie viel",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "tr": {
+    "titre": "Dunning-Kruger etkisi",
+    "texte": "1999'daki bir çalışmada testte en düşük puanı alanlar puanlarını en çok abartanlar oldu. biraz bilmek çok biliyormuş gibi hissettirir",
+    "image": "images/tete-philosophe.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Zeigarnik effect",
+    "texte": "bluma zeigarnik noticed in 1927 that unfinished tasks stick in your mind more than finished ones. that's why cliffhangers work",
+    "image": "images/fil-rouge.jpg"
+   },
+   "de": {
+    "titre": "Der Zeigarnik-Effekt",
+    "texte": "bluma zeigarnik bemerkte 1927, dass unerledigte aufgaben stärker im kopf bleiben als erledigte. deshalb funktionieren cliffhanger",
+    "image": "images/fil-rouge.jpg"
+   },
+   "tr": {
+    "titre": "Zeigarnik etkisi",
+    "texte": "bluma zeigarnik 1927'de yarım kalan işlerin bitenlerden daha çok akılda kaldığını fark etti. dizilerdeki merak uyandıran sonlar bu yüzden işe yarar",
+    "image": "images/fil-rouge.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. psychology, history, science, in 10 minutes",
+    "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. psychologie, geschichte, wissenschaft, in 10 minuten",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. psikoloji, tarih, bilim, 10 dakikada",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The spotlight effect",
+    "texte": "students wearing an embarrassing t-shirt guessed about half the room noticed. in reality, about a quarter did. nobody watches you as much as you think",
+    "image": "images/spotlight.jpg"
+   },
+   "de": {
+    "titre": "Der Spotlight-Effekt",
+    "texte": "studenten mit einem peinlichen t-shirt schätzten, dass die hälfte des raums es bemerkte. tatsächlich war es etwa ein viertel. niemand schaut so viel hin, wie du denkst",
+    "image": "images/spotlight.jpg"
+   },
+   "tr": {
+    "titre": "Spot ışığı etkisi",
+    "texte": "utanç verici bir tişört giyen öğrenciler odanın yarısının fark ettiğini tahmin etti. gerçekte yaklaşık dörtte biri fark etti. kimse sana sandığın kadar bakmıyor",
+    "image": "images/spotlight.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The frequency illusion",
+    "texte": "you learn a new word and suddenly see it everywhere. it was always there. your brain just started noticing it",
+    "image": "images/miroirs.jpg"
+   },
+   "de": {
+    "titre": "Die Frequenzillusion",
+    "texte": "du lernst ein neues wort und siehst es plötzlich überall. es war immer da. dein gehirn bemerkt es nur jetzt",
+    "image": "images/miroirs.jpg"
+   },
+   "tr": {
+    "titre": "Sıklık yanılsaması",
+    "texte": "yeni bir kelime öğrenirsin ve birden her yerde görürsün. hep oradaydı. beynin sadece fark etmeye başladı",
+    "image": "images/miroirs.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Ben Franklin effect",
+    "texte": "franklin wrote that asking a rival to lend him a rare book turned the rival into a friend. we tend to like the people we've helped",
+    "image": "images/homme-billet.jpg"
+   },
+   "de": {
+    "titre": "Der Ben-Franklin-Effekt",
+    "texte": "franklin schrieb, dass er einen rivalen um ein seltenes buch bat und ihn so zum freund machte. wir mögen eher die menschen, denen wir geholfen haben",
+    "image": "images/homme-billet.jpg"
+   },
+   "tr": {
+    "titre": "Ben Franklin etkisi",
+    "texte": "franklin, bir rakibinden nadir bir kitabı ödünç istediğinde onu dosta çevirdiğini yazdı. yardım ettiğimiz insanları daha çok severiz",
+    "image": "images/homme-billet.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

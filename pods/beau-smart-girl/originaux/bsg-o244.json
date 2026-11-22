@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o244",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "91366050-cfa8-4dd0-8a9a-b2e4350b1429",
+  "titre": "comment je suis devenue celle qui a toujours une anecdote (sans passer pour une intello) #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "91366050-cfa8-4dd0-8a9a-b2e4350b1429"
+  ],
+  "notes": "G2, déclinaison de 91366050 (« comment je suis devenue la fille qui sait toujours un truc sans être une intello », G1 gagnante, génération 1 en français ; meilleur passage en 856 vues, r 6,2), en français, 1re déclinaison. Accroche reformulée : « comment je suis devenue celle qui a toujours une anecdote (sans passer pour une intello) ». cta B. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/Louvre : ouvert comme musée en 1793 (le fait Oxford du parent n'est pas repris). Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests. Lignes sautées : 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0d2ab2d3",
+      "texte_overlay": "comment je suis devenue celle\nqui a toujours une anecdote\n(sans passer pour une intello)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7aca3deb",
+      "texte_overlay": "1. je pose la question que personne ne pose\n\net je retiens la réponse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "154b332b",
+      "texte_overlay": "2. j'apprends un truc chaque matin\n\nce matin, j'ai appris que le louvre a ouvert comme musée en 1793, après avoir été un palais.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "2. j'apprends un truc chaque matin\n\nce matin, l'appli Sophia m'a appris que le louvre a ouvert comme musée en 1793, après avoir été un palais.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "11a77790",
+      "texte_overlay": "3. je lis les plaques dans la rue\n\nun nom, une date, une histoire.\nparis est un livre ouvert.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4af86486",
+      "texte_overlay": "4. je note mes anecdotes\n\nune par jour, dans mon téléphone.\nma réserve pour les dîners.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "66313ece",
+      "texte_overlay": "5. j'écoute plus que je ne parle\n\nles autres savent plein de choses.\nil suffit de leur demander.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "616b5e84",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

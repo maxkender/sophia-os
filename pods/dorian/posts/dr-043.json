@@ -1,0 +1,281 @@
+{
+ "id": "dr-043",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of dark academia hobbies",
+  "pt-BR": "Iceberg de hobbies dark academia",
+  "nl": "IJsberg van dark academia-hobby's"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #darkacademia #lockedin #selfimprovement",
+  "pt-BR": "#iceberg #hobbies #darkacademia #autoconhecimento",
+  "nl": "#ijsberg #hobbys #darkacademia #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "Ashes and Embers - WATIWO LIA",
+  "url": "https://www.tiktok.com/music/original-sound-7569882137836849153"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « dark academia hobbies ». Sophia au 2e étage (icône). En, pt-BR, nl ; variantes 2, 3, 4.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "dark academia hobbies",
+    "variante": 2
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies dark academia",
+    "variante": 3
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "dark academia-hobby's",
+    "variante": 4
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "reading classics",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "black coffee",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "rainy walks",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "journaling",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "learning latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "letter writing",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "candlelit study",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "fountain pens",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "old libraries",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "poetry",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "greek tragedy",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "fencing",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "typewriters",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "philosophy at 3am",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "ler clássicos",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "café preto",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "andar na chuva",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "diário",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "aprender latim",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "escrever cartas",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "estudar com vela",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "canetas-tinteiro",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "bibliotecas antigas",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "poesia",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "tragédia grega",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "esgrima",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "máquinas de escrever",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "filosofia às 3h",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "klassiekers lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "zwarte koffie",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "wandelen in de regen",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "dagboek",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "latijn leren",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "brieven schrijven",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "studeren bij kaarslicht",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "vulpennen",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "oude bibliotheken",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "poëzie",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "griekse tragedie",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "schermen",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "typemachines",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "filosofie om 3 uur",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

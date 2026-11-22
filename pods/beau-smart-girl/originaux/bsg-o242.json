@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o242",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3c9c9514-209b-4baf-9133-f0ea01a6fefc",
+  "titre": "les sujets qui lancent une conversation à coup sûr (oublie la météo) #conversation #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "3c9c9514-209b-4baf-9133-f0ea01a6fefc"
+  ],
+  "notes": "G2, déclinaison de 3c9c9514 (« les sujets de conversation qui marchent à tous les coups, et ce n'est pas la météo », G1 gagnante, génération 1 en français ; meilleur passage tr 4,5 k vues, r 2,17), en français, 1re déclinaison. Accroche reformulée : « les sujets qui lancent une conversation à coup sûr (oublie la météo) ». cta B. Sujets neufs (rien de repris du parent). Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Anglo-Zanzibar_War : la guerre a duré moins d'une heure (1896). Routine du 22/11 sur BLEO (par_jour passé à 14 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 9 déclinaisons ; les lignes 1 à 9 de la boîte se déclinent, mais pas les 10 à 12, donc 9 déclinaisons et 5 full tests. Lignes sautées : 10 (« tinas ai », nom d'une autre appli), 11 (« validé par les neurosciences »), 12 (« je notes »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "79781c18",
+      "texte_overlay": "les sujets qui lancent une conversation\nà coup sûr\n(oublie la météo)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4131fd3e",
+      "texte_overlay": "1. le dernier livre qui l'a marqué\n\nmême s'il date du lycée.\nsurtout s'il date du lycée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7de3b0f9",
+      "texte_overlay": "2. le métier qu'il voulait faire enfant\n\nastronaute, boulangère, vétérinaire.\nles rires arrivent tout seuls.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "7e2dd05f",
+      "texte_overlay": "3. un fait étonnant\n\nce matin, j'ai appris que la guerre la plus courte de l'histoire a duré moins d'une heure.\ntoute la table a voulu savoir laquelle.",
+      "texte_sophia": "3. un fait étonnant\n\nce matin, l'appli Sophia m'a appris que la guerre la plus courte de l'histoire a duré moins d'une heure.\ntoute la table a voulu savoir laquelle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "86c191ac",
+      "texte_overlay": "4. le pays où il rêve d'aller\n\net pourquoi celui-là.\non apprend tout de quelqu'un.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "858cc3f8",
+      "texte_overlay": "5. ce qu'il apprendrait avec un an libre\n\nla question préférée de tout le monde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3f55f9f5",
+      "texte_overlay": "garde-la pour ton prochain dîner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+ "id": "dr-044",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2000000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of space nerd hobbies",
+  "it": "Iceberg degli hobby da nerd dello spazio",
+  "tr": "Uzay meraklılarının hobi buzdağı"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #space #astronomy #lockedin",
+  "it": "#iceberg #hobby #spazio #astronomia",
+  "tr": "#buzdağı #hobi #uzay #astronomi"
+ },
+ "musique": {
+  "titre": "original sound - Neopatrickharris",
+  "url": "https://www.tiktok.com/music/original-sound-7687733674313288461"
+ },
+ "notes": "Original sur son iceberg à 2 M (« Iceberg of Autistic hobbies »), sujet « space nerd ». Sophia au 2e étage (icône). En, it, tr ; variantes 1, 2, 3.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "space nerd hobbies",
+    "variante": 1
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da nerd dello spazio",
+    "variante": 2
+   },
+   "tr": {
+    "haut": "Uzay meraklılarının",
+    "bas": "hobi buzdağı",
+    "variante": 3
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "stargazing",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "space docs",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "sci-fi books",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "naming planets",
+       "image": "images/objets/saturne.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "model rockets",
+       "image": "images/objets/fusee.png"
+      },
+      {
+       "t": "astrophotography",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "moon phases",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ],
+     [
+      {
+       "t": "meteorites",
+       "image": "images/objets/meteorite.png"
+      },
+      {
+       "t": "radio astronomy",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "star charts",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "binocular astronomy",
+       "image": "images/objets/jumelles.png"
+      }
+     ],
+     [
+      {
+       "t": "space suit history",
+       "image": "images/objets/casque-astronaute.png"
+      },
+      {
+       "t": "orbital math",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "black holes",
+       "image": "images/objets/sablier.png"
+      }
+     ],
+     [
+      {
+       "t": "listening for aliens",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "guardare le stelle",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "docu sullo spazio",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "libri di fantascienza",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "i nomi dei pianeti",
+       "image": "images/objets/saturne.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "modellini di razzi",
+       "image": "images/objets/fusee.png"
+      },
+      {
+       "t": "astrofotografia",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "fasi lunari",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ],
+     [
+      {
+       "t": "meteoriti",
+       "image": "images/objets/meteorite.png"
+      },
+      {
+       "t": "radioastronomia",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "carte del cielo",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "stelle col binocolo",
+       "image": "images/objets/jumelles.png"
+      }
+     ],
+     [
+      {
+       "t": "storia delle tute spaziali",
+       "image": "images/objets/casque-astronaute.png"
+      },
+      {
+       "t": "calcolo delle orbite",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "buchi neri",
+       "image": "images/objets/sablier.png"
+      }
+     ],
+     [
+      {
+       "t": "ascoltare gli alieni",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "yıldız izlemek",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "uzay belgeselleri",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "bilimkurgu kitapları",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "gezegen isimleri",
+       "image": "images/objets/saturne.png"
+      }
+     ],
+     [
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "maket roketler",
+       "image": "images/objets/fusee.png"
+      },
+      {
+       "t": "astrofotoğraf",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "ay evreleri",
+       "image": "images/objets/lampe-lune.png"
+      }
+     ],
+     [
+      {
+       "t": "göktaşları",
+       "image": "images/objets/meteorite.png"
+      },
+      {
+       "t": "radyo astronomi",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "yıldız haritaları",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "dürbünle gökyüzü",
+       "image": "images/objets/jumelles.png"
+      }
+     ],
+     [
+      {
+       "t": "uzay giysileri tarihi",
+       "image": "images/objets/casque-astronaute.png"
+      },
+      {
+       "t": "yörünge hesabı",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "kara delikler",
+       "image": "images/objets/sablier.png"
+      }
+     ],
+     [
+      {
+       "t": "uzaylıları dinlemek",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   }
+  }
+ ]
+}

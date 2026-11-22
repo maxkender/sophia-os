@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o375",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e3e85828-224b-4c2e-88ab-3ebf43534d5e",
+ "titre": "How to stay calm when everyone else is stressed #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "e3e85828-224b-4c2e-88ab-3ebf43534d5e"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 3 de la boîte (e3e85828, sr 4,2 k r 1,47), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent (petits imprévus, parler en dernier, ne pas le prendre pour soi, sport, café, préparer les moments durs).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ffb6fca-47ed-4c36-a594-14876d09d636",
+   "texte_overlay": "How to stay calm when\neveryone else is stressed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Breathe slower than the room. When people rush and raise their voices, slow your breathing. Your body calms first, then your words follow.",
+   "media_id": "6ef5bd23-ce2a-455e-9a5b-b6c7c0920df4"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Focus on the next step, not the whole problem. \"What can we do right now?\" One clear action calms everyone faster than long discussions.",
+   "media_id": "6f273895-d993-4b4f-8ba4-f405c5dc8b7d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Lower your voice when tension rises. A calm, low voice makes people stop and listen. Shouting only adds more stress. Calm voices win.",
+   "media_id": "6f2fb8d0-6cc0-4c9f-b817-f090e034a9c6"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep perspective. Ask \"will this matter in a year?\" Most stressful moments look small once they've passed. Zoom out and breathe before you react.",
+   "media_id": "6f34ae0a-5a77-4e65-bdc7-d74303d3fb20"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: other people's stress became mine. After: five minutes a day of history, art or science, and I stay steady when things get tense.",
+   "texte_sophia": "Before: other people's stress became mine. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I stay steady when things get tense.",
+   "media_id": "c3d53d80-7ea6-4d7a-b696-f58deb35a20f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Sleep well before big days. Tired men panic faster. A good night's rest is your best preparation for stressful moments. Protect it.",
+   "media_id": "6fedad1a-8df9-40c4-b8dc-9833869e6ba8"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Have a ritual to reset. A walk, a glass of water, two minutes alone. Small breaks help you come back calmer and clearer.",
+   "media_id": "6ff0dfcf-85b9-405c-9958-81d66d3e1794"
+  }
+ ]
+}

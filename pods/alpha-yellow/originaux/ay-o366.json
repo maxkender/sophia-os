@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o366",
+ "type_bleo": "full_test",
+ "titre": "How to get your focus back in a distracted world #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to get your focus back in a distracted world » (retenue), « Why you can't concentrate anymore » (écartée : sans promesse), « Deep focus for men » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1303e164-e3c1-4655-a8a9-76c4daa1e62b",
+   "texte_overlay": "How to get your focus back\nin a distracted world",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Start your day without your phone. The first hour sets your attention for the whole day. Read, train or plan before you check a single notification.",
+   "media_id": "277dd257-7034-4f57-a7f5-e92935b9e3c5"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Work in blocks of 45 minutes. One task, timer on, phone in another room. Short, protected sessions get more done than a whole distracted afternoon.",
+   "media_id": "4d3070b4-bf94-4789-b5bf-f70c345b0c33"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Turn off almost every notification. Keep calls and messages from close people. Everything else can wait until you decide to look.",
+   "media_id": "507fcba6-9295-45dc-b22d-fc9695196133"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Do one thing at a time, even when you relax. Watch the film without scrolling, eat without your phone. Focus is a habit you train all day long.",
+   "media_id": "585d42d0-2299-42c7-8dfd-58ee5e45d391"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your attention with something better. I do five minutes a day of history, art or science, and it trains my mind to stay on one thing.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It trains my mind to stay on one thing.",
+   "media_id": "29aa2551-2a1f-4ab2-b4d1-9a67c09e8e46"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Get bored on purpose. Wait in line without your phone, walk without music. Your brain needs empty moments to recover its attention.",
+   "media_id": "588863af-d029-4559-b3f2-607365ed3700"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Sleep and move enough. Tired, inactive bodies can't focus well. Good sleep and daily exercise are the base of every sharp mind.",
+   "media_id": "588e7156-c95e-4aab-a19d-c9847210deff"
+  }
+ ]
+}

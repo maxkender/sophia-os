@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o373",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7b9ce2e1-50ee-4b32-ab33-12d39805771c",
+ "titre": "Things a man's home should have by 30 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "7b9ce2e1-50ee-4b32-ab33-12d39805771c"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 1 de la boîte (7b9ce2e1, de 3 k r 2,51), 2e déclinaison après ay-o355. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o355.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5f6010bf-7102-4a6f-b6a0-a368f39e02bc",
+   "texte_overlay": "Things a man's home\nshould have by 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A proper bed frame. No more mattress on the floor. A real bed makes your room feel adult and makes guests take you more seriously.",
+   "media_id": "6bd20012-4890-41ad-9bba-39e02f0cd2e4"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Enough chairs for friends. Four people should be able to sit and eat together. A home that can host people is a home that stays full of life.",
+   "media_id": "6c2fa67c-43ec-4870-8e6f-5069f48bf5d1"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Real plates and glasses that match. Not a mix of mugs from different flats. Small details make dinners feel special. Guests notice.",
+   "media_id": "6c3d2052-954b-4056-884f-b191d0a25aaa"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "A first-aid kit. Plasters, painkillers, bandages, a thermometer. You'll be glad you have it the moment someone gets hurt.",
+   "media_id": "6d182540-dd37-4068-8235-994e32aeca9b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: my shelves were empty and so was my mind. After: five minutes a day of history, art or science, and both are filling up.",
+   "texte_sophia": "Before: my shelves were empty and so was my mind. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Both are filling up.",
+   "media_id": "a71f427e-c086-4c87-ad0b-288e19518541"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A few good books on display. Not for show, for reading. Books make a room feel warm and say something about who you are.",
+   "media_id": "6dc9607e-66e6-4301-8b88-c7f86c04063e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "A plant you keep alive. It sounds small, but taking care of something living makes a home feel calmer and more cared for.",
+   "media_id": "6de49589-d0b6-4093-a8d5-1a039d7319f5"
+  }
+ ]
+}

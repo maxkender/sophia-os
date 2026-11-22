@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o372",
+ "type_bleo": "full_test",
+ "titre": "How to plan a road trip you'll never forget #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to plan a road trip you'll never forget » (retenue), « Road trip tips for men » (écartée : plat), « The ultimate road trip checklist » (écartée : catalogue).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ee16989-8851-4796-8ec8-4e0b1f466768",
+   "texte_overlay": "How to plan a road trip\nyou'll never forget",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Choose a route, not just a destination. Small roads, coastal drives, mountain passes. The best moments usually happen between the places you planned.",
+   "media_id": "69f4da42-19e1-44ea-b5e2-e06b332d50cc"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Plan only half the trip. Book a few nights, leave the rest open. Freedom to stay longer somewhere special is what makes road trips magical.",
+   "media_id": "6a8dc722-21f3-436a-af29-82b03cc85210"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Pick the right people. Two or three friends who stay calm when plans change. The company matters more than the car or the views.",
+   "media_id": "6acb3cc8-fa47-46b9-be11-9d5b6c9777b3"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Make a great playlist together. Everyone adds ten songs. Music turns long drives into some of the best memories of the trip.",
+   "media_id": "6acc6fbc-a6ed-4ea1-beb7-f365bb6ed9db"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learn the stories of the places you'll see. I do five minutes a day of history, art or science, and it makes every stop more interesting.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It makes every stop more interesting.",
+   "media_id": "99d2bcf3-2099-4cec-b815-bd5765b6984e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Stop where the locals stop. Small cafés, markets, hidden beaches. Ask people for their favourite place nearby and go there.",
+   "media_id": "6b9658f9-91e2-4219-b73b-8f5704a84b63"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Take photos, but put the phone away often. Some of the best moments are the ones you just watch, without trying to capture them.",
+   "media_id": "6bc854bd-e730-40e1-a566-cf2b83e335dc"
+  }
+ ]
+}

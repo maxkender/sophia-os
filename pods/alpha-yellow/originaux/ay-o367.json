@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o367",
+ "type_bleo": "full_test",
+ "titre": "How to get through winter without losing your energy #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to get through winter without losing your energy » (retenue), « Winter habits for men » (écartée : plat), « Beat the winter blues » (écartée : cliché).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "23a7e2b7-b1c3-4378-b4ba-db0252320af3",
+   "texte_overlay": "How to get through winter\nwithout losing your energy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Get outside in daylight every day. Even cloudy winter light helps your mood and sleep. A twenty-minute walk at lunch makes a real difference.",
+   "media_id": "5c823e1e-b4a5-45be-82f6-4ac0ac4c99d5"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Keep training, even when it's dark and cold. Winter is when many men stop, and spring is when they regret it. Lift indoors, run with a light.",
+   "media_id": "5da9360e-4246-4e91-9a93-c09fb947acfe"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Make your home warm and bright. Good lamps, a tidy space, a few plants. A cosy home makes long evenings feel like a pleasure, not a prison.",
+   "media_id": "5ea95f11-6090-48b4-a74e-04a5e1654c1d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "See friends on purpose. Winter makes it easy to stay in. Plan a weekly dinner, a game night or a sauna session to keep your social life alive.",
+   "media_id": "5ede7285-82d7-4a25-8f10-d434a821af72"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: winter evenings felt long and empty. After: five minutes a day of history, art or science, and they became my favourite time to learn.",
+   "texte_sophia": "Before: winter evenings felt long and empty. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. They became my favourite time to learn.",
+   "media_id": "53f40240-1f5e-42f2-a9a9-3fec0baea2e2"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Eat warm, real food. Soups, stews, roasted vegetables. Good winter cooking keeps you healthy and makes dark evenings feel comforting.",
+   "media_id": "5fd569e1-33da-4e62-a03a-e3d4f4897868"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Plan something for the end of winter. A trip, a race, a project. Having something to look forward to makes the cold months go faster.",
+   "media_id": "60409140-d135-4759-8a3a-26dc8c348277"
+  }
+ ]
+}

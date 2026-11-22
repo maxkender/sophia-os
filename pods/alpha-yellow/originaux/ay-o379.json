@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o379",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "392432ed-891f-44a1-997c-3653044d9d26",
+ "titre": "Hobbies that quietly make you a genius #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "392432ed-891f-44a1-997c-3653044d9d26"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 7 de la boîte (392432ed, en 4,1 k r 4,42), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent (instrument, construire, coder, débattre) ni des hobbies d'ay-o272, o315.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6c8042dd-bc1a-4d0d-9373-bf3995f39cfe",
+   "texte_overlay": "Hobbies that quietly\nmake you a genius",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Playing chess. Every game is a lesson in planning, patience and seeing a few moves ahead. Start online or at a local club.",
+   "media_id": "791b7bb1-1398-4cf2-bd9a-528836260dbd"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learning a foreign language. New words, new grammar, new ways of thinking. A second language stretches your brain like nothing else.",
+   "media_id": "7961ef7b-d983-4a93-bcf9-29ac26fb7a09"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Photography. Light, composition, timing. Learning to really see the world trains attention and creativity at the same time.",
+   "media_id": "79a37502-432c-42d5-89ed-3be1c37a40d7"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Gardening. Planning, patience and learning from mistakes. Growing your own food teaches biology, chemistry and calm. Start with herbs.",
+   "media_id": "7a681555-332e-4976-a7f1-04ac6542f42c"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Daily micro-learning. I do five minutes a day of history, art or science, and it connects all my other hobbies together.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It connects all my other hobbies together.",
+   "media_id": "f6c16efa-d830-4bae-b105-ed6f758a321d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Solving puzzles. Crosswords, Rubik's cubes, logic games. Ten minutes a day keeps your mind quick and flexible. Keep one in your bag.",
+   "media_id": "7a7db502-9d8d-45ca-b8bc-7ba5df2ad1e5"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Writing a journal. Putting thoughts into words makes you think more clearly and understand yourself better. Five minutes before bed is enough.",
+   "media_id": "7aaa8455-feae-4fc2-b598-8af9e6ce19bc"
+  }
+ ]
+}

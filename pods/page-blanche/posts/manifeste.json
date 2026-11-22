@@ -5723,7 +5723,35 @@
     "id": "7629352188019509265",
     "url_tiktok": "https://www.tiktok.com/music/x-7629352188019509265"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta A"
+  },
+  {
+   "post_id": "var-dates-2",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#dateideas #couple #sanstelephone",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696527080426655009_1",
+    "2": "7699386616988650774_2",
+    "3": "7710320863865851158_3",
+    "4": "7696527080426655009_6",
+    "5": "7698667830635400470_4",
+    "6": "7709839238006607136_6"
+   },
+   "notes": "declinaison G2 de var-dates-1, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "1b176175-7014-4020-836b-1db3a1b09185"
   }
  ]
 }

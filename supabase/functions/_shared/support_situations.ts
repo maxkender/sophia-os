@@ -27,7 +27,7 @@ export interface SituationFixe {
 export const TEXTES_SITUATIONS = {
   /** 22/11 (Max) : les 4 réponses officielles aux problèmes de contenu. */
   langue: "Translate it into your language as best you can and post it.",
-  texte_faux: "Please post an old TikTok you already posted. Today counts as done.",
+  texte_faux: "Please always post the text and images you are given. If there is really an issue with the post, edit the text so it makes sense, or post an old post that performed well.",
   texte_integre: "That's normal, the text is already on the images, just post the photos.",
   police: "That's fine.",
   hors_sujet: "Post it anyway. If it's really off-topic, post an old post that worked.",

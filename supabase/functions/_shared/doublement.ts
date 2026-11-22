@@ -11,6 +11,15 @@ export function lundiEnClair(lundi: string): string {
   return `Monday, ${MOIS[d.getUTCMonth()]} ${d.getUTCDate()}`;
 }
 
+/**
+ * 22/11 (Max) : un posteur Ruul doublé ne crée ni second compte Ruul ni seconde vérification : les deux comptes
+ * TikTok sont payés ensemble, sur son compte Ruul actuel. Dit dans chaque message de doublement Ruul.
+ */
+export const PAIE_RUUL_DEUX_COMPTES =
+  "You are paid for both accounts in the same place, your current Ruul account: no new Ruul account or verification needed.";
+
+const ruul = (canal: string | null | undefined) => (canal === "ruul" ? ` ${PAIE_RUUL_DEUX_COMPTES}` : "");
+
 const montant = (n: number) => (Math.round(n * 100) / 100).toString();
 
 /** La proposition (Upwork : « reply YES here » ; Ruul : « reply YES to this email »). */
@@ -25,19 +34,21 @@ export function texteOffreDouble(o: {
   const repondre = o.canal === "ruul" ? "reply YES to this email" : "reply YES here";
   return `Hi ${o.prenom?.trim() || "there"}, ${compte} is doing great. Would you like to manage a 2nd TikTok account? ${paie} ` +
     `To accept, ${repondre} or click "Accept" on your dashboard before Sunday 23:59 (Paris time). ` +
-    `The 2nd account does its warm-up until Sunday and starts posting on ${lundiEnClair(o.lundi)}.`;
+    `The 2nd account does its warm-up until Sunday and starts posting on ${lundiEnClair(o.lundi)}.${ruul(o.canal)}`;
 }
 
 /** Le message du démarrage, le lundi. */
-export function texteDemarrageDouble(o: { handle1: string | null; handle2: string | null; tarif: number | null; lundi: string }): string {
+export function texteDemarrageDouble(o: {
+  handle1: string | null; handle2: string | null; tarif: number | null; lundi: string; canal?: string | null;
+}): string {
   const h = (x: string | null) => (x ? `@${x.replace(/^@/, "")}` : "your new account");
   const paie = o.tarif && o.tarif > 0 ? ` Your weekly pay is now ${montant(2 * o.tarif)} $.` : "";
-  return `From ${lundiEnClair(o.lundi)} you manage 2 accounts: ${h(o.handle1)} and ${h(o.handle2)}.${paie}`;
+  return `From ${lundiEnClair(o.lundi)} you manage 2 accounts: ${h(o.handle1)} and ${h(o.handle2)}.${paie}${ruul(o.canal)}`;
 }
 
 /** La confirmation après un « yes ». */
-export function texteAccordDouble(lundi: string): string {
-  return `Great! Your 2nd account is on your dashboard: do its warm-up until Sunday. It starts posting on ${lundiEnClair(lundi)}.`;
+export function texteAccordDouble(lundi: string, canal?: string | null): string {
+  return `Great! Your 2nd account is on your dashboard: do its warm-up until Sunday. It starts posting on ${lundiEnClair(lundi)}.${ruul(canal)}`;
 }
 
 export const TEXTE_REFUS_DOUBLE = "No problem, nothing changes for you. Keep up the great work!";

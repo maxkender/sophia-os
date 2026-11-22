@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o161",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6526ec3a-523d-407e-877e-40112c2a20b0",
+  "titre": "academic habits that are a little toxic but i'll never stop #studytok #studytips #school",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "6526ec3a-523d-407e-877e-40112c2a20b0"
+  ],
+  "notes": "Déclinaison G2 de 6526ec3a (la famille de nos cs-o023 et cs-o062 : r 3,84 en espagnol d'Amérique latine), ligne 2 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o156 : « academic habits that are a little toxic but i'll never stop ». Rivalité avec soi-même. Habitudes neuves, aucune de cs-o023, cs-o062 ni cs-o156 : relire sa copie deux fois, réviser même quand le contrôle est loin, demander sa note de participation, une chose nouvelle apprise chaque jour (slide Sophia, 5), arriver en avance aux examens, recommencer un exercice réussi pour aller plus vite. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "e5559b84",
+      "texte_overlay": "academic habits that are a little toxic\nbut i'll never stop",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1fcc003b",
+      "texte_overlay": "rereading my test twice before handing it in.\neven when i'm the last one in the room.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "633e7021",
+      "texte_overlay": "revising when the test is still 2 weeks away.\nyes, really.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "aa5bb9ff",
+      "texte_overlay": "asking the teacher what i can do better.\neven with a good grade.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "22f8f55d",
+      "texte_overlay": "learning one random new thing every single day.\nmy brain doesn't get days off.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "learning one random new thing every single day\non a micro-learning app like the Sophia app.\nmy brain doesn't get days off."
+    },
+    {
+      "position": 6,
+      "media_id": "f84839f9",
+      "texte_overlay": "arriving 15 minutes early to every exam.\ncalm is a strategy.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f3a55140",
+      "texte_overlay": "redoing an exercise i got right, just to do it faster.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

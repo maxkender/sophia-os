@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o164",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "741e7669-a63d-4fcc-af3d-7d065404d6aa",
+  "titre": "how to become the BEST student in your entire class #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "741e7669-a63d-4fcc-af3d-7d065404d6aa"
+  ],
+  "notes": "Déclinaison G1 de 741e7669 (r 4,79 en français, 16,5 k vues en polonais), ligne 8 de la boîte. Accroche du parent mot pour mot. Habitudes neuves, aucune du parent (les 5 % manquants, reprendre les bonnes questions des autres, garder les corrections faites aux autres, être utile en groupe, étudier le pire exemple) : relire ses notes le soir même, demander des exemples, s'entraîner sur des sujets d'annales, une culture générale qui nourrit les copies (slide Sophia, 5), ne jamais laisser une question sans réponse, dormir. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "29a37791",
+      "texte_overlay": "how to become the BEST\nstudent\nin your entire class",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9d83f55e",
+      "texte_overlay": "i reread my notes the same evening.\n10 minutes. every class.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "eea7f438",
+      "texte_overlay": "i ask for examples.\n\"can you show me one?\" makes everything click.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "fd8039ae",
+      "texte_overlay": "i train on past papers.\nthe format stops being scary.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "95fac1d6",
+      "texte_overlay": "i read a little about everything.\nhistory, art, science. it shows up in my essays.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i learn a little about everything\non a micro-learning app like the Sophia app.\nhistory, art, science. it shows up in my essays."
+    },
+    {
+      "position": 6,
+      "media_id": "2c972d94",
+      "texte_overlay": "no question stays unanswered.\nif i don't get it, i find someone who does.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "18369f4e",
+      "texte_overlay": "and i sleep. 8 hours beats one more hour of rereading.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -201,6 +201,9 @@ verify_jwt = false
 [functions.ruul]
 verify_jwt = false
 
+[functions.qg]
+verify_jwt = false
+
 [functions.questionnaire]
 verify_jwt = false
 

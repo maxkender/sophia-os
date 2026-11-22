@@ -11,7 +11,11 @@
   },
   "rewrites": [
     {
-      "source": "/((?!assets/).*)",
+      "source": "/api/qg/:path*",
+      "destination": "https://mbikecieskoobeizixig.supabase.co/functions/v1/qg/:path*"
+    },
+    {
+      "source": "/((?!assets/|api/qg/).*)",
       "destination": "/index.html"
     }
   ]

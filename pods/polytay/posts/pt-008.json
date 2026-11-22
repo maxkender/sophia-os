@@ -1,0 +1,570 @@
+{
+ "id": "pt-008",
+ "titre": {
+  "en": "sunday habits that make you smarter by monday",
+  "fr": "habitudes du dimanche pour être plus cultivée le lundi",
+  "es": "hábitos de domingo para ser más culta el lunes",
+  "es-419": "hábitos de domingo para ser más culta el lunes",
+  "it": "abitudini della domenica per essere più colta il lunedì",
+  "tr": "pazartesiye daha bilgili başlatan pazar alışkanlıkları",
+  "sl": "nedeljske navade, da si v ponedeljek bolj razgledana",
+  "de": "was ich sonntags mache, um montags klüger zu sein",
+  "sk": "nedeľné zvyky, vďaka ktorým si v pondelok rozhľadenejšia",
+  "sv": "söndagsvanor som gör dig smartare till måndag"
+ },
+ "legendes": {
+  "en": "a slow sunday can still teach you something. save it for this weekend <3 #girlblogger #selfimprovement #sundayreset #learning #booktok",
+  "fr": "un dimanche lent peut quand même t'apprendre quelque chose. enregistre-le pour ce week-end <3 #girlblogger #developpementpersonnel #dimanche #apprendre #booktokfrance",
+  "es": "un domingo lento también puede enseñarte algo. guárdalo para este finde <3 #girlblogger #desarrollopersonal #domingo #aprender #booktokespaña",
+  "es-419": "un domingo tranquilo también puede enseñarte algo. guárdalo para este fin de semana <3 #girlblogger #desarrollopersonal #domingo #aprender #booktoklatam",
+  "it": "anche una domenica lenta può insegnarti qualcosa. salvalo per questo weekend <3 #girlblogger #crescitapersonale #domenica #imparare #booktokitalia",
+  "tr": "yavaş bir pazar da sana bir şey öğretebilir. bu hafta sonu için kaydet <3 #girlblogger #kişiselgelişim #pazar #öğrenmek #booktoktürkiye",
+  "sl": "tudi počasna nedelja te lahko česa nauči. shrani za ta vikend <3 #girlblogger #osebnirazvoj #nedelja #učenje #booktok",
+  "de": "auch ein langsamer sonntag kann dir etwas beibringen. speicher es für dieses wochenende <3 #girlblogger #selbstverbesserung #sonntag #lernen #booktokdeutschland",
+  "sk": "aj pomalá nedeľa ťa môže niečo naučiť. ulož si to na tento víkend <3 #girlblogger #osobnyrozvoj #nedela #ucenie #booktok",
+  "sv": "en lugn söndag kan också lära dig något. spara den till helgen <3 #girlblogger #självutveckling #söndag #lärande #booktoksverige"
+ },
+ "musique": {
+  "titre": "Solace",
+  "url": "https://www.tiktok.com/music/Solace-7629352188019509265"
+ },
+ "notes": "Full test (BLEO, 22/11) : accroche neuve chez nous, au gabarit de son tube (« hobbies that make you impossible to bore », 479 k). Éléments à nous : une marche sans écouteurs, une salle de musée, Sophia, un café et un livre difficile, un gâteau et son histoire (le banana bread devenu populaire aux états-unis dans les années 1930 : formulé « they say »). Slide Sophia (4) : « 3. one lesson before the week », cta B. Photos neuves de la banque (aucune des 14 derniers jours).",
+ "banque": {
+  "images/banque/couv-musee-hall.jpg": "501b051b-7275-42b4-9034-1ddd440b0908",
+  "images/banque/couv-assiette-fruits.jpg": "6ee277b5-5ea3-40ce-a10a-ba05afba9063",
+  "images/banque/couloir-bois.jpg": "5c25f4cb-453f-43cf-abdb-3b5b4ec8e601",
+  "images/banque/ponton-soir.jpg": "fd6899e2-6796-4fa2-a2c3-a648256e230e",
+  "images/banque/statue-musee.jpg": "c016f9f7-515e-40ba-b89c-415be28d9683",
+  "images/banque/lys-peinture.jpg": "d63596cb-c507-48c3-9788-a0417b36e785",
+  "images/banque/piano-dore.jpg": "6974cdce-2900-402d-94ca-e61984338c52",
+  "images/banque/cafe-livre-croissant.jpg": "5f23e254-7424-41f8-b7ef-dd11de794648",
+  "images/banque/cafe-plateau.jpg": "4c1fface-ccb1-4464-9e3a-f83658217ffd",
+  "images/banque/gateau-chocolat.jpg": "301af458-7c79-47b8-abf8-38d2795cb338",
+  "images/banque/banana-bread.jpg": "96a09dd8-4998-44f7-8ee5-1b06253819bc"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-musee-hall.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-assiette-fruits.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "sunday habits that\nmake you smarter\nby monday"
+   },
+   "fr": {
+    "titre": "habitudes du\ndimanche pour être\nplus cultivée\nle lundi"
+   },
+   "es": {
+    "titre": "hábitos de domingo\npara ser más culta\nel lunes"
+   },
+   "es-419": {
+    "titre": "hábitos de domingo\npara ser más culta\nel lunes"
+   },
+   "it": {
+    "titre": "abitudini della\ndomenica per essere\npiù colta il lunedì"
+   },
+   "tr": {
+    "titre": "pazartesiye daha\nbilgili başlatan\npazar alışkanlıkları"
+   },
+   "sl": {
+    "titre": "nedeljske navade,\nda si v ponedeljek\nbolj razgledana"
+   },
+   "de": {
+    "titre": "was ich sonntags\nmache, um montags\nklüger zu sein"
+   },
+   "sk": {
+    "titre": "nedeľné zvyky,\nvďaka ktorým si\nv pondelok\nrozhľadenejšia"
+   },
+   "sv": {
+    "titre": "söndagsvanor som\ngör dig smartare\ntill måndag"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/couloir-bois.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/ponton-soir.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a slow walk, no headphones",
+    "paragraphes": [
+     "One hour, no music, no podcast. walk somewhere you've never been and notice the names of the streets and the dates on the buildings.",
+     "Your head gets quiet enough to actually think, and you come back with questions"
+    ]
+   },
+   "fr": {
+    "titre": "1. une marche lente, sans écouteurs",
+    "paragraphes": [
+     "Une heure, sans musique, sans podcast. marche quelque part où tu n'es jamais allée et regarde les noms des rues et les dates sur les façades.",
+     "Ta tête devient assez calme pour vraiment penser, et tu reviens avec des questions"
+    ]
+   },
+   "es": {
+    "titre": "1. un paseo lento, sin cascos",
+    "paragraphes": [
+     "Una hora, sin música, sin podcast. camina por un sitio donde nunca has estado y fíjate en los nombres de las calles y las fechas de los edificios.",
+     "Tu cabeza se calma lo suficiente para pensar de verdad, y vuelves con preguntas"
+    ]
+   },
+   "es-419": {
+    "titre": "1. una caminata lenta, sin audífonos",
+    "paragraphes": [
+     "Una hora, sin música, sin podcast. camina por un lugar donde nunca has estado y fíjate en los nombres de las calles y las fechas de los edificios.",
+     "Tu cabeza se calma lo suficiente para pensar de verdad, y regresas con preguntas"
+    ]
+   },
+   "it": {
+    "titre": "1. una passeggiata lenta, senza cuffie",
+    "paragraphes": [
+     "Un'ora, niente musica, niente podcast. cammina in un posto dove non sei mai stata e guarda i nomi delle vie e le date sui palazzi.",
+     "La testa diventa abbastanza calma da pensare davvero, e torni con delle domande"
+    ]
+   },
+   "tr": {
+    "titre": "1. kulaklıksız yavaş bir yürüyüş",
+    "paragraphes": [
+     "Bir saat, müzik yok, podcast yok. hiç gitmediğin bir yerde yürü ve sokak adlarına, binalardaki tarihlere bak.",
+     "Kafan gerçekten düşünecek kadar sakinleşir, ve sorularla dönersin"
+    ]
+   },
+   "sl": {
+    "titre": "1. počasen sprehod brez slušalk",
+    "paragraphes": [
+     "Ena ura, brez glasbe, brez podkasta. sprehodi se nekam, kjer še nisi bila, in opazuj imena ulic in letnice na stavbah.",
+     "Glava se umiri dovolj, da zares razmišljaš, in vrneš se z vprašanji"
+    ]
+   },
+   "de": {
+    "titre": "1. spazieren ohne kopfhörer",
+    "paragraphes": [
+     "Eine stunde, keine musik, kein podcast. geh irgendwo hin, wo du noch nie warst, und achte auf straßennamen und jahreszahlen an den häusern.",
+     "Dein kopf wird ruhig genug zum denken, und du kommst mit fragen zurück"
+    ]
+   },
+   "sk": {
+    "titre": "1. prechádzka bez slúchadiel",
+    "paragraphes": [
+     "Hodina, žiadna hudba, žiadny podcast. choď niekam, kde si ešte nebola, a všímaj si názvy ulíc a letopočty na budovách.",
+     "Hlava sa upokojí natoľko, že naozaj premýšľaš, a vrátiš sa s otázkami"
+    ]
+   },
+   "sv": {
+    "titre": "1. en långsam promenad utan lurar",
+    "paragraphes": [
+     "En timme, ingen musik, ingen podd. gå någonstans du aldrig har varit och lägg märke till gatunamnen och årtalen på husen.",
+     "Huvudet blir lugnt nog att faktiskt tänka, och du kommer hem med frågor"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/statue-musee.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/lys-peinture.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. one room of a museum",
+    "paragraphes": [
+     "Don't do the whole museum. pick one room, look at everything in it slowly, and read every little sign.",
+     "You leave less tired, and you remember all of it"
+    ]
+   },
+   "fr": {
+    "titre": "2. une salle de musée",
+    "paragraphes": [
+     "Ne fais pas tout le musée. choisis une salle, regarde tout lentement, et lis chaque petit cartel.",
+     "Tu repars moins fatiguée, et tu te souviens de tout"
+    ]
+   },
+   "es": {
+    "titre": "2. una sala de museo",
+    "paragraphes": [
+     "No hagas todo el museo. elige una sala, mira todo despacio y lee cada cartelito.",
+     "Sales menos cansada, y te acuerdas de todo"
+    ]
+   },
+   "es-419": {
+    "titre": "2. una sala de museo",
+    "paragraphes": [
+     "No recorras todo el museo. elige una sala, mira todo despacio y lee cada placa.",
+     "Sales menos cansada, y te acuerdas de todo"
+    ]
+   },
+   "it": {
+    "titre": "2. una sala di museo",
+    "paragraphes": [
+     "Non fare tutto il museo. scegli una sala, guarda tutto con calma e leggi ogni targhetta.",
+     "Esci meno stanca, e ti ricordi tutto"
+    ]
+   },
+   "tr": {
+    "titre": "2. bir müze salonu",
+    "paragraphes": [
+     "Bütün müzeyi gezme. bir salon seç, her şeye yavaşça bak ve her küçük tabelayı oku.",
+     "Daha az yorgun çıkarsın, ve hepsini hatırlarsın"
+    ]
+   },
+   "sl": {
+    "titre": "2. ena muzejska soba",
+    "paragraphes": [
+     "Ne obišči celega muzeja. izberi eno sobo, vse si počasi oglej in preberi vsako tablico.",
+     "Odideš manj utrujena, in si zapomniš vse"
+    ]
+   },
+   "de": {
+    "titre": "2. ein museumssaal",
+    "paragraphes": [
+     "Mach nicht das ganze museum. nimm einen saal, schau dir alles langsam an und lies jedes kleine schild.",
+     "Du gehst weniger müde raus, und du erinnerst dich an alles"
+    ]
+   },
+   "sk": {
+    "titre": "2. jedna sála múzea",
+    "paragraphes": [
+     "Nechoď cez celé múzeum. vyber si jednu sálu, všetko si pomaly prezri a prečítaj si každú tabuľku.",
+     "Odchádzaš menej unavená, a pamätáš si všetko"
+    ]
+   },
+   "sv": {
+    "titre": "2. en sal på ett museum",
+    "paragraphes": [
+     "Gör inte hela museet. välj en sal, titta på allt långsamt och läs varje liten skylt.",
+     "Du går därifrån mindre trött, och du minns allt"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/piano-dore.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson before the week",
+    "paragraphes": [
+     "Sophia gives me one lesson a day, written by actual professors. on sundays it's history or philosophy, with a little quiz after.",
+     "Ten minutes, and monday starts with something new in my head"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon avant la semaine",
+    "paragraphes": [
+     "Sophia me donne une leçon par jour, écrite par de vrais profs. le dimanche, c'est histoire ou philosophie, avec un petit quiz après.",
+     "Dix minutes, et le lundi commence avec quelque chose de nouveau dans la tête"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección antes de la semana",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. los domingos toca historia o filosofía, con un pequeño quiz al final.",
+     "Diez minutos, y el lunes empieza con algo nuevo en la cabeza"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección antes de la semana",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. los domingos toca historia o filosofía, con un pequeño quiz al final.",
+     "Diez minutos, y el lunes empieza con algo nuevo en la cabeza"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione prima della settimana",
+    "paragraphes": [
+     "Sophia mi dà una lezione al giorno, scritta da veri professori. la domenica è storia o filosofia, con un piccolo quiz alla fine.",
+     "Dieci minuti, e il lunedì inizia con qualcosa di nuovo in testa"
+    ]
+   },
+   "tr": {
+    "titre": "3. haftadan önce bir ders",
+    "paragraphes": [
+     "Sophia bana her gün gerçek profesörlerin yazdığı bir ders veriyor. pazarları tarih ya da felsefe, sonunda da küçük bir test.",
+     "On dakika, ve pazartesi kafamda yeni bir şeyle başlıyor"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija pred tednom",
+    "paragraphes": [
+     "Sophia mi vsak dan da eno lekcijo, ki so jo napisali pravi profesorji. ob nedeljah je zgodovina ali filozofija, na koncu pa kratek kviz.",
+     "Deset minut, in ponedeljek se začne z nečim novim v glavi"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion vor der woche",
+    "paragraphes": [
+     "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren. sonntags geschichte oder philosophie, mit einem kleinen quiz danach.",
+     "Zehn minuten, und der montag beginnt mit etwas neuem im kopf"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia pred týždňom",
+    "paragraphes": [
+     "Sophia mi každý deň dá jednu lekciu, ktorú napísali skutoční profesori. v nedeľu sú to dejiny alebo filozofia a na konci malý kvíz.",
+     "Desať minút a pondelok začína s niečím novým v hlave"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion före veckan",
+    "paragraphes": [
+     "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. på söndagar blir det historia eller filosofi, med ett litet quiz efteråt.",
+     "Tio minuter, och måndagen börjar med något nytt i huvudet"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/cafe-livre-croissant.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/cafe-plateau.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. a café and a hard book",
+    "paragraphes": [
+     "Take the book you keep avoiding to a café and give it one hour. no phone on the table, just a pencil.",
+     "Hard books feel easier with a coffee. and one hour a week finishes them"
+    ]
+   },
+   "fr": {
+    "titre": "4. un café et un livre difficile",
+    "paragraphes": [
+     "Emmène au café le livre que tu évites et donne-lui une heure. pas de téléphone sur la table, juste un crayon.",
+     "Les livres difficiles passent mieux avec un café. et une heure par semaine suffit à les finir"
+    ]
+   },
+   "es": {
+    "titre": "4. un café y un libro difícil",
+    "paragraphes": [
+     "Llévate a una cafetería el libro que siempre evitas y dale una hora. nada de móvil en la mesa, solo un lápiz.",
+     "Los libros difíciles se hacen más fáciles con un café. y una hora a la semana basta para terminarlos"
+    ]
+   },
+   "es-419": {
+    "titre": "4. un café y un libro difícil",
+    "paragraphes": [
+     "Llévate a una cafetería el libro que siempre evitas y dale una hora. nada de celular en la mesa, solo un lápiz.",
+     "Los libros difíciles se vuelven más fáciles con un café. y una hora por semana alcanza para terminarlos"
+    ]
+   },
+   "it": {
+    "titre": "4. un caffè e un libro difficile",
+    "paragraphes": [
+     "Porta al bar il libro che continui a evitare e dagli un'ora. niente telefono sul tavolo, solo una matita.",
+     "I libri difficili diventano più facili con un caffè. e un'ora a settimana basta per finirli"
+    ]
+   },
+   "tr": {
+    "titre": "4. bir kahve ve zor bir kitap",
+    "paragraphes": [
+     "Hep ertelediğin kitabı bir kafeye götür ve ona bir saat ver. masada telefon yok, sadece bir kurşun kalem.",
+     "Zor kitaplar kahveyle daha kolay gelir. haftada bir saat onları bitirmeye yeter"
+    ]
+   },
+   "sl": {
+    "titre": "4. kava in težka knjiga",
+    "paragraphes": [
+     "Knjigo, ki se ji izogibaš, odnesi v kavarno in ji daj eno uro. brez telefona na mizi, samo s svinčnikom.",
+     "Težke knjige so ob kavi lažje. in ena ura na teden je dovolj, da jih prebereš"
+    ]
+   },
+   "de": {
+    "titre": "4. ein café und ein schweres buch",
+    "paragraphes": [
+     "Nimm das buch, das du immer vor dir herschiebst, mit ins café und gib ihm eine stunde. kein handy auf dem tisch, nur ein bleistift.",
+     "Schwere bücher sind mit kaffee leichter. und eine stunde pro woche reicht, um sie zu beenden"
+    ]
+   },
+   "sk": {
+    "titre": "4. káva a ťažká kniha",
+    "paragraphes": [
+     "Vezmi knihu, ktorej sa vyhýbaš, do kaviarne a daj jej hodinu. žiadny mobil na stole, len ceruzka.",
+     "Ťažké knihy sú pri káve ľahšie. a hodina týždenne stačí na to, aby si ich dočítala"
+    ]
+   },
+   "sv": {
+    "titre": "4. ett kafé och en svår bok",
+    "paragraphes": [
+     "Ta med boken du undviker till ett kafé och ge den en timme. ingen mobil på bordet, bara en penna.",
+     "Svåra böcker känns lättare med en kaffe. och en timme i veckan räcker för att läsa ut dem"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/gateau-chocolat.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/banana-bread.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "5. baking with a story",
+    "paragraphes": [
+     "Bake something simple and read its history while it's in the oven. they say banana bread became popular in the 1930s.",
+     "You get a small history lesson, and the whole flat smells amazing"
+    ]
+   },
+   "fr": {
+    "titre": "5. un gâteau et son histoire",
+    "paragraphes": [
+     "Fais un gâteau simple et lis son histoire pendant la cuisson. on dit que le banana bread est devenu populaire dans les années 1930.",
+     "Tu as une petite leçon d'histoire, et tout l'appart sent bon"
+    ]
+   },
+   "es": {
+    "titre": "5. hornear con historia",
+    "paragraphes": [
+     "Hornea algo sencillo y lee su historia mientras está en el horno. dicen que el pan de plátano se hizo popular en los años 30.",
+     "Te llevas una pequeña lección de historia, y toda la casa huele de maravilla"
+    ]
+   },
+   "es-419": {
+    "titre": "5. hornear con historia",
+    "paragraphes": [
+     "Hornea algo sencillo y lee su historia mientras está en el horno. dicen que el pan de plátano se volvió popular en los años 30.",
+     "Te llevas una pequeña lección de historia, y toda la casa huele delicioso"
+    ]
+   },
+   "it": {
+    "titre": "5. un dolce con una storia",
+    "paragraphes": [
+     "Prepara un dolce semplice e leggi la sua storia mentre è in forno. si dice che il banana bread sia diventato popolare negli anni '30.",
+     "Ti porti a casa una piccola lezione di storia, e tutta la casa profuma"
+    ]
+   },
+   "tr": {
+    "titre": "5. hikâyesi olan bir kek",
+    "paragraphes": [
+     "Basit bir şey pişir ve fırındayken hikâyesini oku. muzlu kekin 1930'larda popüler olduğu söylenir.",
+     "Küçük bir tarih dersi alırsın, ve bütün ev mis gibi kokar"
+    ]
+   },
+   "sl": {
+    "titre": "5. peka z zgodbo",
+    "paragraphes": [
+     "Speci nekaj preprostega in medtem ko je v pečici, preberi njegovo zgodovino. pravijo, da je bananin kruh postal priljubljen v tridesetih letih.",
+     "Dobiš malo lekcijo zgodovine, in celo stanovanje lepo diši"
+    ]
+   },
+   "de": {
+    "titre": "5. backen mit geschichte",
+    "paragraphes": [
+     "Back etwas einfaches und lies seine geschichte, während es im ofen ist. man sagt, bananenbrot wurde in den 1930ern beliebt.",
+     "Du bekommst eine kleine geschichtsstunde, und die ganze wohnung duftet"
+    ]
+   },
+   "sk": {
+    "titre": "5. pečenie s príbehom",
+    "paragraphes": [
+     "Upeč niečo jednoduché a kým je to v rúre, prečítaj si jeho históriu. hovorí sa, že banánový chlebík sa stal populárnym v 30. rokoch.",
+     "Dostaneš malú hodinu dejepisu, a celý byt krásne vonia"
+    ]
+   },
+   "sv": {
+    "titre": "5. baka med en historia",
+    "paragraphes": [
+     "Baka något enkelt och läs om dess historia medan det står i ugnen. det sägs att bananbröd blev populärt på 1930-talet.",
+     "Du får en liten historielektion, och hela lägenheten doftar ljuvligt"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

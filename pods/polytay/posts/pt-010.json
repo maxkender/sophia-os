@@ -1,0 +1,485 @@
+{
+ "id": "pt-010",
+ "titre": {
+  "en": "quiet hobbies for girls who love learning",
+  "fr": "hobbies calmes pour les filles qui aiment apprendre",
+  "es": "hobbies tranquilos para chicas a las que les encanta aprender",
+  "es-419": "hobbies tranquilos para chicas que aman aprender",
+  "it": "hobby tranquilli per ragazze che amano imparare",
+  "tr": "öğrenmeyi seven kızlar için sakin hobiler",
+  "sl": "mirni hobiji za punce, ki se rade učijo",
+  "de": "ruhige hobbys für mädchen, die gerne lernen",
+  "sk": "pokojné hobby pre dievčatá, ktoré sa rady učia",
+  "sv": "lugna hobbys för tjejer som älskar att lära sig"
+ },
+ "legendes": {
+  "en": "quiet, slow and secretly very smart. pick one for the weekend <3 #girlblogger #hobbies #learning #selfimprovement #booktok",
+  "fr": "calmes, lents et secrètement très intelligents. choisis-en un pour le week-end <3 #girlblogger #hobbies #apprendre #developpementpersonnel #booktokfrance",
+  "es": "tranquilos, lentos y en secreto muy inteligentes. elige uno para el finde <3 #girlblogger #hobbies #aprender #desarrollopersonal #booktokespaña",
+  "es-419": "tranquilos, lentos y en secreto muy inteligentes. elige uno para el fin de semana <3 #girlblogger #hobbies #aprender #desarrollopersonal #booktoklatam",
+  "it": "tranquilli, lenti e segretamente molto intelligenti. scegline uno per il weekend <3 #girlblogger #hobby #imparare #crescitapersonale #booktokitalia",
+  "tr": "sakin, yavaş ve gizlice çok zekice. hafta sonu için birini seç <3 #girlblogger #hobiler #öğrenmek #kişiselgelişim #booktoktürkiye",
+  "sl": "mirni, počasni in na skrivaj zelo pametni. izberi enega za vikend <3 #girlblogger #hobiji #učenje #osebnirazvoj #booktok",
+  "de": "ruhig, langsam und heimlich sehr klug. such dir eins fürs wochenende aus <3 #girlblogger #hobbys #lernen #selbstverbesserung #booktokdeutschland",
+  "sk": "pokojné, pomalé a potajomky veľmi múdre. vyber si jedno na víkend <3 #girlblogger #hobby #ucenie #osobnyrozvoj #booktok",
+  "sv": "lugna, långsamma och i hemlighet väldigt smarta. välj en till helgen <3 #girlblogger #hobbys #lärande #självutveckling #booktoksverige"
+ },
+ "musique": {
+  "titre": "Float in a Waking Dream",
+  "url": "https://www.tiktok.com/music/Float-in-a-Waking-Dream-7699850974151755812"
+ },
+ "notes": "Full test (BLEO, 22/11) : accroche neuve chez nous, au gabarit de son tube (4 éléments, comme certains de ses posts à 6 slides). Éléments à nous : un morceau de piano, presser des fleurs et apprendre leur nom, Sophia, dessiner un même arbre à chaque saison. Slide Sophia (4) : « 3. one lesson on a rainy afternoon », cta A (reformulé). Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-piano-fenetre.jpg": "f19e20a2-27c5-4027-9848-754920609b39",
+  "images/banque/couv-lys.jpg": "21e7bb23-5826-4af5-9652-c3d04c557b99",
+  "images/banque/piano-feuilles.jpg": "20dc7598-8e0b-41b3-baa7-0dba2a325182",
+  "images/banque/piano-mains-lumiere.jpg": "4e4616e3-df27-42c3-9d49-03198adf8593",
+  "images/banque/cosmos-blanc.jpg": "5e5ae869-8b68-441e-b863-176a14eda3db",
+  "images/banque/lys-tulipes.jpg": "6a47ebcc-5b32-48e4-9204-6aea043bb7e5",
+  "images/banque/vitre-pluie-cafe.jpg": "e4a7a6a7-1dd7-48ed-a256-6c7b9dc72636",
+  "images/banque/feuilles-automne.jpg": "b6ae7d16-6645-46fe-b3c6-f0e793025fa2",
+  "images/banque/arbre-seul.jpg": "bfec1228-aedc-42af-8904-b67c5d7d7450"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-piano-fenetre.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-lys.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "quiet hobbies for\ngirls who love\nlearning"
+   },
+   "fr": {
+    "titre": "hobbies calmes pour\nles filles qui\naiment apprendre"
+   },
+   "es": {
+    "titre": "hobbies tranquilos\npara chicas a las\nque les encanta\naprender"
+   },
+   "es-419": {
+    "titre": "hobbies tranquilos\npara chicas que\naman aprender"
+   },
+   "it": {
+    "titre": "hobby tranquilli\nper ragazze che\namano imparare"
+   },
+   "tr": {
+    "titre": "öğrenmeyi seven\nkızlar için\nsakin hobiler"
+   },
+   "sl": {
+    "titre": "mirni hobiji za\npunce, ki se\nrade učijo"
+   },
+   "de": {
+    "titre": "ruhige hobbys für\nmädchen, die\ngerne lernen"
+   },
+   "sk": {
+    "titre": "pokojné hobby pre\ndievčatá, ktoré\nsa rady učia"
+   },
+   "sv": {
+    "titre": "lugna hobbys för\ntjejer som älskar\natt lära sig"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/piano-feuilles.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/piano-mains-lumiere.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. one piece on the piano",
+    "paragraphes": [
+     "Choose one short piece and learn it slowly, a few bars a week. read about the composer while you practise.",
+     "In a month you can play it, and you know the story behind every note"
+    ]
+   },
+   "fr": {
+    "titre": "1. un morceau au piano",
+    "paragraphes": [
+     "Choisis un morceau court et apprends-le lentement, quelques mesures par semaine. lis la vie du compositeur pendant que tu t'entraînes.",
+     "En un mois tu sais le jouer, et tu connais l'histoire derrière chaque note"
+    ]
+   },
+   "es": {
+    "titre": "1. una pieza al piano",
+    "paragraphes": [
+     "Elige una pieza corta y apréndela despacio, unos compases por semana. lee sobre el compositor mientras practicas.",
+     "En un mes la sabes tocar, y conoces la historia de cada nota"
+    ]
+   },
+   "es-419": {
+    "titre": "1. una pieza en el piano",
+    "paragraphes": [
+     "Elige una pieza corta y apréndela despacio, unos compases por semana. lee sobre el compositor mientras practicas.",
+     "En un mes ya la sabes tocar, y conoces la historia de cada nota"
+    ]
+   },
+   "it": {
+    "titre": "1. un brano al pianoforte",
+    "paragraphes": [
+     "Scegli un brano breve e imparalo piano, qualche battuta a settimana. leggi la vita del compositore mentre ti eserciti.",
+     "In un mese sai suonarlo, e conosci la storia dietro ogni nota"
+    ]
+   },
+   "tr": {
+    "titre": "1. piyanoda bir parça",
+    "paragraphes": [
+     "Kısa bir parça seç ve yavaş yavaş, haftada birkaç ölçü öğren. çalışırken bestecisi hakkında oku.",
+     "Bir ayda çalabilirsin, ve her notanın arkasındaki hikâyeyi bilirsin"
+    ]
+   },
+   "sl": {
+    "titre": "1. ena skladba na klavirju",
+    "paragraphes": [
+     "Izberi kratko skladbo in se je uči počasi, nekaj taktov na teden. med vadbo beri o skladatelju.",
+     "V enem mesecu jo znaš zaigrati, in poznaš zgodbo za vsako noto"
+    ]
+   },
+   "de": {
+    "titre": "1. ein stück am klavier",
+    "paragraphes": [
+     "Such dir ein kurzes stück aus und lern es langsam, ein paar takte pro woche. lies beim üben über den komponisten.",
+     "Nach einem monat kannst du es spielen, und du kennst die geschichte hinter jeder note"
+    ]
+   },
+   "sk": {
+    "titre": "1. jedna skladba na klavíri",
+    "paragraphes": [
+     "Vyber si krátku skladbu a uč sa ju pomaly, pár taktov týždenne. pri cvičení si čítaj o skladateľovi.",
+     "Za mesiac ju vieš zahrať, a poznáš príbeh za každou notou"
+    ]
+   },
+   "sv": {
+    "titre": "1. ett stycke på pianot",
+    "paragraphes": [
+     "Välj ett kort stycke och lär dig det långsamt, några takter i veckan. läs om tonsättaren medan du övar.",
+     "På en månad kan du spela det, och du kan historien bakom varje ton"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/cosmos-blanc.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/lys-tulipes.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. pressing flowers",
+    "paragraphes": [
+     "Press the flowers you pick on walks between the pages of a heavy book. write each one's name and where you found it.",
+     "By summer you have a little herbarium, and you know every flower on your street"
+    ]
+   },
+   "fr": {
+    "titre": "2. faire sécher des fleurs",
+    "paragraphes": [
+     "Presse les fleurs cueillies en promenade entre les pages d'un gros livre. note le nom de chacune et l'endroit où tu l'as trouvée.",
+     "À l'été tu as un petit herbier, et tu connais chaque fleur de ta rue"
+    ]
+   },
+   "es": {
+    "titre": "2. prensar flores",
+    "paragraphes": [
+     "Prensa las flores que recojas en tus paseos entre las páginas de un libro gordo. apunta el nombre de cada una y dónde la encontraste.",
+     "En verano tienes un pequeño herbario, y conoces cada flor de tu calle"
+    ]
+   },
+   "es-419": {
+    "titre": "2. prensar flores",
+    "paragraphes": [
+     "Prensa las flores que juntes en tus caminatas entre las páginas de un libro grueso. anota el nombre de cada una y dónde la encontraste.",
+     "Para el verano tienes un pequeño herbario, y conoces cada flor de tu cuadra"
+    ]
+   },
+   "it": {
+    "titre": "2. fiori pressati",
+    "paragraphes": [
+     "Metti i fiori raccolti nelle passeggiate tra le pagine di un libro pesante. scrivi il nome di ognuno e dove l'hai trovato.",
+     "In estate hai un piccolo erbario, e conosci ogni fiore della tua via"
+    ]
+   },
+   "tr": {
+    "titre": "2. çiçek kurutmak",
+    "paragraphes": [
+     "Yürüyüşlerde topladığın çiçekleri kalın bir kitabın sayfaları arasında kurut. her birinin adını ve nerede bulduğunu yaz.",
+     "Yaza kadar küçük bir herbaryumun olur, ve sokağındaki her çiçeği tanırsın"
+    ]
+   },
+   "sl": {
+    "titre": "2. stiskanje rož",
+    "paragraphes": [
+     "Rože, ki jih nabereš na sprehodih, stisni med strani debele knjige. zapiši ime vsake in kje si jo našla.",
+     "Do poletja imaš majhen herbarij, in poznaš vsako rožo na svoji ulici"
+    ]
+   },
+   "de": {
+    "titre": "2. blumen pressen",
+    "paragraphes": [
+     "Leg die blumen von deinen spaziergängen zwischen die seiten eines dicken buches. schreib zu jeder den namen und wo du sie gefunden hast.",
+     "Bis zum sommer hast du ein kleines herbarium, und du kennst jede blume in deiner straße"
+    ]
+   },
+   "sk": {
+    "titre": "2. lisovanie kvetov",
+    "paragraphes": [
+     "Kvety, ktoré nazbieraš na prechádzkach, vylisuj medzi stranami hrubej knihy. zapíš si meno každého a kde si ho našla.",
+     "Do leta máš malý herbár, a poznáš každý kvet na svojej ulici"
+    ]
+   },
+   "sv": {
+    "titre": "2. pressa blommor",
+    "paragraphes": [
+     "Pressa blommorna du plockar på promenader mellan sidorna i en tjock bok. skriv namnet på varje och var du hittade den.",
+     "Till sommaren har du ett litet herbarium, och du känner igen varje blomma på din gata"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/vitre-pluie-cafe.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson on a rainy afternoon",
+    "paragraphes": [
+     "When it rains I do one short lesson on Sophia instead of scrolling. history, philosophy or science, written by actual professors, with a little quiz after.",
+     "Ten minutes, and the grey afternoon suddenly feels useful"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon quand il pleut",
+    "paragraphes": [
+     "Quand il pleut, je fais une petite leçon sur Sophia au lieu de scroller. histoire, philosophie ou sciences, écrite par de vrais profs, avec un petit quiz après.",
+     "Dix minutes, et l'après-midi gris devient soudain utile"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección en una tarde de lluvia",
+    "paragraphes": [
+     "Cuando llueve hago una lección corta en Sophia en vez de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos, y la tarde gris de repente sirve para algo"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección en una tarde lluviosa",
+    "paragraphes": [
+     "Cuando llueve tomo una lección corta en Sophia en lugar de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos, y la tarde gris de pronto se vuelve útil"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione quando piove",
+    "paragraphes": [
+     "Quando piove faccio una breve lezione su Sophia invece di scrollare. storia, filosofia o scienze, scritta da veri professori, con un piccolo quiz alla fine.",
+     "Dieci minuti, e il pomeriggio grigio diventa all'improvviso utile"
+    ]
+   },
+   "tr": {
+    "titre": "3. yağmurlu günde bir ders",
+    "paragraphes": [
+     "Yağmur yağınca scroll yapmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim; gerçek profesörler yazıyor, sonunda da küçük bir test var.",
+     "On dakika, ve gri öğleden sonra birden işe yarar hâle geliyor"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija na deževno popoldne",
+    "paragraphes": [
+     "Ko dežuje, namesto skrolanja naredim eno kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, napisali so jo pravi profesorji, na koncu pa kratek kviz.",
+     "Deset minut, in sivo popoldne je nenadoma koristno"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion an einem regentag",
+    "paragraphes": [
+     "Wenn es regnet, mache ich eine kurze lektion auf Sophia, statt zu scrollen. geschichte, philosophie oder wissenschaft, von echten professoren, mit einem kleinen quiz.",
+     "Zehn minuten, und der graue nachmittag ist plötzlich nützlich"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia v daždivé popoludnie",
+    "paragraphes": [
+     "Keď prší, namiesto scrollovania si dám jednu krátku lekciu v aplikácii Sophia. dejiny, filozofia alebo veda, napísané skutočnými profesormi, a na konci malý kvíz.",
+     "Desať minút a sivé popoludnie je zrazu užitočné"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion en regnig eftermiddag",
+    "paragraphes": [
+     "När det regnar gör jag en kort lektion på Sophia i stället för att scrolla. historia, filosofi eller naturvetenskap, skriven av riktiga professorer, med ett litet quiz efteråt.",
+     "Tio minuter, och den grå eftermiddagen känns plötsligt meningsfull"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/feuilles-automne.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/arbre-seul.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. drawing the same tree",
+    "paragraphes": [
+     "Pick one tree near your home and draw it once every season, with the date. look up its name and how old it might be.",
+     "After a year you have four drawings and a tree that feels like a friend"
+    ]
+   },
+   "fr": {
+    "titre": "4. dessiner le même arbre",
+    "paragraphes": [
+     "Choisis un arbre près de chez toi et dessine-le à chaque saison, avec la date. cherche son nom et l'âge qu'il pourrait avoir.",
+     "Au bout d'un an, tu as quatre dessins et un arbre qui ressemble à un ami"
+    ]
+   },
+   "es": {
+    "titre": "4. dibujar el mismo árbol",
+    "paragraphes": [
+     "Elige un árbol cerca de casa y dibújalo una vez cada estación, con la fecha. busca su nombre y cuántos años podría tener.",
+     "Al cabo de un año tienes cuatro dibujos y un árbol que parece un amigo"
+    ]
+   },
+   "es-419": {
+    "titre": "4. dibujar el mismo árbol",
+    "paragraphes": [
+     "Elige un árbol cerca de tu casa y dibújalo una vez en cada estación, con la fecha. busca su nombre y cuántos años podría tener.",
+     "Después de un año tienes cuatro dibujos y un árbol que se siente como un amigo"
+    ]
+   },
+   "it": {
+    "titre": "4. disegnare lo stesso albero",
+    "paragraphes": [
+     "Scegli un albero vicino a casa e disegnalo una volta a ogni stagione, con la data. cerca il suo nome e quanti anni potrebbe avere.",
+     "Dopo un anno hai quattro disegni e un albero che sembra un amico"
+    ]
+   },
+   "tr": {
+    "titre": "4. aynı ağacı çizmek",
+    "paragraphes": [
+     "Evinin yakınında bir ağaç seç ve her mevsim bir kez, tarihiyle çiz. adına ve kaç yaşında olabileceğine bak.",
+     "Bir yıl sonra dört çizimin ve bir arkadaş gibi gelen bir ağacın olur"
+    ]
+   },
+   "sl": {
+    "titre": "4. risanje istega drevesa",
+    "paragraphes": [
+     "Izberi drevo blizu doma in ga nariši enkrat v vsakem letnem času, z datumom. poišči njegovo ime in koliko je lahko staro.",
+     "Po enem letu imaš štiri risbe in drevo, ki je kot prijatelj"
+    ]
+   },
+   "de": {
+    "titre": "4. denselben baum zeichnen",
+    "paragraphes": [
+     "Such dir einen baum in deiner nähe und zeichne ihn in jeder jahreszeit einmal, mit datum. schau nach, wie er heißt und wie alt er sein könnte.",
+     "Nach einem jahr hast du vier zeichnungen und einen baum, der sich wie ein freund anfühlt"
+    ]
+   },
+   "sk": {
+    "titre": "4. kresliť ten istý strom",
+    "paragraphes": [
+     "Vyber si strom blízko domova a nakresli ho raz v každom ročnom období, s dátumom. zisti, ako sa volá a koľko môže mať rokov.",
+     "Po roku máš štyri kresby a strom, ktorý je ako kamarát"
+    ]
+   },
+   "sv": {
+    "titre": "4. rita samma träd",
+    "paragraphes": [
+     "Välj ett träd nära där du bor och rita det en gång varje årstid, med datum. ta reda på vad det heter och hur gammalt det kan vara.",
+     "Efter ett år har du fyra teckningar och ett träd som känns som en vän"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

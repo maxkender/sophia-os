@@ -1,0 +1,570 @@
+{
+ "id": "pt-009",
+ "titre": {
+  "en": "small ways to romanticize learning",
+  "fr": "petites façons de rendre l'apprentissage romantique",
+  "es": "pequeñas formas de romantizar el aprender",
+  "es-419": "pequeñas formas de romantizar el aprender",
+  "it": "piccoli modi per rendere romantico lo studio",
+  "tr": "öğrenmeyi romantikleştirmenin küçük yolları",
+  "sl": "majhni načini, kako učenje narediti romantično",
+  "de": "kleine wege, lernen romantisch zu machen",
+  "sk": "malé spôsoby, ako urobiť učenie romantickým",
+  "sv": "små sätt att romantisera lärandet"
+ },
+ "legendes": {
+  "en": "learning feels different when it feels like a ritual. steal one for this week <3 #girlblogger #romanticizeyourlife #learning #studytok #booktok",
+  "fr": "apprendre, c'est autre chose quand ça devient un rituel. pique-en une cette semaine <3 #girlblogger #romanticizeyourlife #apprendre #studytok #booktokfrance",
+  "es": "aprender se siente distinto cuando es un ritual. róbate una esta semana <3 #girlblogger #romantizatuvida #aprender #studytok #booktokespaña",
+  "es-419": "aprender se siente distinto cuando es un ritual. róbate una esta semana <3 #girlblogger #romantizatuvida #aprender #studytok #booktoklatam",
+  "it": "imparare è diverso quando diventa un rituale. rubane uno questa settimana <3 #girlblogger #romanticizeyourlife #imparare #studytok #booktokitalia",
+  "tr": "öğrenmek bir ritüel olunca bambaşka hissettiriyor. bu hafta birini kap <3 #girlblogger #romanticizeyourlife #öğrenmek #studytok #booktoktürkiye",
+  "sl": "učenje je drugačno, ko postane obred. ukradi enega ta teden <3 #girlblogger #romanticizeyourlife #učenje #studytok #booktok",
+  "de": "lernen fühlt sich anders an, wenn es ein ritual ist. klau dir eins diese woche <3 #girlblogger #romanticizeyourlife #lernen #studytok #booktokdeutschland",
+  "sk": "učenie je iné, keď sa z neho stane rituál. ukradni si jeden tento týždeň <3 #girlblogger #romanticizeyourlife #ucenie #studytok #booktok",
+  "sv": "att lära sig känns annorlunda när det blir en ritual. sno en den här veckan <3 #girlblogger #romanticizeyourlife #lärande #studytok #booktoksverige"
+ },
+ "musique": {
+  "titre": "life is moving",
+  "url": "https://www.tiktok.com/music/life-is-moving-7537780321103005713"
+ },
+ "notes": "Full test (BLEO, 22/11) : accroche neuve chez nous (« romanticize learning »), au gabarit de son tube. Éléments à nous : une bougie pour commencer, de la musique sans paroles, Sophia, de vieux livres, le tricot avec un livre audio. Slide Sophia (4) : « 3. one lesson as a ritual », cta C. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-piano-blanc.jpg": "19862a9a-c310-4e63-b203-d5242a6b0eb0",
+  "images/banque/couv-main-livre-ancien.jpg": "0576788d-047e-4edc-b723-8f7d39ac4165",
+  "images/banque/lampe-tiffany.jpg": "84b353cd-585c-41f3-870e-15fdd4065ec0",
+  "images/banque/bougie-fumee.jpg": "153677ff-f12b-43fa-972f-2fdf6eac5ac3",
+  "images/banque/partition-piano.jpg": "74c2cf09-e998-4842-a13f-cf8f595472a5",
+  "images/banque/mains-piano.jpg": "7055ddbf-6c42-41c5-9b85-364f3375beb1",
+  "images/banque/piano-chandelier.jpg": "2445b3de-f509-49ca-8a3b-4b38806480d9",
+  "images/banque/livres-anciens.jpg": "9564b7af-8611-4cb6-8235-ccf319ad952d",
+  "images/banque/bol-livres.jpg": "247832ad-50d6-4b1f-94bb-706f2cad5542",
+  "images/banque/tricot.jpg": "63ea7c6d-80fc-4d0e-b2f8-03d4402f9630",
+  "images/banque/pulls-laine.jpg": "d85d0ef2-bde2-40ec-99f0-a9a596cd960f"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-piano-blanc.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-main-livre-ancien.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "small ways to\nromanticize\nlearning"
+   },
+   "fr": {
+    "titre": "petites façons\nde rendre\nl'apprentissage\nromantique"
+   },
+   "es": {
+    "titre": "pequeñas formas\nde romantizar\nel aprender"
+   },
+   "es-419": {
+    "titre": "pequeñas formas\nde romantizar\nel aprender"
+   },
+   "it": {
+    "titre": "piccoli modi\nper rendere\nromantico lo studio"
+   },
+   "tr": {
+    "titre": "öğrenmeyi\nromantikleştirmenin\nküçük yolları"
+   },
+   "sl": {
+    "titre": "majhni načini,\nkako učenje\nnarediti romantično"
+   },
+   "de": {
+    "titre": "kleine wege,\nlernen romantisch\nzu machen"
+   },
+   "sk": {
+    "titre": "malé spôsoby,\nako urobiť učenie\nromantickým"
+   },
+   "sv": {
+    "titre": "små sätt att\nromantisera\nlärandet"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/lampe-tiffany.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bougie-fumee.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a candle to start",
+    "paragraphes": [
+     "Light a candle when you sit down to learn something, and blow it out when you stop. same candle every time.",
+     "Your brain learns the signal. one match and you're already focused"
+    ]
+   },
+   "fr": {
+    "titre": "1. une bougie pour commencer",
+    "paragraphes": [
+     "Allume une bougie quand tu t'assois pour apprendre quelque chose, et souffle-la quand tu t'arrêtes. toujours la même bougie.",
+     "Ton cerveau apprend le signal. une allumette et tu es déjà concentrée"
+    ]
+   },
+   "es": {
+    "titre": "1. una vela para empezar",
+    "paragraphes": [
+     "Enciende una vela cuando te sientes a aprender algo, y apágala cuando pares. siempre la misma vela.",
+     "Tu cerebro aprende la señal. una cerilla y ya estás concentrada"
+    ]
+   },
+   "es-419": {
+    "titre": "1. una vela para empezar",
+    "paragraphes": [
+     "Prende una vela cuando te sientes a aprender algo, y apágala cuando termines. siempre la misma vela.",
+     "Tu cerebro aprende la señal. un cerillo y ya estás concentrada"
+    ]
+   },
+   "it": {
+    "titre": "1. una candela per iniziare",
+    "paragraphes": [
+     "Accendi una candela quando ti siedi per imparare qualcosa, e spegnila quando smetti. sempre la stessa candela.",
+     "Il cervello impara il segnale. un fiammifero e sei già concentrata"
+    ]
+   },
+   "tr": {
+    "titre": "1. başlamak için bir mum",
+    "paragraphes": [
+     "Bir şey öğrenmek için oturduğunda bir mum yak, bitirince söndür. hep aynı mum.",
+     "Beynin işareti öğrenir. bir kibrit ve çoktan odaklanmışsın"
+    ]
+   },
+   "sl": {
+    "titre": "1. sveča za začetek",
+    "paragraphes": [
+     "Prižgi svečo, ko se usedeš, da se nečesa naučiš, in jo ugasni, ko nehaš. vedno ista sveča.",
+     "Možgani se naučijo znaka. ena vžigalica in že si zbrana"
+    ]
+   },
+   "de": {
+    "titre": "1. eine kerze zum anfangen",
+    "paragraphes": [
+     "Zünde eine kerze an, wenn du dich zum lernen hinsetzt, und blas sie aus, wenn du aufhörst. immer dieselbe kerze.",
+     "Dein kopf lernt das signal. ein streichholz und du bist schon konzentriert"
+    ]
+   },
+   "sk": {
+    "titre": "1. sviečka na začiatok",
+    "paragraphes": [
+     "Zapáľ sviečku, keď si sadneš, aby si sa niečo naučila, a sfúkni ju, keď skončíš. vždy tá istá sviečka.",
+     "Mozog sa naučí signál. jedna zápalka a už si sústredená"
+    ]
+   },
+   "sv": {
+    "titre": "1. ett ljus för att börja",
+    "paragraphes": [
+     "Tänd ett ljus när du sätter dig för att lära dig något, och blås ut det när du slutar. alltid samma ljus.",
+     "Hjärnan lär sig signalen. en tändsticka och du är redan fokuserad"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/partition-piano.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/mains-piano.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. music without words",
+    "paragraphes": [
+     "Put on piano or strings, nothing with lyrics. chopin's nocturnes are a good start.",
+     "The room feels like a library, and the hours go by quietly"
+    ]
+   },
+   "fr": {
+    "titre": "2. de la musique sans paroles",
+    "paragraphes": [
+     "Mets du piano ou des cordes, rien avec des paroles. les nocturnes de chopin, c'est un bon début.",
+     "La pièce ressemble à une bibliothèque, et les heures passent en silence"
+    ]
+   },
+   "es": {
+    "titre": "2. música sin letra",
+    "paragraphes": [
+     "Pon piano o cuerdas, nada con letra. los nocturnos de chopin son un buen comienzo.",
+     "La habitación parece una biblioteca, y las horas pasan en silencio"
+    ]
+   },
+   "es-419": {
+    "titre": "2. música sin letra",
+    "paragraphes": [
+     "Pon piano o cuerdas, nada con letra. los nocturnos de chopin son un buen comienzo.",
+     "El cuarto parece una biblioteca, y las horas pasan en silencio"
+    ]
+   },
+   "it": {
+    "titre": "2. musica senza parole",
+    "paragraphes": [
+     "Metti pianoforte o archi, niente con le parole. i notturni di chopin sono un buon inizio.",
+     "La stanza sembra una biblioteca, e le ore passano in silenzio"
+    ]
+   },
+   "tr": {
+    "titre": "2. sözsüz müzik",
+    "paragraphes": [
+     "Piyano ya da yaylılar aç, sözlü hiçbir şey olmasın. chopin'in noktürnleri iyi bir başlangıç.",
+     "Oda bir kütüphane gibi olur, ve saatler sessizce geçer"
+    ]
+   },
+   "sl": {
+    "titre": "2. glasba brez besed",
+    "paragraphes": [
+     "Zavrti klavir ali godala, nič z besedilom. chopinovi nokturni so dober začetek.",
+     "Soba postane kot knjižnica, in ure tiho minevajo"
+    ]
+   },
+   "de": {
+    "titre": "2. musik ohne worte",
+    "paragraphes": [
+     "Mach klavier oder streicher an, nichts mit text. chopins nocturnes sind ein guter anfang.",
+     "Das zimmer fühlt sich an wie eine bibliothek, und die stunden vergehen leise"
+    ]
+   },
+   "sk": {
+    "titre": "2. hudba bez slov",
+    "paragraphes": [
+     "Pusti klavír alebo sláčiky, nič s textom. chopinove nokturná sú dobrý začiatok.",
+     "Izba pôsobí ako knižnica, a hodiny ticho plynú"
+    ]
+   },
+   "sv": {
+    "titre": "2. musik utan ord",
+    "paragraphes": [
+     "Sätt på piano eller stråkar, inget med text. chopins nocturner är en bra början.",
+     "Rummet känns som ett bibliotek, och timmarna går tyst"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/piano-chandelier.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson as a ritual",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. same time, same chair, with a tea.",
+     "It stopped feeling like homework. it feels like my favourite part of the evening"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon comme un rituel",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. même heure, même fauteuil, avec un thé.",
+     "Ça ne ressemble plus à des devoirs. c'est mon moment préféré de la soirée"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección como ritual",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. a la misma hora, en el mismo sillón, con un té.",
+     "Dejó de parecer deberes. es mi parte favorita de la noche"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección como ritual",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. a la misma hora, en el mismo sillón, con un té.",
+     "Dejó de sentirse como tarea. es mi parte favorita de la noche"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione come rituale",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. stessa ora, stessa poltrona, con un tè.",
+     "Ha smesso di sembrare un compito. è la mia parte preferita della serata"
+    ]
+   },
+   "tr": {
+    "titre": "3. ritüel gibi bir ders",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. aynı saat, aynı koltuk, bir çayla.",
+     "Artık ödev gibi gelmiyor. akşamın en sevdiğim kısmı"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija kot obred",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. ob isti uri, v istem naslonjaču, s čajem.",
+     "Ni več kot domača naloga. to je moj najljubši del večera"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion als ritual",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. gleiche uhrzeit, gleicher sessel, mit einem tee.",
+     "Es fühlt sich nicht mehr nach hausaufgabe an. es ist mein liebster teil des abends"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia ako rituál",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. v rovnakom čase, v rovnakom kresle, s čajom.",
+     "Už to nepôsobí ako domáca úloha. je to moja najobľúbenejšia časť večera"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion som ritual",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. samma tid, samma fåtölj, med ett te.",
+     "Det slutade kännas som läxor. det är min favoritdel av kvällen"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/livres-anciens.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bol-livres.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. old books, real paper",
+    "paragraphes": [
+     "Every month, buy a used book on a subject you know nothing about. read the notes the last owner left in the margins.",
+     "You're learning from the book and from a stranger at the same time"
+    ]
+   },
+   "fr": {
+    "titre": "4. de vieux livres, du vrai papier",
+    "paragraphes": [
+     "Achète un livre d'occasion par mois sur un sujet que tu ne connais pas. lis les notes que l'ancien propriétaire a laissées dans les marges.",
+     "Tu apprends du livre et d'une inconnue en même temps"
+    ]
+   },
+   "es": {
+    "titre": "4. libros viejos, papel de verdad",
+    "paragraphes": [
+     "Compra un libro de segunda mano al mes sobre un tema del que no sepas nada. lee las notas que dejó el antiguo dueño en los márgenes.",
+     "Aprendes del libro y de un desconocido a la vez"
+    ]
+   },
+   "es-419": {
+    "titre": "4. libros viejos, papel de verdad",
+    "paragraphes": [
+     "Compra un libro usado al mes sobre un tema del que no sepas nada. lee las notas que dejó el dueño anterior en los márgenes.",
+     "Aprendes del libro y de un desconocido al mismo tiempo"
+    ]
+   },
+   "it": {
+    "titre": "4. libri vecchi, carta vera",
+    "paragraphes": [
+     "Compra un libro usato al mese su un argomento che non conosci. leggi le note che il vecchio proprietario ha lasciato a margine.",
+     "Impari dal libro e da uno sconosciuto nello stesso momento"
+    ]
+   },
+   "tr": {
+    "titre": "4. eski kitaplar, gerçek kâğıt",
+    "paragraphes": [
+     "Hiç bilmediğin bir konuda ayda bir ikinci el kitap al. önceki sahibinin kenarlara bıraktığı notları oku.",
+     "Aynı anda hem kitaptan hem bir yabancıdan öğrenirsin"
+    ]
+   },
+   "sl": {
+    "titre": "4. stare knjige, pravi papir",
+    "paragraphes": [
+     "Vsak mesec kupi eno rabljeno knjigo o temi, o kateri ne veš ničesar. preberi opombe, ki jih je prejšnji lastnik pustil na robovih.",
+     "Hkrati se učiš od knjige in od neznanca"
+    ]
+   },
+   "de": {
+    "titre": "4. alte bücher, echtes papier",
+    "paragraphes": [
+     "Kauf jeden monat ein gebrauchtes buch über ein thema, von dem du nichts weißt. lies die notizen, die der vorbesitzer an den rand geschrieben hat.",
+     "Du lernst vom buch und von einem fremden zugleich"
+    ]
+   },
+   "sk": {
+    "titre": "4. staré knihy, skutočný papier",
+    "paragraphes": [
+     "Kúp si každý mesiac jednu knihu z antikvariátu o téme, o ktorej nevieš nič. prečítaj si poznámky, ktoré na okraje nechal predchádzajúci majiteľ.",
+     "Učíš sa z knihy aj od cudzieho človeka zároveň"
+    ]
+   },
+   "sv": {
+    "titre": "4. gamla böcker, riktigt papper",
+    "paragraphes": [
+     "Köp en begagnad bok i månaden om något du inte vet något om. läs anteckningarna som förra ägaren lämnade i marginalen.",
+     "Du lär dig av boken och av en främling på samma gång"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/tricot.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/pulls-laine.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. knitting with an audiobook",
+    "paragraphes": [
+     "Pick a history audiobook and knit while you listen. your hands are busy, your head is somewhere in the 1800s.",
+     "One scarf, one whole book. and you remember it better than if you'd scrolled"
+    ]
+   },
+   "fr": {
+    "titre": "5. tricoter avec un livre audio",
+    "paragraphes": [
+     "Choisis un livre audio d'histoire et tricote en l'écoutant. tes mains sont occupées, ta tête est quelque part au xixe siècle.",
+     "Une écharpe, un livre entier. et tu t'en souviens mieux que si tu avais scrollé"
+    ]
+   },
+   "es": {
+    "titre": "5. tejer con un audiolibro",
+    "paragraphes": [
+     "Elige un audiolibro de historia y teje mientras escuchas. tus manos están ocupadas, tu cabeza está en el siglo xix.",
+     "Una bufanda, un libro entero. y lo recuerdas mejor que si hubieras hecho scroll"
+    ]
+   },
+   "es-419": {
+    "titre": "5. tejer con un audiolibro",
+    "paragraphes": [
+     "Elige un audiolibro de historia y teje mientras escuchas. tus manos están ocupadas, tu cabeza anda por el siglo xix.",
+     "Una bufanda, un libro completo. y lo recuerdas mejor que si hubieras hecho scroll"
+    ]
+   },
+   "it": {
+    "titre": "5. lavorare a maglia con un audiolibro",
+    "paragraphes": [
+     "Scegli un audiolibro di storia e lavora a maglia mentre ascolti. le mani sono occupate, la testa è da qualche parte nell'ottocento.",
+     "Una sciarpa, un libro intero. e lo ricordi meglio che se avessi scrollato"
+    ]
+   },
+   "tr": {
+    "titre": "5. sesli kitapla örgü",
+    "paragraphes": [
+     "Bir tarih sesli kitabı seç ve dinlerken ör. ellerin meşgul, kafan 1800'lerde bir yerde.",
+     "Bir atkı, koca bir kitap. ve scroll yapsaydın hatırlayacağından daha iyi hatırlarsın"
+    ]
+   },
+   "sl": {
+    "titre": "5. pletenje ob zvočni knjigi",
+    "paragraphes": [
+     "Izberi zgodovinsko zvočno knjigo in pleti, medtem ko poslušaš. roke so zaposlene, glava je nekje v 19. stoletju.",
+     "En šal, cela knjiga. in zapomniš si jo bolje, kot če bi skrolala"
+    ]
+   },
+   "de": {
+    "titre": "5. stricken mit einem hörbuch",
+    "paragraphes": [
+     "Such dir ein geschichtshörbuch aus und strick, während du zuhörst. die hände sind beschäftigt, der kopf ist irgendwo im 19. jahrhundert.",
+     "Ein schal, ein ganzes buch. und du merkst es dir besser, als wenn du gescrollt hättest"
+    ]
+   },
+   "sk": {
+    "titre": "5. pletenie s audioknihou",
+    "paragraphes": [
+     "Vyber si historickú audioknihu a pleť, kým počúvaš. ruky máš zamestnané, hlavu niekde v 19. storočí.",
+     "Jeden šál, celá kniha. a pamätáš si ju lepšie, ako keby si scrollovala"
+    ]
+   },
+   "sv": {
+    "titre": "5. sticka till en ljudbok",
+    "paragraphes": [
+     "Välj en ljudbok om historia och sticka medan du lyssnar. händerna är upptagna, huvudet är någonstans på 1800-talet.",
+     "En halsduk, en hel bok. och du minns den bättre än om du hade scrollat"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

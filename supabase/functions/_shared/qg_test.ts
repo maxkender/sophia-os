@@ -1,6 +1,6 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
-import { estRouteQg, jetonValide, lireLundiQg, lirePeriodeQg, QG_JOURS_MAX, routeQg } from "./qg.ts";
+import { estRouteQg, jetonDeRequete, jetonValide, lireLundiQg, lirePeriodeQg, lundiSouple, QG_JOURS_MAX, raisonRefus, routeQg } from "./qg.ts";
 
 const p = (q: string) => lirePeriodeQg(new URLSearchParams(q));
 
@@ -42,4 +42,19 @@ Deno.test("lundi obligatoire pour cohorte et semaine", () => {
   assertEquals(lireLundiQg(new URLSearchParams("semaine=2026-11-17"), "semaine").ok, false);
   assertEquals(lireLundiQg(new URLSearchParams(""), "semaine").ok, false);
   assertEquals(lireLundiQg(new URLSearchParams("cohorte=16/11/2026"), "cohorte").ok, false);
+});
+
+Deno.test("QG réel : noms anglais, jeton en Bearer, paramètres souples", () => {
+  assertEquals(routeQg("/functions/v1/qg/control/recruitment"), "control/recrutement");
+  assertEquals(routeQg("/api/qg/control/payroll"), "control/paie");
+  assertEquals(routeQg("/api/qg/control/issues"), "control/autres");
+  const s = "b".repeat(20);
+  assertEquals(jetonDeRequete(new Headers({ authorization: `Bearer ${s}` })), s);
+  assertEquals(jetonDeRequete(new Headers({ "x-qg-token": ` ${s} ` })), s);
+  assert(jetonValide(` ${s}\n`, s));
+  assert(!jetonValide("court", "court"));
+  assertEquals(raisonRefus(null, s), "jeton absent : en-tête x-qg-token (ou Authorization: Bearer)");
+  assertEquals(raisonRefus("x", null).startsWith("QG_TOKEN absent"), true);
+  assertEquals(lundiSouple(new URLSearchParams("week=2026-11-12"), ["semaine", "week"], "2026-11-16"), { ok: true, lundi: "2026-11-09" });
+  assertEquals(lundiSouple(new URLSearchParams(""), ["semaine", "week"], "2026-11-16"), { ok: true, lundi: "2026-11-16" });
 });

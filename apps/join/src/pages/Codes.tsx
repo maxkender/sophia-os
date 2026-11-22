@@ -36,20 +36,20 @@ function LigneCode({ t, canal, codeTest, fait, onVerifie }: {
     }
   }
 
+  const id = `code-${canal}`;
   return (
-    <div className="carte">
-      <label>{t(canal === "email" ? "codes.email" : "codes.whatsapp")}
-        {fait ? <p className="ok">{t("codes.verified")}</p> : (
-          <div className="tel">
-            <input inputMode="numeric" autoComplete="one-time-code" maxLength={6} value={code}
-              onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} />
-            <button type="button" className="bouton" disabled={code.length !== 6} onClick={verifier}>{t("codes.verify")}</button>
-          </div>
-        )}
-      </label>
+    <div className="carte" style={{ display: "grid", gap: 12 }}>
+      <label className="champ" htmlFor={id}>{t(canal === "email" ? "codes.email" : "codes.whatsapp")}</label>
+      {fait ? <p className="ok">✓ {t("codes.verified")}</p> : (
+        <div className="rangee">
+          <input id={id} inputMode="numeric" autoComplete="one-time-code" maxLength={6} value={code}
+            onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} placeholder="••••••" />
+          <button type="button" className="btn btn--sm" disabled={code.length !== 6} onClick={verifier}>{t("codes.verify")}</button>
+        </div>
+      )}
       {!fait && test && <p className="code-test">{t("codes.test", { code: test })}</p>}
       {msg && <p className="erreur" role="alert">{msg}</p>}
-      {!fait && <button type="button" className="lien" onClick={renvoyer}>{t("codes.resend")}</button>}
+      {!fait && <button type="button" className="lien" style={{ justifySelf: "start" }} onClick={renvoyer}>{t("codes.resend")}</button>}
     </div>
   );
 }
@@ -58,12 +58,19 @@ export default function Codes({ t, envoi, onVerifie }: { t: T; envoi: Envoi; onV
   const [etat, setEtat] = useState({ email_verifie: false, whatsapp_verifie: false });
   const tout = etat.email_verifie && etat.whatsapp_verifie;
   return (
-    <main className="page etroite">
-      <h1>{t("codes.title")}</h1>
-      <p className="sous-titre">{t("codes.sub", { email: envoi.email, whatsapp: envoi.whatsapp })}</p>
-      <LigneCode t={t} canal="email" codeTest={envoi.codes_test?.email} fait={etat.email_verifie} onVerifie={setEtat} />
-      <LigneCode t={t} canal="whatsapp" codeTest={envoi.codes_test?.whatsapp} fait={etat.whatsapp_verifie} onVerifie={setEtat} />
-      <button type="button" className="bouton principal" disabled={!tout} onClick={onVerifie}>{t("codes.continue")}</button>
+    <main className="halo page">
+      <div className="wrap etroite">
+        <div className="section__head">
+          <span className="label">{t("codes.label")}</span>
+          <h1 className="h2">{t("codes.title")}</h1>
+          <p className="lede">{t("codes.sub", { email: envoi.email, whatsapp: envoi.whatsapp })}</p>
+        </div>
+        <LigneCode t={t} canal="email" codeTest={envoi.codes_test?.email} fait={etat.email_verifie} onVerifie={setEtat} />
+        <LigneCode t={t} canal="whatsapp" codeTest={envoi.codes_test?.whatsapp} fait={etat.whatsapp_verifie} onVerifie={setEtat} />
+        <div style={{ marginTop: 20 }}>
+          <button type="button" className="btn btn--plein" disabled={!tout} onClick={onVerifie}>{t("codes.continue")}</button>
+        </div>
+      </div>
     </main>
   );
 }

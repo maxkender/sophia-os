@@ -58,3 +58,12 @@ export function dateLongue(jour: string, langue: string): string {
     return jour;
   }
 }
+
+/** La date limite (instant ISO) lue à Paris : « Sunday 29 November ». */
+export function heureLimite(iso: string, langue: string): string {
+  try {
+    return new Date(iso).toLocaleDateString(langue, { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Paris" });
+  } catch {
+    return iso.slice(0, 10);
+  }
+}

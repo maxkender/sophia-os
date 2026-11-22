@@ -6,7 +6,7 @@ import { dateLongue, type T } from "../i18n";
 function Copier({ t, texte }: { t: T; texte: string }) {
   const [fait, setFait] = useState(false);
   return (
-    <button type="button" className="bouton petit" onClick={() => {
+    <button type="button" className="btn btn--xs btn--ghost" onClick={() => {
       navigator.clipboard?.writeText(texte).then(() => {
         setFait(true);
         setTimeout(() => setFait(false), 1500);
@@ -18,12 +18,12 @@ function Copier({ t, texte }: { t: T; texte: string }) {
 function Etape({ titre, fait, optionnel, t, children }: { titre: string; fait: boolean; optionnel?: boolean; t: T; children: ReactNode }) {
   return (
     <li className={`etape ${fait ? "faite" : ""}`}>
-      <div className="etape-tete">
+      <div className="etape__tete">
         <span className="coche" aria-hidden="true">{fait ? "✓" : ""}</span>
-        <h3>{titre}</h3>
+        <h3 className="h3">{titre}</h3>
         {optionnel && <span className="pastille">{t("dash.optional")}</span>}
       </div>
-      {!fait && <div className="etape-corps">{children}</div>}
+      {!fait && <div className="etape__corps">{children}</div>}
     </li>
   );
 }
@@ -48,15 +48,17 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
 
   const st = statut("tiktok");
   return (
-    <main className="page etroite">
-      <p className="discret">{t("dash.hello", { name: moi.candidature.prenom })}</p>
+    <main className="halo page">
+      <div className="wrap etroite" style={{ display: "grid", gap: 16 }}>
+      <span className="label">{t("dash.hello", { name: moi.candidature.prenom })}</span>
       {moi.premier_post && (
         <div className="annonce">
           <strong>{t("dash.firstPost", { date: dateLongue(moi.premier_post, langue) })}</strong>
           {statut("warmup") !== "fait" && <p>{t("dash.slip")}</p>}
         </div>
       )}
-      <h1>{t("dash.title")}</h1>
+      <h1 className="h2">{t("dash.title")}</h1>
+      <p className="discret">{t("dash.auto")}</p>
       {msg && <p className="erreur" role="alert">{msg}</p>}
       <ol className="checklist">
         <Etape t={t} titre={t("step.tiktok.title")} fait={st === "ok"}>
@@ -65,14 +67,14 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
           {st === "introuvable" && <p className="erreur">{t("step.tiktok.notFound", { handle })}</p>}
           {st === "illisible" && <p className="erreur">{t("step.tiktok.unreadable")}</p>}
           {st === "introuvable" ? (
-            <div className="tel">
+            <div className="rangee" style={{ width: "100%" }}>
               <input value={saisie} placeholder="@username" onChange={(e) => setSaisie(e.target.value)} />
-              <button type="button" className="bouton" disabled={enCours || !saisie} onClick={() => etape("tiktok", { handle: saisie })}>
+              <button type="button" className="btn btn--sm btn--ghost" disabled={enCours || !saisie} onClick={() => etape("tiktok", { handle: saisie })}>
                 {enCours ? t("step.tiktok.checking") : t("step.tiktok.check")}
               </button>
             </div>
           ) : (
-            <button type="button" className="bouton principal" disabled={enCours} onClick={() => etape("tiktok", { handle })}>
+            <button type="button" className="btn btn--sm" disabled={enCours} onClick={() => etape("tiktok", { handle })}>
               {enCours ? t("step.tiktok.checking") : t("step.tiktok.created")}
             </button>
           )}
@@ -84,17 +86,17 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
           <div className="copie"><span>{t("step.profil.name")}</span><code>{moi.profil_suggere.nom}</code><Copier t={t} texte={moi.profil_suggere.nom} /></div>
           <div className="copie"><span>{t("step.profil.bio")}</span><code>{moi.profil_suggere.bio}</code><Copier t={t} texte={moi.profil_suggere.bio} /></div>
           <div className="copie"><span>{t("step.profil.photo")}</span><code lang="en">{moi.profil_suggere.photo}</code><Copier t={t} texte={moi.profil_suggere.photo} /></div>
-          <button type="button" className="bouton principal" disabled={enCours} onClick={() => etape("profil")}>{t("step.profil.done")}</button>
+          <button type="button" className="btn btn--sm" disabled={enCours} onClick={() => etape("profil")}>{t("step.profil.done")}</button>
         </Etape>
 
         <Etape t={t} titre={t("step.warmup.title")} fait={statut("warmup") === "fait"}>
           <p>{t("step.warmup.body")}</p>
-          <button type="button" className="bouton principal" disabled={enCours} onClick={() => etape("warmup", { fini: true })}>{t("step.warmup.done")}</button>
+          <button type="button" className="btn btn--sm" disabled={enCours} onClick={() => etape("warmup", { fini: true })}>{t("step.warmup.done")}</button>
         </Etape>
 
         <Etape t={t} titre={t("step.slack.title")} optionnel fait={statut("slack") !== "a_faire"}>
           <p>{t("step.slack.body")}</p>
-          <button type="button" className="bouton" disabled={enCours} onClick={() => etape("slack")}>{t("step.slack.join")}</button>
+          <button type="button" className="btn btn--sm btn--ghost" disabled={enCours} onClick={() => etape("slack")}>{t("step.slack.join")}</button>
           {test && <p className="discret">{t("step.simulated")}</p>}
         </Etape>
         {statut("slack") === "simule" && test && <p className="discret">Slack — {t("step.simulated")}</p>}
@@ -102,11 +104,12 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
         {moi.ruul_visible && (
           <Etape t={t} titre={t("step.ruul.title")} fait={statut("ruul") !== "a_faire"}>
             <p>{t("step.ruul.body")}</p>
-            <button type="button" className="bouton principal" disabled={enCours} onClick={() => etape("ruul")}>{t("step.ruul.go")}</button>
+            <button type="button" className="btn btn--sm" disabled={enCours} onClick={() => etape("ruul")}>{t("step.ruul.go")}</button>
             {test && <p className="discret">{t("step.simulated")}</p>}
           </Etape>
         )}
       </ol>
+      </div>
     </main>
   );
 }

@@ -14,7 +14,9 @@ export const estEtapeJoin = (e: unknown): e is EtapeJoin => (ETAPES_JOIN as read
 export const CLES_REPONSES = ["pays_actuel", "heures", "tiktok", "contenu"] as const;
 
 export const CONSENTEMENT =
-  "I agree to be contacted about my application and my work by WhatsApp, SMS and email";
+  "I agree that Vik Studios stores this application and contacts me about it by email and WhatsApp.";
+
+export const CONSENTEMENT_WHATSAPP = "I agree to receive WhatsApp messages about my onboarding and posting.";
 
 export const CODE_ESSAIS_MAX = 5;
 export const CODE_DUREE_MIN = 15;
@@ -27,6 +29,8 @@ export interface ModeJoin {
   mode: "test" | "live";
   testeurs_emails: string[];
   testeurs_whatsapp: string[];
+  /** Nom du modèle WhatsApp d'authentification pour le code (vide : le code WhatsApp n'est pas envoyé). */
+  modele_code: string | null;
 }
 
 /** Lit le réglage ; tout ce qui n'est pas explicitement « live » est du test. */
@@ -37,6 +41,7 @@ export function lireModeJoin(v: unknown): ModeJoin {
     mode: o.mode === "live" ? "live" : "test",
     testeurs_emails: liste(o.testeurs_emails).map((e) => e.trim().toLowerCase()),
     testeurs_whatsapp: liste(o.testeurs_whatsapp).map((n) => n.replace(/[^\d+]/g, "")),
+    modele_code: typeof o.modele_code === "string" && /^[a-z0-9_]{1,512}$/.test(o.modele_code) ? o.modele_code : null,
   };
 }
 
@@ -58,21 +63,46 @@ export function normaliserWhatsapp(brut: string): string | null {
   return /^\+[1-9]\d{7,14}$/.test(n) ? n : null;
 }
 
+/** « How did you hear about us? » (inspiré du site Lovable). */
+export const ENTENDU = ["ad", "referral", "sophia_app", "other", "none"] as const;
+export type Entendu = (typeof ENTENDU)[number];
+
 export interface SaisieCandidature {
   prenom: string;
   nom: string;
   email: string;
   whatsapp_e164: string;
+  whatsapp_optin: boolean;
   pays: string;
-  age: number;
+  majeur: true;
   deux_telephones: boolean;
+  entendu: Entendu;
+  parrain: string | null;
   reponses: Record<string, string>;
   langue: string;
 }
 
 export type Validation = { ok: true; valeurs: SaisieCandidature } | { ok: false; erreurs: string[] };
 
-/** Valide le formulaire : champs requis, email, WhatsApp E.164, pays ISO2, âge, consentement obligatoire. */
+/**
+ * Les 4 réponses que les règles de l'OS exigent (manquesCandidature) : le formulaire Join ne pose plus ces questions,
+ * elles sont remplies à partir de ce que la personne a déclaré et accepté (pays, rythme accepté, compte TikTok
+ * fourni, canal d'arrivée).
+ */
+export function reponsesOS(pays: string, entendu: Entendu, parrain: string | null): Record<string, string> {
+  return {
+    pays_actuel: pays,
+    heures: "Agreed: 2 slideshows a day, 7 days a week",
+    tiktok: "Agreed: creates and runs the TikTok account we provide",
+    contenu: `Heard about us: ${entendu}${parrain ? ` (referred by ${parrain})` : ""}`,
+  };
+}
+
+/**
+ * Valide le formulaire v2 : champs requis, email, WhatsApp E.164, pays ISO2, 18 ans ou plus (oui obligatoire),
+ * deux téléphones (oui/non : règle de l'OS), canal d'arrivée (+ nom du parrain), tarif accepté, engagement,
+ * consentement. Le champ piège `site` doit rester vide.
+ */
 export function validerCandidature(b: Record<string, unknown>): Validation {
   const t = (k: string, max = 200) => String(b[k] ?? "").trim().slice(0, max);
   const erreurs: string[] = [];
@@ -81,29 +111,51 @@ export function validerCandidature(b: Record<string, unknown>): Validation {
   const email = t("email", 200).toLowerCase();
   const whatsapp = normaliserWhatsapp(t("whatsapp", 30));
   const pays = t("pays", 2).toUpperCase();
-  const age = Number(b.age);
+  const entendu = t("entendu", 20) as Entendu;
+  const parrain = t("parrain", 80) || null;
+  if (t("site", 200)) erreurs.push("site");
   if (!prenom) erreurs.push("prenom");
   if (!nom) erreurs.push("nom");
   if (!EMAIL.test(email)) erreurs.push("email");
   if (!whatsapp) erreurs.push("whatsapp");
   if (!/^[A-Z]{2}$/.test(pays)) erreurs.push("pays");
-  if (!Number.isInteger(age) || age < 13 || age > 99) erreurs.push("age");
+  if (b.majeur !== true) erreurs.push("majeur");
   if (typeof b.deux_telephones !== "boolean") erreurs.push("deux_telephones");
+  if (!(ENTENDU as readonly string[]).includes(entendu)) erreurs.push("entendu");
+  if (entendu === "referral" && !parrain) erreurs.push("parrain");
+  if (b.accord_tarif !== true) erreurs.push("accord_tarif");
+  if (b.engagement !== true) erreurs.push("engagement");
   if (b.consentement !== true) erreurs.push("consentement");
-  const r = (b.reponses && typeof b.reponses === "object" ? b.reponses : {}) as Record<string, unknown>;
-  const reponses: Record<string, string> = {};
-  for (const k of CLES_REPONSES) {
-    reponses[k] = String(r[k] ?? "").trim().slice(0, 1000);
-    if (!reponses[k]) erreurs.push(k);
-  }
   if (erreurs.length) return { ok: false, erreurs };
+  const parrainGarde = entendu === "referral" ? parrain : null;
   return {
     ok: true,
     valeurs: {
-      prenom, nom, email, whatsapp_e164: whatsapp!, pays, age, deux_telephones: b.deux_telephones as boolean, reponses,
+      prenom, nom, email, whatsapp_e164: whatsapp!, whatsapp_optin: b.whatsapp_optin === true, pays, majeur: true,
+      deux_telephones: b.deux_telephones as boolean, entendu, parrain: parrainGarde,
+      reponses: reponsesOS(pays, entendu, parrainGarde),
       langue: t("langue", 5).toLowerCase() || "en",
     },
   };
+}
+
+/**
+ * La provenance gardée avec la candidature : code de parrainage, UTM, fbclid, page d'arrivée et date de la visite
+ * (le site les garde 30 jours). Tout le reste est ignoré ; valeurs tronquées.
+ */
+export function nettoyerSource(v: unknown): Record<string, string> {
+  const o = (v && typeof v === "object" ? v : {}) as Record<string, unknown>;
+  const out: Record<string, string> = {};
+  const garder = (k: string, max: number, motif?: RegExp) => {
+    const s = typeof o[k] === "string" ? (o[k] as string).trim().slice(0, max) : "";
+    if (s && (!motif || motif.test(s))) out[k] = s;
+  };
+  garder("ref", 40, /^[A-Za-z0-9_-]+$/);
+  for (const k of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) garder(k, 100);
+  garder("fbclid", 300);
+  garder("landing", 200, /^\//);
+  garder("at", 30, /^\d{4}-\d{2}-\d{2}T/);
+  return out;
 }
 
 /** La candidature Join vue comme une candidature de l'OS (mêmes clés de réponses). */
@@ -113,6 +165,8 @@ export interface CandidatureJoin {
   email: string;
   pays: string;
   age: number | null;
+  /** 0841 : « Are you at least 18? » (les candidatures de la v1 n'ont que l'âge). */
+  majeur?: boolean | null;
   deux_telephones: boolean | null;
   reponses: Record<string, string | null | undefined>;
   whatsapp_verifie_at: string | null;
@@ -120,7 +174,7 @@ export interface CandidatureJoin {
 
 export function versCandidatureRuul(c: CandidatureJoin): CandidatureRuul {
   return {
-    adulte: c.age == null ? null : c.age >= 18,
+    adulte: c.majeur === true ? true : c.age == null ? (c.majeur === false ? false : null) : c.age >= 18,
     pays: c.pays || null,
     deux_telephones: c.deux_telephones,
     a_telephone: !!c.whatsapp_verifie_at,
@@ -243,6 +297,101 @@ export function cohorteDe(jourAcceptation: string): string {
   return lundiSuivant(jourAcceptation);
 }
 
+/** Le jour (AAAA-MM-JJ) à Paris pour un instant donné. */
+export function jourParis(d: Date): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(d);
+}
+
+/** L'instant de minuit (00:00, heure de Paris) au début du jour donné. */
+export function minuitParis(jour: string): Date {
+  const utc = new Date(`${jour}T00:00:00Z`);
+  const h = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hourCycle: "h23" }).format(utc));
+  return new Date(utc.getTime() - h * 3_600_000);
+}
+
+/**
+ * La date limite de signature : le dimanche à minuit (heure de Paris) avant le lundi de départ, c.-à-d. le lundi
+ * de la cohorte à 00:00 Paris.
+ */
+export function dateLimiteSignature(cohorte: string): Date {
+  return minuitParis(cohorte);
+}
+
+/** Le lundi de départ au moment de la signature : la cohorte, ou le lundi suivant si la date limite est passée. */
+export function cohorteASignature(cohorte: string | null, maintenant = new Date()): string {
+  if (cohorte && maintenant.getTime() < dateLimiteSignature(cohorte).getTime()) return cohorte;
+  return lundiSuivant(jourParis(maintenant));
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Automatisation (cron horaire) : relances, expiration, enchaînement après signature
+// ---------------------------------------------------------------------------------------------------------------
+
+const JOUR_MS = 86_400_000;
+
+/** Relance du contrat : J+1 puis J+3 après l'acceptation (une fois chacune) ; sans signature à J+7 : expirée. */
+export function etapeRelanceSignature(
+  decisionAt: string,
+  faites: string[],
+  maintenant = new Date(),
+): "signature_j1" | "signature_j3" | "expirer" | null {
+  const jours = (maintenant.getTime() - new Date(decisionAt).getTime()) / JOUR_MS;
+  if (jours >= 7) return "expirer";
+  if (jours >= 3 && !faites.includes("signature_j3")) return "signature_j3";
+  if (jours >= 1 && jours < 3 && !faites.includes("signature_j1")) return "signature_j1";
+  return null;
+}
+
+/** Relance des codes : une seule fois, entre 1 h et 7 jours après la candidature, si un code n'est pas vérifié. */
+export function relanceCodeDue(creeAt: string, toutVerifie: boolean, dejaFaite: boolean, maintenant = new Date()): boolean {
+  if (toutVerifie || dejaFaite) return false;
+  const h = (maintenant.getTime() - new Date(creeAt).getTime()) / 3_600_000;
+  return h >= 1 && h < 24 * 7;
+}
+
+/** Après la signature, dans l'ordre : compte OS, Slack, Ruul, puis le message d'accès. */
+export const ETAPES_APRES_SIGNATURE = ["compte_os", "slack", "ruul", "acces"] as const;
+export type EtapeApresSignature = (typeof ETAPES_APRES_SIGNATURE)[number];
+
+export function etapesRestantes(faites: string[]): EtapeApresSignature[] {
+  return ETAPES_APRES_SIGNATURE.filter((e) => !faites.includes(e));
+}
+
+/** Les messages aux candidats (anglais). `lien` = l'adresse de Join. */
+export function texteMessage(
+  type: "code_rappel" | "signature_j1" | "signature_j3" | "expiree" | "acces",
+  v: { prenom: string; lien: string; lundi?: string; limite?: string },
+): { objet: string; corps: string; bouton: string | null } {
+  const salut = `Hi ${v.prenom},`;
+  switch (type) {
+    case "code_rappel":
+      return {
+        objet: "Finish your application",
+        corps: `${salut}\n\nYour application is almost done: you just need to confirm your email and WhatsApp number. Log in with your email and we'll send you a new code.`,
+        bouton: "Finish my application",
+      };
+    case "signature_j1":
+    case "signature_j3":
+      return {
+        objet: "Your contract is waiting for your signature",
+        corps: `${salut}\n\nYour contract is waiting for your signature. Sign it before ${v.limite ?? "Sunday"}, midnight (Paris time), to start on ${v.lundi ?? "Monday"}. It takes 2 minutes.`,
+        bouton: "Sign my contract",
+      };
+    case "expiree":
+      return {
+        objet: "Your application",
+        corps: `${salut}\n\nYour contract wasn't signed in time, so this offer has expired. You're welcome to apply again whenever you're ready. Thank you for your interest.`,
+        bouton: "Apply again",
+      };
+    case "acces":
+      return {
+        objet: "Welcome to Vik Studios — your access",
+        corps: `${salut}\n\nWelcome to Vik Studios! Your dashboard is ready: log in with your email to see your steps (TikTok account, profile, warm-up).\n\nYour first posts arrive on ${v.lundi ?? "Monday"}. You post 2 slideshows a day and you're paid every Monday through Ruul for the week before.`,
+        bouton: "Open my dashboard",
+      };
+  }
+}
+
 /** « Monday 30 November » (anglais). */
 export function lundiLisible(jour: string): string {
   const d = new Date(`${jour}T12:00:00Z`);
@@ -253,22 +402,23 @@ export function lundiLisible(jour: string): string {
 // Contrat (join-v1)
 // ---------------------------------------------------------------------------------------------------------------
 
-export const CONTRAT_VERSION = "join-v1";
+export const CONTRAT_VERSION = "join-v2";
 
 export const CONTRAT_RESUME = [
+  "You post 2 ready-made slideshows a day on a TikTok account we give you.",
   "You are an independent freelancer, not an employee.",
   "You pay your own taxes and social contributions.",
-  "You are paid through Ruul. Our obligation ends when we pay Ruul; any problem with Ruul goes to Ruul support.",
+  "You are paid every Monday through Ruul for the week before. Our obligation ends when we pay Ruul; any problem with Ruul goes to Ruul support.",
   "The TikTok accounts and all content belong to Vik Studios.",
   "Either side can end this at any time, without notice. Only the posts already made are paid.",
 ];
 
 export const CONTRAT_TEXTE = `FREELANCE SERVICES AGREEMENT (version ${CONTRAT_VERSION})
 
-Between [COMPANY NAME], registered under SIRET [SIRET], with its registered office at [ADDRESS], trading as "Vik Studios" ("the Company"), and the person signing below ("the Creator").
+Between Vik Studios SAS, a French company and the publisher of the Sophia app ("the Company"), and the person signing below under their legal name ("the Creator").
 
 1. Purpose
-The Creator publishes, on TikTok accounts provided or approved by the Company, content prepared by the Company, following the instructions shown in the Creator dashboard.
+The Creator publishes, on TikTok accounts provided or approved by the Company, content prepared by the Company (two slideshows a day unless the dashboard says otherwise), following the instructions shown in the Creator dashboard.
 
 2. Independent status
 The Creator acts as an independent freelancer. Nothing in this agreement creates an employment relationship, a partnership or an agency. The Creator organises their own work and uses their own devices.
@@ -277,7 +427,7 @@ The Creator acts as an independent freelancer. Nothing in this agreement creates
 The Creator is solely responsible for declaring their income and paying any taxes, social contributions or other charges due in their country of residence.
 
 4. Payment
-The Creator is paid per week of published posts, at the rate of their country's pay zone shown on the Join page at the time of signing. Payments are made through Ruul, a third-party payment platform. The Company's payment obligation is fully discharged once the amount is paid to Ruul. Any problem with receiving funds from Ruul (account, identity checks, fees, delays, withdrawals) must be raised with Ruul support directly.
+The Creator is paid per week of published posts, at the rate of their country's pay zone shown on the Join page at the time of signing. The Creator is paid every Monday for the posts of the week before (Monday to Sunday). Payments are made through Ruul, a third-party payment platform, to the Ruul account of the email given at signature. The Company's payment obligation is fully discharged once the amount is paid to Ruul. Any problem with receiving funds from Ruul (account, identity checks, fees, delays, withdrawals) must be raised with Ruul support directly.
 
 5. Ownership of accounts and content
 All TikTok accounts created or used for this work, their usernames, followers, and all content published on them belong exclusively to the Company. The Creator hands over all access on request and at the end of the agreement, and does not change passwords, usernames or content without the Company's instructions.
@@ -301,7 +451,7 @@ The Company's total liability under this agreement is limited to the amounts pai
 The Company processes the Creator's personal data (name, contact details, country, payment details, activity) only to manage this agreement, pay the Creator and meet its legal obligations. The Creator may request access, correction or deletion of their data by contacting the Company, subject to legal retention obligations.
 
 12. Electronic signature
-The Creator signs electronically. The date, time, IP address and device information are recorded with a copy of this text as proof of signature.
+The Creator signs electronically by typing their legal name. The legal name, date, time, IP address and device information are recorded with a copy of this text as proof of signature.
 
 13. Governing law
 This agreement is governed by French law. Any dispute falls under the jurisdiction of the competent courts of France.`;

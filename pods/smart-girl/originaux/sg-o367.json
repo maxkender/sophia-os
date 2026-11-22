@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o367",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c98938ef-3934-43ee-aee5-705ebfc3cbcc",
+ "titre": "trees you should be able to name on a walk #trees #nature #autumn #smartgirl #walk",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 14 de la boîte (parent c98938ef, langue source de) : accroche du parent (notre sg-o244) mot pour mot. Arbres neufs face au parent (hêtre, tilleul, platane, if, sorbier, pin parasol). Sophia au milieu comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3ba8a8a7",
+   "texte_overlay": "trees you should be able\nto name on a walk",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "469e0e72",
+   "texte_overlay": "beech\n\nsmooth grey bark,\nlike an elephant's skin.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0d58f1c2",
+   "texte_overlay": "linden\n\nheart-shaped leaves and\nflowers that smell of honey.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "00e98159",
+   "texte_overlay": "plane tree\n\nbark that peels in patches,\nthe tree of paris boulevards.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "75fb45e8",
+   "texte_overlay": "yew\n\ndark needles, red berries,\nsome over 2,000 years old.",
+   "texte_sophia": "yew\n\nsome over 2,000 years old. i learned\nthat on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1acb76e6",
+   "texte_overlay": "rowan\n\nbright orange berries\nin autumn.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bab96c09",
+   "texte_overlay": "stone pine\n\nthe umbrella-shaped pine\nof rome.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "93e26c7f",
+   "texte_overlay": "how many can you name?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

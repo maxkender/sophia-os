@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o362",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f8f6207c-6e21-4e5e-ba0a-978a7ef3baa3",
+ "titre": "small habits of women who always have it together #thatgirl #organised #smartgirl #habits #elegance",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 9 de la boîte (parent f8f6207c, langue source fr) : accroche reformulée (« small habits of women who always have it together »), habitudes du parent (préparer la journée la veille, un petit carnet, le lit fait, dix minutes d'avance, le point du dimanche, toujours des histoires à raconter). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e5f420a2",
+   "texte_overlay": "small habits of women who\nalways have it together",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "abcd5301",
+   "texte_overlay": "they plan tomorrow tonight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dfb274fa",
+   "texte_overlay": "they carry a little notebook",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "aeafcaff",
+   "texte_overlay": "they always have a story to tell",
+   "texte_sophia": "they always have a story to tell: i find\nmine in five minutes on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a3757ac4",
+   "texte_overlay": "they make their bed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d989fbb0",
+   "texte_overlay": "they arrive ten minutes early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1aeed81e",
+   "texte_overlay": "they reset every sunday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5bb69269",
+   "texte_overlay": "which one do you do?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

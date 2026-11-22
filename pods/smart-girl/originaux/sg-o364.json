@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o364",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "32e5fba3-84a3-4219-8b1e-5f4bcbff562f",
+ "titre": "rules that changed my life once i started using them #rules #selfimprovement #smartgirl #mindset #discipline",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "32e5fba3-84a3-4219-8b1e-5f4bcbff562f"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 11 de la boîte (parent 32e5fba3, langue source es) : accroche du parent mot pour mot. Règles du parent (ne jamais se justifier, s'habiller pour la vie qu'on veut, cinq minutes d'avance, avoir du fond, pas de téléphone sur la table) et neuves. Sophia en 4 comme chez le parent (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d00b0c8a",
+   "texte_overlay": "rules that changed my life once\ni started using them",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621174235351878913/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c05e1855",
+   "texte_overlay": "1. never over-explain\n\nno means no.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621174235351878913/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c86b53d9",
+   "texte_overlay": "2. dress for the life you want",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621174235351878913/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "abe506c7",
+   "texte_overlay": "3. arrive five minutes early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621174235351878913/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4fc06cf8",
+   "texte_overlay": "4. have depth, not just image\n\ni read one lesson every morning.",
+   "texte_sophia": "4. have depth, not just image\n\ni read one lesson every morning on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621174235351878913/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2a34a147",
+   "texte_overlay": "5. the phone never goes\non the table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621174235351878913/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ff1d8ebe",
+   "texte_overlay": "6. one thing at a time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621174235351878913/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1a404ee4",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7621174235351878913/6.jpg"
+  }
+ ]
+}

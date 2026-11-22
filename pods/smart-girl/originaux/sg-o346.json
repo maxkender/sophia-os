@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o346",
+ "type_bleo": "full_test",
+ "titre": "the most beautiful train journeys in the world #train #travel #slowtravel #smartgirl #wanderlust",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/8 (la jauge en demande 8 sur 25) : accroche jamais faite chez nous (« train » absent des accroches de donnees/label.json). Accroches écrites : « the most beautiful train journeys in the world » (retenue : voyage lent, rêve), « famous trains » (écartée : plate), « travel by train » (écartée : vague). Faits vérifiés : Venice Simplon-Orient-Express, Glacier Express (Zermatt–Saint-Moritz, « l'express le plus lent du monde »), Transsibérien (plus longue ligne du monde, environ 9 300 km), Shinkansen (1964), Rocky Mountaineer (de jour seulement), Darjeeling Himalayan Railway (« toy train », UNESCO 1999). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f1e31495",
+   "texte_overlay": "the most beautiful train\njourneys in the world",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "082106cd",
+   "texte_overlay": "the orient express\n\nparis to venice in a\n1920s carriage.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "afe83db0",
+   "texte_overlay": "the glacier express\n\nzermatt to st. moritz: the slowest\nexpress train in the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "312a65e8",
+   "texte_overlay": "the trans-siberian\n\nmoscow to vladivostok, the longest\nrailway line on earth.",
+   "texte_sophia": "the trans-siberian\n\nthe longest railway line on earth.\ni read about it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e28a75fd",
+   "texte_overlay": "the shinkansen\n\njapan's bullet train,\nsince 1964.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a3032853",
+   "texte_overlay": "the rocky mountaineer\n\ncanada's rockies, travelled\nonly by daylight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9b91115c",
+   "texte_overlay": "the darjeeling toy train\n\nthrough the himalayas,\na unesco world heritage site.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3e10442a",
+   "texte_overlay": "which one would you take?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

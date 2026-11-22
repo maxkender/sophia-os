@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o369",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a07c239a-a4c3-46cc-98db-a31b47aeea2e",
+ "titre": "uncommon habits that make you smarter than everyone in the room #smarter #habits #smartgirl #learning #curiosity",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "a07c239a-a4c3-46cc-98db-a31b47aeea2e"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 69 de la boîte (parent a07c239a, langue source de) : accroche du parent mot pour mot. Habitudes du parent (supporter les opinions contraires, écrire ce qu'on pense avant de chercher, écouter des gens qui pensent autrement, un mot par jour, relire ses surlignages de six mois, une chose d'histoire par semaine, cinq minutes de micro-apprentissage). Sophia à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c34b9a44",
+   "texte_overlay": "uncommon habits that make you\nsmarter than everyone in the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606183352894229791/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9671ca9f",
+   "texte_overlay": "sitting with opinions you\ncompletely disagree with",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606183352894229791/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dc75e7fb",
+   "texte_overlay": "writing what you think\nbefore you google it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606183352894229791/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "284f4005",
+   "texte_overlay": "watching interviews with people\nwho think differently",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606183352894229791/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "35081a10",
+   "texte_overlay": "learning one new word a day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606183352894229791/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "94a7706b",
+   "texte_overlay": "rereading what you highlighted\nsix months ago",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606183352894229791/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "abd7ae87",
+   "texte_overlay": "five minutes of learning every day\n\ni do it every morning.",
+   "texte_sophia": "five minutes of learning every day\n\ni do it every morning on a micro-learning\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606183352894229791/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "19105c0a",
+   "texte_overlay": "one history fact a week,\njust because",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606183352894229791/7.jpg"
+  }
+ ]
+}

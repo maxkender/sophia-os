@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o350",
+ "type_bleo": "full_test",
+ "titre": "how to make a cheese board like the french #cheese #hosting #dinnerparty #smartgirl #foodie",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 5/8 (la jauge en demande 8 sur 25) : accroche jamais faite chez nous (« cheese » absent des accroches de donnees/label.json). Accroches écrites : « how to make a cheese board like the french » (retenue : savoir-recevoir avant les fêtes), « cheese board ideas » (écartée : banale), « french cheese facts » (écartée : plate). Conseils classiques (trois à cinq fromages de familles différentes, sortis une heure avant, du sucré, du croquant, un couteau par fromage, du plus doux au plus fort). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "55c03a8d",
+   "texte_overlay": "how to make a cheese board\nlike the french",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7c60146e",
+   "texte_overlay": "1. three to five cheeses\n\none soft, one hard, one blue.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "be98ebe4",
+   "texte_overlay": "2. out of the fridge\nan hour before",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "900ec9e4",
+   "texte_overlay": "3. something sweet\n\nhoney, figs, grapes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2c972d94",
+   "texte_overlay": "4. something crunchy\n\nwalnuts, good bread.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0a63fa95",
+   "texte_overlay": "5. one knife per cheese",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d094e269",
+   "texte_overlay": "6. mildest to strongest\n\nand one story about each cheese.\ni learn one every morning.",
+   "texte_sophia": "6. mildest to strongest\n\nand one story about each cheese. i learn\none every morning on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "57d3b3bd",
+   "texte_overlay": "save this for the holidays",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

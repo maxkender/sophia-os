@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o347",
+ "type_bleo": "full_test",
+ "titre": "the most beautiful bookshops in the world #bookshop #booktok #travel #smartgirl #booklover",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 2/8 (la jauge en demande 8 sur 25) : accroche jamais faite chez nous (« bookshop » absent des accroches de donnees/label.json). Accroches écrites : « the most beautiful bookshops in the world » (retenue : livres + voyage), « bookstores to visit » (écartée : plate), « libraries vs bookshops » (écartée : confuse). Lieux vérifiés : Shakespeare and Company (Paris, les « tumbleweeds » qui y dorment), Livraria Lello (Porto, escalier rouge), El Ateneo Grand Splendid (Buenos Aires, théâtre de 1919), Boekhandel Dominicanen (Maastricht, église du XIIIe), Daunt Books (Londres, rangée par pays), Atlantis Books (Santorin). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e0c0fe5a",
+   "texte_overlay": "the most beautiful bookshops\nin the world",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "45e847d2",
+   "texte_overlay": "shakespeare and company, paris\n\nyoung writers still sleep\nbetween the shelves.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d10e7365",
+   "texte_overlay": "livraria lello, porto\n\nthe famous red staircase.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "393e009e",
+   "texte_overlay": "el ateneo grand splendid,\nbuenos aires\n\na 1919 theatre turned bookshop.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cd371d7d",
+   "texte_overlay": "boekhandel dominicanen,\nmaastricht\n\nbooks inside a 13th-century church.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "29f86fe8",
+   "texte_overlay": "daunt books, london\n\nshelves arranged by country.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b5ffbfff",
+   "texte_overlay": "atlantis books, santorini\n\na tiny cave of books by the sea.\ni discovered it on one of my\nmorning lessons.",
+   "texte_sophia": "atlantis books, santorini\n\na tiny cave of books by the sea. i found\nit in a lesson on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e5c809c8",
+   "texte_overlay": "which one is on your list?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o357",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2c6d1292-c12e-4d62-8755-c36a12b82584",
+ "titre": "phrases that instantly make you sound articulate #eloquence #vocabulary #smartgirl #speakbetter #wellspoken",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 4 de la boîte (parent 2c6d1292, langue source ro) : accroche reformulée (« phrases that instantly make you sound articulate »), différente de sg-o308 et sg-o330 ; tournures dans l'esprit du parent. Sophia au milieu comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dc37b791",
+   "texte_overlay": "phrases that instantly make\nyou sound articulate",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5093f75d",
+   "texte_overlay": "\"that's a fair point, and…\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6279b1e0",
+   "texte_overlay": "\"let me put it another way\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5d0e4b50",
+   "texte_overlay": "eloquence needs substance",
+   "texte_sophia": "eloquence needs substance: i learn a\nlittle every day on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6df4e1da",
+   "texte_overlay": "\"what makes you say that?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1ed62563",
+   "texte_overlay": "\"in other words…\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "01bde28c",
+   "texte_overlay": "\"i'd love to hear more\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3f7816a2",
+   "texte_overlay": "save this and try one today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

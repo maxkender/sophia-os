@@ -1,56 +1,53 @@
 {
   "source_id": "cs-o164",
-  "type_bleo": "declinaison",
-  "parent_contenu_id": "741e7669-a63d-4fcc-af3d-7d065404d6aa",
-  "titre": "how to become the BEST student in your entire class #studytok #studytips #school",
-  "musique_titre": "white mustang instrumental lana del rey",
-  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
-  "inspirations": [
-    "741e7669-a63d-4fcc-af3d-7d065404d6aa"
-  ],
-  "notes": "Déclinaison G1 de 741e7669 (r 4,79 en français, 16,5 k vues en polonais), ligne 8 de la boîte. Accroche du parent mot pour mot. Habitudes neuves, aucune du parent (les 5 % manquants, reprendre les bonnes questions des autres, garder les corrections faites aux autres, être utile en groupe, étudier le pire exemple) : relire ses notes le soir même, demander des exemples, s'entraîner sur des sujets d'annales, une culture générale qui nourrit les copies (slide Sophia, 5), ne jamais laisser une question sans réponse, dormir. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "type_bleo": "full_test",
+  "titre": "how i learn a whole vocabulary list for a language test #studytok #studytips #languages",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [],
+  "notes": "Full test (BLEO), ajouté en 8e livraison : la boîte n'avait plus de ligne utilisable aujourd'hui (§4.2 : des full tests en plus). Une déclinaison de 741e7669 tentée sous cet id a été refusée par le guichet (accroche_voisine avec 602efb01 le même jour) : l'id est repris pour ce full test. Accroche jamais faite chez nous (« vocabulary list » absent du label). Accroches écrites : « how i learn a whole vocabulary list for a language test » (retenue : un besoin très précis), « vocab memorization hacks » (écartée : vague), « learn 50 words in one night » (écartée : bachotage). Gestes vrais : 10 mots par jour, chaque mot dans une phrase à soi, dire les mots à voix haute, une pause culture sur le pays de la langue (slide Sophia, 5), se tester dans les deux sens, revenir sur les mots ratés le lendemain. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
   "slides": [
     {
       "position": 1,
-      "media_id": "29a37791",
-      "texte_overlay": "how to become the BEST\nstudent\nin your entire class",
+      "media_id": "69aaa4e2",
+      "texte_overlay": "how i learn a whole vocabulary list\nfor a language test",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
     },
     {
       "position": 2,
-      "media_id": "9d83f55e",
-      "texte_overlay": "i reread my notes the same evening.\n10 minutes. every class.",
+      "media_id": "6031638a",
+      "texte_overlay": "10 words a day. never 50 the night before.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
     },
     {
       "position": 3,
-      "media_id": "eea7f438",
-      "texte_overlay": "i ask for examples.\n\"can you show me one?\" makes everything click.",
+      "media_id": "21245913",
+      "texte_overlay": "every word goes into a sentence about my life.\n\"my sister is always late\" sticks better than \"late\".",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
     },
     {
       "position": 4,
-      "media_id": "fd8039ae",
-      "texte_overlay": "i train on past papers.\nthe format stops being scary.",
+      "media_id": "0f78529e",
+      "texte_overlay": "i say them out loud.\nmy mouth remembers too.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
     },
     {
       "position": 5,
-      "media_id": "95fac1d6",
-      "texte_overlay": "i read a little about everything.\nhistory, art, science. it shows up in my essays.",
+      "media_id": "d18d38a0",
+      "texte_overlay": "on breaks, a little culture from that country.\nhistory, art, food. the words start to mean something.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
-      "texte_sophia": "i learn a little about everything\non a micro-learning app like the Sophia app.\nhistory, art, science. it shows up in my essays."
+      "texte_sophia": "on breaks, 5 minutes of culture from that country\non a micro-learning app like the Sophia app.\nthe words start to mean something."
     },
     {
       "position": 6,
-      "media_id": "2c972d94",
-      "texte_overlay": "no question stays unanswered.\nif i don't get it, i find someone who does.",
+      "media_id": "23262a50",
+      "texte_overlay": "i quiz myself both ways.\nword to meaning, then meaning to word.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
     },
     {
       "position": 7,
-      "media_id": "18369f4e",
-      "texte_overlay": "and i sleep. 8 hours beats one more hour of rereading.",
+      "media_id": "f9046c55",
+      "texte_overlay": "the words i miss open tomorrow's session.\nfirst thing.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
     }
   ]

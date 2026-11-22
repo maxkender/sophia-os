@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o253",
+ "type_bleo": "full_test",
+ "titre": "Dishes every man should know how to cook #men #cooking #food #skills #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7458397927627885334",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Full test du jour (9 sur 11 : jauge 8 sur 24, plus 3 à la place des lignes de la boîte écartées par les garde-fous, ROUTINE §4.2). Accroche jamais faite chez nous : aucun « know how to cook » dans donnees/label.json. reference_url : post source de am-o117, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "03351629",
+   "texte_overlay": "Dishes every man should know\nhow to cook",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0173f90f",
+   "texte_overlay": "1. Perfect scrambled eggs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6068d18b",
+   "texte_overlay": "2. One real pasta sauce",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "37c02f22",
+   "texte_overlay": "3. A steak, cooked right",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "04dc6cd8",
+   "texte_overlay": "4. A soup for sick days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b29310aa",
+   "texte_overlay": "5. Learn why recipes work\n\nThen you can improvise.",
+   "texte_sophia": "5. Learn why recipes work\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  }
+ ]
+}

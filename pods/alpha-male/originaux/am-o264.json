@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o264",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "86cad2d3-7676-45a6-8e27-bf4f5f3a7eaa",
+ "titre": "5 ting der får folk til at tage dig mere seriøst #respekt #mænd #selvtillid #psykologi #mindset",
+ "musique_titre": "alkuperäinen ääni",
+ "musique_url": "https://www.tiktok.com/music/alkuperainen-aani-7438536346848742177",
+ "inspirations": [
+  "86cad2d3-7676-45a6-8e27-bf4f5f3a7eaa"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Déclinaison G1 de la ligne 10 (parent 86cad2d3, @fremrag, langue source da : écrite en danois). Accroche du parent mot pour mot. Même format « N. » + phrase. Choses neuves, aucune du parent ; pas de slide « tag ». reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "614b3a4a",
+   "texte_overlay": "5 ting der får folk til at tage dig\nmere seriøst",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675403552168103190/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "02824b16",
+   "texte_overlay": "1.\nsig mindre. men mén det,\ndu siger.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675403552168103190/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0e17b874",
+   "texte_overlay": "2.\nsvar på beskeder.\nogså når svaret er nej.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675403552168103190/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "25e7b019",
+   "texte_overlay": "3.\nved noget om mange ting.\nlær lidt hver dag.",
+   "texte_sophia": "3.\nfolk lytter til den, der ved noget.\nen app med almen viden\nsom Sophia hjælper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675403552168103190/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "001d0d18",
+   "texte_overlay": "4.\nhav rene sko.\nfolk ser det.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675403552168103190/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3fc8bdc8",
+   "texte_overlay": "5.\nhold, hvad du lover.\nhver gang.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675403552168103190/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "52748fe0",
+   "texte_overlay": "vi ses næste gang",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675403552168103190/8.jpg"
+  }
+ ]
+}

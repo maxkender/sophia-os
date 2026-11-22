@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o250",
+ "type_bleo": "full_test",
+ "titre": "How to find a mentor who changes your life #men #mentor #career #growth #selfimprovement",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Full test du jour (6 sur 11 : jauge 8 sur 24, plus 3 à la place des lignes de la boîte écartées par les garde-fous, ROUTINE §4.2). Accroche jamais faite chez nous : « mentor » seulement dans des items dans donnees/label.json. reference_url : post source de am-o110, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9728f894",
+   "texte_overlay": "How to find a mentor who\nchanges your life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c6ab0435",
+   "texte_overlay": "1. Look one step ahead,\nnot ten",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "581bf928",
+   "texte_overlay": "2. Ask a specific question,\nnot \"be my mentor\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "405aa4c4",
+   "texte_overlay": "3. Do what they say.\nThen report back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "423d7656",
+   "texte_overlay": "4. Offer something back\n\nYour time, your skills.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "022661b5",
+   "texte_overlay": "5. Read their favorite books",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "768ff40a",
+   "texte_overlay": "6. Arrive curious every time\n\nLearn between meetings.",
+   "texte_sophia": "6. Arrive curious every time\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691041507138112775/7.jpg"
+  }
+ ]
+}

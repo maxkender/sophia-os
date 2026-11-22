@@ -1,0 +1,75 @@
+{
+ "source_id": "am-o265",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c6318f85-7501-4262-a903-2d559d0dae78",
+ "titre": "11 choses que les gens apprennent trop tard dans la vie #vie #lecons #mindset #hommes #developpementpersonnel",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7470927858257513246",
+ "inspirations": [
+  "c6318f85-7501-4262-a903-2d559d0dae78"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Déclinaison G1 de la ligne 23 (parent c6318f85, @infinitydream7, langue source fr : écrite en français, ROUTINE §4.3). Accroche du parent mot pour mot. Même format : une leçon en une phrase, deux par slide pour tenir en 10 slides. Leçons neuves, aucune du parent. reference_url du parent (1 à 10) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35f0e5b1",
+   "texte_overlay": "11 choses que les gens apprennent\ntrop tard dans la vie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01ded367",
+   "texte_overlay": "1. Tes parents vieillissent\npendant que tu es occupé.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "45d180ab",
+   "texte_overlay": "2. Les vrais amis se comptent\nsur une main. Et c'est assez.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "514e554f",
+   "texte_overlay": "3. Ton corps garde la trace\nde chaque habitude.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "489c0297",
+   "texte_overlay": "4. Personne ne pense à tes erreurs\nautant que toi.\n\n5. Le travail ne t'aimera jamais en retour.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "73921c5b",
+   "texte_overlay": "6. Attendre le bon moment,\nc'est déjà le laisser passer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1b29b086",
+   "texte_overlay": "7. Ton temps d'écran,\nc'est du temps de vie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2f5eaeb6",
+   "texte_overlay": "8. Apprendre ne s'arrête pas\naprès l'école. C'est là\nque ça commence.",
+   "texte_sophia": "8. Apprendre ne s'arrête pas\naprès l'école. J'apprends chaque jour\nsur l'appli Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "51482a97",
+   "texte_overlay": "9. Dire non, c'est aussi\nse respecter.\n\n10. La gratitude rend tout plus léger.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/9.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "a0b9c107",
+   "texte_overlay": "11. Tu ne regretteras jamais\nd'avoir essayé.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7608658933623819542/10.jpg"
+  }
+ ]
+}

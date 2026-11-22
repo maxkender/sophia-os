@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o249",
+ "type_bleo": "full_test",
+ "titre": "Rules for buying your first suit #men #suit #style #gentleman #menswear",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 22/11. Full test du jour (5 sur 11 : jauge 8 sur 24, plus 3 à la place des lignes de la boîte écartées par les garde-fous, ROUTINE §4.2). Accroche jamais faite chez nous : aucun « first suit » dans donnees/label.json. reference_url : post source de am-o002, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a7d5373",
+   "texte_overlay": "Rules for buying your\nfirst suit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "36f9e709",
+   "texte_overlay": "1. Navy or charcoal first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "477831f4",
+   "texte_overlay": "2. Fit the shoulders.\nA tailor does the rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "376c1af4",
+   "texte_overlay": "3. Show half an inch of sleeve",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "70eb9cde",
+   "texte_overlay": "4. Learn the basics before\nthe store\n\nCuts, fabrics, lapels.",
+   "texte_sophia": "4. Learn the basics before\nthe store\n\nI learned them on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "63baeba0",
+   "texte_overlay": "5. Brown or black shoes.\nNever sneakers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e8233f7a",
+   "texte_overlay": "6. Wear it like you belong in it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

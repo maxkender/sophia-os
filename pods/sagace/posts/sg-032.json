@@ -1,0 +1,1293 @@
+{
+ "id": "sg-032",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 pour comprendre le monde",
+  "en": "10/10 skills to understand the world",
+  "de": "10/10-Skills, um die Welt zu verstehen",
+  "it": "Abilità 10/10 per capire il mondo",
+  "pt-BR": "Habilidades 10/10 para entender o mundo",
+  "tr": "Dünyayı anlamak için 10/10 beceriler",
+  "ro": "Abilități 10/10 ca să înțelegi lumea",
+  "cs": "Dovednosti 10/10, díky kterým pochopíš svět"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 pour comprendre le monde #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to understand the world #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, um die Welt zu verstehen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 per capire il mondo #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para entender o mundo #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Dünyayı anlamak için 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 ca să înțelegi lumea #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, díky kterým pochopíš svět #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "PULL UP - Internet Girl",
+  "url": "https://www.tiktok.com/music/pull-up-7362000806738298897"
+ },
+ "notes": "Full test du 22/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 pour comprendre le monde », sa couverture (décor, lignes brun/noir, mot fort « LE MONDE » en brun géant). 5 compétences de compréhension : l'inflation, l'effet de serre, repérer une fake news, comment marche Internet, pourquoi la Terre tremble ; vraies vidéos natives de vulgarisation par langue (banques centrales, agences publiques, chaînes de science). Sophia en étape 4 sur 7, cta B « S'OUVRIR / AU MONDE ». Évolution écartée (contenus religieux en tr/ro) ; versions doublées écartées (ESA Paxi, Smile and Learn, Sabin, JAES, DW Brasil/Türkçe, KhanAcademyTurkce) ; Dezaburit (ro) écarté : George Soros en miniature.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "POUR COMPRENDRE",
+      "cap": 110
+     },
+     {
+      "t": "LE MONDE",
+      "couleur": "brun",
+      "cap": 260
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO UNDERSTAND",
+      "cap": 120
+     },
+     {
+      "t": "THE WORLD",
+      "couleur": "brun",
+      "cap": 260
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "UM DIE",
+      "cap": 169
+     },
+     {
+      "t": "WELT",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ZU VERSTEHEN",
+      "cap": 130
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PER CAPIRE",
+      "cap": 140
+     },
+     {
+      "t": "IL MONDO",
+      "couleur": "brun",
+      "cap": 260
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA ENTENDER",
+      "cap": 120
+     },
+     {
+      "t": "O MUNDO",
+      "couleur": "brun",
+      "cap": 270
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "DÜNYAYI",
+      "couleur": "brun",
+      "cap": 260
+     },
+     {
+      "t": "ANLAMAK İÇİN",
+      "cap": 130
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CA SĂ ÎNȚELEGI",
+      "cap": 110
+     },
+     {
+      "t": "LUMEA",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DÍKY KTERÝM",
+      "cap": 120
+     },
+     {
+      "t": "POCHOPÍŠ",
+      "cap": 169
+     },
+     {
+      "t": "SVĚT",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPRENDRE",
+     [
+      {
+       "t": "L'INFLATION",
+       "couleur": "#d6392f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xFfFxX8m2ng",
+     "titre": "Inflation et déflation | Banque de France",
+     "chaine": "Banque de France",
+     "vues": "19 k vues",
+     "date": "il y a 3 ans",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/Dvw3MvEynzFVc1XFR5qqVfGO331bT3vcOFQKTIdP0BoBNCWe3FP7TAFlZD6JnH1dtUuD70xScw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND",
+     [
+      {
+       "t": "INFLATION",
+       "couleur": "#d6392f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zIbNJCSCEjk",
+     "titre": "INFLATION, Explained in 6 Minutes",
+     "chaine": "Johnny Harris",
+     "vues": "2.3M views",
+     "date": "4 years ago",
+     "duree": "8:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kswBDn49WW5IneVE-5RlKyud5GvdzyQQ5SJQyVvJ4S3pk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "INFLATION",
+       "couleur": "#d6392f"
+      }
+     ],
+     "VERSTEHEN"
+    ],
+    "video": {
+     "id": "AojHN-YfdkI",
+     "titre": "Inflation einfach erklärt (explainity® Erklärvideo)",
+     "chaine": "explainity ® Erklärvideos",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 14 Jahren",
+     "duree": "4:23",
+     "avatar": "https://yt3.ggpht.com/yzS4NHuaTy7dp1rNK9986gONvqufx-vGa5fLNjTWbNrm04Ug6V2Nte0xJtcx7EbfJu1AMGs-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAPIRE",
+     [
+      {
+       "t": "L'INFLAZIONE",
+       "couleur": "#d6392f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kvJtsJvywR4",
+     "titre": "L'inflazione spiegata semplicemente 💴",
+     "chaine": "Investiamo",
+     "vues": "82K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/ym4hdhXJNfwOVakoxSh9EE-6ORy4D_ngKuw7kXRIVKY-dnpDMR5f2LFQcE0jEMjzC-FglYNC2Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER",
+     [
+      {
+       "t": "A INFLAÇÃO",
+       "couleur": "#d6392f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0us8Oq7TeUg",
+     "titre": "INFLAÇÃO: O QUE É; DE ONDE VEM?",
+     "chaine": "Muca Lab",
+     "vues": "887 mil visualizações",
+     "date": "há 11 anos",
+     "duree": "5:32",
+     "avatar": "https://yt3.ggpht.com/t5SqKL3E0ODSQpkror-XUXX7H-lcBpFZOCKn0zGfq-9_WdXEbSFSI-oma1P8W01GdiL1gSAF3KE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ENFLASYONU",
+       "couleur": "#d6392f"
+      }
+     ],
+     "ANLAMAK"
+    ],
+    "video": {
+     "id": "IitOm2Qg5SY",
+     "titre": "Enflasyon nedir?",
+     "chaine": "Erman Manyaslı",
+     "vues": "773 B görüntüleme",
+     "date": "12 yıl önce",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/3rh_IR2T9WTmKYhr-S-vXXzGJlO9sen_RNFelXeVTN_367es-4FAcTIjA1ZziysMFSJL2l10gQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "INFLAȚIA",
+       "couleur": "#d6392f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q6cTzYz00b4",
+     "titre": "INFLAȚIA explicată în 5 minute",
+     "chaine": "Cristian Chifoi",
+     "vues": "27 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "9:21",
+     "avatar": "https://yt3.ggpht.com/0pn7toqILZNaxqliLcwHRmdoXXzIaNFCAEoAICDdBeZlGw09UZ3zUNkgoFcax6L0qjpxgOG5RA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POCHOPIT",
+     [
+      {
+       "t": "INFLACI",
+       "couleur": "#d6392f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KfBhoRb3-HQ",
+     "titre": "9 Svět peněz a ekonomiky – Inflace I",
+     "chaine": "Česká národní banka",
+     "vues": "13 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/Br2eZuDjoqqToFjdaDXWADjgHOqOoLD45_qaD5Z-5TD26AWyC80YjQVDwkYgNwfjoDleRelG=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "C'EST QUOI",
+     [
+      {
+       "t": "L'EFFET DE SERRE",
+       "couleur": "#3f9e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "g21fiXIR47g",
+     "titre": "L'effet de serre: c'est quoi?",
+     "chaine": "Carbone Scol'ERE",
+     "vues": "419 k vues",
+     "date": "il y a 5 ans",
+     "duree": "2:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_luHRGVbWEEUgsoVW-vW06NaPu1L0tfee4cgT7XL0b2YdE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WHAT IS THE",
+     [
+      {
+       "t": "GREENHOUSE EFFECT",
+       "couleur": "#3f9e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sTvqIijqvTg",
+     "titre": "How Do Greenhouse Gases Actually Work?",
+     "chaine": "MinuteEarth",
+     "vues": "2.3M views",
+     "date": "11 years ago",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_katEIhwNI2gGmuRx4MGjzfCAn_VT96ty5YxNLQCY-MjQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WAS IST DER",
+     [
+      {
+       "t": "TREIBHAUSEFFEKT",
+       "couleur": "#3f9e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eI8L3wV3pBo",
+     "titre": "UBA-Erklärfilm: Treibhausgase und Treibhauseffekt",
+     "chaine": "Umweltbundesamt",
+     "vues": "199.676 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ms_uNCR0WLO3V9KoyvXkR6Xc3ljwwa_NsGnRnO6U6X0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COS'È",
+     [
+      {
+       "t": "L'EFFETTO SERRA",
+       "couleur": "#3f9e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wObY19rt3Wg",
+     "titre": "Mini lezione: l'effetto serra",
+     "chaine": "Prof Scienza",
+     "vues": "91K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/U97hD0mP01jSmZQ3Bk29N7K-jYw8HEKjPS3j1-JObDiD5oAmHeQqn1G8lyn1aP6TpbReqLR0AA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "O QUE É O",
+     [
+      {
+       "t": "EFEITO ESTUFA",
+       "couleur": "#3f9e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nTmWFWWbzkQ",
+     "titre": "O que é o Efeito Estufa?",
+     "chaine": "Toda Matéria",
+     "vues": "554 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "7:23",
+     "avatar": "https://yt3.ggpht.com/HzNmGq7dz8hluGyGAmMijcUKc_sp-9cynIvm9U41wDVqDmfREuHWjyuphcyajKWkrTfMTvZBgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SERA ETKİSİ",
+       "couleur": "#3f9e4d"
+      }
+     ],
+     "NEDİR"
+    ],
+    "video": {
+     "id": "swPjjPXzGhU",
+     "titre": "Sera gazları nedir, sera etkisi nasıl oluşur?",
+     "chaine": "Yeşil Gazete",
+     "vues": "33 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "2:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1uBZtuZsTQDqbXKynLfH5O6LBqr59ttbfZO_QhL0oZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "CE ESTE",
+     [
+      {
+       "t": "EFECTUL DE SERĂ",
+       "couleur": "#3f9e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "k2n2E1nKYsU",
+     "titre": "SCHIMBĂRILE CLIMATICE explicate în 25 de minute",
+     "chaine": "Viitor Plus",
+     "vues": "4 K vizionări",
+     "date": "acum 9 luni",
+     "duree": "25:25",
+     "avatar": "https://yt3.ggpht.com/4v0FbsqeluMfvETtrwMTJ8782eyQIDJLSNQoliNmGhlsezZfGfePwf2Sb8OGT73LVCs7XuhOg5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "CO JE",
+     [
+      {
+       "t": "SKLENÍKOVÝ EFEKT",
+       "couleur": "#3f9e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "52dFlY1WU7s",
+     "titre": "KLIMATICKÁ ZMĚNA – NEZkreslená věda VI",
+     "chaine": "Otevřená věda",
+     "vues": "99 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "10:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kkBqW7uAONvhqfe-SlW7Jn9L1YgmBytSmhMHkhjlllzDM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "S'OUVRIR",
+     [
+      {
+       "t": "AU MONDE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "OPEN UP",
+     [
+      {
+       "t": "TO THE WORLD",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "OFFEN FÜR",
+     [
+      {
+       "t": "DIE WELT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "APRIRSI",
+     [
+      {
+       "t": "AL MONDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SE ABRIR",
+     [
+      {
+       "t": "PARA O MUNDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DÜNYAYA",
+     [
+      {
+       "t": "AÇILMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ TE DESCHIZI",
+     [
+      {
+       "t": "SPRE LUME",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OTEVŘÍT SE",
+     [
+      {
+       "t": "SVĚTU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "REPÉRER",
+     [
+      {
+       "t": "UNE FAKE NEWS",
+       "couleur": "#e8742c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-5BoejLNc9A",
+     "titre": "5 conseils pour débusquer les fake news",
+     "chaine": "Konbini",
+     "vues": "75 k vues",
+     "date": "il y a 7 ans",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/tcEf3yQ0S_Ewf2JlGCBApahMZlma1Szcy-X4IXAextZNGTY5Pj2EcmWuEQC0lJt89XPOthNEIg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPOT",
+     [
+      {
+       "t": "FAKE NEWS",
+       "couleur": "#e8742c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AkwWcHekMdo",
+     "titre": "How to Spot Fake News - FactCheck.org",
+     "chaine": "FactCheck",
+     "vues": "792K views",
+     "date": "9 years ago",
+     "duree": "3:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nb1zZh_Udz2nA3FE79n0MV7QK8ieuaVHNckaTS6m6Hbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "FAKE NEWS",
+       "couleur": "#e8742c"
+      }
+     ],
+     "ERKENNEN"
+    ],
+    "video": {
+     "id": "oBfZuyy-zQY",
+     "titre": "Video Faktencheck: Wie erkenne ich Fake News?",
+     "chaine": "DW Deutsch",
+     "vues": "32.491 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "4:12",
+     "avatar": "https://yt3.ggpht.com/xSfyRmiSygZffoQqSS7K1W0OgUyTcZ49AqLSAugOO5UbCUdIQiHLmeJogM7fYTv-1g48lU7Hyw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "LE FAKE NEWS",
+       "couleur": "#e8742c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5FROGYnhxGU",
+     "titre": "Fake News: cosa sono e come riconoscerle | StudenTALK 🎤",
+     "chaine": "Studenti",
+     "vues": "46K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:06",
+     "avatar": "https://yt3.ggpht.com/6f9bUSpj4oQRoRiJOhrXrxbq6bOS8pxSNBc3_-YHrr1nc6fG3QUhsewlrW7mrHmHGfvKWy-tUQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "IDENTIFICAR",
+     [
+      {
+       "t": "FAKE NEWS",
+       "couleur": "#e8742c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1XYNl91Zh7c",
+     "titre": "7 passos para identificar notícias falsas",
+     "chaine": "BBC News Brasil",
+     "vues": "117 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "5:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxfAGf2WYRHqMTgrScAVCAKN4ZHqwY89Z_5KirrVNsQTmi=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "YALAN HABERİ",
+       "couleur": "#e8742c"
+      }
+     ],
+     "TANIMAK"
+    ],
+    "video": {
+     "id": "hbx5j82HLrw",
+     "titre": "Tuzağa Düşmeyin! - Dezenformasyon Nedir?",
+     "chaine": "Bebar Bilim",
+     "vues": "74 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/nfAC8V1mw7gX-IHILZlGTxvUBIHf76jZELOvwkCLTRjcK_boTNY1BKLdvFgMx1nazYS_GhyH52Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ RECUNOȘTI",
+     [
+      {
+       "t": "ȘTIRILE FALSE",
+       "couleur": "#e8742c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iLB36WD4bCs",
+     "titre": "5 pași prin care-ți dai seama dacă o informație e falsă",
+     "chaine": "Gandeste critic",
+     "vues": "3,4 K vizionări",
+     "date": "acum 1 an",
+     "duree": "6:38",
+     "avatar": "https://yt3.ggpht.com/anrLvv2gwN6YApIwCJuJ6j_URmyddk4RIGm17gHe5HXAz5__yoqTD5lLR5TaOHheq7bmYB1sGA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POZNAT",
+     [
+      {
+       "t": "FAKE NEWS",
+       "couleur": "#e8742c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BcBecXUTHk4",
+     "titre": "Umění dezinformací",
+     "chaine": "E-Bezpečí",
+     "vues": "3,9 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mlgYvMtLh3GDhAQdV-FgyIph5sEWLCDJ54gXBZKrjTv7s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMMENT MARCHE",
+     [
+      {
+       "t": "INTERNET",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Hq1fGXpI2_I",
+     "titre": "Le fonctionnement d'Internet ? - C'est pas sorcier [Intégrale]",
+     "chaine": "C'est pas sorcier",
+     "vues": "143 k vues",
+     "date": "il y a 2 ans",
+     "duree": "26:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mM6iBpwKwzyyA6sGUzXdRgJbsEY_9RzW5m8GCkbqwgoHM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HOW THE",
+     [
+      {
+       "t": "INTERNET WORKS",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sMHzfigUxz4",
+     "titre": "How the Internet Works in 9 Minutes",
+     "chaine": "ByteByteGo",
+     "vues": "343K views",
+     "date": "2 years ago",
+     "duree": "9:15",
+     "avatar": "https://yt3.ggpht.com/ZDRUyBUwc2WXZzvNKP9VS9myI6Mg2puQLaWyp4hibRu-owlsasZ3DVNGSQJwzO1IU-tqoMiGgdc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WIE FUNKTIONIERT",
+     [
+      {
+       "t": "DAS INTERNET",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cyROBOQ6Ybg",
+     "titre": "So funktioniert das Internet wirklich!",
+     "chaine": "tomatolix",
+     "vues": "1,3 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "17:34",
+     "avatar": "https://yt3.ggpht.com/eeIkr8bSxZSipki-zg8roL21XVJPhCESWgPYPsZ9-CFc8jladWczIU8OY6CbIuMnObkBopb8Bw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FUNZIONA",
+     [
+      {
+       "t": "INTERNET",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aqmIOn3L_Sw",
+     "titre": "Come funziona Internet: LE RETI - Ep.1",
+     "chaine": "overVolt",
+     "vues": "49K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "19:23",
+     "avatar": "https://yt3.ggpht.com/sC65G3FstTC50SiOrzXESUzegh31Ye3diSfKkMMgh-iMjEdLQ98o9gswNhJoVwDe3H33C4Q5urc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FUNCIONA",
+     [
+      {
+       "t": "A INTERNET",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HNQD0qJ0TC4",
+     "titre": "Como funciona a Internet? Parte 1: O protocolo IP",
+     "chaine": "NICbrvideos",
+     "vues": "609 mil visualizações",
+     "date": "há 12 anos",
+     "duree": "5:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lifM4RosvjyzcFmTSZ5yWbr7qijZygxwqODVjJPKm0UZw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "İNTERNET",
+       "couleur": "#2f6fd0"
+      }
+     ],
+     "NASIL ÇALIŞIR"
+    ],
+    "video": {
+     "id": "QQGbDpcXEbk",
+     "titre": "İnternet Nasıl Çalışıyor? İzlemek İstediğimiz Videoları Bize Nasıl Gösteriyor?",
+     "chaine": "Evrim Ağacı",
+     "vues": "788 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "20:09",
+     "avatar": "https://yt3.ggpht.com/yy48QgMLjlpIqzRqWM-ecSuL6g8KggV2pi8YS7wNzkugZHH_-eNNxJ5-BenWWYp-K8gUliIpwVo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "CUM FUNCȚIONEAZĂ",
+     [
+      {
+       "t": "INTERNETUL",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3XlkuUNUuOQ",
+     "titre": "Cum funcționează Internetul? – Curs de Front End Development în Română",
+     "chaine": "Viorel Mocanu",
+     "vues": "9,3 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "16:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqNUZGFlLYW__VFpbsTlXzkVwghvsxWuDD_a4NdcVo1i0t=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "JAK FUNGUJE",
+     [
+      {
+       "t": "INTERNET",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G50urcEveJA",
+     "titre": "Jak funguje internet? | What the Fact?",
+     "chaine": "iVysílání",
+     "vues": "80 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "8:53",
+     "avatar": "https://yt3.ggpht.com/JjEa1rPjLKddbAY6_h6n87cJhmn3pMVwcT1q8gTAdr6hRfszGIl0LQcMMCJE78lYV9CUy0FqTyk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "POURQUOI LA TERRE",
+     [
+      {
+       "t": "TREMBLE",
+       "couleur": "#d9a21b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eMotO_iyo-I",
+     "titre": "[Comment ça marche ?] L’origine des séismes",
+     "chaine": "CEA",
+     "vues": "983 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:58",
+     "avatar": "https://yt3.ggpht.com/fi5ftBp792mHdYFouME3y_3GvTpnxefMmtwBiYPzzj2LdMl2vi7zq7HsSWP8h4XLKQXgtWGy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WHY THE EARTH",
+     [
+      {
+       "t": "SHAKES",
+       "couleur": "#d9a21b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AArne-wh_Uc",
+     "titre": "What Causes Earthquakes?",
+     "chaine": "SciShow Kids",
+     "vues": "1.7M views",
+     "date": "9 years ago",
+     "duree": "3:46",
+     "avatar": "https://yt3.ggpht.com/9RKKCG2JPialTt7Aks6PPjLuETae_Yf-_Und4NERTGdn4tHV7xCr1JzJQc0-ir63DYcvK_cYTA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WARUM DIE ERDE",
+     [
+      {
+       "t": "BEBT",
+       "couleur": "#d9a21b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qaofUrl5ry4",
+     "titre": "Erdbeben-Gebiete: Wo die Erde häufig bebt | Quarks",
+     "chaine": "Quarks",
+     "vues": "461.097 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4bDvezc36i3vmptDIlmT9_Hc_kYlyVJg3zlJmsjBf1_M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PERCHÉ LA TERRA",
+     [
+      {
+       "t": "TREMA",
+       "couleur": "#d9a21b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V-XPbU05w2g",
+     "titre": "Come si muovono le faglie in profondità: l'origine dei terremoti",
+     "chaine": "Geopop",
+     "vues": "318K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "15:12",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "POR QUE A TERRA",
+     [
+      {
+       "t": "TREME",
+       "couleur": "#d9a21b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hTLIK75P2-4",
+     "titre": "POR QUE tantos TERREMOTOS? É NORMAL?",
+     "chaine": "Manual do Mundo",
+     "vues": "1,4 mi visualizações",
+     "date": "há 3 meses",
+     "duree": "15:44",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DEPREM",
+       "couleur": "#d9a21b"
+      }
+     ],
+     "NASIL OLUR"
+    ],
+    "video": {
+     "id": "Hdg7jxExAM8",
+     "titre": "Deprem Nasıl Oluşur? - 90 Saniyede Bilim",
+     "chaine": "Uğurlu Bilim",
+     "vues": "386 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "2:23",
+     "avatar": "https://yt3.ggpht.com/N_0fJhE0BzZuMvhJPJWOcry2pp-ZT1YusX4iKL7Fo4wrQ_kWt1MQG0PLaoZheZXvDyTRFQ-c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "DE CE",
+     [
+      {
+       "t": "TREMURĂ PĂMÂNTUL",
+       "couleur": "#d9a21b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N_bZvdFdfuQ",
+     "titre": "Ce Sunt Cutremurele ?",
+     "chaine": "ScinapseRo",
+     "vues": "245 K vizionări",
+     "date": "acum 13 ani",
+     "duree": "6:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kUCqUMhtGFttyRUdA3BHM7IPdlTtt-FhwQaQmjAolxnSs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PROČ SE ZEMĚ",
+     [
+      {
+       "t": "TŘESE",
+       "couleur": "#d9a21b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JKpewFh7fTk",
+     "titre": "Jak vzniká zemětřesení? | Největší zemětřesení na světě",
+     "chaine": "OverSpace",
+     "vues": "23 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "5:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n3dUAGmVLWYWOjuK1QES31Jg7BZ6XvdXWo2W0QFRlva2o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o315",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais 10 minutes avant une réunion importante #reunion #travail #confiance #stress #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (avant une réunion importante). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "784198ed",
+   "texte_overlay": "ce que je fais\n10 minutes avant\nune réunion importante",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ea65edfa",
+   "texte_overlay": "je relis l'objectif de la réunion\nen une phrase",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5b221e10",
+   "texte_overlay": "j'écris ma question\ncelle que je veux absolument poser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "04d28a7f",
+   "texte_overlay": "je prépare un chiffre\nça rend n'importe quel avis crédible",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "00733be1",
+   "texte_overlay": "je respire\n4 secondes, 4 secondes, 4 secondes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5fcb1969",
+   "texte_overlay": "je relis le truc que j'ai appris le matin\nau cas où on parle d'autre chose",
+   "texte_sophia": "je relis le truc que j'ai appris le matin\nsur l'appli Sophia, au cas où on parle d'autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "18ac5b25",
+   "texte_overlay": "t'as une réunion importante cette semaine ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

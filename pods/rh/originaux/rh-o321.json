@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o321",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "592b74ca-f2bc-4427-ae72-af02a823e558",
+ "titre": "les questions pièges que je posais en entretien quand j'étais rh (partie 3) #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G1 de la ligne #13 (parent 592b74ca), 2e : accroche du parent mot pour mot, questions différentes de rh-o044 et rh-o310. Inspirations reprises de rh-o044. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ef26dd51",
+   "texte_overlay": "les questions pièges que je posais en entretien\nquand j'étais rh\n(et ce que je voulais entendre)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "76111cb7",
+   "texte_overlay": "1. « qu'est-ce qui vous a déçue dans votre dernier poste ? »\nle piège : vider ton sac.\nce que je voulais : un fait, et ce que tu cherches à la place",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "03d2dd1c",
+   "texte_overlay": "2. « vous êtes plutôt leader ou suiveuse ? »\nle piège : choisir un camp.\nce que je voulais : un exemple de chaque",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c0a28fd7",
+   "texte_overlay": "3. « qu'est-ce que vous faites quand vous ne savez pas ? »\nle piège : « je me débrouille ».\nce que je voulais : ta méthode. mes 3 sources préférées chez les candidats : un collègue, une doc, 5 minutes par jour à apprendre",
+   "texte_sophia": "3. « qu'est-ce que vous faites quand vous ne savez pas ? »\nle piège : « je me débrouille ».\nce que je voulais : ta méthode. mes 3 sources préférées : un collègue, une doc, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1968681a",
+   "texte_overlay": "4. « vous avez déjà été en désaccord avec votre manager ? »\nle piège : « jamais ».\nce que je voulais : comment tu l'as dit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "10f0a45b",
+   "texte_overlay": "5. « pourquoi ce salaire ? »\nle piège : « j'en ai besoin ».\nce que je voulais : le marché et ce que tu apportes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c8de712c",
+   "texte_overlay": "réponds à la n°3 en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

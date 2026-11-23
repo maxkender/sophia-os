@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o319",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "61a425fa-7e0b-415e-8fa3-e381aa416306",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR quand tu négocies ton salaire (partie 2) #salaire #negociation #carriere #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne #4 (parent 61a425fa) : accroche du parent mot pour mot. Chaque « mensonge » est une tournure honnête : jamais de fausse offre ni de faux chiffre. Inspirations reprises de rh-o086. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ac762e1d",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR\nquand tu négocies ton salaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04164759",
+   "texte_overlay": "1\n« vous gagnez combien aujourd'hui ? »\njamais un chiffre gonflé\ntu dis « je vise X pour ce poste », et tu expliques pourquoi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "51ffb36b",
+   "texte_overlay": "2\n« c'est notre dernière offre »\njamais « tant pis »\ntu dis « je comprends. on peut revoir dans 6 mois, par écrit ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "97df8397",
+   "texte_overlay": "3\n« vous êtes flexible ? »\njamais « oui, sur tout »\ntu dis sur quoi : les horaires, le télétravail, pas le fixe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0b886b8c",
+   "texte_overlay": "4\n« vous avez de l'expérience pour ce niveau ? »\njamais un projet inventé\ntu racontes le plus proche, et ce que tu apprends en ce moment. moi : 5 minutes par jour",
+   "texte_sophia": "4\n« vous avez de l'expérience pour ce niveau ? »\njamais un projet inventé\ntu racontes le plus proche, et ce que tu apprends en ce moment. moi : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "da7c1122",
+   "texte_overlay": "5\n« on fait comme ça ? »\njamais un oui le jour même\ntu dis « je vous confirme demain »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e9ba7148",
+   "texte_overlay": "c'est pas mentir.\nc'est négocier avec la vérité",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ea386751",
+   "texte_overlay": "t'as déjà négocié ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

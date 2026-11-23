@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o316",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cb56cda3-d43d-4443-9320-4dbe5ea2ed2b",
+ "titre": "6 réponses diplomates à ma manager (et ce que je pensais vraiment) #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G2 de la ligne #1 (parent cb56cda3) : même promesse, autres mots. Réponses vraies mais bien tournées, rien d'inventé. Inspirations reprises de rh-o209. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7650d16d",
+   "texte_overlay": "6 réponses diplomates\nà ma manager\n(et ce que je pensais vraiment)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f22973c1",
+   "texte_overlay": "« tu peux prendre ce dossier ? »\nj'ai dit « oui, lequel je mets en pause ? »\nje pensais : je n'ai plus de place",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f3988857",
+   "texte_overlay": "« t'en penses quoi, de la réorganisation ? »\nj'ai dit « j'ai 2 questions »\nje pensais : j'en ai 10",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dbfac0ce",
+   "texte_overlay": "« tu connais ce sujet ? »\nj'ai dit « je m'y mets ce soir »\nje pensais : pas du tout. 5 minutes le soir, et j'avais les bases",
+   "texte_sophia": "« tu connais ce sujet ? »\nj'ai dit « je m'y mets ce soir »\nje pensais : pas du tout. 5 minutes le soir sur l'appli Sophia, et j'avais les bases",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "12021169",
+   "texte_overlay": "« on peut avancer la deadline ? »\nj'ai dit « si on enlève X, oui »\nje pensais : non",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f54f5308",
+   "texte_overlay": "« tout va bien ? »\nj'ai dit « oui, et j'ai besoin d'un avis sur Y »\nje pensais : je bloque",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f2fe6c8e",
+   "texte_overlay": "« t'as aimé le séminaire ? »\nj'ai dit « l'atelier du matin surtout »\nje pensais : le reste était long",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "837c8be7",
+   "texte_overlay": "ta réponse diplomate à toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

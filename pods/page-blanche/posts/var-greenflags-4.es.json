@@ -1,0 +1,284 @@
+{
+ "post_id": "var-greenflags-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "10/10 traits méconnus des gens qui réussissent",
+     "texte": "lo que hace la gente inteligente cuando nadie mira"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(la science le dit)",
+     "alignement": "droite",
+     "texte": "(versión discreta)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0d310e5d.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "aprovechan [[los tiempos muertos]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "la fila del súper, el bus, 5 min antes de clase"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "esos minutos no los matan, los [[llenan con algo]] que esa mañana no sabían"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "antes hacía doomscroll todo el día, ahora aprendo por qué el cielo es azul en [[la app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use your non-dominant hand"
+     ],
+     "fr": "utilise ta [[main non dominante]]",
+     "texte": "lo [[apuntan todo]]"
+    },
+    "T2": {
+     "en": [
+      "brush your teeth, eat, or use your phone with your",
+      "other hand for a few minutes a day"
+     ],
+     "fr": "brosse-toi les dents, mange ou prends ton tel avec [[ton autre main]] quelques minutes par jour",
+     "texte": "una idea en la ducha, una palabra que oyeron, una duda a las 2 am: directo a sus notas"
+    },
+    "T3": {
+     "en": [
+      "your brain is forced",
+      "to build new",
+      "connections instead",
+      "of running on",
+      "autopilot"
+     ],
+     "fr": "ton cerveau doit [[créer de nouvelles connexions]] au lieu de rester en [[pilote auto]]",
+     "texte": "su cabeza es para [[tener ideas]], no para guardarlas"
+    },
+    "T4": {
+     "en": [
+      "it's the easiest way to train neuroplasticity without",
+      "changing anything else about your day"
+     ],
+     "fr": "le moyen le plus simple d'[[entraîner ta neuroplasticité]] sans rien changer d'autre à ta journée",
+     "texte": "y meses después, todas esas notitas se convierten en [[sus mejores ideas]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_15a76c43.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "[[revisan la fuente]]"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "antes de compartir un dato loquísimo, abren el artículo y lo leen [[hasta el final]]"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "un titular [[no es toda la historia]]"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "la mitad de las veces el artículo dice algo mucho menos loco que el titular, y prefieren saberlo a [[quedar en ridículo]] después"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0868bc72.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "[[hablan solos]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs à tout le monde te file [[un shot de dopamine]] avant d'avoir rien fait",
+     "texte": "en la ducha, caminando, en el coche, explican cosas en voz alta [[a nadie]]"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kiff de l'ambition]], les compliments, et tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "decir una idea en voz alta te enseña rápido [[dónde no se sostiene]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "desde fuera parece raro, pero en realidad están [[ensayando sus ideas]] antes de necesitarlas"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_000eaa0e.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming while doing everything"
+     ],
+     "fr": "consommer [[pendant tout ce que tu fais]]",
+     "texte": "son iguales [[con todo el mundo]]"
+    },
+    "T2": {
+     "en": [
+      "eating with youtube, walking with podcasts, working",
+      "with music, scrolling while watching netflix"
+     ],
+     "fr": "[[manger devant youtube]], marcher avec un podcast, bosser en [[musique]], scroller devant netflix",
+     "texte": "el camarero, quien limpia, el becario: el mismo respeto que [[al jefe]], aunque nadie mire"
+    },
+    "T3": {
+     "en": [
+      "you’re training your",
+      "brain to expect multiple",
+      "streams of input at once"
+     ],
+     "fr": "tu habitues ton cerveau à recevoir [[plusieurs flux d'infos]] à la fois",
+     "texte": "saben que cada persona [[sabe algo que ellos no]]"
+    },
+    "T4": {
+     "en": [
+      "eventually doing just",
+      "one thing starts to feel",
+      "painfully empty"
+     ],
+     "fr": "à force, faire une seule chose te paraît [[atrocement vide]]",
+     "texte": "y así acaban [[aprendiendo de cualquiera]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_37fd15d4.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

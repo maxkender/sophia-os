@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o281",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2a28f73d-a4a1-4465-af86-580ba43ac775",
+ "titre": "8 things you realize when you grow up #growingup #life #men #lessons #growth",
+ "musique_titre": "sonido original",
+ "musique_url": "https://www.tiktok.com/music/sonido-original-7607213209031887638",
+ "inspirations": [
+  "2a28f73d-a4a1-4465-af86-580ba43ac775"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 28 de la boîte (parent 2a28f73d, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. » + une phrase. Items neufs, aucun du parent. reference_url du parent (1, 2, 3, 6 à 9) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "51d5c9e5",
+   "texte_overlay": "8 things you realize\nwhen you grow up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617209679692844308/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "793ac289",
+   "texte_overlay": "1. Your childhood home\nwas smaller than you remember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617209679692844308/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2217f077",
+   "texte_overlay": "2. Calling your mom\nis never a waste of time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617209679692844308/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5d9dfcbd",
+   "texte_overlay": "3. Friends drift.\nIt's nobody's fault.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617209679692844308/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5b2d9705",
+   "texte_overlay": "4. Nobody really knows\nwhat they're doing.\n\n5. Rest is not laziness.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617209679692844308/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "86ed1581",
+   "texte_overlay": "6. School ends.\nLearning shouldn't.",
+   "texte_sophia": "6. School ends. Learning shouldn't.\nI learn daily on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617209679692844308/8.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4e1102f4",
+   "texte_overlay": "7. Your body keeps the score.\n\n8. Small habits\nbecome your whole life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617209679692844308/9.jpg"
+  }
+ ]
+}

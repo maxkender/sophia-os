@@ -1,0 +1,432 @@
+{
+ "id": "sm-017",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "floating signal",
+  "url": "https://www.tiktok.com/music/floating-signal-7624569644263475217"
+ },
+ "notes": "Full test du 23/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, dans la veine de son « you're not behind, you just need a reset » (193 k) : « apps for when you feel behind in your classes ». Sophia en 3e carte (cta B), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Structured (agenda visuel en frise), Headspace (méditations guidées, « 3-minute resets »), Habitica (tâches en jeu de rôle). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20/11). Musique : la sienne de ce post.",
+ "titre": {
+  "en": "apps for when you feel behind in your classes",
+  "fr": "les applis pour quand tu te sens en retard en cours",
+  "es": "apps para cuando sientes que vas atrasada",
+  "es-419": "apps para cuando sientes que vas atrasada",
+  "it": "app per quando ti senti indietro con lo studio",
+  "tr": "derslerde geride kaldığını hissettiğinde uygulamalar",
+  "pt-BR": "apps pra quando você se sente atrasada nas aulas",
+  "de": "apps, wenn du dich im studium hinterher fühlst",
+  "sl": "aplikacije za takrat, ko misliš, da zaostajaš",
+  "hu": "appok, amikor úgy érzed, le vagy maradva"
+ },
+ "legendes": {
+  "en": "you're not behind, you just need a reset 🌱💚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "tu n'es pas en retard, il te faut juste un reset 🌱💚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "no vas tarde, solo necesitas un reset 🌱💚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "no vas tarde, solo necesitas un reset 🌱💚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "non sei indietro, ti serve solo un reset 🌱💚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "geride değilsin, sadece bir sıfırlamaya ihtiyacın var 🌱💚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "você não tá atrasada, só precisa de um reset 🌱💚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "du bist nicht hinterher, du brauchst nur einen reset 🌱💚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "ne zaostajaš, potrebuješ le reset 🌱💚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "nem vagy lemaradva, csak egy resetre van szükséged 🌱💚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 40,
+     "y": 150,
+     "l": 220,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 830,
+     "y": 170,
+     "l": 170,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 40,
+     "y": 740,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 740,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps for when\nyou feel\nbehind",
+    "sous": "you've got\nthis, bestie"
+   },
+   "fr": {
+    "titre": "les applis\npour quand\ntu es en\nretard",
+    "sous": "tu vas y arriver,\nbestie"
+   },
+   "es": {
+    "titre": "apps para\ncuando vas\natrasada",
+    "sous": "tú puedes,\nbestie"
+   },
+   "es-419": {
+    "titre": "apps para\ncuando vas\natrasada",
+    "sous": "tú puedes,\nbestie"
+   },
+   "it": {
+    "titre": "app per quando\nti senti\nindietro",
+    "sous": "ce la fai,\nbestie"
+   },
+   "tr": {
+    "titre": "geride\nkaldığında\niyi gelen\nuygulamalar",
+    "sous": "yaparsın,\nbestie"
+   },
+   "pt-BR": {
+    "titre": "apps pra\nquando você\ntá atrasada",
+    "sous": "você\nconsegue"
+   },
+   "de": {
+    "titre": "apps, wenn du\ndich hinterher\nfühlst",
+    "sous": "du schaffst\ndas, bestie"
+   },
+   "sl": {
+    "titre": "aplikacije za\nobčutek, da\nzaostajaš",
+    "sous": "zmoreš,\nbestie"
+   },
+   "hu": {
+    "titre": "appok, ha úgy\nérzed, le vagy\nmaradva",
+    "sous": "menni fog,\nbestie"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/structured/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/pince.png",
+     "x": 70,
+     "y": 730,
+     "l": 220,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "i put everything i missed on one timeline, one small block at a time, so catching up feels doable instead of scary."
+   },
+   "fr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "je mets tout ce que j'ai raté sur une seule frise, un petit bloc à la fois, pour que rattraper paraisse faisable et pas effrayant."
+   },
+   "es": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "pongo todo lo que me perdí en una línea de tiempo, un bloque pequeño cada vez, para que ponerme al día parezca posible."
+   },
+   "es-419": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "pongo todo lo que me perdí en una línea de tiempo, un bloque pequeño a la vez, para que ponerme al corriente se sienta posible."
+   },
+   "it": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "metto tutto quello che ho perso su un'unica linea del tempo, un piccolo blocco alla volta, così recuperare sembra fattibile."
+   },
+   "tr": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "kaçırdığım her şeyi tek bir zaman çizelgesine, küçük bloklar halinde koyuyorum, böylece telafi etmek korkutucu değil."
+   },
+   "pt-BR": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "coloco tudo que perdi numa linha do tempo, um bloquinho por vez, pra recuperar parecer possível e não assustador."
+   },
+   "de": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "ich lege alles, was ich verpasst habe, auf eine zeitleiste, block für block, damit aufholen machbar statt beängstigend wirkt."
+   },
+   "sl": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "vse, kar sem zamudila, dam na eno časovnico, majhen blok za blokom, da je nadoknadenje izvedljivo in ne strašljivo."
+   },
+   "hu": {
+    "nom": "Structured",
+    "plateformes": "iOS, Android",
+    "texte": "mindent, amit elmulasztottam, egy idővonalra teszek, kis blokkonként, így a behozás nem ijesztő, hanem megoldható."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/headspace/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 730,
+     "y": 720,
+     "l": 300,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "a 3-minute reset before i open my notes. it stops the panic spiral and lets me actually start."
+   },
+   "fr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "un reset de 3 minutes avant d'ouvrir mes notes. ça coupe la panique et je peux enfin commencer."
+   },
+   "es": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "un reset de 3 minutos antes de abrir mis apuntes. corta el pánico y por fin puedo empezar."
+   },
+   "es-419": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "un reset de 3 minutos antes de abrir mis apuntes. corta el pánico y por fin puedo empezar."
+   },
+   "it": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "un reset di 3 minuti prima di aprire gli appunti. ferma il panico e finalmente riesco a iniziare."
+   },
+   "tr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "notlarımı açmadan önce 3 dakikalık bir sıfırlama. paniği durduruyor ve sonunda başlayabiliyorum."
+   },
+   "pt-BR": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "um reset de 3 minutos antes de abrir minhas anotações. corta a ansiedade e eu finalmente começo."
+   },
+   "de": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "ein 3-minuten-reset, bevor ich meine notizen öffne. das stoppt die panik, und ich fange endlich an."
+   },
+   "sl": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "3-minutni reset, preden odprem zapiske. ustavi paniko in končno lahko začnem."
+   },
+   "hu": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "egy 3 perces reset, mielőtt megnyitom a jegyzeteimet. megállítja a pánikot, és végre elkezdem."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 830,
+     "y": 110,
+     "l": 200,
+     "rotation": 12
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "one small win every day!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "une petite victoire chaque jour !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡una pequeña victoria cada día!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡una pequeña victoria cada día!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "una piccola vittoria ogni giorno!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "her gün küçük bir zafer!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "uma pequena vitória todo dia!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "jeden tag ein kleiner sieg!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "vsak dan majhna zmaga!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "minden nap egy kis győzelem!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/habitica/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/epee.png",
+     "x": 70,
+     "y": 700,
+     "l": 300,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "turning catch-up tasks into a game: every one i finish earns gold and levels me up."
+   },
+   "fr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "transformer le rattrapage en jeu : chaque tâche finie me rapporte de l'or et me fait monter de niveau."
+   },
+   "es": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "convertir lo atrasado en un juego: cada tarea que termino me da oro y me sube de nivel."
+   },
+   "es-419": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "convertir lo atrasado en un juego: cada pendiente que termino me da oro y me sube de nivel."
+   },
+   "it": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "trasformare il recupero in un gioco: ogni compito finito mi dà oro e mi fa salire di livello."
+   },
+   "tr": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "telafi işlerini oyuna çevirmek: bitirdiğim her görev altın kazandırıyor ve seviye atlatıyor."
+   },
+   "pt-BR": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "transformar o atraso num jogo: cada tarefa que termino me dá ouro e me faz subir de nível."
+   },
+   "de": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "aufholen als spiel: jede erledigte aufgabe bringt gold und ein level up."
+   },
+   "sl": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "nadoknadenje kot igra: vsaka končana naloga mi prinese zlato in napredovanje."
+   },
+   "hu": {
+    "nom": "Habitica",
+    "plateformes": "iOS, Android",
+    "texte": "a lemaradás játékká válik: minden befejezett feladat aranyat és szintlépést hoz."
+   }
+  }
+ ]
+}

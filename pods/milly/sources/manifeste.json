@@ -2,8 +2,8 @@
  "comptes": [
   "bdnf.milly"
  ],
- "maj_le": "2026-11-19",
- "note": "Ses 30 diaporamas les plus vus sur 80 relevés (Apify, 19/11), du plus vu au moins vu. `accroche` (les lignes de sa couverture) et `fond` : lus sur ses slides pour les 15 premiers ; pour les autres, lis-les sur la planche de `npm run veille`. Ses légendes renvoient à son « Cognitive Mentorship » et à ses liens de nootropiques : jamais chez nous. C'est la PREUVE de tes originaux : une accroche et un format qui ont marché chez elle, avec nos conseils et nos images.",
+ "maj_le": "2026-11-23",
+ "note": "Ses 30 diaporamas les plus vus sur 80 relevés (Apify, 19/11, puis veille du 23/11), du plus vu au moins vu. `accroche` (les lignes de sa couverture) et `fond` : lus sur ses slides pour les 15 premiers ; pour les autres, lis-les sur la planche de `npm run veille`. Ses légendes renvoient à son « Cognitive Mentorship » et à ses liens de nootropiques : jamais chez nous. C'est la PREUVE de tes originaux : une accroche et un format qui ont marché chez elle, avec nos conseils et nos images.",
  "posts": [
   {
    "id": "7676523516900019486",
@@ -64,6 +64,21 @@
    "fond": "noir"
   },
   {
+   "id": "7704962002870865182",
+   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704962002870865182",
+   "publie_le": "2026-11-07",
+   "vues": 237200,
+   "enregistrements": 17454,
+   "slides": 4,
+   "legende": "All roads lead to dopamine #bmilly #intelligence #nootropics #iq #viral",
+   "musique": {
+    "titre": "original sound - glow 💯",
+    "id": "7605402756827941640"
+   },
+   "accroche": "How to become / obsessed / with / Productivity",
+   "fond": "rouge"
+  },
+  {
    "id": "7669161866979069214",
    "url": "https://www.tiktok.com/@bdnf.milly/photo/7669161866979069214",
    "publie_le": "2026-08-01",
@@ -77,21 +92,6 @@
    },
    "accroche": "How to / Focus / for / 20+ hours",
    "fond": "orange"
-  },
-  {
-   "id": "7704962002870865182",
-   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704962002870865182",
-   "publie_le": "2026-11-07",
-   "vues": 227000,
-   "enregistrements": 16830,
-   "slides": 4,
-   "legende": "All roads lead to dopamine #bmilly #intelligence #nootropics #iq #viral",
-   "musique": {
-    "titre": "original sound - glow 💯",
-    "id": "7605402756827941640"
-   },
-   "accroche": "How to become / obsessed / with / Productivity",
-   "fond": "rouge"
   },
   {
    "id": "7683191907333180702",
@@ -124,6 +124,21 @@
    "fond": "vert_fonce"
   },
   {
+   "id": "7704963592528989471",
+   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704963592528989471",
+   "publie_le": "2026-11-13",
+   "vues": 135100,
+   "enregistrements": 9378,
+   "slides": 4,
+   "legende": "unless ur watching my vids #bmilly #intelligence #nootropics #iq #viral",
+   "musique": {
+    "titre": "original sound",
+    "id": "7290646208069356321"
+   },
+   "accroche": "How / to / quit / Doomscrolling",
+   "fond": "gris_noir"
+  },
+  {
    "id": "7674650911158930718",
    "url": "https://www.tiktok.com/@bdnf.milly/photo/7674650911158930718",
    "publie_le": "2026-08-16",
@@ -137,21 +152,6 @@
    },
    "accroche": "Games that can / Literally / Grow your / Brain",
    "fond": "gris_clair"
-  },
-  {
-   "id": "7704963592528989471",
-   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704963592528989471",
-   "publie_le": "2026-11-13",
-   "vues": 126800,
-   "enregistrements": 9070,
-   "slides": 4,
-   "legende": "unless ur watching my vids #bmilly #intelligence #nootropics #iq #viral",
-   "musique": {
-    "titre": "original sound",
-    "id": "7290646208069356321"
-   },
-   "accroche": "How / to / quit / Doomscrolling",
-   "fond": "gris_noir"
   },
   {
    "id": "7684509811165220127",
@@ -229,6 +229,19 @@
    "fond": "bleu"
   },
   {
+   "id": "7700841744694332702",
+   "url": "https://www.tiktok.com/@bdnf.milly/photo/7700841744694332702",
+   "publie_le": "2026-10-27",
+   "vues": 84600,
+   "enregistrements": 4137,
+   "slides": 4,
+   "legende": "its all in the brain #bmilly #nootropics #intelligence #iq #viral",
+   "musique": {
+    "titre": "825 hp",
+    "id": "6891746453606123521"
+   }
+  },
+  {
    "id": "7684511892840189215",
    "url": "https://www.tiktok.com/@bdnf.milly/photo/7684511892840189215",
    "publie_le": "2026-09-17",
@@ -242,19 +255,6 @@
    },
    "accroche": "Habits / That Grow / Your / Brain",
    "fond": "brun"
-  },
-  {
-   "id": "7700841744694332702",
-   "url": "https://www.tiktok.com/@bdnf.milly/photo/7700841744694332702",
-   "publie_le": "2026-10-27",
-   "vues": 81400,
-   "enregistrements": 3972,
-   "slides": 4,
-   "legende": "its all in the brain #bmilly #nootropics #intelligence #iq #viral",
-   "musique": {
-    "titre": "825 hp",
-    "id": "6891746453606123521"
-   }
   },
   {
    "id": "7699445993762213150",
@@ -309,6 +309,21 @@
    }
   },
   {
+   "id": "7704964597131857183",
+   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704964597131857183",
+   "publie_le": "2026-11-18",
+   "vues": 52000,
+   "enregistrements": 3301,
+   "slides": 4,
+   "legende": "sleep sleep sleep #bmilly #intelligence #nootropics #iq #viral",
+   "musique": {
+    "titre": "original sound",
+    "id": "7358342888574470945"
+   },
+   "accroche": "How to / focus / for 10+ / Hours",
+   "fond": "rouge"
+  },
+  {
    "id": "7682821247192878367",
    "url": "https://www.tiktok.com/@bdnf.milly/photo/7682821247192878367",
    "publie_le": "2026-09-07",
@@ -348,6 +363,19 @@
    }
   },
   {
+   "id": "7704963048049495326",
+   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704963048049495326",
+   "publie_le": "2026-11-10",
+   "vues": 37900,
+   "enregistrements": 2154,
+   "slides": 4,
+   "legende": "#bmilly #intelligence #nootropics #iq #viral",
+   "musique": {
+    "titre": "Lumina",
+    "id": "6902379050828826625"
+   }
+  },
+  {
    "id": "7673569177604508958",
    "url": "https://www.tiktok.com/@bdnf.milly/photo/7673569177604508958",
    "publie_le": "2026-08-13",
@@ -358,6 +386,19 @@
    "musique": {
     "titre": "DEEP INJECTOR",
     "id": "7530640179863701520"
+   }
+  },
+  {
+   "id": "7704962921670954270",
+   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704962921670954270",
+   "publie_le": "2026-11-09",
+   "vues": 37700,
+   "enregistrements": 1721,
+   "slides": 4,
+   "legende": "2200 elo btw #bmilly #intelligence #nootropics #iq #viral",
+   "musique": {
+    "titre": "825 hp",
+    "id": "6891746453606123521"
    }
   },
   {
@@ -384,45 +425,6 @@
    "musique": {
     "titre": "Lumina",
     "id": "6902379050828826625"
-   }
-  },
-  {
-   "id": "7704963048049495326",
-   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704963048049495326",
-   "publie_le": "2026-11-10",
-   "vues": 36100,
-   "enregistrements": 2063,
-   "slides": 4,
-   "legende": "#bmilly #intelligence #nootropics #iq #viral",
-   "musique": {
-    "titre": "Lumina",
-    "id": "6902379050828826625"
-   }
-  },
-  {
-   "id": "7704962921670954270",
-   "url": "https://www.tiktok.com/@bdnf.milly/photo/7704962921670954270",
-   "publie_le": "2026-11-09",
-   "vues": 35200,
-   "enregistrements": 1631,
-   "slides": 4,
-   "legende": "2200 elo btw #bmilly #intelligence #nootropics #iq #viral",
-   "musique": {
-    "titre": "825 hp",
-    "id": "6891746453606123521"
-   }
-  },
-  {
-   "id": "7669575169601506591",
-   "url": "https://www.tiktok.com/@bdnf.milly/photo/7669575169601506591",
-   "publie_le": "2026-08-02",
-   "vues": 34400,
-   "enregistrements": 1531,
-   "slides": 4,
-   "legende": "Source in bio 👀 #nootropics #fyp #iq #intelligent #bmilly",
-   "musique": {
-    "titre": "neo max",
-    "id": "6892041771983833089"
    }
   }
  ]

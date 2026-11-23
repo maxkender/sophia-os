@@ -1,0 +1,570 @@
+{
+ "id": "pt-013",
+ "titre": {
+  "en": "rainy day hobbies that make you smarter",
+  "fr": "hobbies des jours de pluie qui rendent plus cultivée",
+  "es": "hobbies para días de lluvia que te hacen más culta",
+  "es-419": "hobbies para días de lluvia que te hacen más culta",
+  "it": "hobby per i giorni di pioggia che ti rendono più colta",
+  "tr": "seni daha bilgili yapan yağmurlu gün hobileri",
+  "sl": "hobiji za deževne dni, zaradi katerih si bolj razgledana",
+  "de": "regentag-hobbys, die dich klüger machen",
+  "sk": "koníčky na daždivé dni, vďaka ktorým si rozhľadenejšia",
+  "sv": "regniga dagens hobbys som gör dig smartare"
+ },
+ "legendes": {
+  "en": "for the grey days when you can't go out. pick one for the next storm <3 #girlblogger #rainyday #learning #selfimprovement #booktok",
+  "fr": "pour les jours gris où tu ne peux pas sortir. choisis-en un pour la prochaine averse <3 #girlblogger #jourdepluie #apprendre #developpementpersonnel #booktokfrance",
+  "es": "para los días grises en los que no puedes salir. elige uno para la próxima tormenta <3 #girlblogger #diadelluvia #aprender #desarrollopersonal #booktokespaña",
+  "es-419": "para los días grises en que no puedes salir. elige uno para la próxima tormenta <3 #girlblogger #diadelluvia #aprender #desarrollopersonal #booktoklatam",
+  "it": "per le giornate grigie in cui non puoi uscire. scegline uno per il prossimo temporale <3 #girlblogger #giornodipioggia #imparare #crescitapersonale #booktokitalia",
+  "tr": "dışarı çıkamadığın gri günler için. bir sonraki yağmur için birini seç <3 #girlblogger #yağmurlugün #öğrenmek #kişiselgelişim #booktoktürkiye",
+  "sl": "za sive dni, ko ne moreš ven. izberi enega za naslednji naliv <3 #girlblogger #deževendan #učenje #osebnirazvoj #booktok",
+  "de": "für graue tage, an denen du nicht raus kannst. such dir eins für den nächsten regen aus <3 #girlblogger #regentag #lernen #selbstverbesserung #booktokdeutschland",
+  "sk": "na sivé dni, keď nemôžeš von. vyber si jeden na ďalší lejak <3 #girlblogger #dazdivyden #ucenie #osobnyrozvoj #booktok",
+  "sv": "för de grå dagarna när du inte kan gå ut. välj en till nästa regnskur <3 #girlblogger #regnigdag #lärande #självutveckling #booktoksverige"
+ },
+ "musique": {
+  "titre": "bleu de nuit",
+  "url": "https://www.tiktok.com/music/bleu-de-nuit-7617883902271457297"
+ },
+ "notes": "Full test (BLEO, 23/11) : accroche neuve chez nous, au gabarit de son tube. Éléments à nous : un long documentaire, un puzzle avec un podcast d'histoire, Sophia, une vieille recette, une lettre qu'on envoie vraiment. Slide Sophia (4) : « 3. a lesson by the window », cta A (reformulé). Aucune ressource nommée. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-pluie-livre.jpg": "098497fd-fc3a-4a24-a904-c9e7ef04d154",
+  "images/banque/couv-main-the.jpg": "9d17e1b0-e22d-417e-9923-7f705272f78d",
+  "images/banque/lampe-ordi.jpg": "1fbd312c-6418-4b51-8def-c7c5b4421e43",
+  "images/banque/casque-bureau.jpg": "15dfc92a-ba22-4293-85df-d511d7d28351",
+  "images/banque/puzzle-mains.jpg": "db281ffa-cc54-46b7-9df2-e8e81087d7f4",
+  "images/banque/puzzle-cafe.jpg": "39ba8b51-8e07-4488-bf20-da743a3e120a",
+  "images/banque/vitre-baies.jpg": "2a4838df-5dd9-42a6-9802-50cc8fc9bb57",
+  "images/banque/pain-tulipes.jpg": "4d0ad3dd-993d-405b-bda7-ab4062b356ee",
+  "images/banque/crepes.jpg": "59acf0da-7f6f-437c-ba60-c2aa0b41f70f",
+  "images/banque/lettres-papiers.jpg": "8e9e6be1-f995-4535-a451-c4227db2f244",
+  "images/banque/fleurs-bougie.jpg": "5f180fc0-aa14-418e-aa33-822d405f65ed"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-pluie-livre.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-main-the.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "rainy day hobbies\nthat make you\nsmarter"
+   },
+   "fr": {
+    "titre": "hobbies des jours\nde pluie qui rendent\nplus cultivée"
+   },
+   "es": {
+    "titre": "hobbies para días\nde lluvia que te\nhacen más culta"
+   },
+   "es-419": {
+    "titre": "hobbies para días\nde lluvia que te\nhacen más culta"
+   },
+   "it": {
+    "titre": "hobby per i giorni\ndi pioggia che ti\nrendono più colta"
+   },
+   "tr": {
+    "titre": "seni daha bilgili\nyapan yağmurlu\ngün hobileri"
+   },
+   "sl": {
+    "titre": "hobiji za deževne\ndni, zaradi katerih\nsi bolj razgledana"
+   },
+   "de": {
+    "titre": "regentag-hobbys,\ndie dich klüger\nmachen"
+   },
+   "sk": {
+    "titre": "koníčky na daždivé\ndni, vďaka ktorým\nsi rozhľadenejšia"
+   },
+   "sv": {
+    "titre": "regniga dagens\nhobbys som gör\ndig smartare"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/lampe-ordi.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/casque-bureau.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. one long documentary",
+    "paragraphes": [
+     "Rainy days are for the two-hour documentaries you never have time for. history, art, nature, anything but a series.",
+     "You come out of the afternoon knowing one subject really well"
+    ]
+   },
+   "fr": {
+    "titre": "1. un long documentaire",
+    "paragraphes": [
+     "Les jours de pluie, c'est pour les documentaires de deux heures que tu n'as jamais le temps de voir. histoire, art, nature, tout sauf une série.",
+     "Tu sors de l'après-midi en connaissant vraiment bien un sujet"
+    ]
+   },
+   "es": {
+    "titre": "1. un documental largo",
+    "paragraphes": [
+     "Los días de lluvia son para los documentales de dos horas que nunca tienes tiempo de ver. historia, arte, naturaleza, lo que sea menos una serie.",
+     "Sales de la tarde sabiendo mucho de un tema"
+    ]
+   },
+   "es-419": {
+    "titre": "1. un documental largo",
+    "paragraphes": [
+     "Los días de lluvia son para los documentales de dos horas que nunca tienes tiempo de ver. historia, arte, naturaleza, lo que sea menos una serie.",
+     "Terminas la tarde sabiendo mucho de un tema"
+    ]
+   },
+   "it": {
+    "titre": "1. un documentario lungo",
+    "paragraphes": [
+     "I giorni di pioggia sono per i documentari di due ore che non hai mai il tempo di vedere. storia, arte, natura, tutto tranne una serie.",
+     "Esci dal pomeriggio sapendo davvero bene un argomento"
+    ]
+   },
+   "tr": {
+    "titre": "1. uzun bir belgesel",
+    "paragraphes": [
+     "Yağmurlu günler, izlemeye hiç vaktin olmayan iki saatlik belgeseller içindir. tarih, sanat, doğa, dizi dışında her şey.",
+     "Öğleden sonranın sonunda bir konuyu gerçekten iyi bilirsin"
+    ]
+   },
+   "sl": {
+    "titre": "1. dolg dokumentarec",
+    "paragraphes": [
+     "Deževni dnevi so za dvourne dokumentarce, za katere nikoli nimaš časa. zgodovina, umetnost, narava, vse razen serije.",
+     "Iz popoldneva odideš z res dobrim znanjem o eni temi"
+    ]
+   },
+   "de": {
+    "titre": "1. eine lange doku",
+    "paragraphes": [
+     "Regentage sind für die zweistündigen dokus, für die du sonst nie zeit hast. geschichte, kunst, natur, alles außer serien.",
+     "Du gehst aus dem nachmittag und kennst ein thema richtig gut"
+    ]
+   },
+   "sk": {
+    "titre": "1. dlhý dokument",
+    "paragraphes": [
+     "Daždivé dni sú na dvojhodinové dokumenty, na ktoré nikdy nemáš čas. dejiny, umenie, príroda, čokoľvek okrem seriálu.",
+     "Z popoludnia odchádzaš s naozaj dobrou znalosťou jednej témy"
+    ]
+   },
+   "sv": {
+    "titre": "1. en lång dokumentär",
+    "paragraphes": [
+     "Regniga dagar är till för de två timmar långa dokumentärerna du aldrig hinner se. historia, konst, natur, allt utom en serie.",
+     "Du går ur eftermiddagen och kan ett ämne riktigt bra"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/puzzle-mains.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/puzzle-cafe.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a puzzle and a history podcast",
+    "paragraphes": [
+     "Spread a puzzle on the table and put on a history podcast while you build it. your hands are busy, your head travels.",
+     "Three hours fly by, and you remember everything you heard"
+    ]
+   },
+   "fr": {
+    "titre": "2. un puzzle et un podcast d'histoire",
+    "paragraphes": [
+     "Étale un puzzle sur la table et mets un podcast d'histoire pendant que tu le fais. tes mains sont occupées, ta tête voyage.",
+     "Trois heures passent d'un coup, et tu te souviens de tout"
+    ]
+   },
+   "es": {
+    "titre": "2. un puzle y un podcast de historia",
+    "paragraphes": [
+     "Extiende un puzle en la mesa y pon un podcast de historia mientras lo montas. las manos ocupadas, la cabeza de viaje.",
+     "Tres horas pasan volando, y te acuerdas de todo lo que escuchaste"
+    ]
+   },
+   "es-419": {
+    "titre": "2. rompecabezas y podcast de historia",
+    "paragraphes": [
+     "Extiende un rompecabezas en la mesa y pon un podcast de historia mientras lo armas. las manos ocupadas, la cabeza de viaje.",
+     "Tres horas se pasan volando, y te acuerdas de todo lo que escuchaste"
+    ]
+   },
+   "it": {
+    "titre": "2. un puzzle e un podcast di storia",
+    "paragraphes": [
+     "Stendi un puzzle sul tavolo e metti un podcast di storia mentre lo fai. le mani sono occupate, la testa viaggia.",
+     "Tre ore volano, e ti ricordi tutto quello che hai ascoltato"
+    ]
+   },
+   "tr": {
+    "titre": "2. yapboz ve tarih podcasti",
+    "paragraphes": [
+     "Masaya bir yapboz yay ve yaparken bir tarih podcasti aç. ellerin meşgul, kafan yolculukta.",
+     "Üç saat uçup gider, ve dinlediğin her şeyi hatırlarsın"
+    ]
+   },
+   "sl": {
+    "titre": "2. sestavljanka in zgodovinski podkast",
+    "paragraphes": [
+     "Na mizo razprostri sestavljanko in med sestavljanjem poslušaj zgodovinski podkast. roke so zaposlene, glava potuje.",
+     "Tri ure minejo kot bi mignil, in zapomniš si vse, kar si slišala"
+    ]
+   },
+   "de": {
+    "titre": "2. puzzle und geschichtspodcast",
+    "paragraphes": [
+     "Leg ein puzzle auf den tisch und hör dabei einen geschichtspodcast. die hände sind beschäftigt, der kopf reist.",
+     "Drei stunden vergehen im flug, und du merkst dir alles"
+    ]
+   },
+   "sk": {
+    "titre": "2. puzzle a historický podcast",
+    "paragraphes": [
+     "Rozlož na stôl puzzle a pri skladaní si pusti historický podcast. ruky máš zamestnané, hlava cestuje.",
+     "Tri hodiny ubehnú ako nič, a pamätáš si všetko, čo si počula"
+    ]
+   },
+   "sv": {
+    "titre": "2. ett pussel och en historiepodd",
+    "paragraphes": [
+     "Lägg ut ett pussel på bordet och sätt på en historiepodd medan du lägger det. händerna är upptagna, huvudet reser.",
+     "Tre timmar flyger förbi, och du minns allt du hörde"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/vitre-baies.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. a lesson by the window",
+    "paragraphes": [
+     "When it pours I do one short lesson on Sophia instead of scrolling. history, philosophy or science, written by actual professors, with a little quiz after.",
+     "Ten minutes, and the rain becomes the soundtrack of something new"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon près de la fenêtre",
+    "paragraphes": [
+     "Quand il pleut à verse, je fais une petite leçon sur Sophia au lieu de scroller. histoire, philosophie ou sciences, écrite par de vrais profs, avec un petit quiz après.",
+     "Dix minutes, et la pluie devient la bande-son de quelque chose de nouveau"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección junto a la ventana",
+    "paragraphes": [
+     "Cuando diluvia hago una lección corta en Sophia en vez de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos, y la lluvia se convierte en la banda sonora de algo nuevo"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección junto a la ventana",
+    "paragraphes": [
+     "Cuando llueve fuerte tomo una lección corta en Sophia en lugar de hacer scroll. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos, y la lluvia se vuelve la banda sonora de algo nuevo"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione vicino alla finestra",
+    "paragraphes": [
+     "Quando diluvia faccio una breve lezione su Sophia invece di scrollare. storia, filosofia o scienze, scritta da veri professori, con un piccolo quiz alla fine.",
+     "Dieci minuti, e la pioggia diventa la colonna sonora di qualcosa di nuovo"
+    ]
+   },
+   "tr": {
+    "titre": "3. pencere kenarında bir ders",
+    "paragraphes": [
+     "Sağanak yağınca scroll yapmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim; gerçek profesörler yazıyor, sonunda da küçük bir test var.",
+     "On dakika, ve yağmur yeni bir şeyin fon müziği oluyor"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija ob oknu",
+    "paragraphes": [
+     "Ko lije kot iz škafa, namesto skrolanja naredim eno kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, napisali so jo pravi profesorji, na koncu pa kratek kviz.",
+     "Deset minut, in dež postane glasbena podlaga za nekaj novega"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion am fenster",
+    "paragraphes": [
+     "Wenn es schüttet, mache ich eine kurze lektion auf Sophia, statt zu scrollen. geschichte, philosophie oder wissenschaft, von echten professoren, mit einem kleinen quiz.",
+     "Zehn minuten, und der regen wird zum soundtrack für etwas neues"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia pri okne",
+    "paragraphes": [
+     "Keď leje ako z krhly, namiesto scrollovania si dám jednu krátku lekciu v aplikácii Sophia. dejiny, filozofia alebo veda, napísané skutočnými profesormi, a na konci malý kvíz.",
+     "Desať minút a dážď sa stane hudbou k niečomu novému"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion vid fönstret",
+    "paragraphes": [
+     "När det öser ner gör jag en kort lektion på Sophia i stället för att scrolla. historia, filosofi eller naturvetenskap, skriven av riktiga professorer, med ett litet quiz efteråt.",
+     "Tio minuter, och regnet blir soundtracket till något nytt"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/pain-tulipes.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/crepes.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. an old family recipe",
+    "paragraphes": [
+     "Ask your mum or grandma for a recipe from when she was young and cook it. ask her where it came from.",
+     "You get a recipe, a family story and the warmest kitchen on the street"
+    ]
+   },
+   "fr": {
+    "titre": "4. une vieille recette de famille",
+    "paragraphes": [
+     "Demande à ta mère ou à ta grand-mère une recette de sa jeunesse et cuisine-la. demande-lui d'où elle vient.",
+     "Tu repars avec une recette, une histoire de famille et la cuisine la plus chaude de la rue"
+    ]
+   },
+   "es": {
+    "titre": "4. una receta de familia",
+    "paragraphes": [
+     "Pídele a tu madre o a tu abuela una receta de cuando era joven y cocínala. pregúntale de dónde viene.",
+     "Te llevas una receta, una historia de familia y la cocina más calentita de la calle"
+    ]
+   },
+   "es-419": {
+    "titre": "4. una receta de familia",
+    "paragraphes": [
+     "Pídele a tu mamá o a tu abuela una receta de cuando era joven y prepárala. pregúntale de dónde viene.",
+     "Te quedas con una receta, una historia de familia y la cocina más calientita de la cuadra"
+    ]
+   },
+   "it": {
+    "titre": "4. una vecchia ricetta di famiglia",
+    "paragraphes": [
+     "Chiedi a tua mamma o a tua nonna una ricetta di quando era giovane e cucinala. chiedile da dove viene.",
+     "Ti porti a casa una ricetta, una storia di famiglia e la cucina più calda della via"
+    ]
+   },
+   "tr": {
+    "titre": "4. eski bir aile tarifi",
+    "paragraphes": [
+     "Annenden ya da anneannenden gençliğinden kalma bir tarif iste ve pişir. nereden geldiğini sor.",
+     "Bir tarif, bir aile hikâyesi ve sokaktaki en sıcak mutfak senin olur"
+    ]
+   },
+   "sl": {
+    "titre": "4. star družinski recept",
+    "paragraphes": [
+     "Prosi mamo ali babico za recept iz njene mladosti in ga skuhaj. vprašaj jo, od kod izvira.",
+     "Dobiš recept, družinsko zgodbo in najtoplejšo kuhinjo v ulici"
+    ]
+   },
+   "de": {
+    "titre": "4. ein altes familienrezept",
+    "paragraphes": [
+     "Frag deine mama oder oma nach einem rezept aus ihrer jugend und koch es nach. frag sie, woher es kommt.",
+     "Du bekommst ein rezept, eine familiengeschichte und die wärmste küche der straße"
+    ]
+   },
+   "sk": {
+    "titre": "4. starý rodinný recept",
+    "paragraphes": [
+     "Popros mamu alebo babku o recept z jej mladosti a uvar ho. spýtaj sa, odkiaľ pochádza.",
+     "Získaš recept, rodinný príbeh a najteplejšiu kuchyňu na ulici"
+    ]
+   },
+   "sv": {
+    "titre": "4. ett gammalt familjerecept",
+    "paragraphes": [
+     "Be din mamma eller mormor om ett recept från när hon var ung och laga det. fråga var det kommer ifrån.",
+     "Du får ett recept, en familjehistoria och det varmaste köket på gatan"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/lettres-papiers.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/fleurs-bougie.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. a letter you actually send",
+    "paragraphes": [
+     "Write a real letter to someone far away. what you're reading, what you've learned, one question for them.",
+     "Writing slowly makes you think clearly. and someone gets real post"
+    ]
+   },
+   "fr": {
+    "titre": "5. une lettre que tu envoies vraiment",
+    "paragraphes": [
+     "Écris une vraie lettre à quelqu'un qui vit loin. ce que tu lis, ce que tu as appris, une question pour la personne.",
+     "Écrire lentement fait penser clairement. et quelqu'un reçoit du vrai courrier"
+    ]
+   },
+   "es": {
+    "titre": "5. una carta que envías de verdad",
+    "paragraphes": [
+     "Escribe una carta de verdad a alguien que vive lejos. lo que lees, lo que has aprendido, una pregunta para esa persona.",
+     "Escribir despacio te hace pensar con claridad. y alguien recibe correo de verdad"
+    ]
+   },
+   "es-419": {
+    "titre": "5. una carta que sí envías",
+    "paragraphes": [
+     "Escribe una carta de verdad a alguien que vive lejos. lo que lees, lo que aprendiste, una pregunta para esa persona.",
+     "Escribir despacio te hace pensar con claridad. y alguien recibe correo de verdad"
+    ]
+   },
+   "it": {
+    "titre": "5. una lettera che spedisci davvero",
+    "paragraphes": [
+     "Scrivi una vera lettera a qualcuno che vive lontano. cosa leggi, cosa hai imparato, una domanda per quella persona.",
+     "Scrivere piano ti fa pensare chiaro. e qualcuno riceve posta vera"
+    ]
+   },
+   "tr": {
+    "titre": "5. gerçekten gönderilen mektup",
+    "paragraphes": [
+     "Uzakta yaşayan birine gerçek bir mektup yaz. ne okuduğunu, ne öğrendiğini, ona bir soru.",
+     "Yavaş yazmak net düşündürür. ve biri gerçek bir mektup alır"
+    ]
+   },
+   "sl": {
+    "titre": "5. pismo, ki ga res pošlješ",
+    "paragraphes": [
+     "Napiši pravo pismo nekomu, ki živi daleč. kaj bereš, kaj si se naučila, eno vprašanje zanj.",
+     "Počasno pisanje te nauči jasno misliti. in nekdo dobi pravo pošto"
+    ]
+   },
+   "de": {
+    "titre": "5. ein brief, den du wirklich abschickst",
+    "paragraphes": [
+     "Schreib einen echten brief an jemanden, der weit weg wohnt. was du liest, was du gelernt hast, eine frage an die person.",
+     "Langsam schreiben macht klare gedanken. und jemand bekommt echte post"
+    ]
+   },
+   "sk": {
+    "titre": "5. list, ktorý naozaj pošleš",
+    "paragraphes": [
+     "Napíš skutočný list niekomu, kto žije ďaleko. čo čítaš, čo si sa naučila, jednu otázku preňho.",
+     "Pomalé písanie ťa naučí jasne myslieť. a niekto dostane skutočnú poštu"
+    ]
+   },
+   "sv": {
+    "titre": "5. ett brev du faktiskt skickar",
+    "paragraphes": [
+     "Skriv ett riktigt brev till någon som bor långt bort. vad du läser, vad du har lärt dig, en fråga till hen.",
+     "Att skriva långsamt gör tankarna klara. och någon får riktig post"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

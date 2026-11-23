@@ -1,0 +1,432 @@
+{
+ "id": "sm-015",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - Potato.",
+  "url": "https://www.tiktok.com/music/original-sound-potato-7259665564243905285"
+ },
+ "notes": "Full test du 23/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle), sur le thème de son 2e tube « how to stop procrastination. » (456 k) : « apps that helped me stop procrastinating ». Aucune appli de blocage ni de temps d'écran (concurrentes de Sophia). Sophia en 3e carte (cta C), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Todoist (tâches et calendrier), Pomocat (pomodoro avec un chat et du bruit blanc), Finch (animal de compagnie qui grandit avec des petits objectifs de soin de soi). Toutes sur l'App Store des 10 pays (lookup iTunes du 20 au 22/11) ; Pomocat en iOS seul. Musique : la sienne de ce post.",
+ "titre": {
+  "en": "apps that helped me stop procrastinating",
+  "fr": "les applis qui m'ont aidée à arrêter de procrastiner",
+  "es": "apps que me ayudaron a dejar de procrastinar",
+  "es-419": "apps que me ayudaron a dejar de procrastinar",
+  "it": "app che mi hanno aiutata a smettere di procrastinare",
+  "tr": "ertelemeyi bırakmama yardım eden uygulamalar",
+  "pt-BR": "apps que me ajudaram a parar de procrastinar",
+  "de": "apps, die mir geholfen haben, nicht mehr aufzuschieben",
+  "sl": "aplikacije proti odlašanju",
+  "hu": "appok, amik leszoktattak a halogatásról"
+ },
+ "legendes": {
+  "en": "from last-minute queen to actually on time 🐸⏰ #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "de reine du dernier moment à enfin à l'heure 🐸⏰ #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "de reina del último minuto a llegar a tiempo 🐸⏰ #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "de reina del último minuto a llegar a tiempo 🐸⏰ #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "da regina dell'ultimo minuto a puntuale 🐸⏰ #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "son dakika kraliçesinden zamanında teslime 🐸⏰ #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "de rainha do último minuto a pontual 🐸⏰ #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "von last-minute-queen zu pünktlich 🐸⏰ #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "od kraljice zadnje minute do točnosti 🐸⏰ #studytok #učenje #študij #faks #academicweapon",
+  "hu": "az utolsó pillanat királynőjéből pontos lettem 🐸⏰ #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 40,
+     "y": 150,
+     "l": 250,
+     "rotation": -25
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/punaise.png",
+     "x": 520,
+     "y": 180,
+     "l": 80,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 810,
+     "y": 750,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that\nhelped me stop\nprocrastinating",
+    "sous": "from an ex\nprocrastinator"
+   },
+   "fr": {
+    "titre": "les applis qui\nm'ont aidée à\nme lancer",
+    "sous": "d'une ex-\nprocrastinatrice"
+   },
+   "es": {
+    "titre": "apps que me\nayudaron a\ndejar de\nprocrastinar",
+    "sous": "de una ex\nprocrastinadora"
+   },
+   "es-419": {
+    "titre": "apps que me\nayudaron a\ndejar de\nprocrastinar",
+    "sous": "de una ex\nprocrastinadora"
+   },
+   "it": {
+    "titre": "app che mi\nhanno aiutata\na non\nrimandare",
+    "sous": "da un'ex\nprocrastinatrice"
+   },
+   "tr": {
+    "titre": "ertelemeyi\nbırakmama\nyardım eden\nuygulamalar",
+    "sous": "eski bir\nerteleyiciden"
+   },
+   "pt-BR": {
+    "titre": "apps que me\najudaram a\nparar de\nprocrastinar",
+    "sous": "de uma ex\nprocrastinadora"
+   },
+   "de": {
+    "titre": "apps gegen\nmein ewiges\naufschieben",
+    "sous": "von einer ex-\naufschieberin"
+   },
+   "sl": {
+    "titre": "aplikacije\nproti\nodlašanju",
+    "sous": "od bivše\nodlašalke"
+   },
+   "hu": {
+    "titre": "appok, amik\nleszoktattak a\nhalogatásról",
+    "sous": "egy volt\nhalogatótól"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/todoist/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 60,
+     "y": 740,
+     "l": 250,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "i split every big assignment into tiny tasks with dates. crossing off small things is what finally gets me started."
+   },
+   "fr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "je découpe chaque gros devoir en mini tâches avec une date. cocher des petits trucs, c'est ce qui me fait enfin commencer."
+   },
+   "es": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "divido cada trabajo grande en tareas mini con fecha. tachar cositas pequeñas es lo que por fin me hace empezar."
+   },
+   "es-419": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "divido cada trabajo grande en pendientes mini con fecha. tachar cositas pequeñas es lo que por fin me hace empezar."
+   },
+   "it": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "divido ogni compito grande in mini attività con una data. spuntare piccole cose è ciò che finalmente mi fa iniziare."
+   },
+   "tr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "her büyük ödevi tarihli minik görevlere bölüyorum. küçük şeylerin üstünü çizmek sonunda başlamamı sağlıyor."
+   },
+   "pt-BR": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "divido cada trabalho grande em tarefinhas com data. riscar coisas pequenas é o que finalmente me faz começar."
+   },
+   "de": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "ich teile jede große aufgabe in mini-schritte mit datum. kleine dinge abhaken bringt mich endlich ins tun."
+   },
+   "sl": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "vsako veliko nalogo razdelim na mini opravila z datumom. ko odkljukam malenkosti, končno začnem."
+   },
+   "hu": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "minden nagy feladatot dátumozott mini lépésekre bontok. a kis dolgok kipipálása végre elindít."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/pomocat/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 790,
+     "y": 710,
+     "l": 230,
+     "rotation": 5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    }
+   ],
+   "en": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "i only commit to one 25-minute session with a cat keeping me company. once i start, i usually keep going."
+   },
+   "fr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "je m'engage juste pour une session de 25 minutes, avec un chat qui me tient compagnie. une fois lancée, je continue."
+   },
+   "es": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "solo me comprometo a una sesión de 25 minutos con un gato que me acompaña. cuando empiezo, suelo seguir."
+   },
+   "es-419": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "solo me comprometo a una sesión de 25 minutos con un gato que me acompaña. cuando empiezo, sigo."
+   },
+   "it": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "mi impegno solo per una sessione da 25 minuti con un gatto che mi fa compagnia. una volta partita, di solito continuo."
+   },
+   "tr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "sadece 25 dakikalık bir seansa söz veriyorum, yanımda bir kedi oluyor. başlayınca genelde devam ediyorum."
+   },
+   "pt-BR": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "eu só me comprometo com uma sessão de 25 minutos, com um gatinho me fazendo companhia. depois que começo, continuo."
+   },
+   "de": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "ich nehme mir nur eine 25-minuten-session vor, mit einer katze als gesellschaft. wenn ich einmal anfange, bleib ich dran."
+   },
+   "sl": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "zavežem se le za eno 25-minutno sejo, družbo mi dela mačka. ko enkrat začnem, ponavadi nadaljujem."
+   },
+   "hu": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "csak egy 25 perces menetet vállalok, egy cica társaságában. ha egyszer elkezdem, általában folytatom."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 850,
+     "y": 100,
+     "l": 170,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "my warm-up before studying!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "mon échauffement de 10 minutes avant de réviser !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi calentamiento de 10 minutos antes de estudiar!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi calentamiento de 10 minutos antes de estudiar!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "il mio riscaldamento di 10 minuti prima di studiare!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "çalışmadan önce 10 dakikalık ısınmam!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "meu aquecimento de 10 minutos antes de estudar!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "mein 10-minuten-warm-up vorm lernen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "moje 10-minutno ogrevanje pred učenjem!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "a 10 perces bemelegítésem tanulás előtt!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/finch/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "a little pet that grows when you reach small daily goals. starting tiny is the whole trick against procrastination."
+   },
+   "fr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un petit compagnon qui grandit quand tu atteins de petits objectifs chaque jour. commencer tout petit, c'est toute l'astuce."
+   },
+   "es": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece cuando cumples metas pequeñas cada día. empezar en pequeño es todo el truco."
+   },
+   "es-419": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece cuando cumples metas pequeñas cada día. empezar en pequeño es todo el truco."
+   },
+   "it": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un animaletto che cresce quando raggiungi piccoli obiettivi ogni giorno. iniziare in piccolo è tutto il trucco."
+   },
+   "tr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "her gün küçük hedeflere ulaştıkça büyüyen bir dost. küçük başlamak ertelemenin tüm sırrı."
+   },
+   "pt-BR": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "um bichinho que cresce quando você cumpre metas pequenas todo dia. começar pequeno é o segredo todo."
+   },
+   "de": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ein kleines haustier, das wächst, wenn du kleine tagesziele erreichst. klein anfangen ist der ganze trick."
+   },
+   "sl": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ljubljenček, ki raste, ko vsak dan dosežeš majhne cilje. začeti z malim je ves trik."
+   },
+   "hu": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kis kedvenc, ami nő, ha minden nap eléred a kis céljaidat. kicsiben kezdeni az egész titka."
+   }
+  }
+ ]
+}

@@ -1,0 +1,784 @@
+{
+ "id": "mi-017",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7704965031498206495",
+  "vues": 36000,
+  "publie_le": "2026-11-19",
+  "accroche": "How to become / the best / public speaker / you know"
+ },
+ "fond": "vert_mer",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "son original",
+  "url": "https://www.tiktok.com/music/son-original-7487620221440674582"
+ },
+ "notes": "Full test (boîte vide), sur un post neuf du compte modèle relevé à la veille du 23/11 : « How to become the best public speaker you know » de @bdnf.milly (36 k vues, 7,7 % d'enregistrements, 19/11, fond vert), famille « How to become … ». Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : dire « je suis excité » plutôt que « je suis calme » avant un discours rend plus persuasif, compétent et assuré aux yeux des juges (Brooks, Journal of Experimental Psychology: General 2014) ; les exemples concrets aident à comprendre et retenir les idées abstraites (Rawson, Thomas et Jacoby, Educational Psychology Review 2015) ; dire les mots à voix haute les fait mieux retenir que les lire en silence, l'effet de production (MacLeod, Gopie, Hourihan, Neary et Ozubko, Journal of Experimental Psychology: LMC 2010). 11 langues. Images : Seedream (cerveau-frontal, tep, synapse), sans texte.",
+ "titre": {
+  "en": "How to become the best Public Speaker you know",
+  "fr": "Comment devenir le meilleur orateur de ton entourage",
+  "es": "Cómo convertirte en el mejor orador que conoces",
+  "es-419": "Cómo convertirte en el mejor orador que conoces",
+  "it": "Come diventare il miglior oratore che conosci",
+  "tr": "Tanıdığın en iyi konuşmacı nasıl olursun",
+  "pt-BR": "Como se tornar o melhor orador que você conhece",
+  "sl": "Kako postati najboljši govornik, kar jih poznaš",
+  "hr": "Kako postati najbolji govornik kojeg znaš",
+  "de": "Wie du der beste Redner wirst, den du kennst",
+  "hu": "Hogyan legyél a legjobb szónok, akit ismersz"
+ },
+ "legendes": {
+  "en": "have something to say #publicspeaking #confidence #communication #brain #learning",
+  "fr": "avoir quelque chose à dire #prisedeparole #confianceensoi #communication #cerveau #apprendre",
+  "es": "ten algo que decir #oratoria #confianza #comunicación #cerebro #aprender",
+  "es-419": "ten algo que decir #oratoria #confianza #comunicación #cerebro #aprender",
+  "it": "avere qualcosa da dire #parlareinpubblico #fiducia #comunicazione #cervello #imparare",
+  "tr": "söyleyecek bir şeyin olsun #toplumönündekonuşma #özgüven #iletişim #beyin #öğrenme",
+  "pt-BR": "tenha algo a dizer #oratoria #confianca #comunicacao #cerebro #aprender",
+  "sl": "imej kaj povedati #javnonastopanje #samozavest #komunikacija #možgani #učenje",
+  "hr": "imaj što reći #javninastup #samopouzdanje #komunikacija #mozak #učenje",
+  "de": "hab etwas zu sagen #rhetorik #selbstvertrauen #kommunikation #gehirn #lernen",
+  "hu": "legyen mit mondanod #nyilvánosbeszéd #önbizalom #kommunikáció #agy #tanulás"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/cerveau-frontal.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to become",
+      "taille": "petit"
+     },
+     {
+      "t": "the Best",
+      "taille": "moyen"
+     },
+     {
+      "t": "Public Speaker",
+      "taille": "grand"
+     },
+     {
+      "t": "you know",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment devenir",
+      "taille": "petit"
+     },
+     {
+      "t": "le Meilleur",
+      "taille": "moyen"
+     },
+     {
+      "t": "Orateur",
+      "taille": "grand"
+     },
+     {
+      "t": "de ton entourage",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo convertirte",
+      "taille": "petit"
+     },
+     {
+      "t": "en el Mejor",
+      "taille": "moyen"
+     },
+     {
+      "t": "Orador",
+      "taille": "grand"
+     },
+     {
+      "t": "que conoces",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo convertirte",
+      "taille": "petit"
+     },
+     {
+      "t": "en el Mejor",
+      "taille": "moyen"
+     },
+     {
+      "t": "Orador",
+      "taille": "grand"
+     },
+     {
+      "t": "que conoces",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come diventare",
+      "taille": "petit"
+     },
+     {
+      "t": "il Miglior",
+      "taille": "moyen"
+     },
+     {
+      "t": "Oratore",
+      "taille": "grand"
+     },
+     {
+      "t": "che conosci",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Tanıdığın",
+      "taille": "petit"
+     },
+     {
+      "t": "en İyi",
+      "taille": "moyen"
+     },
+     {
+      "t": "Konuşmacı",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl olursun",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como se tornar",
+      "taille": "petit"
+     },
+     {
+      "t": "o Melhor",
+      "taille": "moyen"
+     },
+     {
+      "t": "Orador",
+      "taille": "grand"
+     },
+     {
+      "t": "que você conhece",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako postati",
+      "taille": "petit"
+     },
+     {
+      "t": "Najboljši",
+      "taille": "moyen"
+     },
+     {
+      "t": "Govornik",
+      "taille": "grand"
+     },
+     {
+      "t": "kar jih poznaš",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako postati",
+      "taille": "petit"
+     },
+     {
+      "t": "Najbolji",
+      "taille": "moyen"
+     },
+     {
+      "t": "Govornik",
+      "taille": "grand"
+     },
+     {
+      "t": "kojeg znaš",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du der",
+      "taille": "petit"
+     },
+     {
+      "t": "Beste",
+      "taille": "moyen"
+     },
+     {
+      "t": "Redner wirst",
+      "taille": "grand"
+     },
+     {
+      "t": "den du kennst",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan legyél",
+      "taille": "petit"
+     },
+     {
+      "t": "a Legjobb",
+      "taille": "moyen"
+     },
+     {
+      "t": "Szónok",
+      "taille": "grand"
+     },
+     {
+      "t": "akit ismersz",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Call It Excitement",
+    "blocs": [
+     {
+      "p": "Trying to calm down rarely works. In one study, people who said “I am excited” out loud before giving a speech were rated as more persuasive, competent and confident than people who said “I am calm”."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Nerves and excitement feel almost the same in the body. Reading the racing heart as energy keeps it working for you instead of against you."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Appelle ça de l'excitation",
+    "blocs": [
+     {
+      "p": "Essayer de se calmer marche rarement. Dans une étude, les personnes qui disaient à voix haute « je suis excité » avant un discours ont été jugées plus convaincantes, plus compétentes et plus assurées que celles qui disaient « je suis calme »."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Le trac et l'excitation se ressentent presque pareil dans le corps. Lire ton cœur qui s'emballe comme de l'énergie le fait travailler pour toi plutôt que contre toi."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Llámalo emoción",
+    "blocs": [
+     {
+      "p": "Intentar calmarse rara vez funciona. En un estudio, las personas que dijeron en voz alta «estoy emocionado» antes de dar un discurso fueron valoradas como más persuasivas, competentes y seguras que las que dijeron «estoy tranquilo»."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Los nervios y la emoción se sienten casi igual en el cuerpo. Leer el corazón acelerado como energía hace que juegue a tu favor y no en tu contra."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Dile emoción",
+    "blocs": [
+     {
+      "p": "Tratar de calmarte casi nunca funciona. En un estudio, las personas que dijeron en voz alta «estoy emocionado» antes de dar un discurso fueron calificadas como más persuasivas, competentes y seguras que las que dijeron «estoy tranquilo»."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Los nervios y la emoción se sienten casi igual en el cuerpo. Leer el corazón acelerado como energía hace que trabaje a tu favor y no en tu contra."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Chiamala eccitazione",
+    "blocs": [
+     {
+      "p": "Cercare di calmarsi raramente funziona. In uno studio, le persone che dicevano ad alta voce «sono eccitato» prima di un discorso sono state giudicate più persuasive, competenti e sicure di quelle che dicevano «sono calmo»."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Ansia ed eccitazione si sentono quasi allo stesso modo nel corpo. Leggere il cuore che batte forte come energia lo fa lavorare per te invece che contro di te."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Ona heyecan de",
+    "blocs": [
+     {
+      "p": "Sakinleşmeye çalışmak nadiren işe yarar. Bir çalışmada, bir konuşma yapmadan önce yüksek sesle “heyecanlıyım” diyenler, “sakinim” diyenlere göre daha ikna edici, yetkin ve kendinden emin bulundu."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Gerginlik ve heyecan vücutta neredeyse aynı hissedilir. Hızlı atan kalbini enerji olarak okumak, onun sana karşı değil, senin için çalışmasını sağlar."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Chame de empolgação",
+    "blocs": [
+     {
+      "p": "Tentar se acalmar raramente funciona. Em um estudo, pessoas que disseram em voz alta “estou empolgado” antes de um discurso foram avaliadas como mais persuasivas, competentes e confiantes do que as que disseram “estou calmo”."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Nervosismo e empolgação são sentidos quase do mesmo jeito no corpo. Ler o coração acelerado como energia faz ele trabalhar a seu favor, não contra você."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Reci temu navdušenje",
+    "blocs": [
+     {
+      "p": "Poskus, da bi se pomiril, redko deluje. V eni raziskavi so ljudi, ki so pred govorom na glas rekli »navdušen sem«, ocenili kot bolj prepričljive, sposobne in samozavestne od tistih, ki so rekli »miren sem«."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Trema in navdušenje se v telesu čutita skoraj enako. Če divje bitje srca bereš kot energijo, dela zate in ne proti tebi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nazovi to uzbuđenjem",
+    "blocs": [
+     {
+      "p": "Pokušaj smirivanja rijetko uspijeva. U jednom istraživanju ljudi koji su prije govora naglas rekli „uzbuđen sam“ ocijenjeni su uvjerljivijima, sposobnijima i samouvjerenijima od onih koji su rekli „miran sam“."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Trema i uzbuđenje u tijelu se osjećaju gotovo jednako. Ako ubrzano srce čitaš kao energiju, ono radi za tebe, a ne protiv tebe."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Nenn es Aufregung",
+    "blocs": [
+     {
+      "p": "Sich beruhigen zu wollen klappt selten. In einer Studie wurden Menschen, die vor einer Rede laut „Ich bin aufgeregt“ sagten, als überzeugender, kompetenter und selbstsicherer bewertet als jene, die „Ich bin ruhig“ sagten."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "Nervosität und Vorfreude fühlen sich im Körper fast gleich an. Wer das Herzklopfen als Energie deutet, lässt es für sich arbeiten statt gegen sich."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Nevezd izgalomnak",
+    "blocs": [
+     {
+      "p": "Megnyugodni próbálni ritkán működik. Egy vizsgálatban azokat, akik beszéd előtt hangosan azt mondták: „izgatott vagyok”, meggyőzőbbnek, rátermettebbnek és magabiztosabbnak ítélték, mint akik azt mondták: „nyugodt vagyok”."
+     },
+     {
+      "image": "images/tep.jpg"
+     },
+     {
+      "p": "A lámpaláz és az izgalom szinte ugyanúgy érződik a testben. Ha a heves szívverést energiaként olvasod, neked dolgozik, nem ellened."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Have Something To Say",
+    "blocs": [
+     {
+      "p": "Good speakers are rarely short of examples: a story from history, a finding from science, a line from a philosopher. In studies, concrete examples helped people understand and remember abstract ideas."
+     },
+     {
+      "p": "The wider your knowledge, the more examples you can reach for. One short lesson every evening, like a training session, fills that store night after night."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Aie quelque chose à dire",
+    "blocs": [
+     {
+      "p": "Les bons orateurs manquent rarement d'exemples : une histoire tirée du passé, une découverte scientifique, une phrase de philosophe. Dans des études, les exemples concrets aidaient à comprendre et à retenir les idées abstraites."
+     },
+     {
+      "p": "Plus ta culture est large, plus tu as d'exemples sous la main. Une courte leçon chaque soir, comme un entraînement, remplit cette réserve soir après soir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Ten algo que decir",
+    "blocs": [
+     {
+      "p": "A los buenos oradores rara vez les faltan ejemplos: una historia del pasado, un hallazgo científico, una frase de un filósofo. En estudios, los ejemplos concretos ayudaron a entender y recordar ideas abstractas."
+     },
+     {
+      "p": "Cuanto más amplia es tu cultura, más ejemplos tienes a mano. Una lección corta cada noche, como un entrenamiento, llena esa reserva noche tras noche."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Ten algo que decir",
+    "blocs": [
+     {
+      "p": "A los buenos oradores casi nunca les faltan ejemplos: una historia del pasado, un descubrimiento científico, una frase de un filósofo. En estudios, los ejemplos concretos ayudaron a entender y recordar ideas abstractas."
+     },
+     {
+      "p": "Entre más amplia sea tu cultura, más ejemplos tienes a la mano. Una lección corta cada noche, como un entrenamiento, llena esa reserva noche tras noche."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Abbi qualcosa da dire",
+    "blocs": [
+     {
+      "p": "I bravi oratori raramente restano senza esempi: una storia del passato, una scoperta scientifica, una frase di un filosofo. Negli studi, gli esempi concreti hanno aiutato a capire e ricordare idee astratte."
+     },
+     {
+      "p": "Più la tua cultura è ampia, più esempi hai a portata di mano. Una breve lezione ogni sera, come un allenamento, riempie quella riserva sera dopo sera."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Söyleyecek bir şeyin olsun",
+    "blocs": [
+     {
+      "p": "İyi konuşmacıların örneği nadiren tükenir: tarihten bir hikâye, bilimden bir bulgu, bir filozoftan bir cümle. Çalışmalarda somut örnekler, soyut fikirleri anlamaya ve hatırlamaya yardım etti."
+     },
+     {
+      "p": "Bilgin ne kadar genişse, elinin altında o kadar çok örnek olur. Her akşam kısa bir ders, bir antrenman gibi, bu depoyu her gece biraz daha doldurur."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Tenha o que dizer",
+    "blocs": [
+     {
+      "p": "Bons oradores raramente ficam sem exemplos: uma história do passado, uma descoberta da ciência, uma frase de um filósofo. Em estudos, exemplos concretos ajudaram as pessoas a entender e lembrar ideias abstratas."
+     },
+     {
+      "p": "Quanto mais amplo o seu conhecimento, mais exemplos você tem à mão. Uma lição curta toda noite, como um treino, enche esse estoque noite após noite."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Imej kaj povedati",
+    "blocs": [
+     {
+      "p": "Dobrim govornikom redko zmanjka primerov: zgodba iz preteklosti, znanstveno odkritje, misel filozofa. V raziskavah so konkretni primeri pomagali razumeti in si zapomniti abstraktne zamisli."
+     },
+     {
+      "p": "Širše kot je tvoje znanje, več primerov imaš pri roki. Kratka lekcija vsak večer, kot trening, to zalogo polni večer za večerom."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Imaj što reći",
+    "blocs": [
+     {
+      "p": "Dobrim govornicima rijetko ponestane primjera: priča iz prošlosti, znanstveno otkriće, rečenica filozofa. U istraživanjima su konkretni primjeri pomogli ljudima razumjeti i zapamtiti apstraktne ideje."
+     },
+     {
+      "p": "Što ti je znanje šire, to više primjera imaš pri ruci. Kratka lekcija svake večeri, kao trening, puni tu zalihu večer za večeri."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Hab etwas zu sagen",
+    "blocs": [
+     {
+      "p": "Guten Rednern gehen selten die Beispiele aus: eine Geschichte aus der Vergangenheit, eine Erkenntnis der Wissenschaft, ein Satz eines Philosophen. In Studien halfen konkrete Beispiele, abstrakte Ideen zu verstehen und zu behalten."
+     },
+     {
+      "p": "Je breiter dein Wissen, desto mehr Beispiele hast du zur Hand. Eine kurze Lektion jeden Abend, wie ein Training, füllt diesen Vorrat Abend für Abend."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Legyen mit mondanod",
+    "blocs": [
+     {
+      "p": "A jó szónokoknak ritkán fogynak ki a példáik: egy történet a múltból, egy tudományos felfedezés, egy filozófus mondata. Vizsgálatokban a konkrét példák segítettek megérteni és megjegyezni az elvont gondolatokat."
+     },
+     {
+      "p": "Minél szélesebb a tudásod, annál több példa van kéznél. Minden este egy rövid lecke, mint egy edzés, estéről estére tölti ezt a készletet."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Practise Out Loud",
+    "blocs": [
+     {
+      "p": "Rehearse with your voice, not only in your head: saying words aloud makes them more memorable than reading them silently, a finding researchers call the production effect."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Record yourself, notice your filler words, and add deliberate pauses. A short silence gives listeners time to take in what you just said."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Répète à voix haute",
+    "blocs": [
+     {
+      "p": "Répète avec ta voix, pas seulement dans ta tête : dire les mots à voix haute les rend plus mémorables que les lire en silence, ce que les chercheurs appellent l'effet de production."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Enregistre-toi, repère tes mots de remplissage et ajoute des pauses voulues. Un court silence laisse au public le temps d'absorber ce que tu viens de dire."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Ensaya en voz alta",
+    "blocs": [
+     {
+      "p": "Ensaya con la voz, no solo en la cabeza: decir las palabras en voz alta las hace más fáciles de recordar que leerlas en silencio, algo que los investigadores llaman efecto de producción."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Grábate, fíjate en tus muletillas y añade pausas a propósito. Un breve silencio da al público tiempo para asimilar lo que acabas de decir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Ensaya en voz alta",
+    "blocs": [
+     {
+      "p": "Ensaya con tu voz, no solo en tu cabeza: decir las palabras en voz alta hace que se recuerden mejor que leerlas en silencio, algo que los investigadores llaman efecto de producción."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Grábate, detecta tus muletillas y agrega pausas a propósito. Un silencio corto le da al público tiempo para absorber lo que acabas de decir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Prova ad alta voce",
+    "blocs": [
+     {
+      "p": "Prova con la voce, non solo nella testa: dire le parole ad alta voce le rende più facili da ricordare che leggerle in silenzio, un fenomeno che i ricercatori chiamano effetto di produzione."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Registrati, nota le parole riempitive e aggiungi pause volute. Un breve silenzio dà al pubblico il tempo di assorbire ciò che hai appena detto."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Yüksek sesle prova yap",
+    "blocs": [
+     {
+      "p": "Sadece kafanda değil, sesinle prova yap: kelimeleri yüksek sesle söylemek, onları sessizce okumaktan daha akılda kalıcı kılar; araştırmacılar buna üretim etkisi diyor."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Kendini kaydet, dolgu kelimelerini fark et ve bilinçli duraklamalar ekle. Kısa bir sessizlik, dinleyicilere az önce söylediğini sindirmeleri için zaman verir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ensaie em voz alta",
+    "blocs": [
+     {
+      "p": "Ensaie com a voz, não só na cabeça: dizer as palavras em voz alta faz com que sejam lembradas melhor do que lê-las em silêncio, o que os pesquisadores chamam de efeito de produção."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Grave-se, perceba seus vícios de linguagem e acrescente pausas de propósito. Um breve silêncio dá ao público tempo para absorver o que você acabou de dizer."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vadi na glas",
+    "blocs": [
+     {
+      "p": "Vadi z glasom, ne le v glavi: besede, izrečene na glas, si zapomnimo bolje kot tiste, ki jih preberemo v tišini, kar raziskovalci imenujejo učinek izgovarjanja."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Posnemi se, opazi mašila in dodaj načrtne premore. Kratka tišina poslušalcem da čas, da dojamejo, kar si pravkar povedal."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Vježbaj naglas",
+    "blocs": [
+     {
+      "p": "Vježbaj glasom, ne samo u glavi: riječi izgovorene naglas pamte se bolje od onih pročitanih u tišini, što istraživači zovu učinkom izgovaranja."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Snimi se, uoči poštapalice i dodaj namjerne stanke. Kratka tišina daje slušateljima vremena da upiju ono što si upravo rekao."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Üb laut",
+    "blocs": [
+     {
+      "p": "Üb mit der Stimme, nicht nur im Kopf: Laut ausgesprochene Wörter bleiben besser hängen als still gelesene, ein Befund, den Forschende den Produktionseffekt nennen."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Nimm dich auf, achte auf Füllwörter und setz bewusste Pausen. Eine kurze Stille gibt dem Publikum Zeit, das Gesagte aufzunehmen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Gyakorolj hangosan",
+    "blocs": [
+     {
+      "p": "Ne csak fejben, hanggal is gyakorolj: a hangosan kimondott szavak jobban megmaradnak, mint a csendben olvasottak, amit a kutatók kimondási hatásnak neveznek."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Vedd fel magad, figyeld a töltelékszavaidat, és tarts szándékos szüneteket. Egy rövid csend időt ad a hallgatóságnak, hogy feldolgozza, amit mondtál."
+     }
+    ]
+   }
+  }
+ ]
+}

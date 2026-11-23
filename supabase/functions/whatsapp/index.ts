@@ -10,6 +10,8 @@
  *        etat              les secrets présents (oui/non, jamais leur valeur), le numéro, le mode
  *        modeles_sync      les modèles et leur statut d'approbation chez Meta → whatsapp_modeles
  *        modele_ruul_setup soumet le modèle ruul_setup (Utility, anglais) s'il n'existe pas
+ *        soumettre_modeles_v2  (23/11, Max) soumet à Meta les 5 modèles v2 (anglais) qui n'existent pas encore ;
+ *                          ne change rien aux envois
  *        test_modeles      envoie chaque modèle approuvé aux numéros autorisés (mode test)
  *        envoyer           { e164, texte } ou { e164, modele, langue, variables } (règles du mode test)
  *        relances          (cron horaire whatsapp-relances, 0839) les relances automatiques, en plus des emails ;
@@ -26,6 +28,7 @@ import {
 } from "../_shared/whatsapp.ts";
 import { envoyerWhatsApp, graph, lireModeWhatsApp, secretsWhatsApp, wabaId } from "../_shared/whatsapp_envoi.ts";
 import { deciderRelance, type FaitsRelance } from "../_shared/whatsapp_relances.ts";
+import { MODELES_V2, problemesModele, requeteModele } from "../_shared/whatsapp_modeles_v2.ts";
 
 type Db = ReturnType<typeof serviceClient>;
 declare const EdgeRuntime: { waitUntil(p: Promise<unknown>): void } | undefined;
@@ -46,6 +49,7 @@ Deno.serve(async (request) => {
       case "etat": return json(await etat(db));
       case "modeles_sync": return json(await modelesSync(db));
       case "modele_ruul_setup": return json(await modeleRuulSetup(db));
+      case "soumettre_modeles_v2": return json(await soumettreModelesV2(db));
       case "abonner": return json(await abonner(db));
       case "profil": return json(await profil(db, body));
       case "test_modeles": return json(await testModeles(db));
@@ -402,6 +406,24 @@ async function modeleRuulSetup(db: Db) {
   });
   await modelesSync(db);
   return r.ok ? { ok: true, soumis: r.data } : { ok: false, error: r.erreur };
+}
+
+/** 23/11 (Max) : soumet à Meta les modèles v2 absents (anglais, Utility). Rien n'est envoyé à personne. */
+async function soumettreModelesV2(db: Db) {
+  const waba = await wabaId(db);
+  if (!waba) return { ok: false, error: "WHATSAPP_BUSINESS_ACCOUNT_ID absent" };
+  const avant = await modelesSync(db);
+  const existants = new Set((avant.ok ? avant.modeles ?? [] : []).filter((m) => m.langue === "en").map((m) => m.nom));
+  const resultats: Record<string, unknown>[] = [];
+  for (const m of MODELES_V2) {
+    const p = problemesModele(m);
+    if (p.length) { resultats.push({ modele: m.nom, soumis: false, erreur: p.join(", ") }); continue; }
+    if (existants.has(m.nom)) { resultats.push({ modele: m.nom, soumis: false, deja: true }); continue; }
+    const r = await graph(`${waba}/message_templates`, { method: "POST", body: requeteModele(m) });
+    resultats.push({ modele: m.nom, soumis: r.ok, statut: r.data?.status ?? null, categorie: r.data?.category ?? null, erreur: r.erreur });
+  }
+  await modelesSync(db);
+  return { ok: true, resultats };
 }
 
 /** Mode test : chaque modèle approuvé (anglais) part une fois vers chaque numéro autorisé, avec des valeurs d'exemple. */

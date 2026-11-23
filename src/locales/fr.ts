@@ -3918,8 +3918,8 @@ export const fr = {
       aucuneAppli: "aucune appli",
       supprimer: "Supprimer le label {{nom}}",
       applisServies: "Applications servies",
-      styleTitre: "Style d’écriture",
-      styleEnregistre: "Enregistré.",
+      anglesTitre: "Angles",
+      anglesSansApp: "Ce label ne sert aucune application : il n’a pas d’angle. Coche une application ci-dessus pour lui en donner.",
       groupes: {
         nb_one: "{{count}} label",
         nb_other: "{{count}} labels",

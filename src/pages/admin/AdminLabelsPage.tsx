@@ -13,16 +13,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MicroLabel } from "@/components/ui/micro-label";
-import { Textarea } from "@/components/ui/textarea";
 import { creerLabel, listerLabels, majLabel, supprimerLabel } from "@/features/moteur/api";
 import { definirApplicationsLabel } from "@/features/moteur/apiMultiApp";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
 import { ficheApplication } from "@/features/moteur/catalogueApplications";
-import { exemplesFeedDepuisTexte, exemplesFeedVersTexte } from "@/features/moteur/creationManuelle";
+import { type AnglePlacement, listerAnglesPlacement } from "@/features/moteur/apiAngles";
 import { DetailLabel } from "@/features/moteur/labels/DetailLabel";
 import { applicationsDuLabel } from "@/features/moteur/multiApp";
+import type { GroupeAngles } from "@/features/moteur/multiapp/angles";
 import { ApplicationsCard } from "@/features/moteur/multiapp/ApplicationsCard";
+import { CarteAnglesLabel } from "@/features/moteur/multiapp/CarteAnglesLabel";
 import { grouperLabelsParApplication, identiteDuNom } from "@/features/moteur/multiapp/groupesLabels";
 import { LabelApplications } from "@/features/moteur/multiapp/LabelApplications";
 import { ReplisCard } from "@/features/moteur/multiapp/ReplisCard";
@@ -52,59 +53,27 @@ const CLE_TOUS_LABELS = ["labels", "tous"] as const;
 
 type ApplicationListee = ReturnType<typeof useApplication>["applications"][number];
 
-/** Le style d'écriture d'un label : ce que le modèle doit imiter quand il crée un post. */
-function EditeurStyle({ label }: { label: LabelMoteur }) {
+/**
+ * 23/11 : les angles du label pour l'application de son groupe (actif, en test, ajout), à la place de l'ancien style
+ * d'écriture (thème, prompt, feed). Les mêmes cartes que dans Chaîne → Placement.
+ */
+function AnglesDuLabel({ label, applicationId, nomApp, sert }: { label: LabelMoteur; applicationId: string | null; nomApp: string; sert: boolean }) {
   const { t } = useTranslation();
-  const qc = useQueryClient();
-  const [styleTheme, setStyleTheme] = React.useState(label.style_theme ?? "");
-  const [promptCreation, setPromptCreation] = React.useState(label.prompt_creation ?? "");
-  const [feed, setFeed] = React.useState(exemplesFeedVersTexte(label.exemples_feed));
-
-  const sauver = useMutation({
-    mutationFn: () =>
-      majLabel(label.id, {
-        style_theme: styleTheme.trim() || null,
-        prompt_creation: promptCreation.trim() || null,
-        exemples_feed: exemplesFeedDepuisTexte(feed),
-      }),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["labels"] }),
-  });
-
-  const id = (champ: string) => `label-${label.id}-${champ}`;
-  return (
-    <div className="space-y-3">
-      <div className="grid gap-3 lg:grid-cols-2">
-        <div className="space-y-1">
-          <div className="flex items-center gap-1.5">
-            <Label htmlFor={id("theme")}>{t("labels.styleTheme")}</Label>
-            <Aide libelle={t("labels.styleTheme")}>{t("labels.styleThemeAide")}</Aide>
-          </div>
-          <Textarea id={id("theme")} rows={3} value={styleTheme} onChange={(e) => setStyleTheme(e.target.value)} />
-        </div>
-        <div className="space-y-1">
-          <div className="flex items-center gap-1.5">
-            <Label htmlFor={id("prompt")}>{t("labels.promptCreation")}</Label>
-            <Aide libelle={t("labels.promptCreation")}>{t("labels.promptCreationAide")}</Aide>
-          </div>
-          <Textarea id={id("prompt")} rows={3} value={promptCreation} onChange={(e) => setPromptCreation(e.target.value)} />
-        </div>
-      </div>
-      <div className="space-y-1">
-        <div className="flex items-center gap-1.5">
-          <Label htmlFor={id("feed")}>{t("labels.feed")}</Label>
-          <Aide libelle={t("labels.feed")}>{t("labels.feedAide")}</Aide>
-        </div>
-        <Textarea id={id("feed")} rows={5} value={feed} onChange={(e) => setFeed(e.target.value)} />
-      </div>
-      <div className="flex flex-wrap items-center gap-2">
-        <Button size="sm" disabled={sauver.isPending} onClick={() => sauver.mutate()}>
-          {sauver.isPending ? t("common.saving") : t("labels.enregistrerStyle")}
-        </Button>
-        {sauver.isSuccess && <span className="text-xs text-success">{t("labelsPage.styleEnregistre")}</span>}
-        {sauver.isError && <span className="text-xs text-destructive">{(sauver.error as Error).message}</span>}
-      </div>
-    </div>
-  );
+  const angles = useQuery({ queryKey: ["angles-placement"], queryFn: listerAnglesPlacement, enabled: Boolean(applicationId) });
+  if (!applicationId) return <p className="text-xs text-muted-foreground">{t("labelsPage.anglesSansApp")}</p>;
+  if (angles.isError) return <p className="text-xs text-destructive">{(angles.error as Error).message}</p>;
+  if (!angles.data) return <p className="text-xs text-muted-foreground">{t("common.loading")}</p>;
+  const siens = angles.data
+    .filter((a) => a.label_id === label.id && a.application_id === applicationId)
+    .sort((a, b) => a.created_at.localeCompare(b.created_at));
+  const groupe: GroupeAngles<AnglePlacement> = {
+    labelId: label.id,
+    nom: label.nom,
+    sert,
+    actif: siens.find((a) => a.statut === "actif") ?? null,
+    tests: siens.filter((a) => a.statut === "test"),
+  };
+  return <CarteAnglesLabel groupe={groupe} applicationId={applicationId} nomApplication={nomApp} />;
 }
 
 /** Le stock du label pour l'application de son groupe, avec la barre de l'Allocation. */
@@ -242,8 +211,13 @@ function LigneLabel({
                 </div>
               )}
               <div className="space-y-1.5">
-                <MicroLabel>{t("labelsPage.styleTitre")}</MicroLabel>
-                <EditeurStyle label={label} />
+                <MicroLabel>{t("labelsPage.anglesTitre")}</MicroLabel>
+                <AnglesDuLabel
+                  label={label}
+                  applicationId={applicationId}
+                  sert={sertChoisie}
+                  nomApp={nomApplication(applications.find((a) => a.id === applicationId) ?? { slug: "" })}
+                />
               </div>
               {(changerGenre.isError || supprimer.isError) && (
                 <p className="text-xs text-destructive">{((changerGenre.error ?? supprimer.error) as Error).message}</p>

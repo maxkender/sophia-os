@@ -17,7 +17,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { COULEUR, type Ctx, depassements, H, icone, imageRemplie, L, type LigneTitre, lignesCentrees, mesurerTitre, titreGeant } from "./dessin.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
-import { POLICE } from "./polices.ts";
+import { choisirPoliceTitre, POLICE, policeTitre } from "./polices.ts";
 import { CARTE, carteYoutube, hauteurCarte, type Video } from "./youtube.ts";
 
 export const RACINE = join(import.meta.dirname, "..");
@@ -201,7 +201,7 @@ async function etape(ctx: Ctx, s: Slide, c: ContenuEtape) {
     basCarte = yCarte + hauteurCarte;
   }
   if (c.sous?.length) {
-    lignesCentrees(ctx, c.sous, { y: basCarte + BLOC.ecartSous + SOUS.cap, police: POLICE.titre, taille: SOUS.taille, pas: SOUS.pas, couleur: COULEUR.noir, largeurMax: 1000 });
+    lignesCentrees(ctx, c.sous, { y: basCarte + BLOC.ecartSous + SOUS.cap, police: policeTitre(), taille: SOUS.taille, pas: SOUS.pas, couleur: COULEUR.noir, largeurMax: 1000 });
   }
 }
 
@@ -213,6 +213,7 @@ export async function rendreSlide(_post: Post, s: Slide, langue: string): Promis
   ctx.fillRect(0, 0, L, H);
   const c = contenu<unknown>(s, langue);
   if (!c) throw new Error(`slide ${s.type} : rien en ${langue}`);
+  choisirPoliceTitre(langue);
   if (s.type === "couverture") await couverture(ctx, c as ContenuCouverture);
   else await etape(ctx, s, c as ContenuEtape);
   return retirerMetadonnees(canvas.toBuffer("image/jpeg", 93));

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o296",
+ "type_bleo": "full_test",
+ "titre": "how to enjoy being alone in public #solitude #confidence #selfcare #selfimprovement #mindset",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "5b39aa5e-5308-40f5-8693-18773c10278f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5b39aa5e). full test BLEO : accroche jamais faite (format « how to enjoy being X in public »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e28bbd4c-d8c7-4dfc-a3b2-a3b39fced499",
+   "texte_overlay": "how to enjoy being\nalone in public",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "480ef359-f1d8-450b-9fab-a80cc0b702dc",
+   "texte_overlay": "start with a café\n\nchoose a calm café and order something you love. sitting alone with a good drink is the easiest first step, and nobody is watching as much as you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cef6025b-ed0c-4ba7-90aa-7c10a7415fe1",
+   "texte_overlay": "bring something to do\n\ntake a book, a sketchbook or a notebook. having something in your hands makes you feel at ease, and it turns alone time into time that feels truly special.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ad957e3c-7e77-4e45-8435-e0394d20b30a",
+   "texte_overlay": "learn something on the spot\n\nspend 5 minutes learning one new thing while you sit, and you'll feel curious instead of self conscious. a busy, interested mind forgets to worry about who might be watching.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/4.jpg",
+   "texte_sophia": "learn something on the spot\n\ni used to feel awkward alone in cafés. now i spend 5 minutes on one lesson in the Sophia app while i sip my coffee, a myth or a planet, and i feel calm instead of watched."
+  },
+  {
+   "position": 5,
+   "media_id": "96087406-d43e-42ed-9486-d249ac6b3f6f",
+   "texte_overlay": "try a solo museum trip\n\ngo to a museum alone and walk at your own pace. no one to rush you, no one to wait for, and you can stop for as long as you like at what you love most.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f3c724ac-d514-4182-947b-f94cd253d166",
+   "texte_overlay": "notice the world\n\nput your phone away and simply watch: people walking past, light on the buildings, a dog waiting for its owner. alone time becomes a small, quiet adventure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/6.jpg"
+  }
+ ]
+}

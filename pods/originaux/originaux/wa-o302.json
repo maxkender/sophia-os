@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o302",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8e8ac2ae-428a-475e-9a40-1c9a433deebf",
+ "titre": "weird psychology tricks that actually work #psychology #mindtricks #humanbehavior #socialskills #facts",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "9d63e1c9-e7d4-481e-b65f-e6045adbfa5a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9d63e1c9). déclinaison G1 de « weird psychology tricks that actually work » (parent 8e8ac2ae). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dfbf3660-0d5c-4ee3-95c8-6cd60d26fb98",
+   "texte_overlay": "weird psychology tricks\nthat actually work",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ccf71f8c-4ba9-44b7-adde-8d8ea3835acb",
+   "texte_overlay": "the nod\n\nnod slightly while you ask someone for something. people tend to mirror small movements, and a gentle nod quietly makes saying yes feel more natural to them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9a7db6d3-27db-480d-bf67-1aa876af33ff",
+   "texte_overlay": "the warm drink\n\noffer someone a warm drink before a hard conversation. studies suggest warmth in the hands makes people judge others as warmer and kinder too, so the talk goes better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "de11456a-9303-41f7-a904-38c8f22d39cd",
+   "texte_overlay": "the learning effect\n\npeople listen more closely to someone who seems to know a little about everything. a few minutes of curious learning each day quietly changes how people respond to you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/4.jpg",
+   "texte_sophia": "the learning effect\n\ni used to stay quiet when smart topics came up. now i spend 5 minutes a day on one lesson in the Sophia app, history or science, and people really listen when i speak."
+  },
+  {
+   "position": 5,
+   "media_id": "1f0bcfeb-e3c6-40c1-9101-29918536f73d",
+   "texte_overlay": "the pause after\n\nwhen someone gives a short answer, stay quiet for three seconds. most people fill the silence with the real answer, the one they were quietly holding back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a5006ef4-8bcd-4921-a6af-46c611503d4f",
+   "texte_overlay": "the name at the end\n\nsay someone's name at the end of a goodbye, not at the start of a hello. it's the last thing they hear from you, and it stays with them much longer after.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o375",
+ "type_bleo": "full_test",
+ "titre": "how bees make honey (it's stranger than you think) #bees #honey #nature #smartgirl #didyouknow",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 5/7 (la jauge en demande 7 sur 26) : accroche jamais faite chez nous (« honey » absent des accroches de donnees/label.json). Accroches écrites : « how bees make honey (it's stranger than you think) » (retenue : nature + surprise), « bee facts » (écartée : plate), « why honey never spoils » (écartée : un seul item). Faits vérifiés : une abeille produit environ un douzième de cuillère à café de miel dans sa vie, les abeilles ventilent pour évaporer l'eau, la danse frétillante indique la direction des fleurs (Karl von Frisch, Nobel 1973), le miel ne se gâte pas (retrouvé comestible dans des tombes égyptiennes), il faut environ deux millions de fleurs pour un pot d'environ 450 g. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42ae23ca",
+   "texte_overlay": "how bees make honey\n(it's stranger than you think)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a6ad86fe",
+   "texte_overlay": "one bee, one life\n\nabout a twelfth of a teaspoon\nof honey. that's all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "181a79e7",
+   "texte_overlay": "two million flowers\n\nfor a single jar.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dbd816b9",
+   "texte_overlay": "the dance\n\nbees dance to tell the others\nwhere the flowers are.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f9146dc9",
+   "texte_overlay": "the fans\n\nthey beat their wings to dry\nthe nectar into honey.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a8fd59a6",
+   "texte_overlay": "the nobel prize\n\nkarl von frisch won it in 1973\nfor decoding the dance.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b372c54c",
+   "texte_overlay": "it never spoils\n\nhoney found in egyptian tombs\nwas still edible. i learn one\nfact like this a day.",
+   "texte_sophia": "it never spoils: honey found in egyptian\ntombs was still edible. i learn one fact\nlike this a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "64d7b2ff",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

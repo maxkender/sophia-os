@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o390",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "50fa6150-38cb-446f-b490-1b3da5dbbb49",
+ "titre": "13 principles every ambitious woman must live by #ambition #mindset #smartgirl #success #principles",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "50fa6150-38cb-446f-b490-1b3da5dbbb49"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 35 de la boîte (parent 50fa6150, langue source el) : accroche du parent mot pour mot. Principes du parent deux ou trois par slide (protéger sa paix, ambition discrète, ne pas se diminuer, réfléchir avant de réagir, investir dans son esprit, dire non sans culpabilité, filtrer son cercle, indépendance financière, le repos est une stratégie, s'habiller pour la femme qu'on devient, soutenir les autres femmes) et deux neufs. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5644cb3c",
+   "texte_overlay": "13 principles every ambitious\nwoman must live by",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684973170536877333/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "632ac7ed",
+   "texte_overlay": "1. protect your peace\n2. move quietly\n3. never shrink to make\nothers comfortable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684973170536877333/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b20ec106",
+   "texte_overlay": "4. think before you react\n5. invest in your mind first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684973170536877333/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "495bdcae",
+   "texte_overlay": "6. say no without guilt\n7. keep your circle small",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684973170536877333/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7ef93eea",
+   "texte_overlay": "8. learn every single day",
+   "texte_sophia": "8. learn every single day\n\ni do it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684973170536877333/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7d6af96b",
+   "texte_overlay": "9. be financially independent\n10. rest is strategy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684973170536877333/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c03f1710",
+   "texte_overlay": "11. dress for who you're becoming\n12. support other women loudly\n13. finish what you start",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684973170536877333/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "12db29ed",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684973170536877333/8.jpg"
+  }
+ ]
+}

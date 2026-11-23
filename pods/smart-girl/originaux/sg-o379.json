@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o379",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2a7cf8d6-9853-445c-9c46-494d7f1d613e",
+ "titre": "little ways to feel alive again instead of just existing #mindset #slowliving #smartgirl #life #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 2 de la boîte (parent 2a7cf8d6, langue source cs) : accroche reformulée (« little ways to feel alive again instead of just existing »), différente de sg-o356 ; idées du parent. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "69df355d",
+   "texte_overlay": "little ways to feel alive again\ninstead of just existing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2d8f2ee5",
+   "texte_overlay": "say yes to one new thing\nthis week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4c39d7b4",
+   "texte_overlay": "walk without earphones",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3a6f5e1e",
+   "texte_overlay": "dinner at a real table,\nwith candles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "89e093b1",
+   "texte_overlay": "call someone instead\nof texting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "37454e55",
+   "texte_overlay": "stop waiting for the\nperfect moment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "24ed00fd",
+   "texte_overlay": "swap one scroll for five\nminutes of learning",
+   "texte_sophia": "swap one scroll for five minutes on\nan app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8d7f88ee",
+   "texte_overlay": "try one and tell me <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

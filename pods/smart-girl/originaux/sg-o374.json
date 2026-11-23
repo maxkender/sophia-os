@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o374",
+ "type_bleo": "full_test",
+ "titre": "the most beautiful lighthouses and their stories #lighthouse #travel #sea #smartgirl #history",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 4/7 (la jauge en demande 7 sur 26) : accroche jamais faite chez nous (« lighthouse » absent des accroches de donnees/label.json). Accroches écrites : « the most beautiful lighthouses and their stories » (retenue : mer, romantisme, histoire), « famous lighthouses » (écartée : plate), « lighthouse facts » (écartée : sèche). Faits vérifiés : phare d'Alexandrie (merveille du monde), tour d'Hercule (Espagne, romaine, le plus ancien en service), Cordouan (« roi des phares », UNESCO 2021), Bell Rock (Écosse, 1810, le plus ancien phare en mer encore debout), Peggy's Cove (Canada), lentille de Fresnel (1822). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c83d8983",
+   "texte_overlay": "the most beautiful lighthouses\nand their stories",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6dfc76ab",
+   "texte_overlay": "the pharos of alexandria\n\none of the seven wonders\nof the ancient world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "77f288ec",
+   "texte_overlay": "the tower of hercules, spain\n\nroman, and still working:\nthe oldest in use.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4894b62b",
+   "texte_overlay": "cordouan, france\n\nthe \"king of lighthouses\",\nbuilt like a palace at sea.",
+   "texte_sophia": "cordouan, france\n\nthe \"king of lighthouses\". i learned its\nstory on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5dac0a97",
+   "texte_overlay": "bell rock, scotland\n\nbuilt in 1810 on a reef\nunder the waves.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b66dd339",
+   "texte_overlay": "peggy's cove, canada\n\nthe most photographed\nlighthouse on the atlantic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d3c29f32",
+   "texte_overlay": "the fresnel lens\n\nan 1822 invention that sent\nlight 30 kilometres out to sea.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a90226b7",
+   "texte_overlay": "which one would you visit?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

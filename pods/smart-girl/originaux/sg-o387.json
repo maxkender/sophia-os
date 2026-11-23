@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o387",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ff65c398-b390-4675-a388-c9c09467818c",
+ "titre": "super niche elegant hobbies to try out #hobbies #elegance #smartgirl #slowliving #darkacademia",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 10 de la boîte (parent ff65c398, langue source fr) : accroche du parent mot pour mot. Hobbies du parent (haïkus, astronomie, backgammon, un autre alphabet, philosophie, bonsaï) et la calligraphie à la place du rubik's cube. Sophia sur la philosophie comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3f73f0d9",
+   "texte_overlay": "super niche elegant hobbies\nto try out",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "41e2827a",
+   "texte_overlay": "1. writing haiku\n\nthree lines, 17 syllables.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e4b11790",
+   "texte_overlay": "2. astronomy\n\nconstellations and planets.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4ba25b1a",
+   "texte_overlay": "3. backgammon\n\nan ancient game of chance\nand strategy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4bd3ca17",
+   "texte_overlay": "4. learning another alphabet\n\ncyrillic, arabic, korean.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a8524048",
+   "texte_overlay": "5. philosophy\n\nthe big questions, calmly.",
+   "texte_sophia": "5. philosophy\n\nthe big questions, calmly. a general\nknowledge app like Sophia helps.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3f452577",
+   "texte_overlay": "6. bonsai\n\nminiature trees and patience.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a76dc623",
+   "texte_overlay": "7. calligraphy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

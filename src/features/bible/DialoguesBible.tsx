@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { resoudreLiens } from "./api";
 import {
   ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, fusionnerCartes, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, marquerPodz, modifierCarte,
-  nomCarte, PREFIXE_LABEL, rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS, validerCarte,
+  nomCarte, PREFIXE_LABEL, rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS, sectionsApps, validerCarte,
 } from "./moodboard";
 import { lienCompte, nomLabelValide } from "./parse";
 
@@ -360,13 +360,6 @@ export function DialogueFusion({ carte, cartes, nbComptes, onFermer, onFini }: {
   );
 }
 
-/** Les apps qu'on peut cocher (plusieurs à la fois). */
-const APPS: { cle: Section; libelle: string }[] = [
-  { cle: "atala", libelle: "Atala" },
-  { cle: "micabo", libelle: "Micabo" },
-  { cle: "sophia", libelle: "Sophia" },
-];
-
 export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }: { ouvert: boolean; cartes: CarteLabel[]; labels?: LabelOs[]; onFermer: () => void; onFini: () => void }) {
   const [texte, setTexte] = React.useState("");
   const [apps, setApps] = React.useState<Section[]>([]);
@@ -423,7 +416,7 @@ export function DialogueAjout({ ouvert, cartes, labels = [], onFermer, onFini }:
           <div className="space-y-1.5">
             <p className="text-xs font-medium text-stone-500">Apps (une ou plusieurs)</p>
             <div className="flex flex-wrap gap-1.5" role="group" aria-label="Apps">
-              {APPS.map((a) => {
+              {sectionsApps().map((a) => {
                 const on = apps.includes(a.cle);
                 return (
                   <button

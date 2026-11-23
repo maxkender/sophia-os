@@ -5,7 +5,6 @@
  */
 import type * as React from "react";
 
-import { cn } from "@/lib/utils";
 
 import { BoutonPli } from "./Pli";
 
@@ -15,7 +14,7 @@ export function TitreApp({ libelle, sous, detail, teinte, plie, onBasculer, sect
 }) {
   const titre = (
     <>
-      <span className={cn("size-2 translate-y-[-1px] rounded-full", teinte)} aria-hidden />
+      <span className="size-2 translate-y-[-1px] rounded-full" style={{ backgroundColor: teinte }} aria-hidden />
       <span className="text-base font-semibold tracking-tight text-stone-900 dark:text-white">{libelle}</span>
       {sous && <span className="text-xs text-stone-400">{sous}</span>}
       <span className="text-xs tabular-nums text-stone-400">{detail}</span>

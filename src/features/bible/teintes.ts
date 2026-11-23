@@ -3,9 +3,13 @@ import { cn } from "@/lib/utils";
 
 import type { Section } from "./moodboard";
 
-export const TEINTE: Record<Section | "sans", string> = {
-  atala: "bg-emerald-500", micabo: "bg-violet-400", sophia: "bg-pink-400", idees: "bg-teal-400", sans: "bg-stone-300",
-};
+const FIXES: Record<string, string> = { idees: "#2dd4bf", sans: "#d6d3d1" };
+
+/**
+ * La couleur d'une section : celle de son application (`--app-<slug>` dans `index.css`, la même que dans les
+ * graphes), ou le gris « autre » pour une application qui n'a pas encore la sienne.
+ */
+export const couleurSection = (section: Section | "sans"): string => FIXES[section] ?? `var(--app-${section}, var(--app-autre))`;
 
 export const PASTILLE = "inline-flex shrink-0 items-center gap-0.5 rounded-full px-1.5 py-px text-[10px] font-medium ring-1";
 export const PASTILLE_A_CREER = cn(PASTILLE, "bg-amber-50 text-amber-700 ring-amber-200");

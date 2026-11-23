@@ -12,7 +12,7 @@ import { type CarteLabel, type EtapeSource, type Section, SECTIONS } from "./moo
 import { bilanSemaine, type DonneesSources, enImportEnBref, type FiltreSemaine, jourCourt, rangerSources } from "./sources";
 import { LigneLabel, TitreApp } from "./Bloc";
 import type { Pliage } from "./pliage";
-import { TEINTE } from "./teintes";
+import { couleurSection } from "./teintes";
 import { TuileSource } from "./TuileSource";
 
 const FILTRES_SEMAINE: { cle: FiltreSemaine; libelle: string }[] = [
@@ -122,7 +122,7 @@ export function VueSources({ etape, donnees, cartes, recherche, section, pliage 
               section={g.section}
               libelle={s.libelle}
               detail={`· ${g.total} source${g.total > 1 ? "s" : ""}`}
-              teinte={TEINTE[g.section]}
+              teinte={couleurSection(g.section)}
               plie={!cherche && pliage.estPlie(`app:${g.section}`)}
               onBasculer={() => pliage.basculer(`app:${g.section}`)}
             >

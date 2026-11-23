@@ -33,7 +33,7 @@ import { DialogueAjout, DialogueCarte, DialogueChoixLabel, DialogueFusion, Dialo
 import { type ComptePret, DialogueLancement } from "./LancementBatch";
 import {
   type Blocage, blocageImport, blocsVersesDans, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, detacherCarte, estPodzValide, estVueSource,
-  etapeAvantImport, lancerBatch, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, marquerPodz, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
+  etapeAvantImport, lancerBatch, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireApplications, lireCartes, lireComptes, marquerPodz, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
   restaurerCompte, type Section, SECTIONS, supprimerDefinitivement, valeurDuLabel, validerCarte, validerPodz, type Vue, VUES,
 } from "./moodboard";
 import { LigneLabel, TitreApp } from "./Bloc";
@@ -42,7 +42,7 @@ import { BarrePliage } from "./Pli";
 import { usePliage } from "./pliage";
 import { deciderProposition, lirePropositions, passerDansLaBible, type Proposition } from "./propositions";
 import { compterSources, ligneResultat, lireSources, rangerSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
-import { PASTILLE_A_CREER, PASTILLE_PODZ, TEINTE } from "./teintes";
+import { couleurSection, PASTILLE_A_CREER, PASTILLE_PODZ } from "./teintes";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
 import { type ActionsProposition, VuePropositions } from "./VuePropositions";
 import { VueSources } from "./VueSources";
@@ -57,6 +57,9 @@ export function PageBible() {
   const qc = useQueryClient();
   const comptes = useQuery({ queryKey: ["bible", "comptes"], queryFn: lireComptes });
   const cartes = useQuery({ queryKey: ["bible", "cartes"], queryFn: lireCartes });
+  // Les applications de l'OS : chacune a sa section (la lecture complète la liste `SECTIONS`, puis la page se redessine).
+  // Hors de la clé « bible » : une action sur un compte ne relit pas les applications.
+  useQuery({ queryKey: ["applications-de-la-bible"], queryFn: lireApplications, staleTime: 5 * 60_000 });
   // Tant qu'une source neuve s'importe, la page se relit seule : on la voit avancer puis changer d'onglet.
   const donnees = useQuery({
     queryKey: ["bible", "sources"],
@@ -355,7 +358,7 @@ export function PageBible() {
                   onClick={() => setSection(s.cle)}
                   className={cn("inline-flex h-8 items-center gap-1.5 rounded-full border px-2.5 text-[13px] transition", section === s.cle ? "border-stone-900 bg-stone-900 font-medium text-white dark:border-white dark:bg-white dark:text-stone-900" : "border-stone-200 bg-white text-stone-600 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300")}
                 >
-                  {s.cle !== "" && <span className={cn("size-2 rounded-full", TEINTE[s.cle])} aria-hidden />}
+                  {s.cle !== "" && <span className="size-2 rounded-full" style={{ backgroundColor: couleurSection(s.cle) }} aria-hidden />}
                   {s.libelle}
                   {s.cle !== "" && parApp.has(s.cle) && <span className={cn("tabular-nums", section === s.cle ? "text-stone-300 dark:text-stone-500" : "text-stone-400")}>{parApp.get(s.cle)}</span>}
                 </button>
@@ -419,7 +422,7 @@ export function PageBible() {
           {donnees.data && <VueSources etape={vue} donnees={donnees.data} cartes={toutes} recherche={recherche} section={section} pliage={pliage} />}
           {vue === "weekly" && podzVisibles.length > 0 && (
             <div className="space-y-1" data-testid="podz">
-              <TitreApp libelle="Podz" detail={`· ${podzVisibles.length} label${podzVisibles.length > 1 ? "s" : ""} faits en podz : leurs comptes servent d'inspiration, ils ne sont ni importés ni mis à jour`} teinte="bg-teal-400">
+              <TitreApp libelle="Podz" detail={`· ${podzVisibles.length} label${podzVisibles.length > 1 ? "s" : ""} faits en podz : leurs comptes servent d'inspiration, ils ne sont ni importés ni mis à jour`} teinte="#2dd4bf">
                 {podzVisibles.map(({ bloc, comptes: cs }) => (
                   <LigneLabel
                     key={bloc.id}
@@ -460,7 +463,7 @@ export function PageBible() {
                 libelle={s.libelle}
                 sous={s.sous}
                 detail={`· ${g.total} compte${g.total > 1 ? "s" : ""}${nLabels > 0 ? `, ${nLabels} label${nLabels > 1 ? "s" : ""}` : ""}`}
-                teinte={TEINTE[g.section]}
+                teinte={couleurSection(g.section)}
                 plie={plie(`app:${g.section}`)}
                 onBasculer={() => pliage.basculer(`app:${g.section}`)}
               >

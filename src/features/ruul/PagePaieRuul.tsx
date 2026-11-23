@@ -18,6 +18,7 @@ import {
   AIDE_CATEGORIE, CATEGORIES, type CategoriePaie, compter, dollars, etapesLot, grouperParRaison, LIBELLE_CATEGORIE,
   libelleOnboarding, libelleSemaine, libelleStatutRuul, type LignePaieRuul, lirePagePaieRuul, type LotHistorique, montantLigne,
 } from "./paieRuulPage";
+import { RappelsReportes } from "./RappelsReportes";
 
 const TON_CATEGORIE: Record<CategoriePaie, { pastille: string; texte: string; fond: string }> = {
   dans_lot: { pastille: "bg-sky-500", texte: "text-sky-700 dark:text-sky-300", fond: "bg-sky-50 dark:bg-sky-950/30" },
@@ -81,6 +82,8 @@ export function PagePaieRuul() {
           <TableLignes lignes={lignes} semaine={d.semaine} />
         )}
       </section>
+
+      <RappelsReportes semaine={d.semaine} />
 
       <Historique historique={d.historique} semaine={d.semaine} onChoisir={(s) => { setSemaine(s); setCategorie(null); }} />
     </div>

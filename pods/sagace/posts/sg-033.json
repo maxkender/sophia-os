@@ -1,0 +1,1786 @@
+{
+ "id": "sg-033",
+ "titre": {
+  "fr": "Compétences 10/10 qui te rendent plus intelligent",
+  "en": "10/10 skills that make you smarter",
+  "de": "10/10 Skills, die dich klüger machen",
+  "it": "Abilità 10/10 che ti rendono più intelligente",
+  "pt-BR": "Habilidades 10/10 que te deixam mais inteligente",
+  "tr": "Seni daha zeki yapan 10/10 beceriler",
+  "ro": "Abilități 10/10 care te fac mai deștept",
+  "cs": "Dovednosti 10/10, které tě udělají chytřejším",
+  "hu": "10/10 készségek, amelyektől okosabb leszel",
+  "el": "10/10 δεξιότητες που σε κάνουν πιο έξυπνο",
+  "sr": "Veštine 10/10 koje te čine pametnijim"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui te rendent plus intelligent #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that make you smarter #learnontiktok #selfimprovement #skills",
+  "de": "10/10 Skills, die dich klüger machen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che ti rendono più intelligente #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que te deixam mais inteligente #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Seni daha zeki yapan 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care te fac mai deștept #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které tě udělají chytřejším #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10 készségek, amelyektől okosabb leszel #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "10/10 δεξιότητες που σε κάνουν πιο έξυπνο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje te čine pametnijim #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - rithu",
+  "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2c5ae66f-6d81-419b-aa02-e6b3b432b475",
+ "notes": "Déclinaison G1 de sg-009 (23/11) : titre, légende et couverture de sg-009 mot pour mot (hu, el, sr traduits : langues ouvertes le 22/11). Autres compétences : apprendre une langue vite, lire plus de livres, comprendre l'univers (système solaire), tenir un journal, comprendre l'ADN ; vraies vidéos natives par langue. Sophia en étape 4 sur 7, cta A « GARDER / L'ESPRIT VIF ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUI TE RENDENT",
+      "cap": 93
+     },
+     {
+      "t": "PLUS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "INTELLIGENT",
+      "cap": 150
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "THAT MAKE YOU",
+      "cap": 93
+     },
+     {
+      "t": "SMARTER",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE DICH",
+      "cap": 93
+     },
+     {
+      "t": "KLÜGER",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "MACHEN",
+      "cap": 150
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CHE TI RENDONO",
+      "cap": 93
+     },
+     {
+      "t": "PIÙ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "INTELLIGENTE",
+      "cap": 140
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "QUE TE DEIXAM",
+      "cap": 93
+     },
+     {
+      "t": "MAIS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "INTELIGENTE",
+      "cap": 150
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "SENİ DAHA",
+      "cap": 110
+     },
+     {
+      "t": "ZEKİ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "YAPAN",
+      "cap": 110
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CARE TE FAC",
+      "cap": 93
+     },
+     {
+      "t": "MAI",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "DEȘTEPT",
+      "cap": 160
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "KTERÉ TĚ UDĚLAJÍ",
+      "cap": 85
+     },
+     {
+      "t": "CHYTŘEJŠÍM",
+      "couleur": "brun",
+      "cap": 180
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "AMELYEKTŐL",
+      "cap": 93
+     },
+     {
+      "t": "OKOSABB",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "LESZEL",
+      "cap": 150
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "couleur": "brun",
+      "cap": 118
+     },
+     {
+      "t": "ΠΟΥ ΣΕ ΚΑΝΟΥΝ",
+      "cap": 93
+     },
+     {
+      "t": "ΠΙΟ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ΕΞΥΠΝΟ",
+      "cap": 150
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "KOJE TE ČINE",
+      "cap": 93
+     },
+     {
+      "t": "PAMETNIJIM",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "UNE LANGUE VITE",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "obK8rHCPAhI",
+     "titre": "La meilleure façon d'apprendre une langue (selon la science)",
+     "chaine": "Loïs Talagrand (FR)",
+     "vues": "324 k vues",
+     "date": "il y a 4 ans",
+     "duree": "18:12",
+     "avatar": "https://yt3.ggpht.com/tA-Zv7ogFAjL7aVarJlwfXb0ANKFU5hv73sFWvSyIiqKULAegWgES47Dp9H2FhPzzaPualgmug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 mois de pratique"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "A LANGUAGE FAST",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "E6588DlZW-c",
+     "titre": "learning a new language is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "4.3M views",
+     "date": "2 years ago",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 months of practice"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE SPRACHE",
+     [
+      {
+       "t": "SCHNELL LERNEN",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pP4ak7Evyyc",
+     "titre": "Meistere jede Sprache in nur 180 Tagen: 5 Steps aus der Gehirnforschung",
+     "chaine": "Henry Hildebrandt",
+     "vues": "488.868 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "14:31",
+     "avatar": "https://yt3.ggpht.com/jsshGkKONs53QHCb6nOVwRbzzG7EVOIqOHhYPI1omt9WY5iRcXmq6l6pTUo51r5SkPnSOghM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 Monate Übung"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "UNA LINGUA IN FRETTA",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eYy7TjpzzsM",
+     "titre": "Come Ho Imparato 2 LINGUE Senza Frequentare Corsi",
+     "chaine": "Paola Di Lello",
+     "vues": "159K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "9:32",
+     "avatar": "https://yt3.ggpht.com/l8X4D5WTGZghsBCu7HiU9i2M_GvI4aC89M2iLJQp8_ZnlVtvoPxKghkLtJGTMJecIrxisRrW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 mesi di pratica"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "UM IDIOMA RÁPIDO",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T0iej6lGgJM",
+     "titre": "como aprender QUALQUER idioma em 2026 sem estudar",
+     "chaine": "Lívia Lobo",
+     "vues": "475 mil visualizações",
+     "date": "há 11 meses",
+     "duree": "21:06",
+     "avatar": "https://yt3.ggpht.com/OQAjx7C2WEh5iu0Iuh5b6p2G5KPP10g1r75f1yT_g0d99sh-Ep9zxiHkd7JdenOltQ7wkCvHqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 meses de prática"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HIZLICA",
+     [
+      {
+       "t": "DİL ÖĞRENMEK",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CgXPnpvrGNM",
+     "titre": "Yabancı dil öğrenmenin en hızlı yolu: KO-KO Tekniği",
+     "chaine": "Barış Özcan",
+     "vues": "6,9 Mn görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "14:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdtLLPQnErbtjn6tO4tKFLvOEE-jYjYRbhNvzrcFJZh8xd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 ay pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "O LIMBĂ RAPID",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QDMUD85UT44",
+     "titre": "✓ 10 Sfaturi atunci cand inveti o limba straina",
+     "chaine": "Multilingo",
+     "vues": "66 K vizionări",
+     "date": "acum 10 ani",
+     "duree": "5:29",
+     "avatar": "https://yt3.ggpht.com/MeMG0LBONnbbBrZTBHuSehGcucihvBikfGyIO5AQfCWINCIbZ2xkfBmusye1kGabHaSHrB_VDA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 luni de exercițiu"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "JAZYK RYCHLE",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AO6ZsHhXUic",
+     "titre": "Jak se učit jazyky?! 5 účinných tipů, jak na cizí jazyk bez talentu",
+     "chaine": "Jan Kohut",
+     "vues": "25 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "13:15",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 měsíce praxe"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG",
+     [
+      {
+       "t": "GYORSAN EGY NYELVET",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T_95-uCIc54",
+     "titre": "Hogyan tanulj nyelveket",
+     "chaine": "Online Marketinges",
+     "vues": "63 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "7:06",
+     "avatar": "https://yt3.ggpht.com/7i5S6q-725NNFmAIwY1g_8iJbV7rmRyS8TZccgJgjPA_PXhkED0O7kPsAzG-L6dAfLZ_S1ueCQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 hónap gyakorlás"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "ΜΙΑ ΓΛΩΣΣΑ ΓΡΗΓΟΡΑ",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hfjH6Rr4Fds",
+     "titre": "10 μυστικά για να να μάθεις μια ξένη γλώσσα - Πως να μάθω ξένες γλώσσες",
+     "chaine": "Watch and Learn",
+     "vues": "40 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "21:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nZpKOEC2g2MSZqIjmthlM-5LRUAIYP3enrB_Ou1ZNQdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 μήνες εξάσκηση"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI",
+     [
+      {
+       "t": "JEZIK BRZO",
+       "couleur": "#3b6fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GqJIWSVW8lE",
+     "titre": "STRANI JEZICI: 10 saveta za lakše učenje i/ili poboljšavanje | Ana Gligorijević",
+     "chaine": "Ana Gligorijević",
+     "vues": "10 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "18:11",
+     "avatar": "https://yt3.ggpht.com/3Ji-miGriedrF0czlkeck8DF5g1EtJ_l4oKT-BwiYwgTqKk8CRna18fDuHX8YY9i7C4hiLMxBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 meseca vežbe"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LIRE",
+     [
+      {
+       "t": "PLUS DE LIVRES",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JSgRCyBhBA4",
+     "titre": "Comment lire (beaucoup) plus",
+     "chaine": "La nuit sera mots",
+     "vues": "92 k vues",
+     "date": "il y a 2 ans",
+     "duree": "9:52",
+     "avatar": "https://yt3.ggpht.com/bnbpODWHImo6mzCbTVL137u8mMpWY5x5LBY5O0ADbKZK2RQt9lwfYzWuEUISDXwIsw-M9wuPug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "READ",
+     [
+      {
+       "t": "MORE BOOKS",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f5_mihqjOGw",
+     "titre": "Give me 14 minutes and I'll show you how to read more books",
+     "chaine": "Ali Abdaal",
+     "vues": "122K views",
+     "date": "7 months ago",
+     "duree": "13:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m2xx6mCZwsyjARnkwBKJxEv0FqGxGS2NwWNkjWH__Smw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "MEHR",
+     [
+      {
+       "t": "BÜCHER LESEN",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "epQK07xNTNk",
+     "titre": "Bücherwurm werden: Tipps um mehr zu lesen! 💛📖",
+     "chaine": "julinapril",
+     "vues": "27.533 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:01",
+     "avatar": "https://yt3.ggpht.com/h4j-quMFX2r1t95zHoFyTuCL0g4FNRn_uurg-B7mNNihr73jRq-ga7iD2eb6QcrHwqsdaFqCoiQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "LEGGERE",
+     [
+      {
+       "t": "PIÙ LIBRI",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1h4-zejTsho",
+     "titre": "12 Consigli per leggere di più e iniziare a farlo",
+     "chaine": "Abbozzo",
+     "vues": "97K visualizzazioni",
+     "date": "10 mesi fa",
+     "duree": "29:51",
+     "avatar": "https://yt3.ggpht.com/7jo4PSHKPM-pUUOZgUanEPZKdxt4ULFAkQHAjlLacYKo5U_BsmO68WIdzRzoCW6GkUU15Gquew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LER",
+     [
+      {
+       "t": "MAIS LIVROS",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V37szqoyTgc",
+     "titre": "Aprenda a Ler Melhor: Os Segredos para Ler Mais e Aprender de Verdade!",
+     "chaine": "Bárbara Torres",
+     "vues": "240 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "7:52",
+     "avatar": "https://yt3.ggpht.com/Lj7vwhmyo4BAyxq7ouEfjwj87pwTF9UjYsIXegmmYmih6S_sU79YsHkoHApa8i4r2UKXXnowpQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DAHA ÇOK",
+     [
+      {
+       "t": "KİTAP OKUMAK",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qfupDMWhLew",
+     "titre": "daha çok kitap okumak için 7 ipucu📚",
+     "chaine": "Gülse Göçer",
+     "vues": "41 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "7:53",
+     "avatar": "https://yt3.ggpht.com/j5aSsREsKa8NhSDiKRhMLMnstybDn4d-g_-m9cwSyCQvS_GznX5owpJRhmYF7VKIRmd6HNZRTQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "günde 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CITEȘTI",
+     [
+      {
+       "t": "MAI MULTE CĂRȚI",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q5fkfVtb6E0",
+     "titre": "Cum să citești mai mult chiar dacă nu ai timp de citit *fără tehnici de speed reading sau altele",
+     "chaine": "Gabriel Ursan",
+     "vues": "746 vizionări",
+     "date": "acum 4 ani",
+     "duree": "11:36",
+     "avatar": "https://yt3.ggpht.com/69roTuirL9HZO6x1Dn4iYxNCPDdLR1NaeFBKsHLTuowkvDuZuKRoBdwvOiwc2EcSsFblX8F_EhU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ČÍST",
+     [
+      {
+       "t": "VÍC KNIH",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mIGgRovDSIA",
+     "titre": "5 TIPŮ JAK PŘEČÍST VÍCE KNIH",
+     "chaine": "Kamila Víšková",
+     "vues": "11 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "7:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_maY9nfHfiOpQI2vPMFq7Ji9ni-T75TAb1THgTybV6ADg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "OLVASS",
+     [
+      {
+       "t": "TÖBB KÖNYVET",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zcSfdDz6Bt4",
+     "titre": "Hogyan lehet többet olvasni?",
+     "chaine": "OlvaZsófi",
+     "vues": "4 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "7:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lk5S9GyEuEBRfaK6V1tAhQcYjtUqx69-Wq1wHaIRVLUQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "napi 15 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΔΙΑΒΑΣΕ",
+     [
+      {
+       "t": "ΠΕΡΙΣΣΟΤΕΡΑ ΒΙΒΛΙΑ",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aBRyaYHx0w0",
+     "titre": "Πώς να διαβάζεις περισσότερο: Tips για συγκέντρωση & χρόνο 📚 | Bookish Q&A",
+     "chaine": "chill yayaka",
+     "vues": "1 χιλ. προβολές",
+     "date": "πριν από 7 μήνες",
+     "duree": "20:21",
+     "avatar": "https://yt3.ggpht.com/topiCfOkyB86vr1oxMaktjCGVZOJlOZu2TVPkUGsm0y1D6sJko6EVAO748ZMpf5zmdtWZZ6oaVE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ČITAJ",
+     [
+      {
+       "t": "VIŠE KNJIGA",
+       "couleur": "#e08a2c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pbIkvPujIfc",
+     "titre": "Kako čitati 52 knjige godišnje? Vodič za nedeljno čitanje.  | BIZNIS MENTOR",
+     "chaine": "Milan Trbojević",
+     "vues": "2,4 hilj. pregleda",
+     "date": "pre 2 godine",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/qwsdj4athdof0PyH3k9X5BnJox-gVfRr27XZ4YQNAteTElyxRteETpWg8-69Dksf_5NBZGTFmIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "GARDER",
+     [
+      {
+       "t": "L'ESPRIT VIF",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "KEEP",
+     [
+      {
+       "t": "YOUR MIND SHARP",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEN KOPF",
+     [
+      {
+       "t": "WACH HALTEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "TENERE",
+     [
+      {
+       "t": "LA MENTE ALLENATA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "MANTER",
+     [
+      {
+       "t": "A MENTE AFIADA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ZİHNİNİ",
+     [
+      {
+       "t": "DİNÇ TUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "PĂSTREAZĂ-ȚI",
+     [
+      {
+       "t": "MINTEA ASCUȚITĂ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UDRŽET SI",
+     [
+      {
+       "t": "BYSTROU MYSL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TARTSD",
+     [
+      {
+       "t": "FRISSEN AZ ELMÉD",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΡΑΤΑ",
+     [
+      {
+       "t": "ΤΟ ΜΥΑΛΟ ΣΟΥ ΞΥΠΝΙΟ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SAČUVAJ",
+     [
+      {
+       "t": "OŠTAR UM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPRENDRE",
+     [
+      {
+       "t": "L'UNIVERS",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NDeyeTQ-ZAM",
+     "titre": "La folle Histoire de notre système solaire",
+     "chaine": "Balade Mentale",
+     "vues": "584 k vues",
+     "date": "il y a 1 an",
+     "duree": "32:48",
+     "avatar": "https://yt3.ggpht.com/G9u5bB4UgW8oF21MNIDMnZyhdt7f1VoWbVWlpwHskNQb2ONvdIz6YUjq1DlHMo3_jasdU9vV=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND",
+     [
+      {
+       "t": "THE UNIVERSE",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zR3Igc3Rhfg",
+     "titre": "To Scale: THE SOLAR SYSTEM",
+     "chaine": "To Scale:",
+     "vues": "16M views",
+     "date": "11 years ago",
+     "duree": "7:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l_UYLaO4c7jEECNdWc99ciVx2i3_VslylSkTyhUOESdw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DAS UNIVERSUM",
+     [
+      {
+       "t": "VERSTEHEN",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F8WBMhnJogk",
+     "titre": "Das Sonnensystem:  Unser Zuhause im Weltall",
+     "chaine": "UniversitaetzuKoeln",
+     "vues": "659.001 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/5kL4k3uuQwRiQp-Ob9J2ARkLNLfbBeDACDEDe66eKUuZUJemWkgGA3mdQwKzdjf08i9ovbabNw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAPIRE",
+     [
+      {
+       "t": "L'UNIVERSO",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BhOhLsz0rEo",
+     "titre": "Alla scoperta del Sistema Solare",
+     "chaine": "EDU INAF",
+     "vues": "99K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "26:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_njeiXYicOWupsOFTS007nHTNsUbzxcNKk6xt6X_Qiu_g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER",
+     [
+      {
+       "t": "O UNIVERSO",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3bE0NZVRwNo",
+     "titre": "Conheça o SISTEMA SOLAR e seus Planetas",
+     "chaine": "Toda Matéria",
+     "vues": "1 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "12:40",
+     "avatar": "https://yt3.ggpht.com/HzNmGq7dz8hluGyGAmMijcUKc_sp-9cynIvm9U41wDVqDmfREuHWjyuphcyajKWkrTfMTvZBgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "EVRENİ",
+     [
+      {
+       "t": "ANLAMAK",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pIjZRamKS0s",
+     "titre": "GÜNEŞ SİSTEMİMİZDEKİ GEZEGENLERİN EN İLGİNÇ ÖZELLİKLERİ",
+     "chaine": "HERODOT",
+     "vues": "134 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "10:18",
+     "avatar": "https://yt3.ggpht.com/HwwO1PRlzdOCLqBA-qKCWpiT7hfnGOFK5AVLXstJxNtfwgs3ifyvV8ROB2oj37AMfVJVMoIoKQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "UNIVERSUL",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4nZvZOy-zTg",
+     "titre": "Lumi Uimitoare: Ce Ascund Planetele Din Sistemul Solar",
+     "chaine": "Doza De Spatiu",
+     "vues": "31 K vizionări",
+     "date": "acum 1 an",
+     "duree": "26:05",
+     "avatar": "https://yt3.ggpht.com/owyPRF7dD77eP4iaJj7ryUWrAVl91FJXtMW4r1nGa90JeAZiv4ux_iBva_TDsrbb7nmzSMYoJQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POCHOPIT",
+     [
+      {
+       "t": "VESMÍR",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wd0FXkcRXAw",
+     "titre": "Jak Slunce stvořilo i zničí život na Zemi",
+     "chaine": "Jirka vysvětluje věci",
+     "vues": "2,1 mil. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "26:52",
+     "avatar": "https://yt3.ggpht.com/45TQhzumjQEpjfvFplXejdijXUKmKPyQLJEe9k3Z95VddEQJ-qJfuLi1V_car5tq74RSBN8uGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÉRTSD MEG",
+     [
+      {
+       "t": "AZ UNIVERZUMOT",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MlciIWq3V6c",
+     "titre": "Méretarányos Naprendszer|  #89  |  ŰRKUTATÁS MAGYARUL",
+     "chaine": "Űrkutatás magyarul",
+     "vues": "214 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "18:42",
+     "avatar": "https://yt3.ggpht.com/smGVQ5nS5-SxWuXaY7Lfy-ZTqfZK0VRpmIBT9xZpgIoHOr6Ld8QXs1hKNtR86dFXcXR1-j4kVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΑΤΑΛΑΒΕ",
+     [
+      {
+       "t": "ΤΟ ΣΥΜΠΑΝ",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gqShWCyLFyY",
+     "titre": "Πόσους ΠΛΑΝΗΤΕΣ έχει το Ηλιακό μας Σύστημα;",
+     "chaine": "To Sakidio",
+     "vues": "50 χιλ. προβολές",
+     "date": "πριν από 2 έτη",
+     "duree": "9:19",
+     "avatar": "https://yt3.ggpht.com/xNy6CevceUJSSEH0CWWTJwxkKI3g5anj1uRiSyleCdTEM4URQB12zXNgmYitWgRaaIaNpyt4_w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "RAZUMI",
+     [
+      {
+       "t": "SVEMIR",
+       "couleur": "#6b4fbb"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jeeo_d-PZMc",
+     "titre": "Kako je nastao sunčev sistem i zašto imamo podelu na terestričke i gasovite planete?",
+     "chaine": "Gravitacioni manevar",
+     "vues": "95 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "12:13",
+     "avatar": "https://yt3.ggpht.com/l9XLzoQ94RirGTVnR_FnN_g7EBSXbsIwrmA8OefdPgPqAC-_4XtzLt6oey1IBAdVUuZucTIGfU0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "TENIR",
+     [
+      {
+       "t": "UN JOURNAL",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9pM8beWLeoM",
+     "titre": "Comment le Journaling Peut Changer Ta Vie : Découvre 4 Méthodes Pour Vaincre ton Anxiété",
+     "chaine": "Sacha Bourlon",
+     "vues": "29 k vues",
+     "date": "il y a 2 ans",
+     "duree": "11:03",
+     "avatar": "https://yt3.ggpht.com/ITI43x3yq-CLO52WHwTXfFBCWLCsPuDb_TOJnHRdTlzu3DLr9OsfM2yJCyrbgOFnQmmAk-AJ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "KEEP",
+     [
+      {
+       "t": "A JOURNAL",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FNJO1pZV-I8",
+     "titre": "Does Journaling Actually Work? (Journaling 101)",
+     "chaine": "HealthyGamerGG",
+     "vues": "954K views",
+     "date": "3 years ago",
+     "duree": "17:14",
+     "avatar": "https://yt3.ggpht.com/8oCkSrvzv9WY-nc8y-JB-mAcrthopmS3FljCmSNsJasWx_TUo1okgSiwP6mkwJeo3lF3Usiv6jk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "TAGEBUCH",
+     [
+      {
+       "t": "SCHREIBEN",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N5cTc0SlccI",
+     "titre": "100 Tage Journaling | Selbstexperiment",
+     "chaine": "Dominik Lebersorger",
+     "vues": "82.321 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "8:30",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "TENERE",
+     [
+      {
+       "t": "UN DIARIO",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FZT3RoPRaGY",
+     "titre": "Un DIARIO può cambiarti la vita: perché e come fare JOURNALING",
+     "chaine": "Rick DuFer",
+     "vues": "43K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "26:20",
+     "avatar": "https://yt3.ggpht.com/F1VcTEjAOvvvjc0Cv93cdhkixo24vAkYj41Hpd3F9vDxdGUrkS1EiA91MjsdiyxHKlm17V53mRs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ESCREVER",
+     [
+      {
+       "t": "UM DIÁRIO",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UZBdi3inHeE",
+     "titre": "COMO FAZER DIÁRIO TERAPIA PARA TER MAIS FOCO E MENOS ANSIEDADE (JOURNALING)",
+     "chaine": "Rafael Gratta",
+     "vues": "262 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/OrSIdUvcLVyTkPVARIbwIH_rNJC6hNoVIkXlM54cwOcGDN7dPnctWiDSXoWXP1g3QNLEItch=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GÜNLÜK",
+     [
+      {
+       "t": "TUTMAK",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CLoTFrFA24A",
+     "titre": "Günlük tutmak hayatımı değiştirdi",
+     "chaine": "Baraneemo",
+     "vues": "75 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "6:00",
+     "avatar": "https://yt3.ggpht.com/r9g4Dmmovuf6grAbeRBleqnbmpERRHj_eUhEc1djR30wRHOy8XeOHhXBRgr4iweHLIk5cvHVn7M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "günde 10 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ȚII",
+     [
+      {
+       "t": "UN JURNAL",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dKs5fTMLvXs",
+     "titre": "Un jurnal personal 📕 - de ce l-ai ține? 42 de motive sa o faci ✍️  | [EP22] The Real You Podcast",
+     "chaine": "Petre-Tudor Barlea",
+     "vues": "12 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "39:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdJJCc0fnA0_PF8jlQoP4hmUpMRIkD2CuOq1xI_rWkMbc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PSÁT SI",
+     [
+      {
+       "t": "DENÍK",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yhpmqMqlkTs",
+     "titre": "Psaní deníku mi změnilo život.",
+     "chaine": "Dejvik",
+     "vues": "5,2 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "11:34",
+     "avatar": "https://yt3.ggpht.com/7FHJgxyo5kY061j4ROymAb3_S4lStfjO3NFooobbpz4nXs6d8pD6lhKJ_77QWGzhuG4A_5SxFg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "VEZESS",
+     [
+      {
+       "t": "NAPLÓT",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Wri_3wUyH0g",
+     "titre": "Hogyan változtatja meg az életedet a naplózás | Viszkok Fruzsi",
+     "chaine": "Viszkok Fruzsi",
+     "vues": "43 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "13:48",
+     "avatar": "https://yt3.ggpht.com/4zwSkmo60poyAWOvzQaVWIBMExdVTsH26NA09EVGN2v-EHQVBM2d6xJLaZ0pQmqeFyx1CdNH6w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "napi 10 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΡΑΤΑ",
+     [
+      {
+       "t": "ΗΜΕΡΟΛΟΓΙΟ",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dREES_dISAY",
+     "titre": "JOURNALING ΓΙΑ ΑΡΧΑΡΙΟΥΣ 🙌  + Playlist & Prompts | Ψυχολογια 101",
+     "chaine": "Maria Vasilikou",
+     "vues": "38 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "21:39",
+     "avatar": "https://yt3.ggpht.com/2znWueiqQhiPI4YvkK5JC_hbZPkBOUM77TTrrGaZtVcscEBfPa-evP-XQgGuck73V4YnDWSjEw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PIŠI",
+     [
+      {
+       "t": "DNEVNIK",
+       "couleur": "#4f9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "J7DZDdIzEqo",
+     "titre": "Kako pisanje može da promeni tvoj život: Zašto je važno beležiti misli i kako to raditi efikasno",
+     "chaine": "Ivan Kosogor",
+     "vues": "40 hilj. pregleda",
+     "date": "pre 1 mesec",
+     "duree": "19:59",
+     "avatar": "https://yt3.ggpht.com/9lSZeHClBupo-G5ruH1O6OH8MTAOzoeSPINiBa9O9txjiB4TFhWCoyKJGsXiu7tVLIolB2y8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPRENDRE",
+     [
+      {
+       "t": "L'ADN",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "805KLPIZNvA",
+     "titre": "C'est quoi l'ADN ?",
+     "chaine": "Curionautes des sciences",
+     "vues": "88 k vues",
+     "date": "il y a 4 ans",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ksBD-znJDpe_yA0MAHlucMYhkP5Ij1UZysyvyzaWIL0w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND",
+     [
+      {
+       "t": "DNA",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zwibgNGe4aY",
+     "titre": "What is DNA and How Does it Work?",
+     "chaine": "Stated Clearly",
+     "vues": "5.6M views",
+     "date": "14 years ago",
+     "duree": "5:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJJVh8oSMnpascRoycDbdHG0-pobioC0lMe-xdDXM2dIWi=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DNA",
+     [
+      {
+       "t": "VERSTEHEN",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pVVYMsXniT4",
+     "titre": "DNA und Genetik einfach erklärt (explainity® Erklärvideo)",
+     "chaine": "explainity ® Erklärvideos",
+     "vues": "185.765 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/yzS4NHuaTy7dp1rNK9986gONvqufx-vGa5fLNjTWbNrm04Ug6V2Nte0xJtcx7EbfJu1AMGs-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAPIRE",
+     [
+      {
+       "t": "IL DNA",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f34vOj3rk7E",
+     "titre": "Il DNA - Scienze facili (byAP)",
+     "chaine": "Anna Perretta",
+     "vues": "302K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m_XZQmGLLHeZ3xW9Ag0ZdiXpuiksjWgkHBbj-PSkx-87M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER",
+     [
+      {
+       "t": "O DNA",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ij5SRxp3neo",
+     "titre": "O que é o DNA?",
+     "chaine": "Pesquisa FAPESP",
+     "vues": "89 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "4:28",
+     "avatar": "https://yt3.ggpht.com/EFy4gTGFopPvFg7EpN4MeT-NVvSUn07gP3r-YsiKHnqkPGoyNX4ZpHGotCQrwRTzBSygJ6BO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DNA'YI",
+     [
+      {
+       "t": "ANLAMAK",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cFvYOzkvBSc",
+     "titre": "DNA, Kromozom ve Hücre... Bildiğiniz Gibi Değil!",
+     "chaine": "Evrim Ağacı",
+     "vues": "175 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/yy48QgMLjlpIqzRqWM-ecSuL6g8KggV2pi8YS7wNzkugZHH_-eNNxJ5-BenWWYp-K8gUliIpwVo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "ADN-UL",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2Rn_Av_9a4Q",
+     "titre": "Ce este ADN-ul ?",
+     "chaine": "Scientia.ro",
+     "vues": "51 K vizionări",
+     "date": "acum 17 ani",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ksYKqX9vnFKRnwuNFaPFlQngTseL62kJc_jclwWnM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POCHOPIT",
+     [
+      {
+       "t": "DNA",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gie29a5Tk0c",
+     "titre": "Co je DNA - Vědecké kladivo",
+     "chaine": "Vědecké Kladivo",
+     "vues": "49 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "2:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n2WwflrCEdH7aKyuDl1DOijYohjTt3Vkpoc9ZodAntw7k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ÉRTSD MEG",
+     [
+      {
+       "t": "A DNS-T",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jCfVgdZNrmQ",
+     "titre": "Mi az a DNS és hogyan működik?",
+     "chaine": "Hogyan működik? Röviden - Tömören",
+     "vues": "183 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "4:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZjJHsimRK4hKYxpVog02432bIh2nt1wJGpUp7XlQzxgQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΑΤΑΛΑΒΕ",
+     [
+      {
+       "t": "ΤΟ DNA",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OonT7H0jU0Q",
+     "titre": "Πώς αντιγράφεται το DNA? Και βασικά.. Τι είναι το DNA?",
+     "chaine": "Human Nature",
+     "vues": "67 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "12:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kyUD51pc-i6DY3KoVV7-4H21mNgmUnRloIGG3OXOMrTCM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "RAZUMI",
+     [
+      {
+       "t": "DNK",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PfMCQw3TZpo",
+     "titre": "Uvod u genetiku (Genetika, Biologija)",
+     "chaine": "predavanja.com",
+     "vues": "11 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lThhodI_0R2QTwbH5SoKWEJFhfC-Ym3GshJhAwWwpf5Jg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   }
+  }
+ ]
+}

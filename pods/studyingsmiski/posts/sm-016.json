@@ -1,0 +1,432 @@
+{
+ "id": "sm-016",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "on & on",
+  "url": "https://www.tiktok.com/music/on-on-7122836057481021441"
+ },
+ "notes": "Full test du 23/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, dans la veine de sa légende « smart girls don't gatekeep » (268 k) : « apps smart girls don't gatekeep ». Sophia en 2e carte (slide 3, cta A), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Notion (notes, tâches et projets), Endel (paysages sonores pour la concentration et le sommeil), Daylio (micro-journal d'humeur). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20 au 22/11). Musique : la sienne de ce post.",
+ "titre": {
+  "en": "apps smart girls don't gatekeep",
+  "fr": "les applis que les filles intelligentes ne gardent pas pour elles",
+  "es": "apps que las chicas listas no se guardan",
+  "es-419": "apps que las chicas listas no se guardan",
+  "it": "app che le ragazze intelligenti non tengono per sé",
+  "tr": "akıllı kızların saklamadığı uygulamalar",
+  "pt-BR": "apps que meninas espertas não escondem",
+  "de": "apps, die kluge mädchen nicht für sich behalten",
+  "sl": "aplikacije, ki jih pametna dekleta delijo",
+  "hu": "appok, amiket az okos lányok nem titkolnak"
+ },
+ "legendes": {
+  "en": "sharing is caring, bestie 💌📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "le partage, c'est la base, bestie 💌📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "compartir es cuidar, bestie 💌📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "compartir es cuidar, bestie 💌📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "condividere è volersi bene, bestie 💌📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "paylaşmak güzeldir, bestie 💌📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "compartilhar é cuidar, bestie 💌📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "teilen ist liebe, bestie 💌📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "deliti je lepo, bestie 💌📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "a megosztás szeretet, bestie 💌📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 40,
+     "y": 150,
+     "l": 220,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 830,
+     "y": 150,
+     "l": 170,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 810,
+     "y": 690,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps smart\ngirls don't\ngatekeep",
+    "sous": "sharing is\ncaring, bestie"
+   },
+   "fr": {
+    "titre": "les applis que\nles filles futées\npartagent",
+    "sous": "on partage\ntout, bestie"
+   },
+   "es": {
+    "titre": "apps que las\nchicas listas\ncomparten",
+    "sous": "compartir\nes cuidar"
+   },
+   "es-419": {
+    "titre": "apps que las\nchicas listas\ncomparten",
+    "sous": "compartir\nes cuidar"
+   },
+   "it": {
+    "titre": "app che le\nragazze\nsveglie\ncondividono",
+    "sous": "condividere\nè amore"
+   },
+   "tr": {
+    "titre": "akıllı kızların\nsaklamadığı\nuygulamalar",
+    "sous": "paylaşmak\ngüzeldir"
+   },
+   "pt-BR": {
+    "titre": "apps que\nmeninas\nespertas não\nescondem",
+    "sous": "compartilhar\né cuidar"
+   },
+   "de": {
+    "titre": "apps, die kluge\nmädchen\nteilen",
+    "sous": "teilen\nist liebe"
+   },
+   "sl": {
+    "titre": "aplikacije,\nki jih pametna\ndekleta delijo",
+    "sous": "deliti\nje lepo"
+   },
+   "hu": {
+    "titre": "appok, amiket\nokos lányok\nmegosztanak",
+    "sous": "a megosztás\nszeretet"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/notion/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "one page per class with notes, deadlines and to-dos. once it's set up, your whole semester is one tap away."
+   },
+   "fr": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "une page par cours avec notes, dates limites et to-do. une fois en place, tout ton semestre est à un clic."
+   },
+   "es": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "una página por asignatura con apuntes, entregas y tareas. cuando la montas, todo tu cuatrimestre está a un toque."
+   },
+   "es-419": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "una página por materia con apuntes, entregas y pendientes. cuando la armas, todo tu semestre está a un toque."
+   },
+   "it": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "una pagina per ogni materia con appunti, scadenze e to-do. una volta impostata, tutto il semestre è a un tocco."
+   },
+   "tr": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "her ders için notlar, teslim tarihleri ve yapılacaklarla bir sayfa. bir kez kurunca tüm dönemin bir dokunuş uzağında."
+   },
+   "pt-BR": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "uma página por matéria com anotações, prazos e tarefas. depois de montar, seu semestre inteiro fica a um toque."
+   },
+   "de": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "eine seite pro fach mit notizen, deadlines und to-dos. einmal eingerichtet, ist dein semester nur einen tap entfernt."
+   },
+   "sl": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "stran za vsak predmet z zapiski, roki in opravili. ko jo nastaviš, je cel semester na en dotik."
+   },
+   "hu": {
+    "nom": "Notion",
+    "plateformes": "iOS, Android",
+    "texte": "minden tárgynak egy oldal jegyzetekkel, határidőkkel és teendőkkel. ha egyszer beállítod, az egész féléved egy koppintásra van."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 800,
+     "y": 110,
+     "l": 230,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "this one is my little secret!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "celle-là, c'est mon petit secret !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡es mi pequeño secreto!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡es mi pequeño secreto!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "è il mio piccolo segreto!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "bu benim küçük sırrım!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "esse é meu segredinho!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "das ist mein kleines geheimnis!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "to je moja mala skrivnost!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "ez az én kis titkom!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/endel/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "focus soundscapes that adapt to you. i put it on when i study and the hours just go by."
+   },
+   "fr": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "des ambiances sonores de concentration qui s'adaptent à toi. je les lance quand je bosse et les heures défilent."
+   },
+   "es": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisajes sonoros para concentrarte que se adaptan a ti. lo pongo para estudiar y las horas vuelan."
+   },
+   "es-419": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisajes sonoros para concentrarte que se adaptan a ti. lo pongo para estudiar y las horas vuelan."
+   },
+   "it": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paesaggi sonori per la concentrazione che si adattano a te. lo metto quando studio e le ore volano."
+   },
+   "tr": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "sana uyum sağlayan odak sesleri. ders çalışırken açıyorum, saatler akıp gidiyor."
+   },
+   "pt-BR": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisagens sonoras pra foco que se adaptam a você. coloco pra estudar e as horas passam voando."
+   },
+   "de": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "fokus-klangwelten, die sich an dich anpassen. ich mache sie beim lernen an, und die stunden fliegen."
+   },
+   "sl": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "zvočne kulise za zbranost, ki se prilagodijo tebi. vklopim jih pri učenju in ure kar minejo."
+   },
+   "hu": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "hozzád igazodó fókuszhangok. tanuláskor bekapcsolom, és repülnek az órák."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/daylio/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 70,
+     "y": 750,
+     "l": 190,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "a two-tap mood journal. after a few weeks you see exactly which habits make your good days."
+   },
+   "fr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un journal d'humeur en deux clics. après quelques semaines, tu vois quelles habitudes font tes bonnes journées."
+   },
+   "es": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un diario de ánimo en dos toques. en unas semanas ves qué hábitos hacen tus días buenos."
+   },
+   "es-419": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un diario de ánimo en dos toques. en unas semanas ves qué hábitos hacen tus días buenos."
+   },
+   "it": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "un diario dell'umore in due tocchi. dopo qualche settimana vedi quali abitudini fanno le tue giornate belle."
+   },
+   "tr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "iki dokunuşluk bir ruh hali günlüğü. birkaç haftada iyi günlerini hangi alışkanlıkların yaptığını görürsün."
+   },
+   "pt-BR": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "um diário de humor em dois toques. em poucas semanas você vê quais hábitos fazem seus dias bons."
+   },
+   "de": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "ein stimmungstagebuch mit zwei taps. nach ein paar wochen siehst du, welche gewohnheiten deine guten tage machen."
+   },
+   "sl": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "dnevnik razpoloženja z dvema dotikoma. po nekaj tednih vidiš, katere navade naredijo tvoje dobre dneve."
+   },
+   "hu": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "kétkoppintásos hangulatnapló. pár hét után látod, mely szokások csinálják a jó napjaidat."
+   }
+  }
+ ]
+}

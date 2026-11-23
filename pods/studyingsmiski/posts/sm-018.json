@@ -1,0 +1,432 @@
+{
+ "id": "sm-018",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "the way things go",
+  "url": "https://www.tiktok.com/music/the-way-things-go-7247627511276980225"
+ },
+ "notes": "Full test du 23/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle), sur la vie en coloc étudiante : « apps every college girl needs on her phone ». Sophia en 3e carte (cta C), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Splitwise (dépenses partagées), Sleep Cycle (réveil intelligent), Calm (respiration, méditations, histoires pour dormir). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 21/11). Musique : la sienne de sa version verte de « 4 apps » (340 k).",
+ "titre": {
+  "en": "apps every college girl needs on her phone",
+  "fr": "les applis que toute étudiante doit avoir",
+  "es": "apps que toda universitaria necesita en el móvil",
+  "es-419": "apps que toda universitaria necesita en el celular",
+  "it": "app che ogni universitaria deve avere sul telefono",
+  "tr": "her öğrenci kızın ihtiyacı olan uygulamalar",
+  "pt-BR": "apps que toda universitária precisa ter no celular",
+  "de": "apps, die jede studentin auf dem handy braucht",
+  "sl": "aplikacije, ki jih potrebuje vsaka študentka",
+  "hu": "appok minden egyetemista lánynak"
+ },
+ "legendes": {
+  "en": "the college girl starter pack 🎀📱 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "le starter pack de l'étudiante 🎀📱 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "el starter pack de la universitaria 🎀📱 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "el starter pack de la universitaria 🎀📱 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "lo starter pack dell'universitaria 🎀📱 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "üniversiteli kız başlangıç paketi 🎀📱 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "o starter pack da universitária 🎀📱 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "das studentinnen-starterpaket 🎀📱 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "študentski začetni paket 🎀📱 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "az egyetemista lány alapcsomagja 🎀📱 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tirelire.png",
+     "x": 40,
+     "y": 160,
+     "l": 230,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/punaise.png",
+     "x": 520,
+     "y": 180,
+     "l": 80,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 40,
+     "y": 730,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps every\ncollege girl\nneeds",
+    "sous": "college girl\nstarter pack"
+   },
+   "fr": {
+    "titre": "les applis\nque toute\nétudiante\ndoit avoir",
+    "sous": "starter pack\nétudiante"
+   },
+   "es": {
+    "titre": "apps que toda\nuniversitaria\nnecesita",
+    "sous": "starter pack\nuniversitaria"
+   },
+   "es-419": {
+    "titre": "apps que toda\nuniversitaria\nnecesita",
+    "sous": "starter pack\nuniversitaria"
+   },
+   "it": {
+    "titre": "app che ogni\nuniversitaria\ndeve avere",
+    "sous": "starter pack\nuniversitaria"
+   },
+   "tr": {
+    "titre": "her öğrenci\nkızın ihtiyacı\nolan\nuygulamalar",
+    "sous": "başlangıç\npaketi"
+   },
+   "pt-BR": {
+    "titre": "apps que toda\nuniversitária\nprecisa",
+    "sous": "starter pack\nda facul"
+   },
+   "de": {
+    "titre": "apps, die jede\nstudentin\nbraucht",
+    "sous": "starterpaket\nstudium"
+   },
+   "sl": {
+    "titre": "aplikacije,\nki jih rabi\nvsaka\nštudentka",
+    "sous": "študentski\nzačetni paket"
+   },
+   "hu": {
+    "titre": "appok minden\negyetemista\nlánynak",
+    "sous": "egyetemista\nalapcsomag"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/splitwise/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tirelire.png",
+     "x": 60,
+     "y": 740,
+     "l": 250,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "shared rent, groceries and pizza nights with your roommates, and it keeps track of who owes who. friendships saved."
+   },
+   "fr": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "loyer, courses et soirées pizza partagés avec tes colocs, et l'appli suit qui doit quoi à qui. amitiés sauvées."
+   },
+   "es": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "alquiler, compra y noches de pizza compartidas con tus compis de piso, y lleva la cuenta de quién debe qué. amistades salvadas."
+   },
+   "es-419": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "renta, súper y noches de pizza compartidas con tus roomies, y lleva la cuenta de quién debe qué. amistades salvadas."
+   },
+   "it": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "affitto, spesa e serate pizza condivise con le coinquiline, e l'app tiene il conto di chi deve cosa. amicizie salve."
+   },
+   "tr": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "ev arkadaşlarınla kira, market ve pizza gecelerini paylaş; kimin kime borçlu olduğunu o takip etsin. arkadaşlıklar kurtuldu."
+   },
+   "pt-BR": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "aluguel, mercado e noites de pizza divididos com as colegas de casa, e o app controla quem deve o quê. amizades salvas."
+   },
+   "de": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "miete, einkäufe und pizzaabende mit der wg teilen, und die app merkt sich, wer wem was schuldet. freundschaften gerettet."
+   },
+   "sl": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "najemnina, nakupi in pica večeri s cimrami, aplikacija pa beleži, kdo komu kaj dolguje. prijateljstva rešena."
+   },
+   "hu": {
+    "nom": "Splitwise",
+    "plateformes": "iOS, Android",
+    "texte": "lakbér, bevásárlás és pizzás esték megosztva a lakótársaiddal, az app pedig vezeti, ki kinek tartozik. barátságok megmentve."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/sleep-cycle/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 830,
+     "y": 750,
+     "l": 180,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "a smart alarm that wakes you in your lightest sleep phase, so 8am classes feel a little less like a punishment."
+   },
+   "fr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un réveil intelligent qui te réveille dans ton sommeil le plus léger, pour que les cours de 8 h ressemblent moins à une punition."
+   },
+   "es": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "un despertador inteligente que te despierta en tu fase de sueño más ligera, para que las clases de las 8 duelan un poco menos."
+   },
+   "es-419": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una alarma inteligente que te despierta en tu fase de sueño más ligera, para que las clases de las 7 duelan un poco menos."
+   },
+   "it": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "una sveglia intelligente che ti sveglia nella fase di sonno più leggera, così le lezioni delle 8 sembrano meno una punizione."
+   },
+   "tr": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "seni en hafif uyku evresinde uyandıran akıllı alarm, sabah 8 dersleri biraz daha az ceza gibi geliyor."
+   },
+   "pt-BR": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "um despertador inteligente que te acorda na fase mais leve do sono, pra aula das 7 parecer menos castigo."
+   },
+   "de": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "ein smarter wecker, der dich in der leichtesten schlafphase weckt, damit die 8-uhr-vorlesung weniger wie eine strafe ist."
+   },
+   "sl": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "pametna budilka, ki te zbudi v najlažji fazi spanja, da so predavanja ob 8h malo manj kazen."
+   },
+   "hu": {
+    "nom": "Sleep Cycle",
+    "plateformes": "iOS, Android",
+    "texte": "okos ébresztő, ami a legkönnyebb alvási fázisban ébreszt, így a reggel 8-as óra kevésbé tűnik büntetésnek."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 850,
+     "y": 100,
+     "l": 170,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "my favorite habit this semester!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "ma meilleure habitude du semestre !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi mejor hábito de este cuatri!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡mi mejor hábito de este semestre!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "la mia abitudine preferita del semestre!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "bu dönemki en sevdiğim alışkanlık!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "meu hábito favorito desse semestre!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "meine liebste gewohnheit dieses semester!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "moja najljubša navada ta semester!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "a kedvenc szokásom ebben a félévben!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/calm/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 800,
+     "y": 730,
+     "l": 220,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "breathing exercises and sleep stories for the nights your brain won't stop replaying the day."
+   },
+   "fr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "exercices de respiration et histoires pour dormir pour les soirs où ta tête rejoue toute la journée."
+   },
+   "es": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "ejercicios de respiración e historias para dormir para las noches en que tu cabeza repite todo el día."
+   },
+   "es-419": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "ejercicios de respiración e historias para dormir para las noches en que tu cabeza repite todo el día."
+   },
+   "it": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "esercizi di respirazione e storie per dormire per le sere in cui la testa rivive tutta la giornata."
+   },
+   "tr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "kafanın tüm günü tekrar oynattığı geceler için nefes egzersizleri ve uyku hikayeleri."
+   },
+   "pt-BR": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "exercícios de respiração e histórias pra dormir pras noites em que sua cabeça repassa o dia inteiro."
+   },
+   "de": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "atemübungen und einschlafgeschichten für die nächte, in denen dein kopf den ganzen tag nochmal abspielt."
+   },
+   "sl": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "dihalne vaje in zgodbe za lahko noč za večere, ko glava znova predvaja cel dan."
+   },
+   "hu": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "légzőgyakorlatok és esti mesék azokra az estékre, amikor a fejed újra lejátssza az egész napot."
+   }
+  }
+ ]
+}

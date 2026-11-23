@@ -23,6 +23,11 @@ vi.mock("@/features/moteur/api", () => ({
   creerLabel: (nom: string, couleur: string, opts: unknown) => api.creerLabel(nom, couleur, opts),
   supprimerLabel: (id: string) => api.supprimerLabel(id),
 }));
+const angles = vi.hoisted(() => ({ listerAnglesPlacement: vi.fn() }));
+vi.mock("@/features/moteur/apiAngles", async (orig) => ({
+  ...(await orig<typeof import("@/features/moteur/apiAngles")>()),
+  listerAnglesPlacement: () => angles.listerAnglesPlacement(),
+}));
 vi.mock("@/features/moteur/apiMultiApp", () => ({
   definirApplicationsLabel: (id: string, apps: string[]) => api.definirApplicationsLabel(id, apps),
   definirSeuilPertinenceLabel: vi.fn(),
@@ -98,6 +103,7 @@ const ligne = (nom: string, slug = "sophia") => groupe(slug).getByText(nom).clos
 describe("AdminLabelsPage", () => {
   beforeEach(async () => {
     await i18n.changeLanguage("fr");
+    angles.listerAnglesPlacement.mockResolvedValue([]);
     Object.values(api).forEach((f) => f.mockReset());
     api.listerLabels.mockResolvedValue(LABELS);
     api.majLabel.mockResolvedValue(undefined);
@@ -124,21 +130,21 @@ describe("AdminLabelsPage", () => {
     expect(screen.queryByTestId("groupe-labels-sans")).not.toBeInTheDocument();
   });
 
-  it("une ligne se déplie sur le style d'écriture, qui s'enregistre", async () => {
+  it("une ligne se déplie sur les angles du label pour l'application de son groupe (plus de style d'écriture)", async () => {
+    angles.listerAnglesPlacement.mockResolvedValue([
+      { id: "a1", label_id: "l1", application_id: ID_SOPHIA, texte: "Le temps récupéré", statut: "actif", created_at: "2026-11-01T00:00:00Z" },
+      { id: "a2", label_id: "l1", application_id: ID_UNSWIPE, texte: "Angle Unswipe", statut: "actif", created_at: "2026-11-01T00:00:00Z" },
+      { id: "a3", label_id: "l2", application_id: ID_SOPHIA, texte: "Angle white_bg", statut: "actif", created_at: "2026-11-01T00:00:00Z" },
+    ]);
     renderPage();
     await screen.findByTestId("groupe-labels-sophia");
     fireEvent.click(groupe("sophia").getByText("RH"));
-    const theme = screen.getByLabelText("Thème / style");
-    expect(theme).toHaveValue("Ton direct");
-    fireEvent.change(theme, { target: { value: "Ton direct et chiffré" } });
-    fireEvent.click(screen.getByRole("button", { name: "Enregistrer le style" }));
-    await waitFor(() =>
-      expect(api.majLabel).toHaveBeenCalledWith("l1", {
-        style_theme: "Ton direct et chiffré",
-        prompt_creation: null,
-        exemples_feed: [],
-      }),
-    );
+    const carte = await screen.findByTestId("carte-angles");
+    expect(await within(carte).findByText(/Le temps récupéré/)).toBeInTheDocument();
+    expect(screen.queryByText(/Angle Unswipe/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Angle white_bg/)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText("Thème / style")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Enregistrer le style" })).not.toBeInTheDocument();
   });
 
   it("changer le genre écrit le label sans déplier la ligne", async () => {

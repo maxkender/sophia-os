@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o291",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3e256ebd-c0a6-43cb-bfb9-18eeef24272a",
+ "titre": "7 faits psychologiques sur les êtres humains #psychologie #faits #cerveau #savoir #hommes",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [
+  "3e256ebd-c0a6-43cb-bfb9-18eeef24272a"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 40 de la boîte (parent 3e256ebd, @infinitydream7, langue source fr : écrit en français, ROUTINE §4.3). Accroche du parent mot pour mot. Format : « N. » + fait. Faits connus et neufs, rien de santé. Items neufs, aucun du parent. reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6e1822fb",
+   "texte_overlay": "7 faits psychologiques sur\nles êtres humains",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "597e3a1c",
+   "texte_overlay": "1. On remarque plus vite son\nprénom qu'un autre mot,\nmême dans le bruit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "737deac8",
+   "texte_overlay": "2. On retient mieux ce qu'on\nexplique à quelqu'un d'autre.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7206e1fe",
+   "texte_overlay": "3. On fait plus confiance aux gens\nqui admettent une petite erreur.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3795044b",
+   "texte_overlay": "4. On croit que les autres nous\nregardent bien plus qu'en vrai.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4335992c",
+   "texte_overlay": "5. Apprendre un fait nouveau\nchaque jour garde l'esprit curieux.",
+   "texte_sophia": "5. Apprendre un fait nouveau\nchaque jour garde l'esprit curieux.\nJ'utilise l'appli Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "03b3a6e4",
+   "texte_overlay": "6. Une tâche commencée reste\nen tête jusqu'à ce qu'on la finisse.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "77da9378",
+   "texte_overlay": "7. On se souvient surtout du début\net de la fin d'une journée.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599809974163754262/8.jpg"
+  }
+ ]
+}

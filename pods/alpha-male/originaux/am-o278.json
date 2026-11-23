@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o278",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b1923e5f-39de-49c5-bf5a-a8758bd5580f",
+ "titre": "Signs you're an introvert #introvert #men #personality #psychology #relatable",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7458397927627885334",
+ "inspirations": [
+  "b1923e5f-39de-49c5-bf5a-a8758bd5580f"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 6 de la boîte (parent b1923e5f, @behimdaily8, langue source en). Accroche du parent mot pour mot. Format : « N. » + une phrase. Items neufs, aucun du parent. reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c81d70a4",
+   "texte_overlay": "signs you're an introvert",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626509760652758294/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0b631e18",
+   "texte_overlay": "1. you let calls ring,\nthen text back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626509760652758294/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9b7c8716",
+   "texte_overlay": "2. you leave parties\nwithout saying goodbye.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626509760652758294/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f7a1a1e6",
+   "texte_overlay": "3. headphones in,\neven without music.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626509760652758294/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "41b6c3ee",
+   "texte_overlay": "4. one close friend\nbeats ten acquaintances.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626509760652758294/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "78d95718",
+   "texte_overlay": "5. you'd rather read about\nsomething than talk about it.",
+   "texte_sophia": "5. you learn alone first.\na micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626509760652758294/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "125a660c",
+   "texte_overlay": "6. canceled plans feel\nlike a gift.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626509760652758294/7.jpg"
+  }
+ ]
+}

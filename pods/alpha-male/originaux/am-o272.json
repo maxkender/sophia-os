@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o272",
+ "type_bleo": "full_test",
+ "titre": "Concert etiquette every man should know #men #concert #music #respect #manners",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Full test du jour (4 sur 7, jauge : 7 sur 24). Accroche jamais faite chez nous : « concert » seulement dans des items dans donnees/label.json. reference_url : post source de am-o036 (2 à 7), vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0d8180c9",
+   "texte_overlay": "Concert etiquette every man\nshould know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3e333774",
+   "texte_overlay": "1. Film one song.\nThen live it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "792d2a38",
+   "texte_overlay": "2. Tall? Don't stand in front\nof someone short.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "17c5cc47",
+   "texte_overlay": "3. Get drinks between sets",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "717a22d0",
+   "texte_overlay": "4. Know the band's story\n\nIt hits different.",
+   "texte_sophia": "4. Know the band's story\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d5d38f0",
+   "texte_overlay": "5. Leave after the encore",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  }
+ ]
+}

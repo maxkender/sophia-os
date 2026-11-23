@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o292",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3f26e545-8662-4f8b-a77d-a71baa05346b",
+ "titre": "Phases that every man must go through #men #life #growth #phases #maturity",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "3f26e545-8662-4f8b-a77d-a71baa05346b"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 42 de la boîte (parent 3f26e545, @selfsculpt_, langue source en ; ligne 41 sautée, voisine de la 29 (« uncomfortable things to do… »)). Accroche du parent mot pour mot. Format : « N. The X phase » puis deux lignes. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7e9ccf31",
+   "texte_overlay": "Phases that every man\nmust go through",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578101184272157974/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2281ed95",
+   "texte_overlay": "1. The know-it-all phase\n\nHe thinks he has life figured out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578101184272157974/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "150639c0",
+   "texte_overlay": "2. The humbling phase\n\nLife proves him wrong.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578101184272157974/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "34150944",
+   "texte_overlay": "3. The student phase\n\nHe starts learning again,\non purpose.",
+   "texte_sophia": "3. The student phase\n\nHe learns every day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578101184272157974/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "605eb66e",
+   "texte_overlay": "4. The discipline phase\n\nHe stops waiting for motivation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578101184272157974/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "042505df",
+   "texte_overlay": "5. The giving phase\n\nHe builds for others now.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7578101184272157974/6.jpg"
+  }
+ ]
+}

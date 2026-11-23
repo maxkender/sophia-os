@@ -1,56 +1,56 @@
 {
  "source_id": "rh-o313",
  "type_bleo": "full_test",
- "titre": "les 5 trucs à demander pendant ta période d'essai #periodedessai #nouveaujob #travail #carriere #jobtips",
+ "titre": "comment je refuse une réunion inutile (sans vexer personne) #reunion #travail #productivite #limites #jobtips",
  "musique_titre": "Venus and Flower",
  "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
  "inspirations": [
   "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
   "b80c0573-ff44-459e-beeb-e54be7ea617d"
  ],
- "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (demander pendant la période d'essai). Sujet juridique traité en général. Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (refuser une réunion inutile). 2e version : la 1re (période d'essai) a été refusée en theme_gagnant. Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
  "slides": [
   {
    "position": 1,
    "media_id": "2988d9a3",
-   "texte_overlay": "les 5 trucs à demander\npendant ta\npériode d'essai",
+   "texte_overlay": "comment je refuse\nune réunion inutile\n(sans vexer personne)",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
   },
   {
    "position": 2,
    "media_id": "061d6833",
-   "texte_overlay": "un point à mi-parcours\n« qu'est-ce qui va bien, qu'est-ce que je dois changer ? »",
+   "texte_overlay": "« quel est l'objectif ? »\nsouvent, personne ne sait",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
   },
   {
    "position": 3,
    "media_id": "b468688f",
-   "texte_overlay": "tes objectifs par écrit\npour savoir sur quoi on te juge",
+   "texte_overlay": "« je peux avoir le compte rendu à la place ? »",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
   },
   {
    "position": 4,
    "media_id": "b747a513",
-   "texte_overlay": "qui peut t'aider sur quoi\nune liste de 3 noms",
+   "texte_overlay": "« je viens 15 minutes, pour mon point »",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
   },
   {
    "position": 5,
    "media_id": "07985b7c",
-   "texte_overlay": "un retour après ta première vraie mission",
+   "texte_overlay": "« on peut régler ça par message ? »",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
   },
   {
    "position": 6,
    "media_id": "aa7a592f",
-   "texte_overlay": "de quoi te former\nmes 3 sources : un collègue, la doc interne, 5 minutes par jour",
-   "texte_sophia": "de quoi te former\nmes 3 sources : un collègue, la doc interne, 5 minutes par jour sur l'appli Sophia",
+   "texte_overlay": "et ce temps gagné\nmes 3 usages : un dossier de fond, une pause, 5 minutes par jour pour apprendre",
+   "texte_sophia": "et ce temps gagné\nmes 3 usages : un dossier de fond, une pause, 5 minutes par jour sur l'appli Sophia",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
   },
   {
    "position": 7,
    "media_id": "03193bd4",
-   "texte_overlay": "t'es en période d'essai ?",
+   "texte_overlay": "t'as combien de réunions par semaine ?",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
   }
  ]

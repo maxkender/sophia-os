@@ -43,6 +43,13 @@ export const FONDS = {
   brun: { fond: "#804000", texte: "#ffffff", puce: "#ffe08a" },
   orange: { fond: "#fe5e00", texte: "#ffffff", puce: "#ffe08a" },
   rouge: { fond: "#fe0000", texte: "#ffffff", puce: "#ffe08a" },
+  // Relevés à la veille du 23/11 (ses posts d'octobre et novembre).
+  bordeaux: { fond: "#800000", texte: "#ffffff", puce: "#ffe08a" },
+  creme: { fond: "#feffef", texte: "#000000", puce: "#7a1f00" },
+  chocolat: { fond: "#d3691f", texte: "#000000", puce: "#7a1f00" },
+  vert_mer: { fond: "#2e8a57", texte: "#000000", puce: "#ffe08a" },
+  saumon: { fond: "#fa8071", texte: "#000000", puce: "#7a1f00" },
+  sarcelle: { fond: "#008081", texte: "#ffffff", puce: "#ffe08a" },
 } as const;
 export type Fond = keyof typeof FONDS;
 

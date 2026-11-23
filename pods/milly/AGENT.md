@@ -33,7 +33,7 @@ rejette est validée toute seule 5 h après son dépôt.
 - **La couverture** : 4 ou 5 lignes de tailles différentes (`grand` pour le mot qui porte, `petit` pour les mots de liaison, `moyen` entre les deux), l'image après la 2e ou la 3e (`image_apres`), comme « How to / Study / [image] / for 10+ / Hours ».
 - **Une slide de contenu** : un titre court (une ligne, ou deux lignes équilibrées), puis 2 ou 3 paragraphes de 2 à 5 lignes, une petite image centrée entre deux paragraphes ; parfois une liste à puces (`puces`). `npm run rendu` refuse un texte qui dépasse le filet du bas : raccourcis.
 - **Des faits vrais et vérifiés** : chaque étude citée existe (dans `notes` : auteurs, revue, année), dite sans l'exagérer. Rien de médical, pas de chiffre inventé. Dans le doute, une phrase sans chiffre.
-- **Le fond** (`fond`) : un par post, un de ses fonds (`noir`, `gris`, `gris_noir`, `gris_clair`, `vert`, `vert_fonce`, `bleu`, `brun`, `orange`, `rouge`) ; change-le d'un post à l'autre, comme elle.
+- **Le fond** (`fond`) : un par post, un de ses fonds (`noir`, `gris`, `gris_noir`, `gris_clair`, `vert`, `vert_fonce`, `bleu`, `brun`, `orange`, `rouge`, et depuis la veille du 23/11 `bordeaux`, `creme`, `chocolat`, `vert_mer`, `saumon`, `sarcelle`) ; change-le d'un post à l'autre, comme elle.
 - **Les images** :
 	- de l'imagerie de neurosciences par Seedream (`npm run image`) : IRM en coupe (sagittale, axiale, coronale), IRM fonctionnelle en couleurs, neurones, synapses, sur fond noir ; regarde chacune avec Read : jamais de texte, de lettres, de logo, ni d'anatomie absurde ;
 	- les molécules (caféine…) : la figure de PubChem (`npm run molecule -- caffeine`), jamais une formule dessinée par Seedream. PubChem répond parfois « serveur occupé » : réessaie plus tard ;

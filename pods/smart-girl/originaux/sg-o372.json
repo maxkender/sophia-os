@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o372",
+ "type_bleo": "full_test",
+ "titre": "how medieval monks made illuminated manuscripts #medieval #manuscripts #arthistory #smartgirl #darkacademia",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 2/7 (la jauge en demande 7 sur 26) : accroche jamais faite chez nous (« manuscript » absent des accroches de donnees/label.json). Accroches écrites : « how medieval monks made illuminated manuscripts » (retenue : dark academia, savoir rare), « medieval art explained » (écartée : vague), « the most beautiful old books » (écartée : liste). Faits vérifiés : scriptorium, vélin (peau de veau), feuille d'or, bleu outremer tiré du lapis-lazuli d'Afghanistan, Livre de Kells (vers 800, Trinity College Dublin), drôleries dans les marges (escargots contre chevaliers). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8c9ff940",
+   "texte_overlay": "how medieval monks made\nilluminated manuscripts",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1f02881c",
+   "texte_overlay": "the room\n\nthe scriptorium, lit\nonly by daylight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "21c15e0e",
+   "texte_overlay": "the page\n\nvellum: prepared calfskin.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "81f97846",
+   "texte_overlay": "the gold\n\nleaf so thin it\nfloats on a breath.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "62e1eac9",
+   "texte_overlay": "the blue\n\nultramarine, ground from lapis\nlazuli carried from afghanistan.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1204a761",
+   "texte_overlay": "the masterpiece\n\nthe book of kells, around 800,\nstill in dublin.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4ac9b90a",
+   "texte_overlay": "the margins\n\nmonks drew knights fighting\nsnails. i laughed when i\nlearned that.",
+   "texte_sophia": "the margins\n\nmonks drew knights fighting snails.\ni learned that on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "974d97d5",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

@@ -3,7 +3,7 @@
 // Reprises du podz 13 (Kaja), couleurs relevées chez @sagace.fr le 15/11.
 
 import type { Image, SKRSContext2D } from "@napi-rs/canvas";
-import { POLICE } from "./polices.ts";
+import { policeTitre } from "./polices.ts";
 
 /** Le format des slides (9:16 ; les siennes font 1 170 × 2 080, ramenées à 1 080). */
 export const L = 1080;
@@ -94,12 +94,12 @@ const morceaux = (ligne: LigneTitre): Morceau[] =>
 
 /** Hauteur de capitale d'Anton pour une taille de police donnée. */
 function hauteurCapitale(ctx: Ctx, taille: number): number {
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${policeTitre()}"`;
   return ctx.measureText("H").actualBoundingBoxAscent;
 }
 
 function largeurLigne(ctx: Ctx, ligne: LigneTitre, taille: number, espacement: number): number {
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${policeTitre()}"`;
   ctx.letterSpacing = `${espacement * taille}px`;
   const l = morceaux(ligne).reduce((s, m) => s + ctx.measureText(m.t.toUpperCase()).width, 0);
   ctx.letterSpacing = "0px";
@@ -113,7 +113,7 @@ function largeurLigne(ctx: Ctx, ligne: LigneTitre, taille: number, espacement: n
  */
 export function depassements(ctx: Ctx, ligne: LigneTitre, taille: number): { haut: number; bas: number } {
   ctx.save();
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${policeTitre()}"`;
   const t = morceaux(ligne).map((m) => m.t.toUpperCase()).join("");
   const cap = ctx.measureText("H").actualBoundingBoxAscent;
   const haut = ctx.measureText(t).actualBoundingBoxAscent - cap;
@@ -176,14 +176,14 @@ export function titreGeant(ctx: Ctx, lignes: LigneTitre[], o: OptionsTitre): { b
   const cap = (capRef * taille) / ref;
   const ecart = cap * (o.interligne ?? 0.055);
   ctx.save();
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${policeTitre()}"`;
   ctx.letterSpacing = `${espacement * taille}px`;
   ctx.textBaseline = "alphabetic";
   let base = o.y + cap;
   for (const [i, ligne] of lignes.entries()) {
     base += ecartAccents(ctx, lignes, i, taille);
     const l = largeurLigne(ctx, ligne, taille, espacement);
-    ctx.font = `${taille}px "${POLICE.titre}"`;
+    ctx.font = `${taille}px "${policeTitre()}"`;
     ctx.letterSpacing = `${espacement * taille}px`;
     let x = o.aligne === "gauche" ? (o.x ?? 20) : (o.centre ?? L / 2) - l / 2;
     for (const m of morceaux(ligne)) {

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o383",
+ "type_bleo": "full_test",
+ "titre": "How to beat loneliness when you live alone #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to beat loneliness when you live alone » (retenue), « Lonely men need to hear this » (écartée : ton dramatique), « Living alone without feeling alone » (écartée : plus faible).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2ffb3a2d-5a35-47fa-a0f3-620e9588edb3",
+   "texte_overlay": "How to beat loneliness\nwhen you live alone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Build a weekly routine with people in it. A Tuesday football game, a Thursday class, a Sunday call with family. Fixed social moments keep loneliness away.",
+   "media_id": "62e066b2-0b2c-423e-bb4f-3c47e0c2daff"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Say yes to small invitations. Coffee with a colleague, a neighbour's barbecue, a friend's birthday. Small yeses slowly build a real social life.",
+   "media_id": "651f739b-96a7-40d6-a7f0-aa03d94e866a"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Get to know your neighbourhood. The same café, the same barber, the same gym. Being a familiar face makes a city feel like home.",
+   "media_id": "6a17f955-f9fb-4177-bf2b-3035e835c38b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Get a pet or help with one. A dog, a cat, even walking a neighbour's dog. Animals bring daily company and get you outside.",
+   "media_id": "6a8bc031-f913-4e37-a807-0878f533cb88"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Fill quiet evenings with something good. I do five minutes a day of history, art or science, and it turns lonely moments into curious ones.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It turns lonely moments into curious ones.",
+   "media_id": "b3f01758-e69d-49b5-9c76-29d2f0f94383"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Host something simple. Pasta for three friends, a film night, a board game evening. Inviting people is the fastest cure for feeling alone.",
+   "media_id": "6dab35b0-53cb-4234-9560-edbe1903b1b2"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Talk about it with someone you trust. Many men feel lonely and say nothing. Saying it out loud is the first step to changing it.",
+   "media_id": "6dc664af-7393-4c00-9e55-36456905ad61"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o396",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d0c63b00-37af-4e67-9205-49615aa515f4",
+ "titre": "how i keep my screentime low 2-3h daily #screentime #digitaldetox #smartgirl #slowliving #hobbies",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "d0c63b00-37af-4e67-9205-49615aa515f4"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 83 de la boîte (parent d0c63b00, langue source cs) : accroche du parent mot pour mot. Idées du parent (sortir seule, lire au parc, inventer ses recettes, sudoku, échecs, maths, un journal de questions, lire beaucoup, une leçon plutôt que les réseaux). Sophia comme rituel (cta C). Remplace un dépôt refusé (ligne 73 voisine). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "80674275",
+   "texte_overlay": "how i keep my screentime low\n(2-3 h daily)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677213218888092960/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1386c79b",
+   "texte_overlay": "when i'm not studying\n\n• i go out alone\n• i read in the park",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677213218888092960/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "18d50da0",
+   "texte_overlay": "i invent my own recipes\nand write them in a notebook",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677213218888092960/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "caf67646",
+   "texte_overlay": "• sudoku\n• chess (still learning)\n• maths puzzles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677213218888092960/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fad318d3",
+   "texte_overlay": "i keep a journal of questions\nthat keep me up at night",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677213218888092960/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "90aa50db",
+   "texte_overlay": "i read 2-3 hours a day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677213218888092960/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1cdf480a",
+   "texte_overlay": "and when i pick up my phone,\ni learn instead of scrolling",
+   "texte_sophia": "and when i pick up my phone, i open\nan app like Sophia instead of scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677213218888092960/7.jpg"
+  }
+ ]
+}

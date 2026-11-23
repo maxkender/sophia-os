@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o381",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "481aa129-359f-4cd1-9bd7-d5b742586a7f",
+ "titre": "scientific ideas that will change how you see everything #science #smartgirl #psychology #physics #learning",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 4 de la boîte (parent 481aa129, langue source fr) : accroche reformulée (« scientific ideas that will change how you see everything »), différente de sg-o258 ; concepts du parent. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4aa18b86",
+   "texte_overlay": "scientific ideas that will change\nhow you see everything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "51fddee1",
+   "texte_overlay": "neuroplasticity\n\nyour brain rewires itself\naround what you repeat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "63cd79e8",
+   "texte_overlay": "entropy\n\nleft alone, everything\ndrifts to disorder.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "859f238f",
+   "texte_overlay": "the mere-exposure effect\n\nwe like what we see often.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "84fe93bf",
+   "texte_overlay": "relativity\n\ntime depends on how\nyou move.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c3d24aa8",
+   "texte_overlay": "epigenetics\n\nyour surroundings switch\ngenes on and off.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7ce2528b",
+   "texte_overlay": "compound knowledge\n\nfive minutes a day adds up. i do\nmine every morning.",
+   "texte_sophia": "compound knowledge\n\nfive minutes a day adds up. i do mine\nevery morning on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a6445be9",
+   "texte_overlay": "which one blew your mind?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

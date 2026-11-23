@@ -13,7 +13,8 @@ Deno.test("contenu (22/11) : les 4 réponses officielles, jamais « we're checki
   assertEquals(situationFixe("There is no text to paste for the slides today")?.texte, "That's normal, the text is already on the images, just post the photos.");
   assertEquals(cle("the text is already on the images, what should I write?"), "contenu_texte_integre");
   const vieux = situationFixe("My morning post has an issue: the images I have do not match the text.");
-  assertEquals(vieux?.texte, "Please post an old TikTok you already posted. Today counts as done.");
+  assertEquals(vieux?.texte, TEXTES_SITUATIONS.texte_faux);
+  assert(vieux?.texte.startsWith("Please always post the text and images you are given."));
   assert(vieux?.qualite && vieux.jourCompte);
   assertEquals(cle("I've replaced them twice. At the moment, none of the five images have any text."), "contenu_texte_faux");
   assertEquals(cle("But it is impossible to do it. The text is too long. It couldn't be pasted all."), "contenu_texte_faux");
@@ -67,4 +68,15 @@ Deno.test("tickets et 2e compte", () => {
   assert(b?.ticket && !b.fermer);
   assert(estReactiver2eCompte("Could you please reactivate my second TikTok account (Personal) in the dashboard?"));
   assert(!estReactiver2eCompte("Can I have a second account?"));
+});
+
+Deno.test("Ruul (22/11) : 2 comptes TikTok, un seul compte Ruul", () => {
+  const r = situationFixe("I have two different email, to work with 2 different tiktok accounts. And i had to open account on ruul with same email that i had on sophia. But i can do just one verification on ruul");
+  assertEquals(r?.cle, "ruul_deux_comptes");
+  assert(r?.texte.includes("same place, your current Ruul account"));
+  assertEquals(situationFixe("Do I need a second verification for my 2nd account?", { plateforme: "ruul" })?.cle, "ruul_deux_comptes");
+  assertEquals(cle("Will I be paid for both accounts on Ruul?"), "ruul_deux_comptes");
+  // Upwork, sans Ruul : pas cette réponse.
+  assertEquals(cle("Do I need a second verification for my 2nd account?"), null);
+  assertEquals(cle("the ruul fee on the 10 dollars, do you send it on top?"), "frais_ruul");
 });

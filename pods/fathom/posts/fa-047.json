@@ -26,7 +26,9 @@
   "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 30",
   "no": "10/10 ferdigheter å lære før du fyller 30",
   "et": "10/10 oskust, mida õppida enne 30",
-  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä"
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä",
+  "sr": "10/10 veština koje treba naučiti pre 30.",
+  "el": "10/10 δεξιότητες να μάθεις πριν τα 30"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #learnontiktok #selfmastery #curiosity",
@@ -49,13 +51,15 @@
   "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 30 #įgūdžiai #saviugda #mokymasis",
   "no": "10/10 ferdigheter å lære før du fyller 30 #ferdigheter #selvutvikling #læring",
   "et": "10/10 oskust, mida õppida enne 30 #oskused #eneseareng #õppimine",
-  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä #taidot #itsensäkehittäminen #oppiminen"
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä #taidot #itsensäkehittäminen #oppiminen",
+  "sr": "10/10 veština koje treba naučiti pre 30. #veštine #ličnirazvoj #učenje",
+  "el": "10/10 δεξιότητες να μάθεις πριν τα 30 #δεξιότητες #αυτοβελτίωση #μάθηση"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7363016351713872646"
  },
- "notes": "cta C. Variante de l'accroche de fa-018 : autres étapes (pneu, négociation, CV), autre CTA. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers). 20/11 soir : ajouté en lt, no, et et fi (langues ouvertes le 20/11).",
+ "notes": "cta C. Variante de l'accroche de fa-018 : autres étapes (pneu, négociation, CV), autre CTA. Sophia à l'étape 3. en, de et pt (Portugal), vidéos natives par langue, miniatures vérifiées (pas de visage tiers). 20/11 soir : ajouté en lt, no, et et fi (langues ouvertes le 20/11). 23/11 : ajouté en sr (latinica) et el.",
  "slides": [
   {
    "type": "couverture",
@@ -424,6 +428,40 @@
       }
      ]
     ]
+   },
+   "sr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠTINA KOJE TREBA",
+     [
+      {
+       "t": "NAUČITI PRE 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "el": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ΔΕΞΙΟΤΗΤΕΣ ΝΑ ΜΑΘΕΙΣ",
+     [
+      {
+       "t": "ΠΡΙΝ ΤΑ 30",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -741,6 +779,36 @@
      "date": "7 vuotta sitten",
      "duree": "1.56",
      "avatar": "https://yt3.ggpht.com/o8OJKY6UXOeGLRZk0YT_pmwmLHMBJ1H8Fb3niu6q7CsGlEqDxc4uO0Mpug2zjLRq4TB-X8EfnA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "PROMENI",
+     "GUMU"
+    ],
+    "video": {
+     "id": "ii9UeAjqKA0",
+     "titre": "Kako se menja probušena guma? – Autoznanje – Polovni automobili",
+     "chaine": "Polovni automobili",
+     "vues": "75 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "10.03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mx3TX1UA22gMelJY7Dcc937sXC_MwXKgiYdW2VwMt2xro=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΑΛΛΑΞΕ",
+     "ΛΑΣΤΙΧΟ"
+    ],
+    "video": {
+     "id": "JrYmM_nJY5A",
+     "titre": "DIY: Πως αλλάζουμε ένα 'σκασμένο' λάστιχο",
+     "chaine": "Mind The Car",
+     "vues": "48 χιλ. προβολές",
+     "date": "πριν από 9 έτη",
+     "duree": "4:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mrUGS2ncDcd9bAhmdBWjE1zUT6Y4GTPxSLWjK7Zj-VCQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -1060,6 +1128,36 @@
      "duree": "19.18",
      "avatar": "https://yt3.ggpht.com/wRqKzSpXwcgJsJH6CK5dtkiSAFVEHroUI6gcDou-KNQihSNp7n6n4EL35XYBAAXfxggqzFWOyF4=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "NAUČI DA",
+     "PREGOVARAŠ"
+    ],
+    "video": {
+     "id": "Guf8UxebAOU",
+     "titre": "Veština pregovaranja - osnovni saveti",
+     "chaine": "Boris Teodosijević",
+     "vues": "9,5 hilj. pregleda",
+     "date": "Strimovano pre 7 godina",
+     "duree": "56.50",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ ΝΑ",
+     "ΔΙΑΠΡΑΓΜΑΤΕΥΕΣΑΙ"
+    ],
+    "video": {
+     "id": "WxbludjeSkc",
+     "titre": "Η Τέχνη της Διαπραγμάτευσης για Επαγγελματίες στα 40 τους",
+     "chaine": "Theodoros Arampatzis Greek Coach",
+     "vues": "434 προβολές",
+     "date": "πριν από 2 έτη",
+     "duree": "8:15",
+     "avatar": "https://yt3.ggpht.com/3tCJRRXBbBHwoVNqIHI4OZNkhbAhME0vzm29mITUvS51h6q6nl_FX163DU4bGsDiXxvbYo23gg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1335,6 +1433,32 @@
      "texte": [
       "mitä avaan",
       "selaamisen sijaan."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "NIKAD NE PRESTAJ",
+     "DA UČIŠ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ono što otvaram",
+      "umesto skrolovanja."
+     ]
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΗ ΣΤΑΜΑΤΑΣ",
+     "ΠΟΤΕ ΝΑ ΜΑΘΑΙΝΕΙΣ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "αυτό που ανοίγω",
+      "αντί να σκρολάρω."
      ]
     }
    }
@@ -1654,6 +1778,36 @@
      "date": "5 vuotta sitten",
      "duree": "2.43",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_l_xtCzXSJBPGeZhiq8wX3IrjHglpzP_aO-kDBH4vynfg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "NAPIŠI DOBAR",
+     "CV"
+    ],
+    "video": {
+     "id": "FyYOpcGFa-E",
+     "titre": "Kako napisati CV i prilagoditi ga poziciji na koju konkurišemo - Saveti za pronalaženje posla 2019",
+     "chaine": "Poslovi Infostud",
+     "vues": "68 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "4.30",
+     "avatar": "https://yt3.ggpht.com/TgFcrFHcHeZqKrWoUQJBkwe94Mx32RS_LTsu0lEbVlKfumgw2csOcdrnQz2OcGrY7TMLqh3PIA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΓΡΑΨΕ ΕΝΑ",
+     "ΚΑΛΟ ΒΙΟΓΡΑΦΙΚΟ"
+    ],
+    "video": {
+     "id": "dYw2bLYpjac",
+     "titre": "Πως να φτιάξεις ένα βιογραφικό που θα ξεχωρίσει!",
+     "chaine": "Orientum",
+     "vues": "31 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nLXW8mwZwxWLW9iPwKhjdi2RjyoAiN08qd5zWk2BnOPg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

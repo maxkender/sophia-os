@@ -1,0 +1,174 @@
+{
+ "id": "dr-047",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+  "vues": 1200000,
+  "publie_le": "2026-10-07",
+  "accroche": "8 coding projects that are genuinely f*cking difficult"
+ },
+ "titre": {
+  "en": "5 languages that will humble you fast",
+  "hu": "5 nyelv, ami gyorsan a földre küld",
+  "sv": "5 språk som snabbt sätter dig på plats"
+ },
+ "legendes": {
+  "en": "#niche #languagelearning #polyglot #lockedin",
+  "hu": "#nyelvtanulás #nyelvek #poliglott #niche",
+  "sv": "#språkinlärning #språk #polyglott #lärande"
+ },
+ "musique": {
+  "titre": "original sound - KRIS",
+  "url": "https://www.tiktok.com/music/original-sound-7697351034850560771"
+ },
+ "notes": "Déclinaison G2 de dr-018 (meilleur passage tr 4,2 k) : accroche reformulée (« will humble you fast »), autres langues (polonais, islandais, hongrois, vietnamien, cantonais), autres images, autre CTA. Faits : FSI (polonais, islandais, hongrois, vietnamien cat. III ~1 100 h ; cantonais cat. IV ~2 200 h) ; « tölva » (tala + völva) ; 6 tons du vietnamien du Nord. Images Seedream. En, hu, sv ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 languages that will humble you fast",
+    "image": "images/cerveau-15.jpg",
+    "legende": "(ranked by pain)"
+   },
+   "hu": {
+    "titre": "5 nyelv, ami gyorsan a földre küld",
+    "image": "images/cerveau-17.jpg",
+    "legende": "(fájdalom szerint)"
+   },
+   "sv": {
+    "titre": "5 språk som snabbt sätter dig på plats",
+    "image": "images/cerveau-19.jpg",
+    "legende": "(rangordnade efter smärta)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Polish",
+    "difficulte": "30/50",
+    "texte": "seven cases and consonant clusters like \"szczęście\", which means happiness. the u.s. foreign service institute puts it at about 1,100 class hours",
+    "image": "images/cracovie.jpg"
+   },
+   "hu": {
+    "titre": "Lengyel",
+    "difficulte": "30/50",
+    "texte": "hét eset és olyan mássalhangzó-torlódások, mint a \"szczęście\", ami boldogságot jelent. az amerikai diplomataképző kb. 1100 tanórával számol",
+    "image": "images/cracovie.jpg"
+   },
+   "sv": {
+    "titre": "Polska",
+    "difficulte": "30/50",
+    "texte": "sju kasus och konsonantkluster som \"szczęście\", som betyder lycka. usa:s diplomatinstitut räknar med ungefär 1 100 lektionstimmar",
+    "image": "images/cracovie.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Icelandic",
+    "difficulte": "33/50",
+    "texte": "it has changed so little that icelanders can still read the medieval sagas. new words are built from old roots: a computer is \"tölva\", number-prophetess",
+    "image": "images/islande.jpg"
+   },
+   "hu": {
+    "titre": "Izlandi",
+    "difficulte": "33/50",
+    "texte": "olyan keveset változott, hogy az izlandiak ma is el tudják olvasni a középkori sagákat. az új szavak régi gyökökből épülnek: a számítógép \"tölva\", számjósnő",
+    "image": "images/islande.jpg"
+   },
+   "sv": {
+    "titre": "Isländska",
+    "difficulte": "33/50",
+    "texte": "språket har ändrats så lite att islänningar fortfarande kan läsa de medeltida sagorna. nya ord byggs av gamla rötter: dator heter \"tölva\", sifferspåkvinna",
+    "image": "images/islande.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. the easiest thing on this list",
+    "telephone": "cours"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "difficulte": "4/50",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. a legkönnyebb dolog ezen a listán",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. det lättaste på den här listan",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Hungarian",
+    "difficulte": "38/50",
+    "texte": "usually counted with 18 cases, plus vowel harmony: endings change to match the word. it isn't related to its neighbours at all",
+    "image": "images/budapest.jpg"
+   },
+   "hu": {
+    "titre": "Magyar",
+    "difficulte": "38/50",
+    "texte": "általában 18 esettel számolják, és ott a magánhangzó-harmónia: a toldalék a szóhoz igazodik. a szomszédaival egyáltalán nem rokon. ha ezt olvasod, már nyertél",
+    "image": "images/budapest.jpg"
+   },
+   "sv": {
+    "titre": "Ungerska",
+    "difficulte": "38/50",
+    "texte": "brukar räknas till 18 kasus, plus vokalharmoni: ändelserna anpassar sig efter ordet. språket är inte alls släkt med grannländernas",
+    "image": "images/budapest.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Vietnamese",
+    "difficulte": "42/50",
+    "texte": "the northern standard has six tones. \"ma\" can mean ghost, mother, but, horse, rice seedling or tomb depending on the tone",
+    "image": "images/halong.jpg"
+   },
+   "hu": {
+    "titre": "Vietnámi",
+    "difficulte": "42/50",
+    "texte": "az északi köznyelvben hat hang van. a \"ma\" jelenthet szellemet, anyát, de-t, lovat, rizspalántát vagy sírt, a hangtól függően",
+    "image": "images/halong.jpg"
+   },
+   "sv": {
+    "titre": "Vietnamesiska",
+    "difficulte": "42/50",
+    "texte": "nordlig standard har sex toner. \"ma\" kan betyda spöke, mamma, men, häst, risplanta eller grav beroende på tonen",
+    "image": "images/halong.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Cantonese",
+    "difficulte": "47/50",
+    "texte": "usually taught with six tones, and the everyday spoken language differs from standard written chinese. about 2,200 class hours",
+    "image": "images/canton.jpg"
+   },
+   "hu": {
+    "titre": "Kantoni",
+    "difficulte": "47/50",
+    "texte": "általában hat hanggal tanítják, és a beszélt nyelv eltér a szabványos írott kínaitól. kb. 2200 tanóra",
+    "image": "images/canton.jpg"
+   },
+   "sv": {
+    "titre": "Kantonesiska",
+    "difficulte": "47/50",
+    "texte": "lärs oftast ut med sex toner, och vardagsspråket skiljer sig från standardskriven kinesiska. ungefär 2 200 lektionstimmar",
+    "image": "images/canton.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4758eaea-5aa0-469a-b5c6-63a125e040a4"
+}

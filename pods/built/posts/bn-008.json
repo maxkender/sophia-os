@@ -1,0 +1,91 @@
+{
+ "id": "bn-008",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7708351504448556306",
+  "vues": 49300,
+  "publie_le": "2026-11-15",
+  "accroche": "5 HABITS EVERY MAN SHOULD HAVE"
+ },
+ "titre": {
+  "en": "5 habits every strong man has"
+ },
+ "legendes": {
+  "en": "strong is built daily #discipline #selfimprovement #tipsformen #running #fitness"
+ },
+ "musique": {
+  "titre": "Grope in the Dark",
+  "url": "https://www.tiktok.com/music/grope-in-the-dark-7652952126876321793"
+ },
+ "notes": "Full test (boîte vide, aucun post neuf chez lui à la veille du 23/11). Famille « 5 HABITS EVERY MAN SHOULD HAVE » de @built.not.born61 (49.3 k vues, 2026-11-15), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : 1df6a59e, aucune marque lisible) et le logo d'Atala. placement_atala : voix TOUCHE PERSO (hook de 6 mots), argument « progresser sans se blesser : augmenter petit à petit » (prévention par la méthode) ; force 2 à 3 fois par semaine : OMS (2 jours ou plus). Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-montagne.png": "1df6a59e-98f6-41b6-bf7b-f3cbb23fdf7c"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-8.png",
+   "en": {
+    "titre": "5 HABITS EVERY\nSTRONG MAN HAS."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/haltere.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "1. Lift weights",
+    "texte": "Train strength 2 to 3 times a week. A strong body keeps you confident in your skin."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/assiette.png",
+   "mode": "objet",
+   "taille": 460,
+   "en": {
+    "titre": "2. Eat real food",
+    "texte": "Mostly whole foods, enough protein, fewer snacks. Your energy follows what you eat."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-montagne.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run every week",
+    "texte": "Add a little more each week so you don't get hurt. Personally, a running coach app like Atala plans it for me."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/tapis.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "4. Stretch every day",
+    "texte": "10 minutes after training. Your body moves better and feels lighter."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/reveil.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "5. Same alarm, every day",
+    "texte": "Wake up at the same time, even on weekends. Your energy stays steady all week."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-4.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

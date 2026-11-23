@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o318",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0224d4f7-16ca-4cb5-9da6-797742479b30",
+ "titre": "ex-rh : ce que je remarquais dès ton premier coup de fil #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G2 de la ligne #3 (parent 0224d4f7) : même promesse, autres mots, autres points. Inspirations reprises de rh-o210. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b65f1afc",
+   "texte_overlay": "ex-rh :\nce que je remarquais\ndès ton premier coup de fil",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d2c9eb63",
+   "texte_overlay": "si tu décrochais en disant ton prénom\nça fait pro, tout de suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e727652e",
+   "texte_overlay": "si tu étais dans un endroit calme\nou si tu me rappelais 5 minutes après",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e443f305",
+   "texte_overlay": "si tu avais une question sur le poste\nune seule suffit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1a8d1fdf",
+   "texte_overlay": "si tu parlais de toi en 3 phrases\npas en 10 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "80b3d370",
+   "texte_overlay": "si tu avais un truc qui te passionne\nmes préférées : celles qui apprenaient un peu chaque jour. mes 3 exemples : un MOOC, un podcast, 5 minutes par jour",
+   "texte_sophia": "si tu avais un truc qui te passionne\nmes préférées : celles qui apprenaient un peu chaque jour. mes 3 exemples : un MOOC, un podcast, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f7f063d9",
+   "texte_overlay": "si tu me remerciais à la fin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e8e336ee",
+   "texte_overlay": "envoie ça à quelqu'un qui attend un appel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,138 @@
+{
+ "id": "dr-048",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7693311352689118485",
+  "vues": 293200,
+  "publie_le": "2026-10-05",
+  "accroche": "5 niche habits of superintelligent people"
+ },
+ "titre": {
+  "en": "5 niche habits of people who seem to know everything",
+  "tr": "her şeyi biliyor gibi görünenlerin 5 niş alışkanlığı",
+  "it": "5 abitudini di nicchia di chi sembra sapere tutto"
+ },
+ "legendes": {
+  "en": "#niche #superintelligence #lockedin #selfimprovement",
+  "tr": "#bilgi #öğrenmek #alışkanlık #kişiselgelişim",
+  "it": "#cultura #imparare #abitudini #crescitapersonale"
+ },
+ "musique": {
+  "titre": "original sound - ale",
+  "url": "https://www.tiktok.com/music/original-sound-7644418890860202765"
+ },
+ "notes": "Déclinaison G1 n° 3 de dr-012 (meilleur passage tr 4,4 k) : titre mot pour mot, autres habitudes, autres images (tableaux AIC déjà dans la banque, objet Seedream), autre CTA (cta C), autre écran (quiz). En, tr, it ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche habits of people who seem to know everything",
+    "image": "images/cerveau-16.jpg",
+    "legende": "(steal them)"
+   },
+   "tr": {
+    "titre": "her şeyi biliyor gibi görünenlerin 5 niş alışkanlığı",
+    "image": "images/cerveau-18.jpg",
+    "legende": "(çal gitsin)"
+   },
+   "it": {
+    "titre": "5 abitudini di nicchia di chi sembra sapere tutto",
+    "image": "images/cerveau-20.jpg",
+    "legende": "(rubale)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "They say \"i don't know\"",
+    "texte": "then they look it up. people who admit what they don't know end up knowing more, because they actually check",
+    "image": "images/objets/mots-croises.png"
+   },
+   "tr": {
+    "titre": "\"bilmiyorum\" derler",
+    "texte": "sonra araştırırlar. bilmediğini kabul edenler sonunda daha çok şey bilir, çünkü gerçekten kontrol ederler",
+    "image": "images/objets/mots-croises.png"
+   },
+   "it": {
+    "titre": "Dicono \"non lo so\"",
+    "texte": "e poi lo cercano. chi ammette di non sapere finisce per sapere di più, perché va davvero a controllare",
+    "image": "images/objets/mots-croises.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "They read the original",
+    "texte": "not the thread about the book, the book. not the headline, the study. the details nobody repeats are in there",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "tr": {
+    "titre": "Asıl kaynağı okurlar",
+    "texte": "kitap hakkındaki paylaşımı değil, kitabı. başlığı değil, çalışmayı. kimsenin tekrarlamadığı ayrıntılar orada",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "it": {
+    "titre": "Leggono l'originale",
+    "texte": "non il thread sul libro, il libro. non il titolo, lo studio. i dettagli che nessuno ripete sono lì",
+    "image": "images/lectrice-fenetre.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. a little of everything, every single day",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. her gün her şeyden biraz",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. un po' di tutto, ogni giorno",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "They ask \"compared to what?\"",
+    "texte": "a number means nothing alone. \"10,000 deaths\" out of how many? since when? context turns facts into understanding",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "tr": {
+    "titre": "\"neye göre?\" diye sorarlar",
+    "texte": "bir sayı tek başına bir şey ifade etmez. \"10.000 ölüm\", kaç kişiden? ne zamandan beri? bağlam, bilgiyi anlayışa çevirir",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "it": {
+    "titre": "Chiedono \"rispetto a cosa?\"",
+    "texte": "un numero da solo non dice niente. \"10.000 morti\" su quanti? da quando? il contesto trasforma i fatti in comprensione",
+    "image": "images/philosophe-manet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "They reread",
+    "texte": "one great book read three times beats three books read once. you notice what you missed the first time",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "tr": {
+    "titre": "Tekrar okurlar",
+    "texte": "üç kez okunan harika bir kitap, bir kez okunan üç kitaptan iyidir. ilk seferde kaçırdığını fark edersin",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "it": {
+    "titre": "Rileggono",
+    "texte": "un grande libro letto tre volte batte tre libri letti una volta. noti quello che ti era sfuggito",
+    "image": "images/vieil-homme-livre.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4e9fb375-2e4e-4c0c-a251-5b7ef0d3a0a3"
+}

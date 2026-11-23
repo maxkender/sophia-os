@@ -1,0 +1,149 @@
+{
+ "id": "dr-052",
+ "format": "liste",
+ "titre": {
+  "en": "5 everyday words with genuinely weird origins",
+  "pt-BR": "5 palavras do dia a dia com origens bizarras",
+  "tr": "kökeni gerçekten tuhaf 5 gündelik kelime"
+ },
+ "legendes": {
+  "en": "#etymology #words #smarttok #lockedin",
+  "pt-BR": "#etimologia #palavras #curiosidades #conhecimento",
+  "tr": "#etimoloji #kelimeler #ilginçbilgiler #bilgi"
+ },
+ "musique": {
+  "titre": "interruptor - Slowed - zero pill",
+  "url": "https://www.tiktok.com/music/original-sound-7688046509887293456"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : quarantaine (Venise, 40 jours) ; ketchup, probablement du minnan kê-tsiap ; sandwich, 4e comte (anecdote rapportée) ; salarium et sel, mythe du paiement en sel ; OK, Boston Morning Post 1839 (Allen Walker Read). Images Seedream. En, pt-BR, tr ; une couverture par langue. Sophia en item 3 sur 6 (cta A), écran « cours » traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 everyday words with genuinely weird origins",
+    "image": "images/cerveau-22.jpg",
+    "legende": "(you use them daily)"
+   },
+   "pt-BR": {
+    "titre": "5 palavras do dia a dia com origens bizarras",
+    "image": "images/cerveau-24.jpg",
+    "legende": "(você usa todo dia)"
+   },
+   "tr": {
+    "titre": "kökeni gerçekten tuhaf 5 gündelik kelime",
+    "image": "images/cerveau-26.jpg",
+    "legende": "(her gün kullanıyorsun)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Quarantine",
+    "texte": "from venetian \"quaranta giorni\", forty days. ships arriving during plague outbreaks had to wait at anchor before anyone came ashore",
+    "image": "images/venise.jpg"
+   },
+   "pt-BR": {
+    "titre": "Quarentena",
+    "texte": "do veneziano \"quaranta giorni\", quarenta dias. navios que chegavam durante a peste tinham que esperar ancorados antes de alguém desembarcar",
+    "image": "images/venise.jpg"
+   },
+   "tr": {
+    "titre": "Karantina",
+    "texte": "venedikçe \"quaranta giorni\", yani kırk gün. veba salgınlarında gelen gemiler, kimse karaya çıkmadan önce demirde beklemek zorundaydı",
+    "image": "images/venise.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Ketchup",
+    "texte": "it probably comes from a word in southern china for a fermented fish sauce. tomatoes only arrived in the recipe centuries later",
+    "image": "images/jarre.jpg"
+   },
+   "pt-BR": {
+    "titre": "Ketchup",
+    "texte": "provavelmente vem de uma palavra do sul da china pra um molho de peixe fermentado. o tomate só entrou na receita séculos depois",
+    "image": "images/jarre.jpg"
+   },
+   "tr": {
+    "titre": "Ketçap",
+    "texte": "büyük ihtimalle güney çin'de fermente bir balık sosuna verilen addan gelir. domates tarife ancak yüzyıllar sonra girdi",
+    "image": "images/jarre.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. stories like these, every day",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. histórias assim, todo dia",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. her gün böyle hikâyeler",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Sandwich",
+    "texte": "named after the 4th earl of sandwich in the 1700s. the story says he wanted food he could eat without leaving the card table",
+    "image": "images/lord-cartes.jpg"
+   },
+   "pt-BR": {
+    "titre": "Sanduíche",
+    "texte": "vem do 4º conde de sandwich, no século 18. a história conta que ele queria comer sem sair da mesa de jogo",
+    "image": "images/lord-cartes.jpg"
+   },
+   "tr": {
+    "titre": "Sandviç",
+    "texte": "adını 1700'lerdeki 4. sandwich kontundan alır. hikâyeye göre kart masasından kalkmadan yiyebileceği bir şey istiyordu",
+    "image": "images/lord-cartes.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Salary",
+    "texte": "from latin \"salarium\", linked to sal, salt. the popular story that roman soldiers were paid in salt is probably a myth",
+    "image": "images/sel.jpg"
+   },
+   "pt-BR": {
+    "titre": "Salário",
+    "texte": "do latim \"salarium\", ligado a sal. a história de que soldados romanos eram pagos em sal provavelmente é mito",
+    "image": "images/sel.jpg"
+   },
+   "tr": {
+    "titre": "Salary (maaş)",
+    "texte": "ingilizce \"salary\", latince \"salarium\"dan gelir, sal yani tuzla bağlantılı. romalı askerlere tuzla ödeme yapıldığı hikâyesi büyük ihtimalle efsane",
+    "image": "images/sel.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "OK",
+    "texte": "born in boston newspapers in 1839 as a joke abbreviation of \"oll korrect\", a deliberate misspelling of all correct",
+    "image": "images/boston-journal.jpg"
+   },
+   "pt-BR": {
+    "titre": "OK",
+    "texte": "nasceu em jornais de boston em 1839 como piada: a sigla de \"oll korrect\", erro proposital de all correct",
+    "image": "images/boston-journal.jpg"
+   },
+   "tr": {
+    "titre": "OK (tamam)",
+    "texte": "1839'da boston gazetelerinde bir şaka olarak doğdu: \"all correct\"in bilerek yanlış yazılışı \"oll korrect\"in kısaltması",
+    "image": "images/boston-journal.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

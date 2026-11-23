@@ -1,4 +1,4 @@
-import { assertEquals } from "jsr:@std/assert@1";
+import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import { estDemandePosteur, lignePaiement, raisonFixe, texteCompteArrete, texteDeuxiemeCompte, texteFin } from "./fin_collaboration.ts";
 import type { EtatReel } from "./support_regles.ts";
@@ -57,4 +57,10 @@ Deno.test("bandeau du 2e compte : quel compte, quel label, quand il démarre, ce
     texteDeuxiemeCompte({ handle: null, label: null, lundi: "2026-11-23", tarif: null }).endsWith("It starts posting on Monday 23 Nov. From that week you are paid for 2 accounts."),
     true,
   );
+});
+
+Deno.test("2e compte validé le jeudi (22/11) : Ruul → payé sur le même compte Ruul", () => {
+  const t = texteDeuxiemeCompte({ handle: "x", label: null, lundi: "2026-11-30", tarif: 7, canal: "ruul" });
+  assert(t.endsWith("no new Ruul account or verification needed."));
+  assert(!texteDeuxiemeCompte({ handle: "x", label: null, lundi: "2026-11-30", tarif: 7, canal: "upwork" }).includes("Ruul"));
 });

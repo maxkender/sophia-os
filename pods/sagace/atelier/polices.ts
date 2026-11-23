@@ -27,6 +27,21 @@ GlobalFonts.registerFromPath(join(DOSSIER, "Roboto-Medium.ttf"), POLICE.duree);
 GlobalFonts.registerFromPath(join(DOSSIER, "Inter-Medium.ttf"), POLICE.texte);
 
 /**
+ * Anton n'a ni le grec ni le cyrillique : un deck grec prend Fira Sans Extra
+ * Condensed Black pour tous ses titres (couverture, étapes, temps). Le serbe
+ * s'écrit en latin (l'usage de TikTok) et garde Anton. Choisie par slide,
+ * dans `rendreSlide`, selon la langue du deck.
+ */
+GlobalFonts.registerFromPath(join(DOSSIER, "FiraSansExtraCondensed-Black.ttf"), "SG Titre Grec");
+const TITRE_PAR_LANGUE: Record<string, string> = { el: "SG Titre Grec" };
+let titreActif: string = POLICE.titre;
+/** La police des titres du deck en cours de rendu. */
+export const policeTitre = () => titreActif;
+export function choisirPoliceTitre(langue: string) {
+  titreActif = TITRE_PAR_LANGUE[langue] ?? POLICE.titre;
+}
+
+/**
  * Les emojis d'un titre de vidéo : l'appli les affiche en couleur. Noto Color
  * Emoji de la machine, en secours des polices de la carte YouTube.
  */

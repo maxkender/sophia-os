@@ -1,0 +1,124 @@
+{
+ "id": "aw-005",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688293650597416225",
+  "vues": 167900,
+  "publie_le": "2026-09-22",
+  "accroche": "6 habitudes wellness qui font leur effet au bout d'une semaine"
+ },
+ "titre": {
+  "en": "6 wellness habits that fix your sleep in a week"
+ },
+ "legendes": {
+  "en": "which one are you trying tonight? 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide, pas de post neuf chez elle : son dernier diaporama date du 23/10). Famille « N habitudes en une semaine » de @healthy_with_emma6 : la veille du 23/11 la place à 167,9 k vues (« 6 habitudes wellness qui font leur effet au bout d'une semaine », 22/09, son post le plus vu), sujet : le sommeil. 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : écrire à son coach ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : horaires de sommeil irréguliers et horloge interne retardée chez des étudiants (Phillips et al., Scientific Reports 2017) ; 400 mg de caféine 6 h avant le coucher et plus d'une heure de sommeil en moins (Drake et al., Journal of Clinical Sleep Medicine 2013) ; chambre fraîche, autour de 18 °C (recommandation courante des spécialistes du sommeil, Sleep Foundation) ; activité physique régulière et meilleure qualité de sommeil (Kredlow et al., Journal of Behavioral Medicine 2015, méta-analyse) ; lumière de la pièce le soir et mélatonine retardée et diminuée (Gooley et al., Journal of Clinical Endocrinology & Metabolism 2011) ; se lever après environ 20 minutes sans dormir (contrôle du stimulus, recommandation de l'American Academy of Sleep Medicine). Photos : banque de l'OS ; Atala : 8844ed39 (allée dans la brume, de dos).",
+ "banque": {
+  "images/banque/couverture-i.jpg": "08340823-3148-4758-8db7-b569aeb0455d",
+  "images/banque/reveil.jpg": "1c15a9ed-4c59-4c94-9efe-f1c4997cf23f",
+  "images/banque/mug.jpg": "0a6bccee-2f97-4d75-964a-28b4c3d0ef6a",
+  "images/banque/fenetre.jpg": "0c938189-2b8c-4064-8ae1-177a778460f8",
+  "images/banque/course-brume.jpg": "8844ed39-0371-4951-8df6-ae3045857c2b",
+  "images/banque/bougies.jpg": "1c3464cc-edcc-4271-988e-f99ffea6fce2",
+  "images/banque/livre-nuit.jpg": "2363e66e-3e22-40bf-a1cc-1ecb83fef2c1",
+  "images/banque/couverture-k.jpg": "6b621671-62f3-4336-9a14-bd4ed93d7aa6"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/couverture-i.jpg",
+    "images/banque/couverture-k.jpg"
+   ],
+   "en": {
+    "titre": "6 wellness habits that fix your sleep in just one week",
+    "note": "(backed by science)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/reveil.jpg",
+   "en": {
+    "titre": "wake up at _the same time_",
+    "intro": "even on weekends. yes, _even sunday_",
+    "paragraphes": [
+     "a study on students found that irregular sleep schedules _pushed their body clock later_",
+     "pick one time and keep it, _sleep in max 1 hour_"
+    ],
+    "chute": "your body loves _a routine_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/mug.jpg",
+   "en": {
+    "titre": "_no coffee_ after 2pm",
+    "intro": "your afternoon coffee is _still awake at midnight_",
+    "paragraphes": [
+     "in a study, a strong dose of caffeine 6 hours before bed _cut sleep by over an hour_",
+     "switch to decaf or herbal tea _after lunch_"
+    ],
+    "chute": "keep the coffee for _the morning_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fenetre.jpg",
+   "en": {
+    "titre": "keep your room _cool_",
+    "intro": "your body needs to _cool down_ to fall asleep",
+    "paragraphes": [
+     "sleep experts recommend a cool bedroom, _around 18°C_",
+     "window open 10 minutes, _light duvet_, socks if you want"
+    ],
+    "chute": "cold room, _deep sleep_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course-brume.jpg",
+   "en": {
+    "titre": "run _in the morning_",
+    "intro": "studies link regular exercise to _better sleep quality_",
+    "paragraphes": [
+     "i'd start strong, then skip a week and _feel lost_ coming back",
+     "my tip: with a running coach app like Atala, i can _message my coach_ when a week gets too much"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/bougies.jpg",
+   "en": {
+    "titre": "_dim the lights_ after 9pm",
+    "intro": "bright light tells your brain _it's still day_",
+    "paragraphes": [
+     "a study found that normal room light in the evening _delayed melatonin_, the hormone that tells you it's night",
+     "lamps and candles only, _big lights off_"
+    ],
+    "chute": "cozy is _the whole point_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/livre-nuit.jpg",
+   "en": {
+    "titre": "can't sleep? _get up_",
+    "intro": "lying awake teaches your brain that bed = _awake_",
+    "paragraphes": [
+     "sleep experts advise getting up after about 20 minutes awake and coming back _when you're sleepy_",
+     "dim lamp, a boring book, _no phone_"
+    ],
+    "chute": "your bed is _for sleeping_"
+   }
+  }
+ ]
+}

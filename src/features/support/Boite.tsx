@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
 
 import { Badge } from "@/components/ui/badge";
@@ -6,11 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { enregistrerConsigne } from "@/features/bot/api";
-import { lireProblemes, type Probleme } from "@/features/problemes/api";
+import { agirProbleme, lireProblemes, type Probleme } from "@/features/problemes/api";
 import { cn } from "@/lib/utils";
 
-import { type LigneToutes, lireToutes } from "./api";
+import { changer, type LigneToutes, lireToutes } from "./api";
 import { ConversationPosteur } from "./Conversation";
+import { IconeWhatsApp } from "./IconeWhatsApp";
 import { attenduDemande, attenduProbleme } from "./pourMax";
 
 const ICONES: Record<string, string> = { help: "🛟", email: "✉️", upwork: "🟢", slack: "💬", slack_salon: "💬", slack_aide: "💬" };
@@ -27,6 +28,8 @@ export interface FilPosteur {
   attendu: string | null;
   sources: string[];
   demande: LigneToutes | null;
+  /** 22/11 : toutes les demandes encore ouvertes du posteur (« Problème réglé » les ferme). */
+  ouvertes: string[];
   problemes: Probleme[];
   apercu: string;
 }
@@ -41,7 +44,7 @@ export function filsParPosteur(
   const prendre = (cle: string, poster: string | null, nom: string): FilPosteur => {
     let f = fils.get(cle);
     if (!f) {
-      f = { cle, poster_id: poster, nom, dernier: "", attente: false, pourMax: false, attendu: null, sources: [], demande: null, problemes: [], apercu: "" };
+      f = { cle, poster_id: poster, nom, dernier: "", attente: false, pourMax: false, attendu: null, sources: [], demande: null, ouvertes: [], problemes: [], apercu: "" };
       fils.set(cle, f);
     }
     return f;
@@ -52,6 +55,7 @@ export function filsParPosteur(
     if (at > f.dernier) { f.dernier = at; f.apercu = d.texte; }
     if (!f.sources.includes(d.source)) f.sources.push(d.source);
     const ouverte = d.statut === "ouvert";
+    if (d.statut !== "resolu" && !f.ouvertes.includes(d.id)) f.ouvertes.push(d.id);
     if (ouverte && d.niveau !== "bot") f.attente = true;
     const attendu = attenduDemande(d, maintenant);
     if (attendu) { f.pourMax = true; f.attente = true; f.attendu ??= attendu; }
@@ -133,13 +137,45 @@ function Ligne({ f, actif, onClick }: { f: FilPosteur; actif: boolean; onClick: 
           <span className="ml-auto shrink-0 text-[11px] text-muted-foreground">{f.dernier ? quand(f.dernier) : ""}</span>
         </span>
         <span className="flex items-center gap-1 text-muted-foreground text-xs">
-          <span>{f.sources.map((s) => ICONES[s] ?? "•").join("")}{f.problemes.length ? "⚠️" : ""}</span>
+          <span className="inline-flex items-center">
+            {f.sources.filter((s) => s !== "whatsapp").map((s) => ICONES[s] ?? "•").join("")}
+            {/* 0839 : la demande vient de WhatsApp. */}
+            {f.sources.includes("whatsapp") && <IconeWhatsApp />}
+            {f.problemes.length ? "⚠️" : ""}
+          </span>
           <span className={cn("truncate", f.attendu && "text-red-700 dark:text-red-300")} data-testid={f.attendu ? "attendu-ligne" : undefined}>
             {f.attendu ?? f.apercu}
           </span>
         </span>
       </span>
     </button>
+  );
+}
+
+/** 22/11 (Max) : « Problème réglé » : ferme les demandes ouvertes du posteur et ses problèmes ouverts. Rien n'est envoyé. */
+function BoutonRegle({ f }: { f: FilPosteur }) {
+  const qc = useQueryClient();
+  const n = f.ouvertes.length + f.problemes.length;
+  const m = useMutation({
+    mutationFn: async () => {
+      for (const id of f.ouvertes) await changer(id, { statut: "resolu" });
+      for (const p of f.problemes) await agirProbleme(p.id, "fermer", { raison: "réglé (Boîte)" });
+    },
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: ["support"] });
+      void qc.invalidateQueries({ queryKey: ["problemes"] });
+    },
+  });
+  if (!n && !m.isSuccess) return null;
+  return (
+    <span className="ml-auto flex items-center gap-2">
+      {m.error && <span className="text-destructive text-xs">{(m.error as Error).message}</span>}
+      {m.isSuccess ? <span className="text-success text-xs">✅ Réglé</span> : (
+        <Button size="sm" disabled={m.isPending} onClick={() => m.mutate()} data-testid="probleme-regle">
+          {m.isPending ? "…" : "✅ Ce problème a été réglé"}
+        </Button>
+      )}
+    </span>
   );
 }
 
@@ -150,6 +186,7 @@ function Detail({ f }: { f: FilPosteur }) {
         <h3 className="font-semibold text-base">{f.nom}</h3>
         {f.pourMax && <Badge variant="destructive">Pour Max</Badge>}
         {f.demande?.ticket_at && <Badge variant="outline">→ OS tickets{f.demande.ticket_prevenu_at ? " · ✅ prévenu" : f.demande.ticket_regle_at ? " · ✅ réglé" : ""}</Badge>}
+        <BoutonRegle f={f} />
       </div>
       {f.attendu && (
         <p className="rounded-md border border-red-200 bg-red-50 px-2 py-1 text-red-900 text-sm dark:border-red-900 dark:bg-red-950/30 dark:text-red-100" data-testid="attendu">

@@ -1,0 +1,240 @@
+{
+ "post_id": "7711075226846563606",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to rebuild your",
+      "attention span"
+     ],
+     "fr": "10/10 hobbies pour retrouver ta concentration",
+     "texte": "10/10 hobbies para recuperar tu capacidad de atención"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(avalado por la neurociencia)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4cf16f47.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listen to albums start to finish"
+     ],
+     "fr": "écouter un album [[en entier]]",
+     "texte": "escucha discos [[de principio a fin]]"
+    },
+    "T2": {
+     "en": [
+      "skipping a song after 30 seconds trains your brain",
+      "to quit the second something isn’t exciting"
+     ],
+     "fr": "zapper un son après 30 secondes apprend à ton cerveau à [[lâcher dès que ça devient moins fun]]",
+     "texte": "saltarte una canción a los 30 segundos entrena a tu cerebro para [[abandonar si algo no emociona]]"
+    },
+    "T3": {
+     "en": [
+      "an album makes you",
+      "stay with something,",
+      "even when the first",
+      "minute is slow"
+     ],
+     "fr": "un album t'oblige à rester, même si la première minute est [[lente]]",
+     "texte": "un disco te obliga a quedarte, aunque el primer minuto sea [[lento]]"
+    },
+    "T4": {
+     "en": [
+      "your attention span gets longer when you stop",
+      "skipping to the good part"
+     ],
+     "fr": "ton attention s'allonge quand tu [[arrêtes de zapper vers le refrain]]",
+     "texte": "tu atención aguanta más cuando [[dejas de saltar a la mejor parte]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play chess over the board"
+     ],
+     "fr": "jouer aux échecs [[en vrai]]",
+     "texte": "juega al ajedrez [[en un tablero]]"
+    },
+    "T2": {
+     "en": [
+      "1 minute games on your phone feel like brain",
+      "training, but they’re just another dopamine hit"
+     ],
+     "fr": "les parties d'1 min sur ton tel, ça fait muscu du cerveau, mais [[c'est juste de la dopamine]]",
+     "texte": "las partidas de 1 min en el móvil parecen entrenamiento, pero son [[otro chute de dopamina]]"
+    },
+    "T3": {
+     "en": [
+      "a real game makes",
+      "you sit still and think 5",
+      "moves ahead for 30",
+      "minutes"
+     ],
+     "fr": "une vraie partie te cloue 30 minutes sur ta chaise à [[anticiper 5 coups]]",
+     "texte": "una partida real te sienta 30 minutos a [[pensar 5 jugadas por delante]]"
+    },
+    "T4": {
+     "en": [
+      "it trains patience and deep focus, the exact things",
+      "short form content is destroying"
+     ],
+     "fr": "ça muscle [[ta patience et ta concentration]], pile ce que les vidéos courtes te bousillent",
+     "texte": "entrena [[la paciencia y la concentración]], justo lo que el contenido corto destruye"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lire un livre [[tous les jours]]",
+     "texte": "lee un libro [[cada día]]"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short form content, your",
+      "brain is being fried"
+     ],
+     "fr": "si tu regardes que des vidéos courtes, ton cerveau [[est en train de cramer]]",
+     "texte": "si solo consumes vídeos cortos, tu cerebro [[se está friendo]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow",
+      "one idea for whole chapters"
+     ],
+     "fr": "[[un livre te fait suivre une idée sur des chapitres entiers]]",
+     "texte": "[[un libro te hace seguir una idea capítulos enteros]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui a remplacé mon scroll : un roman le soir, des albums entiers, et [[l'appli Sophia]] quand je prends mon tel (ce matin, Camus en 5 min)",
+     "texte": "lo que sustituyó mi scroll: una novela por la noche, discos enteros y [[la app Sophia]] cuando igual saco el móvil (hoy: por qué el cielo es azul)"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "sit in silence for 10 minutes"
+     ],
+     "fr": "rester 10 min [[en silence]]",
+     "texte": "quédate [[en silencio]] 10 minutos"
+    },
+    "T2": {
+     "en": [
+      "no music, no podcast, no phone. i know it feels",
+      "unbearable at first, but that’s the point"
+     ],
+     "fr": "pas de musique, pas de podcast, pas de tel. au début c'est [[insupportable]], c'est le but",
+     "texte": "sin música, sin podcast, sin móvil. al principio se hace [[insoportable]], pero esa es la idea"
+    },
+    "T3": {
+     "en": [
+      "your brain learns it",
+      "doesn’t need new input",
+      "every second"
+     ],
+     "fr": "ton cerveau comprend qu'il lui faut pas [[du nouveau à chaque seconde]]",
+     "texte": "tu cerebro aprende que no necesita [[algo nuevo cada segundo]]"
+    },
+    "T4": {
+     "en": [
+      "and focusing on one",
+      "thing for an hour starts",
+      "feeling normal again"
+     ],
+     "fr": "et rester une heure sur un seul truc [[redevient normal]]",
+     "texte": "y concentrarte una hora en una sola cosa [[vuelve a ser normal]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "réviser [[plus que t'en as envie]]",
+     "texte": "estudia [[más de lo que te apetece]]"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "la partie utile commence souvent quand ton [[cerveau veut lâcher]]",
+     "texte": "lo útil suele empezar cuando tu [[cerebro quiere rendirse]]"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20–30 min [[après]] le moment où tu t'ennuies ou tu décroches",
+     "texte": "aguanta 20–30 minutos más [[después]] de aburrirte, distraerte o agobiarte"
+    },
+    "T4": {
+     "en": [
+      "you’re not just learning the subject, you’re",
+      "rebuilding your attention span"
+     ],
+     "fr": "t'apprends pas juste la matière, tu [[répares ton attention]]",
+     "texte": "no solo aprendes la materia, [[reconstruyes tu atención]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

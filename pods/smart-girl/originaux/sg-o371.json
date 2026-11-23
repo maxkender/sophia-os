@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o371",
+ "type_bleo": "full_test",
+ "titre": "history's greatest unsolved riddles #history #unsolved #didyouknow #smartgirl #darkacademia",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/7 (la jauge en demande 7 sur 26) : accroche jamais faite chez nous (« unsolved » et « riddle » absent des accroches de donnees/label.json). Accroches écrites : « history's greatest unsolved riddles » (retenue : curiosité, histoire), « history mysteries » (écartée : trop proche des « mysterious » qui ont gagné), « things historians can't explain » (écartée : clickbait). Faits vérifiés : manuscrit de Voynich (XVe siècle, jamais déchiffré), Mary Celeste (1872), colonie de Roanoke (« CROATOAN », 1590), Amelia Earhart (1937), tombe de Néfertiti jamais trouvée, fin de la bibliothèque d'Alexandrie. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3d165d16",
+   "texte_overlay": "history's greatest\nunsolved riddles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "992afca7",
+   "texte_overlay": "the voynich manuscript\n\na 15th-century book in a language\nno one has ever read.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6df1841a",
+   "texte_overlay": "the mary celeste\n\nfound in 1872, sailing on,\nwith no one aboard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dc3244c7",
+   "texte_overlay": "roanoke\n\na whole colony vanished. only\n\"croatoan\" was carved on a post.",
+   "texte_sophia": "roanoke\n\na whole colony vanished in 1590. i read\nabout it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "792d80a3",
+   "texte_overlay": "amelia earhart\n\nlost over the pacific in 1937.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "00fedbaa",
+   "texte_overlay": "nefertiti's tomb\n\nthe queen's resting place\nhas never been found.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "43a5e663",
+   "texte_overlay": "the library of alexandria\n\nhow it really ended\nis still debated.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "41641fc2",
+   "texte_overlay": "which one keeps you\nup at night?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

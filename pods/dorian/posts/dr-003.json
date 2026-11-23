@@ -14,7 +14,8 @@
   "pt-BR": "5 livros difíceis pra c*ralho",
   "tr": "gerçekten aşırı zor 5 kitap",
   "sv": "5 böcker som är sjukt jävla svåra",
-  "nl": "5 boeken die echt verdomd moeilijk zijn"
+  "nl": "5 boeken die echt verdomd moeilijk zijn",
+  "hu": "5 könyv, ami tényleg k*rva nehéz"
  },
  "legendes": {
   "en": "#niche #booktok #books #lockedin #selfimprovement",
@@ -23,7 +24,8 @@
   "pt-BR": "#booktok #livros #clássicos #leitura",
   "tr": "#booktok #kitap #klasikler #okuma",
   "sv": "#booktok #böcker #klassiker #läsning",
-  "nl": "#booktok #boeken #klassiekers #lezen"
+  "nl": "#booktok #boeken #klassiekers #lezen",
+  "hu": "#booktok #könyvek #klasszikusok #olvasás"
  },
  "musique": {
   "titre": "original sound - Spëāķèř",
@@ -67,6 +69,11 @@
     "titre": "5 boeken die echt verdomd moeilijk zijn",
     "image": "images/livres-empiles.jpg",
     "legende": "(succes)"
+   },
+   "hu": {
+    "titre": "5 könyv, ami tényleg k*rva nehéz",
+    "image": "images/bibliotheque-chaude.jpg",
+    "legende": "(sok sikert)"
    }
   },
   {
@@ -119,6 +126,13 @@
     "citation": "meer dan 500 personages. de meeste hebben drie namen.",
     "texte": "tolstoj volgt vijf families tijdens napoleons veldtocht naar rusland. meer dan 1.200 pagina's, en elk personage heeft een voornaam, vadersnaam en bijnaam. maak een lijstje",
     "image": "images/champ-bataille.jpg"
+   },
+   "hu": {
+    "titre": "Háború és béke",
+    "difficulte": "22/50",
+    "citation": "több mint 500 szereplő. a legtöbbnek három neve van.",
+    "texte": "tolsztoj öt családot követ napóleon oroszországi hadjárata alatt. több mint 1200 oldal, és minden szereplőnek van keresztneve, apai neve és beceneve. vezess listát",
+    "image": "images/champ-bataille.jpg"
    }
   },
   {
@@ -170,6 +184,13 @@
     "difficulte": "27/50",
     "citation": "je gaat een week ruziën met een verzonnen monnik.",
     "texte": "dostojevski's laatste roman: een moord, drie broers en de vraag of god bestaat. alleen al het hoofdstuk \"de grootinquisiteur\" is een filosofiecursus",
+    "image": "images/deux-moines.jpg"
+   },
+   "hu": {
+    "titre": "A Karamazov testvérek",
+    "difficulte": "27/50",
+    "citation": "egy hétig vitatkozol majd egy kitalált szerzetessel.",
+    "texte": "dosztojevszkij utolsó regénye: egy gyilkosság, három fivér és a kérdés, hogy létezik-e isten. már \"a nagy inkvizítor\" fejezet maga egy filozófiaóra",
     "image": "images/deux-moines.jpg"
    }
   },
@@ -224,6 +245,13 @@
     "citation": "mijn warming-up voor al deze boeken.",
     "texte": "10 minuten per dag. een soort mini-college elke ochtend: geschiedenis, filosofie, wetenschap, economie, daarna een quiz",
     "telephone": "cours"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "difficulte": "4/50",
+    "citation": "a bemelegítésem ezek előtt.",
+    "texte": "napi 10 perc. mint egy kis előadás minden reggel: történelem, filozófia, tudomány, közgazdaság, utána egy kvíz",
+    "telephone": "cours"
    }
   },
   {
@@ -275,6 +303,13 @@
     "difficulte": "38/50",
     "citation": "je leest dezelfde zin vijf keer.",
     "texte": "kant, 1781. hij vraagt wat we kunnen weten vóór elke ervaring. gigantische zinnen en een eigen woordenschat. lees eerst een samenvatting, dan het boek",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "hu": {
+    "titre": "A tiszta ész kritikája",
+    "difficulte": "38/50",
+    "citation": "ugyanazt a mondatot ötször fogod elolvasni.",
+    "texte": "kant, 1781. azt kérdezi, mit tudhatunk bármilyen tapasztalat előtt. hatalmas mondatok, saját szókincs. előbb olvass egy összefoglalót, aztán a könyvet",
     "image": "images/philosophe-manet.jpg"
    }
   },
@@ -328,6 +363,13 @@
     "citation": "het won een pulitzer. het gaat over recursie.",
     "texte": "hofstadter vlecht wiskunde, kunst en muziek samen tot één vraag: hoe ontstaat betekenis uit betekenisloze symbolen? meer dan 700 pagina's puzzels, dialogen en een pratende schildpad",
     "image": "images/escalier-infini.jpg"
+   },
+   "hu": {
+    "titre": "Gödel, Escher, Bach",
+    "difficulte": "41/50",
+    "citation": "pulitzer-díjat nyert. a rekurzióról szól.",
+    "texte": "hofstadter a matematikát, a művészetet és a zenét egyetlen kérdésbe szövi: hogyan születik jelentés értelmetlen jelekből? több mint 700 oldal rejtvény, párbeszéd és egy beszélő teknős",
+    "image": "images/escalier-infini.jpg"
    }
   },
   {
@@ -379,6 +421,13 @@
     "difficulte": "48/50",
     "citation": "het laatste hoofdstuk is eigenlijk acht zinnen.",
     "texte": "joyce, 1922. één gewone dag in dublin, 16 juni 1904, elk hoofdstuk in een nieuwe stijl. die dag wordt elk jaar gevierd. je hebt een gids nodig",
+    "image": "images/vague-renoir.jpg"
+   },
+   "hu": {
+    "titre": "Ulysses",
+    "difficulte": "48/50",
+    "citation": "az utolsó fejezet gyakorlatilag nyolc mondat.",
+    "texte": "joyce, 1922. egy hétköznapi nap dublinban, 1904. június 16., minden fejezet új stílusban. azt a napot minden évben megünneplik. kalauz kell majd hozzá",
     "image": "images/vague-renoir.jpg"
    }
   }

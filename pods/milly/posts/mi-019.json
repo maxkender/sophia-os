@@ -1,0 +1,760 @@
+{
+ "id": "mi-019",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7704963447028600094",
+  "vues": 32000,
+  "publie_le": "2026-11-12",
+  "accroche": "How / to / become / limitless"
+ },
+ "fond": "sarcelle",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Full test (boîte vide), sur un post neuf du compte modèle relevé à la veille du 23/11 : « How to become limitless » de @bdnf.milly (32 k vues, 7,7 % d'enregistrements, 12/11), famille « How to become … », fond sarcelle (son « Why IQ is everything »). Le post dit explicitement qu'aucune pilule ne rend « limitless » : jamais de nootropique. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Faits vérifiés : les experts doivent leur niveau à des années de pratique délibérée, pas seulement au temps passé (Ericsson, Krampe et Tesch-Römer, Psychological Review 1993) ; les grands maîtres d'échecs reconnaissent des milliers de configurations (Chase et Simon, Cognitive Psychology 1973), mais retiennent à peine mieux que les novices des positions aléatoires ; dormir moins de six heures sur deux semaines égale une nuit blanche aux tests d'attention (Van Dongen et al., Sleep 2003). 11 langues. Images : Seedream (golgi, dti, cerveau-3d), sans texte.",
+ "titre": {
+  "en": "How to become Limitless",
+  "fr": "Comment devenir sans limites",
+  "es": "Cómo volverte ilimitado",
+  "es-419": "Cómo volverte ilimitado",
+  "it": "Come diventare senza limiti",
+  "tr": "Nasıl sınırsız olursun",
+  "pt-BR": "Como se tornar ilimitado",
+  "sl": "Kako postati brez meja",
+  "hr": "Kako postati bez granica",
+  "de": "Wie du grenzenlos wirst",
+  "hu": "Hogyan válj határtalanná"
+ },
+ "legendes": {
+  "en": "no pill, just reps #limitless #learning #brain #discipline #knowledge",
+  "fr": "pas de pilule, juste des répétitions #sanslimites #apprendre #cerveau #discipline #culturegénérale",
+  "es": "ninguna pastilla, solo repeticiones #ilimitado #aprender #cerebro #disciplina #cultura",
+  "es-419": "ninguna pastilla, solo repeticiones #ilimitado #aprender #cerebro #disciplina #cultura",
+  "it": "nessuna pillola, solo ripetizioni #senzalimiti #imparare #cervello #disciplina #cultura",
+  "tr": "hap yok, sadece tekrar #sınırsız #öğrenme #beyin #disiplin #genelkültür",
+  "pt-BR": "nenhum comprimido, só repetição #ilimitado #aprender #cerebro #disciplina #conhecimento",
+  "sl": "nobene tablete, samo ponovitve #brezmeja #učenje #možgani #disciplina #splošnaizobrazba",
+  "hr": "nema tablete, samo ponavljanja #bezgranica #učenje #mozak #disciplina #općakultura",
+  "de": "keine pille, nur wiederholung #grenzenlos #lernen #gehirn #disziplin #allgemeinbildung",
+  "hu": "nincs tabletta, csak ismétlés #határtalan #tanulás #agy #fegyelem #műveltség"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/dti.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How",
+      "taille": "petit"
+     },
+     {
+      "t": "to",
+      "taille": "petit"
+     },
+     {
+      "t": "become",
+      "taille": "petit"
+     },
+     {
+      "t": "Limitless",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 3
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "devenir",
+      "taille": "petit"
+     },
+     {
+      "t": "sans",
+      "taille": "petit"
+     },
+     {
+      "t": "Limites",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 3
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "volverte",
+      "taille": "petit"
+     },
+     {
+      "t": "Ilimitado",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "volverte",
+      "taille": "petit"
+     },
+     {
+      "t": "Ilimitado",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "diventare",
+      "taille": "petit"
+     },
+     {
+      "t": "senza",
+      "taille": "petit"
+     },
+     {
+      "t": "Limiti",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 3
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Sınırsız",
+      "taille": "grand"
+     },
+     {
+      "t": "olursun",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "se tornar",
+      "taille": "petit"
+     },
+     {
+      "t": "Ilimitado",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "postati",
+      "taille": "petit"
+     },
+     {
+      "t": "brez",
+      "taille": "petit"
+     },
+     {
+      "t": "Meja",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 3
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "postati",
+      "taille": "petit"
+     },
+     {
+      "t": "bez",
+      "taille": "petit"
+     },
+     {
+      "t": "Granica",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 3
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du",
+      "taille": "petit"
+     },
+     {
+      "t": "Grenzenlos",
+      "taille": "grand"
+     },
+     {
+      "t": "wirst",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "válj",
+      "taille": "petit"
+     },
+     {
+      "t": "Határtalanná",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "There Is No Pill",
+    "blocs": [
+     {
+      "p": "The film made it look like one tablet could unlock the whole brain. In real life, no pill does that. What looks limitless in people is almost always years of knowledge and practice stacked up."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Experts in fields from music to chess were found to owe their level to long periods of deliberate practice: focused work on what they could not do yet, not just time spent."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Il n'y a pas de pilule",
+    "blocs": [
+     {
+      "p": "Le film faisait croire qu'un comprimé pouvait débloquer tout le cerveau. Dans la vraie vie, aucune pilule ne fait ça. Ce qui paraît « sans limites » chez quelqu'un, ce sont presque toujours des années de savoir et de pratique empilées."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Chez les experts, de la musique aux échecs, le niveau s'expliquait par de longues périodes de pratique délibérée : un travail concentré sur ce qu'ils ne savaient pas encore faire, pas seulement du temps passé."
+     }
+    ]
+   },
+   "es": {
+    "titre": "No hay pastilla",
+    "blocs": [
+     {
+      "p": "La película hacía creer que una pastilla podía desbloquear todo el cerebro. En la vida real, ninguna pastilla hace eso. Lo que parece ilimitado en alguien casi siempre son años de conocimiento y práctica acumulados."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "En expertos de la música al ajedrez, su nivel se explicaba por largos periodos de práctica deliberada: trabajo concentrado en lo que aún no sabían hacer, no solo tiempo invertido."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "No existe la pastilla",
+    "blocs": [
+     {
+      "p": "La película hacía creer que una pastilla podía desbloquear todo el cerebro. En la vida real, ninguna pastilla hace eso. Lo que parece ilimitado en alguien casi siempre son años de conocimiento y práctica acumulados."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "En expertos de la música al ajedrez, su nivel se explicaba por largos periodos de práctica deliberada: trabajo enfocado en lo que todavía no sabían hacer, no solo tiempo invertido."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Non esiste la pillola",
+    "blocs": [
+     {
+      "p": "Il film faceva credere che una pastiglia potesse sbloccare tutto il cervello. Nella vita reale, nessuna pillola lo fa. Ciò che in qualcuno sembra senza limiti è quasi sempre fatto di anni di conoscenza e pratica accumulati."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Negli esperti, dalla musica agli scacchi, il livello si spiegava con lunghi periodi di pratica deliberata: lavoro concentrato su ciò che non sapevano ancora fare, non solo tempo passato."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Öyle bir hap yok",
+    "blocs": [
+     {
+      "p": "Film, tek bir hapın bütün beyni açabileceğini düşündürüyordu. Gerçek hayatta hiçbir hap bunu yapmaz. Birinde sınırsız görünen şey, neredeyse her zaman üst üste eklenmiş yılların bilgisi ve pratiğidir."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Müzikten satranca kadar uzmanların seviyesinin, uzun süreli bilinçli pratikten geldiği bulundu: sadece harcanan zaman değil, henüz yapamadıkları şeye odaklanan çalışma."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Não existe comprimido",
+    "blocs": [
+     {
+      "p": "O filme fazia parecer que um comprimido podia destravar o cérebro inteiro. Na vida real, nenhum comprimido faz isso. O que parece ilimitado em alguém quase sempre são anos de conhecimento e prática acumulados."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Em especialistas da música ao xadrez, o nível vinha de longos períodos de prática deliberada: trabalho focado no que ainda não sabiam fazer, não só tempo gasto."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Tablete ni",
+    "blocs": [
+     {
+      "p": "Film je dajal vtis, da lahko ena tableta odklene vse možgane. V resničnem življenju tega ne naredi nobena tableta. Kar se pri nekom zdi brez meja, so skoraj vedno leta nakopičenega znanja in vaje."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Pri strokovnjakih, od glasbe do šaha, je raven izhajala iz dolgih obdobij načrtne vaje: zbranega dela na tem, česar še niso znali, ne le iz porabljenega časa."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nema tablete",
+    "blocs": [
+     {
+      "p": "Film je davao dojam da jedna tableta može otključati cijeli mozak. U stvarnom životu nijedna tableta to ne radi. Ono što se kod nekoga čini bezgraničnim gotovo su uvijek godine nagomilanog znanja i vježbe."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Kod stručnjaka, od glazbe do šaha, razina je proizlazila iz dugih razdoblja namjerne vježbe: usredotočenog rada na onome što još nisu znali, a ne samo iz provedenog vremena."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Es gibt keine Pille",
+    "blocs": [
+     {
+      "p": "Der Film ließ glauben, eine Tablette könne das ganze Gehirn freischalten. Im echten Leben schafft das keine Pille. Was bei jemandem grenzenlos wirkt, sind fast immer Jahre an angehäuftem Wissen und Übung."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Bei Experten von der Musik bis zum Schach ging das Niveau auf lange Phasen gezielten Übens zurück: konzentrierte Arbeit an dem, was sie noch nicht konnten, nicht bloß verbrachte Zeit."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Nincs ilyen tabletta",
+    "blocs": [
+     {
+      "p": "A film azt sugallta, hogy egyetlen tabletta feloldhatja az egész agyat. A valóságban egyetlen tabletta sem képes erre. Ami valakinél határtalannak tűnik, az szinte mindig évek alatt felhalmozott tudás és gyakorlás."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "A zenétől a sakkig a szakértők szintje hosszú, tudatos gyakorlásból fakadt: összpontosított munkából azon, amit még nem tudtak, nem csupán az eltöltött időből."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Stack Knowledge Daily",
+    "blocs": [
+     {
+      "p": "Chess grandmasters can recognise thousands of patterns at a glance, yet on random positions their memory is barely better than a beginner's. Their edge is stored knowledge, built game after game."
+     },
+     {
+      "p": "The same works for general knowledge: one short lesson every evening, like a training session, stacks up into years of reference."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Empile du savoir chaque jour",
+    "blocs": [
+     {
+      "p": "Les grands maîtres d'échecs reconnaissent des milliers de configurations d'un coup d'œil, mais sur des positions au hasard, leur mémoire vaut à peine mieux que celle d'un débutant. Leur avantage, c'est un savoir stocké, construit partie après partie."
+     },
+     {
+      "p": "C'est pareil pour la culture générale : une courte leçon chaque soir, comme un entraînement, s'empile en années de références."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Acumula saber cada día",
+    "blocs": [
+     {
+      "p": "Los grandes maestros de ajedrez reconocen miles de patrones de un vistazo, pero con posiciones al azar su memoria apenas supera a la de un principiante. Su ventaja es conocimiento guardado, construido partida tras partida."
+     },
+     {
+      "p": "Con la cultura general pasa igual: una lección corta cada noche, como un entrenamiento, se acumula en años de referencias."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Acumula conocimiento diario",
+    "blocs": [
+     {
+      "p": "Los grandes maestros de ajedrez reconocen miles de patrones de un vistazo, pero con posiciones al azar su memoria es apenas mejor que la de un principiante. Su ventaja es conocimiento guardado, construido partida tras partida."
+     },
+     {
+      "p": "Con la cultura general pasa lo mismo: una lección corta cada noche, como un entrenamiento, se acumula en años de referencias."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Accumula sapere ogni giorno",
+    "blocs": [
+     {
+      "p": "I grandi maestri di scacchi riconoscono migliaia di schemi con un'occhiata, ma su posizioni casuali la loro memoria è appena migliore di quella di un principiante. Il loro vantaggio è conoscenza immagazzinata, costruita partita dopo partita."
+     },
+     {
+      "p": "Lo stesso vale per la cultura generale: una breve lezione ogni sera, come un allenamento, si accumula in anni di riferimenti."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Her gün bilgi biriktir",
+    "blocs": [
+     {
+      "p": "Satranç büyükustaları binlerce kalıbı bir bakışta tanır, ama rastgele dizilmiş taşlarda hafızaları bir acemininkinden pek iyi değildir. Avantajları, oyun oyun inşa edilmiş, depolanmış bilgidir."
+     },
+     {
+      "p": "Genel kültür için de aynısı geçerli: her akşam kısa bir ders, bir antrenman gibi, yıllar içinde bir referans birikimine dönüşür."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Acumule conhecimento todo dia",
+    "blocs": [
+     {
+      "p": "Grandes mestres de xadrez reconhecem milhares de padrões num relance, mas com posições aleatórias a memória deles é só um pouco melhor que a de um iniciante. A vantagem deles é conhecimento guardado, construído partida após partida."
+     },
+     {
+      "p": "Com o conhecimento geral é igual: uma lição curta toda noite, como um treino, vai se acumulando em anos de referências."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vsak dan kopiči znanje",
+    "blocs": [
+     {
+      "p": "Šahovski velemojstri na prvi pogled prepoznajo tisoče vzorcev, pri naključnih postavitvah pa je njihov spomin komaj boljši od začetnikovega. Njihova prednost je shranjeno znanje, zgrajeno partijo za partijo."
+     },
+     {
+      "p": "S splošno izobrazbo je enako: kratka lekcija vsak večer, kot trening, se nakopiči v leta referenc."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Gomilaj znanje svaki dan",
+    "blocs": [
+     {
+      "p": "Šahovski velemajstori na prvi pogled prepoznaju tisuće obrazaca, ali na nasumičnim pozicijama pamćenje im je jedva bolje od početničkog. Njihova je prednost pohranjeno znanje, građeno partiju po partiju."
+     },
+     {
+      "p": "Isto vrijedi za opću kulturu: kratka lekcija svake večeri, kao trening, nagomila se u godine referenci."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Häuf jeden Tag Wissen an",
+    "blocs": [
+     {
+      "p": "Schachgroßmeister erkennen Tausende Muster auf einen Blick, doch bei zufälligen Stellungen ist ihr Gedächtnis kaum besser als das eines Anfängers. Ihr Vorsprung ist gespeichertes Wissen, Partie für Partie aufgebaut."
+     },
+     {
+      "p": "Für Allgemeinbildung gilt dasselbe: Eine kurze Lektion jeden Abend, wie ein Training, summiert sich zu Jahren an Bezügen."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Halmozz tudást minden nap",
+    "blocs": [
+     {
+      "p": "A sakknagymesterek egy pillantással ezernyi mintát ismernek fel, véletlenszerű állásoknál viszont alig emlékeznek jobban egy kezdőnél. Előnyük az elraktározott tudás, amelyet játszmáról játszmára építettek."
+     },
+     {
+      "p": "Az általános műveltséggel ugyanez a helyzet: egy rövid lecke minden este, mint egy edzés, évek alatt referenciák tömegévé áll össze."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Protect Your Sleep",
+    "blocs": [
+     {
+      "p": "The fastest way to feel limited is to cut sleep. People sleeping six hours a night for two weeks did as badly on attention tests as people kept awake a whole night, and barely noticed it."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Limitless is not a state you take. It is what knowledge, practice and rest add up to over time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Protège ton sommeil",
+    "blocs": [
+     {
+      "p": "Le moyen le plus rapide de se sentir limité, c'est de couper le sommeil. Des personnes qui dormaient six heures par nuit pendant deux semaines faisaient aussi mal aux tests d'attention que d'autres privées d'une nuit entière, sans presque s'en rendre compte."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Être sans limites, ce n'est pas un état qu'on avale. C'est ce que le savoir, la pratique et le repos donnent avec le temps."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Protege tu sueño",
+    "blocs": [
+     {
+      "p": "La forma más rápida de sentirte limitado es recortar el sueño. Personas que dormían seis horas por noche durante dos semanas rindieron tan mal en pruebas de atención como otras que pasaron una noche en vela, y apenas lo notaron."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Ser ilimitado no es algo que se toma. Es lo que el conocimiento, la práctica y el descanso suman con el tiempo."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Cuida tu sueño",
+    "blocs": [
+     {
+      "p": "La forma más rápida de sentirte limitado es dormir menos. Personas que durmieron seis horas por noche durante dos semanas rindieron tan mal en pruebas de atención como quienes pasaron una noche sin dormir, y casi ni lo notaron."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Ser ilimitado no es algo que te tomas. Es lo que el conocimiento, la práctica y el descanso suman con el tiempo."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Proteggi il tuo sonno",
+    "blocs": [
+     {
+      "p": "Il modo più rapido per sentirsi limitati è tagliare il sonno. Persone che dormivano sei ore a notte per due settimane andavano male nei test di attenzione quanto chi era rimasto sveglio un'intera notte, quasi senza accorgersene."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Essere senza limiti non è uno stato che si prende. È ciò che conoscenza, pratica e riposo danno nel tempo."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Uykunu koru",
+    "blocs": [
+     {
+      "p": "Kendini sınırlı hissetmenin en hızlı yolu uykudan kısmaktır. İki hafta boyunca gecede altı saat uyuyanlar, dikkat testlerinde bütün bir gece uyumayanlar kadar kötü sonuç aldı ve bunu neredeyse fark etmediler."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Sınırsız olmak, alınan bir şey değildir. Bilginin, pratiğin ve dinlenmenin zamanla toplamıdır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Proteja seu sono",
+    "blocs": [
+     {
+      "p": "O jeito mais rápido de se sentir limitado é cortar o sono. Pessoas que dormiram seis horas por noite durante duas semanas foram tão mal em testes de atenção quanto quem passou uma noite inteira acordado, quase sem perceber."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Ser ilimitado não é algo que se toma. É o que conhecimento, prática e descanso somam com o tempo."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Varuj spanec",
+    "blocs": [
+     {
+      "p": "Najhitreje se počutiš omejenega, če skrajšaš spanec. Ljudje, ki so dva tedna spali po šest ur na noč, so se na testih pozornosti odrezali tako slabo kot tisti, ki so bdeli vso noč, in tega skoraj niso opazili."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Biti brez meja ni stanje, ki ga vzameš. Je tisto, kar znanje, vaja in počitek s časom dajo skupaj."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Čuvaj san",
+    "blocs": [
+     {
+      "p": "Najbrži način da se osjećaš ograničeno je skratiti san. Ljudi koji su dva tjedna spavali po šest sati noću na testovima pažnje bili su jednako loši kao oni koji su bdjeli cijelu noć, a da to gotovo nisu ni primijetili."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Biti bez granica nije stanje koje uzmeš. To je ono što znanje, vježba i odmor s vremenom zbroje."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Schütz deinen Schlaf",
+    "blocs": [
+     {
+      "p": "Am schnellsten fühlt man sich begrenzt, wenn man beim Schlaf spart. Menschen, die zwei Wochen lang sechs Stunden pro Nacht schliefen, schnitten in Aufmerksamkeitstests so schlecht ab wie jene, die eine ganze Nacht wach blieben, und merkten es kaum."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Grenzenlos ist kein Zustand, den man einnimmt. Es ist das, was Wissen, Übung und Erholung mit der Zeit ergeben."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Védd az alvásodat",
+    "blocs": [
+     {
+      "p": "A leggyorsabban úgy érzed magad korlátozottnak, ha lecsípsz az alvásból. Akik két hétig éjszakánként hat órát aludtak, ugyanolyan rosszul teljesítettek a figyelmi teszteken, mint akik egy egész éjszakát ébren töltöttek, és alig vették észre."
+     },
+     {
+      "image": "images/cerveau-3d.jpg"
+     },
+     {
+      "p": "Határtalannak lenni nem olyan állapot, amit beveszel. Ez az, amit a tudás, a gyakorlás és a pihenés idővel kiad."
+     }
+    ]
+   }
+  }
+ ]
+}

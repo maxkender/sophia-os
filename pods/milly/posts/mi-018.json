@@ -1,0 +1,772 @@
+{
+ "id": "mi-018",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7681333188714646814",
+  "vues": 367000,
+  "publie_le": "2026-09-03",
+  "accroche": "The secret / to / Memorizing / Anything"
+ },
+ "fond": "saumon",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7290646208069356321"
+ },
+ "notes": "Full test (boîte vide). Format de « The secret to Memorizing Anything » de @bdnf.milly (367 k vues, 03/09), famille « The secret to … », fond saumon (relevé à la veille du 23/11 sur « How to become limitless »). Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : les champions de mémoire n'ont ni un cerveau ni une mémoire générale hors norme, presque tous utilisent la méthode des lieux (Maguire, Valentine, Wilding et Kapur, Nature Neuroscience 2003) ; pas de preuve solide de mémoire photographique chez l'adulte ; six semaines de méthode des lieux à 30 minutes par jour font passer d'environ 26 à 62 mots retenus, gain encore présent quatre mois plus tard (Dresler et al., Neuron 2017). 11 langues. Images : Seedream (irm-sagittale, hippocampe, tractographie), sans texte.",
+ "titre": {
+  "en": "The secret to a Photographic Memory",
+  "fr": "Le secret d'une mémoire photographique",
+  "es": "El secreto de una memoria fotográfica",
+  "es-419": "El secreto de una memoria fotográfica",
+  "it": "Il segreto di una memoria fotografica",
+  "tr": "Fotografik hafızanın sırrı",
+  "pt-BR": "O segredo de uma memória fotográfica",
+  "sl": "Skrivnost fotografskega spomina",
+  "hr": "Tajna fotografskog pamćenja",
+  "de": "Das Geheimnis eines fotografischen Gedächtnisses",
+  "hu": "A fotografikus memória titka"
+ },
+ "legendes": {
+  "en": "memory champions are made, not born #memory #brain #memorypalace #learning #neuroscience",
+  "fr": "les champions de mémoire ne naissent pas, ils s'entraînent #mémoire #cerveau #palaismental #apprendre #neurosciences",
+  "es": "los campeones de memoria se entrenan #memoria #cerebro #palaciodelamemoria #aprender #neurociencia",
+  "es-419": "los campeones de memoria se entrenan #memoria #cerebro #palaciodelamemoria #aprender #neurociencia",
+  "it": "i campioni di memoria si allenano #memoria #cervello #palazzodellamemoria #imparare #neuroscienze",
+  "tr": "hafıza şampiyonları doğmaz, yetişir #hafıza #beyin #hafızasarayı #öğrenme #nörobilim",
+  "pt-BR": "campeões de memória são treinados #memoria #cerebro #palaciodamemoria #aprender #neurociencia",
+  "sl": "šampioni spomina se izurijo #spomin #možgani #spominskapalača #učenje #nevroznanost",
+  "hr": "prvaci pamćenja se treniraju #pamćenje #mozak #palačapamćenja #učenje #neuroznanost",
+  "de": "gedächtnismeister werden gemacht #gedächtnis #gehirn #gedächtnispalast #lernen #neurowissenschaft",
+  "hu": "a memóriabajnokokat edzik, nem születnek #memória #agy #memóriapalota #tanulás #idegtudomány"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-sagittale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "The secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "to a",
+      "taille": "petit"
+     },
+     {
+      "t": "Photographic",
+      "taille": "grand"
+     },
+     {
+      "t": "Memory",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Le secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "d'une",
+      "taille": "petit"
+     },
+     {
+      "t": "Mémoire",
+      "taille": "grand"
+     },
+     {
+      "t": "photographique",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "de una",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     },
+     {
+      "t": "fotográfica",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "de una",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     },
+     {
+      "t": "fotográfica",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Il segreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "di una",
+      "taille": "petit"
+     },
+     {
+      "t": "Memoria",
+      "taille": "grand"
+     },
+     {
+      "t": "fotografica",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Fotografik",
+      "taille": "grand"
+     },
+     {
+      "t": "hafızanın",
+      "taille": "petit"
+     },
+     {
+      "t": "Sırrı",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O segredo",
+      "taille": "moyen"
+     },
+     {
+      "t": "de uma",
+      "taille": "petit"
+     },
+     {
+      "t": "Memória",
+      "taille": "grand"
+     },
+     {
+      "t": "fotográfica",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Skrivnost",
+      "taille": "moyen"
+     },
+     {
+      "t": "Fotografskega",
+      "taille": "grand"
+     },
+     {
+      "t": "Spomina",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Tajna",
+      "taille": "moyen"
+     },
+     {
+      "t": "Fotografskog",
+      "taille": "grand"
+     },
+     {
+      "t": "Pamćenja",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Das Geheimnis",
+      "taille": "moyen"
+     },
+     {
+      "t": "eines",
+      "taille": "petit"
+     },
+     {
+      "t": "fotografischen",
+      "taille": "grand"
+     },
+     {
+      "t": "Gedächtnisses",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "A",
+      "taille": "petit"
+     },
+     {
+      "t": "Fotografikus",
+      "taille": "grand"
+     },
+     {
+      "t": "memória",
+      "taille": "petit"
+     },
+     {
+      "t": "Titka",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "It Does Not Exist",
+    "blocs": [
+     {
+      "p": "Despite the legend, there is no solid evidence that adults can store a page like a photograph. When researchers scanned the brains of top memory competitors, their brains looked ordinary and their general memory was no better than anyone else's."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "What set them apart was a technique: almost all of them used the method of loci, placing what they had to remember along a familiar route in their mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Elle n'existe pas",
+    "blocs": [
+     {
+      "p": "Malgré la légende, rien de solide ne prouve qu'un adulte puisse enregistrer une page comme une photo. Quand des chercheurs ont scanné le cerveau des meilleurs champions de mémoire, il paraissait ordinaire, et leur mémoire générale n'était pas meilleure que celle des autres."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Ce qui les distinguait, c'était une technique : presque tous utilisaient la méthode des lieux, en plaçant ce qu'ils devaient retenir le long d'un trajet familier dans leur tête."
+     }
+    ]
+   },
+   "es": {
+    "titre": "No existe",
+    "blocs": [
+     {
+      "p": "Pese a la leyenda, no hay pruebas sólidas de que un adulto pueda guardar una página como una foto. Cuando unos investigadores escanearon el cerebro de los mejores campeones de memoria, parecía corriente, y su memoria general no era mejor que la de los demás."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Lo que los distinguía era una técnica: casi todos usaban el método de los lugares, colocando lo que debían recordar a lo largo de un recorrido conocido en su mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "No existe",
+    "blocs": [
+     {
+      "p": "A pesar de la leyenda, no hay pruebas sólidas de que un adulto pueda guardar una página como una foto. Cuando investigadores escanearon el cerebro de los mejores campeones de memoria, se veía normal, y su memoria general no era mejor que la de los demás."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Lo que los hacía distintos era una técnica: casi todos usaban el método de los lugares, acomodando lo que tenían que recordar a lo largo de un recorrido conocido en su mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Non esiste",
+    "blocs": [
+     {
+      "p": "Nonostante la leggenda, non ci sono prove solide che un adulto possa memorizzare una pagina come una fotografia. Quando dei ricercatori hanno esaminato il cervello dei migliori campioni di memoria, sembrava normale, e la loro memoria in generale non era migliore di quella degli altri."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "A distinguerli era una tecnica: quasi tutti usavano il metodo dei loci, collocando ciò che dovevano ricordare lungo un percorso familiare nella mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Öyle bir şey yok",
+    "blocs": [
+     {
+      "p": "Efsaneye rağmen, yetişkinlerin bir sayfayı fotoğraf gibi saklayabildiğine dair sağlam bir kanıt yok. Araştırmacılar en iyi hafıza yarışmacılarının beyinlerini taradığında beyinleri sıradan görünüyordu ve genel hafızaları da diğer insanlardan iyi değildi."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Onları ayıran şey bir teknikti: neredeyse hepsi loci yöntemini kullanıyordu; hatırlamaları gerekenleri zihinlerinde tanıdık bir güzergâh boyunca yerleştiriyorlardı."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ela não existe",
+    "blocs": [
+     {
+      "p": "Apesar da lenda, não há provas sólidas de que um adulto consiga guardar uma página como uma foto. Quando pesquisadores examinaram o cérebro dos melhores campeões de memória, ele parecia comum, e a memória geral deles não era melhor que a de ninguém."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "O que os diferenciava era uma técnica: quase todos usavam o método dos lugares, colocando o que precisavam lembrar ao longo de um caminho conhecido na mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Ne obstaja",
+    "blocs": [
+     {
+      "p": "Kljub legendi ni trdnih dokazov, da bi odrasel človek lahko shranil stran kot fotografijo. Ko so raziskovalci slikali možgane najboljših tekmovalcev v pomnjenju, so bili videti povsem običajni, njihov splošni spomin pa ni bil nič boljši od spomina drugih."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Razlikovala jih je tehnika: skoraj vsi so uporabljali metodo lokacij in to, kar so si morali zapomniti, v mislih razporedili ob znani poti."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Ne postoji",
+    "blocs": [
+     {
+      "p": "Unatoč legendi, nema čvrstih dokaza da odrasla osoba može pohraniti stranicu kao fotografiju. Kad su istraživači snimili mozgove najboljih natjecatelja u pamćenju, izgledali su obično, a njihovo opće pamćenje nije bilo ništa bolje od tuđeg."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Razlikovala ih je tehnika: gotovo svi koristili su metodu lokacija i ono što su trebali zapamtiti u mislima su smještali duž poznatog puta."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Es gibt es nicht",
+    "blocs": [
+     {
+      "p": "Trotz der Legende gibt es keinen soliden Beleg, dass Erwachsene eine Seite wie ein Foto speichern können. Als Forschende die Gehirne der besten Gedächtnissportler scannten, sahen sie gewöhnlich aus, und ihr allgemeines Gedächtnis war nicht besser als das anderer."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Was sie unterschied, war eine Technik: Fast alle nutzten die Loci-Methode und legten, was sie sich merken mussten, in Gedanken entlang eines vertrauten Weges ab."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Nem létezik",
+    "blocs": [
+     {
+      "p": "A legenda ellenére nincs szilárd bizonyíték arra, hogy egy felnőtt fényképként tudna elraktározni egy oldalt. Amikor kutatók a legjobb memóriaversenyzők agyát vizsgálták, az átlagosnak tűnt, és az általános memóriájuk sem volt jobb másokénál."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Egy technika különböztette meg őket: szinte mind a helyek módszerét használták, és amit meg kellett jegyezniük, gondolatban egy ismerős útvonal mentén helyezték el."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Memory Needs Hooks",
+    "blocs": [
+     {
+      "p": "New information sticks when it can attach to something you already know. Memory champions attach it to places; the rest of us can also attach it to knowledge: every fact you know is a hook for the next one."
+     },
+     {
+      "p": "One short lesson every evening, like a training session, adds new hooks night after night."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "La mémoire a besoin de crochets",
+    "blocs": [
+     {
+      "p": "Une information nouvelle tient quand elle peut s'accrocher à quelque chose que tu sais déjà. Les champions l'accrochent à des lieux ; nous pouvons aussi l'accrocher au savoir : chaque fait que tu connais est un crochet pour le suivant."
+     },
+     {
+      "p": "Une courte leçon chaque soir, comme un entraînement, ajoute de nouveaux crochets soir après soir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "La memoria necesita ganchos",
+    "blocs": [
+     {
+      "p": "La información nueva se queda cuando puede engancharse a algo que ya sabes. Los campeones la enganchan a lugares; los demás también podemos engancharla al conocimiento: cada dato que sabes es un gancho para el siguiente."
+     },
+     {
+      "p": "Una lección corta cada noche, como un entrenamiento, añade ganchos nuevos noche tras noche."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "La memoria necesita ganchos",
+    "blocs": [
+     {
+      "p": "La información nueva se queda cuando puede engancharse a algo que ya sabes. Los campeones la enganchan a lugares; los demás también podemos engancharla al conocimiento: cada dato que sabes es un gancho para el siguiente."
+     },
+     {
+      "p": "Una lección corta cada noche, como un entrenamiento, agrega ganchos nuevos noche tras noche."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "La memoria ha bisogno di ganci",
+    "blocs": [
+     {
+      "p": "Un'informazione nuova resta quando può agganciarsi a qualcosa che sai già. I campioni la agganciano a dei luoghi; noi possiamo agganciarla anche al sapere: ogni fatto che conosci è un gancio per il successivo."
+     },
+     {
+      "p": "Una breve lezione ogni sera, come un allenamento, aggiunge nuovi ganci sera dopo sera."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Hafızanın kancalara ihtiyacı var",
+    "blocs": [
+     {
+      "p": "Yeni bilgi, zaten bildiğin bir şeye tutunabildiğinde kalıcı olur. Şampiyonlar onu yerlere bağlar; biz de bilgiye bağlayabiliriz: bildiğin her bilgi, bir sonrakine bir kancadır."
+     },
+     {
+      "p": "Her akşam kısa bir ders, bir antrenman gibi, her gece yeni kancalar ekler."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "A memória precisa de ganchos",
+    "blocs": [
+     {
+      "p": "Uma informação nova fica quando consegue se prender a algo que você já sabe. Os campeões a prendem a lugares; nós também podemos prendê-la ao conhecimento: cada fato que você sabe é um gancho para o próximo."
+     },
+     {
+      "p": "Uma lição curta toda noite, como um treino, acrescenta ganchos novos noite após noite."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Spomin potrebuje kljukice",
+    "blocs": [
+     {
+      "p": "Nova informacija se prime, ko se lahko obesi na nekaj, kar že veš. Šampioni jo obesijo na kraje; mi jo lahko tudi na znanje: vsako dejstvo, ki ga poznaš, je kljukica za naslednje."
+     },
+     {
+      "p": "Kratka lekcija vsak večer, kot trening, doda nove kljukice večer za večerom."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Pamćenju trebaju kukice",
+    "blocs": [
+     {
+      "p": "Nova informacija ostaje kad se može zakačiti za nešto što već znaš. Prvaci je kače za mjesta; mi je možemo kačiti i za znanje: svaka činjenica koju znaš kukica je za sljedeću."
+     },
+     {
+      "p": "Kratka lekcija svake večeri, kao trening, dodaje nove kukice večer za večeri."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Das Gedächtnis braucht Haken",
+    "blocs": [
+     {
+      "p": "Neue Information bleibt hängen, wenn sie sich an etwas anheften kann, das du schon weißt. Gedächtnissportler heften sie an Orte; wir können sie auch an Wissen heften: Jede Tatsache, die du kennst, ist ein Haken für die nächste."
+     },
+     {
+      "p": "Eine kurze Lektion jeden Abend, wie ein Training, fügt Abend für Abend neue Haken hinzu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A memóriának kapaszkodók kellenek",
+    "blocs": [
+     {
+      "p": "Az új információ akkor marad meg, ha belekapaszkodhat valamibe, amit már tudsz. A bajnokok helyekhez kötik; mi a tudáshoz is köthetjük: minden ismert tény kapaszkodó a következőhöz."
+     },
+     {
+      "p": "Minden este egy rövid lecke, mint egy edzés, estéről estére új kapaszkodókat ad."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Build A Memory Palace",
+    "blocs": [
+     {
+      "p": "In one study, people with ordinary memories trained the method of loci for 30 minutes a day for six weeks. Their recall of a word list more than doubled, from about 26 to 62 words, and the gains were still there four months later."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Picture a route you know well, your home or your street, and place each item at a stop along the way. To remember, walk the route again in your mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Construis un palais mental",
+    "blocs": [
+     {
+      "p": "Dans une étude, des personnes à la mémoire ordinaire se sont entraînées à la méthode des lieux 30 minutes par jour pendant six semaines. Le nombre de mots retenus dans une liste a plus que doublé, d'environ 26 à 62, et le gain était encore là quatre mois plus tard."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Imagine un trajet que tu connais bien, ta maison ou ta rue, et pose chaque élément à une étape du chemin. Pour t'en souvenir, refais le trajet dans ta tête."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Construye un palacio de la memoria",
+    "blocs": [
+     {
+      "p": "En un estudio, personas con una memoria normal entrenaron el método de los lugares 30 minutos al día durante seis semanas. Las palabras que recordaban de una lista se multiplicaron por más de dos, de unas 26 a 62, y la mejora seguía ahí cuatro meses después."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Imagina un recorrido que conozcas bien, tu casa o tu calle, y deja cada elemento en una parada del camino. Para recordar, vuelve a recorrerlo en tu mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Arma un palacio de la memoria",
+    "blocs": [
+     {
+      "p": "En un estudio, personas con memoria común entrenaron el método de los lugares 30 minutos al día durante seis semanas. Las palabras que recordaban de una lista se multiplicaron por más de dos, de unas 26 a 62, y la mejora seguía ahí cuatro meses después."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Imagina un recorrido que conozcas bien, tu casa o tu calle, y deja cada cosa en una parada del camino. Para recordar, vuelve a recorrerlo en tu mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Costruisci un palazzo della memoria",
+    "blocs": [
+     {
+      "p": "In uno studio, persone con una memoria normale si sono allenate al metodo dei loci 30 minuti al giorno per sei settimane. Le parole ricordate di un elenco sono più che raddoppiate, da circa 26 a 62, e il miglioramento c'era ancora quattro mesi dopo."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Immagina un percorso che conosci bene, casa tua o la tua strada, e metti ogni elemento in una tappa del cammino. Per ricordare, ripercorrilo con la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Bir hafıza sarayı kur",
+    "blocs": [
+     {
+      "p": "Bir çalışmada, sıradan hafızaya sahip kişiler altı hafta boyunca günde 30 dakika loci yöntemiyle çalıştı. Bir listeden hatırladıkları kelime sayısı iki katından fazla arttı, yaklaşık 26'dan 62'ye çıktı ve kazanım dört ay sonra hâlâ yerindeydi."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "İyi bildiğin bir güzergâhı, evini ya da sokağını düşün ve her öğeyi yol üzerindeki bir durağa koy. Hatırlamak için güzergâhı zihninde yeniden yürü."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Construa um palácio da memória",
+    "blocs": [
+     {
+      "p": "Em um estudo, pessoas com memória comum treinaram o método dos lugares 30 minutos por dia durante seis semanas. As palavras que lembravam de uma lista mais que dobraram, de cerca de 26 para 62, e o ganho ainda estava lá quatro meses depois."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Imagine um caminho que você conhece bem, sua casa ou sua rua, e coloque cada item numa parada do trajeto. Para lembrar, percorra o caminho de novo na mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Zgradi spominsko palačo",
+    "blocs": [
+     {
+      "p": "V eni raziskavi so ljudje z običajnim spominom šest tednov po 30 minut na dan vadili metodo lokacij. Število zapomnjenih besed s seznama se je več kot podvojilo, s približno 26 na 62, napredek pa je ostal še štiri mesece pozneje."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Predstavljaj si pot, ki jo dobro poznaš, svoj dom ali ulico, in vsak predmet postavi na postajo ob poti. Ko se želiš spomniti, jo v mislih prehodi znova."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Izgradi palaču pamćenja",
+    "blocs": [
+     {
+      "p": "U jednom istraživanju ljudi s običnim pamćenjem šest su tjedana po 30 minuta dnevno vježbali metodu lokacija. Broj zapamćenih riječi s popisa više se nego udvostručio, s oko 26 na 62, a napredak je ostao i četiri mjeseca kasnije."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Zamisli put koji dobro poznaješ, svoj dom ili ulicu, i svaku stavku stavi na jednu postaju na putu. Kad se želiš sjetiti, ponovno ga prođi u mislima."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Bau einen Gedächtnispalast",
+    "blocs": [
+     {
+      "p": "In einer Studie trainierten Menschen mit gewöhnlichem Gedächtnis sechs Wochen lang täglich 30 Minuten die Loci-Methode. Die Zahl der behaltenen Wörter einer Liste verdoppelte sich mehr als, von etwa 26 auf 62, und der Zugewinn war vier Monate später noch da."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Stell dir einen Weg vor, den du gut kennst, deine Wohnung oder deine Straße, und leg jedes Element an einer Station ab. Um dich zu erinnern, geh den Weg in Gedanken noch einmal."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Építs memóriapalotát",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban átlagos memóriájú emberek hat hétig napi 30 percet gyakorolták a helyek módszerét. Egy szólista megjegyzett szavainak száma több mint kétszeresére nőtt, nagyjából 26-ról 62-re, és a javulás négy hónappal később is megvolt."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Képzelj el egy jól ismert útvonalat, az otthonodat vagy az utcádat, és tegyél minden elemet egy-egy megállóhoz. Ha emlékezni akarsz, járd végig újra gondolatban."
+     }
+    ]
+   }
+  }
+ ]
+}

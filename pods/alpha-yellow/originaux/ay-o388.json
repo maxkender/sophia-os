@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o388",
+ "type_bleo": "full_test",
+ "titre": "How to bounce back from a wasted year #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to bounce back from a wasted year » (retenue), « It's not too late, read this » (écartée : sans promesse), « Make next year count » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "72188404-128c-4a04-a92d-0a5bb6c34d34",
+   "texte_overlay": "How to bounce back\nfrom a wasted year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Stop calling it wasted. You learned what doesn't work, what you don't want and who your real friends are. That's not nothing.",
+   "media_id": "875d28bf-7c26-4052-a1c6-e614a8714abc"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Pick one big goal for the next twelve months. Health, money, a skill, a project. One clear target beats ten vague resolutions.",
+   "media_id": "875f203f-2c1b-4bd6-885e-52aed5b48cd0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Break it into weekly steps. A goal for the year becomes fifty-two small actions. Each week, you only need to win that week.",
+   "media_id": "87e8b546-7e15-4230-84a3-2e3305d580dc"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Fix your daily basics first. Sleep, food, movement. With a solid base, everything else becomes much easier. Start with sleep.",
+   "media_id": "87f90489-2743-4e09-b183-cc6d4cb69efd"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I felt I had lost a whole year. After: five minutes a day of history, art or science, and every day now feels like progress.",
+   "texte_sophia": "Before: I felt I had lost a whole year. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Every day now feels like progress.",
+   "media_id": "3a938982-143f-48f4-8a1c-00f61d9bf2fe"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Find someone to keep you accountable. A friend, a coach, a training partner. Telling someone your plan makes you far more likely to follow it.",
+   "media_id": "88022f4f-c186-4861-a34a-88c54b5470bc"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Celebrate the first month. Look back after thirty days and notice what changed. Momentum is built by seeing your own progress.",
+   "media_id": "8872c2a4-59b5-460d-8e47-9fb71a14e871"
+  }
+ ]
+}

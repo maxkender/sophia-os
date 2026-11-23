@@ -41,10 +41,10 @@ SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimmin
            "shelf", "vinyl", "record", "camera", "bicycle", "boat", "sail", "tree", "garden", "flower", "stairs", "sunrise"]
 SOPH_NON = ["edge of a swimming pool", "face", "portrait", "smiling", "looking at the camera", "two people", "three people",
             "group", "woman", "girl", "child", "showroom", "mercedes", "car",
-            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama", "joker", "prison", "bars", "jail"]
+            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama", "joker", "prison", "bars", "jail", "mask", "bane", "shirtless", "walking"]
 
 # images vues sur un aperçu avec un visage reconnaissable : jamais sur la slide Sophia
-SOPH_EXCLUS = {"4d3a1468", "99d2bcf3", "a71f427e"}
+SOPH_EXCLUS = {"4d3a1468", "4f9f0624", "683dda1a", "99d2bcf3", "a71f427e"}
 
 CACHE = "donnees/cache/empreintes.json"
 
@@ -110,6 +110,11 @@ def main():
                  and not (re.search(r"\b(man|men|person|people|boy|guy|player)\b", leg(k))
                           and not any(w in leg(k) for w in ["back to the camera", "silhouette", "swimming", "underwater", "diving", "surfer"]))],
                 key=lambda k: (lum(k) >= 110 or texte(k), IM[k]["used_count"], k))
+  # secours quand les décors connus sont épuisés : image sombre dont la légende ne parle d'aucune personne ni d'aucun personnage
+  PERSONNE = SOPH_NON + ["face", "portrait", "couple", "screenshot", "text", "quote", "statue", "movie", "still from", "film",
+                         "knight", "scene", "his ", "her ", "woman", "man ", "men ", "person", "people", "boy", "guy", "player"]
+  soph += sorted([k for k in IM if k in FP and k not in SOPH_EXCLUS and k not in soph and lum(k) < 85
+                  and not any(w in leg(k) for w in PERSONNE)], key=lambda k: (IM[k]["used_count"], k))
   for d in D:
     if d.get("cov"): pris.append(d["cov"])
   ordre_sons = sorted(range(len(SONS)), key=lambda i: (sons20.count(SONS[i][1]), i))[:7]

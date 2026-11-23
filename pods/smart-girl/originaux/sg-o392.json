@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o392",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8a1f0a53-4e96-4a4e-96ec-56b007e41148",
+ "titre": "how to become disgustingly educated #selfeducation #smartgirl #learning #darkacademia #intellectual",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "8a1f0a53-4e96-4a4e-96ec-56b007e41148"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 55 de la boîte (parent 8a1f0a53, langue source en) : accroche du parent mot pour mot. Idées du parent (dix pages par jour, histoire, documentaires, art et histoire chaque jour, philosophie de base, un sujet au hasard chaque semaine, apprendre à questionner). Sophia sur art et histoire comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c3af0611",
+   "texte_overlay": "how to become\ndisgustingly educated",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677671175090081056/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3e348ad5",
+   "texte_overlay": "read 10 pages a day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677671175090081056/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "790fed71",
+   "texte_overlay": "watch documentaries",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677671175090081056/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ae08f99e",
+   "texte_overlay": "study art and history daily",
+   "texte_sophia": "study art and history daily\n\nwith a micro-learning app\nlike the Sophia app",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677671175090081056/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8360b3e1",
+   "texte_overlay": "learn basic philosophy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677671175090081056/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "77e665eb",
+   "texte_overlay": "pick a random topic every week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677671175090081056/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "20e6f6cf",
+   "texte_overlay": "learn to ask better questions",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677671175090081056/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0ef810e0",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677671175090081056/4.jpg"
+  }
+ ]
+}

@@ -4,10 +4,11 @@
  * langue du posteur). Chaque situation dit si la demande se ferme tout de suite, si le contenu est signalé à la qualité
  * et si le jour compte comme fait.
  */
+import { PAIE_RUUL_DEUX_COMPTES } from "./doublement.ts";
 
 export type CleSituation =
   | "contenu_langue" | "contenu_texte_integre" | "contenu_police" | "contenu_texte_faux" | "contenu_hors_sujet" | "son_indisponible" | "petite_liberte"
-  | "commentaires" | "frais_ruul" | "pas_freelance" | "test_app" | "bon_avis" | "nom_compte" | "rien_prevu"
+  | "commentaires" | "frais_ruul" | "ruul_deux_comptes" | "pas_freelance" | "test_app" | "bon_avis" | "nom_compte" | "rien_prevu"
   | "assistant_boucle" | "reactiver_2e_compte";
 
 export interface SituationFixe {
@@ -27,7 +28,7 @@ export interface SituationFixe {
 export const TEXTES_SITUATIONS = {
   /** 22/11 (Max) : les 4 réponses officielles aux problèmes de contenu. */
   langue: "Translate it into your language as best you can and post it.",
-  texte_faux: "Please post an old TikTok you already posted. Today counts as done.",
+  texte_faux: "Please always post the text and images you are given. If there is really an issue with the post, edit the text so it makes sense, or post an old post that performed well.",
   texte_integre: "That's normal, the text is already on the images, just post the photos.",
   police: "That's fine.",
   hors_sujet: "Post it anyway. If it's really off-topic, post an old post that worked.",
@@ -35,6 +36,8 @@ export const TEXTES_SITUATIONS = {
   liberte: "That's fine, thanks for letting us know.",
   commentaires: "You can ignore or like those comments, no need to answer them. If someone asks for the link or what the app is, reply with the app link shown on your dashboard.",
   frais_ruul: "Vik Studios pays the Ruul fees, so your $10 arrives in full. After Monday's payment, the bank validation takes 1 to 2 business days (Tuesday or Wednesday).",
+  /** 22/11 (Max) : un posteur Ruul à 2 comptes TikTok n'ouvre pas un 2e compte Ruul. */
+  ruul_deux_comptes: PAIE_RUUL_DEUX_COMPTES,
   pas_freelance: "No need to be a freelancer, Ruul pays you as an individual. Just finish your Ruul sign-up.",
   test_app: "Thanks, but we only pay for posts.",
   bon_avis: "If you end properly, yes.",
@@ -44,6 +47,10 @@ export const TEXTES_SITUATIONS = {
   assistant_boucle: "Thanks for telling us. The team is fixing the Help assistant; you'll get a message here once it's done.",
   reactive: "Done, your second account is active again on your dashboard.",
 } as const;
+
+// 22/11 (Max) : un posteur Ruul à 2 comptes TikTok croit devoir ouvrir un 2e compte Ruul (2e email, 2e vérification).
+const RUUL_DEUX_COMPTES = /(second|2nd|another|two|2|both|separate|new|other)\s+(different\s+|separate\s+|new\s+)?(ruul\s+)?(ruul|verifications?|kyc|e-?mails?|sign[\s-]?ups?|profiles?|ruul\s+accounts?)|(only|just)\s+(do\s+)?(one|1)\s+(ruul\s+)?(verification|kyc|account)|(paid|payments?|pay)\s+for\s+(both|two|2|my\s+(second|2nd|other))\s+accounts?/i;
+const MENTION_RUUL = /\bruul\b/i;
 
 const n = (t: string) => t.replace(/[’‘`]/g, "'");
 
@@ -95,6 +102,9 @@ export function situationFixe(message: string, o: { plateforme: "ruul" | "upwork
   if (LIBERTE.test(t)) return { cle: "petite_liberte", texte: TEXTES_SITUATIONS.liberte, categorie: "posting", fermer: true };
   if (SON.test(t)) return { cle: "son_indisponible", texte: TEXTES_SITUATIONS.son, categorie: "posting", fermer: true };
   if (COMMENTAIRES.test(t) && COMMENTAIRE_SUJET.test(t)) return { cle: "commentaires", texte: TEXTES_SITUATIONS.commentaires, categorie: "posting", fermer: true };
+  if ((MENTION_RUUL.test(t) || o.plateforme === "ruul") && RUUL_DEUX_COMPTES.test(t)) {
+    return { cle: "ruul_deux_comptes", texte: TEXTES_SITUATIONS.ruul_deux_comptes, categorie: "ruul", fermer: true };
+  }
   if (FRAIS_RUUL.test(t)) return { cle: "frais_ruul", texte: TEXTES_SITUATIONS.frais_ruul, categorie: "ruul", fermer: true };
   if (PAS_FREELANCE.test(t)) return { cle: "pas_freelance", texte: TEXTES_SITUATIONS.pas_freelance, categorie: "ruul", fermer: true };
   if (BON_AVIS.test(t)) return { cle: "bon_avis", texte: TEXTES_SITUATIONS.bon_avis, categorie: "upwork", fermer: true };

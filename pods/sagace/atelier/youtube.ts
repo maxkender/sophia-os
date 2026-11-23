@@ -197,6 +197,9 @@ const REGION: Record<string, { hl: string; gl: string }> = {
   tr: { hl: "tr", gl: "TR" },
   ro: { hl: "ro", gl: "RO" },
   cs: { hl: "cs", gl: "CZ" },
+  hu: { hl: "hu", gl: "HU" },
+  el: { hl: "el", gl: "GR" },
+  sr: { hl: "sr", gl: "RS" },
 };
 
 const ENTETES = {
@@ -308,6 +311,7 @@ export function dateAppli(date: string, langue = "en"): string {
     const mot = { "r.": un ? "rokem" : "lety", "l.": un ? "rokem" : "lety", "měs.": un ? "měsícem" : "měsíci", "týd.": un ? "týdnem" : "týdny", "d.": un ? "dnem" : "dny", "h.": un ? "hodinou" : "hodinami", "min.": un ? "minutou" : "minutami" }[cs[2]];
     return `před ${cs[1]} ${mot}`;
   }
+  if (langue === "sr") return latin(date);
   const m = date.match(/^(\d+)\s*(y|yr|mo|w|wk|d|h|min)s?\s+ago$/i);
   if (!m || langue !== "en") return date;
   const unite = { y: "year", yr: "year", mo: "month", w: "week", wk: "week", d: "day", h: "hour", min: "minute" }[m[2].toLowerCase()] ?? m[2];
@@ -331,14 +335,15 @@ export async function details(id: string, langue = "en", recherche?: string): Pr
     chaine: r.chaine,
     vues: VUES_LOCALES[langue] && r.vues_courtes ? VUES_LOCALES[langue](r.vues_courtes) : r.vues_exactes !== null ? formatVues(r.vues_exactes, langue) : r.vues,
     date: dateAppli(r.date, langue),
-    duree: r.duree,
+    // En serbe, YouTube écrit « 9.48 » : la miniature affiche toujours « 9:48 ».
+    duree: /^\d+(\.\d\d)+$/.test(r.duree) ? r.duree.replace(/\./g, ":") : r.duree,
     avatar: r.avatar,
     vues_exactes: r.vues_exactes,
   };
 }
 
 /**
- * Les vues comme l'appli les écrit en de, es, it, pt, tr, ro et cs : le chiffre compact
+ * Les vues comme l'appli les écrit en de, es, it, pt, tr, ro, cs, hu, el et sr : le chiffre compact
  * que YouTube donne lui-même dans la langue, puis le mot (« 1,2 Mio. Aufrufe »,
  * « 1,2 M de visualizaciones », « 1,2 Mln visualizzazioni », « 1,2 mi visualizações »).
  */
@@ -352,7 +357,21 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   tr: (c) => `${c} görüntüleme`,
   ro: (c) => `${c} vizionări`,
   cs: (c) => `${c} zhlédnutí`,
+  hu: (c) => `${c} megtekintés`,
+  el: (c) => `${c} προβολές`,
+  sr: (c) => `${latin(c)} pregleda`,
 };
+
+/** Le serbe des decks s'écrit en latin ; YouTube (hl=sr) répond en cyrillique : on translittère. */
+const CYR: Record<string, string> = { а: "a", б: "b", в: "v", г: "g", д: "d", ђ: "đ", е: "e", ж: "ž", з: "z", и: "i", ј: "j", к: "k", л: "l", љ: "lj", м: "m", н: "n", њ: "nj", о: "o", п: "p", р: "r", с: "s", т: "t", ћ: "ć", у: "u", ф: "f", х: "h", ц: "c", ч: "č", џ: "dž", ш: "š" };
+export function latin(t: string): string {
+  return [...t].map((ch) => {
+    const bas = ch.toLowerCase();
+    const l = CYR[bas];
+    if (l === undefined) return ch;
+    return ch === bas ? l : l.charAt(0).toUpperCase() + l.slice(1);
+  }).join("");
+}
 
 /** « 3.4M views » : un chiffre après la virgule sous 10, tronqué comme l'appli. */
 export function formatVues(n: number, langue = "en"): string {

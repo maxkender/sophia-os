@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o165",
+  "type_bleo": "full_test",
+  "titre": "how i stopped making careless mistakes in maths tests #studytok #studytips #maths",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 23/11 : 2 full tests sur 9). Accroche jamais faite chez nous (« careless mistakes » absent du label). Accroches écrites : « how i stopped making careless mistakes in maths tests » (retenue : une perte de points évitable, très partagée), « maths test tips » (écartée : vague), « never lose points in maths again » (écartée : promesse absolue). Gestes vrais : écrire chaque étape, souligner ce qui est demandé, vérifier l'ordre de grandeur, un carnet de mes erreurs types, une pause qui repose entre deux séries (slide Sophia, 5), refaire le calcul autrement à la fin. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8fe766a4",
+      "texte_overlay": "how i stopped making careless mistakes\nin maths tests",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "231891fe",
+      "texte_overlay": "i write every step. even the obvious ones.\nskipping steps is where signs disappear.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "873aaaaa",
+      "texte_overlay": "i underline what the question actually asks.\nx, or the value of 2x?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d6ecf79f",
+      "texte_overlay": "i check if the answer makes sense.\na 400 km/h bike is a mistake.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "098497fd",
+      "texte_overlay": "between two exercise sets, a real 5-minute break.\na tired brain drops minus signs.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "between two exercise sets, a real 5-minute break\non a micro-learning app like the Sophia app.\na tired brain drops minus signs."
+    },
+    {
+      "position": 6,
+      "media_id": "8a52c130",
+      "texte_overlay": "a notebook of my typical mistakes.\ni read it before every test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5777d47e",
+      "texte_overlay": "at the end, i redo one calculation a different way.\nsame answer = safe.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

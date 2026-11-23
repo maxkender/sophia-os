@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o391",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7b9ce2e1-50ee-4b32-ab33-12d39805771c",
+ "titre": "Things a grown man should have in his life by 30 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "7b9ce2e1-50ee-4b32-ab33-12d39805771c"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (7b9ce2e1, de 3 k r 2,51), 3e et dernière déclinaison après ay-o355 et ay-o373. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o355, o373.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "739f65b6-d462-4ec6-b795-7416419481cc",
+   "texte_overlay": "Things a grown man\nshould have in his life by 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A doctor and a dentist he actually visits. Regular check-ups catch small problems before they become big ones. Book them once a year.",
+   "media_id": "8c12470b-47cc-4b81-b884-7d9c3ec4c563"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "A simple will and the right paperwork. It sounds boring, but organised documents protect the people you love. Do it once.",
+   "media_id": "8c34f55b-fe73-4288-944c-c5750320c3f5"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A good barber who knows his hair. A regular cut from someone you trust keeps you looking sharp without effort. Same chair, every month.",
+   "media_id": "8c64b127-b8e1-4e17-b807-66be42be6404"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "A small group of friends he can call at 3am. Not hundreds of contacts, just a few people who would really show up. Keep them close.",
+   "media_id": "8c71d406-8e72-409a-8b8a-13678659687a"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A daily learning habit is the best thing I've added to my life.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A daily learning habit is the best thing I've added to my life.",
+   "media_id": "62dd2771-3184-420a-9349-eb1af8e2f658"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A sport he keeps doing. Football, running, climbing, boxing. Something that keeps him fit and connected to other people.",
+   "media_id": "8c81ffc1-0aaf-4d80-8c6b-d62c8613d731"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "A savings account that grows every month. Even small amounts. Watching it grow gives calm and confidence. Automate it.",
+   "media_id": "8c995139-5f9e-47a1-b6a4-c6fc9eed24e4"
+  }
+ ]
+}

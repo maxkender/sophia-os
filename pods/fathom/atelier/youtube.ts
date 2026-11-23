@@ -184,6 +184,8 @@ const REGION: Record<string, { hl: string; gl: string }> = {
   no: { hl: "no", gl: "NO" },
   et: { hl: "et", gl: "EE" },
   fi: { hl: "fi", gl: "FI" },
+  sr: { hl: "sr-Latn", gl: "RS" },
+  el: { hl: "el", gl: "GR" },
 };
 
 const ENTETES = {
@@ -327,6 +329,14 @@ export function dateAppli(date: string, langue = "en"): string {
     const mot = { v: un ? "vuosi" : "vuotta", kk: un ? "kuukausi" : "kuukautta", vk: un ? "viikko" : "viikkoa", pv: un ? "päivä" : "päivää" }[fi[2]];
     return `${fi[1]} ${mot} sitten`;
   }
+  // sr (latinica) : « pre 7 god. » ; l'appli écrit le mot.
+  const sr = date.match(/^pre (\d+)\s*(god\.|mes\.|ned\.|dana)$/);
+  if (langue === "sr" && sr) {
+    const k = Number(sr[1]);
+    const f = k % 10 === 1 && k % 100 !== 11 ? 0 : k % 10 >= 2 && k % 10 <= 4 && (k % 100 < 12 || k % 100 > 14) ? 1 : 2;
+    const mot = { "god.": ["godinu", "godine", "godina"], "mes.": ["mesec", "meseca", "meseci"], "ned.": ["nedelju", "nedelje", "nedelja"], dana: ["dan", "dana", "dana"] }[sr[2]]?.[f];
+    return `pre ${sr[1]} ${mot}`;
+  }
   const m = date.match(/^(\d+)\s*(y|yr|mo|w|wk|d|h|min)s?\s+ago$/i);
   if (!m || langue !== "en") return date;
   const unite = { y: "year", yr: "year", mo: "month", w: "week", wk: "week", d: "day", h: "hour", min: "minute" }[m[2].toLowerCase()] ?? m[2];
@@ -384,6 +394,8 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   no: (c) => `${c} avspillinger`,
   et: (c) => `${c} vaatamist`,
   fi: (c) => `${c} katselukertaa`,
+  sr: (c) => `${c} pregleda`,
+  el: (c) => `${c} προβολές`,
 };
 
 /** « 3.4M views » : un chiffre après la virgule sous 10, tronqué comme l'appli. */

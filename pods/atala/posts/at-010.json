@@ -1,0 +1,143 @@
+{
+ "id": "at-010",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7698491321337597215",
+  "vues": 175700,
+  "publie_le": "2026-10-19",
+  "accroche": "beginner runner / do and don’ts"
+ },
+ "titre": {
+  "en": "back to running do and don’ts",
+  "fr": "reprendre la course : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #backtorunning #runningtips #girlswhorun #runningadvice",
+  "fr": "#courseapied #reprise #running #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "La Mentira",
+  "url": "https://www.tiktok.com/music/la-mentira-6705056394258679809"
+ },
+ "notes": "Preuve : « beginner runner / do and don’ts » de @katrina.run (176 k vues, 19/10) ; même gabarit (objets), un sujet voisin (reprendre après une pause, listé dans AGENT.md). Aucun objet neuf ; couverture : coureuse-pluie. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (la 1re semaine : un plan qui repart de ton niveau). Légende selon placement_atala (vignettes très courtes : voix NEUTRE) : « a plan from an app like atala » / « appli de coach comme atala ». Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-pluie.png",
+   "en": {
+    "titre": "back to running\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "reprendre la course :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "atala",
+    "images/objets/rouleau.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/sac-sport.png"
+   ],
+   "en": {
+    "titre": "week one",
+    "do": [
+     "short runs,\nslow pace",
+     "a plan from an\napp like atala",
+     "a foam roller"
+    ],
+    "dont": [
+     "chasing your\nold pace",
+     "too much,\ntoo soon"
+    ]
+   },
+   "fr": {
+    "titre": "la reprise",
+    "do": [
+     "courir court\net lent",
+     "appli de coach\ncomme atala",
+     "ton rouleau"
+    ],
+    "dont": [
+     "viser ton\nancien chrono",
+     "en faire\ntrop d’un coup"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/gourde.png",
+    "images/objets/masque.png",
+    "images/objets/banane.png"
+   ],
+   "dont": [
+    "images/objets/cafes.png",
+    "images/objets/boite-chaussures.png"
+   ],
+   "en": {
+    "titre": "the next weeks",
+    "do": [
+     "water\nall day",
+     "real sleep",
+     "a snack\nbefore you go"
+    ],
+    "dont": [
+     "coffee instead\nof sleep",
+     "new shoes\nright away"
+    ]
+   },
+   "fr": {
+    "titre": "la suite",
+    "do": [
+     "bois souvent",
+     "bien dormir",
+     "un petit\nen-cas avant"
+    ],
+    "dont": [
+     "café au lieu\nde dormir",
+     "des baskets\nneuves direct"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/verre-eau.png",
+    "images/objets/pommeau.png",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/halteres.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "after each run",
+    "do": [
+     "a big glass\nof water",
+     "a warm shower",
+     "dry clothes\nright away"
+    ],
+    "dont": [
+     "heavy squats",
+     "a glass\nof wine"
+    ]
+   },
+   "fr": {
+    "titre": "après la sortie",
+    "do": [
+     "un grand\nverre d’eau",
+     "douche chaude",
+     "vite, au sec"
+    ],
+    "dont": [
+     "squats lourds",
+     "un verre\nde vin"
+    ]
+   }
+  }
+ ]
+}

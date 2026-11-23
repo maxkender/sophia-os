@@ -1,0 +1,91 @@
+{
+ "id": "bn-005",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7708351504448556306",
+  "vues": 49300,
+  "publie_le": "2026-11-15",
+  "accroche": "5 HABITS EVERY MAN SHOULD HAVE"
+ },
+ "titre": {
+  "en": "habits that make a man stand out"
+ },
+ "legendes": {
+  "en": "the quiet stuff people notice #selfimprovement #habits #tipsformen #running #discipline"
+ },
+ "musique": {
+  "titre": "Grope in the Dark",
+  "url": "https://www.tiktok.com/music/grope-in-the-dark-7652952126876321793"
+ },
+ "notes": "Full test (boîte vide, aucun post neuf chez lui à la veille du 23/11). Famille « 5 HABITS EVERY MAN SHOULD HAVE » de @built.not.born61 (49.3 k vues, 2026-11-15), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : dfb645a3, aucune marque lisible) et le logo d'Atala. placement_atala : voix NEUTRE (hook de 8 mots), argument « débute : plan à son niveau, augmente petit à petit ». Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-pluie.png": "dfb645a3-052b-4998-8a88-b67092f1b321"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-5.png",
+   "en": {
+    "titre": "5 HABITS THAT MAKE\nA MAN STAND OUT."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/lit.png",
+   "mode": "objet",
+   "taille": 480,
+   "en": {
+    "titre": "1. Make your bed",
+    "texte": "Start the day with one thing done. It takes 2 minutes and sets the tone for everything after."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/blazer.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "2. Dress one level up",
+    "texte": "Swap the hoodie for a jacket once in a while. People treat you the way you show up."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-pluie.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run 3 times a week",
+    "texte": "Most men start too hard and stop. Running coach apps like Atala start at your level and build up slowly."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/gourde.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "4. Drink water all day",
+    "texte": "Keep a bottle on your desk and refill it. Even mild dehydration drains your focus."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/livre.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "5. Read before bed",
+    "texte": "Swap the last scroll of the day for 10 pages. Your mind slows down before sleep."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

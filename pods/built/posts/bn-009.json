@@ -1,0 +1,91 @@
+{
+ "id": "bn-009",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7707887636395920646",
+  "vues": 12400,
+  "publie_le": "2026-11-14",
+  "accroche": "5 THINGS TO DO BEFORE 2027"
+ },
+ "titre": {
+  "en": "things every man should do before 30"
+ },
+ "legendes": {
+  "en": "start before you feel ready #selfimprovement #lifeadvice #tipsformen #running #goals"
+ },
+ "musique": {
+  "titre": "A Good Man with a Broken Heart",
+  "url": "https://www.tiktok.com/music/a-good-man-with-a-broken-heart-7516544094085974017"
+ },
+ "notes": "Full test (boîte vide, aucun post neuf chez lui à la veille du 23/11). Famille « 5 THINGS TO DO BEFORE 2027 » de @built.not.born61 (12.4 k vues, 2026-11-14), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : 5aadac81, aucune marque lisible) et le logo d'Atala. placement_atala : voix TU (hook de 7 mots), argument « progresser : des semaines construites pour l'objectif ». Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-piste.png": "5aadac81-9008-4fe7-9e87-cb8e6d6f901e"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-9.png",
+   "en": {
+    "titre": "THINGS EVERY MAN\nSHOULD DO\nBEFORE 30."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/poele.png",
+   "mode": "objet",
+   "taille": 460,
+   "en": {
+    "titre": "1. Learn to cook 5 meals",
+    "texte": "Cheap, healthy and impressive. Five meals you can make without a recipe."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/portefeuille.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "2. Build an emergency fund",
+    "texte": "Save a few months of expenses. Money stress drops when you have a cushion."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-piste.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run a 10K",
+    "texte": "A real goal keeps you training. A running coach app like Atala builds your weeks around the race."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/sac.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "4. Travel alone once",
+    "texte": "One trip on your own teaches you more about yourself than a year at home."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/agenda.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Keep a journal",
+    "texte": "Write a few lines every night. Later, you'll see how far you've come."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-5.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

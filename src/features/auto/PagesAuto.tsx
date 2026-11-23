@@ -45,6 +45,7 @@ import { PageAuto } from "./PageAuto";
 import { PageLogs } from "./PageLogs";
 import { PageProblemes } from "./PageProblemes";
 import { PageRecruits } from "./PageRecruits";
+import { CarteWhatsApp } from "@/features/whatsapp/CarteWhatsApp";
 import { PretLundi } from "./pret/PretLundi";
 import { ContratsTest } from "./test/ContratsTest";
 import { PageUpworkAAjouter } from "@/features/upworkAjouter/PageUpworkAAjouter";
@@ -88,7 +89,11 @@ export function OverviewPage() {
 export function RecruitsPage() {
   return (
     <PageAuto cle="recruits">
-      <PageRecruits />
+      <div className="space-y-4">
+        {/* 0839 : la carte WhatsApp (numéro + accord, envois de la semaine, coût). */}
+        <CarteWhatsApp />
+        <PageRecruits />
+      </div>
     </PageAuto>
   );
 }
@@ -343,6 +348,8 @@ export function RuulSuiviPage() {
     <PageAuto cle="ruul_suivi">
       <div className="space-y-4">
         <SuiviRuul />
+        {/* 0839 : la carte WhatsApp (numéro + accord, envois de la semaine, coût). */}
+        <CarteWhatsApp />
         <PlateformesPosteurs />
         <StatutsRuulApi />
         <InjoignablesRuul />

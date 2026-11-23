@@ -311,7 +311,7 @@ export function dateAppli(date: string, langue = "en"): string {
     const mot = { "r.": un ? "rokem" : "lety", "l.": un ? "rokem" : "lety", "měs.": un ? "měsícem" : "měsíci", "týd.": un ? "týdnem" : "týdny", "d.": un ? "dnem" : "dny", "h.": un ? "hodinou" : "hodinami", "min.": un ? "minutou" : "minutami" }[cs[2]];
     return `před ${cs[1]} ${mot}`;
   }
-  if (langue === "sr") return latin(date);
+  if (langue === "sr") return dateSerbe(latin(date));
   const m = date.match(/^(\d+)\s*(y|yr|mo|w|wk|d|h|min)s?\s+ago$/i);
   if (!m || langue !== "en") return date;
   const unite = { y: "year", yr: "year", mo: "month", w: "week", wk: "week", d: "day", h: "hour", min: "minute" }[m[2].toLowerCase()] ?? m[2];
@@ -361,6 +361,25 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   el: (c) => `${c} προβολές`,
   sr: (c) => `${latin(c)} pregleda`,
 };
+
+/** « pre 8 god. » → « pre 8 godina » : l'appli écrit le mot entier, accordé au nombre. */
+export function dateSerbe(date: string): string {
+  const m = date.match(/^pre (\d+)\s*(god\.|mes\.|ned\.|dan\.?|sat\.?|min\.)$/);
+  if (!m) return date;
+  const n = Number(m[1]);
+  const forme = (un: string, peu: string, plus: string) => (n % 10 === 1 && n % 100 !== 11 ? un : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? peu : plus);
+  const mots: Record<string, string> = {
+    "god.": forme("godinu", "godine", "godina"),
+    "mes.": forme("mesec", "meseca", "meseci"),
+    "ned.": forme("nedelju", "nedelje", "nedelja"),
+    "dan.": forme("dan", "dana", "dana"),
+    dan: forme("dan", "dana", "dana"),
+    "sat.": forme("sat", "sata", "sati"),
+    sat: forme("sat", "sata", "sati"),
+    "min.": forme("minut", "minuta", "minuta"),
+  };
+  return `pre ${n} ${mots[m[2]]}`;
+}
 
 /** Le serbe des decks s'écrit en latin ; YouTube (hl=sr) répond en cyrillique : on translittère. */
 const CYR: Record<string, string> = { а: "a", б: "b", в: "v", г: "g", д: "d", ђ: "đ", е: "e", ж: "ž", з: "z", и: "i", ј: "j", к: "k", л: "l", љ: "lj", м: "m", н: "n", њ: "nj", о: "o", п: "p", р: "r", с: "s", т: "t", ћ: "ć", у: "u", ф: "f", х: "h", ц: "c", ч: "č", џ: "dž", ш: "š" };

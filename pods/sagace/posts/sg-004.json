@@ -14,7 +14,8 @@
   "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed",
   "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler",
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll",
-  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování"
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování",
+  "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja"
  },
  "legendes": {
   "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -24,7 +25,8 @@
   "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -205,6 +207,28 @@
      },
      {
       "t": "SCROLLOVÁNÍ",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 110
+     },
+     {
+      "t": "KOJE MOŽEŠ DA NAUČIŠ",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "UMESTO",
+      "cap": 118
+     },
+     {
+      "t": "SKROLOVANJA",
       "cap": 152,
       "couleur": "#f7b955"
      }
@@ -396,6 +420,29 @@
     "sous": [
      "2-3 hodiny na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "POSTATI",
+     [
+      {
+       "t": "ELOKVENTAN",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vnys2YfmD2A",
+     "titre": "Kako poboljšati Javni nastup i dikciju 🧐 Janja Jovanović",
+     "chaine": "Janja Jovanović",
+     "vues": "16 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "18:21",
+     "avatar": "https://yt3.ggpht.com/eLolgWe7EiBlBeG7sP-lu1LfnewuGm9L4zgV3ITu_xxHvp7gdurqakXT2sKXAl8dro--2tR9pQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
    }
   },
   {
@@ -583,6 +630,29 @@
     "sous": [
      "30 min na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "ZASPATI",
+     [
+      {
+       "t": "ZA 2 MINUTA",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dCVyqWeGYyo",
+     "titre": "Kako da se brzo uspavaš i poboljšaš san",
+     "chaine": "Viktor Jeremic",
+     "vues": "21 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "16:34",
+     "avatar": "https://yt3.ggpht.com/A6pZ4qw4hjm-jmqj4SM_WheoWPXyUWzlRn_0cA7A0ssFT43p_5SJAi_BlDHMzdhyYvjAViJQV7k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
    }
   },
   {
@@ -754,6 +824,27 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "GOVORITI",
+     [
+      {
+       "t": "O SVEMU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -942,6 +1033,29 @@
     "sous": [
      "1 hodina na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "TRČATI",
+       "couleur": "#a5877b"
+      }
+     ],
+     "BEZ POVREDA"
+    ],
+    "video": {
+     "id": "8A2TVkBAvwc",
+     "titre": "3 najčešće greške u trčanju",
+     "chaine": "Trcanje.rs Youtube",
+     "vues": "42 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "1:49",
+     "avatar": "https://yt3.ggpht.com/dshbVVHtnhFOU5dkgxrDibnbxBBf3cL-NVdGerl03oqGgOWuB2_ab1NaEnn4HxugF1Ig_o2G=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
    }
   },
   {
@@ -1129,6 +1243,29 @@
     "sous": [
      "15 min na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "SKUVATI",
+     [
+      {
+       "t": "DOBRU KAFU",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gKD0E9mghMY",
+     "titre": "Kako skuvati tursku kafu bez šećera - crna kafa pune arome!",
+     "chaine": "Moja Kuhinja Tanja",
+     "vues": "172 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/3rZn9dOHHpPb26oCJO9uYnpb9nDrl72Dvs9VclCxq41xT5uI4_P2zgxtlgpQAporEPgvxy9d=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
    }
   },
   {
@@ -1315,6 +1452,29 @@
     },
     "sous": [
      "15 min na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "PEGLATI",
+       "couleur": "#bd6851"
+      }
+     ],
+     "KOŠULJU"
+    ],
+    "video": {
+     "id": "tq3NfXsBlcg",
+     "titre": "Peglanje muske košulje",
+     "chaine": "Moje Tajne Sivenja",
+     "vues": "48 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "4:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nB5KX6EY0T66iGhfFfqw5zHWmW4mWxSl6BQ63co7b9UuRi=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
     ]
    }
   }

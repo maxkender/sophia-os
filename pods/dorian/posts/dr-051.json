@@ -1,0 +1,136 @@
+{
+ "id": "dr-051",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698306039745187073",
+  "vues": 568900,
+  "publie_le": "2026-10-19",
+  "accroche": "5 niche ways to disgustingly improve your critical thinking"
+ },
+ "titre": {
+  "en": "5 niche ways to disgustingly improve your writing",
+  "de": "5 nischen-tricks für absurd gutes schreiben",
+  "sv": "5 nischade sätt att skriva sjukt mycket bättre"
+ },
+ "legendes": {
+  "en": "#niche #writing #lockedin #selfimprovement",
+  "de": "#schreiben #sprache #lernen #selbstverbesserung",
+  "sv": "#skrivande #språk #lärande #självutveckling"
+ },
+ "musique": {
+  "titre": "son original - leonardo®",
+  "url": "https://www.tiktok.com/music/original-sound-7086074390672149254"
+ },
+ "notes": "Original sur sa liste à 569 k, sujet écriture. Fait : Franklin réécrivait des essais du Spectator (Autobiographie). Images de la banque (plume Seedream, tableaux AIC Füssli et Palma le Jeune). En, de, sv ; une couverture par langue. Sophia en item 3 sur 5 (cta B), écran accueil traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche ways to disgustingly improve your writing",
+    "image": "images/cerveau-21.jpg",
+    "legende": "(no ai needed)"
+   },
+   "de": {
+    "titre": "5 nischen-tricks für absurd gutes schreiben",
+    "image": "images/cerveau-23.jpg",
+    "legende": "(ohne ki)"
+   },
+   "sv": {
+    "titre": "5 nischade sätt att skriva sjukt mycket bättre",
+    "image": "images/cerveau-25.jpg",
+    "legende": "(ingen ai behövs)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Cut every \"very\"",
+    "texte": "\"very tired\" becomes exhausted. \"very big\" becomes huge. one strong word beats two weak ones",
+    "image": "images/objets/plume.png"
+   },
+   "de": {
+    "titre": "Streich jedes \"sehr\"",
+    "texte": "\"sehr müde\" wird erschöpft. \"sehr groß\" wird riesig. ein starkes wort schlägt zwei schwache",
+    "image": "images/objets/plume.png"
+   },
+   "sv": {
+    "titre": "Stryk varje \"väldigt\"",
+    "texte": "\"väldigt trött\" blir utmattad. \"väldigt stor\" blir enorm. ett starkt ord slår två svaga",
+    "image": "images/objets/plume.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Read it out loud",
+    "texte": "your ear catches what your eye skips: clunky rhythm, repeated words, sentences that never end",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "de": {
+    "titre": "Lies es laut vor",
+    "texte": "dein ohr hört, was dein auge überspringt: holpriger rhythmus, wiederholte wörter, sätze ohne ende",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "sv": {
+    "titre": "Läs det högt",
+    "texte": "örat hör det ögat hoppar över: hackig rytm, upprepade ord, meningar som aldrig tar slut",
+    "image": "images/femme-ecrivant.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "good writers read a lot. 10 minutes a day of well-written lessons on history, philosophy and science, then a quiz",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "gute autoren lesen viel. 10 minuten am tag gut geschriebene lektionen über geschichte, philosophie und wissenschaft, dann ein quiz",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "bra skribenter läser mycket. 10 minuter om dagen med välskrivna lektioner om historia, filosofi och vetenskap, sen ett quiz",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Write ugly first",
+    "texte": "a bad first draft is the point. you can't edit a blank page. fix it tomorrow, with fresh eyes",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "de": {
+    "titre": "Schreib erst hässlich",
+    "texte": "ein schlechter erster entwurf ist der sinn der sache. eine leere seite kann man nicht überarbeiten. verbessere ihn morgen, mit frischem blick",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "sv": {
+    "titre": "Skriv fult först",
+    "texte": "ett dåligt första utkast är meningen. man kan inte redigera en tom sida. fixa det i morgon, med nya ögon",
+    "image": "images/machine-ecrire-scene.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Copy a sentence you love",
+    "texte": "write it out by hand, word for word. benjamin franklin taught himself to write by rewriting essays from a magazine he admired",
+    "image": "images/homme-billet.jpg"
+   },
+   "de": {
+    "titre": "Schreib einen Lieblingssatz ab",
+    "texte": "schreib ihn von hand ab, wort für wort. benjamin franklin brachte sich das schreiben bei, indem er essays aus einer zeitschrift nachschrieb",
+    "image": "images/homme-billet.jpg"
+   },
+   "sv": {
+    "titre": "Skriv av en mening du älskar",
+    "texte": "skriv av den för hand, ord för ord. benjamin franklin lärde sig skriva genom att skriva om essäer ur en tidskrift han beundrade",
+    "image": "images/homme-billet.jpg"
+   }
+  }
+ ]
+}

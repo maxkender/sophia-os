@@ -1,0 +1,286 @@
+{
+ "id": "dr-050",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of grandpa hobbies",
+  "nl": "IJsberg van opa-hobby's",
+  "hu": "A nagypapa-hobbik jéghegye"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #grandpa #oldsoul #selfimprovement",
+  "nl": "#ijsberg #hobbys #opa #zelfontwikkeling",
+  "hu": "#jéghegy #hobbi #nagypapa #önfejlesztés"
+ },
+ "musique": {
+  "titre": "Loving machine slowed instrumental - ew, gif",
+  "url": "https://www.tiktok.com/music/original-sound-7277055046490032942"
+ },
+ "notes": "Original sur son iceberg à 1,1 M (« Iceberg of ADHD hobbies »), sujet « grandpa ». Sophia au 2e étage (icône). En, nl, hu ; variantes 3, 4, 5. Première livraison neuve en hongrois (langue ouverte le 23/11).",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "grandpa hobbies",
+    "variante": 3
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "opa-hobby's",
+    "variante": 4
+   },
+   "hu": {
+    "haut": "A nagypapa-hobbik",
+    "bas": "jéghegye",
+    "variante": 5
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "crosswords",
+       "image": "images/objets/mots-croises.png"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "morning tea",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "long walks",
+       "image": "images/objets/chaussures-marche.png"
+      }
+     ],
+     [
+      {
+       "t": "a sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "fishing",
+       "image": "images/objets/canne-peche.png"
+      },
+      {
+       "t": "radio news",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "pipe stories",
+       "image": "images/objets/pipe.png"
+      }
+     ],
+     [
+      {
+       "t": "pickling",
+       "image": "images/objets/bocal.png"
+      },
+      {
+       "t": "gardening",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "fixing everything",
+       "image": "images/objets/cle-anglaise.png"
+      },
+      {
+       "t": "model ships",
+       "image": "images/objets/maquette-bateau.png"
+      }
+     ],
+     [
+      {
+       "t": "pigeon racing",
+       "image": "images/objets/pigeon-voyageur.png"
+      },
+      {
+       "t": "card games",
+       "image": "images/objets/cartes.png"
+      },
+      {
+       "t": "old cameras",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "writing letters by hand",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "puzzels",
+       "image": "images/objets/mots-croises.png"
+      },
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "ochtendthee",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "lange wandelingen",
+       "image": "images/objets/chaussures-marche.png"
+      }
+     ],
+     [
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "vissen",
+       "image": "images/objets/canne-peche.png"
+      },
+      {
+       "t": "radionieuws",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "pijpverhalen",
+       "image": "images/objets/pipe.png"
+      }
+     ],
+     [
+      {
+       "t": "inmaken",
+       "image": "images/objets/bocal.png"
+      },
+      {
+       "t": "tuinieren",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "alles repareren",
+       "image": "images/objets/cle-anglaise.png"
+      },
+      {
+       "t": "modelschepen",
+       "image": "images/objets/maquette-bateau.png"
+      }
+     ],
+     [
+      {
+       "t": "duivensport",
+       "image": "images/objets/pigeon-voyageur.png"
+      },
+      {
+       "t": "kaarten",
+       "image": "images/objets/cartes.png"
+      },
+      {
+       "t": "oude camera's",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "brieven met de hand",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "keresztrejtvény",
+       "image": "images/objets/mots-croises.png"
+      },
+      {
+       "t": "sakk",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "reggeli tea",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "hosszú séták",
+       "image": "images/objets/chaussures-marche.png"
+      }
+     ],
+     [
+      {
+       "t": "napi sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "horgászat",
+       "image": "images/objets/canne-peche.png"
+      },
+      {
+       "t": "rádióhírek",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "pipás sztorik",
+       "image": "images/objets/pipe.png"
+      }
+     ],
+     [
+      {
+       "t": "savanyúság",
+       "image": "images/objets/bocal.png"
+      },
+      {
+       "t": "kertészkedés",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "mindent megjavítani",
+       "image": "images/objets/cle-anglaise.png"
+      },
+      {
+       "t": "hajómakettek",
+       "image": "images/objets/maquette-bateau.png"
+      }
+     ],
+     [
+      {
+       "t": "galambászat",
+       "image": "images/objets/pigeon-voyageur.png"
+      },
+      {
+       "t": "kártya",
+       "image": "images/objets/cartes.png"
+      },
+      {
+       "t": "régi fényképezők",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "kézzel írt levelek",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   }
+  }
+ ]
+}

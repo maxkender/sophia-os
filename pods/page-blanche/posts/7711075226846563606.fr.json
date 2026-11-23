@@ -40,8 +40,8 @@
      "en": [
       "listen to albums start to finish"
      ],
-     "fr": "écouter des albums [[du début à la fin]]",
-     "texte": "écouter des albums [[du début à la fin]]"
+     "fr": "écouter un album [[en entier]]",
+     "texte": "écouter un album [[en entier]]"
     },
     "T2": {
      "en": [
@@ -88,8 +88,8 @@
       "1 minute games on your phone feel like brain",
       "training, but they’re just another dopamine hit"
      ],
-     "fr": "les parties d'1 min sur ton tel, ça fait genre muscu du cerveau, mais [[c'est juste de la dopamine en plus]]",
-     "texte": "les parties d'1 min sur ton tel, ça fait genre muscu du cerveau, mais [[c'est juste de la dopamine en plus]]"
+     "fr": "les parties d'1 min sur ton tel, ça fait muscu du cerveau, mais [[c'est juste de la dopamine]]",
+     "texte": "les parties d'1 min sur ton tel, ça fait muscu du cerveau, mais [[c'est juste de la dopamine]]"
     },
     "T3": {
      "en": [
@@ -201,8 +201,8 @@
      "en": [
       "study longer than you want to"
      ],
-     "fr": "étudier [[plus longtemps que t'as envie]]",
-     "texte": "étudier [[plus longtemps que t'as envie]]"
+     "fr": "réviser [[plus que t'en as envie]]",
+     "texte": "réviser [[plus que t'en as envie]]"
     },
     "T2": {
      "en": [

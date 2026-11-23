@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o289",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3b8a7fdb-7cb0-4a57-97bc-7b1d10ef80c1",
+ "titre": "10/10 hobbies to become dangerously educated #hobbies #learning #men #knowledge #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7470927858257513246",
+ "inspirations": [
+  "3b8a7fdb-7cb0-4a57-97bc-7b1d10ef80c1"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 38 de la boîte (parent 3b8a7fdb, @livingondreambig, langue source en). Accroche du parent mot pour mot. Format : hobby en titre puis une phrase. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7a576c3d",
+   "texte_overlay": "10/10 hobbies to become\ndangerously educated",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669080650678324502/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "77895665",
+   "texte_overlay": "Play chess\n\nStrategy you can use\neverywhere.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669080650678324502/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "170ddad4",
+   "texte_overlay": "Visit museums alone\n\nRead every plaque.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669080650678324502/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d2fe9c3f",
+   "texte_overlay": "Learn geography\n\nKnow where the news happens.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669080650678324502/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "40ad3b9b",
+   "texte_overlay": "Do one lesson a day\n\nHistory, science, art.\nFive minutes.",
+   "texte_sophia": "Do one lesson a day\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669080650678324502/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9c995c7b",
+   "texte_overlay": "Listen to lectures\non your walks",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669080650678324502/6.jpg"
+  }
+ ]
+}

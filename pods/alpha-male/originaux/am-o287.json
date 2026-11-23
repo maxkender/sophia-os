@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o287",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3a98e007-46f6-4307-a312-593093bdba6f",
+ "titre": "20 tiny habits that will change your life by 2027 #habits #2027 #men #discipline #selfimprovement",
+ "musique_titre": "alkuperäinen ääni",
+ "musique_url": "https://www.tiktok.com/music/alkuperainen-aani-7438536346848742177",
+ "inspirations": [
+  "3a98e007-46f6-4307-a312-593093bdba6f"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 36 de la boîte (parent 3a98e007, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. habitude » ; 3 par slide pour tenir en 10 slides. Items neufs, aucun du parent. reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "75ed0b9b",
+   "texte_overlay": "20 tiny habits that will change\nyour life by 2027",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647965069741182226/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "46821aaa",
+   "texte_overlay": "1. Make your bed.\n2. Drink water first.\n3. No phone for 30 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647965069741182226/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "46c8ae48",
+   "texte_overlay": "4. Walk 8,000 steps.\n5. Take the stairs.\n6. Stretch for five minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647965069741182226/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5ac7aa28",
+   "texte_overlay": "7. Hardest task first.\n8. One tab at a time.\n9. Answer emails twice a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647965069741182226/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "484d300c",
+   "texte_overlay": "10. Learn one new thing.\n11. Read ten pages.\n12. Write one sentence.",
+   "texte_sophia": "10. One lesson on the Sophia app.\n11. Read ten pages.\n12. Write one sentence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647965069741182226/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "627572aa",
+   "texte_overlay": "13. Text one friend.\n14. Compliment one stranger.\n15. Call home on Sundays.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647965069741182226/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "375ab8df",
+   "texte_overlay": "16. Cook one real meal.\n17. Clean as you go.\n18. Prep tomorrow's clothes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647965069741182226/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "755e2ee7",
+   "texte_overlay": "19. Screens off at 10.\n20. Same bedtime, every night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7647965069741182226/8.jpg"
+  }
+ ]
+}

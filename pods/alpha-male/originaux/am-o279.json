@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o279",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "29f92296-d8d5-47b2-8a63-3a2a1efe561c",
+ "titre": "5 habits that reveal quiet confidence #confidence #men #mindset #presence #selfimprovement",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "29f92296-d8d5-47b2-8a63-3a2a1efe561c"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 26 de la boîte (parent 29f92296, @relatableoutof10, langue source en). Accroche du parent mot pour mot. Format : « N. habitude » en une ligne. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42ad96b2",
+   "texte_overlay": "5 habits that reveal\nquiet confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620017684780010774/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4a8eb88b",
+   "texte_overlay": "1. Walking at your own pace",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620017684780010774/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2ea8a4c9",
+   "texte_overlay": "2. Eating alone without a phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620017684780010774/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "98e34456",
+   "texte_overlay": "3. Asking questions when\nyou don't know",
+   "texte_sophia": "3. Asking when you don't know,\nthen learning it on\nthe Sophia app",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620017684780010774/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "040f5f1c",
+   "texte_overlay": "4. Giving compliments freely",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620017684780010774/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "34aeea32",
+   "texte_overlay": "5. Laughing at yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620017684780010774/6.jpg"
+  }
+ ]
+}

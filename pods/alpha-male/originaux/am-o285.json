@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o285",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2d0fb2e8-7bc2-4554-8aaf-a8b82a5248ed",
+ "titre": "7 scary signs you aren't living to your potential #potential #men #wakeupcall #discipline #mindset",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "2d0fb2e8-7bc2-4554-8aaf-a8b82a5248ed"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 33 de la boîte (parent 2d0fb2e8, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : un signe par slide, en minuscules. Items neufs, aucun du parent. reference_url du parent (1, 2, 4, 6, 7, 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "68ebf94f",
+   "texte_overlay": "7 scary signs you aren't living\nto your potential",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526683090727554309/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "231148c5",
+   "texte_overlay": "1. your best ideas stay in your notes.\n\n2. sunday nights feel heavy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526683090727554309/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "22020629",
+   "texte_overlay": "3. you know every show\nbut no new skills.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526683090727554309/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "42df8020",
+   "texte_overlay": "4. your friends' plans excite\nyou more than yours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526683090727554309/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "341b58a9",
+   "texte_overlay": "5. you stopped learning\nwhen school ended.",
+   "texte_sophia": "5. you stopped learning\nwhen school ended.\nuse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526683090727554309/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "16601da5",
+   "texte_overlay": "6. you're always tired, never spent.\n\n7. \"next year\" has been\nthree years now.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526683090727554309/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o284",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2c7000fe-ba83-458d-8d21-51106ad035f7",
+ "titre": "6 secrets to mastering your 20s you must know #20s #men #growth #lessons #selfimprovement",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "2c7000fe-ba83-458d-8d21-51106ad035f7"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 32 de la boîte (parent 2c7000fe, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. secret - » + explication. Items neufs, aucun du parent. reference_url du parent (2, 4 à 7 ; slides 1 et 3 manquantes) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5006da2b",
+   "texte_overlay": "6 secrets to mastering\nyour 20s you must know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7516154855002590520/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5f26939a",
+   "texte_overlay": "1. Build the body now -\nit's the easiest decade to do it.\n\n2. Learn to cook -\nit saves money and dates.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7516154855002590520/4.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2aee9824",
+   "texte_overlay": "3. Get great at one skill -\npeople pay for mastery.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7516154855002590520/5.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1a81a8b6",
+   "texte_overlay": "4. Stay curious -\nlearn something outside\nyour field every day.",
+   "texte_sophia": "4. Stay curious -\nI learn outside my field\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7516154855002590520/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2308c73d",
+   "texte_overlay": "5. Call your grandparents -\ntheir stories won't wait.\n\n6. Say yes to hard things -\nthat's where you grow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7516154855002590520/7.jpg"
+  }
+ ]
+}

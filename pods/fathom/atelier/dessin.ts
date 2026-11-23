@@ -92,12 +92,12 @@ const morceaux = (ligne: LigneTitre): Morceau[] =>
 
 /** Hauteur de capitale d'Anton pour une taille de police donnée. */
 function hauteurCapitale(ctx: Ctx, taille: number): number {
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${POLICE.titre}", "FA Titre Grec"`;
   return ctx.measureText("H").actualBoundingBoxAscent;
 }
 
 function largeurLigne(ctx: Ctx, ligne: LigneTitre, taille: number, espacement: number): number {
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${POLICE.titre}", "FA Titre Grec"`;
   ctx.letterSpacing = `${espacement * taille}px`;
   const l = morceaux(ligne).reduce((s, m) => s + ctx.measureText(m.t.toUpperCase()).width, 0);
   ctx.letterSpacing = "0px";
@@ -111,7 +111,7 @@ function largeurLigne(ctx: Ctx, ligne: LigneTitre, taille: number, espacement: n
  */
 export function depassements(ctx: Ctx, ligne: LigneTitre, taille: number): { haut: number; bas: number } {
   ctx.save();
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${POLICE.titre}", "FA Titre Grec"`;
   const t = morceaux(ligne).map((m) => m.t.toUpperCase()).join("");
   const cap = ctx.measureText("H").actualBoundingBoxAscent;
   const haut = ctx.measureText(t).actualBoundingBoxAscent - cap;
@@ -172,14 +172,14 @@ export function titreGeant(ctx: Ctx, lignes: LigneTitre[], o: OptionsTitre): { b
   const cap = (capRef * taille) / ref;
   const ecart = cap * (o.interligne ?? 0.055);
   ctx.save();
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${POLICE.titre}", "FA Titre Grec"`;
   ctx.letterSpacing = `${espacement * taille}px`;
   ctx.textBaseline = "alphabetic";
   let base = o.y + cap;
   for (const [i, ligne] of lignes.entries()) {
     base += ecartAccents(ctx, lignes, i, taille);
     const l = largeurLigne(ctx, ligne, taille, espacement);
-    ctx.font = `${taille}px "${POLICE.titre}"`;
+    ctx.font = `${taille}px "${POLICE.titre}", "FA Titre Grec"`;
     ctx.letterSpacing = `${espacement * taille}px`;
     let x = o.aligne === "gauche" ? (o.x ?? 20) : (L - l) / 2;
     for (const m of morceaux(ligne)) {

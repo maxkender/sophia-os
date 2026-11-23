@@ -21,6 +21,7 @@ import {
   planPaiement,
   refusMode,
   semaineDuNom,
+  semaineAVenir,
 } from "./paiement.ts";
 import { ajouterJours } from "./ckd.ts";
 
@@ -107,9 +108,15 @@ Deno.test("Kill : approuver la dernière semaine, ne rien financer, fermer à la
 });
 
 Deno.test("prompt 26 : milestone financée pour une autre semaine → Needs you (rien ne part) ; sans numéro, seule : payée", () => {
-  const p = planPaiement(ligne(), [j("m0", "Week 44", "Active", 1), j("m1", "Week 46", "NotFunded", 2)], S, R);
+  // 23/11 (point 7) : seule financée, au montant dû : prise pour la semaine due ; à un autre montant : refusée.
+  const seule = planPaiement(ligne(), [j("m0", "Week 44", "Active", 1), j("m1", "Week 46", "NotFunded", 2)], S, R);
+  assertEquals([seule.statut, seule.approuver?.jalon_id], ["pret", "m0"]);
+  const p = planPaiement(ligne(), [j("m0", "Week 44", "Active", 1, 20), j("m1", "Week 46", "NotFunded", 2)], S, R);
   assertEquals(p.statut, "refuse");
   assert(p.raison?.includes("autre semaine"));
+  const deuxAutres = planPaiement(ligne(), [j("m0", "Week 43", "Active", 1), j("m1", "Week 44", "Active", 2)], S, R);
+  assertEquals(deuxAutres.statut, "refuse");
+  assertEquals([semaineAVenir(48, 47), semaineAVenir(46, 47), semaineAVenir(1, 52), semaineAVenir(52, 1), semaineAVenir(null, 47)], [true, false, true, false, false]);
   const essai = planPaiement(ligne(), [j("m0", "Trial week", "Active", 1), j("m1", "Week 46", "NotFunded", 2)], S, R);
   assertEquals([essai.statut, essai.approuver?.jalon_id, essai.financer?.jalon_id], ["pret", "m0", "m1"]);
   const deuxSans = planPaiement(ligne(), [j("m0", "Trial week", "Active", 1), j("m1", "Posting", "Active", 2)], S, R);

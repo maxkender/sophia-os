@@ -150,6 +150,7 @@ import { generateTextFast } from "../_shared/gemini.ts";
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, estCompteDeMax, lireCompte, UPWORK_USER_MAX } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
 import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
+import { ciblePlan, jalonPaye, type LignePlan as LignePlanPaie, ORDRE_GROUPES } from "../_shared/plan_paie.ts";
 import { planCompleterOffre, semainesDepuis } from "../_shared/offres.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -381,6 +382,13 @@ Deno.serve(async (request) => {
       case "bonus_parrainage_payer":
         // 0553 : le lundi (cron), les bonus de parrainage à payer, par bonus Upwork.
         return json(await bonusParrainagePayer(supabase, par));
+      case "plan_paie_lire":
+        // 23/11 (Max) : le plan de paie (Control > Paie) relu chez Upwork, ligne par ligne. Lecture seule.
+        return json(await planPaieLire(supabase, par, String(body.plan ?? "W47")));
+      case "plan_paie_executer":
+        // 23/11 (Max) : libérer / fermer / killer les lignes cochées du plan. Seulement au clic de Max (jamais le cron).
+        if (!par || acces.userId === "cron" || body.confirmer !== true) return json({ ok: false, error: "réservé au clic de l'admin" }, 403);
+        return json(await planPaieExecuter(supabase, par, String(body.plan ?? "W47"), Array.isArray(body.ids) ? body.ids.map(String) : []));
       case "bonus_envoyer":
         // 0564 : « Tout envoyer » sur la carte « Bonus de lundi » ; seulement au clic de Max (jamais le cron).
         if (!par) return json({ ok: false, error: "réservé au clic de l'admin" }, 403);
@@ -3216,6 +3224,195 @@ async function bonusParrainagePayer(supabase: Supabase, par: string | null) {
     resultats.push({ bonus: b.id, ok: true, invoice });
   }
   return { ok: true, payes: resultats.filter((x) => x.ok).length, resultats };
+}
+
+// ---------------------------------------------------------------------------
+// 23/11 (Max) : le plan de paie d'une semaine (Control > Paie, carte « Plan W47 »). Chaque jalon est reconnu par son
+// NUMÉRO ; on libère toujours avant de fermer ou de killer ; rien ne part sans le clic de Max ; jamais deux fois.
+// ---------------------------------------------------------------------------
+
+interface LigneDuPlan {
+  id: string;
+  groupe: LignePlanPaie["groupe"];
+  posteur: string;
+  poster_id: string | null;
+  contrat_id: string;
+  jalon_id: string | null;
+  semaine: string;
+  fermer: boolean;
+  jamais_fermer: boolean;
+  note: string | null;
+  statut: string;
+  resultat: string | null;
+  jalon_libere: string | null;
+  montant: number | null;
+  envoi_at: string | null;
+}
+
+async function lignesDuPlan(supabase: Supabase, plan: string): Promise<LigneDuPlan[]> {
+  const { data, error } = await supabase.from("paie_plan_lignes").select("*").eq("plan", plan);
+  if (error) throw new Error(`plan : ${error.message}`);
+  return (data ?? []) as LigneDuPlan[];
+}
+
+async function tenantDe(supabase: Supabase, contrat: string): Promise<string | null> {
+  const { data } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).maybeSingle();
+  return (data?.organisation_id as string | null) ?? null;
+}
+
+async function fichesDuContrat(supabase: Supabase, contrat: string): Promise<string[]> {
+  const { data } = await supabase.from("profiles").select("id").eq("upwork_contract_id", contrat);
+  return (data ?? []).map((x) => String(x.id));
+}
+
+/** La semaine du plan est-elle payée pour ce contrat (toutes ses fiches) ? Dû 0 $ compte comme payé. */
+async function semainePlanPayee(supabase: Supabase, contrat: string, semaine: string): Promise<{ payee: boolean; du: number }> {
+  const ids = await fichesDuContrat(supabase, contrat);
+  if (!ids.length) return { payee: false, du: 0 };
+  const { data: ps } = await supabase.from("paie_semaines").select("montant, montant_corrige, paye_at, exclu").in("poster_id", ids).eq("semaine", semaine);
+  const lignes = (ps ?? []).filter((x) => !x.exclu);
+  const du = (x: { montant: unknown; montant_corrige: unknown }) => Number(x.montant_corrige ?? x.montant ?? 0);
+  const restant = lignes.filter((x) => !x.paye_at).reduce((n, x) => n + du(x), 0);
+  return { payee: restant <= 0.009, du: Math.round(restant * 100) / 100 };
+}
+
+async function planPaieLire(supabase: Supabase, par: string | null, plan: string) {
+  const lignes = await lignesDuPlan(supabase, plan);
+  const sortie: Record<string, unknown>[] = [];
+  for (const l of lignes) {
+    if (l.groupe === "kill") {
+      sortie.push({ ...l, semaine_payee: await semainePlanPayee(supabase, l.contrat_id, l.semaine) });
+      continue;
+    }
+    if (l.groupe === "bloque" || l.statut === "libere" || l.statut === "ferme") {
+      sortie.push({ ...l, etat: l.groupe === "bloque" ? "bloque" : "fait" });
+      continue;
+    }
+    const tenant = await tenantDe(supabase, l.contrat_id);
+    if (tenant !== ORG_VIK) {
+      sortie.push({ ...l, etat: "a_voir", raison: "contrat hors VIk Studios ou non lu" });
+      continue;
+    }
+    // Toujours relu chez Upwork (jamais le cache) : le cache peut dater de plusieurs jours.
+    const lu = await relireJalons(supabase, par, l.contrat_id, tenant, "plan_paie_lire");
+    if (!lu.jalons) {
+      sortie.push({ ...l, etat: "a_voir", raison: `jalons illisibles : ${lu.erreur}` });
+      continue;
+    }
+    const c = ciblePlan(l, lu.jalons);
+    sortie.push(c.ok
+      ? { ...l, etat: "pret", jalon: { id: c.jalon.id, nom: c.jalon.nom, etat: c.jalon.etat, montant: c.jalon.depot } }
+      : { ...l, etat: c.etat, raison: c.raison });
+  }
+  return { ok: true, plan, lignes: sortie };
+}
+
+async function planPaieExecuter(supabase: Supabase, par: string, plan: string, ids: string[]) {
+  if (await bloquer(supabase, { fonction: "upwork", action: "plan_paie_executer", cible: plan })) return { ok: false, error: PAUSE };
+  if (!ids.length || ids.length > 60) return { ok: false, error: "1 à 60 lignes" };
+  const expediteur = await verifierExpediteur(supabase);
+  if (expediteur) return { ok: false, error: expediteur };
+  const choisies = (await lignesDuPlan(supabase, plan)).filter((l) => ids.includes(l.id))
+    .sort((a, b) => ORDRE_GROUPES.indexOf(a.groupe) - ORDRE_GROUPES.indexOf(b.groupe));
+  const resultats: Record<string, unknown>[] = [];
+  const noter = async (l: LigneDuPlan, maj: Record<string, unknown>) => {
+    await supabase.from("paie_plan_lignes").update(maj).eq("id", l.id);
+    resultats.push({ id: l.id, posteur: l.posteur, groupe: l.groupe, ...maj });
+  };
+  const maintenant = () => new Date().toISOString();
+  for (const l of choisies) {
+    if (l.groupe === "bloque") {
+      resultats.push({ id: l.id, posteur: l.posteur, statut: "bloque", resultat: "bloqué : décision de Max" });
+      continue;
+    }
+    const tenant = await tenantDe(supabase, l.contrat_id);
+    if (tenant !== ORG_VIK) {
+      await noter(l, { statut: "erreur", resultat: "contrat hors VIk Studios : jamais touché" });
+      continue;
+    }
+
+    if (l.groupe === "kill") {
+      const posters = await fichesDuContrat(supabase, l.contrat_id);
+      for (const pid of posters) {
+        await supabase.rpc("plan_kill_desactiver", { p_poster: pid, p_motif: `Kill ${plan} : n'a pas posté (consigne de Max)` });
+      }
+      // Toujours payer avant de fermer : la semaine du plan relue maintenant ; sinon le kill attend (contrat ouvert).
+      const s = await semainePlanPayee(supabase, l.contrat_id, l.semaine);
+      if (!s.payee) {
+        await noter(l, { statut: "kille", resultat: `désactivé ; contrat laissé ouvert : semaine du ${l.semaine} pas encore payée (${s.du} $)`, fait_at: maintenant(), fait_par: par });
+        continue;
+      }
+      const info = await infoKill(supabase, par, l.contrat_id, posters, null);
+      const r = info.plan.decision === "fermer" ? await fermerKill(supabase, par, info) : { ferme: false, rendu: null, erreur: info.plan.raison };
+      if (r.ferme) for (const pid of posters) await noterFinKill(supabase, pid);
+      await noter(l, {
+        statut: r.ferme || info.plan.decision === "deja_ferme" ? "kille_ferme" : "kille",
+        resultat: texteKill({ desactive: true, contrat: l.contrat_id, plan: info.plan, ferme: r.ferme, rendu: r.rendu, erreur: r.erreur, case_cochee: true }),
+        fait_at: maintenant(),
+        fait_par: par,
+      });
+      continue;
+    }
+
+    // Libérer : jalon relu par son numéro (ou le seul financé, pour Grok), marqué avant l'appel, jamais deux fois.
+    let jalonLibere = l.statut === "libere" ? l.jalon_libere : null;
+    if (!jalonLibere) {
+      if (l.envoi_at) {
+        resultats.push({ id: l.id, posteur: l.posteur, statut: l.statut, resultat: "déjà tenté : à vérifier à la main sur Upwork" });
+        continue;
+      }
+      const lu = await relireJalons(supabase, par, l.contrat_id, tenant, "plan_paie_relire");
+      if (!lu.jalons) {
+        await noter(l, { statut: "erreur", resultat: `jalons illisibles : ${lu.erreur}` });
+        continue;
+      }
+      const c = ciblePlan(l, lu.jalons);
+      if (!c.ok) {
+        await noter(l, { statut: c.etat === "deja_paye" ? "deja_paye" : "a_faire", resultat: c.raison });
+        continue;
+      }
+      const { data: marque } = await supabase.from("paie_plan_lignes").update({ envoi_at: maintenant(), statut: "en_cours", jalon_libere: c.jalon.id })
+        .eq("id", l.id).is("envoi_at", null).select("id");
+      if (!marque?.length) {
+        resultats.push({ id: l.id, posteur: l.posteur, resultat: "déjà en cours" });
+        continue;
+      }
+      const montant = c.jalon.depot as number;
+      const ap = await ecrire(supabase, {
+        par, action: "plan_paie_liberer", query: MUTATION_APPROUVER, tenant, contrat: l.contrat_id, montant,
+        variables: { input: { id: c.jalon.id, paidAmount: centimes(montant), paymentComment: c.jalon.nom || "Weekly posting" } },
+      });
+      if (ap.erreur || !ap.data?.approveMilestone) {
+        await noter(l, { statut: "erreur", resultat: `approbation : ${ap.erreur ?? "réponse vide"}` });
+        continue;
+      }
+      const apres = await relireJalons(supabase, par, l.contrat_id, tenant, "plan_paie_confirmer");
+      if (!jalonPaye(apres.jalons, c.jalon.id)) {
+        await noter(l, { statut: "erreur", resultat: "approuvé, mais pas encore lu « payé » chez Upwork : à vérifier", montant });
+        continue;
+      }
+      jalonLibere = c.jalon.id;
+      const pids = await fichesDuContrat(supabase, l.contrat_id);
+      if (pids.length) {
+        await supabase.from("paie_semaines").update({ paye_at: maintenant(), paye_par: par }).in("poster_id", pids).eq("semaine", l.semaine).is("paye_at", null);
+      }
+      await noter(l, { statut: "libere", resultat: `jalon #${c.jalon.id} (${c.jalon.nom}) libéré : ${montant} $`, montant, fait_at: maintenant(), fait_par: par });
+    }
+    // Fermer seulement après le paiement confirmé, et jamais un contrat que Max garde ouvert (Paganelli, Galacz).
+    if (l.fermer && !l.jamais_fermer && jalonLibere) {
+      const fe = await ecrire(supabase, {
+        par, action: "plan_paie_fermer", query: MUTATION_FERMER_CONTRAT, tenant, contrat: l.contrat_id,
+        variables: { contractId: l.contrat_id, input: { reasonRef: await raisonFin(supabase) } },
+      });
+      const ok = !fe.erreur && fe.data?.endContractByClient?.success === true;
+      if (ok) for (const pid of await fichesDuContrat(supabase, l.contrat_id)) await noterFinKill(supabase, pid);
+      await noter(l, {
+        statut: ok ? "ferme" : "libere",
+        resultat: ok ? `jalon #${jalonLibere} libéré puis contrat ${l.contrat_id} fermé` : `libéré ; fermeture : ${fe.erreur ?? "non confirmée par Upwork"}`,
+      });
+    }
+  }
+  return { ok: true, plan, faits: resultats.length, resultats };
 }
 
 /**

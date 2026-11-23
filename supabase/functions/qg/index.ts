@@ -60,7 +60,14 @@ Deno.serve(async (request) => {
     console.error(rpc.fn, error.message);
     return json({ ok: false, error: "lecture impossible" }, 500);
   }
-  return new Response(JSON.stringify({ ok: true, ...(data as Record<string, unknown>) }), {
+  // 23/11 (Max) : Control > Paie montre aussi le récap du plan de paie (libérés, fermés, killés, à décider) et les
+  // contrats Upwork ouverts sans posteur actif. Lecture seule ; une erreur ici n'empêche pas la paie de s'afficher.
+  let extra: Record<string, unknown> = {};
+  if (route === "control/paie") {
+    const plan = await serviceClient().rpc("qg_plan_paie", { p_plan: "W47" });
+    extra = plan.error ? { plan_paie_erreur: "lecture impossible" } : { plan_paie: plan.data };
+  }
+  return new Response(JSON.stringify({ ok: true, ...(data as Record<string, unknown>), ...extra }), {
     status: 200,
     headers: { "content-type": "application/json", ...ENTETES },
   });

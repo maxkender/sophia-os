@@ -30,7 +30,7 @@
  * Si le @ est quand même pris, la recrue donne le sien dans « My TikTok
  * account » et l'OS le remplace (handle_tiktok.ts, 0444).
  */
-import type { Genre } from "./label_theme.ts";
+import type { Genre, ThemeMots } from "./label_theme.ts";
 
 type Hasard = () => number;
 
@@ -88,6 +88,17 @@ const FINS_SANS_NOM: readonly string[] = [
   "miles", "runs", "laps", "strides", "mornings", "days", "steps", "loops", "notes", "diary",
   "club", "hours", "moods", "things", "routes", "walks",
 ];
+
+/**
+ * Les seconds mots d'un thème qui n'est pas la course (23/11) : un compte
+ * d'art ne s'appelle pas « slow.miles ». Sans ligne ici, ceux de la course.
+ */
+export const FINS_SANS_NOM_PAR_THEME: Readonly<Partial<Record<ThemeMots, readonly string[]>>> = {
+  art: [
+    "frames", "canvas", "colors", "sketches", "mornings", "days", "notes", "diary", "museum",
+    "gallery", "hours", "moods", "things", "strokes", "palette", "walks",
+  ],
+};
 
 /** Ce qu'on met devant un prénom : « its.emma », « justemma ». Anglais, courant partout sur TikTok. */
 const PREFIXES: readonly string[] = ["its", "just", "hey", "im", "iam", "by", "with", "thisis", "simply", "only", "not"];
@@ -150,6 +161,8 @@ export interface PiecesHandle {
   annee: number;
   /** Les mots du thème du label (langue du compte, puis anglais commun). */
   motsTheme: readonly string[];
+  /** Le thème du label : choisit les seconds mots des @ sans nom (course par défaut). */
+  theme?: ThemeMots;
 }
 
 type Famille = "nom" | "mot" | "sans_nom";
@@ -176,7 +189,7 @@ function tirerBase(p: PiecesHandle, hasard: Hasard): Brouillon {
 
   if (famille === "sans_nom") {
     const debuts = p.genre === "femme" ? [...DEBUTS_SANS_NOM, ...DEBUTS_SANS_NOM_F] : DEBUTS_SANS_NOM;
-    return { base: `${tirer(debuts, hasard)}${sep()}${tirer(FINS_SANS_NOM, hasard)}`, famille, nue: true };
+    return { base: `${tirer(debuts, hasard)}${sep()}${tirer((p.theme && FINS_SANS_NOM_PAR_THEME[p.theme]) || FINS_SANS_NOM, hasard)}`, famille, nue: true };
   }
 
   if (famille === "mot") {

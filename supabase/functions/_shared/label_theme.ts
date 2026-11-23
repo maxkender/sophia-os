@@ -58,10 +58,10 @@ export function genreDuLabel(nomOuSlug: string | null | undefined): Genre | null
 /**
  * Thème des MOTS du @ et de la bio : plus fin que `ThemeLabel`, qui règle aussi
  * le genre et la banque de photos de profil et ne doit donc pas bouger.
- * Un label d'études, de carrière, de psycho, de philo ou de running a ses
- * propres mots ; les autres gardent ceux de leur `ThemeLabel`.
+ * Un label d'études, de carrière, de psycho, de philo, de running ou d'art a
+ * ses propres mots ; les autres gardent ceux de leur `ThemeLabel`.
  */
-export type ThemeMots = ThemeLabel | "etude" | "carriere" | "psycho" | "philo" | "running";
+export type ThemeMots = ThemeLabel | "etude" | "carriere" | "psycho" | "philo" | "running" | "art";
 
 /**
  * Les mots qui font d'un label un label de running (Atala). Mots ENTIERS du
@@ -76,6 +76,22 @@ export function estLabelRunning(nomOuSlug: string | null | undefined): boolean {
   return normaliserLabel(nomOuSlug ?? "").split("_").some((mot) => MOTS_RUNNING.has(mot));
 }
 
+/**
+ * Les mots qui font d'un label un label d'art (Artura, 23/11). Mots ENTIERS du
+ * nom (`art_girl`, `museum_girl`, `painting_male`), jamais un morceau de mot :
+ * « smart », « start » ou « party » ne sont pas de l'art.
+ */
+const MOTS_ART: ReadonlySet<string> = new Set([
+  "art", "arts", "artsy", "arty", "artist", "artists", "artura", "arthistory", "artgirl",
+  "museum", "museums", "musee", "museo", "gallery", "galerie", "painting", "paintings",
+  "painter", "peinture", "tableau", "tableaux", "renaissance", "baroque", "masterpiece",
+  "louvre", "impressionism", "impressionist",
+]);
+
+export function estLabelArt(nomOuSlug: string | null | undefined): boolean {
+  return normaliserLabel(nomOuSlug ?? "").split("_").some((mot) => MOTS_ART.has(mot));
+}
+
 export function themeMotsDuLabel(nomOuSlug: string | null | undefined): ThemeMots {
   const s = normaliserLabel(nomOuSlug ?? "");
   // Le running passe avant tout : `clean_girl_run` garde le genre et la photo
@@ -87,6 +103,10 @@ export function themeMotsDuLabel(nomOuSlug: string | null | undefined): ThemeMot
   }
   if (s.includes("psych") || s.includes("mental")) return "psycho";
   if (s.includes("plony") || s.includes("stoi") || s.includes("philo")) return "philo";
+  // L'art APRÈS les thèmes d'avant (23/11) : `psych_art`, label existant,
+  // garde son identité psycho. `art_girl` garde le genre et la photo de
+  // profil de smart_girl, mais son @ et sa bio parlent d'art.
+  if (estLabelArt(nomOuSlug)) return "art";
   return themeDuLabel(nomOuSlug);
 }
 
@@ -109,6 +129,7 @@ export const NICHE_PAR_THEME: Record<ThemeMots, string> = {
   psycho: "psychology",
   philo: "philosophy",
   running: "running",
+  art: "art",
 };
 
 /** Sans label lisible : la niche d'un compte de culture générale. */

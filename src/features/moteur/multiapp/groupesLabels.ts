@@ -37,6 +37,7 @@ export function grouperLabelsParApplication<L extends { id: string }, A extends 
  */
 export const THEME_ATTENDU: Readonly<Record<string, { theme: ThemeMots; suffixe: string }>> = {
   atala: { theme: "running", suffixe: "_run" },
+  artura: { theme: "art", suffixe: "_art" },
   micabo: { theme: "etude", suffixe: "_study" },
 };
 
@@ -49,11 +50,13 @@ export const THEME_ATTENDU: Readonly<Record<string, { theme: ThemeMots; suffixe:
  */
 export const EXEMPLES_VARIES: Readonly<Partial<Record<ThemeMots, readonly string[]>>> = {
   running: ["emma.mrtn04", "itsleaa217", "clara_bonnet482", "lou2003.sunday", "slow.mornings914"],
+  art: ["chloe.drnd07", "ines.museum2002", "itsjulia318", "sunday.frames461", "lou_canvas88"],
 };
 
 /** Un @ d'exemple par thème, pour montrer à quoi ressembleront les comptes du label. */
 export const EXEMPLE_HANDLE: Readonly<Record<ThemeMots, string>> = {
   running: "emma.mrtn04",
+  art: "chloe.drnd07",
   etude: "lea.revisions318",
   carriere: "emma.career204",
   psycho: "noah.mind611",

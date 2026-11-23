@@ -118,6 +118,7 @@ application.
    | Le nom contient | @ et bio des comptes | Exemple de @ | Niche dite au posteur |
    |---|---|---|---|
    | `run`, `running`, `runner`, `marathon`, `trail`, `jogging` (mot entier) | running, en @ variés (voir plus bas) | `emma.mrtn04`, `itsleaa217`, `lou2003.sunday` | running |
+   | `art`, `arts`, `artsy`, `museum`, `gallery`, `painting`, `peinture`, `renaissance`… (mot entier, après tous les thèmes ci-dessous) | art, en @ variés | `chloe.drnd07`, `ines.museum2002`, `sunday.frames461` | art |
    | `study`, `etud` | études | `lea.revisions318` | study |
    | `rh`, `career`, `carriere` | carrière | `emma.career204` | career advice |
    | `psych`, `mental` | psycho | `noah.mind611` | psychology |
@@ -156,6 +157,17 @@ application.
    running, mais garde le genre et la banque de photos de profil de
    `clean_girl`. Un label Atala se termine donc par `_run`, un label micabo par
    `_study` ; le formulaire le rappelle si le nom ne colle pas.
+
+   **L'art (Artura, 23/11)** passe, lui, APRÈS tous les autres thèmes :
+   `psych_art`, label Sophia d'avant, garde son identité psycho ; `art_girl`
+   prend l'identité art, mais garde le genre et les photos de `smart_girl`.
+   Un mot d'art n'est jamais un morceau de mot (`smart`, `start`, `party` ne
+   sont pas de l'art). Un label Artura se termine par `_art`. Ses comptes ont
+   des @ variés comme le running, mais leurs @ sans nom finissent par des mots
+   d'art ou de tous les jours (« sunday.frames », « slow.canvas »), jamais de
+   course (`FINS_SANS_NOM_PAR_THEME`). Une bio sur deux parle d'art (« one
+   painting a day », « museums on sundays »), une sur trois de la vie de tous
+   les jours, le reste de curiosité ; mots du @ et bios dans les 32 langues.
 
    **Les @ variés (running).** Trente comptes « prenom.mot-de-course123 » se
    reconnaissent au premier coup d'œil. Les comptes d'un label de running
@@ -361,9 +373,9 @@ Fait :
 Reste à faire, à l'écran :
 1. Relire `pertinence_artura` et `placement_artura`.
 2. Créer le lien `taap.it/artura` (ou corriger le lien dans Réglages).
-3. Créer ses labels et leurs sources. Il n'y a pas encore de thème
-   d'identité « art » : un label Artura prend l'identité de son nom (§ 5),
-   `…_girl…` ou `smart` donnent « lecture et culture », le plus proche.
+3. Créer ses labels et leurs sources, avec un nom qui finit par `_art`
+   (`art_girl` n'en a pas besoin : `art` y est un mot entier) : ses comptes
+   prennent l'identité « art » (§ 5), niche du warm-up « art ».
 4. Écrire sa fiche (Fiches), ajouter l'option « Artura » au select « App » du
    suivi Notion.
 5. L'activer, avant le lundi où ses premières recrues sortent du warm-up.

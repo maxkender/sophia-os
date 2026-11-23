@@ -6,6 +6,28 @@
  * jamais copiées).
  */
 import { type CandidatureRuul, lundiSuivant, manquesCandidature } from "./ruul.ts";
+import { guideRuul, PHRASE_QUESTION_OS } from "./parcours_ruul.ts";
+import { DASHBOARD_V2, SLACK_V2 } from "./whatsapp_modeles_v2.ts";
+
+/** 23/11 (Max) : l'identité légale de la société, affichée sur le site, en tête du contrat et dans les mentions légales. */
+export const SOCIETE = {
+  nom: "Vik Studios SAS",
+  nom_commercial: "Vik Studios",
+  forme: "société par actions simplifiée (SAS)",
+  capital: "2 €",
+  siren: "103 372 421",
+  siret: "103 372 421 00018",
+  rcs: "RCS Paris 103 372 421",
+  tva: "FR30103372421",
+  siege: "30 boulevard de Sébastopol, 75004 Paris, France",
+  president: "Maximilien Kender",
+  contact: "support@vikstudios.com",
+} as const;
+
+/** Le lien d'invitation Slack des posteurs (le même que les modèles WhatsApp v2). */
+export const LIEN_SLACK = SLACK_V2;
+/** Le dashboard de l'OS (là où le posteur se connecte une fois son compte créé). */
+export const LIEN_DASHBOARD_OS = DASHBOARD_V2;
 
 export const ETAPES_JOIN = ["tiktok", "profil", "warmup", "slack", "ruul"] as const;
 export type EtapeJoin = (typeof ETAPES_JOIN)[number];
@@ -194,6 +216,59 @@ export function decider(c: CandidatureJoin, paysOuverts: Set<string>): { decisio
 }
 
 // ---------------------------------------------------------------------------------------------------------------
+// Acceptation automatique (réglage join_auto_acceptation, 0847) et étapes vues par l'admin
+// ---------------------------------------------------------------------------------------------------------------
+
+/** Le réglage `join_auto_acceptation` : seul `{ "actif": true }` l'allume. OFF par défaut. */
+export function lireAutoAcceptation(v: unknown): boolean {
+  return !!v && typeof v === "object" && (v as Record<string, unknown>).actif === true;
+}
+
+/**
+ * La décision appliquée : les règles de l'OS (decider), puis l'interrupteur. OFF : une candidature qui remplit
+ * les conditions attend l'admin (« a_traiter », sans manque : `eligible`), comme celles à qui il manque quelque chose.
+ */
+export function deciderAvecReglage(
+  d: { decision: "auto" | "a_traiter"; manques: string[] },
+  autoAcceptation: boolean,
+): { decision: "auto" | "a_traiter"; manques: string[]; eligible: boolean } {
+  const eligible = d.decision === "auto";
+  return { decision: eligible && autoAcceptation ? "auto" : "a_traiter", manques: d.manques, eligible };
+}
+
+export const ETAPES_ADMIN = ["ferme", "codes", "verifiee", "a_traiter", "acceptee", "signee", "refusee", "expiree"] as const;
+export type EtapeAdmin = (typeof ETAPES_ADMIN)[number];
+
+/** L'étape d'une candidature dans la liste de l'admin. */
+export function etapeAdmin(
+  c: {
+    decision: string | null;
+    manques?: string[] | null;
+    email_verifie_at: string | null;
+    whatsapp_verifie_at: string | null;
+    expire_at?: string | null;
+  },
+  signee: boolean,
+): EtapeAdmin {
+  if (signee) return "signee";
+  if (c.expire_at) return "expiree";
+  if (c.decision === "refusee") return "refusee";
+  if (c.decision === "auto") return "acceptee";
+  if (c.decision === "a_traiter") return "a_traiter";
+  if (c.manques?.some((m) => m.startsWith("pays fermé"))) return "ferme";
+  if (c.email_verifie_at && c.whatsapp_verifie_at) return "verifiee";
+  return "codes";
+}
+
+/** Ce que l'admin peut décider : accepter (codes vérifiés, pas signée, pas expirée), refuser (pas signée). */
+export function decisionsAdminPossibles(etape: EtapeAdmin): { accepter: boolean; refuser: boolean } {
+  return {
+    accepter: etape === "verifiee" || etape === "a_traiter" || etape === "refusee",
+    refuser: etape !== "signee" && etape !== "refusee" && etape !== "expiree",
+  };
+}
+
+// ---------------------------------------------------------------------------------------------------------------
 // Pays et paie
 // ---------------------------------------------------------------------------------------------------------------
 
@@ -357,10 +432,29 @@ export function etapesRestantes(faites: string[]): EtapeApresSignature[] {
   return ETAPES_APRES_SIGNATURE.filter((e) => !faites.includes(e));
 }
 
-/** Les messages aux candidats (anglais). `lien` = l'adresse de Join. */
+export type TypeMessageJoin = "code_rappel" | "signature_j1" | "signature_j3" | "expiree" | "acces" | "acceptee" | "refusee";
+export const TYPES_MESSAGE_JOIN: readonly TypeMessageJoin[] = [
+  "code_rappel", "signature_j1", "signature_j3", "expiree", "acces", "acceptee", "refusee",
+];
+
+/**
+ * Les messages aux candidats (anglais). `lien` = l'adresse de Join, sauf pour « acces » (la bienvenue après la
+ * signature) : `lien` y est le lien personnel « Set my password » de l'OS (jamais un mot de passe) ; sans compte
+ * créé (mode test), `lien` reste l'adresse de Join et le texte le dit.
+ */
 export function texteMessage(
-  type: "code_rappel" | "signature_j1" | "signature_j3" | "expiree" | "acces",
-  v: { prenom: string; lien: string; lundi?: string; limite?: string },
+  type: TypeMessageJoin,
+  v: {
+    prenom: string;
+    lien: string;
+    lundi?: string;
+    limite?: string;
+    /** acces : le login de l'OS, le handle TikTok, l'email Ruul ; `compteCree` = un vrai lien « Set my password ». */
+    login?: string | null;
+    handle?: string | null;
+    ruulEmail?: string | null;
+    compteCree?: boolean;
+  },
 ): { objet: string; corps: string; bouton: string | null } {
   const salut = `Hi ${v.prenom},`;
   switch (type) {
@@ -383,12 +477,45 @@ export function texteMessage(
         corps: `${salut}\n\nYour contract wasn't signed in time, so this offer has expired. You're welcome to apply again whenever you're ready. Thank you for your interest.`,
         bouton: "Apply again",
       };
-    case "acces":
+    case "acceptee":
       return {
-        objet: "Welcome to Vik Studios — your access",
-        corps: `${salut}\n\nWelcome to Vik Studios! Your dashboard is ready: log in with your email to see your steps (TikTok account, profile, warm-up).\n\nYour first posts arrive on ${v.lundi ?? "Monday"}. You post 2 slideshows a day and you're paid every Monday through Ruul for the week before.`,
-        bouton: "Open my dashboard",
+        objet: "You're in — your contract is ready",
+        corps: `${salut}\n\nGood news: your application is accepted. Last step: read and sign your contract. Sign it before ${v.limite ?? "Sunday"}, midnight (Paris time), to start on ${v.lundi ?? "Monday"}. It takes 2 minutes.`,
+        bouton: "Sign my contract",
       };
+    case "refusee":
+      return {
+        objet: "Your application",
+        corps: `${salut}\n\nThank you for applying to Vik Studios. We can't offer you a place for now. Thank you for your interest.`,
+        bouton: null,
+      };
+    case "acces": {
+      // 23/11 : la bienvenue après la signature, inspirée de emailParcours("bienvenue") : accès au dashboard par le
+      // lien « Set my password » (jamais de mot de passe), les étapes, Slack et Ruul.
+      const lienMdp = v.compteCree
+        ? `- Set my password: ${v.lien} (personal link, valid 14 days: you choose your own password)`
+        : "- Set my password: your personal link arrives as soon as your account is created";
+      return {
+        objet: "Welcome to Vik Studios — your access and next steps",
+        corps: [
+          salut,
+          "Welcome to Vik Studios! Your job: post 2 slideshows a day on TikTok. Everything you post is ready for you on your dashboard.",
+          `You start on ${v.lundi ?? "Monday"}.`,
+          [
+            "Your access:",
+            `- Dashboard: ${LIEN_DASHBOARD_OS}`,
+            `- Login: ${v.login ?? "(see the « Set my password » page)"}`,
+            lienMdp,
+            ...(v.handle ? [`- Your TikTok account, with this exact name: @${v.handle}`] : []),
+            `- Our Slack (sign up with your personal email and your full name): ${LIEN_SLACK}`,
+          ].join("\n"),
+          `Before ${v.limite ?? "Sunday midnight (Paris time)"}:\n1. Set your password and log in to your dashboard.\n2. Create your TikTok account with the exact name above.\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
+          PHRASE_QUESTION_OS,
+          guideRuul(v.ruulEmail ?? null, v.limite ?? null),
+        ].join("\n\n"),
+        bouton: v.compteCree ? "Set my password" : "Open my dashboard",
+      };
+    }
   }
 }
 
@@ -399,10 +526,16 @@ export function lundiLisible(jour: string): string {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
-// Contrat (join-v1)
+// Contrat (join-v3 : join-v2 + l'identité complète de la société en tête, 23/11 ; clauses inchangées)
 // ---------------------------------------------------------------------------------------------------------------
 
-export const CONTRAT_VERSION = "join-v2";
+export const CONTRAT_VERSION = "join-v3";
+
+/** L'en-tête du contrat : l'identité complète de la société (aucune coordonnée bancaire). */
+export const CONTRAT_SOCIETE = `${SOCIETE.nom} (trade name: ${SOCIETE.nom_commercial}), a French ${SOCIETE.forme} with a share capital of ${SOCIETE.capital}
+Registered office: ${SOCIETE.siege}
+SIREN ${SOCIETE.siren} · SIRET ${SOCIETE.siret} · ${SOCIETE.rcs} · VAT ${SOCIETE.tva}
+President: ${SOCIETE.president} · Contact: ${SOCIETE.contact}`;
 
 export const CONTRAT_RESUME = [
   "You post 2 ready-made slideshows a day on a TikTok account we give you.",
@@ -415,7 +548,10 @@ export const CONTRAT_RESUME = [
 
 export const CONTRAT_TEXTE = `FREELANCE SERVICES AGREEMENT (version ${CONTRAT_VERSION})
 
-Between Vik Studios SAS, a French company and the publisher of the Sophia app ("the Company"), and the person signing below under their legal name ("the Creator").
+Between:
+${CONTRAT_SOCIETE}
+the publisher of the Sophia app ("the Company"),
+and the person signing below under their legal name ("the Creator").
 
 1. Purpose
 The Creator publishes, on TikTok accounts provided or approved by the Company, content prepared by the Company (two slideshows a day unless the dashboard says otherwise), following the instructions shown in the Creator dashboard.

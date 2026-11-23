@@ -9,16 +9,34 @@ import Codes from "./pages/Codes";
 import Connexion from "./pages/Connexion";
 import Contrat from "./pages/Contrat";
 import Dashboard from "./pages/Dashboard";
+import Admin from "./pages/Admin";
 import Decision from "./pages/Decision";
 import Etat from "./pages/Etat";
+import Faq from "./pages/Faq";
 import Legal from "./pages/Legal";
+import Modele from "./pages/Modele";
 
-type Ecran = "arrivee" | "candidature" | "ferme" | "codes" | "decision" | "contrat" | "dashboard" | "connexion" | "legal" | "expiree";
+type Ecran =
+  | "arrivee" | "candidature" | "ferme" | "codes" | "decision" | "contrat" | "dashboard" | "connexion" | "legal" | "privacy"
+  | "expiree" | "refusee" | "modele" | "faq";
+
+/** Les pages publiques qui ont leur propre adresse (liens partageables) ; /admin est à part. */
+const CHEMINS: Partial<Record<Ecran, string>> = { modele: "/contract", legal: "/legal", privacy: "/privacy", faq: "/faq" };
+
+function ecranDuChemin(): Ecran | null {
+  const p = location.pathname.replace(/\/+$/, "") || "/";
+  return (Object.entries(CHEMINS).find(([, c]) => c === p)?.[0] as Ecran | undefined) ?? null;
+}
 
 export default function App() {
+  if (location.pathname.replace(/\/+$/, "") === "/admin") return <Admin />;
+  return <Site />;
+}
+
+function Site() {
   const [langue, setLangue] = useState(langueInitiale);
   const t = useMemo(() => traducteur(langue), [langue]);
-  const [ecran, setEcran] = useState<Ecran>("arrivee");
+  const [ecran, setEcran] = useState<Ecran>(() => ecranDuChemin() ?? "arrivee");
   const [mode, setMode] = useState("test");
   const [pays, setPays] = useState<PaysPaie[]>([]);
   const [envoi, setEnvoi] = useState<Envoi | null>(null);
@@ -26,8 +44,20 @@ export default function App() {
 
   const aller = (e: Ecran) => {
     setEcran(e);
+    const chemin = CHEMINS[e] ?? "/";
+    try {
+      if (location.pathname !== chemin) history.pushState(null, "", `${chemin}${location.search}`);
+    } catch {
+      // historique indisponible
+    }
     globalThis.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    const retour = () => setEcran(ecranDuChemin() ?? "arrivee");
+    addEventListener("popstate", retour);
+    return () => removeEventListener("popstate", retour);
+  }, []);
 
   const chargerMoi = useCallback(async (orienter: boolean) => {
     if (!lireJeton()) return;
@@ -43,6 +73,7 @@ export default function App() {
     if (r.signature) aller("dashboard");
     else if (r.expiree) aller("expiree");
     else if (c.ferme) aller("ferme");
+    else if (c.decision === "refusee") aller("refusee");
     else if (c.decision === "auto") aller("contrat");
     else if (c.decision === "a_traiter" || (c.email_verifie && c.whatsapp_verifie)) aller("decision");
     else aller("codes");
@@ -73,7 +104,8 @@ export default function App() {
     } catch {
       // stockage indisponible : pas de visite comptée
     }
-    chargerMoi(true);
+    // Une page publique ouverte par son adresse (/contract, /legal…) reste affichée.
+    chargerMoi(!ecranDuChemin());
   }, [chargerMoi]);
 
   const connecte = !!moi?.signature;
@@ -105,12 +137,22 @@ export default function App() {
         </div>
       </header>
 
-      {ecran === "arrivee" && <Arrivee t={t} langue={langue} pays={pays} onPostuler={() => aller("candidature")} />}
+      {ecran === "arrivee" && (
+        <Arrivee t={t} langue={langue} pays={pays} onPostuler={() => aller("candidature")}
+          faq={<Faq t={t} onContrat={() => aller("modele")} onPrivacy={() => aller("privacy")} />} />
+      )}
+      {ecran === "faq" && (
+        <main className="page"><Faq t={t} onContrat={() => aller("modele")} onPrivacy={() => aller("privacy")} /></main>
+      )}
+      {ecran === "modele" && <Modele t={t} langue={langue} pays={pays} onPostuler={() => aller("candidature")} />}
       {ecran === "candidature" && (
-        <Candidature t={t} langue={langue} pays={pays} onLegal={() => aller("legal")} onEnvoye={(e) => {
+        <Candidature t={t} langue={langue} pays={pays} onLegal={() => aller("privacy")} onContrat={() => aller("modele")} onEnvoye={(e) => {
           setEnvoi(e);
           aller(e.ferme ? "ferme" : "codes");
         }} />
+      )}
+      {ecran === "refusee" && (
+        <Etat titre={t("dec.refusedTitle", { name: envoi?.prenom ?? moi?.candidature.prenom ?? "" })} texte={t("dec.refused")} />
       )}
       {ecran === "ferme" && <Etat titre={t("form.closedTitle", { name: envoi?.prenom ?? moi?.candidature.prenom ?? "" })} texte={t("form.closed")} />}
       {ecran === "expiree" && (
@@ -127,7 +169,7 @@ export default function App() {
       {ecran === "contrat" && <Contrat t={t} langue={langue} onSigne={() => chargerMoi(true)} onExpiree={() => aller("expiree")} />}
       {ecran === "dashboard" && moi && <Dashboard t={t} langue={langue} moi={moi} onMaj={() => chargerMoi(false)} />}
       {ecran === "connexion" && <Connexion t={t} onConnecte={() => chargerMoi(true)} />}
-      {ecran === "legal" && <Legal t={t} />}
+      {(ecran === "legal" || ecran === "privacy") && <Legal t={t} section={ecran} />}
 
       <footer className="footer">
         <div className="wrap">
@@ -136,7 +178,9 @@ export default function App() {
             <nav className="footer__liens" aria-label="Footer">
               <a href="https://vikstudios.com" rel="noopener">vikstudios.com</a>
               <a href="mailto:support@vikstudios.com">support@vikstudios.com</a>
-              <button type="button" onClick={() => aller("legal")}>{t("foot.privacy")}</button>
+              <button type="button" onClick={() => aller("modele")}>{t("foot.contract")}</button>
+              <button type="button" onClick={() => aller("faq")}>{t("foot.faq")}</button>
+              <button type="button" onClick={() => aller("privacy")}>{t("foot.privacy")}</button>
               <button type="button" onClick={() => aller("legal")}>{t("foot.legal")}</button>
             </nav>
           </div>

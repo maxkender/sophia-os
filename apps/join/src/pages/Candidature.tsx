@@ -34,12 +34,13 @@ function OuiNon({ t, legende, valeur, onChoix, invalide }: {
   );
 }
 
-export default function Candidature({ t, langue, pays, onEnvoye, onLegal }: {
+export default function Candidature({ t, langue, pays, onEnvoye, onLegal, onContrat }: {
   t: T;
   langue: string;
   pays: PaysPaie[];
   onEnvoye: (e: Envoi) => void;
   onLegal: () => void;
+  onContrat: () => void;
 }) {
   const [v, setV] = useState({ prenom: "", nom: "", email: "", indicatif: "33", tel: "", pays: "", parrain: "", site: "" });
   const [majeur, setMajeur] = useState<boolean | null>(null);
@@ -155,6 +156,7 @@ export default function Candidature({ t, langue, pays, onEnvoye, onLegal }: {
           <label className="case"><input type="checkbox" {...caseA("tarif", "accord_tarif")} /><span>{t("form.agreePay")}</span></label>
           <label className="case"><input type="checkbox" {...caseA("engagement", "engagement")} /><span>{t("form.commit")}</span></label>
           <p className="discret">{t("form.commitWarning")}</p>
+          <p><button type="button" className="lien" onClick={onContrat}>{t("form.readContract")}</button></p>
           <label className="case">
             <input type="checkbox" {...caseA("consentement", "consentement")} />
             <span>{t("form.consent")} <button type="button" className="lien" onClick={onLegal}>{t("form.privacy")}</button></span>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 
 import type { PaysPaie } from "../api";
 import ChoixPays from "../ChoixPays";
@@ -38,11 +38,12 @@ export function VoirPaie({ t, langue, pays, valeur, onChoix }: {
   );
 }
 
-export default function Arrivee({ t, langue, pays, onPostuler }: {
+export default function Arrivee({ t, langue, pays, onPostuler, faq }: {
   t: T;
   langue: string;
   pays: PaysPaie[];
   onPostuler: () => void;
+  faq?: ReactNode;
 }) {
   const [paysPaie, setPaysPaie] = useState("");
   return (
@@ -134,6 +135,8 @@ export default function Arrivee({ t, langue, pays, onPostuler }: {
           <p className="discret" style={{ marginTop: 18, maxWidth: "52rem" }}>{t("about.text")}</p>
         </div>
       </section>
+
+      {faq}
 
       <section className="section">
         <div className="wrap">

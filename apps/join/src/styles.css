@@ -374,6 +374,53 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 .copie code { background: #f1f4fb; padding: 6px 10px; border-radius: 10px; overflow-wrap: anywhere; flex: 1; font-family: var(--mono); font-size: .85rem; }
 .pastille { display: inline-block; font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; background: #f1f4fb; color: var(--muted); border-radius: 999px; padding: 3px 10px; }
 
+/* Mentions légales, confidentialité, FAQ */
+.legal { display: grid; gap: 18px; }
+.legal__bloc { display: grid; gap: 10px; scroll-margin-top: 90px; }
+.legal__bloc p, .legal__liste li { overflow-wrap: anywhere; }
+.legal__st { font-size: 1rem; font-weight: 650; margin-top: 8px; }
+.legal__liste { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.societe { font-size: .9rem; display: grid; gap: 2px; }
+.faq { display: grid; gap: 12px; }
+.faq__item { display: grid; gap: 10px; }
+.faq__item summary { cursor: pointer; font-size: 1.05rem; list-style-position: outside; }
+.faq__item p { margin-top: 10px; }
+.faq__item .lien { margin-top: 8px; }
+
+/* Admin (/admin) */
+.adm__wrap { width: min(100% - 32px, 1400px); margin-inline: auto; display: grid; gap: 16px; }
+.adm__tete { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; }
+.adm__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.adm__interrupteur { display: flex; gap: 8px; align-items: center; cursor: pointer; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; }
+.adm__filtres { display: flex; flex-wrap: wrap; gap: 10px; }
+.adm__filtres select { font: inherit; padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--fg); max-width: 100%; }
+.adm__corps { display: grid; gap: 16px; align-items: start; }
+@media (min-width: 1000px) { .adm__corps:has(.adm__fiche) { grid-template-columns: minmax(0, 1fr) minmax(360px, 440px); } }
+.adm__table-zone { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; }
+.adm__table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.adm__table th, .adm__table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.adm__table th { font-weight: 600; color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+.adm__table tbody tr { cursor: pointer; }
+.adm__table tbody tr:hover, .adm__choisi { background: #f1f4fb; }
+.adm__badge { display: inline-block; font-size: .72rem; font-weight: 600; border-radius: 999px; padding: 2px 9px; background: #eef1f8; color: var(--navy); }
+.adm__badge--test { background: #ffbb4540; }
+.adm__badge--a_traiter { background: #ffbb4566; }
+.adm__badge--acceptee { background: #21afff33; }
+.adm__badge--signee { background: #0a7d3c26; color: var(--ok); }
+.adm__badge--refusee, .adm__badge--expiree { background: #ff505026; color: var(--erreur); }
+.adm__badge--verifiee { background: #8b45ff26; }
+.adm__fiche { display: grid; gap: 10px; font-size: .9rem; position: sticky; top: 80px; max-height: calc(100svh - 100px); overflow: auto; }
+.adm__fiche-tete { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+.adm__dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 0; }
+.adm__dl > div { display: contents; }
+.adm__dl dt { color: var(--muted); }
+.adm__dl dd { margin: 0; overflow-wrap: anywhere; }
+.adm__decision { display: grid; gap: 8px; border-top: 1px solid var(--line); padding-top: 10px; }
+.adm__boutons { display: flex; gap: 10px; }
+.adm__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.adm__detail { display: block; font-family: var(--mono); font-size: .72rem; color: var(--muted); overflow-wrap: anywhere; }
+.adm__texte { white-space: pre-wrap; font-family: var(--font); font-size: .8rem; background: #f1f4fb; border-radius: 10px; padding: 10px; margin: 6px 0 0; }
+
 /* Pied de page */
 .footer { background: var(--navy); color: var(--white); padding-block: clamp(40px, 6vw, 72px) 24px; margin-top: clamp(32px, 6vw, 72px); }
 .footer__top { display: grid; gap: 28px; grid-template-columns: 1fr; }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { appeler, garderJeton } from "../api";
 import { dateLongue, type T } from "../i18n";
+import Societe from "../Societe";
 
 type Infos = { version: string; resume: string[]; texte: string; email?: string; nom?: string; cohorte?: string | null };
 
@@ -48,6 +49,8 @@ export default function Contrat({ t, langue, onSigne, onExpiree }: { t: T; langu
           <h1 className="h2">{t("ctr.title")}</h1>
           <p className="discret">{t("ctr.englishOnly")} ({c.version})</p>
         </div>
+
+        <section className="carte"><Societe t={t} /></section>
 
         <section className="carte" style={{ display: "grid", gap: 10 }}>
           <h2 className="h3">{t("ctr.summary")}</h2>

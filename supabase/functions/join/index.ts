@@ -18,8 +18,17 @@
  * WhatsApp horodaté, champ piège, limites par email et IP), provenance (ref/UTM/fbclid), pays fermés enregistrés
  * sans codes, signature avec nom légal + email Ruul et date limite (dimanche minuit Paris → sinon lundi suivant),
  * contrat join-v2.
+ *
+ * 0847 (admin, 23/11) : actions `admin_*` réservées aux admins de l'OS (même Supabase Auth : email + mot de passe ;
+ * is_admin() vérifié côté serveur à CHAQUE appel avec le JWT de l'admin, champ `admin_jwt`) : connexion,
+ * rafraîchissement, liste, fiche, accepter / refuser, interrupteur « Acceptation automatique » (réglage
+ * join_auto_acceptation, OFF par défaut, journalisé). OFF : une candidature qui remplit les conditions attend
+ * l'admin. ON : elle est acceptée seule et, après la signature, l'identité OS est créée tout de suite par
+ * hub-posteurs `creer_posteur` (le chemin existant) — en live seulement : en test, la création reste SIMULÉE.
+ * Contrat join-v3 (identité complète de la société en tête). Bienvenue après signature : lien « Set my password ».
  */
 import { corsHeaders, estSecretCron, json, serviceClient } from "../_shared/supabase.ts";
+import { lienMotDePasse } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerWhatsApp } from "../_shared/whatsapp_envoi.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
@@ -36,8 +45,11 @@ import {
   cohorteDe,
   dateLimiteSignature,
   decider,
+  deciderAvecReglage,
+  decisionsAdminPossibles,
   emailAutorise,
   estEtapeJoin,
+  etapeAdmin,
   etapeRelanceSignature,
   etapesRestantes,
   etatCode,
@@ -45,6 +57,8 @@ import {
   genererJeton,
   handlePropose,
   jourParis,
+  LIEN_DASHBOARD_OS,
+  lireAutoAcceptation,
   lireModeJoin,
   lundiLisible,
   MESSAGE_A_TRAITER,
@@ -57,6 +71,8 @@ import {
   sha256Hex,
   texteContratComplet,
   texteMessage,
+  TYPES_MESSAGE_JOIN,
+  type TypeMessageJoin,
   validerCandidature,
 } from "../_shared/join.ts";
 
@@ -68,7 +84,7 @@ type Candidature = CandidatureJoin & {
   whatsapp_e164: string;
   langue: string;
   email_verifie_at: string | null;
-  decision: "auto" | "a_traiter" | null;
+  decision: "auto" | "a_traiter" | "refusee" | null;
   decision_at: string | null;
   manques: string[];
   cohorte: string | null;
@@ -77,6 +93,9 @@ type Candidature = CandidatureJoin & {
   whatsapp_optin_at: string | null;
   expire_at: string | null;
   cree_at: string;
+  /** 0847 : l'identité OS créée (live seulement). */
+  profile_id?: string | null;
+  email_os?: string | null;
 };
 
 const HEURE = 3_600_000;
@@ -98,6 +117,12 @@ function ipDe(request: Request): string | null {
 async function lireMode(db: Db): Promise<ModeJoin> {
   const { data } = await db.from("reglages").select("valeur").eq("cle", "join_mode").maybeSingle();
   return lireModeJoin(data?.valeur);
+}
+
+/** 0847 : l'interrupteur « Acceptation automatique » (absent ou illisible : OFF). */
+async function lireAuto(db: Db): Promise<boolean> {
+  const { data } = await db.from("reglages").select("valeur").eq("cle", "join_auto_acceptation").maybeSingle();
+  return lireAutoAcceptation(data?.valeur);
 }
 
 async function evenement(db: Db, type: string, candidatureId: string | null, test: boolean, detail: Corps = {}) {
@@ -174,11 +199,11 @@ async function envoyerCodeWhatsapp(db: Db, mode: ModeJoin, c: Candidature, code:
 
 /** Un message au candidat (email, et WhatsApp si accord + modèle). En test : seulement vers les testeurs. */
 async function message(
-  db: Db, mode: ModeJoin, c: Candidature, type: Parameters<typeof texteMessage>[0],
-  v: { lundi?: string; limite?: string; lien?: string }, whatsapp: string | null,
+  db: Db, mode: ModeJoin, c: Candidature, type: TypeMessageJoin,
+  v: Omit<Parameters<typeof texteMessage>[1], "prenom" | "lien"> & { lien?: string }, whatsapp: string | null,
 ) {
   const lien = v.lien ?? JOIN_URL();
-  const m = texteMessage(type, { prenom: c.prenom, lien, lundi: v.lundi, limite: v.limite });
+  const m = texteMessage(type, { ...v, prenom: c.prenom, lien });
   if (emailAutorise(mode, c.email) || mode.mode === "live") {
     const { html, texte } = rendreEmailRuul({
       objet: m.objet, corps: m.corps, bouton: m.bouton ? { texte: m.bouton, lien } : null, lienStop: JOIN_URL(), sansPied: true,
@@ -214,22 +239,116 @@ async function etapesFaites(db: Db, id: string): Promise<string[]> {
   return [...new Set((data ?? []).map((r) => r.etape as string))];
 }
 
+/** « Sunday 29 November » : la veille du lundi de départ (date limite lisible, heure de Paris). */
+function limiteLisible(lundi: string): string {
+  return new Date(dateLimiteSignature(lundi).getTime() - 60_000)
+    .toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Paris" });
+}
+
 /**
- * Après la signature, tout s'enchaîne seul : compte OS, Slack, Ruul, puis le message d'accès (email + WhatsApp
- * account_ready). Idempotent (journal join_relances) : le cron reprend ce qui manque. EN TEST, compte OS, Slack et
- * Ruul sont SIMULÉS ; le message d'accès ne part qu'aux testeurs.
+ * Après la signature, tout s'enchaîne seul : compte OS, Slack, Ruul, puis le message d'accès (email de bienvenue
+ * + WhatsApp account_ready). Idempotent (journal join_relances) : le cron reprend ce qui manque. EN TEST, compte OS,
+ * Slack et Ruul sont SIMULÉS ; le message d'accès ne part qu'aux testeurs.
+ *
+ * 0847 : en live, le compte OS n'est créé que si l'acceptation automatique est ON (sinon il attend : rien n'est
+ * journalisé et le cron réessaie) ; il est créé par hub-posteurs `creer_posteur`, le chemin existant (manage-users).
  */
 async function enchainer(db: Db, mode: ModeJoin, c: Candidature, lundi: string) {
   const faites = await etapesFaites(db, c.id);
+  const reel = mode.mode === "live" && !c.test;
   for (const e of etapesRestantes(faites)) {
     if (e === "acces") {
-      await message(db, mode, c, "acces", { lundi: lundiLisible(lundi) }, "account_ready");
+      await messageAcces(db, mode, c, lundi, reel);
       continue;
     }
-    // compte_os, slack, ruul : jamais réels tant que Join n'est pas passé en live sur l'OK de Max.
+    if (e === "compte_os" && reel) {
+      if (!(await lireAuto(db))) return; // live + OFF : le compte attend (l'admin allume l'interrupteur)
+      const cree = await creerCompteOS(db, c, lundi);
+      if (!cree) return; // échec : le cron horaire réessaie (hub-posteurs est idempotent sur hub_id)
+      await journaliserRelance(db, c, e, "systeme", "envoye");
+      continue;
+    }
+    // compte_os (test), slack, ruul : jamais réels tant que Join n'est pas passé en live sur l'OK de Max.
     await simuler(db, c, e === "compte_os" ? "creation_compte_os" : e === "slack" ? "invitation_slack" : "invitation_ruul");
     await journaliserRelance(db, c, e, "systeme", "simule");
     if (e === "slack") await majEtape(db, c.id, "slack", "simule", { auto_at: new Date().toISOString() });
+  }
+}
+
+/**
+ * 0847 (live seulement) : l'identité OS du posteur, par hub-posteurs `creer_posteur` — le même chemin que le site
+ * Lovable (manage-users `create`, rattachement à la cohorte Ruul, profil Ruul). hub_id = l'id de la candidature :
+ * un rejeu ne crée jamais un second posteur. Renvoie false en cas d'échec (le cron réessaie).
+ */
+async function creerCompteOS(db: Db, c: Candidature, lundi: string): Promise<boolean> {
+  const url = Deno.env.get("SUPABASE_URL");
+  const secret = Deno.env.get("OS_HUB_SECRET");
+  if (!url || !secret) {
+    console.error("join compte_os : SUPABASE_URL ou OS_HUB_SECRET manquant");
+    return false;
+  }
+  const [{ data: sig }, paie] = await Promise.all([
+    db.from("join_signatures").select("ruul_email").eq("candidature_id", c.id).limit(1).maybeSingle(),
+    paysOuverts(db),
+  ]);
+  const p = paie.pays.find((x) => x.pays === c.pays);
+  const source = ((c as unknown as { source?: Record<string, string> }).source ?? {});
+  try {
+    const r = await fetch(`${url}/functions/v1/hub-posteurs`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-hub-secret": secret },
+      body: JSON.stringify({
+        action: "creer_posteur", hub_id: c.id, prenom: c.prenom, nom: c.nom, email_perso: c.email, pays_code: c.pays,
+        ruul_email: sig?.ruul_email ?? "", ref: source.ref ?? null, plateforme_paie: "ruul", zone: p?.zone ?? null,
+        tarif_semaine: p?.tarif ?? null, start_monday: lundi, application_id: `join:${c.id}`,
+      }),
+      signal: AbortSignal.timeout(100_000),
+    });
+    const x = await r.json().catch(() => null) as { ok?: boolean; profile_id?: string; email_os?: string; error?: string } | null;
+    if (!r.ok || !x?.ok || !x.profile_id) {
+      console.error("join compte_os", r.status, x?.error ?? "");
+      await evenement(db, "compte_os", c.id, c.test, { ok: false, erreur: String(x?.error ?? `HTTP ${r.status}`).slice(0, 300) });
+      return false;
+    }
+    await db.from("join_candidatures").update({ profile_id: x.profile_id, email_os: x.email_os ?? null, maj_at: new Date().toISOString() })
+      .eq("id", c.id);
+    c.profile_id = x.profile_id;
+    c.email_os = x.email_os ?? null;
+    await evenement(db, "compte_os", c.id, c.test, { ok: true, profile_id: x.profile_id });
+    return true;
+  } catch (e) {
+    console.error("join compte_os", e instanceof Error ? e.message : String(e));
+    return false;
+  }
+}
+
+/**
+ * La bienvenue après la signature (email + WhatsApp account_ready) : accès au dashboard de l'OS par le lien
+ * personnel « Set my password » (jamais de mot de passe), étapes, Slack, Ruul. En test (aucun compte créé) : le
+ * texte le dit, et l'email ne part qu'aux testeurs. En live, la bienvenue du parcours Ruul de l'OS est notée comme
+ * envoyée pour ce nouveau posteur (jamais deux bienvenues).
+ */
+async function messageAcces(db: Db, mode: ModeJoin, c: Candidature, lundi: string, reel: boolean) {
+  const { data: sig } = await db.from("join_signatures").select("ruul_email").eq("candidature_id", c.id).limit(1).maybeSingle();
+  let lien: string | undefined;
+  if (reel && c.profile_id) {
+    const { data: jeton, error } = await db.rpc("mot_de_passe_lien_creer", { p_poster: c.profile_id, p_par: "join" });
+    if (error || typeof jeton !== "string" || !jeton) {
+      console.error("join acces : lien Set my password", error?.message ?? "non créé");
+      return; // le cron réessaie : jamais de bienvenue sans le lien
+    }
+    lien = lienMotDePasse(LIEN_DASHBOARD_OS, jeton);
+  }
+  await message(db, mode, c, "acces", {
+    lien, compteCree: !!lien, login: c.email_os ?? null, handle: c.handle_tiktok, ruulEmail: sig?.ruul_email ?? null,
+    lundi: lundiLisible(lundi), limite: limiteLisible(lundi),
+  }, "account_ready");
+  if (reel && c.profile_id) {
+    const { error } = await db.from("ruul_parcours_envois").upsert(
+      { poster_id: c.profile_id, cle: "bienvenue", type: "bienvenue", ok: true, canaux: ["join"], erreur: null, envoye_at: new Date().toISOString() },
+      { onConflict: "poster_id,cle" },
+    );
+    if (error) console.error("join acces : ruul_parcours_envois", error.message);
   }
 }
 
@@ -270,11 +389,7 @@ async function relances(db: Db, mode: ModeJoin) {
       continue;
     }
     const lundi = cohorteASignature(c.cohorte, maintenant);
-    const limite = new Date(dateLimiteSignature(lundi).getTime() - 60_000);
-    await message(db, mode, c, etape, {
-      lundi: lundiLisible(lundi),
-      limite: limite.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Paris" }),
-    }, "contract_to_sign");
+    await message(db, mode, c, etape, { lundi: lundiLisible(lundi), limite: limiteLisible(lundi) }, "contract_to_sign");
     bilan.signature++;
   }
   return bilan;
@@ -313,6 +428,196 @@ function vueCandidature(c: Candidature) {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
+// Admin (0847) : réservé aux admins de l'OS. Le JWT Supabase Auth de l'admin arrive dans `admin_jwt` (l'en-tête
+// authorization porte la session du candidat) ; is_admin() est vérifié à chaque appel, par PostgREST avec ce JWT
+// (signature vérifiée, auth.uid() = l'admin). Un non-admin ne reçoit rien.
+// ---------------------------------------------------------------------------------------------------------------
+
+function sujetJwt(jwt: string): string | null {
+  try {
+    const charge = jwt.split(".")[1];
+    const sub = JSON.parse(atob(charge.replace(/-/g, "+").replace(/_/g, "/"))).sub;
+    return typeof sub === "string" && sub ? sub : null;
+  } catch {
+    return null;
+  }
+}
+
+/** L'admin du JWT (is_admin() vrai), ou null. */
+async function adminDuJwt(jwt: unknown): Promise<{ id: string } | null> {
+  if (typeof jwt !== "string" || jwt.split(".").length !== 3) return null;
+  const sub = sujetJwt(jwt);
+  const url = Deno.env.get("SUPABASE_URL");
+  const anon = Deno.env.get("SUPABASE_ANON_KEY");
+  if (!sub || !url || !anon) return null;
+  // PostgREST vérifie la signature du JWT ; is_admin() lit auth.uid() = l'admin.
+  const r = await fetch(`${url}/rest/v1/rpc/is_admin`, {
+    method: "POST",
+    headers: { "content-type": "application/json", apikey: anon, authorization: `Bearer ${jwt}` },
+    body: "{}",
+  }).catch(() => null);
+  if (!r?.ok) return null;
+  return (await r.json().catch(() => null)) === true ? { id: sub } : null;
+}
+
+/** Connexion (email + mot de passe) ou rafraîchissement auprès de Supabase Auth ; les jetons ne sont rendus qu'à un admin. */
+async function jetonsAdmin(corps: Record<string, string>, grant: "password" | "refresh_token"): Promise<Response> {
+  const url = Deno.env.get("SUPABASE_URL");
+  const anon = Deno.env.get("SUPABASE_ANON_KEY");
+  if (!url || !anon) return erreur("configuration", 500);
+  const r = await fetch(`${url}/auth/v1/token?grant_type=${grant}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", apikey: anon },
+    body: JSON.stringify(corps),
+  });
+  const x = await r.json().catch(() => null) as { access_token?: string; refresh_token?: string; expires_in?: number; user?: { email?: string } } | null;
+  if (!r.ok || !x?.access_token) return erreur(grant === "password" ? "identifiants" : "session", 401);
+  const admin = await adminDuJwt(x.access_token);
+  if (!admin) {
+    // Pas admin : la session ouverte est refermée tout de suite, rien n'est rendu.
+    await fetch(`${url}/auth/v1/logout`, { method: "POST", headers: { apikey: anon, authorization: `Bearer ${x.access_token}` } })
+      .catch(() => null);
+    return erreur("forbidden", 403);
+  }
+  return json({ ok: true, access_token: x.access_token, refresh_token: x.refresh_token, expires_in: x.expires_in ?? 3600, email: x.user?.email ?? null });
+}
+
+/** La ligne de la liste de l'admin. */
+function ligneAdmin(c: Candidature & Record<string, unknown>, signee: boolean) {
+  const etape = etapeAdmin(c, signee);
+  const source = (c.source ?? {}) as Record<string, string>;
+  return {
+    id: c.id, test: c.test, prenom: c.prenom, nom: c.nom, email: c.email, pays: c.pays, cree_at: c.cree_at, maj_at: c.maj_at,
+    etape, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at, decision: c.decision,
+    eligible: c.decision === "a_traiter" ? !(c.manques ?? []).length : null, manques: c.manques ?? [],
+    cohorte: c.cohorte, whatsapp_optin: !!c.whatsapp_optin_at, entendu: c.entendu ?? null, parrain: c.parrain ?? null,
+    source: source.ref ? `ref:${source.ref}` : source.utm_source ?? (c.entendu as string | null) ?? null,
+    ...decisionsAdminPossibles(etape),
+  };
+}
+
+async function signeesParmi(db: Db, ids: string[]): Promise<Set<string>> {
+  if (!ids.length) return new Set();
+  const { data } = await db.from("join_signatures").select("candidature_id").in("candidature_id", ids).limit(900);
+  return new Set((data ?? []).map((x) => x.candidature_id as string));
+}
+
+async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): Promise<Response> {
+  if (action === "admin_connexion") {
+    const email = String(b.email ?? "").trim().toLowerCase();
+    const password = String(b.password ?? "");
+    if (!email || !password) return erreur("identifiants", 400);
+    return await jetonsAdmin({ email, password }, "password");
+  }
+  if (action === "admin_rafraichir") {
+    const refresh = String(b.refresh_token ?? "");
+    if (!refresh) return erreur("session", 401);
+    return await jetonsAdmin({ refresh_token: refresh }, "refresh_token");
+  }
+  const admin = await adminDuJwt(b.admin_jwt);
+  if (!admin) return erreur("forbidden", 403);
+
+  switch (action) {
+    case "admin_liste": {
+      const { data, error } = await db.from("join_candidatures").select("*").order("cree_at", { ascending: false }).limit(500);
+      if (error) return erreur(error.message, 500);
+      const lignes = (data ?? []) as (Candidature & Record<string, unknown>)[];
+      const signees = await signeesParmi(db, lignes.map((c) => c.id));
+      return json({
+        ok: true, mode: mode.mode, auto_acceptation: await lireAuto(db),
+        candidatures: lignes.map((c) => ligneAdmin(c, signees.has(c.id))), lu_at: new Date().toISOString(),
+      });
+    }
+
+    case "admin_fiche": {
+      const id = String(b.id ?? "");
+      const { data: c } = await db.from("join_candidatures").select("*").eq("id", id).maybeSingle();
+      if (!c) return erreur("introuvable", 404);
+      const [ev, rel, sig, et] = await Promise.all([
+        db.from("join_evenements").select("type, at, detail").eq("candidature_id", id).order("at", { ascending: true }).limit(300),
+        db.from("join_relances").select("etape, canal, statut, at").eq("candidature_id", id).order("at", { ascending: true }).limit(300),
+        db.from("join_signatures").select("version, signe_at, nom_legal, ruul_email, ip, sha256").eq("candidature_id", id)
+          .limit(1).maybeSingle(),
+        db.from("join_etapes").select("etape, statut, valeur, maj_at").eq("candidature_id", id).limit(20),
+      ]);
+      const cand = c as Candidature & Record<string, unknown>;
+      // Les messages envoyés : le journal des envois, avec l'objet et le texte du message de ce type (anglais).
+      const messages = (rel.data ?? []).map((r) => {
+        const type = r.etape as TypeMessageJoin;
+        const m = (TYPES_MESSAGE_JOIN as readonly string[]).includes(type) && r.canal !== "systeme"
+          ? texteMessage(type, { prenom: cand.prenom, lien: JOIN_URL(), handle: cand.handle_tiktok, login: cand.email_os ?? null })
+          : null;
+        return { ...r, objet: m?.objet ?? null, texte: m?.corps ?? null };
+      });
+      return json({
+        ok: true, mode: mode.mode,
+        candidature: {
+          ...ligneAdmin(cand, !!sig.data), whatsapp: cand.whatsapp_e164, langue: cand.langue, majeur: cand.majeur ?? null,
+          age: cand.age, deux_telephones: cand.deux_telephones, reponses: cand.reponses, source_brute: cand.source ?? {},
+          handle_tiktok: cand.handle_tiktok, expire_at: cand.expire_at, decision_at: cand.decision_at,
+          decision_par: cand.decision_par ?? null, decision_note: cand.decision_note ?? null,
+          profile_id: cand.profile_id ?? null, email_os: cand.email_os ?? null,
+        },
+        evenements: ev.data ?? [], messages, signature: sig.data ?? null, etapes: et.data ?? [],
+      });
+    }
+
+    case "admin_decider": {
+      const id = String(b.id ?? "");
+      const choix = b.decision === "accepter" ? "accepter" : b.decision === "refuser" ? "refuser" : null;
+      if (!choix) return erreur("decision");
+      const note = String(b.note ?? "").trim().slice(0, 500) || null;
+      const { data } = await db.from("join_candidatures").select("*").eq("id", id).maybeSingle();
+      if (!data) return erreur("introuvable", 404);
+      const c = data as Candidature;
+      const signees = await signeesParmi(db, [c.id]);
+      const possibles = decisionsAdminPossibles(etapeAdmin(c, signees.has(c.id)));
+      if (choix === "accepter" && !possibles.accepter) return erreur("acceptation impossible à cette étape", 409);
+      if (choix === "accepter" && !(c.email_verifie_at && c.whatsapp_verifie_at)) return erreur("codes pas encore vérifiés", 409);
+      if (choix === "refuser" && !possibles.refuser) return erreur("refus impossible à cette étape", 409);
+      const maintenant = new Date().toISOString();
+      if (choix === "accepter") {
+        const cohorte = cohorteDe(aujourdhuiParis());
+        const { error } = await db.from("join_candidatures").update({
+          decision: "auto", decision_at: maintenant, cohorte, decision_par: admin.id, decision_note: note, maj_at: maintenant,
+        }).eq("id", c.id);
+        if (error) return erreur(`enregistrement impossible (migration 0847 appliquée ?) : ${error.message}`, 500);
+        await evenement(db, "acceptee", c.id, c.test, { par: admin.id, note });
+        c.decision = "auto";
+        c.cohorte = cohorte;
+        const lundi = cohorteASignature(cohorte);
+        // Le candidat est prévenu (email ; WhatsApp contract_to_sign s'il a donné son accord). En test : testeurs seulement.
+        await message(db, mode, c, "acceptee", { lundi: lundiLisible(lundi), limite: limiteLisible(lundi) }, "contract_to_sign");
+      } else {
+        const { error } = await db.from("join_candidatures").update({
+          decision: "refusee", decision_at: maintenant, decision_par: admin.id, decision_note: note, maj_at: maintenant,
+        }).eq("id", c.id);
+        if (error) return erreur(`enregistrement impossible (migration 0847 appliquée ?) : ${error.message}`, 500);
+        await evenement(db, "refusee", c.id, c.test, { par: admin.id, note });
+        c.decision = "refusee";
+        await message(db, mode, c, "refusee", {}, null);
+      }
+      return json({ ok: true, decision: c.decision });
+    }
+
+    case "admin_reglage": {
+      const avant = await lireAuto(db);
+      if (typeof b.auto_acceptation !== "boolean") return json({ ok: true, auto_acceptation: avant });
+      const apres = b.auto_acceptation;
+      // updated_by = l'admin : le déclencheur de reglages l'écrit dans reglages_journal (0411).
+      const { error } = await db.from("reglages").upsert(
+        { cle: "join_auto_acceptation", valeur: { actif: apres }, updated_by: admin.id, updated_at: new Date().toISOString() },
+        { onConflict: "cle" },
+      );
+      if (error) return erreur(error.message, 500);
+      if (avant !== apres) await evenement(db, "reglage", null, mode.mode === "test", { cle: "join_auto_acceptation", avant, apres, par: admin.id });
+      return json({ ok: true, auto_acceptation: apres });
+    }
+  }
+  return erreur("action inconnue", 404);
+}
+
+// ---------------------------------------------------------------------------------------------------------------
 
 async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
   const action = String(b.action ?? "");
@@ -320,6 +625,7 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
   if (!action) return erreur("action", 401);
   const mode = await lireMode(db);
   const enTest = mode.mode === "test";
+  if (action.startsWith("admin_")) return await traiterAdmin(db, b, mode, action);
 
   switch (action) {
     case "relances": {
@@ -425,13 +731,14 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       if (!c.email_verifie_at || !c.whatsapp_verifie_at) return erreur("not_verified");
       if (!c.decision) {
         const { pays } = await paysOuverts(db);
-        const d = decider(c, new Set(pays.map((p) => p.pays)));
+        // 0847 : l'interrupteur « Acceptation automatique » (OFF : même une candidature complète attend l'admin).
+        const d = deciderAvecReglage(decider(c, new Set(pays.map((p) => p.pays))), await lireAuto(db));
         const maintenant = new Date().toISOString();
         const cohorte = d.decision === "auto" ? cohorteDe(aujourdhuiParis()) : null;
         await db.from("join_candidatures").update({
           decision: d.decision, decision_at: maintenant, manques: d.manques, cohorte, maj_at: maintenant,
         }).eq("id", c.id);
-        await evenement(db, d.decision === "auto" ? "acceptee" : "a_traiter", c.id, c.test, { manques: d.manques });
+        await evenement(db, d.decision === "auto" ? "acceptee" : "a_traiter", c.id, c.test, { manques: d.manques, eligible: d.eligible });
         c.decision = d.decision;
         c.cohorte = cohorte;
       }

@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o252",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "91366050-cfa8-4dd0-8a9a-b2e4350b1429",
+  "titre": "comment je suis devenue la fille qui a toujours une histoire à raconter (sans faire la prof) #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "91366050-cfa8-4dd0-8a9a-b2e4350b1429"
+  ],
+  "notes": "G2, déclinaison de 91366050 (« comment je suis devenue la fille qui sait toujours un truc sans être une intello », G1 gagnante, génération 1 en français ; meilleur passage en 856 vues, r 6,2), en français, 2e déclinaison (après bsg-o244). Accroche reformulée : « comment je suis devenue la fille qui a toujours une histoire à raconter (sans faire la prof) ». cta A. Aucun fait daté. Routine du 23/11 sur BLEO (par_jour passé à 15 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 10 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées hier au guichet), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "29672eaa",
+      "texte_overlay": "comment je suis devenue la fille\nqui a toujours une histoire à raconter\n(sans faire la prof)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6e4e3074",
+      "texte_overlay": "1. je raconte, je n'explique pas\n\nune anecdote, pas un exposé.\nles gens adorent les histoires.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5e847e22",
+      "texte_overlay": "2. je garde les meilleures\n\ncelles qui font dire « non ? sérieux ? ».",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9cd941f8",
+      "texte_overlay": "3. je demande aux autres ce qu'ils savent\n\nchacun a une passion.\nil suffit de la trouver.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f1fdf21d",
+      "texte_overlay": "4. je relis avant les dîners\n\ndeux minutes dans mes notes.\nj'arrive toujours avec une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "605b8545",
+      "texte_overlay": "5. j'apprends un peu chaque jour\n\navant, je n'avais rien à raconter.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai toujours une histoire en tête.",
+      "texte_sophia": "5. j'apprends un peu chaque jour\n\navant, je n'avais rien à raconter.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai toujours une histoire en tête.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "68fcf18c",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

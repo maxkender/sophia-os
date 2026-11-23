@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o251",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3c9c9514-209b-4baf-9133-f0ea01a6fefc",
+  "titre": "les questions qui font parler n'importe qui (bien mieux que la météo) #conversation #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "3c9c9514-209b-4baf-9133-f0ea01a6fefc"
+  ],
+  "notes": "G2, déclinaison de 3c9c9514 (« les sujets de conversation qui marchent à tous les coups, et ce n'est pas la météo », G1 gagnante, génération 1 en français ; meilleur passage tr 4,5 k vues, r 2,17), en français, 2e déclinaison (après bsg-o242). Accroche reformulée : « les questions qui font parler n'importe qui (bien mieux que la météo) ». cta B. Questions neuves. Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Marie_Curie : première personne à recevoir deux prix Nobel. Routine du 23/11 sur BLEO (par_jour passé à 15 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 10 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées hier au guichet), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ff919d83",
+      "texte_overlay": "les questions qui font parler n'importe qui\n(bien mieux que la météo)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4b0e8083",
+      "texte_overlay": "1. c'est quoi le meilleur conseil qu'on t'ait donné ?\n\non découvre qui compte pour lui.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "32c54b83",
+      "texte_overlay": "2. tu aurais aimé vivre à quelle époque ?\n\nles réponses sont toujours surprenantes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "be464b5a",
+      "texte_overlay": "3. tu savais que… ?\n\nce matin, j'ai appris que marie curie a été la première personne à recevoir deux prix nobel.\net tout le monde avait une question.",
+      "texte_sophia": "3. tu savais que… ?\n\nce matin, l'appli Sophia m'a appris que marie curie a été la première personne à recevoir deux prix nobel.\net tout le monde avait une question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "518d624a",
+      "texte_overlay": "4. quel lieu te rend heureux, sans raison ?\n\nune plage, une cuisine, une librairie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f1ec0b3c",
+      "texte_overlay": "5. qu'est-ce que tu voudrais savoir faire ?\n\nles rêves arrivent tout seuls.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2b440ba2",
+      "texte_overlay": "essaie-la ce soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

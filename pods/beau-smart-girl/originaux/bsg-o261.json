@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o261",
+  "type_bleo": "full_test",
+  "titre": "les tableaux célèbres qui cachent une histoire incroyable #art #peinture #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Différent de bsg-o227 (peintres) : anecdotes sur des tableaux. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/Mona_Lisa : volée en 1911, retrouvée en 1913. Routine du 23/11 sur BLEO (par_jour passé à 15 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 10 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées hier au guichet), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9b1f30cc",
+      "texte_overlay": "les tableaux célèbres\nqui cachent une histoire incroyable",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "fa50ee65",
+      "texte_overlay": "1. la joconde\n\nce matin, j'ai appris que la joconde a été volée au louvre en 1911 et retrouvée seulement en 1913.\nje l'ai regardée autrement.",
+      "texte_sophia": "1. la joconde\n\nce matin, l'appli Sophia m'a appris que la joconde a été volée au louvre en 1911 et retrouvée seulement en 1913.\nje l'ai regardée autrement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "74ef3a68",
+      "texte_overlay": "2. la nuit étoilée\n\npeinte depuis la fenêtre\nd'une chambre d'hôpital.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ffe1929c",
+      "texte_overlay": "3. les nymphéas\n\nmonet a peint son propre jardin\npendant des années.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "21cee0be",
+      "texte_overlay": "4. la jeune fille à la perle\n\npersonne ne sait vraiment\nqui elle était.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "14b91670",
+      "texte_overlay": "5. le cri\n\nil en existe plusieurs versions.\npas un seul cri, donc.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f27e9ec6",
+      "texte_overlay": "lequel tu aimerais voir en vrai ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o263",
+  "type_bleo": "full_test",
+  "titre": "les philosophes à lire quand on débute #philosophie #lecture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta C. Descriptions générales, sans date. Routine du 23/11 sur BLEO (par_jour passé à 15 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 10 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées hier au guichet), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "aaa85dae",
+      "texte_overlay": "les philosophes à lire\nquand on débute",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ecb22862",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "736dfded",
+      "texte_overlay": "1. épicure\n\nle bonheur dans les plaisirs simples.\nrien à voir avec l'excès.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "18bfb09a",
+      "texte_overlay": "2. sénèque\n\nses lettres sur le temps qui passe.\nétonnamment modernes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2e643e4e",
+      "texte_overlay": "3. montaigne\n\nles essais, écrits comme une conversation.\non a l'impression de le connaître.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b1753eec",
+      "texte_overlay": "4. simone de beauvoir\n\nle deuxième sexe.\nun livre qui change le regard.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c5d72c20",
+      "texte_overlay": "5. camus\n\nle mythe de sisyphe.\nla joie, malgré tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "d537bf55",
+      "texte_overlay": "par lequel tu commences ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -5,7 +5,8 @@ import { nomPays, type T } from "./i18n";
 import { INDICATIFS } from "./indicatifs";
 
 /**
- * Une liste de pays cherchable (au clavier et au doigt). Les pays ouverts en premier avec leur tarif ;
+ * Une liste de pays cherchable (au clavier et au doigt). Les pays ouverts en premier, SANS tarif (23/11, Max : le
+ * tarif ne s'affiche qu'une fois son pays choisi, jamais celui des autres) ;
  * les autres (connus des indicatifs) restent choisissables : la candidature est alors gardée pour plus tard.
  */
 export default function ChoixPays({ t, langue, pays, valeur, onChoix, invalide, id }: {
@@ -79,7 +80,6 @@ export default function ChoixPays({ t, langue, pays, valeur, onChoix, invalide, 
               <button type="button" role="option" aria-selected={i === actif || p.c === valeur}
                 onMouseDown={(e) => e.preventDefault()} onClick={() => choisir(p.c)}>
                 <span>{p.n}</span>
-                {p.ouvert && p.tarif != null && <small>{t("pay.short", { tarif: p.tarif })}</small>}
               </button>
             </li>
           ))}

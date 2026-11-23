@@ -50,12 +50,21 @@ export default function Arrivee({ t, langue, pays, onPostuler, faq }: {
   return (
     <main>
       <section className="halo hero hero--court">
-        <div className="wrap hero__copy">
-          <span className="label">{t("land.label")}</span>
-          <h1 className="h1">{t("land.title1")} <em>{t("land.title2")}</em></h1>
-          <p className="lede">{t("land.lead")}</p>
-          <div className="hero__cta">
-            <button type="button" className="btn" onClick={onPostuler}>{t("land.cta")}</button>
+        <div className="wrap hero__grid">
+          <div className="hero__copy">
+            <span className="label">{t("land.label")}</span>
+            <h1 className="h1">{t("land.title1")} <em>{t("land.title2")}</em></h1>
+            <p className="lede">{t("land.lead")}</p>
+            <div className="hero__cta">
+              <button type="button" className="btn" onClick={onPostuler}>{t("land.cta")}</button>
+            </div>
+          </div>
+          {/* 23/11 (Max) : la vidéo guide en haut, à droite du titre (en dessous sur téléphone). */}
+          <div className="video video--hero">
+            <div className="video__cadre" style={{ aspectRatio: VIDEO_GUIDE_FORMAT }}>
+              <iframe src={VIDEO_GUIDE_PREVIEW} title={t("video.title")} allow="autoplay" allowFullScreen loading="lazy" />
+            </div>
+            <a href={VIDEO_GUIDE_URL} target="_blank" rel="noopener noreferrer">{t("video.watch")}</a>
           </div>
         </div>
       </section>
@@ -78,12 +87,6 @@ export default function Arrivee({ t, langue, pays, onPostuler, faq }: {
             <h2 className="h3">{t("key.steps.title")}</h2>
             <ol className="etapes-courtes">{[1, 2, 3, 4].map((n) => <li key={n}>{t(`key.steps.${n}`)}</li>)}</ol>
           </article>
-        </div>
-        <div className="wrap video">
-          <div className="video__cadre" style={{ aspectRatio: VIDEO_GUIDE_FORMAT }}>
-            <iframe src={VIDEO_GUIDE_PREVIEW} title={t("video.title")} allow="autoplay" allowFullScreen loading="lazy" />
-          </div>
-          <a href={VIDEO_GUIDE_URL} target="_blank" rel="noopener noreferrer">{t("video.watch")}</a>
         </div>
         <div className="wrap centre" style={{ marginTop: 24 }}>
           <button type="button" className="btn" onClick={onPostuler}>{t("land.cta")}</button>

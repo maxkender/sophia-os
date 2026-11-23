@@ -9,7 +9,7 @@ export const POD = "page_blanche";
  * comptes les lit, n'y mets que ce que tu sais vraiment faire. « es » sert
  * aussi les comptes « es-419 ».
  */
-export const LANGUES = ["fr", "en", "es", "de", "it", "tr", "hu", "sr", "hr", "el", "fi", "da", "lt", "bg"] as const;
+export const LANGUES = ["fr", "en", "es", "de", "it", "tr", "hu", "sr", "hr", "el", "fi", "da", "lt", "bg", "pt-BR"] as const;
 
 const URL_DEFAUT = "https://mbikecieskoobeizixig.supabase.co";
 

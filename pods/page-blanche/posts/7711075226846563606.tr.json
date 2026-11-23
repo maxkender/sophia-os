@@ -1,0 +1,240 @@
+{
+ "post_id": "7711075226846563606",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to rebuild your",
+      "attention span"
+     ],
+     "fr": "10/10 hobbies pour retrouver ta concentration",
+     "texte": "dikkat süreni geri kazandıran 10/10 hobi"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(nörobilim onaylı)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1934fc5c.jpg",
+      "boite": [
+       0,
+       420,
+       2048,
+       1510
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listen to albums start to finish"
+     ],
+     "fr": "écouter un album [[en entier]]",
+     "texte": "albümleri [[baştan sona]] dinle"
+    },
+    "T2": {
+     "en": [
+      "skipping a song after 30 seconds trains your brain",
+      "to quit the second something isn’t exciting"
+     ],
+     "fr": "zapper un son après 30 secondes apprend à ton cerveau à [[lâcher dès que ça devient moins fun]]",
+     "texte": "bir şarkıyı 30 saniyede geçmek beynine [[heyecan bittiği an bırakmayı]] öğretir"
+    },
+    "T3": {
+     "en": [
+      "an album makes you",
+      "stay with something,",
+      "even when the first",
+      "minute is slow"
+     ],
+     "fr": "un album t'oblige à rester, même si la première minute est [[lente]]",
+     "texte": "albüm seni bir şeyde tutar, ilk dakika [[yavaş]] olsa bile"
+    },
+    "T4": {
+     "en": [
+      "your attention span gets longer when you stop",
+      "skipping to the good part"
+     ],
+     "fr": "ton attention s'allonge quand tu [[arrêtes de zapper vers le refrain]]",
+     "texte": "[[en güzel kısma atlamayı bıraktığında]] dikkat süren uzar"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play chess over the board"
+     ],
+     "fr": "jouer aux échecs [[en vrai]]",
+     "texte": "[[gerçek tahtada]] satranç oyna"
+    },
+    "T2": {
+     "en": [
+      "1 minute games on your phone feel like brain",
+      "training, but they’re just another dopamine hit"
+     ],
+     "fr": "les parties d'1 min sur ton tel, ça fait muscu du cerveau, mais [[c'est juste de la dopamine]]",
+     "texte": "telefonda 1 dakikalık oyunlar beyin antrenmanı gibi gelir ama [[sadece bir dopamin vuruşu daha]]"
+    },
+    "T3": {
+     "en": [
+      "a real game makes",
+      "you sit still and think 5",
+      "moves ahead for 30",
+      "minutes"
+     ],
+     "fr": "une vraie partie te cloue 30 minutes sur ta chaise à [[anticiper 5 coups]]",
+     "texte": "gerçek bir oyun seni 30 dakika oturtup [[5 hamle sonrasını düşündürür]]"
+    },
+    "T4": {
+     "en": [
+      "it trains patience and deep focus, the exact things",
+      "short form content is destroying"
+     ],
+     "fr": "ça muscle [[ta patience et ta concentration]], pile ce que les vidéos courtes te bousillent",
+     "texte": "[[sabrı ve derin odağı]] çalıştırır, tam da kısa videoların yok ettiği şeyleri"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lire un livre [[tous les jours]]",
+     "texte": "[[her gün]] kitap oku"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short form content, your",
+      "brain is being fried"
+     ],
+     "fr": "si tu regardes que des vidéos courtes, ton cerveau [[est en train de cramer]]",
+     "texte": "sadece kısa video tüketiyorsan beynin [[resmen kızarıyor]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow",
+      "one idea for whole chapters"
+     ],
+     "fr": "[[un livre te fait suivre une idée sur des chapitres entiers]]",
+     "texte": "[[kitap, tek bir fikri bölümler boyu takip ettirir]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui a remplacé mon scroll : un roman le soir, des albums entiers, et [[l'appli Sophia]] quand je prends mon tel (ce matin, Camus en 5 min)",
+     "texte": "scroll'un yerini alanlar: akşamları bir roman, baştan sona albümler ve telefonu yine de elime alınca [[Sophia uygulaması]] (bugün: Rönesans neden İtalya'da doğdu)"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "sit in silence for 10 minutes"
+     ],
+     "fr": "rester 10 min [[en silence]]",
+     "texte": "10 dakika [[sessizlikte]] otur"
+    },
+    "T2": {
+     "en": [
+      "no music, no podcast, no phone. i know it feels",
+      "unbearable at first, but that’s the point"
+     ],
+     "fr": "pas de musique, pas de podcast, pas de tel. au début c'est [[insupportable]], c'est le but",
+     "texte": "müzik yok, podcast yok, telefon yok. ilk başta [[dayanılmaz]] gelir ama olay da bu"
+    },
+    "T3": {
+     "en": [
+      "your brain learns it",
+      "doesn’t need new input",
+      "every second"
+     ],
+     "fr": "ton cerveau comprend qu'il lui faut pas [[du nouveau à chaque seconde]]",
+     "texte": "beynin [[her saniye yeni bir şeye]] ihtiyacı olmadığını öğrenir"
+    },
+    "T4": {
+     "en": [
+      "and focusing on one",
+      "thing for an hour starts",
+      "feeling normal again"
+     ],
+     "fr": "et rester une heure sur un seul truc [[redevient normal]]",
+     "texte": "ve bir saat tek bir şeye odaklanmak [[yeniden normal]] gelmeye başlar"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "réviser [[plus que t'en as envie]]",
+     "texte": "[[istediğinden daha uzun]] çalış"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "la partie utile commence souvent quand ton [[cerveau veut lâcher]]",
+     "texte": "işe yarayan kısım genelde [[beynin bırakmak istediğinde]] başlar"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20–30 min [[après]] le moment où tu t'ennuies ou tu décroches",
+     "texte": "sıkıldıktan, dağıldıktan ya da huzursuzlandıktan [[sonra]] 20–30 dakika daha kal"
+    },
+    "T4": {
+     "en": [
+      "you’re not just learning the subject, you’re",
+      "rebuilding your attention span"
+     ],
+     "fr": "t'apprends pas juste la matière, tu [[répares ton attention]]",
+     "texte": "sadece dersi öğrenmiyorsun, [[dikkat süreni yeniden kuruyorsun]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

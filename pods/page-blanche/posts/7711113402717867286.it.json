@@ -1,0 +1,345 @@
+{
+ "post_id": "7711113402717867286",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "extremely productive"
+     ],
+     "fr": "10/10 habitudes pour exploser ta productivité",
+     "texte": "10/10 abitudini per una produttività estrema"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(lo dice la scienza)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1946fbb9.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop building the perfect plan"
+     ],
+     "fr": "arrête de peaufiner [[le plan parfait]]",
+     "texte": "basta inseguire [[il piano perfetto]]"
+    },
+    "T2": {
+     "en": [
+      "colour-coded calendars, notion templates, a 5am routine",
+      "you've never actually done"
+     ],
+     "fr": "agendas en couleurs, templates stylés, une routine à 5h que t'as jamais faite",
+     "texte": "calendari colorati, template carini, una routine alle 5 che non hai mai fatto davvero"
+    },
+    "T3": {
+     "en": [
+      "but your brain gets a",
+      "hit of dopamine from",
+      "planning, so it stops",
+      "pushing you to do the",
+      "actual work"
+     ],
+     "fr": "sauf que planifier te file [[un shot de dopamine]], du coup ton cerveau te pousse plus à [[bosser pour de vrai]]",
+     "texte": "ma pianificare dà al cervello [[una botta di dopamina]], così smette di spingerti a [[fare il lavoro vero]]"
+    },
+    "T4": {
+     "en": [
+      "a plain list is enough"
+     ],
+     "fr": "une simple liste suffit",
+     "texte": "basta una semplice lista"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use the 2 minute rule"
+     ],
+     "fr": "applique [[la règle des 2 minutes]]",
+     "texte": "usa [[la regola dei 2 minuti]]"
+    },
+    "T2": {
+     "en": [
+      "if something takes less",
+      "than 2 minutes, do it right",
+      "now instead of adding it",
+      "to your list"
+     ],
+     "fr": "si un truc prend [[moins de 2 minutes]], fais-le direct, ne l'ajoute pas à ta liste",
+     "texte": "se una cosa richiede [[meno di 2 minuti]], falla subito invece di metterla in lista"
+    },
+    "T3": {
+     "en": [
+      "replying to that",
+      "message, putting the",
+      "dishes away, booking",
+      "the appointment"
+     ],
+     "fr": "répondre à ce message, ranger la vaisselle, prendre ce rendez-vous",
+     "texte": "rispondere a quel messaggio, mettere via i piatti, prenotare quella visita"
+    },
+    "T4": {
+     "en": [
+      "small tasks stop piling up into one big thing you avoid"
+     ],
+     "fr": "les petits trucs s'empilent plus en [[un gros truc que tu fuis]]",
+     "texte": "le piccole cose non diventano più [[una cosa enorme che eviti]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read classic books"
+     ],
+     "fr": "lis [[des classiques]]",
+     "texte": "leggi [[i classici]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok que t'as vu [[il y a 5 scrolls]] ?",
+     "texte": "ti ricordi che tiktok hai visto [[5 scroll fa]]?"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "[[esatto]]. i video brevi [[ti stanno friggendo l'attenzione]]"
+    },
+    "T4": {
+     "en": [
+      "books force your brain to",
+      "focus on one thing for",
+      "longer"
+     ],
+     "fr": "un livre apprend à ton cerveau à [[tenir sur une seule chose]]",
+     "texte": "i libri allenano il cervello a [[restare su una cosa]]"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]]. mes 5 min du jour sur [[l'appli Sophia]] : Camus et le mythe de Sisyphe",
+     "texte": "oggi, invece del [[doomscroll]], 5 min su [[l'app Sophia]]: perché la porpora era dei re"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take real breaks"
+     ],
+     "fr": "fais [[de vraies pauses]]",
+     "texte": "fai [[pause vere]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling between",
+      "tasks is not rest"
+     ],
+     "fr": "le scroll, [[c'est pas du repos]]",
+     "texte": "lo scroll tra due task [[non è riposo]]"
+    },
+    "T3": {
+     "en": [
+      "you're just swapping",
+      "one stream of",
+      "stimulation for",
+      "another, that's why",
+      "you always feel tired"
+     ],
+     "fr": "tu passes juste d'une stimulation à une autre, c'est pour ça que [[la fatigue te lâche jamais]]",
+     "texte": "passi solo da uno stimolo all'altro, ecco perché [[la stanchezza non passa mai]]"
+    },
+    "T4": {
+     "en": [
+      "take 10 minutes with",
+      "no screen"
+     ],
+     "fr": "prends [[10 minutes]] sans écran",
+     "texte": "prenditi [[10 minuti]] senza schermi"
+    },
+    "T5": {
+     "en": [
+      "walk, stretch, or stare out the window"
+     ],
+     "fr": "marche, étire-toi ou [[regarde dehors]]",
+     "texte": "cammina, allungati o [[guarda fuori]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "fais du sport [[le matin]]",
+     "texte": "allenati [[la mattina]]"
+    },
+    "T2": {
+     "en": [
+      "your cortisol is at its peak in the morning, so it's the",
+      "easiest time to do something hard"
+     ],
+     "fr": "ton cortisol est [[au max le matin]], c'est le meilleur moment pour faire un truc dur",
+     "texte": "il cortisolo è [[al picco la mattina]], è il momento migliore per fare una cosa dura"
+    },
+    "T3": {
+     "en": [
+      "once the hardest thing is",
+      "done, work feels easy in",
+      "comparison"
+     ],
+     "fr": "une fois le plus dur fait, [[le boulot paraît facile]] à côté",
+     "texte": "fatta la cosa più dura, [[il lavoro sembra facile]] al confronto"
+    },
+    "T4": {
+     "en": [
+      "and how you start your",
+      "day sets the mood for",
+      "the rest of it"
+     ],
+     "fr": "et comment tu commences ta journée [[conditionne tout le reste]]",
+     "texte": "e come inizi la giornata [[decide l'umore di tutto il resto]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work before you communicate"
+     ],
+     "fr": "bosse [[avant]] de répondre",
+     "texte": "lavora [[prima]] di rispondere"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90 minutes",
+      "of uninterrupted creation",
+      "before becoming available",
+      "to everyone else"
+     ],
+     "fr": "accorde-toi [[60 à 90 minutes de création sans interruption]] avant d'être dispo pour les autres",
+     "texte": "datti [[60–90 minuti di creazione senza interruzioni]] prima di renderti disponibile agli altri"
+    },
+    "T3": {
+     "en": [
+      "your priorities should enter",
+      "your head before theirs do"
+     ],
+     "fr": "[[tes priorités]] doivent entrer dans ta tête avant les leurs",
+     "texte": "[[le tue priorità]] devono entrarti in testa prima delle loro"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

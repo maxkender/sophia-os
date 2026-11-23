@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o301",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "73cf4e34-84a8-461b-b7c1-4eeaa49ac06a",
+ "titre": "rules i follow so i never run out of things to say #conversation #socialskills #confidence #communication #rules",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "b3df0deb-11c0-49cb-a3d1-4d6b7629b3d1"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, b3df0deb). déclinaison G1 de « rules i follow so i never run out of things to say » (parent 73cf4e34). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "acb58461-9ea7-449c-9c28-7582277bc08e",
+   "texte_overlay": "rules i follow so i never\nrun out of things to say",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "91de9fa0-57d1-4584-ade4-54959468d6b1",
+   "texte_overlay": "ask about the story\n\ni never ask what someone does, i ask how they ended up doing it. a job is just a fact, but the path to it is a story, and people love telling stories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1b034436-109f-4423-bc74-81b3de80c363",
+   "texte_overlay": "follow the energy\n\nwhen someone's voice changes on a topic, i stay on that topic. people light up about one or two things, and finding them makes any conversation flow easily.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "92a09814-5509-4a72-87a4-60a91aba2392",
+   "texte_overlay": "always have a fact\n\ni learn one surprising fact a day so i always have something interesting to bring up. one good fact can carry a whole conversation when things go quiet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/4.jpg",
+   "texte_sophia": "always have a fact\n\ni learn one surprising fact every day in 5 minutes: octopuses, ancient rome, the moon. i do it with the Sophia app, and i never run out of interesting things to say."
+  },
+  {
+   "position": 5,
+   "media_id": "a874d343-0e30-410c-b433-3dc0deddcdd5",
+   "texte_overlay": "share something small\n\ni share one small, honest thing about myself early on. it invites the other person to do the same, and the conversation becomes real much faster than usual.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6e45818d-1fde-4756-bcd5-a67d1342673e",
+   "texte_overlay": "let silence happen\n\ni let short silences happen without panicking. a pause gives both people time to think, and what comes next is usually more honest and more interesting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/6.jpg"
+  }
+ ]
+}

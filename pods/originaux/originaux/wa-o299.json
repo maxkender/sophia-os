@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o299",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "80993929-b115-44a2-931b-ac96338c6cdc",
+ "titre": "small things confident people do without thinking #confidence #psychology #habits #socialskills #selfimprovement",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "d2d4e7d3-a4d5-4e4d-be47-5d910115571c"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d2d4e7d3). déclinaison G2 de « things confident people do without noticing » (parent 80993929). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fcee993a-e871-495f-98c4-3a6a41a7b1f9",
+   "texte_overlay": "small things confident\npeople do without thinking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a36282c4-2ecd-40cf-b328-0086f88d4f33",
+   "texte_overlay": "they hold their opinion\n\nthey share what they think calmly and don't take it back just to avoid a small argument. a kind, steady opinion earns far more respect than nervous silence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a90025d1-c6e1-48b1-9b83-cceaee63d7f3",
+   "texte_overlay": "they let pauses breathe\n\nsilence in a conversation doesn't scare them. they don't rush to fill every gap, and that calm makes everyone around them relax a little more around them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "53d748e6-66e3-4cc1-b759-9cec7e134a39",
+   "texte_overlay": "they always have a story\n\nconfident people always have one unexpected topic to share, because they keep learning. surprising stories make every conversation easier and much more fun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/4.jpg",
+   "texte_sophia": "they always have a story\n\ni always have one unexpected story ready now. i spend 5 minutes a day on one lesson in the Sophia app, a strange myth or a fact, and conversations come alive instantly."
+  },
+  {
+   "position": 5,
+   "media_id": "9f023c53-62d7-472b-9320-9d9bbdae2e05",
+   "texte_overlay": "they speak to the end\n\nthey finish their sentences clearly instead of trailing off with or something. finishing a thought properly makes everything they say sound more certain.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a4b391b5-69b5-4b62-b12f-7e822e8b1a2b",
+   "texte_overlay": "they act despite nerves\n\nthey don't tell everyone how nervous they are before doing something. they feel the nerves, and then they simply do it anyway without making a big scene.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o303",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a6e4805f-e1ef-4fee-98b4-a8976aa1051b",
+ "titre": "things that instantly make you more interesting #interesting #conversation #socialskills #selfimprovement #curiosity",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "dc65211f-db60-4764-80a1-cc17d64c2c16"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, dc65211f). déclinaison G1 de « things that instantly make you more interesting » (parent a6e4805f). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d593ac33-3775-46f3-8c25-d226d459f14c",
+   "texte_overlay": "things that instantly make\nyou more interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "65d134d5-cc62-4e1f-9a10-a353f25f6acc",
+   "texte_overlay": "an unusual hobby\n\npick up one strange hobby, like fencing, beekeeping or calligraphy. people are always curious about someone with a hobby they've never heard of before.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "72e817bf-9f09-4ea1-af26-ee3208c2cd71",
+   "texte_overlay": "real thoughts about books\n\nread a few books that move you and form real opinions about them. people love talking to someone who reads widely and actually thinks about what they read.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d26aeaf6-10cc-4cf4-b597-0006c15ae08e",
+   "texte_overlay": "stories with a twist\n\npractise telling short stories with a beginning, a twist and an ending. a good storyteller is magnetic at any table, and anyone can learn to do it well.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ac547c05-d128-4bc6-821c-649f9603ab34",
+   "texte_overlay": "odd little facts\n\nodd facts are the fastest way to become interesting, and collecting them takes only minutes a day. one strange fact can easily carry an entire conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/5.jpg",
+   "texte_sophia": "odd little facts\n\ncollect odd facts, like why cats purr. the Sophia app turns it into one short lesson a day, and 5 minutes of odd facts is the fastest way to become interesting."
+  },
+  {
+   "position": 6,
+   "media_id": "2574b387-02d8-49bf-9581-d302917a0c9d",
+   "texte_overlay": "curiosity about others\n\nask people about their lives and really listen to the answers. the most interesting people are almost always the most interested in everyone else around them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/6.jpg"
+  }
+ ]
+}

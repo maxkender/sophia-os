@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o297",
+ "type_bleo": "full_test",
+ "titre": "habits that make you look smarter than you are #intelligence #smart #habits #communication #selfimprovement",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "3bd02f3a-f092-4cb5-b051-5035c3f9f16a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3bd02f3a). full test BLEO : accroche jamais faite (format « habits that make you look X than you are »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d52be6bb-e19e-4a41-bb82-8f0178fe7659",
+   "texte_overlay": "habits that make you look\nsmarter than you are",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c3ea10e-78a1-44cc-8dae-6d1a1d07e0ea",
+   "texte_overlay": "pausing before you answer\n\ntake a breath before replying to a question. a short pause makes your answer sound thoughtful, and it gives you time to say something much better and clearer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a129ce33-bd2c-46ad-ac3e-fef18a98010f",
+   "texte_overlay": "using simple words\n\nexplain things in plain, simple words instead of big ones. people who can make hard ideas sound easy always come across as the smartest people in the room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c77734e6-f43f-4cb3-8138-fd984b2abecd",
+   "texte_overlay": "asking great questions\n\nask one thoughtful question instead of pretending to know. curious questions make you look engaged and intelligent, and you learn so much more along the way.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "193ee838-93f8-4fd7-8b9e-df92bb43409a",
+   "texte_overlay": "knowing a bit of everything\n\na little knowledge about art, history and science makes you sound sharp anywhere, and it only takes a few minutes a day. small, steady learning adds up faster than you'd expect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/5.jpg",
+   "texte_sophia": "knowing a bit of everything\n\nknow a bit of everything. the Sophia app turns it into one short lesson a day, art, history or science, and 5 minutes is enough to sound sharp in any conversation."
+  },
+  {
+   "position": 6,
+   "media_id": "b8cac37f-42cc-46f6-aa87-480d04d195b8",
+   "texte_overlay": "admitting what you don't know\n\nsaying i'm not sure, let me check, sounds far smarter than a confident guess. people trust those who are honest about the real limits of their knowledge.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/6.jpg"
+  }
+ ]
+}

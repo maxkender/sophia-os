@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o295",
+ "type_bleo": "full_test",
+ "titre": "signs you're far more self aware than most #selfawareness #psychology #mindset #selfgrowth #signs",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "4d79f4a2-fc0a-4486-b187-f66df926aaac"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4d79f4a2). full test BLEO : accroche jamais faite (format « signs you're far more X than most »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4f606459-d1c8-4ecb-99f9-fc0c331b0fa0",
+   "texte_overlay": "signs you're far more\nself aware than most",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "786ee523-af2e-400c-a01c-122a4b18da74",
+   "texte_overlay": "you notice your patterns\n\nyou can see when you're about to repeat an old mistake, even if you still make it sometimes. noticing a pattern is always the first step to changing it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "41243b73-bba8-497c-b708-0267f4d05475",
+   "texte_overlay": "you can name your feelings\n\ninstead of just feeling bad, you can tell whether you're tired, hurt, jealous or anxious. naming a feeling precisely makes it far easier to deal with.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5c70672a-bde3-45ce-8b13-5770a64a63dd",
+   "texte_overlay": "you stay curious about yourself\n\nself aware people keep learning, about the world and about how their own mind works. understanding why you feel and react the way you do makes every other kind of growth much easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/4.jpg",
+   "texte_sophia": "you stay curious about yourself\n\ni got curious about how my own mind works. i spend 5 minutes a day on one lesson in the Sophia app, psychology or history, and understanding myself feels so much easier."
+  },
+  {
+   "position": 5,
+   "media_id": "3e7f81fd-e566-4962-851a-7e8a6cb95a2b",
+   "texte_overlay": "you apologise without excuses\n\nyou can say i was wrong without adding a but. owning your mistakes cleanly shows you can look at yourself honestly, which is far rarer than it sounds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "901c63f9-5d13-463b-97a4-40be9878c14d",
+   "texte_overlay": "you know what drains you\n\nyou can tell which people, places and habits leave you tired. knowing your limits means you can protect your energy before you hit empty, not after it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/6.jpg"
+  }
+ ]
+}

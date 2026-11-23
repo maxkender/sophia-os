@@ -1,0 +1,1793 @@
+{
+ "id": "sg-038",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 qui changent ta façon de penser",
+  "en": "10/10 skills that change the way you think",
+  "de": "10/10-Skills, die deine Denkweise verändern",
+  "it": "Abilità 10/10 che cambiano il tuo modo di pensare",
+  "pt-BR": "Habilidades 10/10 que mudam seu jeito de pensar",
+  "tr": "Düşünme şeklini değiştiren 10/10 beceriler",
+  "ro": "Abilități 10/10 care îți schimbă felul de a gândi",
+  "cs": "Dovednosti 10/10, které změní tvůj způsob myšlení",
+  "hu": "10/10 készségek, amelyek megváltoztatják a gondolkodásodat",
+  "el": "Δεξιότητες 10/10 που αλλάζουν τον τρόπο που σκέφτεσαι",
+  "sr": "Veštine 10/10 koje menjaju način na koji razmišljaš"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui changent ta façon de penser #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that change the way you think #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die deine Denkweise verändern #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che cambiano il tuo modo di pensare #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que mudam seu jeito de pensar #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Düşünme şeklini değiştiren 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care îți schimbă felul de a gândi #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které změní tvůj způsob myšlení #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10 készségek, amelyek megváltoztatják a gondolkodásodat #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που αλλάζουν τον τρόπο που σκέφτεσαι #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje menjaju način na koji razmišljaš #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "im not alone - Žvaigždė",
+  "url": "https://www.tiktok.com/music/im-not-alone-7214561277266610990"
+ },
+ "notes": "Full test du 23/11 (après-midi), « Compétences 10/10 qui changent ta façon de penser », en 11 langues. 5 outils de pensée : l'effet Dunning-Kruger, la loi de Pareto, les biais cognitifs, la méthode scientifique, le stoïcisme. Vraies vidéos natives par langue (aucune d'un autre post). Sophia en étape 4 sur 7, cta B, « PENSER / PAR SOI-MÊME ». Grec en capitales sans accents (police grecque), serbe en latin ekavien.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUI CHANGENT TA",
+      "cap": 110
+     },
+     {
+      "t": "FAÇON DE",
+      "cap": 130
+     },
+     {
+      "t": "PENSER",
+      "cap": 270,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAT CHANGE",
+      "cap": 120
+     },
+     {
+      "t": "THE WAY YOU",
+      "cap": 120
+     },
+     {
+      "t": "THINK",
+      "cap": 280,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "DIE DEINE",
+      "cap": 120
+     },
+     {
+      "t": "DENKWEISE",
+      "cap": 220,
+      "couleur": "brun"
+     },
+     {
+      "t": "VERÄNDERN",
+      "cap": 140
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "CHE CAMBIANO IL TUO",
+      "cap": 100
+     },
+     {
+      "t": "MODO DI",
+      "cap": 120
+     },
+     {
+      "t": "PENSARE",
+      "cap": 250,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE MUDAM SEU",
+      "cap": 110
+     },
+     {
+      "t": "JEITO DE",
+      "cap": 120
+     },
+     {
+      "t": "PENSAR",
+      "cap": 270,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "DÜŞÜNME",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŞEKLİNİ",
+      "cap": 120
+     },
+     {
+      "t": "DEĞİŞTİREN",
+      "cap": 120
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 180,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "CARE ÎȚI SCHIMBĂ",
+      "cap": 110
+     },
+     {
+      "t": "FELUL DE",
+      "cap": 120
+     },
+     {
+      "t": "A GÂNDI",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTERÉ ZMĚNÍ TVŮJ",
+      "cap": 100
+     },
+     {
+      "t": "ZPŮSOB",
+      "cap": 120
+     },
+     {
+      "t": "MYŠLENÍ",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "AMELYEK MEGVÁLTOZTATJÁK",
+      "cap": 80
+     },
+     {
+      "t": "A GONDOLKODÁSODAT",
+      "cap": 150,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΠΟΥ ΑΛΛΑΖΟΥΝ ΤΟΝ",
+      "cap": 100
+     },
+     {
+      "t": "ΤΡΟΠΟ ΠΟΥ",
+      "cap": 120
+     },
+     {
+      "t": "ΣΚΕΦΤΕΣΑΙ",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "KOJE MENJAJU NAČIN",
+      "cap": 100
+     },
+     {
+      "t": "NA KOJI",
+      "cap": 120
+     },
+     {
+      "t": "RAZMIŠLJAŠ",
+      "cap": 210,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "L'EFFET",
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ot20jDwYDIo",
+     "titre": "Effet Dunning-Kruger : pourquoi les incompétents se surestiment ? | CORTEX",
+     "chaine": "Welcome to the Jungle Media",
+     "vues": "37 k vues",
+     "date": "il y a 3 ans",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/UxP2Qij38E73jP88W61YtpQNNCz43Snn6EYblIGK5rCgweI2TRyXdzJgexuDYdFVXhljJaRQ_hk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ],
+     "EFFECT"
+    ],
+    "video": {
+     "id": "h6MYgs0kyzI",
+     "titre": "The Dunning-Kruger Effect (Explained in 3 Minutes)",
+     "chaine": "Helpful Professor Explains!",
+     "vues": "159K views",
+     "date": "1 year ago",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/6AITweKH2x6auh8wdnK7yWD4lVmjADCI-T5Q_YKAYK0QD30eUpqY7HctbExqPXQmvWxWjQdGtg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ],
+     "EFFEKT"
+    ],
+    "video": {
+     "id": "pwK7trYXTy8",
+     "titre": "Dunning-Kruger-Effekt: Fast alle erklären ihn falsch",
+     "chaine": "Denkknoten",
+     "vues": "10.623 Aufrufe",
+     "date": "vor 10 Tagen",
+     "duree": "9:31",
+     "avatar": "https://yt3.ggpht.com/_ws02XWVlowbdScQO5xlKo6X17tFrbdBSdBz-JZxPsodikrvHwtejaQzTWwcf1SE4CCiNzr16Fg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "L'EFFETTO",
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "g1g6tC-OX_I",
+     "titre": "Il paradosso dell'ignoranza (cos'è l'effetto Dunning-Kruger)",
+     "chaine": "Just Mick",
+     "vues": "300K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "6:20",
+     "avatar": "https://yt3.ggpht.com/cX6IP6UNSJrO1LFAS37T5AZWUFzWWSExaryqfNtFSZBzLuWGjDBn6VqPO4sMY8W8JLFDF4Kk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "O EFEITO",
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0TjhggXdj-A",
+     "titre": "Por que pessoas BURRAS se acham INTELIGENTES?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "2,4 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ],
+     "ETKİSİ"
+    ],
+    "video": {
+     "id": "QK15DnWyFDU",
+     "titre": "Dunning - Kruger Etkisi Nedir?",
+     "chaine": "Ayhan Tarakcı",
+     "vues": "59 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "18:52",
+     "avatar": "https://yt3.ggpht.com/jj1-I0ObvtiBhaOYgyeZG4MxY0kh4AxKjTyUxhMBhoehGbUqoGTtPVUZQO-5AMJBykN6SbZN=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "EFECTUL",
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LJ5OAUVKg5M",
+     "titre": "Efectul Dunning - Kruger  (Lumea nu este cum crezi ! _ 46)",
+     "chaine": "ROMULUS BOERIU (Physics, Logic, Science)",
+     "vues": "1 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "17:00",
+     "avatar": "https://yt3.ggpht.com/Oo7iWXPeqDhTMU97TTLuD2fHQqLode5WXQNtjxCMXQYpmOz0VGrYlCKYN4gMstQDMcLqmdrcdQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "DUNNING-KRUGERŮV",
+       "couleur": "#e39b1c"
+      }
+     ],
+     "EFEKT"
+    ],
+    "video": {
+     "id": "H01nrHnqUfI",
+     "titre": "Co je Dunning-Kruger efekt? | What the Fact?",
+     "chaine": "iVysílání",
+     "vues": "168 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "3:59",
+     "avatar": "https://yt3.ggpht.com/JjEa1rPjLKddbAY6_h6n87cJhmn3pMVwcT1q8gTAdr6hRfszGIl0LQcMMCJE78lYV9CUy0FqTyk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ],
+     "HATÁS"
+    ],
+    "video": {
+     "id": "k9XSOm2x8RU",
+     "titre": "Miért hiszik a tudatlanok, hogy okosak? - Dunning–Kruger hatás",
+     "chaine": "Az Elvonuló",
+     "vues": "9,2 E megtekintés",
+     "date": "11 hónappal ezelőtt",
+     "duree": "15:45",
+     "avatar": "https://yt3.ggpht.com/cKYxerzNsVBxkR-dzbhC61m7HNrgCgKPND3sQnD2fjyUKuG7gAUbMQE2VsEWbORDnWehw76Yj-8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΤΟ ΦΑΙΝΟΜΕΝΟ",
+     [
+      {
+       "t": "DUNNING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sRUz8cXGLB4",
+     "titre": "Γιατί η Ηλιθιότητα είναι ΓΙΑ ΗΛΙΘΙΟΥΣ! Το Φαινόμενο Dunning Kruger Που Μας Επηρεάζει ΟΛΟΥΣ",
+     "chaine": "Angelos Kyritsis",
+     "vues": "82 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "17:30",
+     "avatar": "https://yt3.ggpht.com/oj_8FcjhEUTy9oYBbXHv3YpzVBgfLBYilJdJpCrXJlgBzJx2vr6kou-0BGkOSGO6Bcf49zJFVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "DANING-KRUGER",
+       "couleur": "#e39b1c"
+      }
+     ],
+     "EFEKAT"
+    ],
+    "video": {
+     "id": "F9slZsVCmnw",
+     "titre": "Daning - Kruger efekat: Zašto \"glupi\" ljudi misle da su najpametniji?",
+     "chaine": "Veprizam",
+     "vues": "2,2 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l-T0eslUZH83gAlCWJtnlbCps54ypQ5bQM8dR1khgc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LA LOI",
+     [
+      {
+       "t": "DE PARETO",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vTkrgV4H8Kw",
+     "titre": "La Méthode des 20 80 ou Loi de Pareto",
+     "chaine": "5 minutes pour réussir",
+     "vues": "164 k vues",
+     "date": "il y a 6 ans",
+     "duree": "6:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ljAytx6n9YhfZFcrsO0_ykFDfV8AQi6QaPKOlirZWbuG8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "THE",
+     [
+      {
+       "t": "80/20 RULE",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EAynHZE-lK4",
+     "titre": "The Pareto Principle - 80/20 Rule - Do More by Doing Less (animated)",
+     "chaine": "Better Than Yesterday",
+     "vues": "1.3M views",
+     "date": "8 years ago",
+     "duree": "6:35",
+     "avatar": "https://yt3.ggpht.com/yr0VKTY_9n35A8n4czGjEIfyPFClg1NJ6VbNjwkNxhuvV9CQOh9tZ5w3r3gWNzCf8l3Oxh06=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DAS",
+     [
+      {
+       "t": "PARETO-PRINZIP",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F45Wm64N4Tk",
+     "titre": "Paretoprinzip - einfach erklärt!",
+     "chaine": "Wirtschaftsbuddy",
+     "vues": "243.383 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:48",
+     "avatar": "https://yt3.ggpht.com/7aJ_r33ifE8CxuawEJ9798TSmKAvsAox1ZEwJy-AudEy5A88RfjmMeOej50n7Gk4jVjGxKNQ0Fc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IL PRINCIPIO",
+     [
+      {
+       "t": "DI PARETO",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OpaLsqvA4lI",
+     "titre": "Il principio di Pareto sul lavoro: qual è il tuo 20% che conta?",
+     "chaine": "Marco Montemagno",
+     "vues": "16K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "O PRINCÍPIO",
+     [
+      {
+       "t": "DE PARETO",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Yh6FDt9kOOA",
+     "titre": "Princípio de Pareto | Oi! Seiiti Arata 340",
+     "chaine": "Arata Academy",
+     "vues": "48 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "11:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfA8WPTf2J9FHB5hTYHKagJEj31UtY7TorRrGcR5BV7A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "80/20",
+       "couleur": "#d9332b"
+      }
+     ],
+     "KURALI"
+    ],
+    "video": {
+     "id": "xCQDLuEsKNE",
+     "titre": "80/20 kuralı",
+     "chaine": "Barış Özcan",
+     "vues": "497 B görüntüleme",
+     "date": "11 yıl önce",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdtLLPQnErbtjn6tO4tKFLvOEE-jYjYRbhNvzrcFJZh8xd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "PRINCIPIUL",
+     [
+      {
+       "t": "LUI PARETO",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lSoBH_TZmeo",
+     "titre": "Principiul 80/20 -Regula lui Pareto",
+     "chaine": "Dialog si Dezvoltare",
+     "vues": "698 vizionări",
+     "date": "acum 4 ani",
+     "duree": "4:08",
+     "avatar": "https://yt3.ggpht.com/n8TjpooEX0StEXZw7D2_U5rX8NOllQVSak5AMccH6po1ssgNCXwc_sCDEdC54SsLMYMXSjUa=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PARETOVO",
+     [
+      {
+       "t": "PRAVIDLO",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Viv_nZhLgaY",
+     "titre": "Jak být 4X produktivnjší - Paretovo pravidlo 80/20",
+     "chaine": "Myšlení Úspěšných",
+     "vues": "2,2 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/Gj2YewqtOjCruFRzvmuuHkCZLp9uiCQcXRNlU941lQxiXLN6ol_l-Y1l0LuHKO6wQdeb9NXT=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "A 80/20-AS",
+     [
+      {
+       "t": "SZABÁLY",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ya74l4B0gjo",
+     "titre": "A 80/20 szabály",
+     "chaine": "Szabó Péter",
+     "vues": "16 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "2:46",
+     "avatar": "https://yt3.ggpht.com/ZCLldepD3qfXthW2AYoWBMYP5V90vdv2MAZko6m-IlTFPg4Bl-kgPUW9eDwquitwB-fPOFLulQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "Η ΑΡΧΗ",
+     [
+      {
+       "t": "ΤΟΥ PARETO",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HUNGyIWfcls",
+     "titre": "Γίνε πιο Αποδοτικός με την Αρχή του Pareto",
+     "chaine": "Money Minority",
+     "vues": "6,6 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "13:58",
+     "avatar": "https://yt3.ggpht.com/C4a3c7Y-o6MOOQTrGGBjg0PALJDNufEYbxybaH82agD6uODV57vSOG-xZdNozCpVOtJcgamFDg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PARETO",
+     [
+      {
+       "t": "PRINCIP",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xelze4xSvl0",
+     "titre": "Pareto princip ili Pravilo 80/20 / Budite produktivniji i zaradite više",
+     "chaine": "Vladimir Mladenov",
+     "vues": "1 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "10:05",
+     "avatar": "https://yt3.ggpht.com/JwpRz2mC8KpQeBtfALTMRd83hGP19nmE-z30Yix4V8ol2hGgrg4VoN7cRdvZ4iY5cTxaEr-JTQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "PENSER",
+     [
+      {
+       "t": "PAR SOI-MÊME",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "THINK",
+     [
+      {
+       "t": "FOR YOURSELF",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SELBST",
+     [
+      {
+       "t": "DENKEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PENSARE",
+     [
+      {
+       "t": "CON LA TUA TESTA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PENSAR",
+     [
+      {
+       "t": "POR CONTA PRÓPRIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KENDİ BAŞINA",
+     [
+      {
+       "t": "DÜŞÜNMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ GÂNDEȘTI",
+     [
+      {
+       "t": "CU CAPUL TĂU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MYSLET",
+     [
+      {
+       "t": "SAMOSTATNĚ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "GONDOLKODJ",
+     [
+      {
+       "t": "ÖNÁLLÓAN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΣΚΕΨΟΥ",
+     [
+      {
+       "t": "ΜΟΝΟΣ ΣΟΥ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "MISLI",
+     [
+      {
+       "t": "SVOJOM GLAVOM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "REPÉRER",
+     [
+      {
+       "t": "SES BIAIS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "di8MewR_nMs",
+     "titre": "Les BIAIS COGNITIFS, expliqués simplement",
+     "chaine": "Fouloscopie",
+     "vues": "510 k vues",
+     "date": "il y a 1 an",
+     "duree": "21:07",
+     "avatar": "https://yt3.ggpht.com/TGX9eHxd5o2evVobjg5CE1oM7hGcx2O_PVSaACS3ENHZW4fkQySsQxtjyQpAeUY0zXeKBxaU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPOT YOUR",
+     [
+      {
+       "t": "BIASES",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wEwGBIr_RIw",
+     "titre": "12 Cognitive Biases Explained - How to Think Better and More Logically Removing Bias",
+     "chaine": "Practical Psychology",
+     "vues": "2.8M views",
+     "date": "9 years ago",
+     "duree": "10:08",
+     "avatar": "https://yt3.ggpht.com/C-POj_q22w8Zux8FCpDUq_RhP9ct0cyAj4r-nfuNgALqSAWdImYv0qCzG6uOmYwSF5UKQ72_aNg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DENKFEHLER",
+     [
+      {
+       "t": "ERKENNEN",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OyFtAg0vlaU",
+     "titre": "5 erstaunliche kognitive Verzerrungen | Gert Scobel",
+     "chaine": "3sat NANO",
+     "vues": "146.613 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "24:14",
+     "avatar": "https://yt3.ggpht.com/bEvAVf-SfdByKIzvlfDp0MfaoL2kdOCevd6nHuXqcQvm6eNatewnHMTE29MW2ah9QnabB3I9Yn8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "I BIAS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TRUHOMA4nQY",
+     "titre": "13 BIAS COGNITIVI che ci rendono IRRAZIONALI 🧠",
+     "chaine": "Marcello Ascani",
+     "vues": "154K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "15:36",
+     "avatar": "https://yt3.ggpht.com/41u_g0zcCX3U9BDklnd3CcoHQ4W_aNcYKeh1bhkX9fHgSTjw9qRtCS0a550_gBW2g22dssZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "RECONHECER",
+     [
+      {
+       "t": "SEUS VIESES",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "j7xyVFRs46U",
+     "titre": "Vieses Cognitivos: Evite As Armadilhas Que Nossa Mente \"Nos Empurra\"",
+     "chaine": "Bruno Picinini",
+     "vues": "14 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "8:11",
+     "avatar": "https://yt3.ggpht.com/PGb-JdKW2eeHqBysl9Rm4FB6fWILB0v0F4FZRYNunForudP38s01BMuCJ2CLJcv3pANaSRQ6dQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ÖNYARGILARINI",
+     [
+      {
+       "t": "FARK ET",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "b2uJX6sk3XQ",
+     "titre": "Yanlış Kararları Böyle Veriyoruz (15 Bilişsel Önyargı)",
+     "chaine": "Saygın Akademi",
+     "vues": "28 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "15:39",
+     "avatar": "https://yt3.ggpht.com/HpD9ydCNILpCvss3b3z_0ZImmZBzyFsq3DqOm9ZwH892V-aMTIk2nKDSas9EzR-fE9Pu9XhS5w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "RECUNOAȘTE",
+     [
+      {
+       "t": "ERORILE DE GÂNDIRE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Sor8PDeA9OE",
+     "titre": "Psiholog Eduard Puiu - Distorsiunile cognitive (erori de gândire)",
+     "chaine": "Psiholog Eduard Puiu",
+     "vues": "5,6 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "23:40",
+     "avatar": "https://yt3.ggpht.com/kUFEvQOFd_2ZYbHFRqhRADFlBjIb-J9AXJERKhTDgS5q_aRiB1qrjeoLkE3kRc2VDRCorCkb8XA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ODHALIT",
+     [
+      {
+       "t": "ZKRESLENÍ",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vGl_neMNZ3A",
+     "titre": "23 - Kognitivní zkreslení - zrádné chyby v našem myšlení",
+     "chaine": "Zjisti Víc",
+     "vues": "23 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "1:04:15",
+     "avatar": "https://yt3.ggpht.com/h5kQpgSl6XcVllbJ7_0RKRiJfnqQXCy_rah1ydT56Q4S30QiEp4Vh5bgpVByBKn3mR_y3RP3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ISMERD FEL",
+     [
+      {
+       "t": "A TORZÍTÁSAID",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IybjAbYHYKg",
+     "titre": "9 leggyakoribb kognitív torzítás, ami téged is átver!",
+     "chaine": "Tanulom Magam",
+     "vues": "115 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "19:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΑΝΑΓΝΩΡΙΣΕ",
+     [
+      {
+       "t": "ΤΙΣ ΠΡΟΚΑΤΑΛΗΨΕΙΣ",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RmY-UkXXWoU",
+     "titre": "Γνωστικές Προκαταλήψεις: Μήπως τις έχεις;",
+     "chaine": "Konstantinos Charantiniotis",
+     "vues": "14 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "9:15",
+     "avatar": "https://yt3.ggpht.com/DMNY5eyMvzLm8CbEqov1y4qf8lJzBPHd20qKnZwKLVuYRLlohsV7myIeHSEPgkDBCS1azhRH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PREPOZNAJ",
+     [
+      {
+       "t": "PRISTRASNOSTI",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SGNoGPAYSnc",
+     "titre": "50 kognitivnih pristrasnosti - Audio knjiga",
+     "chaine": "Predrag Stojadinović",
+     "vues": "3,8 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "4:01:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYA7UfME4wN3hFdDmSk-28owKM1oKPekVucUVTDQ3ZFyyd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 sata za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LA MÉTHODE",
+     [
+      {
+       "t": "SCIENTIFIQUE",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "59wYmEoccF8",
+     "titre": "[Comment ça marche ?] La démarche scientifique",
+     "chaine": "CEA",
+     "vues": "130 k vues",
+     "date": "il y a 8 ans",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/fi5ftBp792mHdYFouME3y_3GvTpnxefMmtwBiYPzzj2LdMl2vi7zq7HsSWP8h4XLKQXgtWGy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "THE",
+     [
+      {
+       "t": "SCIENTIFIC METHOD",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xOLcZMw0hd4",
+     "titre": "The Scientific Method: Crash Course Biology #2",
+     "chaine": "CrashCourse",
+     "vues": "751K views",
+     "date": "3 years ago",
+     "duree": "15:09",
+     "avatar": "https://yt3.ggpht.com/E454zI2spNFZsN_wgJPTHjMsqs1fFqb_qp4PYanWuyaXQJp98wKEV1kIQYlR57epaweO5P8v=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WISSENSCHAFTLICH",
+     [
+      {
+       "t": "DENKEN",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rso98FjDPQc",
+     "titre": "Wie funktioniert Wissenschaft? In 150 Sekunden erklärt",
+     "chaine": "Der Tierarzt - Dr. Karim Montasser",
+     "vues": "4771 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/nFXsfEaCIgdKrU2KKS7VaxAMLOz1JT0r8_iR9thTzJiM_MF-sqAw5gr8ZUmgJ-l5MV9VR5-PRh8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IL METODO",
+     [
+      {
+       "t": "SCIENTIFICO",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Nw1WF0jNNR4",
+     "titre": "Il Metodo scientifico",
+     "chaine": "HUB Scuola",
+     "vues": "330K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "2:36",
+     "avatar": "https://yt3.ggpht.com/YYrJkIkRzpPreXlX_amdXYCspYWeSDOeALgjqkT1PgA3W1V5orMuxn_0UoI9ag9a6yr0wV0NYg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "O MÉTODO",
+     [
+      {
+       "t": "CIENTÍFICO",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XjZL1ZQ81Nc",
+     "titre": "Entenda de uma vez por todas o MÉTODO CIENTÍFICO | Prof. Paulo Jubilut",
+     "chaine": "Paulo Jubilut",
+     "vues": "680 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "27:20",
+     "avatar": "https://yt3.ggpht.com/4yHGLV-thcmDtzgV2Vk5lmxY3n4-IroPgYqXTHFAIV6vtoN1KrevyoLCrsrV_7qQI4x5XB2pRtg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BİLİMSEL",
+     [
+      {
+       "t": "YÖNTEM",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hQK6fnfpnto",
+     "titre": "Bilimsel Yöntem Konu Anlatımı | 39 GÜNDE AYRINTILI TYT BİYOLOJİ KAMPI 2026-27 | 18",
+     "chaine": "Biosem Biyoloji",
+     "vues": "106 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "15:47",
+     "avatar": "https://yt3.ggpht.com/ktoIZ-DIskx0X-w3FXJ8KqL7HdQKG4btOUJ0qzimEf6lglLEuqCX74yzaOCOsJwWGCaprj8bkA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "METODA",
+     [
+      {
+       "t": "ȘTIINȚIFICĂ",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YduSqBoU8VY",
+     "titre": "01 Metode de cercetare ştiinţifică",
+     "chaine": "Andrei Chiciuc",
+     "vues": "202 vizionări",
+     "date": "acum 9 luni",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lm8TSGi5rG9EeXTEfOg39AGv-fp7LsSaM1s2Z8Zltr0Y4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VĚDECKÁ",
+     [
+      {
+       "t": "METODA",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8c0U3itIoq0",
+     "titre": "Co je to Vědecká Metoda - Vědecké Kladivo",
+     "chaine": "Vědecké Kladivo",
+     "vues": "31 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "4:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n2WwflrCEdH7aKyuDl1DOijYohjTt3Vkpoc9ZodAntw7k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "A TUDOMÁNYOS",
+     [
+      {
+       "t": "MÓDSZER",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8rqP_oxfFDM",
+     "titre": "Hogy működik a tudomány? Nem úgy, mint gondolnád!",
+     "chaine": "Tízes Lista",
+     "vues": "55 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "14:54",
+     "avatar": "https://yt3.ggpht.com/12vkFpTCsq3YpT8x_bDGh5-8akQdI-Fe35XSh2SyFr72fK6RrWimsdTAybvkuYcTsuMchnlW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "Η ΕΠΙΣΤΗΜΟΝΙΚΗ",
+     [
+      {
+       "t": "ΜΕΘΟΔΟΣ",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hByw9LHkLxs",
+     "titre": "Η Επιστημονική Μέθοδος",
+     "chaine": "Καθημερινή Φυσική",
+     "vues": "221 χιλ. προβολές",
+     "date": "πριν από 9 έτη",
+     "duree": "7:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kpl3IkPUe4HDF9LyLYpo9i9_r8P6cjq_7Qxn0A1IR-S30=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČNI",
+     [
+      {
+       "t": "METOD",
+       "couleur": "#3a9a5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XLghlJGc4Y0",
+     "titre": "2.1. Naučni metod",
+     "chaine": "Ekursevi Mašinski fakultet Niš",
+     "vues": "237 pregleda",
+     "date": "pre 4 godine",
+     "duree": "52:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lI68nR02VpVajk5_3qRDnOHKUXzAvfJ-tAwZqLynLh0w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PENSER EN",
+     [
+      {
+       "t": "STOÏCIEN",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Dm5sPn_HmNE",
+     "titre": "Stoïcisme : Les Bases En Trois Minutes",
+     "chaine": "Gianni Bergandi",
+     "vues": "179 k vues",
+     "date": "il y a 8 ans",
+     "duree": "3:28",
+     "avatar": "https://yt3.ggpht.com/P7muZa6X8DkUy0KLptK4qx7QOerHKL-rZKBSNYhfK1Y1mSn6MtgNJYb7i_jyZNcWPqYbtnoBQOU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "THINK LIKE",
+     [
+      {
+       "t": "A STOIC",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R9OCA6UFE-0",
+     "titre": "The philosophy of Stoicism - Massimo Pigliucci",
+     "chaine": "TED-Ed",
+     "vues": "11M views",
+     "date": "9 years ago",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DENKEN WIE",
+     [
+      {
+       "t": "EIN STOIKER",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Uo3WpH8nUG8",
+     "titre": "Was ist Stoizismus? (Philosophie)",
+     "chaine": "Tobi Kordt",
+     "vues": "2972 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "7:49",
+     "avatar": "https://yt3.ggpht.com/3QOxV051sVJEP-JtxtraFvVl9LjRhaaIPbk90p7rkVj73WQ6dkSMJml42EjHTRYnmADxL3bEHQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PENSARE DA",
+     [
+      {
+       "t": "STOICO",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tzMBiPM-ork",
+     "titre": "Lo stoicismo: una introduzione 🦉",
+     "chaine": "Matteo Saudino - BarbaSophia",
+     "vues": "46K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "31:19",
+     "avatar": "https://yt3.ggpht.com/nfU-8vvDPZiWCFcJjwqV74Fs_CxsNIsuLjpbeQeagt5VUvZbBQwgRAArgKAzwXqKs5RAqtOXCg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PENSAR COMO",
+     [
+      {
+       "t": "UM ESTOICO",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A3vsljr2Fx8",
+     "titre": "Entenda o que é o ESTOICISMO",
+     "chaine": "Toda Matéria",
+     "vues": "230 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/HzNmGq7dz8hluGyGAmMijcUKc_sp-9cynIvm9U41wDVqDmfREuHWjyuphcyajKWkrTfMTvZBgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BİR STOACI",
+     [
+      {
+       "t": "GİBİ DÜŞÜN",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AjXt_adRFsw",
+     "titre": "Stoacılık: Sessiz Gücün Felsefesi",
+     "chaine": "Bebar Bilim",
+     "vues": "206 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/nfAC8V1mw7gX-IHILZlGTxvUBIHf76jZELOvwkCLTRjcK_boTNY1BKLdvFgMx1nazYS_GhyH52Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "GÂNDEȘTE CA",
+     [
+      {
+       "t": "UN STOIC",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iK65yr_nTfg",
+     "titre": "CE ESTE STOICISMUL - FILOSOFIA CARE A DAT NASTERE PSIHOTERAPIEI",
+     "chaine": "Semped",
+     "vues": "20 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "9:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n9_fwGkEQpzArolWKY-tZg-IX4Qmdh8BxQH7fGeYnjmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MYSLET JAKO",
+     [
+      {
+       "t": "STOIK",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "s7MDCYb_Kiw",
+     "titre": "Epiktétos: Rozpravy (01) - Jak bojovat s predstavami",
+     "chaine": "Etická knihovna",
+     "vues": "36 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "14:19",
+     "avatar": "https://yt3.ggpht.com/0aZeWMrN--irF1e6Pv5Rz6sURk2nS9wKN_sNi-eyixZThc4DYejJztdOToFxiBv8KZC2gZ406A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "SZTOIKUS",
+     [
+      {
+       "t": "GONDOLKODÁS",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JGMq2j_yqFc",
+     "titre": "Sztoicizmus",
+     "chaine": "Pizza és Filozófia",
+     "vues": "9,2 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "11:31",
+     "avatar": "https://yt3.ggpht.com/Ovv3rZFu_CK939nBlL6fM3GDGk_RXJlFQ86GV0P-6kExCQcM-O9bCMZ3BXQvhHyOIL5QjhgHpA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több hét gyakorlás"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΣΚΕΨΟΥ ΣΑΝ",
+     [
+      {
+       "t": "ΣΤΩΙΚΟΣ",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LIjwgzCA7TM",
+     "titre": "🎙️Η Στωική Φιλοσοφία  - Η Ιστορία της Δυτικής Φιλοσοφίας/ Β.Τσαμπρόπουλος",
+     "chaine": "Vassilis Tsabropoulos",
+     "vues": "25 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "25:57",
+     "avatar": "https://yt3.ggpht.com/KD3j3pKl94hX-kZ9xOZSI3m1dTnHwUd90tbWdWiEBSGTIPCzfaww6LoUeqHG7oaCdCBsYIeXjA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "εξάσκηση μερικών εβδομάδων"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "RAZMIŠLJAJ KAO",
+     [
+      {
+       "t": "STOIK",
+       "couleur": "#7d6b5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O9hc49iljyw",
+     "titre": "Marko Aurelije -10 mudrosti iz knjige ‘Samom sebi’ koje će vam promeniti život #MarkoAurelije",
+     "chaine": "Filozofija i Mudrost",
+     "vues": "24 hilj. pregleda",
+     "date": "pre 3 godine",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/hQaynNsWwSPwoDAMvzoeKQW2YdsbAqJI_ryoNmi_MIMUg8hRO1Ad_6LC_GGIQJKXpFjTW1a8gBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vežba nekoliko nedelja"
+    ]
+   }
+  }
+ ]
+}

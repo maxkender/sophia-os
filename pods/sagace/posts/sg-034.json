@@ -1,0 +1,1793 @@
+{
+ "id": "sg-034",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0dfddb08-20b9-4bb9-8dec-8f4c371de0b2",
+ "titre": {
+  "fr": "Compétences 10/10 que l'école ne t'apprend pas",
+  "en": "10/10 skills school will never teach you",
+  "de": "10/10-Skills, die dir die Schule nie beibringt",
+  "it": "Abilità 10/10 che la scuola non ti insegna",
+  "pt-BR": "Habilidades 10/10 que a escola não te ensina",
+  "tr": "Okulun sana öğretmediği 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care școala nu te învață",
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
+  "sr": "Veštine 10/10 koje te škola nikad neće naučiti",
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg",
+  "el": "Δεξιότητες 10/10 που το σχολείο δεν σου μαθαίνει"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills school will never teach you #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die dir die Schule nie beibringt #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che la scuola non ti insegna #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que a escola não te ensina #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Okulun sana öğretmediği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "Veštine 10/10 koje te škola nikad neće naučiti #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που το σχολείο δεν σου μαθαίνει #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Déclinaison G1 de sg-008 (« que l'école ne t'apprend pas », 23/11), en 11 langues : titre, légende et couverture de sg-008 mot pour mot (hu, el, sr traduits). Compétences neuves : faire un créneau, repérer un manipulateur, voyager pas cher, bien se brosser les dents, vérifier l'huile moteur. Sophia en étape 4 sur 7, cta C « APPRENDRE / AUTREMENT ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 111
+     },
+     {
+      "t": "QUE L'ÉCOLE",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "NE T'APPREND",
+      "cap": 120
+     },
+     {
+      "t": "PAS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 150
+     },
+     {
+      "t": "SCHOOL",
+      "cap": 230,
+      "couleur": "brun"
+     },
+     {
+      "t": "WILL NEVER",
+      "cap": 130
+     },
+     {
+      "t": "TEACH YOU",
+      "cap": 190,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS, DIE DIR",
+      "cap": 110
+     },
+     {
+      "t": "DIE SCHULE",
+      "cap": 180,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIE",
+      "cap": 150
+     },
+     {
+      "t": "BEIBRINGT",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 140
+     },
+     {
+      "t": "CHE LA SCUOLA",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "NON TI",
+      "cap": 140
+     },
+     {
+      "t": "INSEGNA",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "QUE A ESCOLA",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "NÃO TE",
+      "cap": 140
+     },
+     {
+      "t": "ENSINA",
+      "cap": 250,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "OKULUN SANA",
+      "cap": 120
+     },
+     {
+      "t": "ÖĞRETMEDİĞİ",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 130
+     },
+     {
+      "t": "PE CARE ȘCOALA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NU TE",
+      "cap": 150
+     },
+     {
+      "t": "ÎNVAȚĂ",
+      "cap": 215,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "cap": 111
+     },
+     {
+      "t": "KTERÉ TĚ ŠKOLA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIKDY",
+      "cap": 150
+     },
+     {
+      "t": "NENAUČÍ",
+      "cap": 220,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 140
+     },
+     {
+      "t": "KOJE TE ŠKOLA",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIKAD NEĆE",
+      "cap": 140
+     },
+     {
+      "t": "NAUČITI",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 111
+     },
+     {
+      "t": "AMIKRE AZ ISKOLA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NEM TANÍT",
+      "cap": 150
+     },
+     {
+      "t": "MEG",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 111
+     },
+     {
+      "t": "ΠΟΥ ΤΟ ΣΧΟΛΕΙΟ",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΔΕΝ ΣΟΥ",
+      "cap": 150
+     },
+     {
+      "t": "ΜΑΘΑΙΝΕΙ",
+      "cap": 230,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "UN CRÉNEAU",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ],
+    "video": {
+     "id": "8oxkwwypeIc",
+     "titre": "RÉUSSIR UN CRÉNEAU",
+     "chaine": "CONDUITE ONLINE",
+     "vues": "6 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n0u3hVVEaofHechmx9LmYQBO8pFgaiY1PemVhAN845nw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PARALLEL PARK",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "practice over several days"
+    ],
+    "video": {
+     "id": "2W-5VvXcwT0",
+     "titre": "How to Parallel Park (Perfect Parallel Parking in 3 Easy Steps)",
+     "chaine": "Zutobi Drivers Ed",
+     "vues": "1.1M views",
+     "date": "3 years ago",
+     "duree": "4:32",
+     "avatar": "https://yt3.ggpht.com/osInU8_y1mOKkOpaByQ9MOzuLQcVApWW6zPQcjpdjzKrRHV_zbqulqVFm2CS12u5E0K1NurK=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "EINPARKEN",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "Übung über mehrere Tage"
+    ],
+    "video": {
+     "id": "xySkh2Q8QXM",
+     "titre": "Grundfahraufgabe PKW: Wie funktioniert Einparken? - Längsparken 🚘 | Fischer Academy",
+     "chaine": "Fischer Academy - Die Fahrschule",
+     "vues": "942.512 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "4:58",
+     "avatar": "https://yt3.ggpht.com/Ucfb145_i6s2GjlnFf49AUJtkxyGUmCM9j1kSrPSzEsyX1jg3mJ2IPjl9lSzYKHuij0wyZewnA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FARE IL",
+     [
+      {
+       "t": "PARCHEGGIO A S",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "allenamento in più giorni"
+    ],
+    "video": {
+     "id": "SGa1EPlm7a0",
+     "titre": "IL PARCHEGGIO A \"S\" E L'ESAME DI GUIDA - COME ESEGUIRLO IN 2 MANOVRE ED IN POCO SPAZIO",
+     "chaine": "Guidare Oggi - Andrea Brusadin",
+     "vues": "1,5 Mln visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "11:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kplqUKgp9KTK9vkpvqii3VN0d1sRH6Givaar3yCLPZOw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "BALIZA",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "treino ao longo de vários dias"
+    ],
+    "video": {
+     "id": "e5GklE4hJx8",
+     "titre": "APRENDA A FAZER BALIZA PERFEITA EM APENAS 3 MINUTOS! PASSO A PASSO!",
+     "chaine": "PROLife21",
+     "vues": "2,6 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/0fXS-RKz1uciO31_B0L89nn6ezpHyuO-sWwK68ID5IWvqY265lpkwmzXAkEBcHC4eOS7oy7H=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "PARALEL",
+     [
+      {
+       "t": "PARK YAPMAK",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "birkaç gün pratik"
+    ],
+    "video": {
+     "id": "4wzvNkySV4k",
+     "titre": "PARALEL PARK | Direksiyon Sınavı | 2026",
+     "chaine": "Sercan Hoca TV",
+     "vues": "1 Mn görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "9:29",
+     "avatar": "https://yt3.ggpht.com/BhV5xcrYSY2oujOqWXo-svyWUieBSSv_3-wZ56cvyN499XyEG-NDkkn4gztTa2rUngVTFvkn=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "PARCAREA",
+     [
+      {
+       "t": "LATERALĂ",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "exercițiu câteva zile"
+    ],
+    "video": {
+     "id": "nzwHcROGrCM",
+     "titre": "PARCAREA LATERALĂ Pas Cu Pas Pe ÎNȚELESUL TUTUROR - Școala De Șoferi",
+     "chaine": "Fabrica De Permise",
+     "vues": "748 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "4:45",
+     "avatar": "https://yt3.ggpht.com/7a1aeqoc4ZWdSflmN8avWkZSCo5kIna0kdEXHBP9RCmVtyR7xfmEw0f5ih0SI4awyjKi7PfXEb4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "PODÉLNÉ",
+     [
+      {
+       "t": "PARKOVÁNÍ",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "trénink několik dní"
+    ],
+    "video": {
+     "id": "BVOEDsOd53M",
+     "titre": "Podélné parkování jednoduché ve 3 krocích. How to park a car Parallel parking lessons Autoškola King",
+     "chaine": "Autoškola KING - autoškola s lidským přístupem",
+     "vues": "430 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "5:11",
+     "avatar": "https://yt3.ggpht.com/nBj4C_SOvLqBGkBwYyCSJ6ZSZYX53-Lv8JcwVGAiy1j-YCKNtnZPSGlEAe_CLfSCcVa-SsDQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "PÁRHUZAMOS",
+     [
+      {
+       "t": "PARKOLÁS",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "több napos gyakorlás"
+    ],
+    "video": {
+     "id": "YXH7-KdJDUo",
+     "titre": "Párhuzamos parkolás jobbra hátra",
+     "chaine": "Tanulóvezető Oktató",
+     "vues": "204 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "3:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kq6YXb49jimZm2YludLYcB7k8cNgTm_4PC3ukkjBS36lsG88gBf4yVReewSB8_5Sc-1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΠΑΡΑΛΛΗΛΟ",
+     [
+      {
+       "t": "ΠΑΡΚΑΡΙΣΜΑ",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "εξάσκηση για μερικές μέρες"
+    ],
+    "video": {
+     "id": "7tQhBsf0Npg",
+     "titre": "Παρκάρισμα σε 2 Κινήσεις για Εξετάσεις | Σχολή Οδηγών Σωτηρίου",
+     "chaine": "Σχολή Οδηγών Σωτηρίου",
+     "vues": "306 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdHKm8dcpuc8O-yotYFBoFMD2WMobtjKLEMfsfmcT_qBM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "PARALELNO",
+     [
+      {
+       "t": "PARKIRANJE",
+       "couleur": "#2f6fd0"
+      }
+     ]
+    ],
+    "sous": [
+     "vežba nekoliko dana"
+    ],
+    "video": {
+     "id": "lN3RUMehADE",
+     "titre": "AUTO ŠKOLE- PARALELNO PARKIRANJE",
+     "chaine": "AUTO ŠKOLA STOP LINE",
+     "vues": "247 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "1:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kA_gQmCA6XQB31GQ6O0cynf9TYB2IhbW9qnR6W9Pws0Tc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "REPÉRER",
+     [
+      {
+       "t": "UN MANIPULATEUR",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 heures pour apprendre"
+    ],
+    "video": {
+     "id": "e7_7-pv6QUE",
+     "titre": "3 TECHNIQUES INFAILLIBLES POUR REPÉRER UN MANIPULATEUR",
+     "chaine": "Christèle Albaret",
+     "vues": "23 k vues",
+     "date": "il y a 5 ans",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/Gvg7t1uRMVZ9IxhPEcKhs4Aoc1ojodtPM2qCmKO7Jr2Cj_Ff5hKzhLUxoBrKyt1WOno0CV0BoA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "SPOT",
+     [
+      {
+       "t": "A MANIPULATOR",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 hours to learn"
+    ],
+    "video": {
+     "id": "7qmOU8gDxPg",
+     "titre": "7 Signs You Have a Master Manipulator in Your Life",
+     "chaine": "Psych2Go",
+     "vues": "426K views",
+     "date": "3 years ago",
+     "duree": "9:57",
+     "avatar": "https://yt3.ggpht.com/PABMv0Tbz1G47ZIdC87y7KgSJ3IyehptRBY9jfp3BZbsP8TRnslVdjFYG0mjtls2U5-1LyeofA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MANIPULATION",
+     [
+      {
+       "t": "ERKENNEN",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 Stunden zum Lernen"
+    ],
+    "video": {
+     "id": "kppRmNjaZ-g",
+     "titre": "Manipulationstechniken – Wie Sie sich erfolgreich dagegen wehren",
+     "chaine": "Dr. Wlodarek Life Coaching",
+     "vues": "508.127 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "13:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kb8Og70NnHbaowWKGQ6nijdAWk-rfSfQ3-edqYEaWiras=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RICONOSCERE",
+     [
+      {
+       "t": "UN MANIPOLATORE",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 ore per imparare"
+    ],
+    "video": {
+     "id": "pa64odvB0Lk",
+     "titre": "Il linguaggio del manipolatore e le sue mezze verità",
+     "chaine": "Roberto Ruga Psicoterapeuta",
+     "vues": "51K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/4Cdraw23S8U4q1Xa7T3vkMF3oWxMqlQNMuMayHPVMBrR30MhDCer9IauhkpmOG52FHM4V4t8bg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "IDENTIFICAR",
+     [
+      {
+       "t": "UM MANIPULADOR",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 horas para aprender"
+    ],
+    "video": {
+     "id": "Ci3-K6lh8PA",
+     "titre": "Como Identificar Manipuladores | Marcos Lacerda",
+     "chaine": "Nós da Questão",
+     "vues": "1,8 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/sVwte68R1ut-yglV13u2Ed8iE6srkTntoGxIasdrUjz10csmKc6fxR2GnqqBpgQ8acshCWyaZQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "MANİPÜLASYONU",
+     [
+      {
+       "t": "FARK ETMEK",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 saatte öğrenilir"
+    ],
+    "video": {
+     "id": "RtsgjiLwW_o",
+     "titre": "TÜM Manipülasyon Taktikleri | AÇIKLANDI",
+     "chaine": "Bilgi mi Ne?",
+     "vues": "284 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "9:01",
+     "avatar": "https://yt3.ggpht.com/-m5j7Q8wmQmeZDNCJTGF5aYNn_v6B_cW8OmkDDUqZBIQN45HfvwQ9ucHC8u7KoG7atns8csKzw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ RECUNOȘTI",
+     [
+      {
+       "t": "UN MANIPULATOR",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 ore de învățat"
+    ],
+    "video": {
+     "id": "e--e_krToc8",
+     "titre": "6 Semne că ești manipulat și nici măcar nu-ți dai seama.",
+     "chaine": "Laboratorul de motivatie",
+     "vues": "13 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/MZVtXMaBs7F1JKT5TNiFPr4o683msKNMknTqIJE6kCRfO10f3-tq4vrBMdufbQLEbhI-aSOr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ODHALIT",
+     [
+      {
+       "t": "MANIPULÁTORA",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 hodiny na naučení"
+    ],
+    "video": {
+     "id": "raQToMQJ3Qk",
+     "titre": "Jak odhalit manipulátora a manipulování",
+     "chaine": "Lída z Lidoll",
+     "vues": "54 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "10:21",
+     "avatar": "https://yt3.ggpht.com/quUVjyN0bjo2fEdJFcOWEwKmD-0IP2ywABL_gZwFWWrMVeh3v3DgrR7oWwxgf10HSLlFMgbaRw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "FELISMERNI",
+     [
+      {
+       "t": "A MANIPULÁCIÓT",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 óra a tanuláshoz"
+    ],
+    "video": {
+     "id": "T2qVfg4UEgk",
+     "titre": "8 Manipulációs Technika, amit Ellened is Használnak!",
+     "chaine": "Tanulom Magam",
+     "vues": "277 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "14:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΝΑΓΝΩΡΙΖΕΙΣ",
+     [
+      {
+       "t": "ΤΟΥΣ ΧΕΙΡΙΣΤΙΚΟΥΣ",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 ώρες για να το μάθεις"
+    ],
+    "video": {
+     "id": "UHZP5RHZHcQ",
+     "titre": "Τι κάνετε με τους χειριστικους",
+     "chaine": "Dimitris Kokkinias Softening and Healing",
+     "vues": "13 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/FWUI-Avkz2Gx2709SgdxNpXFe7twrhrQ4a44TXTqi0JmLlKmYyYXLdPZBY-Wc-FJnHf3kkzW-Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "PREPOZNATI",
+     [
+      {
+       "t": "MANIPULATORA",
+       "couleur": "#8e44ad"
+      }
+     ]
+    ],
+    "sous": [
+     "2 sata za učenje"
+    ],
+    "video": {
+     "id": "fhZ1y0GxaKU",
+     "titre": "KAKO NAJLAKŠE OTKRITI MANIPULATORA",
+     "chaine": "Dusan Blagojevic - Blago za Dusu",
+     "vues": "112 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "14:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNRUoV4fIMeHMkH85z7AovuklLUFWTNgR5JD3Y4qNTPec=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "AUTREMENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min par jour"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "DIFFERENTLY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min a day"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "ANDERS",
+     [
+      {
+       "t": "LERNEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 Min. am Tag"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "IN MODO DIVERSO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min al giorno"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "DE OUTRO JEITO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min por dia"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "FARKLI",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "günde 5 dk"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "ALTFEL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min pe zi"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE",
+     [
+      {
+       "t": "JINAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min denně"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ",
+     [
+      {
+       "t": "MÁSKÉPP",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "napi 5 perc"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "ΑΛΛΙΩΣ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "αυτό ανοίγω",
+      "αντί να σκρολάρω."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "UČI",
+     [
+      {
+       "t": "DRUGAČIJE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dnevno"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "VOYAGER",
+     [
+      {
+       "t": "PAS CHER",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 heures pour apprendre"
+    ],
+    "video": {
+     "id": "Mi6cbFmRkWQ",
+     "titre": "5 Secrets pour Voyager à Moitié Prix",
+     "chaine": "Oseille TV",
+     "vues": "319 k vues",
+     "date": "il y a 2 ans",
+     "duree": "11:48",
+     "avatar": "https://yt3.ggpht.com/dXWkKU0x2q0TrDSRNIE4fwOdk7rGG81_gwklJpLv26LjmIeUTVdImFht1K3eARvKkocDMF3x=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "TRAVEL",
+     [
+      {
+       "t": "ON A BUDGET",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 hours to learn"
+    ],
+    "video": {
+     "id": "ZLOG8F6AS7o",
+     "titre": "Rookie Traveler Budget Mistakes - Best Budget Travel Advice Ever",
+     "chaine": "Wolters World",
+     "vues": "309K views",
+     "date": "3 years ago",
+     "duree": "20:45",
+     "avatar": "https://yt3.ggpht.com/StnHj83FLWH3wmBUNT46RAlWEED0R4jXDbzFpA--APYKauHye6gKHg60gWWzgf5YrnLIptuh=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GÜNSTIG",
+     [
+      {
+       "t": "REISEN",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ],
+    "video": {
+     "id": "2A4lo6viAk0",
+     "titre": "63 Reise-Spartipps für den Urlaub! | Hacks für günstige Flüge, Hotels & mehr!",
+     "chaine": "Finanzfluss",
+     "vues": "156.664 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "17:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "VIAGGIARE",
+     [
+      {
+       "t": "LOW COST",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 ore per imparare"
+    ],
+    "video": {
+     "id": "PrMe7qOcCd4",
+     "titre": "VOLI A €4,99 ✈️ come trovarli e come funzionano le compagnie LOW COST",
+     "chaine": "Nicolò Balini",
+     "vues": "946K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "11:45",
+     "avatar": "https://yt3.ggpht.com/Ab0WttrIVJoBMmncK-OeDrMMM5w6xwITFBqAdwF3mfTKd3kybTsU5uMizA7i0LQgQEISjrgK=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "VIAJAR",
+     [
+      {
+       "t": "GASTANDO POUCO",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 horas para aprender"
+    ],
+    "video": {
+     "id": "rGSLaIEImm8",
+     "titre": "3 DICAS PARA VIAJAR DO JEITO CERTO E GASTAR POUCO DINHEIRO! MePoupe89",
+     "chaine": "Me Poupe!",
+     "vues": "73 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "12:12",
+     "avatar": "https://yt3.ggpht.com/8KifR8l-I6m25_Pt-hYx7yKkgziI5PAHLzi4eMZoEYkLS0cE0BKmFURwjwbt5dH0RFNQknMv1Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "UCUZA",
+     [
+      {
+       "t": "SEYAHAT ETMEK",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ],
+    "video": {
+     "id": "V7y-XcHPqsA",
+     "titre": "Nasıl Çok Ucuza Gezebiliyorum? Ucuz Seyahat Rehberi",
+     "chaine": "Eslem Güler Köse",
+     "vues": "39 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "29:20",
+     "avatar": "https://yt3.ggpht.com/XZem9w9RAUqlM4-PK4yTHLJtNOtZUhbw3SZAtqrzEPfJ-fUSxJyqJtFhFwtW2ah1YLnV_HhUjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ CĂLĂTOREȘTI",
+     [
+      {
+       "t": "IEFTIN",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 ore de învățat"
+    ],
+    "video": {
+     "id": "KGPWaS6XogQ",
+     "titre": "Cum gasim bilete de avion SUPER ieftine ?",
+     "chaine": "BackPackYourLife",
+     "vues": "149 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mwseHDgx0f5Hct3Xez_jv8r0Tds4b2JynOKgm0q2DMs0A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "CESTOVAT",
+     [
+      {
+       "t": "LEVNĚ",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2–3 hodiny na naučení"
+    ],
+    "video": {
+     "id": "OtmrLEXMBq0",
+     "titre": "Odhalím vám tajemství levných letenek ✈️ Jak hledat / najít levné letenky v roce 2025 | Lowkosťák",
+     "chaine": "Lowkosťák | Jan Brunato Cestovatel,Digitální nomád",
+     "vues": "20 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "28:42",
+     "avatar": "https://yt3.ggpht.com/kpQ84vPUlZxc_Fblp7jJHy9ziLluveBV2V2F6puJR5xaETWol5V2qRxrKLu5dy0kc0ef4i83gA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "OLCSÓN",
+     [
+      {
+       "t": "UTAZNI",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ],
+    "video": {
+     "id": "WwiXhMZTqVY",
+     "titre": "Így foglalj olcsón repjegyet ✈️ - A 3 legjobb trükköm 🤑",
+     "chaine": "Simon Kristóf",
+     "vues": "86 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "11:49",
+     "avatar": "https://yt3.ggpht.com/4O4cV0sDPgVGMHD4c9rLSK_vFlo-kTBGHQ5FMs7LPSLFO3ZKKyQgMGLLNp2vcb_3Z9-dOOD0Sg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΤΑΞΙΔΕΥΕΙΣ",
+     [
+      {
+       "t": "ΦΘΗΝΑ",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 ώρες για να το μάθεις"
+    ],
+    "video": {
+     "id": "e1rEbMhHJw8",
+     "titre": "ΠΩΣ ΝΑ ΤΑΞΙΔΕYΕΙΣ ΟΙΚΟΝΟΜΙΚΑ #traveltalk",
+     "chaine": "Ευτύχης Μπλέτσας",
+     "vues": "28 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "11:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mM1BI24HSQUBmuqSlrMBB84y5NBlF86DeIbwYkmPMRpC0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "PUTOVATI",
+     [
+      {
+       "t": "JEFTINO",
+       "couleur": "#f0a020"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 sata za učenje"
+    ],
+    "video": {
+     "id": "lIW2JlQXldE",
+     "titre": "Kako naći jeftine avio karte? Konkretni primeri sajtova koje mi koristimo.",
+     "chaine": "Dva ranca beg iz kanca",
+     "vues": "23 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "11:47",
+     "avatar": "https://yt3.ggpht.com/flj7gkJ2iBsUuF3FhCa1VxhvozCHh-QFHBIT4lJGRCLjSUZIv6fH5DkVwssMTvSKxoTyYSul=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "BIEN SE BROSSER",
+     [
+      {
+       "t": "LES DENTS",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min pour apprendre"
+    ],
+    "video": {
+     "id": "I6AbeFewdvg",
+     "titre": "Comment bien se brosser les dents ?",
+     "chaine": "Doctissimo",
+     "vues": "38 k vues",
+     "date": "il y a 12 ans",
+     "duree": "2:51",
+     "avatar": "https://yt3.ggpht.com/kwtE8Vn8ftjY9h_X-MOFnAfn_Y9_LJh3Z4XgDfZNYi0olO-T97DGnj4zHgiyd-myRauzOQQwXpY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "BRUSH",
+     [
+      {
+       "t": "YOUR TEETH RIGHT",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min to learn"
+    ],
+    "video": {
+     "id": "BapR9J86ZZw",
+     "titre": "How to Brush Your Teeth Animation MCM",
+     "chaine": "NHS England Workforce, Training and Education",
+     "vues": "7.6M views",
+     "date": "8 years ago",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/eisjU2DIgasKYufd0l-kSwukS5PFSAGSRtrpXIpxzDeFrexXgW2k7_6-Kiyn8SFxdV5q3bKTTQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "ZÄHNEPUTZEN",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 Min. zum Lernen"
+    ],
+    "video": {
+     "id": "ixlm3HWJyes",
+     "titre": "Richtig Zähneputzen - Die KAI Methode",
+     "chaine": "denta-expert.de",
+     "vues": "132.570 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "1:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m2vP8pWtws86RlPQJJOesXQX--7wGbQ5hQ3SM4H1jfiA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LAVARSI",
+     [
+      {
+       "t": "BENE I DENTI",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min per imparare"
+    ],
+    "video": {
+     "id": "VRR4K1qnhTw",
+     "titre": "Tecniche di igiene orale: Uso corretto dello spazzolino da denti",
+     "chaine": "Dott. Alessio Bosco - Dentista Sanremo",
+     "vues": "431K visualizzazioni",
+     "date": "13 anni fa",
+     "duree": "4:32",
+     "avatar": "https://yt3.ggpht.com/gZJHfe9hog_kSbwnNC-ea3Kl8ase1lwGBeEhGAUhqXahKHE47sHzEBFbU0iy84wQ00oLlT2NtA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ESCOVAR",
+     [
+      {
+       "t": "OS DENTES CERTO",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min para aprender"
+    ],
+    "video": {
+     "id": "L_lbIz_Bv3Y",
+     "titre": "Como escovar os dentes corretamente - Cir Hospital Odontológico",
+     "chaine": "CiR - Hospital Odontológico",
+     "vues": "318 mil visualizações",
+     "date": "há 10 anos",
+     "duree": "1:25",
+     "avatar": "https://yt3.ggpht.com/SZ3bCtRXa-3shVCWMAxMqxj12cs1Yi-N15wTNEAGU_ro6nwnG2BP4A0p8uJeHhgE3vWB4m09yrA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "DİŞLERİNİ",
+     [
+      {
+       "t": "DOĞRU FIRÇALAMAK",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 dakikada öğrenilir"
+    ],
+    "video": {
+     "id": "dbrg0vgXkEw",
+     "titre": "Doğru Diş Fırçalama Tekniği ✅ - Dr. Dt. Deniz Ertüz",
+     "chaine": "Deniz Ertüz",
+     "vues": "359 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "5:04",
+     "avatar": "https://yt3.ggpht.com/s90Gl09sEGsdcUVrxg6s19D1AL5VexNE-td2zzBOVkLYqc_VtB0q3njDRQHXZAXgHiVw-_rDYw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ TE SPELI",
+     [
+      {
+       "t": "CORECT PE DINȚI",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min de învățat"
+    ],
+    "video": {
+     "id": "hExdXHcFVKo",
+     "titre": "Cum te speli corect pe dinti?",
+     "chaine": "Dr. Alexandra Mircea",
+     "vues": "32 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/Uc1MbOQh7-Ty4zT-hOseqezcBPRvMKvUvea9X_BErdv5sNKoqjpIhOM0G2TAEx1yiJod8afFQBo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "SPRÁVNĚ SI",
+     [
+      {
+       "t": "ČISTIT ZUBY",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min na naučení"
+    ],
+    "video": {
+     "id": "P1-rL7De06M",
+     "titre": "Jak si správně čistit zuby",
+     "chaine": "Dr. Kristýna Karmazínová",
+     "vues": "138 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "6:01",
+     "avatar": "https://yt3.ggpht.com/i1l0uA35Xjxo1f0irNhUn-BcvOLcNvRkE2P2dR6dhq-tF4Qi0fFDPv-ZqPZtr-Mx_0rqE6CXLA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "HELYESEN",
+     [
+      {
+       "t": "FOGAT MOSNI",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 perc a tanuláshoz"
+    ],
+    "video": {
+     "id": "jB5R7qA6_ZU",
+     "titre": "Semmelweis oktatóvideók - Fogmosás",
+     "chaine": "Semmelweis Egyetem",
+     "vues": "82 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "4:19",
+     "avatar": "https://yt3.ggpht.com/zNwtFLW86GUJt_n3c2z4GsS0o68zWH6M4phjo9ENJ_gk6_Bh3u_FlaUMB8uea7HXQYEQT97OQQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΣΩΣΤΟ",
+     [
+      {
+       "t": "ΒΟΥΡΤΣΙΣΜΑ",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 λεπτά για να το μάθεις"
+    ],
+    "video": {
+     "id": "bFaoq4ZISE0",
+     "titre": "Το Σωστό βούρτσισμα των δοντίων  - PanosDentTUBE",
+     "chaine": "PanosDentTUBE",
+     "vues": "233 χιλ. προβολές",
+     "date": "πριν από 10 έτη",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nac_6_kNfx2KeApsWAUQykErnj8JLjt-mQd2pS_AglV6o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "PRAVILNO",
+     [
+      {
+       "t": "PRATI ZUBE",
+       "couleur": "#26a69a"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min za učenje"
+    ],
+    "video": {
+     "id": "Ex5iuwFKZcg",
+     "titre": "SAVETI ZA VAS Kako se pravilno peru zubi?",
+     "chaine": "eduTV",
+     "vues": "98 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "4:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nGwuQKrFYU51pDly3tAMJJjzaZFcp_CDEHaH3N2e5i6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "VÉRIFIER",
+     [
+      {
+       "t": "L'HUILE MOTEUR",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 heure pour apprendre"
+    ],
+    "video": {
+     "id": "sxVVTMh8rxM",
+     "titre": "Niveau d’huile moteur : l’erreur que 80% des automobilistes font !",
+     "chaine": "Conseils Malins Automobiles",
+     "vues": "805 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/_7A1HE5-HvulcwwI8AaEb79cc5UCyiJlXbi8v2pnK6Z_tpsO3QsF3h-oeC5dgCKTcJseFeDxow=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "CHECK",
+     [
+      {
+       "t": "YOUR CAR'S OIL",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hour to learn"
+    ],
+    "video": {
+     "id": "H27wGdjuR6M",
+     "titre": "How to Check Your Oil",
+     "chaine": "Dad, how do I?",
+     "vues": "360K views",
+     "date": "6 years ago",
+     "duree": "4:12",
+     "avatar": "https://yt3.ggpht.com/yUgLBMhcFWIXszs2BOojkGbNhLkj5yM1RAgpR3pYf7NeQZGAKhRAHDBQvTlXI433eEiAmbGX5A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ÖLSTAND",
+     [
+      {
+       "t": "PRÜFEN",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 Stunde zum Lernen"
+    ],
+    "video": {
+     "id": "7cNPlFTWhLI",
+     "titre": "Ölstand richtig messen: Was Ihr alles wissen solltet | Einfach. Selber. Machen.",
+     "chaine": "ADAC",
+     "vues": "124.907 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "4:59",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CONTROLLARE",
+     [
+      {
+       "t": "L'OLIO MOTORE",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 ora per imparare"
+    ],
+    "video": {
+     "id": "AdUjoj5ONag",
+     "titre": "COME CONTROLLARE I LIVELLI DELL'AUTO",
+     "chaine": "Dada e Marcolino",
+     "vues": "175K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/Kz_NGDxEsmCsKXgaDKwY6VB6vBUu52OU6z4DVI5dqZSun0kikR6Whp_ZuGKI1s9pguTE7RvD=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "VERIFICAR",
+     [
+      {
+       "t": "O ÓLEO DO CARRO",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hora para aprender"
+    ],
+    "video": {
+     "id": "0hZpcpX69j4",
+     "titre": "Como verificar o nível de óleo do motor: passo a passo | MUITO SIMPLES!",
+     "chaine": "AutoPapo",
+     "vues": "771 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "0:40",
+     "avatar": "https://yt3.ggpht.com/H8VEo0gkhhLs5UzOvVJ-wFdosX2q6ZLsk38xQF4rHKljFd758GBhcqQ7ZR9liblAsB7ZzCTJAw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "MOTOR YAĞINI",
+     [
+      {
+       "t": "KONTROL ETMEK",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 saatte öğrenilir"
+    ],
+    "video": {
+     "id": "v6gOlDmWwu4",
+     "titre": "Motor Yağı Nasıl Kontrol Edilir? Motor Yağ Seviyesi Nerede Olmalı. Yağ Çubuğu Kontrolü",
+     "chaine": "Online Tamirci",
+     "vues": "221 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/1ZJnKav7KloU4lUGO4hUkM_4e_54Kc54RxQzZAGEoUEZDuORty_7qjIF7Cu1Dpd0U5Su_3FuyQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ VERIFICI",
+     [
+      {
+       "t": "ULEIUL MOTORULUI",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 oră de învățat"
+    ],
+    "video": {
+     "id": "h8SPaLdLAi4",
+     "titre": "Cum sa verifici in mod corect nivelul uleiului!? ElcarGid Service.",
+     "chaine": "ElcarGid",
+     "vues": "533 K vizionări",
+     "date": "acum 14 ani",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lYDL8IgSRuNP9f3CEJ86WDlDP2WMLM4ecBkDyiP6wlF5E=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ZKONTROLOVAT",
+     [
+      {
+       "t": "OLEJ V AUTĚ",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 hodina na naučení"
+    ],
+    "video": {
+     "id": "6lCIxdebJJ0",
+     "titre": "Jak zkontrolovat hladinu oleje v motoru?",
+     "chaine": "AAA AUTO",
+     "vues": "56 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/y9uHZTc4cpOwwdN5ydy532m9MJ7VjxxFUQ5KRzwhAhnum0YvC0X93XW1H_uQV1lIUkDFYLru-w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "ELLENŐRIZNI",
+     [
+      {
+       "t": "AZ OLAJSZINTET",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 óra a tanuláshoz"
+    ],
+    "video": {
+     "id": "QizAIaJEtzw",
+     "titre": "Hogyan ellenőrizd a folyadékszinteket az autódban? - Alapjárat",
+     "chaine": "Alapjárat",
+     "vues": "46 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/FvGUjxhv8-2nq7HQ9QWaRNG2shHjBuQqp-MzW0Mk2Aeb-pOaXD03Zj65F5xcHjxKzAoZcOGEGic=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΕΛΕΓΧΕΙΣ",
+     [
+      {
+       "t": "ΤΑ ΛΑΔΙΑ",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 ώρα για να το μάθεις"
+    ],
+    "video": {
+     "id": "rBe0damdcQk",
+     "titre": "Πως Να Ελέγξουμε Τα Λάδια Του Αυτοκινήτου!Τι Πρέπει Να Γνωρίζεις!",
+     "chaine": "KIMONAS",
+     "vues": "57 χιλ. προβολές",
+     "date": "πριν από 9 έτη",
+     "duree": "3:27",
+     "avatar": "https://yt3.ggpht.com/lOIYPJ-Tgt5stFfTcOp3f8TbYhOOAl_v3qhttSjfyzy3rn7c4nM41jtyVSMrkMX81NsJ6IYC=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "PROVERITI",
+     [
+      {
+       "t": "ULJE U MOTORU",
+       "couleur": "#d9332b"
+      }
+     ]
+    ],
+    "sous": [
+     "1 sat za učenje"
+    ],
+    "video": {
+     "id": "ckH0wWIR8uE",
+     "titre": "Kako Pravilno Proveriti Ulje u Motoru?",
+     "chaine": "Automehanika",
+     "vues": "70 hilj. pregleda",
+     "date": "pre 5 meseci",
+     "duree": "8:28",
+     "avatar": "https://yt3.ggpht.com/nwcQgw73Vc4bjClMaVYRR2uGKjJzwsYq7g4DZpKx50srTRkeHRLqhCRdJ3wkXevfkSEnBBwneg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

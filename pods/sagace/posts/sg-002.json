@@ -14,7 +14,8 @@
   "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed",
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
-  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování"
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování",
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja"
  },
  "legendes": {
   "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -24,7 +25,8 @@
   "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - m - m",
@@ -205,6 +207,28 @@
      },
      {
       "t": "SCROLLOVÁNÍ",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 138
+     },
+     {
+      "t": "KOJE TREBA NAUČITI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "UMESTO",
+      "cap": 149
+     },
+     {
+      "t": "SKROLOVANJA",
       "couleur": "brun",
       "cap": 188
      }
@@ -443,6 +467,35 @@
     },
     "sous": [
      "1-2 hodiny na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI",
+     [
+      {
+       "t": "DA SECKAŠ",
+       "couleur": "#406f27"
+      }
+     ],
+     "POVRĆE"
+    ],
+    "video": {
+     "id": "iXc2PYZ6kWM",
+     "titre": "Osnovni oblici sečenja namirnica - seckanje",
+     "chaine": "CHEF Teorija i Praksa",
+     "vues": "778 pregleda",
+     "date": "pre 6 godina",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNceWrfo5WxOnMzLVLQs1WBVtkietyHxLOdcVC3ZDMqQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za učenje"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
     ]
    }
   },
@@ -719,6 +772,40 @@
     "sous": [
      "30 minut na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "NAUČI",
+       "couleur": "#66696f"
+      }
+     ],
+     "DA IMAŠ",
+     [
+      {
+       "t": "DOBRO DRŽANJE",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "42IWdPE5N1E",
+     "titre": "ISPRAVI SE! Najbolje vežbe za držanje tela - posturu! Otkloni bol u leđima, vratu i ramenima.",
+     "chaine": "vuk1vuk",
+     "vues": "162 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "10:13",
+     "avatar": "https://yt3.ggpht.com/Q-ZGiUSvQJBmRR-afVqRNG1FvEd7IuOqBxhYpWY5trI8aluNPGeHDAZLIgxRihno6Oo6hNsMhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ]
    }
   },
   {
@@ -890,6 +977,27 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "OBRAZUJ SE",
+     [
+      {
+       "t": "ZA 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -1125,6 +1233,35 @@
     },
     "sous": [
      "1-2 hodiny na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI",
+     [
+      {
+       "t": "DA PREPOZNAŠ",
+       "couleur": "#b131c4"
+      }
+     ],
+     "SAZVEŽĐA"
+    ],
+    "video": {
+     "id": "78lQRo9LNlI",
+     "titre": "Астрономска почетница: Поглед у Небо * Astronomy for beginners: View at Sky",
+     "chaine": "miljus73",
+     "vues": "9,5 hilj. pregleda",
+     "date": "pre 12 godina",
+     "duree": "14:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHIxf_BicLg7c-ZsDn82kBzYuOocMZl_apVI8lyp7Ysg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za učenje"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
     ]
    }
   },
@@ -1369,6 +1506,36 @@
      "2-3 hodiny denně",
      "na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI",
+     "DA STOJIŠ",
+     [
+      {
+       "t": "NA RUKAMA",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NV1KBlZv4zc",
+     "titre": "Kako Naučiti HANDSTAND - Najlakši način (5 koraka)",
+     "chaine": "Giosthenics",
+     "vues": "61 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "10:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kShwm5CzD3egUJQcbIFtxYWGF3C-a7C7lVkA4WoSs3cls=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata dnevno",
+     "za učenje"
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ]
    }
   },
   {
@@ -1603,6 +1770,35 @@
     },
     "sous": [
      "1-2 hodiny na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI",
+     [
+      {
+       "t": "15 ČVOROVA",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "KOJE MORAŠ DA ZNAŠ"
+    ],
+    "video": {
+     "id": "moFbBmU8InY",
+     "titre": "ČVOROVI | 6 čvorova koje moraš da znaš (Osmica, Square, Prusik…)",
+     "chaine": "Operativni Gradjani",
+     "vues": "9,7 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "8:07",
+     "avatar": "https://yt3.ggpht.com/Y3-ys4pS2sME0toyayOtrnQ48rdHOjLsDVxAWOPJDIL7n8ZsjmmOIerkq6jsbIEwsCrFKd8S0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za učenje"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
     ]
    }
   }

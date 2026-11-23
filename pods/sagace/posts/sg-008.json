@@ -9,7 +9,8 @@
   "pt-BR": "Habilidades 10/10 que a escola não te ensina",
   "tr": "Okulun sana öğretmediği 10/10 beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață",
-  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí"
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
+  "sr": "Veštine 10/10 koje te škola neće naučiti"
  },
  "legendes": {
   "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -19,7 +20,8 @@
   "pt-BR": "Habilidades 10/10 que a escola não te ensina #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Okulun sana öğretmediği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -196,6 +198,28 @@
      {
       "t": "NENAUČÍ",
       "cap": 220,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 111
+     },
+     {
+      "t": "KOJE TE ŠKOLA",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "NEĆE",
+      "cap": 120
+     },
+     {
+      "t": "NAUČITI",
+      "cap": 283,
       "couleur": "brun"
      }
     ]
@@ -386,6 +410,29 @@
     "sous": [
      "30 min na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "ZAMENITI",
+     [
+      {
+       "t": "GUMU",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N8EIYU_XSH0",
+     "titre": "Kako da zamenite gumu na putu",
+     "chaine": "TotalEnergies Serbia",
+     "vues": "101 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "4:09",
+     "avatar": "https://yt3.ggpht.com/DhQOogJa3bRyhtmvH51v1dcWUlujXaMdqemJIWPZ-jv5coVbK_YlcFA_SsjwYP3CCkMj8T5g7A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
    }
   },
   {
@@ -573,6 +620,29 @@
     "sous": [
      "2-3 hodiny na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "PROĆI",
+     [
+      {
+       "t": "RAZGOVOR ZA POSAO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iIW71IbHaiI",
+     "titre": "Intervju za posao i kako rasturiti na istom | Priprema za razgovor za posao",
+     "chaine": "Poslovi Infostud",
+     "vues": "82 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "7:45",
+     "avatar": "https://yt3.ggpht.com/TgFcrFHcHeZqKrWoUQJBkwe94Mx32RS_LTsu0lEbVlKfumgw2csOcdrnQz2OcGrY7TMLqh3PIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
    }
   },
   {
@@ -744,6 +814,27 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POPUNI",
+     [
+      {
+       "t": "SVOJE PRAZNINE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -932,6 +1023,29 @@
     "sous": [
      "trénink několik dní"
     ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "KONTROLISATI",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "STRES"
+    ],
+    "video": {
+     "id": "7kuF9wGImbY",
+     "titre": "Kako se osloboditi stresa",
+     "chaine": "Boris Teodosijević",
+     "vues": "62 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "15:42",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Vežbanje nekoliko dana"
+    ]
    }
   },
   {
@@ -1119,6 +1233,29 @@
     "sous": [
      "≈ 10 hodin na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "ČITATI",
+     [
+      {
+       "t": "DVA PUTA BRŽE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OkRIPo18l_M",
+     "titre": "Brzo Citanje - 3 NAJEFIKASNIJE Tehnike Brzog Citanja",
+     "chaine": "Jovana Miljkovic",
+     "vues": "80 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "4:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGifdOfl9HqTICEk5Em2ZjjJ9xcjFabbDF2UCuB14WOR8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 sati za učenje"
+    ]
    }
   },
   {
@@ -1305,6 +1442,29 @@
     },
     "sous": [
      "≈ 100 hodin na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI",
+     [
+      {
+       "t": "DA PROGRAMIRAŠ",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1oEoWVvl9kI",
+     "titre": "Nauči PYTHON za 10 minuta!",
+     "chaine": "Lazar Bulatovic (Cysecor)",
+     "vues": "127 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/XrwgItTlRTmSQn2XVCTJA2KADSnERLkQ-DGnNIvNCJXvfaFA3DnRrS-DCD0VIqVcveZ3-THX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 sati za učenje"
     ]
    }
   }

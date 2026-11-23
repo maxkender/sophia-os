@@ -14,7 +14,8 @@
   "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal",
   "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri",
   "ro": "10 abilități inutile, dar care te fac de 10x mai cool",
-  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool"
+  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool",
+  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim"
  },
  "legendes": {
   "fr": "10 compétences inutiles mais qui te rendent 10x plus cool #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -24,13 +25,14 @@
   "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități inutile, dar care te fac de 10x mai cool #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - Jacob . P",
   "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
  },
- "notes": "Son post à 149 k (28/08), en 5 langues. Couverture à l'identique (4 lignes noir/brun/noir/brun, caps relevés 111/198/93/146), « INUTILE » et « PHALANGE » corrigés, « MAIS QUI TE RENDENT » comme son accroche. Ses 5 tours dans son ordre, une vidéo native par langue (les siennes : Oscar Owen, Abracademie, MagieExpliquée, Rumble non reprises). Sophia en étape 4 sur 7 (cta B : « CONNAÎTRE / DES FUN FACTS », de : « UNNÜTZES / WISSEN »), sa slide « ABONNE-TOI » retirée.",
+ "notes": "Son post à 149 k (28/08), en 5 langues. Couverture à l'identique (4 lignes noir/brun/noir/brun, caps relevés 111/198/93/146), « INUTILE » et « PHALANGE » corrigés, « MAIS QUI TE RENDENT » comme son accroche. Ses 5 tours dans son ordre, une vidéo native par langue (les siennes : Oscar Owen, Abracademie, MagieExpliquée, Rumble non reprises). Sophia en étape 4 sur 7 (cta B : « CONNAÎTRE / DES FUN FACTS », de : « UNNÜTZES / WISSEN »), sa slide « ABONNE-TOI » retirée. Serbe (rattrapage du 23/11) : en latin, chaînes serbes ; aucun tuto serbe du coin roll : l'étape 2 montre des tours de pièce (DARMA. TV, « IZVEDI TRIK SA NOVČIĆEM ») ; la bouteille : « OTVORI FLAŠU BEZ OTVARAČA » (Nikola kralj, quatre façons).",
  "slides": [
   {
    "type": "couverture",
@@ -205,6 +207,28 @@
      },
      {
       "t": "10X VÍC COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 111
+     },
+     {
+      "t": "BESKORISNE",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ALI TE ČINE",
+      "cap": 93
+     },
+     {
+      "t": "10x KULIJIM",
       "couleur": "brun",
       "cap": 146
      }
@@ -404,6 +428,30 @@
     "sous": [
      "30 min na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "IZVEDI",
+     [
+      {
+       "t": "TRIK",
+       "couleur": "#a86c58"
+      }
+     ],
+     "SA NOVČIĆEM"
+    ],
+    "video": {
+     "id": "4fYwg9zdghs",
+     "titre": "MADJIONICARSKI TRIKOVI SA OBJASNJENJEM \"KOVANICE\"",
+     "chaine": "DARMA. TV",
+     "vues": "110 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "1:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nALo05djV7Ks4c8TBbuGb4EADdtQzxhwIv1-mioDLDXA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
    }
   },
   {
@@ -599,6 +647,30 @@
     "sous": [
      "1–2 hodiny na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI DA",
+     [
+      {
+       "t": "BACAŠ",
+       "couleur": "#d07a78"
+      }
+     ],
+     "KARTU"
+    ],
+    "video": {
+     "id": "KkTot_YAlkE",
+     "titre": "Kako bacati karte",
+     "chaine": "LipaM",
+     "vues": "4,2 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lSMqEjyVXZ5axaCnHrWbaEl2PvzY6qnnh8CbmUADZUiBM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za učenje"
+    ]
    }
   },
   {
@@ -770,6 +842,27 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ZNATI",
+     [
+      {
+       "t": "ZANIMLJIVOSTI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -1062,6 +1155,42 @@
      165,
      100
     ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "NAUČI",
+       "couleur": "#2a1470"
+      }
+     ],
+     "DA NAPRAVIŠ",
+     [
+      {
+       "t": "VODOPAD",
+       "couleur": "#2a1470"
+      }
+     ],
+     "OD KARATA"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
+    ],
+    "video": {
+     "id": "Lh-ahBfVgaA",
+     "titre": "Vodopad sa kartama, objašnjenje",
+     "chaine": "Magic Angel",
+     "vues": "4,9 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "1:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLHapi8c08ze_KrBly0fKyN03TBK_l1_zJYP6-L8XeKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
    }
   },
   {
@@ -1255,6 +1384,30 @@
     },
     "sous": [
      "1 hodina na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČI",
+     "DA VRTIŠ",
+     [
+      {
+       "t": "OLOVKU",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QFYgjNIWa08",
+     "titre": "Kako vrteti olovku oko prstiju - OBJASNJENJE",
+     "chaine": "Jacks&Jokers15",
+     "vues": "258 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/H4CJR2exrE5vHLR2kWMw6c7tYKy5h34-SVZF5wjanb-J5gpPmldgBUcH9E0dVH7W_s-47ysVeg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
     ]
    }
   },
@@ -1450,6 +1603,30 @@
     },
     "sous": [
      "30 min na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "OTVORI",
+     [
+      {
+       "t": "FLAŠU",
+       "couleur": "#7a7062"
+      }
+     ],
+     "BEZ OTVARAČA"
+    ],
+    "video": {
+     "id": "wWBjNrLf4-I",
+     "titre": "Četiri načina kako otvoriti flašu",
+     "chaine": "Nikola kralj",
+     "vues": "26 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "2:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrxHSItlXP4PtDvHXx0wipFKen2YoO9GtSuMQ0Ynnb3g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
     ]
    }
   }

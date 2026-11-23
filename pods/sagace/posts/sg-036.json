@@ -1,0 +1,1797 @@
+{
+ "id": "sg-036",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 que tu regretteras de ne pas avoir apprises",
+  "en": "10/10 skills you'll regret not learning",
+  "de": "10/10-Skills, die du bereuen wirst, nicht gelernt zu haben",
+  "it": "Abilità 10/10 che rimpiangerai di non aver imparato",
+  "pt-BR": "Habilidades 10/10 que você vai se arrepender de não ter aprendido",
+  "tr": "Öğrenmediğine pişman olacağın 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care o să regreți că nu le-ai învățat",
+  "cs": "Dovednosti 10/10, u kterých budeš litovat, že ses je nenaučil",
+  "hu": "Készségek 10/10, amiket megbánsz, ha nem tanulod meg",
+  "el": "Δεξιότητες 10/10 που θα μετανιώσεις που δεν έμαθες",
+  "sr": "Veštine 10/10 za kojima ćeš žaliti ako ih ne naučiš"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 que tu regretteras de ne pas avoir apprises #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills you'll regret not learning #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die du bereuen wirst, nicht gelernt zu haben #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che rimpiangerai di non aver imparato #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que você vai se arrepender de não ter aprendido #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Öğrenmediğine pişman olacağın 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care o să regreți că nu le-ai învățat #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, u kterých budeš litovat, že ses je nenaučil #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "Készségek 10/10, amiket megbánsz, ha nem tanulod meg #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που θα μετανιώσεις που δεν έμαθες #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 za kojima ćeš žaliti ako ih ne naučiš #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Full test du 23/11 « Compétences 10/10 que tu regretteras de ne pas avoir apprises », en 11 langues (dont hu, el, sr). Étapes : conduire, parler une 2e langue, Sophia (cta C, « APPRENDRE / TANT QU'IL EST TEMPS »), épargner chaque mois, danser, lire plus de livres. Écartés faute de vidéo native correcte : belle écriture (hu, el, sr), autodéfense (de, hu, el). Vidéos de conduite choisies sans élève en miniature.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE TU",
+      "cap": 110
+     },
+     {
+      "t": "REGRETTERAS",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "DE NE PAS AVOIR APPRISES",
+      "cap": 93
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "YOU'LL",
+      "cap": 110
+     },
+     {
+      "t": "REGRET",
+      "couleur": "brun",
+      "cap": 240
+     },
+     {
+      "t": "NOT LEARNING",
+      "cap": 120
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS,",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE DU",
+      "cap": 110
+     },
+     {
+      "t": "BEREUEN WIRST,",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "NICHT GELERNT ZU HABEN",
+      "cap": 93
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CHE",
+      "cap": 110
+     },
+     {
+      "t": "RIMPIANGERAI",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "DI NON AVER IMPARATO",
+      "cap": 93
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUE VOCÊ VAI SE",
+      "cap": 100
+     },
+     {
+      "t": "ARREPENDER",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "DE NÃO TER APRENDIDO",
+      "cap": 93
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "ÖĞRENMEDİĞİNE",
+      "cap": 120
+     },
+     {
+      "t": "PİŞMAN",
+      "couleur": "brun",
+      "cap": 230
+     },
+     {
+      "t": "OLACAĞIN",
+      "cap": 120
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 170
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PE CARE O SĂ",
+      "cap": 105
+     },
+     {
+      "t": "REGREȚI",
+      "couleur": "brun",
+      "cap": 220
+     },
+     {
+      "t": "CĂ NU LE-AI ÎNVĂȚAT",
+      "cap": 93
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "U KTERÝCH BUDEŠ",
+      "cap": 100
+     },
+     {
+      "t": "LITOVAT,",
+      "couleur": "brun",
+      "cap": 220
+     },
+     {
+      "t": "ŽE SES JE NENAUČIL",
+      "cap": 93
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "AMIKET",
+      "cap": 110
+     },
+     {
+      "t": "MEGBÁNSZ,",
+      "couleur": "brun",
+      "cap": 220
+     },
+     {
+      "t": "HA NEM TANULOD MEG",
+      "cap": 93
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "ΠΟΥ ΘΑ",
+      "cap": 110
+     },
+     {
+      "t": "ΜΕΤΑΝΙΩΣΕΙΣ",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "ΠΟΥ ΔΕΝ ΕΜΑΘΕΣ",
+      "cap": 110
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "ZA KOJIMA ĆEŠ",
+      "cap": 105
+     },
+     {
+      "t": "ŽALITI",
+      "couleur": "brun",
+      "cap": 240
+     },
+     {
+      "t": "AKO IH NE NAUČIŠ",
+      "cap": 100
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À CONDUIRE",
+       "couleur": "#2f6fc0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VXA6CqAaBUQ",
+     "titre": "Les bases pour conduire une voiture",
+     "chaine": "Apprendre à conduire !",
+     "vues": "3,5 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "7:30",
+     "avatar": "https://yt3.ggpht.com/KDRf2ldv1WLwz1e3B7rvi9ENqWA38i-RIpnKHez5QwhU5IZqioOz6wdwGLk2CFuFZsUf1g_dWQM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO DRIVE",
+       "couleur": "#2f6fc0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aVKM2Z9eePM",
+     "titre": "Your First Driving Lesson: Beginner's Step by Step Guide",
+     "chaine": "Driving TV",
+     "vues": "694K views",
+     "date": "2 years ago",
+     "duree": "10:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l9X2WAlN7yOLZaoAf4i6fLB_-ux3QXqIIItzp6lLSsVEw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "AUTOFAHREN",
+       "couleur": "#2f6fc0"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "PIY7oAVHXCU",
+     "titre": "Richtig Schalten lernen 🚘 | Fischer Academy - Die Fahrschule",
+     "chaine": "Fischer Academy - Die Fahrschule",
+     "vues": "697.559 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "8:36",
+     "avatar": "https://yt3.ggpht.com/Ucfb145_i6s2GjlnFf49AUJtkxyGUmCM9j1kSrPSzEsyX1jg3mJ2IPjl9lSzYKHuij0wyZewnA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A GUIDARE",
+       "couleur": "#2f6fc0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LkEs5b0fuaY",
+     "titre": "LA PRIMA GUIDA: TI SPIEGO COME SARA’ - SPIEGAZIONE FATTA IN PREPARAZIONE ALL’ESAME DI GUIDA.",
+     "chaine": "Guidare Oggi - Andrea Brusadin",
+     "vues": "288K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "6:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kplqUKgp9KTK9vkpvqii3VN0d1sRH6Givaar3yCLPZOw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A DIRIGIR",
+       "couleur": "#2f6fc0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UHAkIIBsLwo",
+     "titre": "Passo a passo para APRENDER A DIRIGIR EM 10 MINUTOS - Bellas no Transito",
+     "chaine": "Bellas no Trânsito",
+     "vues": "1,8 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/deY8FWQYb_tpPx6XKrwos987PYR4kWesNW9A3h2jIwZPVjnBqW7P398DUD2_JywJif487XzjYbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ARABA",
+       "couleur": "#2f6fc0"
+      }
+     ],
+     "SÜRMEYİ ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "Rj_Lr7FV3oY",
+     "titre": "8 Dakika'da Araba Sürmeyi Öğren ! MANUEL VİTES ARABA NASIL SÜRÜLÜR ?",
+     "chaine": "Küçük Burjuvazi",
+     "vues": "1,9 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kE97rNqRAji8Zd6jC5vsv-5ufnAiGcFCiCzIq1b3qCqi0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "SĂ CONDUCI",
+       "couleur": "#2f6fc0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "55SLtZLPF34",
+     "titre": "Școala De Șoferi  - PORNIREA DE PE LOC ȘI OPRIREA LECTIA NR 2",
+     "chaine": "Fabrica De Permise",
+     "vues": "399 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "9:25",
+     "avatar": "https://yt3.ggpht.com/7a1aeqoc4ZWdSflmN8avWkZSCo5kIna0kdEXHBP9RCmVtyR7xfmEw0f5ih0SI4awyjKi7PfXEb4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 de ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "ŘÍDIT AUTO",
+       "couleur": "#2f6fc0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zpcNHbTycO0",
+     "titre": "Jak se správně rozjet s autem? (Autoškola) Jak nastartovat a řídit auto - Řízení auta snadno",
+     "chaine": "Automa",
+     "vues": "104 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "3:16",
+     "avatar": "https://yt3.ggpht.com/vgMGE_IZv_bqF17iwXl44XQZKcEnmg38qHydNrbcGtiBKCCtd0ZoCYr7x0AGG0bUykCrfc8DH1o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 hodin na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "AUTÓT",
+       "couleur": "#2f6fc0"
+      }
+     ],
+     "VEZETNI"
+    ],
+    "video": {
+     "id": "y6K8llQf4kA",
+     "titre": "Elindulás elsajátítása tanulóvezetőknek.",
+     "chaine": "Sándor Szabó",
+     "vues": "150 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "4:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l_8LFq6VMmEXA_tJoUcJii1FU3MM78Shz90CYuQdjSgw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΜΑΘΕΙΣ",
+     [
+      {
+       "t": "ΝΑ ΟΔΗΓΕΙΣ",
+       "couleur": "#2f6fc0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P_ByDS-B_pU",
+     "titre": "Ξεκίνημα με Συμπλέκτη! (Πως να μην σας σβήνει ποτέ)",
+     "chaine": "Themis Bliouras",
+     "vues": "110 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/ATl6aj_MPJizLivwgqMCcuSME6TPPv6brXS5lTyZdDCGy_dwTFz3q5RXDI2k8YKijcuaHvtjZw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČITI",
+     [
+      {
+       "t": "DA VOZIŠ",
+       "couleur": "#2f6fc0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NaaU4uVXW6Q",
+     "titre": "Vožnja automobila za početnike",
+     "chaine": "BikeGremlin RS",
+     "vues": "41 hilj. pregleda",
+     "date": "pre 4 god.",
+     "duree": "26:38",
+     "avatar": "https://yt3.ggpht.com/P-AQ5boNqXefLB98jyoS1j05UHD7lAxeDw_XVMrZSNt95ng7Vl3XJ23KGzUX1hcu23T_DBofW-Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 30 sati za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PARLER",
+     [
+      {
+       "t": "UNE 2E LANGUE",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vivTgPHa8oA",
+     "titre": "Comment apprendre une langue plus rapidement (mes 5 conseils)",
+     "chaine": "Emilio",
+     "vues": "393 k vues",
+     "date": "il y a 6 ans",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/NKv2f_MdR9cZPEeTwmr9M7kCB-w6SN4Zq9ENKN0yPk-AisjMvMkuhBG2kr7ZQ3Vng5Oil3A-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 mois pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPEAK A",
+     [
+      {
+       "t": "2ND LANGUAGE",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qYsHLUAlH_8",
+     "titre": "How to LEARN ANY LANGUAGE on Your Own",
+     "chaine": "Brian Wiles",
+     "vues": "4M views",
+     "date": "5 years ago",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/H0UR4Mu2Hl_O4qxhVWUTYnOOF3uhJxE8BWZVlL6x2wnvA2us64XuijqY4v9jcOApRq_ms6RKrg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 months to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE",
+     [
+      {
+       "t": "ZWEITE SPRACHE",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lSz8I2JFSCg",
+     "titre": "Wie du schnell jede Sprache lernst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "221.591 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "14:10",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 Monate zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PARLARE",
+     [
+      {
+       "t": "UN'ALTRA LINGUA",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HfyGwiepb1s",
+     "titre": "Come IMPARARE una LINGUA STRANIERA (per davvero)",
+     "chaine": "Alessandro de Concini - ADC",
+     "vues": "210K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "16:01",
+     "avatar": "https://yt3.ggpht.com/O7Guse7uMO170W2Dakwlc-rgyB5XEcYgeBUVDxVLdM494piW1YVfHSKsAX3IRx9xtG_648z1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 mesi per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FALAR",
+     [
+      {
+       "t": "OUTRO IDIOMA",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "c3CP17KK6sc",
+     "titre": "COMO APRENDER QUALQUER IDIOMA SOZINHO - OS 4 PILARES DA FLUÊNCIA",
+     "chaine": "Juliana de Camargo",
+     "vues": "583 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "12:24",
+     "avatar": "https://yt3.ggpht.com/pkyiqtNoUeQSTHFXIAIk-IIZ4VTPp18Zc6NIZgE4FB3dku3uoGiCw7rcbjh5xKX8oxM_yCak=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 meses para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İKİNCİ BİR",
+     [
+      {
+       "t": "DİL KONUŞMAK",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6Nnw81vbefo",
+     "titre": "Herhangi bir dil nasıl öğrenilir?(öğrenemezseniz yüzüme tükürün)",
+     "chaine": "Baraneemo",
+     "vues": "2,5 Mn görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "10:51",
+     "avatar": "https://yt3.ggpht.com/r9g4Dmmovuf6grAbeRBleqnbmpERRHj_eUhEc1djR30wRHOy8XeOHhXBRgr4iweHLIk5cvHVn7M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 ayda öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ VORBEȘTI",
+     [
+      {
+       "t": "O LIMBĂ STRĂINĂ",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "306bab-PH10",
+     "titre": "Secretul meu | Cum învăț limbi străine | partea 1",
+     "chaine": "Multilingo",
+     "vues": "38 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "21:04",
+     "avatar": "https://yt3.ggpht.com/MeMG0LBONnbbBrZTBHuSehGcucihvBikfGyIO5AQfCWINCIbZ2xkfBmusye1kGabHaSHrB_VDA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 luni de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MLUVIT",
+     [
+      {
+       "t": "CIZÍM JAZYKEM",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z5CH4eRYo18",
+     "titre": "Jak si zlepšit angličtinu | Mých 5 tipů",
+     "chaine": "Theresa Blueberry CZ",
+     "vues": "28 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "9:17",
+     "avatar": "https://yt3.ggpht.com/jkpGxh6awtPw6EEt4SVvmBFlVqU7EaEINu6nGG_YMx5MOKXRreZmWZfTfnHeFnZmrNP6yKhh2x4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 měsíců na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "BESZÉLNI EGY",
+     [
+      {
+       "t": "IDEGEN NYELVET",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jbKkzY0AEDM",
+     "titre": "Hogyan tanultam meg gyorsan angolul?🇺🇸",
+     "chaine": "Tusnádi Roland",
+     "vues": "79 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "4:17",
+     "avatar": "https://yt3.ggpht.com/zHlNCOs6YV9YMG1Z9GAyeWZgZa78GO7qktvczlKV-JKtIiT4kQnbhu47stDShPn4CUaWRhCYuw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 hónap a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΜΙΛΑΣ",
+     [
+      {
+       "t": "ΜΙΑ ΞΕΝΗ ΓΛΩΣΣΑ",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Lfoyojv_N84",
+     "titre": "Πώς να μάθεις μια γλώσσα μόνος σου;",
+     "chaine": "Ο Φιλέλληνας",
+     "vues": "451 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "10:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLIS3b_RIIrEUD0YDxTP7vnMNEC6D6jlNLel2ddw94Sw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 μήνες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "GOVORITI",
+     [
+      {
+       "t": "STRANI JEZIK",
+       "couleur": "#e0a02a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xlb_hJPiOGU",
+     "titre": "Kako sam naučio 5 stranih jezika BEZ KURSEVA?",
+     "chaine": "Robert Dacešin",
+     "vues": "217 hilj. pregleda",
+     "date": "pre 3 god.",
+     "duree": "15:04",
+     "avatar": "https://yt3.ggpht.com/zQ59EkdX2frcC7NHifTBGAG0Yr9qL0ReEns9zbVFPiy6gpSwx-22RTZFQh7JFhdL5HyFu7qIvYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 6 meseci za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "TANT QU'IL EST TEMPS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "WHILE YOU CAN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "LERNEN,",
+     [
+      {
+       "t": "SOLANGE DU KANNST",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "FINCHÉ SEI IN TEMPO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "ENQUANTO DÁ TEMPO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "VAKİT VARKEN",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "CÂT MAI E TIMP",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE,",
+     [
+      {
+       "t": "DOKUD JE ČAS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULNI,",
+     [
+      {
+       "t": "AMÍG LEHET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΜΑΘΑΙΝΕΙΣ",
+     [
+      {
+       "t": "ΟΣΟ ΕΙΝΑΙ ΝΩΡΙΣ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "αυτό ανοίγω",
+      "αντί να σκρολάρω."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "UČITI",
+     [
+      {
+       "t": "DOK JE VREME",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "ÉPARGNER",
+     [
+      {
+       "t": "CHAQUE MOIS",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B_8xRs-loaI",
+     "titre": "Voila quelques techniques pour epargner de l'argent chaque mois #337",
+     "chaine": "Zack Mwekassa",
+     "vues": "1,1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "11:28",
+     "avatar": "https://yt3.ggpht.com/m15CftbD-gOMrLH2MdbLZJsh-5JOtXBlinoD2FKitkN0PDyphwq2gFOTiBz4i1xlMe4bJPCc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SAVE MONEY",
+     [
+      {
+       "t": "EVERY MONTH",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "a-vmZpnpze0",
+     "titre": "How To Budget And Save in Your 20's | Tips and Tricks",
+     "chaine": "Elena Taber",
+     "vues": "1M views",
+     "date": "6 years ago",
+     "duree": "13:42",
+     "avatar": "https://yt3.ggpht.com/vacjG1IjVRf3_fkguBd3yvWP1_-hg6aF-AmdCXMBcEz0IPHqW8uh2MR4MTaOxaMvcvgp6tL4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "JEDEN MONAT",
+     [
+      {
+       "t": "SPAREN",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OdJlbCg8f_M",
+     "titre": "Anleitung: Die BESTE Sparmethode 2025 - SO würde ich JETZT starten!",
+     "chaine": "FinanzNerd",
+     "vues": "172.176 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_krlrZ-EfFYYviklG4EQK0NkQ8ANzsfrQsGr7J0UWsWJbw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RISPARMIARE",
+     [
+      {
+       "t": "OGNI MESE",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "a_ePdha2nH0",
+     "titre": "10 Piccole Abitudini per Risparmiare (in grande)",
+     "chaine": "Giuseppe Castagna",
+     "vues": "105K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "10:56",
+     "avatar": "https://yt3.ggpht.com/rm_ed4yMgUnupEiKgQJ2ue-pn7jV_RGeeeUKonN2YUgpLCXX_Z8zx9iV_hQmGmq102OE7V0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "GUARDAR DINHEIRO",
+     [
+      {
+       "t": "TODO MÊS",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jwyYytjlLPk",
+     "titre": "4 PASSOS PARA FICAR VICIADO EM GUARDAR DINHEIRO!",
+     "chaine": "Gêmeos Investem",
+     "vues": "267 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "12:48",
+     "avatar": "https://yt3.ggpht.com/7EVuIsOol4QghG3KxXXctEXEJTegFg0OU-4b3rfWsmCsO_b7w4RxB2zlg4ULp59rNrQRc7Hk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER AY",
+     [
+      {
+       "t": "BİRİKİM YAPMAK",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sr5q9SBjuhk",
+     "titre": "Birikim Nasıl Yapılır? Birikim Yapmanın En Kolay Yolu",
+     "chaine": "Hakan Çamoğlu",
+     "vues": "260 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/fS1tT9pAg4QeCcYqDXcfjoo4FFWe3nGF9k_9A2dlY2dHIGqy44WFk5FG9VAJfNpcah53aTWjDA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ECONOMISEȘTI",
+     [
+      {
+       "t": "LUNAR",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vaHMzNq_pMw",
+     "titre": "Cum să faci ECONOMII (valabil pentru ORICINE)",
+     "chaine": "Răzvan Bălănescu",
+     "vues": "26 K vizionări",
+     "date": "acum 1 an",
+     "duree": "20:30",
+     "avatar": "https://yt3.ggpht.com/8aD83e0hHsQs7uTKSzeD_Ea_I92evY7o9Ybc5ImlbxLLgwjOcD0wttUncd7S5BSWR2e5n3AQvHs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ŠETŘIT",
+     [
+      {
+       "t": "KAŽDÝ MĚSÍC",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oScWnLbsKkw",
+     "titre": "JAK UŠETŘIT PENÍZE 💸 6 ZÁKLADNÍCH RAD [2025]",
+     "chaine": "TradeCZ - Petr Plecháč",
+     "vues": "5,1 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "8:47",
+     "avatar": "https://yt3.ggpht.com/9Z_k8WlcbBsbx3CcH9m5VbsQxnmMfO_adBqKI9Gr7fp07zQw_acEMG_ivEkueYGBadEE1gGODg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MINDEN HÓNAPBAN",
+     [
+      {
+       "t": "SPÓROLNI",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xfi2KJg3fws",
+     "titre": "💰Hogyan spórolj hatékonyan ! 💰",
+     "chaine": "Sikerre Hangolva",
+     "vues": "62 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "14:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n4RXQaVrIGvPz6NXtSrEdf4e1wVoaeIElsD2gPhwAk-rM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΠΟΤΑΜΙΕΥΕΙΣ",
+     [
+      {
+       "t": "ΚΑΘΕ ΜΗΝΑ",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wtjQfAx9gSA",
+     "titre": "Πώς Βάζουμε €€€€ Στην Άκρη (Τεχνικές Αποταμίευσης)",
+     "chaine": "Chris Tsounis",
+     "vues": "22 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "10:11",
+     "avatar": "https://yt3.ggpht.com/sWiwZvSCxDTJgyHKtNvJuGrZAD2jyORc2_BvfhaMuJt2ytF1P-XG56SchRX8ZnFVeJCbQogtG3c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ŠTEDETI",
+     [
+      {
+       "t": "SVAKOG MESECA",
+       "couleur": "#3c9a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tmstP3BQSds",
+     "titre": "Kako da uštediš od prosečne plate ? Nemanja B. Antić",
+     "chaine": "Nemanja B. Antić, MBA",
+     "vues": "65 hilj. pregleda",
+     "date": "pre 2 god.",
+     "duree": "12:28",
+     "avatar": "https://yt3.ggpht.com/LFr5Vkf2haCRhTttPSoluoxSlm7hoT45PZeOjocuP6K3ma9BZSdMnUmVos8egY2veMDV5H8Mlw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À DANSER",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8rpoBnHhjFs",
+     "titre": "TUTO DANSE POUR DÉBUTANT FACILE Apprendre à danser",
+     "chaine": "Super Mylo",
+     "vues": "710 k vues",
+     "date": "il y a 4 ans",
+     "duree": "14:57",
+     "avatar": "https://yt3.ggpht.com/Hc21e6TfjtWw3WO4-Yic6J0e8s0f7qRGKKCTfcCRSgQpQDveySq0EKdGnsbuCvUAwNBsChBV=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO DANCE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ujREEgxEP7g",
+     "titre": "3 Simple Dance Moves for Beginners (Hip Hop Dance Moves Tutorial) | Mihran Kirakosian",
+     "chaine": "MihranTV",
+     "vues": "41M views",
+     "date": "10 years ago",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh2ooSofRqRR5dqOeSdIZo_JGB3y15N-Gz2NoxMz1dXkw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "TANZEN",
+       "couleur": "#c2393d"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "4LW9z8n2Pvw",
+     "titre": "Die BESTEN Tanzschritte für Partys TUTORIAL",
+     "chaine": "Freya bewegen",
+     "vues": "239.311 Aufrufe",
+     "date": "vor 10 Monaten",
+     "duree": "18:36",
+     "avatar": "https://yt3.ggpht.com/6TiB_qWCdxCUYUCBAGcN0aYZEEGCjeZ_OzLd_2o87YcyvMfL_Fp1e4exokr5J689riPG7V9U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A BALLARE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gE8lkaLf_N8",
+     "titre": "4 PASSI BASE PER BALLARE IN DISCOTECA - TUTORIAL",
+     "chaine": "Choros Ballet",
+     "vues": "1 Mln visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "5:06",
+     "avatar": "https://yt3.ggpht.com/dCz9LlbPdVpD4UFYt2II2vWfD8upDPBzm5wKnwmA_yOyz3jETOPJ1iCFZ5ysGJd9LXDjsBcFpw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A DANÇAR",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Fr-BObxEuUE",
+     "titre": "Aula de Dança - O básico para quem não dança começar a dançar!",
+     "chaine": "Dance Tudo - Rodrigo Scherer",
+     "vues": "813 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "25:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l__mQwM1JikEklXVBxvgWgsfUVNujkTgovZACahgxff3k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DANS ETMEYİ",
+       "couleur": "#c2393d"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "iSHtGlvV360",
+     "titre": "DANS DERSİ - 1 | MERHABA YOUTUBE",
+     "chaine": "Dikkat Dans",
+     "vues": "1 Mn görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "9:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kMagw4-2gLW-ITwZON4btATy2j79qLut1RVbCqFZEINw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "SĂ DANSEZI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_ujaPW2B8lI",
+     "titre": "Invata Pasul de Hora - Tutorial de Dans pentru Incepatori",
+     "chaine": "Dancession",
+     "vues": "55 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lPAuIzk5Wk7EZ7tBr9PHHChu-0QlvPKertF-JON_unXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "TANCOVAT",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "saLv39YE3ic",
+     "titre": "Valčík - základní krok | Dancebuddies Online taneční",
+     "chaine": "DANCEBUDDIES",
+     "vues": "783 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqbHQUn6b_XCvw-2pn1M3-u3J1jk6X3swjaYLY0IKeKQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MEGTANULNI",
+     [
+      {
+       "t": "TÁNCOLNI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mD-nb6OOFks",
+     "titre": "Tánclépések kezdőknek | Ábrahám Viktor - tánciskola",
+     "chaine": "Ábrahám Viktor - Tánciskola",
+     "vues": "219 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRTnKWV0TVVI6manYpqyBRIFdeFiHOCgDBqCw8AlI9Gg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΜΑΘΕΙΣ",
+     [
+      {
+       "t": "ΝΑ ΧΟΡΕΥΕΙΣ",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zAkPFDGjAtA",
+     "titre": "Τσάμικος - Εκμάθηση χορού, βήματα με μέτρημα και μουσική",
+     "chaine": "Nikos Aggelo",
+     "vues": "164 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k2KE5Dg14-NsUPgHGpOBvF2gc_0_UabRJlkPz2oxOvWMs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČITI",
+     [
+      {
+       "t": "DA PLEŠEŠ",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NPUky7t8yE8",
+     "titre": "Uzicko kolo koraci za pocetnike - NAUCI KOLO",
+     "chaine": "Nauči Kolo",
+     "vues": "343 hilj. pregleda",
+     "date": "pre 2 god.",
+     "duree": "10:21",
+     "avatar": "https://yt3.ggpht.com/sUKUeiqLzXwBqOwjfuJKHer13bAHtngBmJDkjlF7a0fLRNkNaH4pfJqCcTGXBmq5oaED74D9=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LIRE PLUS",
+     [
+      {
+       "t": "DE LIVRES",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jwV4S2mFPHA",
+     "titre": "Comment lire plus de livres ?",
+     "chaine": "maecritelit Tome 1",
+     "vues": "42 k vues",
+     "date": "il y a 3 ans",
+     "duree": "12:44",
+     "avatar": "https://yt3.ggpht.com/k9iAGoqkABOrRcPFEo3hVjmeOOdtg9iyds3_w9SRGHDyhLjX3qZd0KYjYnd7jX3wX3WPbnX42WY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "READ",
+     [
+      {
+       "t": "MORE BOOKS",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XU8BUptT3TU",
+     "titre": "how to read more books this year (and actually enjoy it)",
+     "chaine": "Tim DeMoss",
+     "vues": "130K views",
+     "date": "1 year ago",
+     "duree": "5:12",
+     "avatar": "https://yt3.ggpht.com/EwI1vsMtG-hv7nf19Np5dt2iBtvdRhrZKgJzItY9T6fuS4qqdwS-4YBGxmRS-bIuIZQNRUcD2xM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "MEHR",
+     [
+      {
+       "t": "BÜCHER LESEN",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EfS78hMoMPs",
+     "titre": "So kannst du MEHR BÜCHER lesen | 8 Tipps für eine Leseroutine im Alltag",
+     "chaine": "Julezreads",
+     "vues": "29.326 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/i6Y81344WPIIaMXwxOTqeMsX7fGXoK8lZiCRd4V9tbA55hx47j8rK_wzeDaXrjrRLxqK6gUsGA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "LEGGERE",
+     [
+      {
+       "t": "PIÙ LIBRI",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rsPCphzVQvU",
+     "titre": "COME LEGGERE DI PIÙ (e ricordare ciò che leggi)",
+     "chaine": "Antonio Martone",
+     "vues": "81K visualizzazioni",
+     "date": "11 mesi fa",
+     "duree": "14:15",
+     "avatar": "https://yt3.ggpht.com/y-y8Q3K_26xY5bJXzTy69jWnZkFGzgRVOnmeEaSpNMbkO_Z2iAPg9jDXbO7qGOUz9A3_BwNBOXg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LER MAIS",
+     [
+      {
+       "t": "LIVROS",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oFvYsP980Xc",
+     "titre": "COMO LER MAIS LIVROS: O Guia para o Hábito de Leitura | SejaUmaPessoaMelhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "42 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "6:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DAHA FAZLA",
+     [
+      {
+       "t": "KİTAP OKUMAK",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4DxAQeXUJs8",
+     "titre": "Daha Fazla Nasıl Kitap Okuyabilirim?",
+     "chaine": "Karavandaki Adam",
+     "vues": "363 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "4:30",
+     "avatar": "https://yt3.ggpht.com/eSksYjkiar5IE3OM8Fz81fwScyMjqpoIEYZBWUkbr-za2yw9EI9KWXAziDGQY4xjvHUtNkyoeQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "günde 20 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CITEȘTI",
+     [
+      {
+       "t": "MAI MULTE CĂRȚI",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4K9RGjG1aO8",
+     "titre": "Cum să citești mai mult și mai bine",
+     "chaine": "Zaiafet",
+     "vues": "36 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "46:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nT5M26_8AN9GZyCJxONHYqfli5Rm32zy9ppy-niD4OiA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ČÍST",
+     [
+      {
+       "t": "VÍC KNIH",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "x_trqRVHOXY",
+     "titre": "Jak více číst? | KOVY",
+     "chaine": "Kovy",
+     "vues": "189 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "8:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4ub1CHsSXWaP41R6iX0IAobJeWt69aZ7zedS3qUlBB14=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TÖBB KÖNYVET",
+     [
+      {
+       "t": "OLVASNI",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "If-RPer9bp8",
+     "titre": "Hogyan olvass többet? | 5 +1 tipp",
+     "chaine": "Papírra vetett gondolataim",
+     "vues": "2,2 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "14:19",
+     "avatar": "https://yt3.ggpht.com/H0FElK4uMKxWT4rvO59jc8GtS7sPsvwxakAKitrlkvjHvSeGZGUaomORmJq-mzk3C6gOU77b=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "napi 20 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΔΙΑΒΑΖΕΙΣ",
+     [
+      {
+       "t": "ΠΕΡΙΣΣΟΤΕΡΑ ΒΙΒΛΙΑ",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xKVmrtgfvws",
+     "titre": "Πως να διαβάζεις περισσότερο",
+     "chaine": "Phaedra The Nerd",
+     "vues": "2,2 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "4:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kGPb_zL_Ch2RRkZBlzHdpJELsV8qP7NaUnfB7XUa8e6es=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ČITATI",
+     [
+      {
+       "t": "VIŠE KNJIGA",
+       "couleur": "#8a5cc2"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xb9V0UOlaN0",
+     "titre": "Kako čitati knjige? | Tehnike čitanja",
+     "chaine": "Institucija",
+     "vues": "62 hilj. pregleda",
+     "date": "pre 7 god.",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIhtPc00DSf55C0Loi-m-GQeGawFw-WPtaN0GBk8ym5Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min dnevno"
+    ]
+   }
+  }
+ ]
+}

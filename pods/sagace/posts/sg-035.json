@@ -1,0 +1,1773 @@
+{
+ "id": "sg-035",
+ "titre": {
+  "fr": "Compétences 10/10 pour ne jamais t'ennuyer",
+  "en": "10/10 skills so you're never bored",
+  "de": "10/10-Skills, damit dir nie langweilig wird",
+  "it": "Abilità 10/10 per non annoiarti mai",
+  "pt-BR": "Habilidades 10/10 pra nunca ficar entediado",
+  "tr": "Asla sıkılmaman için 10/10 beceriler",
+  "ro": "Abilități 10/10 ca să nu te plictisești niciodată",
+  "cs": "Dovednosti 10/10, aby ses nikdy nenudil",
+  "hu": "10/10 készségek, hogy soha ne unatkozz",
+  "el": "Δεξιότητες 10/10 για να μη βαριέσαι ποτέ",
+  "sr": "Veštine 10/10 da ti nikad ne bude dosadno"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 pour ne jamais t'ennuyer #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills so you're never bored #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, damit dir nie langweilig wird #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 per non annoiarti mai #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 pra nunca ficar entediado #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Asla sıkılmaman için 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 ca să nu te plictisești niciodată #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, aby ses nikdy nenudil #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10 készségek, hogy soha ne unatkozz #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 για να μη βαριέσαι ποτέ #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 da ti nikad ne bude dosadno #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - Notmaster",
+  "url": "https://www.tiktok.com/music/original-sound-7229869367767485227"
+ },
+ "type_bleo": "full_test",
+ "notes": "Full test du 23/11, « Compétences 10/10 pour ne jamais t'ennuyer », en 11 langues (premier post écrit avec hu, el, sr). 5 hobbies qui occupent : calligraphie, aquarelle, ukulélé, broderie, bougies maison. Vraies vidéos natives par langue (aucune des posts précédents). Sophia en étape 4 sur 7, cta B, « APPRENDRE / TOUTE SA VIE ». Grec en capitales sans accents (police grecque de l'atelier), serbe en latin ekavien.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "POUR NE JAMAIS",
+      "cap": 120
+     },
+     {
+      "t": "T'ENNUYER",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "SO YOU'RE NEVER",
+      "cap": 120
+     },
+     {
+      "t": "BORED",
+      "cap": 270,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "DAMIT DIR NIE",
+      "cap": 120
+     },
+     {
+      "t": "LANGWEILIG",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "WIRD",
+      "cap": 150
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "PER NON",
+      "cap": 130
+     },
+     {
+      "t": "ANNOIARTI",
+      "cap": 230,
+      "couleur": "brun"
+     },
+     {
+      "t": "MAI",
+      "cap": 160
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "PRA NUNCA FICAR",
+      "cap": 115
+     },
+     {
+      "t": "ENTEDIADO",
+      "cap": 230,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "ASLA",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "SIKILMAMAN İÇİN",
+      "cap": 115
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 220,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "CA SĂ NU TE",
+      "cap": 120
+     },
+     {
+      "t": "PLICTISEȘTI",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "NICIODATĂ",
+      "cap": 140
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "ABY SES NIKDY",
+      "cap": 120
+     },
+     {
+      "t": "NENUDIL",
+      "cap": 250,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "HOGY SOHA NE",
+      "cap": 120
+     },
+     {
+      "t": "UNATKOZZ",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΓΙΑ ΝΑ ΜΗ",
+      "cap": 120
+     },
+     {
+      "t": "ΒΑΡΙΕΣΑΙ",
+      "cap": 220,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΠΟΤΕ",
+      "cap": 150
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "DA TI NIKAD",
+      "cap": 120
+     },
+     {
+      "t": "NE BUDE",
+      "cap": 120
+     },
+     {
+      "t": "DOSADNO",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "LA CALLIGRAPHIE",
+       "couleur": "#1f4e79"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aW77Tn6u-dM",
+     "titre": "Trucs et Astuces en Calligraphie pour débutants - Tutoriel Lettering",
+     "chaine": "Les lectures du loup",
+     "vues": "361 k vues",
+     "date": "il y a 8 ans",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/ygDHKmijaOVvJncBel_x_cEdQ-ZVN_SD_r1aO939z2X70KI59N97APHISg7Z81__fwj4LYLfAA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "CALLIGRAPHY",
+       "couleur": "#1f4e79"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rnlha-GLL5s",
+     "titre": "The Easiest Kind of Calligraphy (In 3 Minutes!)",
+     "chaine": "The Happy Ever Crafter",
+     "vues": "965K views",
+     "date": "2 years ago",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mTQFZosd67U0dTysNTbgd1H3Sj00bnPfkGCiHh0l85VC0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KALLIGRAFIE",
+       "couleur": "#1f4e79"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "1rmTUZdKaOA",
+     "titre": "Kalligrafie lernen für Einsteiger",
+     "chaine": "Alexander Flemming",
+     "vues": "213.955 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "10:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l-jswkPbU06RbEpZpHBzY--y2jwLsHhTFpK_MFnVpoPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "LA CALLIGRAFIA",
+       "couleur": "#1f4e79"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yJ8_3BQxWTw",
+     "titre": "CALLIGRAFIA, come iniziare? Materiali ed esercizi + consigli per migliorare",
+     "chaine": "Momarte",
+     "vues": "140K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:21",
+     "avatar": "https://yt3.ggpht.com/6gu_VVF8prb9W19wX7TrRSeABKIU2JxIbzseu4XftsE9bKlLM5vP7O6g5m7-z3ENVGcbPTtg-d4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "CALIGRAFIA",
+       "couleur": "#1f4e79"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hnMWvrk1ngQ",
+     "titre": "TÉCNICAS DE CALIGRAFIA PARA INICIANTES",
+     "chaine": "Caligrafia DS",
+     "vues": "1 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "7:44",
+     "avatar": "https://yt3.ggpht.com/fl9AN6EMBqv6xrPXgrODjQe98em-l4U4nOHLSUjBCZA4uCngOQYtRjCkHKgGbpadpPc64b52eg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KALİGRAFİ",
+       "couleur": "#1f4e79"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "57uxDulf1IA",
+     "titre": "Kaligrafi Dersi #1",
+     "chaine": "Yunus Emre Bıçakcı",
+     "vues": "38 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "12:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_knpFlaSQetuwL3znZuxd0ra15UPTB-TVU7zcctnUNDvT8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "CALIGRAFIE",
+       "couleur": "#1f4e79"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0COxnuXbvKE",
+     "titre": "Primii Pași în Caligrafie pentru Începători",
+     "chaine": "Denisa Micorici",
+     "vues": "7,5 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "12:49",
+     "avatar": "https://yt3.ggpht.com/blars9Uf-s9BRLNdhcD4AVsyb_xEprR00XawOUHHLXVQJavEb7AKYx5hqsDrChsOwQzsVJ4s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "KALIGRAFII",
+       "couleur": "#1f4e79"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YQ4iM5R34AA",
+     "titre": "Naučte se KRASOPIS / ZÁKLADY KALIGRAFIE za 10 min v tomto videu",
+     "chaine": "Srdce z jeřabin",
+     "vues": "78 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "12:25",
+     "avatar": "https://yt3.ggpht.com/1f1MZvvBWhXGfCWK5HguoitDhDNmPony5MC5ZuuoPh2PcA_uf1A2iZMAdb2u4uiWbbC0_Y9zfg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "KALLIGRÁFIÁT",
+       "couleur": "#1f4e79"
+      }
+     ],
+     "TANULNI"
+    ],
+    "video": {
+     "id": "A5am9WSjkgQ",
+     "titre": "Tanuljuk együtt a szépírást - 1.rész | Kalligráfia az alapoktól",
+     "chaine": "Manó Kuckó",
+     "vues": "62 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "16:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k61rpAuoNYtIInIhZ2h3jevv9gPc_NKTpXBAyVcnWmECE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több hét gyakorlás"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΜΑΘΕΙΣ",
+     [
+      {
+       "t": "ΚΑΛΛΙΓΡΑΦΙΑ",
+       "couleur": "#1f4e79"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5mbY-M8Ns98",
+     "titre": "Εξάσκηση σύγχρονης ελληνικής καλλιγραφίας",
+     "chaine": "Pelagie",
+     "vues": "110 χιλ. προβολές",
+     "date": "πριν από 8 έτη",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmEgSSnjDhcfbOQUpSCj-aVw4ojLgCjNq2qmaBT6WrzA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "εξάσκηση μερικών εβδομάδων"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČITI",
+     [
+      {
+       "t": "KALIGRAFIJU",
+       "couleur": "#1f4e79"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GlGyR51GTso",
+     "titre": "Osnovni potezi u kaligrafiji",
+     "chaine": "Plandovanje",
+     "vues": "19 hilj. pregleda",
+     "date": "pre 5 god.",
+     "duree": "17:49",
+     "avatar": "https://yt3.ggpht.com/kgxDbCphmBByX65FGJU4z6_BwA4NgxkD2Gag5ZTCWLRRXRichj6BA_9d82k4JWGNjDN-RoY18Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vežba nekoliko nedelja"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PEINDRE",
+     [
+      {
+       "t": "À L'AQUARELLE",
+       "couleur": "#3a9fc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f3mPWOZ1Xug",
+     "titre": "AQUARELLE débutant : 10 techniques de base (FACILE)",
+     "chaine": "Marie Boudon",
+     "vues": "793 k vues",
+     "date": "il y a 6 ans",
+     "duree": "13:15",
+     "avatar": "https://yt3.ggpht.com/1rnJfH9U0S6AVnv41V0EPiPntLSxl1H0AChPW0cw6g-u0EwTh5sMzgqJz1aUDSRXIr7jix-Ck5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PAINT",
+     [
+      {
+       "t": "WITH WATERCOLOR",
+       "couleur": "#3a9fc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Sj1smvMCvBI",
+     "titre": "The Very FIRST Watercolor Lesson for Beginners | Watercolor Painting for Beginners - Lesson 1",
+     "chaine": "Allison Lyon Art",
+     "vues": "1.4M views",
+     "date": "5 years ago",
+     "duree": "16:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lLAe7zoyFgJT-0E36ZGuURuOsCNDiUzncPqtdsI78uvtw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "MIT AQUARELL",
+       "couleur": "#3a9fc8"
+      }
+     ],
+     "MALEN"
+    ],
+    "video": {
+     "id": "jEhGzvRsa9M",
+     "titre": "Aquarell für Einsteiger | Felix Scheinberger",
+     "chaine": "artistravel",
+     "vues": "398.901 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "13:06",
+     "avatar": "https://yt3.ggpht.com/UDeyHX5_VZtZXHX_4UAk5WnoqXMOE56JGW_THU6KwrZF-zHfzmQ_ja0aIzgt9Fx0XJc-n2628Fo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "DIPINGERE",
+     [
+      {
+       "t": "AD ACQUERELLO",
+       "couleur": "#3a9fc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aWOfSECcWok",
+     "titre": "Acquerello per veri principianti - lezione 1 - materiali e primi passi",
+     "chaine": "Disegnatu",
+     "vues": "156K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "14:31",
+     "avatar": "https://yt3.ggpht.com/lmUwHYpbUlDbgKnTFtoYR1KuPm2O0xu-0bqqhNso86BXryez9VwlSVgig3nNJ28-uX-ij9hnoA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PINTAR",
+     [
+      {
+       "t": "COM AQUARELA",
+       "couleur": "#3a9fc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xPyhUK1MSKE",
+     "titre": "COMO USAR AQUARELA - PARA INICIANTES",
+     "chaine": "Renata Celi",
+     "vues": "985 mil visualizações",
+     "date": "há 10 anos",
+     "duree": "9:39",
+     "avatar": "https://yt3.ggpht.com/OtH0_N92D_dapul0crU1f2ntZD2O840jy_aAR2qkox0heU6pYt0YKEaBsxObhaLvihIE6uu4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SULUBOYA",
+       "couleur": "#3a9fc8"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "Yi0KlAFlACA",
+     "titre": "SULUBOYA' YA GİRİŞ #1 | anlatım ve uygulama  | kağıt-fırça-boya |#benimleçiz",
+     "chaine": "Lue Art",
+     "vues": "811 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "16:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nPJDA7TjS8k6vkQHSygW-PUNbgayxwXQrFqAUaq2ol3Yk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ PICTEZI",
+     [
+      {
+       "t": "ÎN ACUARELĂ",
+       "couleur": "#3a9fc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "58JZWjvLgPk",
+     "titre": "🌙☀️Pictura Simpla pentru Incepatori | Invata sa pictezi",
+     "chaine": "O pictura pe zi",
+     "vues": "502 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/_XC0WGcZ-Nf5_vwYNwkKWC5BDBIcvj5Vk0t1yD8CRjLAT8rfdoiSWJ57da9gyra-6a_IW4Ijkw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MALOVAT",
+     [
+      {
+       "t": "AKVARELEM",
+       "couleur": "#3a9fc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "X6LasBL5kVc",
+     "titre": "Akvarel návod pro začátečníky-Vlčí mák",
+     "chaine": "atelier Kepičová",
+     "vues": "35 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "16:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nXg9RTmGGPn-mSrsoZTZTVqPOqcAVz1xo_08bSlumHVA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "AKVARELLEL",
+       "couleur": "#3a9fc8"
+      }
+     ],
+     "FESTENI"
+    ],
+    "video": {
+     "id": "oTt2hyW0EzI",
+     "titre": "Hogyan állj neki az akvarellnek? | Akvarell festés kezdőknek | Vízfestés technikák | Festés",
+     "chaine": "Sebők Orsi - Imelda Green's",
+     "vues": "57 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kNu54MCVY23DWo_lqyolOmcDSy7y2PgjLhpzm-_oDM-aE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több nap gyakorlás"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΖΩΓΡΑΦΙΖΕΙΣ",
+     [
+      {
+       "t": "ΜΕ ΑΚΟΥΑΡΕΛΑ",
+       "couleur": "#3a9fc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vmpITSvgkyE",
+     "titre": "Ζωγραφική με ακουαρέλες βήμα βήμα - Τοπίο με λίμνη",
+     "chaine": "ΜΑΘΕ ΤΕΧΝΗ",
+     "vues": "13 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mKDiUwsd5XfmhBXRzpnT1AyZkcjijIfh7aYnATkVJSqQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "εξάσκηση μερικών ημερών"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SLIKATI",
+     [
+      {
+       "t": "AKVARELOM",
+       "couleur": "#3a9fc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "v2MyrYVnSqg",
+     "titre": "Uvod u akvarel - prvi deo - transparentnost (prozračnost)",
+     "chaine": "Boyana Art",
+     "vues": "22 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "12:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kN_LLw3wACHHT7d20UAAzNUXBoAZzry6g3PhoEhtSm6Eg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vežba nekoliko dana"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "TOUTE SA VIE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "KEEP",
+     [
+      {
+       "t": "LEARNING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN LEBEN LANG",
+     [
+      {
+       "t": "LERNEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "PER TUTTA LA VITA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A VIDA TODA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ÖMÜR BOYU",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "TOATĂ VIAȚA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE",
+     [
+      {
+       "t": "CELÝ ŽIVOT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "EGÉSZ ÉLETEDBEN",
+     [
+      {
+       "t": "TANULNI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΜΑΘΑΙΝΕΙΣ",
+     [
+      {
+       "t": "ΓΙΑ ΠΑΝΤΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "UČITI",
+     [
+      {
+       "t": "CELOG ŽIVOTA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "JOUER",
+     [
+      {
+       "t": "DU UKULÉLÉ",
+       "couleur": "#e2892b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "98dizc1ZNFw",
+     "titre": "DÉBUTANTS UKULÉLÉ Commencez ici !! Premier cours - Facile (français)",
+     "chaine": "Ben au Ukulélé",
+     "vues": "1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "21:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k495w7KBOFEIj-5ROtkyuZyi5y238GoKz5nNc_F85nLA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PLAY",
+     [
+      {
+       "t": "THE UKULELE",
+       "couleur": "#e2892b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5bTE5fbxDsc",
+     "titre": "Ukulele Lesson 1 -  Absolute Beginner? Start Here! [Free 10 Day Course]",
+     "chaine": "Andy Guitar",
+     "vues": "14M views",
+     "date": "8 years ago",
+     "duree": "18:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nU3JrPpx35JfjrJ7I1Ta4Il7w7eLhwwIqpGFPKxz9jkrhy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "UKULELE",
+       "couleur": "#e2892b"
+      }
+     ],
+     "SPIELEN"
+    ],
+    "video": {
+     "id": "kt-yfHV4rZI",
+     "titre": "Ukulele lernen für Anfänger | die ersten Schritte und Akkorde in 5 Minuten | Ukulele tutorial",
+     "chaine": "Guitarschool - Gitarre lernen",
+     "vues": "224.316 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/1TYN5YS7lihDbhdmZZQ1tfg5n-TZtskFHtz2bdxeUfJDSCkhbU0mq9F1TZ87mXJZDj3VXPtwDQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SUONARE",
+     [
+      {
+       "t": "L'UKULELE",
+       "couleur": "#e2892b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OixsE459tVo",
+     "titre": "Impara a Suonare l'UKULELE - Prima Lezione",
+     "chaine": "Angelo Ottaviani",
+     "vues": "103K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "4:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ke_f-mwyRTcc0tKd1QBy0ExmNg9zKdQs7X1-4_RX_yNHw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TOCAR",
+     [
+      {
+       "t": "UKULELE",
+       "couleur": "#e2892b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "D2ULaxhImRU",
+     "titre": "COMO TOCAR UKULELE: Tocando sua primeira música",
+     "chaine": "Cifra Club",
+     "vues": "4 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "9:25",
+     "avatar": "https://yt3.ggpht.com/8VnmfIL6fFhhvUex818rd9t9sv9TkvvbQJKOMMRsCxan-NTdNSiboXjIK4HS48wpYMU6cQHg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "UKULELE",
+       "couleur": "#e2892b"
+      }
+     ],
+     "ÇALMAK"
+    ],
+    "video": {
+     "id": "XzzdG9Q7pAA",
+     "titre": "UKULELE DERSİ #1 - 1.DERS(SIFIRDAN) (SAĞ EL, SOL EL TUTUŞ - C AKORU - İLK RİTİM MODELİ)",
+     "chaine": "Can Kahramansoy Ukulele",
+     "vues": "690 B görüntüleme",
+     "date": "6 yıl önce yayınlandı",
+     "duree": "35:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRVn5jENBduY2JCYFotdKpJssEz2FYu9nz-D11x8OHzg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CÂNȚI",
+     [
+      {
+       "t": "LA UKULELE",
+       "couleur": "#e2892b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QFY0ChQtAAg",
+     "titre": "LECTII DE UKULELE - EPISODUL 1 - INVETI SA CANTI INTR-UN TIMP RECORD! ACORDAJ, GAMA DO, ACORDURI",
+     "chaine": "Oliver Olaru",
+     "vues": "35 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "11:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mEw4wZ6fFG-ZeNb9xdLDwAmfMZn04FArlQaT5pHO2Hl5w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "HRÁT",
+     [
+      {
+       "t": "NA UKULELE",
+       "couleur": "#e2892b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "op1ajT1ShRk",
+     "titre": "Ukulele - první akordy",
+     "chaine": "Kytary.cz",
+     "vues": "386 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "8:10",
+     "avatar": "https://yt3.ggpht.com/GOB6iECbHVk62ykut5SPp4N6-QPLtLayOWN4A2KQjmbmz0UFUzq4zlUEmbEphnNkJVvhoGjzOfU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "UKULELÉN",
+       "couleur": "#e2892b"
+      }
+     ],
+     "JÁTSZANI"
+    ],
+    "video": {
+     "id": "YJ4DCwaS5gM",
+     "titre": "Ukulele kezdőknek - az ukulele tartása, pengetése (www.ukulele.hu)",
+     "chaine": "Gáll Tamás",
+     "vues": "38 E megtekintés",
+     "date": "14 évvel ezelőtt",
+     "duree": "18:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m9ZqKARYqESkjo6-uAoo1QizI_UNvoepwKwe_eQCeV1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több hét gyakorlás"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΠΑΙΖΕΙΣ",
+     [
+      {
+       "t": "ΓΙΟΥΚΑΛΙΛΙ",
+       "couleur": "#e2892b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FrY5cxFaBns",
+     "titre": "Πώς να Παίξεις Ukelele - 1o Μάθημα για Ασχετους",
+     "chaine": "Giwrgos Damianos",
+     "vues": "52 χιλ. προβολές",
+     "date": "πριν από 8 έτη",
+     "duree": "6:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mQJm80YWjOTwYcM_Wr4CPF35PkIxQpm_HuFcV13flz2XQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "εξάσκηση μερικών εβδομάδων"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SVIRATI",
+     [
+      {
+       "t": "UKULELE",
+       "couleur": "#e2892b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G0JPr59p038",
+     "titre": "Kako svirati ukulele - ukulele TUTORIJAL",
+     "chaine": "Matej Tatamata",
+     "vues": "54 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "10:58",
+     "avatar": "https://yt3.ggpht.com/YRiiyCblMpzZZQ6POxrS9XHZwN4GZ5QvdD0Giof0KT4eeaj4CoEpRV1icM1A081-ixxkEFgDJg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "vežba nekoliko nedelja"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À BRODER",
+       "couleur": "#2e7d5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dx0hIVaZ56s",
+     "titre": "Tuto broderie - Comment commencer ?",
+     "chaine": "Léa LG",
+     "vues": "388 k vues",
+     "date": "il y a 5 ans",
+     "duree": "5:04",
+     "avatar": "https://yt3.ggpht.com/NbQVAaTU7krYvYlLS-gHJGFof_0xaDq1Ogif9duxqm7YxX5fnqMEJXxedpGEmeiVMPn45KPRGw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "EMBROIDERY",
+       "couleur": "#2e7d5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Pfd7I7M0akY",
+     "titre": "Basic Embroidery Stitches for Beginners",
+     "chaine": "River Birch Threads",
+     "vues": "1.6M views",
+     "date": "6 years ago",
+     "duree": "14:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_neQWKn5Y1eAGQCX7gjo10vUwSnt2OC571pVUOOBkX2Lg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "STICKEN",
+       "couleur": "#2e7d5b"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "XhJ2avgRWyU",
+     "titre": "Sticken für Anfänger - 8 Basic Stickstiche zum Sticken lernen",
+     "chaine": "Linda Seel (Linda loves) und SALTYSEA by Linda Seel",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "10:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m7X6PJGU8AE3maq9EZ18K7vTwnr7ZQLG0Qoni04jD2_TLk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A RICAMARE",
+       "couleur": "#2e7d5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ENvG4ecuGK8",
+     "titre": "Punti base del ricamo (facili) | TUTORIAL RICAMO",
+     "chaine": "Vanessa Tripi IELLO",
+     "vues": "123K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "7:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n5p1WUvcTz_VkKu5voD_LHLsPchomeCA_aLFUaPGk47w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A BORDAR",
+       "couleur": "#2e7d5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YrtYjPhTX8k",
+     "titre": "9 PONTOS DE BORDADO À MÃO PARA INICIANTES",
+     "chaine": "A Sacaria",
+     "vues": "1 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "52:24",
+     "avatar": "https://yt3.ggpht.com/HPtMeFTAiPVA66aU48V22HUqAEXUQBkhsikZ96A1oJ1Vmp7pYSfLSLrOUB9E8UKlOFwUYOn5Tw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "NAKIŞ İŞLEMEYİ",
+       "couleur": "#2e7d5b"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "ABmdgiHDCPI",
+     "titre": "YENİ BAŞLAYANLAR İÇİN TEMEL NAKIŞ TEKNİKLERİ 1 / Embroidery  For Beginners | Running Stitich",
+     "chaine": "Esra'nın Nakış Atölyesi",
+     "vues": "18 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-sEkMOTjZUkoELUOFci2FGPdbRMZ5IRAJEGN3zTFHUg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "SĂ BRODEZI",
+       "couleur": "#2e7d5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EV7Kx9Os5_Y",
+     "titre": "BRODERIE handmade pentru ÎNCEPĂTORI | 6 cusături de bază",
+     "chaine": "Eliza Draganoiu",
+     "vues": "46 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "7:12",
+     "avatar": "https://yt3.ggpht.com/QjxIqjOI0VeTDMgCka9O6qGwglM8wBZVTlv8B9QJ5RhaOwKh8gVgk9cirm3Sd3k2S8yYgLHYeXo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "VYŠÍVAT",
+       "couleur": "#2e7d5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_rujVPokLFw",
+     "titre": "Vyšívací sada pro začátečníky - video návod vyšívacích technik",
+     "chaine": "Šij blaze",
+     "vues": "1,4 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "10:13",
+     "avatar": "https://yt3.ggpht.com/7UOelISzFa8d045XjwEQSSoGuPeZqtjZh-9ldtzWo9Hf30gkkej6ZXSEbeBF4EakX7L8ZbBxZg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "HÍMEZNI",
+       "couleur": "#2e7d5b"
+      }
+     ],
+     "TANULNI"
+    ],
+    "video": {
+     "id": "YnPR29buxBQ",
+     "titre": "A HÍMZÉS ALAPJAI - 1. rész",
+     "chaine": "Antal Ágnes Embroidery",
+     "vues": "112 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "8:42",
+     "avatar": "https://yt3.ggpht.com/v3SKQSc4TYkNIDGmXagd3OWBIedoa2daYFDArnrHXtz5YbEKVOkJ_Or81Zwr4nMoDyCrgpe9PzE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΜΑΘΕΙΣ",
+     [
+      {
+       "t": "ΚΕΝΤΗΜΑ",
+       "couleur": "#2e7d5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bdtmTY5Aehc",
+     "titre": "Κέντημα. Πλακέ, ανεβατο. Βελονιές. Embroidery flat stitch or rivet",
+     "chaine": "Μαθήματα κεντήματος",
+     "vues": "24 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "4:30",
+     "avatar": "https://yt3.ggpht.com/FqTIAX6GcXK_K_hS8fHupxDbRRLWcgkJ9peRbnSSJKqbfqsF2y-hCRj-EjR_0YmrTyVwpPtBog=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAUČITI",
+     [
+      {
+       "t": "DA VEZEŠ",
+       "couleur": "#2e7d5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rLqEzqVXSfs",
+     "titre": "Vez lančića i ivančice",
+     "chaine": "Ana Flegar",
+     "vues": "7,2 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/BYLNMB8uMc0yXpfWQ3MmCx86ryFqNU9d9c1gBcYA6D8blfJ4nWf1k8vZWnIW-kF3pFr8KJ1pyw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 sata za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FABRIQUER",
+     [
+      {
+       "t": "SES BOUGIES",
+       "couleur": "#c8892e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NuaBN_0TFCg",
+     "titre": "TUTO #2 • Votre première bougie coulée ✨",
+     "chaine": "Le Petit Grassois",
+     "vues": "290 k vues",
+     "date": "il y a 4 ans",
+     "duree": "6:01",
+     "avatar": "https://yt3.ggpht.com/In1rFhQY4V54CNwD65RfEJsby8UcdFqhYfgpAWOvVDygwZjk7MhFUcMvIQYmYbydSZSaG7A1bKQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "YOUR OWN CANDLES",
+       "couleur": "#c8892e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZQk9l2ttcIA",
+     "titre": "A Beginners Guide To Making A Candle",
+     "chaine": "Cosy Owl Craft",
+     "vues": "2.3M views",
+     "date": "6 years ago",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/gBkhymUv2QisFoere5CBDwRGiELiushzHwUyTjdUsZqA6i80b8FLcFVCU_sZWkX-QxUTIXcIxQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KERZEN",
+       "couleur": "#c8892e"
+      }
+     ],
+     "SELBST GIESSEN"
+    ],
+    "video": {
+     "id": "1U9dW8WkYSI",
+     "titre": "So einfach kannst du Kerzen gießen – Grundtechnik & Tipps",
+     "chaine": "Lieblingsgeschenk",
+     "vues": "35.808 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "14:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kpG9zLtkHZU3IlHFXSvWkGQx7Z4bd5_DXb1H9Pho23hw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "CANDELE IN CASA",
+       "couleur": "#c8892e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mu7Gav1zSvQ",
+     "titre": "CANDELE FAI DA TE : COME FARE CANDELE IN CASA DIY | Vanessa Ziletti",
+     "chaine": "Vanessa Ziletti",
+     "vues": "168K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/uZvpkYRivwOGxTCdjTC3hQvXjRVCLUw7g0ILByMWdouIzYfUGcC5docfa09G56KrCp1N6VyX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "SUAS VELAS",
+       "couleur": "#c8892e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JN0SVQJ9ycY",
+     "titre": "COMO FAZER VELAS AROMÁTICAS | Passo a passo",
+     "chaine": "Little house",
+     "vues": "121 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/L33_SsaaSx8yG0KbA9QH3ZT9kFCmbOwwpmLUtEXPWjqN1pY45VGq2BwkU9byeM409obna3onYQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KENDİ MUMUNU",
+       "couleur": "#c8892e"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "chejD7xndsg",
+     "titre": "Renkli Kokulu Mum Nasıl Yapılır? Evde Hediyelik Kolay Mum Yapımı",
+     "chaine": "NasılMı TV",
+     "vues": "524 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/gaPEVDLh418ofBO5YI0dh4Nz9Ddi7ehynLKw5s0h8D-alL2WXOQncpvfWJNM7gjJil6mTpVz3Mo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "LUMÂNĂRI",
+       "couleur": "#c8892e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YtNjqXd2-iU",
+     "titre": "Cum se fac lumânările de soia parfumate - Cu reţetă",
+     "chaine": "Flomacomo",
+     "vues": "48 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/Co__1mrkQaVUqivebZJfnSjuGqXxkQepwNBHHM0sAWjqGcIGYXc80Ck7-auXhoi_FLp2TIxarQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYROBIT SI",
+     [
+      {
+       "t": "SVÍČKY",
+       "couleur": "#c8892e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d6rMFyAW4HE",
+     "titre": "Jak si doma snadno vyrobit sojovou svíčku? | Econea.cz",
+     "chaine": "econea.cz",
+     "vues": "16 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nctjrqcwaJIxIs2_tIOI46rTvDT7dp5DkpYGLaivHR=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "GYERTYÁT",
+       "couleur": "#c8892e"
+      }
+     ],
+     "ÖNTENI"
+    ],
+    "video": {
+     "id": "j9Y7Lm6zNGw",
+     "titre": "Gyertya készítés alapjai kezdőknek - Így készíts gyertyát otthon!  | Nekem a kreatív idő",
+     "chaine": "Nekem - A kreatív idő",
+     "vues": "24 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "3:10",
+     "avatar": "https://yt3.ggpht.com/cHgnh3hQLG8qEgmaGH6Tsf9Sn4cS-xyl4f9KNNtPzMLgUlyJqS_xUT_Erp4O2SUJ8y-CYO6-GA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΧΝΕΙΣ",
+     [
+      {
+       "t": "ΚΕΡΙΑ",
+       "couleur": "#c8892e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xEc5j9rfhMA",
+     "titre": "7 Μυστικά Για Την Κατασκευή Κεριών που (μάλλον) δε γνώριζες | @despinasstudio",
+     "chaine": "despinasstudio | candles and clay",
+     "vues": "47 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "3:42",
+     "avatar": "https://yt3.ggpht.com/yLYOz3YjDvTqLIaiUveJFWody7iV0jLGaagb1AXQpBhzm0BE94eiuqAszXfjQ_FDQ7iw9ES7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PRAVITI",
+     [
+      {
+       "t": "SVEĆE",
+       "couleur": "#c8892e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VfxMx37EkJg",
+     "titre": "IZRADA DEKORATIVNIH SVEĆA",
+     "chaine": "RTV Santos Zrenjanin",
+     "vues": "28 hilj. pregleda",
+     "date": "pre 2 godine",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/NJjMRNY6BtdbJDgno_urIGbLZVd7XlbVIv1PPVBxKRlv5gkgLX0DJlZqr2CKARGscoA8_9Tr=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  }
+ ]
+}

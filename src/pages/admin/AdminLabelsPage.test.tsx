@@ -180,7 +180,7 @@ describe("AdminLabelsPage", () => {
     expect(within(refs).getByText("Fond crème, texte noir, conseils chiffrés")).toBeInTheDocument();
     expect(within(refs).getByRole("img", { name: "Slide de @careers.emma" })).toHaveAttribute("src", "https://img.test/a.jpg");
     expect(within(refs).getByText("2 comptes de référence")).toBeInTheDocument();
-    expect(within(refs).getAllByRole("link").map((a) => a.textContent)).toEqual(["", "@careers.emmaWeekly update", "@vieux.compteArrêtées"]);
+    expect(within(refs).getAllByRole("link").map((a) => a.textContent)).toEqual(["", "@careers.emmaMise à jour hebdo", "@vieux.compteArrêtées"]);
     expect(within(refs).queryByText(/autre\.label/)).not.toBeInTheDocument();
   });
 

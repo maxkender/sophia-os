@@ -43,7 +43,7 @@ const compte = (o: Partial<CompteBible>): CompteBible => ({
 describe("l'onglet d'une source, calculé depuis son état", () => {
   it("essai raté : sa propre case, la source est gardée ; désactivée : Arrêtées", () => {
     expect(etapeDeLaSource(base({ essaiMax: 30, essaiVerdict: "ne_tient_pas" }))).toBe("essai_rate");
-    // même avec du stock et des mesures : elle ne retombe ni en « À l'essai » ni en « Weekly update »
+    // même avec du stock et des mesures : elle ne retombe ni en « À l'essai » ni en « Mise à jour hebdo »
     expect(etapeDeLaSource(base({ importes: 30, valides: 24, essaiMax: 30, essaiVerdict: "ne_tient_pas", semaine: lundi({}) }))).toBe("essai_rate");
     expect(etapeDeLaSource(base({ actif: false }))).toBe("arretees");
     // désactivée à la main après un essai raté : c'est la désactivation qui compte
@@ -62,17 +62,17 @@ describe("l'onglet d'une source, calculé depuis son état", () => {
     expect(etapeDeLaSource(base({ importes: 0, dernierImport: null, neuve: neuve({}) }))).toBe("en_import");
     expect(etapeDeLaSource(base({ importes: 0, dernierImport: null, neuve: neuve({ essais: 1, lanceeLe: "2026-11-19T16:30:00Z" }) }))).toBe("en_import");
     expect(etapeDeLaSource(base({ importes: 24, essaiMax: 30, neuve: neuve({ essais: 1, releve: true, enTraitement: 18 }) }))).toBe("en_import");
-    // tout traité : la base ne la rend plus dans `neuves`, elle passe à l'essai ou en Weekly update
+    // tout traité : la base ne la rend plus dans `neuves`, elle passe à l'essai ou en Mise à jour hebdo
     expect(etapeDeLaSource(base({ importes: 30, essaiMax: 30, semaine: lundi({ decision: "peu_de_mesures", raison: "ajout", lanceeLe: "2026-11-19T16:30:00Z" }) }))).toBe("essai");
     expect(etapeDeLaSource(base({ importes: 100, semaine: lundi({ decision: "peu_de_mesures", raison: "ajout", lanceeLe: "2026-11-19T16:30:00Z" }) }))).toBe("weekly");
   });
 
-  it("une source établie qui passe sa mise à jour du lundi reste en Weekly update", () => {
+  it("une source établie qui passe sa mise à jour du lundi reste en Mise à jour hebdo", () => {
     expect(etapeDeLaSource(base({ attente: attente({ sorte: "maj" }) }))).toBe("weekly");
     expect(etapeDeLaSource(base({ sequence: "en_cours", semaine: lundi({}) }))).toBe("weekly");
   });
 
-  it("essai posé et pas encore jugé : À l'essai ; essai levé ou jamais posé : Weekly update", () => {
+  it("essai posé et pas encore jugé : À l'essai ; essai levé ou jamais posé : Mise à jour hebdo", () => {
     expect(etapeDeLaSource(base({ importes: 30, essaiMax: 30 }))).toBe("essai");
     expect(etapeDeLaSource(base({ essaiVerdict: "tient" }))).toBe("weekly");
     expect(etapeDeLaSource(base({}))).toBe("weekly");

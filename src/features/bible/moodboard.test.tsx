@@ -57,6 +57,19 @@ const proposition = (o: Partial<Proposition>): Proposition => ({
 const rendre = () =>
   render(<MemoryRouter><QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}><PageBible /></QueryClientProvider></MemoryRouter>);
 
+/** Les labels sont repliés par défaut : les tests de la page partent de « Tout déplier ». */
+const toutDeplie = () => localStorage.setItem("bible:pliage", JSON.stringify({ labelsOuverts: true, exceptions: [] }));
+/** Une action du menu « ⋯ » : celui du label (le premier du bloc) ou celui de la tuile. */
+function dansMenu(el: HTMLElement, nom: string | RegExp): HTMLElement {
+  const bouton = el.querySelector<HTMLElement>("[aria-haspopup=menu]")!;
+  if (bouton.getAttribute("aria-expanded") !== "true") fireEvent.click(bouton);
+  return within(bouton.parentElement!).getByRole("menuitem", { name: nom });
+}
+/** Un onglet de sortie (Essai raté, Arrêtées, Corbeille), dans le menu « Sorties ». */
+const sortie = (nom: RegExp): HTMLElement => dansMenu(screen.getByRole("tablist").parentElement!, nom);
+
+beforeEach(toutDeplie);
+
 describe("rangement du moodboard", () => {
   it("par app dans l'ordre (Atala, Micabo, Sophia, Idées, Sans label), puis par label ; « aussi » sous la 2e carte", () => {
     const comptes = [
@@ -100,13 +113,14 @@ describe("page Bible", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     localStorage.clear();
+    toutDeplie();
     api.lireCartes.mockResolvedValue(CARTES);
     api.changerEtape.mockResolvedValue(undefined);
     src.lireSources.mockResolvedValue(donnees());
     prop.lirePropositions.mockResolvedValue([]);
   });
 
-  it("« Source proposals », avant « À importer » : les propositions de l'éclaireur par jour, celles à plus tard comprises ; → À importer ou Prochain batch", async () => {
+  it("« Propositions », avant « À importer » : les propositions de l'éclaireur par jour, celles à plus tard comprises ; → À importer ou Prochain batch", async () => {
     api.lireComptes.mockResolvedValue([compte({ id: "c7", handle: "deja.la" })]);
     api.rafraichirMiniatures.mockResolvedValue(undefined);
     prop.lirePropositions.mockResolvedValue([
@@ -118,10 +132,10 @@ describe("page Bible", () => {
     prop.passerDansLaBible.mockResolvedValue({ bibleId: "b9", handle: "encantre", deja: false });
     prop.deciderProposition.mockResolvedValue(undefined);
     rendre();
-    await screen.findByRole("tab", { name: /Source proposals 4/ });
+    await screen.findByRole("tab", { name: /Propositions 4/ });
     await screen.findByRole("tab", { name: /À importer 1/ });
-    expect(screen.getAllByRole("tab").map((t) => t.textContent).slice(0, 3)).toEqual(["Source proposals 4", "À importer 1", "Prochain batch 0"]);
-    fireEvent.click(screen.getByRole("tab", { name: /Source proposals/ }));
+    expect(screen.getAllByRole("tab").map((t) => t.textContent).slice(0, 3)).toEqual(["Propositions 4", "À importer 1", "Prochain batch 0"]);
+    fireEvent.click(screen.getByRole("tab", { name: /Propositions/ }));
     expect(screen.getByTestId("regle-etape")).toHaveTextContent("l'agent éclaireur trouve chaque jour");
     expect(await screen.findByTestId("propositions-en-bref")).toHaveTextContent("3 propositions à décider, 1 mise à plus tard.");
     // Un jour par section, le plus récent d'abord ; dans un jour, le meilleur score d'abord.
@@ -172,17 +186,17 @@ describe("page Bible", () => {
     expect(screen.getByRole("tab", { name: /Prochain batch 1/ })).toBeInTheDocument();
     expect(screen.getByTestId("regle-etape")).toHaveTextContent("À la main");
     const carteRun = screen.getByText("classic_girl_run").closest("[data-carte]") as HTMLElement;
-    expect(within(carteRun).getByText("proposé")).toBeInTheDocument();
+    expect(within(carteRun).getByText("à créer")).toBeInTheDocument();
     expect(within(carteRun).getByText("Coureuse en photo iPhone")).toBeInTheDocument();
     const lien = within(carteRun).getAllByRole("link").find((a) => a.getAttribute("href") === "https://www.tiktok.com/@compte.un");
-    expect(lien).toHaveTextContent("tiktok.com/@compte.un");
+    expect(lien).toHaveTextContent(/^@compte\.un$/);
     expect(within(carteRun).getByText(/pic 4,8 M/)).toBeInTheDocument();
     fireEvent.click(within(carteRun).getByRole("button", { name: "Prochain batch" }));
     await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c1"], "prochain_batch"));
 
     fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
     const tuile = (await screen.findByText(/deja\.batch/)).closest("[data-compte]") as HTMLElement;
-    fireEvent.click(within(tuile).getByRole("button", { name: "Retirer" }));
+    fireEvent.click(dansMenu(tuile, "Retirer"));
     await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c9"], "a_importer"));
     // Plus rien ne se coche « importé » à la main : l'étape vient de la source.
     expect(screen.queryByRole("button", { name: /Marquer le batch comme importé/ })).toBeNull();
@@ -244,17 +258,17 @@ describe("page Bible", () => {
     // une.source porte déjà le label de sa carte : seul source.ailleurs reste à faire (sa carte vise un autre label).
     expect(await screen.findByRole("tab", { name: /Prochain batch 1/ })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: /À l'essai 1/ })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: /Weekly update 1/ })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: /Arrêtées 1/ })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: /Mise à jour hebdo 1/ })).toBeInTheDocument();
+    expect(sortie(/Arrêtées 1/)).toBeInTheDocument();
     // Une source qui rate son essai n'est pas effacée : elle a sa case, avec son r et son stock.
-    fireEvent.click(screen.getByRole("tab", { name: /Essai raté 1/ }));
+    fireEvent.click(sortie(/Essai raté 1/));
     expect(screen.getByTestId("regle-etape")).toHaveTextContent("Rien n'est effacé : la source reste, ses slideshows validés restent en stock");
     const ratee = (await screen.findByText(/jco\.mindset/)).closest("[data-source]") as HTMLElement;
     expect(within(ratee).getByTestId("etat-jco.mindset")).toHaveTextContent("Essai raté : gardée avec ses 24 slideshows validés, plus d'import");
     expect(ratee).toHaveTextContent("r 0,46");
     expect(ratee).toHaveTextContent("×0,44 label");
     expect(ratee).toHaveTextContent("stock 24 / 30");
-    fireEvent.click(screen.getByRole("tab", { name: /Arrêtées 1/ }));
+    fireEvent.click(sortie(/Arrêtées 1/));
     expect(screen.queryByText(/jco\.mindset/)).toBeNull();
     expect(await screen.findByText(/eteinte/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
@@ -262,7 +276,7 @@ describe("page Bible", () => {
     expect(within(reste).getByText("déjà une source · smart_girl")).toBeInTheDocument();
     expect(screen.queryByText(/une\.source/)).toBeNull();
 
-    fireEvent.click(screen.getByRole("tab", { name: /Weekly update/ }));
+    fireEvent.click(screen.getByRole("tab", { name: /Mise à jour hebdo/ }));
     expect(screen.getByTestId("regle-etape")).toHaveTextContent("Automatique");
     expect(screen.getByTestId("regle-etape")).toHaveTextContent("celles dont le r dépasse 0,95");
     // Le lundi décide ; les imports, eux, s'étalent sur la semaine.
@@ -280,7 +294,7 @@ describe("page Bible", () => {
     expect(await screen.findByTestId("etat-source.ailleurs")).toHaveTextContent("Essai : 30 sur 30 importés, 6 sur 10 mesurés");
   });
 
-  it("« En import » : chaque source neuve part tout de suite et dit où elle en est ; le lot des mises à jour se lit dans « Weekly update »", async () => {
+  it("« En import » : chaque source neuve part tout de suite et dit où elle en est ; le lot des mises à jour se lit dans « Mise à jour hebdo »", async () => {
     api.lireComptes.mockResolvedValue([]);
     const neuve = { compteReferenceId: "x", handle: "x", essais: 1, echec: null, lanceeLe: "2026-11-19T16:30:00Z", releve: false, enTraitement: 0 };
     src.lireSources.mockResolvedValue(donnees([
@@ -304,7 +318,7 @@ describe("page Bible", () => {
     expect(screen.getByTestId("etat-sslowrisee")).toHaveTextContent("Relevé du profil en cours");
     expect(screen.getByTestId("etat-sydneysynced")).toHaveTextContent("Relevé du profil dans la minute");
 
-    fireEvent.click(screen.getByRole("tab", { name: /Weekly update 1/ }));
+    fireEvent.click(screen.getByRole("tab", { name: /Mise à jour hebdo 1/ }));
     expect(await screen.findByTestId("lot-en-cours")).toHaveTextContent(
       "Mise à jour en cours : @lena.psychologie, 12 slideshows encore dans la file · 1 source passée sur 6 · à suivre : @luvy_y",
     );
@@ -327,7 +341,7 @@ describe("page Bible", () => {
     api.creerCarte.mockResolvedValue(carte({ id: "k8", nom: "tableaux_secrets", section: "sophia", badge: "nouveau", label_id: null }));
     api.validerCarte.mockResolvedValue("L8");
     rendre();
-    fireEvent.click(await screen.findByRole("tab", { name: /Source proposals 3/ }));
+    fireEvent.click(await screen.findByRole("tab", { name: /Propositions 3/ }));
     const tuile = (h: RegExp) => screen.getByText(h).closest("[data-proposition]") as HTMLElement;
 
     // Un label qui a déjà son bloc : il est présélectionné, il suffit d'envoyer.
@@ -397,8 +411,8 @@ describe("page Bible", () => {
     rendre();
     const bloc = (await screen.findByText("clean_girl")).closest("[data-carte]") as HTMLElement;
     // Un bloc dont le label existe n'a rien à rattacher.
-    expect(within(screen.getByText("smart_girl").closest("[data-carte]") as HTMLElement).queryByRole("button", { name: "Modifier ou rattacher" })).toBeNull();
-    fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
+    expect(() => dansMenu(screen.getByText("smart_girl").closest("[data-carte]") as HTMLElement, "Modifier ou rattacher")).toThrow();
+    fireEvent.click(dansMenu(bloc, "Modifier ou rattacher"));
     const choix = await screen.findByLabelText("Label de l'OS");
     expect(within(choix).getAllByRole("option").map((o) => o.textContent)).toEqual(["Choisir un label…", "History", "smart_girl"]);
     fireEvent.change(choix, { target: { value: "L7" } });
@@ -413,7 +427,7 @@ describe("page Bible", () => {
     await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k2"));
     expect(await screen.findByTestId("info")).toHaveTextContent("Rattachement annulé : 1 compte de retour sous « clean_girl ».");
 
-    fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
+    fireEvent.click(dansMenu(bloc, "Modifier ou rattacher"));
     fireEvent.change(await screen.findByLabelText("Nom du label"), { target: { value: "clean girl sophia" } });
     fireEvent.click(screen.getByRole("button", { name: "Enregistrer" }));
     await waitFor(() => expect(api.modifierCarte).toHaveBeenCalledWith("k2", { nom: "clean_girl_sophia", section: "sophia", description: "Coureuse en photo iPhone" }));
@@ -429,7 +443,7 @@ describe("page Bible", () => {
     const confirmer = vi.spyOn(window, "confirm").mockReturnValue(false);
     rendre();
     const bloc = (await screen.findByText("classic_girl_run")).closest("[data-carte]") as HTMLElement;
-    fireEvent.click(within(bloc).getByRole("button", { name: "Modifier ou rattacher" }));
+    fireEvent.click(dansMenu(bloc, "Modifier ou rattacher"));
     fireEvent.change(await screen.findByLabelText("Label de l'OS"), { target: { value: "L1" } });
     expect(screen.getByTestId("alerte-rattachement")).toHaveTextContent(
       "Ce bloc est rangé sous Atala, et smart_girl est un label Sophia. smart_girl a déjà son bloc : les 2 comptes de ce bloc iront le rejoindre. Tu pourras annuler.",
@@ -460,43 +474,51 @@ describe("page Bible", () => {
     api.detacherCarte.mockResolvedValue({ comptes: 2, label: "smart_girl" });
     rendre();
     const recu = (await screen.findByText("smart_girl")).closest("[data-carte]") as HTMLElement;
-    fireEvent.click(within(recu).getByRole("button", { name: "Rendre 2 comptes à « classic_girl_run »" }));
+    fireEvent.click(dansMenu(recu, "Rendre 2 comptes à « classic_girl_run »"));
     await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k1"));
     expect(await screen.findByTestId("info")).toHaveTextContent("Rattachement annulé : 2 comptes de retour sous « classic_girl_run ».");
     const pris = screen.getByText("History").closest("[data-carte]") as HTMLElement;
-    fireEvent.click(within(pris).getByRole("button", { name: "Annuler le rattachement" }));
+    fireEvent.click(dansMenu(pris, "Annuler le rattachement"));
     await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k4"));
   });
 
-  it("une app et un label se replient et se déplient (retenu d'une visite à l'autre) ; « Replier les labels », « Tout déplier »", async () => {
+  it("les labels sont repliés par défaut, une ligne chacun ; un label et une app se déplient et se replient (retenu d'une visite à l'autre) ; « Tout déplier », « Tout replier » ; la recherche déplie", async () => {
+    localStorage.clear();
     api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c3", handle: "chiara", label_propose_id: "k3" }), compte({ id: "c4", handle: "etude", label_propose_id: "k2" })]);
     const { unmount } = rendre();
-    await screen.findByText("@chiara");
-    // Replier l'app Atala : ses labels et ses comptes disparaissent, son en-tête reste avec ses chiffres.
-    fireEvent.click(screen.getByRole("button", { name: "Replier Atala" }));
+    // Par défaut : le nom de chaque label, son nombre, pas ses comptes ni sa DA.
+    await screen.findByText("smart_girl");
+    expect(screen.getByText("classic_girl_run")).toBeInTheDocument();
+    expect(screen.queryByText("@chiara")).toBeNull();
+    expect(screen.queryByText("Coureuse en photo iPhone")).toBeNull();
+    // Déplier un label : ses comptes arrivent, les autres labels restent repliés.
+    fireEvent.click(screen.getByRole("button", { name: "Déplier smart_girl" }));
+    expect(screen.getByText("@chiara")).toBeInTheDocument();
     expect(screen.queryByText("@compte.un")).toBeNull();
+    // Replier l'app Atala : ses labels disparaissent, son en-tête reste avec ses chiffres.
+    fireEvent.click(screen.getByRole("button", { name: "Replier Atala" }));
     expect(screen.queryByText("classic_girl_run")).toBeNull();
     expect(document.querySelector("[data-section=atala]")).toHaveTextContent("1 compte, 1 label");
-    // Replier un label : son nom reste, ses comptes et sa DA disparaissent.
-    fireEvent.click(screen.getByRole("button", { name: "Replier smart_girl" }));
-    expect(screen.queryByText("@chiara")).toBeNull();
-    expect(screen.getByText("smart_girl")).toBeInTheDocument();
-    expect(screen.getByText("@etude")).toBeInTheDocument();
-    // Retenu : la page rouverte garde ce qui était replié.
+    // Retenu : la page rouverte garde ce qui était ouvert et ce qui était replié.
     unmount();
     rendre();
-    await screen.findByText("@etude");
-    expect(screen.queryByText("@compte.un")).toBeNull();
-    expect(screen.queryByText("@chiara")).toBeNull();
-    // « Replier les labels » : les apps s'ouvrent, chaque label est replié.
-    fireEvent.click(screen.getByRole("button", { name: /Replier les labels/ }));
-    expect(screen.getByText("classic_girl_run")).toBeInTheDocument();
-    expect(screen.queryByText("@compte.un")).toBeNull();
+    await screen.findByText("@chiara");
+    expect(screen.queryByText("classic_girl_run")).toBeNull();
     expect(screen.queryByText("@etude")).toBeNull();
+    // Un seul bouton : « Tout replier » tant qu'un label est ouvert, puis « Tout déplier ».
+    fireEvent.click(screen.getByRole("button", { name: /Tout replier/ }));
+    expect(screen.getByText("classic_girl_run")).toBeInTheDocument();
+    expect(screen.queryByText("@chiara")).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: /Tout déplier/ }));
     expect(screen.getByText("@compte.un")).toBeInTheDocument();
     expect(screen.getByText("@chiara")).toBeInTheDocument();
     expect(screen.getByText("@etude")).toBeInTheDocument();
+    // Une recherche montre ce qu'elle trouve, même tout replié.
+    fireEvent.click(screen.getByRole("button", { name: /Tout replier/ }));
+    expect(screen.queryByText("@etude")).toBeNull();
+    fireEvent.change(screen.getByLabelText("Rechercher"), { target: { value: "etude" } });
+    expect(screen.getByText("@etude")).toBeInTheDocument();
+    expect(screen.queryByText("@chiara")).toBeNull();
   });
 
   it("« Fusionner » verse un label dans un autre (même déjà créé), confirmé avant, et s'annule depuis le message", async () => {
@@ -506,7 +528,7 @@ describe("page Bible", () => {
     const confirmer = vi.spyOn(window, "confirm").mockReturnValue(false);
     rendre();
     const bloc = (await screen.findByText("classic_girl_run")).closest("[data-carte]") as HTMLElement;
-    fireEvent.click(within(bloc).getByRole("button", { name: "Fusionner" }));
+    fireEvent.click(dansMenu(bloc, "Fusionner"));
     const choix = await screen.findByLabelText("Fusionner dans");
     // Toutes les autres cartes, pas elle-même.
     expect([...(choix as HTMLSelectElement).options].map((o) => o.textContent)).toEqual(["Fusionner dans…", "clean_girl (0)", "smart_girl (1)"]);
@@ -525,7 +547,7 @@ describe("page Bible", () => {
     confirmer.mockRestore();
   });
 
-  it("« à podzer » se marque sur le LABEL : le bloc se marque, se valide (seul ou tout le batch) et se retire ; validé, il est dans Weekly update, catégorie Podz, avec ses comptes, jamais importé", async () => {
+  it("« à podzer » se marque sur le LABEL : le bloc se marque, se valide (seul ou tout le batch) et se retire ; validé, il est dans Mise à jour hebdo, catégorie Podz, avec ses comptes, jamais importé", async () => {
     api.lireCartes.mockResolvedValue([
       ...CARTES,
       carte({ id: "k4", nom: "white_bg_run", section: "atala", badge: "nouveau", ordre: 4, a_podzer: true }),
@@ -539,19 +561,19 @@ describe("page Bible", () => {
     api.validerPodz.mockResolvedValue(undefined);
     api.marquerPodz.mockResolvedValue(undefined);
     rendre();
-    // Les comptes du label validé ne comptent plus dans les onglets d'avant import : ils sont dans Weekly update.
+    // Les comptes du label validé ne comptent plus dans les onglets d'avant import : ils sont dans Mise à jour hebdo.
     expect(await screen.findByRole("tab", { name: /Prochain batch 1/ })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: /À importer 1/ })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: /Weekly update 1/ })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: /Mise à jour hebdo 1/ })).toBeInTheDocument();
 
     // À importer : un bloc ordinaire se marque « À podzer » depuis son en-tête ; la tuile n'a plus rien de podz.
     const ordinaire = (await screen.findByText(/tiktok\.com\/@?normal|normal/)).closest("[data-carte]") as HTMLElement;
     expect(ordinaire).not.toHaveTextContent("à podzer");
     expect(within(ordinaire).queryByRole("button", { name: "Valider le podz" })).toBeNull();
-    fireEvent.click(within(ordinaire).getByRole("button", { name: "À podzer" }));
+    fireEvent.click(dansMenu(ordinaire, "À podzer"));
     await waitFor(() => expect(api.marquerPodz).toHaveBeenCalledWith("k3", true));
     expect(await screen.findByTestId("info")).toHaveTextContent("« smart_girl » est à podzer : ses comptes ne seront pas importés.");
-    fireEvent.click(within(ordinaire).getByTitle("Modifier la note et la remarque"));
+    fireEvent.click(dansMenu(within(ordinaire).getByText(/normal/).closest("[data-compte]") as HTMLElement, "Modifier la note et la remarque"));
     expect(screen.queryByLabelText("À podzer")).toBeNull();
 
     // Prochain batch : le bloc à podzer porte la pastille, son compte ne s'importe pas, le podz se valide sur le bloc.
@@ -566,15 +588,15 @@ describe("page Bible", () => {
     await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["k4"], true));
     fireEvent.click(within(screen.getByTestId("barre-batch")).getByRole("button", { name: /Valider les podz \(1\)/ }));
     await waitFor(() => expect(api.validerPodz).toHaveBeenCalledWith(["k4"]));
-    expect(await screen.findByTestId("info")).toHaveTextContent("1 label à podzer validé : dans « Weekly update », catégorie Podz.");
-    fireEvent.click(within(bloc).getByRole("button", { name: "Plus à podzer" }));
+    expect(await screen.findByTestId("info")).toHaveTextContent("1 label à podzer validé : dans « Mise à jour hebdo », catégorie Podz.");
+    fireEvent.click(dansMenu(bloc, "Plus à podzer"));
     await waitFor(() => expect(api.marquerPodz).toHaveBeenCalledWith("k4", false));
 
-    // Weekly update : la catégorie Podz range les LABELS validés, chacun avec ses comptes.
-    fireEvent.click(screen.getByRole("tab", { name: /Weekly update/ }));
+    // Mise à jour hebdo : la catégorie Podz range les LABELS validés, chacun avec ses comptes.
+    fireEvent.click(screen.getByRole("tab", { name: /Mise à jour hebdo/ }));
     const categorie = await screen.findByTestId("podz");
     expect(categorie).toHaveTextContent("Podz· 1 label");
-    expect(categorie).toHaveTextContent("ces labels sont faits en podz, pas importés");
+    expect(categorie).toHaveTextContent("leurs comptes servent d'inspiration, ils ne sont ni importés ni mis à jour");
     const valide = within(categorie).getByText(/deja\.valide/).closest("[data-carte]") as HTMLElement;
     expect(valide).toHaveAttribute("data-carte", "study_scrapbook");
     expect(valide).toHaveTextContent("podz validé");
@@ -593,8 +615,8 @@ describe("page Bible", () => {
     rendre();
     const sophia = (await screen.findByText("clean_girl")).closest("[data-carte]") as HTMLElement;
     const atala = screen.getByText("classic_girl_run").closest("[data-carte]") as HTMLElement;
-    expect(within(atala).getByRole("button", { name: "Créer ce label" })).toBeInTheDocument();
-    fireEvent.click(within(sophia).getByRole("button", { name: "Créer ce label" }));
+    expect(dansMenu(atala, "Créer ce label")).toBeInTheDocument();
+    fireEvent.click(dansMenu(sophia, "Créer ce label"));
     expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Créer le label « clean_girl » pour Sophia ?"));
     await waitFor(() => expect(api.validerCarte).toHaveBeenCalledWith("k2"));
     confirmer.mockRestore();
@@ -611,16 +633,16 @@ describe("corbeille", () => {
     prop.lirePropositions.mockResolvedValue([]);
     expect(compterEtapes([compte({}), compte({ id: "c8", supprime_at: "2026-11-18T16:00:00Z" })])).toEqual({ a_importer: 1, prochain_batch: 0, corbeille: 1 });
     rendre();
-    expect(await screen.findByRole("tab", { name: /Corbeille 1/ })).toBeInTheDocument();
+    expect(await waitFor(() => sortie(/Corbeille 1/))).toBeInTheDocument();
     expect(screen.queryByText(/jete/)).toBeNull();
     const tuile = screen.getByText(/compte\.un/).closest("[data-compte]") as HTMLElement;
-    fireEvent.click(within(tuile).getByRole("button", { name: "Supprimer" }));
+    fireEvent.click(dansMenu(tuile, "Supprimer"));
     await waitFor(() => expect(api.mettreCorbeille).toHaveBeenCalledWith("c1"));
-    fireEvent.click(screen.getByRole("tab", { name: /Corbeille/ }));
+    fireEvent.click(sortie(/Corbeille/));
     const jete = (await screen.findByText(/jete/)).closest("[data-compte]") as HTMLElement;
     fireEvent.click(within(jete).getByRole("button", { name: "Restaurer" }));
     await waitFor(() => expect(api.restaurerCompte).toHaveBeenCalledWith("c8"));
-    expect(within(jete).getByRole("button", { name: "Supprimer pour de bon" })).toBeInTheDocument();
+    expect(dansMenu(jete, "Supprimer pour de bon")).toBeInTheDocument();
   });
 });
 

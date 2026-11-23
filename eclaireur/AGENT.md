@@ -280,7 +280,7 @@ ce que tu ferais demain. Si une piste ne rend rien depuis une semaine, dis-le.
 ## Ce qui se passe après une validation (0686)
 
 Depuis le 19/11 (0766), tes propositions se lisent aussi dans la Bible des
-comptes, premier onglet « Source proposals », rangées par jour. De là, un admin
+comptes, premier onglet « Propositions », rangées par jour. De là, un admin
 les passe dans « À importer » ou « Prochain batch » : la proposition devient
 `valide` tout de suite (c'est un oui), mais sa source n'est créée qu'au
 lancement de l'import (`compte_reference_id` arrive à ce moment-là, et son r

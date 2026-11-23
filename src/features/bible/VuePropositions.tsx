@@ -1,5 +1,5 @@
 /**
- * 19/11 (Adrien) : l'onglet « Source proposals » de la Bible. Les comptes trouvés par l'agent éclaireur, rangés par
+ * 19/11 (Adrien) : l'onglet « Propositions » de la Bible. Les comptes trouvés par l'agent éclaireur, rangés par
  * jour : ceux à décider et ceux mis à plus tard. Chaque tuile dit pourquoi l'agent propose le compte (ses chiffres,
  * son format, ses meilleurs posts) et le fait passer dans « À importer » ou « Prochain batch ».
  */
@@ -60,12 +60,12 @@ function TuileProposition({ p, dejaBible, actions, occupe }: { p: Proposition; d
 
   return (
     <article
-      className={cn("flex w-[320px] shrink-0 flex-col gap-2 rounded-2xl border border-stone-200/80 bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:border-stone-800 dark:bg-stone-900", occupe && "opacity-60")}
+      className={cn("flex w-[300px] shrink-0 flex-col gap-2 rounded-xl border border-stone-200/80 bg-white p-3 dark:border-stone-800 dark:bg-stone-900", occupe && "opacity-60")}
       data-proposition={p.handle}
     >
       <div className="flex items-start justify-between gap-1.5">
-        <a href={`https://www.tiktok.com/@${p.handle}`} target="_blank" rel="noreferrer" className="block min-w-0 break-all text-[13px] font-semibold leading-snug text-stone-900 hover:underline dark:text-stone-100">
-          <span className="font-normal text-stone-400">tiktok.com/</span>@{p.handle}
+        <a href={`https://www.tiktok.com/@${p.handle}`} target="_blank" rel="noreferrer" className="block min-w-0 truncate text-[13px] font-semibold leading-snug text-stone-900 hover:underline dark:text-stone-100">
+          @{p.handle}
         </a>
         <span className="shrink-0 text-sm leading-snug" title={nomLangue(p.langue)}>{drapeauLangue(p.langue)}</span>
       </div>
@@ -120,7 +120,7 @@ export function VuePropositions({ propositions, recherche, section, sectionDe, h
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-3 shadow-sm dark:border-stone-800 dark:bg-stone-900" data-testid="propositions-en-bref">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-stone-200 bg-white px-4 py-2.5 dark:border-stone-800 dark:bg-stone-900" data-testid="propositions-en-bref">
         <p className="text-sm text-stone-600">
           <b className="text-stone-900 dark:text-white">{n.a_decider}</b> proposition{n.a_decider > 1 ? "s" : ""} à décider,{" "}
           <b className="text-stone-900 dark:text-white">{n.plus_tard}</b> mise{n.plus_tard > 1 ? "s" : ""} à plus tard. L'agent éclaireur en dépose de nouvelles chaque jour.
@@ -140,13 +140,13 @@ export function VuePropositions({ propositions, recherche, section, sectionDe, h
         </div>
       </div>
 
-      <div className="space-y-10 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="moodboard-propositions">
+      <div className="space-y-7" data-testid="moodboard-propositions">
         {jours.length === 0 && <p className="py-10 text-center text-sm text-stone-500">Aucune proposition ici.</p>}
         {jours.map((j) => (
-          <section key={j.jour} className="space-y-4" data-jour={j.jour}>
+          <section key={j.jour} className="space-y-3" data-jour={j.jour}>
             <h2 className="flex items-baseline gap-2.5">
-              <span className="text-xl font-semibold tracking-tight text-stone-900 first-letter:uppercase dark:text-white">{jourEnLettres(j.jour)}</span>
-              <span className="text-sm tabular-nums text-stone-400">· {j.propositions.length} proposition{j.propositions.length > 1 ? "s" : ""}</span>
+              <span className="text-base font-semibold tracking-tight text-stone-900 first-letter:uppercase dark:text-white">{jourEnLettres(j.jour)}</span>
+              <span className="text-xs tabular-nums text-stone-400">· {j.propositions.length} proposition{j.propositions.length > 1 ? "s" : ""}</span>
             </h2>
             <div className="flex flex-wrap gap-3">
               {j.propositions.map((p) => <TuileProposition key={p.id} p={p} dejaBible={handlesBible.has(p.handle)} actions={actions} occupe={occupes.has(p.id)} />)}

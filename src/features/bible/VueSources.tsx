@@ -1,5 +1,5 @@
 /**
- * 19/11 (Adrien) : les onglets des sources dans la Bible (En import, À l'essai, Weekly update, Essai raté,
+ * 19/11 (Adrien) : les onglets des sources dans la Bible (En import, À l'essai, Mise à jour hebdo, Essai raté,
  * Arrêtées). Le même
  * moodboard que les comptes repérés (par app, puis par label), précédé de ce qui se passe dans l'étape : les sources
  * neuves en cours d'import, ou le bilan de la semaine (le lundi décide, les mises à jour partent chaque matin).
@@ -10,13 +10,10 @@ import { cn } from "@/lib/utils";
 
 import { type CarteLabel, type EtapeSource, type Section, SECTIONS } from "./moodboard";
 import { bilanSemaine, type DonneesSources, enImportEnBref, type FiltreSemaine, jourCourt, rangerSources } from "./sources";
-import { BarrePliage, BoutonPli } from "./Pli";
-import { usePliage } from "./pliage";
+import { LigneLabel, TitreApp } from "./Bloc";
+import type { Pliage } from "./pliage";
+import { TEINTE } from "./teintes";
 import { TuileSource } from "./TuileSource";
-
-const TEINTE: Record<Section | "sans", string> = {
-  atala: "bg-emerald-500", micabo: "bg-violet-400", sophia: "bg-pink-400", idees: "bg-teal-400", sans: "bg-stone-300",
-};
 
 const FILTRES_SEMAINE: { cle: FiltreSemaine; libelle: string }[] = [
   { cle: "toutes", libelle: "Toutes" },
@@ -56,13 +53,13 @@ function LotEnCours({ donnees }: { donnees: DonneesSources }) {
 }
 
 /**
- * « Weekly update » : le bilan de la semaine, et un filtre retenues / pas cette semaine. Le lundi ne fait que
+ * « Mise à jour hebdo » : le bilan de la semaine, et un filtre retenues / pas cette semaine. Le lundi ne fait que
  * DÉCIDER ; les mises à jour partent ensuite chaque matin, par lots, et les imports s'étalent sur la semaine.
  */
 function SemaineEnBref({ donnees, filtre, onFiltre }: { donnees: DonneesSources; filtre: FiltreSemaine; onFiltre: (f: FiltreSemaine) => void }) {
   const b = bilanSemaine(donnees.semaine);
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-3 shadow-sm dark:border-stone-800 dark:bg-stone-900" data-testid="semaine-en-bref">
+    <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-stone-200 bg-white px-4 py-2.5 dark:border-stone-800 dark:bg-stone-900" data-testid="semaine-en-bref">
       <div className="space-y-1">
         <p className="text-sm text-stone-600">
           {b ? (
@@ -93,12 +90,15 @@ function SemaineEnBref({ donnees, filtre, onFiltre }: { donnees: DonneesSources;
   );
 }
 
-export function VueSources({ etape, donnees, cartes, recherche, section }: {
+export function VueSources({ etape, donnees, cartes, recherche, section, pliage }: {
   etape: EtapeSource; donnees: DonneesSources; cartes: CarteLabel[]; recherche: string; section: Section | "sans" | "";
+  /** Le repli de la page (un seul bouton « Tout déplier / Tout replier » pour tous les onglets). */
+  pliage: Pliage;
 }) {
   const [semaine, setSemaine] = React.useState<FiltreSemaine>("toutes");
-  const pliage = usePliage();
   const groupes = rangerSources(donnees.sources, donnees.labels, cartes, { etape, recherche, section, semaine });
+  // Une recherche montre ce qu'elle trouve : rien ne reste replié.
+  const cherche = recherche.trim() !== "";
   const VIDE: Record<EtapeSource, string> = {
     en_import: "Aucune source en cours d'import.",
     essai: "Aucune source à l'essai.",
@@ -112,57 +112,34 @@ export function VueSources({ etape, donnees, cartes, recherche, section }: {
     <>
       {etape === "en_import" && <ImportEnBref donnees={donnees} />}
       {etape === "weekly" && <SemaineEnBref donnees={donnees} filtre={semaine} onFiltre={setSemaine} />}
-      <div className="flex justify-end">
-        <BarrePliage
-          pliage={pliage}
-          apps={groupes.map((g) => `app:${g.section}`)}
-          labels={groupes.flatMap((g) => g.cartes.filter((x) => x.carte).map((x) => `source:${x.carte!.cle}`))}
-        />
-      </div>
-      <div className="space-y-10 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="moodboard-sources">
+      <div className="space-y-7" data-testid="moodboard-sources">
         {groupes.length === 0 && <p className="py-10 text-center text-sm text-stone-500">{vide}</p>}
         {groupes.map((g) => {
           const s = SECTIONS.find((x) => x.cle === g.section)!;
-          const appPliee = pliage.estPlie(`app:${g.section}`);
           return (
-            <section key={g.section} className="space-y-4" data-section={g.section} data-plie={appPliee || undefined}>
-              <h2 className="flex items-center gap-2.5">
-                <BoutonPli plie={appPliee} onClick={() => pliage.basculer(`app:${g.section}`)} nom={s.libelle} className="-ml-1.5" />
-                <button type="button" onClick={() => pliage.basculer(`app:${g.section}`)} className="flex items-baseline gap-2.5 text-left">
-                  <span className={cn("size-2.5 translate-y-[-2px] rounded-full", TEINTE[g.section])} aria-hidden />
-                  <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">{s.libelle}</span>
-                  <span className="text-sm tabular-nums text-stone-400">· {g.total} source{g.total > 1 ? "s" : ""}</span>
-                </button>
-              </h2>
-              {!appPliee && (
-              <div className="space-y-4">
-                {g.cartes.map(({ carte, sources }) => {
-                  const labelPlie = Boolean(carte && pliage.estPlie(`source:${carte.cle}`));
-                  return (
-                  <div key={carte?.cle ?? "sans"} className={cn("rounded-2xl border border-stone-200/70 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.03)] dark:border-stone-800 dark:bg-stone-900", labelPlie && "py-2.5")} data-carte={carte?.nom ?? "sans_label"}>
-                    {carte && (
-                      <div className={cn("space-y-1", !labelPlie && "mb-3")}>
-                        <div className="flex flex-wrap items-center gap-2">
-                          <BoutonPli plie={labelPlie} onClick={() => pliage.basculer(`source:${carte.cle}`)} nom={carte.nom} className="-ml-1" />
-                          <button type="button" onClick={() => pliage.basculer(`source:${carte.cle}`)} className="text-left">
-                            <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{carte.nom}</code>
-                          </button>
-                          <span className="text-xs tabular-nums text-stone-400">{sources.length}</span>
-                        </div>
-                        {carte.description && !labelPlie && <p className="max-w-3xl text-sm text-stone-500">{carte.description}</p>}
-                      </div>
-                    )}
-                    {!labelPlie && (
-                    <div className="flex flex-wrap gap-3">
-                      {sources.map(({ source, aussi }) => <TuileSource key={source.id + (aussi ? "-aussi" : "")} s={source} aussi={aussi} regles={donnees.regles} />)}
-                    </div>
-                    )}
-                  </div>
-                  );
-                })}
-              </div>
-              )}
-            </section>
+            <TitreApp
+              key={g.section}
+              section={g.section}
+              libelle={s.libelle}
+              detail={`· ${g.total} source${g.total > 1 ? "s" : ""}`}
+              teinte={TEINTE[g.section]}
+              plie={!cherche && pliage.estPlie(`app:${g.section}`)}
+              onBasculer={() => pliage.basculer(`app:${g.section}`)}
+            >
+              {g.cartes.map(({ carte, sources }) => (
+                <LigneLabel
+                  key={carte?.cle ?? "sans"}
+                  cle={carte?.nom ?? "sans_label"}
+                  nom={carte?.nom ?? null}
+                  plie={Boolean(carte) && !cherche && pliage.estPlie(`source:${carte!.cle}`)}
+                  onBasculer={carte ? () => pliage.basculer(`source:${carte.cle}`) : undefined}
+                  nb={sources.length}
+                  description={carte?.description}
+                >
+                  {sources.map(({ source, aussi }) => <TuileSource key={source.id + (aussi ? "-aussi" : "")} s={source} aussi={aussi} regles={donnees.regles} />)}
+                </LigneLabel>
+              ))}
+            </TitreApp>
           );
         })}
       </div>

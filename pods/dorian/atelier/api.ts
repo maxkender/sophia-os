@@ -6,7 +6,7 @@ export const POD = "originaux_dorian";
 /** Le compte modèle : @dorian.frog (UGC de l'appli Wondering, concurrente de Sophia), ses icebergs de hobbies et ses listes « 5 niche… ». */
 export const COMPTE_SOURCE = "dorian.frog";
 /** Les langues livrées : l'anglais, celle du compte (lancement du 15/11). Déclarées à l'OS (0654) : l'attribution des comptes les lit. */
-export const LANGUES = ["en", "de", "it", "pt-BR", "tr", "sv", "nl"] as const;
+export const LANGUES = ["en", "de", "it", "pt-BR", "tr", "sv", "nl", "hu"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

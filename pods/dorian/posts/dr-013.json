@@ -8,7 +8,8 @@
   "pt-BR": "5 ideias da filosofia que reprogramam seu cérebro",
   "tr": "beynini yeniden kuran 5 felsefi fikir",
   "sv": "5 filosofiska idéer som programmerar om din hjärna",
-  "nl": "5 filosofische ideeën die je brein herbedraden"
+  "nl": "5 filosofische ideeën die je brein herbedraden",
+  "hu": "5 filozófiai gondolat, ami átírja az agyad"
  },
  "legendes": {
   "en": "#philosophy #niche #smarttok #lockedin",
@@ -17,7 +18,8 @@
   "pt-BR": "#filosofia #pensamento #conhecimento #aprender",
   "tr": "#felsefe #düşünce #bilgi #öğrenmek",
   "sv": "#filosofi #tänkande #kunskap #lärande",
-  "nl": "#filosofie #denken #kennis #leren"
+  "nl": "#filosofie #denken #kennis #leren",
+  "hu": "#filozófia #gondolkodás #tudás #tanulás"
  },
  "musique": {
   "titre": "оригинальный звук - butazer",
@@ -61,6 +63,11 @@
     "titre": "5 filosofische ideeën die je brein herbedraden",
     "image": "images/cerveau-rouge.jpg",
     "legende": "(lees langzaam)"
+   },
+   "hu": {
+    "titre": "5 filozófiai gondolat, ami átírja az agyad",
+    "image": "images/cerveau-14.jpg",
+    "legende": "(lassan olvasd)"
    }
   },
   {
@@ -99,6 +106,11 @@
     "titre": "Het schip van Theseus",
     "texte": "vervang elke plank van een schip, een voor een. is het nog hetzelfde schip? plutarchus schreef er bijna 2.000 jaar geleden over. stel die vraag nu over jezelf",
     "image": "images/port-voilier.jpg"
+   },
+   "hu": {
+    "titre": "Thészeusz hajója",
+    "texte": "cseréld ki egy hajó minden deszkáját, egyenként. még mindig ugyanaz a hajó? plutarkhosz majdnem 2000 éve írt róla. most kérdezd meg magadról",
+    "image": "images/port-voilier.jpg"
    }
   },
   {
@@ -136,6 +148,11 @@
    "nl": {
     "titre": "De dichotomie van controle",
     "texte": "epictetus, een voormalige slaaf die stoïcijns leraar werd: sommige dingen liggen bij jou, de meeste niet. steek je energie alleen in de eerste soort",
+    "image": "images/philosophe-manet-2.jpg"
+   },
+   "hu": {
+    "titre": "A kontroll kettőssége",
+    "texte": "epiktétosz, egykori rabszolga, aki sztoikus tanító lett: néhány dolog rajtad múlik, a legtöbb nem. csak az elsőre fordítsd az energiád",
     "image": "images/philosophe-manet-2.jpg"
    }
   },
@@ -176,6 +193,11 @@
     "titre": "Elke dag een les op Sophia",
     "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. filosofie is een van de onderwerpen",
     "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. a filozófia is a témái között van",
+    "telephone": "quiz"
    }
   },
   {
@@ -214,6 +236,11 @@
     "titre": "De sluier van onwetendheid",
     "texte": "john rawls, 1971: ontwerp een eerlijke samenleving zonder te weten wie je erin zult zijn. rijk of arm, gezond of ziek. welke regels zou je kiezen?",
     "image": "images/brume-vernet.jpg"
+   },
+   "hu": {
+    "titre": "A tudatlanság fátyla",
+    "texte": "john rawls, 1971: tervezz igazságos társadalmat úgy, hogy nem tudod, ki leszel benne. gazdag vagy szegény, egészséges vagy beteg. milyen szabályokat választanál?",
+    "image": "images/brume-vernet.jpg"
    }
   },
   {
@@ -251,6 +278,11 @@
    "nl": {
     "titre": "De eeuwige terugkeer",
     "texte": "nietzsche: stel je voor dat je je leven opnieuw leeft, precies hetzelfde, voor altijd. zou die gedachte je verpletteren of gelukkig maken? het antwoord zegt veel",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "hu": {
+    "titre": "Az örök visszatérés",
+    "texte": "nietzsche: képzeld el, hogy újra leéled az életed, pontosan ugyanígy, örökké. ez a gondolat összetörne vagy boldoggá tenne? a válasz sokat elárul",
     "image": "images/montagne-courbet.jpg"
    }
   }

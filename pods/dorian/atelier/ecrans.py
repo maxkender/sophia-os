@@ -53,6 +53,9 @@ T={
  'nl':dict(foryou='Voor jou',following='Volgend',science='Wetenschap',titre='Waarom dromen we?',sous='Je droomt ongeveer zes jaar van je leven. En je vergeet bijna alles.',team='Het Sophia-team',
    cat='WETENSCHAP · VRAAG 6 VAN 8',q=['Welk element, opgehoopt in','de kern van een zware ster,','kondigt zijn ineenstorting aan?'],opts=['Koolstof','Waterstof','Helium','IJzer'],
    fini='Cursus voltooid!',sci='Wetenschap',xp='· 62 tot LVL 5',earned='+10 XP verdiend',like='Vind ik leuk',follow='Volg Muhamm...'),
+'hu':dict(foryou='Neked',following='Követett',science='Tudomány',titre='Miért álmodunk?',sous='Életedből nagyjából hat évet álmodással töltesz. És szinte mindet elfelejted.',team='A Sophia csapata',
+   cat='TUDOMÁNY · 6. KÉRDÉS / 8',q=['Melyik elem jelzi egy nagy','tömegű csillag magjában','az összeomlást?'],opts=['Szén','Hidrogén','Hélium','Vas'],
+   fini='Kurzus teljesítve!',sci='Tudomány',xp='· 62 a LVL 5-ig',earned='+10 XP megszerezve',like='Tetszik',follow='Muhamm... követése'),
 }
 EN=T['en']
 def accueil(l):

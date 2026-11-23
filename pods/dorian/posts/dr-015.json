@@ -14,7 +14,8 @@
   "pt-BR": "5 habilidades nichadas que te deixam interessante demais",
   "tr": "seni odadaki en ilginç kişi yapan 5 niş beceri",
   "sv": "5 nischade färdigheter som gör dig sjukt intressant",
-  "nl": "5 niche skills die je walgelijk interessant maken"
+  "nl": "5 niche skills die je walgelijk interessant maken",
+  "hu": "5 niche készség, amitől iszonyúan érdekes leszel"
  },
  "legendes": {
   "en": "#niche #superioritycomplex #lockedin #selfimprovement",
@@ -23,7 +24,8 @@
   "pt-BR": "#habilidades #conhecimento #aprender #autodesenvolvimento",
   "tr": "#beceri #bilgi #öğrenmek #kişiselgelişim",
   "sv": "#färdigheter #kunskap #lärande #självutveckling",
-  "nl": "#skills #kennis #leren #zelfontwikkeling"
+  "nl": "#skills #kennis #leren #zelfontwikkeling",
+  "hu": "#készségek #tudás #tanulás #önfejlesztés"
  },
  "musique": {
   "titre": "Retake (Remix) - gabriawll",
@@ -67,6 +69,11 @@
     "titre": "5 niche skills die je walgelijk interessant maken",
     "image": "images/cerveau-08.jpg",
     "legende": "(allemaal gratis)"
+   },
+   "hu": {
+    "titre": "5 niche készség, amitől iszonyúan érdekes leszel",
+    "image": "images/cerveau-13.jpg",
+    "legende": "(mind ingyenes)"
    }
   },
   {
@@ -112,6 +119,12 @@
     "texte": "leer er tien. begin met orion, cassiopeia en de grote beer. één heldere nacht en je kijkt nooit meer hetzelfde naar de lucht",
     "image": "images/ciel-etoile.jpg",
     "difficulte": "12/50"
+   },
+   "hu": {
+    "titre": "Csillagképek felismerése",
+    "texte": "tanulj meg tízet. kezdd az orionnal, a kassziopeiával és a göncölszekérrel. egy tiszta éjszaka, és sosem nézel ugyanúgy az égre",
+    "image": "images/ciel-etoile.jpg",
+    "difficulte": "12/50"
    }
   },
   {
@@ -155,6 +168,12 @@
    "nl": {
     "titre": "Een gedicht uit je hoofd",
     "texte": "kies er een waar je van houdt, maximaal 14 regels. leer twee regels per dag. na een week heb je iets dat niemand je kan afpakken",
+    "image": "images/glaneuse-couchant.jpg",
+    "difficulte": "20/50"
+   },
+   "hu": {
+    "titre": "Egy vers fejből",
+    "texte": "válassz egyet, amit szeretsz, legfeljebb 14 sor. napi két sort tanulj meg. egy hét múlva olyasmi lesz a tiéd, amit senki sem vehet el",
     "image": "images/glaneuse-couchant.jpg",
     "difficulte": "20/50"
    }
@@ -203,6 +222,12 @@
     "texte": "een soort mini-college elke ochtend: geschiedenis, filosofie, wetenschap, economie. je hebt altijd iets om over te praten",
     "telephone": "quiz",
     "difficulte": "5/50"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "mint egy kis előadás minden reggel: történelem, filozófia, tudomány, közgazdaság. mindig lesz miről beszélned",
+    "telephone": "quiz",
+    "difficulte": "5/50"
    }
   },
   {
@@ -248,6 +273,12 @@
     "texte": "wie, wat en waarom het ertoe deed, in één minuut. probeer de val van rome of de boekdrukkunst. moeilijker dan het klinkt",
     "image": "images/scene-historique.jpg",
     "difficulte": "30/50"
+   },
+   "hu": {
+    "titre": "Történelem 60 másodpercben",
+    "texte": "ki, mi és miért volt fontos, egy perc alatt. próbáld ki róma bukásával vagy a könyvnyomtatással. nehezebb, mint amilyennek hangzik",
+    "image": "images/scene-historique.jpg",
+    "difficulte": "30/50"
    }
   },
   {
@@ -291,6 +322,12 @@
    "nl": {
     "titre": "Fermi-schattingen",
     "texte": "hoeveel pianostemmers werken er in chicago? enrico fermi leerde studenten zulke vragen te kraken met ruwe, logische schattingen. het verandert hoe je denkt",
+    "image": "images/pianiste-renoir.jpg",
+    "difficulte": "35/50"
+   },
+   "hu": {
+    "titre": "Fermi-becslések",
+    "texte": "hány zongorahangoló dolgozik chicagóban? enrico fermi arra tanította a diákjait, hogy durva, logikus becslésekkel törjék fel az ilyen kérdéseket. átformálja a gondolkodásod",
     "image": "images/pianiste-renoir.jpg",
     "difficulte": "35/50"
    }

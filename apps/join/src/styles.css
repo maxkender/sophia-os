@@ -377,6 +377,8 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 /* Accueil concis */
 .hero--court { padding-bottom: clamp(24px, 4vw, 48px); }
 .hero--court .hero__copy { max-width: 46rem; }
+.video--hero { margin-top: 0; }
+.video--hero .video__cadre { width: min(100%, 320px); }
 .points .tuile { align-content: start; }
 .video { display: grid; justify-items: center; gap: 10px; margin-top: 24px; }
 .video__cadre { width: min(100%, 340px); border-radius: 22px; overflow: hidden; background: var(--navy); box-shadow: 0 24px 60px -40px #002da080; }

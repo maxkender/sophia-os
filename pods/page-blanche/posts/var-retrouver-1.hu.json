@@ -1,0 +1,472 @@
+{
+ "post_id": "var-retrouver-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 szokás, hogy visszakapd az agyad"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(tudományosan igazolt)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_984cc77a.jpg",
+      "boite": [
+       0,
+       700,
+       1760,
+       1323
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop going on your phone",
+      "when you eat"
+     ],
+     "fr": "lâche ton tel pendant les repas",
+     "texte": "igyál meg egy pohár [[vizet]] a kávé előtt"
+    },
+    "T2": {
+     "en": [
+      "going on your phone every",
+      "time you eat is teaching",
+      "your brain that every quiet",
+      "moment needs stimulation"
+     ],
+     "fr": "sortir ton tel à chaque repas, ça apprend à ton cerveau que le moindre moment calme doit être rempli",
+     "texte": "kutatások szerint már a testvized 2%-ának elvesztése is elég, hogy [[romoljon a fókuszod és a memóriád]]"
+    },
+    "T3": {
+     "en": [
+      "give your brain 20 minutes",
+      "where nothing is fighting for",
+      "your attention"
+     ],
+     "fr": "laisse ton cerveau tranquille 20 minutes, sans rien qui le sollicite",
+     "texte": "a délutáni agyköd sokszor csak annyi, hogy szomjas az agyad"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_028ba6dc.jpg",
+      "boite": [
+       700,
+       0,
+       1445,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "va marcher sans rien dans les oreilles",
+     "texte": "ne olvasd újra a jegyzeteid, kérdezd ki magad"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique dès que tu sors",
+     "texte": "az újraolvasás produktívnak tűnik, de csak ismerőssé teszi az anyagot"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher boostait la créativité des gens de 60 % en moyenne",
+     "texte": "egy 2006-os kutatásban akik kikérdezték magukat, egy hét múlva többre emlékeztek"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus intelligent à écouter, c'est tes propres pensées]]",
+     "texte": "csukd be a könyvet, és [[próbáld fejből elmondani]], így marad meg igazán"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_015e2113.jpg",
+      "boite": [
+       0,
+       500,
+       1760,
+       1328
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "pick a book and read everyday"
+     ],
+     "fr": "un livre, [[un peu chaque jour]]",
+     "texte": "kövesd minden nap a [[kíváncsiságod]]"
+    },
+    "T5": {
+     "en": [
+      "every hour you spend scrolling is an hour you could",
+      "spend developing your mind"
+     ],
+     "fr": "chaque heure à scroller, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "ha valami érdekel, az agyad [[jobban megjegyzi]], még a körülötte lévő unalmas részleteket is"
+    },
+    "T2": {
+     "en": [
+      "pick one book and read 10",
+      "pages a day, even when you",
+      "don't feel like it"
+     ],
+     "fr": "prends un livre et [[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "egy 2014-es kutatás szerint a kíváncsiság bekapcsolja az agy [[jutalmazó rendszerét]]"
+    },
+    "T3": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que [[tu veux lire plus]], mais [[l'algo]] te rattrape à chaque fois",
+     "texte": "válassz egy témát, amiről semmit sem tudsz, és áss bele 5 percre"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui m'a fait lâcher le scroll : 10 pages le soir, un carnet, et [[5 min sur l'appli Sophia]] quand je finis quand même sur mon tel",
+     "texte": "mai 5 percem [[a Sophia appban]]: miért Olaszországban kezdődött a reneszánsz. este is ezen jár az eszem"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 47,
+      "y": 231,
+      "l": 833,
+      "h": 55
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 231,
+       "l": 833,
+       "h": 55,
+       "base": 274
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 336,
+      "l": 831,
+      "h": 77
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 336,
+       "l": 831,
+       "h": 34,
+       "base": 361
+      },
+      {
+       "x": 41,
+       "y": 379,
+       "l": 459,
+       "h": 34,
+       "base": 405
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 552,
+      "y": 382,
+      "l": 440,
+      "h": 830
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 690,
+      "y": 1211,
+      "l": 293,
+      "h": 125
+     }
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 34,
+      "y": 494,
+      "l": 461,
+      "h": 119
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 494,
+       "l": 430,
+       "h": 37,
+       "base": 528
+      },
+      {
+       "x": 34,
+       "y": 539,
+       "l": 461,
+       "h": 36,
+       "base": 572
+      },
+      {
+       "x": 35,
+       "y": 581,
+       "l": 243,
+       "h": 32,
+       "base": 609
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 33,
+      "y": 662,
+      "l": 446,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 662,
+       "l": 410,
+       "h": 36,
+       "base": 695
+      },
+      {
+       "x": 34,
+       "y": 704,
+       "l": 445,
+       "h": 38,
+       "base": 739
+      },
+      {
+       "x": 33,
+       "y": 749,
+       "l": 335,
+       "h": 36,
+       "base": 782
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 30,
+      "y": 849,
+      "l": 424,
+      "h": 168
+     },
+     "lignes": [
+      {
+       "x": 33,
+       "y": 849,
+       "l": 400,
+       "h": 39,
+       "base": 879
+      },
+      {
+       "x": 33,
+       "y": 895,
+       "l": 406,
+       "h": 37,
+       "base": 923
+      },
+      {
+       "x": 32,
+       "y": 936,
+       "l": 422,
+       "h": 39,
+       "base": 972
+      },
+      {
+       "x": 30,
+       "y": 982,
+       "l": 417,
+       "h": 35,
+       "base": 1016
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "research your dream life"
+     ],
+     "fr": "potasse [[ta vie de rêve]]",
+     "texte": "[[egyszerre csak egy dolog]]"
+    },
+    "T2": {
+     "en": [
+      "most people know what they want but never look up",
+      "how to get it"
+     ],
+     "fr": "tout le monde sait [[ce qu'il veut]], personne cherche comment l'avoir",
+     "texte": "minden feladatváltásnál időbe telik, mire az agyad újra fókuszál"
+    },
+    "T3": {
+     "en": [
+      "the job, the city, the skills,",
+      "whatever. look up exactly",
+      "what it takes and who's",
+      "already done it"
+     ],
+     "fr": "le job, la ville, les compétences, peu importe. cherche [[exactement ce qu'il faut]] et qui l'a déjà fait",
+     "texte": "egy stanfordi kutatás szerint a sokat multitaskingolók [[könnyebben elterelhetők]]"
+    },
+    "T4": {
+     "en": [
+      "it turns a vague dream",
+      "into a list of things to",
+      "learn"
+     ],
+     "fr": "ton rêve flou devient [[une liste de trucs à apprendre]]",
+     "texte": "pont abban, amiben azt hitték, hogy a legjobbak"
+    },
+    "T5": {
+     "en": [
+      "and learning stops feeling like school when it's for your",
+      "own life"
+     ],
+     "fr": "et apprendre, ça fait plus école quand [[c'est pour ta vie à toi]]",
+     "texte": "egy feladat, egy fül, a telefon pedig lefordítva, amíg nem végzel"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_05a7020e.jpg",
+      "boite": [
+       0,
+       500,
+       1664,
+       1610
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "fr": "désactive toutes tes notifs sur ton tel",
+     "texte": "tanulj meg egy új [[nyelvet]], akár lassan is"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "fr": "j'ai pas de notifs pour le moindre truc dans chaque appli,",
+     "texte": "egy kutatásban a kétnyelvűeknél [[kb. 4 évvel később]] jelent meg a demencia,"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "fr": "t'as pas besoin de répondre direct, c'est ok",
+     "texte": "és sosem késő elkezdeni"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_52293b76.jpg",
+      "boite": [
+       0,
+       200,
+       1664,
+       2218
+      ]
+     }
+    }
+   }
+  }
+ }
+}

@@ -6035,6 +6035,59 @@
    "notes": "declinaison G2 de var-hobbies-1, cta A",
    "type_bleo": "declinaison",
    "parent_contenu_id": "369d60f6-a3c4-4d20-8ab7-7768ffd83bb9"
+  },
+  {
+   "post_id": "var-fatigue-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#tired #energy #selfcare",
+   "musique": {
+    "titre": "hold the line",
+    "auteur": "drifting.",
+    "original": false,
+    "id": "7694570671943534599",
+    "url_tiktok": "https://www.tiktok.com/music/x-7694570671943534599"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7707007603754290464_1",
+    "2": "7689918962905124129_2",
+    "3": "7689918962905124129_5",
+    "4": "7707007603754290464_5",
+    "5": "7689918962905124129_4",
+    "6": "7689918962905124129_6"
+   },
+   "notes": "declinaison G1 de original-088, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "881ad051-8a1a-42eb-bd92-8fd9b612bc53"
+  },
+  {
+   "post_id": "original-100",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#museum #art #learning",
+   "musique": {
+    "titre": "The beginning by Flawed Mangoes slowed",
+    "auteur": "⠀",
+    "original": true,
+    "id": "7318739514535889697",
+    "url_tiktok": "https://www.tiktok.com/music/x-7318739514535889697"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696836327026724128_1",
+    "2": "7685340052989398275_6",
+    "3": "7694340359056313632_4",
+    "4": "7698667830635400470_5",
+    "5": "7699523873712164128_3",
+    "6": "7696836327026724128_2"
+   },
+   "notes": "full test BLEO, cta B",
+   "type_bleo": "full_test"
   }
  ]
 }

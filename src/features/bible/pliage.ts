@@ -1,26 +1,35 @@
 /**
- * 23/11 : dans la Bible, une app (tout son contenu) ou un label se replie et se déplie. Ce qui est replié est retenu
- * dans ce navigateur (d'un onglet à l'autre, d'une visite à l'autre) ; rien n'est écrit en base.
+ * 23/11 : dans la Bible, une app (tout son contenu) ou un label se replie et se déplie. L'état est retenu dans ce
+ * navigateur (d'un onglet à l'autre, d'une visite à l'autre) ; rien n'est écrit en base.
  *
- * Les clés : `app:<section>`, `label:<id du bloc>` (comptes de la Bible), `source:<id du label>` (onglets des sources).
+ * Les apps sont dépliées par défaut. Les labels sont REPLIÉS par défaut (une ligne chacun) : « Tout déplier » et
+ * « Tout replier » changent ce défaut, et chaque clic sur un chevron est une exception à ce défaut.
+ *
+ * Les clés : `app:<section>`, `label:<id du bloc>` (comptes de la Bible), `source:<clé du label>` (onglets des
+ * sources), `podz:<id du bloc>` (podz validés).
  */
 import * as React from "react";
 
-const CLE = "bible:plies";
+const CLE = "bible:pliage";
 
-function lire(): Set<string> {
+interface Etat { labelsOuverts: boolean; exceptions: Set<string> }
+
+function lire(): Etat {
   try {
     const brut = localStorage.getItem(CLE);
-    const v: unknown = brut ? JSON.parse(brut) : [];
-    return new Set(Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : []);
+    const v = (brut ? JSON.parse(brut) : null) as { labelsOuverts?: unknown; exceptions?: unknown } | null;
+    return {
+      labelsOuverts: v?.labelsOuverts === true,
+      exceptions: new Set(Array.isArray(v?.exceptions) ? v.exceptions.filter((x): x is string => typeof x === "string") : []),
+    };
   } catch {
-    return new Set();
+    return { labelsOuverts: false, exceptions: new Set() };
   }
 }
 
-function ecrire(s: Set<string>) {
+function ecrire(e: Etat) {
   try {
-    localStorage.setItem(CLE, JSON.stringify([...s]));
+    localStorage.setItem(CLE, JSON.stringify({ labelsOuverts: e.labelsOuverts, exceptions: [...e.exceptions] }));
   } catch {
     // Navigation privée, stockage plein : le repli tient le temps de la page.
   }
@@ -29,26 +38,32 @@ function ecrire(s: Set<string>) {
 export interface Pliage {
   estPlie: (cle: string) => boolean;
   basculer: (cle: string) => void;
-  /** Replie ces clés (les autres restent comme elles sont). */
-  plier: (cles: string[]) => void;
-  /** Déplie ces clés ; sans argument, déplie tout. */
-  deplier: (cles?: string[]) => void;
+  /** Tout déplier : les apps et tous les labels. */
+  toutDeplier: () => void;
+  /** Tout replier : chaque label sur une ligne (les apps restent dépliées). */
+  toutReplier: () => void;
 }
 
 export function usePliage(): Pliage {
-  const [plies, setPlies] = React.useState<Set<string>>(lire);
-  const changer = React.useCallback((f: (s: Set<string>) => void) => {
-    setPlies((avant) => {
-      const s = new Set(avant);
-      f(s);
-      ecrire(s);
-      return s;
+  const [etat, setEtat] = React.useState<Etat>(lire);
+  const poser = React.useCallback((f: (avant: Etat) => Etat) => {
+    setEtat((avant) => {
+      const apres = f(avant);
+      ecrire(apres);
+      return apres;
     });
   }, []);
   return React.useMemo(() => ({
-    estPlie: (cle) => plies.has(cle),
-    basculer: (cle) => changer((s) => { if (s.has(cle)) s.delete(cle); else s.add(cle); }),
-    plier: (cles) => changer((s) => { for (const c of cles) s.add(c); }),
-    deplier: (cles) => changer((s) => { if (!cles) s.clear(); else for (const c of cles) s.delete(c); }),
-  }), [plies, changer]);
+    estPlie: (cle) => {
+      const exception = etat.exceptions.has(cle);
+      return cle.startsWith("app:") || etat.labelsOuverts ? exception : !exception;
+    },
+    basculer: (cle) => poser((avant) => {
+      const exceptions = new Set(avant.exceptions);
+      if (exceptions.has(cle)) exceptions.delete(cle); else exceptions.add(cle);
+      return { ...avant, exceptions };
+    }),
+    toutDeplier: () => poser(() => ({ labelsOuverts: true, exceptions: new Set() })),
+    toutReplier: () => poser(() => ({ labelsOuverts: false, exceptions: new Set() })),
+  }), [etat, poser]);
 }

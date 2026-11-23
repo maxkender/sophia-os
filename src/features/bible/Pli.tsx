@@ -1,5 +1,5 @@
 /**
- * 23/11 : le chevron qui replie une app ou un label, et la barre « Replier les apps / les labels · Tout déplier ».
+ * 23/11 : le chevron qui replie une app ou un label, et le bouton unique « Tout déplier / Tout replier ».
  */
 import { ChevronDown, ChevronsDownUp, ChevronsUpDown } from "lucide-react";
 
@@ -22,23 +22,19 @@ export function BoutonPli({ plie, onClick, nom, className }: { plie: boolean; on
   );
 }
 
-const BOUTON = "inline-flex h-9 items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 text-sm text-stone-600 transition disabled:pointer-events-none disabled:opacity-40 hover:border-stone-400 hover:text-stone-900 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300";
-
-/** Replier toutes les apps, tous les labels, ou tout déplier (ce qui est à l'écran). */
+/** Un seul bouton : « Tout replier » dès qu'un label à l'écran est ouvert, sinon « Tout déplier ». */
 export function BarrePliage({ pliage, apps, labels }: { pliage: Pliage; apps: string[]; labels: string[] }) {
   if (apps.length === 0 && labels.length === 0) return null;
-  const toutDeplie = [...apps, ...labels].every((c) => !pliage.estPlie(c));
+  const unOuvert = labels.some((c) => !pliage.estPlie(c));
+  const Icone = unOuvert ? ChevronsDownUp : ChevronsUpDown;
   return (
-    <div className="flex flex-wrap items-center gap-2" data-testid="barre-pliage">
-      <button type="button" className={BOUTON} onClick={() => pliage.plier(apps)} disabled={apps.length === 0}>
-        <ChevronsDownUp className="size-3.5" aria-hidden /> Replier les apps
-      </button>
-      <button type="button" className={BOUTON} onClick={() => { pliage.deplier(apps); pliage.plier(labels); }} disabled={labels.length === 0}>
-        <ChevronsDownUp className="size-3.5" aria-hidden /> Replier les labels
-      </button>
-      <button type="button" className={BOUTON} onClick={() => pliage.deplier([...apps, ...labels])} disabled={toutDeplie}>
-        <ChevronsUpDown className="size-3.5" aria-hidden /> Tout déplier
-      </button>
-    </div>
+    <button
+      type="button"
+      data-testid="barre-pliage"
+      onClick={() => (unOuvert ? pliage.toutReplier() : pliage.toutDeplier())}
+      className="inline-flex h-8 items-center gap-1.5 rounded-full px-2.5 text-xs text-stone-500 transition hover:bg-stone-100 hover:text-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-white"
+    >
+      <Icone className="size-3.5" aria-hidden /> {unOuvert ? "Tout replier" : "Tout déplier"}
+    </button>
   );
 }

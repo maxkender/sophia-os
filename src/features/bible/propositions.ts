@@ -1,5 +1,5 @@
 /**
- * 19/11 (Adrien) : « Source proposals », le premier onglet de la Bible. Ce sont les comptes que l'agent éclaireur
+ * 19/11 (Adrien) : « Propositions », le premier onglet de la Bible. Ce sont les comptes que l'agent éclaireur
  * trouve chaque jour (`sources_candidats`, 0684), ceux à décider comme ceux mis à plus tard, rangés par jour.
  * De là, un compte passe dans « À importer » ou directement dans « Prochain batch » (0766) : il devient un compte
  * de la Bible, sous la carte de son label, et suit le chemin comme les autres.

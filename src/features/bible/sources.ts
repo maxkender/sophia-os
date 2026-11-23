@@ -1,7 +1,7 @@
 /**
  * 19/11 (Adrien) : les sources dans la Bible. Après « Lancer l'import », un compte est une source, et son onglet se
  * CALCULE depuis son état réel : En import (son premier import tourne), À l'essai (ses 30 premiers posts, pas encore
- * jugée), Weekly update (mise à jour chaque lundi si elle marche), Essai raté (gardée, plus importée), Arrêtées
+ * jugée), Mise à jour hebdo (mise à jour chaque lundi si elle marche), Essai raté (gardée, plus importée), Arrêtées
  * (désactivée).
  *
  * Une source neuve part TOUT DE SUITE (0772) : relevé de son profil, puis ses slideshows dans la file. Seules les
@@ -147,7 +147,7 @@ export interface SourceBible {
 /**
  * L'onglet d'une source. « En import » ne concerne que ce qui arrive : une source neuve dont le premier import
  * tourne (relevé du profil, puis ses slideshows en traitement). Elle en sort seule, quand tout est traité. Une source
- * établie qui passe sa mise à jour du lundi reste dans « Weekly update ».
+ * établie qui passe sa mise à jour du lundi reste dans « Mise à jour hebdo ».
  *
  * 20/11 (Adrien : « si le compte ne marche pas, il ne faut pas l'effacer ») : une source qui rate son essai a sa
  * propre case, « Essai raté ». Rien n'est effacé : elle reste une source, ses slideshows validés restent en stock,
@@ -327,7 +327,7 @@ export function enImportEnBref(sources: SourceBible[]): { total: number; detail:
 }
 
 /**
- * Le bilan du dernier lundi, pour l'en-tête de « Weekly update ». Les sources ajoutées dans la semaine (raison
+ * Le bilan du dernier lundi, pour l'en-tête de « Mise à jour hebdo ». Les sources ajoutées dans la semaine (raison
  * « ajout ») n'en font pas partie : ce sont des premiers imports, elles se lisent dans « En import ».
  */
 export function bilanSemaine(semaine: SemaineSources | null): {
@@ -427,11 +427,11 @@ export function regleDeLaVue(vue: Vue, r: ReglesSources): string {
     case "a_importer":
       return "Les comptes repérés. Un compte dont le label existe s'importe d'un clic (« Importer ») ; passe les autres dans « Prochain batch », le temps de régler leur label. Un label à faire en podz se marque « À podzer » sur l'en-tête de son bloc : ses comptes ne sont pas importés.";
     case "prochain_batch":
-      return "Les comptes choisis pour le prochain import. « Lancer l'import » crée leurs sources et leur import part tout de suite ; un compte prêt part aussi seul, d'un clic. Il faut un vrai label : crée-le, ou rattache son bloc à un label de l'OS (« Modifier ou rattacher »). Un label marqué « à podzer » ne s'importe pas : valide son podz depuis l'en-tête de son bloc, il se range avec ses comptes dans « Weekly update », catégorie Podz.";
+      return "Les comptes choisis pour le prochain import. « Lancer l'import » crée leurs sources et leur import part tout de suite ; un compte prêt part aussi seul, d'un clic. Il faut un vrai label : crée-le, ou rattache son bloc à un label de l'OS (« Modifier ou rattacher »). Un label marqué « à podzer » ne s'importe pas : valide son podz depuis l'en-tête de son bloc, il se range avec ses comptes dans « Mise à jour hebdo », catégorie Podz.";
     case "en_import":
-      return `Une source part dès qu'elle est créée, sans attendre les autres : l'OS relève son profil (une à deux minutes), puis ses slideshows passent dans la file d'import (lecture, pertinence, note, nettoyage : 20 à 30 minutes). Tout traité, elle passe seule à l'étape suivante : À l'essai, ou Weekly update dans un label neuf. Seules les mises à jour de la semaine sont étalées, ${r.lotMax} sources par jour.`;
+      return `Une source part dès qu'elle est créée, sans attendre les autres : l'OS relève son profil (une à deux minutes), puis ses slideshows passent dans la file d'import (lecture, pertinence, note, nettoyage : 20 à 30 minutes). Tout traité, elle passe seule à l'étape suivante : À l'essai, ou Mise à jour hebdo dans un label neuf. Seules les mises à jour de la semaine sont étalées, ${r.lotMax} sources par jour.`;
     case "essai":
-      return `Une source neuve n'importe d'abord que ses ${r.essaiPosts} posts les plus vus. Le lundi, dès ${r.essaiMesuresMin} posts mesurés chez nous : avec un r au-dessus de ${seuil(r.rMin)} (ou de ${seuil(r.rVsLabelMin)} face à son label) elle passe en Weekly update, sinon elle va dans « Essai raté » (gardée, plus importée). Pas d'essai dans un label neuf (${labelNeuf(r)}) : la source va droit en Weekly update avec ses ${r.postsMaxParMaj} posts les plus vus.`;
+      return `Une source neuve n'importe d'abord que ses ${r.essaiPosts} posts les plus vus. Le lundi, dès ${r.essaiMesuresMin} posts mesurés chez nous : avec un r au-dessus de ${seuil(r.rMin)} (ou de ${seuil(r.rVsLabelMin)} face à son label) elle passe en Mise à jour hebdo, sinon elle va dans « Essai raté » (gardée, plus importée). Pas d'essai dans un label neuf (${labelNeuf(r)}) : la source va droit en Mise à jour hebdo avec ses ${r.postsMaxParMaj} posts les plus vus.`;
     case "weekly":
       return `Le lundi à 6 h, l'OS choisit les sources à mettre à jour dans la semaine : celles dont le r dépasse ${seuil(r.rMin)}, ou ${seuil(r.rVsLabelMin)} face à leur label, qui ont un post à ${nombre(r.vuesCoup)} vues, ou moins de ${r.postsMin} posts mesurés. Les mises à jour partent ensuite chaque matin à 6 h 37, ${r.lotMax} sources par jour, ${r.postsMaxParMaj} posts de plus au maximum par source. Les autres sont rejugées le lundi suivant. Les labels à podzer validés y figurent à part, avec leurs comptes, à titre indicatif.`;
     case "essai_rate":

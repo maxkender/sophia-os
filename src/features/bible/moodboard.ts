@@ -3,7 +3,7 @@
  * puis par carte de label (labels_proposes : section, badge, DA). Lectures, écritures et rangement.
  *
  * 19/11 (Adrien) : la Bible est le chemin de l'import, de bout en bout. Deux étapes à la main (À importer, Prochain
- * batch), puis « Lancer l'import » crée les sources ; la suite (En import, À l'essai, Weekly update, Essai raté, Arrêtées) est
+ * batch), puis « Lancer l'import » crée les sources ; la suite (En import, À l'essai, Mise à jour hebdo, Essai raté, Arrêtées) est
  * calculée depuis l'état réel de la source (voir `sources.ts`), plus jamais cochée à la main.
  *
  * 19/11 (soir) : l'appli de running a son nom, Atala, et existe dans l'OS (migration 0764). La section « runvik »
@@ -31,12 +31,12 @@ export type Badge = "existe" | "nouveau" | "propose" | "a_confirmer" | "idee";
  * la source. `regle` dit en une phrase comment on entre dans l'étape et comment on en sort.
  */
 export const VUES: readonly { cle: Vue; libelle: string; chemin: boolean; auto: boolean }[] = [
-  { cle: "propositions", libelle: "Source proposals", chemin: true, auto: false },
+  { cle: "propositions", libelle: "Propositions", chemin: true, auto: false },
   { cle: "a_importer", libelle: "À importer", chemin: true, auto: false },
   { cle: "prochain_batch", libelle: "Prochain batch", chemin: true, auto: false },
   { cle: "en_import", libelle: "En import", chemin: true, auto: true },
   { cle: "essai", libelle: "À l'essai", chemin: true, auto: true },
-  { cle: "weekly", libelle: "Weekly update", chemin: true, auto: true },
+  { cle: "weekly", libelle: "Mise à jour hebdo", chemin: true, auto: true },
   { cle: "essai_rate", libelle: "Essai raté", chemin: false, auto: true },
   { cle: "arretees", libelle: "Arrêtées", chemin: false, auto: true },
   { cle: "corbeille", libelle: "Corbeille", chemin: false, auto: false },
@@ -114,7 +114,7 @@ export interface CarteLabel {
    * d'inspiration. Depuis le 20/11 c'est le LABEL qu'on marque, plus chaque compte.
    */
   a_podzer: boolean;
-  /** Le podz est validé : le bloc et ses comptes se rangent dans « Weekly update », catégorie Podz. */
+  /** Le podz est validé : le bloc et ses comptes se rangent dans « Mise à jour hebdo », catégorie Podz. */
   podz_valide_at: string | null;
   /** Le nom du vrai label (carte « existe »). */
   label_nom?: string | null;
@@ -204,7 +204,7 @@ export function etapeAvantImport(c: CompteBible, carte: CarteLabel | null | unde
 
 /**
  * Un label « à podzer » validé : on en fait un podz, il n'est jamais importé. Le bloc et ses comptes quittent les
- * onglets d'avant import et se rangent dans « Weekly update », catégorie Podz, à titre indicatif (aucune source,
+ * onglets d'avant import et se rangent dans « Mise à jour hebdo », catégorie Podz, à titre indicatif (aucune source,
  * aucune mise à jour).
  */
 export const estPodzValide = (carte: CarteLabel | null | undefined): boolean => Boolean(carte?.a_podzer && carte.podz_valide_at);

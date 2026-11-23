@@ -3,22 +3,26 @@
  * Sans label) puis par label (nom, badge, DA), chacun avec ses 3 derniers TikToks en miniatures.
  *
  * 19/11 (Adrien) : la Bible est le chemin de l'import, d'un bout à l'autre, un onglet par étape :
- *   Source proposals → À importer → Prochain batch   (à la main ; les propositions viennent de l'agent éclaireur)
- *   → En import → À l'essai → Weekly update     (calculé depuis l'état réel de la source)
+ *   Propositions → À importer → Prochain batch   (à la main ; les propositions viennent de l'agent éclaireur)
+ *   → En import → À l'essai → Mise à jour hebdo     (calculé depuis l'état réel de la source)
  *   et trois sorties : Essai raté (gardée, plus importée), Arrêtées (désactivée), Corbeille.
  * « Lancer l'import » crée les sources du prochain batch ; plus rien ne se coche « importé » à la main. Les onglets
  * des sources montrent ce que montre la page Sources (r, stock, état, décision du lundi), qui reste en place.
  *
  * 20/11 (Adrien) : « à podzer » se marque sur le LABEL (l'en-tête de son bloc), plus sur chaque compte. Un label à
- * podzer n'est jamais importé ; validé, il se range avec ses comptes dans « Weekly update », catégorie Podz.
+ * podzer n'est jamais importé ; validé, il se range avec ses comptes dans « Mise à jour hebdo », catégorie Podz.
  * 23/11 : chaque app (tout son contenu) et chaque label se replie et se déplie (retenu dans le navigateur), et un
  * label se fusionne dans un autre (« Fusionner ») ; la fusion s'annule depuis le bloc qui a reçu les comptes.
+ * 23/11 (refonte de l'écran) : un label tient sur UNE ligne, replié par défaut (chevron, nom, statut, nombre), ses
+ * actions dans un menu « ⋯ » ; trois statuts seulement (rien : le label existe ; « à créer » ; « podz ») ; six
+ * onglets pour le chemin et un menu « Sorties » (Essai raté, Arrêtées, Corbeille) ; la règle de l'étape dans une
+ * bulle « i » ; les apps en pastilles avec leur nombre ; onglets et filtres collés en haut de l'écran.
  *
  * Admin au sens strict (RLS + route).
  */
 import * as React from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { ArrowLeft, BadgeCheck, Check, ChevronRight, GitMerge, Pencil, Plus, Rocket, Search, Sparkles, Undo2 } from "lucide-react";
+import { ArrowLeft, BadgeCheck, Check, ChevronDown, ChevronRight, GitMerge, Info, Pencil, Plus, Rocket, Search, Sparkles, Undo2 } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -32,33 +36,22 @@ import {
   etapeAvantImport, lancerBatch, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, marquerPodz, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
   restaurerCompte, type Section, SECTIONS, supprimerDefinitivement, valeurDuLabel, validerCarte, validerPodz, type Vue, VUES,
 } from "./moodboard";
-import { BarrePliage, BoutonPli } from "./Pli";
+import { LigneLabel, TitreApp } from "./Bloc";
+import { type EntreeMenu, MenuActions } from "./MenuActions";
+import { BarrePliage } from "./Pli";
 import { usePliage } from "./pliage";
 import { deciderProposition, lirePropositions, passerDansLaBible, type Proposition } from "./propositions";
-import { compterSources, ligneResultat, lireSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
+import { compterSources, ligneResultat, lireSources, rangerSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
+import { PASTILLE_A_CREER, PASTILLE_PODZ, TEINTE } from "./teintes";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
 import { type ActionsProposition, VuePropositions } from "./VuePropositions";
 import { VueSources } from "./VueSources";
 
-const TEINTE: Record<Section | "sans", { pastille: string; texte: string }> = {
-  atala: { pastille: "bg-emerald-500", texte: "text-emerald-700" },
-  micabo: { pastille: "bg-violet-400", texte: "text-violet-700" },
-  sophia: { pastille: "bg-pink-400", texte: "text-pink-700" },
-  idees: { pastille: "bg-teal-400", texte: "text-teal-700" },
-  sans: { pastille: "bg-stone-300", texte: "text-stone-500" },
-};
-
 const BOUTON_BLOC = "inline-flex h-7 items-center gap-1 rounded-full border border-stone-200 bg-white px-2.5 text-[11px] font-medium text-stone-700 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200";
 const BOUTON_BLOC_FORT = "inline-flex h-7 items-center gap-1 rounded-full border border-stone-900 bg-stone-900 px-2.5 text-[11px] font-medium text-white hover:bg-stone-800 dark:border-white dark:bg-white dark:text-stone-900";
-const PASTILLE_PODZ = "inline-flex items-center gap-0.5 rounded-full bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-700 ring-1 ring-teal-200";
-
-const BADGE: Record<CarteLabel["badge"], string> = {
-  existe: "bg-emerald-50 text-emerald-700 ring-emerald-200",
-  nouveau: "bg-sky-50 text-sky-700 ring-sky-200",
-  propose: "bg-violet-50 text-violet-700 ring-violet-200",
-  a_confirmer: "bg-amber-50 text-amber-700 ring-amber-200",
-  idee: "bg-stone-100 text-stone-600 ring-stone-200",
-};
+const ONGLET = "inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-3 py-1 text-[13px] transition";
+const ONGLET_ACTIF = "bg-stone-900 font-semibold text-white dark:bg-white dark:text-stone-900";
+const ONGLET_REPOS = "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800";
 
 export function PageBible() {
   const qc = useQueryClient();
@@ -102,7 +95,7 @@ export function PageBible() {
   // L'onglet d'un compte avant l'import ; `null` : sa source existe, il se lit dans les onglets des sources.
   const etapeDe = (c: CompteBible) => etapeAvantImport(c, carteDe(c), sourceParHandle.get(c.handle));
 
-  // Les labels à podzer validés : jamais importés, rangés avec leurs comptes dans « Weekly update » (catégorie Podz).
+  // Les labels à podzer validés : jamais importés, rangés avec leurs comptes dans « Mise à jour hebdo » (catégorie Podz).
   const blocsPodz = toutes.filter(estPodzValide);
   const podz = liste.filter((c) => !c.supprime_at && estPodzValide(carteDe(c)));
   const nSources = compterSources(sources);
@@ -112,6 +105,12 @@ export function PageBible() {
   // Les onglets tenus à la main sur des comptes de la Bible (pas les propositions, pas les sources).
   const vueComptes = vue !== "propositions" && !estVueSource(vue);
   const groupes = vueComptes ? ranger(liste, toutes, { etape: vue, recherche, section, podzer }, etapeDe) : [];
+  // Toutes apps confondues : le nombre affiché sur chaque pastille d'app (inconnu dans « Propositions »).
+  const groupesSources = estVueSource(vue) && donnees.data ? rangerSources(donnees.data.sources, donnees.data.labels, toutes, { etape: vue, recherche, section: "" }) : [];
+  const parApp = new Map<string, number>(
+    vueComptes ? ranger(liste, toutes, { etape: vue, recherche, section: "", podzer }, etapeDe).map((g) => [g.section, g.total]) : groupesSources.map((g) => [g.section, g.total]),
+  );
+  const sourcesVues = groupesSources.filter((g) => !section || g.section === section);
   const rafraichir = () => { void qc.invalidateQueries({ queryKey: ["bible"] }); };
 
   // Le prochain batch : qui peut partir, et ce qui bloque les autres.
@@ -203,17 +202,17 @@ export function PageBible() {
     () => marquerPodz(bloc.id, !bloc.a_podzer),
     bloc.a_podzer
       ? `« ${nomCarte(bloc)} » n'est plus à podzer : ses comptes peuvent de nouveau être importés.`
-      : `« ${nomCarte(bloc)} » est à podzer : ses comptes ne seront pas importés. Valide le podz pour le ranger dans « Weekly update ».`,
+      : `« ${nomCarte(bloc)} » est à podzer : ses comptes ne seront pas importés. Valide le podz pour le ranger dans « Mise à jour hebdo ».`,
   );
   const validerPodzDuBloc = (bloc: CarteLabel, valide: boolean) => surPodz(
     () => validerPodz([bloc.id], valide),
     valide
-      ? `Podz validé : « ${nomCarte(bloc)} » est dans « Weekly update », catégorie Podz, avec ses comptes.`
+      ? `Podz validé : « ${nomCarte(bloc)} » est dans « Mise à jour hebdo », catégorie Podz, avec ses comptes.`
       : `« ${nomCarte(bloc)} » est retiré des podz validés : ses comptes reviennent dans leurs onglets.`,
   );
   const validerLesPodz = () => surPodz(
     () => validerPodz(podzDuBatch.map((bloc) => bloc.id)),
-    `${podzDuBatch.length} label${podzDuBatch.length > 1 ? "s" : ""} à podzer validé${podzDuBatch.length > 1 ? "s" : ""} : dans « Weekly update », catégorie Podz.`,
+    `${podzDuBatch.length} label${podzDuBatch.length > 1 ? "s" : ""} à podzer validé${podzDuBatch.length > 1 ? "s" : ""} : dans « Mise à jour hebdo », catégorie Podz.`,
   );
   // Une proposition de l'éclaireur : elle entre dans la Bible (puis ses miniatures arrivent), ou elle est décidée.
   const surProposition = async (p: Proposition, f: () => Promise<unknown>) => {
@@ -251,77 +250,133 @@ export function PageBible() {
     }
   };
 
+  // Une recherche montre ce qu'elle trouve : rien ne reste replié.
+  const cherche = q !== "";
+  const plie = (cle: string) => !cherche && pliage.estPlie(cle);
+  const sorties = VUES.filter((e) => !e.chemin);
+  const sortieActive = sorties.find((e) => e.cle === vue);
+  const nSorties = sorties.reduce((t, e) => t + n[e.cle], 0);
+  const clesApps = vueComptes ? groupes.map((g) => `app:${g.section}`) : sourcesVues.map((g) => `app:${g.section}`);
+  const clesLabels = vueComptes
+    ? groupes.flatMap((g) => g.cartes.filter((x) => x.carte).map((x) => `label:${x.carte!.id}`))
+    : [...sourcesVues.flatMap((g) => g.cartes.filter((x) => x.carte).map((x) => `source:${x.carte!.cle}`)), ...(vue === "weekly" ? podzVisibles.map((x) => `podz:${x.bloc.id}`) : [])];
+
+  /** Les statuts d'un label : rien s'il existe dans l'OS (le cas normal), « à créer », « podz ». */
+  const statuts = (carte: CarteLabel, valide?: boolean) => (
+    <>
+      {!carte.label_id && <span className={PASTILLE_A_CREER} title={`Label ${LIBELLE_BADGE[carte.badge]} : il n'existe pas encore dans l'OS, ses comptes ne peuvent pas être importés.`}>à créer</span>}
+      {carte.a_podzer && (
+        <span className={PASTILLE_PODZ} title={valide ? "Podz validé : ses comptes servent d'inspiration, ils ne sont ni importés ni mis à jour." : "Ce label est à faire en podz : ses comptes ne sont pas importés."}>
+          <Sparkles className="size-3" aria-hidden />{valide ? "podz validé" : "podz"}
+        </span>
+      )}
+    </>
+  );
+  /** Le menu « ⋯ » d'un label : tout ce qui n'est pas l'action du moment. */
+  const menuDuLabel = (carte: CarteLabel): (EntreeMenu | false | null)[] => [
+    { libelle: "Fusionner", icone: GitMerge, titre: "Verser tous les comptes de ce label dans un autre label. La fusion s'annule depuis le label qui les reçoit.", onClick: () => setBlocAFusionner(carte) },
+    {
+      libelle: carte.a_podzer ? "Plus à podzer" : "À podzer",
+      icone: Sparkles,
+      titre: carte.a_podzer ? "Ce label ne sera plus à podzer : ses comptes pourront être importés." : "Marquer ce label à podzer : on en fait un podz, ses comptes ne sont pas importés.",
+      onClick: () => void basculerPodz(carte),
+    },
+    // Un bloc dont le label n'existe pas encore : on le corrige, on le rattache à un label de l'OS, ou on le crée.
+    !carte.label_id && { libelle: "Modifier ou rattacher", icone: Pencil, titre: "Corriger ce label proposé, ou rattacher le bloc à un label qui existe déjà dans l'OS.", onClick: () => setBlocAModifier(carte) },
+    !carte.label_id && carteValidable(carte) && { libelle: "Créer ce label", icone: BadgeCheck, titre: "Ce label n'existe pas encore dans l'OS : ses comptes ne peuvent pas être importés tant qu'il n'est pas créé.", onClick: () => void validerLabel(carte) },
+    // Un rattachement se défait : le bloc qui a pris un label le rend, ou celui qui a reçu des comptes les rend.
+    Boolean(carte.rattachement && !carte.rattachement.fusion && carte.label_id) && {
+      libelle: "Annuler le rattachement", icone: Undo2, titre: `Ce bloc s'appelait « ${carte.nom} » avant d'être rattaché à ${carte.rattachement?.label}.`, onClick: () => void detacher(carte),
+    },
+    ...blocsVersesDans(carte, toutes).map((origine): EntreeMenu => ({
+      libelle: `Rendre ${origine.rattachement!.comptes.length} compte${origine.rattachement!.comptes.length > 1 ? "s" : ""} à « ${nomCarte(origine)} »`,
+      icone: Undo2, titre: "Ces comptes ont été rangés ici par un rattachement.", onClick: () => void detacher(origine),
+    })),
+  ];
+
   return (
-    <div className="space-y-6" data-testid="page-bible">
+    <div className="space-y-5" data-testid="page-bible">
       <PageHeader
         title="Bible des comptes"
-        description="Le chemin d'un compte, de son repérage à sa mise à jour de chaque lundi : un onglet par étape, les comptes rangés par app puis par label."
+        description="Le chemin d'un compte, du repérage à sa mise à jour de chaque lundi."
         actions={<Button onClick={() => setAjout(true)}><Plus className="size-4" /> Ajouter des comptes</Button>}
       />
 
-      <div className="space-y-3">
-        <div role="tablist" aria-label="Étape" className="flex flex-wrap items-center gap-y-1.5">
-          {VUES.map((e, i) => (
-            <React.Fragment key={e.cle}>
-              {i > 0 && e.chemin && <ChevronRight className="mx-0.5 size-4 shrink-0 text-stone-300" aria-hidden />}
-              {i > 0 && !e.chemin && <span className={cn("h-5 shrink-0", VUES[i - 1]!.chemin ? "mx-2.5 w-px bg-stone-300 dark:bg-stone-700" : "w-1")} aria-hidden />}
-              <button
-                role="tab"
-                type="button"
-                aria-selected={vue === e.cle}
-                onClick={() => setVue(e.cle)}
-                className={cn(
-                  "rounded-full px-3.5 py-1.5 text-sm transition",
-                  vue === e.cle ? "bg-stone-900 font-semibold text-white shadow-sm dark:bg-white dark:text-stone-900" : "bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-900 dark:bg-stone-800 dark:text-stone-300",
-                )}
-              >
-                {e.libelle} <span className={cn("ml-1 tabular-nums", vue === e.cle ? "text-stone-300 dark:text-stone-500" : "text-stone-400")}>{n[e.cle]}</span>
-              </button>
-            </React.Fragment>
-          ))}
+      {/* Onglets et filtres restent en haut de l'écran quand on défile (sous la barre du haut, sur grand écran). */}
+      <div className="-mx-4 space-y-2 border-b border-stone-200/80 bg-background/95 px-4 py-2.5 backdrop-blur lg:sticky lg:top-14 lg:z-20 lg:-mx-8 lg:px-8 dark:border-stone-800">
+        <div className="flex flex-wrap items-center gap-y-1">
+          <div role="tablist" aria-label="Étape" className="flex min-w-0 max-w-full items-center gap-y-1 max-sm:overflow-x-auto sm:flex-wrap">
+            {VUES.filter((e) => e.chemin).map((e, i) => (
+              <React.Fragment key={e.cle}>
+                {i > 0 && <ChevronRight className="size-3.5 shrink-0 text-stone-300" aria-hidden />}
+                <button role="tab" type="button" aria-selected={vue === e.cle} onClick={() => setVue(e.cle)} className={cn(ONGLET, vue === e.cle ? ONGLET_ACTIF : ONGLET_REPOS)}>
+                  {e.libelle} <span className={cn("ml-1.5 tabular-nums", vue === e.cle ? "text-stone-300 dark:text-stone-500" : "text-stone-400")}>{n[e.cle]}</span>
+                </button>
+              </React.Fragment>
+            ))}
+          </div>
+          <span className="mx-2 h-4 w-px shrink-0 bg-stone-300 dark:bg-stone-700" aria-hidden />
+          <MenuActions
+            nom="Sorties"
+            aGauche
+            classeBouton={cn(ONGLET, "gap-1", sortieActive ? ONGLET_ACTIF : ONGLET_REPOS)}
+            declencheur={<>{sortieActive ? sortieActive.libelle : "Sorties"} <span className={cn("tabular-nums", sortieActive ? "text-stone-300 dark:text-stone-500" : "text-stone-400")}>{sortieActive ? n[sortieActive.cle] : nSorties}</span><ChevronDown className="size-3.5" aria-hidden /></>}
+            entrees={sorties.map((e) => ({ libelle: e.libelle, compte: n[e.cle], actif: vue === e.cle, onClick: () => setVue(e.cle) }))}
+          />
+          {/* La règle de l'étape : dans une bulle, pour qui veut la lire. */}
+          <details key={vue} className="group relative ml-auto" data-testid="regle-etape">
+            <summary aria-label="Comment marche cette étape" title="Comment marche cette étape" className="inline-flex size-8 cursor-pointer list-none items-center justify-center rounded-full text-stone-400 transition hover:bg-stone-100 hover:text-stone-900 group-open:bg-stone-100 group-open:text-stone-900 dark:hover:bg-stone-800 dark:hover:text-white [&::-webkit-details-marker]:hidden">
+              <Info className="size-4" aria-hidden />
+            </summary>
+            <p className="absolute right-0 top-full z-10 mt-1 w-[min(30rem,calc(100vw-2rem))] rounded-xl border border-stone-200 bg-white p-3 text-[13px] leading-relaxed text-stone-600 shadow-lg dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300">
+              {vue !== "corbeille" && (
+                <span className="mr-2 rounded-full bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">
+                  {estVueSource(vue) ? "Automatique" : "À la main"}
+                </span>
+              )}
+              {regleDeLaVue(vue, regles)}
+            </p>
+          </details>
         </div>
-        <p className="max-w-4xl text-sm text-stone-600 dark:text-stone-400" data-testid="regle-etape">
-          {vue !== "corbeille" && (
-            <span className="mr-2 rounded-full bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">
-              {estVueSource(vue) ? "Automatique" : "À la main"}
-            </span>
-          )}
-          {regleDeLaVue(vue, regles)}
-        </p>
-      </div>
 
-      <div className="flex flex-wrap items-center gap-2">
-        <div className="relative">
-          <Search className="pointer-events-none absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-stone-400" aria-hidden />
-          <input value={recherche} onChange={(e) => setRecherche(e.target.value)} placeholder="@handle" className="h-9 w-48 rounded-full border border-stone-200 bg-white pl-8 pr-3 text-sm dark:border-stone-700 dark:bg-stone-900" />
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+          <div className="relative">
+            <Search className="pointer-events-none absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-stone-400" aria-hidden />
+            <input value={recherche} onChange={(e) => setRecherche(e.target.value)} placeholder="@handle" aria-label="Rechercher" className="h-8 w-40 rounded-full border border-stone-200 bg-white pl-8 pr-3 text-[13px] dark:border-stone-700 dark:bg-stone-900" />
+          </div>
+          <div role="group" aria-label="App" className="flex flex-wrap items-center gap-1">
+            {[{ cle: "" as const, libelle: "Toutes" }, ...SECTIONS]
+              .filter((s) => s.cle === "" || s.cle === section || vue === "propositions" || (parApp.get(s.cle) ?? 0) > 0)
+              .map((s) => (
+                <button
+                  key={s.cle}
+                  type="button"
+                  aria-pressed={section === s.cle}
+                  onClick={() => setSection(s.cle)}
+                  className={cn("inline-flex h-8 items-center gap-1.5 rounded-full border px-2.5 text-[13px] transition", section === s.cle ? "border-stone-900 bg-stone-900 font-medium text-white dark:border-white dark:bg-white dark:text-stone-900" : "border-stone-200 bg-white text-stone-600 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300")}
+                >
+                  {s.cle !== "" && <span className={cn("size-2 rounded-full", TEINTE[s.cle])} aria-hidden />}
+                  {s.libelle}
+                  {s.cle !== "" && parApp.has(s.cle) && <span className={cn("tabular-nums", section === s.cle ? "text-stone-300 dark:text-stone-500" : "text-stone-400")}>{parApp.get(s.cle)}</span>}
+                </button>
+              ))}
+          </div>
+          {vueComptes && (
+            <button
+              type="button"
+              aria-pressed={podzer}
+              onClick={() => setPodzer((x) => !x)}
+              className={cn("inline-flex h-8 items-center gap-1.5 rounded-full border px-2.5 text-[13px] transition", podzer ? "border-teal-600 bg-teal-50 text-teal-800" : "border-stone-200 bg-white text-stone-600 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300")}
+            >
+              <Sparkles className="size-3.5" aria-hidden />À podzer <span className="tabular-nums text-stone-400">{liste.filter((c) => (vue === "corbeille" ? c.supprime_at : !c.supprime_at && etapeDe(c) === vue) && carteDe(c)?.a_podzer).length}</span>
+            </button>
+          )}
+          {vue !== "propositions" && !cherche && <span className="ml-auto"><BarrePliage pliage={pliage} apps={clesApps} labels={clesLabels} /></span>}
         </div>
-        {vueComptes && (
-          <button
-            type="button"
-            aria-pressed={podzer}
-            onClick={() => setPodzer((x) => !x)}
-            className={cn("h-9 rounded-full border px-3 text-sm transition", podzer ? "border-teal-600 bg-teal-50 text-teal-800" : "border-stone-200 bg-white text-stone-600 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900")}
-          >
-            À podzer <span className="tabular-nums text-stone-400">{liste.filter((c) => (vue === "corbeille" ? c.supprime_at : !c.supprime_at && etapeDe(c) === vue) && carteDe(c)?.a_podzer).length}</span>
-          </button>
-        )}
-        <select value={section} onChange={(e) => setSection(e.target.value as Section | "sans" | "")} className="h-9 rounded-full border border-stone-200 bg-white px-3 text-sm dark:border-stone-700 dark:bg-stone-900" aria-label="App">
-          <option value="">Toutes les apps</option>
-          {SECTIONS.map((s) => <option key={s.cle} value={s.cle}>{s.libelle}</option>)}
-        </select>
-        {vueComptes && (
-          <span className="ml-auto">
-            <BarrePliage
-              pliage={pliage}
-              apps={groupes.map((g) => `app:${g.section}`)}
-              labels={groupes.flatMap((g) => g.cartes.filter((x) => x.carte).map((x) => `label:${x.carte!.id}`))}
-            />
-          </span>
-        )}
       </div>
 
       {vue === "prochain_batch" && batch.length > 0 && (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-3 shadow-sm dark:border-stone-800 dark:bg-stone-900" data-testid="barre-batch">
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-stone-200 bg-white px-4 py-2.5 dark:border-stone-800 dark:bg-stone-900" data-testid="barre-batch">
           <p className="text-sm text-stone-600">
             <b className="text-stone-900 dark:text-white">{batch.length}</b> compte{batch.length > 1 ? "s" : ""} dans le prochain batch,{" "}
             <b className="text-stone-900 dark:text-white">{prets.length}</b> prêt{prets.length > 1 ? "s" : ""} à importer.
@@ -361,181 +416,92 @@ export function PageBible() {
         )
       ) : estVueSource(vue) ? (
         <>
-          {donnees.data && <VueSources etape={vue} donnees={donnees.data} cartes={toutes} recherche={recherche} section={section} />}
+          {donnees.data && <VueSources etape={vue} donnees={donnees.data} cartes={toutes} recherche={recherche} section={section} pliage={pliage} />}
           {vue === "weekly" && podzVisibles.length > 0 && (
-            <section className="space-y-4 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="podz">
-              <div className="space-y-1">
-                <h2 className="flex items-baseline gap-2.5">
-                  <span className="size-2.5 translate-y-[-2px] rounded-full bg-teal-400" aria-hidden />
-                  <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">Podz</span>
-                  <span className="text-sm tabular-nums text-stone-400">· {podzVisibles.length} label{podzVisibles.length > 1 ? "s" : ""}</span>
-                </h2>
-                <p className="text-sm text-stone-500">À titre indicatif : ces labels sont faits en podz, pas importés. Leurs comptes servent d'inspiration : ils ne sont ni importés ni mis à jour.</p>
-              </div>
-              <div className="space-y-4">
+            <div className="space-y-1" data-testid="podz">
+              <TitreApp libelle="Podz" detail={`· ${podzVisibles.length} label${podzVisibles.length > 1 ? "s" : ""} faits en podz : leurs comptes servent d'inspiration, ils ne sont ni importés ni mis à jour`} teinte="bg-teal-400">
                 {podzVisibles.map(({ bloc, comptes: cs }) => (
-                  <div key={bloc.id} className="rounded-2xl border border-stone-200/70 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.03)] dark:border-stone-800 dark:bg-stone-900" data-carte={nomCarte(bloc)}>
-                    <div className="mb-3 space-y-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{nomCarte(bloc)}</code>
-                        <span className={cn("rounded-full px-2 py-0.5 text-[11px] font-medium ring-1", BADGE[bloc.badge])}>{LIBELLE_BADGE[bloc.badge]}</span>
-                        <span className={PASTILLE_PODZ}><Sparkles className="size-3" aria-hidden />podz validé</span>
-                        <span className="text-xs tabular-nums text-stone-400">{cs.length}</span>
-                        <span className="ml-auto flex flex-wrap gap-1.5">
-                          <button type="button" onClick={() => void validerPodzDuBloc(bloc, false)} title="Le label reste à podzer ; ses comptes reviennent dans « À importer » ou « Prochain batch »." className={BOUTON_BLOC}>
-                            <ArrowLeft className="size-3.5" aria-hidden />
-                            Retirer des podz
-                          </button>
-                        </span>
-                      </div>
-                      {bloc.description_da && <p className="max-w-3xl text-sm text-stone-500">{bloc.description_da}</p>}
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                      {cs.length === 0 && <p className="text-sm text-stone-400">Aucun compte sous ce label.</p>}
-                      {cs.map((c) => <TuileCompte key={c.id} c={c} actions={actions} occupe={occupes.has(c.id)} podzValide />)}
-                    </div>
-                  </div>
+                  <LigneLabel
+                    key={bloc.id}
+                    cle={nomCarte(bloc)}
+                    nom={nomCarte(bloc)}
+                    plie={plie(`podz:${bloc.id}`)}
+                    onBasculer={() => pliage.basculer(`podz:${bloc.id}`)}
+                    statuts={statuts(bloc, true)}
+                    nb={cs.length}
+                    description={bloc.description_da}
+                    actions={(
+                      <button type="button" onClick={() => void validerPodzDuBloc(bloc, false)} title="Le label reste à podzer ; ses comptes reviennent dans « À importer » ou « Prochain batch »." className={BOUTON_BLOC}>
+                        <ArrowLeft className="size-3.5" aria-hidden />
+                        Retirer des podz
+                      </button>
+                    )}
+                  >
+                    {cs.length === 0 && <p className="text-sm text-stone-400">Aucun compte sous ce label.</p>}
+                    {cs.map((c) => <TuileCompte key={c.id} c={c} actions={actions} occupe={occupes.has(c.id)} podzValide />)}
+                  </LigneLabel>
                 ))}
-              </div>
-            </section>
+              </TitreApp>
+            </div>
           )}
         </>
       ) : (
-        <div className="space-y-10 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="moodboard">
+        <div className="space-y-7" data-testid="moodboard">
           {!comptes.isLoading && groupes.length === 0 && (
             <p className="py-10 text-center text-sm text-stone-500">{vue === "prochain_batch" ? "Aucun compte dans le prochain batch : passe-les depuis « À importer »." : vue === "corbeille" ? "La corbeille est vide." : "Aucun compte ici."}</p>
           )}
           {groupes.map((g) => {
             const s = SECTIONS.find((x) => x.cle === g.section)!;
-            const appPliee = pliage.estPlie(`app:${g.section}`);
             const nLabels = g.cartes.filter((x) => x.carte).length;
             return (
-              <section key={g.section} className="space-y-4" data-section={g.section} data-plie={appPliee || undefined}>
-                <h2 className="flex items-center gap-2.5">
-                  <BoutonPli plie={appPliee} onClick={() => pliage.basculer(`app:${g.section}`)} nom={s.libelle} className="-ml-1.5" />
-                  <button type="button" onClick={() => pliage.basculer(`app:${g.section}`)} className="flex items-baseline gap-2.5 text-left">
-                    <span className={cn("size-2.5 translate-y-[-2px] rounded-full", TEINTE[g.section].pastille)} aria-hidden />
-                    <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">{s.libelle}</span>
-                    {s.sous && <span className="text-sm text-stone-400">{s.sous}</span>}
-                    <span className="text-sm tabular-nums text-stone-400">
-                      · {g.total} compte{g.total > 1 ? "s" : ""}{nLabels > 0 && `, ${nLabels} label${nLabels > 1 ? "s" : ""}`}
-                    </span>
-                  </button>
-                </h2>
-                {!appPliee && (
-                <div className="space-y-4">
-                  {g.cartes.map(({ carte, comptes: cs }) => {
-                    const labelPlie = Boolean(carte && pliage.estPlie(`label:${carte.id}`));
-                    return (
-                    <div key={carte?.id ?? "sans"} className={cn("rounded-2xl border border-stone-200/70 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.03)] dark:border-stone-800 dark:bg-stone-900", labelPlie && "py-2.5")} data-carte={carte ? nomCarte(carte) : "sans_label"}>
-                      {carte && (
-                        <div className={cn("space-y-1", !labelPlie && "mb-3")}>
-                          <div className="flex flex-wrap items-center gap-2">
-                            <BoutonPli plie={labelPlie} onClick={() => pliage.basculer(`label:${carte.id}`)} nom={nomCarte(carte)} className="-ml-1" />
-                            <button type="button" onClick={() => pliage.basculer(`label:${carte.id}`)} className="text-left">
-                              <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{nomCarte(carte)}</code>
-                            </button>
-                            <span className={cn("rounded-full px-2 py-0.5 text-[11px] font-medium ring-1", BADGE[carte.badge])}>{LIBELLE_BADGE[carte.badge]}</span>
-                            {carte.a_podzer && <span className={PASTILLE_PODZ} title="Ce label est à faire en podz : ses comptes ne sont pas importés."><Sparkles className="size-3" aria-hidden />à podzer</span>}
-                            <span className="text-xs tabular-nums text-stone-400">{cs.length}</span>
-                            {/* « À podzer » se marque sur le label : on en fait un podz, ses comptes ne sont pas importés. */}
-                            {vue !== "corbeille" && (
-                              <span className="ml-auto flex flex-wrap gap-1.5">
-                                <button
-                                  type="button"
-                                  onClick={() => setBlocAFusionner(carte)}
-                                  title="Verser tous les comptes de ce label dans un autre label. La fusion s'annule depuis le label qui les reçoit."
-                                  className={BOUTON_BLOC}
-                                >
-                                  <GitMerge className="size-3.5" aria-hidden />
-                                  Fusionner
-                                </button>
-                                {carte.a_podzer && (
-                                  <button type="button" onClick={() => void validerPodzDuBloc(carte, true)} title="Range ce label et ses comptes dans « Weekly update », catégorie Podz. Rien n'est importé." className={BOUTON_BLOC_FORT}>
-                                    <Check className="size-3.5" aria-hidden />
-                                    Valider le podz
-                                  </button>
-                                )}
-                                <button
-                                  type="button"
-                                  aria-pressed={carte.a_podzer}
-                                  onClick={() => void basculerPodz(carte)}
-                                  title={carte.a_podzer ? "Ce label ne sera plus à podzer : ses comptes pourront être importés." : "Marquer ce label à podzer : on en fait un podz, ses comptes ne sont pas importés."}
-                                  className={BOUTON_BLOC}
-                                >
-                                  <Sparkles className="size-3.5" aria-hidden />
-                                  {carte.a_podzer ? "Plus à podzer" : "À podzer"}
-                                </button>
-                              </span>
-                            )}
-                            {/* Un rattachement se défait : le bloc qui a pris un label le rend, ou celui qui a reçu des comptes les rend. */}
-                            {vue !== "corbeille" && (carte.rattachement && !carte.rattachement.fusion && carte.label_id || blocsVersesDans(carte, toutes).length > 0) && (
-                              <span className="flex flex-wrap gap-1.5">
-                                {carte.rattachement && !carte.rattachement.fusion && carte.label_id && (
-                                  <button type="button" onClick={() => void detacher(carte)} title={`Ce bloc s'appelait « ${carte.nom} » avant d'être rattaché à ${carte.rattachement.label}.`} className={BOUTON_BLOC}>
-                                    <Undo2 className="size-3.5" aria-hidden />
-                                    Annuler le rattachement
-                                  </button>
-                                )}
-                                {blocsVersesDans(carte, toutes).map((origine) => (
-                                  <button key={origine.id} type="button" onClick={() => void detacher(origine)} title="Ces comptes ont été rangés ici par un rattachement." className={BOUTON_BLOC}>
-                                    <Undo2 className="size-3.5" aria-hidden />
-                                    Rendre {origine.rattachement!.comptes.length} compte{origine.rattachement!.comptes.length > 1 ? "s" : ""} à « {nomCarte(origine)} »
-                                  </button>
-                                ))}
-                              </span>
-                            )}
-                            {/* Un bloc dont le label n'existe pas encore : on le crée, on le corrige, ou on le rattache à un label de l'OS. */}
-                            {vue !== "corbeille" && !carte.label_id && (
-                              <span className="flex flex-wrap gap-1.5">
-                                <button
-                                  type="button"
-                                  onClick={() => setBlocAModifier(carte)}
-                                  title="Corriger ce label proposé, ou rattacher le bloc à un label qui existe déjà dans l'OS."
-                                  className="inline-flex h-7 items-center gap-1 rounded-full border border-stone-200 bg-white px-2.5 text-[11px] font-medium text-stone-700 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200"
-                                >
-                                  <Pencil className="size-3.5" aria-hidden />
-                                  Modifier ou rattacher
-                                </button>
-                                {carteValidable(carte) && (
-                                  <button
-                                    type="button"
-                                    onClick={() => void validerLabel(carte)}
-                                    title="Ce label n'existe pas encore dans l'OS : ses comptes ne peuvent pas être importés tant qu'il n'est pas créé."
-                                    className="inline-flex h-7 items-center gap-1 rounded-full border border-stone-200 bg-white px-2.5 text-[11px] font-medium text-stone-700 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200"
-                                  >
-                                    <BadgeCheck className="size-3.5" aria-hidden />
-                                    Créer ce label
-                                  </button>
-                                )}
-                              </span>
-                            )}
-                          </div>
-                          {carte.description_da && !labelPlie && <p className="max-w-3xl text-sm text-stone-500">{carte.description_da}</p>}
-                        </div>
-                      )}
-                      {!labelPlie && (
-                      <div className="flex flex-wrap gap-3">
-                        {cs.map(({ compte, aussi }) => (
-                          <TuileCompte
-                            key={compte.id + (aussi ? "-aussi" : "")}
-                            c={compte}
-                            aussi={aussi}
-                            actions={actions}
-                            occupe={occupes.has(compte.id)}
-                            source={vue === "corbeille" ? null : sourceParHandle.get(compte.handle)}
-                            blocage={vue === "corbeille" ? undefined : blocageDe(compte)}
-                            montrerBlocage={vue === "prochain_batch"}
-                          />
-                        ))}
-                      </div>
-                      )}
-                    </div>
-                    );
-                  })}
-                </div>
-                )}
-              </section>
+              <TitreApp
+                key={g.section}
+                section={g.section}
+                libelle={s.libelle}
+                sous={s.sous}
+                detail={`· ${g.total} compte${g.total > 1 ? "s" : ""}${nLabels > 0 ? `, ${nLabels} label${nLabels > 1 ? "s" : ""}` : ""}`}
+                teinte={TEINTE[g.section]}
+                plie={plie(`app:${g.section}`)}
+                onBasculer={() => pliage.basculer(`app:${g.section}`)}
+              >
+                {g.cartes.map(({ carte, comptes: cs }) => (
+                  <LigneLabel
+                    key={carte?.id ?? "sans"}
+                    cle={carte ? nomCarte(carte) : "sans_label"}
+                    nom={carte ? nomCarte(carte) : null}
+                    plie={Boolean(carte) && plie(`label:${carte!.id}`)}
+                    onBasculer={carte ? () => pliage.basculer(`label:${carte.id}`) : undefined}
+                    statuts={carte && statuts(carte)}
+                    nb={cs.length}
+                    description={carte?.description_da}
+                    actions={carte && vue !== "corbeille" && (
+                      <>
+                        {/* L'action du moment reste visible ; le reste est dans le menu. */}
+                        {carte.a_podzer && (
+                          <button type="button" onClick={() => void validerPodzDuBloc(carte, true)} title="Range ce label et ses comptes dans « Mise à jour hebdo », catégorie Podz. Rien n'est importé." className={BOUTON_BLOC_FORT}>
+                            <Check className="size-3.5" aria-hidden />
+                            Valider le podz
+                          </button>
+                        )}
+                        <MenuActions nom={`Actions du label ${nomCarte(carte)}`} entrees={menuDuLabel(carte)} />
+                      </>
+                    )}
+                  >
+                    {cs.map(({ compte, aussi }) => (
+                      <TuileCompte
+                        key={compte.id + (aussi ? "-aussi" : "")}
+                        c={compte}
+                        aussi={aussi}
+                        actions={actions}
+                        occupe={occupes.has(compte.id)}
+                        source={vue === "corbeille" ? null : sourceParHandle.get(compte.handle)}
+                        blocage={vue === "corbeille" ? undefined : blocageDe(compte)}
+                        montrerBlocage={vue === "prochain_batch"}
+                      />
+                    ))}
+                  </LigneLabel>
+                ))}
+              </TitreApp>
             );
           })}
         </div>

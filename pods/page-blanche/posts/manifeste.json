@@ -5959,7 +5959,8 @@
     "id": "7629352188019509265",
     "url_tiktok": "https://www.tiktok.com/music/x-7629352188019509265"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta B"
   },
   {
    "post_id": "7711075226846563606",
@@ -6007,6 +6008,33 @@
    "notes": "declinaison G2 de var-greenflags-1, cta A",
    "type_bleo": "declinaison",
    "parent_contenu_id": "04d9d91b-9a4d-4b2e-b1e6-4b3206bc5e59"
+  },
+  {
+   "post_id": "var-hobbies-2",
+   "url": "https://www.tiktok.com/@amayareading/video/7704751322830064929?variante=var-hobbies-1?variante=var-hobbies-2",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#hobbies #cerveau #apprendre",
+   "musique": {
+    "titre": "hold the line",
+    "auteur": "drifting.",
+    "original": false,
+    "id": "7694570671943534599",
+    "url_tiktok": "https://www.tiktok.com/music/x-7694570671943534599"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7704751322830064929_1",
+    "2": "7691007701127564576_6",
+    "3": "7697728269335924001_2",
+    "4": "7698667830635400470_4",
+    "5": "7691007701127564576_5",
+    "6": "7697728269335924001_6"
+   },
+   "notes": "declinaison G2 de var-hobbies-1, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "369d60f6-a3c4-4d20-8ab7-7768ffd83bb9"
   }
  ]
 }

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o390",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "36997aec-13f2-4096-86e3-4e102eb4c97c",
+ "titre": "What every man should know before getting serious with someone #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "36997aec-13f2-4096-86e3-4e102eb4c97c"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 1 de la boîte (36997aec, notre ay-o309), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o309 ni de 2c0cba77. Respectueux.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "73974382-7b8e-45ed-8b00-2da3166788eb",
+   "texte_overlay": "What every man should know\nbefore getting serious with someone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687926438485511431/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Know what you want. A partner, a family, a city, a lifestyle. Being clear about your future avoids years of confusion for both of you.",
+   "media_id": "8a4f344f-dd8f-4621-86c3-0d9e07101a50"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Know how you handle conflict. Do you shut down, shout or run away? Understanding yourself helps you fight fair when it matters.",
+   "media_id": "8a69c7fe-2444-4eee-a559-2b437a4adb8f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Know that love needs effort. The excitement of the beginning fades. Daily kindness, attention and respect are what make it last.",
+   "media_id": "8aa16a02-dfbe-452b-95b1-07a12bd0aa95"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Know your own family patterns. How your parents argued, loved and solved problems shapes you. Notice what you want to keep and what to change.",
+   "media_id": "8aff5421-d15b-42dd-8e18-65265aa57153"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I had little to bring to deep conversations. After: five minutes a day of history, art or science, and we never run out of things to share.",
+   "texte_sophia": "Before: I had little to bring to deep conversations. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. We never run out of things to share.",
+   "media_id": "5b7daa95-e0a3-4575-85bc-c5bbba9e73b9"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Know that trust is built slowly. Keep promises, be on time, be honest even when it's uncomfortable. Trust is made of small moments.",
+   "media_id": "8aff7bb5-9984-41b6-9a32-693ed009d3bb"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Know that you're still responsible for your own happiness. A partner adds to your life. They can't fix everything in it.",
+   "media_id": "8bc85519-98b7-45a2-87ec-f5e08a2d5166"
+  }
+ ]
+}

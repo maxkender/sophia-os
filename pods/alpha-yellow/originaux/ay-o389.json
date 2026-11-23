@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o389",
+ "type_bleo": "full_test",
+ "titre": "How to start over in a new city #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to start over in a new city » (retenue), « Moving alone at 25 » (écartée : trop étroit), « New city, new you » (écartée : slogan).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "72b7b2b9-75b8-435d-88ed-60e4a4f2a3eb",
+   "texte_overlay": "How to start over\nin a new city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Walk your new neighbourhood every day for a week. Find your café, your gym, your grocery store. Familiar places make a city feel like home faster.",
+   "media_id": "8884312e-a7cd-41ae-b2f9-9eeb1348b669"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Join one activity in the first month. A running club, a language exchange, a climbing gym. Regular activities are the easiest way to meet people.",
+   "media_id": "889cb556-3887-41e9-8818-ee36ee851fc3"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Say yes to every invitation at the start. Colleagues, neighbours, friends of friends. You can be selective later, once you know people.",
+   "media_id": "88c10ce6-29b4-4626-adb3-7ce20b53d20e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learn the history of the city. Its old streets, its famous people, its strange stories. Knowing where you live makes you love it more.",
+   "media_id": "89fba86e-e46e-4b66-94fa-dff1caca8a06"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Explore with curiosity. I do five minutes a day of history, art or science, and it helped me discover my new city in a much deeper way.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It helped me discover my new city in a much deeper way.",
+   "media_id": "4f9f0624-ad05-4412-a4d5-03a7059a7287"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keep in touch with home. A weekly call to family and old friends keeps you grounded while you build something new. Home is still home.",
+   "media_id": "8a25e598-e73d-4c63-90c6-737cb9416acd"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Give it six months. The first weeks can feel lonely. Most people say it takes about half a year before a new city truly feels like home.",
+   "media_id": "8a3a8005-f3fc-4143-a42c-ceb708e96978"
+  }
+ ]
+}

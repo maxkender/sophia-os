@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o392",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e3e85828-224b-4c2e-88ab-3ebf43534d5e",
+ "titre": "Habits of men who never lose their temper #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "e3e85828-224b-4c2e-88ab-3ebf43534d5e"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 3 de la boîte (e3e85828, sr 4,2 k r 1,47), 2e déclinaison après ay-o375. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o375.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "758cfa0e-33dc-4bd4-9b30-adc7b2d75f24",
+   "texte_overlay": "Habits of men who never\nlose their temper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They sleep enough. Tired men snap faster. A rested mind has much more patience for small annoyances. Protect your eight hours.",
+   "media_id": "8ce3658f-dfb7-4e06-822b-9b5325934195"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They walk away before they explode. \"Give me ten minutes.\" Leaving for a moment is strength, not weakness. Come back calmer.",
+   "media_id": "8d2b3d85-8548-4065-9516-84dbed95c66b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They talk about problems early. Small frustrations said calmly never grow into big angry moments. Say it early, say it kindly.",
+   "media_id": "8d810189-acf6-4134-8dc7-a61385b42d85"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They train hard. Lifting, running, boxing. Physical effort burns off the tension that would otherwise come out as anger.",
+   "media_id": "8e284b48-6113-4d54-8777-b42b127dd0f6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: small things made me angry. After: five minutes a day of history, art or science, and my mind feels calmer and more patient.",
+   "texte_sophia": "Before: small things made me angry. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. My mind feels calmer and more patient.",
+   "media_id": "683dda1a-2453-44e7-9623-3332b9914b0d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "They don't argue online. Comments, group chats, strangers. They know it's never worth their energy. Log off.",
+   "media_id": "8e6a7aee-8cac-41d0-8a6c-94dab6813ef7"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "They ask questions before judging. \"What happened?\" Understanding the full story often removes the reason to be angry.",
+   "media_id": "8f045e5e-a8a4-4f58-a7ab-fea72657ba19"
+  }
+ ]
+}

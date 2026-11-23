@@ -110,6 +110,11 @@ def main():
                  and not (re.search(r"\b(man|men|person|people|boy|guy|player)\b", leg(k))
                           and not any(w in leg(k) for w in ["back to the camera", "silhouette", "swimming", "underwater", "diving", "surfer"]))],
                 key=lambda k: (lum(k) >= 110 or texte(k), IM[k]["used_count"], k))
+  # secours quand les décors connus sont épuisés : image sombre dont la légende ne parle d'aucune personne ni d'aucun personnage
+  PERSONNE = SOPH_NON + ["face", "portrait", "couple", "screenshot", "text", "quote", "statue", "movie", "still from", "film",
+                         "knight", "scene", "his ", "her ", "woman", "man ", "men ", "person", "people", "boy", "guy", "player"]
+  soph += sorted([k for k in IM if k in FP and k not in SOPH_EXCLUS and k not in soph and lum(k) < 85
+                  and not any(w in leg(k) for w in PERSONNE)], key=lambda k: (IM[k]["used_count"], k))
   for d in D:
     if d.get("cov"): pris.append(d["cov"])
   ordre_sons = sorted(range(len(SONS)), key=lambda i: (sons20.count(SONS[i][1]), i))[:7]

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o386",
+ "type_bleo": "full_test",
+ "titre": "How to ask for a raise without feeling awkward #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to ask for a raise without feeling awkward » (retenue), « How to get paid what you're worth » (écartée : promesse trop forte), « Salary negotiation tips » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "52738aec-5c99-4a8b-8e8e-a31c852adc10",
+   "texte_overlay": "How to ask for a raise\nwithout feeling awkward",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Write down what you've achieved. Projects delivered, problems solved, money saved. Facts make the conversation about your work, not about you.",
+   "media_id": "849e54bc-b5eb-486c-a413-21c6dda6fff6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Know your market value. Check what similar jobs pay in your city. A realistic number makes your request easier to accept.",
+   "media_id": "84a816e6-c9ac-4bab-b819-8be1c9506c50"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Pick the right moment. After a success, during a review, not in the middle of a crisis. Timing changes everything. Ask for a meeting.",
+   "media_id": "84af7e76-cd94-44ca-bc89-229b70a75859"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Ask clearly and calmly. \"Based on my results this year, I'd like to discuss a raise to this amount.\" Then stop talking and listen.",
+   "media_id": "850a998d-0d36-4821-8d92-0a7cb6fc0ae9"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I never knew how to talk about my value. After: five minutes a day of history, art or science, and I speak with much more confidence.",
+   "texte_sophia": "Before: I never knew how to talk about my value. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I speak with much more confidence.",
+   "media_id": "04fca1f3-e401-44ea-8ce7-bd96bdaf8560"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "If the answer is no, ask what it would take. \"What would I need to do to reach that level?\" You leave with a clear plan.",
+   "media_id": "851580eb-86c0-4248-974c-e1d6c88bff20"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stay professional, whatever happens. Thank them for their time. Handling it with class makes the next conversation easier.",
+   "media_id": "856f2174-762f-4ac0-b65b-1150762fc640"
+  }
+ ]
+}

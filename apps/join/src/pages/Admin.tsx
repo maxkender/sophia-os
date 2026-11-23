@@ -106,7 +106,7 @@ function FicheCandidat({ id, onFermer, onDecide }: { id: string; onFermer: () =>
     if (!c) return;
     const qui = `${c.prenom} ${c.nom}`;
     if (!globalThis.confirm(decision === "accepter"
-      ? `Accepter ${qui} ? Le candidat reçoit le lien du contrat (en test : seulement les testeurs).`
+      ? `Accepter ${qui} ? Le candidat reçoit le lien du contrat (en test : seulement les testeurs). Après sa signature, il est relié à l'OS (en live).`
       : `Refuser ${qui} ? Le candidat reçoit un email de refus (en test : seulement les testeurs).`)) return;
     setEnvoi(true);
     setErreur("");
@@ -244,8 +244,10 @@ export default function Admin() {
   async function basculer() {
     const cible = !auto;
     const texte = cible
-      ? `Allumer l'acceptation automatique ?\n\nUne candidature qui remplit les conditions sera acceptée seule et, après la signature, l'identité OS sera créée tout de suite${mode === "test" ? " (SIMULÉE tant que Join est en mode test)" : ""}.`
+      ? "Allumer l'acceptation automatique ?\n\nUne candidature qui remplit les conditions sera acceptée seule (sans ta décision)."
       : "Éteindre l'acceptation automatique ?\n\nToutes les candidatures attendront ta décision.";
+    // L'interrupteur ne décide que de l'acceptation : tout candidat accepté est relié à l'OS après sa signature
+    // (en live ; simulé en mode test).
     if (!globalThis.confirm(texte)) return;
     const r = await appelerAdmin<{ auto_acceptation: boolean }>("admin_reglage", { auto_acceptation: cible });
     if (r.ok) setAuto(r.auto_acceptation);

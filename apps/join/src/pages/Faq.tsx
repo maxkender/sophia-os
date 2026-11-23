@@ -10,7 +10,7 @@ export default function Faq({ t, onContrat, onPrivacy }: { t: T; onContrat: () =
           <h2 className="h2">{t("faq.title")}</h2>
         </div>
         <div className="faq">
-          {[1, 2, 3, 4, 5, 6].map((n) => (
+          {[1, 2, 3, 4, 5, 6, 7].map((n) => (
             <details key={n} className="carte faq__item">
               <summary className="h3">{t(`faq.${n}.q`)}</summary>
               <p>{t(`faq.${n}.a`)}</p>

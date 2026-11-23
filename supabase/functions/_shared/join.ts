@@ -526,10 +526,14 @@ export function lundiLisible(jour: string): string {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
-// Contrat (join-v3 : join-v2 + l'identité complète de la société en tête, 23/11 ; clauses inchangées)
+// Contrat. join-v3 : join-v2 + l'identité complète de la société en tête (23/11). join-v4 (23/11, Max) : join-v3 +
+// deux phrases, rien d'autre (vérifié par join_test.ts) : frais Ruul payés par la société, pas d'exclusivité.
 // ---------------------------------------------------------------------------------------------------------------
 
-export const CONTRAT_VERSION = "join-v3";
+export const CONTRAT_VERSION = "join-v4";
+
+/** Les deux phrases ajoutées en join-v4 (clause 4 « Payment », clause 2 « Independent status »). */
+export const CONTRAT_AJOUTS_V4 = { frais_ruul: "Ruul fees are paid by the Company.", exclusivite: "This agreement is not exclusive." } as const;
 
 /** L'en-tête du contrat : l'identité complète de la société (aucune coordonnée bancaire). */
 export const CONTRAT_SOCIETE = `${SOCIETE.nom} (trade name: ${SOCIETE.nom_commercial}), a French ${SOCIETE.forme} with a share capital of ${SOCIETE.capital}
@@ -557,13 +561,13 @@ and the person signing below under their legal name ("the Creator").
 The Creator publishes, on TikTok accounts provided or approved by the Company, content prepared by the Company (two slideshows a day unless the dashboard says otherwise), following the instructions shown in the Creator dashboard.
 
 2. Independent status
-The Creator acts as an independent freelancer. Nothing in this agreement creates an employment relationship, a partnership or an agency. The Creator organises their own work and uses their own devices.
+The Creator acts as an independent freelancer. Nothing in this agreement creates an employment relationship, a partnership or an agency. The Creator organises their own work and uses their own devices. ${CONTRAT_AJOUTS_V4.exclusivite}
 
 3. Taxes and social contributions
 The Creator is solely responsible for declaring their income and paying any taxes, social contributions or other charges due in their country of residence.
 
 4. Payment
-The Creator is paid per week of published posts, at the rate of their country's pay zone shown on the Join page at the time of signing. The Creator is paid every Monday for the posts of the week before (Monday to Sunday). Payments are made through Ruul, a third-party payment platform, to the Ruul account of the email given at signature. The Company's payment obligation is fully discharged once the amount is paid to Ruul. Any problem with receiving funds from Ruul (account, identity checks, fees, delays, withdrawals) must be raised with Ruul support directly.
+The Creator is paid per week of published posts, at the rate of their country's pay zone shown on the Join page at the time of signing. The Creator is paid every Monday for the posts of the week before (Monday to Sunday). Payments are made through Ruul, a third-party payment platform, to the Ruul account of the email given at signature. ${CONTRAT_AJOUTS_V4.frais_ruul} The Company's payment obligation is fully discharged once the amount is paid to Ruul. Any problem with receiving funds from Ruul (account, identity checks, fees, delays, withdrawals) must be raised with Ruul support directly.
 
 5. Ownership of accounts and content
 All TikTok accounts created or used for this work, their usernames, followers, and all content published on them belong exclusively to the Company. The Creator hands over all access on request and at the end of the agreement, and does not change passwords, usernames or content without the Company's instructions.

@@ -2,6 +2,7 @@ import { assert, assertEquals, assertMatch } from "jsr:@std/assert@1";
 
 import {
   type CandidatureJoin,
+  CONTRAT_AJOUTS_V4,
   CONTRAT_RESUME,
   CONTRAT_TEXTE,
   cohorteASignature,
@@ -177,10 +178,21 @@ Deno.test("premier post : lundi suivant, +7 si warm-up pas fini avant dimanche 2
   assertEquals(lundiLisible("2026-11-30"), "Monday 30 November");
 });
 
-Deno.test("contrat v3 : identité complète de la société en tête, plus de cases vides, clauses gardées", () => {
+Deno.test("contrat v4 = v3 + frais Ruul + non-exclusivité, le reste identique", async () => {
+  assert(CONTRAT_TEXTE.includes("join-v4"));
+  assert(CONTRAT_TEXTE.includes("given at signature. Ruul fees are paid by the Company. The Company's payment obligation"));
+  assert(CONTRAT_TEXTE.includes("uses their own devices. This agreement is not exclusive.\n"));
+  // Les deux phrases retirées et la version remise : exactement le texte join-v3 (empreinte du texte v3 publié).
+  const v3 = CONTRAT_TEXTE.replace(` ${CONTRAT_AJOUTS_V4.frais_ruul}`, "").replace(` ${CONTRAT_AJOUTS_V4.exclusivite}`, "")
+    .replace("(version join-v4)", "(version join-v3)");
+  assertEquals(await sha256Hex(v3), "3b26b134a70966d251b8485e772c0c5d475493d2623ead6e72567b39d06bd8ff");
+  // Le résumé est inchangé.
+  assertEquals(await sha256Hex(JSON.stringify(CONTRAT_RESUME)), "0d649acca27b58fe95843a0482c1454cd88503ee946837fcb6c6b7f62bbbee98");
+});
+
+Deno.test("contrat : identité complète de la société en tête, plus de cases vides, clauses gardées", () => {
   assertEquals(CONTRAT_RESUME.length, 6);
   assert(CONTRAT_TEXTE.includes("Vik Studios SAS"));
-  assert(CONTRAT_TEXTE.includes("join-v3"));
   for (const m of ["103 372 421", "103 372 421 00018", "RCS Paris", "FR30103372421", "30 boulevard de Sébastopol, 75004 Paris", "Maximilien Kender", "2 €", "support@vikstudios.com"]) {
     assert(CONTRAT_TEXTE.includes(m), m);
   }

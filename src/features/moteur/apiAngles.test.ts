@@ -31,7 +31,7 @@ describe("apiAngles", () => {
 
   it("créer : vide ou trop long refusé avant tout appel", async () => {
     await expect(creerAnglePlacement("L", "A", "   ", "test")).rejects.toThrow(/vide/);
-    await expect(creerAnglePlacement("L", "A", "x".repeat(501), "test")).rejects.toThrow(/500/);
+    await expect(creerAnglePlacement("L", "A", "x".repeat(2001), "test")).rejects.toThrow(/2000/);
     expect(rpc).not.toHaveBeenCalled();
   });
 

@@ -3918,6 +3918,12 @@ export const fr = {
       aucuneAppli: "aucune appli",
       supprimer: "Supprimer le label {{nom}}",
       applisServies: "Applications servies",
+      daTitre: "DA et comptes de référence",
+      daMiniature: "Slide de @{{handle}}",
+      daAucune: "Pas encore d’aperçu : aucune source importée ni DA décrite dans la Bible.",
+      referencesTitre_one: "{{count}} compte de référence",
+      referencesTitre_other: "{{count}} comptes de référence",
+      referencesAucune: "Aucun compte de référence ne porte ce label.",
       anglesTitre: "Angles",
       anglesSansApp: "Ce label ne sert aucune application : il n’a pas d’angle. Coche une application ci-dessus pour lui en donner.",
       groupes: {

@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o166",
+  "type_bleo": "full_test",
+  "titre": "what i do in the first week of a new term so i don't fall behind #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« new term » absent du label). Accroches écrites : « what i do in the first week of a new term so i don't fall behind » (retenue : un moment précis, une promesse concrète), « new semester reset » (écartée : vague), « start the term strong » (écartée : plate). Gestes vrais : noter toutes les dates d'examens, un cahier ou un dossier par matière, relire chaque cours le soir même, repérer la matière qui demandera le plus, une nouvelle habitude de curiosité (slide Sophia, 5), poser une question dès la première semaine. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8e65df7f",
+      "texte_overlay": "what i do in the first week of a new term\nso i don't fall behind",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d70e91ff",
+      "texte_overlay": "every test and deadline goes in my planner. day one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9a3a616a",
+      "texte_overlay": "one folder per subject, labelled.\nno loose sheets in my bag.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "fc64deec",
+      "texte_overlay": "i reread each lesson the same evening.\n10 minutes while it's fresh.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8f70b5f0",
+      "texte_overlay": "i start one small new habit:\n5 minutes a day learning something outside school.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i start one small new habit:\n5 minutes a day on a micro-learning app like the Sophia app.\nhistory, art, science, outside school."
+    },
+    {
+      "position": 6,
+      "media_id": "a65c5f9a",
+      "texte_overlay": "i spot the subject that will need the most work.\nit gets the first slot every week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2881c69c",
+      "texte_overlay": "i ask one question in every class that first week.\nit makes the next ones easier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

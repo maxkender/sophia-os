@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o170",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "82048053-2cd3-46ee-a81c-9b8f9c429e6b",
+  "titre": "how to reach your full potential this school year part 2 #studytok #studytips #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "82048053-2cd3-46ee-a81c-9b8f9c429e6b"
+  ],
+  "notes": "Déclinaison G1 de 82048053 (r 16,59 en turc, 9,5 k vues en allemand), ligne 7 de la boîte. Accroche du parent mot pour mot. Conseils neufs, aucun du parent (heures libres, commencer le jour même, être utile en groupe, poser les questions tout de suite, comprendre une mauvaise note, relire le jour même) ni de cs-o144 (part 1) : un objectif écrit par matière, dormir à heure fixe, réviser par petites séances espacées, nourrir sa curiosité chaque jour (slide Sophia, 5), garder ses anciens contrôles, se récompenser pour l'effort. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "17695575",
+      "texte_overlay": "how to reach your full\npotential this\nschool year\npart 2",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1b2d1cfa",
+      "texte_overlay": "write one goal per subject\nput it where you see it every day.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "80cf32ef",
+      "texte_overlay": "same bedtime every school night\nyour memory works while you sleep.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6ad6dcbe",
+      "texte_overlay": "short sessions, spread out\n3 x 20 minutes beats 1 hour the night before.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a2d44e4b",
+      "texte_overlay": "feed your curiosity every day\nlearn one thing outside your classes, just because.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "feed your curiosity every day\none thing outside your classes on a micro-learning app\nlike the Sophia app. just because."
+    },
+    {
+      "position": 6,
+      "media_id": "ff4a7aa0",
+      "texte_overlay": "keep your old tests\nthey show exactly what your teacher asks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "837d17ed",
+      "texte_overlay": "reward the effort, not just the grade\nshowing up every day is the real win.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

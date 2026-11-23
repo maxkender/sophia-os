@@ -1,0 +1,51 @@
+{
+  "source_id": "cs-o169",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "80af0878-f7be-4c4c-a6a2-96b3deda3302",
+  "titre": "things i do IN CLASS because i refuse to relearn everything at home like i was literally there the first time??? #studytok #studytips #school",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "80af0878-f7be-4c4c-a6a2-96b3deda3302"
+  ],
+  "notes": "Déclinaison G1 de 80af0878 (r 3,28 en français), ligne 6 de la boîte. Accroche du parent mot pour mot. Gestes neufs, aucun du parent (« ? » à côté de ce qu'on comprend presque, quiz après le cours, inventer un autre exemple, noter ce qui n'est pas sur les diapos, répondre dans sa tête) : deviner la suite avant le prof, résumer à voix basse chaque partie, une question à la fin du cours, relier à ce qu'on sait déjà grâce à la culture générale (slide Sophia, 5), noter les mots du prof qu'il répète. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "cd19e8bb",
+      "texte_overlay": "things i do IN CLASS\nbecause i refuse to relearn\neverything at home\n\nlike i was literally there the\nfirst time???",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c0086b41",
+      "texte_overlay": "i try to guess the next step before the teacher writes it.\nright or wrong, i'm paying attention.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3f846980",
+      "texte_overlay": "after each part, i sum it up in one line.\nin my own words.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d31d1a45",
+      "texte_overlay": "i write down anything the teacher says twice.\nthat's the test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "497e1174",
+      "texte_overlay": "i connect it to something i already know.\nhistory, art, science: everything links up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i connect it to something i already know.\ni pick up a lot on a micro-learning app like the Sophia app:\nhistory, art, science. everything links up."
+    },
+    {
+      "position": 6,
+      "media_id": "6b91ea02",
+      "texte_overlay": "one question before i leave.\nbefore the confusion has time to grow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

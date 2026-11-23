@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o173",
+  "type_bleo": "full_test",
+  "titre": "what i listen to while studying (and what i stopped listening to) #studytok #studytips #focus",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [],
+  "notes": "Full test (BLEO), ajouté en 9e livraison : la déclinaison de bb2eeefa tentée sous cet id a été refusée par le guichet (accroche_voisine), et la boîte n'avait plus de ligne utilisable aujourd'hui (§4.2). Accroche jamais faite chez nous (la musique d'étude n'a pas d'accroche dans le label). Accroches écrites : « what i listen to while studying (and what i stopped listening to) » (retenue : un sujet que tout le monde a, avec un avant/après), « best study playlists » (écartée : il faudrait citer des titres), « does music help you study? » (écartée : question sans réponse vraie et simple). Gestes vrais : pas de paroles pour lire, du silence pour apprendre par cœur, le même fond sonore pour se mettre en route, le volume bas, la pause sans écouteurs où l'on apprend autre chose (slide Sophia, 5), choisir la musique avant de commencer. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1173f833",
+      "texte_overlay": "what i listen to while studying\n(and what i stopped listening to)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d5cfbf76",
+      "texte_overlay": "stopped: songs with lyrics while reading.\ntwo sets of words fighting in my head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bab96c09",
+      "texte_overlay": "now: instrumental only, low volume.\nbackground, not a concert.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8c90de2e",
+      "texte_overlay": "for memorizing: total silence.\nthat's where it sticks best.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2dff9a74",
+      "texte_overlay": "on breaks, headphones off.\n5 minutes learning something new instead.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "on breaks, headphones off.\n5 minutes on a micro-learning app like the Sophia app instead.\nhistory, art, science."
+    },
+    {
+      "position": 6,
+      "media_id": "0021045c",
+      "texte_overlay": "the same sound every session.\nmy brain knows it's work time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3aecfbb0",
+      "texte_overlay": "and i pick it BEFORE i start.\nchoosing songs is how the scrolling begins.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

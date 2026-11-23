@@ -57,6 +57,7 @@ import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import { type AbsenceLue, lireReponseAbsence, parleAbsence, promptAbsence } from "../_shared/absence_message.ts";
 import { estManque, OBJET_KYC, texteKyc } from "../_shared/ruul_kyc.ts";
+import { CAS_REPORTES, casReporte, texteRappelReporte } from "../_shared/ruul_rappel_reportes.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { ADRESSE_CONNEXION, adresseDeConnexion, slackEnPause } from "../_shared/ruul_adresses.ts";
 import { connecter, lienRuul, lireReglageConnect } from "../_shared/ruul_connect.ts";
@@ -218,6 +219,11 @@ Deno.serve(async (request) => {
     // 21/11 (Max, point 9 A) : la relance « posts » une seule fois (email + bandeau, texte du point 2) ; liste d'abord.
     if (body?.action === "relance_posts_unique") return json(await relancePostsUnique(supabase, String(body?.lundi ?? ""), body?.confirmer === true));
     if (body?.action === "kyc_renvoi") return json(await kycRenvoi(supabase, body?.confirmer === true));
+    // 23/11 (Max) : le rappel aux « reportés » d'un lot (pas encore READY chez Ruul) : email à l'adresse Ruul + Slack ;
+    // liste d'abord, envoi avec confirmer: true ; « relance » (cron du jeudi) : seulement ceux encore pas READY.
+    if (body?.action === "rappel_reportes") {
+      return json(await rappelReportes(supabase, typeof body?.semaine === "string" ? body.semaine : null, body?.confirmer === true, body?.relance === true));
+    }
     // 21/11 (Max) : bloqué sur Ruul depuis 7 jours malgré le support : on propose Upwork (une fois).
     if (body?.action === "upwork_7j") return json(await proposerUpwork7j(supabase, body?.simuler === true));
     // 19/11 (Max) : la relance KYC qui n'est pas arrivée par email (depuis une date) passe en bandeau sur le dashboard.
@@ -607,6 +613,81 @@ async function kycRenvoi(supabase: Supabase, confirmer: boolean) {
     return { ok: true, simulation: true, a_renvoyer: dues.length, par_manque: parManque, consigne: "rien n'est parti : confirmer: true pour envoyer" };
   }
   return await envoyerRelancesKyc(supabase, dues, false);
+}
+
+/** Le lundi de la semaine payée par le lot de ce lundi (heure de Paris) : le lundi d'il y a 7 jours (ou plus tard dans la semaine). */
+function semaineDuDernierLot(maintenant = new Date()): string {
+  const [a, m, j] = new Intl.DateTimeFormat("en-CA", { timeZone: PARIS }).format(maintenant).split("-").map(Number);
+  const d = new Date(Date.UTC(a, m - 1, j));
+  const iso = (d.getUTCDay() + 6) % 7;
+  d.setUTCDate(d.getUTCDate() - iso - 7);
+  return d.toISOString().slice(0, 10);
+}
+
+/**
+ * 23/11 (Max) : le rappel aux posteurs « reportés » d'un lot Ruul (statut reporte, pas encore READY chez Ruul), adapté à
+ * leur statut Ruul (KYC, moyen de paiement, compte pas créé), avec leur prénom et leur montant. Email à l'adresse Ruul
+ * seulement (jamais le login @sophia.com), plus le même texte en DM Slack s'il est relié (DM en pause : pas une erreur).
+ * Un posteur passé READY n'est plus relancé (le lot suivant le reprend en rattrapage). Une fois par jour et par posteur.
+ */
+async function rappelReportes(supabase: Supabase, semaineDemandee: string | null, confirmer: boolean, relance: boolean) {
+  const semaine = semaineDemandee && /^\d{4}-\d{2}-\d{2}$/.test(semaineDemandee) ? semaineDemandee : semaineDuDernierLot();
+  const { data, error } = await supabase.from("ruul_paiements")
+    .select("poster_id, montant, bonus, raison_report, profiles!inner(prenom, ruul_email, ruul_onboarding, ruul_jeton, slack_user_id, canal_paie, relances_stop_at)")
+    .eq("semaine", semaine).eq("statut", "reporte").like("raison_report", "%pas encore READY%");
+  if (error) throw error;
+  type Ligne = { poster_id: string; montant: number | string | null; bonus: number | string | null; raison_report: string | null; profiles: { prenom: string | null; ruul_email: string | null; ruul_onboarding: string | null; ruul_jeton: string | null; slack_user_id: string | null; canal_paie: string | null; relances_stop_at: string | null } };
+  const lignes = (data ?? []) as unknown as Ligne[];
+  const { data: npc } = await supabase.from("ne_plus_contacter").select("poster_id").in("poster_id", lignes.map((l) => l.poster_id));
+  const arretes = new Set((npc ?? []).map((x: { poster_id: string }) => x.poster_id));
+  const jour = new Intl.DateTimeFormat("en-CA", { timeZone: PARIS }).format(new Date());
+  const etape = `reporte:${semaine}:${jour}`;
+  const bilan: { poster: string; prenom: string | null; cas: string | null; montant: number; canaux: string[]; ignore: string | null; erreur: string | null }[] = [];
+  for (const l of lignes) {
+    const p = l.profiles;
+    const montant = Number(l.montant ?? 0) + Number(l.bonus ?? 0);
+    const cas = casReporte(p.ruul_onboarding, l.raison_report);
+    const base = { poster: l.poster_id, prenom: p.prenom, cas, montant, canaux: [] as string[], erreur: null as string | null };
+    const email = (p.ruul_email ?? "").trim();
+    let ignore: string | null = null;
+    if (p.ruul_onboarding === "READY") ignore = "READY : repris dans le lot suivant";
+    else if (!cas) ignore = `statut Ruul ${p.ruul_onboarding ?? "?"} : pas un des 3 cas`;
+    else if (arretes.has(l.poster_id) || p.relances_stop_at) ignore = "arrêté / STOP";
+    else if (!(montant > 0)) ignore = "montant 0";
+    else if (!email || adresseDeConnexion(email)) ignore = "pas d'adresse Ruul (jamais le login @sophia.com)";
+    if (!ignore && relance) {
+      const { count } = await supabase.from("ruul_email_relances").select("poster_id", { count: "exact", head: true })
+        .eq("poster_id", l.poster_id).like("etape", `reporte:${semaine}:%`);
+      if (!count) ignore = "jamais reçu le premier rappel";
+    }
+    if (!ignore) {
+      const { data: deja } = await supabase.from("ruul_email_relances").select("poster_id").eq("poster_id", l.poster_id).eq("etape", etape).maybeSingle();
+      if (deja) ignore = "déjà envoyé aujourd'hui";
+    }
+    if (ignore || !confirmer) { bilan.push({ ...base, ignore }); continue; }
+    const t = texteRappelReporte(cas!, p.prenom, montant, email);
+    const lienStop = p.ruul_jeton ? `${URL_FONCTION}?stop=${p.ruul_jeton}` : "";
+    const e = await emailTraduit(supabase, l.poster_id, { objet: t.objet, corps: t.corps, bouton: { texte: "Open Ruul", lien: "https://app.ruul.io" }, lienStop, sansPied: cas === "NOT_REGISTERED" }, [p.prenom, email]);
+    const r = await envoyerEmail(email, e.objet, e.html, e.texte, lienStop, ["ruul", "rappel_reporte", cas!, semaine, relance ? "jeudi" : "lundi"]);
+    if (r.ok) base.canaux.push("email");
+    else base.erreur = `email : ${r.erreur}`;
+    if (p.slack_user_id) {
+      const sl = await ecrireAuPosteur(supabase, l.poster_id, `${t.objet}\n\n${t.corps}`, fetch, undefined, { malgreStop: "paie" });
+      if (sl.statut === "envoye") base.canaux.push("slack");
+      else if (!slackEnPause(sl)) base.erreur = base.erreur ?? `slack : ${"erreur" in sl ? String(sl.erreur) : sl.statut}`;
+      else base.canaux.push("slack_en_pause");
+    }
+    await supabase.from("ruul_email_relances").upsert({ poster_id: l.poster_id, etape, canaux: base.canaux, erreur: base.erreur });
+    bilan.push({ ...base, ignore: null });
+  }
+  const envoyes = bilan.filter((b) => b.canaux.includes("email")).length;
+  return {
+    ok: true, semaine, simulation: !confirmer, relance, total: lignes.length,
+    a_envoyer: bilan.filter((b) => !b.ignore).length, envoyes,
+    slack: bilan.filter((b) => b.canaux.includes("slack")).length, slack_en_pause: bilan.filter((b) => b.canaux.includes("slack_en_pause")).length,
+    par_cas: Object.fromEntries(CAS_REPORTES.map((c) => [c, bilan.filter((b) => !b.ignore && b.cas === c).length])),
+    lignes: bilan,
+  };
 }
 
 async function envoyerRelancesKyc(supabase: Supabase, dues: RelanceKyc[], simuler: boolean) {

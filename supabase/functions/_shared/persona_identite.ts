@@ -7,7 +7,7 @@
  *  - le format classique, `prenom.mot` + 3 chiffres (« jakob.disziplin473 ») :
  *    prénom selon la LANGUE et le GENRE du compte, mot selon le thème du LABEL,
  *    dans la langue du compte ou en anglais ;
- *  - les @ VARIÉS (`THEMES_VARIES`, aujourd'hui le running d'Atala) : une forme
+ *  - les @ VARIÉS (`THEMES_VARIES` : le running d'Atala, l'art d'Artura) : une forme
  *    différente à chaque compte, et un mot du thème moins d'une fois sur cinq.
  *    Voir persona_handles_varies.ts.
  */
@@ -27,8 +27,9 @@ const CHIFFRES = 3;
  * Le running d'abord (19/11) : trente comptes Atala « prenom.<mot de course>123 »
  * se reconnaissaient au premier coup d'œil. Ajouter un thème ici suffit à le
  * faire passer aux @ variés (ses mots restent ceux de persona_donnees.ts).
+ * L'art ensuite (23/11) : mêmes raisons pour les comptes Artura.
  */
-export const THEMES_VARIES: ReadonlySet<ThemeMots> = new Set<ThemeMots>(["running"]);
+export const THEMES_VARIES: ReadonlySet<ThemeMots> = new Set<ThemeMots>(["running", "art"]);
 
 /** Part des @ dont le mot est pris dans la langue du compte (le reste : anglais). */
 const PART_MOT_LOCAL = 0.65;
@@ -104,7 +105,7 @@ function composerIdentiteVariee(
     const prenom = tirer(prenoms, "alex");
     const nomFamille = tirer(jeu.noms, "martin");
     const handle = tirerHandleVarie(
-      { prenom, nomFamille, genre: entree.genre, langue: entree.langue, annee: entree.annee, motsTheme },
+      { prenom, nomFamille, genre: entree.genre, langue: entree.langue, annee: entree.annee, motsTheme, theme },
       hasard,
     );
     const candidat = { handle, prenom, nomFamille };

@@ -3958,6 +3958,7 @@ export const fr = {
       },
       themes: {
         running: "running",
+        art: "art",
         etude: "études",
         carriere: "carrière",
         psycho: "psycho",

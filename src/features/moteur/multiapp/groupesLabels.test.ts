@@ -83,6 +83,15 @@ describe("identité que le nom d'un label donne à ses comptes", () => {
     expect(identiteDuNom("", null)).toMatchObject({ theme: "default", attendu: null });
   });
 
+  it("Artura attend des labels d'art (« _art »)", () => {
+    expect(identiteDuNom("art_girl", "artura")).toMatchObject({ theme: "art", attendu: null });
+    expect(identiteDuNom("museum_girl", "artura").varies).toEqual(EXEMPLES_VARIES.art);
+    expect(identiteDuNom("smart_girl", "artura").attendu).toEqual({ theme: "art", suffixe: "_art" });
+    expect(genreDuLabel("art_girl")).toBe("femme");
+    expect(nicheDuLabel("art_girl")).toBe("art");
+    expect(nicheDesLabels(["white_bg", "museum_girl"])).toBe("art");
+  });
+
   it("annonce des @ variés pour les mêmes thèmes que le moteur, avec des exemples valides", () => {
     expect(Object.keys(EXEMPLES_VARIES).sort()).toEqual([...THEMES_VARIES].sort());
     for (const exemples of Object.values(EXEMPLES_VARIES)) {

@@ -65,6 +65,41 @@ describe("thème des mots", () => {
     expect(themeDuLabel("white_female_run")).toBe("default");
   });
 
+  it("donne aux labels d'art (Artura) leurs mots d'art, en mot entier seulement", () => {
+    for (const label of ["art_girl", "museum_girl", "painting_male", "arthistory", "artsy_clean_girl", "Renaissance"]) {
+      expect(themeMotsDuLabel(label), label).toBe("art");
+    }
+    // « smart », « start », « party », « partner » contiennent « art » : pas de l'art.
+    for (const label of ["smart_girl", "beau_smart_girl", "start_up", "party_girl", "partner"]) {
+      expect(themeMotsDuLabel(label), label).not.toBe("art");
+    }
+    // Le running passe avant l'art.
+    expect(themeMotsDuLabel("art_run")).toBe("running");
+    // Les thèmes d'avant aussi : `psych_art` (label existant) garde son identité psycho.
+    expect(themeMotsDuLabel("psych_art")).toBe("psycho");
+    expect(motsDuHandle("art_girl", "fr").locaux).toContain("peinture");
+    expect(motsDuHandle("art_girl", "ja").locaux).toContain("bijutsu");
+    expect(motsDuHandle("art_girl", "de").universels).toContain("monet");
+    // Le genre et la photo de profil restent ceux de la famille du label.
+    expect(themeDuLabel("art_girl")).toBe("smart_girl");
+    expect(themeDuLabel("painting_male")).toBe("alpha_male");
+  });
+
+  it("a des mots et des bios d'art dans toutes les langues des comptes", () => {
+    for (const langue of Object.keys(NOMS_PAR_LANGUE)) {
+      expect(MOTS_PAR_THEME.art[langue]?.length ?? 0, langue).toBeGreaterThanOrEqual(10);
+      for (const mot of MOTS_PAR_THEME.art[langue]!) expect(mot, `${langue} ${mot}`).toMatch(/^[a-z]+$/);
+    }
+    for (const mot of MOTS_UNIVERSELS.art) expect(mot).toMatch(/^[a-z]+$/);
+    const hasard = hasardFixe(9);
+    for (const langue of Object.keys(NOMS_PAR_LANGUE)) {
+      for (let i = 0; i < 40; i += 1) {
+        const bio = composerBio({ prenom: "lea", langue, theme: "art", annee: 2026 }, hasard);
+        expect([...bio].length, bio).toBeLessThanOrEqual(BIO_MAX);
+      }
+    }
+  });
+
   it("ne change pas le thème qui règle le genre et la photo de profil", () => {
     expect(themeDuLabel("clean_study")).toBe("clean_girl");
     expect(themeDuLabel("RH")).toBe("default");
@@ -73,6 +108,29 @@ describe("thème des mots", () => {
 
 // 19/11 (Adrien) : « c'est trop cramé, c'est toujours la même chose ». Les
 // comptes Atala ne s'appellent plus tous `prenom.<mot de course>123`.
+describe("@ variés (art, Artura)", () => {
+  it("donne des @ valides, variés, sans mot de course ; un mot d'art moins d'une fois sur cinq", () => {
+    const hasard = hasardFixe(47);
+    const handles = Array.from({ length: 1000 }, () =>
+      composerIdentite(
+        { langue: "en", genre: "femme", labelNom: "art_girl", racinesPrises: new Set(), nomsPris: new Set(), annee: 2026 },
+        hasard,
+      ).handle,
+    );
+    for (const h of handles) {
+      expect(h, h).toMatch(HANDLE_VALIDE);
+      expect(h.length, h).toBeLessThanOrEqual(HANDLE_MAX);
+      expect(h, h).toMatch(/\d{2,4}/);
+      expect(h, h).not.toMatch(/miles|strides|laps|runs/);
+    }
+    const motsArt = new Set([...MOTS_UNIVERSELS.art, ...MOTS_PAR_THEME.art.en!]);
+    const avecArt = handles.filter((h) => h.split(/[._\d]+/).some((m) => motsArt.has(m))).length;
+    expect(avecArt / handles.length).toBeGreaterThan(0.03);
+    expect(avecArt / handles.length).toBeLessThan(0.25);
+    expect(new Set(handles).size / handles.length).toBeGreaterThan(0.97);
+  });
+});
+
 describe("@ variés (running, Atala)", () => {
   const MOTS_COURSE = new Set([
     ...MOTS_UNIVERSELS.running,
@@ -91,7 +149,7 @@ describe("@ variés (running, Atala)", () => {
   };
 
   it("ne prend le format classique pour aucun label de running ; les autres labels le gardent", () => {
-    expect([...THEMES_VARIES]).toEqual(["running"]);
+    expect([...THEMES_VARIES]).toEqual(["running", "art"]);
     const hasard = hasardFixe(2);
     const classiques = Array.from({ length: 200 }, () =>
       composerIdentite(

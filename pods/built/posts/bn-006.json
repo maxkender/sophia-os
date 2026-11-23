@@ -1,0 +1,91 @@
+{
+ "id": "bn-006",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7707980369747823880",
+  "vues": 494600,
+  "publie_le": "2026-11-14",
+  "accroche": "GLOW UP HACKS FOR MEN."
+ },
+ "titre": {
+  "en": "glow up rules every man needs"
+ },
+ "legendes": {
+  "en": "small changes, big glow up #glowup #selfimprovement #tipsformen #running #mensgrooming"
+ },
+ "musique": {
+  "titre": "FUNDO DE VIDEO",
+  "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
+ },
+ "notes": "Full test (boîte vide, aucun post neuf chez lui à la veille du 23/11). Famille « GLOW UP HACKS FOR MEN. » de @built.not.born61 (494.6 k vues, 2026-11-14), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : f2d52765, aucune marque lisible) et le logo d'Atala. placement_atala : voix TOUCHE PERSO (hook de 6 mots), argument « fit / glow up : 2 ou 3 sorties par semaine avec un plan ». Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-capuche.png": "f2d52765-261e-4e20-83fa-3b6b910db625"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-6.png",
+   "en": {
+    "titre": "GLOW UP RULES\nEVERY MAN NEEDS."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/nettoyant.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "1. Wash your face",
+    "texte": "Twice a day, then a simple moisturizer. Clear skin is the easiest glow up there is."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/brosse.png",
+   "mode": "objet",
+   "taille": 460,
+   "en": {
+    "titre": "2. Keep your smile bright",
+    "texte": "Brush twice a day and floss at night. A clean smile is the first thing people notice."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-capuche.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Start running",
+    "texte": "Easy runs 2 or 3 times a week, no rush. Personally, I follow a plan from a running coach app like Atala."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/masque.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "4. Sleep in the dark",
+    "texte": "Cool, dark and quiet room. Better sleep shows on your face the next morning."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/posture.png",
+   "mode": "bas",
+   "taille": 440,
+   "en": {
+    "titre": "5. Stand tall",
+    "texte": "Shoulders back, chin level, chest open. Good posture makes any outfit look better."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-2.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

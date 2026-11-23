@@ -9,7 +9,7 @@ import type { DonneesSources, SourceBible } from "./sources";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), lancerBatch: vi.fn(), validerCarte: vi.fn(), changerCarte: vi.fn(),
-  validerPodz: vi.fn(), marquerPodz: vi.fn(), rattacherCarte: vi.fn(), detacherCarte: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
+  validerPodz: vi.fn(), marquerPodz: vi.fn(), rattacherCarte: vi.fn(), detacherCarte: vi.fn(), fusionnerCartes: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
   modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
@@ -99,6 +99,7 @@ describe("rangement du moodboard", () => {
 describe("page Bible", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    localStorage.clear();
     api.lireCartes.mockResolvedValue(CARTES);
     api.changerEtape.mockResolvedValue(undefined);
     src.lireSources.mockResolvedValue(donnees());
@@ -465,6 +466,63 @@ describe("page Bible", () => {
     const pris = screen.getByText("History").closest("[data-carte]") as HTMLElement;
     fireEvent.click(within(pris).getByRole("button", { name: "Annuler le rattachement" }));
     await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k4"));
+  });
+
+  it("une app et un label se replient et se déplient (retenu d'une visite à l'autre) ; « Replier les labels », « Tout déplier »", async () => {
+    api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c3", handle: "chiara", label_propose_id: "k3" }), compte({ id: "c4", handle: "etude", label_propose_id: "k2" })]);
+    const { unmount } = rendre();
+    await screen.findByText("@chiara");
+    // Replier l'app Atala : ses labels et ses comptes disparaissent, son en-tête reste avec ses chiffres.
+    fireEvent.click(screen.getByRole("button", { name: "Replier Atala" }));
+    expect(screen.queryByText("@compte.un")).toBeNull();
+    expect(screen.queryByText("classic_girl_run")).toBeNull();
+    expect(document.querySelector("[data-section=atala]")).toHaveTextContent("1 compte, 1 label");
+    // Replier un label : son nom reste, ses comptes et sa DA disparaissent.
+    fireEvent.click(screen.getByRole("button", { name: "Replier smart_girl" }));
+    expect(screen.queryByText("@chiara")).toBeNull();
+    expect(screen.getByText("smart_girl")).toBeInTheDocument();
+    expect(screen.getByText("@etude")).toBeInTheDocument();
+    // Retenu : la page rouverte garde ce qui était replié.
+    unmount();
+    rendre();
+    await screen.findByText("@etude");
+    expect(screen.queryByText("@compte.un")).toBeNull();
+    expect(screen.queryByText("@chiara")).toBeNull();
+    // « Replier les labels » : les apps s'ouvrent, chaque label est replié.
+    fireEvent.click(screen.getByRole("button", { name: /Replier les labels/ }));
+    expect(screen.getByText("classic_girl_run")).toBeInTheDocument();
+    expect(screen.queryByText("@compte.un")).toBeNull();
+    expect(screen.queryByText("@etude")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: /Tout déplier/ }));
+    expect(screen.getByText("@compte.un")).toBeInTheDocument();
+    expect(screen.getByText("@chiara")).toBeInTheDocument();
+    expect(screen.getByText("@etude")).toBeInTheDocument();
+  });
+
+  it("« Fusionner » verse un label dans un autre (même déjà créé), confirmé avant, et s'annule depuis le message", async () => {
+    api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c2", handle: "runclubgirl" }), compte({ id: "c3", handle: "chiara", label_propose_id: "k3" })]);
+    api.fusionnerCartes.mockResolvedValue({ comptes: 2, label: "smart_girl" });
+    api.detacherCarte.mockResolvedValue({ comptes: 2, label: "smart_girl" });
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(false);
+    rendre();
+    const bloc = (await screen.findByText("classic_girl_run")).closest("[data-carte]") as HTMLElement;
+    fireEvent.click(within(bloc).getByRole("button", { name: "Fusionner" }));
+    const choix = await screen.findByLabelText("Fusionner dans");
+    // Toutes les autres cartes, pas elle-même.
+    expect([...(choix as HTMLSelectElement).options].map((o) => o.textContent)).toEqual(["Fusionner dans…", "clean_girl (0)", "smart_girl (1)"]);
+    fireEvent.change(choix, { target: { value: "k3" } });
+    expect(screen.getByTestId("alerte-fusion")).toHaveTextContent("« classic_girl_run » est rangé sous Atala, « smart_girl » sous Sophia : les comptes changent d'app.");
+    fireEvent.click(screen.getByRole("button", { name: "Fusionner" }));
+    expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Fusionner « classic_girl_run » (2 comptes) dans « smart_girl » ?"));
+    expect(api.fusionnerCartes).not.toHaveBeenCalled();
+    confirmer.mockReturnValue(true);
+    fireEvent.click(screen.getByRole("button", { name: "Fusionner" }));
+    await waitFor(() => expect(api.fusionnerCartes).toHaveBeenCalledWith("k1", "k3"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("« classic_girl_run » fusionné dans « smart_girl » : 2 comptes déplacés.");
+    fireEvent.click(within(screen.getByTestId("info")).getByRole("button", { name: "Annuler" }));
+    await waitFor(() => expect(api.detacherCarte).toHaveBeenCalledWith("k1"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("Fusion annulée : 2 comptes de retour sous « classic_girl_run ».");
+    confirmer.mockRestore();
   });
 
   it("« à podzer » se marque sur le LABEL : le bloc se marque, se valide (seul ou tout le batch) et se retire ; validé, il est dans Weekly update, catégorie Podz, avec ses comptes, jamais importé", async () => {

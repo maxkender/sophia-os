@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 
 import { resoudreLiens } from "./api";
 import {
-  ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, marquerPodz, modifierCarte,
+  ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, fusionnerCartes, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, marquerPodz, modifierCarte,
   nomCarte, PREFIXE_LABEL, rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS, validerCarte,
 } from "./moodboard";
 import { lienCompte, nomLabelValide } from "./parse";
@@ -274,6 +274,85 @@ export function DialogueCarte({ carte, labels, cartes, nbComptes, sectionDe, onF
               <Button variant="outline" onClick={enregistrer} disabled={occupe || !nomLabelValide(nom)}>Enregistrer</Button>
             </div>
           </div>
+          {erreur && <p className="text-sm text-destructive">{erreur}</p>}
+        </DialogPanel>
+      </DialogPopup>
+    </Dialog>
+  );
+}
+
+/**
+ * 23/11 : « Fusionner » un label dans un autre. Tous ses comptes passent sous le label choisi (son bloc, son label de
+ * l'OS, ses apps) ; le bloc d'origine reste, vide, et la fusion s'annule depuis le bloc qui a reçu les comptes.
+ */
+export function DialogueFusion({ carte, cartes, nbComptes, onFermer, onFini }: {
+  carte: CarteLabel | null;
+  /** Tous les blocs : les cibles possibles. */
+  cartes: CarteLabel[];
+  /** Les comptes de chaque bloc (pour dire ce qui part et ce qui reçoit). */
+  nbComptes: (carteId: string) => number;
+  onFermer: () => void;
+  onFini: (message: string, annuler?: () => Promise<string>) => void;
+}) {
+  const [cibleId, setCibleId] = React.useState("");
+  const [erreur, setErreur] = React.useState<string | null>(null);
+  const [occupe, setOccupe] = React.useState(false);
+  React.useEffect(() => { setCibleId(""); setErreur(null); }, [carte]);
+  const cible = cartes.find((c) => c.id === cibleId) ?? null;
+  const n = carte ? nbComptes(carte.id) : 0;
+  const comptes = `${n} compte${n > 1 ? "s" : ""}`;
+  const nomApp = (s: Section) => SECTIONS.find((x) => x.cle === s)?.libelle ?? "";
+  const autreApp = Boolean(carte && cible && cible.section !== carte.section);
+  const fusionner = async () => {
+    if (!carte || !cible) return;
+    if (!window.confirm(`Fusionner « ${nomCarte(carte)} » (${comptes}) dans « ${nomCarte(cible)} » ?\n\nLes comptes prennent le label et les apps de « ${nomCarte(cible)} ». Tu pourras annuler.`)) return;
+    setOccupe(true);
+    setErreur(null);
+    try {
+      const r = await fusionnerCartes(carte.id, cible.id);
+      onFini(
+        `« ${nomCarte(carte)} » fusionné dans « ${r.label || nomCarte(cible)} » : ${r.comptes} compte${r.comptes > 1 ? "s" : ""} déplacé${r.comptes > 1 ? "s" : ""}.`,
+        async () => {
+          const d = await detacherCarte(carte.id);
+          return `Fusion annulée : ${d.comptes} compte${d.comptes > 1 ? "s" : ""} de retour sous « ${nomCarte(carte)} ».`;
+        },
+      );
+      onFermer();
+    } catch (e) {
+      setErreur((e as Error).message);
+    } finally {
+      setOccupe(false);
+    }
+  };
+  const groupes = SECTIONS.filter((s) => s.cle !== "sans")
+    .map((s) => ({ s, liste: cartes.filter((c) => c.section === s.cle && c.id !== carte?.id).sort((a, b) => nomCarte(a).localeCompare(nomCarte(b))) }))
+    .filter((g) => g.liste.length > 0);
+  return (
+    <Dialog open={Boolean(carte)} onOpenChange={(o) => !o && onFermer()}>
+      <DialogPopup className="max-w-md">
+        <DialogHeader>
+          <DialogTitle className="text-base">Fusionner un label</DialogTitle>
+          <DialogDescription>Les {comptes} de « {carte ? nomCarte(carte) : ""} » passent sous le label choisi.</DialogDescription>
+        </DialogHeader>
+        <DialogPanel className="space-y-3 pb-5">
+          <div className="flex gap-2">
+            <select className={CHAMP} value={cibleId} onChange={(e) => setCibleId(e.target.value)} aria-label="Fusionner dans">
+              <option value="">Fusionner dans…</option>
+              {groupes.map(({ s, liste }) => (
+                <optgroup key={s.cle} label={s.libelle}>
+                  {liste.map((c) => <option key={c.id} value={c.id}>{nomCarte(c)} ({nbComptes(c.id)})</option>)}
+                </optgroup>
+              ))}
+            </select>
+            <Button onClick={() => void fusionner()} disabled={occupe || !cible}>Fusionner</Button>
+          </div>
+          {cible && (
+            <p className="rounded-md bg-amber-50 px-2 py-1.5 text-xs leading-snug text-amber-800 dark:bg-amber-950/40 dark:text-amber-200" data-testid="alerte-fusion">
+              {autreApp && carte && <>« {nomCarte(carte)} » est rangé sous {nomApp(carte.section)}, « {nomCarte(cible)} » sous {nomApp(cible.section)} : les comptes changent d'app. </>}
+              {!cible.label_id && <>« {nomCarte(cible)} » n'existe pas encore dans l'OS : les comptes ne seront importables qu'une fois ce label créé. </>}
+              Le bloc « {carte ? nomCarte(carte) : ""} » reste, vide ; la fusion s'annule depuis « {nomCarte(cible)} ».
+            </p>
+          )}
           {erreur && <p className="text-sm text-destructive">{erreur}</p>}
         </DialogPanel>
       </DialogPopup>

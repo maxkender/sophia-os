@@ -292,7 +292,18 @@ export async function rattacherCarte(carteId: string, labelId: string): Promise<
   return { fusion: Boolean(r.fusion), comptes: Number(r.comptes ?? 0), label: r.label ?? "" };
 }
 
-/** Annule le rattachement d'un bloc : ses comptes reviennent (sauf importés ou déplacés depuis), ou il redevient une proposition. */
+/**
+ * 23/11 : fusionne un label (bloc) dans un autre. Ses comptes prennent le bloc, le label et les apps de la cible ; le
+ * bloc d'origine reste, vide. La fusion s'annule comme un rattachement (`detacherCarte` sur le bloc d'origine).
+ */
+export async function fusionnerCartes(sourceId: string, cibleId: string): Promise<{ comptes: number; label: string }> {
+  const { data, error } = await supabase.rpc("bible_carte_fusionner", { p_source: sourceId, p_cible: cibleId });
+  if (error) throw new Error(error.message);
+  const r = (data ?? {}) as { comptes?: number; label?: string };
+  return { comptes: Number(r.comptes ?? 0), label: r.label ?? "" };
+}
+
+/** Annule le rattachement d'un bloc :ses comptes reviennent (sauf importés ou déplacés depuis), ou il redevient une proposition. */
 export async function detacherCarte(carteId: string): Promise<{ comptes: number; label: string }> {
   const { data, error } = await supabase.rpc("bible_carte_detacher", { p_carte: carteId });
   if (error) throw new Error(error.message);

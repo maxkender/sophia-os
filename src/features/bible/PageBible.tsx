@@ -11,24 +11,29 @@
  *
  * 20/11 (Adrien) : « à podzer » se marque sur le LABEL (l'en-tête de son bloc), plus sur chaque compte. Un label à
  * podzer n'est jamais importé ; validé, il se range avec ses comptes dans « Weekly update », catégorie Podz.
+ * 23/11 : chaque app (tout son contenu) et chaque label se replie et se déplie (retenu dans le navigateur), et un
+ * label se fusionne dans un autre (« Fusionner ») ; la fusion s'annule depuis le bloc qui a reçu les comptes.
+ *
  * Admin au sens strict (RLS + route).
  */
 import * as React from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { ArrowLeft, BadgeCheck, Check, ChevronRight, Pencil, Plus, Rocket, Search, Sparkles, Undo2 } from "lucide-react";
+import { ArrowLeft, BadgeCheck, Check, ChevronRight, GitMerge, Pencil, Plus, Rocket, Search, Sparkles, Undo2 } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
-import { DialogueAjout, DialogueCarte, DialogueChoixLabel, DialogueLabel } from "./DialoguesBible";
+import { DialogueAjout, DialogueCarte, DialogueChoixLabel, DialogueFusion, DialogueLabel } from "./DialoguesBible";
 import { type ComptePret, DialogueLancement } from "./LancementBatch";
 import {
   type Blocage, blocageImport, blocsVersesDans, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, detacherCarte, estPodzValide, estVueSource,
   etapeAvantImport, lancerBatch, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, marquerPodz, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
   restaurerCompte, type Section, SECTIONS, supprimerDefinitivement, valeurDuLabel, validerCarte, validerPodz, type Vue, VUES,
 } from "./moodboard";
+import { BarrePliage, BoutonPli } from "./Pli";
+import { usePliage } from "./pliage";
 import { deciderProposition, lirePropositions, passerDansLaBible, type Proposition } from "./propositions";
 import { compterSources, ligneResultat, lireSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
@@ -74,6 +79,8 @@ export function PageBible() {
   const [aRanger, setARanger] = React.useState<CompteBible | null>(null);
   const [lancement, setLancement] = React.useState<ComptePret[] | null>(null);
   const [blocAModifier, setBlocAModifier] = React.useState<CarteLabel | null>(null);
+  const [blocAFusionner, setBlocAFusionner] = React.useState<CarteLabel | null>(null);
+  const pliage = usePliage();
   /** La proposition qu'on envoie dans le prochain batch : on choisit d'abord son label. */
   const [propositionARanger, setPropositionARanger] = React.useState<Proposition | null>(null);
   const [occupes, setOccupes] = React.useState<Set<string>>(new Set());
@@ -302,6 +309,15 @@ export function PageBible() {
           <option value="">Toutes les apps</option>
           {SECTIONS.map((s) => <option key={s.cle} value={s.cle}>{s.libelle}</option>)}
         </select>
+        {vueComptes && (
+          <span className="ml-auto">
+            <BarrePliage
+              pliage={pliage}
+              apps={groupes.map((g) => `app:${g.section}`)}
+              labels={groupes.flatMap((g) => g.cartes.filter((x) => x.carte).map((x) => `label:${x.carte!.id}`))}
+            />
+          </span>
+        )}
       </div>
 
       {vue === "prochain_batch" && batch.length > 0 && (
@@ -391,27 +407,49 @@ export function PageBible() {
           )}
           {groupes.map((g) => {
             const s = SECTIONS.find((x) => x.cle === g.section)!;
+            const appPliee = pliage.estPlie(`app:${g.section}`);
+            const nLabels = g.cartes.filter((x) => x.carte).length;
             return (
-              <section key={g.section} className="space-y-4" data-section={g.section}>
-                <h2 className="flex items-baseline gap-2.5">
-                  <span className={cn("size-2.5 translate-y-[-2px] rounded-full", TEINTE[g.section].pastille)} aria-hidden />
-                  <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">{s.libelle}</span>
-                  {s.sous && <span className="text-sm text-stone-400">{s.sous}</span>}
-                  <span className="text-sm tabular-nums text-stone-400">· {g.total} compte{g.total > 1 ? "s" : ""}</span>
+              <section key={g.section} className="space-y-4" data-section={g.section} data-plie={appPliee || undefined}>
+                <h2 className="flex items-center gap-2.5">
+                  <BoutonPli plie={appPliee} onClick={() => pliage.basculer(`app:${g.section}`)} nom={s.libelle} className="-ml-1.5" />
+                  <button type="button" onClick={() => pliage.basculer(`app:${g.section}`)} className="flex items-baseline gap-2.5 text-left">
+                    <span className={cn("size-2.5 translate-y-[-2px] rounded-full", TEINTE[g.section].pastille)} aria-hidden />
+                    <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">{s.libelle}</span>
+                    {s.sous && <span className="text-sm text-stone-400">{s.sous}</span>}
+                    <span className="text-sm tabular-nums text-stone-400">
+                      · {g.total} compte{g.total > 1 ? "s" : ""}{nLabels > 0 && `, ${nLabels} label${nLabels > 1 ? "s" : ""}`}
+                    </span>
+                  </button>
                 </h2>
+                {!appPliee && (
                 <div className="space-y-4">
-                  {g.cartes.map(({ carte, comptes: cs }) => (
-                    <div key={carte?.id ?? "sans"} className="rounded-2xl border border-stone-200/70 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.03)] dark:border-stone-800 dark:bg-stone-900" data-carte={carte ? nomCarte(carte) : "sans_label"}>
+                  {g.cartes.map(({ carte, comptes: cs }) => {
+                    const labelPlie = Boolean(carte && pliage.estPlie(`label:${carte.id}`));
+                    return (
+                    <div key={carte?.id ?? "sans"} className={cn("rounded-2xl border border-stone-200/70 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.03)] dark:border-stone-800 dark:bg-stone-900", labelPlie && "py-2.5")} data-carte={carte ? nomCarte(carte) : "sans_label"}>
                       {carte && (
-                        <div className="mb-3 space-y-1">
+                        <div className={cn("space-y-1", !labelPlie && "mb-3")}>
                           <div className="flex flex-wrap items-center gap-2">
-                            <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{nomCarte(carte)}</code>
+                            <BoutonPli plie={labelPlie} onClick={() => pliage.basculer(`label:${carte.id}`)} nom={nomCarte(carte)} className="-ml-1" />
+                            <button type="button" onClick={() => pliage.basculer(`label:${carte.id}`)} className="text-left">
+                              <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{nomCarte(carte)}</code>
+                            </button>
                             <span className={cn("rounded-full px-2 py-0.5 text-[11px] font-medium ring-1", BADGE[carte.badge])}>{LIBELLE_BADGE[carte.badge]}</span>
                             {carte.a_podzer && <span className={PASTILLE_PODZ} title="Ce label est à faire en podz : ses comptes ne sont pas importés."><Sparkles className="size-3" aria-hidden />à podzer</span>}
                             <span className="text-xs tabular-nums text-stone-400">{cs.length}</span>
                             {/* « À podzer » se marque sur le label : on en fait un podz, ses comptes ne sont pas importés. */}
                             {vue !== "corbeille" && (
                               <span className="ml-auto flex flex-wrap gap-1.5">
+                                <button
+                                  type="button"
+                                  onClick={() => setBlocAFusionner(carte)}
+                                  title="Verser tous les comptes de ce label dans un autre label. La fusion s'annule depuis le label qui les reçoit."
+                                  className={BOUTON_BLOC}
+                                >
+                                  <GitMerge className="size-3.5" aria-hidden />
+                                  Fusionner
+                                </button>
                                 {carte.a_podzer && (
                                   <button type="button" onClick={() => void validerPodzDuBloc(carte, true)} title="Range ce label et ses comptes dans « Weekly update », catégorie Podz. Rien n'est importé." className={BOUTON_BLOC_FORT}>
                                     <Check className="size-3.5" aria-hidden />
@@ -473,9 +511,10 @@ export function PageBible() {
                               </span>
                             )}
                           </div>
-                          {carte.description_da && <p className="max-w-3xl text-sm text-stone-500">{carte.description_da}</p>}
+                          {carte.description_da && !labelPlie && <p className="max-w-3xl text-sm text-stone-500">{carte.description_da}</p>}
                         </div>
                       )}
+                      {!labelPlie && (
                       <div className="flex flex-wrap gap-3">
                         {cs.map(({ compte, aussi }) => (
                           <TuileCompte
@@ -490,9 +529,12 @@ export function PageBible() {
                           />
                         ))}
                       </div>
+                      )}
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
+                )}
               </section>
             );
           })}
@@ -519,6 +561,13 @@ export function PageBible() {
         nbComptes={blocAModifier ? liste.filter((c) => !c.supprime_at && c.label_propose_id === blocAModifier.id).length : 0}
         sectionDe={(labelId) => sectionDuLabel(labelId, toutes, donnees.data?.labels ?? [])}
         onFermer={() => setBlocAModifier(null)}
+        onFini={(message, defaire) => { setErreur(null); setInfo(message, defaire); rafraichir(); }}
+      />
+      <DialogueFusion
+        carte={blocAFusionner}
+        cartes={toutes}
+        nbComptes={(id) => liste.filter((c) => !c.supprime_at && c.label_propose_id === id).length}
+        onFermer={() => setBlocAFusionner(null)}
         onFini={(message, defaire) => { setErreur(null); setInfo(message, defaire); rafraichir(); }}
       />
       <DialogueLancement

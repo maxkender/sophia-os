@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 
 import { type CarteLabel, type EtapeSource, type Section, SECTIONS } from "./moodboard";
 import { bilanSemaine, type DonneesSources, enImportEnBref, type FiltreSemaine, jourCourt, rangerSources } from "./sources";
+import { BarrePliage, BoutonPli } from "./Pli";
+import { usePliage } from "./pliage";
 import { TuileSource } from "./TuileSource";
 
 const TEINTE: Record<Section | "sans", string> = {
@@ -95,6 +97,7 @@ export function VueSources({ etape, donnees, cartes, recherche, section }: {
   etape: EtapeSource; donnees: DonneesSources; cartes: CarteLabel[]; recherche: string; section: Section | "sans" | "";
 }) {
   const [semaine, setSemaine] = React.useState<FiltreSemaine>("toutes");
+  const pliage = usePliage();
   const groupes = rangerSources(donnees.sources, donnees.labels, cartes, { etape, recherche, section, semaine });
   const VIDE: Record<EtapeSource, string> = {
     en_import: "Aucune source en cours d'import.",
@@ -109,35 +112,56 @@ export function VueSources({ etape, donnees, cartes, recherche, section }: {
     <>
       {etape === "en_import" && <ImportEnBref donnees={donnees} />}
       {etape === "weekly" && <SemaineEnBref donnees={donnees} filtre={semaine} onFiltre={setSemaine} />}
+      <div className="flex justify-end">
+        <BarrePliage
+          pliage={pliage}
+          apps={groupes.map((g) => `app:${g.section}`)}
+          labels={groupes.flatMap((g) => g.cartes.filter((x) => x.carte).map((x) => `source:${x.carte!.cle}`))}
+        />
+      </div>
       <div className="space-y-10 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="moodboard-sources">
         {groupes.length === 0 && <p className="py-10 text-center text-sm text-stone-500">{vide}</p>}
         {groupes.map((g) => {
           const s = SECTIONS.find((x) => x.cle === g.section)!;
+          const appPliee = pliage.estPlie(`app:${g.section}`);
           return (
-            <section key={g.section} className="space-y-4" data-section={g.section}>
-              <h2 className="flex items-baseline gap-2.5">
-                <span className={cn("size-2.5 translate-y-[-2px] rounded-full", TEINTE[g.section])} aria-hidden />
-                <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">{s.libelle}</span>
-                <span className="text-sm tabular-nums text-stone-400">· {g.total} source{g.total > 1 ? "s" : ""}</span>
+            <section key={g.section} className="space-y-4" data-section={g.section} data-plie={appPliee || undefined}>
+              <h2 className="flex items-center gap-2.5">
+                <BoutonPli plie={appPliee} onClick={() => pliage.basculer(`app:${g.section}`)} nom={s.libelle} className="-ml-1.5" />
+                <button type="button" onClick={() => pliage.basculer(`app:${g.section}`)} className="flex items-baseline gap-2.5 text-left">
+                  <span className={cn("size-2.5 translate-y-[-2px] rounded-full", TEINTE[g.section])} aria-hidden />
+                  <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">{s.libelle}</span>
+                  <span className="text-sm tabular-nums text-stone-400">· {g.total} source{g.total > 1 ? "s" : ""}</span>
+                </button>
               </h2>
+              {!appPliee && (
               <div className="space-y-4">
-                {g.cartes.map(({ carte, sources }) => (
-                  <div key={carte?.cle ?? "sans"} className="rounded-2xl border border-stone-200/70 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.03)] dark:border-stone-800 dark:bg-stone-900" data-carte={carte?.nom ?? "sans_label"}>
+                {g.cartes.map(({ carte, sources }) => {
+                  const labelPlie = Boolean(carte && pliage.estPlie(`source:${carte.cle}`));
+                  return (
+                  <div key={carte?.cle ?? "sans"} className={cn("rounded-2xl border border-stone-200/70 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.03)] dark:border-stone-800 dark:bg-stone-900", labelPlie && "py-2.5")} data-carte={carte?.nom ?? "sans_label"}>
                     {carte && (
-                      <div className="mb-3 space-y-1">
+                      <div className={cn("space-y-1", !labelPlie && "mb-3")}>
                         <div className="flex flex-wrap items-center gap-2">
-                          <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{carte.nom}</code>
+                          <BoutonPli plie={labelPlie} onClick={() => pliage.basculer(`source:${carte.cle}`)} nom={carte.nom} className="-ml-1" />
+                          <button type="button" onClick={() => pliage.basculer(`source:${carte.cle}`)} className="text-left">
+                            <code className="text-[15px] font-semibold text-stone-900 dark:text-white">{carte.nom}</code>
+                          </button>
                           <span className="text-xs tabular-nums text-stone-400">{sources.length}</span>
                         </div>
-                        {carte.description && <p className="max-w-3xl text-sm text-stone-500">{carte.description}</p>}
+                        {carte.description && !labelPlie && <p className="max-w-3xl text-sm text-stone-500">{carte.description}</p>}
                       </div>
                     )}
+                    {!labelPlie && (
                     <div className="flex flex-wrap gap-3">
                       {sources.map(({ source, aussi }) => <TuileSource key={source.id + (aussi ? "-aussi" : "")} s={source} aussi={aussi} regles={donnees.regles} />)}
                     </div>
+                    )}
                   </div>
-                ))}
+                  );
+                })}
               </div>
+              )}
             </section>
           );
         })}

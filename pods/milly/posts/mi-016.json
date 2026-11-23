@@ -1,0 +1,784 @@
+{
+ "id": "mi-016",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7700841744694332702",
+  "vues": 85000,
+  "publie_le": "2026-10-27",
+  "accroche": "What actually / causes / brain fog"
+ },
+ "fond": "bordeaux",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
+ "notes": "Full test (boîte vide), sur un post neuf du compte modèle relevé à la veille du 23/11 : « What actually causes brain fog » de @bdnf.milly (85 k vues, 27/10, fond bordeaux). Nos causes à nous, ordinaires, sans rien de médical ni de produit ; renvoi au médecin si ça dure. Slide Sophia (3) : une leçon chaque soir, du début à la fin, comme un entraînement, logo seul ; cta A. Faits vérifiés : la privation de sommeil touche d'abord l'attention et le temps de réaction (Lim et Dinges, Psychological Bulletin 2010) ; six heures par nuit pendant deux semaines égalent une nuit blanche aux tests d'attention, avec peu de somnolence ressentie (Van Dongen, Maislin, Mullington et Dinges, Sleep 2003) ; résidu attentionnel après un changement de tâche (Leroy, Organizational Behavior and Human Decision Processes 2009) ; une déshydratation légère (1 à 2 %) va avec moins de concentration, plus de fatigue et une humeur plus basse (Armstrong et al., Journal of Nutrition 2012 ; Ganio et al., British Journal of Nutrition 2011). 11 langues. Images : Seedream (cerveau-brume, irm-axiale, neurones), sans texte.",
+ "titre": {
+  "en": "What actually causes Brain Fog",
+  "fr": "Ce qui cause vraiment le brouillard mental",
+  "es": "Qué causa de verdad la niebla mental",
+  "es-419": "Qué causa en realidad la niebla mental",
+  "it": "Cosa causa davvero la nebbia mentale",
+  "tr": "Beyin sisine gerçekte ne yol açar",
+  "pt-BR": "O que realmente causa a névoa mental",
+  "sl": "Kaj v resnici povzroča možgansko meglo",
+  "hr": "Što zapravo uzrokuje maglu u glavi",
+  "de": "Was Brain Fog wirklich verursacht",
+  "hu": "Mi okozza valójában az agyködöt"
+ },
+ "legendes": {
+  "en": "most fog has ordinary causes #brainfog #focus #sleep #brain #attention",
+  "fr": "le plus souvent, des causes ordinaires #brouillardmental #concentration #sommeil #cerveau #attention",
+  "es": "casi siempre, causas corrientes #nieblamental #concentración #sueño #cerebro #atención",
+  "es-419": "casi siempre, causas comunes #nieblamental #concentración #sueño #cerebro #atención",
+  "it": "quasi sempre, cause ordinarie #nebbiamentale #concentrazione #sonno #cervello #attenzione",
+  "tr": "çoğu zaman sıradan nedenler #beyinsisi #odaklanma #uyku #beyin #dikkat",
+  "pt-BR": "quase sempre, causas comuns #nevoamental #foco #sono #cerebro #atencao",
+  "sl": "največkrat običajni vzroki #možganskamegla #zbranost #spanje #možgani #pozornost",
+  "hr": "najčešće obični uzroci #maglauglavi #koncentracija #san #mozak #pažnja",
+  "de": "meistens ganz gewöhnliche ursachen #brainfog #konzentration #schlaf #gehirn #aufmerksamkeit",
+  "hu": "többnyire hétköznapi okok #agyköd #koncentráció #alvás #agy #figyelem"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/cerveau-brume.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "What",
+      "taille": "moyen"
+     },
+     {
+      "t": "actually",
+      "taille": "petit"
+     },
+     {
+      "t": "causes",
+      "taille": "petit"
+     },
+     {
+      "t": "Brain Fog",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Ce qui",
+      "taille": "moyen"
+     },
+     {
+      "t": "cause vraiment",
+      "taille": "petit"
+     },
+     {
+      "t": "le",
+      "taille": "petit"
+     },
+     {
+      "t": "Brouillard mental",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Qué",
+      "taille": "moyen"
+     },
+     {
+      "t": "causa de verdad",
+      "taille": "petit"
+     },
+     {
+      "t": "la",
+      "taille": "petit"
+     },
+     {
+      "t": "Niebla mental",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Qué",
+      "taille": "moyen"
+     },
+     {
+      "t": "causa en realidad",
+      "taille": "petit"
+     },
+     {
+      "t": "la",
+      "taille": "petit"
+     },
+     {
+      "t": "Niebla mental",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Cosa",
+      "taille": "moyen"
+     },
+     {
+      "t": "causa davvero",
+      "taille": "petit"
+     },
+     {
+      "t": "la",
+      "taille": "petit"
+     },
+     {
+      "t": "Nebbia mentale",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Beyin Sisine",
+      "taille": "grand"
+     },
+     {
+      "t": "gerçekte",
+      "taille": "petit"
+     },
+     {
+      "t": "ne yol",
+      "taille": "petit"
+     },
+     {
+      "t": "Açar?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O que",
+      "taille": "moyen"
+     },
+     {
+      "t": "realmente causa",
+      "taille": "petit"
+     },
+     {
+      "t": "a",
+      "taille": "petit"
+     },
+     {
+      "t": "Névoa mental",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kaj",
+      "taille": "moyen"
+     },
+     {
+      "t": "v resnici povzroča",
+      "taille": "petit"
+     },
+     {
+      "t": "Možgansko",
+      "taille": "grand"
+     },
+     {
+      "t": "Meglo",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Što",
+      "taille": "moyen"
+     },
+     {
+      "t": "zapravo uzrokuje",
+      "taille": "petit"
+     },
+     {
+      "t": "Maglu",
+      "taille": "grand"
+     },
+     {
+      "t": "u glavi",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Was",
+      "taille": "moyen"
+     },
+     {
+      "t": "Brain Fog",
+      "taille": "grand"
+     },
+     {
+      "t": "wirklich",
+      "taille": "petit"
+     },
+     {
+      "t": "verursacht",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Mi okozza",
+      "taille": "moyen"
+     },
+     {
+      "t": "valójában",
+      "taille": "petit"
+     },
+     {
+      "t": "az",
+      "taille": "petit"
+     },
+     {
+      "t": "Agyködöt",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Short Sleep",
+    "blocs": [
+     {
+      "p": "Losing sleep hits attention first. A large analysis of studies found that sleep deprivation clearly slows reaction times and causes lapses of attention, more than it affects complex reasoning."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Mild, repeated restriction adds up: people sleeping six hours a night for two weeks did as badly on attention tests as people kept awake for a whole night, while feeling only slightly sleepy."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Le manque de sommeil",
+    "blocs": [
+     {
+      "p": "Le manque de sommeil frappe d'abord l'attention. Une grande analyse d'études a montré que la privation de sommeil ralentit nettement les réactions et provoque des trous d'attention, plus qu'elle n'atteint le raisonnement complexe."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Les petites privations répétées s'additionnent : des personnes qui dormaient six heures par nuit pendant deux semaines faisaient aussi mal aux tests d'attention que d'autres privées d'une nuit entière, tout en se sentant à peine fatiguées."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Dormir poco",
+    "blocs": [
+     {
+      "p": "La falta de sueño golpea primero a la atención. Un gran análisis de estudios encontró que la privación de sueño ralentiza claramente los reflejos y provoca lapsos de atención, más de lo que afecta al razonamiento complejo."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Las pequeñas restricciones repetidas se acumulan: personas que dormían seis horas por noche durante dos semanas rindieron tan mal en pruebas de atención como otras que pasaron una noche entera en vela, sintiéndose apenas cansadas."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Dormir poco",
+    "blocs": [
+     {
+      "p": "La falta de sueño le pega primero a la atención. Un gran análisis de estudios encontró que no dormir lo suficiente vuelve claramente más lentas las reacciones y provoca lapsos de atención, más de lo que afecta el razonamiento complejo."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Las pequeñas restricciones repetidas se suman: personas que durmieron seis horas por noche durante dos semanas rindieron tan mal en pruebas de atención como quienes pasaron una noche completa sin dormir, aunque se sentían apenas cansadas."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Dormire poco",
+    "blocs": [
+     {
+      "p": "La mancanza di sonno colpisce prima di tutto l'attenzione. Un'ampia analisi di studi ha rilevato che la privazione di sonno rallenta chiaramente i tempi di reazione e provoca vuoti di attenzione, più di quanto colpisca il ragionamento complesso."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Le piccole privazioni ripetute si sommano: persone che dormivano sei ore a notte per due settimane andavano male nei test di attenzione quanto chi era rimasto sveglio un'intera notte, pur sentendosi solo un po' stanche."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Az uyku",
+    "blocs": [
+     {
+      "p": "Uykusuzluk önce dikkati vurur. Çalışmaları bir araya getiren büyük bir analiz, uykusuzluğun tepki süresini belirgin şekilde yavaşlattığını ve dikkat boşluklarına yol açtığını, karmaşık akıl yürütmeyi ise daha az etkilediğini buldu."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Küçük ama tekrarlanan kısıtlamalar birikir: iki hafta boyunca gecede altı saat uyuyanlar, dikkat testlerinde bütün bir gece uyumayanlar kadar kötü sonuç aldı ve kendilerini yalnızca biraz uykulu hissettiler."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Dormir pouco",
+    "blocs": [
+     {
+      "p": "A falta de sono atinge primeiro a atenção. Uma grande análise de estudos mostrou que a privação de sono deixa as reações claramente mais lentas e provoca lapsos de atenção, mais do que afeta o raciocínio complexo."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Pequenas restrições repetidas se somam: pessoas que dormiram seis horas por noite durante duas semanas foram tão mal em testes de atenção quanto quem passou uma noite inteira sem dormir, mesmo se sentindo só um pouco cansadas."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Premalo spanca",
+    "blocs": [
+     {
+      "p": "Pomanjkanje spanca najprej prizadene pozornost. Obsežna analiza raziskav je pokazala, da neprespanost jasno upočasni odzive in povzroča izpade pozornosti, bolj kot vpliva na zahtevno sklepanje."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Majhne, ponavljajoče se omejitve se seštevajo: ljudje, ki so dva tedna spali po šest ur na noč, so se na testih pozornosti odrezali tako slabo kot tisti, ki so bdeli vso noč, čeprav so se počutili le malo zaspane."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Premalo sna",
+    "blocs": [
+     {
+      "p": "Manjak sna najprije pogađa pažnju. Velika analiza istraživanja pokazala je da neispavanost jasno usporava reakcije i izaziva propuste pažnje, više nego što utječe na složeno zaključivanje."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Mala, ponovljena uskraćivanja se zbrajaju: ljudi koji su dva tjedna spavali po šest sati noću na testovima pažnje bili su jednako loši kao oni koji su bdjeli cijelu noć, iako su se osjećali tek malo pospano."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Zu wenig Schlaf",
+    "blocs": [
+     {
+      "p": "Schlafmangel trifft zuerst die Aufmerksamkeit. Eine große Auswertung von Studien ergab, dass Schlafentzug die Reaktionszeit deutlich verlangsamt und Aufmerksamkeitslücken verursacht, stärker als er komplexes Denken beeinträchtigt."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Leichter, wiederholter Mangel summiert sich: Menschen, die zwei Wochen lang sechs Stunden pro Nacht schliefen, schnitten in Aufmerksamkeitstests so schlecht ab wie jene, die eine ganze Nacht wach blieben, und fühlten sich dabei nur ein wenig müde."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Kevés alvás",
+    "blocs": [
+     {
+      "p": "Az alváshiány először a figyelmet sújtja. A vizsgálatok egy nagy elemzése szerint az alvásmegvonás egyértelműen lelassítja a reakcióidőt és figyelmi kihagyásokat okoz, jobban, mint ahogy az összetett gondolkodást érinti."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "A kis, ismétlődő megvonások összeadódnak: akik két hétig éjszakánként hat órát aludtak, ugyanolyan rosszul teljesítettek a figyelmi teszteken, mint akik egy egész éjszakát ébren töltöttek, pedig csak kicsit érezték magukat álmosnak."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Constant Switching",
+    "blocs": [
+     {
+      "p": "When you switch tasks, part of your attention stays stuck on the one you left. Researchers call it attention residue, and it makes the next task harder to do well."
+     },
+     {
+      "p": "A calm evening routine helps: one short lesson, one subject, read from start to finish, like a training session, instead of jumping between feeds."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Passer d'une chose à l'autre",
+    "blocs": [
+     {
+      "p": "Quand tu changes de tâche, une partie de ton attention reste accrochée à celle que tu viens de quitter. Les chercheurs appellent ça le résidu attentionnel, et il rend la tâche suivante plus difficile à bien faire."
+     },
+     {
+      "p": "Une routine du soir au calme aide : une courte leçon, un seul sujet, lue du début à la fin, comme un entraînement, au lieu de sauter d'un fil à l'autre."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Saltar de una cosa a otra",
+    "blocs": [
+     {
+      "p": "Cuando cambias de tarea, parte de tu atención se queda enganchada en la que dejaste. Los investigadores lo llaman residuo atencional, y hace más difícil hacer bien la siguiente tarea."
+     },
+     {
+      "p": "Una rutina tranquila por la noche ayuda: una lección corta, un solo tema, leída de principio a fin, como un entrenamiento, en vez de saltar de un feed a otro."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Saltar de una cosa a otra",
+    "blocs": [
+     {
+      "p": "Cuando cambias de tarea, parte de tu atención se queda atorada en la que dejaste. Los investigadores le llaman residuo atencional, y hace más difícil hacer bien la siguiente tarea."
+     },
+     {
+      "p": "Una rutina tranquila en la noche ayuda: una lección corta, un solo tema, leída de principio a fin, como un entrenamiento, en lugar de brincar de un feed a otro."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Passare da una cosa all'altra",
+    "blocs": [
+     {
+      "p": "Quando cambi compito, una parte della tua attenzione resta agganciata a quello che hai lasciato. I ricercatori lo chiamano residuo attentivo, e rende più difficile fare bene il compito successivo."
+     },
+     {
+      "p": "Una routine serale tranquilla aiuta: una breve lezione, un solo argomento, letta dall'inizio alla fine, come un allenamento, invece di saltare da un feed all'altro."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Sürekli geçiş yapmak",
+    "blocs": [
+     {
+      "p": "Bir işten diğerine geçtiğinde, dikkatinin bir kısmı bıraktığın işte takılı kalır. Araştırmacılar buna dikkat kalıntısı diyor ve bu, bir sonraki işi iyi yapmayı zorlaştırıyor."
+     },
+     {
+      "p": "Sakin bir akşam rutini yardımcı olur: akıştan akışa atlamak yerine, baştan sona okunan tek konulu kısa bir ders, bir antrenman gibi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Pular de uma coisa para outra",
+    "blocs": [
+     {
+      "p": "Quando você troca de tarefa, parte da sua atenção fica presa na que você deixou. Os pesquisadores chamam isso de resíduo de atenção, e ele dificulta fazer bem a próxima tarefa."
+     },
+     {
+      "p": "Uma rotina tranquila à noite ajuda: uma lição curta, um assunto só, lida do começo ao fim, como um treino, em vez de pular de um feed para outro."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Nenehno preklapljanje",
+    "blocs": [
+     {
+      "p": "Ko zamenjaš nalogo, del pozornosti ostane ujet pri tisti, ki si jo zapustil. Raziskovalci temu pravijo ostanek pozornosti in ta oteži dobro opravljanje naslednje naloge."
+     },
+     {
+      "p": "Pomaga miren večerni ritual: kratka lekcija, ena tema, prebrana od začetka do konca, kot trening, namesto skakanja z enega vira na drugega."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Stalno prebacivanje",
+    "blocs": [
+     {
+      "p": "Kad promijeniš zadatak, dio pažnje ostane zapeo na onome koji si napustio. Istraživači to zovu ostatkom pažnje, a on otežava da dobro odradiš sljedeći zadatak."
+     },
+     {
+      "p": "Pomaže mirna večernja rutina: kratka lekcija, jedna tema, pročitana od početka do kraja, kao trening, umjesto skakanja s feeda na feed."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Ständiges Wechseln",
+    "blocs": [
+     {
+      "p": "Wenn du die Aufgabe wechselst, bleibt ein Teil deiner Aufmerksamkeit an der vorigen hängen. Forschende nennen das Aufmerksamkeitsrest, und er macht es schwerer, die nächste Aufgabe gut zu erledigen."
+     },
+     {
+      "p": "Eine ruhige Abendroutine hilft: eine kurze Lektion, ein Thema, von Anfang bis Ende gelesen, wie ein Training, statt von Feed zu Feed zu springen."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Állandó váltogatás",
+    "blocs": [
+     {
+      "p": "Ha feladatot váltasz, a figyelmed egy része beragad az előzőnél. A kutatók ezt figyelmi maradványnak hívják, és megnehezíti, hogy jól végezd a következő feladatot."
+     },
+     {
+      "p": "Segít egy nyugodt esti rutin: egy rövid lecke, egyetlen téma, az elejétől a végéig elolvasva, mint egy edzés, ahelyett, hogy hírfolyamról hírfolyamra ugrálnál."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Mild Dehydration",
+    "blocs": [
+     {
+      "p": "Even mild dehydration, around 1 to 2% of body weight, has been linked in lab studies to lower concentration, more fatigue and a worse mood."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Most fog has ordinary causes: sleep, switching, water. If it lasts for weeks even after fixing them, it is worth talking to a doctor."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Une légère déshydratation",
+    "blocs": [
+     {
+      "p": "Même une légère déshydratation, autour de 1 à 2 % du poids du corps, a été associée en laboratoire à moins de concentration, plus de fatigue et une humeur plus basse."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Le plus souvent, le brouillard a des causes ordinaires : sommeil, dispersion, eau. S'il dure des semaines malgré tout ça, mieux vaut en parler à un médecin."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Deshidratación leve",
+    "blocs": [
+     {
+      "p": "Incluso una deshidratación leve, en torno al 1 o 2 % del peso corporal, se ha asociado en estudios de laboratorio con menos concentración, más fatiga y peor humor."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Casi siempre la niebla tiene causas corrientes: sueño, dispersión, agua. Si dura semanas aun después de corregirlas, conviene hablarlo con un médico."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Deshidratación leve",
+    "blocs": [
+     {
+      "p": "Hasta una deshidratación leve, de alrededor del 1 o 2 % del peso corporal, se ha relacionado en estudios de laboratorio con menos concentración, más cansancio y peor estado de ánimo."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Casi siempre la niebla tiene causas comunes: sueño, distracción, agua. Si dura semanas aun después de corregirlas, vale la pena hablarlo con un médico."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Una lieve disidratazione",
+    "blocs": [
+     {
+      "p": "Anche una lieve disidratazione, intorno all'1-2% del peso corporeo, è stata associata negli studi di laboratorio a meno concentrazione, più stanchezza e un umore peggiore."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Quasi sempre la nebbia ha cause ordinarie: sonno, dispersione, acqua. Se dura settimane anche dopo averle sistemate, vale la pena parlarne con un medico."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Hafif susuzluk",
+    "blocs": [
+     {
+      "p": "Vücut ağırlığının yüzde 1 ila 2'si civarındaki hafif bir susuzluk bile laboratuvar çalışmalarında daha düşük konsantrasyon, daha fazla yorgunluk ve daha kötü bir ruh hâliyle ilişkilendirildi."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Sisin çoğu zaman sıradan nedenleri vardır: uyku, dağınıklık, su. Bunları düzelttikten sonra bile haftalarca sürüyorsa, bir doktorla konuşmaya değer."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Desidratação leve",
+    "blocs": [
+     {
+      "p": "Até uma desidratação leve, em torno de 1 a 2% do peso do corpo, foi associada em estudos de laboratório a menos concentração, mais cansaço e pior humor."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Na maioria das vezes, a névoa tem causas comuns: sono, dispersão, água. Se ela durar semanas mesmo depois de corrigir isso, vale conversar com um médico."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Blaga dehidracija",
+    "blocs": [
+     {
+      "p": "Že blaga dehidracija, okoli 1 do 2 % telesne teže, je bila v laboratorijskih raziskavah povezana s slabšo zbranostjo, večjo utrujenostjo in slabšim razpoloženjem."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Največkrat ima megla običajne vzroke: spanec, razpršenost, voda. Če traja več tednov tudi potem, ko jih urediš, se je vredno pogovoriti z zdravnikom."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Blaga dehidracija",
+    "blocs": [
+     {
+      "p": "Čak je i blaga dehidracija, oko 1 do 2 % tjelesne težine, u laboratorijskim istraživanjima povezana sa slabijom koncentracijom, većim umorom i lošijim raspoloženjem."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Najčešće magla ima obične uzroke: san, raspršenost, voda. Ako traje tjednima i nakon što ih središ, vrijedi o tome razgovarati s liječnikom."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Leichter Flüssigkeitsmangel",
+    "blocs": [
+     {
+      "p": "Schon leichter Flüssigkeitsmangel, etwa 1 bis 2 % des Körpergewichts, ging in Laborstudien mit schlechterer Konzentration, mehr Müdigkeit und schlechterer Stimmung einher."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "Meistens hat der Nebel gewöhnliche Ursachen: Schlaf, Zerstreuung, Wasser. Hält er auch nach diesen Änderungen wochenlang an, lohnt sich ein Gespräch mit einem Arzt."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Enyhe kiszáradás",
+    "blocs": [
+     {
+      "p": "Már az enyhe, a testsúly nagyjából 1-2%-ának megfelelő kiszáradás is gyengébb koncentrációval, nagyobb fáradtsággal és rosszabb hangulattal járt együtt laboratóriumi vizsgálatokban."
+     },
+     {
+      "image": "images/neurones.jpg"
+     },
+     {
+      "p": "A köd többnyire hétköznapi okokból ered: alvás, szétszórtság, víz. Ha ezek rendezése után is hetekig tart, érdemes orvossal beszélni róla."
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -6088,6 +6088,60 @@
    },
    "notes": "full test BLEO, cta B",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-livres-2",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#livres #lecture #booktok",
+   "musique": {
+    "titre": "kagefumi",
+    "auteur": "-",
+    "original": true,
+    "id": "7402610556690860833",
+    "url_tiktok": "https://www.tiktok.com/music/x-7402610556690860833"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7686189452963712288_1",
+    "2": "7684726544442346774_3",
+    "3": "7686189452963712288_5",
+    "4": "7691336990419209505_4",
+    "5": "7689509565536177441_5",
+    "6": "7683541501007252758_6"
+   },
+   "notes": "declinaison G2 de var-livres-1, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "d845aa59-3cab-41ba-9548-647592b37fa8"
+  },
+  {
+   "post_id": "var-retrouver-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7683541501007252758?variante=var-retrouver-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#cerveau #habitudes #focus",
+   "musique": {
+    "titre": "original sound - Sean | Bangkok Photographer",
+    "auteur": "Sean | Bangkok Photographer",
+    "original": true,
+    "id": "7670141900171217672",
+    "url_tiktok": "https://www.tiktok.com/music/x-7670141900171217672"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7683541501007252758_1",
+    "2": "7683541501007252758_3",
+    "3": "7683541501007252758_4",
+    "4": "7705815524244081953_4",
+    "5": "7705815524244081953_5",
+    "6": "7683541501007252758_6"
+   },
+   "notes": "declinaison G1 de 7683541501007252758, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "9dfc49fa-e888-456d-b504-d5ffd7436f2d"
   }
  ]
 }

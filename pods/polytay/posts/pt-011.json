@@ -1,0 +1,391 @@
+{
+ "id": "pt-011",
+ "source": {
+  "url": "https://www.tiktok.com/@polytay/photo/7709913867928816926",
+  "vues": 296100,
+  "publie_le": "2026-11-19",
+  "accroche": "youtube channels that are basically a free degree"
+ },
+ "titre": {
+  "en": "youtube channels that feel like a free degree",
+  "fr": "chaînes youtube qui valent un diplôme gratuit",
+  "es": "canales de youtube que son una carrera gratis",
+  "es-419": "canales de youtube que son una carrera gratis",
+  "it": "canali youtube che valgono una laurea gratis",
+  "de": "youtube-kanäle, die wie ein kostenloses studium sind"
+ },
+ "legendes": {
+  "en": "history, philosophy, physics and biology, all on youtube. pick one for tonight <3 #youtubeuniversity #selfeducation #learning #girlblogger #videoessay",
+  "fr": "histoire, philo, physique et biologie, tout est sur youtube. choisis-en une pour ce soir <3 #youtubeuniversity #apprendre #culturegenerale #girlblogger #studytok",
+  "es": "historia, física y ciencia, todo en youtube. elige uno para esta noche <3 #youtubeuniversity #aprender #cultura #girlblogger #studytok",
+  "es-419": "historia, física y ciencia, todo en youtube. elige uno para hoy en la noche <3 #youtubeuniversity #aprender #cultura #girlblogger #studytok",
+  "it": "storia, geopolitica, filosofia e scienza, tutto su youtube. scegline uno per stasera <3 #youtubeuniversity #imparare #cultura #girlblogger #studytok",
+  "de": "geschichte, physik und wissenschaft, alles auf youtube. such dir einen für heute abend aus <3 #youtubeuniversity #lernen #allgemeinbildung #girlblogger #studytok"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7428338324530285358"
+ },
+ "notes": "Preuve : « youtube channels that are basically a free degree » de @polytay (296,1 k vues, 48,2 k enregistrements, 19/11, relevé de la veille du 23/11), sa famille « ressources qui remplacent l'école » (avec son 394 k du 25/09). Nos chaînes, réelles et vérifiées, DIFFÉRENTES PAR LANGUE (chaînes natives) : en CrashCourse (John et Hank Green), The School of Life (Alain de Botton), Kurzgesagt – In a Nutshell (studio de Munich, « The Immune System Explained »), TED-Ed ; fr Nota Bene (Benjamin Brillaud), Le Précepteur (Charles Robin), ScienceÉtonnante (David Louapre), DirtyBiology (Léo Grasset) ; es et es-419 Academia Play, QuantumFracture (José Luis Crespo), Date un Vlog (Javier Santaolalla, ex-CERN), Memorias de Pez ; it Nova Lectio (Simone Guida), Rick DuFer (Riccardo Dal Ferro), Geopop (Andrea Moccia), Barbascura X ; de MrWissen2go Geschichte (Mirko Drotschmann), Terra X Lesch & Co (Harald Lesch), Doktor Whatson, Dinge Erklärt – Kurzgesagt. Pas de tr, sl, sk ni sv : pas 4 chaînes natives vérifiées à coup sûr (Ruhi Çenet écarté : vlog de voyage). Slide Sophia (4) : « pas une chaîne, mais la même idée », cta B. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-bibliotheque-ordi.jpg": "04ae1908-9514-4726-a479-c32df5e2af90",
+  "images/banque/couv-ordi-bureau-bois.jpg": "0a2f9846-1d8a-417a-b547-076806ae704e",
+  "images/banque/amphi-micro.jpg": "0a610021-27c1-484e-a8a6-875dd46143e8",
+  "images/banque/ordi-cafe-fenetre.jpg": "127d3790-5d10-4082-8ad2-d5608dd76788",
+  "images/banque/bureau-lampe-nuit.jpg": "0d7a42d3-8174-457c-8187-cabc2aa1ba6f",
+  "images/banque/ordi-notes-manuscrites.jpg": "1946fbb9-032c-4469-8dd1-bb3e00402c85",
+  "images/banque/affiches-anatomie.jpg": "1ad91bf4-03e7-4459-b552-48318d9c1c6c",
+  "images/banque/the-biscuits-carnet.jpg": "16c2a12b-db61-4dd3-a70f-d570b171fb1e",
+  "images/banque/ordi-cafe-sculpture.jpg": "05a7020e-cfcd-4824-b57b-bd31d3869ce5",
+  "images/banque/tasse-fleurie-ordi.jpg": "099f54f4-f395-4809-9490-941376791dd6",
+  "images/banque/the-lit-livre.jpg": "a4b3cc93-7fda-48fb-aa5e-450249d8a563"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-bibliotheque-ordi.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-ordi-bureau-bois.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "youtube channels\nthat feel like a\nfree degree"
+   },
+   "fr": {
+    "titre": "chaînes youtube\nqui valent un\ndiplôme gratuit"
+   },
+   "es": {
+    "titre": "canales de youtube\nque son una\ncarrera gratis"
+   },
+   "es-419": {
+    "titre": "canales de youtube\nque son una\ncarrera gratis"
+   },
+   "it": {
+    "titre": "canali youtube\nche valgono una\nlaurea gratis"
+   },
+   "de": {
+    "titre": "youtube-kanäle,\ndie wie ein\nkostenloses\nstudium sind"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/amphi-micro.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/ordi-cafe-fenetre.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. crashcourse",
+    "paragraphes": [
+     "Short, fast courses on everything, from world history to philosophy, made by john and hank green. start with world history.",
+     "Each video is about ten minutes, and one playlist is basically a semester"
+    ]
+   },
+   "fr": {
+    "titre": "1. nota bene",
+    "paragraphes": [
+     "L'histoire racontée par benjamin brillaud, des grandes batailles aux anecdotes oubliées. commence par ses vidéos sur le moyen âge.",
+     "Tu révises tout le programme d'histoire sans t'en rendre compte"
+    ]
+   },
+   "es": {
+    "titre": "1. academia play",
+    "paragraphes": [
+     "Historia y arte explicados con animaciones, de los egipcios a la guerra fría. uno de los canales de historia más grandes en español.",
+     "Es como repasar todo el temario de historia, pero con ganas"
+    ]
+   },
+   "es-419": {
+    "titre": "1. academia play",
+    "paragraphes": [
+     "Historia y arte explicados con animaciones, de los egipcios a la guerra fría. uno de los canales de historia más grandes en español.",
+     "Es como repasar todo el temario de historia, pero con ganas"
+    ]
+   },
+   "it": {
+    "titre": "1. nova lectio",
+    "paragraphes": [
+     "Storia e geopolitica raccontate da simone guida, dalla storia delle patate alle guerre di oggi.",
+     "Ti spiega le notizie che non capivi, partendo da secoli prima"
+    ]
+   },
+   "de": {
+    "titre": "1. mrwissen2go geschichte",
+    "paragraphes": [
+     "Geschichte erklärt von mirko drotschmann, von der antike bis zum kalten krieg.",
+     "Wie der geschichtsunterricht, den du dir immer gewünscht hast"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/bureau-lampe-nuit.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/ordi-notes-manuscrites.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. the school of life",
+    "paragraphes": [
+     "Philosophy and psychology for real life, from the writer alain de botton. start with the videos on the great philosophers.",
+     "You finally get what kant or nietzsche were trying to say, in about eight minutes"
+    ]
+   },
+   "fr": {
+    "titre": "2. le précepteur",
+    "paragraphes": [
+     "Des cours de philosophie par charles robin, prof de philo, de platon à sartre. chaque vidéo est un vrai cours.",
+     "C'est la terminale que tu aurais voulu avoir"
+    ]
+   },
+   "es": {
+    "titre": "2. quantumfracture",
+    "paragraphes": [
+     "Física explicada en vídeos cortos y dibujados por josé luis crespo. del big bang a la mecánica cuántica.",
+     "Diez minutos y entiendes cosas que en clase sonaban imposibles"
+    ]
+   },
+   "es-419": {
+    "titre": "2. quantumfracture",
+    "paragraphes": [
+     "Física explicada en videos cortos y dibujados por josé luis crespo. del big bang a la mecánica cuántica.",
+     "Diez minutos y entiendes cosas que en clase sonaban imposibles"
+    ]
+   },
+   "it": {
+    "titre": "2. rick dufer",
+    "paragraphes": [
+     "Filosofia spiegata da riccardo dal ferro, dagli antichi ai pensatori di oggi, senza paroloni.",
+     "Ti fa venire voglia di leggere i filosofi veri"
+    ]
+   },
+   "de": {
+    "titre": "2. terra x lesch & co",
+    "paragraphes": [
+     "Physik, astronomie und philosophie mit harald lesch, einem echten professor.",
+     "Er erklärt das universum so ruhig, dass man stundenlang zuhört"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/the-lit-livre.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson a night",
+    "paragraphes": [
+     "Not a channel, but the same idea: Sophia gives me one lesson a day, written by actual professors, with a little quiz after.",
+     "Ten minutes before bed, history one night, philosophy the next"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon par soir",
+    "paragraphes": [
+     "Pas une chaîne, mais la même idée : Sophia me donne une leçon par jour, écrite par de vrais profs, avec un petit quiz après.",
+     "Dix minutes avant de dormir, l'histoire un soir, la philo le lendemain"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección cada noche",
+    "paragraphes": [
+     "No es un canal, pero es la misma idea: Sophia me da una lección al día, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos antes de dormir, historia una noche y filosofía la siguiente"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección cada noche",
+    "paragraphes": [
+     "No es un canal, pero es la misma idea: Sophia me da una lección al día, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos antes de dormir, historia una noche y filosofía la siguiente"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione a sera",
+    "paragraphes": [
+     "Non è un canale, ma l'idea è la stessa: Sophia mi dà una lezione al giorno, scritta da veri professori, con un piccolo quiz alla fine.",
+     "Dieci minuti prima di dormire, storia una sera e filosofia quella dopo"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion am abend",
+    "paragraphes": [
+     "Kein kanal, aber dieselbe idee: Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren, mit einem kleinen quiz.",
+     "Zehn minuten vor dem schlafen, an einem abend geschichte, am nächsten philosophie"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/affiches-anatomie.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/the-biscuits-carnet.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. kurzgesagt",
+    "paragraphes": [
+     "Animated science from a studio in munich, from black holes to the immune system. start with the one on the immune system.",
+     "It's the prettiest way to learn biology you'll ever find"
+    ]
+   },
+   "fr": {
+    "titre": "4. scienceétonnante",
+    "paragraphes": [
+     "La physique et les maths expliquées par david louapre, physicien. commence par ses vidéos sur la relativité.",
+     "Tu comprends enfin ce qu'on t'avait juste demandé d'apprendre par cœur"
+    ]
+   },
+   "es": {
+    "titre": "4. date un vlog",
+    "paragraphes": [
+     "Ciencia y física con javier santaolalla, doctor en física que trabajó en el cern.",
+     "Te cuenta el universo como si fuera un cotilleo"
+    ]
+   },
+   "es-419": {
+    "titre": "4. date un vlog",
+    "paragraphes": [
+     "Ciencia y física con javier santaolalla, doctor en física que trabajó en el cern.",
+     "Te platica el universo como si fuera un chisme"
+    ]
+   },
+   "it": {
+    "titre": "4. geopop",
+    "paragraphes": [
+     "Le scienze nella vita di tutti i giorni, nate dalla passione di un geologo, andrea moccia.",
+     "Capisci perché succedono le cose che vedi ogni giorno"
+    ]
+   },
+   "de": {
+    "titre": "4. doktor whatson",
+    "paragraphes": [
+     "Wissenschaft und kuriose fragen, erklärt von cedric engels, kurz und verständlich.",
+     "Jedes video beantwortet eine frage, die du dir nie gestellt hast"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/ordi-cafe-sculpture.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/tasse-fleurie-ordi.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. ted-ed",
+    "paragraphes": [
+     "Short animated lessons written by teachers, on everything from ancient myths to how the brain works.",
+     "Five minutes each, perfect for the walk home"
+    ]
+   },
+   "fr": {
+    "titre": "5. dirtybiology",
+    "paragraphes": [
+     "La biologie racontée par léo grasset, avec humour, des animaux bizarres à l'évolution.",
+     "Le genre de chaîne qui te donne une anecdote pour chaque dîner"
+    ]
+   },
+   "es": {
+    "titre": "5. memorias de pez",
+    "paragraphes": [
+     "Historia, guerras y curiosidades contadas con dibujos y mucho humor.",
+     "Te ríes y, sin darte cuenta, te sabes media historia de europa"
+    ]
+   },
+   "es-419": {
+    "titre": "5. memorias de pez",
+    "paragraphes": [
+     "Historia, guerras y curiosidades contadas con dibujos y mucho humor.",
+     "Te ríes y, sin darte cuenta, ya te sabes media historia de europa"
+    ]
+   },
+   "it": {
+    "titre": "5. barbascura x",
+    "paragraphes": [
+     "Scienza e natura raccontate con un'ironia assurda, dagli animali più strani alla chimica.",
+     "Ridi tantissimo e impari più di quanto pensi"
+    ]
+   },
+   "de": {
+    "titre": "5. dinge erklärt – kurzgesagt",
+    "paragraphes": [
+     "Die deutsche version von kurzgesagt: animierte wissenschaft, von schwarzen löchern bis zum immunsystem.",
+     "Wunderschön animiert und in zehn minuten erklärt"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   }
+  }
+ ]
+}

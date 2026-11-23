@@ -1,0 +1,570 @@
+{
+ "id": "pt-012",
+ "titre": {
+  "en": "cozy ways to learn something new every week",
+  "fr": "façons cosy d'apprendre un truc nouveau chaque semaine",
+  "es": "formas acogedoras de aprender algo nuevo cada semana",
+  "es-419": "formas acogedoras de aprender algo nuevo cada semana",
+  "it": "modi cozy per imparare qualcosa di nuovo ogni settimana",
+  "tr": "her hafta yeni bir şey öğrenmenin sıcacık yolları",
+  "sl": "prijetni načini, kako se vsak teden naučiti nekaj novega",
+  "de": "gemütliche wege, jede woche etwas neues zu lernen",
+  "sk": "útulné spôsoby, ako sa každý týždeň naučiť niečo nové",
+  "sv": "mysiga sätt att lära sig något nytt varje vecka"
+ },
+ "legendes": {
+  "en": "one small new thing a week adds up to a whole new you by spring. save it <3 #girlblogger #selfimprovement #learning #cozy #booktok",
+  "fr": "une petite chose nouvelle par semaine, et au printemps tu es une autre personne. enregistre-le <3 #girlblogger #developpementpersonnel #apprendre #cosy #booktokfrance",
+  "es": "una cosita nueva por semana y en primavera eres otra persona. guárdalo <3 #girlblogger #desarrollopersonal #aprender #acogedor #booktokespaña",
+  "es-419": "una cosita nueva por semana y para la primavera eres otra persona. guárdalo <3 #girlblogger #desarrollopersonal #aprender #acogedor #booktoklatam",
+  "it": "una piccola cosa nuova a settimana e a primavera sei un'altra persona. salvalo <3 #girlblogger #crescitapersonale #imparare #cozy #booktokitalia",
+  "tr": "haftada küçük yeni bir şey, ve bahara kadar bambaşka biri olursun. kaydet <3 #girlblogger #kişiselgelişim #öğrenmek #cozy #booktoktürkiye",
+  "sl": "ena majhna nova stvar na teden, in do pomladi si druga oseba. shrani <3 #girlblogger #osebnirazvoj #učenje #cozy #booktok",
+  "de": "eine kleine neue sache pro woche, und im frühling bist du ein anderer mensch. speicher es dir <3 #girlblogger #selbstverbesserung #lernen #gemütlich #booktokdeutschland",
+  "sk": "jedna malá nová vec týždenne a na jar si iný človek. ulož si to <3 #girlblogger #osobnyrozvoj #ucenie #cozy #booktok",
+  "sv": "en liten ny sak i veckan och till våren är du en ny människa. spara den <3 #girlblogger #självutveckling #lärande #mysigt #booktoksverige"
+ },
+ "musique": {
+  "titre": "Contemplation",
+  "url": "https://www.tiktok.com/music/Contemplation-6834268077673154561"
+ },
+ "notes": "Full test (BLEO, 23/11) : accroche neuve chez nous, au gabarit de son tube. Éléments à nous : une recette d'un pays nouveau, un problème d'échecs par jour, Sophia, un mouvement artistique par semaine (impressionnisme, art nouveau, bauhaus : réels), dix mots d'une langue nouvelle avec un petit dictionnaire (aucune appli). Slide Sophia (4) : « 3. one lesson with the candles on », cta C. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-salon-piano.jpg": "54fd3cc6-a53a-415a-9d9b-b62686990b76",
+  "images/banque/couv-biscuits-plaque.jpg": "8d86cc9d-c512-4e1a-88e2-897929c62ad1",
+  "images/banque/livre-fromage.jpg": "3a792b70-20b9-49b2-9419-d28d158a63ae",
+  "images/banque/myrtilles.jpg": "e13963e0-1143-42a9-8c32-df936bdd6fcf",
+  "images/banque/echecs-tasse.jpg": "403c927c-3622-4322-a872-649c259422e5",
+  "images/banque/echecs-angle.jpg": "5462de9c-6efb-467c-ab0e-0e1547a940ee",
+  "images/banque/tasse-bougies-fenetre.jpg": "dcc4ac43-9c08-481a-a14b-3d8fbc11245c",
+  "images/banque/peinture-motifs.jpg": "7c540237-f3a8-4b54-8642-9f6ca6a990b8",
+  "images/banque/peinture-feuilles.jpg": "5061f045-e6c5-483d-bb50-838bbe732c84",
+  "images/banque/fenetre-ville.jpg": "08adffa7-cbf3-4941-8e15-344a99c89df4",
+  "images/banque/fleur-cafe-glace.jpg": "4a0e6477-21e8-4a59-92b9-c49eb82bb51b"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-salon-piano.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-biscuits-plaque.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "cozy ways to learn\nsomething new\nevery week"
+   },
+   "fr": {
+    "titre": "façons cosy\nd'apprendre un truc\nnouveau chaque\nsemaine"
+   },
+   "es": {
+    "titre": "formas acogedoras\nde aprender algo\nnuevo cada semana"
+   },
+   "es-419": {
+    "titre": "formas acogedoras\nde aprender algo\nnuevo cada semana"
+   },
+   "it": {
+    "titre": "modi cozy per\nimparare qualcosa\ndi nuovo ogni\nsettimana"
+   },
+   "tr": {
+    "titre": "her hafta yeni bir\nşey öğrenmenin\nsıcacık yolları"
+   },
+   "sl": {
+    "titre": "prijetni načini,\nkako se vsak teden\nnaučiti nekaj\nnovega"
+   },
+   "de": {
+    "titre": "gemütliche wege,\njede woche etwas\nneues zu lernen"
+   },
+   "sk": {
+    "titre": "útulné spôsoby,\nako sa každý týždeň\nnaučiť niečo nové"
+   },
+   "sv": {
+    "titre": "mysiga sätt att\nlära sig något nytt\nvarje vecka"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/livre-fromage.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/myrtilles.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a recipe from a new country",
+    "paragraphes": [
+     "Once a week, cook one dish from a country you've never been to. read about the region while it simmers.",
+     "Your kitchen becomes a tiny travel guide, and dinner comes with a story"
+    ]
+   },
+   "fr": {
+    "titre": "1. une recette d'un nouveau pays",
+    "paragraphes": [
+     "Une fois par semaine, cuisine un plat d'un pays où tu n'es jamais allée. lis sur la région pendant que ça mijote.",
+     "Ta cuisine devient un petit guide de voyage, et le dîner arrive avec une histoire"
+    ]
+   },
+   "es": {
+    "titre": "1. una receta de un país nuevo",
+    "paragraphes": [
+     "Una vez a la semana, cocina un plato de un país donde nunca has estado. lee sobre la región mientras se hace.",
+     "Tu cocina se convierte en una pequeña guía de viaje, y la cena viene con historia"
+    ]
+   },
+   "es-419": {
+    "titre": "1. una receta de un país nuevo",
+    "paragraphes": [
+     "Una vez por semana, cocina un platillo de un país donde nunca has estado. lee sobre la región mientras se cocina.",
+     "Tu cocina se vuelve una pequeña guía de viaje, y la cena viene con historia"
+    ]
+   },
+   "it": {
+    "titre": "1. una ricetta da un paese nuovo",
+    "paragraphes": [
+     "Una volta a settimana, cucina un piatto di un paese dove non sei mai stata. leggi della regione mentre cuoce.",
+     "La tua cucina diventa una piccola guida di viaggio, e la cena arriva con una storia"
+    ]
+   },
+   "tr": {
+    "titre": "1. yeni bir ülkeden bir tarif",
+    "paragraphes": [
+     "Haftada bir, hiç gitmediğin bir ülkeden bir yemek pişir. pişerken o bölge hakkında oku.",
+     "Mutfağın küçük bir gezi rehberine dönüşür, ve akşam yemeği bir hikâyeyle gelir"
+    ]
+   },
+   "sl": {
+    "titre": "1. recept iz nove države",
+    "paragraphes": [
+     "Enkrat na teden skuhaj jed iz države, kjer še nisi bila. medtem ko se kuha, beri o tisti pokrajini.",
+     "Kuhinja postane majhen turistični vodnik, in večerja pride z zgodbo"
+    ]
+   },
+   "de": {
+    "titre": "1. ein rezept aus einem neuen land",
+    "paragraphes": [
+     "Koch einmal pro woche ein gericht aus einem land, in dem du noch nie warst. lies über die region, während es köchelt.",
+     "Deine küche wird zum kleinen reiseführer, und das essen kommt mit einer geschichte"
+    ]
+   },
+   "sk": {
+    "titre": "1. recept z novej krajiny",
+    "paragraphes": [
+     "Raz týždenne uvar jedlo z krajiny, kde si ešte nebola. kým sa varí, čítaj o tom regióne.",
+     "Z kuchyne sa stane malý cestovný sprievodca, a večera príde s príbehom"
+    ]
+   },
+   "sv": {
+    "titre": "1. ett recept från ett nytt land",
+    "paragraphes": [
+     "En gång i veckan, laga en rätt från ett land du aldrig har besökt. läs om regionen medan det puttrar.",
+     "Köket blir en liten reseguide, och middagen kommer med en historia"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/echecs-tasse.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/echecs-angle.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. one chess puzzle a day",
+    "paragraphes": [
+     "Set up one chess puzzle every morning with your coffee and solve it before you open your phone.",
+     "Five minutes, and your brain is already awake and a little bit sharper"
+    ]
+   },
+   "fr": {
+    "titre": "2. un problème d'échecs par jour",
+    "paragraphes": [
+     "Installe un problème d'échecs chaque matin avec ton café et résous-le avant d'ouvrir ton téléphone.",
+     "Cinq minutes, et ton cerveau est déjà réveillé et un peu plus vif"
+    ]
+   },
+   "es": {
+    "titre": "2. un problema de ajedrez al día",
+    "paragraphes": [
+     "Monta un problema de ajedrez cada mañana con tu café y resuélvelo antes de abrir el móvil.",
+     "Cinco minutos, y tu cerebro ya está despierto y un poco más ágil"
+    ]
+   },
+   "es-419": {
+    "titre": "2. un problema de ajedrez al día",
+    "paragraphes": [
+     "Arma un problema de ajedrez cada mañana con tu café y resuélvelo antes de abrir el celular.",
+     "Cinco minutos, y tu cerebro ya está despierto y un poco más ágil"
+    ]
+   },
+   "it": {
+    "titre": "2. un problema di scacchi al giorno",
+    "paragraphes": [
+     "Prepara un problema di scacchi ogni mattina con il caffè e risolvilo prima di aprire il telefono.",
+     "Cinque minuti, e il cervello è già sveglio e un po' più svelto"
+    ]
+   },
+   "tr": {
+    "titre": "2. her gün bir satranç problemi",
+    "paragraphes": [
+     "Her sabah kahvenle bir satranç problemi kur ve telefonunu açmadan önce çöz.",
+     "Beş dakika, ve beynin çoktan uyanmış, biraz daha keskin"
+    ]
+   },
+   "sl": {
+    "titre": "2. en šahovski problem na dan",
+    "paragraphes": [
+     "Vsako jutro ob kavi postavi en šahovski problem in ga reši, preden odpreš telefon.",
+     "Pet minut, in možgani so že budni in malo ostrejši"
+    ]
+   },
+   "de": {
+    "titre": "2. täglich ein schachrätsel",
+    "paragraphes": [
+     "Bau jeden morgen zum kaffee ein schachproblem auf und löse es, bevor du dein handy öffnest.",
+     "Fünf minuten, und dein kopf ist schon wach und ein bisschen schärfer"
+    ]
+   },
+   "sk": {
+    "titre": "2. jeden šachový problém denne",
+    "paragraphes": [
+     "Každé ráno pri káve si postav jeden šachový problém a vyrieš ho skôr, než otvoríš mobil.",
+     "Päť minút a mozog je už prebudený a o kúsok bystrejší"
+    ]
+   },
+   "sv": {
+    "titre": "2. ett schackproblem om dagen",
+    "paragraphes": [
+     "Ställ upp ett schackproblem varje morgon till kaffet och lös det innan du öppnar mobilen.",
+     "Fem minuter, och hjärnan är redan vaken och lite skarpare"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/tasse-bougies-fenetre.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson with the candles on",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. I light a candle and do it after dinner.",
+     "Ten minutes, and by the end of the week I've learned seven new things"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon à la bougie",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. j'allume une bougie et je la fais après le dîner.",
+     "Dix minutes, et à la fin de la semaine j'ai appris sept choses"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección con velas",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. enciendo una vela y la hago después de cenar.",
+     "Diez minutos, y al final de la semana he aprendido siete cosas nuevas"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección con velas",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. prendo una vela y la tomo después de cenar.",
+     "Diez minutos, y al final de la semana aprendí siete cosas nuevas"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione a lume di candela",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. accendo una candela e la faccio dopo cena.",
+     "Dieci minuti, e a fine settimana ho imparato sette cose nuove"
+    ]
+   },
+   "tr": {
+    "titre": "3. mum ışığında bir ders",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. bir mum yakıp akşam yemeğinden sonra yapıyorum.",
+     "On dakika, ve hafta sonunda yedi yeni şey öğrenmiş oluyorum"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija ob sveči",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. prižgem svečo in jo naredim po večerji.",
+     "Deset minut, in ob koncu tedna sem se naučila sedem novih stvari"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion bei kerzenlicht",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. ich zünde eine kerze an und mache sie nach dem essen.",
+     "Zehn minuten, und am ende der woche habe ich sieben neue dinge gelernt"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia pri sviečke",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. zapálim sviečku a robím ju po večeri.",
+     "Desať minút a na konci týždňa som sa naučila sedem nových vecí"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion i levande ljus",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. jag tänder ett ljus och gör den efter middagen.",
+     "Tio minuter, och i slutet av veckan har jag lärt mig sju nya saker"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/peinture-motifs.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/peinture-feuilles.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. one art movement a week",
+    "paragraphes": [
+     "Impressionism, art nouveau, bauhaus. pick one, look at ten works from it and read why it started.",
+     "Museums suddenly make sense, and you can name what you're looking at"
+    ]
+   },
+   "fr": {
+    "titre": "4. un courant d'art par semaine",
+    "paragraphes": [
+     "Impressionnisme, art nouveau, bauhaus. choisis-en un, regarde dix œuvres et lis pourquoi il est né.",
+     "Les musées prennent soudain du sens, et tu sais nommer ce que tu regardes"
+    ]
+   },
+   "es": {
+    "titre": "4. un movimiento artístico por semana",
+    "paragraphes": [
+     "Impresionismo, art nouveau, bauhaus. elige uno, mira diez obras y lee por qué nació.",
+     "De repente los museos tienen sentido, y sabes nombrar lo que estás mirando"
+    ]
+   },
+   "es-419": {
+    "titre": "4. un movimiento artístico por semana",
+    "paragraphes": [
+     "Impresionismo, art nouveau, bauhaus. elige uno, mira diez obras y lee por qué nació.",
+     "De pronto los museos tienen sentido, y sabes nombrar lo que estás viendo"
+    ]
+   },
+   "it": {
+    "titre": "4. un movimento artistico a settimana",
+    "paragraphes": [
+     "Impressionismo, art nouveau, bauhaus. scegline uno, guarda dieci opere e leggi perché è nato.",
+     "I musei all'improvviso hanno senso, e sai dare un nome a ciò che guardi"
+    ]
+   },
+   "tr": {
+    "titre": "4. haftada bir sanat akımı",
+    "paragraphes": [
+     "İzlenimcilik, art nouveau, bauhaus. birini seç, ondan on esere bak ve neden doğduğunu oku.",
+     "Müzeler birden anlam kazanır, ve baktığın şeyin adını koyabilirsin"
+    ]
+   },
+   "sl": {
+    "titre": "4. en umetniški slog na teden",
+    "paragraphes": [
+     "Impresionizem, secesija, bauhaus. izberi enega, poglej deset del in preberi, zakaj je nastal.",
+     "Muzeji naenkrat dobijo smisel, in znaš poimenovati, kar gledaš"
+    ]
+   },
+   "de": {
+    "titre": "4. eine kunstrichtung pro woche",
+    "paragraphes": [
+     "Impressionismus, jugendstil, bauhaus. nimm eine, schau dir zehn werke an und lies, warum sie entstand.",
+     "Museen ergeben plötzlich sinn, und du kannst benennen, was du siehst"
+    ]
+   },
+   "sk": {
+    "titre": "4. jeden umelecký smer týždenne",
+    "paragraphes": [
+     "Impresionizmus, secesia, bauhaus. vyber si jeden, pozri si desať diel a prečítaj si, prečo vznikol.",
+     "Múzeá zrazu dávajú zmysel, a vieš pomenovať, na čo sa pozeráš"
+    ]
+   },
+   "sv": {
+    "titre": "4. en konstriktning i veckan",
+    "paragraphes": [
+     "Impressionism, jugend, bauhaus. välj en, titta på tio verk och läs varför den uppstod.",
+     "Plötsligt blir museer begripliga, och du kan sätta namn på det du ser"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/fenetre-ville.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/fleur-cafe-glace.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. ten words of a new language",
+    "paragraphes": [
+     "Pick a language you've never studied and learn ten words a week with a small pocket dictionary. say them out loud.",
+     "By summer you can order a coffee in it, and the next trip feels closer"
+    ]
+   },
+   "fr": {
+    "titre": "5. dix mots d'une nouvelle langue",
+    "paragraphes": [
+     "Choisis une langue que tu n'as jamais étudiée et apprends dix mots par semaine avec un petit dictionnaire de poche. dis-les à voix haute.",
+     "À l'été tu sais commander un café, et le prochain voyage paraît plus proche"
+    ]
+   },
+   "es": {
+    "titre": "5. diez palabras de un idioma nuevo",
+    "paragraphes": [
+     "Elige un idioma que nunca hayas estudiado y aprende diez palabras a la semana con un diccionario de bolsillo. dilas en voz alta.",
+     "En verano ya sabes pedir un café, y el próximo viaje se siente más cerca"
+    ]
+   },
+   "es-419": {
+    "titre": "5. diez palabras de un idioma nuevo",
+    "paragraphes": [
+     "Elige un idioma que nunca hayas estudiado y aprende diez palabras por semana con un diccionario de bolsillo. dilas en voz alta.",
+     "Para el verano ya puedes pedir un café, y el próximo viaje se siente más cerca"
+    ]
+   },
+   "it": {
+    "titre": "5. dieci parole di una lingua nuova",
+    "paragraphes": [
+     "Scegli una lingua che non hai mai studiato e impara dieci parole a settimana con un piccolo dizionario tascabile. dille ad alta voce.",
+     "In estate sai ordinare un caffè, e il prossimo viaggio sembra più vicino"
+    ]
+   },
+   "tr": {
+    "titre": "5. yeni bir dilden on kelime",
+    "paragraphes": [
+     "Hiç çalışmadığın bir dil seç ve küçük bir cep sözlüğüyle haftada on kelime öğren. yüksek sesle söyle.",
+     "Yaza kadar o dilde kahve söyleyebilirsin, ve bir sonraki seyahat daha yakın hissettirir"
+    ]
+   },
+   "sl": {
+    "titre": "5. deset besed novega jezika",
+    "paragraphes": [
+     "Izberi jezik, ki se ga še nisi učila, in se vsak teden z malim žepnim slovarjem nauči deset besed. izgovori jih na glas.",
+     "Do poletja v njem naročiš kavo, in naslednje potovanje se zdi bližje"
+    ]
+   },
+   "de": {
+    "titre": "5. zehn wörter einer neuen sprache",
+    "paragraphes": [
+     "Nimm eine sprache, die du nie gelernt hast, und lern mit einem kleinen taschenwörterbuch zehn wörter pro woche. sag sie laut.",
+     "Bis zum sommer kannst du darin einen kaffee bestellen, und die nächste reise fühlt sich näher an"
+    ]
+   },
+   "sk": {
+    "titre": "5. desať slov nového jazyka",
+    "paragraphes": [
+     "Vyber si jazyk, ktorý si sa nikdy neučila, a s malým vreckovým slovníkom sa nauč desať slov týždenne. povedz ich nahlas.",
+     "Do leta si v ňom objednáš kávu, a ďalšia cesta sa zdá bližšie"
+    ]
+   },
+   "sv": {
+    "titre": "5. tio ord på ett nytt språk",
+    "paragraphes": [
+     "Välj ett språk du aldrig har läst och lär dig tio ord i veckan med en liten fickordbok. säg dem högt.",
+     "Till sommaren kan du beställa en kaffe på det, och nästa resa känns närmare"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

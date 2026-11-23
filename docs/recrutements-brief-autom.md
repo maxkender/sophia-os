@@ -10,7 +10,7 @@ Remplace le Google Sheet / Forms du guide HM.
 - **Org Upwork exclusive : Vik Studios** `org_uid = 2074065383597823773`.
   Jamais Maximilien Kender, jamais une autre org.
 - Slack workspace Sophia. Invite Documents :
-  `https://join.slack.com/t/sophia-system/shared_invite/zt-44pqj3z39-X4KkPQI6cwOwWE2LNaLbig`
+  `https://join.slack.com/t/sophia-system/shared_invite/zt-4hweboq01-NKLzgvGLbJMHBtoB7N0iBQ`
 - OS : `https://sophia-marketing-orga.vercel.app`
 - Login OS : `{prenom}{1re lettre du nom}@sophia.com` (sans accents), mot de passe `12345678`.
   L’email perso se stocke à part (`recrutement_hms.email_perso`) — Slack + copie admin pour Upwork team.

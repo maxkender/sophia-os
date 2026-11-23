@@ -1,0 +1,1858 @@
+{
+ "id": "sg-037",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7680943672074030369",
+  "vues": 202000,
+  "publie_le": "2026-09-02",
+  "accroche": "5 compétence 10/10 à apprendre au lieu de scroller"
+ },
+ "titre": {
+  "fr": "5 compétences 10/10 à apprendre au lieu de scroller",
+  "en": "5 10/10 skills to learn instead of scrolling",
+  "de": "5 10/10-Skills zum Lernen, statt zu scrollen",
+  "it": "5 competenze 10/10 da imparare invece di scrollare",
+  "pt-BR": "5 habilidades 10/10 pra aprender em vez de rolar o feed",
+  "tr": "Kaydırmak yerine öğrenebileceğin 5 adet 10/10 beceri",
+  "ro": "5 abilități de 10/10 de învățat în loc de scroll",
+  "cs": "5 dovedností 10/10, které se naučíš místo scrollování",
+  "hu": "5 db 10/10-es készség, amit görgetés helyett tanulhatsz",
+  "el": "5 δεξιότητες 10/10 να μάθεις αντί να σκρολάρεις",
+  "sr": "5 veština 10/10 koje možeš da naučiš umesto skrolovanja"
+ },
+ "legendes": {
+  "fr": "5 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "5 10/10 skills to learn instead of scrolling #learnontiktok #selfimprovement #skills",
+  "de": "5 10/10-Skills zum Lernen, statt zu scrollen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "5 competenze 10/10 da imparare invece di scrollare #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "5 habilidades 10/10 pra aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kaydırmak yerine öğrenebileceğin 5 adet 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "5 abilități de 10/10 de învățat în loc de scroll #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "5 dovedností 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "5 db 10/10-es készség, amit görgetés helyett tanulhatsz #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "5 δεξιότητες 10/10 να μάθεις αντί να σκρολάρεις #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "5 veština 10/10 koje možeš da naučiš umesto skrolovanja #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "im not alone - Žvaigždė",
+  "url": "https://www.tiktok.com/music/im-not-alone-7214561277266610990"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f4bf362c-3438-464e-9ea5-2f7cab1bb335",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCE",
+      "cap": 110
+     },
+     {
+      "t": "À APPRENDRE",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "AU LIEU",
+      "cap": 118
+     },
+     {
+      "t": "DE SCROLLER",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 110
+     },
+     {
+      "t": "TO LEARN",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "INSTEAD OF",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLING",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 110
+     },
+     {
+      "t": "ZUM LERNEN",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "STATT ZU",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLEN",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZE",
+      "cap": 110
+     },
+     {
+      "t": "DA IMPARARE",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "INVECE DI",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLARE",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 110
+     },
+     {
+      "t": "PRA APRENDER",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "EM VEZ DE",
+      "cap": 118
+     },
+     {
+      "t": "ROLAR O FEED",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KAYDIRMAK",
+      "cap": 110
+     },
+     {
+      "t": "YERİNE",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "ÖĞRENİLECEK",
+      "cap": 118
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 110
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "ÎN LOC",
+      "cap": 118
+     },
+     {
+      "t": "DE SCROLL",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 110
+     },
+     {
+      "t": "K NAUČENÍ",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "MÍSTO",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOVÁNÍ",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 110
+     },
+     {
+      "t": "TANULNI",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "GÖRGETÉS",
+      "cap": 118
+     },
+     {
+      "t": "HELYETT",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 110
+     },
+     {
+      "t": "ΝΑ ΜΑΘΕΙΣ",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "ΑΝΤΙ ΝΑ",
+      "cap": 118
+     },
+     {
+      "t": "ΣΚΡΟΛΑΡΕΙΣ",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 110
+     },
+     {
+      "t": "ZA UČENJE",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "UMESTO",
+      "cap": 118
+     },
+     {
+      "t": "SKROLOVANJA",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "SAUTER",
+     [
+      {
+       "t": "À LA CORDE",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Zvk23rzlJnU",
+     "titre": "Apprendre à sauter à la corde",
+     "chaine": "Mon Coach de Fitness",
+     "vues": "644 k vues",
+     "date": "il y a 10 ans",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kwLWqllY8VQ5dDDDkWwALhgmRtGH8CdIRG3HhzFu5AhQ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 644465
+    },
+    "sous": [
+     "1 semaine pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN TO",
+     [
+      {
+       "t": "JUMP ROPE",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IFgQfVQT_68",
+     "titre": "How To Jump Rope Beginner Basics: STARTING YOUR ROPE",
+     "chaine": "Kyle Easter",
+     "vues": "451K views",
+     "date": "5 years ago",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/V8JGercOm7q5ID-hPoHRR0W58rm2Be0ochTXMTwxcjWYwOHe_lez28tQv9adQbfExFHaYLjBkMA=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 451883
+    },
+    "sous": [
+     "1 week to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "SEILSPRINGEN",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "knPJFWz0YKU",
+     "titre": "Richtig Seilspringen lernen | Fitness & Kraftsport | Sport-Thieme",
+     "chaine": "Sport-Thieme",
+     "vues": "276.606 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "1:19",
+     "avatar": "https://yt3.ggpht.com/dd_h0HCxojP88dcOErhKv9U7eydw-YNSDgn6pguc5K_oDs3VHJulffi7LHdU8G9MSJoEQrmNdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Woche zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SALTARE",
+     [
+      {
+       "t": "LA CORDA",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jUBirAI-nQU",
+     "titre": "Come Saltare La Corda - Primi Passi Per Imparare Il Salto Con La Corda",
+     "chaine": "Fixfit - Fitness Lifestyle",
+     "vues": "316K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nqS_4wxWRbgQtUl9F7N6SW36zaRT5ifx28uIk--1DjojI=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 316900
+    },
+    "sous": [
+     "1 settimana per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PULAR",
+     [
+      {
+       "t": "CORDA",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bB2BMeZTygg",
+     "titre": "Pular corda para iniciantes - Forma correta, erros comuns e progressões",
+     "chaine": "PedroFelipeFit",
+     "vues": "1,5 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "9:30",
+     "avatar": "https://yt3.ggpht.com/1UqCq9mNNsvgby0ze97ocs2eOSRE-OBdvJy1n_glZhNE_PhZJWQzoVhPVuC6J1lMyDL2WHHxHA=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 1566554
+    },
+    "sous": [
+     "1 semana para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İP",
+     [
+      {
+       "t": "ATLAMAK",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YhtA8RnvxIs",
+     "titre": "Nasıl İp Atlanır? #ipatlama",
+     "chaine": "Sağlıklı Hoca",
+     "vues": "169 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "7:52",
+     "avatar": "https://yt3.ggpht.com/t7GU2RV2_uNqmqvq4DxRVGpZJ3JvJu3QgkKRJPoH2qkgf5PYmADwXqnVmIouu97FUDKLcXhIDw=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "1 haftada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SARI",
+     [
+      {
+       "t": "COARDA",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8hgiBLTdIjs",
+     "titre": "Cum Să Sari Coarda Corect – Tutorial Eficient pentru Antrenamente Eficiente 🏋️",
+     "chaine": "Knockout Store",
+     "vues": "84 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "3:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBbnWcZKfllnRvhgPmxLLp0dXK8Xprkn76QAV1y2I0wf4=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 84634
+    },
+    "sous": [
+     "1 săptămână de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SKÁKAT",
+     [
+      {
+       "t": "PŘES ŠVIHADLO",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l-LLmGjmPVs",
+     "titre": "Jak Skákat Přes Švihadlo SNOŽMO?",
+     "chaine": "Švihej",
+     "vues": "204 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "1:36",
+     "avatar": "https://yt3.ggpht.com/jgfjZMPfISMJhrCwygNeiHY2IOw8CvEHnhRbT0HMVNCsIMQLFaYaHGQpqKy05GOLlagGQqdZj-g=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 204189
+    },
+    "sous": [
+     "1 týden na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "KÖTELET",
+     [
+      {
+       "t": "UGRANI",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d3KZUo7rNRg",
+     "titre": "Ugrókötél: az alapok",
+     "chaine": "Kormány Krisz",
+     "vues": "52 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "8:23",
+     "avatar": "https://yt3.ggpht.com/cDKhS_6bm1VX8RphiIVY5n6OyL0Ef1qVR0gJLmIfEZR30hIjgH6YjVBf3YvsjeYxTTlmP640=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "1 hét a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΑΝΕΙΣ",
+     [
+      {
+       "t": "ΣΧΟΙΝΑΚΙ",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DplzJLRlV7s",
+     "titre": "Πως να κάνετε σχοινάκι (Για αρχάριους)",
+     "chaine": "PkTennis",
+     "vues": "33 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/48dTUV5VUn6dRSN_aaY9qUkQQcrrzPtUY10uuYSIr8f-z4beXCYriUVQe1Z3CB6ZEfBKH5xJ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 33449
+    },
+    "sous": [
+     "1 εβδομάδα για να το μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PRESKAKATI",
+     [
+      {
+       "t": "VIJAČU",
+       "couleur": "#e23b2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Jc0yf7CPrrQ",
+     "titre": "Kako preskakati uže - BIOMEHANIKA - Dupli preskok",
+     "chaine": "TREN - The Art of Change",
+     "vues": "11 hilj. pregleda",
+     "date": "pre 3 godine",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mi9F3Mn7u4Pick9B6KkBC9pI8EFwOdPxKnrb6nM76Bcg=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 11094
+    },
+    "sous": [
+     "1 nedelja za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "TENIR",
+     [
+      {
+       "t": "LA PLANCHE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pHrzdyFNB24",
+     "titre": "TUTO - Comment bien faire du gainage ? 🤸 | Decathlon",
+     "chaine": "Decathlon FR",
+     "vues": "111 k vues",
+     "date": "il y a 4 ans",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/KZONpC3r-b0Rch3My_wqCKW7whfUomxLKstX7X5uNRezojb38nPItHd-7c-IbTF-75OUQ3Cc=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 111316
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HOLD",
+     [
+      {
+       "t": "A PLANK",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6LqqeBtFn9M",
+     "titre": "How to do the perfect PLANK: technique and common mistakes",
+     "chaine": "Get Exercise Confident",
+     "vues": "801K views",
+     "date": "11 years ago",
+     "duree": "2:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k7Uyqnb68jLU_S31JPAVM97uVsINhWTggeEethN25cHUY=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 801208
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEN",
+     [
+      {
+       "t": "PLANK HALTEN",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Y9ZRIlKG5xY",
+     "titre": "How to: Plank | Planks richtig machen | Unterarmstütz lernen",
+     "chaine": "Akademie für Sport und Gesundheit",
+     "vues": "90.122 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "1:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kVrWnXhDNIgz-qJhZV90NHGNHY8Ny-MZ11cuW3nOrZtE8=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 90122
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "IL PLANK",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4RlykSkXt0U",
+     "titre": "La corretta esecuzione del plank",
+     "chaine": "LA FIF",
+     "vues": "78K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "1:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nC_quIGZw_NZS3T7GhMA6gN8QqjayEKcxxxMT2dkDokA=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 78273
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "PRANCHA",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qNRqGqESAWU",
+     "titre": "Como fazer abdominal prancha",
+     "chaine": "Leandro Twin",
+     "vues": "260 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/3MF_YLULfQG2kX4wuxWl161vkRyyUANacZvcy7xZxxFXZQhMocJ9qfqbFGORMSGvbOM4SXML1g=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 260585
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PLANK",
+     [
+      {
+       "t": "YAPMAK",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kXwajCuHfJA",
+     "titre": "Plank hareketi DOĞRU nasıl yapılır? Adım adım ayrıntılı anlatım!",
+     "chaine": "Murat Tosun",
+     "vues": "84 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/bk9Jd9KHtJ9lPkIJ0H1PuTPon6Cu7yh1xCEo_4kWIJkhdelT_ut44HBmjYZN3EFoaQfkgjobIA=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "PLANȘA",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PUmsKcHs6nY",
+     "titre": "Plank abdomen - Cum sa executi corect !",
+     "chaine": "Zona FIT",
+     "vues": "1,6 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "6:22",
+     "avatar": "https://yt3.ggpht.com/A4eCJ6nIagy-vdCCPdDrMXZwFiYqcY4xKBLxfvzbDRXOkVlXz9u5RzfJq279G2KSUuJwLyBh94o=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 1638
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UDRŽET",
+     [
+      {
+       "t": "PRKNO",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Hwy2SBPN68s",
+     "titre": "Jak správně udělat VZPOR, PRKNO, PLANK",
+     "chaine": "Jan Dragomir trenér a pohybový specialista",
+     "vues": "34 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "2:19",
+     "avatar": "https://yt3.ggpht.com/1-C1NWaXIXO7FrbwPSMjym0cf2EMqpiqlbphIxXJ3YJXXYInzF3eie7FZqj35cFdxolqCp_Ulg=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 34275
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "PLANKOT",
+     [
+      {
+       "t": "TARTANI",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "igDVm5Rpf8I",
+     "titre": "Gyógytornász szemmel | PLANK",
+     "chaine": "R-Fit Klub",
+     "vues": "109 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "6:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kgmus7K_CeWNUdW57SHDBW-DhxvqtPhJC1ZfzvEzV_IQ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΡΑΤΑΣ",
+     [
+      {
+       "t": "ΣΑΝΙΔΑ",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tpBRL6OS1LU",
+     "titre": "Πως να κάνεις ΣΑΝΙΔΑ σωστά",
+     "chaine": "Body In Motion - Rehab & Sports Training",
+     "vues": "22 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/Pnrm6sfwuZqMLzCc6A6O4lV-zt0P46pmx4yq2wnbPMCeK_tmt-rowe7BKOGWLq52vxEI8xr5=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 22358
+    },
+    "sous": [
+     "10 λεπτά για να το μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "DRŽATI",
+     [
+      {
+       "t": "PLANK",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pDYdQ2EGPA0",
+     "titre": "ISTINA O VEŽBI PLANK! Koliko dugo zaista treba da traje a da vam stomak bude kao stena!",
+     "chaine": "Boško Takovac",
+     "vues": "17 hilj. pregleda",
+     "date": "pre 3 godine",
+     "duree": "5:25",
+     "avatar": "https://yt3.ggpht.com/_sxkq7U4xvN2PcKfcbWZj8pe_Kq2M70_Ri95R6nsXGoMTiWDwKD_nQeKw-CIat7RoaL_d94d=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 17485
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "UNE LEÇON",
+     [
+      {
+       "t": "PAR JOUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "ONE LESSON",
+     [
+      {
+       "t": "A DAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE LEKTION",
+     [
+      {
+       "t": "AM TAG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UNA LEZIONE",
+     [
+      {
+       "t": "AL GIORNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "UMA LIÇÃO",
+     [
+      {
+       "t": "POR DIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GÜNDE",
+     [
+      {
+       "t": "BİR DERS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "O LECȚIE",
+     [
+      {
+       "t": "PE ZI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "JEDNA LEKCE",
+     [
+      {
+       "t": "DENNĚ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "NAPI",
+     [
+      {
+       "t": "EGY LECKE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΕΝΑ ΜΑΘΗΜΑ",
+     [
+      {
+       "t": "ΤΗ ΜΕΡΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "JEDNA LEKCIJA",
+     [
+      {
+       "t": "DNEVNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UN",
+     [
+      {
+       "t": "SQUAT PARFAIT",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ipd9a5VjBLw",
+     "titre": "Comment bien faire un squat?",
+     "chaine": "Vitaliplay",
+     "vues": "39 k vues",
+     "date": "il y a 3 ans",
+     "duree": "4:39",
+     "avatar": "https://yt3.ggpht.com/gkGaIqTTGk48SuWzU4-fLPBtXF-E0FGX9RGdZHbNCF6lixzpgyXQOg11e8yea4oz8kkGaMyNjQ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 39123
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DO A",
+     [
+      {
+       "t": "PERFECT SQUAT",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "my0tLDaWyDU",
+     "titre": "How To Squat Correctly (NO BACK PAIN)",
+     "chaine": "Squat University",
+     "vues": "812K views",
+     "date": "3 years ago",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n4aicV4_EhtwXub4Zk9twkkgkTea8e-hcAqUe2XsJEhgE=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 812489
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DIE PERFEKTE",
+     [
+      {
+       "t": "KNIEBEUGE",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DK9x9jywUgM",
+     "titre": "Die richtige Kniebeuge ✅ So vermeidest du typische Fehler! #reharevolution  #kniebeuge",
+     "chaine": "Steffen Barth - Reha Experte",
+     "vues": "189.561 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "5:59",
+     "avatar": "https://yt3.ggpht.com/ukt_T0kCjot_jkhUleFBrwK2hHfmvEmFgFWXxpymhFoxAp41bO4hr4zBV-JOk3ZFmhpgoUn6RQ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 189561
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE UNO",
+     [
+      {
+       "t": "SQUAT PERFETTO",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Blvwwm8qo1k",
+     "titre": "ECCO COME ESEGUIRE CORRETTAMENTE LO SQUAT COSÌ DA NON SBAGLIARE MAI PIU!",
+     "chaine": "Dott. Matteo Forli",
+     "vues": "13K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "3:57",
+     "avatar": "https://yt3.ggpht.com/Dgz6chQcfXgMR_BrFYb7kcWXBwy3t-sbUAJPKbcuOBno1ObTBsdaQ2t_nnw8cuMAXLA79tY0qw=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 13292
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UM",
+     [
+      {
+       "t": "AGACHAMENTO PERFEITO",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "s7i94Okznns",
+     "titre": "Dicas para aplicar o agachamento correto",
+     "chaine": "Rodrigo Zago Treinador",
+     "vues": "736 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/xVOy52v5LaJ8yB5AUiVJM-AtB1Iianmm2Vbk_A3Bp5INkWZjK86BuKCib77HdUXtV4_9s81YeQ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 736076
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KUSURSUZ",
+     [
+      {
+       "t": "SQUAT",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rm1wRGvFnX4",
+     "titre": "Squat Nasıl Yapılır? BU 2 HATAYI YAPMA! (Detaylı, Adım Adım) | AER #5 (2018)",
+     "chaine": "AĞIRSAĞLAM",
+     "vues": "556 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "11:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kaXcJZBJtgm5bU9i5ZsZLOUngVV_AUBbKZJ53_xpI927E=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "GENUFLEXIUNEA",
+     [
+      {
+       "t": "PERFECTĂ",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xdYL4RBrHOA",
+     "titre": "Cum Sa Faci Genuflexiuni Corecte",
+     "chaine": "Florin Dragomir",
+     "vues": "68 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "3:42",
+     "avatar": "https://yt3.ggpht.com/Ht2Y1S5qIriyuhyQS-17vLrvzXSKZEU02q-OKc2uj5ZUeawb9eRfwSDzHfuDjnp6Rh47oerjGw=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 68756
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UDĚLAT",
+     [
+      {
+       "t": "DOKONALÝ DŘEP",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rJywOYkrl1s",
+     "titre": "NEJČASTĚJŠÍ CHYBY NA DŘEP |  Správná technika",
+     "chaine": "Jakub Enžl",
+     "vues": "84 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "8:55",
+     "avatar": "https://yt3.ggpht.com/NLUkcGP6g69bwxM8vElkbnqavJwYbY9TZS7e9lpTdLvYO818_H8ZW3mrdgXNaH5BfCnoxjqSsS8=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 84335
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TÖKÉLETESEN",
+     [
+      {
+       "t": "GUGGOLNI",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bmV_9Xwg8_4",
+     "titre": "HELYES GUGGOLÁS | lépésről lépésre",
+     "chaine": "Dorka Rigler",
+     "vues": "19 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "4:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nZR5qh0OlLrF8AhuQ6T9s_zljXJxMojHWXnnKsnmcslQ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΤΕΛΕΙΑ",
+     [
+      {
+       "t": "ΚΑΘΙΣΜΑΤΑ",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "E5Zcswmap0I",
+     "titre": "Τεχνική Squat και προασκήσεις για αρχάριους",
+     "chaine": "Giorgos Tsamadias",
+     "vues": "3 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "8:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLP8Sawg9uWj2jj6hjT8N598m-POTtkPgqTUtZvaqZLqg=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 3064
+    },
+    "sous": [
+     "30 λεπτά για να το μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SAVRŠEN",
+     [
+      {
+       "t": "ČUČANJ",
+       "couleur": "#e8862a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WU_ks_hJ7nY",
+     "titre": "Čučanj - pravilno izvođenje, primena, varijacije i najčešće greške.",
+     "chaine": "vuk1vuk",
+     "vues": "65 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/Q-ZGiUSvQJBmRR-afVqRNG1FvEd7IuOqBxhYpWY5trI8aluNPGeHDAZLIgxRihno6Oo6hNsMhQ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 65792
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE À",
+     [
+      {
+       "t": "BIEN RESPIRER",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XeJWJrsf-ks",
+     "titre": "Respiration abdominale : pourquoi et comment la pratiquer ?",
+     "chaine": "Zen et épanouis",
+     "vues": "262 k vues",
+     "date": "il y a 7 ans",
+     "duree": "4:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mL7N1lPVEn2veKPBIy4i9QHIvqxSgYxfOAEV2xGuxHZ1Y=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 262305
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN TO",
+     [
+      {
+       "t": "BREATHE RIGHT",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9jpchJcKivk",
+     "titre": "How to do Diaphragmatic Breathing Exercises for Beginners",
+     "chaine": "Michelle Kenway",
+     "vues": "486K views",
+     "date": "3 years ago",
+     "duree": "3:53",
+     "avatar": "https://yt3.ggpht.com/v1B4dEpBfIHyQdOHiPOxJLC8JNopccCwIrA-Q7Jpz_5fRztBWVlgjNwKJkEaFolIjJjZXttQIQ=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 486856
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "ATMEN",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NJCID1N3YXc",
+     "titre": "Die richtige Atemtechnik: Brustatmung vs. Bauchatmung",
+     "chaine": "Thieme TeleCare",
+     "vues": "33.944 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/ZtKEPoPvhKw1AG3pFXEmW2doTuuKe-2Rv18PG-fUx5jirdjrUi5pgeV7in_qtrqTruBAyahtbw=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 33944
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE A",
+     [
+      {
+       "t": "RESPIRARE",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qEurAQ7BJDc",
+     "titre": "Respirazione diaframmatica: come farla e quali sono i benefici",
+     "chaine": "FISIOSOCIAL",
+     "vues": "274K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJdzJHOD8VZjk5E2l64nYkvkDDxTuXnjyDrzGWfTYEbwE=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 274154
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER A",
+     [
+      {
+       "t": "RESPIRAR",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Waf3kZkpGq4",
+     "titre": "Respiração Diafragmática - Você respira da forma certa?",
+     "chaine": "NAMU",
+     "vues": "296 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "2:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwyQpVTZgzdxPgpZ8uM-XGqWxgAwFUt9XaMy5R--ws8Io=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 296879
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DOĞRU",
+     [
+      {
+       "t": "NEFES ALMAK",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uH8ZXG7SnDA",
+     "titre": "DİYAFRAM NEFESİ EGZERSİZİ NASIL YAPILIR?",
+     "chaine": "DR SOYTÜRK",
+     "vues": "83 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/py7aFlTIa2XuiterzD6D9Lx1spudzN60crrK2TRMUEmBs_22NiWNYjGJ0m4aYEicrauNk6DMZg=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ RESPIRI",
+     [
+      {
+       "t": "CORECT",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wsbO26McTNs",
+     "titre": "Tehnica de respiratie abdominala (diafragmatica) pentru reducerea stress-ului si a anxietatii.",
+     "chaine": "Andrei Roșca - change strategist",
+     "vues": "50 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "7:45",
+     "avatar": "https://yt3.ggpht.com/Px5kpUDWKVnVIDeDkSNWYMM-vn_uUw-74JnfewTVz3MyeTRdfabj27YdujtudlfB0CQFPNTN=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 50541
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SPRÁVNĚ",
+     [
+      {
+       "t": "DÝCHAT",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IiLFJH4-9MU",
+     "titre": "Škola dechu #2: Brániční dýchání - jednoduchý cvik na jeho obnovu | KB5",
+     "chaine": "KB5",
+     "vues": "83 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdfQHBakhx--_VfYKQ3kKANQk0yIwk3K5oflrnSF4i3g=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 83057
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HELYESEN",
+     [
+      {
+       "t": "LÉLEGEZNI",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Yob9to4QcTg",
+     "titre": "A legjobb légzőgyakorlat? Ha érdekel az egészséged ezt ismerned és végezned kell! ;)",
+     "chaine": "Gábor Simkó",
+     "vues": "402 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "12:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kp-88O3cOXpIOg8_PbUxQkI4WwR0_UYj38JX8gYC-hdPs=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΝΑΠΝΕΕΙΣ",
+     [
+      {
+       "t": "ΣΩΣΤΑ",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5zbKhrimlW4",
+     "titre": "Διαφραγματική Αναπνοή για ψυχική υγεία",
+     "chaine": "Γεώργιος Τσουκαλάς  Οστεοπαθητική | Χειροπρακτική",
+     "vues": "17 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "9:36",
+     "avatar": "https://yt3.ggpht.com/pYBhO5vuSM4QA7mGhaYjPfJxi95dN24FTvVtNUMQdagHZw4usINuHhbdryUWqILC1WAn8F0Fgg=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 17804
+    },
+    "sous": [
+     "15 λεπτά για να το μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PRAVILNO",
+     [
+      {
+       "t": "DISATI",
+       "couleur": "#2aa9a0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PT0Cd4pty4w",
+     "titre": "Dijafragmalno disanje",
+     "chaine": "TEND Novi Sad",
+     "vues": "13 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "2:34",
+     "avatar": "https://yt3.ggpht.com/Y2S8nZYGkjY48n2Qw6Sy1hKQyHj3Kv2ff6lBoNYmUVBOxDQjJtV3i9EiwPyjtYiTZEM9B1-70A=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 13080
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "SOULAGER",
+     [
+      {
+       "t": "SON DOS",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XHJuSzuTy2Q",
+     "titre": "Soulager la douleur lombaire : 6 exercices kiné à faire",
+     "chaine": "Alexandre Auffret - Tout pour ma Santé",
+     "vues": "1,3 M de vues",
+     "date": "il y a 5 ans",
+     "duree": "9:13",
+     "avatar": "https://yt3.ggpht.com/oIa2fUXDjAPAn8zR-d1W9EMpE4ZH1jGb4qWrIDTbZ8Jmw1qYpDNDEoO-bexr_JuPuaRi4rfRoz8=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 1375594
+    },
+    "sous": [
+     "10 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "RELIEVE",
+     [
+      {
+       "t": "BACK PAIN",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dDR82tz36kw",
+     "titre": "3 EASY Stretches For Lower Back Pain Relief!",
+     "chaine": "AskDoctorJo",
+     "vues": "568K views",
+     "date": "5 years ago",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mhLXGaBbpSXiPTbIh7ymQ1cPm1P8Bq_Way7frUkULVag=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 568116
+    },
+    "sous": [
+     "10 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RÜCKENSCHMERZEN",
+     [
+      {
+       "t": "LINDERN",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fvnR5Vl1TA4",
+     "titre": "3 Übungen gegen Schmerzen im unteren Rücken (sehr effektiv)",
+     "chaine": "Liebscher & Bracht | Die Schmerzspezialisten",
+     "vues": "3,2 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/MOahju_wgrrre052CsVF5BZ3lJ1NOXwcg3GHQvoLIWBMq8kEL2xMh72Hld4fqUZms6Lnpcva7w=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 3230013
+    },
+    "sous": [
+     "10 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ALLEVIARE",
+     [
+      {
+       "t": "IL MAL DI SCHIENA",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KOWLpwB4bjM",
+     "titre": "ESERCIZI PER LOMBALGIA",
+     "chaine": "Aziende Sanitarie di Parma",
+     "vues": "1,2 Mln visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "7:01",
+     "avatar": "https://yt3.ggpht.com/vPbyP-YkAsEebPcoJEVziE5nO297BWtpqPHXXz_ea9G8jwW_5ff3p6dXb2OhyOhdfp4DzrSUfA=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 1277009
+    },
+    "sous": [
+     "10 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ALIVIAR",
+     [
+      {
+       "t": "A DOR NAS COSTAS",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kPaLYolpN7w",
+     "titre": "Como TRATAR A DOR LOMBAR EM CASA com 5 exercícios SIMPLES",
+     "chaine": "Fisioterapia com Kelwin Juan",
+     "vues": "1 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "7:48",
+     "avatar": "https://yt3.ggpht.com/Wot6xw5LRVjzuehC1cAKiJWa7GOEs_G2r0sg2pD91chkw-FLYceR3ThTTyKxWTOQ9wqsbBDO=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 1073690
+    },
+    "sous": [
+     "10 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BEL AĞRISINI",
+     [
+      {
+       "t": "HAFİFLETMEK",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w8KcYyf_Tps",
+     "titre": "BEL AĞRISI İÇİN 5 KOLAY EGZERSİZ (Bel fıtığı, Bel düzleşmesi için)",
+     "chaine": "Aktifizyo",
+     "vues": "2,1 Mn görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "9:25",
+     "avatar": "https://yt3.ggpht.com/SE33lic18h30lCp81On5U_jfFR6WEmubhmGQaCV-vLGly7g6K0Eg4Smixi4fBzPNE9_skKeIQA=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "günde 10 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI ALINI",
+     [
+      {
+       "t": "DURERILE DE SPATE",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "g6pvoULcWD4",
+     "titre": "3 Exercitii pentru Durerea de Spate! Stretching! Alin Burileanu",
+     "chaine": "Alin Burileanu",
+     "vues": "165 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:28",
+     "avatar": "https://yt3.ggpht.com/6y91EsLrZ_4K0E5P3y7K6a49PeK5EHXLRUOW1lwRZC-u_482scunHUTVYg4RHHe6rlLXnnI=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 165726
+    },
+    "sous": [
+     "10 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ULEVIT",
+     [
+      {
+       "t": "BOLAVÝM ZÁDŮM",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gmrFohuP1SA",
+     "titre": "Pomoc při akutní bolesti bederní páteře I.- cviky na záda - uvolnění pomocí fyzioterapie",
+     "chaine": "Kristina Bertošová",
+     "vues": "765 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "7:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n9dtRUP2Tj8StK67x5ddhDSM8UtHzy1zXNycmk-t2INZ7x=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 765266
+    },
+    "sous": [
+     "10 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ENYHÍTENI A",
+     [
+      {
+       "t": "HÁTFÁJÁST",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SztKXHte3FM",
+     "titre": "Derékfájás? 6 perces torna, ami segíthet 1. Rész Lumbális gerinc és keresztcsoni ízület gyógytornája",
+     "chaine": "FizioVizio",
+     "vues": "391 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "6:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjrNnsFeVkZbD-EvOfWW4l1iXqmiddyELmUIEwtFvxCA=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": null
+    },
+    "sous": [
+     "napi 10 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΝΑΚΟΥΦΙΣΕΙΣ",
+     [
+      {
+       "t": "ΤΗ ΜΕΣΗ ΣΟΥ",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S9teVf0x6sQ",
+     "titre": "Απλές ασκήσεις για πόνο στη μέση στο σπίτι",
+     "chaine": "Χρύσα Βαφειάδη Φυσικοθεραπεία",
+     "vues": "188 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "7:11",
+     "avatar": "https://yt3.ggpht.com/ytbQklDyFJyH23oJQMxH35aZDpuuosGyilCxw2B6PZH0AnD4bNR80_5ji07R7bhx_F69cdwdSA=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 188223
+    },
+    "sous": [
+     "10 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "UBLAŽITI",
+     [
+      {
+       "t": "BOL U LEĐIMA",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "60li3nMpwKo",
+     "titre": "Vežbe za bol u donjem delu ledja-lumbalni sindrom",
+     "chaine": "ordinacija",
+     "vues": "924 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "6:13",
+     "avatar": "https://yt3.ggpht.com/rAXStlPtuDGbGn72AjgJuSKet25GoAzifzl_nkv-OuoAguN4XC8runcrDRTuSPB_w2lTbzRGIUU=s176-c-k-c0x00ffffff-no-rj",
+     "vues_exactes": 924510
+    },
+    "sous": [
+     "10 min dnevno"
+    ]
+   }
+  }
+ ],
+ "notes": "Déclinaison G1 de sg-003 (23/11) : titre, légende et couverture de sg-003 mot pour mot (hu, el, sr traduits). Nouvelles compétences physiques : corde à sauter, planche, squat, respiration abdominale, soulager le dos. Sophia en étape 4, cta A « UNE LEÇON / PAR JOUR ». Vidéos natives choisies sans corps dénudé en miniature."
+}

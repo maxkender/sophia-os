@@ -23,9 +23,9 @@
  * is_admin() vérifié côté serveur à CHAQUE appel avec le JWT de l'admin, champ `admin_jwt`) : connexion,
  * rafraîchissement, liste, fiche, accepter / refuser, interrupteur « Acceptation automatique » (réglage
  * join_auto_acceptation, OFF par défaut, journalisé). OFF : une candidature qui remplit les conditions attend
- * l'admin. ON : elle est acceptée seule et, après la signature, l'identité OS est créée tout de suite par
- * hub-posteurs `creer_posteur` (le chemin existant) — en live seulement : en test, la création reste SIMULÉE.
- * Contrat join-v3 (identité complète de la société en tête). Bienvenue après signature : lien « Set my password ».
+ * l'admin. ON : elle est acceptée seule. v4 : l'interrupteur ne décide QUE de l'acceptation ; tout candidat accepté
+ * (admin ou automatique) est relié à l'OS juste après sa signature (relierOS), en live seulement : en test, la
+ * création reste SIMULÉE. Contrat join-v4. Bienvenue après signature : lien « Set my password ».
  */
 import { corsHeaders, estSecretCron, json, serviceClient } from "../_shared/supabase.ts";
 import { lienMotDePasse } from "../_shared/lien_mot_de_passe.ts";
@@ -247,11 +247,12 @@ function limiteLisible(lundi: string): string {
 
 /**
  * Après la signature, tout s'enchaîne seul : compte OS, Slack, Ruul, puis le message d'accès (email de bienvenue
- * + WhatsApp account_ready). Idempotent (journal join_relances) : le cron reprend ce qui manque. EN TEST, compte OS,
- * Slack et Ruul sont SIMULÉS ; le message d'accès ne part qu'aux testeurs.
+ * + WhatsApp account_ready). Idempotent (journal join_relances) : le cron horaire reprend ce qui manque. EN TEST,
+ * compte OS, Slack et Ruul sont SIMULÉS ; le message d'accès ne part qu'aux testeurs.
  *
- * 0847 : en live, le compte OS n'est créé que si l'acceptation automatique est ON (sinon il attend : rien n'est
- * journalisé et le cron réessaie) ; il est créé par hub-posteurs `creer_posteur`, le chemin existant (manage-users).
+ * v4 (23/11, Max) : en LIVE, tout candidat accepté — à la main dans /admin ou par l'acceptation automatique — est
+ * relié à l'OS juste après sa signature, par UN seul chemin (relierOS). L'interrupteur « Acceptation automatique »
+ * ne décide que de l'acceptation, jamais de la création OS.
  */
 async function enchainer(db: Db, mode: ModeJoin, c: Candidature, lundi: string) {
   const faites = await etapesFaites(db, c.id);
@@ -261,37 +262,96 @@ async function enchainer(db: Db, mode: ModeJoin, c: Candidature, lundi: string) 
       await messageAcces(db, mode, c, lundi, reel);
       continue;
     }
-    if (e === "compte_os" && reel) {
-      if (!(await lireAuto(db))) return; // live + OFF : le compte attend (l'admin allume l'interrupteur)
-      const cree = await creerCompteOS(db, c, lundi);
-      if (!cree) return; // échec : le cron horaire réessaie (hub-posteurs est idempotent sur hub_id)
+    if (!reel) {
+      // Test : jamais réel (compte OS, Slack, Ruul simulés).
+      await simuler(db, c, e === "compte_os" ? "creation_compte_os" : e === "slack" ? "invitation_slack" : "invitation_ruul");
+      await journaliserRelance(db, c, e, "systeme", "simule");
+      if (e === "slack") await majEtape(db, c.id, "slack", "simule", { auto_at: new Date().toISOString() });
+      continue;
+    }
+    if (e === "compte_os") {
+      if (!(await relierOS(db, c, lundi))) return; // échec : le cron horaire réessaie (tout est idempotent)
       await journaliserRelance(db, c, e, "systeme", "envoye");
       continue;
     }
-    // compte_os (test), slack, ruul : jamais réels tant que Join n'est pas passé en live sur l'OK de Max.
-    await simuler(db, c, e === "compte_os" ? "creation_compte_os" : e === "slack" ? "invitation_slack" : "invitation_ruul");
-    await journaliserRelance(db, c, e, "systeme", "simule");
-    if (e === "slack") await majEtape(db, c.id, "slack", "simule", { auto_at: new Date().toISOString() });
+    // Live, Slack et Ruul : rien à envoyer d'ici. Le lien Slack et le guide Ruul sont dans la bienvenue ; le posteur
+    // est relié à Slack par son email (slack_relier_regles) et à Ruul par son profil (canal_paie ruul, ruul_statut
+    // « a_ajouter », email Ruul) : l'invitation Ruul et les relances suivent le parcours Ruul de l'OS.
+    await evenement(db, "compte_os", c.id, c.test, { etape: e, relie_os: true });
+    await journaliserRelance(db, c, e, "systeme", "envoye");
+    if (e === "slack") await majEtape(db, c.id, "slack", "lien_envoye", { at: new Date().toISOString() });
   }
 }
 
+type ProfilOS = { id: string; email: string | null };
+
 /**
- * 0847 (live seulement) : l'identité OS du posteur, par hub-posteurs `creer_posteur` — le même chemin que le site
- * Lovable (manage-users `create`, rattachement à la cohorte Ruul, profil Ruul). hub_id = l'id de la candidature :
- * un rejeu ne crée jamais un second posteur. Renvoie false en cas d'échec (le cron réessaie).
+ * Une fiche posteur qui a déjà cet email (email perso, email Ruul, email du site Lovable, candidature Ruul) : la
+ * candidature y est LIÉE, sans rien créer ni écrire sur la fiche existante. Lecture seule.
  */
-async function creerCompteOS(db: Db, c: Candidature, lundi: string): Promise<boolean> {
+async function posteurExistant(db: Db, emails: string[]): Promise<ProfilOS | null> {
+  for (const email of [...new Set(emails.map((e) => e.trim().toLowerCase()).filter(Boolean))]) {
+    for (const col of ["email_perso", "ruul_email"] as const) {
+      const { data } = await db.from("profiles").select("id, email").eq(col, email).limit(1).maybeSingle();
+      if (data) return data as ProfilOS;
+    }
+    const { data: h } = await db.from("hub_posteurs").select("profile_id").eq("email_perso", email).not("profile_id", "is", null)
+      .limit(1).maybeSingle();
+    const { data: rc } = h ? { data: null } : await db.from("ruul_candidatures").select("os_profile_id").eq("email", email)
+      .not("os_profile_id", "is", null).limit(1).maybeSingle();
+    const id = (h?.profile_id ?? rc?.os_profile_id) as string | undefined;
+    if (id) {
+      const { data } = await db.from("profiles").select("id, email").eq("id", id).maybeSingle();
+      if (data) return data as ProfilOS;
+    }
+  }
+  return null;
+}
+
+/** La fiche créée par Join pour cette candidature (hub_posteurs.hub_id = id de la candidature). */
+async function creeParJoin(db: Db, c: Candidature): Promise<boolean> {
+  if (!c.profile_id) return false;
+  const { data } = await db.from("hub_posteurs").select("hub_id").eq("hub_id", c.id).eq("profile_id", c.profile_id).limit(1).maybeSingle();
+  return !!data;
+}
+
+/**
+ * v4 (live seulement) : LE chemin qui relie un candidat signé à l'OS. Idempotent par candidature :
+ *  1. déjà relié (join_candidatures.profile_id) : rien ;
+ *  2. une fiche posteur a déjà son email : liée, rien n'est créé ni écrit sur cette fiche ;
+ *  3. sinon : créée par hub-posteurs `creer_posteur` (le chemin de l'ancien site : manage-users `create`, compte
+ *     TikTok et persona, cohorte Ruul, canal_paie ruul, ruul_statut « a_ajouter », email Ruul, zone, tarif, lundi de
+ *     départ, parrainage) ; hub_id = id de la candidature, un rejeu ne crée jamais un second posteur. Puis, pour
+ *     cette NOUVELLE fiche : la candidature copiée dans ruul_candidatures (pages Candidats / Cohortes Ruul, pays de
+ *     paie, langue des emails, Slack par email) et le numéro WhatsApp dans posteur_contacts.
+ * Renvoie false en cas d'échec (le cron réessaie).
+ */
+async function relierOS(db: Db, c: Candidature, lundi: string): Promise<boolean> {
+  if (c.profile_id) return true;
+  const { data: sig } = await db.from("join_signatures").select("ruul_email, signe_at").eq("candidature_id", c.id).limit(1).maybeSingle();
+  const existant = await posteurExistant(db, [c.email, sig?.ruul_email ?? ""]);
+  if (existant) {
+    await db.from("join_candidatures").update({ profile_id: existant.id, email_os: existant.email, maj_at: new Date().toISOString() })
+      .eq("id", c.id);
+    c.profile_id = existant.id;
+    c.email_os = existant.email;
+    await evenement(db, "compte_os", c.id, c.test, { ok: true, lie: true, profile_id: existant.id });
+    return true;
+  }
+  const cree = await creerCompteOS(db, c, lundi, sig?.ruul_email ?? "");
+  if (!cree) return false;
+  await copierDansOS(db, c, lundi, sig?.ruul_email ?? null, sig?.signe_at ?? new Date().toISOString());
+  return true;
+}
+
+async function creerCompteOS(db: Db, c: Candidature, lundi: string, ruulEmail: string): Promise<boolean> {
   const url = Deno.env.get("SUPABASE_URL");
   const secret = Deno.env.get("OS_HUB_SECRET");
   if (!url || !secret) {
     console.error("join compte_os : SUPABASE_URL ou OS_HUB_SECRET manquant");
     return false;
   }
-  const [{ data: sig }, paie] = await Promise.all([
-    db.from("join_signatures").select("ruul_email").eq("candidature_id", c.id).limit(1).maybeSingle(),
-    paysOuverts(db),
-  ]);
-  const p = paie.pays.find((x) => x.pays === c.pays);
+  const p = (await paysOuverts(db)).pays.find((x) => x.pays === c.pays);
   const source = ((c as unknown as { source?: Record<string, string> }).source ?? {});
   try {
     const r = await fetch(`${url}/functions/v1/hub-posteurs`, {
@@ -299,7 +359,7 @@ async function creerCompteOS(db: Db, c: Candidature, lundi: string): Promise<boo
       headers: { "content-type": "application/json", "x-hub-secret": secret },
       body: JSON.stringify({
         action: "creer_posteur", hub_id: c.id, prenom: c.prenom, nom: c.nom, email_perso: c.email, pays_code: c.pays,
-        ruul_email: sig?.ruul_email ?? "", ref: source.ref ?? null, plateforme_paie: "ruul", zone: p?.zone ?? null,
+        ruul_email: ruulEmail, ref: source.ref ?? null, plateforme_paie: "ruul", zone: p?.zone ?? null,
         tarif_semaine: p?.tarif ?? null, start_monday: lundi, application_id: `join:${c.id}`,
       }),
       signal: AbortSignal.timeout(100_000),
@@ -310,11 +370,18 @@ async function creerCompteOS(db: Db, c: Candidature, lundi: string): Promise<boo
       await evenement(db, "compte_os", c.id, c.test, { ok: false, erreur: String(x?.error ?? `HTTP ${r.status}`).slice(0, 300) });
       return false;
     }
-    await db.from("join_candidatures").update({ profile_id: x.profile_id, email_os: x.email_os ?? null, maj_at: new Date().toISOString() })
-      .eq("id", c.id);
+    // Le handle TikTok est celui du compte créé par l'OS (il remplace la proposition de Join).
+    const { data: compte } = await db.from("comptes").select("handle_tiktok").eq("poster_id", x.profile_id).eq("is_active", true)
+      .order("created_at", { ascending: true }).limit(1).maybeSingle();
+    const handle = (compte?.handle_tiktok as string | null) ?? c.handle_tiktok;
+    await db.from("join_candidatures").update({
+      profile_id: x.profile_id, email_os: x.email_os ?? null, handle_tiktok: handle, maj_at: new Date().toISOString(),
+    }).eq("id", c.id);
     c.profile_id = x.profile_id;
     c.email_os = x.email_os ?? null;
-    await evenement(db, "compte_os", c.id, c.test, { ok: true, profile_id: x.profile_id });
+    c.handle_tiktok = handle;
+    if (compte?.handle_tiktok) await majEtape(db, c.id, "tiktok", "a_faire", { propose: handle });
+    await evenement(db, "compte_os", c.id, c.test, { ok: true, cree: true, profile_id: x.profile_id });
     return true;
   } catch (e) {
     console.error("join compte_os", e instanceof Error ? e.message : String(e));
@@ -322,13 +389,41 @@ async function creerCompteOS(db: Db, c: Candidature, lundi: string): Promise<boo
   }
 }
 
+/** La nouvelle fiche reliée aux pages et règles de l'OS qui lisent l'ancien site (best effort, journalisé). */
+async function copierDansOS(db: Db, c: Candidature, lundi: string, ruulEmail: string | null, signeAt: string) {
+  const cand = c as Candidature & { decision_par?: string | null; entendu?: string | null; parrain?: string | null; source?: Record<string, string> };
+  const ref = cand.source?.ref ?? null;
+  const { error } = await db.from("ruul_candidatures").upsert({
+    site_id: c.id, nom: `${c.prenom} ${c.nom}`.trim(), email: c.email, pays: c.pays, pays_brut: c.pays, adulte: true,
+    deux_telephones: c.deux_telephones, a_telephone: true, reponses: c.reponses ?? {},
+    referral: cand.entendu === "referral" || !!ref, parrain_nom: cand.parrain ?? null, ref, langue: c.langue,
+    // « join_signed » : jamais repris par les étapes de l'ancien site (pending / accepted).
+    statut_site: "join_signed", cree_at: c.cree_at, accepte_at: c.decision_at, signe_at: signeAt,
+    os_cree_at: new Date().toISOString(), os_profile_id: c.profile_id, start_monday: lundi, ruul_email: ruulEmail,
+    decision: cand.decision_par ? "acceptee" : "auto", decide_at: c.decision_at, decide_par: cand.decision_par ?? null,
+    envoi: null,
+  }, { onConflict: "site_id" });
+  if (error) console.error("join ruul_candidatures", error.message);
+  const { error: errWa } = await db.from("posteur_contacts").upsert({
+    poster_id: c.profile_id, whatsapp_e164: c.whatsapp_e164, whatsapp_optin_at: c.whatsapp_optin_at, source: "join",
+  }, { onConflict: "poster_id", ignoreDuplicates: true });
+  if (errWa) console.error("join posteur_contacts", errWa.message);
+  await evenement(db, "compte_os", c.id, c.test, { copie_os: !error, contact_whatsapp: !errWa });
+}
+
 /**
  * La bienvenue après la signature (email + WhatsApp account_ready) : accès au dashboard de l'OS par le lien
  * personnel « Set my password » (jamais de mot de passe), étapes, Slack, Ruul. En test (aucun compte créé) : le
  * texte le dit, et l'email ne part qu'aux testeurs. En live, la bienvenue du parcours Ruul de l'OS est notée comme
- * envoyée pour ce nouveau posteur (jamais deux bienvenues).
+ * envoyée pour ce nouveau posteur (jamais deux bienvenues). Une fiche existante liée (même email) ne reçoit pas de
+ * bienvenue : elle a déjà ses accès.
  */
 async function messageAcces(db: Db, mode: ModeJoin, c: Candidature, lundi: string, reel: boolean) {
+  if (reel && !(await creeParJoin(db, c))) {
+    await journaliserRelance(db, c, "acces", "email", "bloque");
+    await evenement(db, "compte_os", c.id, c.test, { bienvenue: "non envoyée : fiche existante liée" });
+    return;
+  }
   const { data: sig } = await db.from("join_signatures").select("ruul_email").eq("candidature_id", c.id).limit(1).maybeSingle();
   let lien: string | undefined;
   if (reel && c.profile_id) {

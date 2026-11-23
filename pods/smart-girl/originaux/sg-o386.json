@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o386",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fca2bad1-9f14-4748-95ec-66b24f88d8d0",
+ "titre": "niche ways to make your life 10x better #slowliving #selfimprovement #smartgirl #happiness #habits",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 9 de la boîte (parent fca2bad1, langue source tr) : accroche du parent mot pour mot. Idées du parent (quelque chose à attendre un mardi ordinaire, faire vraiment ce qu'on enregistre, une note « ce qui a rendu cette semaine belle ») et neuves. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2f383ea3",
+   "texte_overlay": "niche ways to make your\nlife 10x better",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "44df5774",
+   "texte_overlay": "add something to look forward\nto on a random tuesday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "088ad524",
+   "texte_overlay": "actually do the things\nyou save",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dd964810",
+   "texte_overlay": "keep a note called \"what made\nthis week good\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "88454670",
+   "texte_overlay": "buy flowers for no reason",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ecc2d9cf",
+   "texte_overlay": "eat breakfast without a screen",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ade5311a",
+   "texte_overlay": "learn one new thing every morning\n\nit makes every day feel bigger.",
+   "texte_sophia": "learn one new thing every morning\n\ni use an app like Sophia. every day\nfeels bigger.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8a856d5a",
+   "texte_overlay": "try one and report back <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

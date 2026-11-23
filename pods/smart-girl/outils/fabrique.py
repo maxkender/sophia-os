@@ -31,7 +31,26 @@ label = {c['id'][:8]: c for c in json.load(open('donnees/label.json'))}
 boite = json.load(open('donnees/boite.json'))['boite']
 images = {i['id'][:8]: i for i in json.load(open('donnees/images.json'))}
 ecartees = set(open(f'{ICI}/ecartees.txt').read().split()) if os.path.exists(f'{ICI}/ecartees.txt') else set()
-PERSONNE = re.compile(r'woman|women|person|people|man\b|men\b|girl|boy|child|kid|student|hand|face|portrait|couple|legs|feet|arm|body|torso|neck|still from|actor|actress|selfie', re.I)
+PERSONNE = re.compile(r'woman|women|person|people|man\b|men\b|girl|boy|child|kid|student|hand|face|portrait|couple|legs|feet|arm|body|torso|neck|still from|actor|actress|selfie|crowd|event|classroom|collage|screenshot|app\b|sign\b|poster', re.I)
+import io, urllib.request
+from PIL import Image
+_empreintes = []
+def _vignette(k):
+    try:
+        return Image.open(io.BytesIO(urllib.request.urlopen(images[k]['url'], timeout=20).read())).convert('RGB')
+    except Exception:
+        return None
+def image_sure(k):
+    """Slide Sophia : pas de grand aplat rouge (la pub « 41 % » que les légendes ne décrivent pas), pas de doublon visuel du jour."""
+    i = _vignette(k)
+    if i is None: return False
+    p = list(i.resize((60, 100)).getdata())
+    rouge = sum(1 for r, g, b in p if r > 170 and g < 80 and b < 80) / len(p)
+    if rouge > 0.03: return False
+    g = i.convert('L').resize((9, 8)); q = list(g.getdata())
+    h = sum(1 << n for n in range(64) if q[(n // 8) * 9 + n % 8] > q[(n // 8) * 9 + n % 8 + 1])
+    if any(bin(h ^ e).count('1') <= 10 for e in _empreintes): return False
+    _empreintes.append(h); return True
 pris = set()
 for s in (x for v in T.P.values() for x in v[7] if len(x) > 2): pris.add(s[2])
 libres = [k for k, i in images.items() if k not in ecartees]
@@ -40,7 +59,11 @@ def choisir(rx, sophia):
          and re.search(rx, images[k]['legende'], re.I) and not (sophia and PERSONNE.search(images[k]['legende']))]
     if not c and not sophia: c = [k for k in libres if k not in pris]
     if not c: raise SystemExit(f'plus d’image pour {rx}')
-    k = random.choice(c); pris.add(k); return k
+    random.shuffle(c)
+    for k in c:
+        if not sophia or image_sure(k):
+            pris.add(k); return k
+    raise SystemExit(f'aucune image sûre pour {rx}')
 for sid, (typ, par, insp, titre, son, cta, notes, slides) in T.P.items():
     if par and par.startswith('L'): par = boite[int(par[1:]) - 1]['parent_contenu_id']
     c = label[insp]; vid = c['source_url'].rstrip('/').split('/')[-1]; n = len(c['slides'])

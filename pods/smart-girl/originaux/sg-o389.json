@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o389",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cd20149d-fe81-457a-8a00-a4b6bdf2e405",
+ "titre": "5 topics that make you better at almost any conversation #conversation #socialskills #smartgirl #confidence #talk",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 15 de la boîte (parent cd20149d, langue source es) : accroche du parent mot pour mot. Sujets du parent (ce qu'ils ont appris récemment, leurs films et livres doudous, un fait curieux — Cléopâtre plus proche de nous que des pyramides —, les traditions familiales, les petites victoires). Sophia sur le fait curieux à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5df804f6",
+   "texte_overlay": "5 topics that make you better at\nalmost any conversation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4fd7bbb5",
+   "texte_overlay": "1. something they learned recently\n\n\"what have you learned\nlately?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7289b10c",
+   "texte_overlay": "2. their comfort films and books",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1ed25988",
+   "texte_overlay": "3. a curious fact\n\ncleopatra lived closer to us than\nto the great pyramid. i find\none a day.",
+   "texte_sophia": "3. a curious fact\n\ncleopatra lived closer to us than to the\npyramids. i find one a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "40618e42",
+   "texte_overlay": "4. family traditions\n\n\"what does your family do\nthat others don't?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ea946c3f",
+   "texte_overlay": "5. small wins\n\n\"what made you happy\nthis week?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d5f9df78",
+   "texte_overlay": "which one will you try?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  }
+ ]
+}

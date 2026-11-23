@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o378",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "779dc414-3897-46af-97e7-558c04d97dbc",
+ "titre": "dinner party etiquette: what to bring and what to skip #dinnerparty #etiquette #smartgirl #hosting #elegance",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 1 de la boîte (parent 779dc414, langue source en) : accroche reformulée (« dinner party etiquette: what to bring and what to skip »), différente de sg-o233 et sg-o354 ; détails du parent. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8ba278a1",
+   "texte_overlay": "dinner party etiquette: what\nto bring and what to skip",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c653cfa8",
+   "texte_overlay": "bring: a homemade dessert",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cfaed445",
+   "texte_overlay": "bring: a small plant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "69ba1eb1",
+   "texte_overlay": "bring: a handwritten card",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d1e2a99e",
+   "texte_overlay": "skip: arriving early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0e4129c4",
+   "texte_overlay": "skip: staying too late",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "179558e2",
+   "texte_overlay": "bring: a good story\n\ni find mine in five minutes\na day.",
+   "texte_sophia": "bring: a good story\n\ni find mine in five minutes a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2e6deaed",
+   "texte_overlay": "save this before your\nnext invitation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

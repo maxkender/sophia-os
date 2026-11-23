@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o380",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2c6d1292-c12e-4d62-8755-c36a12b82584",
+ "titre": "how to sound polished every time you speak #eloquence #speakbetter #smartgirl #wellspoken #confidence",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 3 de la boîte (parent 2c6d1292, langue source ro) : accroche reformulée (« how to sound polished every time you speak »), différente de sg-o308, sg-o330 et sg-o357 ; tournures du parent. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c8a1a6d6",
+   "texte_overlay": "how to sound polished\nevery time you speak",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "65a5de54",
+   "texte_overlay": "\"essentially\" instead\nof \"basically\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d9ed58ce",
+   "texte_overlay": "\"i'd argue\" instead\nof \"i think\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "188d3023",
+   "texte_overlay": "have something to say,\nnot just nice words",
+   "texte_sophia": "have something to say, not just nice\nwords: i learn a little every day on an\napp like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4e08b445",
+   "texte_overlay": "\"let me check\" instead\nof \"i'm not sure\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "69068e77",
+   "texte_overlay": "\"considerably\" instead\nof \"a lot\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f6f86347",
+   "texte_overlay": "pause instead of \"um\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "da58e2e9",
+   "texte_overlay": "save this and try one today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

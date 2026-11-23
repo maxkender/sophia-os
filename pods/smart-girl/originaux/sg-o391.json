@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o391",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "88b38297-e2ab-4106-8479-48bd23d9f9cc",
+ "titre": "8 elegant social codes every woman must know #etiquette #elegance #smartgirl #manners #classy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "88b38297-e2ab-4106-8479-48bd23d9f9cc"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 54 de la boîte (parent 88b38297, langue source ro) : accroche du parent mot pour mot. Codes du parent (présenter le nouveau venu en premier, pas de téléphone sur la table, pas de questions sur l'argent ou l'âge, tenir le verre par le pied, « ravie de te revoir », laisser finir, la conversation, partir un peu tôt). Sophia en 7 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d69b4731",
+   "texte_overlay": "8 elegant social codes every\nwoman must know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "547a5426",
+   "texte_overlay": "1. introduce the newcomer first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "eb8093cc",
+   "texte_overlay": "2. no phone on the table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6a1d0854",
+   "texte_overlay": "3. never ask about money,\nage or relationships",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f0cec452",
+   "texte_overlay": "4. hold your wine glass\nby the stem",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bbf59407",
+   "texte_overlay": "5. \"lovely to see you again\",\nnot \"nice to meet you\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dc91b271",
+   "texte_overlay": "6. let people finish",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "23ed4aff",
+   "texte_overlay": "7. elegance shows in conversation",
+   "texte_sophia": "7. elegance shows in conversation: a\ngeneral knowledge app like Sophia helps",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "b8ab1931",
+   "texte_overlay": "8. leave a little early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/9.jpg"
+  }
+ ]
+}

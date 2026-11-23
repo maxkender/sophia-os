@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o385",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4db234ae-e060-4c4c-a095-aaa441320edd",
+ "titre": "where our strangest superstitions come from #superstitions #history #folklore #smartgirl #didyouknow",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 8 de la boîte (parent 4db234ae, langue source es-419) : accroche du parent (notre sg-o261) mot pour mot. Superstitions neuves face au parent (le parapluie ouvert dans la maison, le vendredi 13, le fer à cheval, croiser les doigts, le chiffre 4 en Asie de l'Est, le trèfle à quatre feuilles), origines données comme des légendes. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b078a647",
+   "texte_overlay": "where our strangest\nsuperstitions come from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "432a7559",
+   "texte_overlay": "an umbrella opened indoors\n\nvictorian umbrellas had springs\nthat could break things.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3550d4cf",
+   "texte_overlay": "friday the 13th\n\nthe fear grew in the\n20th century.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6d21881f",
+   "texte_overlay": "a horseshoe over the door\n\niron was believed to keep\nfairies away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1213b401",
+   "texte_overlay": "crossing your fingers\n\nan old sign to ask\nfor protection.",
+   "texte_sophia": "crossing your fingers\n\nan old sign for protection. i read this\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e8637e01",
+   "texte_overlay": "the number 4 in east asia\n\nit sounds like the word\nfor death.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bbd68972",
+   "texte_overlay": "a four-leaf clover\n\nabout one in 10,000\nclovers has one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "521da163",
+   "texte_overlay": "which one do you believe in?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -31,7 +31,7 @@
 import { estLabelSystemeSlug, type LabelRef } from "./multi_app.ts";
 
 /** Longueur maximale d'un angle (page Angles de placement, contrainte SQL). */
-export const ANGLE_LONGUEUR_MAX = 500;
+export const ANGLE_LONGUEUR_MAX = 2000;
 
 /**
  * Une variante qui reprend autant de mots d'affilée de l'angle l'a recopié

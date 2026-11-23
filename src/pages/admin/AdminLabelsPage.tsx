@@ -20,6 +20,7 @@ import { nomApplication } from "@/features/moteur/applications";
 import { ficheApplication } from "@/features/moteur/catalogueApplications";
 import { type AnglePlacement, listerAnglesPlacement } from "@/features/moteur/apiAngles";
 import { DetailLabel } from "@/features/moteur/labels/DetailLabel";
+import { ReferencesLabel } from "@/features/moteur/labels/ReferencesLabel";
 import { applicationsDuLabel } from "@/features/moteur/multiApp";
 import type { GroupeAngles } from "@/features/moteur/multiapp/angles";
 import { ApplicationsCard } from "@/features/moteur/multiapp/ApplicationsCard";
@@ -210,6 +211,10 @@ function LigneLabel({
                   />
                 </div>
               )}
+              <div className="space-y-1.5">
+                <MicroLabel>{t("labelsPage.daTitre")}</MicroLabel>
+                <ReferencesLabel labelId={label.id} />
+              </div>
               <div className="space-y-1.5">
                 <MicroLabel>{t("labelsPage.anglesTitre")}</MicroLabel>
                 <AnglesDuLabel

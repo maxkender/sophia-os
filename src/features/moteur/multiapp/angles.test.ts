@@ -39,7 +39,7 @@ const angle = (id: string, label_id: string, statut: string, minute: number, app
 
 describe("angles de placement", () => {
   it("bornes identiques à celles du moteur", () => {
-    expect(ANGLE_LONGUEUR_MAX).toBe(500);
+    expect(ANGLE_LONGUEUR_MAX).toBe(2000);
     expect(MAX_ANGLES_TEST).toBe(4);
   });
 

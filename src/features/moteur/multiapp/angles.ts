@@ -13,7 +13,7 @@
 import { applicationsDuLabel, estLabelSystemeSlug } from "@/features/moteur/multiApp";
 
 /** Même borne que le moteur (`ANGLE_LONGUEUR_MAX` de angle_placement.ts). */
-export const ANGLE_LONGUEUR_MAX = 500;
+export const ANGLE_LONGUEUR_MAX = 2000;
 
 /** Angles en test comparés par le test à blanc (`MAX_ANGLES_TEST` du moteur). */
 export const MAX_ANGLES_TEST = 4;

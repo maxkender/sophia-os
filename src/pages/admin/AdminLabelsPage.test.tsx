@@ -23,6 +23,15 @@ vi.mock("@/features/moteur/api", () => ({
   creerLabel: (nom: string, couleur: string, opts: unknown) => api.creerLabel(nom, couleur, opts),
   supprimerLabel: (id: string) => api.supprimerLabel(id),
 }));
+const bible = vi.hoisted(() => ({ lireSources: vi.fn(), lireCartes: vi.fn() }));
+vi.mock("@/features/bible/sources", async (orig) => ({
+  ...(await orig<typeof import("@/features/bible/sources")>()),
+  lireSources: () => bible.lireSources(),
+}));
+vi.mock("@/features/bible/moodboard", async (orig) => ({
+  ...(await orig<typeof import("@/features/bible/moodboard")>()),
+  lireCartes: () => bible.lireCartes(),
+}));
 const angles = vi.hoisted(() => ({ listerAnglesPlacement: vi.fn() }));
 vi.mock("@/features/moteur/apiAngles", async (orig) => ({
   ...(await orig<typeof import("@/features/moteur/apiAngles")>()),
@@ -104,6 +113,8 @@ describe("AdminLabelsPage", () => {
   beforeEach(async () => {
     await i18n.changeLanguage("fr");
     angles.listerAnglesPlacement.mockResolvedValue([]);
+    bible.lireSources.mockResolvedValue({ sources: [], file: null, semaine: null, regles: null, labels: [] });
+    bible.lireCartes.mockResolvedValue([]);
     Object.values(api).forEach((f) => f.mockReset());
     api.listerLabels.mockResolvedValue(LABELS);
     api.majLabel.mockResolvedValue(undefined);
@@ -145,6 +156,32 @@ describe("AdminLabelsPage", () => {
     expect(screen.queryByText(/Angle white_bg/)).not.toBeInTheDocument();
     expect(screen.queryByLabelText("Thème / style")).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Enregistrer le style" })).not.toBeInTheDocument();
+  });
+
+  it("une ligne dépliée montre la DA du label en petit et ses comptes de référence", async () => {
+    const src = (o: Record<string, unknown>) => ({
+      id: "s1", handle: "une.source", langue: "fr", actif: true, labels: [{ id: "l1", nom: "RH" }], slides: [], importes: 10, valides: 5,
+      perf: { posts: 10, r: 1, vuesMediane: 1000, rVsLabel: 1, labelNom: "RH" }, essaiMax: null, essaiVerdict: null, dernierImport: null,
+      neuve: null, attente: null, sequence: null, restant: 0, semaine: null, etape: "weekly", ...o,
+    });
+    bible.lireSources.mockResolvedValue({
+      sources: [
+        src({ id: "s1", handle: "careers.emma", perf: { vuesMediane: 9000 }, slides: [{ url: "https://img.test/a.jpg", post: "https://www.tiktok.com/@careers.emma/photo/1" }] }),
+        src({ id: "s2", handle: "vieux.compte", actif: false, etape: "arretees" }),
+        src({ id: "s3", handle: "autre.label", labels: [{ id: "l2", nom: "white_bg" }] }),
+      ],
+      file: null, semaine: null, regles: null, labels: [],
+    });
+    bible.lireCartes.mockResolvedValue([{ id: "k1", label_id: "l1", description_da: "Fond crème, texte noir, conseils chiffrés" }]);
+    renderPage();
+    await screen.findByTestId("groupe-labels-sophia");
+    fireEvent.click(groupe("sophia").getByText("RH"));
+    const refs = await screen.findByTestId("references-label");
+    expect(within(refs).getByText("Fond crème, texte noir, conseils chiffrés")).toBeInTheDocument();
+    expect(within(refs).getByRole("img", { name: "Slide de @careers.emma" })).toHaveAttribute("src", "https://img.test/a.jpg");
+    expect(within(refs).getByText("2 comptes de référence")).toBeInTheDocument();
+    expect(within(refs).getAllByRole("link").map((a) => a.textContent)).toEqual(["", "@careers.emmaWeekly update", "@vieux.compteArrêtées"]);
+    expect(within(refs).queryByText(/autre\.label/)).not.toBeInTheDocument();
   });
 
   it("changer le genre écrit le label sans déplier la ligne", async () => {

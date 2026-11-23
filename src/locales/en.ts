@@ -3911,6 +3911,12 @@ export const en = {
       aucuneAppli: "no app",
       supprimer: "Delete label {{nom}}",
       applisServies: "Apps served",
+      daTitre: "Art direction and reference accounts",
+      daMiniature: "Slide from @{{handle}}",
+      daAucune: "No preview yet: no imported source and no art direction in the Bible.",
+      referencesTitre_one: "{{count}} reference account",
+      referencesTitre_other: "{{count}} reference accounts",
+      referencesAucune: "No reference account carries this label.",
       anglesTitre: "Angles",
       anglesSansApp: "This label serves no app, so it has no angle. Tick an app above to give it some.",
       groupes: {

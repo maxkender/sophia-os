@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o314",
+ "type_bleo": "full_test",
+ "titre": "comment j'ai parlé de mon trou dans le CV (sans rien inventer) #cv #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (le trou dans le CV). On recadre, on n'invente rien. Inspirations reprises de rh-o235. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "619fb75d",
+   "texte_overlay": "comment j'ai parlé\nde mon trou dans le CV\n(sans rien inventer)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ab2dee4b",
+   "texte_overlay": "je ne l'ai pas caché\nils le voient de toute façon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fae6a270",
+   "texte_overlay": "je l'ai dit en une phrase\n« j'ai pris 8 mois pour ma famille »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "15a18af3",
+   "texte_overlay": "puis ce que j'en ai tiré\norganisation, patience, priorités",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f34855ee",
+   "texte_overlay": "puis ce que j'ai fait pour rester à jour\nun peu chaque jour, même chez moi",
+   "texte_sophia": "puis ce que j'ai fait pour rester à jour\nun peu chaque jour, même chez moi. utilise l'appli Sophia 5 minutes, et t'auras de quoi raconter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e8d2e5f3",
+   "texte_overlay": "et je suis passée à la suite\n« et c'est pour ça que ce poste m'intéresse »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f3a2875b",
+   "texte_overlay": "t'as un trou dans ton CV ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

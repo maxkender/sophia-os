@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o322",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0530a7bf-2e20-42d6-993c-628f5f0e4b06",
+ "titre": "ex-rh : je note vos réponses d'entretien de 1 à 10 (sans pitié), partie 3 #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne #14 (parent 0530a7bf), 2e : accroche du parent mot pour mot, réponses différentes de rh-o050 et rh-o251. Inspirations reprises de rh-o050. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cc9ef925",
+   "texte_overlay": "ex-rh : je note vos réponses d'entretien\nde 1 à 10\n(sans pitié)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f4bfbaa7",
+   "texte_overlay": "« je travaille mieux sous pression »\n3/10\non l'entend partout. raconte une fois où c'était vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6e0c1a76",
+   "texte_overlay": "« j'ai fait une erreur sur un devis, je l'ai signalée le jour même »\n8/10\nhonnête, et tu montres comment tu agis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "074f09e6",
+   "texte_overlay": "« je ne sais pas encore où je serai dans 5 ans »\n5/10\nvrai, mais ajoute ce que tu veux apprendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a2bf52d5",
+   "texte_overlay": "« je lis un peu chaque matin, en ce moment c'est l'économie »\n9/10\nconcret, et je peux te poser une question dessus. moi : 5 minutes par jour",
+   "texte_sophia": "« je lis un peu chaque matin, en ce moment c'est l'économie »\n9/10\nconcret, et je peux te poser une question dessus. moi : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0d01a77c",
+   "texte_overlay": "« votre entreprise est leader »\n2/10\non le sait. dis-moi ce qui te plaît, toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5407b55a",
+   "texte_overlay": "note ta réponse à « vos défauts ? »\nen commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  }
+ ]
+}

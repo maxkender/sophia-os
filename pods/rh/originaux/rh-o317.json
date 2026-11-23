@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o317",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d790aeff-73fa-4477-9d1a-3cafd1b91635",
+ "titre": "mon entretien de stage, version honnête : ce que j'ai dit et ce que je pensais #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G2 de la ligne #2 (parent d790aeff), 2e : même promesse, autres mots. Tout est vrai, rien d'inventé. Inspirations reprises de rh-o232. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7ffa9ca5",
+   "texte_overlay": "mon entretien de stage,\nversion honnête :\nce que j'ai dit et ce que je pensais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d7d6a967",
+   "texte_overlay": "« vous connaissez l'entreprise ? »\nj'ai dit « j'ai lu vos 3 derniers projets »\nje pensais : hier soir, à 23h",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "692e4107",
+   "texte_overlay": "« vous êtes à l'aise à l'oral ? »\nj'ai dit « de plus en plus »\nje pensais : mes mains tremblent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3dcc3c62",
+   "texte_overlay": "« vous suivez l'actualité ? »\nj'ai dit « un peu chaque matin »\nje pensais : 5 minutes. mais chaque matin",
+   "texte_sophia": "« vous suivez l'actualité ? »\nj'ai dit « un peu chaque matin »\nje pensais : 5 minutes. mais chaque matin. utilise l'appli Sophia, tu pourras le dire aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "29151e1f",
+   "texte_overlay": "« vous préférez le travail seul ou en équipe ? »\nj'ai dit « les deux, selon la tâche »\nje pensais : seule, mais j'apprends",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8bf86ef7",
+   "texte_overlay": "« des questions ? »\nj'ai dit « qu'est-ce qui fait un bon stagiaire ici ? »\nje pensais : pourvu que ce soit bien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f437cdf9",
+   "texte_overlay": "t'as un entretien de stage bientôt ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

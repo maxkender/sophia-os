@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o320",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "241d26c1-3999-4ae4-a130-506170ed7e3f",
+ "titre": "comment j'ai dit non à une promotion (et pourquoi je ne le regrette pas), partie 3 #travail #promotion #carriere #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G1 de la ligne #12 (parent 241d26c1), 2e : accroche du parent mot pour mot, autre histoire (inventée, aucune vraie entreprise). Inspirations reprises de rh-o153. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ce504baa",
+   "texte_overlay": "comment j'ai dit non à une promotion\n(et pourquoi je ne le regrette pas)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "df7d7763",
+   "texte_overlay": "c'était un poste dans une autre ville\navec 15 % de plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0454f47e",
+   "texte_overlay": "ma vie était ici\nmes amis, mon sport, mes soirées",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0708e548",
+   "texte_overlay": "j'ai fait mes calculs\nle loyer là-bas mangeait presque toute l'augmentation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f4308922",
+   "texte_overlay": "j'ai demandé une alternative\nplus de responsabilités ici, sans déménager",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ed29d0a5",
+   "texte_overlay": "on m'a donné un projet transverse\net j'ai appris un nouveau métier, un peu chaque jour",
+   "texte_sophia": "on m'a donné un projet transverse\net j'ai appris un nouveau métier, un peu chaque jour. utilise l'appli Sophia 5 minutes, ça aide",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0584e674",
+   "texte_overlay": "une promotion, c'est pas toujours monter.\nparfois c'est grandir là où tu es",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "837605fc",
+   "texte_overlay": "t'aurais déménagé, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

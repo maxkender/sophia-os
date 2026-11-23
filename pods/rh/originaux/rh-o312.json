@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o312",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais maintenant quand mon manager me fait un retour négatif #travail #manager #feedback #carriere #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 23/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (recevoir un retour négatif). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6109bb8c",
+   "texte_overlay": "ce que je fais maintenant\nquand mon manager\nme fait un retour négatif",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c83a3a4d",
+   "texte_overlay": "je ne me justifie pas tout de suite\nje dis « merci, je note »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fa6e39c7",
+   "texte_overlay": "je pose une question\n« tu peux me donner un exemple ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ab9e7d75",
+   "texte_overlay": "je demande ce qu'il attend\n« à quoi ça ressemblerait, bien fait ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "22e8ec99",
+   "texte_overlay": "je reviens 2 semaines après\n« j'ai changé X, tu as vu une différence ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "49b85f14",
+   "texte_overlay": "si c'est une compétence qui manque\nje l'apprends. 5 minutes par jour, ça suffit pour progresser",
+   "texte_sophia": "si c'est une compétence qui manque\nje l'apprends. 5 minutes par jour sur l'appli Sophia, ça suffit pour progresser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "54554b4d",
+   "texte_overlay": "le dernier retour qu'on t'a fait ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

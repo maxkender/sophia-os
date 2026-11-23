@@ -15,6 +15,7 @@ import { semaineAPayer } from "./logique";
 import { ListeAFinancer } from "./api-upwork/ListeAFinancer";
 import { PaiementsManuels } from "./api-upwork/PaiementsManuels";
 import { RattrapagePaie } from "./api-upwork/RattrapagePaie";
+import { PlanPaie } from "./api-upwork/PlanPaie";
 import { BonusQuestionnairePaie } from "@/features/questionnaire/BonusQuestionnairePaie";
 import { ReglagesPaiementApi } from "./api-upwork/ReglagesPaiementApi";
 import { ReglagesPaie } from "./ReglagesPaie";
@@ -108,6 +109,8 @@ export function PagePaie({ apres }: { apres?: React.ReactNode }) {
             {recalculer.error && <span className="text-xs text-destructive">{(recalculer.error as Error).message}</span>}
           </div>
 
+          {/* 23/11 (Max) : le plan de paie W47 (libérer, fermer, Grok, kills), le récap et les contrats ouverts sans posteur. */}
+          {!simulation && <PlanPaie />}
           {!simulation && <RattrapagePaie />}
           {/* 20/11 (Max) : les bonus du questionnaire « top posters ». */}
           {!simulation && <BonusQuestionnairePaie />}

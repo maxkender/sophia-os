@@ -241,6 +241,13 @@ const vide = (statut: PlanPaiement["statut"], raison: string | null, extra: Part
 /** Payée : par nous, par Upwork (libérée seule après 14 jours) ou par le système (prompt 21, B7). */
 export const PAYEES = ["Paid", "PaidByUpwork", "PaidBySystem"];
 
+/** 23/11 : « Week s » est-elle après la semaine w (passage d'année compris) ? null (sans numéro) : non. */
+export function semaineAVenir(s: number | null, w: number): boolean {
+  if (s === null) return false;
+  const d = ((s - w) % 53 + 53) % 53;
+  return d > 0 && d < 27;
+}
+
 /**
  * Le plan d'une ligne. `semaine` : le lundi de la semaine payée. Au moindre
  * doute, « refuse » avec la raison : rien ne part pour cette ligne.
@@ -285,6 +292,11 @@ export function planPaiement(l: LignePaieApi, jalons: JalonUpwork[], semaine: st
     return vide("deja_payee", `${payeeDeLaSemaine.nom} déjà payée sur Upwork`, { montant_trouve: payeeDeLaSemaine.paye ?? payeeDeLaSemaine.depot });
   }
   if (!a && l.decalage && l.decalage.ecart > 0) a = jalonDecale(finances, w, l.decalage.ecart);
+  // 23/11 (Max, point 7) : le SEUL jalon financé non libéré du contrat, au montant dû, est pris pour la semaine due,
+  // quel que soit son nom (« Week 46 » financé pour la semaine 47, etc.).
+  // Jamais un jalon nommé pour une semaine à venir.
+  if (!a && finances.length === 1 && finances[0].depot !== null && !semaineAVenir(semaineDe(finances[0]), w) &&
+      Math.abs(finances[0].depot - arrondi(l.montant_calcule + l.retenue)) < 0.009) a = finances[0];
   if (!a) {
     return sansNumero.length > 1
       ? vide("refuse", `${sansNumero.length} milestones financées sans numéro de semaine : laquelle approuver ? à vérifier`)

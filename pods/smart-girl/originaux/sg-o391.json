@@ -1,69 +1,63 @@
 {
  "source_id": "sg-o391",
  "type_bleo": "declinaison",
- "parent_contenu_id": "88b38297-e2ab-4106-8479-48bd23d9f9cc",
- "titre": "8 elegant social codes every woman must know #etiquette #elegance #smartgirl #manners #classy",
+ "parent_contenu_id": "bfa6532a-17cb-4276-a9df-b134efc35f20",
+ "titre": "how to become an outrageously smart critical thinker #criticalthinking #smartgirl #philosophy #mindset #learning",
  "musique_titre": "original sound",
  "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
  "inspirations": [
-  "88b38297-e2ab-4106-8479-48bd23d9f9cc"
+  "bfa6532a-17cb-4276-a9df-b134efc35f20"
  ],
- "notes": "cta B. Déclinaison G1 de la ligne 54 de la boîte (parent 88b38297, langue source ro) : accroche du parent mot pour mot. Codes du parent (présenter le nouveau venu en premier, pas de téléphone sur la table, pas de questions sur l'argent ou l'âge, tenir le verre par le pied, « ravie de te revoir », laisser finir, la conversation, partir un peu tôt). Sophia en 7 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "notes": "cta B. Déclinaison G1 de la ligne 79 de la boîte (parent bfa6532a, langue source es) : accroche du parent mot pour mot. Conseils du parent (questionner sa première réaction, chercher l'autre version, séparer les faits de ses films, se demander ce qu'on nous vend, accepter la contradiction, vérifier d'où viennent ses idées, se tromper sans honte, penser avant de répondre). Sophia au milieu (cta B). Remplace un dépôt refusé. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
  "slides": [
   {
    "position": 1,
    "media_id": "d69b4731",
-   "texte_overlay": "8 elegant social codes every\nwoman must know",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/1.jpg"
+   "texte_overlay": "how to become an outrageously\nsmart critical thinker",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641179725666241812/1.jpg"
   },
   {
    "position": 2,
    "media_id": "547a5426",
-   "texte_overlay": "1. introduce the newcomer first",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/2.jpg"
+   "texte_overlay": "1. question your first reaction\n\nit's often inherited.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641179725666241812/2.jpg"
   },
   {
    "position": 3,
    "media_id": "eb8093cc",
-   "texte_overlay": "2. no phone on the table",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/3.jpg"
+   "texte_overlay": "2. seek out the other side\n\nread opinions that\nmake you uncomfortable.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641179725666241812/3.jpg"
   },
   {
    "position": 4,
    "media_id": "6a1d0854",
-   "texte_overlay": "3. never ask about money,\nage or relationships",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/4.jpg"
+   "texte_overlay": "3. separate facts from stories\n\n\"no reply in three hours\" is a fact.\nthe rest is a film you made.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641179725666241812/4.jpg"
   },
   {
    "position": 5,
-   "media_id": "f0cec452",
-   "texte_overlay": "4. hold your wine glass\nby the stem",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/5.jpg"
+   "media_id": "23ed4aff",
+   "texte_overlay": "4. know where your ideas\ncome from",
+   "texte_sophia": "4. know where your ideas come from:\na video or real knowledge? i build mine\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641179725666241812/5.jpg"
   },
   {
    "position": 6,
-   "media_id": "bbf59407",
-   "texte_overlay": "5. \"lovely to see you again\",\nnot \"nice to meet you\"",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/6.jpg"
+   "media_id": "f0cec452",
+   "texte_overlay": "5. ask: what are they selling me?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641179725666241812/6.jpg"
   },
   {
    "position": 7,
-   "media_id": "dc91b271",
-   "texte_overlay": "6. let people finish",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/7.jpg"
+   "media_id": "bbf59407",
+   "texte_overlay": "6. be wrong without shame",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641179725666241812/7.jpg"
   },
   {
    "position": 8,
-   "media_id": "23ed4aff",
-   "texte_overlay": "7. elegance shows in conversation",
-   "texte_sophia": "7. elegance shows in conversation: a\ngeneral knowledge app like Sophia helps",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/8.jpg"
-  },
-  {
-   "position": 9,
-   "media_id": "b8ab1931",
-   "texte_overlay": "8. leave a little early",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658641220834577684/9.jpg"
+   "media_id": "dc91b271",
+   "texte_overlay": "7. think five seconds\nbefore answering",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641179725666241812/8.jpg"
   }
  ]
 }

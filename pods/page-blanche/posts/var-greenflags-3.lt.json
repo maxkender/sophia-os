@@ -1,0 +1,300 @@
+{
+ "post_id": "var-greenflags-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "dangerously intelligent"
+     ],
+     "fr": "10/10 habitudes pour avoir un cerveau redoutable",
+     "texte": "kaip per 5 minutes atpažinti genialų žmogų"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(be jokio pasigyrimo)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_08ff16b6.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "try pottery"
+     ],
+     "fr": "essaie la [[poterie]]",
+     "texte": "jų mėgstamiausias atsakymas: [[„priklauso“]]"
+    },
+    "T2": {
+     "en": [
+      "you can’t rush clay, and the second your mind",
+      "wanders the whole thing collapses"
+     ],
+     "fr": "l'argile, ça se brusque pas, et dès que ton esprit s'égare [[tout s'effondre]]",
+     "texte": "paklausk, ar filmas vertas dėmesio, ar priimti darbą, jie niekada neatsakys tiesiog [[taip ar ne]]"
+    },
+    "T3": {
+     "en": [
+      "you have to give one",
+      "thing your full",
+      "attention, in a world",
+      "that runs on",
+      "short-form content"
+     ],
+     "fr": "tu dois donner [[toute ton attention]] à un seul truc, à l'époque des [[vidéos de 10 secondes]]",
+     "texte": "pirmiausia jiems reikia konteksto: [[kam? kada? palyginti su kuo?]] ir tik tada atsako"
+    },
+    "T4": {
+     "en": [
+      "focus gets easier when your hands won’t let you think",
+      "about anything else"
+     ],
+     "fr": "tu te concentres mieux quand [[tes mains t'empêchent de penser à autre chose]]",
+     "texte": "greitas atsakymas skamba užtikrintai, bet matyti [[niuansus]] yra tikrasis ženklas"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4780aef4.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get comfortable with silence"
+     ],
+     "fr": "sois à l'aise avec [[les silences]]",
+     "texte": "su kiekvienu [[kalba kitaip]]"
+    },
+    "T2": {
+     "en": [
+      "stop rushing to fill",
+      "every pause in a",
+      "conversation"
+     ],
+     "fr": "arrête de vouloir combler [[chaque blanc]] dans la discussion",
+     "texte": "su tavo močiute, su 6 metų vaiku, su [[savo viršininku]] vakarėlyje"
+    },
+    "T3": {
+     "en": [
+      "speak slower, finish",
+      "your sentences, and",
+      "let your words land",
+      "before adding more"
+     ],
+     "fr": "[[parle moins vite]], finis tes phrases, [[laisse tes mots infuser]] avant d'en rajouter",
+     "texte": "ta pati mintis, bet [[kiti žodžiai]], kad visi suprastų"
+    },
+    "T4": {
+     "en": [
+      "people who seem comfortable with silence often",
+      "come across as more confident because they aren’t",
+      "desperately chasing approval"
+     ],
+     "fr": "les gens à l'aise avec le silence ont souvent l'air [[plus sûrs d'eux]], parce qu'ils cherchent pas à tout prix à plaire",
+     "texte": "pajusti, kas prieš tave, ir rasti tinkamus žodžius yra protas, [[kurio mokykla nevertina]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3d666e7f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start working out"
+     ],
+     "fr": "mets-toi [[au sport]]",
+     "texte": "jiems įdomu [[tavo pomėgis]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but it's true. the gym,",
+      "running, pilates, whatever you'll stick to"
+     ],
+     "fr": "JE SAIS, tout le monde le dit, mais c'est vrai. la salle, la course, le pilates, [[ce que tu tiendras sur la durée]]",
+     "texte": "paminėji mezgimą ar senus automobilius ir staiga jie nori žinoti, [[kaip visa tai veikia]]"
+    },
+    "T3": {
+     "en": [
+      "exercise is proven to",
+      "boost your mood and",
+      "confidence, not just",
+      "how you look"
+     ],
+     "fr": "c'est [[prouvé]] : le sport booste ton [[moral et ta confiance]], pas juste ton physique",
+     "texte": "niekada [[„nuobodu“]], jiems kiekviena tema slepia kažką žavaus"
+    },
+    "T4": {
+     "en": [
+      "you have more energy, more confidence, and",
+      "that is what makes you attractive"
+     ],
+     "fr": "t'as plus d'énergie, [[plus confiance en toi]], et [[c'est exactement ça qui attire]]",
+     "texte": "protingiems žmonėms [[beveik viskas įdomu]], net tai, ko jie niekada nesirinktų"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_c051120e.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "sužinai [[atsitiktinai]]"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "kad jie kalba 3 kalbomis, praėjus mėnesiams [[nuo jūsų pažinties]]"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "jie niekada nemini savo pažymių ar [[kiek skaito]]"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "nes tikram pasitikėjimui savimi [[nereikia publikos]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_18e768b0.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "jie nebijo būti [[pradedančiaisiais]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "šachmatai sulaukus 30, [[nemokant, bet su džiaugsmu]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "atrodyti nerangiai jų negąsdina, [[taip jie mokosi toliau]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "kas pakeitė mano scrolinimą: šachmatai, knyga ir 5 min apie tai, kodėl Renesansas prasidėjo Italijoje, [[programėlėje Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

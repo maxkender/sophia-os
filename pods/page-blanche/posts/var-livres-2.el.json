@@ -1,0 +1,265 @@
+{
+ "post_id": "var-livres-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously intelligent"
+     ],
+     "texte": "5 βιβλία για να [[αγαπήσεις το διάβασμα]], κι ας μην τελείωσες ποτέ βιβλίο"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "alignement": "droite",
+     "texte": "(μικρά, το υπόσχομαι)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_020a378f.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "1. [[Ο γέρος και η θάλασσα]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "ένας γέρος ψαράς, 84 μέρες χωρίς ψάρι, και μετά [[ένα τεράστιο ψάρι]] που δεν παραδίνεται"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "είναι μια μεγάλη μάχη στη θάλασσα και [[είσαι μαζί του]] μέχρι την τελευταία σελίδα"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "Χέμινγουεϊ, 120 σελίδες, [[μια Κυριακή]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01545f6a.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "texte": "2. [[Μετάξι]], Μπαρίκο"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "texte": "το 1861, ένας Γάλλος έμπορος μεταξοσκώληκων φτάνει στην Ιαπωνία και ένα βλέμμα του αλλάζει τη ζωή"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "texte": "τα κεφάλαια είναι μικροσκοπικά, κάποια [[μόλις μία σελίδα]]"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "texte": "διαβάζεται σαν τραγούδι, ήσυχο και παράξενο, και [[το τελειώνεις σε ένα βράδυ]] χωρίς να το καταλάβεις"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_16ca446f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "3. [[Η φάρμα των ζώων]], Όργουελ"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "τα ζώα διώχνουν τον αγρότη για να είναι ελεύθερα και ίσα, μετά τα γουρούνια παίρνουν την εξουσία και [[οι κανόνες αλλάζουν τη νύχτα]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "100 σελίδες, [[ένα βράδυ]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "και όταν πιάνω το κινητό ούτως ή άλλως, κάνω ένα μάθημα 5 λεπτών στην [[εφαρμογή Sophia]] αντί για reels"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "απόψε: γιατί η Αναγέννηση γεννήθηκε στην Ιταλία, το είπα και στη μαμά μου"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "4. [[Ο μικρός πρίγκιπας]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "Σεντ-Εξιπερί, κάτω από 100 σελίδες"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "ένας πιλότος χαμένος στην έρημο συναντά ένα αγοράκι από έναν μικροσκοπικό πλανήτη, που [[κάνει τις καλύτερες ερωτήσεις]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "νομίζεις ότι είναι παιδικό βιβλίο, μετά μια φράση σε χτυπάει και καταλαβαίνεις ότι [[δεν ήταν ποτέ για παιδιά]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_03470211.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "texte": "5. [[Ο θάνατος του Ιβάν Ίλιτς]], Τολστόι"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "texte": "ένας δικαστής που τα έκανε όλα σωστά αναρωτιέται [[αν έζησε ποτέ]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "texte": "κάτω από 100 σελίδες, και [[χτυπάει δυνατά]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_153677ff.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

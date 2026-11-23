@@ -1,0 +1,316 @@
+{
+ "post_id": "original-100",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "wie museen dir spaß machen, auch wenn sie dich langweilen"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(ganz ohne kunststudium)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_501b051b.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "[[drei werke]], nicht dreißig"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "jede wand abzuklappern [[macht dich so müde]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "nimm einen raum, such dir drei werke aus, die dich packen, und [[ignorier den rest]]"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "du gehst mit [[drei echten erinnerungen]] raus, nicht mit einem nebel"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0198ade3.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "kenn [[die geschichte]] dahinter"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "kunst ist nur ein bild, [[bis du die story kennst]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "wer es bezahlt hat, was damals in der stadt los war, warum es die leute schockiert hat"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "früher hab ich [[nur bilder gesehen]], keine geschichten"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "heute 5 min in [[der Sophia-App]]: was der urknall wirklich war. die neugier wächst mit"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "erst raten, [[dann das schild lesen]]"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "schau eine ganze minute hin, bevor du [[titel oder jahr]] checkst"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "frag dich, was da los ist, wer die leute sind und [[warum genau dieser moment]]"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "danebenliegen ist [[der halbe spaß]], ehrlich"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07a113ad.jpg",
+      "boite": [
+       0,
+       0,
+       752,
+       1392
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "[[ein gemälde]], 5 minuten lang"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "such dir eine bank, setz dich und lass den blick [[über ein einziges werk wandern]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "in der ersten minute siehst du das motiv, dann tauchen [[die kleinen details]] auf"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "ein gesicht in der menge, eine signatur, [[ein winziger hund in der ecke]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_072dae6f.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       1830
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take walks in silence"
+     ],
+     "fr": "fais des balades [[en silence]]",
+     "texte": "geh [[ein jahr später]] wieder hin"
+    },
+    "T2": {
+     "en": [
+      "if you instantly put music on every time you go for a walk,",
+      "you're never giving your brain time to think for itself"
+     ],
+     "fr": "si tu mets de la musique [[dès que tu sors marcher]], tu laisses jamais à ton cerveau [[le temps de penser tout seul]]",
+     "texte": "geh noch mal ins selbe museum und stell dich vor [[das gemälde, das du beim ersten mal geliebt hast]]"
+    },
+    "T3": {
+     "en": [
+      "you keep drowning out",
+      "your own thoughts with",
+      "someone else's voice,"
+     ],
+     "fr": "tu couvres [[tes propres pensées]] avec la voix de quelqu'un d'autre,",
+     "texte": "das bild hat sich seit deinem letzten besuch kein bisschen verändert,"
+    },
+    "T4": {
+     "en": [
+      "leaving no room to",
+      "process your emotions,",
+      "reflect on your life, or",
+      "come up with new ideas"
+     ],
+     "fr": "plus de place pour digérer [[tes émotions]], penser à [[ta vie]] ou avoir des idées",
+     "texte": "aber du hast mehr gelesen, mehr erlebt und [[siehst plötzlich dinge]], die dir vorher entgangen sind"
+    },
+    "T5": {
+     "en": [
+      "let yourself be bored. your mind needs space to think"
+     ],
+     "fr": "ennuie-toi un peu. [[ton cerveau a besoin d'air]]",
+     "texte": "so merkst du am besten, [[wie sehr du gewachsen bist]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_65a40ede.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  }
+ }
+}

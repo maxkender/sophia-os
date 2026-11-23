@@ -1,0 +1,51 @@
+{
+  "source_id": "cs-o171",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8f8f733b-511c-484f-b958-3d3927deb114",
+  "titre": "my critical observation of certain school subjects #studytok #school #studentlife",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "8f8f733b-511c-484f-b958-3d3927deb114"
+  ],
+  "notes": "Déclinaison G1 de 8f8f733b (r 3,32 en français), ligne 8 de la boîte. Accroche du parent mot pour mot. Avis honnêtes et bienveillants sur des matières neuves (aucune du parent : musique, maths, anglais, sport) : histoire, chimie, philosophie, art, géographie. Jamais de mépris des profs. Slide Sophia sur l'histoire (5 : la culture générale pour aimer une matière). Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "eaa4bb36",
+      "texte_overlay": "my critical observation of\ncertain school subjects",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9427cb6c",
+      "texte_overlay": "chemistry\n\nthe experiments are the best part of school.\nthe equations before them? less so.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f30e225d",
+      "texte_overlay": "philosophy\n\nconfusing for the first month.\nthen suddenly it's the class you talk about at dinner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "01ec4ac3",
+      "texte_overlay": "art\n\nunderrated. the only class where there's no wrong answer\n(until the grade arrives).",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d848944c",
+      "texte_overlay": "history\n\ndates are boring, stories are not.\nonce you know the drama, you remember everything.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "history\n\ndates are boring, stories are not.\ni learn the drama on a micro-learning app like the Sophia app.\nnow i remember everything."
+    },
+    {
+      "position": 6,
+      "media_id": "28bea2c7",
+      "texte_overlay": "geography\n\nnobody takes it seriously.\nthen everyone needs it to read the news.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

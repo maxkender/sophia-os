@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o167",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6526ec3a-523d-407e-877e-40112c2a20b0",
+  "titre": "study habits that are a bit toxic but i'm keeping them anyway #studytok #studytips #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "6526ec3a-523d-407e-877e-40112c2a20b0"
+  ],
+  "notes": "Déclinaison G2 de 6526ec3a (la famille de nos cs-o023 et cs-o062 : r 3,84), ligne 1 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o156 et cs-o161 : « study habits that are a bit toxic but i'm keeping them anyway ». Rivalité avec soi-même. Habitudes neuves, aucune de cs-o023, cs-o062, cs-o156 ni cs-o161 : se chronométrer sur les exercices, refuser de regarder la solution avant 10 minutes, réécrire un cours entier de mémoire, une culture générale qui nourrit tout (slide Sophia, 5), comparer ses notes à son propre record, finir la semaine en avance. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7e2a7326",
+      "texte_overlay": "study habits that are a bit toxic\nbut i'm keeping them anyway",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "cc76ccef",
+      "texte_overlay": "timing myself on every exercise.\nbeating my own time is weirdly addictive.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1816d097",
+      "texte_overlay": "no looking at the solution before 10 minutes of trying.\neven when it hurts.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "dda772c6",
+      "texte_overlay": "rewriting a whole lesson from memory.\nthen checking every line.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b6ace66f",
+      "texte_overlay": "learning random things nobody asked me to learn.\nhistory, art, science, every single day.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "learning random things nobody asked me to learn\non a micro-learning app like the Sophia app.\nhistory, art, science, every single day."
+    },
+    {
+      "position": 6,
+      "media_id": "ea25ec09",
+      "texte_overlay": "my only rival is my last grade.\nand she's going down.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6c01a4b2",
+      "texte_overlay": "finishing friday's homework on wednesday.\njust because i can.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

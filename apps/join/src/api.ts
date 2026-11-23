@@ -58,7 +58,7 @@ export interface Moi {
     whatsapp: string;
     email_verifie: boolean;
     whatsapp_verifie: boolean;
-    decision: "auto" | "a_traiter" | null;
+    decision: "auto" | "a_traiter" | "refusee" | null;
     handle_tiktok: string | null;
     ferme?: boolean;
   };
@@ -102,4 +102,67 @@ export function lireSource(): Record<string, string> {
   } catch {
     return {};
   }
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Admin (/admin) : la session Supabase Auth d'un admin de l'OS (jetons rendus par la fonction seulement si
+// is_admin()). Gardée dans sessionStorage (onglet) ; chaque appel porte le JWT dans `admin_jwt`.
+// ---------------------------------------------------------------------------------------------------------------
+
+const CLE_ADMIN = "join_admin";
+
+export interface SessionAdmin {
+  access_token: string;
+  refresh_token: string;
+  expire_at: number;
+  email: string | null;
+}
+
+export function lireSessionAdmin(): SessionAdmin | null {
+  try {
+    const s = JSON.parse(sessionStorage.getItem(CLE_ADMIN) ?? "null") as SessionAdmin | null;
+    return s?.access_token ? s : null;
+  } catch {
+    return null;
+  }
+}
+
+export function garderSessionAdmin(s: SessionAdmin | null): void {
+  try {
+    if (s) sessionStorage.setItem(CLE_ADMIN, JSON.stringify(s));
+    else sessionStorage.removeItem(CLE_ADMIN);
+  } catch {
+    // stockage indisponible : la session ne survivra pas au rechargement
+  }
+}
+
+type Jetons = { access_token: string; refresh_token: string; expires_in: number; email: string | null };
+
+function versSession(r: Jetons): SessionAdmin {
+  return { access_token: r.access_token, refresh_token: r.refresh_token, expire_at: Date.now() + r.expires_in * 1000, email: r.email };
+}
+
+export async function connexionAdmin(email: string, password: string): Promise<{ ok: boolean; error?: string }> {
+  const r = await appeler<Jetons>("admin_connexion", { email, password });
+  if (!r.ok) return { ok: false, error: r.error };
+  garderSessionAdmin(versSession(r));
+  return { ok: true };
+}
+
+/** Un appel admin : rafraîchit le jeton s'il expire dans moins de 2 minutes ; 403 : session effacée. */
+export async function appelerAdmin<T = Reponse>(action: string, donnees: Record<string, unknown> = {}): Promise<T & Reponse> {
+  let s = lireSessionAdmin();
+  if (!s) return { ok: false, error: "forbidden" } as T & Reponse;
+  if (s.expire_at - Date.now() < 120_000) {
+    const r = await appeler<Jetons>("admin_rafraichir", { refresh_token: s.refresh_token });
+    if (!r.ok) {
+      if (r.error !== "network") garderSessionAdmin(null);
+      return { ok: false, error: r.error ?? "forbidden" } as T & Reponse;
+    }
+    s = versSession(r);
+    garderSessionAdmin(s);
+  }
+  const r = await appeler<T>(action, { ...donnees, admin_jwt: s.access_token });
+  if (!r.ok && r.error === "forbidden") garderSessionAdmin(null);
+  return r;
 }

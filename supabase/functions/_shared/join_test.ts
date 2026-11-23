@@ -8,8 +8,11 @@ import {
   cohorteDe,
   dateLimiteSignature,
   decider,
+  deciderAvecReglage,
+  decisionsAdminPossibles,
   emailAutorise,
   estEtapeJoin,
+  etapeAdmin,
   etapeRelanceSignature,
   etapesRestantes,
   etatCode,
@@ -17,6 +20,8 @@ import {
   genererJeton,
   handlePropose,
   jourParis,
+  LIEN_SLACK,
+  lireAutoAcceptation,
   lireModeJoin,
   lundiLisible,
   minuitParis,
@@ -28,7 +33,9 @@ import {
   relanceCodeDue,
   reponsesOS,
   sha256Hex,
+  SOCIETE,
   texteMessage,
+  TYPES_MESSAGE_JOIN,
   validerCandidature,
   versCandidatureRuul,
 } from "./join.ts";
@@ -170,10 +177,19 @@ Deno.test("premier post : lundi suivant, +7 si warm-up pas fini avant dimanche 2
   assertEquals(lundiLisible("2026-11-30"), "Monday 30 November");
 });
 
-Deno.test("contrat v2 : société nommée, plus de cases vides, clauses gardées", () => {
+Deno.test("contrat v3 : identité complète de la société en tête, plus de cases vides, clauses gardées", () => {
   assertEquals(CONTRAT_RESUME.length, 6);
   assert(CONTRAT_TEXTE.includes("Vik Studios SAS"));
-  assert(CONTRAT_TEXTE.includes("join-v2"));
+  assert(CONTRAT_TEXTE.includes("join-v3"));
+  for (const m of ["103 372 421", "103 372 421 00018", "RCS Paris", "FR30103372421", "30 boulevard de Sébastopol, 75004 Paris", "Maximilien Kender", "2 €", "support@vikstudios.com"]) {
+    assert(CONTRAT_TEXTE.includes(m), m);
+  }
+  assert(CONTRAT_TEXTE.indexOf("103 372 421") < CONTRAT_TEXTE.indexOf("1. Purpose"));
+  assert(!/IBAN|BIC|bank account number/i.test(CONTRAT_TEXTE));
+  // Les clauses de join-v2 sont gardées mot pour mot (propriété, résiliation, Ruul).
+  assert(CONTRAT_TEXTE.includes("All TikTok accounts created or used for this work, their usernames, followers, and all content published on them belong exclusively to the Company."));
+  assert(CONTRAT_TEXTE.includes("Either party may end this agreement at any time, without notice and without compensation."));
+  assertEquals(SOCIETE.siren, "103 372 421");
   for (const m of ["[COMPANY NAME]", "[SIRET]", "[ADDRESS]"]) assert(!CONTRAT_TEXTE.includes(m), m);
   for (const m of ["18 years", "VPN", "French law", "four (4) paid weeks", "Confidentiality", "Personal data", "every Monday", "legal name"]) {
     assert(CONTRAT_TEXTE.includes(m), m);
@@ -216,7 +232,7 @@ Deno.test("automatisation : relances J+1 / J+3, expiration J+7, relance des code
 });
 
 Deno.test("messages : anglais, prénom, jamais de mot interdit", () => {
-  for (const t of ["code_rappel", "signature_j1", "signature_j3", "expiree", "acces"] as const) {
+  for (const t of TYPES_MESSAGE_JOIN) {
     const m = texteMessage(t, { prenom: "Léa", lien: "https://join.example", lundi: "Monday 30 November", limite: "Sunday 29 November" });
     assert(m.corps.startsWith("Hi Léa,"), t);
     assert(!/\b(bot|AI|automatic|automated)\b/i.test(`${m.objet} ${m.corps} ${m.bouton ?? ""}`), t);
@@ -228,4 +244,45 @@ Deno.test("mode : modèle de code WhatsApp optionnel et validé", () => {
   assertEquals(lireModeJoin({}).modele_code, null);
   assertEquals(lireModeJoin({ modele_code: "join_code" }).modele_code, "join_code");
   assertEquals(lireModeJoin({ modele_code: "Bad Name!" }).modele_code, null);
+});
+
+Deno.test("bienvenue après signature : lien Set my password, jamais de mot de passe, étapes, Slack, Ruul", () => {
+  const v = { prenom: "Léa", lien: "https://os.example/set-password?t=abc", lundi: "Monday 30 November", limite: "Sunday 29 November",
+    login: "lea.martin@sophia.com", handle: "lea.daily123", ruulEmail: "lea@example.com", compteCree: true };
+  const m = texteMessage("acces", v);
+  assertEquals(m.bouton, "Set my password");
+  for (const x of ["Set my password: https://os.example/set-password?t=abc", "lea.martin@sophia.com", "@lea.daily123", LIEN_SLACK,
+    "app.ruul.io", "lea@example.com", "Monday 30 November", "Start warmup"]) assert(m.corps.includes(x), x);
+  assert(!/password\s*[:=]\s*(?!https?:\/\/)[^\s(]/i.test(m.corps.replace("Set my password: https", "")));
+  assert(!/\b(bot|AI|automatic|automated)\b/i.test(m.corps));
+  // Mode test (aucun compte créé) : pas de faux lien.
+  const t = texteMessage("acces", { ...v, lien: "https://join.example", compteCree: false });
+  assert(!t.corps.includes("https://join.example"));
+  assertEquals(t.bouton, "Open my dashboard");
+});
+
+Deno.test("acceptation automatique : OFF par défaut ; OFF → l'admin décide", () => {
+  assertEquals(lireAutoAcceptation(null), false);
+  assertEquals(lireAutoAcceptation({}), false);
+  assertEquals(lireAutoAcceptation({ actif: "true" }), false);
+  assertEquals(lireAutoAcceptation({ actif: true }), true);
+  assertEquals(deciderAvecReglage({ decision: "auto", manques: [] }, false), { decision: "a_traiter", manques: [], eligible: true });
+  assertEquals(deciderAvecReglage({ decision: "auto", manques: [] }, true), { decision: "auto", manques: [], eligible: true });
+  assertEquals(deciderAvecReglage({ decision: "a_traiter", manques: ["x"] }, true), { decision: "a_traiter", manques: ["x"], eligible: false });
+});
+
+Deno.test("étapes de l'admin et décisions possibles", () => {
+  const base = { decision: null, manques: [], email_verifie_at: null, whatsapp_verifie_at: null, expire_at: null };
+  assertEquals(etapeAdmin(base, false), "codes");
+  assertEquals(etapeAdmin({ ...base, manques: ["pays fermé (XX)"] }, false), "ferme");
+  assertEquals(etapeAdmin({ ...base, email_verifie_at: "x", whatsapp_verifie_at: "x" }, false), "verifiee");
+  assertEquals(etapeAdmin({ ...base, decision: "a_traiter" }, false), "a_traiter");
+  assertEquals(etapeAdmin({ ...base, decision: "auto" }, false), "acceptee");
+  assertEquals(etapeAdmin({ ...base, decision: "refusee" }, false), "refusee");
+  assertEquals(etapeAdmin({ ...base, decision: "auto", expire_at: "x" }, false), "expiree");
+  assertEquals(etapeAdmin({ ...base, decision: "auto" }, true), "signee");
+  assertEquals(decisionsAdminPossibles("a_traiter"), { accepter: true, refuser: true });
+  assertEquals(decisionsAdminPossibles("signee"), { accepter: false, refuser: false });
+  assertEquals(decisionsAdminPossibles("codes"), { accepter: false, refuser: true });
+  assertEquals(decisionsAdminPossibles("refusee"), { accepter: true, refuser: false });
 });

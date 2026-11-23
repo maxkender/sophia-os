@@ -24,6 +24,9 @@ export const SOCIETE = {
   contact: "support@vikstudios.com",
 } as const;
 
+/** 23/11 (Max) : la vidéo guide (landing de Join, bienvenue ; plus tard WhatsApp et emails de l'OS). */
+export const VIDEO_GUIDE_URL = "https://drive.google.com/file/d/10SuGjYGgOtLuW8WkOht1XPbyiM2z9fQi/view?usp=sharing";
+
 /** Le lien d'invitation Slack des posteurs (le même que les modèles WhatsApp v2). */
 export const LIEN_SLACK = SLACK_V2;
 /** Le dashboard de l'OS (là où le posteur se connecte une fois son compte créé). */
@@ -501,6 +504,7 @@ export function texteMessage(
           salut,
           "Welcome to Vik Studios! Your job: post 2 slideshows a day on TikTok. Everything you post is ready for you on your dashboard.",
           `You start on ${v.lundi ?? "Monday"}.`,
+          `Watch our short video guide: ${VIDEO_GUIDE_URL}`,
           [
             "Your access:",
             `- Dashboard: ${LIEN_DASHBOARD_OS}`,

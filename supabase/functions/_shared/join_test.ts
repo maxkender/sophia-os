@@ -23,6 +23,7 @@ import {
   jourParis,
   LIEN_SLACK,
   lireAutoAcceptation,
+  VIDEO_GUIDE_URL,
   lireModeJoin,
   lundiLisible,
   minuitParis,
@@ -264,7 +265,9 @@ Deno.test("bienvenue après signature : lien Set my password, jamais de mot de p
   const m = texteMessage("acces", v);
   assertEquals(m.bouton, "Set my password");
   for (const x of ["Set my password: https://os.example/set-password?t=abc", "lea.martin@sophia.com", "@lea.daily123", LIEN_SLACK,
-    "app.ruul.io", "lea@example.com", "Monday 30 November", "Start warmup"]) assert(m.corps.includes(x), x);
+    "app.ruul.io", "lea@example.com", "Monday 30 November", "Start warmup", `Watch our short video guide: ${VIDEO_GUIDE_URL}`]) {
+    assert(m.corps.includes(x), x);
+  }
   assert(!/password\s*[:=]\s*(?!https?:\/\/)[^\s(]/i.test(m.corps.replace("Set my password: https", "")));
   assert(!/\b(bot|AI|automatic|automated)\b/i.test(m.corps));
   // Mode test (aucun compte créé) : pas de faux lien.

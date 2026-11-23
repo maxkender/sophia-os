@@ -3,6 +3,7 @@ import { type ReactNode, useState } from "react";
 import type { PaysPaie } from "../api";
 import ChoixPays from "../ChoixPays";
 import type { T } from "../i18n";
+import { VIDEO_GUIDE_FORMAT, VIDEO_GUIDE_PREVIEW, VIDEO_GUIDE_URL } from "../video";
 
 /** Le texte avec **gras** et ==surligné== (comme les textes du site Lovable). */
 export function Riche({ texte }: { texte: string }) {
@@ -77,6 +78,12 @@ export default function Arrivee({ t, langue, pays, onPostuler, faq }: {
             <h2 className="h3">{t("key.steps.title")}</h2>
             <ol className="etapes-courtes">{[1, 2, 3, 4].map((n) => <li key={n}>{t(`key.steps.${n}`)}</li>)}</ol>
           </article>
+        </div>
+        <div className="wrap video">
+          <div className="video__cadre" style={{ aspectRatio: VIDEO_GUIDE_FORMAT }}>
+            <iframe src={VIDEO_GUIDE_PREVIEW} title={t("video.title")} allow="autoplay" allowFullScreen loading="lazy" />
+          </div>
+          <a href={VIDEO_GUIDE_URL} target="_blank" rel="noopener noreferrer">{t("video.watch")}</a>
         </div>
         <div className="wrap centre" style={{ marginTop: 24 }}>
           <button type="button" className="btn" onClick={onPostuler}>{t("land.cta")}</button>

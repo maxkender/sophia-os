@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o269",
+ "type_bleo": "full_test",
+ "titre": "How to give a toast people remember #men #toast #wedding #publicspeaking #gentleman",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Full test du jour (1 sur 7, jauge : 7 sur 24). Accroche jamais faite chez nous : « toast » seulement dans un item dans donnees/label.json. reference_url : post source de am-o034, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "03053015",
+   "texte_overlay": "How to give a toast\npeople remember",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fbb1846e",
+   "texte_overlay": "1. Stand up. Glass in hand.\nWait for silence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3e9eb1ff",
+   "texte_overlay": "2. Under two minutes.\nAlways.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4f82ae08",
+   "texte_overlay": "3. One story, one lesson,\none wish",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "74dc1200",
+   "texte_overlay": "4. Thank the hosts first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "adf7539d",
+   "texte_overlay": "5. Bring a line worth quoting\n\nRead widely, borrow wisely.",
+   "texte_sophia": "5. Bring a line worth quoting\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bd194a2a",
+   "texte_overlay": "6. Raise the glass.\nSit down. Done.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

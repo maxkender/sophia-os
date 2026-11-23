@@ -1,0 +1,51 @@
+{
+  "source_id": "cs-o172",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "b7cf2471-5d0c-4563-9856-b1fe99ba804a",
+  "titre": "study methods that actually work part 1 #studytok #studytips #studymethod",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "b7cf2471-5d0c-4563-9856-b1fe99ba804a"
+  ],
+  "notes": "Déclinaison G1 de b7cf2471 (r 2,86 en turc), ligne 9 de la boîte. Accroche du parent mot pour mot. Méthodes neuves, aucune du parent (Feynman, mnémotechnique, rappel actif, répétition espacée, sujets d'entraînement, carte mentale) : l'entrelacement, l'auto-explication, les exemples concrets, l'élaboration (« pourquoi ? »), le double codage (texte + schéma). Slide Sophia sur l'élaboration (5 : relier à une culture plus large). Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "a2f5fd5c",
+      "texte_overlay": "study methods that\nactually work\npart 1",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e9ec15a4",
+      "texte_overlay": "Interleaving\n\nmix different types of problems in one session.\nyou learn to choose the right method, not just repeat one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0a63fa95",
+      "texte_overlay": "Self-explanation\n\nafter each step of a solution, explain why it works.\nout loud or in the margin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1ef0c97a",
+      "texte_overlay": "Concrete examples\n\nfor every abstract idea, find 2 real examples.\nthe idea sticks to them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7514c8be",
+      "texte_overlay": "Elaboration\n\nkeep asking \"why?\" and \"how does this connect?\"\nthe more links, the stronger the memory.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "Elaboration\n\nkeep asking \"why?\" and \"how does this connect?\"\na micro-learning app like the Sophia app gives you\nmore to connect it to."
+    },
+    {
+      "position": 6,
+      "media_id": "3f751743",
+      "texte_overlay": "Dual coding\n\nput words AND a drawing on the same idea.\ntwo ways in, one memory.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o384",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f8f6207c-6e21-4e5e-ba0a-978a7ef3baa3",
+ "titre": "the secret habits of women who never seem stressed #thatgirl #organised #smartgirl #calm #habits",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 7 de la boîte (parent f8f6207c, langue source fr) : accroche reformulée (« the secret habits of women who never seem stressed »), différente de sg-o362 ; habitudes du parent. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f96cd793",
+   "texte_overlay": "the secret habits of women\nwho never seem stressed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "260acff5",
+   "texte_overlay": "tomorrow is planned tonight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ac784c61",
+   "texte_overlay": "there's always a notebook\nin their bag",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "eaef6b11",
+   "texte_overlay": "their bed is made by 8am",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5206ef48",
+   "texte_overlay": "they leave ten minutes early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "79cf15a2",
+   "texte_overlay": "sunday is for resetting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "185e7f66",
+   "texte_overlay": "mornings start with learning,\nnot scrolling",
+   "texte_sophia": "mornings start with an app like Sophia,\nnot scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b71a4656",
+   "texte_overlay": "which one will you steal?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

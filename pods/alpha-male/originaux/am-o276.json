@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o276",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "28e76828-9ab8-443f-a12a-365b99b63ee3",
+ "titre": "How to increase your aura as a man #men #aura #presence #confidence #selfimprovement",
+ "musique_titre": "Expansion",
+ "musique_url": "https://www.tiktok.com/music/expansion-7383085187666184209",
+ "inspirations": [
+  "28e76828-9ab8-443f-a12a-365b99b63ee3"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Déclinaison G1 de la ligne 3 de la boîte (parent 28e76828, @behimdaily8, langue source en). Accroche du parent mot pour mot. Format du parent : une consigne courte par slide, en minuscules. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b840b808",
+   "texte_overlay": "how to increase your aura\nas a man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7545614303936777494/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a6bca5f0",
+   "texte_overlay": "keep your promises small\nand keep all of them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7545614303936777494/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "040d0126",
+   "texte_overlay": "say less in meetings.\nmake every word count.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7545614303936777494/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "49a36ddc",
+   "texte_overlay": "train your body before\nanyone asks why.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7545614303936777494/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bc2ef00e",
+   "texte_overlay": "know a little about everything.\nlearn something new daily.",
+   "texte_sophia": "know a little about everything.\nuse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7545614303936777494/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "469af70d",
+   "texte_overlay": "be the same man\nin every room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7545614303936777494/6.jpg"
+  }
+ ]
+}

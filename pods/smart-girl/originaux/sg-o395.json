@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o395",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b375a63b-34d2-4a9e-b1a5-b62d4377821e",
+ "titre": "ways to actually unrot your brain to feel more present and productive #brainrot #digitaldetox #smartgirl #focus #habits",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "b375a63b-34d2-4a9e-b1a5-b62d4377821e"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 72 de la boîte (parent b375a63b, langue source en) : accroche du parent mot pour mot. Idées du parent (appeler ses grands-parents, explorer un nouveau quartier, apprendre une chanson par cœur, micro-apprentissage, les capitales, un nouveau hobby, un musée). Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c5ea7ca8",
+   "texte_overlay": "ways to actually unrot your brain\nto feel more present and productive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655089456008957206/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "508d676d",
+   "texte_overlay": "call your grandparents",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655089456008957206/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "110970a6",
+   "texte_overlay": "explore a new part of your city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655089456008957206/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "977409eb",
+   "texte_overlay": "learn all the words to a song",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655089456008957206/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "81b80f72",
+   "texte_overlay": "learn the capital of every country",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655089456008957206/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ef433c61",
+   "texte_overlay": "go to a museum alone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655089456008957206/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "923efca1",
+   "texte_overlay": "swap scrolling for five minutes\nof learning",
+   "texte_sophia": "swap scrolling for a micro-learning\napp like the Sophia app",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655089456008957206/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6d15623a",
+   "texte_overlay": "try them. report back <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655089456008957206/4.jpg"
+  }
+ ]
+}

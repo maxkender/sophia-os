@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o275",
+ "type_bleo": "full_test",
+ "titre": "How to write a thank-you note people keep #men #manners #gratitude #gentleman #respect",
+ "musique_titre": "horizons",
+ "musique_url": "https://www.tiktok.com/music/horizons-7321516309459765250",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 23/11. Full test du jour (7 sur 7, jauge : 7 sur 24). Accroche jamais faite chez nous : « thank-you note » seulement dans un item dans donnees/label.json. reference_url : post source de am-o099, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "98dcd3a1",
+   "texte_overlay": "How to write a thank-you note\npeople keep",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "29df243d",
+   "texte_overlay": "1. By hand. Always.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b27adbdd",
+   "texte_overlay": "2. Within three days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f678c8ef",
+   "texte_overlay": "3. Name the exact thing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "af0f8e14",
+   "texte_overlay": "4. Add one detail only you\nwould know\n\nPay attention to people.",
+   "texte_sophia": "4. Add one detail only you\nwould know\n\nI learned how on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c7ae5012",
+   "texte_overlay": "5. End with the future\n\n\"Dinner's on me next time.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/6.jpg"
+  }
+ ]
+}

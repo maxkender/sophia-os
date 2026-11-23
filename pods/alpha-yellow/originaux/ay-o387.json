@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o387",
+ "type_bleo": "full_test",
+ "titre": "Small daily habits of grateful men #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Small daily habits of grateful men » (retenue), « Why gratitude changes everything » (écartée : sans promesse), « Be more grateful » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6c64ca97-5a8b-41bc-a2cf-151ef2225e5a",
+   "texte_overlay": "Small daily habits\nof grateful men",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They write three good things every night. Small or big, it doesn't matter. Their brain slowly learns to notice what's going right.",
+   "media_id": "85b77f70-c4d7-426a-96da-45eb68b0c2c8"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They thank people by name. \"Thanks, Marco.\" Using someone's name makes gratitude personal and memorable. People remember it.",
+   "media_id": "85e967e5-7eef-451c-ad3d-5fd2234d4eca"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They enjoy simple things. A hot shower, a good meal, a sunny morning. Noticing small pleasures makes every day feel richer.",
+   "media_id": "86268b3c-723d-4a42-814b-9377af193fc9"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They tell people why they appreciate them. Not just \"thanks,\" but \"you really helped me with that.\" Specific gratitude means more.",
+   "media_id": "8641aae1-a523-428c-bc6e-4b4504a9d076"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Learning how the world works makes you grateful for things you took for granted.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Learning how the world works makes you grateful for things you took for granted.",
+   "media_id": "976d80ed-eab8-4368-abea-b413913a7b4e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "They complain less. When something goes wrong, they look for a fix instead of someone to blame. It keeps their energy positive.",
+   "media_id": "865ea87f-c9c4-4dda-8240-bbb120c2e73c"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "They give back. Helping a friend, volunteering, teaching someone. Grateful men share what they've received. Pass it on.",
+   "media_id": "872a0ff7-8e10-44bb-9eb5-c3a21114f7db"
+  }
+ ]
+}

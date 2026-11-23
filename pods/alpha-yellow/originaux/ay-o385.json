@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o385",
+ "type_bleo": "full_test",
+ "titre": "Things to do on your commute instead of scrolling #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Things to do on your commute instead of scrolling » (retenue), « Use your commute better » (écartée : plat), « Turn your commute into growth » (écartée : abstrait).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42c60871-bc9e-4b68-bde7-498bd18f0549",
+   "texte_overlay": "Things to do on your commute\ninstead of scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Read a real book. Twenty minutes each way adds up to a book every two weeks. Your commute becomes the best reading time of your day.",
+   "media_id": "7fe77196-f9c8-400d-ad00-e686eb02f3f1"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn a language. Ten new words on the way to work, a quick review on the way home. In a year, you'll hold real conversations.",
+   "media_id": "808cc5d8-352f-4b04-8bbd-c64b883affee"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Plan your day. What are the three things that really matter today? Arriving with a clear plan makes the whole day smoother.",
+   "media_id": "8206d365-55b0-40e5-9d4f-df6e7a1f1af7"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Call someone you care about. Parents, grandparents, an old friend. A ten-minute call on the way home keeps relationships strong.",
+   "media_id": "83c90c80-ba04-4a82-bfb9-47111f84404e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Commutes stop feeling wasted when you arrive knowing something new.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Commutes stop feeling wasted when you arrive knowing something new.",
+   "media_id": "b1961783-74ad-44eb-bb7f-114414f6190d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Walk or cycle part of the way. Get off one stop early. Extra movement clears your head and helps your health. Fresh air helps too.",
+   "media_id": "84418872-e69e-48ab-9283-abd1dfd2dedc"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Just look out the window. Let your mind wander. Some of your best ideas will come when you're not trying to be productive.",
+   "media_id": "845c1eb2-025c-4544-98b0-f0e2c9ca9ef6"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o400",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d7503bae-e6d2-4fcc-a2e0-12c9eebd7be1",
+ "titre": "How to quiet social anxiety step by step #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "d7503bae-e6d2-4fcc-a2e0-12c9eebd7be1"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 11 de la boîte (d7503bae, en 1 k), 3e et dernière déclinaison après ay-o346 et ay-o365. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o346, o365. Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "894c8eea-14d6-4e93-abb1-4bf9328b555f",
+   "texte_overlay": "How to quiet social anxiety\nstep by step",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689885995193486600/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Step 1: notice your thoughts. \"Everyone thinks I'm weird.\" Write them down. Seeing them on paper shows how unrealistic many of them are.",
+   "media_id": "a01c7334-55b8-4a04-a59b-649b9d36f394"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Step 2: start with tiny conversations. A comment to a cashier, a question to a neighbour. Small wins build confidence step by step.",
+   "media_id": "a051c2b1-366f-44f8-b1ff-960992fd09b1"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Step 3: stay a little longer each time. Five more minutes at the party than last time. Slowly stretch your comfort zone.",
+   "media_id": "a05c319e-2840-4fb9-b23f-1e2eec24b882"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Step 4: focus on others. Ask questions and really listen. When your attention is outside, there's less room for anxious thoughts.",
+   "media_id": "a0b04e7e-bde2-470a-bbd7-9e96ce45611e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Step 5: give yourself things to talk about. I do five minutes a day of history, art or science, and it makes conversations feel easier.",
+   "texte_sophia": "Step 5: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It makes conversations feel easier.",
+   "media_id": "ae9df71c-a7ee-4099-afc2-8ea7a3c99b87"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Step 6: be kind to yourself after. Don't replay every word. Remember what went well and let the rest go. You showed up.",
+   "media_id": "a13fa8f8-655a-416b-a9bf-7422dca4b9c7"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Step 7: ask for help if it limits your life. Talking to a professional is a strong, smart step, not a weakness. Asking takes courage.",
+   "media_id": "a189138e-e94a-437f-89c2-87cf12d709ca"
+  }
+ ]
+}

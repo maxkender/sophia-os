@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o393",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0ca8a820-1bb8-4d1d-b2f8-e0e2d1e15786",
+ "titre": "How to bring happiness back into your days #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "0ca8a820-1bb8-4d1d-b2f8-e0e2d1e15786"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 4 de la boîte (0ca8a820, it 3,8 k r 2,08), 3e et dernière déclinaison après ay-o358 et ay-o377. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o358, o377. Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7a4323eb-c6a3-4177-bccd-c3956db5e205",
+   "texte_overlay": "How to bring happiness\nback into your days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Start the day with something you enjoy. A good coffee on the balcony, music while you shower. Small pleasures set the tone.",
+   "media_id": "8f255827-aa08-4068-be8b-6ef426bd5872"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Move your body outside. A run in the park, a bike ride, a swim. Exercise outdoors is one of the fastest mood boosters there is.",
+   "media_id": "8f4859f7-b71a-45fd-a3f9-fa580ac69f10"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Clean up your space. A tidy room makes your mind feel lighter. Start with one drawer if everything feels too much. Small wins count.",
+   "media_id": "8f814ede-d663-4e8c-9607-05f8ab7bf240"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "See people who make you laugh. Laughter changes your mood in minutes. Plan time with the funniest people you know. Book it this week.",
+   "media_id": "8f9cbe5e-0975-4d8b-81e0-b0372c898fa5"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A little wonder every day makes ordinary days feel brighter.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A little wonder every day makes ordinary days feel brighter.",
+   "media_id": "6ab5676b-4316-4561-83a1-a698d756407b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Do something kind for someone. Help, give, encourage. Making others happy is one of the surest ways to feel happy yourself.",
+   "media_id": "8fe254c9-6afe-4e40-8ce8-a233ba925d65"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "End the day by writing one good moment. Even on hard days, there's usually one. Noticing it trains your mind to see the good.",
+   "media_id": "920c2225-629f-4abc-afda-e639254f1ac2"
+  }
+ ]
+}

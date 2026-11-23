@@ -1,0 +1,214 @@
+{
+ "id": "bm-004",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7694275661430656278",
+  "vues": 356700,
+  "publie_le": "2026-10-08",
+  "accroche": "Job Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "job tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "where does your job rank? 💼 #health #job #running #biohacking #fitness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/nuit-bureau.jpg": "22087d09-22bc-404e-bc18-e6367a6edcc6",
+  "images/banque/conduite.jpg": "ab195eee-406f-4cf0-a579-51ffafe00f71",
+  "images/banque/bureau.jpg": "15aad0d1-462f-4934-978a-cbd6bfea834e",
+  "images/banque/lit-laptop.jpg": "1c4f4ebf-92ac-4386-a23c-8875a41dc266",
+  "images/banque/cuisine.jpg": "81578825-83ea-4d8d-bccd-1293dee6b83f",
+  "images/banque/prof.jpg": "119ce04d-6b0d-4acc-9387-44d87f697dd7",
+  "images/banque/jardin.jpg": "02213e75-48d7-4ceb-b0b3-05742073d149",
+  "images/banque/chien.jpg": "ada5219a-9076-4994-885b-f38d6728ef44",
+  "images/banque/garde-foret.jpg": "475d1633-2d6d-45eb-8f55-3cb4f9124938",
+  "images/banque/coach-course.jpg": "07022962-4079-40a1-9c1d-4bcddd820b9c",
+  "images/banque/guide-montagne.jpg": "eaa2e53d-41fb-4b45-a976-f1b7948527b3"
+ },
+ "notes": "Full test du 23/11 (boîte vide, aucun post neuf du compte modèle à la veille du lundi : dernier post le 1/11) : « Job Tierlist For Optimal Health (Science based) », sa famille à 357 k (8/10) et 316 k (10/10), « Job » en rouge comme lui ; métiers à nous ; `source` gardée pour mémoire, non envoyée. Croquis de couverture neuf (metiers.jpg, Seedream). Slide Atala (11) : le premier S tier « Running Coach », deux coureuses de la banque et le logo d'Atala. Texte selon placement_atala : titre de 6 mots → voix TU (bm-001 : l'allure ; bm-002 : la séance déjà prévue ; bm-003 : le plan à ton niveau) ; ici un seul argument : les sorties calées sur les jours où tu es libre ; version « cta D' ». Faits : le travail de nuit désynchronise l'horloge circadienne et s'associe à un sommeil plus pauvre et à des risques pour la santé (revues sur le travail posté, Kecklund & Axelsson BMJ 2016) ; la sédentarité prolongée est associée à une moins bonne santé, les pauses actives l'atténuent (Ekelund et al., Lancet 2016) ; la lumière du jour cale l'horloge interne. Rien de médical. Photos : banque de l'OS, aucune célébrité, aucune marque lisible.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/metiers.jpg",
+   "en": {
+    "lignes": [
+     "~Job~ Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/nuit-bureau.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Night Shift Worker",
+    "paragraphes": [
+     "Working through the night goes against your internal clock. Your body is told to sleep while you're working, and to wake up while you're trying to rest.",
+     "Years of it are linked to poorer sleep and worse health. Few jobs fight your biology this hard."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/conduite.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Long-Haul Driver",
+    "paragraphes": [
+     "Hours in the same seat, eyes on the road, with almost no movement and little daylight on the skin.",
+     "Long sitting with no breaks is one of the habits most linked to poor health. Here, it's the whole job."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/bureau.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Office Desk Job",
+    "paragraphes": [
+     "Most of the day spent sitting, often with lunch at the desk and barely a few hundred steps.",
+     "It's not the desk that hurts you, it's never leaving it. Short walking breaks change a lot."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lit-laptop.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Working From Bed",
+    "paragraphes": [
+     "No commute sounds great, but it also means no walk to work and days where you barely leave one room.",
+     "It only stays in D because you can fix it: a walk before you start, outside, every day."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/cuisine.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Chef",
+    "paragraphes": [
+     "On your feet all day and always moving, so it's far from a sitting job.",
+     "Late nights, heat and endless shifts pull it down. Movement alone doesn't make a job healthy."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/prof.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Teacher",
+    "paragraphes": [
+     "Standing, walking between desks, never really sitting still. Your body is far more active than in an office.",
+     "It stays in C because the stress and the marking often follow you home at night."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/jardin.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Gardener",
+    "paragraphes": [
+     "Physical work, outside, in daylight. Digging, carrying and kneeling keep your whole body busy.",
+     "It misses A tier because it's hard on the back and knees when it's done for years."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/chien.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Dog Walker",
+    "paragraphes": [
+     "Hours of walking outside every day, whatever the weather, with plenty of daylight.",
+     "It's steady movement, but rarely hard enough to really push your heart and lungs."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/garde-foret.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Park Ranger",
+    "paragraphes": [
+     "Days spent outside, walking on uneven ground, with natural light setting your internal clock.",
+     "It only misses S tier because the work isn't always as active as it looks."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/coach-course.jpg",
+   "format": "carre",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Running Coach",
+    "paragraphes": [
+     "Hours outside at an easy pace, every week, with your heart and lungs doing the work.",
+     "No need for the job. A running coach app like Atala plans your runs on the days you're free."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/guide-montagne.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Mountain Guide",
+    "paragraphes": [
+     "Long climbs at a steady effort, fresh air, daylight and your own weight to carry.",
+     "The most active job on this list, and the one where staying fit is simply part of the work."
+    ]
+   }
+  }
+ ]
+}

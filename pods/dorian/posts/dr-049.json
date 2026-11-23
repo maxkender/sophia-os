@@ -1,0 +1,281 @@
+{
+ "id": "dr-049",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of quiet genius hobbies",
+  "de": "Der Eisberg der stillen Genies",
+  "pt-BR": "Iceberg de hobbies de gênio quieto"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #introvert #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #introvertiert #selbstverbesserung",
+  "pt-BR": "#iceberg #hobbies #introvertido #autoconhecimento"
+ },
+ "musique": {
+  "titre": "Retake (Remix) - gabriawll",
+  "url": "https://www.tiktok.com/music/original-sound-7626391158171633665"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « quiet genius hobbies ». Sophia au 2e étage (icône). En, de, pt-BR ; variantes 0, 1, 2.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "quiet genius hobbies",
+    "variante": 0
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "stillen Genies",
+    "variante": 1
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de gênio quieto",
+    "variante": 2
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "reading",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "puzzles",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "journaling",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "speedcubing",
+       "image": "images/objets/cube.png"
+      },
+      {
+       "t": "astronomy",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "lectures online",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "chemistry",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "writing poetry",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "morse code",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "coding at night",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "old manuscripts",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "microscopy",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "writing a book",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "knowing a bit of everything",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "lesen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "schach",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "rätsel",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "tagebuch",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "täglich sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "speedcubing",
+       "image": "images/objets/cube.png"
+      },
+      {
+       "t": "astronomie",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "vorlesungen online",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "chemie",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "gedichte schreiben",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "morsecode",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "nachts coden",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "alte handschriften",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "mikroskopie",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "ein buch schreiben",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "von allem etwas",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "ler",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "xadrez",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "quebra-cabeças",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "diário",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "cubo mágico",
+       "image": "images/objets/cube.png"
+      },
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "aulas online",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "química",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "escrever poesia",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "código morse",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "programar de noite",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "manuscritos antigos",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "microscopia",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "escrever um livro",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "saber um pouco de tudo",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

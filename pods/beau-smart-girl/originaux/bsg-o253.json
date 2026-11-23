@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o253",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "faa4b524-d919-4b0a-bddc-88f8cbd65dc2",
+  "titre": "les habitudes d'étudiante qui m'ont rendue incollable en culture générale #culture #etudes #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [
+    "faa4b524-d919-4b0a-bddc-88f8cbd65dc2"
+  ],
+  "notes": "G2, déclinaison de faa4b524 (« 5 habitudes pour devenir dangereusement sur-éduquée, venant d'une étudiante de l'ENS », G1 gagnante, génération 1 en français ; meilleur passage ru 3,8 k vues, r 2,07), en français, 3e et dernière déclinaison (après bsg-o234 et o245). Accroche reformulée : « les habitudes d'étudiante qui m'ont rendue incollable en culture générale ». cta C. Habitudes neuves. Routine du 23/11 sur BLEO (par_jour passé à 15 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 4 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 10 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées hier au guichet), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ed54379b",
+      "texte_overlay": "les habitudes d'étudiante\nqui m'ont rendue incollable\nen culture générale",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "98246e82",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e86e5869",
+      "texte_overlay": "1. une carte du monde au mur\n\nchaque pays dont on parle,\nje le cherche.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "70a97873",
+      "texte_overlay": "2. lire la biographie avant le livre\n\nla vie de l'auteur\néclaire toute l'œuvre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "25c4fa75",
+      "texte_overlay": "3. une frise chronologique dans mon carnet\n\nchaque date trouve sa place.\nl'histoire devient une seule histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "31587886",
+      "texte_overlay": "4. les questions des quiz\n\nje note celles que je rate.\nc'est ma liste de révision.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ea4180b8",
+      "texte_overlay": "5. un sujet par semaine\n\nlundi je choisis, dimanche je raconte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "e7bfc013",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

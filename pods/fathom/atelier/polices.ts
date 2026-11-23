@@ -23,6 +23,8 @@ export const POLICE = {
 } as const;
 
 GlobalFonts.registerFromPath(join(DOSSIER, "Anton-Regular.ttf"), POLICE.titre);
+/** Le grec (ouvert le 23/11) : Anton ne l'a pas ; ses lettres passent en Fira Sans Extra Condensed Black, le latin reste en Anton. */
+GlobalFonts.registerFromPath(join(DOSSIER, "FiraSansExtraCondensed-Black.ttf"), "FA Titre Grec");
 GlobalFonts.registerFromPath(join(DOSSIER, "Roboto-Medium.ttf"), POLICE.youtube);
 GlobalFonts.registerFromPath(join(DOSSIER, "Roboto-Regular.ttf"), POLICE.youtubeMeta);
 GlobalFonts.registerFromPath(join(DOSSIER, "Inter-Medium.ttf"), POLICE.texte);

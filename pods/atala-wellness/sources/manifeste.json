@@ -1,34 +1,181 @@
 {
- "comptes": ["healthy_with_emma6"],
- "maj_le": "2026-11-19",
+ "comptes": [
+  "healthy_with_emma6"
+ ],
+ "maj_le": "2026-11-23",
  "note": "La preuve de tes originaux. `donnes_par_adrien` : les 5 posts qu'Adrien a donnés le 19/11 comme modèle du podz (slides dans donnees/cache après `npm run veille`). `les_plus_vus` : ses 20 posts les plus vus parmi les 78 que l'OS a importés le 19/11 (vues relevées à l'import : elles montent encore), avec leur accroche (en français : elle écrit en français, toi en anglais). Elle reprend souvent la même accroche : c'est la famille qui compte (« les habitudes volées aux filles toujours parfaites », « 6 habitudes wellness qui… au bout d'une semaine », « ces secrets des parisiennes »). Chez elle, une slide sur sept est une pub (CleanMenu, en 5e) : chez nous, c'est la slide Atala.",
  "donnes_par_adrien": [
-  { "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698680855316745505", "publie_le": "2026-10-20", "vues": 12300, "slides": 7, "accroche": "6 habitudes wellness qui font leurs effets au bout d'une semaine (validées par la science)", "musique": { "titre": "save a prayer", "id": "7676605388539693838" }, "pub": "slide 5 : « mange healthy même au resto », carte CleanMenu", "repris_dans": "aw-001" },
-  { "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7699421637866835232", "slides": 7 },
-  { "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698635890658151712", "slides": 7 },
-  { "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698622776617323808", "slides": 7 },
-  { "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698619728771681568", "slides": 7 }
+  {
+   "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698680855316745505",
+   "publie_le": "2026-10-20",
+   "vues": 12300,
+   "slides": 7,
+   "accroche": "6 habitudes wellness qui font leurs effets au bout d'une semaine (validées par la science)",
+   "musique": {
+    "titre": "save a prayer",
+    "id": "7676605388539693838"
+   },
+   "pub": "slide 5 : « mange healthy même au resto », carte CleanMenu",
+   "repris_dans": "aw-001"
+  },
+  {
+   "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7699421637866835232",
+   "slides": 7
+  },
+  {
+   "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698635890658151712",
+   "slides": 7
+  },
+  {
+   "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698622776617323808",
+   "slides": 7
+  },
+  {
+   "url": "https://www.tiktok.com/@healthy_with_emma6/photo/7698619728771681568",
+   "slides": 7
+  }
  ],
  "les_plus_vus": [
-  { "vues": 49300, "accroche": "ces secrets des parisiennes toujours parfaites <3", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7690468134733597984" },
-  { "vues": 8588, "accroche": "Comment réparer ta santée pour de bon (et voir la différence sur ton visage)", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687165284830039329" },
-  { "vues": 6479, "accroche": "ces secrets des parisiennes toujours parfaites <3", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7695709810800512288" },
-  { "vues": 6080, "accroche": "Comment vraiment reprogrammer ton corps, une habitude à la fois", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7685658162329963808" },
-  { "vues": 5714, "accroche": "les habitudes que j'ai volées aux filles toujours parfaites", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7694962320807709984" },
-  { "vues": 5166, "accroche": "pourquoi les parisiennes sont parfaites sans faire d'effort ?", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7694216859771571489" },
-  { "vues": 5076, "accroche": "Mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment)", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687141407273798944" },
-  { "vues": 5053, "accroche": "ces secrets des parisiennes toujours parfaites", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7691632357673143585" },
-  { "vues": 4591, "accroche": "ces habitudes que j'ai volées aux filles toujours parfaites <3", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7690450618250530081" },
-  { "vues": 4226, "accroche": "Ces habitudes niches qui te rendent 10x plus attirante", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687159189021510945" },
-  { "vues": 4124, "accroche": "Ces habitudes wellness niches qui te rendent 10x plus confiante", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687189684820266273" },
-  { "vues": 3975, "accroche": "les habitudes que j’ai volées aux filles toujours parfaites", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7690886942690381088" },
-  { "vues": 3736, "accroche": "les habitudes wellness qui font leur effet au bout d'une semaine", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7692389429603781920" },
-  { "vues": 3492, "accroche": "les petites habitudes plus efficaces qu'une séance de sport (wellness edition)", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688296303582858529" },
-  { "vues": 3345, "accroche": "4 habitudes wellness niches qui marchent vraiment", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688686398827793697" },
-  { "vues": 3157, "accroche": "6 habitudes wellness qui vont VRAIMENT te transformer", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688604365648678177" },
-  { "vues": 3146, "accroche": "6 habitudes wellness qui se voient sur ton visage au bout d’une semaine", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7689375134142008608" },
-  { "vues": 3035, "accroche": "ces secrets des parisiennes toujours parfaites 🤍", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7694218177064078624" },
-  { "vues": 3029, "accroche": "quelques habitudes wellness simples peuvent changer ta vie...", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688019097686248726" },
-  { "vues": 2891, "accroche": "les habitudes healthy qui se voient sur ton visage (fonctionne au bout de 3 jours)", "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688965754997198113" }
- ]
+  {
+   "vues": 167900,
+   "publie_le": "2026-09-22",
+   "slides": 6,
+   "accroche": "6 habitudes wellness qui font leur effet au bout d'une semaine",
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688293650597416225"
+  },
+  {
+   "vues": 155500,
+   "publie_le": "2026-10-11",
+   "slides": 6,
+   "accroche": "ces habitudes que j'ai volées aux filles toujours parfaites <3",
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7695261782952185120"
+  },
+  {
+   "vues": 49300,
+   "publie_le": "2026-09-28",
+   "slides": 6,
+   "accroche": "ces secrets des parisiennes toujours parfaites <3",
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7690468134733597984"
+  },
+  {
+   "vues": 38900,
+   "publie_le": "2026-10-01",
+   "slides": 6,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7691629726691003681"
+  },
+  {
+   "vues": 27300,
+   "publie_le": "2026-09-25",
+   "slides": 6,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7689415573947616545"
+  },
+  {
+   "vues": 13800,
+   "publie_le": "2026-10-16",
+   "slides": 6,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7697144584186465569"
+  },
+  {
+   "vues": 12500,
+   "publie_le": "2026-10-20",
+   "slides": 7,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7698680855316745505"
+  },
+  {
+   "vues": 11900,
+   "publie_le": "2026-10-10",
+   "slides": 6,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7694942319987952928"
+  },
+  {
+   "vues": 8796,
+   "publie_le": "2026-10-14",
+   "slides": 1,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7696443798221622561"
+  },
+  {
+   "vues": 7834,
+   "publie_le": "2026-10-14",
+   "slides": 5,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7696378860316675360"
+  },
+  {
+   "vues": 7353,
+   "publie_le": "2026-10-14",
+   "slides": 1,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7696438683007798560"
+  },
+  {
+   "vues": 7043,
+   "publie_le": "2026-10-20",
+   "slides": 7,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7698635890658151712"
+  },
+  {
+   "vues": 6583,
+   "publie_le": "2026-10-23",
+   "slides": 7,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7699770287994195232"
+  },
+  {
+   "vues": 6484,
+   "publie_le": "2026-10-12",
+   "slides": 6,
+   "accroche": "ces secrets des parisiennes toujours parfaites <3",
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7695709810800512288"
+  },
+  {
+   "vues": 6017,
+   "publie_le": "2026-10-23",
+   "slides": 6,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7699780066053606689"
+  },
+  {
+   "vues": 5722,
+   "publie_le": "2026-10-10",
+   "slides": 6,
+   "accroche": "les habitudes que j'ai volées aux filles toujours parfaites",
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7694962320807709984"
+  },
+  {
+   "vues": 5179,
+   "publie_le": "2026-10-08",
+   "slides": 6,
+   "accroche": "pourquoi les parisiennes sont parfaites sans faire d'effort ?",
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7694216859771571489"
+  },
+  {
+   "vues": 5087,
+   "publie_le": "2026-10-20",
+   "slides": 7,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7698622776617323808"
+  },
+  {
+   "vues": 5054,
+   "publie_le": "2026-10-01",
+   "slides": 5,
+   "accroche": "ces secrets des parisiennes toujours parfaites",
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7691632357673143585"
+  },
+  {
+   "vues": 5021,
+   "publie_le": "2026-10-20",
+   "slides": 7,
+   "accroche": null,
+   "url": "https://www.tiktok.com/@healthy_with_emma6/video/7698619728771681568"
+  }
+ ],
+ "veille_23_11": "Veille du 23/11 (Apify) : aucun diaporama neuf depuis le 23/10 (dernier post : une vidéo le 06/11, 835 vues). Ses deux posts les plus vus, absents de l'import du 19/11 : « 6 habitudes wellness qui font leur effet au bout d'une semaine » (167,9 k, 22/09) et « ces habitudes que j'ai volées aux filles toujours parfaites » (155,5 k, 11/10), au format photo plein cadre avec le texte blanc posé dessus (pas le format notes). Accroche null : pas encore relevée."
 }

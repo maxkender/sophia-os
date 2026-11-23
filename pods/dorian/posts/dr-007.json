@@ -14,7 +14,8 @@
   "pt-BR": "habilidades 10/10 pra aprender se você se entedia fácil",
   "tr": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
   "sv": "10/10-färdigheter att lära sig om du lätt blir uttråkad",
-  "nl": "10/10 skills om te leren als je je snel verveelt"
+  "nl": "10/10 skills om te leren als je je snel verveelt",
+  "hu": "10/10 készség, amit tanulj meg, ha hamar unatkozol"
  },
  "legendes": {
   "en": "#niche #skills #selfimprovement #lockedin",
@@ -23,7 +24,8 @@
   "pt-BR": "#habilidades #aprender #autodesenvolvimento #nicho",
   "tr": "#beceri #öğrenmek #kişiselgelişim #niş",
   "sv": "#färdigheter #lärande #självutveckling #nisch",
-  "nl": "#skills #leren #zelfontwikkeling #niche"
+  "nl": "#skills #leren #zelfontwikkeling #niche",
+  "hu": "#készségek #tanulás #önfejlesztés #niche"
  },
  "musique": {
   "titre": "nhạc nền - Gia Đình Huấn Hoa Hồng",
@@ -67,6 +69,11 @@
     "titre": "10/10 skills om te leren als je je snel verveelt",
     "image": "images/cerveau-violet.jpg",
     "legende": "(geen talent nodig)"
+   },
+   "hu": {
+    "titre": "10/10 készség, amit tanulj meg, ha hamar unatkozol",
+    "image": "images/cerveau-12.jpg",
+    "legende": "(nem kell hozzá tehetség)"
    }
   },
   {
@@ -105,6 +112,11 @@
     "titre": "Jongleren",
     "texte": "drie ballen, tien minuten per dag. de meeste mensen kunnen de basiscascade binnen een paar dagen, en het is de beste pauze voor je brein",
     "image": "images/jonglage.jpg"
+   },
+   "hu": {
+    "titre": "Zsonglőrködés",
+    "texte": "három labda, napi tíz perc. a legtöbben pár nap alatt megtanulják az alap kaszkádot, és ez a legjobb szünet, amit az agyad kaphat",
+    "image": "images/jonglage.jpg"
    }
   },
   {
@@ -142,6 +154,11 @@
    "nl": {
     "titre": "Morsecode",
     "texte": "leer het via het geluid, niet via punten en strepen. sos is drie kort, drie lang, drie kort. daarna hoor je het overal",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "hu": {
+    "titre": "Morzeábécé",
+    "texte": "hallás után tanuld, ne pontokból és vonalakból. az sos három rövid, három hosszú, három rövid. ha egyszer tudod, mindenhol hallani fogod",
     "image": "images/objets/manipulateur-morse.png"
    }
   },
@@ -182,6 +199,11 @@
     "titre": "Elke dag een les op Sophia",
     "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. elke dag een nieuw onderwerp, dus nooit saai",
     "telephone": "accueil"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. minden nap új téma, így sosem unatkozol",
+    "telephone": "accueil"
    }
   },
   {
@@ -220,6 +242,11 @@
     "titre": "Hoofdrekenen",
     "texte": "begin met de 11-truc: tel de twee cijfers op en zet de som in het midden. 34 × 11 = 374. leer daarna de kwadraten tot 25",
     "image": "images/heraclite-sphere.jpg"
+   },
+   "hu": {
+    "titre": "Fejszámolás",
+    "texte": "kezdd a 11-es trükkel: add össze a két számjegyet, és tedd az összeget középre. 34 × 11 = 374. aztán tanuld meg a négyzetszámokat 25-ig",
+    "image": "images/heraclite-sphere.jpg"
    }
   },
   {
@@ -257,6 +284,11 @@
    "nl": {
     "titre": "Blind typen",
     "texte": "kijk nooit naar het toetsenbord. een paar weken 15 minuten per dag en je typt nooit meer met twee vingers",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "hu": {
+    "titre": "Vakon gépelés",
+    "texte": "soha ne nézz a billentyűzetre. pár hétig napi 15 perc, és soha többé nem gépelsz két ujjal",
     "image": "images/machine-ecrire-scene.jpg"
    }
   }

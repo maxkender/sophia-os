@@ -28,7 +28,9 @@
   "lt": "10/10 įgūdžių, kuriuos kiekvienas suaugęs turi įvaldyti iki 30",
   "no": "10/10 ferdigheter alle voksne bør mestre før 30",
   "et": "10/10 oskust, mida iga täiskasvanu peaks valdama enne 30",
-  "fi": "10/10 taitoa, jotka jokaisen aikuisen pitäisi hallita ennen 30:tä"
+  "fi": "10/10 taitoa, jotka jokaisen aikuisen pitäisi hallita ennen 30:tä",
+  "sr": "10/10 veština koje svaka odrasla osoba treba da savlada do 30.",
+  "el": "10/10 δεξιότητες που κάθε ενήλικας πρέπει να κατέχει μέχρι τα 30"
  },
  "legendes": {
   "en": "10/10 Skills Every Adult Should Master By 30 #selfimprovement #learnontiktok #adulting",
@@ -51,13 +53,15 @@
   "lt": "10/10 įgūdžių, kuriuos kiekvienas suaugęs turi įvaldyti iki 30 #įgūdžiai #saviugda #mokymasis",
   "no": "10/10 ferdigheter alle voksne bør mestre før 30 #ferdigheter #selvutvikling #læring",
   "et": "10/10 oskust, mida iga täiskasvanu peaks valdama enne 30 #oskused #eneseareng #õppimine",
-  "fi": "10/10 taitoa, jotka jokaisen aikuisen pitäisi hallita ennen 30:tä #taidot #itsensäkehittäminen #oppiminen"
+  "fi": "10/10 taitoa, jotka jokaisen aikuisen pitäisi hallita ennen 30:tä #taidot #itsensäkehittäminen #oppiminen",
+  "sr": "10/10 veština koje svaka odrasla osoba treba da savlada do 30. #veštine #ličnirazvoj #učenje",
+  "el": "10/10 δεξιότητες που κάθε ενήλικας πρέπει να κατέχει μέχρι τα 30 #δεξιότητες #αυτοβελτίωση #μάθηση"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
  },
- "notes": "cta B. Déclinaison G2 de fa-047 (boîte BLEO du 13/11) : même promesse (« les compétences à avoir avant 30 ans »), autres mots ; autres étapes (cuisine, premier investissement, dire non), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue. 20/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr. 20/11 soir : ajouté en lt, no, et et fi.",
+ "notes": "cta B. Déclinaison G2 de fa-047 (boîte BLEO du 13/11) : même promesse (« les compétences à avoir avant 30 ans »), autres mots ; autres étapes (cuisine, premier investissement, dire non), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue. 20/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr. 20/11 soir : ajouté en lt, no, et et fi. 23/11 : ajouté en sr (latinica) et el.",
  "slides": [
   {
    "type": "couverture",
@@ -424,6 +428,40 @@
       }
      ]
     ]
+   },
+   "sr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠTINA KOJE",
+     [
+      {
+       "t": "SAVLADAJ DO 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "el": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ΔΕΞΙΟΤΗΤΕΣ ΓΙΑ",
+     [
+      {
+       "t": "ΠΡΙΝ ΤΑ 30",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -741,6 +779,36 @@
      "date": "1 vuosi sitten",
      "duree": "16.59",
      "avatar": "https://yt3.ggpht.com/bE18TInjNf2DT2UFsLS1t3NwvJZq75D-LkaWv4M-kQbOAQSLCbfvaRu90sv95-sg-U21fW3kDHg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "SKUVAJ 5",
+     "LAKIH JELA"
+    ],
+    "video": {
+     "id": "243RFGbfAKE",
+     "titre": "Najbrži RUČAK na svetu! Recept moje bake star 100 godina: Ovo bih jela svaki dan💥",
+     "chaine": "JECA SVAŠTARICA",
+     "vues": "395 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "4.25",
+     "avatar": "https://yt3.ggpht.com/yJXcpjA-eY47IBiHGvE3ByEUNPHvIMCPLdgRzNltHs16zlXS7wsCxqyVEiRtrah190OBCXa6qg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΑΓΕΙΡΕΨΕ 5",
+     "ΕΥΚΟΛΑ ΦΑΓΗΤΑ"
+    ],
+    "video": {
+     "id": "YgZW9pqReDQ",
+     "titre": "Εύκολο Σουφλέ με Σπανάκι σε 5 Λεπτά | Γρήγορη & Νόστιμη Συνταγή",
+     "chaine": "Dimitris Michailidis",
+     "vues": "80 χιλ. προβολές",
+     "date": "πριν από 10 μήνες",
+     "duree": "0:34",
+     "avatar": "https://yt3.ggpht.com/lrO2VBTc90myjAmL_-prBUcrp41ADkV5R3Shk1LQuqqgW7OyxXbTs5zrW08HUAdAcRKOl0UhAdo=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -1060,6 +1128,36 @@
      "duree": "10.37",
      "avatar": "https://yt3.ggpht.com/CZzBTuI-dq73le2mmGUPAF_6EKoZkXOP2dAw17k1eeeB9fBZ-DsddvQrthh-7ooW8fXU1u-5D1w=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "INVESTIRAJ SVOJ",
+     "PRVI NOVAC"
+    ],
+    "video": {
+     "id": "8onrWRABY3o",
+     "titre": "Investiranje za početnike! Bez FILOZOFIJE (jednostavno - jasno - lako)",
+     "chaine": "Ja-Investitor",
+     "vues": "3,9 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "41.32",
+     "avatar": "https://yt3.ggpht.com/Izg0UUTdPUmSD7qBX071ERDQOeM_XwhHDsScTBQAWsDN5VEjxOpFU5WkQ0ZRjHSqHhBBX7wyWg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΕΠΕΝΔΥΣΕ ΤΑ",
+     "ΠΡΩΤΑ ΣΟΥ ΛΕΦΤΑ"
+    ],
+    "video": {
+     "id": "2rbUs924rzg",
+     "titre": "Χρηματιστήριο Για Αρχαρίους | Πως Να Ξεκινήσεις Να Επενδύεις | Powered by Freedom24",
+     "chaine": "Μετοχές",
+     "vues": "4,6 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "11:32",
+     "avatar": "https://yt3.ggpht.com/r0BglPDepvADhT9R__14N4gE-p_066ZxUoi72M1DdKXQsMPFiUIWIx2N12_sP2XJTn_sA5uS=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1335,6 +1433,32 @@
      "texte": [
       "5 minuuttia päivässä",
       "tietääksesi vähän kaikesta."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "ZNAJ PONEŠTO",
+     "O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuta dnevno",
+      "da znaš ponešto o svemu."
+     ]
+    }
+   },
+   "el": {
+    "titre": [
+     "ΞΕΡΕ ΛΙΓΟ",
+     "ΑΠΟ ΟΛΑ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 λεπτά τη μέρα",
+      "για να ξέρεις λίγο από όλα."
      ]
     }
    }
@@ -1654,6 +1778,36 @@
      "date": "4 vuotta sitten",
      "duree": "1.53",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqMgf1f05gceuH4flpvwmRytDUs6NIFtviWQDZXxqzGA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "NAUČI DA",
+     "KAŽEŠ NE"
+    ],
+    "video": {
+     "id": "NE0P9H0ChSk",
+     "titre": "Kako reći NE bez uvrede ili osećaja krivice",
+     "chaine": "Boris Teodosijević",
+     "vues": "53 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "12.52",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ ΝΑ",
+     "ΛΕΣ ΟΧΙ"
+    ],
+    "video": {
+     "id": "bKClTWYNbDw",
+     "titre": "Πώς να λες όχι και να βάζεις όρια | Maria Skarlatou",
+     "chaine": "Maria Skarlatou",
+     "vues": "675 προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/0nwH4wJRqsxbMJMs3QzbG0Ofpeo2MbJfHXsIH9CQsu6IFyu1VKs2oB2DU43eX7VCG9RQKJHfAQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

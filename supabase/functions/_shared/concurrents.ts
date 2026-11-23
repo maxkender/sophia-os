@@ -20,7 +20,8 @@
  *
  * Un motif PAR APPLICATION (`motifConcurrentApplication`) : les concurrents
  * d'Unswipe sont les applis de temps d'écran, ceux de micabo les applis
- * d'étude, ceux d'Atala les applis de plans de course. Sans motif passé,
+ * d'étude, ceux d'Atala les applis de plans de course, ceux
+ * d'Artura les applis d'art. Sans motif passé,
  * toutes les fonctions gardent celui de Sophia : les appels Sophia (import,
  * composer) ne changent pas.
  *
@@ -188,6 +189,38 @@ export const MOTIF_CONCURRENT_ATALA = new RegExp(
 );
 
 /**
+ * Concurrents d'Artura (une œuvre d'art par jour, son histoire, des jeux pour
+ * l'œil) : ceux de Sophia + les applis d'art. Première liste, écrite le 23/11
+ * AVANT tout stock d'art : à mesurer sur les slides des premiers labels
+ * importés, comme l'ont été celles d'Unswipe et de micabo.
+ * Conditions, pour ne pas prendre un mot courant :
+ *  - « dailyart » collé, ou « daily art app » ; jamais « daily art » seul
+ *    (« my daily art habit ») ;
+ *  - « google arts & culture » (et, and, und, y, e) ; jamais « google » seul ;
+ *  - « artsy » suivi de « app » ou « .net », ou « app Artsy » ; jamais
+ *    l'adjectif (« an artsy girl ») ;
+ *  - « magnus » suivi de « app » ou « art » ; jamais le prénom seul.
+ * PAS les musées ni leurs sites (Louvre, MoMA, Met) : ce sont les lieux où
+ * sont les œuvres, cités dans le conseil.
+ */
+export const MOTIF_CONCURRENT_ARTURA = new RegExp(
+  [
+    MOTIF_CONCURRENT.source,
+    ...[
+      "dailyart",
+      String.raw`daily\s+art\s+app`,
+      "smartify",
+      String.raw`google\s+arts?\s*(?:&|and|et|und|y|e)\s*culture`,
+      String.raw`artsy\s*(?:app|\.net)`,
+      String.raw`(?:app|appli|application)\s+artsy`,
+      String.raw`magnus\s+(?:app|art)`,
+      "artivive",
+    ].map(motEntier),
+  ].join("|"),
+  "iu",
+);
+
+/**
  * Le motif de chaque application hors Sophia (qui garde `MOTIF_CONCURRENT`).
  * Une application du catalogue DOIT avoir sa ligne ici, même si elle n'a pour
  * l'instant que les concurrents de Sophia.
@@ -196,6 +229,7 @@ export const MOTIFS_PAR_APPLICATION: Readonly<Record<string, RegExp>> = {
   unswipe: MOTIF_CONCURRENT_UNSWIPE,
   micabo: MOTIF_CONCURRENT_MICABO,
   atala: MOTIF_CONCURRENT_ATALA,
+  artura: MOTIF_CONCURRENT_ARTURA,
 };
 
 /** Motif des concurrents d'une application ; celui de Sophia par défaut. */

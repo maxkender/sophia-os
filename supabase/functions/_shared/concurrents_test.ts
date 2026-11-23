@@ -4,6 +4,7 @@ import { CATALOGUE_APPLICATIONS } from "./catalogue_applications.ts";
 import {
   citeConcurrent,
   MOTIF_CONCURRENT,
+  MOTIF_CONCURRENT_ARTURA,
   MOTIF_CONCURRENT_ATALA,
   MOTIF_CONCURRENT_MICABO,
   MOTIF_CONCURRENT_UNSWIPE,
@@ -414,4 +415,45 @@ Deno.test("atala : position imposée et nettoyage avec le motif de l'application
   assertEquals(r.modifie, true);
   assertEquals(r.slides[3].texte_overlay, "3. sleep 8h.");
   for (const s of r.slides) assertEquals(citeConcurrent(s.texte_overlay, ATALA), false);
+});
+
+// ---------------------------------------------------------------------------
+// Artura : applis d'art (liste du 23/11, avant tout stock)
+// ---------------------------------------------------------------------------
+
+const ARTURA = motifConcurrentApplication("artura");
+
+Deno.test("artura : les applis d'art sont reconnues", () => {
+  assertStrictEquals(motifConcurrentApplication(" Artura "), MOTIF_CONCURRENT_ARTURA);
+  for (const texte of [
+    "i learned it on DailyArt",
+    "the daily art app sends one painting a day",
+    "Smartify tells you the story of every painting",
+    "google arts & culture has a zoom on every brushstroke",
+    "l'appli Google Arts et Culture",
+    "the artsy app",
+    "artsy.net",
+    "l'app Artsy",
+    "magnus app tells you the price",
+    "artivive",
+    "the vent now app",
+  ]) {
+    assertEquals(citeConcurrent(texte, ARTURA), true, texte);
+  }
+});
+
+Deno.test("artura : pas de faux positif sur les mots courants ni les musées", () => {
+  for (const texte of [
+    "my daily art habit",
+    "an artsy girl's morning",
+    "artsy and cozy",
+    "magnus carlsen",
+    "google the painting's name",
+    "go to the Louvre on a wednesday night",
+    "the Artura app",
+    "l'appli Artura",
+  ]) {
+    assertEquals(citeConcurrent(texte, ARTURA), false, texte);
+  }
+  assertEquals(citeConcurrent("i learned it on DailyArt"), false);
 });

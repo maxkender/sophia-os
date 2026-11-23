@@ -102,6 +102,7 @@ export const APP_VERS_NOTION: Readonly<Record<string, string>> = Object.freeze({
   unswipe: "Unswipe",
   micabo: "Micabo",
   atala: "Atala",
+  artura: "Artura",
 });
 
 export interface LigneOs {

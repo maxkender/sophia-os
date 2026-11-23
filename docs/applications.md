@@ -1,14 +1,15 @@
 # Applications et labels : le mode d'emploi
 
 L'OS fabrique des slideshows qui font la promotion d'une application. Il en
-connaît quatre. Ce document dit comment une application est décrite dans l'OS,
+connaît cinq. Ce document dit comment une application est décrite dans l'OS,
 comment en ajouter une, et comment ajouter un label. Le détail du moteur
 (répartition par compte, replis, decks, tiers) reste dans
 `docs/multi-applications.md`.
 
 ## 1. Le modèle, en six phrases
 
-1. Une **application** est ce qu'on promeut (Sophia, micabo, Unswipe, Atala).
+1. Une **application** est ce qu'on promeut (Sophia, micabo, Unswipe, Atala,
+   Artura).
 2. Un **label** est une famille de contenus et de comptes (`smart_girl`,
    `clean_study`, `male_run`). Il sert **une** application, parfois deux.
 3. Un **compte** porte un label. C'est le label qui dit ce que le compte peut
@@ -32,6 +33,7 @@ applications a une seule valeur BLEO, les vues de l'une faussent l'autre.
 | micabo | `micabo` | `…0002` | révisions pour les élèves et les étudiants | 4 |
 | Unswipe | `unswipe` | `…0003` | ses réseaux sans les formats courts | 0 |
 | Atala | `atala` | `…0004` | course à pied (running) | 4, inactive |
+| Artura | `artura` | `…0005` | histoire de l'art (une œuvre par jour) | 0, inactive (23/11) |
 
 La liste de référence est **le catalogue** :
 `src/features/moteur/catalogueApplications.ts` (et sa copie pour les fonctions
@@ -76,7 +78,7 @@ application à moitié déclarée et disent ce qui manque
 (`catalogueApplications.test.ts`, `concurrents_test.ts`).
 
 1. **Le catalogue** : une ligne dans `catalogueApplications.ts`, à la fin, avec
-   un id fixe (`…0005` pour la suivante). Recopier le corps du fichier dans
+   un id fixe (`…0006` pour la suivante). Recopier le corps du fichier dans
    `_shared/catalogue_applications.ts`.
 2. **Le logo et la couleur** : `src/assets/applications/<slug>.png` (128 × 128,
    plein cadre, l'arrondi vient du CSS), une ligne dans `LOGOS`
@@ -343,7 +345,30 @@ Reste à faire, à l'écran :
    suivi Notion.
 5. **L'activer**, avant le lundi où ses premières recrues sortent du warm-up.
 
-## 8. Pièges connus
+## 8. Artura : où on en est (23/11)
+
+Fait :
+- l'application en base (`…0005`), **inactive**, toutes langues (0846) ;
+- ses deux prompts, écrits avec le vrai pitch (fiche App Store 2.0) : pas de
+  ligne `[BROUILLON …]`, mais à relire avant l'activation ;
+- le catalogue, le logo (la Joconde de son icône), la couleur (ocre), le nom
+  Notion ;
+- ses concurrents : DailyArt, Smartify, Google Arts & Culture, Artsy,
+  Magnus, Artivive (plus ceux de Sophia). Pas les musées. Liste écrite avant
+  tout stock ;
+- le lien à 1 000 abonnés : `taap.it/artura`.
+
+Reste à faire, à l'écran :
+1. Relire `pertinence_artura` et `placement_artura`.
+2. Créer le lien `taap.it/artura` (ou corriger le lien dans Réglages).
+3. Créer ses labels et leurs sources. Il n'y a pas encore de thème
+   d'identité « art » : un label Artura prend l'identité de son nom (§ 5),
+   `…_girl…` ou `smart` donnent « lecture et culture », le plus proche.
+4. Écrire sa fiche (Fiches), ajouter l'option « Artura » au select « App » du
+   suivi Notion.
+5. L'activer, avant le lundi où ses premières recrues sortent du warm-up.
+
+## 9. Pièges connus
 
 - **Ne pas décocher Sophia d'un label existant** pour le donner à une autre
   application : tous ses comptes changeraient d'application. Créer un label.

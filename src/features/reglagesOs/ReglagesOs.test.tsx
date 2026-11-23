@@ -90,7 +90,7 @@ describe("Partie E : les réglages de l'OS", () => {
   it("Textes aux posteurs : lien_1000 garde ses autres clés (envoi_actif), boutons Slack et raisons", async () => {
     const lien = {
       envoi_actif: true, seuil: 1000, titre: "1,000", message: "Hi @{handle} {lien}", titre_relance: "R", message_relance: "RR {lien}",
-      liens: { sophia: "taap.it/sophia.culture", unswipe: "taap.it/unswipe", micabo: "taap.it/micabo", atala: "taap.it/atala" },
+      liens: { sophia: "taap.it/sophia.culture", unswipe: "taap.it/unswipe", micabo: "taap.it/micabo", atala: "taap.it/atala", artura: "taap.it/artura" },
     };
     const raisons = { shadowban_zero: "a {n}", shadowban_faibles: "b", vues_basses: "c", posts_manquants: "d" };
     const boutons = {

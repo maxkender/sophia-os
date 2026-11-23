@@ -1,51 +1,54 @@
 {
   "source_id": "cs-o173",
-  "type_bleo": "declinaison",
-  "parent_contenu_id": "bb2eeefa-d48f-4aab-9e65-405885ce9658",
-  "titre": "toxic study motivation that works a little TOO well (use responsibly because unfortunately my ego responds to this shit) #studytok #studymotivation #school",
-  "musique_titre": "ghostin ariana grande",
-  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
-  "inspirations": [
-    "bb2eeefa-d48f-4aab-9e65-405885ce9658"
-  ],
-  "notes": "Déclinaison G1 de bb2eeefa (r 13,12 en turc, 19,1 k vues en polonais), ligne 10 de la boîte. Accroche du parent mot pour mot (le gros mot de l'accroche est gardé : c'est un mot de l'accroche que le guichet compte) ; aucun autre gros mot dans le deck, contrairement au parent. « Toxic » = rivalité avec soi-même, jamais le mépris des autres. Phrases neuves, aucune du parent ni de nos toxic (cs-o031, cs-o061, cs-o076, cs-o093, cs-o099, cs-o104) : l'examen de juin se prépare en novembre, la version de toi qui a eu 18, tes excuses ne passent pas l'oral, une pause qui t'apprend quelque chose (slide Sophia, 5), la notification peut attendre. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "type_bleo": "full_test",
+  "titre": "what i listen to while studying (and what i stopped listening to) #studytok #studytips #focus",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [],
+  "notes": "Full test (BLEO), ajouté en 9e livraison : la déclinaison de bb2eeefa tentée sous cet id a été refusée par le guichet (accroche_voisine), et la boîte n'avait plus de ligne utilisable aujourd'hui (§4.2). Accroche jamais faite chez nous (la musique d'étude n'a pas d'accroche dans le label). Accroches écrites : « what i listen to while studying (and what i stopped listening to) » (retenue : un sujet que tout le monde a, avec un avant/après), « best study playlists » (écartée : il faudrait citer des titres), « does music help you study? » (écartée : question sans réponse vraie et simple). Gestes vrais : pas de paroles pour lire, du silence pour apprendre par cœur, le même fond sonore pour se mettre en route, le volume bas, la pause sans écouteurs où l'on apprend autre chose (slide Sophia, 5), choisir la musique avant de commencer. Depuis le 20/11, le label sert Sophia : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
   "slides": [
     {
       "position": 1,
-      "media_id": "29d3fad2",
-      "texte_overlay": "toxic study motivation\nthat works a little TOO well\n\nuse responsibly because\nunfortunately my ego\nresponds to this shit",
+      "media_id": "1173f833",
+      "texte_overlay": "what i listen to while studying\n(and what i stopped listening to)",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
     },
     {
       "position": 2,
-      "media_id": "851873a0",
-      "texte_overlay": "the june exam is being decided right now.\nin november. tonight.",
+      "media_id": "d5cfbf76",
+      "texte_overlay": "stopped: songs with lyrics while reading.\ntwo sets of words fighting in my head.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
     },
     {
       "position": 3,
-      "media_id": "bb5066a3",
-      "texte_overlay": "somewhere there's a version of you who got the top grade.\nshe studied tonight.",
+      "media_id": "bab96c09",
+      "texte_overlay": "now: instrumental only, low volume.\nbackground, not a concert.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
     },
     {
       "position": 4,
-      "media_id": "e295b1e6",
-      "texte_overlay": "\"i didn't have time\" won't be on the test.\nthe chapter will.",
+      "media_id": "8c90de2e",
+      "texte_overlay": "for memorizing: total silence.\nthat's where it sticks best.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
     },
     {
       "position": 5,
-      "media_id": "f6f86347",
-      "texte_overlay": "even your breaks can make you smarter.\nscrolling never did.",
+      "media_id": "2dff9a74",
+      "texte_overlay": "on breaks, headphones off.\n5 minutes learning something new instead.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
-      "texte_sophia": "even your breaks can make you smarter.\n5 minutes on a micro-learning app like the Sophia app.\nscrolling never did."
+      "texte_sophia": "on breaks, headphones off.\n5 minutes on a micro-learning app like the Sophia app instead.\nhistory, art, science."
     },
     {
       "position": 6,
-      "media_id": "49b20202",
-      "texte_overlay": "the notification can wait.\nyour future can't.",
+      "media_id": "0021045c",
+      "texte_overlay": "the same sound every session.\nmy brain knows it's work time.",
       "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3aecfbb0",
+      "texte_overlay": "and i pick it BEFORE i start.\nchoosing songs is how the scrolling begins.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
     }
   ]
 }

@@ -1,3 +1,4 @@
+import logoArtura from "@/assets/applications/artura.png";
 import logoAtala from "@/assets/applications/atala.png";
 import logoMicabo from "@/assets/applications/micabo.png";
 import logoSophia from "@/assets/applications/sophia.png";
@@ -15,4 +16,5 @@ export const LOGOS: Record<string, string> = {
   micabo: logoMicabo,
   unswipe: logoUnswipe,
   atala: logoAtala,
+  artura: logoArtura,
 };

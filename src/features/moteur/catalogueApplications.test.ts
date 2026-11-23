@@ -22,11 +22,12 @@ import { ID_SOPHIA, SLUG_SOPHIA } from "./multiApp";
 const corps = (chemin: string) => readFileSync(chemin, "utf8").split("*/").slice(1).join("*/").trim();
 
 describe("catalogue des applications", () => {
-  it("liste Sophia, micabo, Unswipe et Atala, dans cet ordre, sans doublon", () => {
-    expect(SLUGS_APPLICATIONS).toEqual(["sophia", "micabo", "unswipe", "atala"]);
+  it("liste Sophia, micabo, Unswipe, Atala et Artura, dans cet ordre, sans doublon", () => {
+    expect(SLUGS_APPLICATIONS).toEqual(["sophia", "micabo", "unswipe", "atala", "artura"]);
     expect(new Set(CATALOGUE_APPLICATIONS.map((a) => a.id)).size).toBe(CATALOGUE_APPLICATIONS.length);
     expect(idApplication(SLUG_SOPHIA)).toBe(ID_SOPHIA);
     expect(idApplication("atala")).toBe("00000000-0000-4000-8000-000000000004");
+    expect(idApplication("artura")).toBe("00000000-0000-4000-8000-000000000005");
     for (const app of CATALOGUE_APPLICATIONS) {
       expect(app.slug, app.slug).toMatch(/^[a-z][a-z0-9_-]{1,31}$/);
       expect(app.id, app.slug).toMatch(/^00000000-0000-4000-8000-0000000000\d\d$/);
@@ -49,9 +50,9 @@ describe("catalogue des applications", () => {
     expect(marqueCapitalisee("micabo")).toBe("Micabo");
     expect(marqueCapitalisee("atala")).toBe("Atala");
     expect(marqueApplication("nouvelle")).toBe("nouvelle");
-    expect(enumererMarques()).toBe("Sophia, Micabo, UnSwipe, Atala");
-    expect(enumererMarques("et")).toBe("Sophia, Micabo, UnSwipe et Atala");
-    expect(enumererMarques("ou")).toBe("Sophia, Micabo, UnSwipe ou Atala");
+    expect(enumererMarques()).toBe("Sophia, Micabo, UnSwipe, Atala, Artura");
+    expect(enumererMarques("et")).toBe("Sophia, Micabo, UnSwipe, Atala et Artura");
+    expect(enumererMarques("ou")).toBe("Sophia, Micabo, UnSwipe, Atala ou Artura");
   });
 
   it("`catalogue_applications.ts` (Deno) est identique au module front (hors en-tête)", () => {

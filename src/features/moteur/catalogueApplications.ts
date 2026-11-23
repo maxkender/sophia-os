@@ -70,6 +70,13 @@ export const CATALOGUE_APPLICATIONS: readonly FicheApplication[] = [
     marque: "Atala",
     concept: "course à pied (running)",
   },
+  {
+    slug: "artura",
+    id: "00000000-0000-4000-8000-000000000005",
+    nom: "Artura",
+    marque: "Artura",
+    concept: "histoire de l'art (une œuvre par jour)",
+  },
 ];
 
 /** Les slugs, dans l'ordre du catalogue. */
@@ -110,7 +117,7 @@ export function marqueCapitalisee(slug: string | null | undefined): string {
 }
 
 /**
- * « Sophia, Micabo, UnSwipe et Atala » : toutes nos applis dans une phrase de
+ * « Sophia, Micabo, UnSwipe, Atala et Artura » : toutes nos applis dans une phrase de
  * prompt. `liaison` vide = une simple liste à virgules.
  */
 export function enumererMarques(liaison: "et" | "ou" | "" = ""): string {

@@ -1,0 +1,91 @@
+{
+ "id": "bn-012",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7708629737287044359",
+  "vues": 67500,
+  "publie_le": "2026-11-16",
+  "accroche": "6 RULES FOR MEN."
+ },
+ "titre": {
+  "en": "5 rules for young men"
+ },
+ "legendes": {
+  "en": "learn these early #selfimprovement #youngmen #tipsformen #running #discipline"
+ },
+ "musique": {
+  "titre": "Keep On Winning",
+  "url": "https://www.tiktok.com/music/keep-on-winning-7686584884982269978"
+ },
+ "notes": "Full test (boîte vide). Famille « 6 RULES FOR MEN. » de @built.not.born61 (67.5 k vues, 2026-11-16), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : b9a4788b, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix NEUTRE (hook de 5 mots), argument « la paix : se vider la tête, la séance est déjà prévue » ; 10 pages par jour = 3 650 pages, une douzaine de livres de 300 pages. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-nuit.png": "b9a4788b-8fc8-4695-920b-e12eeb59ab37"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-11.png",
+   "en": {
+    "titre": "5 RULES FOR\nYOUNG MEN."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/casque.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "1. Learn to be alone",
+    "texte": "Enjoy your own company. A man who's fine alone makes better choices."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/livre.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "2. Read every day",
+    "texte": "10 pages a day adds up to about a dozen books a year."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-nuit.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run before you scroll",
+    "texte": "A run clears your head better than any feed. Running coach apps like Atala have the session ready, you just go."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/portefeuille.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "4. Save before you spend",
+    "texte": "Pay yourself first. Move some money to savings the day you get paid."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/echecs.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Stay curious",
+    "texte": "Learn a skill that has nothing to do with work. Chess, cooking, a new language."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-4.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o326",
+ "type_bleo": "full_test",
+ "titre": "comment je garde le contact avec mes anciens collègues (sans que ce soit gênant) #reseau #carriere #travail #linkedin #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (garder le contact). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "955b2e92",
+   "texte_overlay": "comment je garde le contact\navec mes anciens collègues\n(sans que ce soit gênant)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e2427126",
+   "texte_overlay": "un message pour leur anniversaire de boîte\n« ça fait 3 ans que t'es là, bravo »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2c3ed904",
+   "texte_overlay": "je partage un article qui leur fait penser à eux\navec une phrase perso",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "38b9ad92",
+   "texte_overlay": "un café par trimestre\navec ceux que j'aime bien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "11e407ca",
+   "texte_overlay": "je les félicite quand ils changent de poste\nvraiment, pas juste un like",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a1bc50ff",
+   "texte_overlay": "j'ai toujours un sujet à leur raconter\nmes 3 sources : mon job, mes lectures, 5 minutes par jour à apprendre",
+   "texte_sophia": "j'ai toujours un sujet à leur raconter\nmes 3 sources : mon job, mes lectures, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "246db26e",
+   "texte_overlay": "t'as gardé contact avec ton ancienne équipe ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

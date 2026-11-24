@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o328",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0c51e90c-42c8-45e9-83bc-fe0028d15f0e",
+ "titre": "les petites phrases qui m'ont sauvée devant ma manager (toutes vraies, à moitié) #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G2 de la ligne #2 (parent 0c51e90c), 2e : même promesse, autres mots. Rien d'inventé, seulement des tournures. Inspirations reprises de rh-o194. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c6324f58",
+   "texte_overlay": "les petites phrases\nqui m'ont sauvée devant ma manager\n(toutes vraies, à moitié)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "14497ba9",
+   "texte_overlay": "« j'ai une première version »\nelle était très première",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2526aa4d",
+   "texte_overlay": "« je préfère vérifier avant de répondre »\nje ne savais pas",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "399627fb",
+   "texte_overlay": "« bonne idée, je regarde comment l'appliquer »\nj'avais des doutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f4c4ed4f",
+   "texte_overlay": "« je me forme là-dessus en ce moment »\ndepuis la veille. 5 minutes par soir, mais je m'y tenais",
+   "texte_sophia": "« je me forme là-dessus en ce moment »\ndepuis la veille. 5 minutes par soir sur l'appli Sophia, mais je m'y tenais. fais pareil",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0c323720",
+   "texte_overlay": "« je peux t'en parler 10 minutes demain ? »\nj'avais besoin de réfléchir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "06762ece",
+   "texte_overlay": "ta phrase qui sauve, c'est laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

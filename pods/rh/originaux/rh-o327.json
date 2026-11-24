@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o327",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6d0dafdb-db0c-40ff-8181-e357839f905b",
+ "titre": "comment j'ai pris ma place en réunion sans élever la voix #travail #reunion #confiance #carriere #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G2 de la ligne #1 (parent 6d0dafdb) : même promesse, autres mots, autres phrases. Inspirations reprises de rh-o265. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d3828d94",
+   "texte_overlay": "comment j'ai pris ma place\nen réunion\nsans élever la voix",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3fe42b8e",
+   "texte_overlay": "je m'assois à la table\npas sur la chaise au fond",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1be3db16",
+   "texte_overlay": "je parle dans les 5 premières minutes\naprès, c'est plus dur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f90f00f4",
+   "texte_overlay": "« je voudrais ajouter un point »\net j'attends qu'on me laisse finir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1c8f0e7f",
+   "texte_overlay": "« pour résumer ce qu'on a décidé »\ncelle qui résume, on la retient",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "37b240ad",
+   "texte_overlay": "« j'ai lu un truc là-dessus »\nun fait appris le matin, en 30 secondes",
+   "texte_sophia": "« j'ai lu un truc là-dessus »\nun fait appris le matin sur l'appli Sophia, en 30 secondes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "977c9abc",
+   "texte_overlay": "t'oses parler en réunion, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  }
+ ]
+}

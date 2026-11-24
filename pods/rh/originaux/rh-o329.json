@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o329",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "23a572f7-12b0-477a-9fef-ef37b885a217",
+ "titre": "les petits arrangements avec la vérité qui m'ont valu mon stage #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G2 de la ligne #3 (parent 23a572f7), 3e et dernière : même promesse, autres mots. Rien d'inventé. Inspirations reprises de rh-o123. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35294299",
+   "texte_overlay": "les petits arrangements\navec la vérité\nqui m'ont valu mon stage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5a582c9f",
+   "texte_overlay": "« je connais bien votre produit »\nje l'avais testé 2 jours avant. mais je l'avais testé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "43c6f847",
+   "texte_overlay": "« je suis organisée »\ndepuis que je fais une liste chaque matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "10cfc668",
+   "texte_overlay": "« je lis beaucoup sur le secteur »\nmes 3 sources : leur blog, une newsletter, 5 minutes par jour",
+   "texte_sophia": "« je lis beaucoup sur le secteur »\nmes 3 sources : leur blog, une newsletter, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fc34cc5e",
+   "texte_overlay": "« j'ai déjà géré un budget »\ncelui du bureau des étudiants. ça compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "36cbb533",
+   "texte_overlay": "« je suis disponible tout de suite »\naprès mes partiels. je l'ai précisé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6cb7b2da",
+   "texte_overlay": "tu cherches ton stage pour quand ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

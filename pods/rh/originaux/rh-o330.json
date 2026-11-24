@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o330",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f646488e-3d05-48b2-a34b-f2adea8dfdeb",
+ "titre": "15 minutes au téléphone avec une rh : ce qu'elle retient vraiment #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G2 de la ligne #4 (parent f646488e) : même promesse, autres mots, autres points. Inspirations reprises de rh-o097. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d4b24a58",
+   "texte_overlay": "15 minutes au téléphone\navec une rh :\nce qu'elle retient vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ed65fe64",
+   "texte_overlay": "ta première phrase\n« bonjour, oui, je vous écoute » vaut mieux qu'un « allô ? » pressé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f0b0fcd8",
+   "texte_overlay": "si tu connais l'annonce\ncite une mission",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "338c0377",
+   "texte_overlay": "ta raison de bouger\nen une phrase positive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9141bd18",
+   "texte_overlay": "ton énergie sur un sujet\nmoi, je retenais celles qui me racontaient ce qu'elles apprenaient, même 5 minutes par jour",
+   "texte_sophia": "ton énergie sur un sujet\nmoi, je retenais celles qui me racontaient ce qu'elles apprenaient, même 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "45979057",
+   "texte_overlay": "ta disponibilité pour la suite\nune date claire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e3b4bdac",
+   "texte_overlay": "envoie ça à quelqu'un qui attend un appel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  }
+ ]
+}

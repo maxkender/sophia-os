@@ -40,7 +40,7 @@ import { LigneLabel, TitreApp } from "./Bloc";
 import { type EntreeMenu, MenuActions } from "./MenuActions";
 import { BarrePliage } from "./Pli";
 import { usePliage } from "./pliage";
-import { deciderProposition, lirePropositions, passerDansLaBible, type Proposition } from "./propositions";
+import { chargerApercus, deciderProposition, lirePropositions, LOT_APERCUS, passerDansLaBible, type Proposition, sansApercu } from "./propositions";
 import { compterSources, ligneResultat, lireSources, rangerSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
 import { couleurSection, PASTILLE_A_CREER, PASTILLE_PODZ } from "./teintes";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
@@ -84,6 +84,22 @@ export function PageBible() {
   /** Ce qu'une action vient de faire (un compte lancé, un bloc rattaché), dit en une phrase. */
   const [info, setInfoComplete] = React.useState<{ texte: string; annuler?: () => Promise<string> } | null>(null);
   const setInfo = (texte: string | null, annuler?: () => Promise<string>) => setInfoComplete(texte === null ? null : { texte, annuler });
+
+  // Les aperçus des propositions (les miniatures de leurs posts d'exemple) : cherchés par lots de 5 tant que
+  // l'onglet est ouvert, les plus récentes d'abord. Chaque proposition n'est demandée qu'une fois par visite ; si le
+  // relevé ne répond pas, on s'arrête là.
+  const apercusDemandes = React.useRef(new Set<string>());
+  const apercusEnCours = React.useRef(false);
+  React.useEffect(() => {
+    if (vue !== "propositions" || apercusEnCours.current) return;
+    const lot = (propositions.data ?? []).filter((p) => !apercusDemandes.current.has(p.id) && sansApercu(p)).slice(0, LOT_APERCUS);
+    if (!lot.length) return;
+    apercusEnCours.current = true;
+    for (const p of lot) apercusDemandes.current.add(p.id);
+    void chargerApercus(lot.map((p) => p.id))
+      .then((suite) => { apercusEnCours.current = false; if (suite) void qc.invalidateQueries({ queryKey: ["bible", "propositions"] }); })
+      .catch(() => { apercusEnCours.current = false; });
+  }, [vue, propositions.data, qc]);
 
   const liste = React.useMemo(() => comptes.data ?? [], [comptes.data]);
   const toutes = React.useMemo(() => cartes.data ?? [], [cartes.data]);

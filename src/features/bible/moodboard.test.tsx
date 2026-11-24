@@ -15,7 +15,7 @@ const api = vi.hoisted(() => ({
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
 const src = vi.hoisted(() => ({ lireSources: vi.fn() }));
 vi.mock("./sources", async (orig) => ({ ...(await orig<typeof import("./sources")>()), ...src }));
-const prop = vi.hoisted(() => ({ lirePropositions: vi.fn(), passerDansLaBible: vi.fn(), deciderProposition: vi.fn() }));
+const prop = vi.hoisted(() => ({ lirePropositions: vi.fn(), passerDansLaBible: vi.fn(), deciderProposition: vi.fn(), chargerApercus: vi.fn(async () => false) }));
 vi.mock("./propositions", async (orig) => ({ ...(await orig<typeof import("./propositions")>()), ...prop }));
 
 import { appsDe, compterEtapes, declarerApplications, handlesDuTexte, ranger, REMARQUE_UGC, SECTIONS, vuesCourtes } from "./moodboard";
@@ -620,6 +620,36 @@ describe("page Bible", () => {
     expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Créer le label « clean_girl » pour Sophia ?"));
     await waitFor(() => expect(api.validerCarte).toHaveBeenCalledWith("k2"));
     confirmer.mockRestore();
+  });
+});
+
+describe("aperçus des propositions", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    api.lireComptes.mockResolvedValue([]);
+    api.lireCartes.mockResolvedValue(CARTES);
+    src.lireSources.mockResolvedValue(donnees());
+  });
+
+  it("les 3 posts d'exemple en miniatures ; celles qui manquent sont cherchées à l'ouverture de l'onglet, une seule fois, puis affichées", async () => {
+    const ex = (n: number, o = {}) => ({ url: `https://www.tiktok.com/@encantre/photo/751234567890123456${n}`, vues: 1000 * n, accroche: `post ${n}`, ...o });
+    prop.lirePropositions
+      .mockResolvedValueOnce([proposition({ exemples: [ex(1), ex(2, { sansMiniature: true })] }), proposition({ id: "p2", handle: "complet", exemples: [ex(3, { miniature: "https://img.test/3.jpg" })] })])
+      .mockResolvedValue([proposition({ exemples: [ex(1, { miniature: "https://img.test/1.jpg" }), ex(2, { sansMiniature: true })] }), proposition({ id: "p2", handle: "complet", exemples: [ex(3, { miniature: "https://img.test/3.jpg" })] })]);
+    prop.chargerApercus.mockResolvedValue(true);
+    rendre();
+    // Rien n'est cherché tant qu'on n'est pas sur l'onglet.
+    await screen.findByRole("tab", { name: /Propositions 2/ });
+    expect(prop.chargerApercus).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("tab", { name: /Propositions/ }));
+    // Seule la proposition à qui il manque une miniature est demandée ; celle sans image possible ne l'est plus.
+    await waitFor(() => expect(prop.chargerApercus).toHaveBeenCalledWith(["p1"]));
+    const img = await screen.findByAltText("@encantre, TikTok 1");
+    expect(img).toHaveAttribute("src", "https://img.test/1.jpg");
+    expect(img.closest("a")).toHaveAttribute("href", ex(1).url);
+    expect(within(screen.getByTestId("apercus-encantre")).getAllByRole("link")).toHaveLength(2);
+    expect(screen.getByAltText("@complet, TikTok 1")).toBeInTheDocument();
+    expect(prop.chargerApercus).toHaveBeenCalledTimes(1);
   });
 });
 

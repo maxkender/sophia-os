@@ -15,6 +15,10 @@ export interface ExempleCandidat {
   url: string;
   vues: number | null;
   accroche: string;
+  /** La couverture du post, copiée dans notre stockage (Bible → Propositions) ; absente tant qu'elle n'est pas cherchée. */
+  miniature?: string | null;
+  /** La miniature a été cherchée et n'a pas pu être copiée : on ne la redemande pas. */
+  sansMiniature?: boolean;
 }
 
 export interface ChiffresCandidat {
@@ -86,7 +90,10 @@ export function versCandidat(l: Record<string, unknown>): CandidatSource {
     },
     exemples: exemples
       .filter((e) => texte(e.url))
-      .map((e) => ({ url: String(e.url), vues: nombre(e.vues), accroche: String(e.accroche ?? "") })),
+      .map((e) => ({
+        url: String(e.url), vues: nombre(e.vues), accroche: String(e.accroche ?? ""),
+        miniature: texte(e.miniature_url) ? String(e.miniature_url) : null, sansMiniature: Boolean(texte(e.erreur)),
+      })),
     piste: String(l.piste ?? ""),
     statut: (["propose", "plus_tard", "valide", "refuse", "ecarte"] as const).includes(l.statut as StatutCandidat)
       ? (l.statut as StatutCandidat)

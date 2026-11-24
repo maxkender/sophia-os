@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { cheminMiniature, estLienCourt, estLienPost, handleDeLien, idPost, mediane, statsProfil, troisDerniers, troisMeilleurs } from "./bible.ts";
+import { cheminMiniature, estLienCourt, exemplesSansApercu, estLienPost, handleDeLien, idPost, mediane, statsProfil, troisDerniers, troisMeilleurs } from "./bible.ts";
 
 Deno.test("bible : handle et post depuis un lien", () => {
   assertEquals(handleDeLien("https://www.tiktok.com/@CrushedEthereal"), "crushedethereal");
@@ -43,4 +43,11 @@ Deno.test("les 3 derniers TikToks (pas les plus vus)", () => {
     { url: "https://www.tiktok.com/@a/video/7600000000000000004", vues: 30, createTime: 200 },
   ];
   assertEquals(troisDerniers(posts).map((p) => p.createTime), [400, 300, 200]);
+});
+
+Deno.test("bible : les exemples d'une proposition encore sans aperçu (3 premiers, vrais posts, ni miniature ni erreur)", () => {
+  const p = (n: number) => `https://www.tiktok.com/@a.b/photo/751234567890123456${n}`;
+  assertEquals(exemplesSansApercu([{ url: p(1) }, { url: p(2), miniature_url: "https://x/y.jpg" }, { url: p(3), erreur: "image 403" }, { url: p(4) }]), [0]);
+  assertEquals(exemplesSansApercu([{ url: "https://www.tiktok.com/@a.b" }, { url: p(2), erreur: null }]), [1]);
+  assertEquals(exemplesSansApercu(null), []);
 });

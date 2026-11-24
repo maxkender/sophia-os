@@ -4,7 +4,7 @@
  * son format, ses meilleurs posts) et le fait passer dans « À importer » ou « Prochain batch ».
  */
 import * as React from "react";
-import { ArrowRight, Clock, Rocket, RotateCcw, X } from "lucide-react";
+import { ArrowRight, Clock, ImageOff, Loader2, Rocket, RotateCcw, X } from "lucide-react";
 
 import { vuesCourtes } from "@/features/moteur/candidatsSources";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
@@ -53,6 +53,8 @@ function TuileProposition({ p, dejaBible, actions, occupe }: { p: Proposition; d
     c.posts100k ? `${c.posts100k} à 100 k ou plus` : null,
     c.abonnes != null ? `${vuesCourtes(c.abonnes)} abonnés` : null,
   ].filter(Boolean).join(" · ");
+  // L'aperçu, comme sur les autres onglets : les 3 posts d'exemple (les plus vus), en miniatures cliquables.
+  const apercus = p.exemples.slice(0, 3);
   const refuser = () => {
     const raison = window.prompt(`Pourquoi refuser @${p.handle} ? L'agent éclaireur relit la raison pour mieux chercher.`, "");
     if (raison !== null) actions.onDecider(p, "refuse", raison);
@@ -83,6 +85,21 @@ function TuileProposition({ p, dejaBible, actions, occupe }: { p: Proposition; d
       {p.pourquoi && <p className="line-clamp-4 text-[11px] leading-snug text-stone-500" title={p.pourquoi}>{p.pourquoi}</p>}
       {p.risques && <p className="line-clamp-2 rounded-md bg-amber-50 px-1.5 py-1 text-[11px] leading-snug text-amber-800 dark:bg-amber-950/40 dark:text-amber-200" title={p.risques}>À savoir : {p.risques}</p>}
       {p.note && <p className="text-[11px] leading-snug text-stone-600 dark:text-stone-300"><b className="font-medium">Note :</b> {p.note}</p>}
+
+      {apercus.length > 0 && (
+        <div className="grid grid-cols-3 gap-1" data-testid={`apercus-${p.handle}`}>
+          {apercus.map((e, i) => (e.miniature ? (
+            <a key={e.url} href={e.url} target="_blank" rel="noreferrer" title={e.accroche || undefined} className="relative block aspect-[9/16] overflow-hidden rounded-md bg-stone-100 dark:bg-stone-800">
+              <img src={e.miniature} alt={`@${p.handle}, TikTok ${i + 1}`} loading="lazy" className="size-full object-cover" />
+              {e.vues != null && <span className="absolute bottom-0.5 left-0.5 rounded bg-black/55 px-1 text-[9px] font-medium text-white">{vuesCourtes(e.vues)}</span>}
+            </a>
+          ) : (
+            <a key={e.url} href={e.url} target="_blank" rel="noreferrer" title={e.sansMiniature ? "TikTok n'a pas rendu l'image" : "Aperçu en cours"} className="flex aspect-[9/16] items-center justify-center rounded-md bg-stone-100 text-stone-400 dark:bg-stone-800">
+              {e.sansMiniature ? <ImageOff className="size-3.5" aria-hidden /> : <Loader2 className="size-3.5 animate-spin" aria-hidden />}
+            </a>
+          )))}
+        </div>
+      )}
 
       {p.exemples.length > 0 && (
         <ul className="space-y-0.5">

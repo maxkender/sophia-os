@@ -43,6 +43,26 @@ export async function passerDansLaBible(id: string, etape: EtapeManuelle, carte?
   return { bibleId: r.bible_id ?? "", handle: r.handle ?? "", deja: Boolean(r.deja) };
 }
 
+/** Un vrai lien de post TikTok (comme `estLienPost` côté fonction). */
+const LIEN_POST = /^https?:\/\/(?:www\.|m\.)?tiktok\.com\/@[A-Za-z0-9._]{1,40}\/(?:video|photo)\/\d{8,25}/i;
+
+/** Il reste une miniature à chercher parmi les 3 premiers posts d'exemple de la proposition. */
+export const sansApercu = (p: Proposition): boolean =>
+  p.exemples.slice(0, 3).some((e) => LIEN_POST.test(e.url.trim()) && !e.miniature && !e.sansMiniature);
+
+/** Combien de propositions la fonction traite par appel (un seul relevé Apify pour leurs posts). */
+export const LOT_APERCUS = 5;
+
+/**
+ * Cherche et copie les miniatures des posts d'exemple de quelques propositions (fonction `bible`). Rend `false`
+ * si le relevé n'a pas répondu : on n'insiste pas pendant cette visite.
+ */
+export async function chargerApercus(ids: string[]): Promise<boolean> {
+  const { data, error } = await supabase.functions.invoke("bible", { body: { action: "miniatures_propositions", ids: ids.slice(0, LOT_APERCUS) } });
+  if (error) throw error;
+  return Boolean((data as { ok?: boolean } | null)?.ok);
+}
+
 /** Plus tard, remettre à décider, ou refuser avec la raison (l'agent éclaireur la relit). */
 export async function deciderProposition(id: string, statut: "plus_tard" | "propose" | "refuse", raison?: string): Promise<void> {
   try {

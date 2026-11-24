@@ -83,3 +83,15 @@ export function statsProfil(posts: PostProfil[], abonnes: number | null): Record
   if (dernier) s.dernier_post_le = new Date(dernier * 1000).toISOString().slice(0, 10);
   return s;
 }
+
+/**
+ * 24/11 : les rangs des posts d'exemple d'une proposition dont il reste à chercher la miniature (les 3 premiers :
+ * un vrai lien de post, sans miniature ni erreur déjà notée).
+ */
+export function exemplesSansApercu(exemples: unknown): number[] {
+  if (!Array.isArray(exemples)) return [];
+  return exemples.slice(0, 3).flatMap((e, i) => {
+    const x = (e ?? {}) as { url?: unknown; miniature_url?: unknown; erreur?: unknown };
+    return typeof x.url === "string" && estLienPost(x.url) && !x.miniature_url && !x.erreur ? [i] : [];
+  });
+}

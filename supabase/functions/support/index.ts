@@ -39,6 +39,7 @@ import {
   texteProblemeRecu,
 } from "../_shared/support.ts";
 import { decrireCapture, generateTextFast } from "../_shared/gemini.ts";
+import { contientCapture } from "../_shared/slack_captures.ts";
 import { lireGroupes, promptRegroupement, type QuestionLue, resumerGroupe, TEXTE_ATTENTE } from "../_shared/entrainement.ts";
 import {
   appliquerControle, type CanalControle, journaliser, lireControle, modeAction, modeAgent, type ResultatControle,
@@ -1564,7 +1565,9 @@ async function appliquerRegles(
   }
   const attente = o.etat?.upwork_exception?.statut === "lien_attendu";
   const det = detecterCas(o.message, { plateforme: o.plateforme, attenteLienUpwork: attente });
-  const cas = det.cas ?? casDeCategorie(d.categorie, o.plateforme);
+  const cas0 = det.cas ?? casDeCategorie(d.categorie, o.plateforme);
+  // 24/11 (Max) : une capture jointe (« [Screenshot: …] ») : jamais « envoie une capture » ; la réponse du modèle reste.
+  const cas = cas0 === "flou" && contientCapture(o.message) ? null : cas0;
   if (cas === "lien_post") {
     fixe(TEXTES.lien_post, "lien_post");
     plan.incident = { cle: "lien_post", titre: "Liens de posts impossibles à ajouter", groupe_seul: true };
@@ -1620,7 +1623,9 @@ async function appliquerRegles(
   // 21/11 (Max) : « je n'arrive pas à activer Ruul » : les cas connus réglés par le bot ; le même problème une 3e fois,
   // escalade (#a-os-tickets) avec l'étape bloquée, ce qui a été tenté et une réponse proposée.
   if (!plan.cas && ruul && !demandeArretMsg && !(estQuestionPaie(o.message) && !estCodeRuul(o.message))) {
-    const casR = detecterCasRuul(o.message, { categorie: d.categorie, estCode: estCodeRuul(o.message) });
+    const casR0 = detecterCasRuul(o.message, { categorie: d.categorie, estCode: estCodeRuul(o.message) });
+    // 24/11 (Max) : un bug Ruul avec sa capture : on ne redemande pas la capture, la réponse du modèle reste.
+    const casR = casR0 === "bug" && contientCapture(o.message) ? null : casR0;
     if (casR) {
       const avant = o.poster ? await tentativesRuul(db, o.poster, casR) : 0;
       const s = o.poster ? await setupRuul(db, o.poster) : null;

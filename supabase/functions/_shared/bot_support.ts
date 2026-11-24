@@ -142,6 +142,7 @@ RÈGLES
 - personnel = true si le message parle de SON compte, SA paie, SON contrat.
 - risque : liste parmi ${RISQUES.join(", ")} (vide si rien).
 - Ne dis jamais que tu es un bot, une IA ou un assistant automatique.
+- Capture d'écran (24/11, Max) : si le MESSAGE contient « [Screenshot: …] », c'est la description de la capture qu'il a jointe : utilise-la et ne lui redemande jamais de capture. « [Screenshot: (screenshot not readable)] » : il en a envoyé une qu'on n'a pas pu lire ; ne la redemande pas non plus, demande-lui au besoin de décrire en une phrase ce qu'il voit.
 
 CONSIGNES DE MAX (elles passent avant tout le reste, y compris le catalogue)
 ${(e.consignes ?? []).length ? e.consignes!.map((c) => `- ${c}`).join("\n") : "(aucune)"}

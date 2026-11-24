@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o177",
+  "type_bleo": "full_test",
+  "titre": "how i study for a test that's tomorrow morning without panicking #studytok #studytips #exams",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [],
+  "notes": "Full test (BLEO), le 4e du jour : la boîte n'a que 6 lignes utilisables (§4.2, des full tests en plus). Accroche jamais faite chez nous (« tomorrow morning » absent du label). Accroches écrites : « how i study for a test that's tomorrow morning without panicking » (retenue : une urgence réelle, une réponse calme), « last minute study tips » (écartée : vague), « study a whole chapter in 2 hours » (écartée : promesse). Santé générale, jamais de nuit blanche : regarder ce qui tombe, les définitions et formules d'abord, se tester sur des questions, une vraie pause courte (slide Sophia, 5), une page d'erreurs, dormir. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2848454e",
+      "texte_overlay": "how i study for a test that's\ntomorrow morning without panicking",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7b9893ef",
+      "texte_overlay": "first 10 minutes: what will actually be on it?\nthe rest doesn't exist tonight.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e5825718",
+      "texte_overlay": "definitions and formulas first.\nthey're the easiest points.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "632ac7ed",
+      "texte_overlay": "then i quiz myself. questions, not rereading.\nwhat i miss goes on one page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bcdd0620",
+      "texte_overlay": "one real 5-minute break every 40 minutes.\nsomething new for my brain, not a feed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "one real 5-minute break every 40 minutes\non a micro-learning app like the Sophia app.\nnot a feed."
+    },
+    {
+      "position": 6,
+      "media_id": "8bb695f4",
+      "texte_overlay": "last look: only my mistakes page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "7601577f",
+      "texte_overlay": "and i go to bed. no all-nighter.\na rested brain finds the answers.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

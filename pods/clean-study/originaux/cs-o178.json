@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o178",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5d957bad-136e-4d88-8582-0fefc3b0bdf8",
+  "titre": "toxic academic habits i'm unfortunately NOT giving up #studytok #studytips #school",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "5d957bad-136e-4d88-8582-0fefc3b0bdf8"
+  ],
+  "notes": "Déclinaison G1 de 5d957bad (r 50,72 en espagnol d'Amérique latine, 17,6 k vues), ligne 4 de la boîte. Lignes 1 à 3 écartées (attribution invérifiable, journaux aux chiffres inventés). Accroche du parent mot pour mot. Rivalité avec soi-même, jamais de mépris. Habitudes neuves, aucune du parent (connaître sa note tout de suite, battre son score, une personne meilleure que soi, retenir les compliments, ne pas être prise deux fois, la classe « impossible ») ni de cs-o023, cs-o062, cs-o156, cs-o161, cs-o167 : réviser la veille d'un contrôle déjà prêt, refaire un sujet entier pour le plaisir, connaître les dates de tous les contrôles, apprendre un fait par jour (slide Sophia, 5), corriger les fautes dans ses notes, demander « pourquoi » au prof. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "e615d3bf",
+      "texte_overlay": "toxic academic habits\ni'm unfortunately NOT\ngiving up",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a6ec2cae",
+      "texte_overlay": "revising the night before a test i'm already ready for.\njust to be SURE.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5c423dbd",
+      "texte_overlay": "redoing a whole past paper for fun.\nyes, for fun.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2840becb",
+      "texte_overlay": "knowing the date of every test this term.\nby heart.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ceb6d193",
+      "texte_overlay": "one random fact every single day.\nmy brain doesn't do days off.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "one random fact every single day\non a micro-learning app like the Sophia app.\nmy brain doesn't do days off."
+    },
+    {
+      "position": 6,
+      "media_id": "d4ab9791",
+      "texte_overlay": "fixing every typo in my notes.\nmy future self deserves clean pages.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "61c5d33b",
+      "texte_overlay": "asking \"but why?\" until the teacher smiles.\nor sighs. both count.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -8,10 +8,28 @@
   "accroche": "How To Become Extremely Attractive."
  },
  "titre": {
-  "en": "habits that make you more attractive"
+  "en": "habits that make you more attractive",
+  "de": "gewohnheiten, die dich attraktiver machen",
+  "es-419": "hábitos que te hacen más atractivo",
+  "it": "abitudini che ti rendono più attraente",
+  "pl": "nawyki, które cię czynią atrakcyjniejszym",
+  "tr": "seni daha çekici yapan alışkanlıklar",
+  "hu": "szokások, amiktől vonzóbb leszel",
+  "el": "συνήθειες που σε κάνουν πιο ελκυστικό",
+  "ro": "obiceiuri care te fac mai atrăgător",
+  "sr": "navike koje te čine privlačnijim"
  },
  "legendes": {
-  "en": "it's the little things #attractive #selfimprovement #tipsformen #running #confidence"
+  "en": "it's the little things #attractive #selfimprovement #tipsformen #running #confidence",
+  "de": "es sind die kleinen dinge #attractive #selfimprovement #tipsformen #running #confidence",
+  "es-419": "son los pequeños detalles #attractive #selfimprovement #tipsformen #running #confidence",
+  "it": "sono le piccole cose #attractive #selfimprovement #tipsformen #running #confidence",
+  "pl": "to drobiazgi robią różnicę #attractive #selfimprovement #tipsformen #running #confidence",
+  "tr": "küçük şeyler fark yaratır #attractive #selfimprovement #tipsformen #running #confidence",
+  "hu": "az apróságok számítanak #attractive #selfimprovement #tipsformen #running #confidence",
+  "el": "είναι τα μικρά πράγματα #attractive #selfimprovement #tipsformen #running #confidence",
+  "ro": "contează lucrurile mici #attractive #selfimprovement #tipsformen #running #confidence",
+  "sr": "male stvari prave razliku #attractive #selfimprovement #tipsformen #running #confidence"
  },
  "musique": {
   "titre": "Originalton",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-12.png",
    "en": {
     "titre": "HABITS THAT MAKE\nYOU MORE\nATTRACTIVE."
+   },
+   "de": {
+    "titre": "GEWOHNHEITEN,\nDIE DICH ATTRAKTIVER\nMACHEN."
+   },
+   "es-419": {
+    "titre": "HÁBITOS\nQUE TE HACEN\nMÁS ATRACTIVO."
+   },
+   "it": {
+    "titre": "ABITUDINI\nCHE TI RENDONO\nPIÙ ATTRAENTE."
+   },
+   "pl": {
+    "titre": "NAWYKI,\nKTÓRE CIĘ CZYNIĄ\nATRAKCYJNIEJSZYM."
+   },
+   "tr": {
+    "titre": "SENİ DAHA ÇEKİCİ\nYAPAN\nALIŞKANLIKLAR."
+   },
+   "hu": {
+    "titre": "SZOKÁSOK,\nAMIKTŐL\nVONZÓBB LESZEL."
+   },
+   "el": {
+    "titre": "ΣΥΝΗΘΕΙΕΣ\nΠΟΥ ΣΕ ΚΑΝΟΥΝ\nΠΙΟ ΕΛΚΥΣΤΙΚΟ."
+   },
+   "ro": {
+    "titre": "OBICEIURI\nCARE TE FAC\nMAI ATRĂGĂTOR."
+   },
+   "sr": {
+    "titre": "NAVIKE\nKOJE TE ČINE\nPRIVLAČNIJIM."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Make eye contact",
     "texte": "Look at people when they talk to you. It makes them feel heard and you look sure of yourself."
+   },
+   "de": {
+    "titre": "1. Halte Blickkontakt",
+    "texte": "Schau Leute an, wenn sie mit dir reden. Sie fühlen sich gehört und du wirkst sicher."
+   },
+   "es-419": {
+    "titre": "1. Haz contacto visual",
+    "texte": "Mira a la gente cuando te habla. Se sienten escuchados y tú te ves seguro."
+   },
+   "it": {
+    "titre": "1. Guarda negli occhi",
+    "texte": "Guarda le persone quando ti parlano. Si sentono ascoltate e tu sembri sicuro."
+   },
+   "pl": {
+    "titre": "1. Patrz w oczy",
+    "texte": "Patrz na ludzi, gdy do ciebie mówią. Czują się wysłuchani, a ty wyglądasz pewnie."
+   },
+   "tr": {
+    "titre": "1. Göz teması kur",
+    "texte": "Seninle konuşan insanlara bak. Dinlendiklerini hissederler, sen de özgüvenli görünürsün."
+   },
+   "hu": {
+    "titre": "1. Nézz a szemébe",
+    "texte": "Nézz az emberekre, amikor hozzád beszélnek. Úgy érzik, figyelsz rájuk, te pedig magabiztosnak tűnsz."
+   },
+   "el": {
+    "titre": "1. Κοίτα στα μάτια",
+    "texte": "Κοίτα τους ανθρώπους όταν σου μιλάνε. Νιώθουν ότι τους ακούς και εσύ δείχνεις σίγουρος."
+   },
+   "ro": {
+    "titre": "1. Privește în ochi",
+    "texte": "Uită-te la oameni când îți vorbesc. Se simt ascultați, iar tu pari sigur pe tine."
+   },
+   "sr": {
+    "titre": "1. Gledaj u oči",
+    "texte": "Gledaj ljude kad ti pričaju. Osećaju se saslušano, a ti izgledaš sigurno."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Keep your place clean",
     "texte": "A clean room says a lot before you say anything. Make the bed, clear the floor."
+   },
+   "de": {
+    "titre": "2. Halte deine Wohnung sauber",
+    "texte": "Ein sauberes Zimmer sagt viel, bevor du etwas sagst. Bett machen, Boden frei."
+   },
+   "es-419": {
+    "titre": "2. Ten tu cuarto limpio",
+    "texte": "Un cuarto limpio dice mucho antes de que hables. Tiende la cama, despeja el piso."
+   },
+   "it": {
+    "titre": "2. Tieni casa in ordine",
+    "texte": "Una stanza pulita dice tanto prima che tu parli. Rifai il letto, libera il pavimento."
+   },
+   "pl": {
+    "titre": "2. Dbaj o porządek",
+    "texte": "Czysty pokój mówi dużo, zanim cokolwiek powiesz. Pościel łóżko, uprzątnij podłogę."
+   },
+   "tr": {
+    "titre": "2. Evini temiz tut",
+    "texte": "Temiz bir oda sen konuşmadan çok şey söyler. Yatağı topla, yeri boşalt."
+   },
+   "hu": {
+    "titre": "2. Tartsd rendben a lakásod",
+    "texte": "Egy tiszta szoba sokat mond, mielőtt megszólalnál. Vesd be az ágyat, takarítsd el a padlót."
+   },
+   "el": {
+    "titre": "2. Κράτα το σπίτι καθαρό",
+    "texte": "Ένα καθαρό δωμάτιο λέει πολλά πριν μιλήσεις. Στρώσε το κρεβάτι, άδειασε το πάτωμα."
+   },
+   "ro": {
+    "titre": "2. Ține casa curată",
+    "texte": "O cameră curată spune multe înainte să vorbești. Fă patul, eliberează podeaua."
+   },
+   "sr": {
+    "titre": "2. Drži stan čistim",
+    "texte": "Čista soba kaže mnogo pre nego što progovoriš. Namesti krevet, raščisti pod."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Run 3 times a week",
     "texte": "Run slow enough to talk, that's how you last. Personally, a running coach app like Atala tells me when to slow down."
+   },
+   "de": {
+    "titre": "3. Lauf 3-mal pro Woche",
+    "texte": "Lauf so langsam, dass du noch reden kannst, so hältst du durch. Mir sagt eine Lauf-App mit Coach wie Atala, wann ich langsamer machen soll."
+   },
+   "es-419": {
+    "titre": "3. Corre 3 veces por semana",
+    "texte": "Corre tan lento que puedas hablar, así aguantas. En lo personal, una app de running con entrenador como Atala me dice cuándo bajar el ritmo."
+   },
+   "it": {
+    "titre": "3. Corri 3 volte a settimana",
+    "texte": "Corri piano da riuscire a parlare, così duri. Io personalmente mi faccio dire quando rallentare da un'app con coach per la corsa come Atala."
+   },
+   "pl": {
+    "titre": "3. Biegaj 3 razy w tygodniu",
+    "texte": "Biegaj tak wolno, żeby móc mówić, wtedy wytrwasz. Mnie osobiście aplikacja z trenerem biegania, taka jak Atala, mówi, kiedy zwolnić."
+   },
+   "tr": {
+    "titre": "3. Haftada 3 kez koş",
+    "texte": "Konuşabileceğin kadar yavaş koş, böyle devam edersin. Kişisel olarak bana ne zaman yavaşlayacağımı Atala gibi bir koşu koçu uygulaması söylüyor."
+   },
+   "hu": {
+    "titre": "3. Fuss hetente 3-szor",
+    "texte": "Olyan lassan fuss, hogy tudj beszélni, így bírod hosszan. Nekem személy szerint egy futóedzős app, mint az Atala, szól, mikor lassítsak."
+   },
+   "el": {
+    "titre": "3. Τρέξε 3 φορές τη βδομάδα",
+    "texte": "Τρέχα τόσο αργά που να μπορείς να μιλάς, έτσι αντέχεις. Προσωπικά, μια εφαρμογή προπονητή τρεξίματος όπως το Atala μου λέει πότε να κόψω ταχύτητα."
+   },
+   "ro": {
+    "titre": "3. Aleargă de 3 ori pe săptămână",
+    "texte": "Aleargă atât de încet încât să poți vorbi, așa reziști. Mie personal o aplicație cu antrenor de alergare, ca Atala, îmi spune când să încetinesc."
+   },
+   "sr": {
+    "titre": "3. Trči 3 puta nedeljno",
+    "texte": "Trči toliko sporo da možeš da pričaš, tako izdržiš. Meni lično aplikacija sa trenerom za trčanje, kao što je Atala, kaže kada da usporim."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Own one great jacket",
     "texte": "One jacket that fits your shoulders upgrades every outfit you own."
+   },
+   "de": {
+    "titre": "4. Hab eine richtig gute Jacke",
+    "texte": "Eine Jacke, die an den Schultern sitzt, wertet jedes Outfit auf."
+   },
+   "es-419": {
+    "titre": "4. Ten una buena chamarra",
+    "texte": "Una chamarra que te quede de hombros mejora cualquier outfit."
+   },
+   "it": {
+    "titre": "4. Una giacca perfetta",
+    "texte": "Una giacca che veste bene sulle spalle migliora ogni outfit."
+   },
+   "pl": {
+    "titre": "4. Miej jedną świetną kurtkę",
+    "texte": "Kurtka dobrze leżąca w ramionach podnosi każdy outfit."
+   },
+   "tr": {
+    "titre": "4. Harika bir ceketin olsun",
+    "texte": "Omuzlarına oturan bir ceket her kombini yükseltir."
+   },
+   "hu": {
+    "titre": "4. Legyen egy remek kabátod",
+    "texte": "Egy vállban jól álló kabát minden szettet feldob."
+   },
+   "el": {
+    "titre": "4. Ένα τέλειο μπουφάν",
+    "texte": "Ένα μπουφάν που σου κάθεται στους ώμους ανεβάζει κάθε ντύσιμο."
+   },
+   "ro": {
+    "titre": "4. O geacă foarte bună",
+    "texte": "O geacă ce îți vine bine pe umeri ridică orice ținută."
+   },
+   "sr": {
+    "titre": "4. Imaj jednu odličnu jaknu",
+    "texte": "Jakna koja ti dobro stoji u ramenima podigne svaku kombinaciju."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Learn to cook",
     "texte": "A man who can cook a real dinner is always a good surprise."
+   },
+   "de": {
+    "titre": "5. Lern kochen",
+    "texte": "Ein Mann, der ein echtes Abendessen kochen kann, ist immer eine schöne Überraschung."
+   },
+   "es-419": {
+    "titre": "5. Aprende a cocinar",
+    "texte": "Un hombre que puede cocinar una cena de verdad siempre es una buena sorpresa."
+   },
+   "it": {
+    "titre": "5. Impara a cucinare",
+    "texte": "Un uomo che sa cucinare una vera cena è sempre una bella sorpresa."
+   },
+   "pl": {
+    "titre": "5. Naucz się gotować",
+    "texte": "Facet, który ugotuje prawdziwą kolację, to zawsze miła niespodzianka."
+   },
+   "tr": {
+    "titre": "5. Yemek yapmayı öğren",
+    "texte": "Gerçek bir akşam yemeği yapabilen adam her zaman güzel bir sürprizdir."
+   },
+   "hu": {
+    "titre": "5. Tanulj meg főzni",
+    "texte": "Egy férfi, aki igazi vacsorát tud főzni, mindig kellemes meglepetés."
+   },
+   "el": {
+    "titre": "5. Μάθε να μαγειρεύεις",
+    "texte": "Ένας άντρας που μαγειρεύει ένα κανονικό δείπνο είναι πάντα ωραία έκπληξη."
+   },
+   "ro": {
+    "titre": "5. Învață să gătești",
+    "texte": "Un bărbat care poate găti o cină adevărată e mereu o surpriză plăcută."
+   },
+   "sr": {
+    "titre": "5. Nauči da kuvaš",
+    "texte": "Muškarac koji ume da skuva pravu večeru uvek je lepo iznenađenje."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-3.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

@@ -8,10 +8,28 @@
   "accroche": "5 HABITS EVERY MAN SHOULD HAVE"
  },
  "titre": {
-  "en": "5 habits every strong man has"
+  "en": "5 habits every strong man has",
+  "de": "5 gewohnheiten, die jeder starke mann hat",
+  "es-419": "5 hábitos que tiene todo hombre fuerte",
+  "it": "5 abitudini che ogni uomo forte ha",
+  "pl": "5 nawyków, które ma każdy silny facet",
+  "tr": "her güçlü erkeğin sahip olduğu 5 alışkanlık",
+  "hu": "5 szokás, ami minden erős férfinak megvan",
+  "el": "5 συνήθειες που έχει κάθε δυνατός άντρας",
+  "ro": "5 obiceiuri pe care le are orice bărbat puternic",
+  "sr": "5 navika koje ima svaki jak muškarac"
  },
  "legendes": {
-  "en": "strong is built daily #discipline #selfimprovement #tipsformen #running #fitness"
+  "en": "strong is built daily #discipline #selfimprovement #tipsformen #running #fitness",
+  "de": "stärke baut man täglich #discipline #selfimprovement #tipsformen #running #fitness",
+  "es-419": "lo fuerte se construye a diario #discipline #selfimprovement #tipsformen #running #fitness",
+  "it": "la forza si costruisce ogni giorno #discipline #selfimprovement #tipsformen #running #fitness",
+  "pl": "siłę buduje się codziennie #discipline #selfimprovement #tipsformen #running #fitness",
+  "tr": "güç her gün inşa edilir #discipline #selfimprovement #tipsformen #running #fitness",
+  "hu": "az erő naponta épül #discipline #selfimprovement #tipsformen #running #fitness",
+  "el": "η δύναμη χτίζεται κάθε μέρα #discipline #selfimprovement #tipsformen #running #fitness",
+  "ro": "puterea se construiește zilnic #discipline #selfimprovement #tipsformen #running #fitness",
+  "sr": "snaga se gradi svaki dan #discipline #selfimprovement #tipsformen #running #fitness"
  },
  "musique": {
   "titre": "Grope in the Dark",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-8.png",
    "en": {
     "titre": "5 HABITS EVERY\nSTRONG MAN HAS."
+   },
+   "de": {
+    "titre": "5 GEWOHNHEITEN,\nDIE JEDER STARKE\nMANN HAT."
+   },
+   "es-419": {
+    "titre": "5 HÁBITOS\nQUE TIENE TODO\nHOMBRE FUERTE."
+   },
+   "it": {
+    "titre": "5 ABITUDINI\nCHE OGNI UOMO\nFORTE HA."
+   },
+   "pl": {
+    "titre": "5 NAWYKÓW,\nKTÓRE MA KAŻDY\nSILNY FACET."
+   },
+   "tr": {
+    "titre": "HER GÜÇLÜ\nERKEĞİN SAHİP\nOLDUĞU 5 ALIŞKANLIK."
+   },
+   "hu": {
+    "titre": "5 SZOKÁS,\nAMI MINDEN ERŐS\nFÉRFINAK MEGVAN."
+   },
+   "el": {
+    "titre": "5 ΣΥΝΗΘΕΙΕΣ\nΠΟΥ ΕΧΕΙ ΚΑΘΕ\nΔΥΝΑΤΟΣ ΑΝΤΡΑΣ."
+   },
+   "ro": {
+    "titre": "5 OBICEIURI\nPE CARE LE ARE\nORICE BĂRBAT PUTERNIC."
+   },
+   "sr": {
+    "titre": "5 NAVIKA\nKOJE IMA SVAKI\nJAK MUŠKARAC."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Lift weights",
     "texte": "Train strength 2 to 3 times a week. A strong body keeps you confident in your skin."
+   },
+   "de": {
+    "titre": "1. Trainier mit Gewichten",
+    "texte": "Kraft 2- bis 3-mal pro Woche. Ein starker Körper gibt dir Selbstvertrauen in deiner Haut."
+   },
+   "es-419": {
+    "titre": "1. Entrena con pesas",
+    "texte": "Fuerza 2 o 3 veces por semana. Un cuerpo fuerte te da seguridad en tu propia piel."
+   },
+   "it": {
+    "titre": "1. Allenati con i pesi",
+    "texte": "Forza 2-3 volte a settimana. Un corpo forte ti fa sentire sicuro nella tua pelle."
+   },
+   "pl": {
+    "titre": "1. Ćwicz z ciężarami",
+    "texte": "Siła 2-3 razy w tygodniu. Silne ciało daje pewność siebie we własnej skórze."
+   },
+   "tr": {
+    "titre": "1. Ağırlık çalış",
+    "texte": "Haftada 2-3 kez kuvvet. Güçlü bir vücut kendi teninde özgüvenli hissettirir."
+   },
+   "hu": {
+    "titre": "1. Edz súlyokkal",
+    "texte": "Erősíts heti 2-3-szor. Az erős test magabiztossá tesz a saját bőrödben."
+   },
+   "el": {
+    "titre": "1. Κάνε βάρη",
+    "texte": "Δύναμη 2 με 3 φορές τη βδομάδα. Ένα δυνατό σώμα σου δίνει σιγουριά στο πετσί σου."
+   },
+   "ro": {
+    "titre": "1. Antrenează-te cu greutăți",
+    "texte": "Forță de 2-3 ori pe săptămână. Un corp puternic îți dă încredere în pielea ta."
+   },
+   "sr": {
+    "titre": "1. Treniraj sa tegovima",
+    "texte": "Snaga 2 do 3 puta nedeljno. Snažno telo ti daje sigurnost u sopstvenoj koži."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Eat real food",
     "texte": "Mostly whole foods, enough protein, fewer snacks. Your energy follows what you eat."
+   },
+   "de": {
+    "titre": "2. Iss echtes Essen",
+    "texte": "Meist unverarbeitet, genug Eiweiß, weniger Snacks. Deine Energie folgt dem, was du isst."
+   },
+   "es-419": {
+    "titre": "2. Come comida real",
+    "texte": "Casi todo natural, suficiente proteína, menos snacks. Tu energía sigue a lo que comes."
+   },
+   "it": {
+    "titre": "2. Mangia cibo vero",
+    "texte": "Soprattutto cibi semplici, abbastanza proteine, meno snack. La tua energia segue quello che mangi."
+   },
+   "pl": {
+    "titre": "2. Jedz prawdziwe jedzenie",
+    "texte": "Głównie nieprzetworzone, dość białka, mniej przekąsek. Twoja energia idzie za tym, co jesz."
+   },
+   "tr": {
+    "titre": "2. Gerçek yemek ye",
+    "texte": "Çoğunlukla işlenmemiş, yeterli protein, daha az atıştırmalık. Enerjin yediğini takip eder."
+   },
+   "hu": {
+    "titre": "2. Egyél igazi ételt",
+    "texte": "Főleg feldolgozatlan, elég fehérje, kevesebb nasi. Az energiád azt követi, amit eszel."
+   },
+   "el": {
+    "titre": "2. Φάε αληθινό φαγητό",
+    "texte": "Κυρίως απλά τρόφιμα, αρκετή πρωτεΐνη, λιγότερα σνακ. Η ενέργειά σου ακολουθεί αυτό που τρως."
+   },
+   "ro": {
+    "titre": "2. Mănâncă mâncare reală",
+    "texte": "Mai ales alimente simple, destule proteine, mai puține gustări. Energia ta urmează ce mănânci."
+   },
+   "sr": {
+    "titre": "2. Jedi pravu hranu",
+    "texte": "Uglavnom neprerađeno, dovoljno proteina, manje grickalica. Energija prati ono što jedeš."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Run every week",
     "texte": "Add a little more each week so you don't get hurt. Personally, a running coach app like Atala plans it for me."
+   },
+   "de": {
+    "titre": "3. Lauf jede Woche",
+    "texte": "Steigere jede Woche nur ein bisschen, damit du dich nicht verletzt. Bei mir plant das eine Lauf-App mit Coach wie Atala."
+   },
+   "es-419": {
+    "titre": "3. Corre cada semana",
+    "texte": "Sube un poco cada semana para no lastimarte. En lo personal, una app de running con entrenador como Atala me lo planea."
+   },
+   "it": {
+    "titre": "3. Corri ogni settimana",
+    "texte": "Aumenta solo un po' ogni settimana per non farti male. Io personalmente lo faccio pianificare a un'app con coach per la corsa come Atala."
+   },
+   "pl": {
+    "titre": "3. Biegaj co tydzień",
+    "texte": "Dokładaj co tydzień tylko trochę, żeby się nie pokiereszować. Mnie osobiście planuje to aplikacja z trenerem biegania, taka jak Atala."
+   },
+   "tr": {
+    "titre": "3. Her hafta koş",
+    "texte": "Sakatlanmamak için her hafta biraz artır. Kişisel olarak bunu benim için Atala gibi bir koşu koçu uygulaması planlıyor."
+   },
+   "hu": {
+    "titre": "3. Fuss minden héten",
+    "texte": "Hetente csak egy kicsit emelj, hogy ne sérülj meg. Nálam ezt egy futóedzős app, mint az Atala, tervezi meg."
+   },
+   "el": {
+    "titre": "3. Τρέχα κάθε βδομάδα",
+    "texte": "Ανέβαζε λίγο κάθε βδομάδα για να μη χτυπήσεις. Προσωπικά, μου το σχεδιάζει μια εφαρμογή προπονητή τρεξίματος όπως το Atala."
+   },
+   "ro": {
+    "titre": "3. Aleargă în fiecare săptămână",
+    "texte": "Crește puțin în fiecare săptămână ca să nu te accidentezi. Mie personal mi-l planifică o aplicație cu antrenor de alergare, ca Atala."
+   },
+   "sr": {
+    "titre": "3. Trči svake nedelje",
+    "texte": "Dodaj malo svake nedelje da se ne povrediš. Meni lično to planira aplikacija sa trenerom za trčanje, kao što je Atala."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Stretch every day",
     "texte": "10 minutes after training. Your body moves better and feels lighter."
+   },
+   "de": {
+    "titre": "4. Dehn dich jeden Tag",
+    "texte": "10 Minuten nach dem Training. Dein Körper bewegt sich besser und fühlt sich leichter an."
+   },
+   "es-419": {
+    "titre": "4. Estírate cada día",
+    "texte": "10 minutos después de entrenar. Tu cuerpo se mueve mejor y se siente más ligero."
+   },
+   "it": {
+    "titre": "4. Stretching ogni giorno",
+    "texte": "10 minuti dopo l'allenamento. Il corpo si muove meglio e si sente più leggero."
+   },
+   "pl": {
+    "titre": "4. Rozciągaj się codziennie",
+    "texte": "10 minut po treningu. Ciało rusza się lepiej i jest lżejsze."
+   },
+   "tr": {
+    "titre": "4. Her gün esne",
+    "texte": "Antrenmandan sonra 10 dakika. Vücudun daha rahat hareket eder ve hafif hisseder."
+   },
+   "hu": {
+    "titre": "4. Nyújts minden nap",
+    "texte": "10 perc edzés után. A tested jobban mozog és könnyebbnek érzed."
+   },
+   "el": {
+    "titre": "4. Διατάσεις κάθε μέρα",
+    "texte": "10 λεπτά μετά την προπόνηση. Το σώμα κινείται καλύτερα και νιώθει πιο ελαφρύ."
+   },
+   "ro": {
+    "titre": "4. Întinde-te zilnic",
+    "texte": "10 minute după antrenament. Corpul se mișcă mai bine și e mai ușor."
+   },
+   "sr": {
+    "titre": "4. Isteži se svaki dan",
+    "texte": "10 minuta posle treninga. Telo se bolje kreće i lakše je."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Same alarm, every day",
     "texte": "Wake up at the same time, even on weekends. Your energy stays steady all week."
+   },
+   "de": {
+    "titre": "5. Gleicher Wecker, jeden Tag",
+    "texte": "Steh immer zur gleichen Zeit auf, auch am Wochenende. Deine Energie bleibt die ganze Woche stabil."
+   },
+   "es-419": {
+    "titre": "5. Misma alarma, cada día",
+    "texte": "Levántate a la misma hora, también el fin de semana. Tu energía se mantiene estable toda la semana."
+   },
+   "it": {
+    "titre": "5. Stessa sveglia, ogni giorno",
+    "texte": "Alzati sempre alla stessa ora, anche nel weekend. L'energia resta stabile tutta la settimana."
+   },
+   "pl": {
+    "titre": "5. Ten sam budzik codziennie",
+    "texte": "Wstawaj o tej samej porze, także w weekend. Energia trzyma się równo cały tydzień."
+   },
+   "tr": {
+    "titre": "5. Her gün aynı alarm",
+    "texte": "Hafta sonu da aynı saatte kalk. Enerjin bütün hafta dengede kalır."
+   },
+   "hu": {
+    "titre": "5. Ugyanaz az ébresztő",
+    "texte": "Kelj ugyanakkor minden nap, hétvégén is. Az energiád egész héten egyenletes marad."
+   },
+   "el": {
+    "titre": "5. Ίδιο ξυπνητήρι, κάθε μέρα",
+    "texte": "Ξύπνα την ίδια ώρα, και τα Σαββατοκύριακα. Η ενέργειά σου μένει σταθερή όλη τη βδομάδα."
+   },
+   "ro": {
+    "titre": "5. Aceeași alarmă, zilnic",
+    "texte": "Trezește-te la aceeași oră, și în weekend. Energia rămâne stabilă toată săptămâna."
+   },
+   "sr": {
+    "titre": "5. Isti alarm, svaki dan",
+    "texte": "Ustaj u isto vreme, i vikendom. Energija ti ostaje stabilna cele nedelje."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-4.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

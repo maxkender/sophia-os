@@ -8,10 +8,28 @@
   "accroche": "6 RULES FOR MEN."
  },
  "titre": {
-  "en": "how to become a man people respect"
+  "en": "how to become a man people respect",
+  "de": "wie du ein mann wirst, den leute respektieren",
+  "es-419": "cómo ser un hombre que la gente respeta",
+  "it": "come diventare un uomo che la gente rispetta",
+  "pl": "jak stać się facetem, którego ludzie szanują",
+  "tr": "insanların saygı duyduğu bir adam olmanın yolları",
+  "hu": "hogyan legyél olyan férfi, akit tisztelnek",
+  "el": "πώς να γίνεις άντρας που σέβονται",
+  "ro": "cum să devii un bărbat pe care oamenii îl respectă",
+  "sr": "kako da postaneš muškarac koga ljudi poštuju"
  },
  "legendes": {
-  "en": "respect is earned quietly #selfimprovement #discipline #tipsformen #running #mindset"
+  "en": "respect is earned quietly #selfimprovement #discipline #tipsformen #running #mindset",
+  "de": "respekt verdient man leise #selfimprovement #discipline #tipsformen #running #mindset",
+  "es-419": "el respeto se gana en silencio #selfimprovement #discipline #tipsformen #running #mindset",
+  "it": "il rispetto si guadagna in silenzio #selfimprovement #discipline #tipsformen #running #mindset",
+  "pl": "szacunek zdobywa się po cichu #selfimprovement #discipline #tipsformen #running #mindset",
+  "tr": "saygı sessizce kazanılır #selfimprovement #discipline #tipsformen #running #mindset",
+  "hu": "a tiszteletet csendben érdemlik ki #selfimprovement #discipline #tipsformen #running #mindset",
+  "el": "ο σεβασμός κερδίζεται ήσυχα #selfimprovement #discipline #tipsformen #running #mindset",
+  "ro": "respectul se câștigă în liniște #selfimprovement #discipline #tipsformen #running #mindset",
+  "sr": "poštovanje se zarađuje tiho #selfimprovement #discipline #tipsformen #running #mindset"
  },
  "musique": {
   "titre": "Keep On Winning",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-13.png",
    "en": {
     "titre": "HOW TO BECOME\nA MAN PEOPLE\nRESPECT."
+   },
+   "de": {
+    "titre": "WIE DU EIN MANN\nWIRST, DEN LEUTE\nRESPEKTIEREN."
+   },
+   "es-419": {
+    "titre": "CÓMO SER\nUN HOMBRE QUE LA\nGENTE RESPETA."
+   },
+   "it": {
+    "titre": "COME DIVENTARE\nUN UOMO CHE LA\nGENTE RISPETTA."
+   },
+   "pl": {
+    "titre": "JAK STAĆ SIĘ\nFACETEM, KTÓREGO\nLUDZIE SZANUJĄ."
+   },
+   "tr": {
+    "titre": "İNSANLARIN SAYGI\nDUYDUĞU BİR ADAM\nOLMANIN YOLLARI."
+   },
+   "hu": {
+    "titre": "HOGYAN LEGYÉL\nOLYAN FÉRFI,\nAKIT TISZTELNEK."
+   },
+   "el": {
+    "titre": "ΠΩΣ ΝΑ ΓΙΝΕΙΣ\nΑΝΤΡΑΣ ΠΟΥ\nΣΕΒΟΝΤΑΙ."
+   },
+   "ro": {
+    "titre": "CUM SĂ DEVII\nUN BĂRBAT PE CARE\nOAMENII ÎL RESPECTĂ."
+   },
+   "sr": {
+    "titre": "KAKO DA POSTANEŠ\nMUŠKARAC KOGA\nLJUDI POŠTUJU."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Stay calm",
     "texte": "Think before you react. The calmest man in the room is the one people listen to."
+   },
+   "de": {
+    "titre": "1. Bleib ruhig",
+    "texte": "Denk nach, bevor du reagierst. Dem ruhigsten Mann im Raum hören die Leute zu."
+   },
+   "es-419": {
+    "titre": "1. Mantén la calma",
+    "texte": "Piensa antes de reaccionar. Al hombre más tranquilo del cuarto es al que escuchan."
+   },
+   "it": {
+    "titre": "1. Resta calmo",
+    "texte": "Pensa prima di reagire. L'uomo più calmo nella stanza è quello che la gente ascolta."
+   },
+   "pl": {
+    "titre": "1. Zachowaj spokój",
+    "texte": "Pomyśl, zanim zareagujesz. Najspokojniejszego faceta w pokoju ludzie słuchają."
+   },
+   "tr": {
+    "titre": "1. Sakin kal",
+    "texte": "Tepki vermeden önce düşün. Odadaki en sakin adam, insanların dinlediği adamdır."
+   },
+   "hu": {
+    "titre": "1. Maradj nyugodt",
+    "texte": "Gondolkodj, mielőtt reagálsz. A szoba legnyugodtabb férfiját hallgatják meg."
+   },
+   "el": {
+    "titre": "1. Μείνε ψύχραιμος",
+    "texte": "Σκέψου πριν αντιδράσεις. Τον πιο ήρεμο άντρα στο δωμάτιο τον ακούνε."
+   },
+   "ro": {
+    "titre": "1. Rămâi calm",
+    "texte": "Gândește înainte să reacționezi. Pe cel mai calm bărbat din cameră îl ascultă oamenii."
+   },
+   "sr": {
+    "titre": "1. Ostani miran",
+    "texte": "Razmisli pre nego što reaguješ. Najmirnijeg muškarca u sobi ljudi slušaju."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Keep your word",
     "texte": "Do what you said you'd do, even the small things. That's how trust is built."
+   },
+   "de": {
+    "titre": "2. Halte dein Wort",
+    "texte": "Tu, was du gesagt hast, auch bei kleinen Dingen. So entsteht Vertrauen."
+   },
+   "es-419": {
+    "titre": "2. Cumple tu palabra",
+    "texte": "Haz lo que dijiste, hasta en lo pequeño. Así se construye la confianza."
+   },
+   "it": {
+    "titre": "2. Mantieni la parola",
+    "texte": "Fai quello che hai detto, anche nelle piccole cose. È così che nasce la fiducia."
+   },
+   "pl": {
+    "titre": "2. Dotrzymuj słowa",
+    "texte": "Rób to, co powiedziałeś, nawet w drobiazgach. Tak buduje się zaufanie."
+   },
+   "tr": {
+    "titre": "2. Sözünü tut",
+    "texte": "Söylediğini yap, küçük şeylerde bile. Güven böyle kurulur."
+   },
+   "hu": {
+    "titre": "2. Tartsd a szavad",
+    "texte": "Csináld meg, amit mondtál, apróságokban is. Így épül a bizalom."
+   },
+   "el": {
+    "titre": "2. Κράτα τον λόγο σου",
+    "texte": "Κάνε αυτό που είπες, ακόμα και στα μικρά. Έτσι χτίζεται η εμπιστοσύνη."
+   },
+   "ro": {
+    "titre": "2. Ține-ți cuvântul",
+    "texte": "Fă ce ai spus, chiar și în lucrurile mici. Așa se construiește încrederea."
+   },
+   "sr": {
+    "titre": "2. Drži reč",
+    "texte": "Uradi ono što si rekao, i u malim stvarima. Tako se gradi poverenje."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Run every week",
     "texte": "Hard things done every week build quiet confidence. A running coach app like Atala has your week of runs ready."
+   },
+   "de": {
+    "titre": "3. Lauf jede Woche",
+    "texte": "Harte Dinge jede Woche bauen stilles Selbstvertrauen auf. Eine Lauf-App mit Coach wie Atala hat deine Laufwoche schon fertig."
+   },
+   "es-419": {
+    "titre": "3. Corre cada semana",
+    "texte": "Hacer cosas difíciles cada semana da una seguridad tranquila. Una app de running con entrenador como Atala tiene tu semana de carreras lista."
+   },
+   "it": {
+    "titre": "3. Corri ogni settimana",
+    "texte": "Le cose difficili fatte ogni settimana danno una sicurezza tranquilla. Un'app con coach per la corsa come Atala ha già pronta la tua settimana di corse."
+   },
+   "pl": {
+    "titre": "3. Biegaj co tydzień",
+    "texte": "Trudne rzeczy robione co tydzień dają cichą pewność siebie. Aplikacja z trenerem biegania, taka jak Atala, ma gotowy twój tydzień biegania."
+   },
+   "tr": {
+    "titre": "3. Her hafta koş",
+    "texte": "Her hafta yapılan zor şeyler sessiz bir özgüven kurar. Atala gibi bir koşu koçu uygulaması koşu haftanı hazır tutar."
+   },
+   "hu": {
+    "titre": "3. Fuss minden héten",
+    "texte": "A minden héten megcsinált nehéz dolgok csendes magabiztosságot adnak. Egy futóedzős app, mint az Atala, kész futóheteket ad."
+   },
+   "el": {
+    "titre": "3. Τρέχα κάθε βδομάδα",
+    "texte": "Τα δύσκολα που κάνεις κάθε βδομάδα χτίζουν ήσυχη αυτοπεποίθηση. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala έχει έτοιμη τη βδομάδα σου."
+   },
+   "ro": {
+    "titre": "3. Aleargă săptămânal",
+    "texte": "Lucrurile grele făcute săptămânal îți dau o încredere liniștită. O aplicație cu antrenor de alergare, ca Atala, îți are săptămâna de alergări gata."
+   },
+   "sr": {
+    "titre": "3. Trči svake nedelje",
+    "texte": "Teške stvari svake nedelje grade tiho samopouzdanje. Aplikacija sa trenerom za trčanje, kao što je Atala, ima tvoju nedelju trčanja spremnu."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Take care of yourself",
     "texte": "Shower, deodorant, clean clothes. Looking after yourself is the first form of respect."
+   },
+   "de": {
+    "titre": "4. Kümmer dich um dich",
+    "texte": "Dusche, Deo, saubere Kleidung. Auf dich zu achten ist die erste Form von Respekt."
+   },
+   "es-419": {
+    "titre": "4. Cuídate",
+    "texte": "Baño, desodorante, ropa limpia. Cuidarte es la primera forma de respeto."
+   },
+   "it": {
+    "titre": "4. Prenditi cura di te",
+    "texte": "Doccia, deodorante, vestiti puliti. Curarti è la prima forma di rispetto."
+   },
+   "pl": {
+    "titre": "4. Dbaj o siebie",
+    "texte": "Prysznic, dezodorant, czyste ubrania. Dbanie o siebie to pierwsza forma szacunku."
+   },
+   "tr": {
+    "titre": "4. Kendine bak",
+    "texte": "Duş, deodorant, temiz kıyafet. Kendine bakmak saygının ilk şeklidir."
+   },
+   "hu": {
+    "titre": "4. Törődj magaddal",
+    "texte": "Zuhany, dezodor, tiszta ruha. Magadra figyelni a tisztelet első formája."
+   },
+   "el": {
+    "titre": "4. Φρόντισε τον εαυτό σου",
+    "texte": "Ντους, αποσμητικό, καθαρά ρούχα. Η φροντίδα του εαυτού σου είναι η πρώτη μορφή σεβασμού."
+   },
+   "ro": {
+    "titre": "4. Ai grijă de tine",
+    "texte": "Duș, deodorant, haine curate. Grija de tine e prima formă de respect."
+   },
+   "sr": {
+    "titre": "4. Brini o sebi",
+    "texte": "Tuš, dezodorans, čista odeća. Briga o sebi je prvi oblik poštovanja."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Wind down before bed",
     "texte": "Dim the lights an hour before sleep. A rested man makes better calls."
+   },
+   "de": {
+    "titre": "5. Fahr abends runter",
+    "texte": "Dimm das Licht eine Stunde vor dem Schlafen. Ein ausgeruhter Mann entscheidet besser."
+   },
+   "es-419": {
+    "titre": "5. Baja el ritmo en la noche",
+    "texte": "Baja las luces una hora antes de dormir. Un hombre descansado decide mejor."
+   },
+   "it": {
+    "titre": "5. Rallenta la sera",
+    "texte": "Abbassa le luci un'ora prima di dormire. Un uomo riposato decide meglio."
+   },
+   "pl": {
+    "titre": "5. Zwolnij wieczorem",
+    "texte": "Przygaś światło godzinę przed snem. Wyspany facet lepiej decyduje."
+   },
+   "tr": {
+    "titre": "5. Akşam yavaşla",
+    "texte": "Yatmadan bir saat önce ışıkları kıs. Dinlenmiş bir adam daha iyi karar verir."
+   },
+   "hu": {
+    "titre": "5. Lassíts este",
+    "texte": "Lefekvés előtt egy órával vedd lejjebb a fényt. A kipihent férfi jobban dönt."
+   },
+   "el": {
+    "titre": "5. Χαλάρωσε το βράδυ",
+    "texte": "Χαμήλωσε τα φώτα μία ώρα πριν τον ύπνο. Ένας ξεκούραστος άντρας αποφασίζει καλύτερα."
+   },
+   "ro": {
+    "titre": "5. Încetinește seara",
+    "texte": "Dă lumina mai încet cu o oră înainte de somn. Un bărbat odihnit decide mai bine."
+   },
+   "sr": {
+    "titre": "5. Uspori uveče",
+    "texte": "Priguši svetla sat pre spavanja. Odmoran muškarac bolje odlučuje."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-6.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

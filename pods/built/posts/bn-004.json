@@ -8,10 +8,28 @@
   "accroche": "6 RULES FOR MEN."
  },
  "titre": {
-  "en": "5 rules every man should live by"
+  "en": "5 rules every man should live by",
+  "de": "5 regeln, nach denen jeder mann leben sollte",
+  "es-419": "5 reglas para vivir como hombre",
+  "it": "5 regole che ogni uomo dovrebbe seguire",
+  "pl": "5 zasad, według których każdy facet powinien żyć",
+  "tr": "her erkeğin uyması gereken 5 kural",
+  "hu": "5 szabály, ami szerint minden férfinak élnie kell",
+  "el": "5 κανόνες που πρέπει να ζει κάθε άντρας",
+  "ro": "5 reguli pentru orice bărbat",
+  "sr": "5 pravila za svakog muškarca"
  },
  "legendes": {
-  "en": "simple rules, hard to keep #selfimprovement #discipline #tipsformen #running #mindset"
+  "en": "simple rules, hard to keep #selfimprovement #discipline #tipsformen #running #mindset",
+  "de": "einfache regeln, schwer durchzuhalten #selfimprovement #discipline #tipsformen #running #mindset",
+  "es-419": "reglas simples, difíciles de cumplir #selfimprovement #discipline #tipsformen #running #mindset",
+  "it": "regole semplici, difficili da rispettare #selfimprovement #discipline #tipsformen #running #mindset",
+  "pl": "proste zasady, trudne do utrzymania #selfimprovement #discipline #tipsformen #running #mindset",
+  "tr": "basit kurallar, tutması zor #selfimprovement #discipline #tipsformen #running #mindset",
+  "hu": "egyszerű szabályok, nehéz betartani #selfimprovement #discipline #tipsformen #running #mindset",
+  "el": "απλοί κανόνες, δύσκολο να τους κρατήσεις #selfimprovement #discipline #tipsformen #running #mindset",
+  "ro": "reguli simple, greu de respectat #selfimprovement #discipline #tipsformen #running #mindset",
+  "sr": "prosta pravila, teško ih je držati #selfimprovement #discipline #tipsformen #running #mindset"
  },
  "musique": {
   "titre": "Keep On Winning",
@@ -22,17 +40,304 @@
   "images/detoures/coureur-colline.png": "8378e69b-3ec0-4691-af1c-29cc81e6b64e"
  },
  "slides": [
-  { "type": "couverture", "image": "images/detoures/couverture-4.png", "en": { "titre": "5 RULES EVERY\nMAN SHOULD\nLIVE BY." } },
-  { "type": "conseil", "image": "images/detoures/agenda.png", "mode": "objet", "taille": 440,
-    "en": { "titre": "1. Plan tomorrow tonight", "texte": "Write down your 3 priorities before bed. You wake up with a plan instead of a phone in your hand." } },
-  { "type": "conseil", "image": "images/detoures/telephone.png", "mode": "objet", "taille": 440,
-    "en": { "titre": "2. Skip the morning scroll", "texte": "The first hour sets your mood. Leave your phone alone until you've moved and eaten." } },
-  { "type": "conseil", "atala": true, "image": "images/detoures/coureur-colline.png", "mode": "objet", "taille": 560,
-    "en": { "titre": "3. Run every week", "texte": "Discipline is running on busy weeks too. A running coach app like Atala adjusts your plan when your week gets packed." } },
-  { "type": "conseil", "image": "images/detoures/haltere.png", "mode": "objet", "taille": 440,
-    "en": { "titre": "4. Lift something heavy", "texte": "Train strength 2 to 3 times a week. A strong body changes how you carry yourself." } },
-  { "type": "conseil", "image": "images/detoures/montre.png", "mode": "objet", "taille": 420,
-    "en": { "titre": "5. Be early", "texte": "Being late tells people their time matters less. Show up 5 minutes early, every time." } },
-  { "type": "fin", "image": "images/detoures/fin-4.png", "en": { "texte": "Follow for more" } }
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-4.png",
+   "en": {
+    "titre": "5 RULES EVERY\nMAN SHOULD\nLIVE BY."
+   },
+   "de": {
+    "titre": "5 REGELN,\nNACH DENEN JEDER\nMANN LEBEN SOLLTE."
+   },
+   "es-419": {
+    "titre": "5 REGLAS\nPARA VIVIR\nCOMO HOMBRE."
+   },
+   "it": {
+    "titre": "5 REGOLE\nCHE OGNI UOMO\nDOVREBBE SEGUIRE."
+   },
+   "pl": {
+    "titre": "5 ZASAD,\nWEDŁUG KTÓRYCH\nKAŻDY FACET POWINIEN ŻYĆ."
+   },
+   "tr": {
+    "titre": "HER ERKEĞİN\nUYMASI GEREKEN\n5 KURAL."
+   },
+   "hu": {
+    "titre": "5 SZABÁLY,\nAMI SZERINT MINDEN\nFÉRFINAK ÉLNIE KELL."
+   },
+   "el": {
+    "titre": "5 ΚΑΝΟΝΕΣ\nΠΟΥ ΠΡΕΠΕΙ\nΝΑ ΖΕΙ ΚΑΘΕ ΑΝΤΡΑΣ."
+   },
+   "ro": {
+    "titre": "5 REGULI\nPENTRU ORICE\nBĂRBAT."
+   },
+   "sr": {
+    "titre": "5 PRAVILA\nZA SVAKOG\nMUŠKARCA."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/agenda.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "1. Plan tomorrow tonight",
+    "texte": "Write down your 3 priorities before bed. You wake up with a plan instead of a phone in your hand."
+   },
+   "de": {
+    "titre": "1. Plan morgen schon heute",
+    "texte": "Schreib vor dem Schlafen deine 3 Prioritäten auf. Du wachst mit einem Plan auf, nicht mit dem Handy."
+   },
+   "es-419": {
+    "titre": "1. Planea mañana esta noche",
+    "texte": "Anota tus 3 prioridades antes de dormir. Despiertas con un plan y no con el celular en la mano."
+   },
+   "it": {
+    "titre": "1. Pianifica domani stasera",
+    "texte": "Scrivi le tue 3 priorità prima di dormire. Ti svegli con un piano, non con il telefono in mano."
+   },
+   "pl": {
+    "titre": "1. Zaplanuj jutro wieczorem",
+    "texte": "Zapisz 3 priorytety przed snem. Budzisz się z planem, a nie z telefonem w ręce."
+   },
+   "tr": {
+    "titre": "1. Yarını bu gece planla",
+    "texte": "Yatmadan önce 3 önceliğini yaz. Elinde telefonla değil, bir planla uyanırsın."
+   },
+   "hu": {
+    "titre": "1. Tervezd meg a holnapot",
+    "texte": "Lefekvés előtt írd le a 3 legfontosabb dolgot. Tervvel ébredsz, nem a telefonoddal."
+   },
+   "el": {
+    "titre": "1. Σχεδίασε το αύριο απόψε",
+    "texte": "Γράψε τις 3 προτεραιότητές σου πριν κοιμηθείς. Ξυπνάς με πλάνο, όχι με το κινητό στο χέρι."
+   },
+   "ro": {
+    "titre": "1. Planifică mâine de azi",
+    "texte": "Scrie-ți cele 3 priorități înainte de culcare. Te trezești cu un plan, nu cu telefonul în mână."
+   },
+   "sr": {
+    "titre": "1. Isplaniraj sutra večeras",
+    "texte": "Zapiši 3 prioriteta pre spavanja. Budiš se sa planom, a ne sa telefonom u ruci."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/telephone.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "2. Skip the morning scroll",
+    "texte": "The first hour sets your mood. Leave your phone alone until you've moved and eaten."
+   },
+   "de": {
+    "titre": "2. Kein Scrollen am Morgen",
+    "texte": "Die erste Stunde prägt deine Laune. Lass das Handy liegen, bis du dich bewegt und gegessen hast."
+   },
+   "es-419": {
+    "titre": "2. Sin scroll en la mañana",
+    "texte": "La primera hora marca tu ánimo. Deja el celular hasta que te hayas movido y comido."
+   },
+   "it": {
+    "titre": "2. Niente scroll al mattino",
+    "texte": "La prima ora decide il tuo umore. Lascia stare il telefono finché non ti sei mosso e hai mangiato."
+   },
+   "pl": {
+    "titre": "2. Bez scrollowania rano",
+    "texte": "Pierwsza godzina ustawia nastrój. Odłóż telefon, dopóki się nie poruszasz i nie zjesz."
+   },
+   "tr": {
+    "titre": "2. Sabah scroll yok",
+    "texte": "İlk saat gününün havasını belirler. Hareket edip yemek yiyene kadar telefona dokunma."
+   },
+   "hu": {
+    "titre": "2. Reggel ne görgess",
+    "texte": "Az első óra beállítja a hangulatod. Hagyd a telefont, amíg nem mozogtál és nem ettél."
+   },
+   "el": {
+    "titre": "2. Όχι scroll το πρωί",
+    "texte": "Η πρώτη ώρα ορίζει τη διάθεσή σου. Άσε το κινητό μέχρι να κινηθείς και να φας."
+   },
+   "ro": {
+    "titre": "2. Fără scroll dimineața",
+    "texte": "Prima oră îți setează starea. Lasă telefonul până te-ai mișcat și ai mâncat."
+   },
+   "sr": {
+    "titre": "2. Bez skrolovanja ujutru",
+    "texte": "Prvi sat ti određuje raspoloženje. Ostavi telefon dok se ne pokreneš i ne pojedeš nešto."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-colline.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run every week",
+    "texte": "Discipline is running on busy weeks too. A running coach app like Atala adjusts your plan when your week gets packed."
+   },
+   "de": {
+    "titre": "3. Lauf jede Woche",
+    "texte": "Disziplin heißt, auch in vollen Wochen zu laufen. Eine Lauf-App mit Coach wie Atala passt deinen Plan an, wenn die Woche eng wird."
+   },
+   "es-419": {
+    "titre": "3. Corre cada semana",
+    "texte": "Disciplina es correr también en semanas llenas. Una app de running con entrenador como Atala ajusta tu plan cuando tu semana se complica."
+   },
+   "it": {
+    "titre": "3. Corri ogni settimana",
+    "texte": "Disciplina è correre anche nelle settimane piene. Un'app con coach per la corsa come Atala adatta il piano quando la settimana si riempie."
+   },
+   "pl": {
+    "titre": "3. Biegaj co tydzień",
+    "texte": "Dyscyplina to bieganie także w zawalone tygodnie. Aplikacja z trenerem biegania, taka jak Atala, dopasuje plan, gdy tydzień się zapełni."
+   },
+   "tr": {
+    "titre": "3. Her hafta koş",
+    "texte": "Disiplin, yoğun haftalarda da koşmaktır. Atala gibi bir koşu koçu uygulaması haftan dolunca planını ayarlar."
+   },
+   "hu": {
+    "titre": "3. Fuss minden héten",
+    "texte": "A fegyelem az, hogy a zsúfolt héten is futsz. Egy futóedzős app, mint az Atala, igazít a terveden, ha betelik a heted."
+   },
+   "el": {
+    "titre": "3. Τρέχα κάθε βδομάδα",
+    "texte": "Πειθαρχία είναι να τρέχεις και τις φορτωμένες βδομάδες. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala προσαρμόζει το πλάνο όταν η βδομάδα γεμίζει."
+   },
+   "ro": {
+    "titre": "3. Aleargă în fiecare săptămână",
+    "texte": "Disciplina înseamnă să alergi și în săptămânile pline. O aplicație cu antrenor de alergare, ca Atala, îți ajustează planul când săptămâna se aglomerează."
+   },
+   "sr": {
+    "titre": "3. Trči svake nedelje",
+    "texte": "Disciplina je trčati i kad je nedelja puna. Aplikacija sa trenerom za trčanje, kao što je Atala, prilagodi ti plan kad se nedelja zatrpa."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/haltere.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "4. Lift something heavy",
+    "texte": "Train strength 2 to 3 times a week. A strong body changes how you carry yourself."
+   },
+   "de": {
+    "titre": "4. Heb was Schweres",
+    "texte": "Trainiere Kraft 2- bis 3-mal pro Woche. Ein starker Körper verändert, wie du auftrittst."
+   },
+   "es-419": {
+    "titre": "4. Levanta algo pesado",
+    "texte": "Entrena fuerza 2 o 3 veces por semana. Un cuerpo fuerte cambia cómo te presentas."
+   },
+   "it": {
+    "titre": "4. Solleva qualcosa di pesante",
+    "texte": "Allena la forza 2-3 volte a settimana. Un corpo forte cambia come ti porti."
+   },
+   "pl": {
+    "titre": "4. Podnoś coś ciężkiego",
+    "texte": "Trenuj siłę 2-3 razy w tygodniu. Silne ciało zmienia to, jak się nosisz."
+   },
+   "tr": {
+    "titre": "4. Ağır bir şey kaldır",
+    "texte": "Haftada 2-3 kez kuvvet çalış. Güçlü bir vücut duruşunu değiştirir."
+   },
+   "hu": {
+    "titre": "4. Emelj valami nehezet",
+    "texte": "Erősíts heti 2-3 alkalommal. Egy erős test megváltoztatja, ahogy tartod magad."
+   },
+   "el": {
+    "titre": "4. Σήκωσε κάτι βαρύ",
+    "texte": "Κάνε δύναμη 2 με 3 φορές τη βδομάδα. Ένα δυνατό σώμα αλλάζει το πώς στέκεσαι."
+   },
+   "ro": {
+    "titre": "4. Ridică ceva greu",
+    "texte": "Fă forță de 2-3 ori pe săptămână. Un corp puternic schimbă felul în care te porți."
+   },
+   "sr": {
+    "titre": "4. Podiži nešto teško",
+    "texte": "Treniraj snagu 2 do 3 puta nedeljno. Snažno telo menja kako se držiš."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/montre.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "5. Be early",
+    "texte": "Being late tells people their time matters less. Show up 5 minutes early, every time."
+   },
+   "de": {
+    "titre": "5. Sei früh da",
+    "texte": "Zu spät kommen sagt: deine Zeit ist mir weniger wert. Sei 5 Minuten früher da, jedes Mal."
+   },
+   "es-419": {
+    "titre": "5. Llega temprano",
+    "texte": "Llegar tarde dice que el tiempo de los demás vale menos. Llega 5 minutos antes, siempre."
+   },
+   "it": {
+    "titre": "5. Arriva prima",
+    "texte": "Arrivare tardi dice che il tempo degli altri vale meno. Arriva 5 minuti prima, sempre."
+   },
+   "pl": {
+    "titre": "5. Bądź wcześniej",
+    "texte": "Spóźnienie mówi, że czas innych jest mniej ważny. Bądź 5 minut wcześniej, za każdym razem."
+   },
+   "tr": {
+    "titre": "5. Erken gel",
+    "texte": "Geç kalmak, başkalarının zamanını önemsemediğini söyler. Her seferinde 5 dakika erken gel."
+   },
+   "hu": {
+    "titre": "5. Érj oda korábban",
+    "texte": "A késés azt üzeni, hogy mások ideje kevesebbet ér. Légy ott 5 perccel előbb, mindig."
+   },
+   "el": {
+    "titre": "5. Να είσαι νωρίς",
+    "texte": "Η καθυστέρηση λέει ότι ο χρόνος των άλλων μετράει λιγότερο. Να είσαι 5 λεπτά νωρίτερα, πάντα."
+   },
+   "ro": {
+    "titre": "5. Ajungi mai devreme",
+    "texte": "Întârzierea spune că timpul celorlalți contează mai puțin. Ajungi cu 5 minute mai devreme, mereu."
+   },
+   "sr": {
+    "titre": "5. Dođi ranije",
+    "texte": "Kašnjenje govori da je tuđe vreme manje važno. Dođi 5 minuta ranije, svaki put."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-4.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
  ]
 }

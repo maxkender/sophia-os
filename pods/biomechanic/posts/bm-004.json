@@ -8,10 +8,16 @@
   "accroche": "Job Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "job tierlist for optimal health"
+  "en": "job tierlist for optimal health",
+  "it": "tierlist dei lavori per una salute ottimale",
+  "hu": "munka tierlist az optimális egészségért",
+  "sr": "tierlista poslova za optimalno zdravlje"
  },
  "legendes": {
-  "en": "where does your job rank? 💼 #health #job #running #biohacking #fitness"
+  "en": "where does your job rank? 💼 #health #job #running #biohacking #fitness",
+  "it": "il tuo lavoro dove si piazza? 💼 #salute #lavoro #corsa #biohacking #fitness",
+  "hu": "hol áll a munkád? 💼 #egészség #munka #futás #biohacking #fitness",
+  "sr": "gde je tvoj posao? 💼 #zdravlje #posao #trčanje #biohacking #fitnes"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -42,6 +48,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "~Lavori~ Tierlist",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "~Munka~ Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "~Poslovi~ Tierlista",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -56,6 +83,30 @@
     "paragraphes": [
      "Working through the night goes against your internal clock. Your body is told to sleep while you're working, and to wake up while you're trying to rest.",
      "Years of it are linked to poorer sleep and worse health. Few jobs fight your biology this hard."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Turni di Notte",
+    "paragraphes": [
+     "Lavorare di notte va contro il tuo orologio interno. Il corpo vuole dormire mentre lavori e svegliarsi mentre provi a riposare.",
+     "Anni così sono legati a un sonno peggiore e a una salute peggiore. Pochi lavori combattono così la tua biologia."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Éjszakai Műszak",
+    "paragraphes": [
+     "Az éjszakai munka a belső órád ellen megy. A tested aludna, amíg dolgozol, és ébredne, amíg pihenni próbálsz.",
+     "Az évekig tartó éjszakázás rosszabb alvással és egészséggel jár. Kevés munka harcol így a biológiád ellen."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Noćna Smena",
+    "paragraphes": [
+     "Rad noću ide protiv tvog unutrašnjeg sata. Telo bi da spava dok radiš i da se budi dok pokušavaš da se odmoriš.",
+     "Godine toga povezane su sa lošijim snom i lošijim zdravljem. Malo poslova se ovako bori protiv tvoje biologije."
     ]
    }
   },
@@ -72,6 +123,30 @@
      "Hours in the same seat, eyes on the road, with almost no movement and little daylight on the skin.",
      "Long sitting with no breaks is one of the habits most linked to poor health. Here, it's the whole job."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Camionista",
+    "paragraphes": [
+     "Ore sullo stesso sedile, occhi sulla strada, quasi senza muoverti e con poca luce del giorno.",
+     "Stare seduti a lungo senza pause è una delle abitudini più legate alla cattiva salute. Qui è tutto il lavoro."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Kamionsofőr",
+    "paragraphes": [
+     "Órák ugyanabban az ülésben, szem az úton, szinte mozgás és nappali fény nélkül.",
+     "A szünet nélküli hosszú ülés a rossz egészséggel leginkább összefüggő szokások egyike. Itt ez maga a munka."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Vozač Kamiona",
+    "paragraphes": [
+     "Sati na istom sedištu, oči na putu, gotovo bez kretanja i sa malo dnevnog svetla.",
+     "Dugo sedenje bez pauza je jedna od navika najviše povezanih sa lošim zdravljem. Ovde je to ceo posao."
+    ]
    }
   },
   {
@@ -86,6 +161,30 @@
     "paragraphes": [
      "Most of the day spent sitting, often with lunch at the desk and barely a few hundred steps.",
      "It's not the desk that hurts you, it's never leaving it. Short walking breaks change a lot."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Lavoro d'Ufficio",
+    "paragraphes": [
+     "Quasi tutta la giornata seduto, spesso con il pranzo alla scrivania e poche centinaia di passi.",
+     "Non è la scrivania a farti male, è non alzarti mai. Brevi pause a piedi cambiano molto."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Irodai Munka",
+    "paragraphes": [
+     "A nap nagy része ülve, gyakran az asztalnál ebédelve, alig néhány száz lépéssel.",
+     "Nem az asztal árt, hanem hogy sosem állsz fel tőle. A rövid sétaszünetek sokat számítanak."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Kancelarijski Posao",
+    "paragraphes": [
+     "Veći deo dana sediš, često ručaš za stolom i napraviš tek nekoliko stotina koraka.",
+     "Ne škodi ti sto, nego to što od njega nikad ne ustaješ. Kratke pauze za šetnju menjaju mnogo."
     ]
    }
   },
@@ -102,6 +201,30 @@
      "No commute sounds great, but it also means no walk to work and days where you barely leave one room.",
      "It only stays in D because you can fix it: a walk before you start, outside, every day."
     ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Lavorare dal Letto",
+    "paragraphes": [
+     "Niente tragitto sembra bello, ma vuol dire niente camminata e giornate in cui esci appena da una stanza.",
+     "Resta in D solo perché si può sistemare: una camminata fuori prima di iniziare, ogni giorno."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Munka az Ágyból",
+    "paragraphes": [
+     "Az ingázás hiánya jól hangzik, de azt is jelenti, hogy nincs séta, és alig hagyod el a szobát.",
+     "Csak azért D, mert javítható: egy séta kint, mielőtt nekiállsz, minden nap."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Rad iz Kreveta",
+    "paragraphes": [
+     "Bez putovanja na posao zvuči super, ali to znači i bez šetnje i dane kad jedva izađeš iz sobe.",
+     "U D je samo zato što se može popraviti: šetnja napolju pre početka, svaki dan."
+    ]
    }
   },
   {
@@ -116,6 +239,30 @@
     "paragraphes": [
      "On your feet all day and always moving, so it's far from a sitting job.",
      "Late nights, heat and endless shifts pull it down. Movement alone doesn't make a job healthy."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Chef",
+    "paragraphes": [
+     "In piedi tutto il giorno e sempre in movimento, quindi lontano da un lavoro seduto.",
+     "Notti tardi, caldo e turni infiniti lo tirano giù. Il movimento da solo non rende sano un lavoro."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Szakács",
+    "paragraphes": [
+     "Egész nap talpon és mozgásban, messze az ülőmunkától.",
+     "A késő esték, a hőség és a végtelen műszakok lehúzzák. A mozgás egymagában nem tesz egészségessé egy munkát."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Kuvar",
+    "paragraphes": [
+     "Na nogama ceo dan i stalno u pokretu, daleko od posla sedenja.",
+     "Kasne noći, vrućina i beskrajne smene ga vuku dole. Samo kretanje ne čini posao zdravim."
     ]
    }
   },
@@ -132,6 +279,30 @@
      "Standing, walking between desks, never really sitting still. Your body is far more active than in an office.",
      "It stays in C because the stress and the marking often follow you home at night."
     ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Insegnante",
+    "paragraphes": [
+     "In piedi, tra i banchi, mai davvero fermo. Il corpo è molto più attivo che in ufficio.",
+     "Resta in C perché lo stress e le correzioni ti seguono spesso fino a casa la sera."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Tanár",
+    "paragraphes": [
+     "Állva, a padok között járkálva, sosem igazán ülve. A tested sokkal aktívabb, mint egy irodában.",
+     "Azért C, mert a stressz és a dolgozatjavítás gyakran este is hazakísér."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Nastavnik",
+    "paragraphes": [
+     "Stojiš, hodaš između klupa, nikad zapravo ne sediš. Telo je mnogo aktivnije nego u kancelariji.",
+     "U C je jer te stres i ispravljanje radova često prate i kući uveče."
+    ]
    }
   },
   {
@@ -146,6 +317,30 @@
     "paragraphes": [
      "Physical work, outside, in daylight. Digging, carrying and kneeling keep your whole body busy.",
      "It misses A tier because it's hard on the back and knees when it's done for years."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Giardiniere",
+    "paragraphes": [
+     "Lavoro fisico, all'aperto, alla luce del giorno. Scavare, portare pesi e inginocchiarsi tengono attivo tutto il corpo.",
+     "Manca la A perché, dopo anni, è duro per schiena e ginocchia."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Kertész",
+    "paragraphes": [
+     "Fizikai munka kint, nappali fényben. Ásás, cipelés és térdelés dolgoztatja az egész tested.",
+     "Azért nem A, mert évek alatt megviseli a hátat és a térdet."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Baštovan",
+    "paragraphes": [
+     "Fizički rad napolju, na dnevnom svetlu. Kopanje, nošenje i klečanje drže celo telo u pokretu.",
+     "Nije A jer posle godina teško pada leđima i kolenima."
     ]
    }
   },
@@ -162,6 +357,30 @@
      "Hours of walking outside every day, whatever the weather, with plenty of daylight.",
      "It's steady movement, but rarely hard enough to really push your heart and lungs."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Dog Sitter",
+    "paragraphes": [
+     "Ore di camminata all'aperto ogni giorno, con qualsiasi tempo e tanta luce.",
+     "Movimento costante, ma raramente abbastanza intenso da far lavorare davvero cuore e polmoni."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Kutyasétáltató",
+    "paragraphes": [
+     "Órányi séta kint minden nap, bármilyen időben, rengeteg fénnyel.",
+     "Egyenletes mozgás, de ritkán elég erős ahhoz, hogy tényleg megdolgoztassa a szívet és a tüdőt."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Šetač Pasa",
+    "paragraphes": [
+     "Sati hodanja napolju svaki dan, po svakom vremenu, uz mnogo dnevnog svetla.",
+     "Ravnomerno kretanje, ali retko dovoljno jako da zaista pokrene srce i pluća."
+    ]
    }
   },
   {
@@ -176,6 +395,30 @@
     "paragraphes": [
      "Days spent outside, walking on uneven ground, with natural light setting your internal clock.",
      "It only misses S tier because the work isn't always as active as it looks."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Guardia Forestale",
+    "paragraphes": [
+     "Giornate all'aperto su terreno irregolare, con la luce naturale che regola il tuo orologio interno.",
+     "Manca la S solo perché il lavoro non è sempre attivo come sembra."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Erdész",
+    "paragraphes": [
+     "Napok a szabadban egyenetlen talajon, a természetes fény állítja a belső órádat.",
+     "Csak azért nem S, mert a munka nem mindig olyan aktív, mint amilyennek látszik."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Šumar",
+    "paragraphes": [
+     "Dani napolju na neravnom terenu, a prirodno svetlo podešava tvoj unutrašnji sat.",
+     "Nije S samo zato što posao nije uvek toliko aktivan koliko izgleda."
     ]
    }
   },
@@ -193,6 +436,30 @@
      "Hours outside at an easy pace, every week, with your heart and lungs doing the work.",
      "No need for the job. A running coach app like Atala plans your runs on the days you're free."
     ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Allenatore di Corsa",
+    "paragraphes": [
+     "Ore all'aperto a ritmo facile, ogni settimana, con cuore e polmoni che fanno il lavoro.",
+     "Non serve il lavoro. Un'app con coach per la corsa come Atala ti pianifica le uscite nei giorni liberi."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Futóedző",
+    "paragraphes": [
+     "Órák kint könnyű tempóban, minden héten, a szív és a tüdő végzi a munkát.",
+     "Ehhez nem kell a szakma. Egy futóedző app, mint az Atala, a szabad napjaidra tervezi a futásaidat."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Trener Trčanja",
+    "paragraphes": [
+     "Sati napolju laganim tempom, svake nedelje, dok srce i pluća rade svoj posao.",
+     "Ne treba ti taj posao. Aplikacija sa trenerom za trčanje kao što je Atala planira tvoja trčanja u dane kad si slobodan."
+    ]
    }
   },
   {
@@ -207,6 +474,30 @@
     "paragraphes": [
      "Long climbs at a steady effort, fresh air, daylight and your own weight to carry.",
      "The most active job on this list, and the one where staying fit is simply part of the work."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Guida Alpina",
+    "paragraphes": [
+     "Lunghe salite a sforzo costante, aria pulita, luce del giorno e il tuo peso da portare.",
+     "Il lavoro più attivo della lista, e quello in cui restare in forma fa parte del mestiere."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Hegyi Vezető",
+    "paragraphes": [
+     "Hosszú emelkedők egyenletes tempóban, friss levegő, nappali fény és a saját súlyod cipelése.",
+     "A lista legaktívabb munkája, ahol fittnek maradni egyszerűen a munka része."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Planinski Vodič",
+    "paragraphes": [
+     "Dugi usponi ravnomernim tempom, svež vazduh, dnevno svetlo i sopstvena težina na leđima.",
+     "Najaktivniji posao na listi, gde je dobra forma prosto deo posla."
     ]
    }
   }

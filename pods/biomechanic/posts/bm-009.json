@@ -8,10 +8,16 @@
   "accroche": "Morning Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "weekend tierlist for optimal health"
+  "en": "weekend tierlist for optimal health",
+  "it": "tierlist del weekend per una salute ottimale",
+  "hu": "hétvége tierlist az optimális egészségért",
+  "sr": "tierlista vikenda za optimalno zdravlje"
  },
  "legendes": {
-  "en": "how you spend your weekend matters more than you think 🌿 #weekend #health #biohacking #running #wellness"
+  "en": "how you spend your weekend matters more than you think 🌿 #weekend #health #biohacking #running #wellness",
+  "it": "come passi il weekend conta più di quanto pensi 🌿 #weekend #salute #benessere #corsa #biohacking",
+  "hu": "az, hogy hogyan töltöd a hétvégét, többet számít, mint gondolnád 🌿 #hétvége #egészség #biohacking #futás #wellness",
+  "sr": "kako provodiš vikend važnije je nego što misliš 🌿 #vikend #zdravlje #biohacking #trčanje #wellness"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -41,6 +47,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist del Weekend",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Hétvége Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Vikenda",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -55,6 +82,30 @@
     "paragraphes": [
      "A huge lie-in shifts your body clock, so Sunday night you can't sleep and Monday feels brutal.",
      "A little extra sleep is fine. Half the day in bed is not."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Dormire Fino a Mezzogiorno",
+    "paragraphes": [
+     "Una dormita enorme sposta l'orologio interno, così domenica sera non dormi e il lunedì è durissimo.",
+     "Un po' di sonno in più va bene. Mezza giornata a letto no."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Alvás Délig",
+    "paragraphes": [
+     "Egy hatalmas alvás eltolja a belső órát, így vasárnap este nem tudsz aludni, és a hétfő brutális.",
+     "Egy kis plusz alvás rendben van. Fél nap az ágyban nem."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Spavanje do Podne",
+    "paragraphes": [
+     "Ogromno spavanje pomera unutrašnji sat, pa u nedelju uveče ne možeš da zaspiš, a ponedeljak je brutalan.",
+     "Malo više sna je u redu. Pola dana u krevetu nije."
     ]
    }
   },
@@ -71,6 +122,30 @@
      "After a week at a desk, a weekend lying down means your body barely moves for seven days straight.",
      "Rest is good. Total stillness isn't rest."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Due Giorni sul Divano",
+    "paragraphes": [
+     "Dopo una settimana alla scrivania, un weekend sdraiato vuol dire che il corpo si muove appena per sette giorni.",
+     "Riposare è giusto. L'immobilità totale non è riposo."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Két Nap a Kanapén",
+    "paragraphes": [
+     "Egy asztalnál töltött hét után egy fekve töltött hétvége azt jelenti, hogy a tested hét napig alig mozog.",
+     "A pihenés jó. A teljes mozdulatlanság nem pihenés."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Dva Dana na Kauču",
+    "paragraphes": [
+     "Posle nedelje za stolom, vikend ležanja znači da se telo jedva pomera sedam dana zaredom.",
+     "Odmor je dobar. Potpuna nepokretnost nije odmor."
+    ]
    }
   },
   {
@@ -85,6 +160,30 @@
     "paragraphes": [
      "Your stress never switches off, and your brain never gets the break it needs to recover.",
      "Sometimes needed. Every weekend, it burns you out."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Recuperare il Lavoro",
+    "paragraphes": [
+     "Lo stress non si spegne mai e il cervello non ha la pausa di cui ha bisogno per recuperare.",
+     "A volte serve. Ogni weekend, ti brucia."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Munka Bepótlása",
+    "paragraphes": [
+     "A stressz sosem kapcsol ki, és az agyad nem kapja meg a szünetet, ami a regenerációhoz kell.",
+     "Néha kell. Minden hétvégén kiéget."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Nadoknađivanje Posla",
+    "paragraphes": [
+     "Stres se nikad ne isključi, a mozak ne dobije pauzu koja mu treba za oporavak.",
+     "Nekad mora. Svakog vikenda, iscrpljuje te."
     ]
    }
   },
@@ -101,6 +200,30 @@
      "Hours go by without moving, talking to anyone or seeing daylight, and you feel more tired than before.",
      "It feels like rest. Your body doesn't agree."
     ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Scrollare Tutto il Sabato",
+    "paragraphes": [
+     "Le ore passano senza muoverti, parlare con nessuno o vedere la luce, e ti senti più stanco di prima.",
+     "Sembra riposo. Il tuo corpo non è d'accordo."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Görgetés Egész Szombaton",
+    "paragraphes": [
+     "Telnek az órák mozgás, beszélgetés és napfény nélkül, és fáradtabb leszel, mint előtte.",
+     "Pihenésnek tűnik. A tested nem így gondolja."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Skrolovanje Cele Subote",
+    "paragraphes": [
+     "Sati prolaze bez kretanja, razgovora i dnevnog svetla, i osećaš se umornije nego pre.",
+     "Deluje kao odmor. Tvoje telo se ne slaže."
+    ]
    }
   },
   {
@@ -115,6 +238,30 @@
     "paragraphes": [
      "Time with people you like lowers stress and is one of the best habits for a long life.",
      "Great for your mind, but you sit the whole time."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Caffè con gli Amici",
+    "paragraphes": [
+     "Il tempo con le persone che ti piacciono abbassa lo stress ed è una delle migliori abitudini per una vita lunga.",
+     "Ottimo per la mente, ma stai seduto tutto il tempo."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Kávé Barátokkal",
+    "paragraphes": [
+     "A szeretteiddel töltött idő csökkenti a stresszt, és az egyik legjobb szokás a hosszú élethez.",
+     "Jót tesz a léleknek, de végig ülsz."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Kafa sa Prijateljima",
+    "paragraphes": [
+     "Vreme sa ljudima koje voliš smanjuje stres i jedna je od najboljih navika za dug život.",
+     "Odlično za um, ali sediš sve vreme."
     ]
    }
   },
@@ -131,6 +278,30 @@
      "Keeping your muscles strong helps your joints, your bones and your energy all week.",
      "It misses A tier: it keeps you away from daylight."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Una Seduta di Forza",
+    "paragraphes": [
+     "Tenere forti i muscoli aiuta articolazioni, ossa ed energia per tutta la settimana.",
+     "Manca la A: ti tiene lontano dalla luce del giorno."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Egy Erősítő Edzés",
+    "paragraphes": [
+     "Az erős izmok egész héten segítik az ízületeket, a csontokat és az energiádat.",
+     "Azért nem A: távol tart a napfénytől."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Trening Snage",
+    "paragraphes": [
+     "Jaki mišići pomažu zglobovima, kostima i energiji cele nedelje.",
+     "Nije A: drži te dalje od dnevnog svetla."
+    ]
    }
   },
   {
@@ -146,6 +317,30 @@
      "Daylight, fresh air and people you love, all in one afternoon.",
      "Perfect for your mood. Walk there and it moves up."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Un Picnic all'Aperto",
+    "paragraphes": [
+     "Luce, aria fresca e persone a cui vuoi bene, tutto in un pomeriggio.",
+     "Perfetto per l'umore. Arrivaci a piedi e sale."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Piknik a Szabadban",
+    "paragraphes": [
+     "Napfény, friss levegő és a szeretteid, mind egy délután alatt.",
+     "Tökéletes a hangulatnak. Gyalog menj, és feljebb kerül."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Piknik Napolju",
+    "paragraphes": [
+     "Dnevno svetlo, svež vazduh i ljudi koje voliš, sve u jednom popodnevu.",
+     "Savršeno za raspoloženje. Idi peške i penje se."
+    ]
    }
   },
   {
@@ -160,6 +355,30 @@
     "paragraphes": [
      "Hours on your feet outside, with your heart working the whole time without you noticing.",
      "It misses S tier: few people can reach a trail every week."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Una Lunga Escursione",
+    "paragraphes": [
+     "Ore in piedi all'aperto, con il cuore che lavora tutto il tempo senza che te ne accorga.",
+     "Manca la S: pochi arrivano a un sentiero ogni settimana."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Hosszú Túra",
+    "paragraphes": [
+     "Órák talpon a szabadban, a szíved egész idő alatt észrevétlenül dolgozik.",
+     "Azért nem S: kevesen jutnak el hetente egy ösvényre."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Duga Planinarska Tura",
+    "paragraphes": [
+     "Sati na nogama napolju, dok srce radi sve vreme a da ne primetiš.",
+     "Nije S: malo ko stigne do staze svake nedelje."
     ]
    }
   },
@@ -177,7 +396,31 @@
      "Mine is on Saturdays. I follow a running coach app like Atala, which sets how far, week by week."
     ]
    },
-   "format": "carre"
+   "format": "carre",
+   "it": {
+    "tier": "S",
+    "nom": "Un Lungo Lento",
+    "paragraphes": [
+     "Un lungo lento costruisce la resistenza più di ogni altra seduta, e ti svuota la testa.",
+     "Il mio è il sabato. Seguo un'app con coach per la corsa come Atala, che decide quanto lungo, settimana dopo settimana."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Hosszú, Könnyű Futás",
+    "paragraphes": [
+     "Egy lassú hosszú futás minden más edzésnél jobban építi az állóképességet, és kitisztítja a fejed.",
+     "Nálam szombaton van. Egy futóedző appot követek, mint az Atala, ami hétről hétre megadja a távot."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Dugo, Lagano Trčanje",
+    "paragraphes": [
+     "Sporo dugo trčanje gradi izdržljivost više od bilo kog drugog treninga i razbistri glavu.",
+     "Moje je subotom. Pratim aplikaciju sa trenerom za trčanje kao što je Atala, koja iz nedelje u nedelju određuje dužinu."
+    ]
+   }
   },
   {
    "type": "tier",
@@ -191,6 +434,30 @@
     "paragraphes": [
      "Movement, daylight, cold water and people you love. Your body and your mind both win.",
      "The perfect weekend afternoon, if water is close."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Nuotare con gli Amici",
+    "paragraphes": [
+     "Movimento, luce, acqua fredda e persone a cui vuoi bene. Vincono corpo e mente.",
+     "Il pomeriggio di weekend perfetto, se l'acqua è vicina."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Úszás Barátokkal",
+    "paragraphes": [
+     "Mozgás, napfény, hideg víz és a szeretteid. A tested és a lelked is nyer.",
+     "A tökéletes hétvégi délután, ha közel a víz."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Plivanje sa Prijateljima",
+    "paragraphes": [
+     "Kretanje, dnevno svetlo, hladna voda i ljudi koje voliš. Pobeđuju i telo i um.",
+     "Savršeno vikend popodne, ako je voda blizu."
     ]
    }
   }

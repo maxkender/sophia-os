@@ -10,7 +10,7 @@ import { agirProbleme, lireProblemes, type Probleme } from "@/features/problemes
 import { cn } from "@/lib/utils";
 
 import { changer, type LigneToutes, lireToutes } from "./api";
-import { ConversationPosteur } from "./Conversation";
+import { ConversationPosteur, TexteMessage } from "./Conversation";
 import { IconeWhatsApp } from "./IconeWhatsApp";
 import { attenduDemande, attenduProbleme } from "./pourMax";
 
@@ -209,7 +209,7 @@ function Detail({ f }: { f: FilPosteur }) {
       ) : (
         <div className="rounded-md border p-3 text-sm">
           <p className="text-muted-foreground text-xs">Personne inconnue dans l'OS ({f.demande?.email ?? "?"}).</p>
-          <p className="whitespace-pre-wrap">{f.demande?.texte}</p>
+          <TexteMessage texte={f.demande?.texte ?? ""} />
         </div>
       )}
       <Apprendre />

@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o180",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "ceef7c0d-3c30-4557-aa04-4af1316b90cc",
+  "titre": "things i stopped doing when i realized being academically locked in is actually kinda chic #studytok #studytips #thatgirl",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "ceef7c0d-3c30-4557-aa04-4af1316b90cc"
+  ],
+  "notes": "Déclinaison G1 de ceef7c0d (r 77,25 en turc, 37,7 k vues), ligne 6 de la boîte. Accroche du parent mot pour mot. Habitudes neuves, aucune du parent (attendre la motivation, relire 6 fois, le téléphone à côté, étudier des heures sans vérifier, une mauvaise journée qui ruine tout) : arriver en cours sans avoir rien lu, copier les devoirs le matin, mettre des heures à « organiser », scroller pendant les pauses (slide Sophia, 5), dire « je suis nulle en maths », réviser au lit. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "44861f79",
+      "texte_overlay": "things i stopped doing when\ni realized being\nacademically locked in is\nactually kinda chic",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "8c2fa29b",
+      "texte_overlay": "walking into class without having looked at the lesson.\n5 minutes before is enough to look like i know things.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bdf1856f",
+      "texte_overlay": "\"borrowing\" homework in the morning.\ndoing it myself is the chic version.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a9adb9d5",
+      "texte_overlay": "spending 2 hours \"organizing\" my desk.\nthe chicest desk is the one being used.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1f750f34",
+      "texte_overlay": "scrolling on my breaks.\nnow i learn one interesting thing instead.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "scrolling on my breaks.\nnow i learn one interesting thing\non a micro-learning app like the Sophia app."
+    },
+    {
+      "position": 6,
+      "media_id": "37463c73",
+      "texte_overlay": "saying \"i'm just bad at maths\".\ni'm just not done practicing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "8b701706",
+      "texte_overlay": "studying in bed.\nlocked in happens at a desk.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

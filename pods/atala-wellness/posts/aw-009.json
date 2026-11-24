@@ -1,0 +1,124 @@
+{
+ "id": "aw-009",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7695261782952185120",
+  "vues": 155500,
+  "publie_le": "2026-10-11",
+  "accroche": "ces habitudes que j'ai volées aux filles toujours parfaites <3"
+ },
+ "titre": {
+  "en": "habits i stole from girls who glow all winter"
+ },
+ "legendes": {
+  "en": "winter girl era ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « les habitudes que j'ai volées aux filles toujours parfaites » de @healthy_with_emma6 (155,5 k à la veille du 23/11, 5,7 k et 4,6 k pour ses reprises), sujet : l'hiver (aw-003 a déjà fait la famille, sur le quotidien). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : quand ralentir ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : lumière du jour et horloge interne (fait établi, sans chiffre). Les autres slides n'avancent aucun chiffre ni promesse. Photos : banque de l'OS ; Atala : 45449141 (forêt enneigée, de dos).",
+ "banque": {
+  "images/banque/hv-couv-a.jpg": "0d4b5e0e-cd59-4931-8c1b-95a93fd0bad3",
+  "images/banque/hv-couv-b.jpg": "40ac5f68-eeb9-41d6-a1ec-c0eba9f39698",
+  "images/banque/hv-the.jpg": "26d975bf-b74e-4dbc-89b5-65bbac420dfd",
+  "images/banque/hv-neige.jpg": "15482c30-2177-46dd-9f14-50fb972119d5",
+  "images/banque/hv-plaid.jpg": "1d887420-4b95-42a8-ae97-d6c6ff02f743",
+  "images/banque/hv-course.jpg": "45449141-d6ce-4dea-b27e-3a37812434f3",
+  "images/banque/hv-fruits.jpg": "23298434-99aa-461a-bdf7-be5742597790",
+  "images/banque/hv-dimanche.jpg": "06926941-68e5-4cc0-beef-f3b5248cfa5f"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/hv-couv-a.jpg",
+    "images/banque/hv-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "habits i stole from girls who glow all winter",
+    "note": "(winter edition)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/hv-the.jpg",
+   "en": {
+    "titre": "a hot tea _every afternoon_",
+    "intro": "instead of the _third coffee_",
+    "paragraphes": [
+     "lemon, ginger, cinnamon. warm hands, _calm head_",
+     "a big mug and _5 quiet minutes_"
+    ],
+    "chute": "winter tastes like _this_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/hv-neige.jpg",
+   "en": {
+    "titre": "they go out _even when it's cold_",
+    "intro": "daylight is _rare_ in winter",
+    "paragraphes": [
+     "even a grey sky gives your body clock _the light it needs_",
+     "a 15-minute walk at lunch, _big scarf on_"
+    ],
+    "chute": "cold air, _clear mind_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/hv-plaid.jpg",
+   "en": {
+    "titre": "cozy evenings, _on purpose_",
+    "intro": "they don't wait for the weekend to _slow down_",
+    "paragraphes": [
+     "blanket, warm drink, a show or a book. _phone in the other room_",
+     "make it a ritual, _not a reward_"
+    ],
+    "chute": "soft nights, _soft life_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/hv-course.jpg",
+   "en": {
+    "titre": "keep running _in winter_",
+    "intro": "the snowy runs are _my favourite_ ones",
+    "paragraphes": [
+     "in the cold i always went too fast, and i'd come back _completely drained_",
+     "my tip: a running coach app like Atala tells you _when to slow down_, so winter runs feel good"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/hv-fruits.jpg",
+   "en": {
+    "titre": "fruit _every single day_",
+    "intro": "winter is not an excuse for _only comfort food_",
+    "paragraphes": [
+     "oranges, kiwis, berries. a bowl _next to you_ and you'll eat it",
+     "colour on your plate, _even in december_"
+    ],
+    "chute": "eat _the rainbow_, even in winter"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/hv-dimanche.jpg",
+   "en": {
+    "titre": "a _slow sunday_ every week",
+    "intro": "no plans, _no alarm_",
+    "paragraphes": [
+     "coffee in bed, a long shower, clean sheets. _that's the plan_",
+     "protect it like _a meeting_"
+    ],
+    "chute": "sundays are _for you_"
+   }
+  }
+ ]
+}

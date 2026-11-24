@@ -6169,6 +6169,139 @@
    "notes": "declinaison G2 de var-hobbies-1, cta B",
    "type_bleo": "declinaison",
    "parent_contenu_id": "369d60f6-a3c4-4d20-8ab7-7768ffd83bb9"
+  },
+  {
+   "post_id": "var-ruin20s-6",
+   "url": "https://www.tiktok.com/@amayareading/video/7688807102764092705?variante=var-ruin20s-4?variante=var-ruin20s-6",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#vingtaine #20s #ironie",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7688807102764092705_1",
+    "2": "7688807102764092705_4",
+    "3": "7688807102764092705_6",
+    "4": "7688807102764092705_3",
+    "5": "7688807102764092705_5",
+    "6": "7691336990419209505_2"
+   },
+   "notes": "declinaison G2 de var-ruin20s-4, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "4b5567c0-1141-4fff-abff-f24c312dedc1"
+  },
+  {
+   "post_id": "var-matins-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#matin #routine #ironie",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7680975889932225814_1",
+    "2": "7692093201968090401_2",
+    "3": "7684726544442346774_3",
+    "4": "7695416366886604064_4",
+    "5": "7684726544442346774_6",
+    "6": "7692093201968090401_5"
+   },
+   "notes": "declinaison G2 de var-weekend-4, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "5e74117a-ae6f-49a2-a593-a5e8a912bae4"
+  },
+  {
+   "post_id": "var-livres-3",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#livres #lecture #booktok",
+   "musique": {
+    "titre": "kagefumi",
+    "auteur": "-",
+    "original": true,
+    "id": "7402610556690860833",
+    "url_tiktok": "https://www.tiktok.com/music/x-7402610556690860833"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7681048823824649494_1",
+    "2": "7694778035337235744_3",
+    "3": "7685340052989398275_4",
+    "4": "7694778035337235744_6",
+    "5": "7691336990419209505_4",
+    "6": "7705457734870699296_6"
+   },
+   "notes": "declinaison G2 de var-livres-1, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "d845aa59-3cab-41ba-9548-647592b37fa8"
+  },
+  {
+   "post_id": "original-101",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#citytrip #weekend #curiosity",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "axjunior",
+    "original": true,
+    "id": "7591602615425321750",
+    "url_tiktok": "https://www.tiktok.com/music/x-7591602615425321750"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7702412215902571809_1",
+    "2": "7702412215902571809_2",
+    "3": "7699523873712164128_3",
+    "4": "7699523873712164128_4",
+    "5": "7702412215902571809_5",
+    "6": "7702412215902571809_6"
+   },
+   "notes": "full test BLEO, cta C",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-102",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#funfacts #science #learning",
+   "musique": {
+    "titre": "retire (final)",
+    "auteur": "Alvedon",
+    "original": false,
+    "id": "6991133033583609857",
+    "url_tiktok": "https://www.tiktok.com/music/x-6991133033583609857"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685736268617059616_1",
+    "2": "7699939278847085857_6",
+    "3": "7683630825610513686_4",
+    "4": "7699523873712164128_3",
+    "5": "7691336990419209505_4",
+    "6": "7698667830635400470_5"
+   },
+   "notes": "full test BLEO, cta A",
+   "type_bleo": "full_test"
   }
  ]
 }

@@ -1,0 +1,768 @@
+{
+ "id": "mi-021",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7669161866979069214",
+  "vues": 228400,
+  "publie_le": "2026-08-01",
+  "accroche": "How to / Focus / for / 20+ hours"
+ },
+ "fond": "chocolat",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "pursuit (super slowed)",
+  "url": "https://www.tiktok.com/music/pursuit-super-slowed-7589620748253612049"
+ },
+ "notes": "Full test (boîte vide). Famille « How to [verbe] … » de @bdnf.milly (« make faster decisions » dans ses accroches, format de « How to Focus for 20+ hours », 228,4 k vues), fond chocolat (texte noir, comme chez elle). Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : devant 24 confitures, 3 % des passants achètent, contre 30 % devant 6 (Iyengar et Lepper, Journal of Personality and Social Psychology 2000) ; les « maximiseurs » se disent moins heureux et plus regretteux que les « satisficers » (Schwartz et al., JPSP 2002) ; des commandants de pompiers expérimentés décident en reconnaissant la situation, pas en comparant des options (Klein, Calderwood et Clinton-Cirocco 1986 ; Klein, Sources of Power 1998). 11 langues. Images : banque (cerveau-frontal, irmf-axiale, neurones-reseau), sans texte.",
+ "titre": {
+  "en": "How to make Faster Decisions",
+  "fr": "Comment décider plus vite",
+  "es": "Cómo decidir más rápido",
+  "es-419": "Cómo decidir más rápido",
+  "it": "Come decidere più in fretta",
+  "tr": "Nasıl daha hızlı karar verirsin",
+  "pt-BR": "Como decidir mais rápido",
+  "sl": "Kako se hitreje odločati",
+  "hr": "Kako brže donositi odluke",
+  "de": "Wie du schneller entscheidest",
+  "hu": "Hogyan dönts gyorsabban"
+ },
+ "legendes": {
+  "en": "good enough is often best #decisions #thinking #brain #psychology #learning",
+  "fr": "le « suffisant » est souvent le mieux #décision #réflexion #cerveau #psychologie #apprendre",
+  "es": "lo suficiente suele ser lo mejor #decisiones #pensamiento #cerebro #psicología #aprender",
+  "es-419": "lo suficiente muchas veces es lo mejor #decisiones #pensamiento #cerebro #psicología #aprender",
+  "it": "abbastanza buono spesso è il meglio #decisioni #pensiero #cervello #psicologia #imparare",
+  "tr": "yeterince iyi çoğu zaman en iyisidir #karar #düşünme #beyin #psikoloji #öğrenme",
+  "pt-BR": "bom o suficiente muitas vezes é o melhor #decisoes #pensamento #cerebro #psicologia #aprender",
+  "sl": "dovolj dobro je pogosto najboljše #odločanje #razmišljanje #možgani #psihologija #učenje",
+  "hr": "dovoljno dobro često je najbolje #odluke #razmišljanje #mozak #psihologija #učenje",
+  "de": "gut genug ist oft am besten #entscheidungen #denken #gehirn #psychologie #lernen",
+  "hu": "az elég jó gyakran a legjobb #döntés #gondolkodás #agy #pszichológia #tanulás"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/cerveau-frontal.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to make",
+      "taille": "petit"
+     },
+     {
+      "t": "Faster",
+      "taille": "grand"
+     },
+     {
+      "t": "Decisions",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Décider",
+      "taille": "grand"
+     },
+     {
+      "t": "plus",
+      "taille": "petit"
+     },
+     {
+      "t": "Vite",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Decidir",
+      "taille": "grand"
+     },
+     {
+      "t": "más",
+      "taille": "petit"
+     },
+     {
+      "t": "Rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Decidir",
+      "taille": "grand"
+     },
+     {
+      "t": "más",
+      "taille": "petit"
+     },
+     {
+      "t": "Rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Decidere",
+      "taille": "grand"
+     },
+     {
+      "t": "più in",
+      "taille": "petit"
+     },
+     {
+      "t": "Fretta",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Nasıl daha",
+      "taille": "petit"
+     },
+     {
+      "t": "Hızlı",
+      "taille": "grand"
+     },
+     {
+      "t": "karar",
+      "taille": "petit"
+     },
+     {
+      "t": "Verirsin",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Decidir",
+      "taille": "grand"
+     },
+     {
+      "t": "mais",
+      "taille": "petit"
+     },
+     {
+      "t": "Rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako se",
+      "taille": "petit"
+     },
+     {
+      "t": "Hitreje",
+      "taille": "grand"
+     },
+     {
+      "t": "Odločati",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "Brže",
+      "taille": "grand"
+     },
+     {
+      "t": "donositi",
+      "taille": "petit"
+     },
+     {
+      "t": "Odluke",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du",
+      "taille": "petit"
+     },
+     {
+      "t": "Schneller",
+      "taille": "grand"
+     },
+     {
+      "t": "Entscheidest",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Dönts",
+      "taille": "grand"
+     },
+     {
+      "t": "Gyorsabban",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Fewer Options",
+    "blocs": [
+     {
+      "p": "More choice can freeze us. In a famous experiment, shoppers who saw 24 kinds of jam were far less likely to buy one, about 3%, than shoppers who saw only 6, about 30%."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Narrow the field before you start: pick two or three serious options, and drop the rest without a second look."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Moins d'options",
+    "blocs": [
+     {
+      "p": "Trop de choix peut paralyser. Dans une expérience célèbre, les clients qui voyaient 24 sortes de confiture en achetaient beaucoup moins, environ 3 %, que ceux qui n'en voyaient que 6, environ 30 %."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Réduis le champ avant de commencer : garde deux ou trois options sérieuses, et écarte le reste sans y revenir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Menos opciones",
+    "blocs": [
+     {
+      "p": "Demasiada elección puede paralizar. En un experimento famoso, los clientes que veían 24 tipos de mermelada compraban mucho menos, alrededor del 3 %, que los que veían solo 6, alrededor del 30 %."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Reduce el campo antes de empezar: quédate con dos o tres opciones serias y descarta el resto sin volver a mirarlo."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Menos opciones",
+    "blocs": [
+     {
+      "p": "Tener demasiadas opciones puede paralizarte. En un experimento famoso, los clientes que veían 24 tipos de mermelada compraban mucho menos, cerca del 3 %, que quienes veían solo 6, cerca del 30 %."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Achica el campo antes de empezar: quédate con dos o tres opciones serias y descarta lo demás sin volver a verlo."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Meno opzioni",
+    "blocs": [
+     {
+      "p": "Troppa scelta può bloccarci. In un esperimento famoso, i clienti che vedevano 24 tipi di marmellata ne compravano molto meno, circa il 3%, di quelli che ne vedevano solo 6, circa il 30%."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Restringi il campo prima di cominciare: tieni due o tre opzioni serie e scarta il resto senza tornarci sopra."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Daha az seçenek",
+    "blocs": [
+     {
+      "p": "Fazla seçenek bizi kilitleyebilir. Ünlü bir deneyde, 24 çeşit reçel gören müşterilerin satın alma oranı yaklaşık %3'te kaldı; yalnızca 6 çeşit görenlerde ise yaklaşık %30'du."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Başlamadan önce alanı daralt: iki ya da üç ciddi seçenek tut ve geri kalanını bir daha bakmadan ele."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Menos opções",
+    "blocs": [
+     {
+      "p": "Escolha demais pode travar a gente. Em um experimento famoso, clientes que viam 24 tipos de geleia compravam bem menos, cerca de 3%, do que os que viam só 6, cerca de 30%."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Reduza o campo antes de começar: fique com duas ou três opções sérias e descarte o resto sem olhar de novo."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Manj možnosti",
+    "blocs": [
+     {
+      "p": "Preveč izbire nas lahko ohromi. V znanem poskusu so kupci, ki so videli 24 vrst marmelade, kupovali veliko redkeje, okoli 3 %, kot tisti, ki so videli le 6 vrst, okoli 30 %."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Preden začneš, zoži izbiro: obdrži dve ali tri resne možnosti, ostale pa zavrzi brez ponovnega pogleda."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Manje mogućnosti",
+    "blocs": [
+     {
+      "p": "Previše izbora može nas paralizirati. U poznatom pokusu kupci koji su vidjeli 24 vrste džema kupovali su mnogo rjeđe, oko 3 %, od onih koji su vidjeli samo 6, oko 30 %."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Suzi izbor prije početka: zadrži dvije ili tri ozbiljne mogućnosti, a ostalo odbaci bez ponovnog gledanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Weniger Optionen",
+    "blocs": [
+     {
+      "p": "Zu viel Auswahl kann lähmen. In einem berühmten Experiment kauften Kunden, die 24 Sorten Marmelade sahen, viel seltener, etwa 3 %, als Kunden, die nur 6 sahen, etwa 30 %."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Grenz das Feld vorher ein: Behalte zwei oder drei ernsthafte Optionen und streich den Rest, ohne noch einmal hinzusehen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Kevesebb lehetőség",
+    "blocs": [
+     {
+      "p": "A túl sok választás megbéníthat. Egy híres kísérletben azok a vásárlók, akik 24 féle lekvárt láttak, sokkal ritkábban vásároltak, nagyjából 3%-ban, mint akik csak hatfélét, nagyjából 30%-ban."
+     },
+     {
+      "image": "images/irmf-axiale.jpg"
+     },
+     {
+      "p": "Szűkítsd a kört, mielőtt belekezdesz: tarts meg két-három komoly lehetőséget, a többit pedig vesd el, és ne nézz vissza."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Know The Patterns",
+    "blocs": [
+     {
+      "p": "Experienced firefighters rarely compare options. Studies of their commanders found that they recognised the situation as one they had seen before and acted on the first workable plan."
+     },
+     {
+      "p": "Speed comes from knowledge: the more you know, the more you recognise. One short lesson every evening, like a training session, adds patterns night after night."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Connais les situations",
+    "blocs": [
+     {
+      "p": "Les pompiers expérimentés comparent rarement des options. Des études sur leurs chefs ont montré qu'ils reconnaissaient une situation déjà vue et appliquaient le premier plan qui tenait la route."
+     },
+     {
+      "p": "La rapidité vient du savoir : plus tu en sais, plus tu reconnais. Une courte leçon chaque soir, comme un entraînement, ajoute des repères soir après soir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Conoce las situaciones",
+    "blocs": [
+     {
+      "p": "Los bomberos con experiencia rara vez comparan opciones. Estudios con sus mandos vieron que reconocían una situación ya vivida y aplicaban el primer plan que funcionaba."
+     },
+     {
+      "p": "La rapidez viene del conocimiento: cuanto más sabes, más reconoces. Una lección corta cada noche, como un entrenamiento, suma patrones noche tras noche."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Conoce las situaciones",
+    "blocs": [
+     {
+      "p": "Los bomberos con experiencia casi nunca comparan opciones. Estudios con sus comandantes encontraron que reconocían una situación que ya habían vivido y seguían el primer plan que funcionaba."
+     },
+     {
+      "p": "La rapidez viene del conocimiento: entre más sabes, más reconoces. Una lección corta cada noche, como un entrenamiento, suma patrones noche tras noche."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Conosci le situazioni",
+    "blocs": [
+     {
+      "p": "I vigili del fuoco esperti confrontano raramente delle opzioni. Gli studi sui loro capi hanno rilevato che riconoscevano una situazione già vista e applicavano il primo piano che funzionava."
+     },
+     {
+      "p": "La rapidità viene dal sapere: più sai, più riconosci. Una breve lezione ogni sera, come un allenamento, aggiunge schemi sera dopo sera."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Durumları tanı",
+    "blocs": [
+     {
+      "p": "Deneyimli itfaiyeciler nadiren seçenek karşılaştırır. Komutanları üzerine yapılan çalışmalar, daha önce gördükleri bir durumu tanıdıklarını ve işe yarayan ilk plana göre hareket ettiklerini buldu."
+     },
+     {
+      "p": "Hız bilgiden gelir: ne kadar çok bilirsen, o kadar çok şey tanırsın. Her akşam kısa bir ders, bir antrenman gibi, her gece yeni kalıplar ekler."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Conheça as situações",
+    "blocs": [
+     {
+      "p": "Bombeiros experientes raramente comparam opções. Estudos com seus comandantes mostraram que eles reconheciam uma situação já vivida e seguiam o primeiro plano viável."
+     },
+     {
+      "p": "A rapidez vem do conhecimento: quanto mais você sabe, mais reconhece. Uma lição curta toda noite, como um treino, acrescenta padrões noite após noite."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Poznaj situacije",
+    "blocs": [
+     {
+      "p": "Izkušeni gasilci redko primerjajo možnosti. Raziskave njihovih poveljnikov so pokazale, da so prepoznali že videno situacijo in ukrepali po prvem izvedljivem načrtu."
+     },
+     {
+      "p": "Hitrost izhaja iz znanja: več ko veš, več prepoznaš. Kratka lekcija vsak večer, kot trening, doda vzorce večer za večerom."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Poznaj situacije",
+    "blocs": [
+     {
+      "p": "Iskusni vatrogasci rijetko uspoređuju mogućnosti. Istraživanja njihovih zapovjednika pokazala su da prepoznaju već viđenu situaciju i djeluju prema prvom izvedivom planu."
+     },
+     {
+      "p": "Brzina dolazi iz znanja: što više znaš, više prepoznaješ. Kratka lekcija svake večeri, kao trening, dodaje obrasce večer za večeri."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Kenne die Muster",
+    "blocs": [
+     {
+      "p": "Erfahrene Feuerwehrleute vergleichen selten Optionen. Studien zu ihren Einsatzleitern ergaben, dass sie eine bekannte Lage wiedererkannten und nach dem ersten tragfähigen Plan handelten."
+     },
+     {
+      "p": "Tempo kommt aus Wissen: Je mehr du weißt, desto mehr erkennst du. Eine kurze Lektion jeden Abend, wie ein Training, fügt Abend für Abend Muster hinzu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Ismerd a helyzeteket",
+    "blocs": [
+     {
+      "p": "A tapasztalt tűzoltók ritkán hasonlítanak össze lehetőségeket. Parancsnokaikról szóló vizsgálatok szerint felismerték a már látott helyzetet, és az első működőképes terv szerint cselekedtek."
+     },
+     {
+      "p": "A gyorsaság a tudásból jön: minél többet tudsz, annál többet ismersz fel. Minden este egy rövid lecke, mint egy edzés, estéről estére új mintákat ad."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Aim For Good Enough",
+    "blocs": [
+     {
+      "p": "People who always try to find the best possible option, called maximisers in research, report being less happy and having more regret than people who stop at the first option that meets their standards."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Set your criteria first. When an option meets them, take it, and spend the saved time on the next decision."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Vise le suffisant",
+    "blocs": [
+     {
+      "p": "Ceux qui cherchent toujours la meilleure option possible, les « maximiseurs » dans les études, se disent moins heureux et plus pleins de regrets que ceux qui s'arrêtent à la première option conforme à leurs critères."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Fixe d'abord tes critères. Quand une option les remplit, prends-la, et garde le temps gagné pour la décision suivante."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Apunta a lo suficiente",
+    "blocs": [
+     {
+      "p": "Quienes siempre buscan la mejor opción posible, llamados maximizadores en los estudios, dicen ser menos felices y arrepentirse más que quienes se quedan con la primera opción que cumple sus criterios."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Fija primero tus criterios. Cuando una opción los cumpla, tómala y usa el tiempo ganado en la siguiente decisión."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Busca lo suficiente",
+    "blocs": [
+     {
+      "p": "Quienes siempre buscan la mejor opción posible, llamados maximizadores en los estudios, dicen ser menos felices y arrepentirse más que quienes se quedan con la primera opción que cumple sus criterios."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Define primero tus criterios. Cuando una opción los cumpla, tómala y usa el tiempo que ganaste en la siguiente decisión."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Punta all'abbastanza buono",
+    "blocs": [
+     {
+      "p": "Chi cerca sempre l'opzione migliore possibile, i cosiddetti massimizzatori negli studi, si dice meno felice e con più rimpianti di chi si ferma alla prima opzione che rispetta i propri criteri."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Fissa prima i criteri. Quando un'opzione li rispetta, prendila, e usa il tempo risparmiato per la decisione successiva."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Yeterince iyiyi hedefle",
+    "blocs": [
+     {
+      "p": "Her zaman mümkün olan en iyi seçeneği arayanlar, araştırmalarda maksimize edenler diye anılanlar, ölçütlerini karşılayan ilk seçenekte duranlara göre daha az mutlu olduklarını ve daha çok pişmanlık yaşadıklarını söylüyor."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Önce ölçütlerini belirle. Bir seçenek onları karşılıyorsa al ve kazandığın zamanı bir sonraki karara ayır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Mire no bom o suficiente",
+    "blocs": [
+     {
+      "p": "Quem sempre busca a melhor opção possível, os chamados maximizadores nas pesquisas, diz ser menos feliz e ter mais arrependimento do que quem para na primeira opção que atende aos seus critérios."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Defina primeiro seus critérios. Quando uma opção os atender, fique com ela e use o tempo ganho na próxima decisão."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Ciljaj na dovolj dobro",
+    "blocs": [
+     {
+      "p": "Ljudje, ki vedno iščejo najboljšo možno izbiro, v raziskavah imenovani maksimizatorji, poročajo, da so manj srečni in bolj obžalujejo kot tisti, ki se ustavijo pri prvi možnosti, ki izpolni njihova merila."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Najprej določi merila. Ko jih neka možnost izpolni, jo vzemi, prihranjeni čas pa porabi za naslednjo odločitev."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Ciljaj na dovoljno dobro",
+    "blocs": [
+     {
+      "p": "Ljudi koji uvijek traže najbolju moguću opciju, u istraživanjima nazvani maksimizatori, kažu da su manje sretni i više žale od onih koji stanu na prvoj opciji koja ispunjava njihove kriterije."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Najprije odredi kriterije. Kad ih neka opcija ispuni, uzmi je, a uštedeno vrijeme iskoristi za sljedeću odluku."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Ziel auf gut genug",
+    "blocs": [
+     {
+      "p": "Menschen, die immer die bestmögliche Option suchen, in der Forschung Maximierer genannt, berichten, weniger glücklich zu sein und mehr zu bereuen als jene, die bei der ersten Option bleiben, die ihre Kriterien erfüllt."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Leg zuerst deine Kriterien fest. Erfüllt eine Option sie, nimm sie, und nutz die gewonnene Zeit für die nächste Entscheidung."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Célozd az elég jót",
+    "blocs": [
+     {
+      "p": "Akik mindig a lehető legjobb lehetőséget keresik, a kutatásokban maximalizálók, kevésbé boldognak mondják magukat és többet bánkódnak, mint akik az első, a feltételeiknek megfelelő lehetőségnél megállnak."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Előbb határozd meg a feltételeidet. Ha egy lehetőség megfelel nekik, válaszd azt, a megspórolt időt pedig fordítsd a következő döntésre."
+     }
+    ]
+   }
+  }
+ ]
+}

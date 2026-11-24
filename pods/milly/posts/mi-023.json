@@ -1,0 +1,764 @@
+{
+ "id": "mi-023",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7681333188714646814",
+  "vues": 367000,
+  "publie_le": "2026-09-03",
+  "accroche": "The secret / to / Memorizing / Anything"
+ },
+ "fond": "brun",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "som original",
+  "url": "https://www.tiktok.com/music/som-original-7487620221440674582"
+ },
+ "notes": "Full test (boîte vide). Famille « The secret to … » de @bdnf.milly (« The secret to Memorizing Anything », 367 k vues), fond brun. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : l'effet « next-in-line », on oublie ce qui est dit juste avant son propre tour (Brenner, Journal of Verbal Learning and Verbal Behavior 1973) ; le paradoxe Baker/baker, le même mot est mieux retenu comme métier que comme nom de famille (McWeeny, Young, Hay et Ellis, British Journal of Psychology 1987) ; se rappeler un nom à intervalles qui s'allongent le fait mieux retenir (Landauer et Bjork 1978). 11 langues. Images : banque (hippocampe, irm-axiale, epines), sans texte.",
+ "titre": {
+  "en": "The secret to Remembering Names",
+  "fr": "Le secret pour retenir les prénoms",
+  "es": "El secreto para recordar nombres",
+  "es-419": "El secreto para recordar nombres",
+  "it": "Il segreto per ricordare i nomi",
+  "tr": "İsimleri hatırlamanın sırrı",
+  "pt-BR": "O segredo para lembrar nomes",
+  "sl": "Skrivnost pomnjenja imen",
+  "hr": "Tajna pamćenja imena",
+  "de": "Das Geheimnis, sich Namen zu merken",
+  "hu": "A titok, hogy megjegyezd a neveket"
+ },
+ "legendes": {
+  "en": "names need meaning #memory #names #brain #psychology #learning",
+  "fr": "un nom a besoin de sens #mémoire #prénoms #cerveau #psychologie #apprendre",
+  "es": "un nombre necesita significado #memoria #nombres #cerebro #psicología #aprender",
+  "es-419": "un nombre necesita significado #memoria #nombres #cerebro #psicología #aprender",
+  "it": "un nome ha bisogno di un significato #memoria #nomi #cervello #psicologia #imparare",
+  "tr": "isimlerin bir anlama ihtiyacı var #hafıza #isimler #beyin #psikoloji #öğrenme",
+  "pt-BR": "nomes precisam de significado #memoria #nomes #cerebro #psicologia #aprender",
+  "sl": "imena potrebujejo pomen #spomin #imena #možgani #psihologija #učenje",
+  "hr": "imena trebaju značenje #pamćenje #imena #mozak #psihologija #učenje",
+  "de": "namen brauchen bedeutung #gedächtnis #namen #gehirn #psychologie #lernen",
+  "hu": "a neveknek jelentés kell #memória #nevek #agy #pszichológia #tanulás"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/hippocampe.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "The secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "to",
+      "taille": "petit"
+     },
+     {
+      "t": "Remembering",
+      "taille": "grand"
+     },
+     {
+      "t": "Names",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Le secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "pour retenir",
+      "taille": "petit"
+     },
+     {
+      "t": "les",
+      "taille": "petit"
+     },
+     {
+      "t": "Prénoms",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Recordar",
+      "taille": "grand"
+     },
+     {
+      "t": "Nombres",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Recordar",
+      "taille": "grand"
+     },
+     {
+      "t": "Nombres",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Il segreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "per ricordare",
+      "taille": "petit"
+     },
+     {
+      "t": "i Nomi",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "İsimleri",
+      "taille": "grand"
+     },
+     {
+      "t": "hatırlamanın",
+      "taille": "petit"
+     },
+     {
+      "t": "Sırrı",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O segredo",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Lembrar",
+      "taille": "grand"
+     },
+     {
+      "t": "Nomes",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Skrivnost",
+      "taille": "moyen"
+     },
+     {
+      "t": "Pomnjenja",
+      "taille": "grand"
+     },
+     {
+      "t": "Imen",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Tajna",
+      "taille": "moyen"
+     },
+     {
+      "t": "Pamćenja",
+      "taille": "grand"
+     },
+     {
+      "t": "Imena",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Das Geheimnis",
+      "taille": "moyen"
+     },
+     {
+      "t": "sich",
+      "taille": "petit"
+     },
+     {
+      "t": "Namen",
+      "taille": "grand"
+     },
+     {
+      "t": "zu merken",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "A titok",
+      "taille": "moyen"
+     },
+     {
+      "t": "hogy megjegyezd",
+      "taille": "petit"
+     },
+     {
+      "t": "a Neveket",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "You Never Heard It",
+    "blocs": [
+     {
+      "p": "Often a name is not forgotten but never stored. Researchers found that people remember little of what is said just before their own turn to speak, because their attention is on what they are about to say."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "When someone introduces themselves, stop preparing your answer. Listen to the name and say it back once: “Nice to meet you, Clara.”"
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Tu ne l'as jamais entendu",
+    "blocs": [
+     {
+      "p": "Souvent, un prénom n'est pas oublié : il n'a jamais été enregistré. Des chercheurs ont montré qu'on retient peu de ce qui est dit juste avant son propre tour de parole, parce que l'attention est sur ce qu'on s'apprête à dire."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Quand quelqu'un se présente, arrête de préparer ta réponse. Écoute le prénom et répète-le une fois : « Enchanté, Clara. »"
+     }
+    ]
+   },
+   "es": {
+    "titre": "Nunca lo oíste",
+    "blocs": [
+     {
+      "p": "Muchas veces un nombre no se olvida: nunca llegó a guardarse. Los investigadores vieron que recordamos poco de lo que se dice justo antes de nuestro turno de hablar, porque la atención está en lo que vamos a decir."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Cuando alguien se presente, deja de preparar tu respuesta. Escucha el nombre y repítelo una vez: «Encantado, Clara»."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Nunca lo escuchaste",
+    "blocs": [
+     {
+      "p": "Muchas veces un nombre no se olvida: nunca se guardó. Los investigadores encontraron que recordamos poco de lo que se dice justo antes de que nos toque hablar, porque la atención está en lo que vamos a decir."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Cuando alguien se presente, deja de preparar tu respuesta. Escucha el nombre y repítelo una vez: «Mucho gusto, Clara»."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Non l'hai mai sentito",
+    "blocs": [
+     {
+      "p": "Spesso un nome non viene dimenticato: non è mai stato memorizzato. I ricercatori hanno rilevato che ricordiamo poco di ciò che viene detto subito prima del nostro turno di parola, perché l'attenzione è su ciò che stiamo per dire."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Quando qualcuno si presenta, smetti di preparare la risposta. Ascolta il nome e ripetilo una volta: «Piacere, Clara»."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Onu hiç duymadın",
+    "blocs": [
+     {
+      "p": "Çoğu zaman bir isim unutulmaz, hiç kaydedilmemiştir. Araştırmacılar, kendi konuşma sıramızdan hemen önce söylenenleri pek hatırlamadığımızı buldu, çünkü dikkatimiz söylemek üzere olduğumuz şeydedir."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Biri kendini tanıttığında cevabını hazırlamayı bırak. İsmi dinle ve bir kez tekrar et: “Memnun oldum, Clara.”"
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Você nunca ouviu",
+    "blocs": [
+     {
+      "p": "Muitas vezes um nome não é esquecido: ele nunca foi guardado. Pesquisadores descobriram que lembramos pouco do que é dito logo antes da nossa vez de falar, porque a atenção está no que vamos dizer."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Quando alguém se apresentar, pare de preparar sua resposta. Escute o nome e repita uma vez: “Prazer, Clara.”"
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Nikoli ga nisi slišal",
+    "blocs": [
+     {
+      "p": "Ime pogosto ni pozabljeno, ampak sploh ni shranjeno. Raziskovalci so ugotovili, da si malo zapomnimo od tega, kar je izrečeno tik pred tem, ko pridemo na vrsto za govor, ker je pozornost pri tem, kar bomo povedali."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Ko se ti nekdo predstavi, nehaj pripravljati odgovor. Prisluhni imenu in ga enkrat ponovi: »Lepo te je spoznati, Klara.«"
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nikad ga nisi čuo",
+    "blocs": [
+     {
+      "p": "Ime često nije zaboravljeno, nego nikad nije ni pohranjeno. Istraživači su otkrili da malo pamtimo od onoga što je rečeno neposredno prije nego što dođemo na red za govor, jer nam je pažnja na onome što ćemo reći."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Kad ti se netko predstavi, prestani pripremati odgovor. Poslušaj ime i ponovi ga jednom: „Drago mi je, Klara.“"
+     }
+    ]
+   },
+   "de": {
+    "titre": "Du hast ihn nie gehört",
+    "blocs": [
+     {
+      "p": "Oft wird ein Name nicht vergessen, sondern nie gespeichert. Forschende fanden, dass wir wenig von dem behalten, was kurz vor unserem eigenen Redebeitrag gesagt wird, weil die Aufmerksamkeit bei dem ist, was wir gleich sagen wollen."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Wenn sich jemand vorstellt, hör auf, deine Antwort vorzubereiten. Hör auf den Namen und sag ihn einmal: „Schön, dich kennenzulernen, Clara.“"
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Sosem hallottad",
+    "blocs": [
+     {
+      "p": "Egy nevet sokszor nem elfelejtünk, hanem el sem raktározunk. Kutatók szerint keveset jegyzünk meg abból, ami közvetlenül azelőtt hangzik el, hogy mi következnénk szólásra, mert a figyelmünk azon van, amit mondani készülünk."
+     },
+     {
+      "image": "images/irm-axiale.jpg"
+     },
+     {
+      "p": "Ha valaki bemutatkozik, ne a válaszodat készítsd. Figyelj a névre, és mondd vissza egyszer: „Örülök, hogy megismertelek, Klára.”"
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Give The Name A Meaning",
+    "blocs": [
+     {
+      "p": "Names are hard because they carry no meaning. In a classic experiment, people shown the same face remembered the word “baker” far better as a job than as a surname, Mr Baker."
+     },
+     {
+      "p": "Link each name to something you know: a historical figure, a place, a word. The more you know, the more links you can make. One short lesson every evening, like a training session, adds new ones."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Donne un sens au prénom",
+    "blocs": [
+     {
+      "p": "Les prénoms sont durs parce qu'ils n'ont pas de sens. Dans une expérience classique, face au même visage, les gens retenaient bien mieux le mot « boulanger » comme métier que comme nom de famille, M. Boulanger."
+     },
+     {
+      "p": "Relie chaque prénom à quelque chose que tu connais : un personnage historique, un lieu, un mot. Plus tu en sais, plus tu peux faire de liens. Une courte leçon chaque soir, comme un entraînement, en ajoute de nouveaux."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Dale un significado al nombre",
+    "blocs": [
+     {
+      "p": "Los nombres cuestan porque no significan nada. En un experimento clásico, ante la misma cara, la gente recordaba mucho mejor la palabra «panadero» como oficio que como apellido, el señor Panadero."
+     },
+     {
+      "p": "Une cada nombre a algo que conozcas: un personaje histórico, un lugar, una palabra. Cuanto más sabes, más conexiones puedes hacer. Una lección corta cada noche, como un entrenamiento, añade otras nuevas."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Dale un significado al nombre",
+    "blocs": [
+     {
+      "p": "Los nombres cuestan porque no significan nada. En un experimento clásico, frente a la misma cara, las personas recordaban mucho mejor la palabra «panadero» como oficio que como apellido, el señor Panadero."
+     },
+     {
+      "p": "Conecta cada nombre con algo que conozcas: un personaje histórico, un lugar, una palabra. Entre más sabes, más conexiones puedes hacer. Una lección corta cada noche, como un entrenamiento, agrega nuevas."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Dai un significato al nome",
+    "blocs": [
+     {
+      "p": "I nomi sono difficili perché non hanno significato. In un esperimento classico, davanti allo stesso volto, le persone ricordavano molto meglio la parola «fornaio» come mestiere che come cognome, il signor Fornaio."
+     },
+     {
+      "p": "Collega ogni nome a qualcosa che conosci: un personaggio storico, un luogo, una parola. Più sai, più collegamenti puoi fare. Una breve lezione ogni sera, come un allenamento, ne aggiunge di nuovi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "İsme bir anlam ver",
+    "blocs": [
+     {
+      "p": "İsimler zordur çünkü bir anlam taşımazlar. Klasik bir deneyde, aynı yüzü gören kişiler “fırıncı” kelimesini bir soyadı olarak değil, bir meslek olarak çok daha iyi hatırladı."
+     },
+     {
+      "p": "Her ismi bildiğin bir şeye bağla: tarihî bir kişi, bir yer, bir kelime. Ne kadar çok bilirsen o kadar çok bağ kurabilirsin. Her akşam kısa bir ders, bir antrenman gibi, yenilerini ekler."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Dê um sentido ao nome",
+    "blocs": [
+     {
+      "p": "Nomes são difíceis porque não têm significado. Em um experimento clássico, diante do mesmo rosto, as pessoas lembravam muito melhor a palavra “padeiro” como profissão do que como sobrenome, o senhor Padeiro."
+     },
+     {
+      "p": "Ligue cada nome a algo que você conhece: uma figura histórica, um lugar, uma palavra. Quanto mais você sabe, mais ligações consegue fazer. Uma lição curta toda noite, como um treino, acrescenta novas."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Daj imenu pomen",
+    "blocs": [
+     {
+      "p": "Imena so težka, ker nimajo pomena. V klasičnem poskusu so si ljudje ob istem obrazu besedo »pek« veliko bolje zapomnili kot poklic kot pa kot priimek, gospod Pek."
+     },
+     {
+      "p": "Vsako ime poveži z nečim, kar poznaš: z zgodovinsko osebo, krajem, besedo. Več ko veš, več povezav lahko narediš. Kratka lekcija vsak večer, kot trening, doda nove."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Daj imenu značenje",
+    "blocs": [
+     {
+      "p": "Imena su teška jer nemaju značenje. U klasičnom pokusu ljudi su uz isto lice riječ „pekar“ mnogo bolje pamtili kao zanimanje nego kao prezime, gospodin Pekar."
+     },
+     {
+      "p": "Poveži svako ime s nečim što znaš: povijesnom osobom, mjestom, riječju. Što više znaš, više veza možeš napraviti. Kratka lekcija svake večeri, kao trening, dodaje nove."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Gib dem Namen eine Bedeutung",
+    "blocs": [
+     {
+      "p": "Namen sind schwer, weil sie nichts bedeuten. In einem klassischen Experiment merkten sich Menschen beim selben Gesicht das Wort „Bäcker“ als Beruf viel besser denn als Nachnamen, Herr Bäcker."
+     },
+     {
+      "p": "Verknüpf jeden Namen mit etwas, das du kennst: einer historischen Figur, einem Ort, einem Wort. Je mehr du weißt, desto mehr Verbindungen kannst du knüpfen. Eine kurze Lektion jeden Abend, wie ein Training, fügt neue hinzu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Adj jelentést a névnek",
+    "blocs": [
+     {
+      "p": "A nevek azért nehezek, mert nincs jelentésük. Egy klasszikus kísérletben ugyanannál az arcnál az emberek sokkal jobban emlékeztek a „pék” szóra foglalkozásként, mint vezetéknévként, Pék úrként."
+     },
+     {
+      "p": "Kösd minden nevet valamihez, amit ismersz: egy történelmi alakhoz, egy helyhez, egy szóhoz. Minél többet tudsz, annál több kapcsolatot teremthetsz. Minden este egy rövid lecke, mint egy edzés, újakat ad."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Recall It At Growing Intervals",
+    "blocs": [
+     {
+      "p": "A name you recall once is fragile. Experiments found that recalling it again after a short gap, then after longer and longer ones, makes it last far better."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Say it in your head a minute later, again at the end of the conversation, and once more that evening. Three quick recalls, and most names stay."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Rappelle-le à intervalles croissants",
+    "blocs": [
+     {
+      "p": "Un prénom rappelé une seule fois reste fragile. Des expériences ont montré que le rappeler après un court délai, puis après des délais de plus en plus longs, le fait tenir bien mieux."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Dis-le dans ta tête une minute après, à la fin de la conversation, puis une fois le soir. Trois rappels rapides, et la plupart des prénoms restent."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Recuérdalo a intervalos crecientes",
+    "blocs": [
+     {
+      "p": "Un nombre que recuerdas una sola vez es frágil. En experimentos, recordarlo tras un intervalo corto y luego tras otros cada vez más largos hizo que se quedara mucho mejor."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Dilo mentalmente un minuto después, otra vez al final de la conversación y una más por la noche. Tres recuerdos rápidos, y la mayoría de los nombres se quedan."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Recuérdalo a intervalos crecientes",
+    "blocs": [
+     {
+      "p": "Un nombre que recuerdas una sola vez es frágil. En experimentos, recordarlo después de un intervalo corto y luego de otros cada vez más largos hizo que se quedara mucho mejor."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Dilo en tu mente un minuto después, otra vez al final de la plática y una vez más en la noche. Tres repasos rápidos, y la mayoría de los nombres se quedan."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Richiamalo a intervalli crescenti",
+    "blocs": [
+     {
+      "p": "Un nome richiamato una sola volta è fragile. Gli esperimenti hanno rilevato che richiamarlo dopo un breve intervallo, poi dopo intervalli sempre più lunghi, lo fa durare molto di più."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Ripetilo mentalmente un minuto dopo, di nuovo alla fine della conversazione e ancora una volta la sera. Tre richiami veloci, e la maggior parte dei nomi resta."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Artan aralıklarla hatırla",
+    "blocs": [
+     {
+      "p": "Bir kez hatırlanan isim kırılgandır. Deneyler, onu kısa bir aradan sonra, ardından giderek uzayan aralarla yeniden hatırlamanın çok daha kalıcı olmasını sağladığını buldu."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Bir dakika sonra içinden söyle, konuşmanın sonunda tekrar et, akşam bir kez daha. Üç hızlı hatırlama ve isimlerin çoğu kalır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Relembre em intervalos crescentes",
+    "blocs": [
+     {
+      "p": "Um nome relembrado uma vez só é frágil. Experimentos mostraram que relembrá-lo depois de um intervalo curto, e depois de intervalos cada vez mais longos, faz com que dure muito mais."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Diga mentalmente um minuto depois, de novo no fim da conversa e mais uma vez à noite. Três relembranças rápidas, e a maioria dos nomes fica."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Prikliči ga v vse daljših presledkih",
+    "blocs": [
+     {
+      "p": "Ime, ki ga prikličeš enkrat, je krhko. Poskusi so pokazali, da ga priklic po kratkem presledku, nato pa po vse daljših, ohrani veliko bolje."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Ponovi ga v mislih minuto pozneje, znova na koncu pogovora in še enkrat zvečer. Trije hitri priklici in večina imen ostane."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Prisjeti ga se u sve duljim razmacima",
+    "blocs": [
+     {
+      "p": "Ime kojeg se prisjetiš jednom krhko je. Pokusi su pokazali da prisjećanje nakon kratkog razmaka, a zatim nakon sve duljih, čini da ostane mnogo bolje."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Ponovi ga u sebi minutu kasnije, opet na kraju razgovora i još jednom navečer. Tri brza prisjećanja i većina imena ostaje."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Ruf ihn in wachsenden Abständen ab",
+    "blocs": [
+     {
+      "p": "Ein Name, den du einmal abrufst, ist zerbrechlich. Experimente zeigten, dass er viel besser hält, wenn man ihn nach kurzer Pause und dann nach immer längeren erneut abruft."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Sag ihn eine Minute später in Gedanken, noch einmal am Ende des Gesprächs und abends ein letztes Mal. Drei schnelle Abrufe, und die meisten Namen bleiben."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Idézd fel egyre nagyobb közökkel",
+    "blocs": [
+     {
+      "p": "Az egyszer felidézett név törékeny. Kísérletek szerint ha rövid szünet után, majd egyre hosszabb időközökkel újra felidézed, sokkal tovább megmarad."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Mondd el magadban egy perc múlva, aztán a beszélgetés végén, és még egyszer este. Három gyors felidézés, és a legtöbb név megmarad."
+     }
+    ]
+   }
+  }
+ ]
+}

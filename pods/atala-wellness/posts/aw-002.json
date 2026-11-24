@@ -7,10 +7,22 @@
   "accroche": "6 habitudes wellness qui se voient sur ton visage au bout d’une semaine"
  },
  "titre": {
-  "en": "6 wellness habits that show on your face in a week"
+  "en": "6 wellness habits that show on your face in a week",
+  "fr": "6 habitudes wellness visibles sur ton visage en 7 jours",
+  "de": "6 wellness-habits, die man in 1 woche im gesicht sieht",
+  "it": "6 abitudini wellness che vedi sul viso in 7 giorni",
+  "hu": "6 wellness szokás, ami egy hét alatt látszik az arcodon",
+  "ro": "6 obiceiuri wellness care se văd pe față într-o săptămână",
+  "el": "6 συνήθειες ευεξίας που φαίνονται στο πρόσωπο σε 7 μέρες"
  },
  "legendes": {
-  "en": "the glow is in the habits, not the filter ✨ #wellness #healthyhabits #thatgirl #selfcare #glowup"
+  "en": "the glow is in the habits, not the filter ✨ #wellness #healthyhabits #thatgirl #selfcare #glowup",
+  "fr": "le glow vient des habitudes, pas du filtre ✨ #wellness #healthyhabits #thatgirl #selfcare #glowup",
+  "de": "der glow kommt von den habits, nicht vom filter ✨ #wellness #healthyhabits #thatgirl #selfcare #glowup",
+  "it": "il glow sta nelle abitudini, non nel filtro ✨ #wellness #healthyhabits #thatgirl #selfcare #glowup",
+  "hu": "a glow a szokásokban van, nem a filterben ✨ #wellness #healthyhabits #thatgirl #selfcare #glowup",
+  "ro": "glow-ul e în obiceiuri, nu în filtru ✨ #wellness #healthyhabits #thatgirl #selfcare #glowup",
+  "el": "το glow είναι στις συνήθειες, όχι στο φίλτρο ✨ #wellness #healthyhabits #thatgirl #selfcare #glowup"
  },
  "musique": {
   "titre": "save a prayer",
@@ -45,6 +57,30 @@
    "en": {
     "titre": "6 wellness habits that show on your face after just one week",
     "note": "(backed by science)"
+   },
+   "fr": {
+    "titre": "6 habitudes wellness qui se voient sur ton visage dès une semaine",
+    "note": "(validées par la science)"
+   },
+   "de": {
+    "titre": "6 wellness-habits, die du schon nach einer woche im gesicht siehst",
+    "note": "(laut wissenschaft)"
+   },
+   "it": {
+    "titre": "6 abitudini wellness che si vedono sul viso dopo una sola settimana",
+    "note": "(lo dice la scienza)"
+   },
+   "hu": {
+    "titre": "6 wellness szokás, ami már egy hét után látszik az arcodon",
+    "note": "(a tudomány szerint)"
+   },
+   "ro": {
+    "titre": "6 obiceiuri wellness care se văd pe față după doar o săptămână",
+    "note": "(dovedite științific)"
+   },
+   "el": {
+    "titre": "6 συνήθειες ευεξίας που φαίνονται στο πρόσωπο μετά από μια εβδομάδα",
+    "note": "(το λέει η επιστήμη)"
    }
   },
   {
@@ -61,6 +97,60 @@
      "same bedtime every night, _phone out of the bed_"
     ],
     "chute": "the cheapest skincare is _a pillow_"
+   },
+   "fr": {
+    "titre": "dors _8 heures_, vraiment",
+    "intro": "ton visage trahit _chaque nuit courte_",
+    "paragraphes": [
+     "dans des études, qui dormait mal semblait _plus fatigué et moins en forme_ en photo",
+     "couchée à la même heure, _téléphone hors du lit_"
+    ],
+    "chute": "skincare le moins cher : _un oreiller_"
+   },
+   "de": {
+    "titre": "_8 stunden_ schlafen, echt",
+    "intro": "dein gesicht zeigt _jede kurze nacht_",
+    "paragraphes": [
+     "in studien wirkten schlechte schläfer auf fotos _müder und weniger gesund_",
+     "gleiche bettzeit, _handy raus aus dem bett_"
+    ],
+    "chute": "die billigste skincare ist _ein kissen_"
+   },
+   "it": {
+    "titre": "dormi _8 ore_, davvero",
+    "intro": "il tuo viso mostra _ogni notte corta_",
+    "paragraphes": [
+     "negli studi, chi dormiva male sembrava _più stanco e meno sano_ in foto",
+     "stesso orario ogni sera, _telefono fuori dal letto_"
+    ],
+    "chute": "la skincare più economica è _un cuscino_"
+   },
+   "hu": {
+    "titre": "aludj _8 órát_, tényleg",
+    "intro": "az arcod _minden rövid éjszakát_ elárul",
+    "paragraphes": [
+     "kutatásokban a rosszul alvók _fáradtabbnak és kevésbé egészségesnek_ tűntek fotókon",
+     "ugyanaz a lefekvés, _telefon az ágyon kívül_"
+    ],
+    "chute": "a legolcsóbb skincare _egy párna_"
+   },
+   "ro": {
+    "titre": "dormi _8 ore_, serios",
+    "intro": "fața ta arată _fiecare noapte scurtă_",
+    "paragraphes": [
+     "în studii, cei care dormeau prost păreau _mai obosiți și mai puțin sănătoși_ în poze",
+     "aceeași oră de culcare, _telefonul afară din pat_"
+    ],
+    "chute": "cel mai ieftin skincare e _o pernă_"
+   },
+   "el": {
+    "titre": "κοιμήσου _8 ώρες_, αλήθεια",
+    "intro": "το πρόσωπο δείχνει _κάθε σύντομη νύχτα_",
+    "paragraphes": [
+     "σε έρευνες, όσοι κοιμούνταν άσχημα έδειχναν _πιο κουρασμένοι και λιγότερο υγιείς_ σε φωτό",
+     "ίδια ώρα ύπνου κάθε βράδυ, _κινητό εκτός κρεβατιού_"
+    ],
+    "chute": "το πιο φθηνό skincare: _ένα μαξιλάρι_"
    }
   },
   {
@@ -74,6 +164,60 @@
      "last step of your routine, _before makeup_"
     ],
     "chute": "your future face _says thank you_"
+   },
+   "fr": {
+    "titre": "crème solaire _chaque matin_",
+    "intro": "même en hiver, même _quand il fait gris_",
+    "paragraphes": [
+     "dans une étude de plus de 4 ans, en usage quotidien : _aucune hausse détectable_ du vieillissement de la peau",
+     "dernière étape de ta routine, _avant le make-up_"
+    ],
+    "chute": "ton visage du futur _te dit merci_"
+   },
+   "de": {
+    "titre": "sonnencreme _jeden morgen_",
+    "intro": "auch im winter, auch _wenn's bewölkt ist_",
+    "paragraphes": [
+     "in einer studie über 4 jahre zeigte tägliches eincremen _keine nachweisbare zunahme_ der hautalterung",
+     "letzter routine-schritt, _vor dem make-up_"
+    ],
+    "chute": "dein zukünftiges gesicht _sagt danke_"
+   },
+   "it": {
+    "titre": "crema solare _ogni mattina_",
+    "intro": "anche d'inverno, anche _quando è nuvoloso_",
+    "paragraphes": [
+     "in uno studio di oltre 4 anni, con l'uso quotidiano _nessun aumento rilevabile_ dell'invecchiamento cutaneo",
+     "ultimo step della routine, _prima del trucco_"
+    ],
+    "chute": "il tuo viso futuro _ti ringrazia_"
+   },
+   "hu": {
+    "titre": "fényvédő _minden reggel_",
+    "intro": "télen is, _borús időben_ is",
+    "paragraphes": [
+     "egy több mint 4 éves kutatásban a napi használóknál _nem nőtt kimutathatóan_ a bőr öregedése",
+     "a rutinod utolsó lépése, _smink előtt_"
+    ],
+    "chute": "a jövőbeli arcod _megköszöni_"
+   },
+   "ro": {
+    "titre": "spf _în fiecare dimineață_",
+    "intro": "chiar și iarna, chiar și _când e înnorat_",
+    "paragraphes": [
+     "într-un studiu de peste 4 ani, cei care o foloseau zilnic _n-aveau o creștere detectabilă_ a îmbătrânirii pielii",
+     "ultimul pas din rutină, _înainte de machiaj_"
+    ],
+    "chute": "fața ta din viitor _îți mulțumește_"
+   },
+   "el": {
+    "titre": "αντηλιακό _κάθε πρωί_",
+    "intro": "και τον χειμώνα, και _όταν έχει συννεφιά_",
+    "paragraphes": [
+     "σε έρευνα πάνω από 4 χρόνια, όσοι το έβαζαν καθημερινά _δεν είχαν ανιχνεύσιμη αύξηση_ στη γήρανση του δέρματος",
+     "τελευταίο βήμα της ρουτίνας, _πριν το μακιγιάζ_"
+    ],
+    "chute": "το πρόσωπό σου αύριο _σε ευχαριστεί_"
    }
   },
   {
@@ -87,6 +231,60 @@
      "berries at breakfast, _a salad at lunch_"
     ],
     "chute": "glow from the inside, _not a filter_"
+   },
+   "fr": {
+    "titre": "mange _coloré_",
+    "intro": "fruits et légumes _changent ton teint_, littéralement",
+    "paragraphes": [
+     "une étude : plus de fruits et légumes donnait _un éclat plus chaud et plus sain_ en 6 semaines",
+     "fruits rouges au petit-déj, _salade à midi_"
+    ],
+    "chute": "un glow de l'intérieur, _pas un filtre_"
+   },
+   "de": {
+    "titre": "iss _mehr farben_",
+    "intro": "obst und gemüse _ändern deinen hautton_, wirklich",
+    "paragraphes": [
+     "laut einer studie gab mehr obst und gemüse in 6 wochen _einen wärmeren, gesünderen glow_",
+     "beeren zum frühstück, _salat zum mittag_"
+    ],
+    "chute": "glow von innen, _kein filter_"
+   },
+   "it": {
+    "titre": "mangia _più colori_",
+    "intro": "frutta e verdura _cambiano il colorito_. davvero",
+    "paragraphes": [
+     "uno studio: più frutta e verdura dava _un colorito più caldo e sano_ in 6 settimane",
+     "frutti rossi a colazione, _insalata a pranzo_"
+    ],
+    "chute": "glow da dentro, _non da filtro_"
+   },
+   "hu": {
+    "titre": "egyél _több színt_",
+    "intro": "a zöldség-gyümölcs _tényleg változtat a bőrszíneden_",
+    "paragraphes": [
+     "egy kutatásban több zöldség és gyümölcs 6 hét alatt _melegebb, egészségesebb ragyogást_ adott",
+     "bogyók reggelire, _saláta ebédre_"
+    ],
+    "chute": "ragyogás belülről, _nem filter_"
+   },
+   "ro": {
+    "titre": "mănâncă _colorat_",
+    "intro": "fructele și legumele _îți schimbă tenul_. serios",
+    "paragraphes": [
+     "un studiu a găsit că mai multe fructe și legume dădeau _un glow mai cald și mai sănătos_ în 6 săptămâni",
+     "fructe de pădure dimineața, _salată la prânz_"
+    ],
+    "chute": "glow din interior, _nu din filtru_"
+   },
+   "el": {
+    "titre": "φάε _χρώματα_",
+    "intro": "φρούτα και λαχανικά _αλλάζουν την απόχρωσή σου_",
+    "paragraphes": [
+     "μια έρευνα βρήκε ότι περισσότερα φρούτα και λαχανικά έδιναν _πιο ζεστή, υγιή λάμψη_ σε 6 εβδομάδες",
+     "μούρα στο πρωινό, _σαλάτα στο μεσημεριανό_"
+    ],
+    "chute": "λάμψη από μέσα, _όχι φίλτρο_"
    }
   },
   {
@@ -102,6 +300,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "va _courir_",
+    "intro": "rien ne me donne _ce glow_ comme courir",
+    "paragraphes": [
+     "j'ai toujours voulu courir mais _je lâchais_ après quelques jours, je savais jamais quoi faire",
+     "mon tip : une appli de coaching running comme Atala planifie _toute ma semaine_, j'y vais"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "geh _laufen_",
+    "intro": "nichts gibt mir _diesen glow_ wie laufen",
+    "paragraphes": [
+     "ich wollte immer laufen, aber nach ein paar tagen _gab ich ständig auf_, ich wusste nie, was tun",
+     "mein tipp: eine lauf-coach-app wie Atala plant _meine ganze woche_, ich muss nur los"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "vai _a correre_",
+    "intro": "niente mi dà _quel glow_ come una corsa",
+    "paragraphes": [
+     "ho sempre voluto correre ma _mollavo sempre_ dopo pochi giorni, non sapevo mai cosa fare",
+     "il mio consiglio: un'app coach per la corsa come Atala prepara _l'intera settimana_, io vado"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "menj el _futni_",
+    "intro": "semmi sem ad _olyan glow-t_, mint a futás",
+    "paragraphes": [
+     "mindig futni akartam, de pár nap után _mindig feladtam_, mert sosem tudtam, mit csináljak",
+     "a tippem: egy futóedző app, mint az Atala, megtervezi _az egész hetem_, én csak megyek"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "ieși _la alergat_",
+    "intro": "nimic nu-mi dă _glow-ul ăla_ ca alergatul",
+    "paragraphes": [
+     "mereu am vrut să alerg, dar _renunțam_ după câteva zile, pentru că nu știam niciodată ce să fac",
+     "sfatul meu: o aplicație de running coach ca Atala îmi face _toată săptămâna_, eu doar ies"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "βγες _για τρέξιμο_",
+    "intro": "τίποτα δεν δίνει _τέτοιο glow_ σαν το τρέξιμο",
+    "paragraphes": [
+     "πάντα ήθελα να τρέξω αλλά _τα παρατούσα_ μετά από λίγες μέρες, γιατί δεν ήξερα τι να κάνω",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala στήνει _όλη μου τη βδομάδα_, εγώ απλώς πάω"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -115,6 +379,60 @@
      "cleanser, moisturizer, done. _2 minutes_"
     ],
     "chute": "tired is not _an excuse_"
+   },
+   "fr": {
+    "titre": "_jamais_ dormir maquillée",
+    "intro": "la nuit, ta peau _se repose enfin_",
+    "paragraphes": [
+     "le make-up toute la nuit peut _boucher tes pores_",
+     "démaquillant, crème, fini. _2 minutes_"
+    ],
+    "chute": "fatiguée ? pas _une excuse_"
+   },
+   "de": {
+    "titre": "_nie_ mit make-up schlafen",
+    "intro": "nachts _ruht sich deine haut aus_",
+    "paragraphes": [
+     "make-up über nacht kann _poren verstopfen_",
+     "reinigung, creme, fertig. _2 minuten_"
+    ],
+    "chute": "müde ist _keine ausrede_"
+   },
+   "it": {
+    "titre": "_mai_ dormire truccata",
+    "intro": "la notte la tua pelle _si riposa_",
+    "paragraphes": [
+     "il trucco tutta la notte può _ostruire i pori_",
+     "struccante, crema, fatto. _2 minuti_"
+    ],
+    "chute": "stanca non è _una scusa_"
+   },
+   "hu": {
+    "titre": "_soha_ ne aludj sminkben",
+    "intro": "éjjel _pihen_ a bőröd",
+    "paragraphes": [
+     "éjjelre fent hagyott smink _eltömítheti a pórusaid_",
+     "lemosó, krém, kész. _2 perc_"
+    ],
+    "chute": "a fáradtság nem _kifogás_"
+   },
+   "ro": {
+    "titre": "_niciodată_ machiată la somn",
+    "intro": "noaptea pielea _se odihnește_",
+    "paragraphes": [
+     "machiajul peste noapte poate _înfunda porii_",
+     "demachiant, cremă, gata. _2 minute_"
+    ],
+    "chute": "oboseala nu e _o scuză_"
+   },
+   "el": {
+    "titre": "_ποτέ_ ύπνος με μακιγιάζ",
+    "intro": "τη νύχτα το δέρμα σου _ξεκουράζεται_",
+    "paragraphes": [
+     "το μακιγιάζ όλη νύχτα μπορεί να _φράξει τους πόρους_",
+     "ντεμακιγιάζ, κρέμα, τέλος. _2 λεπτά_"
+    ],
+    "chute": "κούραση ≠ _δικαιολογία_"
    }
   },
   {
@@ -128,6 +446,60 @@
      "5 slow breaths when it's too much. _in through the nose_, out slow"
     ],
     "chute": "calm is _skincare_ too"
+   },
+   "fr": {
+    "titre": "respire _avant de stresser_",
+    "intro": "le stress se voit _sur ta peau_",
+    "paragraphes": [
+     "une étude sur des étudiants : leur acné _empirait pendant les exams_",
+     "5 respirations lentes si c'est trop. _par le nez_, on souffle doucement"
+    ],
+    "chute": "calme = _skincare_ aussi"
+   },
+   "de": {
+    "titre": "atmen _vor dem stress_",
+    "intro": "stress sieht man _auf der haut_",
+    "paragraphes": [
+     "eine studie mit studis: ihre akne wurde _in prüfungen schlimmer_",
+     "5 langsame atemzüge bei zu viel. _durch die nase ein_, langsam aus"
+    ],
+    "chute": "ruhe ist auch _skincare_"
+   },
+   "it": {
+    "titre": "respira _prima dello stress_",
+    "intro": "lo stress si vede _sulla pelle_",
+    "paragraphes": [
+     "uno studio sugli studenti: l'acne _peggiorava durante gli esami_",
+     "5 respiri lenti quando è troppo. _dentro dal naso_, fuori piano"
+    ],
+    "chute": "calma = _skincare_ pure"
+   },
+   "hu": {
+    "titre": "lélegezz _stressz előtt_",
+    "intro": "a stressz _a bőrödön_ látszik",
+    "paragraphes": [
+     "egy diákokról szóló kutatásban _vizsgák alatt romlott_ a pattanásuk",
+     "5 lassú levegő, ha sok. _be az orron_, lassan ki"
+    ],
+    "chute": "a nyugalom is _skincare_"
+   },
+   "ro": {
+    "titre": "respiră _înainte de stres_",
+    "intro": "stresul se vede _pe piele_",
+    "paragraphes": [
+     "un studiu pe studenți a găsit că acneea lor _se agrava în sesiune_",
+     "5 respirații lente când e prea mult. _inspiră pe nas_, expiră încet"
+    ],
+    "chute": "și calmul e _skincare_"
+   },
+   "el": {
+    "titre": "ανάπνευσε _πριν το άγχος_",
+    "intro": "το άγχος φαίνεται _στο δέρμα σου_",
+    "paragraphes": [
+     "έρευνα σε φοιτητές: η ακμή τους _χειροτέρευε στις εξετάσεις_",
+     "5 αργές ανάσες όταν είναι πολύ. _μέσα από τη μύτη_, έξω αργά"
+    ],
+    "chute": "κι η ηρεμία _skincare_ είναι"
    }
   }
  ]

@@ -7,10 +7,22 @@
   "accroche": "6 habitudes wellness qui font leurs effets au bout d'une semaine (validées par la science)"
  },
  "titre": {
-  "en": "6 wellness habits that work in a week"
+  "en": "6 wellness habits that work in a week",
+  "fr": "6 habitudes wellness efficaces en 7 jours",
+  "de": "6 wellness-habits, die nach 1 woche wirken",
+  "it": "6 abitudini wellness efficaci in 7 giorni",
+  "hu": "6 wellness szokás, ami egy hét alatt hat",
+  "ro": "6 obiceiuri wellness care merg în 7 zile",
+  "el": "6 συνήθειες ευεξίας που πιάνουν σε 7 μέρες"
  },
  "legendes": {
-  "en": "the running one changed everything for me 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running"
+  "en": "the running one changed everything for me 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running",
+  "fr": "celle du running a tout changé pour moi 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running",
+  "de": "die mit dem laufen hat alles verändert 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running",
+  "it": "quella della corsa mi ha cambiato tutto 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running",
+  "hu": "a futós mindent megváltoztatott nálam 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running",
+  "ro": "cel cu alergatul mi-a schimbat totul 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running",
+  "el": "αυτή με το τρέξιμο μου άλλαξε τα πάντα 🏃‍♀️ #wellness #healthyhabits #thatgirl #selfcare #running"
  },
  "musique": {
   "titre": "save a prayer",
@@ -37,6 +49,30 @@
    "en": {
     "titre": "6 wellness habits that start working after just one week",
     "note": "(backed by science)"
+   },
+   "fr": {
+    "titre": "6 habitudes wellness qui font effet au bout d'une semaine",
+    "note": "(validées par la science)"
+   },
+   "de": {
+    "titre": "6 wellness-habits, die schon nach einer woche wirken",
+    "note": "(laut wissenschaft)"
+   },
+   "it": {
+    "titre": "6 abitudini wellness che funzionano già dopo una settimana",
+    "note": "(lo dice la scienza)"
+   },
+   "hu": {
+    "titre": "6 wellness szokás, ami már egy hét után működik",
+    "note": "(a tudomány szerint)"
+   },
+   "ro": {
+    "titre": "6 obiceiuri wellness care funcționează după doar o săptămână",
+    "note": "(dovedite științific)"
+   },
+   "el": {
+    "titre": "6 συνήθειες ευεξίας που πιάνουν μόλις σε μια εβδομάδα",
+    "note": "(το λέει η επιστήμη)"
    }
   },
   {
@@ -50,6 +86,60 @@
      "a big glass of water first, _then_ the coffee. your energy notices"
     ],
     "chute": "the easiest habit on this list. _no excuse_"
+   },
+   "fr": {
+    "titre": "de l'eau _avant le café_",
+    "intro": "après 8 heures de sommeil, tu te réveilles _un peu déshydratée_",
+    "paragraphes": [
+     "selon les études, un peu de déshydratation peut baisser _ton humeur et ton focus_",
+     "un grand verre d'eau d'abord, _ensuite_ le café. ton énergie le sent"
+    ],
+    "chute": "la plus simple de la liste. _zéro excuse_"
+   },
+   "de": {
+    "titre": "wasser _vor dem kaffee_",
+    "intro": "nach 8 stunden schlaf wachst du _leicht dehydriert_ auf",
+    "paragraphes": [
+     "studien zeigen: schon leichter wassermangel kann _laune und fokus_ senken",
+     "erst ein großes glas wasser, _dann_ der kaffee. deine energie merkt's"
+    ],
+    "chute": "die leichteste gewohnheit hier. _keine ausrede_"
+   },
+   "it": {
+    "titre": "acqua _prima del caffè_",
+    "intro": "dopo 8 ore di sonno, ti svegli _un po' disidratata_",
+    "paragraphes": [
+     "secondo gli studi, poca disidratazione può ridurre _umore e focus_",
+     "prima un bicchierone d'acqua, _poi_ il caffè. l'energia se ne accorge"
+    ],
+    "chute": "la più facile della lista. _zero scuse_"
+   },
+   "hu": {
+    "titre": "víz _a kávé előtt_",
+    "intro": "8 óra alvás után _kicsit kiszáradva_ ébredsz",
+    "paragraphes": [
+     "kutatások szerint már enyhe kiszáradás is ronthatja _a kedved és a fókuszod_",
+     "előbb egy nagy pohár víz, _aztán_ a kávé. az energiád érzi"
+    ],
+    "chute": "a legkönnyebb szokás a listán. _nincs kifogás_"
+   },
+   "ro": {
+    "titre": "apă _înainte de cafea_",
+    "intro": "după 8 ore de somn, te trezești _puțin deshidratată_",
+    "paragraphes": [
+     "studiile arată că și puțină deshidratare îți poate scădea _starea și focusul_",
+     "întâi un pahar mare de apă, _apoi_ cafeaua. energia ta simte"
+    ],
+    "chute": "cel mai ușor obicei de pe listă. _nicio scuză_"
+   },
+   "el": {
+    "titre": "νερό _πριν τον καφέ_",
+    "intro": "μετά από 8 ώρες ύπνο, ξυπνάς _λίγο αφυδατωμένη_",
+    "paragraphes": [
+     "έρευνες δείχνουν πως και λίγη αφυδάτωση μπορεί να ρίξει _διάθεση και focus_",
+     "πρώτα ένα μεγάλο ποτήρι νερό, _μετά_ ο καφές. η ενέργειά σου το νιώθει"
+    ],
+    "chute": "η πιο εύκολη της λίστας. _καμία δικαιολογία_"
    }
   },
   {
@@ -63,6 +153,60 @@
      "even on a cloudy day, outside is _way brighter_ than your bedroom"
     ],
     "chute": "open your door before you open _tiktok_"
+   },
+   "fr": {
+    "titre": "_lumière du matin_",
+    "intro": "10 minutes de _lumière du jour_ au réveil et ton horloge interne se recale",
+    "paragraphes": [
+     "meilleure humeur, _plus d'énergie_, et tu t'endors mieux le soir",
+     "même par temps gris, dehors c'est _bien plus lumineux_ que ta chambre"
+    ],
+    "chute": "ouvre ta porte avant d'ouvrir _tiktok_"
+   },
+   "de": {
+    "titre": "_morgenlicht_ tanken",
+    "intro": "10 minuten _tageslicht_ am morgen und deine innere uhr stellt sich neu",
+    "paragraphes": [
+     "bessere laune, _mehr energie_, und abends schläfst du leichter ein",
+     "selbst bei wolken ist es draußen _viel heller_ als in deinem zimmer"
+    ],
+    "chute": "öffne die tür, bevor du _tiktok_ öffnest"
+   },
+   "it": {
+    "titre": "_luce del mattino_",
+    "intro": "10 minuti di _luce del giorno_ appena sveglia e l'orologio interno si resetta",
+    "paragraphes": [
+     "umore migliore, _più energia_, e la sera ti addormenti meglio",
+     "anche quando è nuvoloso, fuori è _molto più luminoso_ della tua camera"
+    ],
+    "chute": "apri la porta prima di aprire _tiktok_"
+   },
+   "hu": {
+    "titre": "_reggeli fény_",
+    "intro": "ébredés után 10 perc _napfény_, és a belső órád újraindul",
+    "paragraphes": [
+     "jobb kedv, _több energia_, és este könnyebben alszol el",
+     "még borús időben is kint _sokkal világosabb_, mint a szobádban"
+    ],
+    "chute": "előbb az ajtót nyisd ki, aztán a _tiktokot_"
+   },
+   "ro": {
+    "titre": "_lumina dimineții_",
+    "intro": "10 minute de _lumină naturală_ la trezire și ceasul tău intern se resetează",
+    "paragraphes": [
+     "dispoziție mai bună, _mai multă energie_ și adormi mai ușor seara",
+     "chiar și când e înnorat, afară e _mult mai luminos_ decât în dormitor"
+    ],
+    "chute": "deschide ușa înainte să deschizi _tiktok_"
+   },
+   "el": {
+    "titre": "_πρωινό φως_",
+    "intro": "10 λεπτά _φως της μέρας_ μόλις ξυπνάς και το βιολογικό σου ρολόι κάνει reset",
+    "paragraphes": [
+     "καλύτερη διάθεση, _πιο πολλή ενέργεια_, και κοιμάσαι πιο εύκολα",
+     "ακόμα και με συννεφιά, έξω είναι _πολύ πιο φωτεινά_ από το δωμάτιό σου"
+    ],
+    "chute": "άνοιξε την πόρτα πριν ανοίξεις το _tiktok_"
    }
   },
   {
@@ -76,6 +220,60 @@
      "hips, back, neck. _before your phone_, not after"
     ],
     "chute": "you don't need a class. you need _a floor_"
+   },
+   "fr": {
+    "titre": "étire-toi _5 minutes_",
+    "intro": "assise toute la journée, ton corps est _raide et lourd_",
+    "paragraphes": [
+     "quelques minutes d'étirements le matin et tu te sens _légère toute la journée_",
+     "hanches, dos, nuque. _avant ton téléphone_, pas après"
+    ],
+    "chute": "pas besoin d'un cours. juste _d'un sol_"
+   },
+   "de": {
+    "titre": "_5 minuten_ dehnen",
+    "intro": "ganztags sitzen macht dich _steif und schwer_",
+    "paragraphes": [
+     "ein paar minuten dehnen am morgen und du fühlst dich _den ganzen tag leichter_",
+     "hüften, rücken, nacken. _vor dem handy_, nicht danach"
+    ],
+    "chute": "du brauchst keinen kurs. nur _einen boden_"
+   },
+   "it": {
+    "titre": "stretching per _5 minuti_",
+    "intro": "stare seduta tutto il giorno ti lascia _rigida e pesante_",
+    "paragraphes": [
+     "qualche minuto di stretching al mattino e ti senti _leggera tutto il giorno_",
+     "anche, schiena, collo. _prima del telefono_, non dopo"
+    ],
+    "chute": "non ti serve un corso. ti serve _un pavimento_"
+   },
+   "hu": {
+    "titre": "nyújts _5 percet_",
+    "intro": "az egész napos ülés _merevvé és nehézzé_ teszi a tested",
+    "paragraphes": [
+     "pár perc nyújtás reggel, és _egész nap könnyebbnek_ érzed magad",
+     "csípő, hát, nyak. _a telefon előtt_, nem utána"
+    ],
+    "chute": "nem kell óra. _egy padló_ kell"
+   },
+   "ro": {
+    "titre": "stretching _5 minute_",
+    "intro": "statul jos toată ziua îți lasă corpul _țeapăn și greu_",
+    "paragraphes": [
+     "câteva minute de stretching dimineața și te simți _ușoară toată ziua_",
+     "șolduri, spate, gât. _înainte de telefon_, nu după"
+    ],
+    "chute": "nu-ți trebuie un curs. îți trebuie _o podea_"
+   },
+   "el": {
+    "titre": "διατάσεις _5 λεπτά_",
+    "intro": "όλη μέρα καθιστή, το σώμα σου μένει _άκαμπτο και βαρύ_",
+    "paragraphes": [
+     "λίγα λεπτά διατάσεις το πρωί και νιώθεις _ελαφριά όλη μέρα_",
+     "γοφοί, πλάτη, αυχένας. _πριν το κινητό_, όχι μετά"
+    ],
+    "chute": "δεν χρειάζεσαι μάθημα. χρειάζεσαι _ένα πάτωμα_"
    }
   },
   {
@@ -94,6 +292,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "courir, _pour de vrai_",
+    "intro": "courir, c'est l'habitude qui a le plus changé _mon énergie_",
+    "paragraphes": [
+     "j'ai toujours voulu courir mais _je savais pas par où commencer_. partie trop vite, j'ai lâché en une semaine",
+     "mon tip : une appli de coaching running comme Atala te donne _un plan à ton niveau_, même de zéro"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "_wirklich_ loslaufen",
+    "intro": "laufen hat _meine energie_ am meisten verändert",
+    "paragraphes": [
+     "ich wollte immer laufen, wusste aber _nie wo anfangen_, also lief ich zu schnell und gab nach einer woche auf",
+     "mein tipp: eine lauf-coach-app wie Atala gibt dir _einen plan für dein level_, sogar bei null"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "inizia _davvero_ a correre",
+    "intro": "correre è l'abitudine che ha cambiato di più _la mia energia_",
+    "paragraphes": [
+     "volevo correre da sempre ma _non sapevo da dove iniziare_: troppo veloce, e dopo una settimana ho mollato",
+     "il mio consiglio: un'app coach per la corsa come Atala ti dà _un piano al tuo livello_, pure da zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "kezdj el _tényleg_ futni",
+    "intro": "a futás változtatta meg leginkább _az energiámat_",
+    "paragraphes": [
+     "mindig futni akartam, de _sosem tudtam, hol kezdjem_, ezért túl gyorsan mentem, és egy hét után feladtam",
+     "a tippem: egy futóedző app, mint az Atala, _a szintedhez illő tervet_ ad, akár nulláról is"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "_chiar_ începe să alergi",
+    "intro": "alergatul, obiceiul care mi-a schimbat cel mai mult _energia_",
+    "paragraphes": [
+     "voiam mereu să alerg, dar _nu știam de unde să încep_: am pornit prea repede și m-am lăsat după o săptămână",
+     "sfatul meu: o aplicație de running coach ca Atala îți dă _un plan pe nivelul tău_, chiar de la zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "ξεκίνα _στ' αλήθεια_ τρέξιμο",
+    "intro": "το τρέξιμο άλλαξε πιο πολύ από όλα _την ενέργειά μου_",
+    "paragraphes": [
+     "ήθελα πάντα να τρέξω αλλά _δεν ήξερα από πού να ξεκινήσω_: πολύ γρήγορα, και τα παράτησα σε μια βδομάδα",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala σου δίνει _πλάνο στο επίπεδό σου_, κι από το μηδέν"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -107,6 +371,60 @@
      "10 pages a day is _about a book a month_"
     ],
     "chute": "put your phone _across the room_"
+   },
+   "fr": {
+    "titre": "lis _10 pages_ au lieu de scroller",
+    "intro": "le téléphone au lit garde ton cerveau _en éveil_",
+    "paragraphes": [
+     "une étude a montré qu'en lisant sur écran le soir, _on mettait plus de temps à s'endormir_ qu'avec un vrai livre",
+     "10 pages par jour, _environ un livre par mois_"
+    ],
+    "chute": "ton tél _à l'autre bout de la pièce_"
+   },
+   "de": {
+    "titre": "_10 seiten_ lesen statt scrollen",
+    "intro": "das handy im bett hält dein gehirn _hellwach_",
+    "paragraphes": [
+     "in einer studie _brauchten leute länger zum einschlafen_, wenn sie abends am bildschirm statt im buch lasen",
+     "10 seiten täglich = _etwa ein buch im monat_"
+    ],
+    "chute": "handy _ans andere zimmerende_"
+   },
+   "it": {
+    "titre": "leggi _10 pagine_ invece di scrollare",
+    "intro": "il telefono a letto tiene il cervello _sveglissimo_",
+    "paragraphes": [
+     "uno studio ha mostrato che chi leggeva su schermo la sera _ci metteva di più ad addormentarsi_ rispetto a un vero libro",
+     "10 pagine al dì, _circa un libro al mese_"
+    ],
+    "chute": "telefono _in fondo alla stanza_"
+   },
+   "hu": {
+    "titre": "olvass _10 oldalt_ görgetés helyett",
+    "intro": "az ágyban a telefon _ébren tartja_ az agyad",
+    "paragraphes": [
+     "egy kutatásban, akik este képernyőn olvastak, _később aludtak el_, mint akik igazi könyvből",
+     "napi 10 oldal _nagyjából havi egy könyv_"
+    ],
+    "chute": "telefon _a szoba másik végébe_"
+   },
+   "ro": {
+    "titre": "citește _10 pagini_ în loc de scroll",
+    "intro": "telefonul în pat îți ține creierul _treaz de tot_",
+    "paragraphes": [
+     "un studiu a arătat că cei care citeau seara pe ecran _adormeau mai greu_ decât cu o carte adevărată",
+     "10 pagini pe zi = _cam o carte pe lună_"
+    ],
+    "chute": "telefonul _în celălalt colț_"
+   },
+   "el": {
+    "titre": "διάβασε _10 σελίδες_ αντί για scroll",
+    "intro": "το κινητό στο κρεβάτι κρατά τον εγκέφαλο _ξύπνιο_",
+    "paragraphes": [
+     "σε μια έρευνα, όσοι διάβαζαν σε οθόνη το βράδυ _αργούσαν περισσότερο να κοιμηθούν_ από ό,τι με αληθινό βιβλίο",
+     "10 σελίδες/μέρα = _περίπου 1 βιβλίο τον μήνα_"
+    ],
+    "chute": "κινητό _στην άλλη άκρη_"
    }
   },
   {
@@ -120,6 +438,60 @@
      "no gym, no plan. just _fresh air_"
     ],
     "chute": "touch grass is _literally_ the advice"
+   },
+   "fr": {
+    "titre": "sors _tous les jours_",
+    "intro": "une grande étude lie _2 heures par semaine_ dans la nature à une meilleure santé et bien-être",
+    "paragraphes": [
+     "balade, parc, _un lac_ si t'as de la chance",
+     "ni salle ni plan. juste _l'air frais_"
+    ],
+    "chute": "va toucher de l'herbe. _littéralement_"
+   },
+   "de": {
+    "titre": "_jeden tag_ raus",
+    "intro": "eine große studie verbindet _2 stunden pro woche_ in der natur mit mehr gesundheit und wohlbefinden",
+    "paragraphes": [
+     "spaziergang, park, _ein see_ mit glück",
+     "kein gym, kein plan. _frische luft_"
+    ],
+    "chute": "touch grass ist _wortwörtlich_ der tipp"
+   },
+   "it": {
+    "titre": "esci _ogni giorno_",
+    "intro": "un grande studio collega _2 ore a settimana_ nella natura a più salute e benessere",
+    "paragraphes": [
+     "passeggiata, parco, _un lago_ se ti va bene",
+     "no palestra, no piani. _aria fresca_"
+    ],
+    "chute": "touch grass è _letteralmente_ il consiglio"
+   },
+   "hu": {
+    "titre": "menj ki _minden nap_",
+    "intro": "egy nagy kutatás szerint _heti 2 óra_ a természetben jobb egészséggel és jólléttel jár együtt",
+    "paragraphes": [
+     "séta, park, _egy tó_, ha mázlid van",
+     "se gym, se terv. csak _friss levegő_"
+    ],
+    "chute": "a touch grass _szó szerint_ a tanács"
+   },
+   "ro": {
+    "titre": "ieși _în fiecare zi_",
+    "intro": "un studiu mare a legat _2 ore pe săptămână_ în natură de o sănătate și o stare de bine mai bune",
+    "paragraphes": [
+     "o plimbare, un parc, _un lac_ dacă ai noroc",
+     "fără sală, fără plan. _aer curat_"
+    ],
+    "chute": "touch grass e _literalmente_ sfatul"
+   },
+   "el": {
+    "titre": "βγες έξω _κάθε μέρα_",
+    "intro": "μια μεγάλη έρευνα συνδέει _2 ώρες την εβδομάδα_ στη φύση με καλύτερη υγεία και ευεξία",
+    "paragraphes": [
+     "βόλτα, πάρκο, _μια λίμνη_ αν έχεις τύχη",
+     "όχι gym, όχι πλάνο. _καθαρός αέρας_"
+    ],
+    "chute": "touch grass: _κυριολεκτικά_ η συμβουλή"
    }
   }
  ]

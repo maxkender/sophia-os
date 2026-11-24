@@ -1,5 +1,5 @@
 {
- "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz. Podz de remakes et d'originaux en images finies (page-blanche, fathom, yasmine, kaja, mentalapp, sagace, dorian, appshelf, inspogirly, atala, atala-wellness, milly, built, studyingsmiski, biomechanic, polytay) : depuis le 5/11 (lot 4, 0655), leur rythme est calculé par l'OS sur les comptes de leur label (npm run boite, ligne « Rythme du jour ») ; ici, seulement leur pause.",
+ "_doc": "Livraisons par jour de chaque podz : par_jour (pas de plafond), pause (true = rien à livrer). Tenu par le chef des podz, voir pods/chef/AGENT.md. Objectif : 30 % des posts venant des podz. Podz de remakes et d'originaux en images finies (page-blanche, fathom, yasmine, kaja, mentalapp, sagace, dorian, appshelf, inspogirly, atala, atala-wellness, milly, built, studyingsmiski, biomechanic, polytay, tracey) : depuis le 5/11 (lot 4, 0655), leur rythme est calculé par l'OS sur les comptes de leur label (npm run boite, ligne « Rythme du jour ») ; ici, seulement leur pause.",
  "page-blanche": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
  "originaux": { "par_jour": 9 },
  "reactions": { "par_jour": 0, "pause": true, "motif": "routine vidéo en pause depuis le 07/10" },
@@ -24,5 +24,6 @@
  "built": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 19/11 (0780), en test ; Atala encore inactive" },
  "studyingsmiski": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 20/11 (0782, Sophia : 0783), en test" },
  "biomechanic": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 20/11 (0784), en test ; Atala encore inactive" },
- "polytay": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 20/11 (0785), en test" }
+ "polytay": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 20/11 (0785), en test" },
+ "tracey": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 24/11 (0854), en test ; Atala et Artura encore inactives ; premier podz multi-applis" }
 }

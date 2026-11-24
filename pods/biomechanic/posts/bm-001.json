@@ -7,10 +7,16 @@
   "accroche": "Sports Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "running tierlist for optimal health"
+  "en": "running tierlist for optimal health",
+  "it": "tierlist della corsa per una salute ottimale",
+  "hu": "futó tierlist az optimális egészségért",
+  "sr": "tierlista trčanja za optimalno zdravlje"
  },
  "legendes": {
-  "en": "most runners get this backwards 🏃 #running #health #biohacking #zone2 #fitness"
+  "en": "most runners get this backwards 🏃 #running #health #biohacking #zone2 #fitness",
+  "it": "quasi tutti i runner la fanno al contrario 🏃 #corsa #salute #running #zona2 #fitness",
+  "hu": "a legtöbb futó fordítva csinálja 🏃 #futás #egészség #biohacking #zóna2 #fitness",
+  "sr": "većina trkača ovo radi naopako 🏃 #trčanje #zdravlje #biohacking #zona2 #fitnes"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -41,6 +47,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist della Corsa",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Futó Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Trčanja",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -55,6 +82,30 @@
     "paragraphes": [
      "Every run turns into a race. Your heart rate sits near its ceiling, stress hormones stay high, and your legs never get the easy days they need to repair.",
      "Elite endurance athletes do roughly 80% of their training at an easy pace. Going all-out every day is the fastest way to stall, get hurt and quit."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Ogni Corsa a Tutta",
+    "paragraphes": [
+     "Ogni uscita diventa una gara. Il cuore resta vicino al massimo, gli ormoni dello stress restano alti e le gambe non hanno mai giorni facili per ripararsi.",
+     "Gli atleti di resistenza d'élite fanno circa l'80% dell'allenamento a ritmo facile. Andare a tutta ogni giorno è il modo più veloce per bloccarsi e farsi male."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Minden Futás Maxon",
+    "paragraphes": [
+     "Minden futásból verseny lesz. A pulzus a plafon közelében, a stresszhormonok magasan, a lábad pedig sosem kap könnyű napot a regenerálódáshoz.",
+     "Az élvonalbeli állóképességi sportolók edzésük nagyjából 80%-át könnyű tempóban végzik. A mindennapos maximum a leggyorsabb út a sérülésig."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Svako Trčanje na Maksimum",
+    "paragraphes": [
+     "Svako trčanje postane trka. Puls je blizu plafona, hormoni stresa ostaju visoki, a noge nikad nemaju lake dane da se oporave.",
+     "Vrhunski sportisti izdržljivosti rade oko 80% treninga laganim tempom. Maksimum svaki dan je najbrži put do stagnacije i povrede."
     ]
    }
   },
@@ -71,6 +122,30 @@
      "Ignoring a sharp pain that changes your stride. You start limping without noticing, and the load shifts onto joints and tendons that were never meant to carry it.",
      "Soreness is normal. Pain that gets worse as you run is a signal to stop, rest and get it checked."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Correre col Dolore",
+    "paragraphes": [
+     "Ignori un dolore acuto che cambia la tua falcata. Inizi a zoppicare senza accorgertene e il carico passa su articolazioni e tendini non fatti per reggerlo.",
+     "L'indolenzimento è normale. Un dolore che peggiora mentre corri è un segnale: fermati, riposa e fatti controllare."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Futás Fájdalommal",
+    "paragraphes": [
+     "Nem figyelsz egy éles fájdalomra, ami megváltoztatja a lépésed. Észrevétlenül sántítani kezdesz, és a terhelés olyan ízületekre kerül, amik nem erre valók.",
+     "Az izomláz normális. Ha a fájdalom futás közben erősödik, állj meg, pihenj, és nézesd meg."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Trčanje Kroz Bol",
+    "paragraphes": [
+     "Ignorišeš oštar bol koji menja tvoj korak. Počneš da šepaš a da ne primetiš, i opterećenje prelazi na zglobove i tetive koji nisu za to.",
+     "Upala mišića je normalna. Bol koji se pojačava dok trčiš znači: stani, odmori i proveri."
+    ]
    }
   },
   {
@@ -85,6 +160,30 @@
     "paragraphes": [
      "A brutal interval session at 10 PM keeps your heart rate and core temperature up right when your body is trying to wind down.",
      "Easy evening runs are fine for most people. It's the hard efforts in the last hour before bed that can push back your sleep."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Lavori Duri Prima di Dormire",
+    "paragraphes": [
+     "Delle ripetute durissime alle 22 tengono alti battito e temperatura proprio quando il corpo prova a rallentare.",
+     "Una corsetta serale va bene per quasi tutti. Sono gli sforzi duri nell'ultima ora prima di dormire a spostare il sonno."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Kemény Edzés Lefekvés Előtt",
+    "paragraphes": [
+     "Egy brutális intervallum este 10-kor magasan tartja a pulzust és a testhőt, pont amikor a tested lassítani próbál.",
+     "Egy könnyű esti futás a legtöbb embernek rendben van. A lefekvés előtti utolsó óra kemény edzése tolja el az alvást."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Teški Treninzi Pred Spavanje",
+    "paragraphes": [
+     "Brutalni intervali u 22h drže puls i temperaturu visoko baš kad telo pokušava da uspori.",
+     "Lagano večernje trčanje je u redu za većinu. Teški napori u poslednjem satu pred spavanje pomeraju san."
     ]
    }
   },
@@ -101,6 +200,30 @@
      "Going from the sofa straight into fast running. Cold muscles and stiff joints take the full load before blood flow and body temperature have caught up.",
      "Five to ten minutes of easy jogging and a few drills make the first fast effort feel smoother and safer."
     ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Saltare il Riscaldamento",
+    "paragraphes": [
+     "Dal divano direttamente alla corsa veloce. Muscoli freddi e articolazioni rigide prendono tutto il carico prima che il corpo si scaldi.",
+     "Da cinque a dieci minuti di corsa lenta e qualche esercizio rendono il primo sforzo più fluido e più sicuro."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Bemelegítés Nélkül",
+    "paragraphes": [
+     "A kanapéról egyenesen gyors futásba. A hideg izmok és merev ízületek kapják az egész terhelést.",
+     "Öt-tíz perc kocogás és néhány gyakorlat simábbá és biztonságosabbá teszi az első gyors szakaszt."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Bez Zagrevanja",
+    "paragraphes": [
+     "Sa kauča pravo u brzo trčanje. Hladni mišići i ukočeni zglobovi primaju ceo teret pre nego što se telo zagreje.",
+     "Pet do deset minuta laganog trčanja i nekoliko vežbi čine prvi brzi deo lakšim i bezbednijim."
+    ]
    }
   },
   {
@@ -115,6 +238,30 @@
     "paragraphes": [
      "Great when it's dark, icy or pouring. The pace is controlled and the belt is forgiving on your legs.",
      "But you miss the daylight, the fresh air and the small balance corrections that uneven ground asks of your feet and ankles."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Solo Tapis Roulant",
+    "paragraphes": [
+     "Perfetto quando è buio, ghiacciato o diluvia. Il ritmo è controllato e il nastro è gentile con le gambe.",
+     "Ma perdi la luce del giorno, l'aria aperta e i piccoli aggiustamenti di equilibrio che il terreno irregolare chiede a piedi e caviglie."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Csak Futópad",
+    "paragraphes": [
+     "Tökéletes, ha sötét van, jeges az út vagy szakad az eső. A tempó kontrollált, a szalag kíméli a lábad.",
+     "De kimarad a nappali fény, a friss levegő és az egyensúly apró korrekciói, amiket az egyenetlen talaj kér."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Samo Traka",
+    "paragraphes": [
+     "Savršena kad je mrak, led ili pljusak. Tempo je kontrolisan, a traka štedi noge.",
+     "Ali propuštaš dnevno svetlo, svež vazduh i sitne korekcije ravnoteže koje neravan teren traži od stopala i članaka."
     ]
    }
   },
@@ -131,6 +278,30 @@
      "Same route, same speed, whenever you feel like it. Better than nothing, but your body adapts to the same stimulus and progress flattens out.",
      "Without a mix of easy days, faster days and rest, it's hard to tell if you're getting fitter or just getting tired."
     ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Stesso Giro, Stesso Ritmo",
+    "paragraphes": [
+     "Stesso percorso, stessa velocità, quando ti va. Meglio di niente, ma il corpo si abitua e i progressi si fermano.",
+     "Senza giorni facili, giorni veloci e riposo, è difficile capire se stai migliorando o se sei solo stanco."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Ugyanaz a Kör, Ugyanaz a Tempó",
+    "paragraphes": [
+     "Ugyanaz az útvonal, ugyanaz a sebesség, amikor kedved van. Jobb a semminél, de a tested megszokja, és a fejlődés megáll.",
+     "Könnyű napok, gyors napok és pihenő nélkül nehéz megmondani, hogy fittebb vagy, vagy csak fáradt."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Isti Krug, Isti Tempo",
+    "paragraphes": [
+     "Ista ruta, ista brzina, kad ti se trči. Bolje nego ništa, ali telo se navikne i napredak stane.",
+     "Bez lakih dana, bržih dana i odmora teško je reći da li si u boljoj formi ili samo umoran."
+    ]
    }
   },
   {
@@ -145,6 +316,30 @@
     "paragraphes": [
      "Short, fast repeats with recovery in between. Interval training is one of the most effective ways to raise your VO2 max, a key marker of fitness.",
      "It only misses A tier because it's demanding: one session a week is plenty, on top of easy running."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Ripetute in Pista",
+    "paragraphes": [
+     "Tratti brevi e veloci con recupero in mezzo. Le ripetute sono uno dei modi più efficaci per alzare il VO2 max, un indicatore chiave della forma.",
+     "Manca la A solo perché sono impegnative: una seduta a settimana basta, oltre alla corsa facile."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Heti Pályás Intervallum",
+    "paragraphes": [
+     "Rövid, gyors szakaszok pihenővel. Az intervallum az egyik leghatékonyabb módja a VO2 max, az erőnlét kulcsmutatója emelésének.",
+     "Csak azért nem A, mert megterhelő: heti egy alkalom bőven elég a könnyű futás mellett."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Nedeljni Intervali na Stazi",
+    "paragraphes": [
+     "Kratke, brze deonice sa odmorom između. Intervali su jedan od najefikasnijih načina da podigneš VO2 max, ključni pokazatelj forme.",
+     "Nije A samo zato što su zahtevni: jedan trening nedeljno je dovoljan, uz lagano trčanje."
     ]
    }
   },
@@ -161,6 +356,30 @@
      "A run club or a friend waiting at 7 AM. Showing up is easier when someone is counting on you, and the miles go by faster when you talk.",
      "Just keep the easy days easy: group runs have a habit of turning into races."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Correre con gli Amici",
+    "paragraphes": [
+     "Un gruppo di corsa o un amico che ti aspetta alle 7. Presentarsi è più facile quando qualcuno conta su di te.",
+     "Tieni facili i giorni facili: le corse di gruppo tendono a trasformarsi in gare."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Futás Barátokkal",
+    "paragraphes": [
+     "Egy futóklub vagy egy barát, aki reggel 7-kor vár. Könnyebb megjelenni, ha valaki számít rád.",
+     "Csak a könnyű napok maradjanak könnyűek: a csoportos futás hajlamos versennyé válni."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Trčanje sa Prijateljima",
+    "paragraphes": [
+     "Trkački klub ili prijatelj koji te čeka u 7 ujutru. Lakše je doći kad neko računa na tebe.",
+     "Samo neka laki dani ostanu laki: grupna trčanja često postanu trka."
+    ]
    }
   },
   {
@@ -175,6 +394,30 @@
     "paragraphes": [
      "Morning daylight is one of the strongest signals for your internal clock, and a run is the easiest way to get outside for it.",
      "Done early, it's also done: no meeting, no late night and no excuse can cancel it."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Corse all'Alba",
+    "paragraphes": [
+     "La luce del mattino è uno dei segnali più forti per il tuo orologio interno, e correre è il modo più facile per prenderla.",
+     "Fatta presto, è fatta: nessuna riunione, nessuna serata e nessuna scusa può cancellarla."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Napfelkeltés Futás",
+    "paragraphes": [
+     "A reggeli fény az egyik legerősebb jel a belső órádnak, és egy futás a legkönnyebb módja, hogy kijuss érte.",
+     "Korán letudva kész is: se meeting, se késő este, se kifogás nem húzhatja át."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Trčanje u Zoru",
+    "paragraphes": [
+     "Jutarnje svetlo je jedan od najjačih signala za tvoj unutrašnji sat, a trčanje je najlakši način da izađeš po njega.",
+     "Urađeno rano, urađeno je: nijedan sastanak, nijedno veče i nijedan izgovor ga ne mogu otkazati."
     ]
    }
   },
@@ -192,6 +435,30 @@
      "Running at a pace where you can still hold a conversation. It builds your aerobic base, trains your heart and leaves you fresher, not drained.",
      "Most runners do them too fast. A running coach app like Atala tells you when to slow down."
     ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Corsa Facile in Zona 2",
+    "paragraphes": [
+     "Correre a un ritmo in cui riesci ancora a parlare. Costruisce la base aerobica, allena il cuore e ti lascia fresco, non svuotato.",
+     "Quasi tutti la corrono troppo veloce. Un'app con coach per la corsa come Atala ti dice quando rallentare."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Könnyű Futás a 2-es Zónában",
+    "paragraphes": [
+     "Olyan tempó, amiben még beszélgetni tudsz. Építi az aerob alapot, edzi a szíved, és frissen hagy, nem kimerülten.",
+     "A legtöbben túl gyorsan futják. Egy futóedző app, mint az Atala, megmondja, mikor lassíts."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Lagano Trčanje u Zoni 2",
+    "paragraphes": [
+     "Tempo u kojem još možeš da pričaš. Gradi aerobnu bazu, trenira srce i ostavlja te svežim, ne iscrpljenim.",
+     "Većina ga trči prebrzo. Aplikacija sa trenerom za trčanje kao što je Atala ti kaže kad da usporiš."
+    ]
    }
   },
   {
@@ -206,6 +473,30 @@
     "paragraphes": [
      "Training is the stimulus, recovery is where you actually get fitter. Muscles, tendons and bones adapt in the days between the runs.",
      "One or two easy or full rest days a week keep you running for years, not weeks."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Giorni di Riposo Pianificati",
+    "paragraphes": [
+     "L'allenamento è lo stimolo, il recupero è dove migliori davvero. Muscoli, tendini e ossa si adattano tra un'uscita e l'altra.",
+     "Uno o due giorni facili o di riposo a settimana ti fanno correre per anni, non per settimane."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Tervezett Pihenőnapok",
+    "paragraphes": [
+     "Az edzés az inger, a regeneráció az, ahol tényleg fejlődsz. Az izmok, inak és csontok a futások közti napokon alkalmazkodnak.",
+     "Heti egy-két könnyű vagy pihenőnap évekig futni hagy, nem csak hetekig."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Planirani Dani Odmora",
+    "paragraphes": [
+     "Trening je podsticaj, oporavak je mesto gde zaista napreduješ. Mišići, tetive i kosti se prilagođavaju između trčanja.",
+     "Jedan ili dva laka dana ili dana odmora nedeljno te drže u trčanju godinama, ne nedeljama."
     ]
    }
   }

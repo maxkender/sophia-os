@@ -47,6 +47,18 @@ describe("variantesDeck", () => {
     // Une langue absente : rien à montrer.
     expect(variantesDeck(l, "de")).toEqual([]);
   });
+  it("label hors Sophia de plusieurs applications (Atala + Artura) : une version par application, chacune SA slide", () => {
+    const l = {
+      decks: { en: { hashtags: "#b", slides: [slide(1), slide(2), slide(3)] } },
+      decks_applications: {
+        atala: { en: { hashtags: "#b", slides: [slide(1), slide(2, true), slide(3)] } },
+        artura: { en: { hashtags: "#b", slides: [slide(1), slide(2), slide(3, true)] } },
+      },
+    } as unknown as Livraison;
+    const v = variantesDeck(l, "en");
+    expect(v.map((x) => x.cle)).toEqual(["atala", "artura"]);
+    expect(v.map((x) => x.slides.filter((s) => s.position_sophia).map((s) => s.position))).toEqual([[2], [3]]);
+  });
   it("nomApplication : nom connu, sinon le slug", () => {
     expect(nomApplication("unswipe")).toBe("UnSwipe");
     expect(nomApplication("autre")).toBe("autre");

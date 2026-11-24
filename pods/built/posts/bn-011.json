@@ -8,10 +8,28 @@
   "accroche": "GLOW UP HACKS FOR MEN."
  },
  "titre": {
-  "en": "glow up tips no one tells men"
+  "en": "glow up tips no one tells men",
+  "de": "glow-up-tipps, die männern keiner sagt",
+  "es-419": "tips de glow up que nadie les dice a los hombres",
+  "it": "consigli glow up che nessuno dice agli uomini",
+  "pl": "rady glow up, których nikt nie mówi facetom",
+  "tr": "kimsenin erkeklere söylemediği glow up tüyoları",
+  "hu": "glow up tippek, amiket senki sem mond el a férfiaknak",
+  "el": "glow up tips που κανείς δεν λέει στους άντρες",
+  "ro": "sfaturi de glow up pe care nimeni nu le spune bărbaților",
+  "sr": "glow up saveti koje niko ne govori muškarcima"
  },
  "legendes": {
-  "en": "the boring stuff works #glowup #selfimprovement #tipsformen #running #menshealth"
+  "en": "the boring stuff works #glowup #selfimprovement #tipsformen #running #menshealth",
+  "de": "das langweilige zeug wirkt #glowup #selfimprovement #tipsformen #running #menshealth",
+  "es-419": "lo aburrido es lo que funciona #glowup #selfimprovement #tipsformen #running #menshealth",
+  "it": "le cose noiose funzionano #glowup #selfimprovement #tipsformen #running #menshealth",
+  "pl": "nudne rzeczy działają #glowup #selfimprovement #tipsformen #running #menshealth",
+  "tr": "sıkıcı şeyler işe yarar #glowup #selfimprovement #tipsformen #running #menshealth",
+  "hu": "az unalmas dolgok működnek #glowup #selfimprovement #tipsformen #running #menshealth",
+  "el": "τα βαρετά πράγματα δουλεύουν #glowup #selfimprovement #tipsformen #running #menshealth",
+  "ro": "lucrurile plictisitoare funcționează #glowup #selfimprovement #tipsformen #running #menshealth",
+  "sr": "dosadne stvari rade #glowup #selfimprovement #tipsformen #running #menshealth"
  },
  "musique": {
   "titre": "FUNDO DE VIDEO",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-10.png",
    "en": {
     "titre": "GLOW UP TIPS\nNO ONE TELLS MEN."
+   },
+   "de": {
+    "titre": "GLOW-UP-TIPPS,\nDIE MÄNNERN\nKEINER SAGT."
+   },
+   "es-419": {
+    "titre": "TIPS DE GLOW UP\nQUE NADIE LES\nDICE A LOS HOMBRES."
+   },
+   "it": {
+    "titre": "CONSIGLI GLOW UP\nCHE NESSUNO\nDICE AGLI UOMINI."
+   },
+   "pl": {
+    "titre": "RADY GLOW UP,\nKTÓRYCH NIKT\nNIE MÓWI FACETOM."
+   },
+   "tr": {
+    "titre": "KİMSENİN ERKEKLERE\nSÖYLEMEDİĞİ\nGLOW UP TÜYOLARI."
+   },
+   "hu": {
+    "titre": "GLOW UP TIPPEK,\nAMIKET SENKI SEM\nMOND EL A FÉRFIAKNAK."
+   },
+   "el": {
+    "titre": "GLOW UP TIPS\nΠΟΥ ΚΑΝΕΙΣ ΔΕΝ\nΛΕΕΙ ΣΤΟΥΣ ΑΝΤΡΕΣ."
+   },
+   "ro": {
+    "titre": "SFATURI DE GLOW UP\nPE CARE NIMENI NU\nLE SPUNE BĂRBAȚILOR."
+   },
+   "sr": {
+    "titre": "GLOW UP SAVETI\nKOJE NIKO NE GOVORI\nMUŠKARCIMA."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. No coffee after 2 pm",
     "texte": "Caffeine stays in your body for hours. Late coffee quietly ruins your sleep."
+   },
+   "de": {
+    "titre": "1. Kein Kaffee nach 14 Uhr",
+    "texte": "Koffein bleibt stundenlang im Körper. Später Kaffee ruiniert leise deinen Schlaf."
+   },
+   "es-419": {
+    "titre": "1. Nada de café después de las 2",
+    "texte": "La cafeína se queda horas en tu cuerpo. El café tarde arruina tu sueño sin que lo notes."
+   },
+   "it": {
+    "titre": "1. Niente caffè dopo le 14",
+    "texte": "La caffeina resta nel corpo per ore. Il caffè tardi ti rovina il sonno senza che te ne accorga."
+   },
+   "pl": {
+    "titre": "1. Bez kawy po 14:00",
+    "texte": "Kofeina zostaje w organizmie na godziny. Późna kawa po cichu psuje ci sen."
+   },
+   "tr": {
+    "titre": "1. 14'ten sonra kahve yok",
+    "texte": "Kafein vücudunda saatlerce kalır. Geç içilen kahve uykunu sessizce bozar."
+   },
+   "hu": {
+    "titre": "1. 14 óra után nincs kávé",
+    "texte": "A koffein órákig a szervezetedben marad. A késői kávé csendben elrontja az alvásod."
+   },
+   "el": {
+    "titre": "1. Όχι καφές μετά τις 2",
+    "texte": "Η καφεΐνη μένει στο σώμα για ώρες. Ο αργός καφές χαλάει ήσυχα τον ύπνο σου."
+   },
+   "ro": {
+    "titre": "1. Fără cafea după ora 14",
+    "texte": "Cofeina rămâne în corp ore întregi. Cafeaua târzie îți strică somnul pe tăcute."
+   },
+   "sr": {
+    "titre": "1. Bez kafe posle 14h",
+    "texte": "Kofein ostaje u telu satima. Kasna kafa ti tiho kvari san."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Wear fitted basics",
     "texte": "Black, white, grey and navy. Fitted basics look better than loud logos."
+   },
+   "de": {
+    "titre": "2. Trag schlichte Basics",
+    "texte": "Schwarz, Weiß, Grau und Navy. Gut sitzende Basics sehen besser aus als laute Logos."
+   },
+   "es-419": {
+    "titre": "2. Usa básicos que te queden",
+    "texte": "Negro, blanco, gris y azul marino. Los básicos a tu medida se ven mejor que los logos grandes."
+   },
+   "it": {
+    "titre": "2. Basic della tua taglia",
+    "texte": "Nero, bianco, grigio e blu navy. I basic che vestono bene battono i loghi vistosi."
+   },
+   "pl": {
+    "titre": "2. Noś dopasowane basiki",
+    "texte": "Czerń, biel, szarość i granat. Dobrze leżące basiki wyglądają lepiej niż krzykliwe logo."
+   },
+   "tr": {
+    "titre": "2. Üstüne oturan basic'ler",
+    "texte": "Siyah, beyaz, gri ve lacivert. Üstüne oturan basic'ler büyük logolardan iyi durur."
+   },
+   "hu": {
+    "titre": "2. Jól álló alapdarabok",
+    "texte": "Fekete, fehér, szürke és sötétkék. A jól álló alapdarabok jobban néznek ki a harsány logóknál."
+   },
+   "el": {
+    "titre": "2. Βασικά που σου κάθονται",
+    "texte": "Μαύρο, άσπρο, γκρι και μπλε σκούρο. Τα καλοραμμένα βασικά δείχνουν καλύτερα από τα φανταχτερά λογότυπα."
+   },
+   "ro": {
+    "titre": "2. Poartă basic-uri pe tine",
+    "texte": "Negru, alb, gri și bleumarin. Basic-urile care îți vin bine arată mai bine decât logo-urile mari."
+   },
+   "sr": {
+    "titre": "2. Nosi osnovne komade",
+    "texte": "Crna, bela, siva i teget. Osnovni komadi koji ti stoje izgledaju bolje od velikih logoa."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Start running",
     "texte": "The fastest glow up is getting fit. A running coach app like Atala gives you a plan that starts from zero if you need it."
+   },
+   "de": {
+    "titre": "3. Fang an zu laufen",
+    "texte": "Der schnellste Glow-up ist, fit zu werden. Eine Lauf-App mit Coach wie Atala gibt dir einen Plan, der wenn nötig bei null startet."
+   },
+   "es-419": {
+    "titre": "3. Empieza a correr",
+    "texte": "El glow up más rápido es ponerte en forma. Una app de running con entrenador como Atala te da un plan que empieza desde cero si lo necesitas."
+   },
+   "it": {
+    "titre": "3. Inizia a correre",
+    "texte": "Il glow up più veloce è rimettersi in forma. Un'app con coach per la corsa come Atala ti dà un piano che parte da zero se serve."
+   },
+   "pl": {
+    "titre": "3. Zacznij biegać",
+    "texte": "Najszybszy glow up to złapać formę. Aplikacja z trenerem biegania, taka jak Atala, da ci plan, który w razie potrzeby zaczyna od zera."
+   },
+   "tr": {
+    "titre": "3. Koşmaya başla",
+    "texte": "En hızlı glow up forma girmektir. Atala gibi bir koşu koçu uygulaması gerekirse sıfırdan başlayan bir plan verir."
+   },
+   "hu": {
+    "titre": "3. Kezdj el futni",
+    "texte": "A leggyorsabb glow up a fittség. Egy futóedzős app, mint az Atala, olyan tervet ad, ami ha kell, nulláról indul."
+   },
+   "el": {
+    "titre": "3. Ξεκίνα τρέξιμο",
+    "texte": "Το πιο γρήγορο glow up είναι να γίνεις fit. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala σου δίνει πλάνο που ξεκινά από το μηδέν αν χρειαστεί."
+   },
+   "ro": {
+    "titre": "3. Începe să alergi",
+    "texte": "Cel mai rapid glow up e să te pui în formă. O aplicație cu antrenor de alergare, ca Atala, îți dă un plan care pornește de la zero dacă e nevoie."
+   },
+   "sr": {
+    "titre": "3. Počni da trčiš",
+    "texte": "Najbrži glow up je da uđeš u formu. Aplikacija sa trenerom za trčanje, kao što je Atala, daje ti plan koji kreće od nule ako treba."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Stay fresh all day",
     "texte": "Deodorant every morning, a clean shirt after the gym. Small things, big difference."
+   },
+   "de": {
+    "titre": "4. Bleib den ganzen Tag frisch",
+    "texte": "Jeden Morgen Deo, ein frisches Shirt nach dem Gym. Kleine Dinge, großer Unterschied."
+   },
+   "es-419": {
+    "titre": "4. Fresco todo el día",
+    "texte": "Desodorante cada mañana, playera limpia después del gym. Cosas pequeñas, gran diferencia."
+   },
+   "it": {
+    "titre": "4. Fresco tutto il giorno",
+    "texte": "Deodorante ogni mattina, maglietta pulita dopo la palestra. Piccole cose, grande differenza."
+   },
+   "pl": {
+    "titre": "4. Świeżość cały dzień",
+    "texte": "Dezodorant co rano, czysta koszulka po siłowni. Małe rzeczy, duża różnica."
+   },
+   "tr": {
+    "titre": "4. Gün boyu taze kal",
+    "texte": "Her sabah deodorant, spordan sonra temiz bir tişört. Küçük şeyler, büyük fark."
+   },
+   "hu": {
+    "titre": "4. Legyél friss egész nap",
+    "texte": "Minden reggel dezodor, edzés után tiszta póló. Kis dolgok, nagy különbség."
+   },
+   "el": {
+    "titre": "4. Φρέσκος όλη μέρα",
+    "texte": "Αποσμητικό κάθε πρωί, καθαρό μπλουζάκι μετά το γυμναστήριο. Μικρά πράγματα, μεγάλη διαφορά."
+   },
+   "ro": {
+    "titre": "4. Proaspăt toată ziua",
+    "texte": "Deodorant în fiecare dimineață, tricou curat după sală. Lucruri mici, diferență mare."
+   },
+   "sr": {
+    "titre": "4. Svež ceo dan",
+    "texte": "Dezodorans svako jutro, čista majica posle teretane. Male stvari, velika razlika."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Sleep 8 hours",
     "texte": "Your face shows every short night. Same bedtime, dark room, phone away."
+   },
+   "de": {
+    "titre": "5. Schlaf 8 Stunden",
+    "texte": "Dein Gesicht zeigt jede kurze Nacht. Gleiche Schlafenszeit, dunkles Zimmer, Handy weg."
+   },
+   "es-419": {
+    "titre": "5. Duerme 8 horas",
+    "texte": "Tu cara muestra cada noche corta. Misma hora de dormir, cuarto oscuro, celular lejos."
+   },
+   "it": {
+    "titre": "5. Dormi 8 ore",
+    "texte": "La faccia mostra ogni notte corta. Stessa ora per dormire, stanza buia, telefono lontano."
+   },
+   "pl": {
+    "titre": "5. Śpij 8 godzin",
+    "texte": "Twarz pokazuje każdą krótką noc. Stała pora snu, ciemny pokój, telefon daleko."
+   },
+   "tr": {
+    "titre": "5. 8 saat uyu",
+    "texte": "Yüzün her kısa geceyi gösterir. Aynı yatış saati, karanlık oda, telefon uzakta."
+   },
+   "hu": {
+    "titre": "5. Aludj 8 órát",
+    "texte": "Az arcod minden rövid éjszakát mutat. Ugyanakkor fekvés, sötét szoba, telefon messze."
+   },
+   "el": {
+    "titre": "5. Κοιμήσου 8 ώρες",
+    "texte": "Το πρόσωπό σου δείχνει κάθε λίγο ύπνο. Ίδια ώρα ύπνου, σκοτεινό δωμάτιο, κινητό μακριά."
+   },
+   "ro": {
+    "titre": "5. Dormi 8 ore",
+    "texte": "Fața ta arată fiecare noapte scurtă. Aceeași oră de culcare, cameră întunecată, telefonul departe."
+   },
+   "sr": {
+    "titre": "5. Spavaj 8 sati",
+    "texte": "Lice pokazuje svaku kratku noć. Isto vreme za spavanje, mračna soba, telefon daleko."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-5.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

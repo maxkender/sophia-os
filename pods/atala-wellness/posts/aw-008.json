@@ -7,10 +7,22 @@
   "accroche": "quelques habitudes wellness simples peuvent changer ta vie..."
  },
  "titre": {
-  "en": "simple wellness habits that can change your life"
+  "en": "simple wellness habits that can change your life",
+  "fr": "habitudes wellness simples qui peuvent changer ta vie",
+  "de": "einfache wellness-habits, die dein leben ändern können",
+  "it": "abitudini wellness facili che possono cambiarti la vita",
+  "hu": "egyszerű wellness szokások, amik átformálhatják az életed",
+  "ro": "obiceiuri wellness simple care îți pot schimba viața",
+  "el": "απλές συνήθειες ευεξίας που ίσως αλλάξουν τη ζωή σου"
  },
  "legendes": {
-  "en": "small things, big difference 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving"
+  "en": "small things, big difference 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "fr": "petits trucs, grande différence 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "de": "kleine dinge, großer unterschied 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "it": "piccole cose, grande differenza 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "hu": "apró dolgok, nagy különbség 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "ro": "lucruri mici, diferență mare 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving",
+  "el": "μικρά πράγματα, μεγάλη διαφορά 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving"
  },
  "musique": {
   "titre": "save a prayer",
@@ -37,6 +49,30 @@
    "en": {
     "titre": "simple wellness habits that can change your life",
     "note": "(start with one)"
+   },
+   "fr": {
+    "titre": "habitudes wellness simples qui peuvent changer ta vie",
+    "note": "(commence par une)"
+   },
+   "de": {
+    "titre": "einfache wellness-habits, die dein leben ändern können",
+    "note": "(starte mit einem)"
+   },
+   "it": {
+    "titre": "abitudini wellness facili che possono cambiarti la vita",
+    "note": "(inizia da una)"
+   },
+   "hu": {
+    "titre": "egyszerű wellness szokások, amik átformálhatják az életed",
+    "note": "(kezdd eggyel)"
+   },
+   "ro": {
+    "titre": "obiceiuri wellness simple care îți pot schimba viața",
+    "note": "(începe cu unul)"
+   },
+   "el": {
+    "titre": "απλές συνήθειες ευεξίας που ίσως αλλάξουν τη ζωή σου",
+    "note": "(ξεκίνα με μία)"
    }
   },
   {
@@ -50,6 +86,60 @@
      "bed, curtains, window. _that's the order_"
     ],
     "chute": "good mornings start _with light_"
+   },
+   "fr": {
+    "titre": "ouvre les rideaux _en premier_",
+    "intro": "avant ton téléphone, _avant tout_",
+    "paragraphes": [
+     "laisse entrer le matin, même s'il fait _gris dehors_",
+     "lit, rideaux, fenêtre. _dans cet ordre_"
+    ],
+    "chute": "un bon matin naît _de la lumière_"
+   },
+   "de": {
+    "titre": "vorhänge auf, _als allererstes_",
+    "intro": "vor dem handy, _vor allem anderen_",
+    "paragraphes": [
+     "lass den morgen rein, auch wenn's _draußen grau_ ist",
+     "bett, vorhänge, fenster. _in der reihenfolge_"
+    ],
+    "chute": "gute morgen beginnen _mit licht_"
+   },
+   "it": {
+    "titre": "apri le tende _per prima cosa_",
+    "intro": "prima del telefono, _prima di tutto_",
+    "paragraphes": [
+     "fai entrare il mattino, anche se fuori _è grigio_",
+     "letto, tende, finestra. _in quest'ordine_"
+    ],
+    "chute": "un buon mattino inizia _con la luce_"
+   },
+   "hu": {
+    "titre": "húzd el a függönyt _elsőként_",
+    "intro": "a telefon előtt, _minden más előtt_",
+    "paragraphes": [
+     "engedd be a reggelt, még ha _szürke is kint_",
+     "ágy, függöny, ablak. _ez a sorrend_"
+    ],
+    "chute": "a jó reggel _fénnyel kezdődik_"
+   },
+   "ro": {
+    "titre": "trage draperiile _la prima oră_",
+    "intro": "înainte de telefon, _înainte de orice_",
+    "paragraphes": [
+     "lasă dimineața să intre, chiar dacă _afară e gri_",
+     "pat, draperii, fereastră. _în ordinea asta_"
+    ],
+    "chute": "diminețile bune încep _cu lumină_"
+   },
+   "el": {
+    "titre": "άνοιξε κουρτίνες _πρώτα_",
+    "intro": "πριν το κινητό, _πριν από οτιδήποτε_",
+    "paragraphes": [
+     "άσε το πρωί να μπει, ακόμα κι αν _έξω είναι γκρίζα_",
+     "κρεβάτι, κουρτίνες, παράθυρο. _αυτή η σειρά_"
+    ],
+    "chute": "τα καλά πρωινά ξεκινούν _με φως_"
    }
   },
   {
@@ -63,6 +153,60 @@
      "20 minutes after dinner, _cozy socks on_"
     ],
     "chute": "slow is _a skill_"
+   },
+   "fr": {
+    "titre": "crée quelque chose _de tes mains_",
+    "intro": "tricot, peinture, _tout ce qui est lent_",
+    "paragraphes": [
+     "pas d'écran, pas de notifs, juste tes mains et _tes pensées_",
+     "20 minutes après le dîner, _chaussettes cosy_"
+    ],
+    "chute": "lent, _c'est un skill_"
+   },
+   "de": {
+    "titre": "mach was _mit deinen händen_",
+    "intro": "stricken, malen, _alles langsame_",
+    "paragraphes": [
+     "kein bildschirm, keine pushs, nur deine hände und _deine gedanken_",
+     "20 minuten nach dem essen, _kuschelsocken an_"
+    ],
+    "chute": "slow ist _ein skill_"
+   },
+   "it": {
+    "titre": "crea qualcosa _con le mani_",
+    "intro": "maglia, pittura, _qualsiasi cosa lenta_",
+    "paragraphes": [
+     "niente schermi, niente notifiche, solo le tue mani e _i tuoi pensieri_",
+     "20 minuti dopo cena, _calzini comodi_"
+    ],
+    "chute": "lento è _una skill_"
+   },
+   "hu": {
+    "titre": "alkoss valamit _a kezeddel_",
+    "intro": "kötés, festés, _bármi lassú_",
+    "paragraphes": [
+     "se képernyő, se értesítés, csak a kezed és _a gondolataid_",
+     "20 perc vacsora után, _puha zokniban_"
+    ],
+    "chute": "a lassúság _készség_"
+   },
+   "ro": {
+    "titre": "fă ceva _cu mâinile tale_",
+    "intro": "tricotat, pictat, _orice e lent_",
+    "paragraphes": [
+     "fără ecran, fără notificări, doar mâinile tale și _gândurile tale_",
+     "20 de minute după cină, _cu șosete pufoase_"
+    ],
+    "chute": "încet e _un skill_"
+   },
+   "el": {
+    "titre": "φτιάξε κάτι _με τα χέρια σου_",
+    "intro": "πλέξιμο, ζωγραφική, _οτιδήποτε αργό_",
+    "paragraphes": [
+     "χωρίς οθόνη, χωρίς ειδοποιήσεις, μόνο τα χέρια σου και _οι σκέψεις σου_",
+     "20 λεπτά μετά το φαγητό, _με ζεστές κάλτσες_"
+    ],
+    "chute": "το slow είναι _skill_"
    }
   },
   {
@@ -76,6 +220,60 @@
      "10 pages a day, _no pressure_"
     ],
     "chute": "romanticise _your corner_"
+   },
+   "fr": {
+    "titre": "lis _à la fenêtre_",
+    "intro": "la meilleure place de la maison, _c'est celle avec vue_",
+    "paragraphes": [
+     "livre, plaid, lumière du jour. _rien ne presse_",
+     "10 pages/jour, _zéro pression_"
+    ],
+    "chute": "romantise _ton coin_"
+   },
+   "de": {
+    "titre": "lesen _am fenster_",
+    "intro": "der beste platz im haus ist _der mit aussicht_",
+    "paragraphes": [
+     "ein buch, eine decke und tageslicht. _keine eile_",
+     "10 seiten am tag, _kein druck_"
+    ],
+    "chute": "romantisiere _deine ecke_"
+   },
+   "it": {
+    "titre": "leggi _alla finestra_",
+    "intro": "il posto migliore della casa è _quello con la vista_",
+    "paragraphes": [
+     "libro, coperta, luce naturale. _senza fretta_",
+     "10 pagine al dì, _niente stress_"
+    ],
+    "chute": "romanticizza _il tuo angolo_"
+   },
+   "hu": {
+    "titre": "olvass _az ablaknál_",
+    "intro": "a ház legjobb helye _a kilátásos_",
+    "paragraphes": [
+     "könyv, pléd, természetes fény. _semmi sietség_",
+     "napi 10 oldal, _semmi nyomás_"
+    ],
+    "chute": "romantizáld _a sarkodat_"
+   },
+   "ro": {
+    "titre": "citește _la geam_",
+    "intro": "cel mai bun loc din casă e _cel cu priveliște_",
+    "paragraphes": [
+     "o carte, o pătură și lumină naturală. _fără grabă_",
+     "10 pagini pe zi, _fără presiune_"
+    ],
+    "chute": "romanțează-ți _colțul_"
+   },
+   "el": {
+    "titre": "διάβασε _στο παράθυρο_",
+    "intro": "η καλύτερη θέση στο σπίτι είναι _αυτή με θέα_",
+    "paragraphes": [
+     "βιβλίο, κουβέρτα, φυσικό φως. _χωρίς βιασύνη_",
+     "10 σελίδες τη μέρα, _χωρίς πίεση_"
+    ],
+    "chute": "κάνε ρομαντική _τη γωνιά σου_"
    }
   },
   {
@@ -91,6 +289,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _au matin brumeux_",
+    "intro": "le moment le plus calme du jour est _à moi_",
+    "paragraphes": [
+     "je savais jamais quoi faire chaque jour, donc _je zappais_ mes runs",
+     "mon tip : une appli de coaching running comme Atala organise _toute ta semaine_, t'as qu'à y aller"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "lauf _im morgennebel_",
+    "intro": "der ruhigste teil des tages gehört _ganz mir_",
+    "paragraphes": [
+     "ich wusste nie, was an welchem tag, also _ließ ich ständig aus_",
+     "mein tipp: eine lauf-coach-app wie Atala plant _deine ganze woche_, du schnürst nur die schuhe"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _nella nebbia_",
+    "intro": "il momento più quieto del giorno è _tutto mio_",
+    "paragraphes": [
+     "non sapevo cosa fare ogni giorno e _saltavo sempre_ le corse",
+     "il mio consiglio: un'app coach per la corsa come Atala organizza _l'intera settimana_, allacci e via"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss _ködös reggeleken_",
+    "intro": "a nap legcsendesebb része _csak az enyém_",
+    "paragraphes": [
+     "sosem tudtam, mit fussak aznap, így _folyton kihagytam_",
+     "a tippem: egy futóedző app, mint az Atala, kirakja _az egész heted_, te csak befűzöd a cipőd"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _prin ceață_",
+    "intro": "cea mai liniștită parte a zilei e _doar a mea_",
+    "paragraphes": [
+     "nu știam ce să fac zilnic, așa că _săream mereu_ alergările",
+     "sfatul meu: o aplicație de running coach ca Atala îți face _toată săptămâna_, tu doar te încalți"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _τα πρωινά με ομίχλη_",
+    "intro": "η πιο ήσυχη ώρα της μέρας είναι _όλη δική μου_",
+    "paragraphes": [
+     "δεν ήξερα τι να κάνω κάθε μέρα, κι _έχανα συνέχεια_ τρεξίματα",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala στήνει _όλη σου τη βδομάδα_, εσύ δένεις κορδόνια"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -104,6 +368,60 @@
      "one new recipe _every week_"
     ],
     "chute": "dinner is _a ritual_, not a chore"
+   },
+   "fr": {
+    "titre": "musique _en cuisinant_",
+    "intro": "cuisiner devient _le meilleur moment_ de la soirée",
+    "paragraphes": [
+     "ta playlist préférée, une bougie, _sans rush_",
+     "1 nouvelle recette _par semaine_"
+    ],
+    "chute": "le dîner, _un rituel_, pas une corvée"
+   },
+   "de": {
+    "titre": "musik an _beim kochen_",
+    "intro": "kochen wird _der schönste teil_ des abends",
+    "paragraphes": [
+     "deine lieblingsplaylist, eine kerze, _keine eile_",
+     "ein neues rezept _jede woche_"
+    ],
+    "chute": "essen ist _ein ritual_, kein muss"
+   },
+   "it": {
+    "titre": "musica _mentre cucini_",
+    "intro": "cucinare diventa _la parte migliore_ della sera",
+    "paragraphes": [
+     "playlist preferita, una candela, _senza fretta_",
+     "una ricetta nuova _a settimana_"
+    ],
+    "chute": "la cena è _un rituale_, non un dovere"
+   },
+   "hu": {
+    "titre": "zene _főzés közben_",
+    "intro": "a főzés lesz az este _legjobb része_",
+    "paragraphes": [
+     "kedvenc playlist, gyertya, _semmi sietség_",
+     "egy új recept _minden héten_"
+    ],
+    "chute": "a vacsora _rituálé_, nem kötelesség"
+   },
+   "ro": {
+    "titre": "muzică _când gătești_",
+    "intro": "gătitul devine _cea mai bună parte_ a serii",
+    "paragraphes": [
+     "playlistul preferat, o lumânare, _fără grabă_",
+     "o rețetă nouă _pe săptămână_"
+    ],
+    "chute": "cina e _un ritual_, nu o corvoadă"
+   },
+   "el": {
+    "titre": "μουσική _όσο μαγειρεύεις_",
+    "intro": "το μαγείρεμα γίνεται _το καλύτερο κομμάτι_ της βραδιάς",
+    "paragraphes": [
+     "αγαπημένο playlist, ένα κερί, _χωρίς βιασύνη_",
+     "μια νέα συνταγή _κάθε εβδομάδα_"
+    ],
+    "chute": "το δείπνο: _τελετουργία_, όχι αγγαρεία"
    }
   },
   {
@@ -117,6 +435,60 @@
      "alone, with a friend, _with your mom on the phone_"
     ],
     "chute": "end the day _outside_"
+   },
+   "fr": {
+    "titre": "une _balade du soir_",
+    "intro": "après le dîner, _avant le canapé_",
+    "paragraphes": [
+     "10 minutes dehors au coucher du soleil, _téléphone dans la poche_",
+     "seule, avec une amie, _avec ta mère au téléphone_"
+    ],
+    "chute": "finis ta journée _dehors_"
+   },
+   "de": {
+    "titre": "_abendrunde_ drehen",
+    "intro": "nach dem essen, _vor der couch_",
+    "paragraphes": [
+     "10 minuten draußen bei sonnenuntergang, _handy in der tasche_",
+     "allein, mit einer freundin, _mit mama am telefon_"
+    ],
+    "chute": "tagesende _draußen_"
+   },
+   "it": {
+    "titre": "un _giro serale_",
+    "intro": "dopo cena, _prima del divano_",
+    "paragraphes": [
+     "10 minuti fuori al tramonto, _telefono in tasca_",
+     "da sola, con un'amica, _con tua mamma al telefono_"
+    ],
+    "chute": "chiudi il giorno _fuori_"
+   },
+   "hu": {
+    "titre": "egy _esti séta_",
+    "intro": "vacsora után, _a kanapé előtt_",
+    "paragraphes": [
+     "10 perc kint naplementekor, _telefon a zsebben_",
+     "egyedül, egy barátnővel, _anyukáddal telefonon_"
+    ],
+    "chute": "zárd a napot _kint_"
+   },
+   "ro": {
+    "titre": "o _plimbare seara_",
+    "intro": "după cină, _înainte de canapea_",
+    "paragraphes": [
+     "10 minute afară la apus, _cu telefonul în buzunar_",
+     "singură, cu o prietenă, _cu mama la telefon_"
+    ],
+    "chute": "încheie ziua _afară_"
+   },
+   "el": {
+    "titre": "μια _βραδινή βόλτα_",
+    "intro": "μετά το φαγητό, _πριν τον καναπέ_",
+    "paragraphes": [
+     "10 λεπτά έξω στο ηλιοβασίλεμα, _κινητό στην τσέπη_",
+     "μόνη, με μια φίλη, _με τη μαμά σου στο τηλέφωνο_"
+    ],
+    "chute": "κλείσε τη μέρα _έξω_"
    }
   }
  ]

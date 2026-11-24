@@ -1,0 +1,135 @@
+// Usage : npm run livrer -- <id> [--langues en] [--complement] [--essai <dossier>]
+//
+// Rend l'original posts/<id>.json dans les langues du podz (`LANGUES` : l'anglais)
+// et le DÉPOSE dans la file de validation de l'OS (fonction Edge `pods`,
+// action `deposer`). Un deck incomplet arrête la livraison : chaque compte du
+// label poste dans une seule langue, un post sans la sienne le laisserait à sec.
+// Rien n'est diffusé avant validation (à la main, ou toute seule 5 h après).
+//
+// Le label du pod (tracey) sert DEUX applis, Atala et Artura (podz 100 % podz
+// multi-applis, décision d'Adrien du 24/11) : un deck par langue, avec UNE
+// slide par appli, marquée `position_app: "<slug>"` (la slide « running » avec
+// le logo d'Atala : "atala" ; la slide d'art avec le logo d'Artura : "artura").
+// L'OS en tire une variante par appli : chaque compte du label publie la
+// sienne, où seule la slide de SON appli compte comme pub.
+//
+// Environnement : POD_JETON. --essai écrit le corps de la requête sur disque
+// au lieu de l'envoyer.
+
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { appelPod, LANGUE_SOURCE, LANGUES, languesDuLabel, POD } from "./api.ts";
+import { metadonneesRestantes } from "./metadonnees.ts";
+import { APPLIS, appliDeSlide, languesCompletes, lirePost, photosSlide, RACINE, rendreSlide, textesSlide, type SlugAppli } from "./slides.ts";
+
+const args = process.argv.slice(2);
+const id = args[0];
+if (!id) throw new Error("usage : npm run livrer -- <id> [--langues en] [--complement] [--essai <dossier>]");
+const opt = (n: string) => (args.includes(n) ? args[args.indexOf(n) + 1] : undefined);
+const essai = opt("--essai");
+
+const post = lirePost(id);
+const completes = languesCompletes(post);
+// 0654 : seulement les langues où le label a un compte (l'OS les donne), la
+// langue source toujours pour un post neuf. --complement : un rattrapage (post
+// déjà validé), seulement les langues demandées, sans la langue source.
+const complement = args.includes("--complement");
+const os = await languesDuLabel();
+const utiles = os?.a_livrer ? new Set<string>(os.a_livrer) : null;
+const demandees = opt("--langues")?.split(",").map((l) => l.trim()).filter(Boolean) ?? [...LANGUES];
+const sansCompte = utiles ? demandees.filter((l) => l !== LANGUE_SOURCE && !utiles.has(l)) : [];
+if (sansCompte.length) console.log(`${id} : pas de compte du label en ${sansCompte.join(", ")} : non livré`);
+const voulues = demandees.filter((l) => !sansCompte.includes(l) && !(complement && l === LANGUE_SOURCE));
+const langues = voulues;
+const incompletes = langues.filter((l) => !completes.includes(l));
+if (incompletes.length) {
+  throw new Error(`${id} : deck ${incompletes.join(", ")} incomplet (titre, légende et chaque slide) ; chaque livraison part dans les langues du label (${langues.join(", ")})`);
+}
+if (!completes.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} n'est pas complet (titre, légende et chaque slide)`);
+if (!complement && !langues.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} part toujours avec un post neuf, ajoute-le à --langues`);
+if (!langues.length) throw new Error(`${id} : aucune langue à livrer`);
+// Une slide par appli (Atala, Artura), jamais la couverture.
+const slugs = Object.keys(APPLIS) as SlugAppli[];
+const slideDe: Partial<Record<SlugAppli, number>> = {};
+for (const slug of slugs) {
+  const ids = post.slides.flatMap((s, i) => (appliDeSlide(s) === slug ? [i] : []));
+  if (ids.length !== 1) throw new Error(`${id} : une slide ${slug} et une seule (trouvé : ${ids.map((i) => i + 1).join(", ") || "aucune"})`);
+  slideDe[slug] = ids[0];
+}
+if (post.slides[0]?.type !== "couverture") throw new Error(`${id} : la couverture d'abord`);
+if (post.slides.length < 5 || post.slides.length > 8) throw new Error(`${id} : 5 à 8 slides (trouvé ${post.slides.length})`);
+// Chaque appli dans son « pro tip » (sa slide), nulle part ailleurs, ni dans le titre ou la légende.
+for (const l of langues) {
+  for (const slug of slugs) {
+    const ici = textesSlide(post.slides[slideDe[slug]!], l);
+    if (!new RegExp(`\\b${slug}\\b`, "i").test(ici)) throw new Error(`${id} (${l}) : la slide ${slug} cite ${slug} (son « pro tip »)`);
+    const ailleurs = post.slides.flatMap((s, i) => (i !== slideDe[slug] && new RegExp(`\\b${slug}\\b`, "i").test(textesSlide(s, l)) ? [i + 1] : []));
+    if (ailleurs.length) throw new Error(`${id} (${l}) : ${slug} citée hors de sa slide (${ailleurs.join(", ")})`);
+    if (new RegExp(`\\b${slug}\\b`, "i").test(`${post.titre[l] ?? ""} ${post.legendes[l] ?? ""}`)) throw new Error(`${id} (${l}) : pas de ${slug} dans le titre ni la légende TikTok`);
+  }
+}
+// Chaque photo vient de la banque de l'OS (`banque` : chemin → id) ou de Seedream (images/photos/), jamais deux fois dans le post.
+const photos = post.slides.flatMap(photosSlide);
+const sansId = photos.filter((p) => p.startsWith("images/banque/") && !post.banque?.[p]);
+if (sansId.length) throw new Error(`${id} : photos de la banque sans id (\`banque\` du post) : ${sansId.join(", ")}`);
+if (new Set(photos).size !== photos.length) throw new Error(`${id} : une photo sert deux fois`);
+// Aucune concurrente : ni Brainmaxx (sa pub), ni une autre appli de course (Atala) ou d'art (Artura), ni un bloqueur d'écran.
+const CONCURRENTES = /brain\s*maxx|runna|nike\s*run\s*club|\bnrc\b|couch\s*(to|2)\s*5\s*k|c25k|runkeeper|runtastic|strava|coopah|trainingpeaks|garmin\s+coach|smartify|dailyart|daily\s+art|artsy|google\s+arts|art\s*basel\s+app|opal|one ?sec|screenzen|clearspace|appblock|duolingo|headway|imprint|blinkist/i;
+const conc = post.slides.flatMap((s, i) => (langues.some((l) => CONCURRENTES.test(textesSlide(s, l))) || langues.some((l) => CONCURRENTES.test(post.legendes[l] ?? "")) ? [i + 1] : []));
+if (conc.length) throw new Error(`${id} : une appli concurrente est citée (slides ${conc.join(", ")})`);
+// Jamais une formule de pub, rien de médical (pas de médicament ni de dosage).
+const PUB = /\bdownload|link in (my )?bio|\bfree trial|the best app/i;
+const pub = langues.filter((l) => slugs.some((slug) => PUB.test(textesSlide(post.slides[slideDe[slug]!], l))) || PUB.test(post.legendes[l] ?? ""));
+if (pub.length) throw new Error(`${id} : formule de pub (download, link in bio, free trial, the best app) : ${pub.join(", ")}`);
+const MEDICAL = /\bmeds?\b|medication|ritalin|adderall|stimulant|\bdose|dosage|\bmg\b|supplement|nootropic/i;
+const medical = post.slides.flatMap((s, i) => (langues.some((l) => MEDICAL.test(textesSlide(s, l))) ? [i + 1] : []));
+if (medical.length) throw new Error(`${id} : rien de médical (médicament, dosage, complément) : slides ${medical.join(", ")}`);
+
+const decks: Record<string, { hashtags: string; slides: { position: number; jpeg_base64: string; position_app?: SlugAppli }[] }> = {};
+for (const langue of langues) {
+  const slides = [];
+  for (const [i, s] of post.slides.entries()) {
+    const jpeg = await rendreSlide(post, s, langue);
+    const restes = metadonneesRestantes(jpeg);
+    if (restes.length) throw new Error(`${langue} #${i + 1} : métadonnées ${restes.join(", ")}`);
+    slides.push({ position: i + 1, jpeg_base64: jpeg.toString("base64"), ...(appliDeSlide(s) ? { position_app: appliDeSlide(s)! } : {}) });
+  }
+  decks[langue] = { hashtags: post.legendes[langue], slides };
+}
+
+// Les textes lus par la note de pertinence : chaque slide, dans l'ordre.
+const textes = post.slides.map((s) => textesSlide(s, LANGUE_SOURCE)).filter(Boolean);
+
+// Deux originaux inspirés du même post d'un compte modèle : l'OS refuse deux
+// contenus de même source_url, on les distingue par « ?variante=<id> ».
+const anterieurs = readdirSync(join(RACINE, "posts"))
+  .filter((f) => /^aw-\d+\.json$/.test(f) && f < `${id}.json`)
+  .map((f) => JSON.parse(readFileSync(join(RACINE, "posts", f), "utf8")) as { source?: { url?: string } });
+const sourceUrl = anterieurs.some((p) => p.source?.url === post.source?.url && post.source?.url) ? `${post.source?.url}?variante=${id}` : post.source?.url;
+
+const corps = {
+  action: "deposer",
+  pod: POD,
+  // Un full test (accroche neuve) part sans le post modèle : un original en images finies, rang fixe.
+  source_url: post.type_bleo === "full_test" ? null : sourceUrl,
+  source_id: post.id,
+  source_vues: post.type_bleo === "full_test" ? undefined : post.source?.vues,
+  titre: post.titre[LANGUE_SOURCE].slice(0, 160),
+  langue_source: LANGUE_SOURCE,
+  musique_url: post.musique.url,
+  musique_titre: post.musique.titre,
+  textes,
+  decks,
+  // BLEO (pods/ROUTINE.md §5) : jugé au guichet sur la boîte du label ; refusé avec un code sinon.
+  ...(post.type_bleo ? { type_bleo: post.type_bleo, ...(post.parent_contenu_id ? { parent_contenu_id: post.parent_contenu_id } : {}) } : {}),
+};
+
+if (essai) {
+  mkdirSync(essai, { recursive: true });
+  writeFileSync(join(essai, `${id}.depot.json`), JSON.stringify(corps));
+  console.log(`${id} : écrit dans ${essai} (${Object.keys(decks).join(", ")}, ${slugs.map((slug) => `slide ${slug} #${slideDe[slug]! + 1}`).join(", ")})`);
+} else {
+  const r = await appelPod<{ id?: string; langues?: string[]; applications?: Record<string, string[]> }>(corps);
+  if (!r.ok) throw new Error(`${id} : dépôt refusé : ${r.error}`);
+  console.log(`${id} : déposé (livraison ${r.id}) · langues ${r.langues?.join(", ")}${r.applications ? ` · applications ${JSON.stringify(r.applications)}` : ""}`);
+}

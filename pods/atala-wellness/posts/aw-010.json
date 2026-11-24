@@ -7,10 +7,22 @@
   "accroche": "Mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment)"
  },
  "titre": {
-  "en": "my weird little habits that actually help me sleep"
+  "en": "my weird little habits that actually help me sleep",
+  "fr": "mes habitudes bizarres qui m'aident vraiment à dormir",
+  "de": "meine komischen habits, die mir echt beim schlafen helfen",
+  "it": "le mie strane abitudini che mi aiutano davvero a dormire",
+  "hu": "a fura kis szokásaim, amik tényleg segítenek aludni",
+  "ro": "obiceiurile mele ciudate care chiar mă ajută să dorm",
+  "el": "οι περίεργες συνήθειές μου που με βοηθούν να κοιμηθώ"
  },
  "legendes": {
-  "en": "weird but they work 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep"
+  "en": "weird but they work 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "fr": "bizarre mais ça marche 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "de": "komisch, aber wirkt 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "it": "strane ma funzionano 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "hu": "furák, de működnek 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "ro": "ciudate, dar merg 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "el": "περίεργες, αλλά πιάνουν 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep"
  },
  "musique": {
   "titre": "save a prayer",
@@ -37,6 +49,30 @@
    "en": {
     "titre": "my weird little habits that actually help me sleep",
     "note": "(that actually work)"
+   },
+   "fr": {
+    "titre": "mes habitudes bizarres qui m'aident vraiment à dormir",
+    "note": "(qui marchent vraiment)"
+   },
+   "de": {
+    "titre": "meine komischen habits, die mir echt beim schlafen helfen",
+    "note": "(die echt wirken)"
+   },
+   "it": {
+    "titre": "le mie strane abitudini che mi aiutano davvero a dormire",
+    "note": "(funzionano davvero)"
+   },
+   "hu": {
+    "titre": "a fura kis szokásaim, amik tényleg segítenek aludni",
+    "note": "(tényleg működnek)"
+   },
+   "ro": {
+    "titre": "obiceiurile mele ciudate care chiar mă ajută să dorm",
+    "note": "(chiar funcționează)"
+   },
+   "el": {
+    "titre": "οι περίεργες συνήθειές μου που με βοηθούν να κοιμηθώ",
+    "note": "(που όντως πιάνουν)"
    }
   },
   {
@@ -50,6 +86,60 @@
      "fluffy ones, _clean ones_, no judgement"
     ],
     "chute": "cold feet are _the enemy_"
+   },
+   "fr": {
+    "titre": "je dors _en chaussettes_",
+    "intro": "oui, _chaque nuit_",
+    "paragraphes": [
+     "selon une étude, avoir les pieds au chaud aide à _s'endormir plus vite_",
+     "toutes douces, _propres_, sans jugement"
+    ],
+    "chute": "les pieds froids, _l'ennemi_"
+   },
+   "de": {
+    "titre": "schlafen _mit socken_",
+    "intro": "ja, _jede nacht_",
+    "paragraphes": [
+     "eine studie fand: warme füße halfen leuten, _schneller einzuschlafen_",
+     "flauschige, _saubere_, ohne urteil"
+    ],
+    "chute": "kalte füße sind _der feind_"
+   },
+   "it": {
+    "titre": "dormo _con i calzini_",
+    "intro": "sì, _ogni notte_",
+    "paragraphes": [
+     "uno studio: i piedi caldi aiutavano ad _addormentarsi prima_",
+     "morbidi, _puliti_, niente giudizi"
+    ],
+    "chute": "piedi freddi = _il nemico_"
+   },
+   "hu": {
+    "titre": "_zokniban_ alszom",
+    "intro": "igen, _minden éjjel_",
+    "paragraphes": [
+     "egy kutatás szerint a meleg láb segített _gyorsabban elaludni_",
+     "puhák, _tiszták_, semmi ítélkezés"
+    ],
+    "chute": "a hideg láb _az ellenség_"
+   },
+   "ro": {
+    "titre": "dorm _în șosete_",
+    "intro": "da, _în fiecare noapte_",
+    "paragraphes": [
+     "un studiu: picioarele calde ajutau _să adormi mai repede_",
+     "pufoase, _curate_, fără judecăți"
+    ],
+    "chute": "picioare reci = _inamicul_"
+   },
+   "el": {
+    "titre": "κοιμάμαι _με κάλτσες_",
+    "intro": "ναι, _κάθε βράδυ_",
+    "paragraphes": [
+     "μια έρευνα βρήκε ότι τα ζεστά πόδια βοηθούσαν _να κοιμηθείς πιο γρήγορα_",
+     "χνουδωτές, _καθαρές_, καμία κριτική"
+    ],
+    "chute": "κρύα πόδια = _ο εχθρός_"
    }
   },
   {
@@ -63,6 +153,60 @@
      "3 lines, no rules, _no rereading_"
     ],
     "chute": "out of your head, _onto the page_"
+   },
+   "fr": {
+    "titre": "j'écris mes soucis _sur papier_",
+    "intro": "puis je ferme le carnet. _fini_",
+    "paragraphes": [
+     "la recherche sur l'écriture de ses émotions : ça peut _aider à se sentir mieux_",
+     "3 lignes, sans règles, _sans relire_"
+    ],
+    "chute": "hors de ta tête, _sur la page_"
+   },
+   "de": {
+    "titre": "sorgen _auf papier_ schreiben",
+    "intro": "dann klappe ich das heft zu. _fertig_",
+    "paragraphes": [
+     "forschung zum schreiben über gefühle zeigt: es kann _dir guttun_",
+     "3 zeilen, regellos, _kein nachlesen_"
+    ],
+    "chute": "raus aus dem kopf, _aufs papier_"
+   },
+   "it": {
+    "titre": "scrivo le ansie _su carta_",
+    "intro": "poi chiudo il quaderno. _fatto_",
+    "paragraphes": [
+     "la ricerca sullo scrivere le emozioni dice che può _farti stare meglio_",
+     "3 righe, zero regole, _non rileggere_"
+    ],
+    "chute": "fuori dalla testa, _sulla pagina_"
+   },
+   "hu": {
+    "titre": "_papírra_ írom a gondjaimat",
+    "intro": "aztán becsukom a füzetet. _kész_",
+    "paragraphes": [
+     "kutatások szerint az érzéseidről írni _segíthet jobban lenni_",
+     "3 sor, se szabály, _se újraolvasás_"
+    ],
+    "chute": "ki a fejedből, _a lapra_"
+   },
+   "ro": {
+    "titre": "îmi scriu grijile _pe hârtie_",
+    "intro": "apoi închid caietul. _gata_",
+    "paragraphes": [
+     "cercetările despre scrisul emoțiilor arată că te poate _ajuta să te simți mai bine_",
+     "3 rânduri, liber, _fără recitit_"
+    ],
+    "chute": "din cap, _pe hârtie_"
+   },
+   "el": {
+    "titre": "γράφω τις έγνοιες _σε χαρτί_",
+    "intro": "μετά κλείνω το τετράδιο. _τέλος_",
+    "paragraphes": [
+     "έρευνες: το γράψιμο των συναισθημάτων μπορεί _να σε κάνει να νιώσεις καλύτερα_",
+     "3 γραμμές, ελεύθερα, _δεν ξαναδιαβάζω_"
+    ],
+    "chute": "έξω από το κεφάλι, _πάνω στη σελίδα_"
    }
   },
   {
@@ -76,6 +220,60 @@
      "the same mug, _the same time_"
     ],
     "chute": "a cup that says _goodnight_"
+   },
+   "fr": {
+    "titre": "une tisane _à 21h_",
+    "intro": "pour mon cerveau, ça veut dire _dodo_",
+    "paragraphes": [
+     "camomille ou menthe, jamais rien _avec de la caféine_",
+     "le même mug, _la même heure_"
+    ],
+    "chute": "une tasse qui dit _bonne nuit_"
+   },
+   "de": {
+    "titre": "kräutertee _um 21 uhr_",
+    "intro": "mein kopf weiß: _jetzt ist bettzeit_",
+    "paragraphes": [
+     "kamille oder minze, nie etwas _mit koffein_",
+     "dieselbe tasse, _dieselbe zeit_"
+    ],
+    "chute": "ein tee, der _gute nacht_ sagt"
+   },
+   "it": {
+    "titre": "tisana _alle 21_",
+    "intro": "per il cervello vuol dire _nanna_",
+    "paragraphes": [
+     "camomilla o menta, mai niente _con caffeina_",
+     "la stessa tazza, _la stessa ora_"
+    ],
+    "chute": "una tazza che dice _buonanotte_"
+   },
+   "hu": {
+    "titre": "gyógytea _21-kor_",
+    "intro": "az agyam tudja, hogy ez _alvásidő_",
+    "paragraphes": [
+     "kamilla vagy menta, soha semmi _koffeines_",
+     "ugyanaz a bögre, _ugyanakkor_"
+    ],
+    "chute": "egy bögre, ami _jó éjt_ kíván"
+   },
+   "ro": {
+    "titre": "infuzie _la 21_",
+    "intro": "creierul meu știe că înseamnă _somn_",
+    "paragraphes": [
+     "mușețel sau mentă, niciodată ceva _cu cofeină_",
+     "aceeași cană, _aceeași oră_"
+    ],
+    "chute": "o cană care spune _noapte bună_"
+   },
+   "el": {
+    "titre": "αφέψημα _στις 9_",
+    "intro": "για το μυαλό μου σημαίνει _ύπνο_",
+    "paragraphes": [
+     "χαμομήλι ή μέντα, ποτέ κάτι _με καφεΐνη_",
+     "η ίδια κούπα, _η ίδια ώρα_"
+    ],
+    "chute": "μια κούπα που λέει _καληνύχτα_"
    }
   },
   {
@@ -91,6 +289,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "je cours _même fatiguée_",
+    "intro": "bizarrement, c'est là que _je dors le mieux_",
+    "paragraphes": [
+     "jamais su combien ni à quel rythme, alors je lâchais _des semaines_",
+     "mon tip : une appli de coaching running comme Atala prépare _toute ma semaine_, et je suis"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "ich laufe _auch müde_",
+    "intro": "komischerweise _schlafe ich dann am besten_",
+    "paragraphes": [
+     "ich wusste nie, wie weit oder wie oft, also ließ ich's _wochenlang_ sein",
+     "mein tipp: eine lauf-coach-app wie Atala plant _meine ganze woche_, ich folge nur"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corro _anche stanca_",
+    "intro": "stranamente, è quello che mi fa _dormire meglio_",
+    "paragraphes": [
+     "non sapevo mai quanto né quanto spesso, così saltavo _per settimane_",
+     "il mio consiglio: un'app coach per la corsa come Atala prepara _tutta la settimana_, io seguo"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "futok, _fáradtan is_",
+    "intro": "furcsa módon _ettől alszom a legjobban_",
+    "paragraphes": [
+     "sosem tudtam, mennyit és milyen gyakran, így _hetekig_ kihagytam",
+     "a tippem: egy futóedző app, mint az Atala, összerakja _az egész hetem_, én csak követem"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "alerg _chiar și obosită_",
+    "intro": "ciudat, e ce mă face _să dorm cel mai bine_",
+    "paragraphes": [
+     "nu știam cât sau cât de des, așa că săream _săptămâni la rând_",
+     "sfatul meu: o aplicație de running coach ca Atala îmi face _toată săptămâna_, eu doar o urmez"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέχω _και κουρασμένη_",
+    "intro": "παραδόξως, αυτό με κάνει _να κοιμάμαι καλύτερα_",
+    "paragraphes": [
+     "δεν ήξερα ποτέ πόσο μακριά ή πόσο συχνά, οπότε το άφηνα _για εβδομάδες_",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala στήνει _όλη μου τη βδομάδα_, εγώ απλώς ακολουθώ"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -104,6 +368,60 @@
      "2 minutes, _lights low_"
     ],
     "chute": "small luxury, _every night_"
+   },
+   "fr": {
+    "titre": "je fais mon lit _avant de dormir_",
+    "intro": "je gonfle les oreillers, _je tire les draps_",
+    "paragraphes": [
+     "se glisser dans un lit bien fait, c'est _l'hôtel_ tous les soirs",
+     "2 minutes, _lumière douce_"
+    ],
+    "chute": "petit luxe, _chaque soir_"
+   },
+   "de": {
+    "titre": "bett machen _vorm schlafen_",
+    "intro": "kissen aufschütteln, _laken glattziehen_",
+    "paragraphes": [
+     "ein gemachtes bett fühlt sich jede nacht an wie _hotel_",
+     "2 minuten, _licht gedimmt_"
+    ],
+    "chute": "kleiner luxus, _jede nacht_"
+   },
+   "it": {
+    "titre": "faccio il letto _prima di dormire_",
+    "intro": "sprimacciare i cuscini, _stirare le lenzuola_",
+    "paragraphes": [
+     "infilarsi in un letto in ordine sembra _un hotel_ ogni sera",
+     "2 minuti, _luci basse_"
+    ],
+    "chute": "piccolo lusso, _ogni sera_"
+   },
+   "hu": {
+    "titre": "beágyazok _lefekvés előtt_",
+    "intro": "felrázom a párnákat, _kisimítom a lepedőt_",
+    "paragraphes": [
+     "rendezett ágyba bújni olyan, mint _egy hotel_ minden este",
+     "2 perc, _tompa fény_"
+    ],
+    "chute": "kis luxus, _minden este_"
+   },
+   "ro": {
+    "titre": "îmi fac patul _înainte de somn_",
+    "intro": "pernele pufoase, _cearșafurile întinse_",
+    "paragraphes": [
+     "să intri într-un pat făcut e ca _la hotel_ în fiecare seară",
+     "2 minute, _lumină slabă_"
+    ],
+    "chute": "mic lux, _în fiecare seară_"
+   },
+   "el": {
+    "titre": "στρώνω το κρεβάτι _πριν κοιμηθώ_",
+    "intro": "φουσκώνω τα μαξιλάρια, _ισιώνω τα σεντόνια_",
+    "paragraphes": [
+     "ένα στρωμένο κρεβάτι είναι σαν _ξενοδοχείο_ κάθε βράδυ",
+     "2 λεπτά, _χαμηλό φως_"
+    ],
+    "chute": "μικρή πολυτέλεια, _κάθε βράδυ_"
    }
   },
   {
@@ -117,6 +435,60 @@
      "blow it out when _you get into bed_"
     ],
     "chute": "soft light, _soft sleep_"
+   },
+   "fr": {
+    "titre": "une bougie _au lieu du plafonnier_",
+    "intro": "dernière heure : _que des bougies_",
+    "paragraphes": [
+     "une lumière douce signale que _la journée est finie_",
+     "souffle-la quand _tu te mets au lit_"
+    ],
+    "chute": "lumière douce, _sommeil doux_"
+   },
+   "de": {
+    "titre": "eine kerze _statt deckenlicht_",
+    "intro": "die letzte stunde _nur kerzen_",
+    "paragraphes": [
+     "dämmriges licht signalisiert: _der tag ist vorbei_",
+     "puste sie aus, wenn _du ins bett gehst_"
+    ],
+    "chute": "sanftes licht, _sanfter schlaf_"
+   },
+   "it": {
+    "titre": "una candela _al posto del lampadario_",
+    "intro": "l'ultima ora è _solo candele_",
+    "paragraphes": [
+     "la luce soffusa segnala che _la giornata è finita_",
+     "spegnila quando _vai a letto_"
+    ],
+    "chute": "luce soft, _sonno soft_"
+   },
+   "hu": {
+    "titre": "gyertya _a nagy villany helyett_",
+    "intro": "az utolsó óra _csak gyertya_",
+    "paragraphes": [
+     "a halvány fény jelzés, hogy _vége a napnak_",
+     "fújd el, amikor _ágyba bújsz_"
+    ],
+    "chute": "lágy fény, _lágy alvás_"
+   },
+   "ro": {
+    "titre": "o lumânare _în loc de lustră_",
+    "intro": "ultima oră e _doar cu lumânări_",
+    "paragraphes": [
+     "lumina slabă e ca un semnal că _ziua s-a terminat_",
+     "sting-o când _te bagi în pat_"
+    ],
+    "chute": "lumină blândă, _somn blând_"
+   },
+   "el": {
+    "titre": "ένα κερί _αντί για το μεγάλο φως_",
+    "intro": "η τελευταία ώρα είναι _μόνο κεριά_",
+    "paragraphes": [
+     "το χαμηλό φως λειτουργεί σαν σήμα ότι _η μέρα τελείωσε_",
+     "σβήσ' το όταν _μπαίνεις στο κρεβάτι_"
+    ],
+    "chute": "απαλό φως, _απαλός ύπνος_"
    }
   }
  ]

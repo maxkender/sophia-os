@@ -8,10 +8,28 @@
   "accroche": "5 HABITS EVERY MAN SHOULD HAVE"
  },
  "titre": {
-  "en": "habits that make a man stand out"
+  "en": "habits that make a man stand out",
+  "de": "5 gewohnheiten, mit denen ein mann auffällt",
+  "es-419": "5 hábitos que hacen destacar a un hombre",
+  "it": "5 abitudini che fanno notare un uomo",
+  "pl": "5 nawyków, dzięki którym facet się wyróżnia",
+  "tr": "bir erkeği öne çıkaran 5 alışkanlık",
+  "hu": "5 szokás, amitől egy férfi kitűnik",
+  "el": "5 συνήθειες που κάνουν έναν άντρα να ξεχωρίζει",
+  "ro": "5 obiceiuri care fac un bărbat să iasă în evidență",
+  "sr": "5 navika zbog kojih se muškarac izdvaja"
  },
  "legendes": {
-  "en": "the quiet stuff people notice #selfimprovement #habits #tipsformen #running #discipline"
+  "en": "the quiet stuff people notice #selfimprovement #habits #tipsformen #running #discipline",
+  "de": "die leisen dinge, die auffallen #selfimprovement #habits #tipsformen #running #discipline",
+  "es-419": "lo que la gente nota sin que digas nada #selfimprovement #habits #tipsformen #running #discipline",
+  "it": "le cose silenziose che si notano #selfimprovement #habits #tipsformen #running #discipline",
+  "pl": "ciche rzeczy, które ludzie zauważają #selfimprovement #habits #tipsformen #running #discipline",
+  "tr": "insanların fark ettiği sessiz şeyler #selfimprovement #habits #tipsformen #running #discipline",
+  "hu": "a csendes dolgok, amiket észrevesznek #selfimprovement #habits #tipsformen #running #discipline",
+  "el": "τα ήσυχα πράγματα που προσέχουν #selfimprovement #habits #tipsformen #running #discipline",
+  "ro": "lucrurile discrete pe care oamenii le observă #selfimprovement #habits #tipsformen #running #discipline",
+  "sr": "tihe stvari koje ljudi primete #selfimprovement #habits #tipsformen #running #discipline"
  },
  "musique": {
   "titre": "Grope in the Dark",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-5.png",
    "en": {
     "titre": "5 HABITS THAT MAKE\nA MAN STAND OUT."
+   },
+   "de": {
+    "titre": "5 GEWOHNHEITEN,\nMIT DENEN EIN\nMANN AUFFÄLLT."
+   },
+   "es-419": {
+    "titre": "5 HÁBITOS\nQUE HACEN DESTACAR\nA UN HOMBRE."
+   },
+   "it": {
+    "titre": "5 ABITUDINI\nCHE FANNO NOTARE\nUN UOMO."
+   },
+   "pl": {
+    "titre": "5 NAWYKÓW,\nDZIĘKI KTÓRYM\nFACET SIĘ WYRÓŻNIA."
+   },
+   "tr": {
+    "titre": "BİR ERKEĞİ\nÖNE ÇIKARAN\n5 ALIŞKANLIK."
+   },
+   "hu": {
+    "titre": "5 SZOKÁS,\nAMITŐL EGY FÉRFI\nKITŰNIK."
+   },
+   "el": {
+    "titre": "5 ΣΥΝΗΘΕΙΕΣ\nΠΟΥ ΚΑΝΟΥΝ ΕΝΑΝ\nΑΝΤΡΑ ΝΑ ΞΕΧΩΡΙΖΕΙ."
+   },
+   "ro": {
+    "titre": "5 OBICEIURI\nCARE FAC UN BĂRBAT\nSĂ IASĂ ÎN EVIDENȚĂ."
+   },
+   "sr": {
+    "titre": "5 NAVIKA\nZBOG KOJIH SE\nMUŠKARAC IZDVAJA."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Make your bed",
     "texte": "Start the day with one thing done. It takes 2 minutes and sets the tone for everything after."
+   },
+   "de": {
+    "titre": "1. Mach dein Bett",
+    "texte": "Starte den Tag mit einer erledigten Sache. Dauert 2 Minuten und gibt den Ton für alles danach an."
+   },
+   "es-419": {
+    "titre": "1. Tiende tu cama",
+    "texte": "Empieza el día con algo ya hecho. Toma 2 minutos y marca el tono de todo lo demás."
+   },
+   "it": {
+    "titre": "1. Rifai il letto",
+    "texte": "Inizia la giornata con una cosa già fatta. Ci vogliono 2 minuti e dà il tono a tutto il resto."
+   },
+   "pl": {
+    "titre": "1. Ścieląj łóżko",
+    "texte": "Zacznij dzień od jednej zrobionej rzeczy. Zajmuje 2 minuty i nadaje ton całej reszcie."
+   },
+   "tr": {
+    "titre": "1. Yatağını topla",
+    "texte": "Güne bir işi bitirmiş olarak başla. 2 dakika sürer ve günün geri kalanının tonunu belirler."
+   },
+   "hu": {
+    "titre": "1. Vesd be az ágyad",
+    "texte": "Kezdd a napot egy elvégzett dologgal. 2 perc, és megadja a nap hangulatát."
+   },
+   "el": {
+    "titre": "1. Στρώσε το κρεβάτι σου",
+    "texte": "Ξεκίνα τη μέρα με κάτι ήδη έτοιμο. Θέλει 2 λεπτά και δίνει τον τόνο για όλα τα υπόλοιπα."
+   },
+   "ro": {
+    "titre": "1. Fă-ți patul",
+    "texte": "Începe ziua cu un lucru deja făcut. Durează 2 minute și dă tonul pentru tot restul."
+   },
+   "sr": {
+    "titre": "1. Namesti krevet",
+    "texte": "Počni dan sa jednom završenom stvari. Traje 2 minuta i daje ton svemu posle."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Dress one level up",
     "texte": "Swap the hoodie for a jacket once in a while. People treat you the way you show up."
+   },
+   "de": {
+    "titre": "2. Zieh dich eine Stufe besser an",
+    "texte": "Tausch ab und zu den Hoodie gegen eine Jacke. Leute behandeln dich so, wie du auftrittst."
+   },
+   "es-419": {
+    "titre": "2. Vístete un nivel arriba",
+    "texte": "Cambia la sudadera por una chamarra de vez en cuando. La gente te trata como te presentas."
+   },
+   "it": {
+    "titre": "2. Vestiti un gradino sopra",
+    "texte": "Ogni tanto cambia la felpa con una giacca. La gente ti tratta come ti presenti."
+   },
+   "pl": {
+    "titre": "2. Ubieraj się o poziom wyżej",
+    "texte": "Czasem zamień bluzę na kurtkę. Ludzie traktują cię tak, jak się pokazujesz."
+   },
+   "tr": {
+    "titre": "2. Bir tık şık giyin",
+    "texte": "Arada bir kapüşonluyu bir ceketle değiştir. İnsanlar sana göründüğün gibi davranır."
+   },
+   "hu": {
+    "titre": "2. Öltözz egy szinttel jobban",
+    "texte": "Néha cseréld a kapucnist egy zakóra. Az emberek úgy bánnak veled, ahogy megjelensz."
+   },
+   "el": {
+    "titre": "2. Ντύσου ένα επίπεδο πάνω",
+    "texte": "Άλλαξε πού και πού το φούτερ με ένα σακάκι. Ο κόσμος σε αντιμετωπίζει όπως εμφανίζεσαι."
+   },
+   "ro": {
+    "titre": "2. Îmbracă-te un nivel mai sus",
+    "texte": "Schimbă din când în când hanoracul cu o geacă. Oamenii te tratează cum te prezinți."
+   },
+   "sr": {
+    "titre": "2. Obuci se stepen bolje",
+    "texte": "Ponekad zameni duks jaknom. Ljudi te tretiraju onako kako se pojaviš."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Run 3 times a week",
     "texte": "Most men start too hard and stop. Running coach apps like Atala start at your level and build up slowly."
+   },
+   "de": {
+    "titre": "3. Lauf 3-mal pro Woche",
+    "texte": "Die meisten starten zu hart und hören auf. Lauf-Apps mit Coach wie Atala starten auf deinem Level und steigern langsam."
+   },
+   "es-419": {
+    "titre": "3. Corre 3 veces por semana",
+    "texte": "Casi todos empiezan muy fuerte y lo dejan. Las apps de running con entrenador como Atala empiezan a tu nivel y suben poco a poco."
+   },
+   "it": {
+    "titre": "3. Corri 3 volte a settimana",
+    "texte": "Quasi tutti partono troppo forte e mollano. Le app con coach per la corsa come Atala partono dal tuo livello e salgono piano."
+   },
+   "pl": {
+    "titre": "3. Biegaj 3 razy w tygodniu",
+    "texte": "Większość zaczyna za mocno i odpuszcza. Aplikacje z trenerem biegania, takie jak Atala, zaczynają od twojego poziomu i rosną powoli."
+   },
+   "tr": {
+    "titre": "3. Haftada 3 kez koş",
+    "texte": "Çoğu kişi çok sert başlayıp bırakır. Atala gibi koşu koçu uygulamaları senin seviyenden başlar ve yavaş yavaş artırır."
+   },
+   "hu": {
+    "titre": "3. Fuss hetente 3-szor",
+    "texte": "A legtöbben túl erősen kezdenek, aztán abbahagyják. Az olyan futóedzős appok, mint az Atala, a szintedről indulnak és lassan emelnek."
+   },
+   "el": {
+    "titre": "3. Τρέξε 3 φορές τη βδομάδα",
+    "texte": "Οι περισσότεροι ξεκινούν πολύ δυνατά και σταματούν. Οι εφαρμογές προπονητή τρεξίματος όπως το Atala ξεκινούν από το επίπεδό σου και ανεβαίνουν σιγά σιγά."
+   },
+   "ro": {
+    "titre": "3. Aleargă de 3 ori pe săptămână",
+    "texte": "Cei mai mulți încep prea tare și se opresc. Aplicațiile cu antrenor de alergare, ca Atala, pornesc de la nivelul tău și cresc încet."
+   },
+   "sr": {
+    "titre": "3. Trči 3 puta nedeljno",
+    "texte": "Većina krene prejako pa odustane. Aplikacije sa trenerom za trčanje, kao što je Atala, kreću od tvog nivoa i polako povećavaju."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Drink water all day",
     "texte": "Keep a bottle on your desk and refill it. Even mild dehydration drains your focus."
+   },
+   "de": {
+    "titre": "4. Trink den ganzen Tag Wasser",
+    "texte": "Stell eine Flasche auf den Schreibtisch und füll nach. Schon wenig Flüssigkeitsmangel raubt dir Fokus."
+   },
+   "es-419": {
+    "titre": "4. Toma agua todo el día",
+    "texte": "Ten una botella en tu escritorio y rellénala. Un poco de deshidratación ya te quita foco."
+   },
+   "it": {
+    "titre": "4. Bevi acqua tutto il giorno",
+    "texte": "Tieni una borraccia sulla scrivania e riempila. Anche poca disidratazione ti toglie concentrazione."
+   },
+   "pl": {
+    "titre": "4. Pij wodę cały dzień",
+    "texte": "Trzymaj butelkę na biurku i dolewaj. Nawet lekkie odwodnienie odbiera skupienie."
+   },
+   "tr": {
+    "titre": "4. Gün boyu su iç",
+    "texte": "Masanda bir şişe tut ve doldur. Hafif susuzluk bile odağını düşürür."
+   },
+   "hu": {
+    "titre": "4. Igyál vizet egész nap",
+    "texte": "Tarts egy palackot az asztalodon, és töltsd újra. Már az enyhe kiszáradás is elveszi a fókuszod."
+   },
+   "el": {
+    "titre": "4. Πίνε νερό όλη μέρα",
+    "texte": "Κράτα ένα μπουκάλι στο γραφείο και γέμιζέ το. Ακόμα και λίγη αφυδάτωση ρίχνει τη συγκέντρωση."
+   },
+   "ro": {
+    "titre": "4. Bea apă toată ziua",
+    "texte": "Ține o sticlă pe birou și umple-o. Chiar și o deshidratare ușoară îți ia din concentrare."
+   },
+   "sr": {
+    "titre": "4. Pij vodu ceo dan",
+    "texte": "Drži flašu na stolu i dopunjuj je. Čak i blaga dehidracija ti uzima fokus."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Read before bed",
     "texte": "Swap the last scroll of the day for 10 pages. Your mind slows down before sleep."
+   },
+   "de": {
+    "titre": "5. Lies vor dem Schlafen",
+    "texte": "Tausch das letzte Scrollen gegen 10 Seiten. Dein Kopf kommt vor dem Schlaf zur Ruhe."
+   },
+   "es-419": {
+    "titre": "5. Lee antes de dormir",
+    "texte": "Cambia el último scroll del día por 10 páginas. Tu mente baja el ritmo antes de dormir."
+   },
+   "it": {
+    "titre": "5. Leggi prima di dormire",
+    "texte": "Cambia l'ultimo scroll della giornata con 10 pagine. La mente rallenta prima del sonno."
+   },
+   "pl": {
+    "titre": "5. Czytaj przed snem",
+    "texte": "Zamień ostatni scroll dnia na 10 stron. Głowa zwalnia przed snem."
+   },
+   "tr": {
+    "titre": "5. Yatmadan önce oku",
+    "texte": "Günün son scroll'unu 10 sayfayla değiştir. Zihnin uykudan önce yavaşlar."
+   },
+   "hu": {
+    "titre": "5. Olvass lefekvés előtt",
+    "texte": "Cseréld a nap utolsó görgetését 10 oldalra. A fejed lelassul alvás előtt."
+   },
+   "el": {
+    "titre": "5. Διάβαζε πριν τον ύπνο",
+    "texte": "Άλλαξε το τελευταίο scroll της μέρας με 10 σελίδες. Το μυαλό σου ηρεμεί πριν κοιμηθείς."
+   },
+   "ro": {
+    "titre": "5. Citește înainte de somn",
+    "texte": "Schimbă ultimul scroll al zilei cu 10 pagini. Mintea încetinește înainte de somn."
+   },
+   "sr": {
+    "titre": "5. Čitaj pre spavanja",
+    "texte": "Zameni poslednje skrolovanje u danu sa 10 strana. Glava ti se smiri pre sna."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

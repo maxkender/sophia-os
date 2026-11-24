@@ -8,10 +8,10 @@ export const COMPTES_SOURCE = ["built.not.born61"] as const;
 /** L'appli servie : Atala (coach de course par IA), id du catalogue de l'OS. */
 export const APPLICATION = { slug: "atala", id: "00000000-0000-4000-8000-000000000004", nom: "Atala" } as const;
 /**
- * Les langues livrées : l'anglais, celle du compte modèle, lancement du 19/11. Cette liste est déclarée à l'OS à chaque `npm run boite` (0654) et
+ * Les langues livrées : l'anglais, celle du compte modèle (19/11), puis hu, it, de, el, ro, tr, es-419, pl et sr (ordre d'Adrien du 24/11 ; serbe en alphabet latin, grec avec Manrope en repli pour les titres). Cette liste est déclarée à l'OS à chaque `npm run boite` (0654) et
  * remplace `pods.langues` : l'attribution des comptes la lit.
  */
-export const LANGUES = ["en"] as const;
+export const LANGUES = ["en", "hu", "it", "de", "el", "ro", "tr", "es-419", "pl", "sr"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

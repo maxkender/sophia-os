@@ -7,10 +7,28 @@
   "accroche": "How To Become Extremely Attractive."
  },
  "titre": {
-  "en": "how to become more attractive as a man"
+  "en": "how to become more attractive as a man",
+  "de": "wie du als mann attraktiver wirst",
+  "es-419": "cómo ser más atractivo como hombre",
+  "it": "come diventare più attraente da uomo",
+  "pl": "jak stać się bardziej atrakcyjnym facetem",
+  "tr": "erkek olarak daha çekici olmanın yolları",
+  "hu": "hogyan legyél vonzóbb férfiként",
+  "el": "πώς να γίνεις πιο ελκυστικός ως άντρας",
+  "ro": "cum să devii mai atrăgător ca bărbat",
+  "sr": "kako da postaneš privlačniji kao muškarac"
  },
  "legendes": {
-  "en": "it's mostly how you show up #selfimprovement #attractive #tipsformen #running #confidence"
+  "en": "it's mostly how you show up #selfimprovement #attractive #tipsformen #running #confidence",
+  "de": "meistens geht es darum, wie du auftrittst #selfimprovement #attractive #tipsformen #running #confidence",
+  "es-419": "casi todo es cómo te presentas #selfimprovement #attractive #tipsformen #running #confidence",
+  "it": "conta soprattutto come ti presenti #selfimprovement #attractive #tipsformen #running #confidence",
+  "pl": "chodzi głównie o to, jak się pokazujesz #selfimprovement #attractive #tipsformen #running #confidence",
+  "tr": "asıl mesele nasıl göründüğün #selfimprovement #attractive #tipsformen #running #confidence",
+  "hu": "leginkább azon múlik, hogyan jelensz meg #selfimprovement #attractive #tipsformen #running #confidence",
+  "el": "κυρίως είναι το πώς εμφανίζεσαι #selfimprovement #attractive #tipsformen #running #confidence",
+  "ro": "contează mai ales cum te prezinți #selfimprovement #attractive #tipsformen #running #confidence",
+  "sr": "uglavnom je stvar u tome kako se pojaviš #selfimprovement #attractive #tipsformen #running #confidence"
  },
  "musique": {
   "titre": "Originalton",
@@ -21,17 +39,304 @@
   "images/detoures/coureur-piste.png": "5aadac81-9008-4fe7-9e87-cb8e6d6f901e"
  },
  "slides": [
-  { "type": "couverture", "image": "images/detoures/couverture-3.png", "en": { "titre": "HOW TO BECOME\nMORE ATTRACTIVE\nAS A MAN." } },
-  { "type": "conseil", "image": "images/detoures/regard.png", "mode": "bas", "taille": 520,
-    "en": { "titre": "1. Hold eye contact", "texte": "Look people in the eyes when you talk and when you listen. It shows confidence and real interest." } },
-  { "type": "conseil", "image": "images/detoures/micro.png", "mode": "objet", "taille": 440,
-    "en": { "titre": "2. Speak slower", "texte": "Rushed words sound nervous. Slow down, pause before you answer and let people wait for you." } },
-  { "type": "conseil", "atala": true, "image": "images/detoures/coureur-piste.png", "mode": "objet", "taille": 560,
-    "en": { "titre": "3. Get fit by running", "texte": "A fit body shows in how you stand and move. A running coach app like Atala tells you what to run each day." } },
-  { "type": "conseil", "image": "images/detoures/bottines.png", "mode": "objet", "taille": 440,
-    "en": { "titre": "4. Wear good shoes", "texte": "People notice your shoes. One clean pair of leather boots goes with almost everything you own." } },
-  { "type": "conseil", "image": "images/detoures/livre.png", "mode": "objet", "taille": 400,
-    "en": { "titre": "5. Read more", "texte": "Interesting people are attractive. A few pages every night gives you new things to talk about." } },
-  { "type": "fin", "image": "images/detoures/fin-3.png", "en": { "texte": "Follow for more" } }
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-3.png",
+   "en": {
+    "titre": "HOW TO BECOME\nMORE ATTRACTIVE\nAS A MAN."
+   },
+   "de": {
+    "titre": "WIE DU ALS MANN\nATTRAKTIVER\nWIRST."
+   },
+   "es-419": {
+    "titre": "CÓMO SER\nMÁS ATRACTIVO\nCOMO HOMBRE."
+   },
+   "it": {
+    "titre": "COME DIVENTARE\nPIÙ ATTRAENTE\nDA UOMO."
+   },
+   "pl": {
+    "titre": "JAK STAĆ SIĘ\nBARDZIEJ ATRAKCYJNYM\nFACETEM."
+   },
+   "tr": {
+    "titre": "ERKEK OLARAK\nDAHA ÇEKİCİ\nOLMANIN YOLLARI."
+   },
+   "hu": {
+    "titre": "HOGYAN LEGYÉL\nVONZÓBB\nFÉRFIKÉNT."
+   },
+   "el": {
+    "titre": "ΠΩΣ ΝΑ ΓΙΝΕΙΣ\nΠΙΟ ΕΛΚΥΣΤΙΚΟΣ\nΩΣ ΑΝΤΡΑΣ."
+   },
+   "ro": {
+    "titre": "CUM SĂ DEVII\nMAI ATRĂGĂTOR\nCA BĂRBAT."
+   },
+   "sr": {
+    "titre": "KAKO DA POSTANEŠ\nPRIVLAČNIJI\nKAO MUŠKARAC."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/regard.png",
+   "mode": "bas",
+   "taille": 520,
+   "en": {
+    "titre": "1. Hold eye contact",
+    "texte": "Look people in the eyes when you talk and when you listen. It shows confidence and real interest."
+   },
+   "de": {
+    "titre": "1. Halte Blickkontakt",
+    "texte": "Schau Leuten in die Augen, wenn du redest und zuhörst. Das zeigt Selbstvertrauen und echtes Interesse."
+   },
+   "es-419": {
+    "titre": "1. Mantén el contacto visual",
+    "texte": "Mira a la gente a los ojos cuando hablas y cuando escuchas. Muestra seguridad e interés real."
+   },
+   "it": {
+    "titre": "1. Mantieni lo sguardo",
+    "texte": "Guarda le persone negli occhi quando parli e quando ascolti. Mostra sicurezza e interesse vero."
+   },
+   "pl": {
+    "titre": "1. Utrzymuj kontakt wzrokowy",
+    "texte": "Patrz ludziom w oczy, gdy mówisz i słuchasz. To pokazuje pewność siebie i prawdziwe zainteresowanie."
+   },
+   "tr": {
+    "titre": "1. Göz teması kur",
+    "texte": "Konuşurken ve dinlerken insanların gözüne bak. Özgüven ve gerçek ilgi gösterir."
+   },
+   "hu": {
+    "titre": "1. Tartsd a szemkontaktust",
+    "texte": "Nézz az emberek szemébe, amikor beszélsz és figyelsz. Magabiztosságot és valódi érdeklődést mutat."
+   },
+   "el": {
+    "titre": "1. Κράτα βλεμματική επαφή",
+    "texte": "Κοίτα τους ανθρώπους στα μάτια όταν μιλάς και όταν ακούς. Δείχνει αυτοπεποίθηση και αληθινό ενδιαφέρον."
+   },
+   "ro": {
+    "titre": "1. Păstrează contactul vizual",
+    "texte": "Privește oamenii în ochi când vorbești și când asculți. Arată încredere și interes real."
+   },
+   "sr": {
+    "titre": "1. Drži kontakt očima",
+    "texte": "Gledaj ljude u oči kad pričaš i kad slušaš. To pokazuje samopouzdanje i pravo interesovanje."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/micro.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "2. Speak slower",
+    "texte": "Rushed words sound nervous. Slow down, pause before you answer and let people wait for you."
+   },
+   "de": {
+    "titre": "2. Sprich langsamer",
+    "texte": "Hastige Worte klingen nervös. Mach langsamer, mach eine Pause vor der Antwort und lass die anderen warten."
+   },
+   "es-419": {
+    "titre": "2. Habla más despacio",
+    "texte": "Hablar rápido suena nervioso. Baja el ritmo, haz una pausa antes de responder y deja que te esperen."
+   },
+   "it": {
+    "titre": "2. Parla più piano",
+    "texte": "Le parole di fretta sembrano nervose. Rallenta, fai una pausa prima di rispondere e lascia che aspettino."
+   },
+   "pl": {
+    "titre": "2. Mów wolniej",
+    "texte": "Pośpieszne słowa brzmią nerwowo. Zwolnij, zrób pauzę przed odpowiedzią i pozwól innym poczekać."
+   },
+   "tr": {
+    "titre": "2. Daha yavaş konuş",
+    "texte": "Aceleyle konuşmak gergin gösterir. Yavaşla, cevap vermeden önce dur ve insanları beklet."
+   },
+   "hu": {
+    "titre": "2. Beszélj lassabban",
+    "texte": "A kapkodó szavak idegesnek hatnak. Lassíts, tarts szünetet válasz előtt, és hagyd, hogy várjanak."
+   },
+   "el": {
+    "titre": "2. Μίλα πιο αργά",
+    "texte": "Τα βιαστικά λόγια ακούγονται αγχωμένα. Κόψε ρυθμό, κάνε παύση πριν απαντήσεις και άσε τους να περιμένουν."
+   },
+   "ro": {
+    "titre": "2. Vorbește mai rar",
+    "texte": "Cuvintele grăbite par nervoase. Încetinește, fă o pauză înainte să răspunzi și lasă-i să aștepte."
+   },
+   "sr": {
+    "titre": "2. Pričaj sporije",
+    "texte": "Brze reči zvuče nervozno. Uspori, napravi pauzu pre odgovora i pusti ih da čekaju."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-piste.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Get fit by running",
+    "texte": "A fit body shows in how you stand and move. A running coach app like Atala tells you what to run each day."
+   },
+   "de": {
+    "titre": "3. Werd fit durchs Laufen",
+    "texte": "Ein fitter Körper zeigt sich, wie du stehst und dich bewegst. Eine Lauf-App mit Coach wie Atala sagt dir, was du jeden Tag läufst."
+   },
+   "es-419": {
+    "titre": "3. Ponte en forma corriendo",
+    "texte": "Un cuerpo en forma se nota en cómo te paras y te mueves. Una app de running con entrenador como Atala te dice qué correr cada día."
+   },
+   "it": {
+    "titre": "3. Rimettiti in forma correndo",
+    "texte": "Un corpo in forma si vede da come stai in piedi e ti muovi. Un'app con coach per la corsa come Atala ti dice cosa correre ogni giorno."
+   },
+   "pl": {
+    "titre": "3. Złap formę biegając",
+    "texte": "Wysportowane ciało widać po tym, jak stoisz i się ruszasz. Aplikacja z trenerem biegania, taka jak Atala, mówi ci, co biegać każdego dnia."
+   },
+   "tr": {
+    "titre": "3. Koşarak forma gir",
+    "texte": "Formda bir vücut duruşundan ve hareketinden belli olur. Atala gibi bir koşu koçu uygulaması sana her gün ne koşacağını söyler."
+   },
+   "hu": {
+    "titre": "3. Legyél fitt futással",
+    "texte": "A fitt test látszik azon, ahogy állsz és mozogsz. Egy futóedzős app, mint az Atala, megmondja, mit fuss minden nap."
+   },
+   "el": {
+    "titre": "3. Γίνε fit με τρέξιμο",
+    "texte": "Ένα fit σώμα φαίνεται στο πώς στέκεσαι και κινείσαι. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala σου λέει τι να τρέξεις κάθε μέρα."
+   },
+   "ro": {
+    "titre": "3. Pune-te în formă alergând",
+    "texte": "Un corp în formă se vede în felul în care stai și te miști. O aplicație cu antrenor de alergare, ca Atala, îți spune ce să alergi în fiecare zi."
+   },
+   "sr": {
+    "titre": "3. Uđi u formu trčanjem",
+    "texte": "Telo u formi se vidi po tome kako stojiš i kako se krećeš. Aplikacija sa trenerom za trčanje, kao što je Atala, kaže ti šta da trčiš svaki dan."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/bottines.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "4. Wear good shoes",
+    "texte": "People notice your shoes. One clean pair of leather boots goes with almost everything you own."
+   },
+   "de": {
+    "titre": "4. Trag gute Schuhe",
+    "texte": "Leute achten auf deine Schuhe. Ein sauberes Paar Lederstiefel passt zu fast allem, was du hast."
+   },
+   "es-419": {
+    "titre": "4. Usa buenos zapatos",
+    "texte": "La gente se fija en tus zapatos. Un par de botas de cuero limpias va con casi todo lo que tienes."
+   },
+   "it": {
+    "titre": "4. Porta belle scarpe",
+    "texte": "La gente guarda le tue scarpe. Un paio di stivaletti in pelle puliti va con quasi tutto."
+   },
+   "pl": {
+    "titre": "4. Noś dobre buty",
+    "texte": "Ludzie patrzą na buty. Jedna czysta para skórzanych sztybletów pasuje prawie do wszystkiego."
+   },
+   "tr": {
+    "titre": "4. İyi ayakkabı giy",
+    "texte": "İnsanlar ayakkabına bakar. Temiz bir çift deri bot neredeyse her şeyle gider."
+   },
+   "hu": {
+    "titre": "4. Hordj jó cipőt",
+    "texte": "Az emberek nézik a cipődet. Egy tiszta pár bőrbakancs szinte mindenhez illik."
+   },
+   "el": {
+    "titre": "4. Φόρα καλά παπούτσια",
+    "texte": "Ο κόσμος κοιτάει τα παπούτσια σου. Ένα καθαρό ζευγάρι δερμάτινα μποτάκια ταιριάζει σχεδόν με όλα."
+   },
+   "ro": {
+    "titre": "4. Poartă pantofi buni",
+    "texte": "Oamenii se uită la pantofii tăi. O pereche curată de ghete din piele merge cu aproape orice."
+   },
+   "sr": {
+    "titre": "4. Nosi dobre cipele",
+    "texte": "Ljudi gledaju tvoje cipele. Jedan čist par kožnih čizama ide uz skoro sve što imaš."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/livre.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "5. Read more",
+    "texte": "Interesting people are attractive. A few pages every night gives you new things to talk about."
+   },
+   "de": {
+    "titre": "5. Lies mehr",
+    "texte": "Interessante Menschen sind attraktiv. Ein paar Seiten jeden Abend geben dir neuen Gesprächsstoff."
+   },
+   "es-419": {
+    "titre": "5. Lee más",
+    "texte": "La gente interesante es atractiva. Unas páginas cada noche te dan cosas nuevas de qué hablar."
+   },
+   "it": {
+    "titre": "5. Leggi di più",
+    "texte": "Le persone interessanti sono attraenti. Qualche pagina ogni sera ti dà nuove cose di cui parlare."
+   },
+   "pl": {
+    "titre": "5. Czytaj więcej",
+    "texte": "Ciekawi ludzie są atrakcyjni. Kilka stron co wieczór daje ci nowe tematy do rozmowy."
+   },
+   "tr": {
+    "titre": "5. Daha çok oku",
+    "texte": "İlginç insanlar çekicidir. Her akşam birkaç sayfa sana konuşacak yeni şeyler verir."
+   },
+   "hu": {
+    "titre": "5. Olvass többet",
+    "texte": "Az érdekes emberek vonzók. Pár oldal minden este új témát ad a beszélgetéshez."
+   },
+   "el": {
+    "titre": "5. Διάβαζε περισσότερο",
+    "texte": "Οι ενδιαφέροντες άνθρωποι είναι ελκυστικοί. Λίγες σελίδες κάθε βράδυ σου δίνουν νέα θέματα για κουβέντα."
+   },
+   "ro": {
+    "titre": "5. Citește mai mult",
+    "texte": "Oamenii interesanți sunt atrăgători. Câteva pagini în fiecare seară îți dau subiecte noi de discuție."
+   },
+   "sr": {
+    "titre": "5. Čitaj više",
+    "texte": "Zanimljivi ljudi su privlačni. Par strana svako veče daje ti nove teme za razgovor."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-3.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
  ]
 }

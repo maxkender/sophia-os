@@ -8,10 +8,22 @@
   "accroche": "ces habitudes que j'ai volées aux filles toujours parfaites <3"
  },
  "titre": {
-  "en": "habits i stole from girls who glow all winter"
+  "en": "habits i stole from girls who glow all winter",
+  "fr": "ce que j'ai piqué aux filles radieuses tout l'hiver",
+  "de": "was ich mir von winter-glow-mädels abgeschaut hab",
+  "it": "abitudini rubate a chi brilla tutto l'inverno",
+  "hu": "ellesett szokások télen is ragyogó lányoktól",
+  "ro": "obiceiuri furate de la fete radiante toată iarna",
+  "el": "όσα έκλεψα από κορίτσια που λάμπουν όλο τον χειμώνα"
  },
  "legendes": {
-  "en": "winter girl era ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter"
+  "en": "winter girl era ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter",
+  "fr": "ère winter girl ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter",
+  "de": "winter-girl-ära ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter",
+  "it": "era winter girl ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter",
+  "hu": "winter girl éra ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter",
+  "ro": "era winter girl ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter",
+  "el": "εποχή winter girl ❄️ #wellness #healthyhabits #thatgirl #selfcare #winter"
  },
  "musique": {
   "titre": "save a prayer",
@@ -38,6 +50,30 @@
    "en": {
     "titre": "habits i stole from girls who glow all winter",
     "note": "(winter edition)"
+   },
+   "fr": {
+    "titre": "ce que j'ai piqué aux filles radieuses tout l'hiver",
+    "note": "(édition hiver)"
+   },
+   "de": {
+    "titre": "was ich mir von winter-glow-mädels abgeschaut hab",
+    "note": "(winter-edition)"
+   },
+   "it": {
+    "titre": "abitudini rubate a chi brilla tutto l'inverno",
+    "note": "(versione inverno)"
+   },
+   "hu": {
+    "titre": "ellesett szokások télen is ragyogó lányoktól",
+    "note": "(téli kiadás)"
+   },
+   "ro": {
+    "titre": "obiceiuri furate de la fete radiante toată iarna",
+    "note": "(ediția de iarnă)"
+   },
+   "el": {
+    "titre": "όσα έκλεψα από κορίτσια που λάμπουν όλο τον χειμώνα",
+    "note": "(χειμερινή έκδοση)"
    }
   },
   {
@@ -51,6 +87,60 @@
      "a big mug and _5 quiet minutes_"
     ],
     "chute": "winter tastes like _this_"
+   },
+   "fr": {
+    "titre": "un thé chaud _chaque aprèm_",
+    "intro": "au lieu du _troisième café_",
+    "paragraphes": [
+     "citron, gingembre, cannelle. mains chaudes, _tête zen_",
+     "un gros mug, _5 minutes au calme_"
+    ],
+    "chute": "l'hiver a _ce goût-là_"
+   },
+   "de": {
+    "titre": "heißer tee _jeden nachmittag_",
+    "intro": "statt _dem dritten kaffee_",
+    "paragraphes": [
+     "zitrone, ingwer, zimt. warme hände, _ruhiger kopf_",
+     "großer becher, _5 ruhige minuten_"
+    ],
+    "chute": "winter schmeckt _so_"
+   },
+   "it": {
+    "titre": "un tè caldo _ogni pomeriggio_",
+    "intro": "al posto del _terzo caffè_",
+    "paragraphes": [
+     "limone, zenzero, cannella. mani calde, _testa calma_",
+     "tazzona e _5 minuti tranquilli_"
+    ],
+    "chute": "l'inverno sa _di questo_"
+   },
+   "hu": {
+    "titre": "forró tea _minden délután_",
+    "intro": "a _harmadik kávé_ helyett",
+    "paragraphes": [
+     "citrom, gyömbér, fahéj. meleg kéz, _nyugodt fej_",
+     "egy nagy bögre és _5 csendes perc_"
+    ],
+    "chute": "a tél _ilyen ízű_"
+   },
+   "ro": {
+    "titre": "ceai cald _după-amiaza_",
+    "intro": "în loc de _a treia cafea_",
+    "paragraphes": [
+     "lămâie, ghimbir, scorțișoară. mâini calde, _calm_",
+     "cană mare, _5 minute liniștite_"
+    ],
+    "chute": "iarna are _gustul ăsta_"
+   },
+   "el": {
+    "titre": "ζεστό τσάι _κάθε απόγευμα_",
+    "intro": "αντί για _τον τρίτο καφέ_",
+    "paragraphes": [
+     "λεμόνι, τζίντζερ, κανέλα. ζεστά χέρια, _ήρεμο μυαλό_",
+     "μεγάλη κούπα, _5 ήσυχα λεπτά_"
+    ],
+    "chute": "χειμώνας = _αυτή η γεύση_"
    }
   },
   {
@@ -64,6 +154,60 @@
      "a 15-minute walk at lunch, _big scarf on_"
     ],
     "chute": "cold air, _clear mind_"
+   },
+   "fr": {
+    "titre": "elles sortent _même s'il fait froid_",
+    "intro": "en hiver, le jour est _rare_",
+    "paragraphes": [
+     "même gris, le ciel donne à ton horloge _la lumière qu'il lui faut_",
+     "15 minutes de marche à midi, _grosse écharpe_"
+    ],
+    "chute": "air froid, _tête claire_"
+   },
+   "de": {
+    "titre": "raus, _auch wenn's kalt ist_",
+    "intro": "im winter ist licht _rar_",
+    "paragraphes": [
+     "auch grauer himmel gibt der inneren uhr _das nötige licht_",
+     "mittags 15 minuten gehen, _dicker schal_"
+    ],
+    "chute": "kalte luft, _klarer kopf_"
+   },
+   "it": {
+    "titre": "escono _anche quando fa freddo_",
+    "intro": "d'inverno la luce è _rara_",
+    "paragraphes": [
+     "anche il cielo grigio dà all'orologio interno _la luce che serve_",
+     "15 minuti a piedi a pranzo, _sciarpone_"
+    ],
+    "chute": "aria fredda, _mente lucida_"
+   },
+   "hu": {
+    "titre": "kimennek, _akkor is, ha hideg van_",
+    "intro": "télen _ritka_ a nappali fény",
+    "paragraphes": [
+     "még a szürke ég is megadja a belső órádnak _a kellő fényt_",
+     "15 perc séta ebédidőben, _nagy sál_"
+    ],
+    "chute": "hideg levegő, _tiszta fej_"
+   },
+   "ro": {
+    "titre": "ies _chiar și când e frig_",
+    "intro": "lumina zilei e _rară_ iarna",
+    "paragraphes": [
+     "și un cer gri îi dă ceasului intern _lumina necesară_",
+     "15 minute de mers la prânz, _fular gros_"
+    ],
+    "chute": "aer rece, _minte limpede_"
+   },
+   "el": {
+    "titre": "βγαίνουν _ακόμα κι όταν κάνει κρύο_",
+    "intro": "τον χειμώνα, φως _σπάνιο_",
+    "paragraphes": [
+     "και ο γκρίζος ουρανός δίνει στο ρολόι σου _το φως που θέλει_",
+     "βόλτα 15 λεπτών το μεσημέρι, _μεγάλο κασκόλ_"
+    ],
+    "chute": "κρύος αέρας, _καθαρό μυαλό_"
    }
   },
   {
@@ -77,6 +221,60 @@
      "make it a ritual, _not a reward_"
     ],
     "chute": "soft nights, _soft life_"
+   },
+   "fr": {
+    "titre": "soirées cosy, _exprès_",
+    "intro": "elles n'attendent pas le week-end pour _ralentir_",
+    "paragraphes": [
+     "plaid, boisson chaude, série ou livre. _téléphone dans l'autre pièce_",
+     "un rituel, _pas une récompense_"
+    ],
+    "chute": "soirées douces, _vie douce_"
+   },
+   "de": {
+    "titre": "cozy abende, _mit absicht_",
+    "intro": "kein warten aufs wochenende, um _runterzufahren_",
+    "paragraphes": [
+     "decke, warmes getränk, serie oder buch. _handy im anderen raum_",
+     "ein ritual, _keine belohnung_"
+    ],
+    "chute": "ruhige abende, _ruhiges leben_"
+   },
+   "it": {
+    "titre": "serate cozy, _apposta_",
+    "intro": "non aspettano il weekend per _rallentare_",
+    "paragraphes": [
+     "coperta, bevanda calda, serie o libro. _telefono di là_",
+     "un rituale, _non un premio_"
+    ],
+    "chute": "serate soft, _vita soft_"
+   },
+   "hu": {
+    "titre": "cozy esték, _szándékosan_",
+    "intro": "nem várják a hétvégét, hogy _lelassuljanak_",
+    "paragraphes": [
+     "pléd, meleg ital, egy sorozat vagy könyv. _telefon a másik szobában_",
+     "legyen rituálé, _ne jutalom_"
+    ],
+    "chute": "puha esték, _puha élet_"
+   },
+   "ro": {
+    "titre": "seri cozy, _intenționat_",
+    "intro": "nu așteaptă weekendul ca _să încetinească_",
+    "paragraphes": [
+     "pătură, băutură caldă, un serial sau o carte. _telefonul în altă cameră_",
+     "fă-l un ritual, _nu o recompensă_"
+    ],
+    "chute": "seri blânde, _viață blândă_"
+   },
+   "el": {
+    "titre": "cozy βράδια, _σκόπιμα_",
+    "intro": "δεν περιμένουν το σαββατοκύριακο για _να χαλαρώσουν_",
+    "paragraphes": [
+     "κουβέρτα, ζεστό ρόφημα, σειρά ή βιβλίο. _κινητό στο άλλο δωμάτιο_",
+     "κάν' το τελετουργία, _όχι ανταμοιβή_"
+    ],
+    "chute": "απαλά βράδια, _απαλή ζωή_"
    }
   },
   {
@@ -92,6 +290,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _même en hiver_",
+    "intro": "les runs sous la neige sont _mes préférés_",
+    "paragraphes": [
+     "dans le froid je partais toujours trop vite, et je rentrais _complètement vidée_",
+     "mon tip : une appli de coaching running comme Atala te dit _quand ralentir_, et courir en hiver fait du bien"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "_im winter_ weiterlaufen",
+    "intro": "die läufe im schnee sind _meine liebsten_",
+    "paragraphes": [
+     "in der kälte bin ich immer zu schnell gelaufen und kam _völlig platt_ zurück",
+     "mein tipp: eine lauf-coach-app wie Atala sagt dir, _wann du bremsen sollst_, so tun winterläufe gut"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _anche d'inverno_",
+    "intro": "le corse sulla neve sono _le mie preferite_",
+    "paragraphes": [
+     "al freddo partivo sempre troppo veloce e tornavo _distrutta_",
+     "il mio consiglio: un'app coach per la corsa come Atala ti dice _quando frenare_, così d'inverno corri bene"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss _télen is_",
+    "intro": "a havas futások _a kedvenceim_",
+    "paragraphes": [
+     "hidegben mindig túl gyorsan mentem, és _teljesen kimerülve_ jöttem haza",
+     "a tippem: egy futóedző app, mint az Atala, megmondja, _mikor lassíts_, így a téli futás is jólesik"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _și iarna_",
+    "intro": "alergările prin zăpadă, _preferatele mele_",
+    "paragraphes": [
+     "pe frig plecam mereu prea repede și mă întorceam _complet stoarsă_",
+     "sfatul meu: o aplicație de running coach ca Atala îți spune _când să încetinești_, iar iarna e plăcută"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _και τον χειμώνα_",
+    "intro": "τα χιονισμένα τρεξίματα: _τα αγαπημένα μου_",
+    "paragraphes": [
+     "στο κρύο έτρεχα πάντα πολύ γρήγορα και γύριζα _εντελώς εξαντλημένη_",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala σου λέει _πότε να επιβραδύνεις_, για ωραίο τρέξιμο τον χειμώνα"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -105,6 +369,60 @@
      "colour on your plate, _even in december_"
     ],
     "chute": "eat _the rainbow_, even in winter"
+   },
+   "fr": {
+    "titre": "des fruits _tous les jours_",
+    "intro": "l'hiver n'excuse pas _que du comfort food_",
+    "paragraphes": [
+     "oranges, kiwis, fruits rouges. un bol _à côté de toi_ et tu les manges",
+     "du coloré dans l'assiette, _même en décembre_"
+    ],
+    "chute": "mange _l'arc-en-ciel_, même en hiver"
+   },
+   "de": {
+    "titre": "obst, _jeden einzelnen tag_",
+    "intro": "winter ist keine ausrede für _nur comfort food_",
+    "paragraphes": [
+     "orangen, kiwis, beeren. eine schale _neben dir_ und du isst es",
+     "farbe auf dem teller, _auch im dezember_"
+    ],
+    "chute": "iss _den regenbogen_, auch im winter"
+   },
+   "it": {
+    "titre": "frutta _tutti i giorni_",
+    "intro": "l'inverno non è una scusa per _solo comfort food_",
+    "paragraphes": [
+     "arance, kiwi, frutti di bosco. una ciotola _accanto a te_ e la mangi",
+     "colore nel piatto, _anche a dicembre_"
+    ],
+    "chute": "mangia _l'arcobaleno_, pure d'inverno"
+   },
+   "hu": {
+    "titre": "gyümölcs _minden egyes nap_",
+    "intro": "a tél nem kifogás a _csak comfort foodra_",
+    "paragraphes": [
+     "narancs, kivi, bogyók. egy tál _melletted_, és meg is eszed",
+     "szín a tányéron, _decemberben is_"
+    ],
+    "chute": "edd _a szivárványt_ télen is"
+   },
+   "ro": {
+    "titre": "fructe _în fiecare zi_",
+    "intro": "iarna nu e o scuză pentru _doar comfort food_",
+    "paragraphes": [
+     "portocale, kiwi, fructe de pădure. un bol _lângă tine_ și le mănânci",
+     "culoare în farfurie, _chiar și în decembrie_"
+    ],
+    "chute": "mănâncă _curcubeul_, chiar și iarna"
+   },
+   "el": {
+    "titre": "φρούτα _κάθε μέρα_",
+    "intro": "ο χειμώνας δεν δικαιολογεί _μόνο comfort food_",
+    "paragraphes": [
+     "πορτοκάλια, ακτινίδια, μούρα. ένα μπολ _δίπλα σου_ και θα τα φας",
+     "χρώμα στο πιάτο, _ακόμα και τον δεκέμβριο_"
+    ],
+    "chute": "φάε _το ουράνιο τόξο_, και τον χειμώνα"
    }
   },
   {
@@ -118,6 +436,60 @@
      "protect it like _a meeting_"
     ],
     "chute": "sundays are _for you_"
+   },
+   "fr": {
+    "titre": "un _dimanche lent_ par semaine",
+    "intro": "zéro plan, _zéro réveil_",
+    "paragraphes": [
+     "café au lit, longue douche, draps propres. _voilà le plan_",
+     "protège-le comme _une réunion_"
+    ],
+    "chute": "le dimanche est _à toi_"
+   },
+   "de": {
+    "titre": "ein _slow sunday_ pro woche",
+    "intro": "keine pläne, _kein wecker_",
+    "paragraphes": [
+     "kaffee im bett, lange dusche, frische laken. _das ist der plan_",
+     "schütz ihn wie _ein meeting_"
+    ],
+    "chute": "sonntage sind _für dich_"
+   },
+   "it": {
+    "titre": "_slow sunday_ ogni settimana",
+    "intro": "zero piani, _zero sveglia_",
+    "paragraphes": [
+     "caffè a letto, doccia lunga, lenzuola pulite. _questo è il piano_",
+     "proteggila come _una riunione_"
+    ],
+    "chute": "la domenica è _per te_"
+   },
+   "hu": {
+    "titre": "heti egy _lassú vasárnap_",
+    "intro": "nincs terv, _nincs ébresztő_",
+    "paragraphes": [
+     "kávé az ágyban, hosszú zuhany, tiszta ágynemű. _ez a terv_",
+     "védd úgy, mint _egy meetinget_"
+    ],
+    "chute": "a vasárnap _a tiéd_"
+   },
+   "ro": {
+    "titre": "o _duminică lentă_ săptămânal",
+    "intro": "fără planuri, _fără alarmă_",
+    "paragraphes": [
+     "cafea în pat, duș lung, cearșafuri curate. _ăsta e planul_",
+     "protejeaz-o ca pe _o ședință_"
+    ],
+    "chute": "duminica e _a ta_"
+   },
+   "el": {
+    "titre": "μια _αργή κυριακή_ τη βδομάδα",
+    "intro": "ούτε πλάνα, _ούτε ξυπνητήρι_",
+    "paragraphes": [
+     "καφές στο κρεβάτι, μακρύ ντους, καθαρά σεντόνια. _αυτό το πλάνο_",
+     "προστάτεψέ την σαν _ραντεβού_"
+    ],
+    "chute": "κυριακή = _για σένα_"
    }
   }
  ]

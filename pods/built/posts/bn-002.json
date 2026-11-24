@@ -8,10 +8,28 @@
   "accroche": "GLOW UP HACKS FOR MEN."
  },
  "titre": {
-  "en": "glow up hacks every man should know"
+  "en": "glow up hacks every man should know",
+  "de": "glow-up-hacks, die jeder mann kennen sollte",
+  "es-419": "glow up hacks que todo hombre debería saber",
+  "it": "glow up hacks che ogni uomo dovrebbe sapere",
+  "pl": "glow up hacki, które każdy facet powinien znać",
+  "tr": "her erkeğin bilmesi gereken glow up tüyoları",
+  "hu": "glow up trükkök, amiket minden férfinak tudnia kell",
+  "el": "glow up κόλπα που πρέπει να ξέρει κάθε άντρας",
+  "ro": "trucuri de glow up pe care orice bărbat ar trebui să le știe",
+  "sr": "glow up trikovi koje svaki muškarac treba da zna"
  },
  "legendes": {
-  "en": "the small details people notice first #selfimprovement #glowup #tipsformen #running #mensgrooming"
+  "en": "the small details people notice first #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "de": "die kleinen details, die zuerst auffallen #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "es-419": "los detalles que la gente nota primero #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "it": "i dettagli che la gente nota per primi #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "pl": "szczegóły, które ludzie widzą najpierw #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "tr": "insanların ilk fark ettiği detaylar #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "hu": "az apróságok, amiket először észrevesznek #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "el": "οι λεπτομέρειες που προσέχουν πρώτα #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "ro": "detaliile pe care oamenii le observă primele #selfimprovement #glowup #tipsformen #running #mensgrooming",
+  "sr": "detalji koje ljudi prvo primete #selfimprovement #glowup #tipsformen #running #mensgrooming"
  },
  "musique": {
   "titre": "FUNDO DE VIDEO",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-2.png",
    "en": {
     "titre": "GLOW UP HACKS\nEVERY MAN\nSHOULD KNOW."
+   },
+   "de": {
+    "titre": "GLOW-UP-HACKS,\nDIE JEDER MANN\nKENNEN SOLLTE."
+   },
+   "es-419": {
+    "titre": "GLOW UP HACKS\nQUE TODO HOMBRE\nDEBERÍA SABER."
+   },
+   "it": {
+    "titre": "GLOW UP HACKS\nCHE OGNI UOMO\nDOVREBBE SAPERE."
+   },
+   "pl": {
+    "titre": "GLOW UP HACKI,\nKTÓRE KAŻDY FACET\nPOWINIEN ZNAĆ."
+   },
+   "tr": {
+    "titre": "HER ERKEĞİN\nBİLMESİ GEREKEN\nGLOW UP TÜYOLARI."
+   },
+   "hu": {
+    "titre": "GLOW UP TRÜKKÖK,\nAMIKET MINDEN\nFÉRFINAK TUDNIA KELL."
+   },
+   "el": {
+    "titre": "GLOW UP ΚΟΛΠΑ\nΠΟΥ ΠΡΕΠΕΙ\nΝΑ ΞΕΡΕΙ ΚΑΘΕ ΑΝΤΡΑΣ."
+   },
+   "ro": {
+    "titre": "TRUCURI DE GLOW UP\nPE CARE ORICE BĂRBAT\nAR TREBUI SĂ LE ȘTIE."
+   },
+   "sr": {
+    "titre": "GLOW UP TRIKOVI\nKOJE SVAKI MUŠKARAC\nTREBA DA ZNA."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Get a fresh cut",
     "texte": "Book a haircut every 3 to 4 weeks. Ask your barber for a shape that suits your face, not the trend."
+   },
+   "de": {
+    "titre": "1. Frischer Haarschnitt",
+    "texte": "Alle 3 bis 4 Wochen zum Friseur. Lass dir einen Schnitt machen, der zu deinem Gesicht passt, nicht zum Trend."
+   },
+   "es-419": {
+    "titre": "1. Córtate el pelo seguido",
+    "texte": "Cada 3 o 4 semanas. Pídele a tu barbero un corte que vaya con tu cara, no con la moda."
+   },
+   "it": {
+    "titre": "1. Taglio sempre fresco",
+    "texte": "Dal barbiere ogni 3-4 settimane. Chiedi un taglio adatto al tuo viso, non alla moda del momento."
+   },
+   "pl": {
+    "titre": "1. Świeże cięcie",
+    "texte": "Fryzjer co 3-4 tygodnie. Poproś o fryzurę pod twoją twarz, nie pod trend."
+   },
+   "tr": {
+    "titre": "1. Saçını taze tut",
+    "texte": "3-4 haftada bir berbere git. Modaya değil, yüzüne yakışan bir kesim iste."
+   },
+   "hu": {
+    "titre": "1. Friss hajvágás",
+    "texte": "3-4 hetente fodrászhoz. Olyan frizurát kérj, ami az arcodhoz illik, nem a trendhez."
+   },
+   "el": {
+    "titre": "1. Φρέσκο κούρεμα",
+    "texte": "Κουρείο κάθε 3 με 4 εβδομάδες. Ζήτα κούρεμα που ταιριάζει στο πρόσωπό σου, όχι στη μόδα."
+   },
+   "ro": {
+    "titre": "1. Tunsoare proaspătă",
+    "texte": "La frizer la 3-4 săptămâni. Cere o tunsoare care ți se potrivește la față, nu la modă."
+   },
+   "sr": {
+    "titre": "1. Sveža frizura",
+    "texte": "Kod frizera na 3 do 4 nedelje. Traži frizuru koja ide uz tvoje lice, ne uz trend."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Wear clothes that fit",
     "texte": "Fit beats brand. Shoulder seams on your shoulders, sleeves that hug your arms. A plain black tee never fails."
+   },
+   "de": {
+    "titre": "2. Trag Kleidung, die passt",
+    "texte": "Passform schlägt Marke. Schulternaht auf der Schulter, Ärmel eng am Arm. Ein schlichtes schwarzes Shirt geht immer."
+   },
+   "es-419": {
+    "titre": "2. Usa ropa que te quede",
+    "texte": "El corte le gana a la marca. Costura en el hombro, mangas pegadas al brazo. Una playera negra lisa nunca falla."
+   },
+   "it": {
+    "titre": "2. Vestiti della tua taglia",
+    "texte": "La vestibilità batte il marchio. Cucitura sulla spalla, maniche aderenti. Una t-shirt nera semplice non sbaglia mai."
+   },
+   "pl": {
+    "titre": "2. Noś dopasowane ubrania",
+    "texte": "Krój wygrywa z marką. Szew na ramieniu, rękawy przy ręce. Gładki czarny T-shirt zawsze działa."
+   },
+   "tr": {
+    "titre": "2. Üstüne oturan giy",
+    "texte": "Kalıp markadan önemlidir. Omuz dikişi omzunda, kollar koluna otursun. Düz siyah tişört her zaman çalışır."
+   },
+   "hu": {
+    "titre": "2. Jó szabású ruhák",
+    "texte": "A szabás többet ér a márkánál. Vállvarrás a válladon, ujj a karodon. Egy sima fekete póló mindig működik."
+   },
+   "el": {
+    "titre": "2. Ρούχα που σου κάθονται",
+    "texte": "Η εφαρμογή κερδίζει τη μάρκα. Ραφή στον ώμο, μανίκια στο χέρι. Ένα απλό μαύρο μπλουζάκι δεν αποτυγχάνει ποτέ."
+   },
+   "ro": {
+    "titre": "2. Haine pe măsura ta",
+    "texte": "Croiala bate marca. Cusătura pe umăr, mânecile pe braț. Un tricou negru simplu nu dă greș."
+   },
+   "sr": {
+    "titre": "2. Nosi garderobu koja ti stoji",
+    "texte": "Kroj je važniji od marke. Šav na ramenu, rukavi uz ruku. Obična crna majica nikad ne greši."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Run 3 times a week",
     "texte": "The mistake is starting too fast, then quitting. A running coach app like Atala tells you when to slow down."
+   },
+   "de": {
+    "titre": "3. Lauf 3-mal pro Woche",
+    "texte": "Der Fehler: zu schnell starten und dann aufhören. Eine Lauf-App mit Coach wie Atala sagt dir, wann du langsamer machen sollst."
+   },
+   "es-419": {
+    "titre": "3. Corre 3 veces por semana",
+    "texte": "El error es salir muy rápido y luego dejarlo. Una app de running con entrenador como Atala te dice cuándo bajar el ritmo."
+   },
+   "it": {
+    "titre": "3. Corri 3 volte a settimana",
+    "texte": "L'errore è partire troppo forte e poi mollare. Un'app con coach per la corsa come Atala ti dice quando rallentare."
+   },
+   "pl": {
+    "titre": "3. Biegaj 3 razy w tygodniu",
+    "texte": "Błąd to zacząć za szybko, a potem odpuścić. Aplikacja z trenerem biegania, taka jak Atala, mówi ci, kiedy zwolnić."
+   },
+   "tr": {
+    "titre": "3. Haftada 3 kez koş",
+    "texte": "Hata, çok hızlı başlayıp bırakmak. Atala gibi bir koşu koçu uygulaması sana ne zaman yavaşlaman gerektiğini söyler."
+   },
+   "hu": {
+    "titre": "3. Fuss hetente 3-szor",
+    "texte": "A hiba: túl gyorsan kezdeni, aztán feladni. Egy futóedzős app, mint az Atala, szól, mikor lassíts."
+   },
+   "el": {
+    "titre": "3. Τρέξε 3 φορές τη βδομάδα",
+    "texte": "Το λάθος είναι να ξεκινάς πολύ γρήγορα και μετά να τα παρατάς. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala σου λέει πότε να κόψεις ταχύτητα."
+   },
+   "ro": {
+    "titre": "3. Aleargă de 3 ori pe săptămână",
+    "texte": "Greșeala e să pornești prea repede și apoi să renunți. O aplicație cu antrenor de alergare, ca Atala, îți spune când să încetinești."
+   },
+   "sr": {
+    "titre": "3. Trči 3 puta nedeljno",
+    "texte": "Greška je krenuti prebrzo pa odustati. Aplikacija sa trenerom za trčanje, kao što je Atala, kaže ti kada da usporiš."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Keep your beard sharp",
     "texte": "Trim every few days and clean up your neckline. Even stubble looks intentional when the lines are clean."
+   },
+   "de": {
+    "titre": "4. Halte den Bart sauber",
+    "texte": "Alle paar Tage trimmen, den Hals sauber halten. Auch ein Dreitagebart wirkt gewollt, wenn die Linien sitzen."
+   },
+   "es-419": {
+    "titre": "4. Barba siempre limpia",
+    "texte": "Recórtala cada pocos días y limpia el cuello. Hasta la barba corta se ve intencional con líneas limpias."
+   },
+   "it": {
+    "titre": "4. Barba sempre in ordine",
+    "texte": "Regolala ogni pochi giorni e pulisci il collo. Anche la barba corta sembra voluta con le linee pulite."
+   },
+   "pl": {
+    "titre": "4. Dbaj o brodę",
+    "texte": "Przycinaj co kilka dni i wyrównaj linię na szyi. Nawet zarost wygląda celowo, gdy linie są czyste."
+   },
+   "tr": {
+    "titre": "4. Sakalını düzgün tut",
+    "texte": "Birkaç günde bir düzelt, boyun çizgisini temizle. Kısa sakal bile çizgiler temizse bilinçli durur."
+   },
+   "hu": {
+    "titre": "4. Ápolt szakáll",
+    "texte": "Pár naponta igazítsd, a nyakadat tartsd tisztán. Tiszta vonalakkal a borosta is szándékosnak tűnik."
+   },
+   "el": {
+    "titre": "4. Περιποιημένο μούσι",
+    "texte": "Κόβε το κάθε λίγες μέρες και καθάριζε τον λαιμό. Ακόμα και τα γένια δείχνουν σκόπιμα με καθαρές γραμμές."
+   },
+   "ro": {
+    "titre": "4. Barba mereu aranjată",
+    "texte": "Aranjeaz-o la câteva zile și curăță linia gâtului. Și barba scurtă arată intenționat cu linii curate."
+   },
+   "sr": {
+    "titre": "4. Uredna brada",
+    "texte": "Skraćuj je na par dana i očisti liniju vrata. I kratka brada izgleda namerno kad su linije čiste."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Find a signature scent",
     "texte": "One scent you wear every day. Two sprays on your neck or wrists is enough, never a cloud."
+   },
+   "de": {
+    "titre": "5. Finde deinen Duft",
+    "texte": "Ein Duft, den du jeden Tag trägst. Zwei Sprüher an Hals oder Handgelenk reichen, nie eine Wolke."
+   },
+   "es-419": {
+    "titre": "5. Ten un perfume tuyo",
+    "texte": "Un aroma que uses todos los días. Dos disparos en el cuello o las muñecas bastan, nunca una nube."
+   },
+   "it": {
+    "titre": "5. Trova il tuo profumo",
+    "texte": "Un profumo da portare ogni giorno. Due spruzzi su collo o polsi bastano, mai una nuvola."
+   },
+   "pl": {
+    "titre": "5. Znajdź swój zapach",
+    "texte": "Jeden zapach na co dzień. Dwa psiknięcia na szyję lub nadgarstki wystarczą, nigdy chmura."
+   },
+   "tr": {
+    "titre": "5. İmza kokunu bul",
+    "texte": "Her gün sıktığın tek bir koku. Boyna ya da bileklere iki sıkım yeter, asla bulut değil."
+   },
+   "hu": {
+    "titre": "5. Legyen saját illatod",
+    "texte": "Egy illat minden napra. Két fújás a nyakra vagy a csuklóra elég, soha ne felhő."
+   },
+   "el": {
+    "titre": "5. Βρες το άρωμά σου",
+    "texte": "Ένα άρωμα για κάθε μέρα. Δύο ψεκασμοί σε λαιμό ή καρπούς αρκούν, ποτέ σύννεφο."
+   },
+   "ro": {
+    "titre": "5. Găsește-ți parfumul",
+    "texte": "Un parfum pentru fiecare zi. Două pufuri pe gât sau încheieturi sunt de ajuns, niciodată un nor."
+   },
+   "sr": {
+    "titre": "5. Pronađi svoj miris",
+    "texte": "Jedan miris za svaki dan. Dva prska na vrat ili zglobove su dovoljna, nikad oblak."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-2.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

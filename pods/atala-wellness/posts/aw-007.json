@@ -7,10 +7,22 @@
   "accroche": "Comment vraiment reprogrammer ton corps, une habitude à la fois"
  },
  "titre": {
-  "en": "how to actually reset your body, one habit at a time"
+  "en": "how to actually reset your body, one habit at a time",
+  "fr": "comment vraiment reset ton corps, une habitude à la fois",
+  "de": "wie du deinen körper echt resettest, habit für habit",
+  "it": "come resettare davvero il corpo, un'abitudine alla volta",
+  "hu": "így reseteld tényleg a tested, szokásról szokásra",
+  "ro": "cum să-ți resetezi cu adevărat corpul, obicei cu obicei",
+  "el": "πώς να κάνεις αληθινό reset στο σώμα, συνήθεια-συνήθεια"
  },
  "legendes": {
-  "en": "start with the easiest one ✨ #wellness #healthyhabits #thatgirl #selfcare #reset"
+  "en": "start with the easiest one ✨ #wellness #healthyhabits #thatgirl #selfcare #reset",
+  "fr": "commence par la plus facile ✨ #wellness #healthyhabits #thatgirl #selfcare #reset",
+  "de": "fang mit dem leichtesten an ✨ #wellness #healthyhabits #thatgirl #selfcare #reset",
+  "it": "inizia dalla più facile ✨ #wellness #healthyhabits #thatgirl #selfcare #reset",
+  "hu": "kezdd a legkönnyebbel ✨ #wellness #healthyhabits #thatgirl #selfcare #reset",
+  "ro": "începe cu cel mai ușor ✨ #wellness #healthyhabits #thatgirl #selfcare #reset",
+  "el": "ξεκίνα από την πιο εύκολη ✨ #wellness #healthyhabits #thatgirl #selfcare #reset"
  },
  "musique": {
   "titre": "save a prayer",
@@ -37,6 +49,30 @@
    "en": {
     "titre": "how to actually reset your body, one habit at a time",
     "note": "(backed by science)"
+   },
+   "fr": {
+    "titre": "comment vraiment reset ton corps, une habitude à la fois",
+    "note": "(validées par la science)"
+   },
+   "de": {
+    "titre": "wie du deinen körper echt resettest, habit für habit",
+    "note": "(laut wissenschaft)"
+   },
+   "it": {
+    "titre": "come resettare davvero il corpo, un'abitudine alla volta",
+    "note": "(lo dice la scienza)"
+   },
+   "hu": {
+    "titre": "így reseteld tényleg a tested, szokásról szokásra",
+    "note": "(a tudomány szerint)"
+   },
+   "ro": {
+    "titre": "cum să-ți resetezi cu adevărat corpul, obicei cu obicei",
+    "note": "(dovedite științific)"
+   },
+   "el": {
+    "titre": "πώς να κάνεις αληθινό reset στο σώμα, συνήθεια-συνήθεια",
+    "note": "(το λέει η επιστήμη)"
    }
   },
   {
@@ -50,6 +86,60 @@
      "pick your wake-up time, then count _back 8 hours_"
     ],
     "chute": "nothing works if _you're exhausted_"
+   },
+   "fr": {
+    "titre": "dors _7 heures_ minimum",
+    "intro": "c'est la base de _tout le reste_",
+    "paragraphes": [
+     "les experts du sommeil : un adulte a besoin de _7 heures ou plus_ par nuit",
+     "choisis ton heure de réveil, puis _recule de 8 heures_"
+    ],
+    "chute": "rien ne marche si _t'es épuisée_"
+   },
+   "de": {
+    "titre": "mind. _7 stunden_ schlafen",
+    "intro": "die basis für _jedes andere habit_",
+    "paragraphes": [
+     "laut schlafexperten brauchen erwachsene _7 stunden oder mehr_ pro nacht",
+     "wähl deine weckzeit und rechne _8 stunden zurück_"
+    ],
+    "chute": "nichts wirkt, wenn _du erschöpft bist_"
+   },
+   "it": {
+    "titre": "dormi _7 ore_, minimo",
+    "intro": "è la base di _ogni altra abitudine_",
+    "paragraphes": [
+     "per gli esperti del sonno, un adulto ha bisogno di _7 ore o più_ a notte",
+     "scegli l'ora della sveglia, poi conta _8 ore indietro_"
+    ],
+    "chute": "niente funziona se _sei distrutta_"
+   },
+   "hu": {
+    "titre": "aludj _7 órát_, minimum",
+    "intro": "ez az alapja _minden más szokásnak_",
+    "paragraphes": [
+     "alvásszakértők egyetértenek: felnőttnek _7 óra vagy több_ kell éjjel",
+     "válaszd ki az ébredést, és számolj _vissza 8 órát_"
+    ],
+    "chute": "semmi sem működik, ha _kimerült vagy_"
+   },
+   "ro": {
+    "titre": "dormi _7 ore_, minim",
+    "intro": "e baza _oricărui alt obicei_",
+    "paragraphes": [
+     "experții în somn: un adult are nevoie de _7 ore sau mai mult_ pe noapte",
+     "alege ora de trezire, apoi numără _8 ore înapoi_"
+    ],
+    "chute": "nimic nu merge dacă _ești epuizată_"
+   },
+   "el": {
+    "titre": "ύπνος _7 ώρες_ το λιγότερο",
+    "intro": "είναι η βάση _κάθε άλλης συνήθειας_",
+    "paragraphes": [
+     "οι ειδικοί ύπνου: ένας ενήλικας θέλει _7 ώρες ή περισσότερο_ τη νύχτα",
+     "διάλεξε ώρα ξυπνήματος και μέτρα _8 ώρες πίσω_"
+    ],
+    "chute": "τίποτα δεν πιάνει αν _είσαι εξαντλημένη_"
    }
   },
   {
@@ -63,6 +153,60 @@
      "in for 4, out for 6. _5 times_, anywhere"
     ],
     "chute": "free, invisible, _always with you_"
+   },
+   "fr": {
+    "titre": "respire _lentement_",
+    "intro": "ton souffle, c'est _ton reset le plus rapide_",
+    "paragraphes": [
+     "une revue d'études lie la respiration lente à _plus de calme et moins d'anxiété_",
+     "inspire 4, expire 6. _5 fois_, partout"
+    ],
+    "chute": "gratuit, invisible, _toujours avec toi_"
+   },
+   "de": {
+    "titre": "_langsamer_ atmen",
+    "intro": "dein atem ist _der schnellste reset_, den du hast",
+    "paragraphes": [
+     "eine übersichtsarbeit verbindet langsames atmen mit _mehr ruhe und weniger angst_",
+     "4 ein, 6 aus. _5 mal_, überall"
+    ],
+    "chute": "gratis, unsichtbar, _immer dabei_"
+   },
+   "it": {
+    "titre": "respira _più piano_",
+    "intro": "il respiro è _il reset più veloce_ che hai",
+    "paragraphes": [
+     "una review collega il respiro lento a _più calma e meno ansia_",
+     "dentro per 4, fuori per 6. _5 volte_, ovunque"
+    ],
+    "chute": "gratis, invisibile, _sempre con te_"
+   },
+   "hu": {
+    "titre": "lélegezz _lassabban_",
+    "intro": "a légzésed _a leggyorsabb reset_, ami van",
+    "paragraphes": [
+     "egy áttekintés szerint a lassú légzés _több nyugalommal és kevesebb szorongással_ jár",
+     "be 4-ig, ki 6-ig. _5-ször_, bárhol"
+    ],
+    "chute": "ingyen, láthatatlan, _mindig veled_"
+   },
+   "ro": {
+    "titre": "respiră _mai încet_",
+    "intro": "respirația e _cel mai rapid reset_ pe care îl ai",
+    "paragraphes": [
+     "o analiză a legat respirația lentă de _mai mult calm și mai puțină anxietate_",
+     "inspiră 4, expiră 6. _de 5 ori_, oriunde"
+    ],
+    "chute": "gratis, invizibil, _mereu cu tine_"
+   },
+   "el": {
+    "titre": "ανάπνεε _πιο αργά_",
+    "intro": "η ανάσα είναι _το πιο γρήγορο reset_ σου",
+    "paragraphes": [
+     "μια ανασκόπηση συνδέει την αργή αναπνοή με _περισσότερη ηρεμία και λιγότερο άγχος_",
+     "εισπνοή 4, εκπνοή 6. _5 φορές_, παντού"
+    ],
+    "chute": "δωρεάν, αόρατο, _πάντα μαζί σου_"
    }
   },
   {
@@ -76,6 +220,60 @@
      "warm first, then cold for _the last 30 seconds_"
     ],
     "chute": "you'll scream. _then you'll love it_"
+   },
+   "fr": {
+    "titre": "douche qui finit _froide_",
+    "intro": "30 secondes. _c'est tout_",
+    "paragraphes": [
+     "une grande étude : finir sa douche à l'eau froide, c'était _moins d'arrêts maladie_",
+     "chaud d'abord, puis froid _les 30 dernières secondes_"
+    ],
+    "chute": "tu vas crier. _puis adorer_"
+   },
+   "de": {
+    "titre": "dusche _kalt_ beenden",
+    "intro": "30 sekunden. _das war's_",
+    "paragraphes": [
+     "in einer großen studie hatten leute, die kalt zu ende duschten, _weniger krankheitstage_",
+     "erst warm, dann kalt für _die letzten 30 sekunden_"
+    ],
+    "chute": "du wirst schreien. _dann liebst du es_"
+   },
+   "it": {
+    "titre": "chiudi la doccia _fredda_",
+    "intro": "30 secondi. _tutto qui_",
+    "paragraphes": [
+     "in un grande studio, chi finiva la doccia con acqua fredda _prendeva meno giorni di malattia_",
+     "prima calda, poi fredda per _gli ultimi 30 secondi_"
+    ],
+    "chute": "urlerai. _poi la amerai_"
+   },
+   "hu": {
+    "titre": "zuhany végén _hideg_",
+    "intro": "30 másodperc. _ennyi_",
+    "paragraphes": [
+     "egy nagy kutatásban, akik hideg vízzel zártak zuhanyt, _kevesebb betegnapot_ vettek ki",
+     "előbb meleg, aztán hideg _az utolsó 30 mp-ben_"
+    ],
+    "chute": "sikítani fogsz. _aztán imádni_"
+   },
+   "ro": {
+    "titre": "încheie dușul _rece_",
+    "intro": "30 de secunde. _atât_",
+    "paragraphes": [
+     "într-un studiu mare, cei care încheiau dușul cu apă rece _au avut mai puține zile de boală_",
+     "întâi cald, apoi rece _ultimele 30 de secunde_"
+    ],
+    "chute": "o să țipi. _apoi o să-ți placă_"
+   },
+   "el": {
+    "titre": "τελείωσε το ντους _κρύο_",
+    "intro": "30 δευτερόλεπτα. _τόσο_",
+    "paragraphes": [
+     "σε μεγάλη έρευνα, όσοι τελείωναν το ντους με κρύο νερό _έπαιρναν λιγότερες άδειες ασθενείας_",
+     "πρώτα ζεστό, μετά κρύο _τα τελευταία 30 δευτερόλεπτα_"
+    ],
+    "chute": "θα ουρλιάξεις. _μετά θα το λατρέψεις_"
    }
   },
   {
@@ -94,6 +292,72 @@
    },
    "cadrage": {
     "y": 0.92
+   },
+   "fr": {
+    "titre": "monte _en douceur_",
+    "intro": "courir a reset _mon énergie_ plus que tout",
+    "paragraphes": [
+     "j'en rajoutais trop, trop vite, et à chaque fois _je devais arrêter_ des semaines",
+     "mon tip : une appli de coaching running comme Atala augmente tes semaines _petit à petit_, et tu continues"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "_langsam_ steigern",
+    "intro": "laufen resettete _meine energie_ wie nichts sonst",
+    "paragraphes": [
+     "zu viel, zu schnell, und jedes mal _musste ich wochen pausieren_",
+     "mein tipp: eine lauf-coach-app wie Atala baut deine wochen _stück für stück_ auf, so bleibst du dran"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "aumenta _piano_",
+    "intro": "correre ha resettato _la mia energia_ più di tutto",
+    "paragraphes": [
+     "aggiungevo troppo e troppo in fretta, e ogni volta _dovevo fermarmi_ per settimane",
+     "il mio consiglio: un'app coach per la corsa come Atala aumenta le tue settimane _poco a poco_, così continui"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "építkezz _lassan_",
+    "intro": "a futás mindennél jobban resetelte _az energiámat_",
+    "paragraphes": [
+     "túl sokat túl gyorsan raktam rá, és mindig _hetekre le kellett állnom_",
+     "a tippem: egy futóedző app, mint az Atala, _apránként_ építi fel a heteidet, így kitartasz"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "crește _încet_",
+    "intro": "alergatul mi-a resetat _energia_ mai mult ca orice",
+    "paragraphes": [
+     "adăugam prea mult, prea repede, și mereu _trebuia să mă opresc_ săptămâni",
+     "sfatul meu: o aplicație de running coach ca Atala îți crește săptămânile _puțin câte puțin_, așa continui"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "ανέβαινε _σιγά σιγά_",
+    "intro": "το τρέξιμο, το μεγαλύτερο reset _της ενέργειάς μου_",
+    "paragraphes": [
+     "πρόσθετα πολλά πολύ γρήγορα, και κάθε φορά _έπρεπε να σταματήσω_ για εβδομάδες",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala χτίζει τις εβδομάδες σου _σιγά σιγά_, για να συνεχίζεις"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -107,6 +371,60 @@
      "one playlist for mornings, _one for hard days_"
     ],
     "chute": "your mood has _a soundtrack_"
+   },
+   "fr": {
+    "titre": "la musique _exprès_",
+    "intro": "pas en fond. _les chansons que tu aimes_",
+    "paragraphes": [
+     "une grande revue : écouter de la musique _baisse le stress_",
+     "une playlist du matin, _une pour les jours durs_"
+    ],
+    "chute": "ton humeur a _sa bande-son_"
+   },
+   "de": {
+    "titre": "musik _mit absicht_",
+    "intro": "kein hintergrund. _deine lieblingssongs_",
+    "paragraphes": [
+     "eine große übersichtsarbeit fand: musik hören _senkt stress_",
+     "eine playlist für morgens, _eine für harte tage_"
+    ],
+    "chute": "dein mood hat _einen soundtrack_"
+   },
+   "it": {
+    "titre": "musica _apposta_",
+    "intro": "non come sottofondo. _le canzoni che ami_",
+    "paragraphes": [
+     "una grande review: ascoltare musica _abbassa lo stress_",
+     "una playlist per il mattino, _una per i giorni no_"
+    ],
+    "chute": "l'umore ha _una colonna sonora_"
+   },
+   "hu": {
+    "titre": "zene _tudatosan_",
+    "intro": "nem háttérzaj. _a dalok, amiket szeretsz_",
+    "paragraphes": [
+     "egy nagy áttekintés szerint a zenehallgatás _csökkenti a stresszt_",
+     "egy playlist reggelre, _egy a nehéz napokra_"
+    ],
+    "chute": "a hangulatodnak _filmzenéje_ van"
+   },
+   "ro": {
+    "titre": "muzică _cu intenție_",
+    "intro": "nu pe fundal. _melodiile pe care le iubești_",
+    "paragraphes": [
+     "o analiză mare a găsit că muzica _scade stresul_",
+     "un playlist de dimineață, _unul pentru zile grele_"
+    ],
+    "chute": "starea ta are _o coloană sonoră_"
+   },
+   "el": {
+    "titre": "μουσική _με πρόθεση_",
+    "intro": "όχι για φόντο. _τα τραγούδια που αγαπάς_",
+    "paragraphes": [
+     "μια μεγάλη ανασκόπηση βρήκε ότι η μουσική _ρίχνει το στρες_",
+     "playlist για το πρωί, _ένα για τις δύσκολες μέρες_"
+    ],
+    "chute": "η διάθεσή σου έχει _soundtrack_"
    }
   },
   {
@@ -120,6 +438,60 @@
      "park, forest, river. _no podcast_ this time"
     ],
     "chute": "the reset is _outside_"
+   },
+   "fr": {
+    "titre": "marche _au vert_",
+    "intro": "ton cerveau veut _une pause de la ville_",
+    "paragraphes": [
+     "une étude : une longue marche en nature _calmait plus les ruminations_ qu'en ville",
+     "parc, forêt, rivière. _pas de podcast_ cette fois"
+    ],
+    "chute": "le reset, _c'est dehors_"
+   },
+   "de": {
+    "titre": "_im grünen_ spazieren",
+    "intro": "dein kopf braucht _eine pause von der stadt_",
+    "paragraphes": [
+     "eine studie: ein langer spaziergang in der natur _beruhigte grübeleien_ mehr als einer in der stadt",
+     "park, wald, fluss. _kein podcast_ diesmal"
+    ],
+    "chute": "der reset ist _draußen_"
+   },
+   "it": {
+    "titre": "cammina _nel verde_",
+    "intro": "la mente ha bisogno _di una pausa dalla città_",
+    "paragraphes": [
+     "uno studio: una lunga camminata nella natura _calmava il rimuginare_ più di una in città",
+     "parco, bosco, fiume. _niente podcast_ stavolta"
+    ],
+    "chute": "il reset è _fuori_"
+   },
+   "hu": {
+    "titre": "sétálj _a zöldben_",
+    "intro": "az agyadnak _szünet kell a várostól_",
+    "paragraphes": [
+     "egy kutatásban a hosszú természetjárás _jobban csitította a rágódást_, mint a városi séta",
+     "park, erdő, folyó. _most podcast nélkül_"
+    ],
+    "chute": "a reset _kint van_"
+   },
+   "ro": {
+    "titre": "plimbă-te _prin verdeață_",
+    "intro": "creierul are nevoie _de o pauză de la oraș_",
+    "paragraphes": [
+     "un studiu: o plimbare lungă în natură _a calmat gânditul excesiv_ mai mult decât una prin oraș",
+     "parc, pădure, râu. _fără podcast_ de data asta"
+    ],
+    "chute": "resetul e _afară_"
+   },
+   "el": {
+    "titre": "περπάτα _κάπου πράσινα_",
+    "intro": "το μυαλό θέλει _ένα διάλειμμα από την πόλη_",
+    "paragraphes": [
+     "έρευνα: μια μεγάλη βόλτα στη φύση _ηρεμούσε το overthinking_ περισσότερο από μία στην πόλη",
+     "πάρκο, δάσος, ποτάμι. _όχι podcast_ αυτή τη φορά"
+    ],
+    "chute": "το reset είναι _έξω_"
    }
   }
  ]

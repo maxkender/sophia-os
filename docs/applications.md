@@ -24,6 +24,8 @@ comment en ajouter une, et comment ajouter un label. Le détail du moteur
 
 Un label et un podz par application : un contenu partagé entre deux
 applications a une seule valeur BLEO, les vues de l'une faussent l'autre.
+Exception (24/11) : un label 100 % podz dont chaque post porte une slide par
+application (Atala + Artura), voir `docs/multi-applications.md`.
 
 ## 2. Les applications
 

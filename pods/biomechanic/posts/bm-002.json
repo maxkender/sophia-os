@@ -7,10 +7,16 @@
   "accroche": "Morning Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "morning tierlist for optimal health"
+  "en": "morning tierlist for optimal health",
+  "it": "tierlist del mattino per una salute ottimale",
+  "hu": "reggeli tierlist az optimális egészségért",
+  "sr": "jutarnja tierlista za optimalno zdravlje"
  },
  "legendes": {
-  "en": "rate your morning honestly ☀️ #morningroutine #health #biohacking #running #wellness"
+  "en": "rate your morning honestly ☀️ #morningroutine #health #biohacking #running #wellness",
+  "it": "dai un voto sincero alla tua mattina ☀️ #routinemattutina #salute #benessere #corsa #biohacking",
+  "hu": "értékeld őszintén a reggeled ☀️ #reggelirutin #egészség #biohacking #futás #wellness",
+  "sr": "oceni iskreno svoje jutro ☀️ #jutarnjarutina #zdravlje #biohacking #trčanje #wellness"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -41,6 +47,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist del Mattino",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Reggeli Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Jutarnja Tierlista",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -55,6 +82,30 @@
     "paragraphes": [
      "Every snooze drops you back into light sleep for a few minutes, then pulls you out again. You get up groggier than if you had just got up the first time.",
      "Set the alarm for when you actually need to get up, and put the phone across the room."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Rimandare la Sveglia",
+    "paragraphes": [
+     "Ogni snooze ti riporta per pochi minuti nel sonno leggero e poi ti tira fuori di nuovo. Ti alzi più intontito che al primo suono.",
+     "Metti la sveglia quando ti devi alzare davvero e lascia il telefono dall'altra parte della stanza."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Szundi Gomb",
+    "paragraphes": [
+     "Minden szundi pár percre visszaránt a könnyű alvásba, aztán újra kirángat. Kábultabban kelsz, mint elsőre.",
+     "Arra az időre állítsd az ébresztőt, amikor tényleg kelned kell, és tedd a telefont a szoba másik végébe."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Odlaganje Alarma",
+    "paragraphes": [
+     "Svako odlaganje te na par minuta vrati u lak san, pa te opet izvuče. Ustaneš ošamućeniji nego da si ustao odmah.",
+     "Navij alarm za trenutak kad stvarno moraš da ustaneš i ostavi telefon na drugom kraju sobe."
     ]
    }
   },
@@ -71,6 +122,30 @@
      "The first thing your brain sees is a feed built to keep you lying there. Ten minutes turns into thirty, and the day starts with other people's news.",
      "Feet on the floor first. The phone can wait until you're up and moving."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Scrollare a Letto",
+    "paragraphes": [
+     "La prima cosa che vede il tuo cervello è un feed fatto per tenerti sdraiato. Dieci minuti diventano trenta.",
+     "Prima i piedi a terra. Il telefono può aspettare che tu sia in piedi."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Görgetés az Ágyban",
+    "paragraphes": [
+     "Az agyad első látványa egy hírfolyam, ami arra készült, hogy fekve tartson. A tíz percből harminc lesz.",
+     "Előbb a lábad érjen a földre. A telefon várhat, amíg már mozogsz."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Skrolovanje u Krevetu",
+    "paragraphes": [
+     "Prvo što tvoj mozak vidi je fid napravljen da te drži u krevetu. Deset minuta postane trideset.",
+     "Prvo stopala na pod. Telefon može da čeka dok ne budeš na nogama."
+    ]
    }
   },
   {
@@ -85,6 +160,30 @@
     "paragraphes": [
      "Caffeine works by blocking adenosine, the molecule that builds up sleep pressure. It hides tiredness, it doesn't remove it.",
      "Coffee isn't the problem. It lands in D because most people drink it before a single glass of water."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Caffè Prima di Tutto",
+    "paragraphes": [
+     "La caffeina blocca l'adenosina, la molecola che fa salire il bisogno di dormire. Nasconde la stanchezza, non la toglie.",
+     "Il caffè non è il problema. Finisce in D perché quasi tutti lo bevono prima di un solo bicchiere d'acqua."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Kávé Mindenek Előtt",
+    "paragraphes": [
+     "A koffein az adenozint blokkolja, azt a molekulát, ami az álmosságot építi. Elfedi a fáradtságot, nem szünteti meg.",
+     "Nem a kávé a gond. Azért D, mert a legtöbben egy pohár víz előtt isszák."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Kafa Pre Svega",
+    "paragraphes": [
+     "Kofein blokira adenozin, molekul koji gradi potrebu za snom. Skriva umor, ne uklanja ga.",
+     "Kafa nije problem. U D je jer je većina pije pre ijedne čaše vode."
     ]
    }
   },
@@ -101,6 +200,30 @@
      "You wake up after seven or eight hours without drinking. Even mild dehydration has been linked to lower mood, focus and energy.",
      "A glass of water before anything else is the easiest win of the whole morning."
     ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Niente Acqua Fino a Pranzo",
+    "paragraphes": [
+     "Ti svegli dopo sette o otto ore senza bere. Anche una disidratazione leggera è legata a umore, concentrazione ed energia più bassi.",
+     "Un bicchiere d'acqua prima di tutto è la vittoria più facile della mattina."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Víz Nélkül Ebédig",
+    "paragraphes": [
+     "Hét-nyolc óra ivás nélkül ébredsz. Már az enyhe kiszáradás is rosszabb hangulattal, figyelemmel és energiával jár.",
+     "Egy pohár víz mindenek előtt a reggel legkönnyebb győzelme."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Bez Vode do Ručka",
+    "paragraphes": [
+     "Budiš se posle sedam ili osam sati bez pića. I blaga dehidracija povezana je sa lošijim raspoloženjem, fokusom i energijom.",
+     "Čaša vode pre svega je najlakša pobeda celog jutra."
+    ]
    }
   },
   {
@@ -115,6 +238,30 @@
     "paragraphes": [
      "Cold water makes your heart rate and breathing jump for a moment, and most people feel sharply awake afterwards.",
      "It's a strong wake-up call, but most of the bigger promises around it still lack solid evidence."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Docce Fredde",
+    "paragraphes": [
+     "L'acqua fredda fa salire di colpo battito e respiro, e quasi tutti si sentono svegli subito dopo.",
+     "Sveglia potente, ma le promesse più grandi su di lei non hanno ancora prove solide."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Hideg Zuhany",
+    "paragraphes": [
+     "A hideg víz egy pillanatra megugrasztja a pulzust és a légzést, és utána a legtöbben nagyon éberek.",
+     "Erős ébresztő, de a nagyobb ígéreteket még nem támasztják alá szilárd bizonyítékok."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Hladni Tuševi",
+    "paragraphes": [
+     "Hladna voda na trenutak podigne puls i disanje, i većina se posle oseća potpuno budno.",
+     "Jak budilnik, ali veća obećanja o njima još nemaju čvrste dokaze."
     ]
    }
   },
@@ -131,6 +278,30 @@
      "After hours lying still, your hips, back and calves feel stiff. A few slow stretches get blood moving and make the first steps of the day easier.",
      "Helpful, not life-changing. It stays in C until it comes with real movement outside."
     ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Cinque Minuti di Stretching",
+    "paragraphes": [
+     "Dopo ore immobile, anche, schiena e polpacci sono rigidi. Qualche allungamento lento rimette in moto il sangue.",
+     "Utile, non rivoluzionario. Resta in C finché non arriva un vero movimento all'aperto."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Öt Perc Nyújtás",
+    "paragraphes": [
+     "Órákig tartó fekvés után a csípő, a hát és a vádli merev. Pár lassú nyújtás beindítja a vérkeringést.",
+     "Hasznos, nem életmegváltó. C marad, amíg nem jár mellé igazi mozgás a szabadban."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Pet Minuta Istezanja",
+    "paragraphes": [
+     "Posle sati ležanja, kukovi, leđa i listovi su ukočeni. Nekoliko sporih istezanja pokrene krv.",
+     "Korisno, ne menja život. Ostaje u C dok ne dođe pravo kretanje napolju."
+    ]
    }
   },
   {
@@ -145,6 +316,30 @@
     "paragraphes": [
      "Eggs, yoghurt, oats or fruit give you protein and steady energy, instead of the quick sugar hit of a pastry on the go.",
      "It misses A tier because what you eat matters less than getting outside early."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Una Vera Colazione",
+    "paragraphes": [
+     "Uova, yogurt, avena o frutta danno proteine ed energia stabile, invece del picco di zucchero di un cornetto al volo.",
+     "Manca la A perché cosa mangi conta meno di uscire presto alla luce."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Rendes Reggeli",
+    "paragraphes": [
+     "Tojás, joghurt, zab vagy gyümölcs fehérjét és egyenletes energiát ad egy útközbeni péksütemény cukorlökete helyett.",
+     "Azért nem A, mert az étel kevésbé számít, mint korán kijutni a fényre."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Pravi Doručak",
+    "paragraphes": [
+     "Jaja, jogurt, ovsene pahuljice ili voće daju proteine i stabilnu energiju umesto šećera iz peciva u prolazu.",
+     "Nije A jer je hrana manje važna od toga da rano izađeš na svetlo."
     ]
    }
   },
@@ -161,6 +356,30 @@
      "Light is the main signal your internal clock uses to know the day has started. Letting it in straight away helps you feel awake sooner.",
      "Daylight through a window is still far weaker than being outside, so it stays in B."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Aprire le Tapparelle",
+    "paragraphes": [
+     "La luce è il segnale principale con cui il tuo orologio interno capisce che il giorno è iniziato.",
+     "La luce dalla finestra resta molto più debole di quella fuori, quindi resta in B."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Redőny Felhúzása",
+    "paragraphes": [
+     "A fény a fő jel, amiből a belső órád tudja, hogy elkezdődött a nap. Ha rögtön beengeded, hamarabb leszel éber.",
+     "Az ablakon át jövő fény sokkal gyengébb a kintinél, ezért B marad."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Podizanje Roletni",
+    "paragraphes": [
+     "Svetlo je glavni signal po kojem tvoj unutrašnji sat zna da je dan počeo. Pusti ga odmah i brže se razbudiš.",
+     "Svetlo kroz prozor je i dalje mnogo slabije od onog napolju, pa ostaje u B."
+    ]
    }
   },
   {
@@ -175,6 +394,30 @@
     "paragraphes": [
      "Outdoor morning light is many times brighter than indoor light, even on a cloudy day. It sets your body clock, so sleep comes easier at night.",
      "It only misses S tier because a run gives you the daylight and the cardio at the same time."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Una Passeggiata alla Luce",
+    "paragraphes": [
+     "La luce del mattino all'aperto è molto più forte di quella in casa, anche con il cielo coperto. Regola l'orologio interno e la sera dormi meglio.",
+     "Manca la S solo perché una corsa ti dà la luce e il cardio insieme."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Séta Napfényben",
+    "paragraphes": [
+     "A kinti reggeli fény sokszor erősebb a bentinél, még borús időben is. Beállítja a belső órát, és este könnyebben alszol.",
+     "Csak azért nem S, mert egy futás a fényt és a kardiót egyszerre adja."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Šetnja na Dnevnom Svetlu",
+    "paragraphes": [
+     "Jutarnje svetlo napolju je mnogo jače od onog u kući, čak i kad je oblačno. Podešava unutrašnji sat, pa noću lakše zaspiš.",
+     "Nije S samo zato što ti trčanje daje svetlo i kardio u isto vreme."
     ]
    }
   },
@@ -192,6 +435,30 @@
      "A relaxed jog early in the day gets you daylight, raises your heart rate gently and leaves you clear-headed for the hours that follow.",
      "Most people quit because they're deciding what to run half-awake. A running coach app like Atala tells you what to run today, so you just head out."
     ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Una Corsa Facile al Mattino",
+    "paragraphes": [
+     "Una corsetta tranquilla presto ti dà luce, alza piano il battito e ti lascia la testa lucida per le ore dopo.",
+     "Molti mollano perché decidono cosa correre mezzi addormentati. Un'app con coach per la corsa come Atala ti dice cosa correre oggi, tu esci e basta."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Könnyű Reggeli Futás",
+    "paragraphes": [
+     "Egy laza kocogás korán fényt ad, finoman emeli a pulzust, és tiszta fejet hagy a következő órákra.",
+     "Sokan feladják, mert félálomban döntik el, mit fussanak. Egy futóedző app, mint az Atala, megmondja a mai futást, neked csak ki kell menned."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Lagano Jutarnje Trčanje",
+    "paragraphes": [
+     "Opušteno trčanje rano ujutru daje ti svetlo, nežno podiže puls i ostavlja te bistre glave za ostatak dana.",
+     "Mnogi odustanu jer polusneni odlučuju šta da trče. Aplikacija sa trenerom za trčanje kao što je Atala ti kaže šta trčiš danas, ti samo izađeš."
+    ]
    }
   },
   {
@@ -206,6 +473,30 @@
     "paragraphes": [
      "Your internal clock runs on rhythm. Waking at the same time every day, weekends included, makes both falling asleep and waking up easier.",
      "It sits at the top because every other habit on this list gets easier once your mornings are predictable."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Sveglia Sempre alla Stessa Ora",
+    "paragraphes": [
+     "Il tuo orologio interno vive di ritmo. Svegliarti alla stessa ora ogni giorno, weekend compreso, rende più facile sia dormire che alzarti.",
+     "È in cima perché ogni altra abitudine diventa più facile quando le mattine sono prevedibili."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Mindig Ugyanakkor Kelni",
+    "paragraphes": [
+     "A belső órád ritmusra épül. Ha minden nap ugyanakkor kelsz, hétvégén is, könnyebb elaludni és felkelni is.",
+     "Azért van a csúcson, mert minden más szokás könnyebb, ha a reggeleid kiszámíthatók."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Buđenje u Isto Vreme",
+    "paragraphes": [
+     "Tvoj unutrašnji sat živi od ritma. Buđenje u isto vreme svaki dan, i vikendom, olakšava i uspavljivanje i ustajanje.",
+     "Na vrhu je jer svaka druga navika postaje lakša kad su ti jutra predvidiva."
     ]
    }
   }

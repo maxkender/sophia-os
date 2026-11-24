@@ -8,10 +8,16 @@
   "accroche": "Sleep Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "sleep tierlist for optimal health"
+  "en": "sleep tierlist for optimal health",
+  "it": "tierlist del sonno per una salute ottimale",
+  "hu": "alvás tierlist az optimális egészségért",
+  "sr": "tierlista sna za optimalno zdravlje"
  },
  "legendes": {
-  "en": "your sleep starts in the morning 🌙 #sleep #health #biohacking #running #wellness"
+  "en": "your sleep starts in the morning 🌙 #sleep #health #biohacking #running #wellness",
+  "it": "il tuo sonno inizia al mattino 🌙 #sonno #salute #benessere #corsa #biohacking",
+  "hu": "az alvásod reggel kezdődik 🌙 #alvás #egészség #biohacking #futás #wellness",
+  "sr": "tvoj san počinje ujutru 🌙 #san #zdravlje #biohacking #trčanje #wellness"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -42,6 +48,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist del Sonno",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Alvás Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Sna",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -56,6 +83,30 @@
     "paragraphes": [
      "Bright screens and endless feeds keep your brain alert right when it should be winding down.",
      "You fall asleep later than you planned, and the sleep you do get is lighter."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Schermi Fino a Crollare",
+    "paragraphes": [
+     "Schermi luminosi e feed infiniti tengono il cervello sveglio proprio quando dovrebbe rallentare.",
+     "Ti addormenti più tardi del previsto e il sonno che hai è più leggero."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Képernyő az Elalvásig",
+    "paragraphes": [
+     "A világos képernyők és a végtelen hírfolyam ébren tartják az agyad, pont amikor lassítania kellene.",
+     "Később alszol el, mint tervezted, és az alvásod is felületesebb."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Ekrani do Padanja u San",
+    "paragraphes": [
+     "Svetli ekrani i beskrajni fidovi drže mozak budnim baš kad bi trebalo da uspori.",
+     "Zaspiš kasnije nego što si planirao, a san koji dobiješ je plići."
     ]
    }
   },
@@ -72,6 +123,30 @@
      "Caffeine stays in your body for hours. An afternoon coffee is still working at bedtime.",
      "You might still fall asleep, but your deep sleep pays."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Caffè Dopo le 15",
+    "paragraphes": [
+     "La caffeina resta nel corpo per ore. Un caffè del pomeriggio lavora ancora quando vai a letto.",
+     "Magari ti addormenti lo stesso, ma il sonno profondo ne paga il prezzo."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Kávé Délután 3 Után",
+    "paragraphes": [
+     "A koffein órákig a szervezetedben marad. Egy délutáni kávé még lefekvéskor is hat.",
+     "Lehet, hogy elalszol, de a mély alvás megfizet érte."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Kafa Posle 15h",
+    "paragraphes": [
+     "Kofein ostaje u telu satima. Popodnevna kafa i dalje deluje kad ležeš.",
+     "Možda ćeš i zaspati, ali dubok san plaća cenu."
+    ]
    }
   },
   {
@@ -86,6 +161,30 @@
     "paragraphes": [
      "Sleeping in for hours on the weekend shifts your body clock, like flying a few time zones every Friday.",
      "Monday morning feels awful because your body thinks it's still the middle of the night."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Dormire Fino a Tardi nel Weekend",
+    "paragraphes": [
+     "Dormire ore in più nel weekend sposta l'orologio interno, come cambiare fuso orario ogni venerdì.",
+     "Il lunedì è terribile perché il tuo corpo pensa che sia ancora notte fonda."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Hosszú Hétvégi Alvás",
+    "paragraphes": [
+     "A hétvégi órákig tartó alvás eltolja a belső órát, mintha minden pénteken időzónát váltanál.",
+     "A hétfő reggel borzasztó, mert a tested szerint még éjszaka van."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Dugo Spavanje Vikendom",
+    "paragraphes": [
+     "Spavanje satima duže vikendom pomera unutrašnji sat, kao da svakog petka menjaš vremensku zonu.",
+     "Ponedeljak je užasan jer tvoje telo misli da je još sred noći."
     ]
    }
   },
@@ -102,6 +201,30 @@
      "It feels calmer than scrolling, but the screen keeps you alert and the next notification is one tap away.",
      "Better than social media. Still not switching off."
     ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Leggere sul Telefono",
+    "paragraphes": [
+     "Sembra più calmo che scrollare, ma lo schermo ti tiene sveglio e la prossima notifica è a un tocco.",
+     "Meglio dei social. Ma non è staccare."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Olvasás a Telefonon",
+    "paragraphes": [
+     "Nyugodtabbnak tűnik, mint a görgetés, de a képernyő ébren tart, és a következő értesítés egy érintésnyire van.",
+     "Jobb, mint a közösségi média. De ez sem kikapcsolás."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Čitanje na Telefonu",
+    "paragraphes": [
+     "Deluje mirnije od skrolovanja, ali ekran te drži budnim, a sledeće obaveštenje je na jedan dodir.",
+     "Bolje od društvenih mreža. Ali to nije isključivanje."
+    ]
    }
   },
   {
@@ -116,6 +239,30 @@
     "paragraphes": [
      "A warm bath an hour or two before bed helps your body cool down after, which tells it to sleep.",
      "Nice, and it helps a little. It can't fix a bad routine."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Bagno Caldo Prima di Dormire",
+    "paragraphes": [
+     "Un bagno caldo una o due ore prima di dormire aiuta il corpo a raffreddarsi dopo, e questo invita al sonno.",
+     "Piacevole, e aiuta un po'. Non sistema una routine sbagliata."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Meleg Fürdő Lefekvés Előtt",
+    "paragraphes": [
+     "Egy meleg fürdő egy-két órával lefekvés előtt segít, hogy a tested utána lehűljön, ami az alvás jele.",
+     "Kellemes, és segít egy kicsit. Egy rossz rutint nem javít meg."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Topla Kupka Pred Spavanje",
+    "paragraphes": [
+     "Topla kupka sat-dva pre spavanja pomaže telu da se posle ohladi, a to je signal za san.",
+     "Prijatno, i malo pomaže. Lošu rutinu ne popravlja."
     ]
    }
   },
@@ -132,6 +279,30 @@
      "Bright lights at night tell your brain it's still daytime. Dimming them helps your body get ready for sleep.",
      "Easy to do, but on its own it barely moves the needle."
     ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Luci Basse la Sera",
+    "paragraphes": [
+     "Le luci forti di sera dicono al cervello che è ancora giorno. Abbassarle aiuta il corpo a prepararsi al sonno.",
+     "Facile da fare, ma da sola cambia poco."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Tompa Fények Este",
+    "paragraphes": [
+     "Az erős esti fény azt mondja az agynak, hogy még nappal van. Ha tompítod, a tested felkészül az alvásra.",
+     "Könnyű megcsinálni, de egymagában alig számít."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Prigušeno Svetlo Uveče",
+    "paragraphes": [
+     "Jako svetlo uveče govori mozgu da je još dan. Prigušeno pomaže telu da se spremi za san.",
+     "Lako je, ali samo po sebi jedva nešto menja."
+    ]
    }
   },
   {
@@ -146,6 +317,30 @@
     "paragraphes": [
      "Your body temperature has to drop for you to fall asleep. A cool, dark room makes that much easier.",
      "Easy to fix, but it can't undo a day that fights sleep."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Camera Buia e Fresca",
+    "paragraphes": [
+     "La temperatura del corpo deve scendere per addormentarti. Una stanza fresca e buia lo rende molto più facile.",
+     "Facile da sistemare, ma non annulla una giornata che va contro il sonno."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Sötét, Hűvös Hálószoba",
+    "paragraphes": [
+     "A testhőnek le kell mennie, hogy elaludj. Egy hűvös, sötét szoba ezt sokkal könnyebbé teszi.",
+     "Könnyű javítani, de nem teszi jóvá az alvás ellen dolgozó napot."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Mračna, Sveža Spavaća Soba",
+    "paragraphes": [
+     "Telesna temperatura mora da padne da bi zaspao. Sveža, mračna soba to mnogo olakšava.",
+     "Lako se sredi, ali ne poništava dan koji radi protiv sna."
     ]
    }
   },
@@ -162,6 +357,30 @@
      "Your internal clock runs on rhythm. Going to bed at the same time makes it easier to fall asleep fast.",
      "It misses A tier: your wake-up time matters most."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Stesso Orario per Dormire",
+    "paragraphes": [
+     "Il tuo orologio interno vive di ritmo. Andare a letto alla stessa ora ti fa addormentare più in fretta.",
+     "Manca la A: conta di più l'ora in cui ti svegli."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Mindig Ugyanakkor Feküdni",
+    "paragraphes": [
+     "A belső órád ritmusra épül. Ha ugyanakkor fekszel le, gyorsabban alszol el.",
+     "Azért nem A: az ébredés ideje számít a legtöbbet."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Isto Vreme za Spavanje",
+    "paragraphes": [
+     "Tvoj unutrašnji sat živi od ritma. Leganje u isto vreme pomaže da brže zaspiš.",
+     "Nije A: vreme buđenja je najvažnije."
+    ]
    }
   },
   {
@@ -176,6 +395,30 @@
     "paragraphes": [
      "Bright light early in the day sets your internal clock, so you feel sleepy at the right time at night.",
      "It only misses S tier because most people need a reason to go outside."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Luce del Giorno al Mattino",
+    "paragraphes": [
+     "La luce forte all'inizio della giornata regola l'orologio interno, così la sera hai sonno al momento giusto.",
+     "Manca la S solo perché quasi tutti hanno bisogno di un motivo per uscire."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Reggeli Napfény",
+    "paragraphes": [
+     "A korai erős fény beállítja a belső órát, így este a megfelelő időben leszel álmos.",
+     "Csak azért nem S, mert a legtöbbeknek kell egy ok, hogy kimenjen."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Dnevno Svetlo Ujutru",
+    "paragraphes": [
+     "Jako svetlo rano u danu podešava unutrašnji sat, pa uveče postaneš pospan u pravo vreme.",
+     "Nije S samo zato što većini treba razlog da izađe."
     ]
    }
   },
@@ -193,7 +436,31 @@
      "When my week gets busy, a running coach app like Atala adjusts my plan so I don't skip it."
     ]
    },
-   "format": "carre"
+   "format": "carre",
+   "it": {
+    "tier": "A",
+    "nom": "Correre Durante il Giorno",
+    "paragraphes": [
+     "L'esercizio regolare è legato ad addormentarsi prima e dormire più profondo, se non è duro e tardi.",
+     "Quando la mia settimana si riempie, un'app con coach per la corsa come Atala adatta il mio piano e non salto."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Futás Napközben",
+    "paragraphes": [
+     "A rendszeres mozgás gyorsabb elalvással és mélyebb alvással jár, ha nem kemény és késő esti.",
+     "Ha zsúfolt a hetem, egy futóedző app, mint az Atala, átírja a tervemet, így nem hagyom ki."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Trčanje Tokom Dana",
+    "paragraphes": [
+     "Redovno vežbanje povezano je sa bržim uspavljivanjem i dubljim snom, osim kad je teško i kasno.",
+     "Kad mi je nedelja puna, aplikacija sa trenerom za trčanje kao što je Atala prilagodi moj plan, pa ga ne preskočim."
+    ]
+   }
   },
   {
    "type": "tier",
@@ -207,6 +474,30 @@
     "paragraphes": [
      "A fixed wake-up time anchors your whole rhythm: your energy, your hunger and when you get sleepy.",
      "Every other habit on this list works better with it."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Sveglia alla Stessa Ora",
+    "paragraphes": [
+     "Un orario fisso di sveglia regge tutto il tuo ritmo: energia, fame e il momento in cui arriva il sonno.",
+     "Ogni altra abitudine della lista funziona meglio con questa."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Mindig Ugyanakkor Kelni",
+    "paragraphes": [
+     "A fix ébredési idő az egész ritmusodat rögzíti: az energiát, az éhséget és azt, mikor leszel álmos.",
+     "Minden más szokás jobban működik vele."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Buđenje u Isto Vreme",
+    "paragraphes": [
+     "Stalno vreme buđenja drži ceo tvoj ritam: energiju, glad i trenutak kad postaneš pospan.",
+     "Svaka druga navika sa liste radi bolje uz nju."
     ]
    }
   }

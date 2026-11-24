@@ -8,10 +8,16 @@
   "accroche": "Hobbies Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "hobbies tierlist for optimal health"
+  "en": "hobbies tierlist for optimal health",
+  "it": "tierlist degli hobby per una salute ottimale",
+  "hu": "hobbi tierlist az optimális egészségért",
+  "sr": "tierlista hobija za optimalno zdravlje"
  },
  "legendes": {
-  "en": "your hobby says a lot about your health 🎨 #hobbies #health #biohacking #running #wellness"
+  "en": "your hobby says a lot about your health 🎨 #hobbies #health #biohacking #running #wellness",
+  "it": "il tuo hobby dice molto della tua salute 🎨 #hobby #salute #benessere #corsa #biohacking",
+  "hu": "a hobbid sokat elárul az egészségedről 🎨 #hobbi #egészség #biohacking #futás #wellness",
+  "sr": "tvoj hobi govori mnogo o tvom zdravlju 🎨 #hobi #zdravlje #biohacking #trčanje #wellness"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -41,6 +47,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist degli Hobby",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Hobbi Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Hobija",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -55,6 +82,30 @@
     "paragraphes": [
      "Hours on the sofa, autoplay on, and the next episode always starts before you decide to stop.",
      "Fun to relax. As a main hobby, it's sitting all evening."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Maratone di Serie TV",
+    "paragraphes": [
+     "Ore sul divano, autoplay acceso, e l'episodio dopo parte sempre prima che tu decida di smettere.",
+     "Bello per rilassarsi. Come hobby principale, vuol dire stare seduto tutte le sere."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Sorozatdarálás",
+    "paragraphes": [
+     "Órák a kanapén, bekapcsolt automatikus lejátszással, és a következő rész mindig elindul, mielőtt abbahagynád.",
+     "Lazításnak jó. Fő hobbiként minden este ülést jelent."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Gledanje Serija u Komadu",
+    "paragraphes": [
+     "Sati na kauču, automatsko puštanje uključeno, i sledeća epizoda uvek krene pre nego što odlučiš da staneš.",
+     "Lepo za opuštanje. Kao glavni hobi, to je sedenje svako veče."
     ]
    }
   },
@@ -71,6 +122,30 @@
      "Bright screens and adrenaline late at night keep your brain wired long after you put the controller down.",
      "The game isn't the problem. The lost sleep is."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Videogiochi Fino alle 3",
+    "paragraphes": [
+     "Schermi luminosi e adrenalina a tarda notte tengono il cervello acceso molto dopo aver posato il controller.",
+     "Il gioco non è il problema. Il sonno perso sì."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Játék Hajnali 3-ig",
+    "paragraphes": [
+     "A világos képernyő és az adrenalin késő este ébren tartja az agyad, jóval azután is, hogy letetted a kontrollert.",
+     "Nem a játék a gond. Hanem az elvesztett alvás."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Igrice do 3 Ujutru",
+    "paragraphes": [
+     "Svetli ekrani i adrenalin kasno noću drže mozak napetim dugo posle nego što spustiš džojstik.",
+     "Igra nije problem. Izgubljeni san jeste."
+    ]
    }
   },
   {
@@ -85,6 +160,30 @@
     "paragraphes": [
      "Great for focus, planning and memory. Your brain gets a real workout every game.",
      "Your body doesn't. It's in D because you never move."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Scacchi",
+    "paragraphes": [
+     "Ottimi per concentrazione, pianificazione e memoria. Il cervello si allena davvero a ogni partita.",
+     "Il corpo no. È in D perché non ti muovi mai."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Sakk",
+    "paragraphes": [
+     "Remek a figyelemnek, a tervezésnek és a memóriának. Az agyad minden partiban igazi edzést kap.",
+     "A tested nem. Azért D, mert sosem mozdulsz."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Šah",
+    "paragraphes": [
+     "Odličan za fokus, planiranje i pamćenje. Mozak dobija pravi trening u svakoj partiji.",
+     "Telo ne. U D je jer se nikad ne pomeraš."
     ]
    }
   },
@@ -101,6 +200,30 @@
      "Cooking at home means you know what goes into your food, and you eat better almost without trying.",
      "Good for your diet, but it barely moves your body."
     ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Cucinare",
+    "paragraphes": [
+     "Cucinare a casa vuol dire sapere cosa mangi, e mangi meglio quasi senza sforzo.",
+     "Buono per l'alimentazione, ma muove poco il corpo."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Főzés",
+    "paragraphes": [
+     "Ha otthon főzöl, tudod, mi kerül az ételedbe, és szinte erőfeszítés nélkül eszel jobban.",
+     "Jó az étrendnek, de alig mozgat meg."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Kuvanje",
+    "paragraphes": [
+     "Kad kuvaš kod kuće znaš šta ide u hranu, i jedeš bolje gotovo bez truda.",
+     "Dobro za ishranu, ali jedva pokreće telo."
+    ]
    }
   },
   {
@@ -115,6 +238,30 @@
     "paragraphes": [
      "Learning an instrument trains memory, coordination and focus, and it helps you switch off.",
      "Brilliant for your brain. For your heart, not so much."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Suonare il Piano",
+    "paragraphes": [
+     "Imparare uno strumento allena memoria, coordinazione e concentrazione, e ti aiuta a staccare.",
+     "Ottimo per il cervello. Per il cuore, non tanto."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Zongorázás",
+    "paragraphes": [
+     "Egy hangszer tanulása edzi a memóriát, a koordinációt és a figyelmet, és segít kikapcsolni.",
+     "Zseniális az agynak. A szívnek nem annyira."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Sviranje Klavira",
+    "paragraphes": [
+     "Učenje instrumenta trenira pamćenje, koordinaciju i fokus, i pomaže ti da isključiš glavu.",
+     "Sjajno za mozak. Za srce, ne baš."
     ]
    }
   },
@@ -131,6 +278,30 @@
      "You move, you sweat and you learn steps, often with other people around you.",
      "It misses A tier: most people only dance once a week."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Ballare",
+    "paragraphes": [
+     "Ti muovi, sudi e impari i passi, spesso con altre persone intorno.",
+     "Manca la A: quasi tutti ballano una volta a settimana."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Tánc",
+    "paragraphes": [
+     "Mozogsz, izzadsz és lépéseket tanulsz, gyakran mások társaságában.",
+     "Azért nem A: a legtöbben csak hetente egyszer táncolnak."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Ples",
+    "paragraphes": [
+     "Krećeš se, znojiš se i učiš korake, često sa drugim ljudima oko sebe.",
+     "Nije A: većina pleše samo jednom nedeljno."
+    ]
    }
   },
   {
@@ -146,6 +317,30 @@
      "Mobility, balance and calm in one session, and it fits in a small corner of your room.",
      "Good for body and mind, but easy on your heart."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Yoga",
+    "paragraphes": [
+     "Mobilità, equilibrio e calma in una sola seduta, e ti basta un angolo della stanza.",
+     "Buono per corpo e mente, ma leggero per il cuore."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Jóga",
+    "paragraphes": [
+     "Mobilitás, egyensúly és nyugalom egy alkalom alatt, és elfér a szobád egy sarkában.",
+     "Jó testnek és léleknek, de kíméli a szívet."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Joga",
+    "paragraphes": [
+     "Pokretljivost, ravnoteža i mir u jednom treningu, a staje u ugao sobe.",
+     "Dobro za telo i um, ali blago za srce."
+    ]
    }
   },
   {
@@ -160,6 +355,30 @@
     "paragraphes": [
      "Your whole body works, your grip gets strong and your brain solves a puzzle on every route.",
      "It only misses S tier: you need a gym or a cliff."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Arrampicata",
+    "paragraphes": [
+     "Lavora tutto il corpo, la presa diventa forte e il cervello risolve un enigma a ogni via.",
+     "Manca la S solo perché serve una palestra o una parete."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Sziklamászás",
+    "paragraphes": [
+     "Az egész tested dolgozik, a fogásod erős lesz, és az agyad minden útvonalon fejtörőt old meg.",
+     "Csak azért nem S: terem vagy sziklafal kell hozzá."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Penjanje",
+    "paragraphes": [
+     "Radi celo telo, stisak postaje jak, a mozak rešava zagonetku na svakoj ruti.",
+     "Nije S samo zato što ti treba teretana ili stena."
     ]
    }
   },
@@ -177,7 +396,31 @@
      "The hard part is the pace. I use a running coach app like Atala, which shows mine next to the plan."
     ]
    },
-   "format": "carre"
+   "format": "carre",
+   "it": {
+    "tier": "S",
+    "nom": "Correre",
+    "paragraphes": [
+     "Cuore, polmoni, gambe e umore migliorano, e ti bastano scarpe e una porta.",
+     "Il difficile è il ritmo. Uso un'app con coach per la corsa come Atala, che mostra il mio accanto a quello del piano."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Futás",
+    "paragraphes": [
+     "A szíved, a tüdőd, a lábad és a hangulatod is jobb lesz, és csak egy cipő meg egy ajtó kell hozzá.",
+     "A nehéz rész a tempó. Egy futóedző appot használok, mint az Atala, ami a tervezett mellett mutatja az enyémet."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Trčanje",
+    "paragraphes": [
+     "Srce, pluća, noge i raspoloženje postaju bolji, a trebaju ti samo patike i vrata.",
+     "Teški deo je tempo. Koristim aplikaciju sa trenerom za trčanje kao što je Atala, koja pokazuje moj tempo pored planiranog."
+    ]
+   }
   },
   {
    "type": "tier",
@@ -191,6 +434,30 @@
     "paragraphes": [
      "Hours outside on uneven ground, in daylight, with time to think and nothing on a screen.",
      "The best hobby for your body and your mind at once."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Escursionismo",
+    "paragraphes": [
+     "Ore all'aperto su terreno irregolare, alla luce del giorno, con tempo per pensare e niente schermi.",
+     "L'hobby migliore per il corpo e la mente insieme."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Túrázás",
+    "paragraphes": [
+     "Órák a szabadban egyenetlen talajon, nappali fényben, idővel a gondolkodásra és képernyő nélkül.",
+     "A legjobb hobbi a testnek és a léleknek egyszerre."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Planinarenje",
+    "paragraphes": [
+     "Sati napolju na neravnom terenu, na dnevnom svetlu, sa vremenom za razmišljanje i bez ekrana.",
+     "Najbolji hobi za telo i um u isto vreme."
     ]
    }
   }

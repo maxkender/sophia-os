@@ -86,8 +86,8 @@ function NouveauLabel({ section, onSection, nom, onNom, description, onDescripti
  * (une proposition, ou créé tout de suite dans l'OS). `sansLabel` : on peut aussi ne rien choisir.
  */
 export function DialogueChoixLabel({ cible, titre, bouton, sansLabel = false, aide, cartes, labels = [], onFermer, onChoisir }: {
-  /** Le compte à ranger et la valeur présélectionnée (`null` : fenêtre fermée). */
-  cible: { handle: string; valeur: string } | null;
+  /** Le compte à ranger et la valeur présélectionnée (`null` : fenêtre fermée). `sousTitre` remplace « @handle » (plusieurs comptes). */
+  cible: { handle: string; valeur: string; sousTitre?: string } | null;
   titre: string; bouton: string; sansLabel?: boolean; aide?: string;
   cartes: CarteLabel[]; labels?: LabelOs[]; onFermer: () => void; onChoisir: (carte: CarteLabel | null) => Promise<void>;
 }) {
@@ -126,7 +126,7 @@ export function DialogueChoixLabel({ cible, titre, bouton, sansLabel = false, ai
       <DialogPopup className="max-w-md">
         <DialogHeader>
           <DialogTitle className="text-base">{titre}</DialogTitle>
-          <DialogDescription>@{cible?.handle}</DialogDescription>
+          <DialogDescription>{cible?.sousTitre ?? `@${cible?.handle ?? ""}`}</DialogDescription>
         </DialogHeader>
         <DialogPanel className="space-y-3 pb-5">
           <ChoixCarte cartes={cartes} valeur={valeur} onChange={setValeur} labelsLibres={labelsSansBloc(labels, cartes)} />

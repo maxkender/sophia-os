@@ -17,12 +17,14 @@
  * actions dans un menu « ⋯ » ; trois statuts seulement (rien : le label existe ; « à créer » ; « podz ») ; six
  * onglets pour le chemin et un menu « Sorties » (Essai raté, Arrêtées, Corbeille) ; la règle de l'étape dans une
  * bulle « i » ; les apps en pastilles avec leur nombre ; onglets et filtres collés en haut de l'écran.
+ * 24/11 : actions groupées. On coche des tuiles (ou tout un label, ou tout l'onglet), puis une barre en bas de
+ * l'écran les passe d'un coup dans une étape, sous un label, à l'import, à la corbeille (ou les restaure).
  *
  * Admin au sens strict (RLS + route).
  */
 import * as React from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { ArrowLeft, BadgeCheck, Check, ChevronDown, ChevronRight, GitMerge, Info, Pencil, Plus, Rocket, Search, Sparkles, Undo2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, BadgeCheck, Check, ChevronDown, ChevronRight, GitMerge, Info, Pencil, Plus, RotateCcw, Rocket, Search, Sparkles, Tags, Trash2, Undo2, X } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -80,6 +82,10 @@ export function PageBible() {
   /** La proposition qu'on envoie dans le prochain batch : on choisit d'abord son label. */
   const [propositionARanger, setPropositionARanger] = React.useState<Proposition | null>(null);
   const [occupes, setOccupes] = React.useState<Set<string>>(new Set());
+  /** Les comptes cochés pour une action groupée. Vidée à chaque changement d'onglet. */
+  const [selection, setSelection] = React.useState<Set<string>>(new Set());
+  const [labelGroupe, setLabelGroupe] = React.useState(false);
+  React.useEffect(() => { setSelection(new Set()); }, [vue]);
   const [erreur, setErreur] = React.useState<string | null>(null);
   /** Ce qu'une action vient de faire (un compte lancé, un bloc rattaché), dit en une phrase. */
   const [info, setInfoComplete] = React.useState<{ texte: string; annuler?: () => Promise<string> } | null>(null);
@@ -132,6 +138,18 @@ export function PageBible() {
   const sourcesVues = groupesSources.filter((g) => !section || g.section === section);
   const rafraichir = () => { void qc.invalidateQueries({ queryKey: ["bible"] }); };
 
+  // La sélection ne vaut que pour les comptes affichés (filtres et recherche compris) : un compte coché puis masqué
+  // par un filtre n'est pas emporté par l'action groupée.
+  const visibles = new Map<string, CompteBible>();
+  for (const g of groupes) for (const x of g.cartes) for (const { compte } of x.comptes) visibles.set(compte.id, compte);
+  const choisis = [...visibles.values()].filter((c) => selection.has(c.id));
+  const basculerSelection = (ids: string[]) => setSelection((s) => {
+    const n = new Set(s);
+    const tous = ids.every((id) => n.has(id));
+    for (const id of ids) { if (tous) n.delete(id); else n.add(id); }
+    return n;
+  });
+
   // Le prochain batch : qui peut partir, et ce qui bloque les autres.
   const batch = liste.filter((c) => !c.supprime_at && etapeDe(c) === "prochain_batch");
   const blocageDe = (c: CompteBible): Blocage => blocageImport(carteDe(c), sourceParHandle.get(c.handle));
@@ -183,6 +201,41 @@ export function PageBible() {
     const carte = carteDe(c);
     if (!carte || blocageDe(c) !== "pret") return;
     setLancement([{ compte: c, carte }]);
+  };
+  // Une action sur tous les comptes cochés : elle dit ce qu'elle a fait, et la sélection se vide si elle a réussi.
+  const agirGroupe = async (f: (ids: string[]) => Promise<unknown>, message: string) => {
+    const ids = choisis.map((c) => c.id);
+    if (!ids.length) return;
+    setErreur(null);
+    setInfo(null);
+    setOccupes((s) => new Set([...s, ...ids]));
+    try {
+      await f(ids);
+      await qc.invalidateQueries({ queryKey: ["bible"] });
+      setSelection(new Set());
+      setInfo(message);
+    } catch (e) {
+      setErreur((e as Error).message);
+    } finally {
+      setOccupes((s) => { const x = new Set(s); for (const id of ids) x.delete(id); return x; });
+    }
+  };
+  const nComptes = (k: number) => `${k} compte${k > 1 ? "s" : ""}`;
+  const pretsChoisis: ComptePret[] = choisis.filter((c) => blocageDe(c) === "pret").map((compte) => ({ compte, carte: carteDe(compte)! }));
+  const groupe = {
+    etape: (e: "a_importer" | "prochain_batch") => void agirGroupe(
+      (ids) => changerEtape(ids, e),
+      `${nComptes(choisis.length)} ${e === "prochain_batch" ? "passé(s) dans le prochain batch" : "renvoyé(s) dans « À importer »"}.`,
+    ),
+    corbeille: () => {
+      if (!window.confirm(`Mettre ${nComptes(choisis.length)} à la corbeille ? (Ils se restaurent depuis Sorties → Corbeille.)`)) return;
+      void agirGroupe((ids) => mettreCorbeille(ids), `${nComptes(choisis.length)} à la corbeille.`);
+    },
+    restaurer: () => void agirGroupe((ids) => restaurerCompte(ids), `${nComptes(choisis.length)} restauré(s).`),
+    supprimer: () => {
+      if (!window.confirm(`Supprimer ${nComptes(choisis.length)} pour de bon ? (On ne pourra plus les restaurer.)`)) return;
+      void agirGroupe((ids) => supprimerDefinitivement(ids), `${nComptes(choisis.length)} supprimé(s) pour de bon.`);
+    },
   };
   // Défaire la dernière action (un rattachement) : elle rend sa phrase, les blocs sont relus.
   const annuler = async (f: () => Promise<string>) => {
@@ -382,6 +435,16 @@ export function PageBible() {
               <Sparkles className="size-3.5" aria-hidden />À podzer <span className="tabular-nums text-stone-400">{liste.filter((c) => (vue === "corbeille" ? c.supprime_at : !c.supprime_at && etapeDe(c) === vue) && carteDe(c)?.a_podzer).length}</span>
             </button>
           )}
+          {vueComptes && visibles.size > 0 && (
+            <button
+              type="button"
+              onClick={() => basculerSelection([...visibles.keys()])}
+              className="inline-flex h-8 items-center gap-1.5 rounded-full border border-stone-200 bg-white px-2.5 text-[13px] text-stone-600 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300"
+            >
+              <Check className="size-3.5" aria-hidden />
+              {choisis.length === visibles.size ? "Tout désélectionner" : `Tout sélectionner (${visibles.size})`}
+            </button>
+          )}
           {vue !== "propositions" && !cherche && <span className="ml-auto"><BarrePliage pliage={pliage} apps={clesApps} labels={clesLabels} /></span>}
         </div>
       </div>
@@ -486,16 +549,17 @@ export function PageBible() {
                     statuts={carte && statuts(carte)}
                     nb={cs.length}
                     description={carte?.description_da}
-                    actions={carte && vue !== "corbeille" && (
+                    actions={carte && (
                       <>
+                        <CaseGroupe ids={cs.map((x) => x.compte.id)} selection={selection} nom={nomCarte(carte)} onBasculer={basculerSelection} />
                         {/* L'action du moment reste visible ; le reste est dans le menu. */}
-                        {carte.a_podzer && (
+                        {vue !== "corbeille" && carte.a_podzer && (
                           <button type="button" onClick={() => void validerPodzDuBloc(carte, true)} title="Range ce label et ses comptes dans « Mise à jour hebdo », catégorie Podz. Rien n'est importé." className={BOUTON_BLOC_FORT}>
                             <Check className="size-3.5" aria-hidden />
                             Valider le podz
                           </button>
                         )}
-                        <MenuActions nom={`Actions du label ${nomCarte(carte)}`} entrees={menuDuLabel(carte)} />
+                        {vue !== "corbeille" && <MenuActions nom={`Actions du label ${nomCarte(carte)}`} entrees={menuDuLabel(carte)} />}
                       </>
                     )}
                   >
@@ -509,6 +573,8 @@ export function PageBible() {
                         source={vue === "corbeille" ? null : sourceParHandle.get(compte.handle)}
                         blocage={vue === "corbeille" ? undefined : blocageDe(compte)}
                         montrerBlocage={vue === "prochain_batch"}
+                        selectionne={selection.has(compte.id)}
+                        onSelectionner={(c) => basculerSelection([c.id])}
                       />
                     ))}
                   </LigneLabel>
@@ -519,6 +585,47 @@ export function PageBible() {
         </div>
       )}
 
+      {vueComptes && choisis.length > 0 && (
+        <div className="sticky bottom-4 z-30 mx-auto flex w-fit max-w-full flex-wrap items-center gap-2 rounded-2xl border border-stone-200 bg-white/95 px-3 py-2 shadow-lg backdrop-blur dark:border-stone-700 dark:bg-stone-900/95" data-testid="barre-selection" role="toolbar" aria-label="Actions sur la sélection">
+          <span className="px-1 text-sm font-medium tabular-nums">{nComptes(choisis.length)} sélectionné{choisis.length > 1 ? "s" : ""}</span>
+          {vue === "corbeille" ? (
+            <>
+              <Button size="sm" variant="outline" onClick={groupe.restaurer}><RotateCcw className="size-3.5" /> Restaurer</Button>
+              <Button size="sm" variant="outline" className="text-destructive" onClick={groupe.supprimer}><Trash2 className="size-3.5" /> Supprimer pour de bon</Button>
+            </>
+          ) : (
+            <>
+              {vue !== "prochain_batch" && <Button size="sm" variant="outline" onClick={() => groupe.etape("prochain_batch")}><ArrowRight className="size-3.5" /> Prochain batch</Button>}
+              {vue !== "a_importer" && <Button size="sm" variant="outline" onClick={() => groupe.etape("a_importer")}><ArrowLeft className="size-3.5" /> À importer</Button>}
+              <Button size="sm" variant="outline" onClick={() => setLabelGroupe(true)}><Tags className="size-3.5" /> Mettre dans un label</Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => setLancement(pretsChoisis)}
+                disabled={pretsChoisis.length === 0}
+                title={pretsChoisis.length < choisis.length ? `${choisis.length - pretsChoisis.length} ne peuvent pas partir (label à créer, à podzer, déjà source…).` : undefined}
+              >
+                <Rocket className="size-3.5" /> Importer ({pretsChoisis.length})
+              </Button>
+              <Button size="sm" variant="outline" className="text-destructive" onClick={groupe.corbeille}><Trash2 className="size-3.5" /> Corbeille</Button>
+            </>
+          )}
+          <button type="button" onClick={() => setSelection(new Set())} aria-label="Vider la sélection" title="Vider la sélection" className="inline-flex size-7 items-center justify-center rounded-full text-stone-400 hover:bg-stone-100 hover:text-stone-900 dark:hover:bg-stone-800">
+            <X className="size-4" />
+          </button>
+        </div>
+      )}
+
+      <DialogueChoixLabel
+        cible={labelGroupe ? { handle: "selection", valeur: "", sousTitre: `${nComptes(choisis.length)} : ${choisis.slice(0, 4).map((c) => `@${c.handle}`).join(", ")}${choisis.length > 4 ? "…" : ""}` } : null}
+        titre="Mettre dans un label"
+        bouton="Ranger ici"
+        aide="Les comptes cochés passent tous sous ce label (et prennent son app)."
+        cartes={toutes}
+        labels={labelsOs}
+        onFermer={() => setLabelGroupe(false)}
+        onChoisir={async (carte) => { if (carte) await agirGroupe((ids) => changerCarte(ids, carte), `${nComptes(choisis.length)} rangé(s) sous « ${nomCarte(carte)} ».`); }}
+      />
       <DialogueLabel compte={aRanger} cartes={toutes} labels={labelsOs} onFermer={() => setARanger(null)} onChoisir={async (carte) => { if (aRanger) await agir(aRanger, () => changerCarte(aRanger.id, carte)); }} />
       <DialogueAjout ouvert={ajout} cartes={toutes} labels={labelsOs} onFermer={() => setAjout(false)} onFini={rafraichir} />
       <DialogueChoixLabel
@@ -556,5 +663,24 @@ export function PageBible() {
         onVoir={() => { setLancement(null); setVue("en_import"); }}
       />
     </div>
+  );
+}
+
+/** La case d'un label : coche ou décoche tous ses comptes affichés (à moitié cochée s'il y en a une partie). */
+function CaseGroupe({ ids, selection, nom, onBasculer }: { ids: string[]; selection: Set<string>; nom: string; onBasculer: (ids: string[]) => void }) {
+  const ref = React.useRef<HTMLInputElement>(null);
+  const n = ids.filter((id) => selection.has(id)).length;
+  React.useEffect(() => { if (ref.current) ref.current.indeterminate = n > 0 && n < ids.length; }, [n, ids.length]);
+  if (!ids.length) return null;
+  return (
+    <input
+      ref={ref}
+      type="checkbox"
+      checked={n === ids.length}
+      onChange={() => onBasculer(ids)}
+      aria-label={`Sélectionner les comptes de ${nom}`}
+      title={`Sélectionner les ${ids.length} comptes de ce label`}
+      className="mr-1 size-3.5 cursor-pointer accent-stone-900"
+    />
   );
 }

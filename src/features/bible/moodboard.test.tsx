@@ -417,6 +417,49 @@ describe("page Bible", () => {
     expect(screen.getByLabelText("Langue de @pret.sans.langue")).toHaveValue("");
   });
 
+  it("actions groupées : on coche des tuiles ou tout un label, puis étape, label, import ou corbeille d'un coup", async () => {
+    api.lireComptes.mockResolvedValue([
+      compte({ id: "c1", handle: "un.run" }),
+      compte({ id: "c2", handle: "deux.run" }),
+      compte({ id: "c3", handle: "trois.smart", label_propose_id: "k3", langue: "fr" }),
+    ]);
+    api.changerCarte.mockResolvedValue(undefined);
+    api.mettreCorbeille.mockResolvedValue(undefined);
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendre();
+    await screen.findByText(/un\.run/);
+    expect(screen.queryByTestId("barre-selection")).toBeNull();
+
+    // Deux tuiles cochées une par une → « Prochain batch » d'un coup.
+    fireEvent.click(screen.getByLabelText("Sélectionner @un.run"));
+    fireEvent.click(screen.getByLabelText("Sélectionner @deux.run"));
+    const barre = screen.getByTestId("barre-selection");
+    expect(barre).toHaveTextContent("2 comptes sélectionnés");
+    fireEvent.click(within(barre).getByRole("button", { name: /Prochain batch/ }));
+    await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c1", "c2"], "prochain_batch"));
+    expect(await screen.findByTestId("info")).toHaveTextContent("2 comptes passé(s) dans le prochain batch.");
+    expect(screen.queryByTestId("barre-selection")).toBeNull();
+
+    // Tout un label (sa case) → « Mettre dans un label ».
+    fireEvent.click(screen.getByLabelText("Sélectionner les comptes de classic_girl_run"));
+    expect(screen.getByTestId("barre-selection")).toHaveTextContent("2 comptes sélectionnés");
+    fireEvent.click(within(screen.getByTestId("barre-selection")).getByRole("button", { name: /Mettre dans un label/ }));
+    fireEvent.change(await screen.findByLabelText("Label"), { target: { value: "k3" } });
+    fireEvent.click(screen.getByRole("button", { name: "Ranger ici" }));
+    await waitFor(() => expect(api.changerCarte).toHaveBeenCalledWith(["c1", "c2"], expect.objectContaining({ id: "k3" })));
+
+    // Tout l'onglet → « Importer » ne prend que les prêts (label existant), « Corbeille » prend tout.
+    fireEvent.click(await screen.findByRole("button", { name: "Tout sélectionner (3)" }));
+    const barre2 = screen.getByTestId("barre-selection");
+    fireEvent.click(within(barre2).getByRole("button", { name: "Importer (1)" }));
+    expect(await screen.findByLabelText("Langue de @trois.smart")).toHaveValue("fr");
+    fireEvent.click(screen.getByRole("button", { name: "Annuler" }));
+    fireEvent.click(within(screen.getByTestId("barre-selection")).getByRole("button", { name: /Corbeille/ }));
+    await waitFor(() => expect(api.mettreCorbeille).toHaveBeenCalledWith(["c1", "c2", "c3"]));
+    expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Mettre 3 comptes à la corbeille"));
+    confirmer.mockRestore();
+  });
+
   it("un bloc sans vrai label : « Modifier ou rattacher » le rattache à un label de l'OS, ou corrige son nom", async () => {
     api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c2", handle: "clean", label_propose_id: "k2" }), compte({ id: "c3", handle: "chiara", label_propose_id: "k3" })]);
     src.lireSources.mockResolvedValue(donnees([], { labels: [

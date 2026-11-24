@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o405",
+ "type_bleo": "full_test",
+ "titre": "How to stay close to old friends when life gets busy #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to stay close to old friends when life gets busy » (retenue), « Why men lose their friends » (écartée : négatif), « Keep your friends after 30 » (écartée : proche de la famille amitié).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8a1ae0f7-d526-4747-a149-d90ad5c2eba8",
+   "texte_overlay": "How to stay close to old friends\nwhen life gets busy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Put a recurring date in the calendar. The first Friday of every month, a yearly weekend away. Friendships survive on plans that repeat.",
+   "media_id": "a3e49d40-9cb2-45dd-9cad-02a828793aa3"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Send small messages often. A photo that reminds you of them, a quick \"how's the new job?\" Little contact keeps you close between meetings.",
+   "media_id": "a3fc4512-4f98-48ef-887c-132dfe2714a8"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Call instead of texting sometimes. Hearing someone's voice brings you back together much faster than a hundred messages.",
+   "media_id": "a4af2ef8-8904-4f96-b9fa-b681ad1c0498"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Show up for the big moments. Weddings, births, funerals, hospital visits. Missing those is what really makes friends drift apart.",
+   "media_id": "a5544c46-6d70-4b10-838f-dcdcc22a7fee"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I had nothing new to tell old friends. After: five minutes a day of history, art or science, and our calls are full of stories again.",
+   "texte_sophia": "Before: I had nothing new to tell old friends. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Our calls are full of stories again.",
+   "media_id": "8795113d-9453-4b18-b8f9-d2eb6e9be146"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Accept that friendships change. You won't see each other every week anymore. A good friendship can survive long gaps.",
+   "media_id": "a5df457e-7392-44ad-9c70-6ef61ab1165e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be the one who organises. Someone has to book the table. Being that person is how you keep your best friends for life.",
+   "media_id": "a6c1b67d-1460-48cb-86e4-bc96dcdbc9be"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o417",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2bd18b53-0883-467f-a9e8-343bdbeac0e1",
+ "titre": "How to be the guest everyone wants to invite back #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "2bd18b53-0883-467f-a9e8-343bdbeac0e1"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 10 de la boîte (2bd18b53) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (répondre vite, apporter quelque chose, proposer son aide, parler aux inconnus, savoir partir, merci le lendemain).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9c1e730d-6615-4517-a44c-07b20c361184",
+   "texte_overlay": "How to be the guest\neveryone wants to invite back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Arrive on time, not early. Ten minutes late is fine, thirty minutes early is stressful. Hosts need those last minutes to get ready.",
+   "media_id": "bc66f429-920b-433d-aaa6-81e5aeb9a5d4"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Put your phone away at the table. Being present shows respect for the host and the effort they made. Be there fully.",
+   "media_id": "bc682558-28f6-40df-9353-bc071eef4a14"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Compliment the food sincerely. Ask how they made it. People love sharing their recipes and stories behind them. Ask for the recipe.",
+   "media_id": "bc8ae579-1e08-442e-8f36-fd7fa29ec082"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Help clear the table without making a fuss. Carry a few plates to the kitchen. Small help is always noticed. Do it quietly.",
+   "media_id": "bd4cb8d2-2f59-4875-9fb3-b64ee797b05d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I was the quiet guest in the corner. After: five minutes a day of history, art or science, and now I always bring good stories.",
+   "texte_sophia": "Before: I was the quiet guest in the corner. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now I always bring good stories.",
+   "media_id": "edbc3a21-1585-42cb-8756-ca454a8a6037"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Respect the house rules. Shoes off, no smoking inside, quiet after a certain hour. Follow the host's lead without needing to be asked.",
+   "media_id": "bde88efd-23c2-4174-a83f-7ed52061778d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Invite them back. The best way to say thank you is to host them next time. A simple dinner at your place, even pasta, is enough to keep the friendship going.",
+   "media_id": "be3ffe48-e452-46d7-bd2a-0eaf49e3f7f0"
+  }
+ ]
+}

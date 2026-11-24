@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o406",
+ "type_bleo": "full_test",
+ "titre": "How to turn your bedroom into a place you truly rest #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque. full test (v3 : la v2 « questions… small talk » refusée au guichet, thème déjà gagnant). Accroche jamais faite chez nous. Accroches écrites : « How to turn your bedroom into a place you truly rest » (retenue), « Bedroom upgrades for better sleep » (écartée : proche d'un deck sommeil).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8b44f126-7cfc-496e-97ce-a6a0e7c0ad73",
+   "texte_overlay": "How to turn your bedroom\ninto a place you truly rest",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Keep work out of the bedroom. No laptop on the bed, no desk facing your pillow. Your brain should link this room with rest, not with emails.",
+   "media_id": "a71f427e-c086-4c87-ad0b-288e19518541"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Make it dark and cool. Thick curtains and a slightly cold room help you fall asleep faster and wake up less during the night.",
+   "media_id": "a7929eab-28d2-4c27-a91c-f6aaff6c4edb"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Clear the floor and the surfaces. Clothes on chairs and piles of things keep your mind busy. A tidy room helps your thoughts slow down.",
+   "media_id": "a8392383-6f38-4f7b-8f2f-a054916d1f5f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Invest in good bedding. A solid mattress, a comfortable pillow, clean sheets every week. You spend a third of your life there.",
+   "media_id": "a85e1f71-0618-4741-8751-a5fdcf285443"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I scrolled in bed until midnight. After: five minutes a day of history, art or science before sleep, and I fall asleep calmer.",
+   "texte_sophia": "Before: I scrolled in bed until midnight. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I fall asleep calmer.",
+   "media_id": "912acd9d-cbd3-414d-9963-c7d6dd595d9d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Use warm, low light in the evening. A small lamp instead of the ceiling light tells your body the day is ending. Dim everything an hour before bed.",
+   "media_id": "a8a724d5-244b-4b43-bc35-004cb149ae3d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Charge your phone outside the room. Use a simple alarm clock. Your nights become deeper and your mornings much calmer. Try it for a week.",
+   "media_id": "a8f2dd47-d8bd-43bf-a248-0d56e9286076"
+  }
+ ]
+}

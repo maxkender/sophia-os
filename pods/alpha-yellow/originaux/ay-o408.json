@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o408",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "36997aec-13f2-4096-86e3-4e102eb4c97c",
+ "titre": "Lessons every man needs before a long relationship #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "36997aec-13f2-4096-86e3-4e102eb4c97c"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 1 de la boîte (36997aec, notre ay-o309), 2e déclinaison après ay-o390. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o309, o390. Respectueux.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8b82937c-c852-4320-91de-ce0822ddfba0",
+   "texte_overlay": "Lessons every man needs\nbefore a long relationship",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687926438485511431/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn to communicate your needs. \"I need an evening alone this week.\" Saying it calmly avoids silent frustration that builds up for months.",
+   "media_id": "ab24a5af-78c1-4905-8ec4-4989becb159d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn to listen without defending yourself. When she shares something hard, hear it fully before explaining your side.",
+   "media_id": "ab305cde-a80d-49cb-b7ca-273276d25126"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learn to keep dating your partner. Surprises, plans, small gestures. Couples who keep making an effort stay close for years.",
+   "media_id": "ab9329b7-9598-43c4-9273-b5ca278cf5dd"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learn to share chores fairly. Cooking, cleaning, planning. Taking your part without being asked is a deep form of respect.",
+   "media_id": "ac9dce11-9624-4fa7-8565-16f633b1cd0d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: our evenings felt routine. After: five minutes a day of history, art or science, and I always bring something new to talk about.",
+   "texte_sophia": "Before: our evenings felt routine. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always bring something new to talk about.",
+   "media_id": "a1e5b488-9cf8-4b14-ae76-d0482a3d1ac8"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Learn to give space. Her friends, her hobbies, her time alone. Healthy couples are two full lives, not one shrinking one.",
+   "media_id": "acfe5b89-07a5-4574-af33-da92b6d9c90f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Learn to repair after a fight. A hug, an apology, a laugh. How you make up matters more than how often you disagree.",
+   "media_id": "ad0a6b2b-969f-4be7-b240-e929d6430f21"
+  }
+ ]
+}

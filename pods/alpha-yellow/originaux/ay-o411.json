@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o411",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "392432ed-891f-44a1-997c-3653044d9d26",
+ "titre": "Underrated hobbies that sharpen your mind #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "392432ed-891f-44a1-997c-3653044d9d26"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 4 de la boîte (392432ed, en 4,1 k r 4,42), 3e et dernière déclinaison après ay-o379 et ay-o396. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o379, o396, o272, o315.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8e8cfbaf-87b7-48f5-947b-2f98c4ae4944",
+   "texte_overlay": "Underrated hobbies\nthat sharpen your mind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Playing Go. An ancient strategy game with simple rules and endless depth. It teaches patience and long-term thinking.",
+   "media_id": "b12560d2-48db-4243-93c1-64c9214b16e5"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Building a small electronics project. A lamp, a radio, a simple robot. You learn logic and problem solving with your hands.",
+   "media_id": "b125ac82-65b2-49b7-ba10-06fe1088321e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learning about wine, coffee or tea. Tasting carefully trains your senses, memory and vocabulary. Start with one tasting this week.",
+   "media_id": "b159542c-1015-4c17-9fad-f86ec531a14a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Hiking with a map. Planning routes, reading terrain and finding your way keeps your brain alert and your body strong.",
+   "media_id": "b1b6c0e6-67a0-408c-868d-a947d0455d5c"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Daily micro-learning. I do five minutes a day of history, art or science, and it adds depth to every hobby I try.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It adds depth to every hobby I try.",
+   "media_id": "b0dfc03d-1e76-4737-99c1-d1f3b4db2f20"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Writing poems or song lyrics. Playing with words trains creativity and helps you express what you feel. Ten minutes is enough.",
+   "media_id": "b1d10d5e-0a45-4612-95e2-e8f0c8e42d83"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Restoring an old bike or watch. Taking something apart and putting it back together teaches precision and patience.",
+   "media_id": "b1d42ec4-1226-42ad-9441-1a28e1cf1ed7"
+  }
+ ]
+}

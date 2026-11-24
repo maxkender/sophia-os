@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o403",
+ "type_bleo": "full_test",
+ "titre": "How to become a morning person (for real this time) #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to become a morning person (for real this time) » (retenue), « The 5am club for normal men » (écartée : promesse irréaliste), « Why you hate mornings » (écartée : sans promesse).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3c6d4f34-3af3-4878-b51a-c8a98d83eb67",
+   "texte_overlay": "How to become a morning person\n(for real this time)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Move your wake-up time slowly. Fifteen minutes earlier each week. Big jumps fail, small steps stick and your body adjusts without a fight.",
+   "media_id": "948b69a4-3f07-4b17-8e36-5c5f1741608d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Go to bed earlier, not just wake up earlier. Mornings are won the night before. No phone in bed and lights off at the same time every night.",
+   "media_id": "97fc4c40-3363-4623-8ea0-b0991b973bda"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Give yourself a reason to get up. A good coffee, a walk with music, a workout with a friend. Something you look forward to beats any alarm.",
+   "media_id": "9ec32967-12e9-43ac-84fb-e1520289220a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Get bright light right away. Open the curtains, step outside. Light is the strongest signal to your body that the day has started.",
+   "media_id": "a04a353b-5226-49f7-913c-0a907ba0da4a"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Starting with something interesting makes waking up feel worth it.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Starting with something interesting makes waking up feel worth it.",
+   "media_id": "35fdebbf-9768-4c3a-b36c-e1087df09b1e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Prepare everything the night before. Clothes, bag, breakfast. Fewer decisions in the morning means less temptation to stay in bed.",
+   "media_id": "a18a58ba-0fcd-4504-a85a-c447dbb9ed10"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keep the same rhythm at weekends. Sleeping in until noon on Saturday resets all your progress. Stay within an hour of your normal time.",
+   "media_id": "a1b3068d-8907-4169-b2cd-6234772f7cb1"
+  }
+ ]
+}

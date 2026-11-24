@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o414",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8e78bdd5-20e8-43f8-ac5b-18be5d8de962",
+ "titre": "5 conversation skills nobody teaches you #conversation #socialskills #smartgirl #confidence #communication",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "8e78bdd5-20e8-43f8-ac5b-18be5d8de962"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 52 de la boîte (parent 8e78bdd5, langue source en) : accroche du parent mot pour mot. Les cinq compétences du parent (regarder dans les yeux, dire le prénom, avoir des choses intéressantes à dire, sourire en commençant, finir sur une note positive). Sophia en 3 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e82ae175",
+   "texte_overlay": "5 conversation skills\nnobody teaches you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620172083552652565/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "44544d0c",
+   "texte_overlay": "1. look people in the eye\n\nit signals confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620172083552652565/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d3ba2c19",
+   "texte_overlay": "2. say their name\n\n\"that's a good point, sarah.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620172083552652565/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2a4838df",
+   "texte_overlay": "3. have interesting things to say",
+   "texte_sophia": "3. have interesting things to say\n\ni learn one a day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620172083552652565/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ed398f0e",
+   "texte_overlay": "4. smile when you start speaking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620172083552652565/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0c19fda9",
+   "texte_overlay": "5. end on a positive note",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620172083552652565/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f19e20a2",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620172083552652565/5.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o404",
+ "type_bleo": "full_test",
+ "titre": "what the world's most famous flags really mean #flags #history #geography #smartgirl #didyouknow",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 8/8 (la jauge en demande 8 sur 27) : accroche jamais faite chez nous (« flags » absent des accroches de donnees/label.json). Accroches écrites : « what the world's most famous flags really mean » (retenue : culture générale, géographie), « flag facts » (écartée : plate), « the secret meaning of flags » (écartée : proche des « secret meaning » gagnants). Faits vérifiés : bleu et rouge de Paris autour du blanc royal (France), Hinomaru, le disque du soleil (Japon), feuille d'érable adoptée en 1965 (Canada), Népal seul drapeau non rectangulaire, Suisse et Vatican seuls drapeaux carrés. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9e0b2f13",
+   "texte_overlay": "what the world's most famous\nflags really mean",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3542f739",
+   "texte_overlay": "france\n\nthe blue and red of paris\naround the royal white.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "febc1020",
+   "texte_overlay": "japan\n\n\"hinomaru\": the circle\nof the sun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "54a6984d",
+   "texte_overlay": "canada\n\nthe maple leaf only\narrived in 1965.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "eacd57cf",
+   "texte_overlay": "nepal\n\nthe only flag in the world\nthat isn't a rectangle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "351859dd",
+   "texte_overlay": "switzerland and the vatican\n\nthe only two square flags.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fdaee8de",
+   "texte_overlay": "and the story behind every one\n\ni learn one fact like this\na day.",
+   "texte_sophia": "and the story behind every one\n\ni learn one fact like this a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c527e1c6",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

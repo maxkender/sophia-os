@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o407",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2c6d1292-c12e-4d62-8755-c36a12b82584",
+ "titre": "how to talk like the most cultured woman in the room #eloquence #speakbetter #smartgirl #wellspoken #culture",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 3 de la boîte (parent 2c6d1292, langue source ro) : accroche reformulée (« how to talk like the most cultured woman in the room »), différente de sg-o308, sg-o330, sg-o357 et sg-o380 ; tournures du parent. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e055f376",
+   "texte_overlay": "how to talk like the most\ncultured woman in the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ed3554f0",
+   "texte_overlay": "\"essentially\", not \"basically\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "867326b7",
+   "texte_overlay": "\"considerably\", not \"a lot\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9a300f61",
+   "texte_overlay": "\"let me check\", not\n\"i'm not sure\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fa168113",
+   "texte_overlay": "\"do you have a moment?\", not\n\"sorry to bother you\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "20888b60",
+   "texte_overlay": "silence, not \"um\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5e69938a",
+   "texte_overlay": "and always something to say\n\ni learn a little every morning.",
+   "texte_sophia": "and always something to say\n\ni learn a little every morning on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "490c797a",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

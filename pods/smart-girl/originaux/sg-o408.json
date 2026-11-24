@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o408",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "481aa129-359f-4cd1-9bd7-d5b742586a7f",
+ "titre": "science concepts that make you sound brilliant #science #smartgirl #psychology #physics #learning",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 4 de la boîte (parent 481aa129, langue source fr) : accroche reformulée (« science concepts that make you sound brilliant »), différente de sg-o258 et sg-o381 ; concepts du parent. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "19992812",
+   "texte_overlay": "science concepts that make\nyou sound brilliant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d5904985",
+   "texte_overlay": "the observer effect\n\nmeasuring something\ncan change it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "48e30214",
+   "texte_overlay": "the pareto principle\n\n80% of results from\n20% of the effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "44ddbf32",
+   "texte_overlay": "hebb's rule\n\nneurons that fire together\nwire together.",
+   "texte_sophia": "hebb's rule\n\nneurons that fire together wire together.\ni learned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9b944467",
+   "texte_overlay": "entropy\n\nleft alone, everything\ndrifts to disorder.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b8b694c1",
+   "texte_overlay": "neuroplasticity\n\nyour brain rewires around\nwhat you repeat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f3d46a66",
+   "texte_overlay": "which one will you\ndrop at dinner?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  }
+ ]
+}

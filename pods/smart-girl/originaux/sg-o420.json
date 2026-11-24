@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o420",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ef121c0f-24fb-48f4-8a7e-0bac7dac139d",
+ "titre": "50 skills to learn for free instead of doomscrolling #skills #learning #smartgirl #selfimprovement #free",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "ef121c0f-24fb-48f4-8a7e-0bac7dac139d"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 88 de la boîte (parent ef121c0f, langue source fi) : accroche du parent mot pour mot. Cinquante compétences par rubriques comme le parent, sans nommer aucune autre appli ni plateforme (le parent en citait). Sophia dans la rubrique culture générale, comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e43ccbd1",
+   "texte_overlay": "50 skills to learn for free\ninstead of doomscrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664585825723763988/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f5e2125f",
+   "texte_overlay": "create\n\n1. graphic design  2. video editing\n3. photography  4. drawing\n5. calligraphy  6. knitting\n7. sewing  8. watercolour\n9. pottery basics  10. singing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664585825723763988/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d8e2ed02",
+   "texte_overlay": "think\n\n11. coding  12. logic\n13. chess  14. speed reading\n15. memory techniques  16. note-taking\n17. touch typing  18. statistics\n19. critical thinking  20. debate",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664585825723763988/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cce035ba",
+   "texte_overlay": "speak\n\n21. a new language  22. public speaking\n23. storytelling  24. negotiation\n25. sign language  26. poetry\n27. etymology  28. latin roots\n29. active listening  30. interviewing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664585825723763988/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "67eb374f",
+   "texte_overlay": "know\n\n31. personal finance  32. investing basics\n33. general knowledge  34. art history\n35. world history  36. philosophy\n37. psychology  38. astronomy\n39. geography  40. economics",
+   "texte_sophia": "know\n\n31. personal finance  32. investing\n33. general knowledge: five minutes a day\non an app like Sophia instead of scrolling\n34. art history  35. world history…",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664585825723763988/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2da67384",
+   "texte_overlay": "live\n\n41. yoga  42. running\n43. meditation  44. cooking\n45. baking  46. gardening\n47. first aid  48. swimming\n49. dancing  50. bird watching",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664585825723763988/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7e2a7326",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664585825723763988/7.jpg"
+  }
+ ]
+}

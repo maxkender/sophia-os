@@ -8,10 +8,22 @@
   "accroche": "ces secrets des parisiennes toujours parfaites <3"
  },
  "titre": {
-  "en": "secrets of french girls who always look effortless"
+  "en": "secrets of french girls who always look effortless",
+  "fr": "secrets des françaises toujours chic sans effort",
+  "de": "geheimnisse von französinnen, die immer mühelos aussehen",
+  "it": "segreti delle francesi sempre chic senza sforzo",
+  "hu": "a mindig könnyed francia lányok titkai",
+  "ro": "secretele franțuzoaicelor mereu chic fără efort",
+  "el": "τα μυστικά των γαλλίδων που δείχνουν πάντα αβίαστα κομψές"
  },
  "legendes": {
-  "en": "steal one, thank me later 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl"
+  "en": "steal one, thank me later 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl",
+  "fr": "pique-en une, tu me remercieras 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl",
+  "de": "klau eins, danke mir später 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl",
+  "it": "rubane una, mi ringrazierai 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl",
+  "hu": "lopj egyet, majd megköszönöd 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl",
+  "ro": "fură unul, îmi mulțumești 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl",
+  "el": "κλέψε ένα, μετά με ευχαριστείς 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl"
  },
  "musique": {
   "titre": "save a prayer",
@@ -38,6 +50,30 @@
    "en": {
     "titre": "secrets of french girls who always look effortless",
     "note": "(no effort required)"
+   },
+   "fr": {
+    "titre": "secrets des françaises toujours chic sans effort",
+    "note": "(aucun effort requis)"
+   },
+   "de": {
+    "titre": "geheimnisse von französinnen, die immer mühelos aussehen",
+    "note": "(ganz ohne mühe)"
+   },
+   "it": {
+    "titre": "segreti delle francesi sempre chic senza sforzo",
+    "note": "(sforzo non richiesto)"
+   },
+   "hu": {
+    "titre": "a mindig könnyed francia lányok titkai",
+    "note": "(semmi erőfeszítés)"
+   },
+   "ro": {
+    "titre": "secretele franțuzoaicelor mereu chic fără efort",
+    "note": "(fără niciun efort)"
+   },
+   "el": {
+    "titre": "τα μυστικά των γαλλίδων που δείχνουν πάντα αβίαστα κομψές",
+    "note": "(καμία προσπάθεια)"
    }
   },
   {
@@ -51,6 +87,60 @@
      "flat shoes in the bag, _headphones in_"
     ],
     "chute": "the city is _the workout_"
+   },
+   "fr": {
+    "titre": "elles _marchent partout_",
+    "intro": "le métro, que si c'est _vraiment loin_",
+    "paragraphes": [
+     "elles bougent tout le jour _sans salle_, sur leurs deux pieds",
+     "ballerines dans le sac, _écouteurs vissés_"
+    ],
+    "chute": "la ville, _c'est leur sport_"
+   },
+   "de": {
+    "titre": "sie _gehen alles zu fuß_",
+    "intro": "metro nur, wenn's _richtig weit_ ist",
+    "paragraphes": [
+     "sie bewegen sich ständig _ohne gym_, nur auf zwei füßen",
+     "flats in der tasche, _kopfhörer drin_"
+    ],
+    "chute": "die stadt ist _das workout_"
+   },
+   "it": {
+    "titre": "vanno _ovunque a piedi_",
+    "intro": "la metro solo se è _davvero lontano_",
+    "paragraphes": [
+     "si muovono tutto il giorno _senza palestra_, solo a piedi",
+     "ballerine in borsa, _cuffie nelle orecchie_"
+    ],
+    "chute": "la città è _l'allenamento_"
+   },
+   "hu": {
+    "titre": "_mindenhol gyalogolnak_",
+    "intro": "metró csak, ha _tényleg messze_ van",
+    "paragraphes": [
+     "egész nap mozognak _edzőterem nélkül_, csak a saját lábukon",
+     "balerina a táskában, _fülhallgató be_"
+    ],
+    "chute": "a város _az edzés_"
+   },
+   "ro": {
+    "titre": "merg _peste tot pe jos_",
+    "intro": "metroul doar dacă e _foarte departe_",
+    "paragraphes": [
+     "se mișcă toată ziua _fără sală_, doar pe picioarele lor",
+     "balerini în geantă, _căștile în urechi_"
+    ],
+    "chute": "orașul e _antrenamentul_"
+   },
+   "el": {
+    "titre": "_περπατάνε παντού_",
+    "intro": "μετρό μόνο αν είναι _πολύ μακριά_",
+    "paragraphes": [
+     "κινούνται όλη μέρα _χωρίς γυμναστήριο_, μόνο με τα πόδια τους",
+     "μπαλαρίνες στην τσάντα, _ακουστικά μέσα_"
+    ],
+    "chute": "η πόλη είναι _η προπόνηση_"
    }
   },
   {
@@ -64,6 +154,60 @@
      "one small bunch from the market, _a glass as a vase_"
     ],
     "chute": "pretty things make _pretty days_"
+   },
+   "fr": {
+    "titre": "des fleurs, _chaque semaine_",
+    "intro": "pas pour un date. _pour elles-mêmes_",
+    "paragraphes": [
+     "une étude a montré que recevoir des fleurs mettait _de meilleure humeur_, avec de vrais sourires",
+     "un petit bouquet du marché, _un verre en guise de vase_"
+    ],
+    "chute": "jolies choses, _jolies journées_"
+   },
+   "de": {
+    "titre": "frische blumen, _jede woche_",
+    "intro": "nicht fürs date. _für sich selbst_",
+    "paragraphes": [
+     "eine studie fand: blumen zu bekommen sorgte für _bessere laune_, mit echtem lächeln",
+     "ein kleiner strauß vom markt, _ein glas als vase_"
+    ],
+    "chute": "schöne dinge machen _schöne tage_"
+   },
+   "it": {
+    "titre": "fiori, _ogni settimana_",
+    "intro": "non per un date. _per sé stesse_",
+    "paragraphes": [
+     "uno studio: ricevere fiori metteva _di umore migliore_, con sorrisi veri",
+     "un mazzetto dal mercato, _un bicchiere come vaso_"
+    ],
+    "chute": "le cose belle fanno _giornate belle_"
+   },
+   "hu": {
+    "titre": "friss virág, _minden héten_",
+    "intro": "nem randira. _maguknak_",
+    "paragraphes": [
+     "egy kutatásban a virág ajándékba _jobb kedvre derítette_ az embereket, őszinte mosolyokkal",
+     "egy kis csokor a piacról, _egy pohár vázának_"
+    ],
+    "chute": "szép dolgok, _szép napok_"
+   },
+   "ro": {
+    "titre": "flori proaspete, _săptămânal_",
+    "intro": "nu pentru o întâlnire. _pentru ele_",
+    "paragraphes": [
+     "un studiu: florile primite aduceau _o stare mai bună_, cu zâmbete sincere",
+     "un buchețel de la piață, _un pahar drept vază_"
+    ],
+    "chute": "lucruri frumoase, _zile frumoase_"
+   },
+   "el": {
+    "titre": "λουλούδια, _κάθε εβδομάδα_",
+    "intro": "όχι για ραντεβού. _για εκείνες_",
+    "paragraphes": [
+     "μια έρευνα βρήκε ότι τα λουλούδια έφερναν _καλύτερη διάθεση_, με αληθινά χαμόγελα",
+     "ένα μικρό μπουκέτο από τη λαϊκή, _ένα ποτήρι για βάζο_"
+    ],
+    "chute": "όμορφα πράγματα, _όμορφες μέρες_"
    }
   },
   {
@@ -77,6 +221,60 @@
      "wash at night, _braid it_, wake up with waves"
     ],
     "chute": "effortless is _the point_"
+   },
+   "fr": {
+    "titre": "cheveux _séchés à l'air libre_",
+    "intro": "moins de chaud, _plus de texture_",
+    "paragraphes": [
+     "pas de lisseur chaque matin, juste _une bonne brosse_ et du temps",
+     "lave le soir, _tresse-les_, réveille-toi ondulée"
+    ],
+    "chute": "sans effort, _c'est le but_"
+   },
+   "de": {
+    "titre": "haare _an der luft trocknen_",
+    "intro": "weniger hitze, _mehr textur_",
+    "paragraphes": [
+     "kein glätteisen jeden morgen, nur _eine gute bürste_ und zeit",
+     "abends waschen, _flechten_, mit wellen aufwachen"
+    ],
+    "chute": "mühelos ist _der sinn_"
+   },
+   "it": {
+    "titre": "capelli _asciugati all'aria_",
+    "intro": "meno calore, _più texture_",
+    "paragraphes": [
+     "niente piastra ogni mattina, solo _una buona spazzola_ e tempo",
+     "lavati la sera, _una treccia_, al risveglio onde"
+    ],
+    "chute": "senza sforzo _è il punto_"
+   },
+   "hu": {
+    "titre": "haj _levegőn szárítva_",
+    "intro": "kevesebb hő, _több textúra_",
+    "paragraphes": [
+     "nincs hajvasaló minden reggel, csak _egy jó kefe_ és idő",
+     "este mosás, _befonás_, reggel hullámok"
+    ],
+    "chute": "a könnyedség _a lényeg_"
+   },
+   "ro": {
+    "titre": "păr _uscat natural_",
+    "intro": "mai puțină căldură, _mai multă textură_",
+    "paragraphes": [
+     "fără placă în fiecare dimineață, doar _o perie bună_ și timp",
+     "spălat seara, _o împletitură_, dimineața valuri"
+    ],
+    "chute": "fără efort e _ideea_"
+   },
+   "el": {
+    "titre": "μαλλιά _στεγνωμένα στον αέρα_",
+    "intro": "λιγότερη ζέστη, _περισσότερη υφή_",
+    "paragraphes": [
+     "όχι πρέσα κάθε πρωί, μόνο _μια καλή βούρτσα_ και χρόνος",
+     "λούσιμο το βράδυ, _πλεξούδα_, ξυπνάς με κύματα"
+    ],
+    "chute": "το αβίαστο είναι _το νόημα_"
    }
   },
   {
@@ -92,6 +290,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "_un petit footing_ avant tout",
+    "intro": "pas de chrono, juste _se sentir bien_",
+    "paragraphes": [
+     "je pensais que courir, c'était pour _les sportives_, alors j'ai jamais essayé",
+     "mon tip : une appli de coaching running comme Atala part _de ton niveau_, même si t'as jamais couru"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "_ein kleiner lauf_ vor dem tag",
+    "intro": "nicht für die uhr, nur _zum wohlfühlen_",
+    "paragraphes": [
+     "ich dachte, laufen sei nur für _sportliche mädels_, also nie versucht",
+     "mein tipp: eine lauf-coach-app wie Atala holt dich _bei deinem level_ ab, auch wenn du nie gelaufen bist"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "_una corsetta_ al mattino",
+    "intro": "non per il tempo, solo per _stare bene_",
+    "paragraphes": [
+     "credevo che correre fosse per _le sportive_, e non ci ho mai provato",
+     "il mio consiglio: un'app coach per la corsa come Atala parte _dal tuo livello_, pure se non hai mai corso"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "_egy kis futás_ a nap előtt",
+    "intro": "nem időre, csak _a jó érzésért_",
+    "paragraphes": [
+     "azt hittem, a futás csak _sportos lányoknak_ való, így meg sem próbáltam",
+     "a tippem: egy futóedző app, mint az Atala, _a szintedről_ indít, akkor is, ha sosem futottál"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "_o alergare scurtă_ dimineața",
+    "intro": "nu pentru timp, ci _ca să-mi fie bine_",
+    "paragraphes": [
+     "credeam că alergatul e doar pentru _sportive_, deci nici n-am încercat",
+     "sfatul meu: o aplicație de running coach ca Atala pornește _de la nivelul tău_, chiar de la zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "_λίγο τρέξιμο_ πριν τη μέρα",
+    "intro": "όχι για χρόνο, μόνο για _να νιώσω ωραία_",
+    "paragraphes": [
+     "νόμιζα ότι το τρέξιμο είναι μόνο για _αθλητικά κορίτσια_, οπότε ούτε δοκίμασα",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala ξεκινά _από το επίπεδό σου_, κι αν δεν έχεις τρέξει ποτέ"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -105,6 +369,60 @@
      "even 20 minutes counts. _go outside_ if you can"
     ],
     "chute": "slow lunch, _calm afternoon_"
+   },
+   "fr": {
+    "titre": "déjeuner _assise_",
+    "intro": "jamais au bureau, _jamais pressées_",
+    "paragraphes": [
+     "vraie assiette, vraie chaise, _pas de tél_ sur la table",
+     "même 20 minutes, ça compte. _sors_ si tu peux"
+    ],
+    "chute": "déj lent, _aprèm calme_"
+   },
+   "de": {
+    "titre": "mittag _im sitzen_",
+    "intro": "nie am schreibtisch, _nie gehetzt_",
+    "paragraphes": [
+     "echter teller, echter stuhl, _kein handy_ auf dem tisch",
+     "auch 20 minuten zählen. _geh raus_, wenn du kannst"
+    ],
+    "chute": "slow lunch, _ruhiger nachmittag_"
+   },
+   "it": {
+    "titre": "pranzo _seduta_",
+    "intro": "mai alla scrivania, _mai di fretta_",
+    "paragraphes": [
+     "un piatto vero, una sedia vera, e _niente telefono_ sul tavolo",
+     "anche 20 minuti contano. _esci_ se puoi"
+    ],
+    "chute": "pranzo lento, _pomeriggio calmo_"
+   },
+   "hu": {
+    "titre": "ebéd _ülve_",
+    "intro": "sosem az asztalnál, _sosem sietve_",
+    "paragraphes": [
+     "rendes tányér, rendes szék, és _semmi telefon_ az asztalon",
+     "már 20 perc is számít. _menj ki_, ha tudsz"
+    ],
+    "chute": "lassú ebéd, _nyugodt délután_"
+   },
+   "ro": {
+    "titre": "prânzul _stând jos_",
+    "intro": "nu la birou, _nu pe fugă_",
+    "paragraphes": [
+     "farfurie, scaun adevărat, _fără telefon_ pe masă",
+     "și 20 de minute contează. _ieși_ dacă poți"
+    ],
+    "chute": "prânz lent, _după-amiază calmă_"
+   },
+   "el": {
+    "titre": "μεσημεριανό _καθιστή_",
+    "intro": "ποτέ στο γραφείο, _ποτέ βιαστικά_",
+    "paragraphes": [
+     "αληθινό πιάτο, αληθινή καρέκλα και _κανένα κινητό_ στο τραπέζι",
+     "και 20 λεπτά μετράνε. _βγες έξω_ αν μπορείς"
+    ],
+    "chute": "αργό γεύμα, _ήρεμο απόγευμα_"
    }
   },
   {
@@ -118,6 +436,60 @@
      "paperback, small, _a bit worn_"
     ],
     "chute": "that's the whole _aesthetic_"
+   },
+   "fr": {
+    "titre": "un livre _dans le sac_",
+    "intro": "toujours. même _un court trajet_",
+    "paragraphes": [
+     "quelques pages dans le métro au lieu de _scroller_",
+     "poche, petit, _un peu abîmé_"
+    ],
+    "chute": "c'est toute _l'esthétique_"
+   },
+   "de": {
+    "titre": "buch _in der tasche_",
+    "intro": "immer. auch für _kurze wege_",
+    "paragraphes": [
+     "ein paar seiten in der metro statt _scrollen_",
+     "klein, softcover, _etwas zerlesen_"
+    ],
+    "chute": "das ist _die ganze ästhetik_"
+   },
+   "it": {
+    "titre": "un libro _in borsa_",
+    "intro": "sempre, anche _per un giretto_",
+    "paragraphes": [
+     "qualche pagina in metro invece di _scrollare_",
+     "tascabile, mini, _un po' vissuto_"
+    ],
+    "chute": "è tutta _l'estetica_"
+   },
+   "hu": {
+    "titre": "könyv _a táskában_",
+    "intro": "mindig. még _egy rövid útra_ is",
+    "paragraphes": [
+     "pár oldal a metrón _görgetés_ helyett",
+     "zsebkönyv, kicsi, _kicsit kopott_"
+    ],
+    "chute": "ez _az egész esztétika_"
+   },
+   "ro": {
+    "titre": "o carte _în geantă_",
+    "intro": "mereu. și _pe drum scurt_",
+    "paragraphes": [
+     "câteva pagini în metrou în loc de _scroll_",
+     "de buzunar, mică, _puțin uzată_"
+    ],
+    "chute": "asta e _toată estetica_"
+   },
+   "el": {
+    "titre": "βιβλίο _στην τσάντα_",
+    "intro": "πάντα, και _σε μικρή διαδρομή_",
+    "paragraphes": [
+     "λίγες σελίδες στο μετρό αντί για _scroll_",
+     "τσέπης, μικρό, _λίγο φθαρμένο_"
+    ],
+    "chute": "αυτή είναι _όλη η αισθητική_"
    }
   }
  ]

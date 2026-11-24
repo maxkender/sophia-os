@@ -26,7 +26,9 @@
   "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 25",
   "no": "10/10 ferdigheter å lære før du fyller 25",
   "et": "10/10 oskust, mida õppida enne 25",
-  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 25:tä"
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 25:tä",
+  "sr": "10/10 veština koje treba naučiti pre 25.",
+  "el": "10/10 δεξιότητες να μάθεις πριν τα 25"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 25 #selfimprovement #learnontiktok #selfmastery",
@@ -48,13 +50,15 @@
   "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 25 #įgūdžiai #saviugda #mokymasis",
   "no": "10/10 ferdigheter å lære før du fyller 25 #ferdigheter #selvutvikling #læring",
   "et": "10/10 oskust, mida õppida enne 25 #oskused #eneseareng #õppimine",
-  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 25:tä #taidot #itsensäkehittäminen #oppiminen"
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 25:tä #taidot #itsensäkehittäminen #oppiminen",
+  "sr": "10/10 veština koje treba naučiti pre 25. #veštine #ličnirazvoj #učenje",
+  "el": "10/10 δεξιότητες να μάθεις πριν τα 25 #δεξιότητες #αυτοβελτίωση #μάθηση"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7478486760792673025"
  },
- "notes": "Sophia en carte d'appli à l'étape 3 « LEARN A BIT OF EVERYTHING », au milieu de la liste (leur slide Fathomly de fin disparaît). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en bandeau (une ligne en Inter Black) ; quatre compétences à nous, une vraie vidéo par langue. 19/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, « parler à n'importe qui » devient le langage corporel en sl, nl et sv. 21/11 : ajouté en lt, no, et et fi ; faute de vidéo native, « parler à n'importe qui » devient « dire non » en lt, et et fi, et le langage corporel en no.",
+ "notes": "Sophia en carte d'appli à l'étape 3 « LEARN A BIT OF EVERYTHING », au milieu de la liste (leur slide Fathomly de fin disparaît). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en bandeau (une ligne en Inter Black) ; quatre compétences à nous, une vraie vidéo par langue. 19/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, « parler à n'importe qui » devient le langage corporel en sl, nl et sv. 21/11 : ajouté en lt, no, et et fi ; faute de vidéo native, « parler à n'importe qui » devient « dire non » en lt, et et fi, et le langage corporel en no. 24/11 : ajouté en sr (latinica) et el.",
  "slides": [
   {
    "type": "couverture",
@@ -458,6 +462,46 @@
       }
      ]
     ]
+   },
+   "sr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠTINA KOJE TREBA",
+     [
+      {
+       "t": "NAUČITI PRE "
+      },
+      {
+       "t": "25.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "el": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ΔΕΞΙΟΤΗΤΕΣ ΝΑ ΜΑΘΕΙΣ",
+     [
+      {
+       "t": "ΠΡΙΝ ΤΑ "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -746,6 +790,34 @@
      "date": "4 vuotta sitten",
      "duree": "20.21",
      "avatar": "https://yt3.ggpht.com/iovucgT8k-BLU8x-LW3oA9iAXYNCvbvOc8Tre5qIdkVaABNAh07kj9dzLIBRHz-4yw-dUHP_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "NAUČI KAKO FUNKCIONIŠE NOVAC"
+    ],
+    "video": {
+     "id": "GgZbztSZCZY",
+     "titre": "FINANSIJSKA PISMENOST: Sve što vas nisu naučili o novcu.",
+     "chaine": "Lične Finansije",
+     "vues": "48 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "17.30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY1aNdZ1f69JR35wXAEAJsJaHCMQRJcB6NIStnXcCHlw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ ΠΩΣ ΛΕΙΤΟΥΡΓΟΥΝ ΤΑ ΧΡΗΜΑΤΑ"
+    ],
+    "video": {
+     "id": "rPPd1r9ErN4",
+     "titre": "Επεισόδιο 11 | Ψηφιακός χρηματοοικονομικός αλφαβητισμός",
+     "chaine": "Money Doctor",
+     "vues": "926 προβολές",
+     "date": "πριν από 1 έτος",
+     "duree": "7:05",
+     "avatar": "https://yt3.ggpht.com/TyZ9qoU12WE1pEeM-v4go_fXTjKGdY9N2XX1dtUTO2t4GfzrsIqY8SxJge4MiqJbQxB2LWG3Ng=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -1036,6 +1108,34 @@
      "duree": "1.53",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqMgf1f05gceuH4flpvwmRytDUs6NIFtviWQDZXxqzGA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "KAKO RAZGOVARATI SA BILO KIM"
+    ],
+    "video": {
+     "id": "HjMiyznEy-c",
+     "titre": "Kako pričati sa bilo kim –TAJNA uspešnih razgovora",
+     "chaine": "harizzmaticni",
+     "vues": "7 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "4.24",
+     "avatar": "https://yt3.ggpht.com/EM4m3tk4CH3shaS8orbyoE9NZ0bDzUxzATDs3l9HRejKt_N7Esx_Nil3Mm7pUW0SDMOr5TpkvPc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΠΩΣ ΝΑ ΜΙΛΑΣ ΜΕ ΟΠΟΙΟΝΔΗΠΟΤΕ"
+    ],
+    "video": {
+     "id": "wwmBlKzLUM4",
+     "titre": "Πως να Ξεκινήσεις Συζήτηση με ΟΠΟΙΟΝΔΗΠΟΤΕ",
+     "chaine": "Themis",
+     "vues": "1 χιλ. προβολές",
+     "date": "πριν από 1 έτος",
+     "duree": "17:21",
+     "avatar": "https://yt3.ggpht.com/zLhd5zh39dlfC6kxZ_gBma76j2N5wR9oYhJhfb3kp1l5-0WMLuZKx03Ym9zvbjK4OuY37diO=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1284,6 +1384,30 @@
      "texte": [
       "opi joka päivä jotain uutta,",
       "5 minuutissa."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "ZNAJ PONEŠTO O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo svaki dan,",
+      "za 5 minuta."
+     ]
+    }
+   },
+   "el": {
+    "titre": [
+     "ΞΕΡΕ ΛΙΓΟ ΑΠΟ ΟΛΑ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι νέο κάθε μέρα,",
+      "σε 5 λεπτά."
      ]
     }
    }
@@ -1575,6 +1699,34 @@
      "duree": "1.46",
      "avatar": "https://yt3.ggpht.com/UXDu62BAwwm7orDDpwJP9QELAmxfwOdg2DMjGdywlxxv2W2GPbyI2fYn9Xavjn6iZUFOFUhL=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "NAUČI PRVU POMOĆ"
+    ],
+    "video": {
+     "id": "0Rjfxhkt1r0",
+     "titre": "Postupak reanimacije - Svetski dan oživljavanja",
+     "chaine": "Crveni krst Inđija",
+     "vues": "1 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "5.52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nl0wNAiw-4K92g4dnPuB35iLBYZQLff6AcU_LQZNI8-_w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ ΠΡΩΤΕΣ ΒΟΗΘΕΙΕΣ"
+    ],
+    "video": {
+     "id": "PbX_kt_CLXA",
+     "titre": "Καρδιοπνευμονική Αναζωογόνηση, πλήρης ανάλυση ΚΑΡΠΑ!",
+     "chaine": "KIDS SAVE LIVES - Τα Παιδιά Σώζουν Ζωές",
+     "vues": "213 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "19:11",
+     "avatar": "https://yt3.ggpht.com/2a2cAmMd68og0VQLOHDXcPc5TaqMWervW9zKs2rMrhCv766ns57E8YocrLidZxuHAqNtPNuHvA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1863,6 +2015,34 @@
      "date": "10 kuukautta sitten",
      "duree": "5.14",
      "avatar": "https://yt3.ggpht.com/f0Nkecaa7GYE3pQKKrF8wrIXkq_KvDYttv3iaZQ59w_Yin6nXdmuto3DI5mWUTtNHOubtGY-rX8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "NAUČI DA KUVAŠ"
+    ],
+    "video": {
+     "id": "qfnR_whuTBg",
+     "titre": "Kuvanje za Početnike - TUNA STEAK",
+     "chaine": "ŠtaDaJedem?",
+     "vues": "31 hilj. pregleda",
+     "date": "pre 3 godine",
+     "duree": "8.37",
+     "avatar": "https://yt3.ggpht.com/7NiDs4uW9SpNbnNf-uJsZYZPPtaIdIKEAS9otEtgWZBoM7EtkgrNB7ePaIVqz9Ul7mVYpVri1Y4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ ΝΑ ΜΑΓΕΙΡΕΥΕΙΣ"
+    ],
+    "video": {
+     "id": "azoi3RF8OgA",
+     "titre": "🏅Δοκίμασε να φτιάξεις έτσι το Κοτόπουλο με αυτή τη σάλτσα και θα πάρεις πολλά συγχαρητήρια !",
+     "chaine": "LIVE KITCHEN CHANNEL",
+     "vues": "351 χιλ. προβολές",
+     "date": "πριν από 1 έτος",
+     "duree": "4:18",
+     "avatar": "https://yt3.ggpht.com/wHn36aFGmGLWR4BCplia4oFw_ttPCXBKDKnYg4LhzBkfAjUNJkLi-zyarBTyttvooP0AyYA9=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

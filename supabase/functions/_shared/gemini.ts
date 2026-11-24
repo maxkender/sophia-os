@@ -968,6 +968,8 @@ export interface CleanImageOpts {
    * (voir chemins_nettoyage.ts). Absent : principal → second, comme avant.
    */
   essai?: number;
+  /** Test (`nettoyer-test`) : les chemins à prendre, dans l'ordre, à la place du réglage. */
+  chemins?: CheminNettoyage[];
 }
 
 /**
@@ -1019,7 +1021,7 @@ export async function cleanImage(
   };
 
   const premier = await lireProviderPrincipal();
-  const chaine: CheminNettoyage[] = cheminsPourEssai(premier, opts?.essai);
+  const chaine: CheminNettoyage[] = opts?.chemins?.length ? opts.chemins : cheminsPourEssai(premier, opts?.essai);
   const NOMS: Record<CheminNettoyage, string> = { fal: "Fal", replicate: "Replicate", effaceur: "Effaceur (Gemini + LaMa)" };
 
   let base64: string | null = null;

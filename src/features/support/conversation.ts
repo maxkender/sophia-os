@@ -57,3 +57,22 @@ export const LIBELLE_CANAL: Record<string, string> = {
 export function whatsappPossible(source: string | null | undefined, fil: readonly ElementFil[]): boolean {
   return source === "whatsapp" || fil.some((e) => e.canal === "whatsapp");
 }
+
+/**
+ * 24/11 (Max) : les captures jointes (Slack) arrivent dans le texte sous la forme « [Screenshot: …] 📎 <lien> » :
+ * le texte découpé en morceaux, chaque lien 📎 devient un lien « 📎 capture ».
+ */
+export type MorceauTexte = { texte: string } | { capture: string };
+
+export function morceauxCaptures(texte: string): MorceauTexte[] {
+  const sortie: MorceauTexte[] = [];
+  const re = /📎 (https:\/\/[^\s<>"]+)/gu;
+  let debut = 0;
+  for (const m of texte.matchAll(re)) {
+    if (m.index! > debut) sortie.push({ texte: texte.slice(debut, m.index) });
+    sortie.push({ capture: m[1]! });
+    debut = m.index! + m[0].length;
+  }
+  if (debut < texte.length) sortie.push({ texte: texte.slice(debut) });
+  return sortie;
+}

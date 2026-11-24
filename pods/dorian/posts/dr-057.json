@@ -1,0 +1,149 @@
+{
+ "id": "dr-057",
+ "format": "liste",
+ "titre": {
+  "en": "5 numbers that genuinely sound fake",
+  "pt-BR": "5 números que parecem mentira",
+  "hu": "5 szám, ami tényleg kamunak hangzik"
+ },
+ "legendes": {
+  "en": "#math #facts #smarttok #lockedin",
+  "pt-BR": "#matemática #curiosidades #conhecimento #aprender",
+  "hu": "#matek #érdekességek #tudás #tanulás"
+ },
+ "musique": {
+  "titre": "original sound - LanguFilms",
+  "url": "https://www.tiktok.com/music/original-sound-7291278974100622112"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : nombre de Shannon ~10¹²⁰, ~10⁸⁰ atomes ; 52! ≈ 8,07 × 10⁶⁷ ; paradoxe des anniversaires (23 → 50,7 %, 70 → 99,9 %) ; 0,1 mm × 2⁴² ≈ 440 000 km, distance Terre-Lune ~384 400 km ; Vénus rotation sidérale ~243 j, révolution ~225 j. Images Seedream. En, pt-BR, hu ; une couverture par langue. Sophia en item 3 sur 6 (cta C), écran quiz traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 numbers that genuinely sound fake",
+    "image": "images/cerveau-07.jpg",
+    "legende": "(they're real)"
+   },
+   "pt-BR": {
+    "titre": "5 números que parecem mentira",
+    "image": "images/cerveau-09.jpg",
+    "legende": "(são reais)"
+   },
+   "hu": {
+    "titre": "5 szám, ami tényleg kamunak hangzik",
+    "image": "images/cerveau-11.jpg",
+    "legende": "(pedig igazak)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "More chess games than atoms",
+    "texte": "claude shannon estimated about 10¹²⁰ possible games of chess. the observable universe has around 10⁸⁰ atoms",
+    "image": "images/echiquier.jpg"
+   },
+   "pt-BR": {
+    "titre": "Mais partidas de xadrez que átomos",
+    "texte": "claude shannon estimou cerca de 10¹²⁰ partidas possíveis de xadrez. o universo observável tem uns 10⁸⁰ átomos",
+    "image": "images/echiquier.jpg"
+   },
+   "hu": {
+    "titre": "Több sakkjátszma, mint atom",
+    "texte": "claude shannon kb. 10¹²⁰ lehetséges sakkjátszmát becsült. a megfigyelhető univerzumban nagyjából 10⁸⁰ atom van",
+    "image": "images/echiquier.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Every shuffle is new",
+    "texte": "a deck of 52 cards can be ordered in about 8 × 10⁶⁷ ways. a properly shuffled deck has almost certainly never existed before",
+    "image": "images/objets/cartes.png"
+   },
+   "pt-BR": {
+    "titre": "Todo embaralhar é inédito",
+    "texte": "um baralho de 52 cartas pode ser ordenado de uns 8 × 10⁶⁷ jeitos. um baralho bem embaralhado quase com certeza nunca existiu antes",
+    "image": "images/objets/cartes.png"
+   },
+   "hu": {
+    "titre": "Minden keverés új",
+    "texte": "egy 52 lapos pakli kb. 8 × 10⁶⁷-féleképpen rendezhető. egy jól megkevert pakli szinte biztosan sosem létezett még",
+    "image": "images/objets/cartes.png"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. facts like these, every day",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. fatos assim, todo dia",
+    "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. ilyen tények, minden nap",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "23 people, one birthday",
+    "texte": "in a room of 23 people, there's about a 50% chance two share a birthday. with 70, it's over 99%",
+    "image": "images/gateau.jpg"
+   },
+   "pt-BR": {
+    "titre": "23 pessoas, um aniversário",
+    "texte": "numa sala com 23 pessoas, há cerca de 50% de chance de duas fazerem aniversário no mesmo dia. com 70, passa de 99%",
+    "image": "images/gateau.jpg"
+   },
+   "hu": {
+    "titre": "23 ember, egy születésnap",
+    "texte": "egy 23 fős szobában kb. 50% az esély, hogy kettőnek ugyanakkor van a születésnapja. 70 főnél több mint 99%",
+    "image": "images/gateau.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "42 folds to the moon",
+    "texte": "in theory, a 0.1 mm sheet of paper folded in half 42 times would be about 440,000 km thick. the moon is about 384,000 km away",
+    "image": "images/papier-lune.jpg"
+   },
+   "pt-BR": {
+    "titre": "42 dobras até a lua",
+    "texte": "em teoria, uma folha de 0,1 mm dobrada ao meio 42 vezes teria uns 440.000 km de espessura. a lua fica a uns 384.000 km",
+    "image": "images/papier-lune.jpg"
+   },
+   "hu": {
+    "titre": "42 hajtás a holdig",
+    "texte": "elméletben egy 0,1 mm-es papírlap 42-szer félbehajtva kb. 440 000 km vastag lenne. a hold kb. 384 000 km-re van",
+    "image": "images/papier-lune.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "A day longer than a year",
+    "texte": "venus takes about 243 earth days to spin once, but only about 225 to orbit the sun",
+    "image": "images/venus.jpg"
+   },
+   "pt-BR": {
+    "titre": "Um dia mais longo que um ano",
+    "texte": "vênus leva uns 243 dias terrestres pra girar uma vez em torno de si, mas só uns 225 pra dar a volta no sol",
+    "image": "images/venus.jpg"
+   },
+   "hu": {
+    "titre": "Egy nap, ami hosszabb egy évnél",
+    "texte": "a vénusz kb. 243 földi nap alatt fordul meg egyszer a tengelye körül, de csak kb. 225 alatt kerüli meg a napot",
+    "image": "images/venus.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

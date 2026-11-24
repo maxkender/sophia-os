@@ -14,7 +14,8 @@
   "de": "5 sprachen, die verdammt schwer zu lernen sind",
   "it": "5 lingue difficili da c*zzo da imparare",
   "nl": "5 talen die echt verdomd moeilijk zijn om te leren",
-  "sv": "5 språk som är sjukt jävla svåra att lära sig"
+  "sv": "5 språk som är sjukt jävla svåra att lära sig",
+  "hu": "5 nyelv, amit tényleg k*rva nehéz megtanulni"
  },
  "legendes": {
   "en": "#niche #languagelearning #polyglot #lockedin",
@@ -23,7 +24,8 @@
   "de": "#sprachenlernen #sprachen #polyglott #lernen",
   "it": "#lingue #imparare #poliglotta #nicchia",
   "nl": "#talenleren #talen #polyglot #leren",
-  "sv": "#språkinlärning #språk #polyglott #lärande"
+  "sv": "#språkinlärning #språk #polyglott #lärande",
+  "hu": "#nyelvtanulás #nyelvek #poliglott #tanulás"
  },
  "musique": {
   "titre": "Room Full of Strangers - Danny Bluestone",
@@ -67,6 +69,11 @@
     "titre": "5 språk som är sjukt jävla svåra att lära sig",
     "image": "images/cerveau-26.jpg",
     "legende": "(i lektionstimmar)"
+   },
+   "hu": {
+    "titre": "5 nyelv, amit tényleg k*rva nehéz megtanulni",
+    "image": "images/cerveau-31.jpg",
+    "legende": "(tanórában mérve)"
    }
   },
   {
@@ -112,6 +119,12 @@
     "difficulte": "28/50",
     "texte": "15 kasus. ett substantiv kan ha dussintals former. usa:s diplomatinstitut räknar med ungefär 1 100 lektionstimmar för engelsktalande",
     "image": "images/neige-nordique.jpg"
+   },
+   "hu": {
+    "titre": "Finn",
+    "difficulte": "28/50",
+    "texte": "15 eset. egy főnévnek tucatnyi alakja lehet. az amerikai diplomataképző angol anyanyelvűeknek kb. 1100 tanórával számol. a magyar rokona, mégsem érted",
+    "image": "images/neige-nordique.jpg"
    }
   },
   {
@@ -156,6 +169,12 @@
     "titre": "Koreanska",
     "difficulte": "40/50",
     "texte": "alfabetet lär du dig på en helg: kung sejong lät skapa det på 1400-talet för att vara lätt. grammatiken och artighetsnivåerna tar år. ungefär 2 200 timmar",
+    "image": "images/flasque-coreenne.jpg"
+   },
+   "hu": {
+    "titre": "Koreai",
+    "difficulte": "40/50",
+    "texte": "az ábécét egy hétvége alatt megtanulod: szedzsong király a 15. században könnyűre tervezte. a nyelvtan és az udvariassági szintek évekig tartanak. kb. 2200 óra",
     "image": "images/flasque-coreenne.jpg"
    }
   },
@@ -203,6 +222,12 @@
     "difficulte": "4/50",
     "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. uppvärmning för hjärnan innan det svåra",
     "telephone": "cours"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "difficulte": "4/50",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. bemelegítés az agynak a nehéz dolgok előtt",
+    "telephone": "cours"
    }
   },
   {
@@ -247,6 +272,12 @@
     "titre": "Arabiska",
     "difficulte": "44/50",
     "texte": "skrivs från höger till vänster, korta vokaler utelämnas oftast, och de talade dialekterna skiljer sig mycket från skriftspråket. ungefär 2 200 timmar",
+    "image": "images/bol-calligraphie.jpg"
+   },
+   "hu": {
+    "titre": "Arab",
+    "difficulte": "44/50",
+    "texte": "jobbról balra írják, a rövid magánhangzókat többnyire nem jelölik, és a beszélt nyelvjárások nagyon eltérnek az írott nyelvtől. kb. 2200 óra",
     "image": "images/bol-calligraphie.jpg"
    }
   },
@@ -293,6 +324,12 @@
     "difficulte": "46/50",
     "texte": "tre skriftsystem på en gång: hiragana, katakana och omkring 2 000 vardagliga kanji. ungefär 2 200 timmar",
     "image": "images/grues-neige.jpg"
+   },
+   "hu": {
+    "titre": "Japán",
+    "difficulte": "46/50",
+    "texte": "egyszerre három írásrendszer: hiragana, katakana és kb. 2000 mindennapi kandzsi. kb. 2200 óra",
+    "image": "images/grues-neige.jpg"
    }
   },
   {
@@ -337,6 +374,12 @@
     "titre": "Mandarin",
     "difficulte": "48/50",
     "texte": "fyra toner, så en stavelse kan betyda fyra olika saker. plus tusentals tecken för att läsa en tidning. ungefär 2 200 timmar",
+    "image": "images/bambous-encre.jpg"
+   },
+   "hu": {
+    "titre": "Mandarin",
+    "difficulte": "48/50",
+    "texte": "négy hang, így egy szótag négy dolgot is jelenthet. plusz több ezer írásjegy egy újság elolvasásához. kb. 2200 óra",
     "image": "images/bambous-encre.jpg"
    }
   }

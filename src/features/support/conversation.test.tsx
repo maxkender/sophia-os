@@ -49,3 +49,15 @@ describe("Conversation complète (13/11)", () => {
     await waitFor(() => expect(c.repondreCanal).toHaveBeenCalledWith({ poster_id: "p1", canal: "upwork", texte: "Great, thanks!", demande_id: "d1" }));
   });
 });
+
+describe("morceauxCaptures (24/11)", () => {
+  it("les liens 📎 des captures Slack deviennent des liens « 📎 capture »", async () => {
+    const { morceauxCaptures } = await import("./conversation");
+    expect(morceauxCaptures("help\n\n[Screenshot: error] 📎 https://x.slack.com/files/U1/F1/a.png\nfin")).toEqual([
+      { texte: "help\n\n[Screenshot: error] " },
+      { capture: "https://x.slack.com/files/U1/F1/a.png" },
+      { texte: "\nfin" },
+    ]);
+    expect(morceauxCaptures("rien")).toEqual([{ texte: "rien" }]);
+  });
+});

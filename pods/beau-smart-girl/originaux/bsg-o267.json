@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o267",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "38a33844-dc14-4daf-b0f3-109b657167f5",
+  "titre": "comment se sentir bien quand on a peu d'amis #amitie #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "38a33844-dc14-4daf-b0f3-109b657167f5"
+  ],
+  "notes": "G2, déclinaison de 38a33844 (« how to be okay and deal with not having many friends », G1 gagnante, génération 1 en français ; meilleur passage en 621 vues, r 2,25), en français, 1re déclinaison. Accroche reformulée : « comment se sentir bien quand on a peu d'amis ». cta A. Ton doux, conseils neufs. Routine du 24/11 sur BLEO (par_jour passé à 16 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 11 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées au guichet le 22/11), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8d29b119",
+      "texte_overlay": "comment se sentir bien\nquand on a peu d'amis",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9548d294",
+      "texte_overlay": "1. deux vraies amies valent mieux que vingt contacts\n\nce n'est pas une consolation,\nc'est la vérité.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c06ad0e9",
+      "texte_overlay": "2. apprendre à aimer sa propre compagnie\n\nun café seule, un musée seule.\non devient libre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b8c90f6e",
+      "texte_overlay": "3. aller là où on partage une passion\n\nun atelier, une chorale, un club de lecture.\nles amitiés y poussent toutes seules.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c0b340d0",
+      "texte_overlay": "4. écrire en premier\n\nla plupart des gens\nattendent qu'on leur écrive.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c263199b",
+      "texte_overlay": "5. devenir quelqu'un qu'on a envie d'écouter\n\navant, j'avais l'impression de n'avoir rien à raconter.\nmaintenant, j'apprends un truc sur le monde chaque matin. et les conversations viennent toutes seules.",
+      "texte_sophia": "5. devenir quelqu'un qu'on a envie d'écouter\n\navant, j'avais l'impression de n'avoir rien à raconter.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et les conversations viennent toutes seules.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "056c98c3",
+      "texte_overlay": "tu n'es pas en retard.\ngarde-la pour un jour de solitude.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

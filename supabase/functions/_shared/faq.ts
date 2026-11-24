@@ -379,6 +379,8 @@ export interface EvenementSlack {
   ts?: string;
   thread_ts?: string;
   bot_id?: string;
+  /** Les fichiers joints (sous-type file_share) : les images sont décrites (slack_captures.ts). */
+  files?: unknown;
 }
 
 export type TriSlack =
@@ -388,7 +390,8 @@ export type TriSlack =
 
 /** Sous-types qui restent un vrai message de quelqu'un. */
 const SOUS_TYPES_HUMAINS = new Set(["file_share", "thread_broadcast"]);
-const QUESTION_MAX = 1_500;
+// 24/11 : jusqu'à 3 captures décrites (« [Screenshot: …] 📎 lien ») s'ajoutent au texte.
+const QUESTION_MAX = 3_500;
 
 /**
  * Ce qu'on fait d'un événement `message` : une nouvelle question (message
@@ -411,7 +414,7 @@ export function trierEvenementSlack(
     return { cas: "suite", canal: ev.channel, parentTs: ev.thread_ts, ts: ev.ts, auteur: ev.user, texte };
   }
   if (opts.admins.has(ev.user)) return { cas: "ignore", raison: "équipe" };
-  // Une capture seule : rien à lire. Si c'est un bug, l'IT guy la verra.
+  // Une capture seule et illisible : rien à lire (une capture lue arrive décrite dans le texte, slack_captures.ts).
   if (!texte) return { cas: "ignore", raison: "sans texte" };
   return { cas: "question", canal: ev.channel, ts: ev.ts, auteur: ev.user, texte };
 }

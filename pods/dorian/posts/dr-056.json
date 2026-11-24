@@ -1,0 +1,281 @@
+{
+ "id": "dr-056",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of museum lover hobbies",
+  "hu": "A múzeumrajongók hobbijainak jéghegye",
+  "it": "Iceberg degli hobby da amanti dei musei"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #museum #arttok #lockedin",
+  "hu": "#jéghegy #hobbi #múzeum #önfejlesztés",
+  "it": "#iceberg #hobby #musei #arte"
+ },
+ "musique": {
+  "titre": "Ashes and Embers - WATIWO LIA",
+  "url": "https://www.tiktok.com/music/original-sound-7569882137836849153"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « museum lover hobbies ». En hu, le fond devient « rovásírás » (l'écriture runique hongroise ancienne). Sophia au 2e étage (icône). En, hu, it ; variantes 6, 0, 1.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "museum lover hobbies",
+    "variante": 6
+   },
+   "hu": {
+    "haut": "A múzeumrajongók",
+    "bas": "jéghegye",
+    "variante": 0
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da museo",
+    "variante": 1
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "museum trips",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "sketching statues",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "photographing art",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "art books",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "greek pottery",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "painting copies",
+       "image": "images/objets/palette.png"
+      },
+      {
+       "t": "ceramics",
+       "image": "images/objets/vase-ceramique.png"
+      }
+     ],
+     [
+      {
+       "t": "egyptology",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "coin collecting",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "medieval armour",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "roman history",
+       "image": "images/objets/casque-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "old manuscripts",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "rare editions",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "meteorites",
+       "image": "images/objets/meteorite.png"
+      }
+     ],
+     [
+      {
+       "t": "reading runestones",
+       "image": "images/objets/pierre-runique.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "múzeumok",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "szobrok rajzolása",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "fotózás",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "művészeti könyvek",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "napi sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "görög vázák",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "másolatok",
+       "image": "images/objets/palette.png"
+      },
+      {
+       "t": "kerámia",
+       "image": "images/objets/vase-ceramique.png"
+      }
+     ],
+     [
+      {
+       "t": "egyiptológia",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "éremgyűjtés",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "középkori páncélok",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "római történelem",
+       "image": "images/objets/casque-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "régi kéziratok",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "ritka kiadások",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "meteoritok",
+       "image": "images/objets/meteorite.png"
+      }
+     ],
+     [
+      {
+       "t": "rovásírás olvasása",
+       "image": "images/objets/pierre-runique.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "visitare musei",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "disegnare statue",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "fotografare l'arte",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "libri d'arte",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "ceramica greca",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "copiare quadri",
+       "image": "images/objets/palette.png"
+      },
+      {
+       "t": "ceramica",
+       "image": "images/objets/vase-ceramique.png"
+      }
+     ],
+     [
+      {
+       "t": "egittologia",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "monete antiche",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "armature medievali",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "storia romana",
+       "image": "images/objets/casque-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "manoscritti antichi",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "edizioni rare",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "meteoriti",
+       "image": "images/objets/meteorite.png"
+      }
+     ],
+     [
+      {
+       "t": "leggere le rune",
+       "image": "images/objets/pierre-runique.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

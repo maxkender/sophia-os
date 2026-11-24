@@ -7,12 +7,25 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 import { appeler } from "./api";
-import { type CanalReponse, canalDefaut, type ElementFil, LIBELLE_CANAL, lireConversation, repondreCanal, whatsappPossible } from "./conversation";
+import { type CanalReponse, canalDefaut, type ElementFil, LIBELLE_CANAL, lireConversation, morceauxCaptures, repondreCanal, whatsappPossible } from "./conversation";
 import { IconeWhatsApp } from "./IconeWhatsApp";
 
 interface AideReponse { resume: string | null; suggestion: string | null; suggestion_fr: string | null; sur: boolean }
 
 const quand = (at: string) => new Date(at).toLocaleString("fr-FR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
+
+/** 24/11 (Max) : le texte d'un message, ses captures Slack (« 📎 <lien> ») en liens « 📎 capture ». */
+export function TexteMessage({ texte }: { texte: string }) {
+  return (
+    <p className="whitespace-pre-wrap">
+      {morceauxCaptures(texte).map((m, i) =>
+        "capture" in m
+          ? <a key={i} href={m.capture} target="_blank" rel="noreferrer" className="text-primary underline" data-testid="capture">📎 capture</a>
+          : <React.Fragment key={i}>{m.texte}</React.Fragment>
+      )}
+    </p>
+  );
+}
 
 function qui(e: ElementFil): string {
   if (e.sens === "action") return `⚡ ${e.qui}`;
@@ -99,7 +112,7 @@ export function ConversationPosteur({ posterId, demandeId = null, source = null 
                 {e.vu && <Badge variant="outline" className="h-4 px-1 text-[10px]" data-testid="vu">vu</Badge>}
                 {e.statut && e.canal === "email" && <span>· {e.statut}</span>}
               </div>
-              <p className="whitespace-pre-wrap">{e.texte}</p>
+              <TexteMessage texte={e.texte ?? ""} />
               {(() => {
                 const fr = traductions.data?.[i];
                 return fr && fr.trim() !== (e.texte ?? "").trim()

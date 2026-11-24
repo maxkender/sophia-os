@@ -31,6 +31,8 @@ import { chargerModeSituations, colonnesSituation, situationSansRisque } from ".
 import { relierNouveau } from "../_shared/slack_relier.ts";
 import { proposerLienSlack } from "../_shared/slack_connect.ts";
 import { messageAGarder } from "../_shared/slack_messages.ts";
+import { aDesImages, texteSlackAvecCaptures } from "../_shared/slack_captures.ts";
+import { decrireCapture } from "../_shared/gemini.ts";
 import { json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { niveauQuestionPersonnelle, parleDeLAutrePlateforme, questionPersonnelle, texteRenvoiHelp } from "../_shared/support.ts";
@@ -105,13 +107,18 @@ Deno.serve(async (request) => {
     text?: string;
   };
   if (ev.type === "message" && ev.channel_type === "im") {
-    if (ev.user && !ev.bot_id && !ev.subtype) {
+    if (ev.user && !ev.bot_id && (!ev.subtype || ev.subtype === "file_share")) {
       // Partie E (0406) : le message est gardé, l'OS le classe et y répond (recrues-check).
+      // 24/11 (Max) : une capture jointe est lue et décrite (« [Screenshot: …] ») avant d'être gardée.
       const db = serviceClient();
-      const repondu = Promise.all([
-        db.rpc("nudge_repondu_slack", { p_slack_user: ev.user }),
-        db.rpc("reponse_noter_slack", { p_slack_user: ev.user, p_ts: ev.ts ?? null, p_texte: ev.text ?? "" }),
-      ]).catch((erreur) => console.error("[slack-faq] message.im", messageErreur(erreur)));
+      const user = ev.user;
+      const repondu = (async () => {
+        const texte = aDesImages(payload.event) ? await texteSlackAvecCaptures(jetonSlackFaq(), payload.event, decrireCapture) : ev.text ?? "";
+        await Promise.all([
+          db.rpc("nudge_repondu_slack", { p_slack_user: user }),
+          db.rpc("reponse_noter_slack", { p_slack_user: user, p_ts: ev.ts ?? null, p_texte: texte }),
+        ]);
+      })().catch((erreur) => console.error("[slack-faq] message.im", messageErreur(erreur)));
       const edgeIm = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
       if (edgeIm) edgeIm.waitUntil(repondu);
       else await repondu;
@@ -121,7 +128,7 @@ Deno.serve(async (request) => {
 
   // Prompt 21, A2 : un message du posteur dans un canal (hors DM) compte comme
   // une réaction (plus de Kill) ; la suite (FAQ) continue comme avant.
-  if (ev.type === "message" && ev.channel_type !== "im" && ev.user && !ev.bot_id && !ev.subtype) {
+  if (ev.type === "message" && ev.channel_type !== "im" && ev.user && !ev.bot_id && (!ev.subtype || ev.subtype === "file_share")) {
     const canal = (payload.event as unknown as { channel?: string }).channel ?? null;
     // Prompt 27 : le message est gardé (colonne Context de la masterlist), sans rien classer ni répondre.
     const garde = messageAGarder(canal, payload.event);
@@ -174,7 +181,7 @@ Deno.serve(async (request) => {
 
 type Db = ReturnType<typeof serviceClient>;
 
-async function traiter(ev: EvenementSlack, botUserId: string | null): Promise<void> {
+async function traiter(ev0: EvenementSlack, botUserId: string | null): Promise<void> {
   const db = serviceClient();
   const reglages = await chargerReglagesFaq(db);
 
@@ -182,11 +189,17 @@ async function traiter(ev: EvenementSlack, botUserId: string | null): Promise<vo
   // 11/11 (0671) : #posting-help, #ruul-posters et #upwork-posters passent par le même bot
   // quand l'interrupteur support_slack_salons est sur on.
   const salons = await salonsSupport(db);
-  const tri = trierEvenementSlack(ev, { canaux: [...reglages.canaux_slack, ...salons], admins, botUserId });
+  const canaux = [...reglages.canaux_slack, ...salons];
+  const token = jetonSlackFaq();
+  // 24/11 (Max) : dans un canal suivi, les captures jointes sont lues et décrites (« [Screenshot: …] 📎 lien ») avant
+  // le bot et le résumé ; une capture seule devient un message à part entière.
+  const ev = ev0.channel && canaux.includes(ev0.channel) && !ev0.bot_id && aDesImages(ev0)
+    ? { ...ev0, text: await texteSlackAvecCaptures(token, ev0, decrireCapture) }
+    : ev0;
+  const tri = trierEvenementSlack(ev, { canaux, admins, botUserId });
   if (tri.cas === "ignore") return;
 
   const managers = await chargerManagersSlack(db);
-  const token = jetonSlackFaq();
   // 13/11 (refonte, un seul cerveau) : un posteur (ni admin ni HM) passe par le cerveau du support
   // (page Contrôle) ; l'ancien bot FAQ ne garde que les HM.
   if (!admins.has(tri.auteur) && !managers.has(tri.auteur)) {

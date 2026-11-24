@@ -30,7 +30,8 @@
 import { corsHeaders, estSecretCron, json, serviceClient } from "../_shared/supabase.ts";
 import { lienMotDePasse } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerWhatsApp } from "../_shared/whatsapp_envoi.ts";
-import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
+import { type EmailRuul, envoyerEmailSite, PIED_EN, rendreEmailRuul } from "../_shared/ruul.ts";
+import { langueTraduite, traduireChamps } from "../_shared/traduction_email.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import {
   type CandidatureJoin,
@@ -57,6 +58,7 @@ import {
   genererJeton,
   handlePropose,
   jourParis,
+  langueEmailJoin,
   LIEN_DASHBOARD_OS,
   lireAutoAcceptation,
   lireModeJoin,
@@ -170,16 +172,34 @@ async function creerCode(db: Db, candidatureId: string, canal: "email" | "whatsa
   return code;
 }
 
+/**
+ * 24/11 (Max) : les emails au candidat partent dans sa langue (celle du site au moment de la candidature, toutes les
+ * langues de Join). L'anglais reste la source, traduit à l'envoi puis gardé (traductions_emails, comme les emails
+ * Ruul) ; le prénom, le code, les liens, les @ et les emails restent exacts. Traduction impossible : l'anglais.
+ */
+async function emailDansSaLangue(db: Db, c: Candidature, e: EmailRuul, secrets: string[] = []): Promise<{ objet: string; html: string; texte: string }> {
+  const langue = langueEmailJoin(c.langue);
+  if (!langueTraduite(langue)) return { objet: e.objet, ...rendreEmailRuul(e) };
+  const [{ champs: t }, { champs: pied }] = await Promise.all([
+    traduireChamps(db, langue, { objet: e.objet, corps: e.corps, bouton: e.bouton?.texte ?? null }, [c.prenom, ...secrets]),
+    traduireChamps(db, langue, { ...PIED_EN }),
+  ]);
+  const r = rendreEmailRuul({
+    ...e, objet: t.objet, corps: t.corps, bouton: e.bouton ? { texte: t.bouton ?? e.bouton.texte, lien: e.bouton.lien } : e.bouton,
+    langue, pied,
+  });
+  return { objet: t.objet, ...r };
+}
+
 /** L'email du code : en test, seulement vers un testeur. Renvoie l'état pour le journal. */
-async function envoyerCodeEmail(mode: ModeJoin, c: Candidature, code: string): Promise<"envoye" | "bloque"> {
+async function envoyerCodeEmail(db: Db, mode: ModeJoin, c: Candidature, code: string): Promise<"envoye" | "bloque"> {
   if (!emailAutorise(mode, c.email)) return "bloque";
-  const objet = `Your Vik Studios code: ${code}`;
-  const { html, texte } = rendreEmailRuul({
-    objet,
+  const { objet, html, texte } = await emailDansSaLangue(db, c, {
+    objet: `Your Vik Studios code: ${code}`,
     corps: `Hi ${c.prenom},\n\nYour verification code is ${code}\n\nIt expires in ${CODE_DUREE_MIN} minutes. If you didn't ask for it, ignore this email.`,
     lienStop: JOIN_URL(),
     sansPied: true,
-  });
+  }, [code]);
   const r = await envoyerEmailSite(c.email, objet, html, texte, JOIN_URL(), ["join", "join-code", mode.mode]);
   return r.ok ? "envoye" : "bloque";
 }
@@ -205,10 +225,10 @@ async function message(
   const lien = v.lien ?? JOIN_URL();
   const m = texteMessage(type, { ...v, prenom: c.prenom, lien });
   if (emailAutorise(mode, c.email) || mode.mode === "live") {
-    const { html, texte } = rendreEmailRuul({
+    const { objet, html, texte } = await emailDansSaLangue(db, c, {
       objet: m.objet, corps: m.corps, bouton: m.bouton ? { texte: m.bouton, lien } : null, lienStop: JOIN_URL(), sansPied: true,
-    });
-    const r = await envoyerEmailSite(c.email, m.objet, html, texte, JOIN_URL(), ["join", `join-${type}`, mode.mode]);
+    }, [v.login, v.handle, v.ruulEmail].filter((x): x is string => !!x));
+    const r = await envoyerEmailSite(c.email, objet, html, texte, JOIN_URL(), ["join", `join-${type}`, mode.mode]);
     await journaliserRelance(db, c, type, "email", r.ok ? "envoye" : "bloque");
   } else {
     await journaliserRelance(db, c, type, "email", "bloque");
@@ -775,7 +795,7 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       if (!ouvert) return json({ ok: true, ferme: true, mode: mode.mode });
       const codeEmail = await creerCode(db, c.id, "email");
       const codeWhatsapp = await creerCode(db, c.id, "whatsapp");
-      const email = await envoyerCodeEmail(mode, c, codeEmail);
+      const email = await envoyerCodeEmail(db, mode, c, codeEmail);
       await journaliserRelance(db, c, "code", "email", email);
       await journaliserRelance(db, c, "code", "whatsapp", await envoyerCodeWhatsapp(db, mode, c, codeWhatsapp));
       const jeton = await ouvrirSession(db, c.id, SESSION_COURTE_H);
@@ -790,7 +810,7 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       if (!c) return erreur("session", 401);
       const canal = b.canal === "whatsapp" ? "whatsapp" : "email";
       const code = await creerCode(db, c.id, canal);
-      const etat = canal === "email" ? await envoyerCodeEmail(mode, c, code) : await envoyerCodeWhatsapp(db, mode, c, code);
+      const etat = canal === "email" ? await envoyerCodeEmail(db, mode, c, code) : await envoyerCodeWhatsapp(db, mode, c, code);
       await journaliserRelance(db, c, "code", canal, etat);
       return json({ ok: true, ...(enTest ? { codes_test: { [canal]: code } } : {}) });
     }
@@ -898,7 +918,7 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       if (!data) return json({ ok: true });
       const c = data as Candidature;
       const code = await creerCode(db, c.id, "connexion");
-      await journaliserRelance(db, c, "connexion", "email", await envoyerCodeEmail(mode, c, code));
+      await journaliserRelance(db, c, "connexion", "email", await envoyerCodeEmail(db, mode, c, code));
       return json({ ok: true, ...(enTest ? { codes_test: { email: code } } : {}) });
     }
 

@@ -123,7 +123,7 @@ export default function Candidature({ t, langue, pays, onEnvoye, onLegal, onCont
               <select value={v.indicatif} onChange={(e) => setV({ ...v, indicatif: e.target.value })} aria-label={t("form.dialCode")}>
                 {indicatifs.map((i) => <option key={i} value={i}>+{i}</option>)}
               </select>
-              <input type="tel" inputMode="tel" autoComplete="tel-national" {...champ("tel")} />
+              <input type="tel" inputMode="tel" autoComplete="tel-national" required {...champ("tel")} />
             </div>
             <small>{t("form.whatsappHelp")}</small>
           </label>

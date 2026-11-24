@@ -523,6 +523,18 @@ export function texteMessage(
   }
 }
 
+/**
+ * La langue des emails d'un candidat, en code de l'OS (traduction_email.ts) : le « pt » de Join est le portugais du
+ * Brésil (comme la majorité des comptes de l'OS), « nb » est le norvégien de l'OS (« no ») ; le reste tel quel.
+ */
+export function langueEmailJoin(langue: string | null | undefined): string {
+  const l = String(langue ?? "").trim().toLowerCase();
+  if (l === "pt" || l === "pt-br") return "pt-BR";
+  if (l === "nb" || l === "nn") return "no";
+  if (l === "es-419") return "es-419";
+  return l.split(/[-_]/)[0] || "en";
+}
+
 /** « Monday 30 November » (anglais). */
 export function lundiLisible(jour: string): string {
   const d = new Date(`${jour}T12:00:00Z`);

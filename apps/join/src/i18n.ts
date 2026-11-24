@@ -1,34 +1,53 @@
 // Traductions : un fichier src/locales/<langue>.json par langue (clés plates). L'anglais sert de secours.
+import { langueDuNavigateur, NOMS_LANGUES } from "./langues";
 import en from "./locales/en.json";
 
 type Dico = Record<string, string>;
 
-const fichiers = import.meta.glob<{ default: Dico }>("./locales/*.json", { eager: true });
-
-export const DICOS: Record<string, Dico> = Object.fromEntries(
-  Object.entries(fichiers).map(([chemin, m]) => [chemin.replace(/^.*\/(\w+)\.json$/, "$1"), m.default]),
+// 24/11 : 30 langues. L'anglais est dans le paquet ; les autres sont chargées à la demande (un petit fichier par
+// langue), la langue de départ avant le premier rendu (main.tsx).
+const fichiers = import.meta.glob<{ default: Dico }>(["./locales/*.json", "!./locales/en.json"]);
+const codeDe = (chemin: string) => chemin.replace(/^.*\/([\w-]+)\.json$/, "$1");
+const CHARGEURS: Record<string, () => Promise<{ default: Dico }>> = Object.fromEntries(
+  Object.entries(fichiers).map(([chemin, charger]) => [codeDe(chemin), charger]),
 );
 
-export const LANGUES: { code: string; nom: string }[] = [
-  ["en", "English"], ["fr", "Français"], ["es", "Español"], ["it", "Italiano"], ["de", "Deutsch"], ["pt", "Português"],
-  ["ro", "Română"], ["pl", "Polski"], ["hu", "Magyar"], ["tr", "Türkçe"], ["nl", "Nederlands"], ["el", "Ελληνικά"],
-  ["hr", "Hrvatski"], ["sr", "Srpski"], ["cs", "Čeština"], ["sk", "Slovenčina"], ["bg", "Български"],
-].filter(([c]) => DICOS[c]).map(([code, nom]) => ({ code, nom }));
+/** Les langues disponibles (chargées ou non). */
+const DISPONIBLES = new Set(["en", ...Object.keys(CHARGEURS)]);
+
+/** Les dictionnaires déjà chargés. */
+const DICOS: Record<string, Dico> = { en: en as Dico };
+
+/** Charge une langue (sans effet si elle l'est déjà ou si elle n'existe pas). */
+export async function chargerLangue(code: string): Promise<void> {
+  if (DICOS[code] || !CHARGEURS[code]) return;
+  try {
+    DICOS[code] = (await CHARGEURS[code]()).default;
+  } catch {
+    // réseau coupé : l'anglais sert de secours
+  }
+}
+
+export const langueChargee = (code: string): boolean => !!DICOS[code];
+
+export { estRtl } from "./langues";
+
+/** Toutes les langues de Join, chacune avec son nom natif : l'alphabet latin d'abord, puis les autres écritures. */
+export const LANGUES: { code: string; nom: string }[] = Object.entries(NOMS_LANGUES)
+  .filter(([c]) => DISPONIBLES.has(c))
+  .sort((a, b) => a[1].localeCompare(b[1], "en"))
+  .map(([code, nom]) => ({ code, nom }));
 
 export function langueInitiale(): string {
   const p = new URLSearchParams(location.search).get("lang");
-  if (p && DICOS[p]) return p;
+  if (p && DISPONIBLES.has(p)) return p;
   try {
     const g = localStorage.getItem("join_langue");
-    if (g && DICOS[g]) return g;
+    if (g && DISPONIBLES.has(g)) return g;
   } catch {
     // stockage indisponible
   }
-  for (const l of navigator.languages ?? [navigator.language]) {
-    const c = l.slice(0, 2).toLowerCase();
-    if (DICOS[c]) return c;
-  }
-  return "en";
+  return langueDuNavigateur(navigator.languages?.length ? navigator.languages : [navigator.language], (c) => DISPONIBLES.has(c));
 }
 
 export type T = (cle: string, vars?: Record<string, string | number>) => string;

@@ -17,6 +17,8 @@ const src = vi.hoisted(() => ({ lireSources: vi.fn() }));
 vi.mock("./sources", async (orig) => ({ ...(await orig<typeof import("./sources")>()), ...src }));
 const prop = vi.hoisted(() => ({ lirePropositions: vi.fn(), passerDansLaBible: vi.fn(), deciderProposition: vi.fn(), chargerApercus: vi.fn(async () => false) }));
 vi.mock("./propositions", async (orig) => ({ ...(await orig<typeof import("./propositions")>()), ...prop }));
+const suivi = vi.hoisted(() => ({ lireSuiviImport: vi.fn(async () => ({ suivis: [], journalDisponible: true, lu: Date.now() })) }));
+vi.mock("./suiviImport", async (orig) => ({ ...(await orig<typeof import("./suiviImport")>()), ...suivi }));
 
 import { appsDe, compterEtapes, declarerApplications, handlesDuTexte, ranger, REMARQUE_UGC, SECTIONS, vuesCourtes } from "./moodboard";
 import { DialogueAjout } from "./DialoguesBible";

@@ -12,6 +12,7 @@ import { type CarteLabel, type EtapeSource, type Section, SECTIONS } from "./moo
 import { bilanSemaine, type DonneesSources, enImportEnBref, type FiltreSemaine, jourCourt, rangerSources } from "./sources";
 import { LigneLabel, TitreApp } from "./Bloc";
 import type { Pliage } from "./pliage";
+import { SuiviImport } from "./SuiviImport";
 import { couleurSection } from "./teintes";
 import { TuileSource } from "./TuileSource";
 
@@ -111,6 +112,7 @@ export function VueSources({ etape, donnees, cartes, recherche, section, pliage 
   return (
     <>
       {etape === "en_import" && <ImportEnBref donnees={donnees} />}
+      {etape === "en_import" && <SuiviImport sources={donnees.sources} />}
       {etape === "weekly" && <SemaineEnBref donnees={donnees} filtre={semaine} onFiltre={setSemaine} />}
       <div className="space-y-7" data-testid="moodboard-sources">
         {groupes.length === 0 && <p className="py-10 text-center text-sm text-stone-500">{vide}</p>}

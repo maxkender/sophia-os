@@ -96,6 +96,8 @@ export interface SourceNeuve {
   releve: boolean;
   /** Slideshows encore en traitement : dans la file, ou en lecture, pertinence, note, nettoyage. */
   enTraitement: number;
+  /** Slideshows que le relevé du profil a mis dans la file ; nul : relevé pas encore fait (ou d'avant 0772). */
+  enfilees?: number | null;
 }
 
 export function versNeuves(brut: Record<string, unknown>): SourceNeuve[] {
@@ -107,6 +109,7 @@ export function versNeuves(brut: Record<string, unknown>): SourceNeuve[] {
     lanceeLe: typeof l.lancee_le === "string" && l.lancee_le ? l.lancee_le : null,
     releve: l.releve === true,
     enTraitement: Number(l.en_traitement ?? 0) || 0,
+    enfilees: l.enfilees === null || l.enfilees === undefined || !Number.isFinite(Number(l.enfilees)) ? null : Number(l.enfilees),
   }));
 }
 

@@ -198,8 +198,8 @@ describe("assembler les lectures", () => {
       { compte_reference_id: "s6", handle: "a.relever", essai_max: 30, essais: 0, echec: null, lancee_le: null, releve: false, enfilees: null, en_traitement: 0 },
     ] });
     expect(neuves).toEqual([
-      { compteReferenceId: "s5", handle: "toute.neuve", essais: 1, echec: null, lanceeLe: "2026-11-19T16:30:00+00:00", releve: true, enTraitement: 64 },
-      { compteReferenceId: "s6", handle: "a.relever", essais: 0, echec: null, lanceeLe: null, releve: false, enTraitement: 0 },
+      { compteReferenceId: "s5", handle: "toute.neuve", essais: 1, echec: null, lanceeLe: "2026-11-19T16:30:00+00:00", releve: true, enTraitement: 64, enfilees: 100 },
+      { compteReferenceId: "s6", handle: "a.relever", essais: 0, echec: null, lanceeLe: null, releve: false, enTraitement: 0, enfilees: null },
     ]);
     // une file d'avant 0772 (pas de `neuves`) se lit sans erreur
     expect(versNeuves({})).toEqual([]);

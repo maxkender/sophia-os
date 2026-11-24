@@ -1,0 +1,25 @@
+{
+  "name": "pod-charl",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 28 — originaux au style de @charl.focus (« cómo arreglar tu DOPAMINA » : slides noires carrées en Montserrat, couverture en six images, un point par slide avec ses mots en gras et des photos), pour Sophia, en espagnol : la slide d'appli porte le logo de Sophia, jamais une capture.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
+    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts"
+  }
+}

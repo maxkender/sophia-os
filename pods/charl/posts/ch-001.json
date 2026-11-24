@@ -1,0 +1,129 @@
+{
+  "id": "ch-001",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7706621727106682144",
+    "vues": 362400,
+    "publie_le": "2026-11-10",
+    "accroche": "cómo arreglar tu DOPAMINA"
+  },
+  "titre": {
+    "es": "cómo recuperar tu atención (según la neurociencia)"
+  },
+  "legendes": {
+    "es": "#atencion #concentracion #productividad #disciplina #detox"
+  },
+  "musique": {
+    "titre": "original sound",
+    "url": "https://www.tiktok.com/music/original-sound-7635567841592331030"
+  },
+  "notes": "Preuve : « cómo arreglar tu DOPAMINA » de @charl.focus (362,4 k vues, 10/11), même famille que « cómo dejar de PROCRASTINAR » (246,7 k) et « cómo dejar de ser INSEGURO » (115,9 k) ; même gabarit (couverture en six images, IRM et silhouettes, « cómo … tu / MOT CLÉ / (note) », puis « 1 · … » avec paragraphes justifiés aux mots en gras et photos à droite ou en bas, la fin sans numéro), même musique. Faits vérifiés : Gloria Mark (UC Irvine, « Attention Span », 2023) : ~2,5 min sur un écran avant de changer en 2004, 47 s aujourd'hui ; Ward, Duke, Gneezy et Bos (université du Texas à Austin, 2017, « Brain Drain ») : ~800 participants, téléphone en silence, posé face cachée sur la table, dans la poche ou dans une autre pièce ; meilleurs résultats aux tests de mémoire de travail et d'intelligence fluide dans une autre pièce ; Leroy (2009) : « attention residue ». Slide Sophia (6) : « 4 · dale algo mejor », le LOGO de Sophia en haut de la colonne à la place de sa slide d'appli (unrespiro, concurrente), jamais une capture ; cta A. Sophia : une leçon courte par jour (histoire, philosophie, sciences, géopolitique, littérature, économie), un quiz après chaque leçon, 10 minutes. Images : Seedream (IRM en fausses couleurs, silhouettes de dos, objets), aucune de la banque.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        { "image": "images/photos/irm-neon.jpg" },
+        { "image": "images/photos/lit-telephone.jpg" },
+        { "image": "images/photos/visage-cache.jpg", "cadrage": { "y": 0.35 } },
+        { "image": "images/photos/fenetre-ville.jpg" },
+        { "image": "images/photos/irm-chaleur.jpg", "cadrage": { "y": 0.3 } },
+        { "image": "images/photos/tete-lumiere.jpg", "cadrage": { "y": 0.35 } }
+      ],
+      "es": {
+        "haut": "cómo recuperar tu",
+        "mot": "ATENCIÓN",
+        "note": "(según la neurociencia)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        { "image": "images/photos/metro-ecrans.jpg" },
+        { "image": "images/photos/main-ecran.jpg" }
+      ],
+      "es": {
+        "titre": "no eres tú.",
+        "paragraphes": [
+          "te sientas a estudiar o a trabajar y a los dos minutos ya estás mirando el móvil. y piensas que **te falta fuerza de voluntad**.",
+          "la investigadora **gloria mark** lleva veinte años midiendo cuánto aguantamos en una pantalla antes de cambiar: en 2004 eran **dos minutos y medio**. hoy, **47 segundos**.",
+          "no estás roto. **tu atención está entrenada para saltar**, y se puede volver a entrenar."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        { "image": "images/photos/telephone-retourne.jpg" },
+        { "image": "images/photos/bureau-lampe.jpg" }
+      ],
+      "es": {
+        "titre": "el móvil te roba",
+        "paragraphes": [
+          "en un experimento de la universidad de texas, unas 800 personas hicieron pruebas de memoria y concentración con el móvil **en la mesa, en el bolsillo o en otra habitación**.",
+          "los que lo tenían **en otra habitación** sacaron mejores resultados. y eso que el móvil estaba en silencio.",
+          "solo tenerlo cerca **gasta parte de tu atención** en no mirarlo."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        { "image": "images/photos/pluie-fenetre.jpg" },
+        { "image": "images/photos/ecouteurs.jpg" }
+      ],
+      "es": {
+        "titre": "el residuo",
+        "paragraphes": [
+          "cada vez que saltas de una tarea a otra, **una parte de tu cabeza se queda en la anterior**. en 2009 una investigadora lo llamó **residuo de atención**.",
+          "mirar una notificación «solo un segundo» no cuesta un segundo: **te deja a medias** un buen rato.",
+          "por eso **terminar algo** antes de cambiar, aunque sea pequeño, ya es entrenar tu atención."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        { "image": "images/photos/lecture-lit.jpg" }
+      ],
+      "es": {
+        "titre": "dale algo mejor",
+        "paragraphes": [
+          "el scroll no desaparece si dejas el hueco vacío. **llénalo con algo que te aporte**.",
+          "yo cambié el primer scroll del día por **una lección corta en Sophia**: historia, filosofía, ciencia, geopolítica, literatura, economía.",
+          "**10 minutos y un quiz al final**. empiezo el día terminando algo, no saltando de vídeo en vídeo."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        { "image": "images/photos/minuteur.jpg" },
+        { "image": "images/photos/tiroir.jpg" }
+      ],
+      "es": {
+        "titre": "una cosa cada vez.",
+        "paragraphes": [
+          "elige **una sola tarea** y ponte un bloque corto: 25 minutos para empezar. el móvil, **en otra habitación** o en un cajón.",
+          "cuando acabe el bloque, descansa 5 minutos **sin pantalla**. y vuelta a empezar.",
+          "al principio te costará muchísimo (es normal). cada bloque que terminas **te demuestra que puedes aguantar**."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        { "image": "images/photos/escalier.jpg" }
+      ],
+      "es": {
+        "titre": "tu atención no está rota.",
+        "paragraphes": [
+          "solo se ha acostumbrado a **saltar cada pocos segundos**.",
+          "cada vez que eliges quedarte en una sola cosa, **le cuesta un poco menos**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo para cuando lo necesites y **empieza hoy**."
+        ]
+      }
+    }
+  ]
+}

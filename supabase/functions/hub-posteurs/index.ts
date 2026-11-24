@@ -56,6 +56,11 @@
  *       l'accueil de l'OS, pour l'ajouter dans Ruul. Seuls ceux qui les ont
  *       donnés sont rendus.
  *
+ *   { action: "rejouer_bloques", simuler?, max?, hub_ids? }   (x-cron-secret SEULEMENT, 24/11)
+ *       Les signés restés en « en_cours » (réservation périmée, candidature signée sans
+ *       os_profile_id) : le corps du site est reconstruit (`corpsRejeu`) et passe par
+ *       `creer_posteur`. `simuler` : la liste et les corps seulement. 40 au plus, en séquence.
+ *
  * Réponses `{ ok: true, … }` ou `{ ok: false, error }`. Un 4xx est un refus
  * définitif (le site ne réessaie pas et l'affiche sur la fiche), un 5xx est
  * réessayable.
@@ -70,7 +75,9 @@
 import {
   applicationsDemandees,
   carteDesZones,
+  type CandidatureBloquee,
   codePays,
+  corpsRejeu,
   dateIso,
   estUuid,
   idCohorteRuul,
@@ -81,13 +88,14 @@ import {
   type PaysRecrute,
   type Recruteur,
   reservationPerimee,
+  type ReservationBloquee,
   resoudreAffectationSite,
   secretValide,
 } from "../_shared/hub_posteurs.ts";
 import { actionPourJournal, appelReussi, erreurPourJournal } from "../_shared/hub_pont.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
 import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
-import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
+import { aujourdhuiParis, corsHeaders, estSecretCron, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
 const VERSION = "2026-11-10-ruul-p1";
 const POSTS_PAR_JOUR = 2;
@@ -102,6 +110,30 @@ Deno.serve(async (request) => {
       status: 204,
       headers: { ...corsHeaders, "access-control-allow-headers": `${corsHeaders["access-control-allow-headers"]}, x-hub-secret` },
     });
+  }
+
+  // 24/11 : `rejouer_bloques` (signés restés bloqués en « en_cours ») : x-cron-secret seulement,
+  // regardé AVANT le secret du site et seulement quand l'en-tête est là. Rien d'autre par ce chemin.
+  const cron = request.headers.get("x-cron-secret");
+  if (cron && !request.headers.get("x-hub-secret")) {
+    if (!(await estSecretCron(cron))) return json({ ok: false, error: "unauthorized" }, 401);
+    // deno-lint-ignore no-explicit-any
+    let corps: any = {};
+    try {
+      corps = await request.json();
+    } catch {
+      return json({ ok: false, error: "corps JSON requis" }, 400);
+    }
+    if (corps?.action !== "rejouer_bloques") return json({ ok: false, error: "x-cron-secret : rejouer_bloques seulement" }, 403);
+    const supabase = serviceClient();
+    let reponse: Response;
+    try {
+      reponse = await rejouerBloques(supabase, corps);
+    } catch (e) {
+      reponse = json({ ok: false, error: messageErreur(e) }, 500);
+    }
+    journaliser(() => supabase, "rejouer_bloques", reponse);
+    return reponse;
   }
 
   // Sans en-tête : 401 d'emblée, avant même de lire la configuration (le test
@@ -476,6 +508,89 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     password,
     langue,
     manager: managerPublic(rattachement),
+  });
+}
+
+const REJEU_MAX = 40;
+
+/**
+ * 24/11 : les signés du site restés bloqués (l'appel `creer_posteur` échouait, le site ne réessaie plus) :
+ * `hub_posteurs` en « en_cours », réservation périmée, candidature signée sans `os_profile_id`. Pour chacun,
+ * le corps que le site aurait envoyé est reconstruit (`corpsRejeu`) et passe par LA MÊME `creerPosteur`
+ * (idempotente par hub_id). `simuler: true` : la liste et les corps, rien n'est créé. `hub_ids` : se limiter
+ * à ceux-là ; `max` : 40 au plus par appel, en séquence. Un signé à qui il manque un champ est écarté.
+ * Créé : `ruul_candidatures.os_cree_at` / `os_profile_id` notés (le site ne les écrira pas, il n'a pas eu
+ * la réponse). La bienvenue part ensuite par le parcours Ruul (cron horaire de la fonction ruul).
+ */
+// deno-lint-ignore no-explicit-any
+async function rejouerBloques(supabase: Supabase, body: any): Promise<Response> {
+  const simuler = body?.simuler === true;
+  const max = Math.min(Math.max(Number(body?.max) || REJEU_MAX, 1), REJEU_MAX);
+  const filtre = Array.isArray(body?.hub_ids) ? new Set(body.hub_ids.filter(estUuid).map((s: string) => s.toLowerCase())) : null;
+
+  const { data: liens, error } = await supabase
+    .from("hub_posteurs")
+    .select("hub_id, email_perso, pays_code, applications, debut_le, reserve_at")
+    .eq("statut", "en_cours")
+    .is("profile_id", null);
+  if (error) throw error;
+  const perimes = ((liens ?? []) as (ReservationBloquee & { reserve_at: string | null })[])
+    .filter((l) => reservationPerimee(l.reserve_at) && estUuid(l.hub_id) && (!filtre || filtre.has(l.hub_id.toLowerCase())));
+  if (perimes.length === 0) return json({ ok: true, simuler, total: 0, bilan: [] });
+
+  const { data: cands, error: errCands } = await supabase
+    .from("ruul_candidatures")
+    .select("site_id, nom, email, pays, pays_brut, ref, ruul_email, start_monday")
+    .in("site_id", perimes.map((l) => l.hub_id))
+    .not("signe_at", "is", null)
+    .is("os_profile_id", null);
+  if (errCands) throw errCands;
+  const parId = new Map(((cands ?? []) as CandidatureBloquee[]).map((c) => [String(c.site_id).toLowerCase(), c]));
+
+  const ouverts = await lirePaysOuverts(supabase);
+  const { data: zones, error: errZones } = await supabase.from("zones_paie").select("zone, tarif");
+  if (errZones) throw errZones;
+  const tarifs: Record<string, number | null> = Object.fromEntries(
+    ((zones ?? []) as { zone: string; tarif: number | string | null }[]).map((z) => [z.zone, z.tarif == null ? null : Number(z.tarif)]),
+  );
+  const aujourdhui = aujourdhuiParis();
+
+  const aTraiter = perimes.filter((l) => parId.has(l.hub_id.toLowerCase()));
+  const bilan: Record<string, unknown>[] = [];
+  for (const l of aTraiter.slice(0, max)) {
+    const { corps, manques } = corpsRejeu(parId.get(l.hub_id.toLowerCase())!, l, ouverts, tarifs, aujourdhui);
+    if (manques.length) {
+      bilan.push({ hub_id: l.hub_id, resultat: "ecarte", manques, corps });
+      continue;
+    }
+    if (simuler) {
+      bilan.push({ hub_id: l.hub_id, resultat: "a_creer", corps });
+      continue;
+    }
+    try {
+      const reponse = await creerPosteur(supabase, corps);
+      // deno-lint-ignore no-explicit-any
+      const r: any = await reponse.json().catch(() => null);
+      if (reponse.ok && r?.ok && r.profile_id) {
+        const { error: errCand } = await supabase
+          .from("ruul_candidatures")
+          .update({ os_cree_at: new Date().toISOString(), os_profile_id: r.profile_id })
+          .eq("site_id", l.hub_id)
+          .is("os_profile_id", null);
+        if (errCand) console.error("[hub-posteurs] rejouer ruul_candidatures", errCand.message);
+        bilan.push({ hub_id: l.hub_id, resultat: r.existed ? "deja_cree" : "cree", profile_id: r.profile_id, email_os: r.email_os ?? null });
+      } else {
+        bilan.push({ hub_id: l.hub_id, resultat: "erreur", code: reponse.status, erreur: r?.error ?? `HTTP ${reponse.status}` });
+      }
+    } catch (e) {
+      bilan.push({ hub_id: l.hub_id, resultat: "erreur", erreur: messageErreur(e) });
+    }
+  }
+  const compte = (x: string) => bilan.filter((b) => b.resultat === x).length;
+  return json({
+    ok: true, simuler, total: aTraiter.length, traites: bilan.length, reste: Math.max(aTraiter.length - max, 0),
+    a_creer: compte("a_creer"), cree: compte("cree"), deja_cree: compte("deja_cree"), ecarte: compte("ecarte"), erreur: compte("erreur"),
+    sans_candidature_signee: perimes.length - aTraiter.length, bilan,
   });
 }
 

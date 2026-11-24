@@ -1,0 +1,102 @@
+{
+ "id": "tg-001",
+ "source": {
+  "url": "https://www.tiktok.com/@traceygreen589/photo/7706916657163177246",
+  "vues": 704700,
+  "publie_le": "2026-11-11",
+  "accroche": "10/10 hobbies that actually work if you have adhd"
+ },
+ "titre": {
+  "en": "10/10 hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #selfimprovement"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Preuve : « 10/10 hobbies that actually work if you have adhd » de @traceygreen589 (704,7 k vues, 11/11), même gabarit (couverture à l'IRM et « (neuroscience backed) », un loisir par slide : nom, accroche aux mots soulignés, photo à gauche, colonne, chute). Loisirs à nous (les siens : escrime, natation, surf, instrument, cuisine). Deux slides d'appli (demande d'Adrien du 24/11, podz multi-applis) : 3 « running », le logo d'Atala sur une coureuse de la banque (clean_girl_run, 1bf65860), cta A « i use atala, an ai running coach that plans my week around my goal » ; 5 « learning to look at art », le logo d'Artura sur un tableau de la banque (smart_girl, 41d463bd), cta A « i use artura, one artwork a day with its story, zooming into the details you'd miss » (fiche App Store d'Artura, migration 0846). Sa pub (Brainmaxx) et ses phrases sur les médicaments ne viennent jamais chez nous. Images : IRM, tennis de table, pain et chorale en Seedream (images/photos).",
+ "banque": {
+  "images/banque/course.jpg": "1bf65860-4ee5-4adb-a0df-6fa7f49fc28b",
+  "images/banque/tableau.jpg": "41d463bd-b6a4-4327-94a8-4141922850f5"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/ping-pong.jpg",
+   "en": {
+    "nom": "table tennis",
+    "accroche": "a ball comes at you _every second_",
+    "colonne": [
+     "fast rallies need all of your attention to track the ball, and a busy brain locks in when the feedback is _instant_"
+    ],
+    "chute": "most clubs run a beginner night and lend you a paddle"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course.jpg",
+   "cadrage": {
+    "y": 0.62
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "the one hobby you can _start tonight_ with no gear",
+    "colonne": [
+     "steady cardio gives a restless brain somewhere to put the energy, and a goal like a first 5k gives it a _finish line_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "20 minutes, 3 times a week, before anything with a screen"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/pain.jpg",
+   "en": {
+    "nom": "baking bread",
+    "accroche": "your hands are busy, so your _phone stays down_",
+    "colonne": [
+     "kneading is slow and physical, and the dough tells you when it's ready, so a wandering mind always has a _clear next step_"
+    ],
+    "chute": "one loaf on sunday, it's 4 ingredients"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/tableau.jpg",
+   "cadrage": {
+    "y": 0.25
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "one painting, _ten minutes_, and you start to _see it_",
+    "colonne": [
+     "a wall of paintings is boring, but one painting with a story is a puzzle: who, why that light, what's hidden",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "then go see one in a museum and count what you notice"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/chorale.jpg",
+   "en": {
+    "nom": "singing in a choir",
+    "accroche": "your part comes in _on the beat_, so you _can't drift_",
+    "colonne": [
+     "you listen to everyone and sing your own line at the same time, it's focus with a whole room _keeping you honest_"
+    ],
+    "chute": "most community choirs don't audition"
+   }
+  }
+ ]
+}

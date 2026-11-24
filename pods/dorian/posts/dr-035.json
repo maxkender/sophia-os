@@ -14,7 +14,8 @@
   "nl": "10/10 skills om te leren als je je snel verveelt",
   "pt-BR": "habilidades 10/10 pra aprender se você se entedia fácil",
   "sv": "10/10-färdigheter att lära sig om du lätt blir uttråkad",
-  "tr": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler"
+  "tr": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
+  "hu": "10/10 készség, amit tanulj meg, ha hamar unatkozol"
  },
  "legendes": {
   "en": "#niche #skills #selfimprovement #lockedin",
@@ -23,7 +24,8 @@
   "nl": "#skills #hobbys #leren #zelfontwikkeling",
   "pt-BR": "#habilidades #hobbies #aprender #autodesenvolvimento",
   "sv": "#färdigheter #hobbyer #lärande #självutveckling",
-  "tr": "#beceri #hobi #öğrenmek #kişiselgelişim"
+  "tr": "#beceri #hobi #öğrenmek #kişiselgelişim",
+  "hu": "#készségek #hobbi #tanulás #önfejlesztés"
  },
  "musique": {
   "titre": "QUANTUM (Slowed) - PHNKR & dnvn & Phonk King",
@@ -67,6 +69,11 @@
     "titre": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
     "image": "images/cerveau-07.jpg",
     "legende": "(hafta sonu projeleri)"
+   },
+   "hu": {
+    "titre": "10/10 készség, amit tanulj meg, ha hamar unatkozol",
+    "image": "images/cerveau-28.jpg",
+    "legende": "(hétvégi projektek)"
    }
   },
   {
@@ -105,6 +112,11 @@
     "titre": "Zeka küpü",
     "texte": "başlangıç yöntemini bir hafta sonunda öğrenirsin: yedi adım, birkaç hamle. sonra her çözüm kendine karşı küçük bir yarışa dönüşür",
     "image": "images/objets/cube.png"
+   },
+   "hu": {
+    "titre": "Bűvös kocka",
+    "texte": "a kezdő módszert egy hétvége alatt megtanulod: hét lépés, néhány mozdulat. utána minden kirakás egy kis verseny önmagaddal. egy magyar találta fel",
+    "image": "images/objets/cube.png"
    }
   },
   {
@@ -142,6 +154,11 @@
    "tr": {
     "titre": "Origami",
     "texte": "bir kare kâğıt, yapıştırıcı yok, makas yok. bir turna yaklaşık 15 dakika sürer. japonya'da 1.000 tane katlamanın bir dileği gerçekleştirdiği söylenir",
+    "image": "images/grue-origami.jpg"
+   },
+   "hu": {
+    "titre": "Origami",
+    "texte": "egy négyzet papír, se ragasztó, se olló. egy daru kb. 15 perc. japánban azt mondják, ha 1000-et hajtogatsz, teljesül egy kívánságod",
     "image": "images/grue-origami.jpg"
    }
   },
@@ -182,6 +199,11 @@
     "titre": "Sophia'da günde bir ders",
     "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. her gün farklı bir konu, yani asla sıkıcı olmaz",
     "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. minden nap más téma, így sosem unalmas",
+    "telephone": "quiz"
    }
   },
   {
@@ -220,6 +242,11 @@
     "titre": "İşaret dili alfabesi",
     "texte": "türk işaret dilinin parmak alfabesini öğren. bir haftada adını işitme engelli birine kodlayabilirsin",
     "image": "images/mains-signes.jpg"
+   },
+   "hu": {
+    "titre": "A jelnyelvi ujjábécé",
+    "texte": "tanuld meg a magyar jelnyelv ujjábécéjét: minden betűnek egy kézforma. egy hét alatt le tudod betűzni a neved egy siket embernek",
+    "image": "images/mains-signes.jpg"
    }
   },
   {
@@ -257,6 +284,11 @@
    "tr": {
     "titre": "Kaligrafi",
     "texte": "bir fırça kalem ve çizgili kâğıt. günde on dakika yavaş, özenli harfler tuhaf derecede rahatlatır, el yazın da güzelleşir",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "hu": {
+    "titre": "Kalligráfia",
+    "texte": "egy ecsetfilc és vonalas papír. napi tíz perc lassú, gondos betű furcsán megnyugtat, és a kézírásod is szebb lesz",
     "image": "images/femme-ecrivant.jpg"
    }
   }

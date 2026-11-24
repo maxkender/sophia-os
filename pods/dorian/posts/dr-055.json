@@ -1,0 +1,174 @@
+{
+ "id": "dr-055",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+  "vues": 1200000,
+  "publie_le": "2026-10-07",
+  "accroche": "8 coding projects that are genuinely f*cking difficult"
+ },
+ "titre": {
+  "en": "5 languages that take years to sound fluent in",
+  "pt-BR": "5 idiomas que levam anos pra soar fluente",
+  "sv": "5 språk som tar flera år att låta flytande på"
+ },
+ "legendes": {
+  "en": "#niche #languagelearning #polyglot #lockedin",
+  "pt-BR": "#idiomas #aprender #poliglota #nicho",
+  "sv": "#språkinlärning #språk #polyglott #lärande"
+ },
+ "musique": {
+  "titre": "Room Full of Strangers - Danny Bluestone",
+  "url": "https://www.tiktok.com/music/original-sound-7689207966263953459"
+ },
+ "notes": "Déclinaison G2 n° 2 de dr-018 : accroche reformulée (« take years to sound fluent in »), autres langues (estonien, basque, géorgien, thaï, mongol). Faits : estonien 14 cas et trois quantités ; basque isolat ; géorgien « gvprtskvni » ; thaï 5 tons, 44 consonnes, pas d'espaces entre les mots ; mongol cyrillique, écriture traditionnelle verticale réintroduite. Images Seedream. En, pt-BR, sv ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 languages that take years to sound fluent in",
+    "image": "images/cerveau-01.jpg",
+    "legende": "(patience required)"
+   },
+   "pt-BR": {
+    "titre": "5 idiomas que levam anos pra soar fluente",
+    "image": "images/cerveau-03.jpg",
+    "legende": "(precisa de paciência)"
+   },
+   "sv": {
+    "titre": "5 språk som tar flera år att låta flytande på",
+    "image": "images/cerveau-05.jpg",
+    "legende": "(tålamod krävs)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Estonian",
+    "difficulte": "31/50",
+    "texte": "14 cases and three lengths of vowels and consonants: short, long and extra long. the difference can change the meaning",
+    "image": "images/tallinn.jpg"
+   },
+   "pt-BR": {
+    "titre": "Estoniano",
+    "difficulte": "31/50",
+    "texte": "14 casos e três durações de vogais e consoantes: curta, longa e extralonga. a diferença pode mudar o sentido",
+    "image": "images/tallinn.jpg"
+   },
+   "sv": {
+    "titre": "Estniska",
+    "difficulte": "31/50",
+    "texte": "14 kasus och tre längder på vokaler och konsonanter: kort, lång och extra lång. skillnaden kan ändra betydelsen",
+    "image": "images/tallinn.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Basque",
+    "difficulte": "36/50",
+    "texte": "a language isolate: it isn't related to any other known language. it was spoken in the pyrenees before latin arrived",
+    "image": "images/pays-basque.jpg"
+   },
+   "pt-BR": {
+    "titre": "Basco",
+    "difficulte": "36/50",
+    "texte": "uma língua isolada: não tem parentesco com nenhuma outra língua conhecida. já era falada nos pirineus antes de o latim chegar",
+    "image": "images/pays-basque.jpg"
+   },
+   "sv": {
+    "titre": "Baskiska",
+    "difficulte": "36/50",
+    "texte": "ett isolatspråk: det är inte släkt med något annat känt språk. det talades i pyrenéerna innan latinet kom",
+    "image": "images/pays-basque.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. fluency in everything else, one day at a time",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. fluência no resto, um dia de cada vez",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. flyt i allt annat, en dag i taget",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Georgian",
+    "difficulte": "40/50",
+    "texte": "its own alphabet and huge consonant clusters: \"gvprtskvni\" means \"you peel us\". eight consonants in a row",
+    "image": "images/georgie.jpg"
+   },
+   "pt-BR": {
+    "titre": "Georgiano",
+    "difficulte": "40/50",
+    "texte": "alfabeto próprio e grupos enormes de consoantes: \"gvprtskvni\" quer dizer \"você nos descasca\". oito consoantes seguidas",
+    "image": "images/georgie.jpg"
+   },
+   "sv": {
+    "titre": "Georgiska",
+    "difficulte": "40/50",
+    "texte": "eget alfabet och enorma konsonantkluster: \"gvprtskvni\" betyder \"du skalar oss\". åtta konsonanter i rad",
+    "image": "images/georgie.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Thai",
+    "difficulte": "43/50",
+    "texte": "five tones and 44 consonant letters, and words are written without spaces between them",
+    "image": "images/temple-thai.jpg"
+   },
+   "pt-BR": {
+    "titre": "Tailandês",
+    "difficulte": "43/50",
+    "texte": "cinco tons e 44 letras consoantes, e as palavras são escritas sem espaço entre elas",
+    "image": "images/temple-thai.jpg"
+   },
+   "sv": {
+    "titre": "Thailändska",
+    "difficulte": "43/50",
+    "texte": "fem toner och 44 konsonantbokstäver, och orden skrivs utan mellanslag",
+    "image": "images/temple-thai.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Mongolian",
+    "difficulte": "45/50",
+    "texte": "written in cyrillic today, but the traditional script runs vertically, top to bottom, and is being brought back",
+    "image": "images/steppe.jpg"
+   },
+   "pt-BR": {
+    "titre": "Mongol",
+    "difficulte": "45/50",
+    "texte": "hoje é escrito em cirílico, mas a escrita tradicional vai de cima pra baixo, na vertical, e está voltando",
+    "image": "images/steppe.jpg"
+   },
+   "sv": {
+    "titre": "Mongoliska",
+    "difficulte": "45/50",
+    "texte": "skrivs i dag med kyrilliska, men den traditionella skriften går lodrätt, uppifrån och ner, och håller på att återinföras",
+    "image": "images/steppe.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4758eaea-5aa0-469a-b5c6-63a125e040a4"
+}

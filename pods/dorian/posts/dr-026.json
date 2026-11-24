@@ -14,7 +14,8 @@
   "it": "5 modi di nicchia per un vocabolario enorme",
   "nl": "5 niche manieren voor een walgelijk grote woordenschat",
   "pt-BR": "5 jeitos nichados de turbinar seu vocabulário",
-  "sv": "5 nischade sätt att få ett sjukt stort ordförråd"
+  "sv": "5 nischade sätt att få ett sjukt stort ordförråd",
+  "hu": "5 niche módszer, hogy durván nagy legyen a szókincsed"
  },
  "legendes": {
   "en": "#niche #vocabulary #lockedin #selfimprovement",
@@ -23,7 +24,8 @@
   "it": "#vocabolario #italiano #imparare #crescitapersonale",
   "nl": "#woordenschat #taal #leren #zelfontwikkeling",
   "pt-BR": "#vocabulário #português #aprender #autodesenvolvimento",
-  "sv": "#ordförråd #svenska #lärande #självutveckling"
+  "sv": "#ordförråd #svenska #lärande #självutveckling",
+  "hu": "#szókincs #magyar #tanulás #önfejlesztés"
  },
  "musique": {
   "titre": "original sound - LanguFilms",
@@ -67,6 +69,11 @@
     "titre": "5 nischade sätt att få ett sjukt stort ordförråd",
     "image": "images/cerveau-31.jpg",
     "legende": "(låt smartare)"
+   },
+   "hu": {
+    "titre": "5 niche módszer, hogy durván nagy legyen a szókincsed",
+    "image": "images/cerveau-29.jpg",
+    "legende": "(okosabbnak hangzol)"
    }
   },
   {
@@ -105,6 +112,11 @@
     "titre": "Läs en nivå över din egen",
     "texte": "välj böcker som är lite för svåra för dig. skriftspråk använder mycket fler ovanliga ord än vardagssamtal, det är där nya ord kommer ifrån",
     "image": "images/lectrice-manet.jpg"
+   },
+   "hu": {
+    "titre": "Olvass egy szinttel feljebb",
+    "texte": "válassz olyan könyveket, amik kicsit túl nehezek neked. az írott nyelv sokkal több ritka szót használ, mint a beszélgetés, onnan jönnek az újak",
+    "image": "images/lectrice-manet.jpg"
    }
   },
   {
@@ -142,6 +154,11 @@
    "sv": {
     "titre": "För en ordbok",
     "texte": "skriv ner varje nytt ord med meningen du hittade det i. sammanhanget gör att det fastnar",
+    "image": "images/objets/carnet.png"
+   },
+   "hu": {
+    "titre": "Vezess szónaplót",
+    "texte": "írj le minden új szót azzal a mondattal, amiben találtad. a szövegkörnyezet miatt marad meg",
     "image": "images/objets/carnet.png"
    }
   },
@@ -182,6 +199,11 @@
     "titre": "En lektion om dagen på Sophia",
     "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. nya ord i varje lektion",
     "telephone": "accueil"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. minden leckében új szavak",
+    "telephone": "accueil"
    }
   },
   {
@@ -220,6 +242,11 @@
     "titre": "Lär dig rötterna",
     "texte": "en rot öppnar dussintals ord. grekiska \"tele\" (fjärran): telefon, teleskop, television, telegraf. så kan du gissa ord du aldrig sett",
     "image": "images/homere-dictant.jpg"
+   },
+   "hu": {
+    "titre": "Tanuld meg a gyököket",
+    "texte": "egy gyök tucatnyi szót nyit meg. a görög \"bio\" (élet): biológia, biográfia, bionika. így olyan szavakat is kitalálsz, amiket még sosem láttál",
+    "image": "images/homere-dictant.jpg"
    }
   },
   {
@@ -257,6 +284,11 @@
    "sv": {
     "titre": "Använd det tre gånger",
     "texte": "använd ett nytt ord tre gånger första dagen: i ett meddelande, högt, i huvudet. ett ord du använder är ett ord du behåller",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "hu": {
+    "titre": "Használd háromszor",
+    "texte": "egy új szót az első napon használj háromszor: üzenetben, hangosan, fejben. amit használsz, az megmarad",
     "image": "images/femme-ecrivant.jpg"
    }
   }

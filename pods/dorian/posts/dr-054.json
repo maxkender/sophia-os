@@ -1,0 +1,138 @@
+{
+ "id": "dr-054",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694420862384016660",
+  "vues": 205800,
+  "publie_le": "2026-10-08",
+  "accroche": "5 niche skills that'll boost your superiority complex"
+ },
+ "titre": {
+  "en": "5 niche skills that make you disgustingly interesting",
+  "de": "5 nischen-skills, die dich absurd interessant machen",
+  "nl": "5 niche skills die je walgelijk interessant maken"
+ },
+ "legendes": {
+  "en": "#niche #skills #lockedin #selfimprovement",
+  "de": "#skills #wissen #lernen #selbstverbesserung",
+  "nl": "#skills #kennis #leren #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "original sound - mel - mel",
+  "url": "https://www.tiktok.com/music/original-sound-7430692417982057249"
+ },
+ "notes": "Déclinaison G1 de dr-015 (passages de 5,2 k, nl 4,6 k) : titre mot pour mot, autres compétences (chants d'oiseaux, histoire de tableaux, création monétaire, nord avec un bâton), autres images, autre CTA (cta C), autre écran (quiz). Faits : Bank of England, Quarterly Bulletin 2014 Q1 ; méthode de l'ombre du bâton. En, de, nl ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche skills that make you disgustingly interesting",
+    "image": "images/cerveau-36.jpg",
+    "legende": "(all free)"
+   },
+   "de": {
+    "titre": "5 nischen-skills, die dich absurd interessant machen",
+    "image": "images/cerveau-37.jpg",
+    "legende": "(alles gratis)"
+   },
+   "nl": {
+    "titre": "5 niche skills die je walgelijk interessant maken",
+    "image": "images/cerveau-38.jpg",
+    "legende": "(allemaal gratis)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Birds by their song",
+    "texte": "learn five common birds by ear. after that, every morning walk sounds like a conversation you can follow",
+    "image": "images/oiseau-chant.jpg"
+   },
+   "de": {
+    "titre": "Vögel am Gesang erkennen",
+    "texte": "lern fünf häufige vögel nach gehör. danach klingt jeder morgenspaziergang wie ein gespräch, dem du folgen kannst",
+    "image": "images/oiseau-chant.jpg"
+   },
+   "nl": {
+    "titre": "Vogels herkennen aan hun zang",
+    "texte": "leer vijf gewone vogels herkennen op het gehoor. daarna klinkt elke ochtendwandeling als een gesprek dat je kunt volgen",
+    "image": "images/oiseau-chant.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The story of 10 paintings",
+    "texte": "who painted it, when, and the one detail everyone misses. museums become ten times more fun",
+    "image": "images/pianiste-renoir.jpg"
+   },
+   "de": {
+    "titre": "Die Geschichte von 10 Gemälden",
+    "texte": "wer es gemalt hat, wann, und das eine detail, das alle übersehen. museen machen zehnmal mehr spaß",
+    "image": "images/pianiste-renoir.jpg"
+   },
+   "nl": {
+    "titre": "Het verhaal van 10 schilderijen",
+    "texte": "wie het schilderde, wanneer, en het ene detail dat iedereen mist. musea worden tien keer leuker",
+    "image": "images/pianiste-renoir.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. the easiest way to always have something to say",
+    "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. der einfachste weg, immer etwas zu erzählen zu haben",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. de makkelijkste manier om altijd iets te vertellen te hebben",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "How money is created",
+    "texte": "most money isn't printed. the bank of england explained in 2014 that banks create new money when they make loans",
+    "image": "images/pieces-banque.jpg"
+   },
+   "de": {
+    "titre": "Wie Geld entsteht",
+    "texte": "das meiste geld wird nicht gedruckt. die bank of england erklärte 2014, dass banken neues geld schaffen, wenn sie kredite vergeben",
+    "image": "images/pieces-banque.jpg"
+   },
+   "nl": {
+    "titre": "Hoe geld ontstaat",
+    "texte": "het meeste geld wordt niet gedrukt. de bank of england legde in 2014 uit dat banken nieuw geld maken wanneer ze leningen geven",
+    "image": "images/pieces-banque.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Finding north with a stick",
+    "texte": "plant a stick, mark the tip of its shadow, wait 15 minutes, mark it again. the line between the marks runs roughly west to east",
+    "image": "images/cadran-solaire.jpg"
+   },
+   "de": {
+    "titre": "Norden mit einem Stock finden",
+    "texte": "steck einen stock in den boden, markier die schattenspitze, warte 15 minuten, markier sie wieder. die linie dazwischen verläuft grob von west nach ost",
+    "image": "images/cadran-solaire.jpg"
+   },
+   "nl": {
+    "titre": "Het noorden vinden met een stok",
+    "texte": "zet een stok in de grond, markeer de punt van de schaduw, wacht 15 minuten, markeer opnieuw. de lijn ertussen loopt ongeveer van west naar oost",
+    "image": "images/cadran-solaire.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a004e5ef-307a-4f53-9df0-167caa6a16fb"
+}

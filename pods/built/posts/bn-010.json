@@ -1,0 +1,91 @@
+{
+ "id": "bn-010",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7708629737287044359",
+  "vues": 67500,
+  "publie_le": "2026-11-16",
+  "accroche": "6 RULES FOR MEN."
+ },
+ "titre": {
+  "en": "how to become a man people respect"
+ },
+ "legendes": {
+  "en": "respect is earned quietly #selfimprovement #discipline #tipsformen #running #mindset"
+ },
+ "musique": {
+  "titre": "Keep On Winning",
+  "url": "https://www.tiktok.com/music/keep-on-winning-7686584884982269978"
+ },
+ "notes": "Full test (boîte vide). Famille « 6 RULES FOR MEN. » de @built.not.born61 (67.5 k vues, 2026-11-16), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : dc56b403, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix TU (hook de 7 mots), argument « régularité : la semaine de sorties est déjà prête ». Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-torse.png": "dc56b403-7e11-4dda-8b58-9831de4dcbe4"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-13.png",
+   "en": {
+    "titre": "HOW TO BECOME\nA MAN PEOPLE\nRESPECT."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/echecs.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "1. Stay calm",
+    "texte": "Think before you react. The calmest man in the room is the one people listen to."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/cle.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "2. Keep your word",
+    "texte": "Do what you said you'd do, even the small things. That's how trust is built."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-torse.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run every week",
+    "texte": "Hard things done every week build quiet confidence. A running coach app like Atala has your week of runs ready."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/deodorant.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "4. Take care of yourself",
+    "texte": "Shower, deodorant, clean clothes. Looking after yourself is the first form of respect."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/bougie.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "5. Wind down before bed",
+    "texte": "Dim the lights an hour before sleep. A rested man makes better calls."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-6.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

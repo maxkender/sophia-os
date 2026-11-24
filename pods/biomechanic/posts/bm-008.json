@@ -1,0 +1,198 @@
+{
+ "id": "bm-008",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7695757365949287702",
+  "vues": 83700,
+  "publie_le": "2026-10-12",
+  "accroche": "Hobbies Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "hobbies tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "your hobby says a lot about your health 🎨 #hobbies #health #biohacking #running #wellness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/hb-series.jpg": "4246183e-0a6a-4371-b049-179102fce14f",
+  "images/banque/hb-jeux.jpg": "04eb6e88-a9ba-4e53-924b-a6e195724a2d",
+  "images/banque/hb-echecs.jpg": "348fc5cc-d0a4-4f23-9340-e3bb5f146305",
+  "images/banque/hb-cuisine.jpg": "c623247f-4f19-4061-ae80-72fe187258cc",
+  "images/banque/hb-piano.jpg": "145c5ea0-e577-4b8c-b79e-9a1c1e93a4bb",
+  "images/banque/hb-danse.jpg": "560fdf0e-0b91-4c39-9938-d535e849a963",
+  "images/banque/hb-yoga.jpg": "3045b2c7-6abc-4647-9f2e-0d66379fa079",
+  "images/banque/hb-escalade.jpg": "56e57c32-1b4b-4474-86b0-2c278b7c53fe",
+  "images/banque/hb-course.jpg": "4b54aed1-64dc-4ca1-bd6a-7d03906bd7eb",
+  "images/banque/hb-rando.jpg": "ba46a9b6-5965-48ee-9d98-687813547ab8"
+ },
+ "notes": "Full test du 24/11 : « Hobbies Tierlist For Optimal Health (Science based) », sa famille à 84 k (12/10) ; éléments à nous. Croquis de couverture neuf (loisirs.jpg, Seedream). 11 slides (lui en fait 13 : un tier de moins ici). Slide Atala (10) : le premier S tier « Running » (la course en S, comme le veut l'AGENT.md pour les loisirs), une coureuse de la banque et le logo d'Atala. Texte selon placement_atala : voix TOUCHE PERSO (hook de 6 mots), un seul argument : l'allure affichée à côté de celle prévue ; version « cta H' ». Faits : sédentarité devant les écrans ; écrans et jeux tard le soir et sommeil (Hale & Guan, Sleep Med Rev 2015) ; échecs et fonctions exécutives ; cuisiner chez soi et qualité de l'alimentation (Wolfson & Bleich 2015) ; apprentissage musical et fonctions cognitives ; course à pied et santé cardiovasculaire (Lee et al. 2017) ; nature et santé (White et al. 2019). Rien de médical.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/loisirs.jpg",
+   "en": {
+    "lignes": [
+     "Hobbies Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-series.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Binge-Watching Series",
+    "paragraphes": [
+     "Hours on the sofa, autoplay on, and the next episode always starts before you decide to stop.",
+     "Fun to relax. As a main hobby, it's sitting all evening."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-jeux.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Gaming Until 3 AM",
+    "paragraphes": [
+     "Bright screens and adrenaline late at night keep your brain wired long after you put the controller down.",
+     "The game isn't the problem. The lost sleep is."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-echecs.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Chess",
+    "paragraphes": [
+     "Great for focus, planning and memory. Your brain gets a real workout every game.",
+     "Your body doesn't. It's in D because you never move."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-cuisine.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Cooking",
+    "paragraphes": [
+     "Cooking at home means you know what goes into your food, and you eat better almost without trying.",
+     "Good for your diet, but it barely moves your body."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-piano.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Playing Piano",
+    "paragraphes": [
+     "Learning an instrument trains memory, coordination and focus, and it helps you switch off.",
+     "Brilliant for your brain. For your heart, not so much."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-danse.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Dancing",
+    "paragraphes": [
+     "You move, you sweat and you learn steps, often with other people around you.",
+     "It misses A tier: most people only dance once a week."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-yoga.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Yoga",
+    "paragraphes": [
+     "Mobility, balance and calm in one session, and it fits in a small corner of your room.",
+     "Good for body and mind, but easy on your heart."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-escalade.jpg",
+   "cadrage": {
+    "y": 0.68
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Rock Climbing",
+    "paragraphes": [
+     "Your whole body works, your grip gets strong and your brain solves a puzzle on every route.",
+     "It only misses S tier: you need a gym or a cliff."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/hb-course.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Running",
+    "paragraphes": [
+     "Your heart, lungs, legs and mood all get better, and you only need shoes and a door.",
+     "The hard part is the pace. I use a running coach app like Atala, which shows mine next to the plan."
+    ]
+   },
+   "format": "carre"
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hb-rando.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Hiking",
+    "paragraphes": [
+     "Hours outside on uneven ground, in daylight, with time to think and nothing on a screen.",
+     "The best hobby for your body and your mind at once."
+    ]
+   }
+  }
+ ]
+}

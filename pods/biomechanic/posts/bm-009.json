@@ -1,0 +1,198 @@
+{
+ "id": "bm-009",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7698426564106554646",
+  "vues": 717600,
+  "publie_le": "2026-10-19",
+  "accroche": "Morning Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "weekend tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "how you spend your weekend matters more than you think 🌿 #weekend #health #biohacking #running #wellness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/we-midi.jpg": "3bd99d4f-1952-4f74-971d-868f3867f54d",
+  "images/banque/we-canape.jpg": "27800f49-49bb-4b18-bf47-442fc6c728a0",
+  "images/banque/we-travail.jpg": "0715c5b7-b7fd-4617-ad87-6228ef27e8ca",
+  "images/banque/we-scroll.jpg": "9d5e2c1e-eeca-4bc9-8fb2-c06754157d53",
+  "images/banque/we-cafe.jpg": "00ba245c-5a73-430d-a879-afa72fb84841",
+  "images/banque/we-muscu.jpg": "33c693ee-62ec-4844-8ad0-e24030a49690",
+  "images/banque/we-picnic.jpg": "2b7d7f03-c01a-4772-b8c2-55d78bbc4dcc",
+  "images/banque/we-rando.jpg": "c0ed1bde-5753-426a-be87-f03820b5d5c4",
+  "images/banque/we-longue.jpg": "7a7931d2-69ad-4898-ab62-e7e752b2f918",
+  "images/banque/we-lac.jpg": "0c07266a-3ba3-450d-8604-4b62d08d5504"
+ },
+ "notes": "Full test du 24/11 : « Weekend Tierlist For Optimal Health (Science based) », idée de sujet de l'AGENT.md ; même format et famille que son tube « Morning Tierlist » (718 k, 19/10), source gardée pour mémoire. Croquis de couverture neuf (weekend.jpg, Seedream). 11 slides. Slide Atala (10) : le premier S tier « A Long, Easy Run », des coureuses de la banque et le logo d'Atala. Texte selon placement_atala : voix TOUCHE PERSO (hook de 6 mots), un seul argument : la sortie longue prévue dans la semaine, qui augmente petit à petit ; version « cta I' ». Faits : décalage du week-end (social jetlag, Wittmann 2006) ; sédentarité ; liens sociaux et mortalité (Holt-Lunstad 2010) ; renforcement et santé musculaire et osseuse ; lumière du jour et horloge interne ; la sortie longue développe l'endurance aérobie (principe d'entraînement). Rien de médical.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/weekend.jpg",
+   "en": {
+    "lignes": [
+     "Weekend Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-midi.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Sleeping Until Noon",
+    "paragraphes": [
+     "A huge lie-in shifts your body clock, so Sunday night you can't sleep and Monday feels brutal.",
+     "A little extra sleep is fine. Half the day in bed is not."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-canape.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Two Days On The Sofa",
+    "paragraphes": [
+     "After a week at a desk, a weekend lying down means your body barely moves for seven days straight.",
+     "Rest is good. Total stillness isn't rest."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-travail.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Catching Up On Work",
+    "paragraphes": [
+     "Your stress never switches off, and your brain never gets the break it needs to recover.",
+     "Sometimes needed. Every weekend, it burns you out."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-scroll.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Scrolling All Saturday",
+    "paragraphes": [
+     "Hours go by without moving, talking to anyone or seeing daylight, and you feel more tired than before.",
+     "It feels like rest. Your body doesn't agree."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-cafe.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Coffee With Friends",
+    "paragraphes": [
+     "Time with people you like lowers stress and is one of the best habits for a long life.",
+     "Great for your mind, but you sit the whole time."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-muscu.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Strength Session",
+    "paragraphes": [
+     "Keeping your muscles strong helps your joints, your bones and your energy all week.",
+     "It misses A tier: it keeps you away from daylight."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-picnic.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Picnic Outside",
+    "paragraphes": [
+     "Daylight, fresh air and people you love, all in one afternoon.",
+     "Perfect for your mood. Walk there and it moves up."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-rando.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "A",
+    "nom": "A Long Hike",
+    "paragraphes": [
+     "Hours on your feet outside, with your heart working the whole time without you noticing.",
+     "It misses S tier: few people can reach a trail every week."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/we-longue.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "A Long, Easy Run",
+    "paragraphes": [
+     "A slow long run builds your endurance more than any other session, and it clears your head.",
+     "Mine is on Saturdays. I follow a running coach app like Atala, which sets how far, week by week."
+    ]
+   },
+   "format": "carre"
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/we-lac.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Swimming With Friends",
+    "paragraphes": [
+     "Movement, daylight, cold water and people you love. Your body and your mind both win.",
+     "The perfect weekend afternoon, if water is close."
+    ]
+   }
+  }
+ ]
+}

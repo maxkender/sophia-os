@@ -282,10 +282,13 @@ export const LIBELLE_BLOCAGE: Record<Blocage, string> = {
 export const carteValidable = (c: CarteLabel): boolean =>
   !c.label_id && (c.badge === "nouveau" || c.badge === "propose") && appsDeSection(c.section).application_ids.length > 0;
 
-/** Range le compte sous une carte (et met ses apps d'après la section de la carte). */
-export async function changerCarte(id: string, carte: CarteLabel): Promise<void> {
+/** Un id ou plusieurs (actions groupées de la page, 24/11). */
+const liste = (id: string | string[]): string[] => (Array.isArray(id) ? id : [id]);
+
+/** Range le compte (ou plusieurs) sous une carte (et met ses apps d'après la section de la carte). */
+export async function changerCarte(id: string | string[], carte: CarteLabel): Promise<void> {
   const { error } = await supabase.from("bible_comptes")
-    .update({ label_propose_id: carte.id, label_id: carte.label_id, ...appsDeSection(carte.section) }).eq("id", id);
+    .update({ label_propose_id: carte.id, label_id: carte.label_id, ...appsDeSection(carte.section) }).in("id", liste(id));
   if (error) throw new Error(error.message);
 }
 
@@ -383,19 +386,19 @@ export function appsDe(sections: Section[]): { application_ids: string[]; apps_a
 }
 
 /** « Supprimer » : à la corbeille (restaurable). */
-export async function mettreCorbeille(id: string): Promise<void> {
-  const { error } = await supabase.from("bible_comptes").update({ supprime_at: new Date().toISOString() }).eq("id", id);
+export async function mettreCorbeille(id: string | string[]): Promise<void> {
+  const { error } = await supabase.from("bible_comptes").update({ supprime_at: new Date().toISOString() }).in("id", liste(id));
   if (error) throw new Error(error.message);
 }
 
-export async function restaurerCompte(id: string): Promise<void> {
-  const { error } = await supabase.from("bible_comptes").update({ supprime_at: null }).eq("id", id);
+export async function restaurerCompte(id: string | string[]): Promise<void> {
+  const { error } = await supabase.from("bible_comptes").update({ supprime_at: null }).in("id", liste(id));
   if (error) throw new Error(error.message);
 }
 
 /** Depuis la corbeille seulement : supprimé pour de bon. */
-export async function supprimerDefinitivement(id: string): Promise<void> {
-  const { error } = await supabase.from("bible_comptes").delete().eq("id", id).not("supprime_at", "is", null);
+export async function supprimerDefinitivement(id: string | string[]): Promise<void> {
+  const { error } = await supabase.from("bible_comptes").delete().in("id", liste(id)).not("supprime_at", "is", null);
   if (error) throw new Error(error.message);
 }
 

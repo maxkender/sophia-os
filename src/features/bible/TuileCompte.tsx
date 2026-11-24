@@ -13,6 +13,9 @@
  *
  * 20/11 (Adrien) : « à podzer » ne se marque plus sur le compte mais sur son LABEL (le bloc). La tuile n'a donc plus
  * ni case, ni pastille, ni bouton de podz ; un compte dont le label est à podzer n'est jamais importé.
+ *
+ * 24/11 : une case à cocher devant le @handle sélectionne la tuile pour les actions groupées de la page (étape,
+ * label, import, corbeille), en plus des actions de la tuile elle-même.
  */
 import * as React from "react";
 import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, Rocket, RotateCcw, Tags, Trash2, TriangleAlert } from "lucide-react";
@@ -34,8 +37,11 @@ export interface ActionsTuile {
   onImporter: (c: CompteBible) => void;
 }
 
-export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage, podzValide, source }: {
+export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage, podzValide, source, selectionne, onSelectionner }: {
   c: CompteBible; aussi?: boolean; actions: ActionsTuile; occupe?: boolean;
+  /** Cochée pour les actions groupées ; absente (`onSelectionner` non donné) : pas de case. */
+  selectionne?: boolean;
+  onSelectionner?: (c: CompteBible) => void;
   /** Prêt à partir à l'import, ou ce qui le bloque. « prêt » : la tuile propose « Importer ». */
   blocage?: Blocage;
   /** Afficher ce blocage sur la tuile (dans le prochain batch). */
@@ -76,11 +82,25 @@ export function TuileCompte({ c, aussi, actions, occupe, blocage, montrerBlocage
 
   return (
     <article
-      className={cn("relative flex w-[172px] shrink-0 flex-col gap-1.5 rounded-xl border border-stone-200/80 bg-white p-2 dark:border-stone-800 dark:bg-stone-900", occupe && "opacity-60")}
+      className={cn(
+        "relative flex w-[172px] shrink-0 flex-col gap-1.5 rounded-xl border border-stone-200/80 bg-white p-2 dark:border-stone-800 dark:bg-stone-900",
+        selectionne && "border-stone-900 ring-1 ring-stone-900 dark:border-white dark:ring-white",
+        occupe && "opacity-60",
+      )}
+      data-selectionne={selectionne || undefined}
       data-compte={c.handle}
     >
       <div className="min-w-0">
         <div className="flex items-center gap-0.5">
+          {onSelectionner && (
+            <input
+              type="checkbox"
+              checked={Boolean(selectionne)}
+              onChange={() => onSelectionner(c)}
+              aria-label={`Sélectionner @${c.handle}`}
+              className="mr-1 size-3.5 shrink-0 cursor-pointer accent-stone-900"
+            />
+          )}
           <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer" title={`tiktok.com/@${c.handle}`} className="min-w-0 flex-1 truncate text-xs font-semibold text-stone-900 hover:underline dark:text-stone-100">
             @{c.handle}
           </a>

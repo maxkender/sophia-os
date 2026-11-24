@@ -1,0 +1,294 @@
+{
+ "post_id": "var-dates-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "telefonsuz ve [[ucuz]] buluşma fikirleri"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(hiç denemediğin türden)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_396a45e6.jpg",
+      "boite": [
+       0,
+       1663,
+       1504,
+       1016
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening",
+      "to music"
+     ],
+     "fr": "arrête [[la musique non-stop]]",
+     "texte": "[[tek kullanımlık kamerayla]] yürüyüş"
+    },
+    "T2": {
+     "en": [
+      "stop filling every empty second with podcasts,",
+      "music, youtube, or scrolling"
+     ],
+     "fr": "arrête de combler [[le moindre blanc]] avec podcasts, musique, youtube ou scroll",
+     "texte": "ucuz bir tek kullanımlık kamera alın: ikiniz için 27 kare, [[sıfır ekran]]"
+    },
+    "T3": {
+     "en": [
+      "your brain",
+      "needs quiet",
+      "time to connect",
+      "ideas, replay",
+      "information, and",
+      "actually form its",
+      "own thought"
+     ],
+     "fr": "ton cerveau a besoin de calme pour faire des liens, digérer les infos et [[vraiment avoir ses propres idées]]",
+     "texte": "fotoğraflara bakamıyorsunuz, o yüzden etrafa gerçekten bakıp [[sadece değeceğini]] çekiyorsunuz"
+    },
+    "T4": {
+     "en": [
+      "instead of constantly reacting to",
+      "someone else’s"
+     ],
+     "fr": "au lieu de [[toujours réagir]] à [[celles des autres]]",
+     "texte": "bir hafta sonra bastırın: [[ikinci buluşma bahanesi]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0d3b010d.jpg",
+      "boite": [
+       0,
+       121,
+       2048,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to multitask"
+     ],
+     "fr": "arrête [[le multitâche]]",
+     "texte": "kafede [[bulmaca]] çözmek"
+    },
+    "T2": {
+     "en": [
+      "texting, watching youtube, and doing homework",
+      "isn't doing 3 things at once"
+     ],
+     "fr": "texter, mater des vidéos, faire tes devoirs : c'est pas [[3 trucs à la fois]]",
+     "texte": "bir gazete, tek kalem, bir kafe masası. [[ikinize birer kahve]] ve başlıyorsunuz"
+    },
+    "T3": {
+     "en": [
+      "a stanford study",
+      "found heavy",
+      "multitaskers get",
+      "worse at",
+      "ignoring",
+      "distractions"
+     ],
+     "fr": "une étude de stanford montre que les pros du multitâche [[se laissent plus distraire]]",
+     "texte": "7 aşağı için tartışacak, kalemi kapışacak ve [[kimin daha inatçı]] olduğunu göreceksiniz"
+    },
+    "T4": {
+     "en": [
+      "pick one thing and finish it before",
+      "you start the next"
+     ],
+     "fr": "choisis un truc et [[finis-le]] avant d'attaquer le suivant",
+     "texte": "bitmedi mi? bulmacayı [[sonraki buluşmaya]] saklayın"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0868bc72.jpg",
+      "boite": [
+       0,
+       80,
+       2368,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "[[100 liralık]] bit pazarı görevi"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "herkesin 100 lirası ve 30 dakikası var: amaç öbürü için [[en saçma hediyeyi]] bulmak"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "sonra buluşup paketleri açıyorsunuz ve herkes aldığı şeyin [[hikayesini uyduruyor]]"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
+     "texte": "scroll'un yerini ne aldı: bit pazarları, çantamda bir kitap ve telefonu elime aldığımda [[Sophia uygulaması]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "bir [[barınaktaki köpekleri]] birlikte gezdirin"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "bedava ve onlar çok mutlu"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "birçok barınak hafta sonu köpekleri gezdirecek gönüllü arar. [[önce sorun]], size nasıl olduğunu anlatırlar"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "sizi parkta sürükleyen bir köpek [[tüm garip sessizlikleri]] bitirir. hem karşındakinin hayvana nasıl davrandığını görürsün"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_103521fe.jpg",
+      "boite": [
+       408,
+       0,
+       1839,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "[[yağmurda yürüyüş]], tek bir şemsiyeyle"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "yağmur yağınca herkes evde kalır, yani [[bütün sokaklar sizindir]]"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "iki kişiye tek şemsiye: yan yana, aynı adımla yürümek zorundasınız ve [[olmayınca gülüyorsunuz]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "sonra ısınmak için [[sıcak çikolata]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_557ac2e8.jpg",
+      "boite": [
+       178,
+       0,
+       1404,
+       2036
+      ]
+     }
+    }
+   }
+  }
+ }
+}

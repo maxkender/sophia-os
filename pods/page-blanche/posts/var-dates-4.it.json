@@ -1,0 +1,294 @@
+{
+ "post_id": "var-dates-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "idee per uscire [[senza telefono]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(low cost e mai provate)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_41ab60d0.jpg",
+      "boite": [
+       0,
+       311,
+       1664,
+       1124
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening",
+      "to music"
+     ],
+     "fr": "arrête [[la musique non-stop]]",
+     "texte": "una passeggiata [[con la usa e getta]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every empty second with podcasts,",
+      "music, youtube, or scrolling"
+     ],
+     "fr": "arrête de combler [[le moindre blanc]] avec podcasts, musique, youtube ou scroll",
+     "texte": "comprate una macchinetta usa e getta: 27 scatti in due, [[zero schermi]]"
+    },
+    "T3": {
+     "en": [
+      "your brain",
+      "needs quiet",
+      "time to connect",
+      "ideas, replay",
+      "information, and",
+      "actually form its",
+      "own thought"
+     ],
+     "fr": "ton cerveau a besoin de calme pour faire des liens, digérer les infos et [[vraiment avoir ses propres idées]]",
+     "texte": "non potete rivedere le foto, quindi vi guardate davvero intorno e scattate [[solo quello che merita]]"
+    },
+    "T4": {
+     "en": [
+      "instead of constantly reacting to",
+      "someone else’s"
+     ],
+     "fr": "au lieu de [[toujours réagir]] à [[celles des autres]]",
+     "texte": "fatele sviluppare: [[scusa per un secondo appuntamento]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0d3b010d.jpg",
+      "boite": [
+       0,
+       121,
+       2048,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to multitask"
+     ],
+     "fr": "arrête [[le multitâche]]",
+     "texte": "le [[parole crociate]] al bar"
+    },
+    "T2": {
+     "en": [
+      "texting, watching youtube, and doing homework",
+      "isn't doing 3 things at once"
+     ],
+     "fr": "texter, mater des vidéos, faire tes devoirs : c'est pas [[3 trucs à la fois]]",
+     "texte": "un giornale, una penna sola, un tavolino al bar. [[un caffè a testa]] e si parte"
+    },
+    "T3": {
+     "en": [
+      "a stanford study",
+      "found heavy",
+      "multitaskers get",
+      "worse at",
+      "ignoring",
+      "distractions"
+     ],
+     "fr": "une étude de stanford montre que les pros du multitâche [[se laissent plus distraire]]",
+     "texte": "litigherete sul 7 verticale, vi ruberete la penna e scoprirete [[chi è più testardo]]"
+    },
+    "T4": {
+     "en": [
+      "pick one thing and finish it before",
+      "you start the next"
+     ],
+     "fr": "choisis un truc et [[finis-le]] avant d'attaquer le suivant",
+     "texte": "non finita? tenetela per [[il prossimo appuntamento]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0868bc72.jpg",
+      "boite": [
+       0,
+       80,
+       2368,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "la sfida del [[mercatino a 10 €]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "10 € a testa e 30 minuti per trovare [[il regalo più assurdo]] per l'altra persona"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "poi vi ritrovate, scartate, e ognuno deve [[raccontare la storia]] del suo oggetto"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
+     "texte": "cosa ha sostituito lo scroll: i mercatini, un libro in borsa e [[l'app Sophia]] quando prendo comunque il telefono"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "portate a spasso [[i cani di un canile]]"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "è gratis e loro sono felici"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "tanti canili cercano volontari per far uscire i cani nel weekend. [[chiedete prima]], vi spiegano come fare"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "un cane che vi trascina per il parco cancella [[ogni silenzio imbarazzante]]. e vedi come l'altra persona tratta un animale"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_103521fe.jpg",
+      "boite": [
+       408,
+       0,
+       1839,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "[[sotto la pioggia]] con un solo ombrello"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "quando piove restano tutti a casa: [[la città è tutta vostra]]"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "un ombrello in due vuol dire camminare vicini, allo stesso passo, e [[ridere quando non funziona]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "e poi [[una cioccolata calda]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_557ac2e8.jpg",
+      "boite": [
+       178,
+       0,
+       1404,
+       2036
+      ]
+     }
+    }
+   }
+  }
+ }
+}

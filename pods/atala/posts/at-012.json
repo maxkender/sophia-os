@@ -1,0 +1,144 @@
+{
+ "id": "at-012",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "interval day do and don’ts",
+  "fr": "fractionné : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #intervals #runningtips #girlswhorun #speedwork",
+  "fr": "#courseapied #fractionne #running #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (@hannah.run5, 279 k), style `objets`. Objet neuf : cone ; couverture : coureuse-longue. Logo d'Atala au milieu des « Do » de la slide 2 (l'allure : le coach dit quand ralentir et accélérer) : « pacing from an app like atala » / « appli coach comme atala ». Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec « app »/« appli », jamais « AI »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-longue.png",
+   "en": {
+    "titre": "interval day\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "fractionné :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/banane.png",
+    "atala",
+    "images/objets/chaussures.png"
+   ],
+   "dont": [
+    "images/objets/pates.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "before",
+    "do": [
+     "a banana",
+     "pacing from an\napp like atala",
+     "15 min of\neasy warm-up"
+    ],
+    "dont": [
+     "a big meal\nright before",
+     "heavy squats\nthe day before"
+    ]
+   },
+   "fr": {
+    "titre": "avant",
+    "do": [
+     "une banane",
+     "appli coach\ncomme atala",
+     "échauffe-toi\n15 min"
+    ],
+    "dont": [
+     "un gros repas\njuste avant",
+     "squats lourds\nla veille"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/cone.png",
+    "images/objets/montre.png",
+    "images/objets/gourde.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/boite-chaussures.png"
+   ],
+   "en": {
+    "titre": "the session",
+    "do": [
+     "a flat loop",
+     "fast reps,\neasy recovery",
+     "sips of water"
+    ],
+    "dont": [
+     "all-out on\nrep one",
+     "new shoes"
+    ]
+   },
+   "fr": {
+    "titre": "la séance",
+    "do": [
+     "un tour plat",
+     "vite, puis\nrécup lente",
+     "de l’eau\npar gorgées"
+    ],
+    "dont": [
+     "à fond dès\nla 1re série",
+     "baskets neuves"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/verre-eau.png",
+    "images/objets/rouleau.png",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/sac-sport.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "after",
+    "do": [
+     "a big glass\nof water",
+     "a foam roller",
+     "an early night"
+    ],
+    "dont": [
+     "another hard\nrun tomorrow",
+     "a glass\nof wine"
+    ]
+   },
+   "fr": {
+    "titre": "après",
+    "do": [
+     "un grand\nverre d’eau",
+     "ton rouleau",
+     "au lit tôt"
+    ],
+    "dont": [
+     "encore dur\nle lendemain",
+     "un verre\nde vin"
+    ]
+   }
+  }
+ ]
+}

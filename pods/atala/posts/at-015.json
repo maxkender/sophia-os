@@ -1,0 +1,143 @@
+{
+ "id": "at-015",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7700731258476727583",
+  "vues": 156700,
+  "publie_le": "2026-10-25",
+  "accroche": "how to be the / 6am *running girl*"
+ },
+ "titre": {
+  "en": "lunch break runs do and don’ts",
+  "fr": "courir le midi : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #lunchrun #runningtips #girlswhorun #runningroutine",
+  "fr": "#courseapied #pausedej #running #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Preuve : « how to be the / 6am running girl » de @katrina.run (157 k vues, 25/10) : leur sujet (caler la course dans la journée) au format do & don'ts de leur tube, style `objets`. Aucun objet neuf ; couverture : coureuse-profil-1. Logo d'Atala au milieu des « Do » de la slide 2 : « a plan from an app like atala » / « appli de coach comme atala ». Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec « app »/« appli », jamais « AI »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-1.png",
+   "en": {
+    "titre": "lunch break runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "courir le midi :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/sac-sport.png",
+    "atala",
+    "images/objets/banane.png"
+   ],
+   "dont": [
+    "images/objets/cafes.png",
+    "images/objets/pates.png"
+   ],
+   "en": {
+    "titre": "the morning",
+    "do": [
+     "bag ready\nby the door",
+     "a plan from an\napp like atala",
+     "a 10am snack"
+    ],
+    "dont": [
+     "three coffees\nbefore noon",
+     "a heavy meal"
+    ]
+   },
+   "fr": {
+    "titre": "le matin",
+    "do": [
+     "ton sac prêt\nla veille",
+     "appli de coach\ncomme atala",
+     "un en-cas\nvers 10 h"
+    ],
+    "dont": [
+     "trois cafés\navant midi",
+     "un repas lourd"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/gourde.png",
+    "images/objets/ecouteurs.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/telephone.png"
+   ],
+   "en": {
+    "titre": "the run",
+    "do": [
+     "30 minutes,\nnice and easy",
+     "sips of water",
+     "your playlist"
+    ],
+    "dont": [
+     "a race against\nthe clock",
+     "work emails\non the run"
+    ]
+   },
+   "fr": {
+    "titre": "la sortie",
+    "do": [
+     "30 min,\ntout doux",
+     "de l’eau\npar gorgées",
+     "ta playlist"
+    ],
+    "dont": [
+     "courir contre\nla montre",
+     "répondre\naux mails"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/serviette.png",
+    "images/objets/tenue.png",
+    "images/objets/pates.png"
+   ],
+   "dont": [
+    "images/objets/pommeau.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "back at work",
+    "do": [
+     "a small towel",
+     "a change\nof clothes",
+     "a real lunch"
+    ],
+    "dont": [
+     "skipping\nthe shower",
+     "a gym class\non top"
+    ]
+   },
+   "fr": {
+    "titre": "au retour",
+    "do": [
+     "une serviette",
+     "des habits\nde rechange",
+     "un vrai déj"
+    ],
+    "dont": [
+     "zapper\nla douche",
+     "la salle\nen plus"
+    ]
+   }
+  }
+ ]
+}

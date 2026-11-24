@@ -1,0 +1,144 @@
+{
+ "id": "at-011",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "rest day do and don’ts",
+  "fr": "jour de repos : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #restday #runningtips #girlswhorun #recovery",
+  "fr": "#courseapied #repos #running #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Housewife",
+  "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (« courir l’hiver : / les do & don’ts », @hannah.run5, 279 k), style `objets`. Objet neuf : tapis-yoga ; couverture : coureuse-matin. Logo d'Atala au milieu des « Do » de la slide 3 (le repos prévu dans la semaine du plan) : « a plan from an app like atala » / « appli de coach comme atala ». Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec « app »/« appli », jamais « AI »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-matin.png",
+   "en": {
+    "titre": "rest day\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "jour de repos :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/masque.png",
+    "images/objets/the.png",
+    "images/objets/tapis-yoga.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "the morning",
+    "do": [
+     "sleeping in",
+     "a hot tea",
+     "10 min\nof stretching"
+    ],
+    "dont": [
+     "a “quick”\nhard run",
+     "leg day"
+    ]
+   },
+   "fr": {
+    "titre": "le matin",
+    "do": [
+     "dormir tard",
+     "un thé chaud",
+     "s’étirer\n10 minutes"
+    ],
+    "dont": [
+     "un footing\n« vite fait »",
+     "séance jambes"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "atala",
+    "images/objets/gourde.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/sac-sport.png"
+   ],
+   "en": {
+    "titre": "the day",
+    "do": [
+     "an easy walk",
+     "a plan from an\napp like atala",
+     "sips of water\nall day"
+    ],
+    "dont": [
+     "feeling guilty\nfor resting",
+     "a hard\ngym session"
+    ]
+   },
+   "fr": {
+    "titre": "la journée",
+    "do": [
+     "une balade",
+     "appli de coach\ncomme atala",
+     "bois souvent"
+    ],
+    "dont": [
+     "culpabiliser\nde pas courir",
+     "une grosse\nséance salle"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/pates.png",
+    "images/objets/rouleau.png",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/vin.png",
+    "images/objets/reveil.png"
+   ],
+   "en": {
+    "titre": "the evening",
+    "do": [
+     "a real dinner",
+     "a foam roller",
+     "tomorrow’s kit\nlaid out"
+    ],
+    "dont": [
+     "a glass\nof wine",
+     "a very\nlate night"
+    ]
+   },
+   "fr": {
+    "titre": "le soir",
+    "do": [
+     "un vrai dîner",
+     "ton rouleau",
+     "ta tenue prête\npour demain"
+    ],
+    "dont": [
+     "un verre\nde vin",
+     "te coucher\ntrès tard"
+    ]
+   }
+  }
+ ]
+}

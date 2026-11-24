@@ -1,0 +1,143 @@
+{
+ "id": "at-013",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "snowy runs do and don’ts",
+  "fr": "sous la neige : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #winterrunning #snowrun #runningtips #girlswhorun",
+  "fr": "#courseapied #hiver #neige #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Housewife",
+  "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
+ },
+ "notes": "Preuve : « courir l’hiver : / les do & don’ts » de @hannah.run5 (279 k vues, 31/10) ; même gabarit (objets), un sujet voisin de saison (la neige). Objets neufs : coureuse-neige, chaussures-trail, lunettes. Logo d'Atala au milieu des « Do » de la slide 2 : « a coach app like atala » / « appli coach comme atala ». Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec « app »/« appli », jamais « AI »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-neige.png",
+   "en": {
+    "titre": "snowy runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "sous la neige :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures-trail.png",
+    "atala",
+    "images/objets/gants.png"
+   ],
+   "dont": [
+    "images/objets/tshirt-coton.png",
+    "images/objets/chaussures.png"
+   ],
+   "en": {
+    "titre": "before you go",
+    "do": [
+     "trail shoes\nwith grip",
+     "a coach app\nlike atala",
+     "warm gloves"
+    ],
+    "dont": [
+     "a cotton tee",
+     "smooth soles"
+    ]
+   },
+   "fr": {
+    "titre": "avant de sortir",
+    "do": [
+     "des baskets\nqui accrochent",
+     "appli coach\ncomme atala",
+     "des gants"
+    ],
+    "dont": [
+     "un t-shirt\nen coton",
+     "des semelles\ntoutes lisses"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/lunettes.png",
+    "images/objets/bonnet.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/ecouteurs.png"
+   ],
+   "en": {
+    "titre": "out there",
+    "do": [
+     "short strides,\nslow pace",
+     "sunglasses\non bright days",
+     "a beanie"
+    ],
+    "dont": [
+     "chasing a pr",
+     "both\nearbuds in"
+    ]
+   },
+   "fr": {
+    "titre": "dehors",
+    "do": [
+     "petits pas,\nrythme lent",
+     "des lunettes\nde soleil",
+     "un bonnet"
+    ],
+    "dont": [
+     "viser\nun record",
+     "deux écouteurs"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/the.png",
+    "images/objets/tenue.png",
+    "images/objets/journal.png"
+   ],
+   "dont": [
+    "images/objets/seche-cheveux.png",
+    "images/objets/telephone.png"
+   ],
+   "en": {
+    "titre": "back home",
+    "do": [
+     "a hot tea",
+     "dry clothes\nright away",
+     "newspaper\nin your shoes"
+    ],
+    "dont": [
+     "hair dryer\non your shoes",
+     "scrolling in\nyour wet kit"
+    ]
+   },
+   "fr": {
+    "titre": "en rentrant",
+    "do": [
+     "un thé chaud",
+     "vite, au sec",
+     "journal dans\ntes baskets"
+    ],
+    "dont": [
+     "sèche-cheveux\nsur baskets",
+     "scroller\nencore trempée"
+    ]
+   }
+  }
+ ]
+}

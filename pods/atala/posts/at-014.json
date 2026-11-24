@@ -1,0 +1,144 @@
+{
+ "id": "at-014",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "travel runs do and don’ts",
+  "fr": "courir en voyage : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #travelrun #runningtips #girlswhorun #runningroutine",
+  "fr": "#courseapied #voyage #running #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "La Mentira",
+  "url": "https://www.tiktok.com/music/la-mentira-6705056394258679809"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (@hannah.run5, 279 k), style `objets`. Aucun objet neuf ; couverture : coureuse-profil-2. Logo d'Atala au milieu des « Do » de la slide 2 (la semaine prévue même en voyage) : « a plan on an app like atala » / « appli de coach comme atala ». Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec « app »/« appli », jamais « AI »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-2.png",
+   "en": {
+    "titre": "travel runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "courir en voyage :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "atala",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/boite-chaussures.png",
+    "images/objets/doudoune.png"
+   ],
+   "en": {
+    "titre": "packing",
+    "do": [
+     "running shoes\nin first",
+     "a plan on an\napp like atala",
+     "a light kit"
+    ],
+    "dont": [
+     "new shoes",
+     "bulky layers"
+    ]
+   },
+   "fr": {
+    "titre": "la valise",
+    "do": [
+     "tes baskets\nen premier",
+     "appli de coach\ncomme atala",
+     "tenue légère"
+    ],
+    "dont": [
+     "baskets neuves",
+     "des couches\nen trop"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/gourde.png",
+    "images/objets/montre.png",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/cafes.png"
+   ],
+   "en": {
+    "titre": "when you land",
+    "do": [
+     "lots of water",
+     "an easy\nshake-out run",
+     "sleep on\nlocal time"
+    ],
+    "dont": [
+     "a hard run\nafter landing",
+     "coffee all\nday long"
+    ]
+   },
+   "fr": {
+    "titre": "en arrivant",
+    "do": [
+     "bois beaucoup",
+     "un footing\ntout doux",
+     "dormir à\nl’heure locale"
+    ],
+    "dont": [
+     "à fond après\nle vol",
+     "café toute\nla journée"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/telephone.png",
+    "images/objets/gilet.png",
+    "images/objets/banane.png"
+   ],
+   "dont": [
+    "images/objets/ecouteurs.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "the run",
+    "do": [
+     "your route\nsaved offline",
+     "a hi-vis vest",
+     "a snack\nfor after"
+    ],
+    "dont": [
+     "both earbuds\nin a new city",
+     "a big night\nout first"
+    ]
+   },
+   "fr": {
+    "titre": "la sortie",
+    "do": [
+     "ton parcours\nhors ligne",
+     "du fluo",
+     "un en-cas\npour après"
+    ],
+    "dont": [
+     "deux écouteurs\nen ville",
+     "une grosse\nsoirée avant"
+    ]
+   }
+  }
+ ]
+}

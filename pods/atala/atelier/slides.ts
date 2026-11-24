@@ -19,7 +19,7 @@ import { createCanvas, loadImage, type Image } from "@napi-rs/canvas";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { retirerMetadonnees } from "./metadonnees.ts";
-import { POLICE } from "./polices.ts";
+import { FAMILLE } from "./polices.ts";
 
 export const RACINE = join(import.meta.dirname, "..");
 /** Taille des slides de référence (leurs captures) et taille rendue. */
@@ -161,10 +161,11 @@ function couperLegende(t: string, max: number): string[] {
   return lignes;
 }
 
-/** Ses légendes : Red Hat Mono SemiBold 48,5, centrées, 65 entre les lignes. */
+/** Ses légendes : Red Hat Mono SemiBold 48,5, centrées, 65 entre les lignes. Une légende grecque passe tout entière en Fira Mono (une seule graisse sur la ligne, « coach » et « atala » compris). */
 const LEG = { taille: 48.5, pas: 65 };
+const GREC = /[\u0370-\u03ff\u1f00-\u1fff]/;
 function legende(ctx: Ctx, t: string, cx: number, base: number, max: number) {
-  ctx.font = `${LEG.taille}px "${POLICE.legende}"`;
+  ctx.font = `${LEG.taille}px ${GREC.test(t) ? FAMILLE.legendeGrec : FAMILLE.legende}`;
   ctx.fillStyle = COULEUR.texte;
   ctx.textAlign = "center";
   const lignes = couperLegende(t, max);
@@ -185,13 +186,13 @@ function titre(ctx: Ctx, t: string, cx: number, base: number, taille: number, pa
     let s = taille;
     const largeur = (k: number) =>
       morceaux.reduce((w, m) => {
-        ctx.font = `${k}px "${m.appui ? POLICE.appui : POLICE.titre}"`;
+        ctx.font = `${k}px ${m.appui ? FAMILLE.appui : FAMILLE.titre}`;
         return w + ctx.measureText(m.t).width;
       }, 0);
     while (s > 60 && largeur(s) > largeurMax) s -= 4;
     let x = cx - largeur(s) / 2;
     for (const m of morceaux) {
-      ctx.font = `${s}px "${m.appui ? POLICE.appui : POLICE.titre}"`;
+      ctx.font = `${s}px ${m.appui ? FAMILLE.appui : FAMILLE.titre}`;
       ctx.fillText(m.t, x, base + i * pas);
       x += ctx.measureText(m.t).width;
     }
@@ -202,7 +203,7 @@ function titre(ctx: Ctx, t: string, cx: number, base: number, taille: number, pa
 function entete(ctx: Ctx, mot: "Do" | "Don’t", base: number) {
   const taille = 97;
   const cap = 68;
-  ctx.font = `${taille}px "${POLICE.legende}"`;
+  ctx.font = `${taille}px ${FAMILLE.legende}`;
   const w = ctx.measureText(mot).width;
   const signe = mot === "Do" ? 66 : 60;
   const ecart = 20;

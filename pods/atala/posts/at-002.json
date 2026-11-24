@@ -15,7 +15,8 @@
   "es-419": "correr en invierno: los do & don’ts",
   "hu": "futás télen: a do & don’ts",
   "ro": "alergat iarna: do & don’ts",
-  "tr": "kışın koşu: do & don’ts"
+  "tr": "kışın koşu: do & don’ts",
+  "el": "τρέξιμο τον χειμώνα: τα do & don’ts"
  },
  "legendes": {
   "en": "#running #winterrunning #runningtips #girlswhorun #coldrun",
@@ -25,7 +26,8 @@
   "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
   "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
   "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
-  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu"
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
  },
  "musique": {
   "titre": "Housewife",
@@ -59,6 +61,9 @@
    },
    "tr": {
     "titre": "kışın koşu:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "τρέξιμο τον χειμώνα:\nτα do & don’ts"
    }
   },
   {
@@ -166,6 +171,18 @@
     "dont": [
      "kalın mont",
      "pamuklu tişört"
+    ]
+   },
+   "el": {
+    "titre": "πριν βγεις",
+    "do": [
+     "λεπτά γάντια",
+     "εφαρμογή coach\nσαν το atala",
+     "ένας σκούφος"
+    ],
+    "dont": [
+     "χοντρό μπουφάν",
+     "μπλούζα\nαπό βαμβάκι"
     ]
    }
   },
@@ -275,6 +292,18 @@
      "çift kulaklık",
      "rekor peşinde"
     ]
+   },
+   "el": {
+    "titre": "έξω",
+    "do": [
+     "φακός κεφαλής",
+     "γιλέκο φλούο",
+     "χαλαρός ρυθμός"
+    ],
+    "dont": [
+     "δύο ακουστικά",
+     "κυνηγάς ρεκόρ"
+    ]
    }
   },
   {
@@ -382,6 +411,18 @@
     "dont": [
      "soğuk duş",
      "ıslak halde\nscroll yapmak"
+    ]
+   },
+   "el": {
+    "titre": "στο σπίτι",
+    "do": [
+     "ζεστό τσάι",
+     "αμέσως\nστεγνά ρούχα",
+     "ρολό μασάζ"
+    ],
+    "dont": [
+     "κρύο ντους",
+     "scroll με\nβρεγμένα ρούχα"
     ]
    }
   }

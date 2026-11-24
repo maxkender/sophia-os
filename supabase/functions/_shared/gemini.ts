@@ -7,6 +7,7 @@ import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
 import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
 import { type CheminNettoyage, cheminsPourEssai } from "./chemins_nettoyage.ts";
+import { CONSIGNE_VERIF_TEXTE, CONSIGNE_VERIF_TEXTE_COMPAREE, lireVerdictTexte, MODELES_VERIF_TEXTE, type VerdictTexte } from "./verif_texte.ts";
 import { upscaleViaSeedVr } from "./fal_seedvr_upscale.ts";
 import { falAuthHeaders, falHebergerOctets, falKey, falQueueAwaitJson, falQueueSubmit } from "./fal_queue.ts";
 import { serviceClient } from "./supabase.ts";
@@ -968,6 +969,35 @@ export interface CleanImageOpts {
    * (voir chemins_nettoyage.ts). Absent : principal → second, comme avant.
    */
   essai?: number;
+  /** Test (`nettoyer-test`) : les chemins à prendre, dans l'ordre, à la place du réglage. */
+  chemins?: CheminNettoyage[];
+  /**
+   * Import (24/11) : contrôle « reste-t-il du texte ? » sur chaque résultat, avant l'agrandissement. Du texte reste :
+   * ce moteur compte comme raté et le suivant de l'essai prend la main.
+   */
+  verifierTexte?: boolean;
+}
+
+/**
+ * Reste-t-il du texte ajouté sur une image nettoyée ? Un appel, le modèle le moins cher d'abord (verif_texte.ts).
+ * `null` : pas de réponse lisible (panne, réponse vide) — l'appelant accepte l'image, comme avant.
+ */
+export async function texteRestant(base64: string, mime: string, original?: Part | null): Promise<VerdictTexte | null> {
+  const nettoyee: Part = { inline_data: { mime_type: mime, data: base64 } };
+  // Avec l'original : seule la légende ajoutée compte, pas le texte de la scène (verif_texte.ts).
+  const parts: Part[] = original
+    ? [original, nettoyee, { text: CONSIGNE_VERIF_TEXTE_COMPAREE }]
+    : [nettoyee, { text: CONSIGNE_VERIF_TEXTE }];
+  for (const model of MODELES_VERIF_TEXTE) {
+    try {
+      const reponse = await call(model, parts, { temperature: 0 });
+      const verdict = lireVerdictTexte(textOf(reponse));
+      if (verdict) return verdict;
+    } catch {
+      // modèle suivant
+    }
+  }
+  return null;
 }
 
 /**
@@ -1019,7 +1049,9 @@ export async function cleanImage(
   };
 
   const premier = await lireProviderPrincipal();
-  const chaine: CheminNettoyage[] = cheminsPourEssai(premier, opts?.essai);
+  const chaine: CheminNettoyage[] = opts?.chemins?.length ? opts.chemins : cheminsPourEssai(premier, opts?.essai);
+  // L'original, pour que le contrôle ne compte que la légende ajoutée (pas le texte de la scène).
+  const original: Part | null = opts?.verifierTexte ? await fetchImageAsInline(imageUrl).catch(() => null) : null;
   const NOMS: Record<CheminNettoyage, string> = { fal: "Fal", replicate: "Replicate", effaceur: "Effaceur (Gemini + LaMa)" };
 
   let base64: string | null = null;
@@ -1117,7 +1149,17 @@ export async function cleanImage(
               }
             });
 
-      if (resultat && !(await sembleDegeneree(resultat))) {
+      const degeneree = resultat ? await sembleDegeneree(resultat) : false;
+      const verdict = resultat && !degeneree && opts?.verifierTexte
+        ? await texteRestant(resultat, mimeDepuisBase64(resultat, "image/png").mime, original)
+        : null;
+      if (verdict?.reste) {
+        await emit({
+          etape: etapeId,
+          statut: "echec",
+          detail: `${rang === 1 ? "①" : "②"} ${nom}: du texte reste (« ${verdict.extrait} »)${chaine[i + 1] ? ` → ${autre}` : ""}`,
+        });
+      } else if (resultat && !degeneree) {
         base64 = resultat;
         moteur = etapeId === "text_removal" ? "text_removal" : etapeId === "replicate_text_removal" ? "replicate_text_removal" : "effaceur_lama";
         await emit({

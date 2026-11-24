@@ -8,14 +8,13 @@ Deno.test("sans numéro d'essai : principal puis second, comme avant", () => {
   assertEquals(cheminsPourEssai("fal", null), ["fal", "replicate"]);
 });
 
-Deno.test("chaque essai commence par un autre chemin, et les trois passent", () => {
+Deno.test("les essais alternent Replicate et Fal ; l'effaceur ne sert qu'au dernier essai", () => {
   assertEquals(cheminsPourEssai("replicate", 1), ["replicate", "fal"]);
-  assertEquals(cheminsPourEssai("replicate", 2), ["fal", "effaceur"]);
-  assertEquals(cheminsPourEssai("replicate", 3), ["effaceur", "replicate"]);
-  assertEquals(cheminsPourEssai("replicate", 4), ["replicate", "fal"]);
-  assertEquals(cheminsPourEssai("fal", 2), ["replicate", "effaceur"]);
-  const premiers = [1, 2, 3].map((e) => cheminsPourEssai("replicate", e)[0]);
-  assertEquals(new Set(premiers).size, 3);
+  assertEquals(cheminsPourEssai("replicate", 2), ["fal", "replicate"]);
+  assertEquals(cheminsPourEssai("replicate", 3), ["replicate", "fal"]);
+  assertEquals(cheminsPourEssai("replicate", 4), ["effaceur"]);
+  assertEquals(cheminsPourEssai("fal", 2), ["replicate", "fal"]);
+  assertEquals([1, 2, 3].some((e) => cheminsPourEssai("replicate", e).includes("effaceur")), false);
 });
 
 Deno.test("règle des images obligatoires : par label ou par source ; absente ou mal formée, aucune", () => {

@@ -385,29 +385,36 @@ describe("page Bible", () => {
     await waitFor(() => expect(prop.passerDansLaBible).toHaveBeenCalledWith("p6", "prochain_batch", null));
   });
 
-  it("« Importer » sur une tuile dont le label existe : le compte part seul ; sans langue connue, la fenêtre la demande", async () => {
+  it("« Importer » sur une tuile dont le label existe : la fenêtre s'ouvre, langue pré-remplie et modifiable", async () => {
     api.lireComptes.mockResolvedValue([
       compte({ id: "c2", handle: "pret.avec.langue", label_propose_id: "k3", langue: "de" }),
       compte({ id: "c3", handle: "pret.sans.langue", etape: "prochain_batch", label_propose_id: "k3" }),
       compte({ id: "c4", handle: "label.propose", label_propose_id: "k2" }),
     ]);
     api.lancerBatch.mockResolvedValue([{ id: "c2", handle: "pret.avec.langue", statut: "lancee", essai_max: null }]);
-    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(true);
+    const confirmer = vi.spyOn(window, "confirm");
     rendre();
     const tuile = (await screen.findByText(/pret\.avec\.langue/)).closest("[data-compte]") as HTMLElement;
     // Pas de bouton tant que le label n'existe pas.
     expect(within(screen.getByText(/label\.propose/).closest("[data-compte]") as HTMLElement).queryByRole("button", { name: "Importer" })).toBeNull();
     fireEvent.click(within(tuile).getByRole("button", { name: "Importer" }));
-    expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Importer @pret.avec.langue maintenant ? Label smart_girl, TikToks en allemand."));
-    await waitFor(() => expect(api.lancerBatch).toHaveBeenCalledWith([{ id: "c2", langue: "de" }]));
-    expect(await screen.findByTestId("info")).toHaveTextContent("@pret.avec.langue : import lancé, ses 100 posts les plus vus");
+    // Plus de simple confirmation : la fenêtre, avec la langue connue déjà choisie, et rien ne part avant « Lancer ».
+    const choix = await screen.findByLabelText("Langue de @pret.avec.langue");
+    expect(choix).toHaveValue("de");
+    expect(confirmer).not.toHaveBeenCalled();
+    expect(api.lancerBatch).not.toHaveBeenCalled();
+    fireEvent.change(choix, { target: { value: "fr" } });
+    fireEvent.click(screen.getByRole("button", { name: "Lancer l'import de 1 compte" }));
+    await waitFor(() => expect(api.lancerBatch).toHaveBeenCalledWith([{ id: "c2", langue: "fr" }]));
+    expect(await screen.findByTestId("resultats-lancement")).toHaveTextContent("@pret.avec.langue : import lancé");
     confirmer.mockRestore();
+    fireEvent.click(screen.getByRole("button", { name: "Fermer" }));
 
     fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
     const sansLangue = (await screen.findByText(/pret\.sans\.langue/)).closest("[data-compte]") as HTMLElement;
     fireEvent.click(within(sansLangue).getByRole("button", { name: "Importer" }));
     expect(await screen.findByRole("button", { name: "Lancer l'import de 1 compte" })).toBeDisabled();
-    expect(screen.getByLabelText("Langue de @pret.sans.langue")).toBeInTheDocument();
+    expect(screen.getByLabelText("Langue de @pret.sans.langue")).toHaveValue("");
   });
 
   it("un bloc sans vrai label : « Modifier ou rattacher » le rattache à un label de l'OS, ou corrige son nom", async () => {

@@ -26,14 +26,13 @@ import { ArrowLeft, BadgeCheck, Check, ChevronDown, ChevronRight, GitMerge, Info
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
-import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
 import { DialogueAjout, DialogueCarte, DialogueChoixLabel, DialogueFusion, DialogueLabel } from "./DialoguesBible";
 import { type ComptePret, DialogueLancement } from "./LancementBatch";
 import {
   type Blocage, blocageImport, blocsVersesDans, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, detacherCarte, estPodzValide, estVueSource,
-  etapeAvantImport, lancerBatch, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireApplications, lireCartes, lireComptes, marquerPodz, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
+  etapeAvantImport, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireApplications, lireCartes, lireComptes, marquerPodz, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
   restaurerCompte, type Section, SECTIONS, supprimerDefinitivement, valeurDuLabel, validerCarte, validerPodz, type Vue, VUES,
 } from "./moodboard";
 import { LigneLabel, TitreApp } from "./Bloc";
@@ -42,7 +41,7 @@ import { BarrePliage } from "./Pli";
 import { usePliage } from "./pliage";
 import { PanneauSujets } from "./PanneauSujets";
 import { chargerApercus, deciderProposition, lirePropositions, LOT_APERCUS, passerDansLaBible, type Proposition, sansApercu } from "./propositions";
-import { compterSources, ligneResultat, lireSources, rangerSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
+import { compterSources, lireSources, rangerSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
 import { couleurSection, PASTILLE_A_CREER, PASTILLE_PODZ } from "./teintes";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
 import { type ActionsProposition, VuePropositions } from "./VuePropositions";
@@ -178,20 +177,12 @@ export function PageBible() {
     onSupprimerDefinitivement: (c) => { if (window.confirm(`Supprimer @${c.handle} pour de bon ? (On ne pourra plus le restaurer.)`)) void agir(c, () => supprimerDefinitivement(c.id)); },
     onImporter: (c) => importer(c),
   };
-  // « Importer » sur une tuile : le compte part seul, tout de suite. Sans langue connue, la fenêtre de lancement la demande.
+  // « Importer » sur une tuile : la fenêtre de lancement s'ouvre pour ce seul compte, langue de ses TikToks
+  // pré-remplie (si connue) et modifiable. Elle ne partait avant qu'après une simple confirmation (24/11).
   const importer = (c: CompteBible) => {
     const carte = carteDe(c);
     if (!carte || blocageDe(c) !== "pret") return;
-    if (!c.langue) { setLancement([{ compte: c, carte }]); return; }
-    const langue = c.langue;
-    if (!window.confirm(`Importer @${c.handle} maintenant ? Label ${nomCarte(carte)}, TikToks en ${nomLangue(langue).toLowerCase()}.\n\nCoût : un relevé Apify, puis l'analyse de chaque post importé (Gemini).`)) return;
-    void agir(c, async () => {
-      const [r] = await lancerBatch([{ id: c.id, langue }]);
-      if (!r) throw new Error(`@${c.handle} n'a pas été lancé.`);
-      const l = ligneResultat(r, regles);
-      if (!l.ok) throw new Error(l.texte);
-      setInfo(l.texte);
-    });
+    setLancement([{ compte: c, carte }]);
   };
   // Défaire la dernière action (un rattachement) : elle rend sa phrase, les blocs sont relus.
   const annuler = async (f: () => Promise<string>) => {

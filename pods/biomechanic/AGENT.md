@@ -32,7 +32,13 @@ Le prompt de placement d'Atala a changé le 20/11 (table `prompts`, clé `placem
 	- Sa slide n'est ni la couverture ni la dernière : le premier des deux S tiers (bm-001), ou le A tier.
 - **Le label** : `biomechanic_run` (migration 0784), qui sert **Atala seule**, 100 % podz, genre nul (son public est mixte) ; son nom finit par `_run`, ses comptes ont l'identité du running. L'OS le range en voie 2 dès le premier original validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » ou Adrien et Max (Pilotage). **Atala est encore inactive** dans l'OS : rien n'est publié avant son activation, mais la file et la validation marchent. `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En anglais** (`LANGUES` dans `atelier/api.ts`), son ton : des affirmations tranchées, un vocabulaire « biologique » (cortisol, circadian rhythm, aerobic base), du pire au meilleur.
+- **En anglais, hongrois, serbe et italien** (`LANGUES` dans `atelier/api.ts` : en, hu, sr, it ; hu, sr et it ajoutées le 24/11 sur ordre d'Adrien). Chaque nouvel original part dans toutes ces langues, traduit à la main au ton du compte modèle, avec des faits santé identiques :
+	- **italien** : « Tierlist del Mattino » / « Salute *Ottimale* » / « (Basata sulla scienza) » ; Atala : « un'app con coach per la corsa come Atala » (forme directe « l'app Atala ») ;
+	- **hongrois** : « Reggeli Tierlist » / « *Optimális* Egészség » / « (Tudományosan megalapozva) » ; Atala : « egy futóedző app, mint az Atala » (forme directe « az Atala app ») ;
+	- **serbe** en **latin**, ekavien (« vreme », « pre ») : « Jutarnja Tierlista » / « *Optimalno* Zdravlje » / « (Naučno zasnovano) » ; Atala : « aplikacija sa trenerom za trčanje kao što je Atala » (le mot « aplikacija » se décline, jamais « Atala ») ;
+	- « S TIER » reste tel quel dans toutes les langues ; la jauge est traduite au rendu (CORTISOLO / KORTIZOL, BASSO-MEDIO-ALTO, ALACSONY-KÖZEPES-MAGAS, NIZAK-SREDNJI-VISOK) ; une ligne de couverture plus large que 1000 px est refusée par `npm run rendu` : raccourcis ;
+	- rattrapage d'un post déjà validé : `npm run livrer -- <id> --langues hu,sr,it --complement`.
+- Son ton : des affirmations tranchées, un vocabulaire « biologique » (cortisol, circadian rhythm, aerobic base), du pire au meilleur.
 - **Parfait ou rien**. Un original part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un original

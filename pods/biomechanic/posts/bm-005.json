@@ -8,10 +8,16 @@
   "accroche": "Recovery Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "recovery tierlist for optimal health"
+  "en": "recovery tierlist for optimal health",
+  "it": "tierlist del recupero per una salute ottimale",
+  "hu": "regeneráció tierlist az optimális egészségért",
+  "sr": "tierlista oporavka za optimalno zdravlje"
  },
  "legendes": {
-  "en": "recovery is where you actually get fitter 🛌 #recovery #running #health #biohacking #fitness"
+  "en": "recovery is where you actually get fitter 🛌 #recovery #running #health #biohacking #fitness",
+  "it": "è nel recupero che migliori davvero 🛌 #recupero #corsa #salute #fitness #biohacking",
+  "hu": "a pihenésben leszel igazán fittebb 🛌 #regeneráció #futás #egészség #biohacking #fitness",
+  "sr": "u oporavku zaista napreduješ 🛌 #oporavak #trčanje #zdravlje #biohacking #fitnes"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -42,6 +48,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist del Recupero",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Regeneráció Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Oporavka",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -56,6 +83,30 @@
     "paragraphes": [
      "Your body doesn't get fitter during the session. It adapts in the hours and days after, when it repairs what the training broke down.",
      "Hard every day means you never get those hours. More effort, less progress."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Allenarsi Duro Ogni Giorno",
+    "paragraphes": [
+     "Il corpo non migliora durante la seduta. Si adatta nelle ore e nei giorni dopo, quando ripara ciò che l'allenamento ha rotto.",
+     "Duro ogni giorno vuol dire non avere mai quelle ore. Più fatica, meno progressi."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Minden Nap Keményen",
+    "paragraphes": [
+     "A tested nem az edzés alatt lesz fittebb. Az utána következő órákban és napokban alkalmazkodik, amikor helyrehozza, amit az edzés lebontott.",
+     "Minden nap keményen azt jelenti, hogy ezek az órák sosem jönnek el. Több munka, kevesebb fejlődés."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Težak Trening Svaki Dan",
+    "paragraphes": [
+     "Telo ne napreduje tokom treninga. Prilagođava se u satima i danima posle, kad popravlja ono što je trening razgradio.",
+     "Teško svaki dan znači da ti ti sati nikad ne dođu. Više truda, manje napretka."
     ]
    }
   },
@@ -72,6 +123,30 @@
      "Most of your repair work happens while you sleep. Cut it short and your muscles, mood and focus all pay for it the next day.",
      "No recovery trick here can make up for a short night."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Meno di Sei Ore di Sonno",
+    "paragraphes": [
+     "Quasi tutta la riparazione avviene mentre dormi. Accorcialo e muscoli, umore e concentrazione pagano il giorno dopo.",
+     "Nessun trucco di questa lista compensa una notte corta."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Hat Óránál Kevesebb Alvás",
+    "paragraphes": [
+     "A helyreállítás nagy része alvás közben történik. Ha lerövidíted, másnap az izmaid, a hangulatod és a figyelmed fizet érte.",
+     "Ezen a listán egyetlen trükk sem pótol egy rövid éjszakát."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Manje od Šest Sati Sna",
+    "paragraphes": [
+     "Većina popravke se dešava dok spavaš. Skrati san i sutradan plaćaju mišići, raspoloženje i fokus.",
+     "Nijedan trik sa ove liste ne nadoknađuje kratku noć."
+    ]
    }
   },
   {
@@ -86,6 +161,30 @@
     "paragraphes": [
      "After training, your muscles need protein and carbs to rebuild and refill. An iced coffee gives them almost nothing to work with.",
      "Fine as a treat. It lands in D when it's the only thing you have until dinner."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Caffè al Posto del Pasto",
+    "paragraphes": [
+     "Dopo l'allenamento i muscoli hanno bisogno di proteine e carboidrati. Un caffè freddo non dà loro quasi niente.",
+     "Va bene come sfizio. Finisce in D quando è l'unica cosa fino a cena."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Kávé Étkezés Helyett",
+    "paragraphes": [
+     "Edzés után az izmaidnak fehérje és szénhidrát kell az újjáépüléshez. Egy jeges kávé szinte semmit nem ad nekik.",
+     "Csemegének jó. Azért D, ha vacsoráig csak ez van."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Kafa Umesto Obroka",
+    "paragraphes": [
+     "Posle treninga mišićima trebaju proteini i ugljeni hidrati. Ledena kafa im ne daje gotovo ništa.",
+     "U redu kao poslastica. U D je kad je to jedino do večere."
     ]
    }
   },
@@ -102,6 +201,30 @@
      "Total rest feels like recovery, but lying still all day leaves you stiffer and heavier the next morning.",
      "Rest days work better with some gentle movement."
     ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Un Giorno Intero sul Divano",
+    "paragraphes": [
+     "Il riposo totale sembra recupero, ma stare fermo tutto il giorno ti lascia più rigido il mattino dopo.",
+     "I giorni di riposo funzionano meglio con un po' di movimento leggero."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Egész Nap a Kanapén",
+    "paragraphes": [
+     "A teljes pihenés regenerációnak tűnik, de az egész napos fekvés után másnap merevebb leszel.",
+     "A pihenőnapok jobban működnek egy kis könnyű mozgással."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Ceo Dan na Kauču",
+    "paragraphes": [
+     "Potpun odmor deluje kao oporavak, ali ležanje ceo dan te sutradan ostavi ukočenijim.",
+     "Dani odmora bolje rade uz malo laganog kretanja."
+    ]
    }
   },
   {
@@ -116,6 +239,30 @@
     "paragraphes": [
      "Cold water can ease soreness and make you feel fresh again after a hard session.",
      "Used straight after every workout, it may blunt some of the gains you trained for. Nice, not essential."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Bagni nell'Acqua Fredda",
+    "paragraphes": [
+     "L'acqua fredda può alleviare l'indolenzimento e farti sentire fresco dopo una seduta dura.",
+     "Subito dopo ogni allenamento può ridurre parte dei progressi. Piacevole, non essenziale."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Hideg Vizes Merülés",
+    "paragraphes": [
+     "A hideg víz enyhítheti az izomlázat, és kemény edzés után felfrissít.",
+     "Minden edzés után rögtön csökkentheti az elért fejlődés egy részét. Jó, de nem elengedhetetlen."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Kupanje u Hladnoj Vodi",
+    "paragraphes": [
+     "Hladna voda može da ublaži upalu mišića i osveži te posle teškog treninga.",
+     "Odmah posle svakog treninga može da umanji deo napretka. Prijatno, ne neophodno."
     ]
    }
   },
@@ -132,6 +279,30 @@
      "A few minutes of stretching helps you feel loose and makes the next session easier to start.",
      "It feels good, but on its own it does far less for recovery than most people think."
     ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Stretching",
+    "paragraphes": [
+     "Qualche minuto di stretching ti fa sentire sciolto e rende più facile iniziare la seduta dopo.",
+     "Fa stare bene, ma da solo aiuta il recupero molto meno di quanto si pensi."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Nyújtás",
+    "paragraphes": [
+     "Pár perc nyújtás lazábbá tesz, és könnyebb elkezdeni a következő edzést.",
+     "Jólesik, de egymagában sokkal kevesebbet tesz a regenerációért, mint gondolnád."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Istezanje",
+    "paragraphes": [
+     "Par minuta istezanja te opusti i olakša početak sledećeg treninga.",
+     "Prija, ali samo po sebi pomaže oporavku mnogo manje nego što se misli."
+    ]
    }
   },
   {
@@ -146,6 +317,30 @@
     "paragraphes": [
      "You lose water with every session, and even mild dehydration leaves you tired and less sharp.",
      "Simple and cheap. It's not A tier only because most people already get close enough."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Bere Abbastanza Acqua",
+    "paragraphes": [
+     "Perdi acqua a ogni seduta, e anche una disidratazione leggera ti lascia stanco e meno lucido.",
+     "Semplice ed economico. Non è in A solo perché quasi tutti ci arrivano già vicino."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Elég Víz",
+    "paragraphes": [
+     "Minden edzéssel vizet veszítesz, és már az enyhe kiszáradás is fáradttá és kevésbé élessé tesz.",
+     "Egyszerű és olcsó. Csak azért nem A, mert a legtöbben már elég közel vannak hozzá."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Dovoljno Vode",
+    "paragraphes": [
+     "Gubiš vodu na svakom treningu, a i blaga dehidracija te ostavi umornim i manje oštrim.",
+     "Jednostavno i jeftino. Nije A samo zato što je većina već dovoljno blizu."
     ]
    }
   },
@@ -162,6 +357,30 @@
      "Protein to rebuild muscle, carbs to refill your energy. That's what your body recovers with.",
      "It misses A tier because the timing matters much less than eating well across the day."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Un Vero Pasto Dopo",
+    "paragraphes": [
+     "Proteine per ricostruire i muscoli, carboidrati per ricaricare l'energia. È con questo che il corpo recupera.",
+     "Manca la A perché il momento conta molto meno di mangiare bene durante la giornata."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Rendes Étkezés Edzés Után",
+    "paragraphes": [
+     "Fehérje az izmok építéséhez, szénhidrát az energia feltöltéséhez. Ebből regenerálódik a tested.",
+     "Azért nem A, mert az időzítés sokkal kevésbé számít, mint a jó étkezés egész nap."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Pravi Obrok Posle Treninga",
+    "paragraphes": [
+     "Proteini za gradnju mišića, ugljeni hidrati za punjenje energije. Time se telo oporavlja.",
+     "Nije A jer je vreme obroka mnogo manje važno od dobre ishrane tokom dana."
+    ]
    }
   },
   {
@@ -176,6 +395,30 @@
     "paragraphes": [
      "An easy walk gets blood moving through tired legs without adding any real stress to your body.",
      "It's the easiest way to recover faster, and it gets you outside in daylight too."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Camminare nei Giorni di Riposo",
+    "paragraphes": [
+     "Una camminata tranquilla fa circolare il sangue nelle gambe stanche senza aggiungere vero stress.",
+     "Il modo più facile per recuperare prima, e ti porta fuori alla luce."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Séta a Pihenőnapokon",
+    "paragraphes": [
+     "Egy könnyű séta átmozgatja a fáradt lábakat anélkül, hogy valódi stresszt adna a testnek.",
+     "A legkönnyebb módja a gyorsabb regenerációnak, és kijutsz a napfényre is."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Šetnja u Dane Odmora",
+    "paragraphes": [
+     "Lagana šetnja pokrene krv kroz umorne noge bez pravog stresa za telo.",
+     "Najlakši način za brži oporavak, a izvede te i na dnevno svetlo."
     ]
    }
   },
@@ -193,7 +436,31 @@
      "Keep them truly slow. I let a running coach app like Atala plan which days stay easy."
     ]
    },
-   "format": "carre"
+   "format": "carre",
+   "it": {
+    "tier": "A",
+    "nom": "Corse di Recupero Facili",
+    "paragraphes": [
+     "Una corsa lenta e breve tiene le gambe in movimento e costruisce la base aerobica senza aggiungere fatica.",
+     "Tienile davvero lente. Lascio a un'app con coach per la corsa come Atala decidere quali giorni restano facili."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Könnyű Regeneráló Futás",
+    "paragraphes": [
+     "Egy lassú, rövid futás mozgásban tartja a lábad, és építi az aerob alapot, kevés fáradtsággal.",
+     "Tényleg lassan. Én egy futóedző appra bízom, mint az Atala, hogy mely napok maradjanak könnyűek."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Laka Trčanja za Oporavak",
+    "paragraphes": [
+     "Sporo, kratko trčanje drži noge u pokretu i gradi aerobnu bazu bez mnogo umora.",
+     "Neka budu zaista spora. Prepuštam aplikaciji sa trenerom za trčanje kao što je Atala da odredi koji dani ostaju laki."
+    ]
+   }
   },
   {
    "type": "tier",
@@ -207,6 +474,30 @@
     "paragraphes": [
      "Deep sleep is when your body releases growth hormone and does most of its repair work.",
      "Nothing on this list comes close. It's free, and it makes every other habit work better."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Da Sette a Nove Ore di Sonno",
+    "paragraphes": [
+     "Nel sonno profondo il corpo rilascia l'ormone della crescita e fa quasi tutto il lavoro di riparazione.",
+     "Niente in questa lista ci si avvicina. È gratis e fa funzionare meglio ogni altra abitudine."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Hét-Kilenc Óra Alvás",
+    "paragraphes": [
+     "A mély alvásban szabadul fel a növekedési hormon, és ekkor végzi a tested a helyreállítás nagy részét.",
+     "Semmi sem közelíti meg ezen a listán. Ingyenes, és minden más szokást jobbá tesz."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Sedam do Devet Sati Sna",
+    "paragraphes": [
+     "U dubokom snu telo luči hormon rasta i obavlja najveći deo popravke.",
+     "Ništa na ovoj listi nije ni blizu. Besplatno je i čini svaku drugu naviku boljom."
     ]
    }
   }

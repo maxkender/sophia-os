@@ -14,7 +14,7 @@ export const APPLICATION = { slug: "atala", id: "00000000-0000-4000-8000-0000000
  * retire jamais une langue qui a un compte. Red Hat Mono (légendes) n'a pas de
  * cyrillique : pas de bulgare ni de russe sans une autre police.
  */
-export const LANGUES = ["en", "fr"] as const;
+export const LANGUES = ["en", "fr", "hu", "it", "de", "ro", "tr", "es-419"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

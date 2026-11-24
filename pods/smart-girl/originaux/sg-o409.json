@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o409",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "67cca833-0dcb-47c1-abc5-0184123046ee",
+ "titre": "what i quietly stopped doing to look more elegant #elegance #habits #smartgirl #classy #selfimprovement",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 5 de la boîte (parent 67cca833, langue source en) : accroche reformulée (« what i quietly stopped doing to look more elegant »), différente de sg-o358 et sg-o382 ; habitudes du parent. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "00ba245c",
+   "texte_overlay": "what i quietly stopped doing\nto look more elegant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0bd4faed",
+   "texte_overlay": "shouting across rooms",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "506b3575",
+   "texte_overlay": "eating while walking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4a3d5781",
+   "texte_overlay": "apologising for everything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2cc0518d",
+   "texte_overlay": "complaining about little things",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "98e8df8d",
+   "texte_overlay": "interrupting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "754f77a7",
+   "texte_overlay": "scrolling when i had nothing to say\n\nnow i learn instead.",
+   "texte_sophia": "scrolling when i had nothing to say\n\nnow i learn on an app like Sophia instead.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "066bc802",
+   "texte_overlay": "which one will you stop?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

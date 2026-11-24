@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o181",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0804923e-e66b-4a71-88f1-a43b4e5163e0",
+  "titre": "how to survive having no friends at school (no bs, personal advice) #studytok #school #highschool",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "0804923e-e66b-4a71-88f1-a43b4e5163e0"
+  ],
+  "notes": "Déclinaison G1 de 0804923e (r 2,32 en roumain), ligne 8 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot avec ses lettres « 𐐪 𐑂 ». Ton bienveillant, rien de médical. Conseils neufs, aucun du parent ni de cs-o162 : un projet à soi, s'asseoir au premier rang, aider quelqu'un en classe, avoir des sujets de conversation grâce à la curiosité (slide Sophia, 4), les amis en dehors de l'école comptent aussi, parler à un adulte de confiance si c'est lourd. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b2d3a724",
+      "texte_overlay": "𐐪 𐑂 how to survive having no friends\nat school\n(no bs, personal advice) 𐐪 𐑂",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "813244b7",
+      "texte_overlay": "1) have a project that's just yours\na drawing, a sport, a book series. something to look forward to.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "81e9f51e",
+      "texte_overlay": "2) sit in the front row\nyou'll talk to the teacher, and to whoever sits next to you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "110f7f2d",
+      "texte_overlay": "3) always have something to talk about\nfun facts and stories make starting a conversation easy.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg",
+      "texte_sophia": "3) always have something to talk about\ni get fun facts on a micro-learning app like the Sophia app.\nthey make starting a conversation easy."
+    },
+    {
+      "position": 5,
+      "media_id": "18afa75b",
+      "texte_overlay": "4) help someone in class\n\"do you get this exercise?\" is a great first sentence.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "564d3681",
+      "texte_overlay": "5) friends outside school count too\nclubs, cousins, neighbours. school isn't your whole world.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "64e19fd6",
+      "texte_overlay": "and if it feels heavy, talk to an adult you trust.\nyou don't have to carry it alone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

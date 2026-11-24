@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o310",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "70f57f03-afde-42ad-a710-c6fbb8bead03",
+ "titre": "bizarre things confident people do that nobody notices #confidence #psychology #bizarre #habits #selfimprovement",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "d7817c43-6e83-46af-934e-1ff6995fa3b5"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d7817c43). déclinaison G1 de « bizarre things confident people do that nobody notices » (parent 70f57f03). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "29da005b-36d9-4e5a-b69c-2e92d2c63a53",
+   "texte_overlay": "bizarre things confident\npeople do that nobody notices",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "73a14542-3b8a-482f-aec7-9c3530da0f98",
+   "texte_overlay": "they sit in the middle\n\nthey take a seat in the middle of the room instead of the corner. choosing a visible spot without thinking twice is a subtle but powerful sign of ease.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "43d409ab-224a-4bcb-b0f9-f56245dfef1f",
+   "texte_overlay": "they eat slowly\n\nthey eat at their own pace even when everyone else is rushing. not matching other people's speed shows they're comfortable in their own natural rhythm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "895592b8-2a59-4a85-a13c-02b6182b8609",
+   "texte_overlay": "they keep learning\n\nconfident people stay curious, and a little learning every day keeps that confidence steady. people who keep growing never feel they have something to prove.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/4.jpg",
+   "texte_sophia": "they keep learning\n\ni spend 5 minutes a day learning something new, a strange fact or a painting. i do it with the Sophia app, one lesson a day, and it keeps my confidence quietly steady."
+  },
+  {
+   "position": 5,
+   "media_id": "e48810fe-9b63-446a-9355-0935208a6cfa",
+   "texte_overlay": "they let silences sit\n\na few seconds of silence after they speak doesn't bother them. they don't rush to fill it, and that calm makes their words land with so much more weight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b84c32bc-e810-4c2c-b3e7-ae16fcd0b94c",
+   "texte_overlay": "they ask what you mean\n\nthey say sorry, what do you mean, without any embarrassment. asking someone to explain instead of nodding along is something only truly secure people do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/6.jpg"
+  }
+ ]
+}

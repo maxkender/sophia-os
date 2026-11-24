@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o406",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2a7cf8d6-9853-445c-9c46-494d7f1d613e",
+ "titre": "small changes that made me finally feel alive #mindset #slowliving #smartgirl #life #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 2 de la boîte (parent 2a7cf8d6, langue source cs) : accroche reformulée (« small changes that made me finally feel alive »), différente de sg-o356 et sg-o379 ; idées du parent. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7bcac968",
+   "texte_overlay": "small changes that made me\nfinally feel alive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aca6754d",
+   "texte_overlay": "i stopped waiting for\nthe perfect moment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9e5ce3a2",
+   "texte_overlay": "i walk without earphones",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "db636b52",
+   "texte_overlay": "i learn one thing a day",
+   "texte_sophia": "i learn one thing a day on an app\nlike Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ba046cb8",
+   "texte_overlay": "i eat at a real table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "05e48a8e",
+   "texte_overlay": "i call instead of texting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "aee4ec8a",
+   "texte_overlay": "i say yes to one new thing\na week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "467579dc",
+   "texte_overlay": "try one <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

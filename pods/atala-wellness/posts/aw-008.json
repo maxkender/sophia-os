@@ -1,0 +1,123 @@
+{
+ "id": "aw-008",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688019097686248726",
+  "vues": 3029,
+  "accroche": "quelques habitudes wellness simples peuvent changer ta vie..."
+ },
+ "titre": {
+  "en": "simple wellness habits that can change your life"
+ },
+ "legendes": {
+  "en": "small things, big difference 🤍 #wellness #healthyhabits #thatgirl #selfcare #slowliving"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « quelques habitudes wellness simples peuvent changer ta vie… » de @healthy_with_emma6 (3 k), sujet : la vie lente. 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : la semaine complète ; « a running coach app like Atala » ; sans « AI »). Aucun chiffre ni étude citée : des habitudes simples, sans promesse. Photos : banque de l'OS ; Atala : 079b7b38 (route dans la brume, de dos).",
+ "banque": {
+  "images/banque/cv-couv-a.jpg": "0a900463-f764-4091-98bb-6f21685eb8d5",
+  "images/banque/cv-couv-b.jpg": "19c14655-e655-4787-8f22-c9ff67488b1a",
+  "images/banque/cv-rideaux.jpg": "087a2a63-565a-44f1-904e-b822c8d9c9a2",
+  "images/banque/cv-tricot.jpg": "63ea7c6d-80fc-4d0e-b2f8-03d4402f9630",
+  "images/banque/cv-lecture.jpg": "12f14bea-a9ee-4b79-82cd-0d2b438aba64",
+  "images/banque/cv-course.jpg": "079b7b38-ac47-4ee5-b519-307f8dcea854",
+  "images/banque/cv-cuisine.jpg": "374ff9ac-267f-4367-8852-5744bdee22d8",
+  "images/banque/cv-balade.jpg": "000eaa0e-234f-4ec0-8c99-0a7beab9629d"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/cv-couv-a.jpg",
+    "images/banque/cv-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "simple wellness habits that can change your life",
+    "note": "(start with one)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cv-rideaux.jpg",
+   "en": {
+    "titre": "open the curtains _first thing_",
+    "intro": "before your phone, _before anything_",
+    "paragraphes": [
+     "let the morning in, even if it's _grey outside_",
+     "bed, curtains, window. _that's the order_"
+    ],
+    "chute": "good mornings start _with light_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cv-tricot.jpg",
+   "en": {
+    "titre": "make something _with your hands_",
+    "intro": "knitting, painting, _anything slow_",
+    "paragraphes": [
+     "no screen, no notifications, just your hands and _your thoughts_",
+     "20 minutes after dinner, _cozy socks on_"
+    ],
+    "chute": "slow is _a skill_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cv-lecture.jpg",
+   "en": {
+    "titre": "read _by the window_",
+    "intro": "the best seat in the house is _the one with a view_",
+    "paragraphes": [
+     "a book, a blanket and natural light. _no rush_",
+     "10 pages a day, _no pressure_"
+    ],
+    "chute": "romanticise _your corner_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/cv-course.jpg",
+   "en": {
+    "titre": "run _on misty mornings_",
+    "intro": "the quietest part of the day is _all mine_",
+    "paragraphes": [
+     "i never knew what to do each day, so i _kept skipping_ runs",
+     "my tip: a running coach app like Atala lays out _your whole week_, so you just lace up"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cv-cuisine.jpg",
+   "en": {
+    "titre": "music on _while you cook_",
+    "intro": "cooking turns into _the best part_ of the evening",
+    "paragraphes": [
+     "your favorite playlist, a candle, _no rush_",
+     "one new recipe _every week_"
+    ],
+    "chute": "dinner is _a ritual_, not a chore"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cv-balade.jpg",
+   "en": {
+    "titre": "an _evening walk_",
+    "intro": "after dinner, _before the couch_",
+    "paragraphes": [
+     "10 minutes outside when the sun goes down, _phone in your pocket_",
+     "alone, with a friend, _with your mom on the phone_"
+    ],
+    "chute": "end the day _outside_"
+   }
+  }
+ ]
+}

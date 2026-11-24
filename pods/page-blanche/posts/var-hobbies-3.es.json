@@ -1,0 +1,417 @@
+{
+ "post_id": "var-hobbies-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "extremely intelligent"
+     ],
+     "texte": "hobbies que entrenan tu cerebro sin que te des cuenta"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "texte": "(validado por la ciencia)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_101b4c58.jpg",
+      "boite": [
+       0,
+       250,
+       2048,
+       1520
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "texte": "aprende [[fotografía]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "texte": "luz, encuadre, el momento justo: cada foto te enseña a [[ver lo que todos ignoran]]"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "texte": "en un estudio, mayores que aprendieron foto durante 3 meses [[mejoraron más su memoria]] que quienes solo socializaban"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "texte": "no hace falta un gran equipo, con el móvil basta para empezar, se trata de [[aprender a mirar]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0a28ab50.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "texte": "aprende [[otro idioma]]"
+    },
+    "T2": {
+     "en": [
+      "a book makes you follow one idea for pages.",
+      "scrolling trains that out of your head"
+     ],
+     "texte": "palabras nuevas, otra gramática: tu cerebro [[alterna entre dos sistemas]] todo el día"
+    },
+    "T3": {
+     "en": [
+      "if you want to think",
+      "deeper, give your brain",
+      "something long before",
+      "anything short"
+     ],
+     "texte": "en personas bilingües, los síntomas de demencia aparecen [[unos 4 años más tarde]] de media"
+    },
+    "T4": {
+     "en": [
+      "i use readup which blocks",
+      "my apps until i read for 20",
+      "minutes, which stopps me",
+      "from scrolling"
+     ],
+     "texte": "hoy por fin entendí por qué el cielo es azul, en 5 min con [[la app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 217,
+      "l": 832,
+      "h": 62
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 217,
+       "l": 832,
+       "h": 62,
+       "base": 274
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 331,
+      "l": 801,
+      "h": 90
+     },
+     "lignes": [
+      {
+       "x": 37,
+       "y": 331,
+       "l": 801,
+       "h": 41,
+       "base": 369
+      },
+      {
+       "x": 37,
+       "y": 379,
+       "l": 650,
+       "h": 42,
+       "base": 417
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 496,
+      "l": 416,
+      "h": 186
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 496,
+       "l": 344,
+       "h": 40,
+       "base": 527
+      },
+      {
+       "x": 47,
+       "y": 545,
+       "l": 411,
+       "h": 40,
+       "base": 575
+      },
+      {
+       "x": 42,
+       "y": 592,
+       "l": 411,
+       "h": 41,
+       "base": 631
+      },
+      {
+       "x": 46,
+       "y": 642,
+       "l": 262,
+       "h": 40,
+       "base": 672
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 762,
+      "l": 474,
+      "h": 185
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 762,
+       "l": 469,
+       "h": 39,
+       "base": 799
+      },
+      {
+       "x": 41,
+       "y": 808,
+       "l": 472,
+       "h": 42,
+       "base": 847
+      },
+      {
+       "x": 40,
+       "y": 858,
+       "l": 474,
+       "h": 40,
+       "base": 896
+      },
+      {
+       "x": 41,
+       "y": 904,
+       "l": 243,
+       "h": 43,
+       "base": 937
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 541,
+      "y": 438,
+      "l": 434,
+      "h": 820
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 243,
+      "y": 1195,
+      "l": 292,
+      "h": 127
+     }
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "texte": "escribe [[a mano]]"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "texte": "un diario, una carta, tus apuntes: [[boli, no teclado]]"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "texte": "un estudio de 2024: el cerebro está [[mucho más conectado]] al escribir a mano que al teclear"
+    },
+    "T4": {
+     "en": [
+      "you're not just learning the subject, you're training",
+      "yourself to keep going when motivation disappears"
+     ],
+     "texte": "es más lento, y esa es la gracia: tienes que [[elegir tus palabras]] antes de ponerlas en el papel"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_045f1f7b.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "train a martial art"
+     ],
+     "texte": "camina [[rápido y al aire libre]]"
+    },
+    "T2": {
+     "en": [
+      "you get corrected constantly, exposed when your",
+      "technique is bad, and forced to keep going when",
+      "you're tired"
+     ],
+     "texte": "40 minutos, 3 veces por semana, en un sitio verde. sin podcast: deja que tu mente [[divague y lo ordene todo]]"
+    },
+    "T3": {
+     "en": [
+      "martial arts teaches",
+      "you to stay calm under",
+      "pressure"
+     ],
+     "texte": "en mayores, un año caminando rápido [[agrandó el hipocampo]]"
+    },
+    "T4": {
+     "en": [
+      "instead of quitting the",
+      "second something gets",
+      "uncomfortable"
+     ],
+     "texte": "y tus mejores ideas llegan [[a mitad de camino]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_9bd8c2eb.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never miss twice"
+     ],
+     "texte": "haz [[crucigramas]]"
+    },
+    "T2": {
+     "en": [
+      "missed the gym today? fine. ate badly? move on.",
+      "wasted three hours scrolling? don't waste the next",
+      "three."
+     ],
+     "texte": "una pista te hace buscar entre todas las palabras que sabes, y otra solo sale [[cuando rellenas las demás]]"
+    },
+    "T3": {
+     "en": [
+      "the real damage isn't",
+      "making a mistake."
+     ],
+     "texte": "vocabulario, memoria y lógica a la vez"
+    },
+    "T4": {
+     "en": [
+      "it's using that mistake as",
+      "permission to keep going."
+     ],
+     "texte": "y tu café del domingo [[por fin tiene un plan]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0450e0dd.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

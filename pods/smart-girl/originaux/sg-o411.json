@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o411",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e846f35a-fc58-4d3f-9248-92cc701c28c9",
+ "titre": "history's most beautiful love letters #loveletters #history #romance #smartgirl #literature",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 8 de la boîte (parent e846f35a, langue source de) : accroche du parent (notre sg-o284) mot pour mot. Lettres neuves face au parent : John Keats à Fanny Brawne (1819, « I almost wish we were butterflies… », vérifié), Frida Kahlo à Diego Rivera, Victor Hugo à Adèle Foucher, Zelda à F. Scott Fitzgerald, Simone de Beauvoir à Nelson Algren, Richard Burton à Elizabeth Taylor ; décrites sans citations incertaines. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "737a0da4",
+   "texte_overlay": "history's most beautiful\nlove letters",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "18fdc755",
+   "texte_overlay": "john keats to fanny brawne, 1819\n\n\"i almost wish we were butterflies\nand liv'd but three summer days.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ee875e6d",
+   "texte_overlay": "victor hugo to adèle foucher\n\nhundreds of letters before\nthey could marry.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "55633cd0",
+   "texte_overlay": "frida kahlo to diego rivera\n\nletters as passionate\nas her paintings.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f352fbe7",
+   "texte_overlay": "zelda to f. scott fitzgerald\n\na love story written\nin letters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f8a797f4",
+   "texte_overlay": "simone de beauvoir to nelson algren\n\nover 300 letters across\nthe atlantic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5e8ef2e2",
+   "texte_overlay": "and the one i'd write\n\ni read one love story a night.",
+   "texte_sophia": "and the one i'd write\n\ni read one love story a night on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ed0812c9",
+   "texte_overlay": "which one made you\nfeel something?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,1768 @@
+{
+ "id": "sg-040",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 qui te rendent indispensable",
+  "en": "10/10 skills that make you indispensable",
+  "de": "10/10-Skills, die dich unverzichtbar machen",
+  "it": "Abilità 10/10 che ti rendono indispensabile",
+  "pt-BR": "Habilidades 10/10 que te tornam indispensável",
+  "tr": "Seni vazgeçilmez yapan 10/10 beceriler",
+  "ro": "Abilități 10/10 care te fac indispensabil",
+  "cs": "Dovednosti 10/10, díky kterým budeš nepostradatelný",
+  "hu": "10/10 készségek, amiktől nélkülözhetetlen leszel",
+  "el": "Δεξιότητες 10/10 που σε κάνουν απαραίτητο",
+  "sr": "Veštine 10/10 koje te čine nezamenljivim"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui te rendent indispensable #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that make you indispensable #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die dich unverzichtbar machen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che ti rendono indispensabile #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que te tornam indispensável #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Seni vazgeçilmez yapan 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care te fac indispensabil #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, díky kterým budeš nepostradatelný #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10 készségek, amiktől nélkülözhetetlen leszel #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που σε κάνουν απαραίτητο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje te čine nezamenljivim #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - Jacob . P",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "Full test du 24/11, « Compétences 10/10 qui te rendent indispensable », en 11 langues. 5 compétences de la personne qu'on appelle quand ça casse : accélérer un PC lent, remettre la chaîne du vélo, réparer une chasse d'eau, faire une pâte à pizza, repeindre une pièce. Vraies vidéos natives par langue (aucune d'un autre post). Sophia en étape 4 sur 7, cta C, « ÊTRE LE / CERVEAU DU GROUPE ». Grec en capitales sans accents (police grecque), serbe en latin ekavien.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUI TE RENDENT",
+      "cap": 120
+     },
+     {
+      "t": "INDISPENSABLE",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAT MAKE YOU",
+      "cap": 120
+     },
+     {
+      "t": "INDISPENSABLE",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "DIE DICH",
+      "cap": 130
+     },
+     {
+      "t": "UNVERZICHTBAR",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "MACHEN",
+      "cap": 130
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "CHE TI RENDONO",
+      "cap": 120
+     },
+     {
+      "t": "INDISPENSABILE",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE TE TORNAM",
+      "cap": 120
+     },
+     {
+      "t": "INDISPENSÁVEL",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "SENİ",
+      "cap": 130
+     },
+     {
+      "t": "VAZGEÇİLMEZ",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "YAPAN",
+      "cap": 130
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "CARE TE FAC",
+      "cap": 120
+     },
+     {
+      "t": "INDISPENSABIL",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "DÍKY KTERÝM",
+      "cap": 120
+     },
+     {
+      "t": "BUDEŠ",
+      "cap": 120
+     },
+     {
+      "t": "NEPOSTRADATELNÝ",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "AMIKTŐL",
+      "cap": 120
+     },
+     {
+      "t": "NÉLKÜLÖZHETETLEN",
+      "cap": 200,
+      "couleur": "brun"
+     },
+     {
+      "t": "LESZEL",
+      "cap": 130
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΠΟΥ ΣΕ ΚΑΝΟΥΝ",
+      "cap": 120
+     },
+     {
+      "t": "ΑΠΑΡΑΙΤΗΤΟ",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "KOJE TE ČINE",
+      "cap": 120
+     },
+     {
+      "t": "NEZAMENLJIVIM",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "ACCÉLÉRER",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "UN PC LENT"
+    ],
+    "video": {
+     "id": "l_y4DSkAErk",
+     "titre": "Comment accélérer un ordinateur lent facilement (succès instantané 👍) 2024-25",
+     "chaine": "LE FILTRE",
+     "vues": "2 M de vues",
+     "date": "il y a 5 ans",
+     "duree": "15:45",
+     "avatar": "https://yt3.ggpht.com/rxJhSWF5lhDK5qgkD6sCkYMTjBRukeFKQJ-QsO4Xgf59RYYbMBrzweIocckfI4mKPMwYmEC697E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "SPEED UP",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "A SLOW PC"
+    ],
+    "video": {
+     "id": "j2RW8Rt1nP4",
+     "titre": "Fix Your Slow Computer - 5 Easy Steps - Windows 10 (2025)",
+     "chaine": "Gophxr Tech",
+     "vues": "2.4M views",
+     "date": "4 years ago",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/-VhViNPURw-UGBZkOOzp-9mXJp1bfzTrz1IhK43kZqVvRkIL2ua4J6MzqxRrFagEAEb4CxEW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "LANGSAMEN PC",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "SCHNELLER MACHEN"
+    ],
+    "video": {
+     "id": "IyEZc3XP-EE",
+     "titre": "Windows 10: Mit diesen 5 Tipps wird Dein Rechner schneller!",
+     "chaine": "BILDNER TV",
+     "vues": "202.559 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "9:46",
+     "avatar": "https://yt3.ggpht.com/mroOxn4mN9zY6yE99P0vCRWcuDIqcmOw1K30nKcsnmUUgymPmSHxVhwhx3KQqKlcwZsg4als=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "VELOCIZZARE",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "UN PC LENTO"
+    ],
+    "video": {
+     "id": "E8iEg67fHlo",
+     "titre": "Come velocizzare un PC Windows 10 o Windows 11: 4 trucchi efficaci per prestazioni ottimali!",
+     "chaine": "Gentiluomo Digitale",
+     "vues": "156K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "6:57",
+     "avatar": "https://yt3.ggpht.com/n9SqcxTNMyNYaxkPAYyvpNK1CN9z0ElNvIX5dquv0uZjpgGt0b-YDPs_HsxUhbXPj3MfveVKs7A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DEIXAR O PC",
+     [
+      {
+       "t": "MAIS RÁPIDO",
+       "couleur": "#2b6fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RDIZXpe0yBQ",
+     "titre": "COMO DEIXAR O PC MAIS RAPIDO EM 5 MINUTOS | COMO MELHORAR O DESEMPENHO DO PC",
+     "chaine": "Tec Manual",
+     "vues": "1,9 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "12:33",
+     "avatar": "https://yt3.ggpht.com/ZM2OQv3H6JPOGsHpcZuOK3mxhkRvIvoLxHMkK4u-XqGdPBonYYR3mhYK8u3W-4NYUYXugm3R6g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BİLGİSAYARI",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "HIZLANDIRMAK"
+    ],
+    "video": {
+     "id": "yErEdYjHCh0",
+     "titre": "Yavaşlayan bilgisayar nasıl hızlandırılır?| Windows hızlandırma!",
+     "chaine": "Kingston Türkiye",
+     "vues": "126 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "7:26",
+     "avatar": "https://yt3.ggpht.com/tcMIDOLJNV-HqMbZpyBDWAO7hzc2DA6U5kBUW6amyD7zeI8sq_mjTLg-PGvJMZBtW4CKj7wrvQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ GRĂBEȘTI",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "UN PC LENT"
+    ],
+    "video": {
+     "id": "eTm3ZUQWsGI",
+     "titre": "Cum îți faci Windows-ul să se miște mai rapid (gratis)",
+     "chaine": "Cristian Florea",
+     "vues": "47 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/cvjBQ4CJ_RDxwenu6Z7LMy1fF_j1IE3TwcERBGnZlnJMeqEqB56rmwQpsTCxe7qO8guIcysj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZRYCHLIT",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "POMALÝ POČÍTAČ"
+    ],
+    "video": {
+     "id": "zJqLhU4Vg5g",
+     "titre": "JAK ZE SVÉHO PC DOSTAT MAXIMUM? (TIPY/TRIKY)",
+     "chaine": "Davec",
+     "vues": "16 tis. zhlédnutí",
+     "date": "před 10 měsíci",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/pMtninpNgRTQted_y4RvQwdVq8ZlXJoiAXvZODTTjfMaMV5xso4cdtvejXFsQ9iXriJjP5qZMKQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "FELGYORSÍTANI",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "A LASSÚ GÉPET"
+    ],
+    "video": {
+     "id": "hlyR5djYoC4",
+     "titre": "Windows 10 Gyorsítása Egyszerűen! 1.rész",
+     "chaine": "TechTravel",
+     "vues": "291 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "11:07",
+     "avatar": "https://yt3.ggpht.com/JBvWofvPrhHn-o8pa7rsf2wihAJQ5kaSy2rJ58OcTtOzUbRkwx-1w_VRZkRYoMOr2qfxZLKTqw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΑΝΕΙΣ ΤΟ PC",
+     [
+      {
+       "t": "ΠΙΟ ΓΡΗΓΟΡΟ",
+       "couleur": "#2b6fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rpI6S2Durpo",
+     "titre": "ΚΑΝΕ ΤΟ PC ΠΙΟ ΓΡΗΓΟΡΟ - WINDOWS 10 ULTIMATE PERFORMANCE 🚀",
+     "chaine": "Dimitrology GR",
+     "vues": "45 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "7:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqariHY5dnpKwWQ0wruiQ_M0xwEMJpBQSZ5g_sN-5GhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "UBRZATI",
+       "couleur": "#2b6fd6"
+      }
+     ],
+     "SPOR RAČUNAR"
+    ],
+    "video": {
+     "id": "0xRx2hI_Y2Y",
+     "titre": "UBRZAJTE SVOJ RAČUNAR! *za početnike* - hAXE #004",
+     "chaine": "AXE",
+     "vues": "341 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/Hca2W3gfuhU4qhaykNJOP-nC5-xXUvXPeVQ8MpcD5gCvyBvty2sYE3A2yMoTL1gBoZq_Zu3Uug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "REMETTRE",
+     [
+      {
+       "t": "LA CHAÎNE DU VÉLO",
+       "couleur": "#3a8f3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oUuj6euz74E",
+     "titre": "Comment remettre en place une chaîne qui a déraillé | Réparer son vélo",
+     "chaine": "SIKANA Français",
+     "vues": "281 k vues",
+     "date": "il y a 9 ans",
+     "duree": "1:40",
+     "avatar": "https://yt3.ggpht.com/DQX2cY4K-0dl13gQ73G59f47sEafsdFI486pzU_WvghKWvX-rYDs_LfG9j6vP-wDvLBDP5nyOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PUT A BIKE CHAIN",
+     [
+      {
+       "t": "BACK ON",
+       "couleur": "#3a8f3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "g7KcPpkkxy8",
+     "titre": "How to put chain back on bike",
+     "chaine": "DAD OR DIE",
+     "vues": "63K views",
+     "date": "6 years ago",
+     "duree": "0:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l7RYi4xPLK7HQ3rIAKGZCFfQDyUygNQzlTRDYahTOQlA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "FAHRRADKETTE",
+     [
+      {
+       "t": "WIEDER DRAUFMACHEN",
+       "couleur": "#3a8f3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wUyMyRpgoPc",
+     "titre": "Fahrrad-Tipp: Wenn die Kette abspringt",
+     "chaine": "zoomindehowto",
+     "vues": "208.346 Aufrufe",
+     "date": "vor 14 Jahren",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kUuHMjM9aisclre7ZQ0UdUKq3zc4N2LavBXijWmjUnfQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RIMETTERE",
+     [
+      {
+       "t": "LA CATENA DELLA BICI",
+       "couleur": "#3a8f3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "73TRIh4l3CE",
+     "titre": "Cosa fare se cade la catena mentre pedaliamo | Ciclismo per principianti.",
+     "chaine": "GCN Italia",
+     "vues": "182K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "7:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrCvY2hC_fJw6eVkx3_N_OgNEByvonqSscTkZPDjgo6kA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COLOCAR A CORRENTE",
+     [
+      {
+       "t": "DA BICICLETA",
+       "couleur": "#3a8f3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gEXcLqKSuR4",
+     "titre": "Corrente da bicicleta soltou, como colocar corrente do jeito muito fácil. #bike #bicicleta #pedal",
+     "chaine": "Bike estilo de vida",
+     "vues": "32 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/Xtry8YUZ3YuYBJXboe5JHGx5A7VZAarWowzwyzVRX8p57O-3wUgx1CtIABWgzgXKkFZQ0Ave0w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BİSİKLET ZİNCİRİ",
+       "couleur": "#3a8f3e"
+      }
+     ],
+     "TAKMAK"
+    ],
+    "video": {
+     "id": "psujE8U17wQ",
+     "titre": "Bisiklet zinciri nasıl takilir",
+     "chaine": "serdar Elhakan",
+     "vues": "168 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "1:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lGOe3UKIEanFz2nqclnQ-g8uUHvTF4YrGORWYERDlFeA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ PUI LANȚUL",
+       "couleur": "#3a8f3e"
+      }
+     ],
+     "LA BICICLETĂ"
+    ],
+    "video": {
+     "id": "CjbG05vHlZ4",
+     "titre": "PlayBike te ajută - Cum să montăm lanțul? (ep. 13)",
+     "chaine": "PlayBike TV",
+     "vues": "49 K vizionări",
+     "date": "acum 11 ani",
+     "duree": "1:15",
+     "avatar": "https://yt3.ggpht.com/X8ukdlWjZAxbvJ9I5F0li3rpiaRWE0eb7B1Cqqk3G5zXUoXuOvlBgEaLWfEPB9Tz3T8E5LZIpco=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NASADIT",
+     [
+      {
+       "t": "ŘETĚZ NA KOLO",
+       "couleur": "#3a8f3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0w7evG4yXMg",
+     "titre": "Jak vyměnit řetěz na kole | Cyklodiskont.cz",
+     "chaine": "CYKLODISKONT",
+     "vues": "106 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m70VS2JaunEvGo0xJL3-ewZ0JoOyWvADUXsyqxL-KyBQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "VISSZATENNI",
+     [
+      {
+       "t": "A BICIKLILÁNCOT",
+       "couleur": "#3a8f3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "a0-u5TBuWl4",
+     "titre": "A lánc levétele és visszahelyezése",
+     "chaine": "Kerékpárhangoló",
+     "vues": "4,5 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "2:58",
+     "avatar": "https://yt3.ggpht.com/Ry3PoGSh3UiP8JlMnp7LzBSKhUJK8-WcmuYPubQDwQ7d1iCLiZ3bGUl5Dv92DnmnLF-30s8NZw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΒΑΖΕΙΣ",
+     [
+      {
+       "t": "ΤΗΝ ΑΛΥΣΙΔΑ",
+       "couleur": "#3a8f3e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "71TLsmQF-CQ",
+     "titre": "Πώς να βάλετε την αλυσίδα στο ποδήλατό σας",
+     "chaine": "krownZ",
+     "vues": "5,2 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "1:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l-CD24hwO7RgSRFcnpwCGUjXXidxL2S6-KUdFBK-almQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "VRATITI LANAC",
+       "couleur": "#3a8f3e"
+      }
+     ],
+     "NA BICIKL"
+    ],
+    "video": {
+     "id": "vrUWKrKPct0",
+     "titre": "Kako zameniti lanac na biciklu [0052]",
+     "chaine": "BikeGremlin RS",
+     "vues": "72 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "11:58",
+     "avatar": "https://yt3.ggpht.com/P-AQ5boNqXefLB98jyoS1j05UHD7lAxeDw_XVMrZSNt95ng7Vl3XJ23KGzUX1hcu23T_DBofW-Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ÊTRE LE",
+     [
+      {
+       "t": "CERVEAU DU GROUPE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BE THE BRAIN",
+     [
+      {
+       "t": "OF THE GROUP",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SEI DAS",
+     [
+      {
+       "t": "GEHIRN DER GRUPPE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ESSERE IL",
+     [
+      {
+       "t": "CERVELLO DEL GRUPPO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SER O",
+     [
+      {
+       "t": "CÉREBRO DO GRUPO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GRUBUN",
+     [
+      {
+       "t": "BEYNİ OLMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FII",
+     [
+      {
+       "t": "CREIERUL GRUPULUI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BÝT",
+     [
+      {
+       "t": "MOZKEM PARTY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "LEGYÉL A",
+     [
+      {
+       "t": "CSAPAT AGYA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΓΙΝΕ ΤΟ",
+     [
+      {
+       "t": "ΜΥΑΛΟ ΤΗΣ ΠΑΡΕΑΣ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "αυτό ανοίγω",
+      "αντί να σκρολάρω."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "BUDI",
+     [
+      {
+       "t": "MOZAK DRUŠTVA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉPARER",
+     [
+      {
+       "t": "UNE CHASSE D'EAU",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2xLigw8xWVI",
+     "titre": "Chasse d'eau qui fuit : réparez-la en 5 minutes",
+     "chaine": "Thomastuces",
+     "vues": "77 k vues",
+     "date": "il y a 1 an",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/UTtZvmbmrqoZ9PdS4IyWgtkmmlreOdI6GOnbD9pe5jV8UDiOvLKTqy5KpOYpcoL7J0rH9B27Zw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FIX A",
+     [
+      {
+       "t": "RUNNING TOILET",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NQ2AXvqgfPM",
+     "titre": "How to fix a running toilet. The two most common causes.",
+     "chaine": "JENSEN DIY",
+     "vues": "2M views",
+     "date": "4 years ago",
+     "duree": "6:35",
+     "avatar": "https://yt3.ggpht.com/EsOTjohrxybaBfijR8lRTaHFVJaFSvpsmAi0CswIuivKtwDICVlktnHOwqosHxEFJW1zjy2teA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SPÜLKASTEN",
+     [
+      {
+       "t": "REPARIEREN",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5Kn7LD9vvwA",
+     "titre": "Toilettenspülung Wasser läuft nach | Was tun?",
+     "chaine": "Repti",
+     "vues": "997.838 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "9:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCBBA7NLugNZQuODRdpaadUgJHG5Vgv_XG_bU7AqVVPQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RIPARARE",
+     [
+      {
+       "t": "LO SCIACQUONE",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_oTmDfXgZrE",
+     "titre": "Cosa fare quando la cassetta tradizionale in alto del WC perde acqua",
+     "chaine": "Tenoreinformatico",
+     "vues": "180K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "7:03",
+     "avatar": "https://yt3.ggpht.com/E6Ki3xto6bE4LfSZ6ogVNE9szNFesZeKGHxzrWlAaPeFZjE4-PtC_5SRdEt8AtZqFJ58j60YKg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CONSERTAR",
+     [
+      {
+       "t": "A DESCARGA",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ymnNJQ4v1IM",
+     "titre": "CAIXA ACOPLADA VAZANDO COMO CONSERTAR (Passo a Passo)",
+     "chaine": "Hidráulica Fácil",
+     "vues": "3,7 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/E7i_Swhd5-lwjsgdriPOX026jRaeJuT5nvQsFvqZFCA7l1NpLazGVQACCakMp1EIYwbc-R36Lw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KLOZETİ",
+       "couleur": "#1597a8"
+      }
+     ],
+     "TAMİR ETMEK"
+    ],
+    "video": {
+     "id": "l7b5Eg_of9k",
+     "titre": "Eyvah ! Klozet Su Kaçırıyor - Klozet Rezervuar İç Takımı Tamiri - Klozetten Su Neden Gelir - Tamirat",
+     "chaine": "Yaşar Alanoğlu",
+     "vues": "631 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "5:03",
+     "avatar": "https://yt3.ggpht.com/3_TdRQoGhAjimvHjsvZ6CXY9_PTvu2gKopbv9QcH9TKJ7nuhqh0L4-fzFwH_o2YNnXhbrfcGig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ REPARI",
+     [
+      {
+       "t": "REZERVORUL WC",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kbHQzWMo-4Y",
+     "titre": "Apa curge permanent in vasul de WC , cum se repara ?",
+     "chaine": "Mesterind prin casa",
+     "vues": "163 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "5:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lAGefETeZR7HNherFOxTSKn4LVgFB5fCRrFJnHBQVp1w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OPRAVIT",
+     [
+      {
+       "t": "PROTÉKAJÍCÍ ZÁCHOD",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tRVDVS3uddk",
+     "titre": "Takhle opravíte PROTÉKAJÍCÍ ZÁCHOD - 3 hlavní příčiny a řešení",
+     "chaine": "Buildex Magazín",
+     "vues": "145 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "8:32",
+     "avatar": "https://yt3.ggpht.com/K-Wh2tf2vj_-zwa1hp4LQg3m-lyzYnOfyezsTiLYXCuseoyJHvF3NCYtjWgnavSM_lCLNcak_8Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MEGJAVÍTANI",
+     [
+      {
+       "t": "A WC-TARTÁLYT",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "c5LmKiSDE5Y",
+     "titre": "Csöpög vagy folyik a WC tartály? Mutatjuk hogyan javíthatod meg! | Green Cottage DIY",
+     "chaine": "Green Cottage DIY",
+     "vues": "331 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "11:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nTPoAi2OK3WyDqCXeBpSTZoNtFG_4Kxe9xbZCffF9KlQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΧΝΕΙΣ",
+     [
+      {
+       "t": "ΤΟ ΚΑΖΑΝΑΚΙ",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z0-6I9XGqqI",
+     "titre": "Τρέχει το καζανάκι – Τα βήματα για να το διορθώσετε",
+     "chaine": "grigoris frag",
+     "vues": "186 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "12:47",
+     "avatar": "https://yt3.ggpht.com/xs4RLr6ld9RAXTy211TobGRPUeWKf1LcQBP4mFslfFWh9OKUrpPEhRMeLM_hQINy_oJe5wF5dA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POPRAVITI",
+     [
+      {
+       "t": "VODOKOTLIĆ",
+       "couleur": "#1597a8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iILNZNK_q8w",
+     "titre": "Zašto VODOKOTLIĆ ne radi?Rešenje problema u par koraka!",
+     "chaine": "Hallo Djordje",
+     "vues": "27 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "10:32",
+     "avatar": "https://yt3.ggpht.com/h_2vZe0lJ230Fh0hnmZ1O01VgANlDJLZJIJMB5eEviwifGFdGnmwcLQimnsPHsbJVX_kklM77g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UNE PÂTE",
+     [
+      {
+       "t": "À PIZZA",
+       "couleur": "#cf3b2b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OArztdG6fno",
+     "titre": "[ Recette de base n°6 ] : La pâte à Pizza épaisse et moelleuse",
+     "chaine": "JustInCooking",
+     "vues": "2,2 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "2:11",
+     "avatar": "https://yt3.ggpht.com/t33FE4uER4tDySPGqJogtIRUJUhCgpJuClVoyDEZpB7qTJ9dhD3CBqmn2qaKgNtPhknzCZEYTyk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "PIZZA DOUGH",
+       "couleur": "#cf3b2b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3q-0dPDkbZU",
+     "titre": "Best Homemade Pizza Dough for beginners (Easy and Delicious)",
+     "chaine": "Patio Pizza",
+     "vues": "1.1M views",
+     "date": "1 year ago",
+     "duree": "3:18",
+     "avatar": "https://yt3.ggpht.com/x6CHhIzCTG9Cspmsw6MiuaGmoINNCQcGsFXs0lvBBz8RSzC-DeiM36cDGhK1_I8czne9XDBhyw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "PIZZATEIG",
+       "couleur": "#cf3b2b"
+      }
+     ],
+     "SELBER MACHEN"
+    ],
+    "video": {
+     "id": "iRtYmxExYjg",
+     "titre": "Italienischen Pizzateig selber machen / Thomas kocht",
+     "chaine": "Thomas kocht",
+     "vues": "629.240 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/QeB7zELolJTupoLorhKSeFx7zv2KanWQ85AvOWfwVVOkw1npigOeAZn78Hcdd6LauD6TbjriFA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE L'IMPASTO",
+     [
+      {
+       "t": "DELLA PIZZA",
+       "couleur": "#cf3b2b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IlKb6LpRNxc",
+     "titre": "IMPASTO della PIZZA – La nostra ricetta PERFETTA per prepararla direttamente a casa! 🍕🍕🍕",
+     "chaine": "GialloZafferano",
+     "vues": "1,3 Mln visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/DIbS5q7AH-sy9nB9K6AfT-4yhagb4h1GI2u-9UQmcQCbtY8kV85MwumcnSGWYmUOl8shxYClsSI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER MASSA",
+     [
+      {
+       "t": "DE PIZZA",
+       "couleur": "#cf3b2b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VLG0shV8k1c",
+     "titre": "Massa de Pizza feita em casa  igual da Pizzaria",
+     "chaine": "Receitas do Kazu",
+     "vues": "4,6 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/vg-N1J61dWhEHXQBCmSpM1kEIywqeM53XoJQmFcsJ7kEhKVfrIgXvUzlEOdtsLgvK6BegAjGvQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PİZZA HAMURU",
+       "couleur": "#cf3b2b"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "neFAtiSLrTc",
+     "titre": "Pizza Hamuru Tarifi | Nasıl  Yapılır?",
+     "chaine": "Nefis Yemek Tarifleri | Bugün Ne Pişirsem?",
+     "vues": "2,3 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/SlYKkIpSlt9fYd_LAEq1jWrCwR1hUmTnmw1oC7JpwiPz6K4_U-0q6rFIjYqo9occ6Zmo0fiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "ALUAT DE PIZZA",
+       "couleur": "#cf3b2b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IMESHiySL2A",
+     "titre": "Cum se face aluatul de pizza, pufos si rapid | Gina Bradea",
+     "chaine": "Poftă bună cu Gina Bradea",
+     "vues": "3,7 mil. vizionări",
+     "date": "acum 8 ani",
+     "duree": "3:53",
+     "avatar": "https://yt3.ggpht.com/MSVdcNKdt-nlvPe9ZeD1dvfhhC5OhSYyX7UlspVPQNau-CDQuMpbCiD1s_AqXma15DBYlAoYTg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UDĚLAT",
+     [
+      {
+       "t": "TĚSTO NA PIZZU",
+       "couleur": "#cf3b2b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OcrneRtAc4A",
+     "titre": "Nejlepší domácí těsto na pizzu jako z Itálie! 🍕 Snadno a rychle",
+     "chaine": "Toprecepty",
+     "vues": "16 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/VfgzHQ5ovRF2e39ikbB_Xd273tP3FtJQivAmUF8OGS7GMGMWEoPMS-ZoOeFP45aV2rQVATU_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "PIZZATÉSZTÁT",
+       "couleur": "#cf3b2b"
+      }
+     ],
+     "KÉSZÍTENI"
+    ],
+    "video": {
+     "id": "3qN2r6br6e4",
+     "titre": "Így készíts alap pizzatésztát!",
+     "chaine": "Street Kitchen",
+     "vues": "152 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/3fJMKfBUrEM8w4WhBqBI-Md-eoeRjHcnuQZ9EGOOtgDa2nRkBRrVRwop9sZ-SlvEBei7E0lT0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΧΝΕΙΣ",
+     [
+      {
+       "t": "ΖΥΜΗ ΓΙΑ ΠΙΤΣΑ",
+       "couleur": "#cf3b2b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "faX-2y1YQwM",
+     "titre": "Εύκολη χορταστική σπιτική πίτσα | Foodaholics",
+     "chaine": "Foodaholics",
+     "vues": "188 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/BzOAdXvdcELOqkOsG3TD8hxvjdjGErhERndIoHOuI1faNbXUDLAA0sD1wOrlPO8fSfmE3SWGcJU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "TESTO ZA PICU",
+       "couleur": "#cf3b2b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y1oac-nVImE",
+     "titre": "Testo za picu koje uspeva i početnicima. Jednostavno savršeno!",
+     "chaine": "Domaći Recepti",
+     "vues": "67 hilj. pregleda",
+     "date": "pre 2 godine",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/d0PH2Bg0npQivdj73EaqMo_89ViYL6C720IR3qIFoLPCs2bQpDzPaOfVBLJgKMr6-nmWQ_vM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "REPEINDRE",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "UNE PIÈCE"
+    ],
+    "video": {
+     "id": "VKh-VWgL9ew",
+     "titre": "[TUTO] Comment peindre un mur comme un pro",
+     "chaine": "YouPaint",
+     "vues": "104 k vues",
+     "date": "il y a 6 ans",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/URO-2iXDVtlQzbVXAOjXJzevS-6vJWZT3-p3jlnFCIh7Q_Y6wcX7IwaWa0JsoN20KiFNCsh1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "PAINT",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "A ROOM"
+    ],
+    "video": {
+     "id": "99beIiQF20w",
+     "titre": "How to Paint a Room Like a Pro",
+     "chaine": "The Home Depot Canada",
+     "vues": "247K views",
+     "date": "6 years ago",
+     "duree": "4:45",
+     "avatar": "https://yt3.ggpht.com/i0Eg04tazuk7Q9d__9JQqwsWt04lNve7H1gDeJ6zfT11Y-0Qk8_IFfFbQWBug1J-5EsghYZ5lA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "WÄNDE",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "STREICHEN"
+    ],
+    "video": {
+     "id": "KBsb3m48V_8",
+     "titre": "Wand und Decke richtig selber streichen | toom Werkstatt",
+     "chaine": "toom Baumarkt",
+     "vues": "399.300 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "1:52",
+     "avatar": "https://yt3.ggpht.com/YAmqSlUYIQuq2jOxseeC7AqhGbZ68MEjtEjDUS22YoRw7yBEDHFb_g-5GSfn8BTyX-P1N3TLbQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "IMBIANCARE",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "UNA PARETE"
+    ],
+    "video": {
+     "id": "AufeQrnAMOg",
+     "titre": "Come pitturare una parete con rullo e pennello | Leroy Merlin",
+     "chaine": "leroymerlinitalia",
+     "vues": "787K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPcfe_mCS9FDE7Ui_20cQV-qU_87rk2UPX5c6xbSaHWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "PINTAR",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "UMA PAREDE"
+    ],
+    "video": {
+     "id": "ktpSddmf0-0",
+     "titre": "Como pintar parede? Confira o passo a passo e aprenda",
+     "chaine": "Tintas Suvinil",
+     "vues": "434 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/_FpxwdqFDz0PJxvjnaFpmoknL9anNdpxo7ZSSbPk7YRenrUpRd4aX1DI2s3LakWyShqJdOuW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DUVAR",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "BOYAMAK"
+    ],
+    "video": {
+     "id": "C_AnlbCzUVI",
+     "titre": "Duvar Nasıl Boyanır? - Duvar Boyama Teknikleri",
+     "chaine": "Koçtaş",
+     "vues": "531 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "3:32",
+     "avatar": "https://yt3.ggpht.com/FCmVkmQz7ca9TSsCoKwvSa9VST0UEFMsD399m51_6gztrlsa4M1abX-bvmZ5IkRJa7R0ENm3FQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ZUGRĂVEȘTI",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "UN PERETE"
+    ],
+    "video": {
+     "id": "1OS0l5ZpXoU",
+     "titre": "Cum se vopsește un perete cu trafaletul. Ghid de vopsire a pereților. Tutorial Video Leroy Merlin",
+     "chaine": "Leroy Merlin România",
+     "vues": "462 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "4:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mNEbhag4yTr9Wmwr0pHR-QCP0BSJ15JazWYdLEy_vrR44=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "VYMALOVAT",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "POKOJ"
+    ],
+    "video": {
+     "id": "qCULuw_tdA0",
+     "titre": "JAK SI SVÉPOMOCÍ VYMALOVAT JAKO PROFESIONÁL",
+     "chaine": "COLORLAK, a.s.",
+     "vues": "88 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "3:22",
+     "avatar": "https://yt3.ggpht.com/gjWUH4XMbp-FvGvVToj-I9blX4-Rhx7kS_boMRFktEpwWMcQ4mumUiAYkluUu0Bkt9HchLnutp4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "KIFESTENI",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "EGY SZOBÁT"
+    ],
+    "video": {
+     "id": "bgjyEWrgGiE",
+     "titre": "Falfestés kezdőknek: Így lesz csíkmentes",
+     "chaine": "Praktiker Magyarország",
+     "vues": "63 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/lfdHIMpWHkWdNcLrC-h8qRvBgQnV4gOjrxCOLjjHBSOf0k1sCsKGaxeb_yyaDeCyNadZj3CJTjg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΝΑ ΒΑΦΕΙΣ",
+       "couleur": "#ec8a1d"
+      }
+     ],
+     "ΕΝΑΝ ΤΟΙΧΟ"
+    ],
+    "video": {
+     "id": "qgsMQDZvaWo",
+     "titre": "Βάψιμο τοίχου: Βήματα και Οδηγίες από τη Vivechrom",
+     "chaine": "VIVECHROM SA",
+     "vues": "70 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "1:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m_hQ-_4EUCjzF8q5q4wz6U0JVMlCL0GAnAcoAkWCAxBos=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "OKREČITI",
+     [
+      {
+       "t": "ZID",
+       "couleur": "#ec8a1d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cWWiR47eDLQ",
+     "titre": "Uradi sam: Postupak bojenja zidova",
+     "chaine": "Gradnja",
+     "vues": "628 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBi547d0Bw5y8p9ClEOb6cTlX6c10qnn0g72UEgDGe5No=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
+   }
+  }
+ ]
+}

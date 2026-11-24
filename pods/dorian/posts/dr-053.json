@@ -1,0 +1,132 @@
+{
+ "id": "dr-053",
+ "format": "liste",
+ "titre": {
+  "en": "5 philosophy ideas that genuinely rewire your brain",
+  "it": "5 idee filosofiche che ti ricablano il cervello",
+  "tr": "beynini yeniden kuran 5 felsefi fikir"
+ },
+ "legendes": {
+  "en": "#philosophy #niche #smarttok #lockedin",
+  "it": "#filosofia #pensiero #cultura #imparare",
+  "tr": "#felsefe #düşünce #bilgi #öğrenmek"
+ },
+ "musique": {
+  "titre": "оригинальный звук - butazer",
+  "url": "https://www.tiktok.com/music/original-sound-7648276161688062742"
+ },
+ "notes": "Déclinaison G1 de dr-013 (meilleur passage it 8,5 k) : titre mot pour mot, autres idées (caverne, induction de Hume et cygnes noirs, Sartre, Camus), autres images, autre CTA (cta A), autre écran (cours). Images Seedream et tableau AIC Manet. En, it, tr ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 philosophy ideas that genuinely rewire your brain",
+    "image": "images/cerveau-33.jpg",
+    "legende": "(part two)"
+   },
+   "it": {
+    "titre": "5 idee filosofiche che ti ricablano il cervello",
+    "image": "images/cerveau-34.jpg",
+    "legende": "(seconda parte)"
+   },
+   "tr": {
+    "titre": "beynini yeniden kuran 5 felsefi fikir",
+    "image": "images/cerveau-35.jpg",
+    "legende": "(ikinci bölüm)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Plato's cave",
+    "texte": "prisoners who have only ever seen shadows on a wall think the shadows are reality. what if you're looking at shadows too?",
+    "image": "images/caverne.jpg"
+   },
+   "it": {
+    "titre": "La caverna di Platone",
+    "texte": "prigionieri che hanno sempre visto solo ombre su un muro pensano che le ombre siano la realtà. e se stessi guardando ombre anche tu?",
+    "image": "images/caverne.jpg"
+   },
+   "tr": {
+    "titre": "Platon'un mağarası",
+    "texte": "duvardaki gölgelerden başka bir şey görmemiş tutsaklar gölgeleri gerçek sanır. ya sen de gölgelere bakıyorsan?",
+    "image": "images/caverne.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The problem of induction",
+    "texte": "david hume: seeing the sun rise every day doesn't prove it will rise tomorrow. europeans were sure all swans were white, until black swans were found in australia",
+    "image": "images/cygne-noir.jpg"
+   },
+   "it": {
+    "titre": "Il problema dell'induzione",
+    "texte": "david hume: vedere il sole sorgere ogni giorno non prova che sorgerà domani. gli europei erano sicuri che tutti i cigni fossero bianchi, finché in australia trovarono cigni neri",
+    "image": "images/cygne-noir.jpg"
+   },
+   "tr": {
+    "titre": "Tümevarım sorunu",
+    "texte": "david hume: güneşin her gün doğduğunu görmek yarın da doğacağını kanıtlamaz. avrupalılar bütün kuğuların beyaz olduğundan emindi, ta ki avustralya'da siyah kuğular bulunana dek",
+    "image": "images/cygne-noir.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. philosophy without the 800-page books",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. la filosofia senza i libri da 800 pagine",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. 800 sayfalık kitaplar olmadan felsefe",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Existence precedes essence",
+    "texte": "jean-paul sartre: nobody hands you a purpose at birth. you exist first, then you become who you are through what you choose",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "it": {
+    "titre": "L'esistenza precede l'essenza",
+    "texte": "jean-paul sartre: nessuno ti consegna uno scopo alla nascita. prima esisti, poi diventi chi sei attraverso ciò che scegli",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "tr": {
+    "titre": "Varoluş özden önce gelir",
+    "texte": "jean-paul sartre: doğduğunda kimse sana bir amaç vermez. önce var olursun, sonra seçimlerinle kim olduğuna dönüşürsün",
+    "image": "images/philosophe-manet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The happy Sisyphus",
+    "texte": "sisyphus pushes his boulder up the hill forever. albert camus ends his essay with: \"one must imagine sisyphus happy\"",
+    "image": "images/sisyphe.jpg"
+   },
+   "it": {
+    "titre": "Sisifo felice",
+    "texte": "sisifo spinge il suo masso in cima al monte per sempre. albert camus chiude il saggio così: \"bisogna immaginare sisifo felice\"",
+    "image": "images/sisyphe.jpg"
+   },
+   "tr": {
+    "titre": "Mutlu Sisifos",
+    "texte": "sisifos kayasını sonsuza dek tepeye iter. albert camus denemesini şöyle bitirir: \"sisifos'u mutlu hayal etmek gerekir\"",
+    "image": "images/sisyphe.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "92acc3bc-0180-4635-804f-a740fd8d674c"
+}

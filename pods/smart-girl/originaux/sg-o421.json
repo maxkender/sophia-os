@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o421",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f92b5cb5-1488-4543-afe1-2e89bd1592ca",
+ "titre": "the 14 things i find incredibly chic #chic #elegance #smartgirl #oldmoney #classy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "f92b5cb5-1488-4543-afe1-2e89bd1592ca"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 90 de la boîte (parent f92b5cb5, langue source tr) : accroche du parent mot pour mot. Les choses du parent deux par slide (son propre style, des sous-vêtements assortis, plus de mots de remplissage, un petit carnet, faire les choses seule, des opinions sans débat, de beaux vêtements d'intérieur, des ongles naturels, un long manteau, savoir recevoir, appeler plutôt qu'écrire) et trois neuves. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ac905dd9",
+   "texte_overlay": "the 14 things i find\nincredibly chic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648616632503258388/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "40ab31b5",
+   "texte_overlay": "1. your own style, not trends\n2. matching underwear,\nseen by no one\n3. no filler words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648616632503258388/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "acf7d24c",
+   "texte_overlay": "4. a small notebook in your bag\n5. doing things alone\n6. opinions without arguing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648616632503258388/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0d90650e",
+   "texte_overlay": "7. pretty loungewear\n8. natural nails\n9. a long coat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648616632503258388/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "47dc6811",
+   "texte_overlay": "10. knowing a little\nabout everything",
+   "texte_sophia": "10. knowing a little about everything:\ni learn one thing a day on an app\nlike Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648616632503258388/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a4bf3d1d",
+   "texte_overlay": "11. hosting beautifully\n12. calling instead of texting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648616632503258388/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5f23e254",
+   "texte_overlay": "13. handwritten thank-yous\n14. leaving a party early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648616632503258388/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "218b0e3a",
+   "texte_overlay": "which one is yours?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7648616632503258388/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "id": "bn-013",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7706497431722151175",
+  "vues": 101400,
+  "publie_le": "2026-11-10",
+  "accroche": "How To Become Extremely Attractive."
+ },
+ "titre": {
+  "en": "habits that make you more attractive"
+ },
+ "legendes": {
+  "en": "it's the little things #attractive #selfimprovement #tipsformen #running #confidence"
+ },
+ "musique": {
+  "titre": "Originalton",
+  "url": "https://www.tiktok.com/music/originalton-7204936507338001158"
+ },
+ "notes": "Full test (boîte vide). Famille « How To Become Extremely Attractive. » de @built.not.born61 (101.4 k vues, 2026-11-10), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : 8378e69b, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix TOUCHE PERSO (hook de 6 mots), argument « s'essouffle : le coach dit quand ralentir ». Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-colline.png": "8378e69b-3ec0-4691-af1c-29cc81e6b64e"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-12.png",
+   "en": {
+    "titre": "HABITS THAT MAKE\nYOU MORE\nATTRACTIVE."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/regard.png",
+   "mode": "bas",
+   "taille": 520,
+   "en": {
+    "titre": "1. Make eye contact",
+    "texte": "Look at people when they talk to you. It makes them feel heard and you look sure of yourself."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/lit.png",
+   "mode": "objet",
+   "taille": 480,
+   "en": {
+    "titre": "2. Keep your place clean",
+    "texte": "A clean room says a lot before you say anything. Make the bed, clear the floor."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-colline.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Run 3 times a week",
+    "texte": "Run slow enough to talk, that's how you last. Personally, a running coach app like Atala tells me when to slow down."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/blazer.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "4. Own one great jacket",
+    "texte": "One jacket that fits your shoulders upgrades every outfit you own."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/poele.png",
+   "mode": "objet",
+   "taille": 460,
+   "en": {
+    "titre": "5. Learn to cook",
+    "texte": "A man who can cook a real dinner is always a good surprise."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-3.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

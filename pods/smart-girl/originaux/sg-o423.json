@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o423",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ffb4612f-f00c-44a7-b5f2-3c389911b8cf",
+ "titre": "୨୧ jobs for people who hate math #careers #jobs #smartgirl #studytok #future",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "ffb4612f-f00c-44a7-b5f2-3c389911b8cf"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 96 de la boîte (parent ffb4612f, langue source tr) : accroche du parent mot pour mot avec ୨୧. Métiers du parent (journaliste, avocate, psychologue) et neufs (traductrice, conservatrice de musée, diplomate, éditrice). Sophia au milieu comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "246e0861",
+   "texte_overlay": "୨୧ jobs for people\nwho hate math",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "08e7faa4",
+   "texte_overlay": "journalist",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5289ee39",
+   "texte_overlay": "lawyer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a3d2b82e",
+   "texte_overlay": "psychologist\n\nor neuropsychologist 🧠",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d94260d4",
+   "texte_overlay": "learning something new every day,\nno numbers involved",
+   "texte_sophia": "learning something new every day, no\nnumbers involved: the Sophia app",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b0036aeb",
+   "texte_overlay": "translator",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5317d360",
+   "texte_overlay": "museum curator",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d02e266d",
+   "texte_overlay": "diplomat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/5.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "72c139cc",
+   "texte_overlay": "editor",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675738449780985110/5.jpg"
+  }
+ ]
+}

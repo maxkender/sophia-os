@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o401",
+ "type_bleo": "full_test",
+ "titre": "How to read people better than most #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to read people better than most » (retenue), « Psychology tricks to read anyone » (écartée : ton manipulation), « Body language secrets » (écartée : vu partout). Angle : comprendre et écouter, jamais manipuler.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "248c9de7-9722-476e-bfb4-115f3905b403",
+   "texte_overlay": "How to read people\nbetter than most",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Watch for changes, not single signs. Crossed arms mean nothing alone. Someone who suddenly goes quiet or changes tone is telling you much more.",
+   "media_id": "6778d7eb-a93c-4a3d-970f-5221efb45220"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Listen to what people talk about most. The topics someone keeps coming back to show what they care about or worry about right now.",
+   "media_id": "72bd3e84-ec76-459f-9e4d-4c47e090c9e0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Notice how people treat others. The way someone speaks to a waiter or a junior colleague tells you more than how they treat you.",
+   "media_id": "74dfabd6-e64f-4a21-9f2a-089d6d345c65"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Ask open questions and wait. \"How did that feel?\" Then stay quiet. People reveal the most in the seconds after a silence.",
+   "media_id": "765611be-ce97-4445-9043-c7364d1960a8"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learn how people have always behaved. I do five minutes a day of history, art or science, and it taught me that human nature rarely changes.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It taught me that human nature rarely changes.",
+   "media_id": "bf74f971-8f54-4b21-8e03-d8293a286244"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pay attention to energy after time together. Some people leave you lighter, others drained. Your body often knows before your mind does.",
+   "media_id": "7656d214-7916-4bd6-a7da-5fb04013c6bc"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Use it to understand, never to manipulate. Reading people well should make you kinder and more patient, not more calculating.",
+   "media_id": "8012ff63-7a91-4a83-9d46-34e5cbd746f2"
+  }
+ ]
+}

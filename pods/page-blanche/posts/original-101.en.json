@@ -1,0 +1,283 @@
+{
+ "post_id": "original-101",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that make you",
+      "disgustingly attractive"
+     ],
+     "fr": "10/10 habitudes qui te rendent follement irrésistible",
+     "texte": "how to be a tourist in [[your own city]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(no plane ticket needed)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0b432967.jpg",
+      "boite": [
+       0,
+       1184,
+       1504,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start working out"
+     ],
+     "fr": "mets-toi [[au sport]]",
+     "texte": "take [[a street you've never taken]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but it's true. the gym,",
+      "running, pilates, whatever you'll stick to"
+     ],
+     "fr": "JE SAIS, tout le monde le dit, mais c'est vrai. la salle, la course, le pilates, [[ce que tu tiendras sur la durée]]",
+     "texte": "you walk the same few routes every week, so your brain [[stops noticing anything]]"
+    },
+    "T3": {
+     "en": [
+      "exercise is proven to",
+      "boost your mood and",
+      "confidence, not just",
+      "how you look"
+     ],
+     "fr": "c'est [[prouvé]] : le sport booste ton [[moral et ta confiance]], pas juste ton physique",
+     "texte": "get off one stop early or walk home [[the long way]], with no music for once"
+    },
+    "T4": {
+     "en": [
+      "you have more energy, more confidence, and",
+      "that is what makes you attractive"
+     ],
+     "fr": "t'as plus d'énergie, [[plus confiance en toi]], et [[c'est exactement ça qui attire]]",
+     "texte": "you'll spot a bakery, a mural or a tiny park that was [[always right there]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_22613d69.jpg",
+      "boite": [
+       0,
+       0,
+       1080,
+       1920
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "sit in a café [[with a notebook]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "pick a table by the window and [[leave your phone in your bag]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "watch the street and write down [[three things]] a real tourist would notice"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "the way people walk, the old signs, the smell of bread. [[your city gets interesting again]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_11e407ca.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "learn [[the backstory]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "a street is just a street [[until you know its story]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "on the bus i learn stuff like [[why the renaissance began in italy]], and old streets finally click"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "what replaced my weekend scrolling: a paper map, a notebook and [[the Sophia app]] when i grab my phone anyway"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a second language"
+     ],
+     "fr": "apprends [[une deuxième langue]]",
+     "texte": "go inside [[the buildings you walk past]]"
+    },
+    "T2": {
+     "en": [
+      "hearing someone switch into another language",
+      "is instantly attractive"
+     ],
+     "fr": "entendre quelqu'un passer d'une langue à l'autre, c'est [[instantanément attirant]]",
+     "texte": "the old library, the church on the corner, the bookshop [[you never had time for]]"
+    },
+    "T3": {
+     "en": [
+      "duolingo, shows",
+      "with subtitles,",
+      "talking to people,",
+      "whatever works",
+      "for you"
+     ],
+     "fr": "une appli de langues, des séries sous-titrées, parler aux gens, ce qui te va",
+     "texte": "a lot of them cost nothing and are full of [[tiny details]]"
+    },
+    "T4": {
+     "en": [
+      "and you get to talk to more people, which makes",
+      "you way more interesting"
+     ],
+     "fr": "et tu peux parler à [[plus de monde]], du coup t'as [[bien plus de conversation]]",
+     "texte": "ten minutes inside feels like [[a little trip abroad]], without the plane"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0dc6c826.jpg",
+      "boite": [
+       0,
+       0,
+       1600,
+       2656
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn an instrument"
+     ],
+     "fr": "apprends [[un instrument]]",
+     "texte": "find [[a new sunset spot]]"
+    },
+    "T2": {
+     "en": [
+      "everyone stops to listen when someone can",
+      "actually play"
+     ],
+     "fr": "tout le monde écoute quand quelqu'un [[sait vraiment jouer]]",
+     "texte": "a rooftop, a bridge, a hill, a viewpoint you've never climbed up to"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever. you'll be bad",
+      "at it for months, and",
+      "most people quit"
+     ],
+     "fr": "piano, guitare, batterie, peu importe. tu vas [[galérer pendant des mois]], et la plupart abandonnent",
+     "texte": "go a bit early, sit down and [[watch the sky change]], no photos for the first five minutes"
+    },
+    "T4": {
+     "en": [
+      "so when you can play, it shows patience and a passion",
+      "of your own, and that's really attractive"
+     ],
+     "fr": "alors quand tu sais jouer, ça montre [[ta patience]] et [[une vraie passion à toi]], et ça c'est [[ultra attirant]]",
+     "texte": "that's when it hits you: you've been living somewhere [[worth visiting]] this whole time"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0610f26e.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

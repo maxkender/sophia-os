@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o174",
+  "type_bleo": "full_test",
+  "titre": "how i write an essay without staring at a blank page for an hour #studytok #studytips #essay",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 24/11 : 3 full tests sur 10, plus 1 car la boîte n'a que 6 lignes utilisables). Accroche jamais faite chez nous (aucune accroche du label sur la dissertation). Accroches écrites : « how i write an essay without staring at a blank page for an hour » (retenue : la galère précise), « essay writing tips » (écartée : plate), « write a perfect essay in one night » (écartée : bachotage). Gestes vrais : reformuler la question, lister les idées en vrac, un plan en 3 parties avant de rédiger, une citation ou un exemple par partie, une pause de culture générale pour trouver des exemples (slide Sophia, 5), relire à voix haute. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "41ab60d0",
+      "texte_overlay": "how i write an essay without staring\nat a blank page for an hour",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6c132e5a",
+      "texte_overlay": "i rewrite the question in my own words.\nhalf the block was not understanding it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "8e85e3c5",
+      "texte_overlay": "5 minutes of messy ideas. no sentences.\njust everything i know.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "16ba60ac",
+      "texte_overlay": "then a plan: 3 parts, one idea each.\nonly then do i write.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "5a01c329",
+      "texte_overlay": "one example per part.\nhistory, a painting, a scientist: the best essays have them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "one example per part.\ni collect them on a micro-learning app like the Sophia app:\nhistory, art, science. the best essays have them."
+    },
+    {
+      "position": 6,
+      "media_id": "2b948ca8",
+      "texte_overlay": "i write the introduction LAST.\nnow i know what i'm introducing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5b53e327",
+      "texte_overlay": "and i read it out loud before handing it in.\nmy ears catch what my eyes miss.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

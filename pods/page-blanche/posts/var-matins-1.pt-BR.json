@@ -1,0 +1,292 @@
+{
+ "post_id": "var-matins-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "como estragar todas as suas manhãs, garantido"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(testado todo santo dia)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0e0e59d0.jpg",
+      "boite": [
+       0,
+       0,
+       1184,
+       880
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "fr": "passe plus de temps [[à ne rien faire]]",
+     "texte": "aperta a soneca [[6 vezes seguidas]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "fr": "lâche [[les vidéos]] et [[la musique]] pendant tes balades, tes repas, [[tes temps morts]]",
+     "texte": "a cada 9 minutos você apaga de novo e o alarme te arranca do sono. relaxante"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "fr": "dans le calme, ton cerveau digère ce qu'il a vu, fait des liens et [[se fait ses propres idées]]",
+     "texte": "depois de uma hora você levanta [[com mais sono do que no primeiro alarme]] e só 12 minutos sobrando"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "fr": "les vidéos courtes non-stop te [[grillent le cerveau]] et [[flinguent ta concentration!!]]",
+     "texte": "escova de dente numa mão, tênis na outra, saindo correndo pela porta. [[paz total]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6b621671.jpg",
+      "boite": [
+       0,
+       150,
+       880,
+       906
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "fr": "2. arrête [[le multitâche]]",
+     "texte": "deixa [[a cortina fechada]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "fr": "chaque fois que tu changes de tâche, ta mémoire doit tout lâcher et tout recharger",
+     "texte": "nada de luz do dia, só a luz do celular. seu cérebro acha que são 3 da manhã"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "fr": "faire 2 trucs à la fois, ça [[a l'air productif]], mais ton cerveau passe son temps à se recaler",
+     "texte": "aí ele fica no modo soneca e você vaga pela cozinha que nem [[um zumbi perdido]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "fr": "une tâche, un onglet, [[jusqu'au bout]]",
+     "texte": "luz do dia é só [[pra gente matinal]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4045e9b9.jpg",
+      "boite": [
+       0,
+       560,
+       1760,
+       1332
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "fr": "ne [[plus lire de livres]]",
+     "texte": "[[scrolla]] na cama"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "fr": "si tu consommes surtout des posts courts, des clips et des titres, ton cerveau a rarement à [[tenir sa concentration]]",
+     "texte": "um olho aberto, o outro dormindo: 40 minutos da vida dos outros, notícia que estressa e [[47 notificações]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "fr": "[[un livre t'oblige à suivre une idée sur des pages]], à retenir le contexte et à résister à l'envie d'autre chose",
+     "texte": "você nem deu bom dia pra ninguém ainda e seu cérebro já está [[sobrecarregado]]. ótimo aquecimento"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "j'arrivais pas à lâcher le scroll, alors tant qu'à être sur mon tel, je fais 5 min de leçon sur [[l'appli Sophia]]",
+     "texte": "e, acima de tudo, nunca troca esse scroll por um livro, um podcast ou 5 minutos de aula no [[app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "fr": "5. commence par [[le plus dur]]",
+     "texte": "nada de café da manhã, [[só café]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "fr": "ton [[cortex préfrontal]] gère l'organisation, le focus et la volonté",
+     "texte": "dois expressos de estômago vazio e mais nada até o meio-dia"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "fr": "[[gâche pas]] ta tête fraîche pour des mails et des bricoles",
+     "texte": "às 10h a mão treme um pouco e a concentração [[foi embora]]"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "fr": "passe [[les 60-90 premières minutes]] sur ce que t'aurais envie d'esquiver",
+     "texte": "às 11h40 você come um pacote de biscoito em cima do teclado. [[dieta equilibrada!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00ba245c.jpg",
+      "boite": [
+       49,
+       0,
+       2270,
+       1760
+      ]
+     }
+    }
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "fr": "méfie-toi de [[tes propres biais]]",
+     "texte": "faz uma lista de [[23 tarefas]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "fr": "ton cerveau adore tout ce qui confirme [[ce que tu penses déjà]]",
+     "texte": "tudo até meio-dia, óbvio. academia, e-mails, imposto, ligar pra vó"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "fr": "va chercher exprès [[le meilleur argument contre]] ton avis",
+     "texte": "às 11h58 você riscou exatamente uma: [[escrever a lista]]"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "fr": "être plus intelligente, c'est surtout mieux voir [[quand ton raisonnement est faux]]",
+     "texte": "aí passa a tarde com culpa e reescreve ela à noite, [[ainda maior]]. até amanhã!!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_015e2113.jpg",
+      "boite": [
+       0,
+       420,
+       1760,
+       1525
+      ]
+     }
+    }
+   }
+  }
+ }
+}

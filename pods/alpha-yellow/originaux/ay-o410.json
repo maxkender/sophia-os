@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o410",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2dde5f14-9614-4951-b0c6-23b23a084bd1",
+ "titre": "How to have presence the moment you arrive #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "2dde5f14-9614-4951-b0c6-23b23a084bd1"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 3 de la boîte (2dde5f14), 2e déclinaison après ay-o395. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o395, o362.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8d90aa21-5850-4128-b4cd-ac41fdce5b18",
+   "texte_overlay": "How to have presence\nthe moment you arrive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Arrive a few minutes early. You're not rushing, sweating or apologising. Calm arrivals create calm first impressions.",
+   "media_id": "af66f83f-0a3e-4736-bf80-3be51e95f3c8"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Stand tall and take up a little space. Shoulders back, feet planted. Your body tells people you're comfortable before you speak.",
+   "media_id": "afbc381d-2d7e-45d9-a6ce-54b35d93b0ff"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Smile at the first person you see. It breaks the ice for you and for them, and sets a warm tone for the whole evening.",
+   "media_id": "b0288e9a-7370-4ad3-8d20-ca4e8c7d8249"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Shake hands firmly and say your name clearly. A confident introduction makes people remember you. Practise it with friends first.",
+   "media_id": "b056cab1-41cd-4b8a-b2f3-3f031636e52b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I felt invisible in new places. After: five minutes a day of history, art or science, and now I always have something to bring.",
+   "texte_sophia": "Before: I felt invisible in new places. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now I always have something to bring.",
+   "media_id": "b04e150b-602f-457b-85bd-2a54ee054cc5"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Be curious about the people around you. Ask questions, listen, react. Presence is mostly about attention, not volume.",
+   "media_id": "b08d1034-2308-461e-908f-d71247dda055"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stay off your phone. In a room full of screens, the man who is fully present stands out without trying. Look up and be there.",
+   "media_id": "b120bc68-8c1d-4ebd-9523-edeb56a7f9e0"
+  }
+ ]
+}

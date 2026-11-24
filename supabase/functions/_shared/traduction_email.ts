@@ -20,7 +20,7 @@ const NOMS: Record<string, string> = {
   sq: "Albanian", tr: "Turkish", el: "Greek", cs: "Czech", sk: "Slovak", ro: "Romanian", pl: "Polish", it: "Italian", de: "German",
   fr: "French", es: "Spanish (Spain)", "es-419": "Latin American Spanish", pt: "European Portuguese", "pt-BR": "Brazilian Portuguese",
   sv: "Swedish", fi: "Finnish", no: "Norwegian (Bokmål)", da: "Danish", nl: "Dutch", lt: "Lithuanian", lv: "Latvian", et: "Estonian",
-  bg: "Bulgarian", uk: "Ukrainian", ru: "Russian", he: "Hebrew", ar: "Arabic", ja: "Japanese", id: "Indonesian",
+  bg: "Bulgarian", uk: "Ukrainian", ru: "Russian", he: "Hebrew", ar: "Arabic", ja: "Japanese", ko: "Korean", id: "Indonesian",
 };
 
 /** Le code de langue tel qu'on le garde (« pt-BR », « es-419 », sinon en minuscules) ; « en » par défaut. */

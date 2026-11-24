@@ -86,13 +86,14 @@ export async function applicationReelleDuCompte(
   }
 }
 
-/** Les @ et noms affichés déjà en base, lus page par page (une lecture rend 1 000 lignes au plus). */
+/** Les @ et noms affichés déjà en base, lus page par page (pages de 900, sous le plafond de 1 000 lignes). */
 async function identitesPrises(
   supabase: Supabase,
 ): Promise<{ racinesPrises: Set<string>; nomsPris: Set<string> }> {
   const racinesPrises = new Set<string>();
   const nomsPris = new Set<string>();
-  const PAGE = 1000;
+  // 24/11 : sous le plafond PostgREST (1000), sinon le garde-fou « lecture tronquée » lève à chaque création.
+  const PAGE = 900;
   for (let debut = 0; ; debut += PAGE) {
     const { data } = await supabase
       .from("comptes")

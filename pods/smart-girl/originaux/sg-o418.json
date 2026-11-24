@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o418",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bdfa6af8-bb1e-43bf-bd78-bef23c5e1bab",
+ "titre": "7 topics to learn if you want to sound intelligent in any room (stand out without trying) #learning #smartgirl #curiosity #intellectual #darkacademia",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "bdfa6af8-bb1e-43bf-bd78-bef23c5e1bab"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 71 de la boîte (parent bdfa6af8, langue source en) : accroche du parent mot pour mot. Sujets du parent (économie, philosophie, langage corporel, histoire de l'art, géopolitique, bases culinaires, psychologie). Sophia sur la psychologie comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1381a8a6",
+   "texte_overlay": "7 topics to learn if you want\nto sound intelligent in any room\n(stand out without trying)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1c8104c0",
+   "texte_overlay": "economics\n\nhow money moves the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "12c5d705",
+   "texte_overlay": "philosophy\n\nhow to think, not what to think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "373d4e81",
+   "texte_overlay": "body language\n\nmost communication\nisn't spoken.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2755d013",
+   "texte_overlay": "art history\n\none reference can light\nup a conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "536f0639",
+   "texte_overlay": "geopolitics\n\nwhy borders and alliances exist.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cc0cceef",
+   "texte_overlay": "culinary basics\n\nconfidence at the table.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "27c54892",
+   "texte_overlay": "psychology\n\nwhat drives people.",
+   "texte_sophia": "psychology\n\nwhat drives people. i explore it in\nfive-minute lessons on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "cd2e19b2",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7630794608833776916/9.jpg"
+  }
+ ]
+}

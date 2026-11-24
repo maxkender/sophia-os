@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o273",
+  "type_bleo": "full_test",
+  "titre": "les mythes grecs à connaître pour comprendre l'art #mythologie #art #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta C. Mythes classiques, sans date. Routine du 24/11 sur BLEO (par_jour passé à 16 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 11 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées au guichet le 22/11), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8c281f8f",
+      "texte_overlay": "les mythes grecs à connaître\npour comprendre l'art",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5e28868d",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "500b7d35",
+      "texte_overlay": "1. orphée et eurydice\n\nil descend aux enfers pour elle.\net se retourne une seconde trop tôt.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c316e833",
+      "texte_overlay": "2. icare\n\ndes ailes de cire,\nun vol trop près du soleil.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7b272598",
+      "texte_overlay": "3. pandore\n\nune boîte qu'il ne fallait pas ouvrir.\nau fond, il restait l'espoir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8b74caaf",
+      "texte_overlay": "4. narcisse\n\namoureux de son reflet.\nil a donné son nom à une fleur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2742ff20",
+      "texte_overlay": "5. persée et méduse\n\nun bouclier comme miroir\npour ne pas croiser son regard.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "24b10496",
+      "texte_overlay": "lequel tu connaissais ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

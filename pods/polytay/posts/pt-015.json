@@ -1,0 +1,616 @@
+{
+ "id": "pt-015",
+ "titre": {
+  "en": "morning habits of girls who learn something every day",
+  "fr": "habitudes du matin des filles qui apprennent un truc chaque jour",
+  "es": "hábitos de mañana de chicas que aprenden algo cada día",
+  "es-419": "hábitos matutinos de chicas que aprenden algo cada día",
+  "it": "abitudini mattutine delle ragazze che imparano qualcosa ogni giorno",
+  "tr": "her gün bir şey öğrenen kızların sabah alışkanlıkları",
+  "pt-BR": "hábitos matinais das meninas que aprendem algo todo dia",
+  "sl": "jutranje navade punc, ki se vsak dan naučijo nekaj novega",
+  "de": "was mädchen, die jeden tag etwas lernen, morgens machen",
+  "sk": "ranné zvyky dievčat, ktoré sa každý deň niečo naučia",
+  "sv": "morgonvanor hos tjejer som lär sig något varje dag"
+ },
+ "legendes": {
+  "en": "small mornings, big brains. steal one for tomorrow <3 #girlblogger #morningroutine #learning #selfimprovement #thatgirl",
+  "fr": "petits matins, grands cerveaux. pique-en une pour demain <3 #girlblogger #routinedumatin #apprendre #developpementpersonnel #thatgirl",
+  "es": "mañanas pequeñas, cerebros grandes. róbate uno para mañana <3 #girlblogger #rutinademañana #aprender #desarrollopersonal #thatgirl",
+  "es-419": "mañanas pequeñas, cerebros grandes. róbate uno para mañana <3 #girlblogger #rutinamatutina #aprender #desarrollopersonal #thatgirl",
+  "it": "mattine piccole, cervelli grandi. rubane una per domani <3 #girlblogger #routinemattutina #imparare #crescitapersonale #thatgirl",
+  "tr": "küçük sabahlar, büyük beyinler. yarın için birini kap <3 #girlblogger #sabahrutini #öğrenmek #kişiselgelişim #thatgirl",
+  "pt-BR": "manhãs pequenas, cérebros grandes. rouba um pra amanhã <3 #girlblogger #rotinamatinal #aprender #autodesenvolvimento #thatgirl",
+  "sl": "majhna jutra, veliki možgani. ukradi eno za jutri <3 #girlblogger #jutranjarutina #učenje #osebnirazvoj #thatgirl",
+  "de": "kleine morgen, große köpfe. klau dir eine für morgen <3 #girlblogger #morgenroutine #lernen #selbstverbesserung #thatgirl",
+  "sk": "malé rána, veľké mozgy. ukradni si jeden na zajtra <3 #girlblogger #rannarutina #ucenie #osobnyrozvoj #thatgirl",
+  "sv": "små morgnar, stora hjärnor. sno en till i morgon <3 #girlblogger #morgonrutin #lärande #självutveckling #thatgirl"
+ },
+ "musique": {
+  "titre": "Contemplation",
+  "url": "https://www.tiktok.com/music/Contemplation-6834268077673154561"
+ },
+ "notes": "Full test (BLEO, 24/11) : accroche neuve chez nous, au gabarit de son tube. Éléments à nous : une page avant le téléphone, un mot sur un post-it, Sophia, un article lu jusqu'au bout, une marche avec une question. Slide Sophia (4) : « 3. one lesson with breakfast », cta B. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-chambre-aube.jpg": "47a97e2a-a74f-4a60-811d-659de7eb8f13",
+  "images/banque/couv-cafe-cookie.jpg": "39529bdd-9e3b-429a-a82e-ceac379e8ad1",
+  "images/banque/draps-blancs.jpg": "0798131b-3475-4702-b659-8eb16581db80",
+  "images/banque/lit-gris.jpg": "1eb3ec28-cf47-42ef-8131-d8d7daa41364",
+  "images/banque/post-it-notes.jpg": "511ad09e-6f66-4a91-b0f3-7588ad8e8d0b",
+  "images/banque/post-it-mur.jpg": "9bc1a9f4-74d1-4d9f-9b30-a41ca92a1765",
+  "images/banque/montagnes-aube.jpg": "2e1aba7f-85ef-499b-8dda-32daf4b385b8",
+  "images/banque/journal-cafe-stylo.jpg": "1a404ee4-c566-4238-b58a-78979959f7f1",
+  "images/banque/journal-ancien.jpg": "c24484b9-087c-4e89-83be-562304fcdc77",
+  "images/banque/chemin-automne.jpg": "d6b201aa-6149-419e-8f54-fa111a217370",
+  "images/banque/parc-pelouse.jpg": "40bfdcd5-c7c0-4a18-8ca4-e71378cd11cd"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-chambre-aube.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-cafe-cookie.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "morning habits of\ngirls who learn\nsomething every day"
+   },
+   "fr": {
+    "titre": "habitudes du matin\ndes filles qui\napprennent un truc\nchaque jour"
+   },
+   "es": {
+    "titre": "hábitos de mañana\nde chicas que\naprenden algo\ncada día"
+   },
+   "es-419": {
+    "titre": "hábitos matutinos\nde chicas que\naprenden algo\ncada día"
+   },
+   "it": {
+    "titre": "abitudini mattutine\ndelle ragazze che\nimparano qualcosa\nogni giorno"
+   },
+   "tr": {
+    "titre": "her gün bir şey\nöğrenen kızların\nsabah alışkanlıkları"
+   },
+   "pt-BR": {
+    "titre": "hábitos matinais\ndas meninas que\naprendem algo\ntodo dia"
+   },
+   "sl": {
+    "titre": "jutranje navade\npunc, ki se vsak\ndan naučijo nekaj\nnovega"
+   },
+   "de": {
+    "titre": "was mädchen, die\njeden tag etwas\nlernen, morgens\nmachen"
+   },
+   "sk": {
+    "titre": "ranné zvyky\ndievčat, ktoré sa\nkaždý deň niečo\nnaučia"
+   },
+   "sv": {
+    "titre": "morgonvanor hos\ntjejer som lär sig\nnågot varje dag"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/draps-blancs.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/lit-gris.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. a page before the phone",
+    "paragraphes": [
+     "Keep a book on your nightstand and read one page before you touch your phone. just one, with your eyes still sleepy.",
+     "The first thing your brain gets every day is something good"
+    ]
+   },
+   "fr": {
+    "titre": "1. une page avant le téléphone",
+    "paragraphes": [
+     "Garde un livre sur ta table de nuit et lis une page avant de toucher ton téléphone. une seule, les yeux encore endormis.",
+     "La première chose que ton cerveau reçoit chaque jour, c'est quelque chose de bien"
+    ]
+   },
+   "es": {
+    "titre": "1. una página antes del móvil",
+    "paragraphes": [
+     "Ten un libro en la mesita y lee una página antes de tocar el móvil. solo una, con los ojos todavía dormidos.",
+     "Lo primero que recibe tu cerebro cada día es algo bueno"
+    ]
+   },
+   "es-419": {
+    "titre": "1. una página antes del celular",
+    "paragraphes": [
+     "Ten un libro en el buró y lee una página antes de tocar el celular. solo una, con los ojos todavía dormidos.",
+     "Lo primero que recibe tu cerebro cada día es algo bueno"
+    ]
+   },
+   "it": {
+    "titre": "1. una pagina prima del telefono",
+    "paragraphes": [
+     "Tieni un libro sul comodino e leggi una pagina prima di toccare il telefono. una sola, con gli occhi ancora assonnati.",
+     "La prima cosa che il tuo cervello riceve ogni giorno è qualcosa di bello"
+    ]
+   },
+   "tr": {
+    "titre": "1. telefondan önce bir sayfa",
+    "paragraphes": [
+     "Komodinde bir kitap tut ve telefonuna dokunmadan önce bir sayfa oku. sadece bir sayfa, gözlerin hâlâ uykuluyken.",
+     "Beyninin her gün aldığı ilk şey güzel bir şey olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. uma página antes do celular",
+    "paragraphes": [
+     "Deixa um livro no criado-mudo e lê uma página antes de pegar o celular. só uma, com o olho ainda sonolento.",
+     "A primeira coisa que seu cérebro recebe todo dia é algo bom"
+    ]
+   },
+   "sl": {
+    "titre": "1. stran pred telefonom",
+    "paragraphes": [
+     "Na nočni omarici imej knjigo in preberi eno stran, preden se dotakneš telefona. samo eno, z oči še zaspanimi.",
+     "Prva stvar, ki jo možgani dobijo vsak dan, je nekaj dobrega"
+    ]
+   },
+   "de": {
+    "titre": "1. eine seite vor dem handy",
+    "paragraphes": [
+     "Leg ein buch auf den nachttisch und lies eine seite, bevor du dein handy anfasst. nur eine, mit noch verschlafenen augen.",
+     "Das erste, was dein kopf jeden tag bekommt, ist etwas gutes"
+    ]
+   },
+   "sk": {
+    "titre": "1. strana pred mobilom",
+    "paragraphes": [
+     "Na nočnom stolíku maj knihu a prečítaj si jednu stranu skôr, než sa dotkneš mobilu. len jednu, s ešte ospalými očami.",
+     "Prvá vec, ktorú mozog každý deň dostane, je niečo dobré"
+    ]
+   },
+   "sv": {
+    "titre": "1. en sida före mobilen",
+    "paragraphes": [
+     "Ha en bok på nattduksbordet och läs en sida innan du rör mobilen. bara en, med ögonen fortfarande sömniga.",
+     "Det första hjärnan får varje dag är något bra"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/post-it-notes.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/post-it-mur.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. a word on a sticky note",
+    "paragraphes": [
+     "Write one new word on a sticky note and put it on your mirror. read it while you brush your teeth.",
+     "Seven words a week, and they actually stay because you see them every morning"
+    ]
+   },
+   "fr": {
+    "titre": "2. un mot sur un post-it",
+    "paragraphes": [
+     "Écris un mot nouveau sur un post-it et colle-le sur ton miroir. lis-le en te brossant les dents.",
+     "Sept mots par semaine, et ils restent parce que tu les vois chaque matin"
+    ]
+   },
+   "es": {
+    "titre": "2. una palabra en un pósit",
+    "paragraphes": [
+     "Escribe una palabra nueva en un pósit y pégalo en el espejo. léela mientras te lavas los dientes.",
+     "Siete palabras a la semana, y se quedan porque las ves cada mañana"
+    ]
+   },
+   "es-419": {
+    "titre": "2. una palabra en un post-it",
+    "paragraphes": [
+     "Escribe una palabra nueva en un post-it y pégalo en el espejo. léela mientras te lavas los dientes.",
+     "Siete palabras por semana, y se quedan porque las ves cada mañana"
+    ]
+   },
+   "it": {
+    "titre": "2. una parola su un post-it",
+    "paragraphes": [
+     "Scrivi una parola nuova su un post-it e attaccalo allo specchio. leggila mentre ti lavi i denti.",
+     "Sette parole a settimana, e restano perché le vedi ogni mattina"
+    ]
+   },
+   "tr": {
+    "titre": "2. yapışkan nota bir kelime",
+    "paragraphes": [
+     "Yeni bir kelimeyi yapışkan nota yaz ve aynana yapıştır. dişlerini fırçalarken oku.",
+     "Haftada yedi kelime, ve her sabah gördüğün için akılda kalıyorlar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. uma palavra num post-it",
+    "paragraphes": [
+     "Escreve uma palavra nova num post-it e cola no espelho. lê enquanto escova os dentes.",
+     "Sete palavras por semana, e elas ficam porque você vê toda manhã"
+    ]
+   },
+   "sl": {
+    "titre": "2. beseda na listku",
+    "paragraphes": [
+     "Na samolepilni listek napiši novo besedo in ga prilepi na ogledalo. preberi jo, ko si umivaš zobe.",
+     "Sedem besed na teden, in ostanejo, ker jih vidiš vsako jutro"
+    ]
+   },
+   "de": {
+    "titre": "2. ein wort auf einem post-it",
+    "paragraphes": [
+     "Schreib ein neues wort auf ein post-it und kleb es an den spiegel. lies es beim zähneputzen.",
+     "Sieben wörter pro woche, und sie bleiben, weil du sie jeden morgen siehst"
+    ]
+   },
+   "sk": {
+    "titre": "2. slovo na lepiacom papieriku",
+    "paragraphes": [
+     "Napíš nové slovo na lepiaci papierik a nalep ho na zrkadlo. čítaj ho, keď si umývaš zuby.",
+     "Sedem slov týždenne, a ostanú, lebo ich vidíš každé ráno"
+    ]
+   },
+   "sv": {
+    "titre": "2. ett ord på en post-it",
+    "paragraphes": [
+     "Skriv ett nytt ord på en post-it-lapp och sätt den på spegeln. läs det medan du borstar tänderna.",
+     "Sju ord i veckan, och de fastnar för att du ser dem varje morgon"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/montagnes-aube.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson with breakfast",
+    "paragraphes": [
+     "Sophia gives me one lesson a day, written by actual professors. I read it with my coffee, then there's a little quiz.",
+     "Ten minutes, and I start the day already knowing something new"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon au petit-déj",
+    "paragraphes": [
+     "Sophia me donne une leçon par jour, écrite par de vrais profs. je la lis avec mon café, puis il y a un petit quiz.",
+     "Dix minutes, et je commence la journée en sachant déjà quelque chose de nouveau"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección con el desayuno",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. la leo con mi café y luego hay un pequeño quiz.",
+     "Diez minutos, y empiezo el día sabiendo ya algo nuevo"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección con el desayuno",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. la leo con mi café y después hay un pequeño quiz.",
+     "Diez minutos, y empiezo el día sabiendo algo nuevo"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione a colazione",
+    "paragraphes": [
+     "Sophia mi dà una lezione al giorno, scritta da veri professori. la leggo con il caffè, poi c'è un piccolo quiz.",
+     "Dieci minuti, e inizio la giornata sapendo già qualcosa di nuovo"
+    ]
+   },
+   "tr": {
+    "titre": "3. kahvaltıda bir ders",
+    "paragraphes": [
+     "Sophia bana her gün gerçek profesörlerin yazdığı bir ders veriyor. kahvemle okuyorum, sonra küçük bir test var.",
+     "On dakika, ve güne yeni bir şey bilerek başlıyorum"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula no café da manhã",
+    "paragraphes": [
+     "O Sophia me dá uma aula por dia, escrita por professores de verdade. eu leio com meu café, depois tem um quiz.",
+     "Dez minutos, e eu começo o dia já sabendo algo novo"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija ob zajtrku",
+    "paragraphes": [
+     "Sophia mi vsak dan da eno lekcijo, ki so jo napisali pravi profesorji. preberem jo ob kavi, potem pa je kratek kviz.",
+     "Deset minut, in dan začnem z nečim novim v glavi"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion zum frühstück",
+    "paragraphes": [
+     "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren. ich lese sie zum kaffee, danach kommt ein kleines quiz.",
+     "Zehn minuten, und ich starte in den tag und weiß schon etwas neues"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia pri raňajkách",
+    "paragraphes": [
+     "Sophia mi každý deň dá jednu lekciu, ktorú napísali skutoční profesori. čítam ju pri káve a potom je malý kvíz.",
+     "Desať minút a deň začínam s niečím novým v hlave"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion till frukost",
+    "paragraphes": [
+     "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. jag läser den till kaffet, sedan kommer ett litet quiz.",
+     "Tio minuter, och jag börjar dagen med något nytt i huvudet"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/journal-cafe-stylo.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/journal-ancien.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. one news story, read to the end",
+    "paragraphes": [
+     "Instead of fifty headlines, pick one story and read the whole article. look up the place on a map if you don't know it.",
+     "You understand the world a little better, and you can actually talk about it"
+    ]
+   },
+   "fr": {
+    "titre": "4. un article lu jusqu'au bout",
+    "paragraphes": [
+     "Au lieu de cinquante titres, choisis une info et lis l'article en entier. cherche le pays sur une carte si tu ne le connais pas.",
+     "Tu comprends le monde un peu mieux, et tu peux vraiment en parler"
+    ]
+   },
+   "es": {
+    "titre": "4. una noticia leída hasta el final",
+    "paragraphes": [
+     "En vez de cincuenta titulares, elige una noticia y léela entera. busca el sitio en un mapa si no lo conoces.",
+     "Entiendes el mundo un poco mejor, y puedes hablar de ello de verdad"
+    ]
+   },
+   "es-419": {
+    "titre": "4. una noticia leída hasta el final",
+    "paragraphes": [
+     "En lugar de cincuenta titulares, elige una noticia y léela completa. busca el lugar en un mapa si no lo conoces.",
+     "Entiendes el mundo un poco mejor, y puedes platicar de eso de verdad"
+    ]
+   },
+   "it": {
+    "titre": "4. una notizia letta fino in fondo",
+    "paragraphes": [
+     "Invece di cinquanta titoli, scegli una notizia e leggi tutto l'articolo. cerca il posto su una mappa se non lo conosci.",
+     "Capisci il mondo un po' meglio, e ne sai parlare davvero"
+    ]
+   },
+   "tr": {
+    "titre": "4. sonuna kadar okunan bir haber",
+    "paragraphes": [
+     "Elli başlık yerine bir haber seç ve tamamını oku. yeri bilmiyorsan haritada bak.",
+     "Dünyayı biraz daha iyi anlarsın, ve gerçekten konuşabilirsin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. uma notícia lida até o fim",
+    "paragraphes": [
+     "Em vez de cinquenta manchetes, escolhe uma notícia e lê a matéria inteira. procura o lugar no mapa se não conhecer.",
+     "Você entende o mundo um pouco melhor, e consegue falar disso de verdade"
+    ]
+   },
+   "sl": {
+    "titre": "4. novica, prebrana do konca",
+    "paragraphes": [
+     "Namesto petdesetih naslovov izberi eno novico in preberi cel članek. poišči kraj na zemljevidu, če ga ne poznaš.",
+     "Svet razumeš malo bolje, in o njem zares znaš govoriti"
+    ]
+   },
+   "de": {
+    "titre": "4. eine nachricht bis zum ende",
+    "paragraphes": [
+     "Statt fünfzig schlagzeilen: such dir eine nachricht aus und lies den ganzen artikel. such den ort auf einer karte, wenn du ihn nicht kennst.",
+     "Du verstehst die welt ein bisschen besser, und kannst wirklich mitreden"
+    ]
+   },
+   "sk": {
+    "titre": "4. správa prečítaná do konca",
+    "paragraphes": [
+     "Namiesto päťdesiatich titulkov si vyber jednu správu a prečítaj si celý článok. ak miesto nepoznáš, nájdi ho na mape.",
+     "Svetu rozumieš o kúsok lepšie, a vieš o ňom naozaj hovoriť"
+    ]
+   },
+   "sv": {
+    "titre": "4. en nyhet läst till slutet",
+    "paragraphes": [
+     "I stället för femtio rubriker, välj en nyhet och läs hela artikeln. leta upp platsen på en karta om du inte känner till den.",
+     "Du förstår världen lite bättre, och kan faktiskt prata om den"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/chemin-automne.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/parc-pelouse.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. a walk with one question",
+    "paragraphes": [
+     "Take a short walk with one question in your head, like why leaves change colour. look up the answer when you're back.",
+     "Your mornings start with curiosity instead of a to-do list"
+    ]
+   },
+   "fr": {
+    "titre": "5. une marche avec une question",
+    "paragraphes": [
+     "Fais une petite marche avec une question en tête, comme pourquoi les feuilles changent de couleur. cherche la réponse en rentrant.",
+     "Tes matins commencent par de la curiosité, pas par une to-do list"
+    ]
+   },
+   "es": {
+    "titre": "5. un paseo con una pregunta",
+    "paragraphes": [
+     "Da un paseo corto con una pregunta en la cabeza, como por qué cambian de color las hojas. busca la respuesta al volver.",
+     "Tus mañanas empiezan con curiosidad en vez de con una lista de tareas"
+    ]
+   },
+   "es-419": {
+    "titre": "5. una caminata con una pregunta",
+    "paragraphes": [
+     "Sal a caminar un rato con una pregunta en la cabeza, como por qué cambian de color las hojas. busca la respuesta al regresar.",
+     "Tus mañanas empiezan con curiosidad en lugar de una lista de pendientes"
+    ]
+   },
+   "it": {
+    "titre": "5. una passeggiata con una domanda",
+    "paragraphes": [
+     "Fai una breve passeggiata con una domanda in testa, tipo perché le foglie cambiano colore. cerca la risposta quando torni.",
+     "Le tue mattine iniziano con la curiosità invece che con una lista di cose da fare"
+    ]
+   },
+   "tr": {
+    "titre": "5. tek soruyla bir yürüyüş",
+    "paragraphes": [
+     "Kafanda tek bir soruyla kısa bir yürüyüş yap, mesela yapraklar neden renk değiştirir. dönünce cevabına bak.",
+     "Sabahların yapılacaklar listesiyle değil, merakla başlar"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. uma caminhada com uma pergunta",
+    "paragraphes": [
+     "Faz uma caminhada curta com uma pergunta na cabeça, tipo por que as folhas mudam de cor. pesquisa a resposta quando voltar.",
+     "Suas manhãs começam com curiosidade, não com uma lista de tarefas"
+    ]
+   },
+   "sl": {
+    "titre": "5. sprehod z enim vprašanjem",
+    "paragraphes": [
+     "Pojdi na kratek sprehod z enim vprašanjem v glavi, recimo zakaj listje spremeni barvo. ko se vrneš, poišči odgovor.",
+     "Tvoja jutra se začnejo z radovednostjo, ne s seznamom opravil"
+    ]
+   },
+   "de": {
+    "titre": "5. ein spaziergang mit einer frage",
+    "paragraphes": [
+     "Mach einen kurzen spaziergang mit einer frage im kopf, etwa warum sich blätter verfärben. schlag die antwort nach, wenn du zurück bist.",
+     "Deine morgen beginnen mit neugier statt mit einer to-do-liste"
+    ]
+   },
+   "sk": {
+    "titre": "5. prechádzka s jednou otázkou",
+    "paragraphes": [
+     "Choď na krátku prechádzku s jednou otázkou v hlave, napríklad prečo listy menia farbu. keď sa vrátiš, vyhľadaj odpoveď.",
+     "Tvoje rána sa začínajú zvedavosťou, nie zoznamom úloh"
+    ]
+   },
+   "sv": {
+    "titre": "5. en promenad med en fråga",
+    "paragraphes": [
+     "Ta en kort promenad med en fråga i huvudet, som varför löven byter färg. slå upp svaret när du kommer hem.",
+     "Dina morgnar börjar med nyfikenhet i stället för en att-göra-lista"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

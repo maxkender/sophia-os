@@ -5328,6 +5328,16 @@ export const en = {
         secoursConnecter: "Connect the fallback account",
         secoursReconnecter: "Reconnect the fallback account",
         alerteSecours: "The fallback Upwork account is disconnected: messages only go through Max's account. Reconnect it.",
+        pont: {
+          titre: "Hub ↔ OS bridge",
+          ok: "OK",
+          panne: "Down",
+          incident: "“{{action}}” has been failing non-stop since {{depuis}} ({{n}} failure(s)). Last error: {{erreur}}",
+          succes: "Last success: {{quand}}",
+          echec: "Last failure: {{quand}} · “{{action}}” · HTTP {{code}} · {{erreur}}",
+          aucunEchec: "No failure in the last 7 days",
+          appels: "{{n}} call(s) from the site in 24 h, {{echecs}} failed",
+        },
         titreTaches: "Automatic tasks: last run",
         taches: {
           recrues: "Recruit checks",

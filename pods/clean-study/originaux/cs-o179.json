@@ -1,0 +1,51 @@
+{
+  "source_id": "cs-o179",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "bb2eeefa-d48f-4aab-9e65-405885ce9658",
+  "titre": "toxic study motivation that works a little TOO well (use responsibly because unfortunately my ego responds to this shit) #studytok #studymotivation #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "bb2eeefa-d48f-4aab-9e65-405885ce9658"
+  ],
+  "notes": "Déclinaison G1 de bb2eeefa (r 13,12 en turc, 19,1 k vues en polonais), ligne 5 de la boîte. Refusée hier (accroche_voisine) : refaite aujourd'hui. Accroche du parent mot pour mot (le gros mot de l'accroche est gardé : c'est un mot que le guichet compte) ; aucun autre gros mot dans le deck. Rivalité avec soi-même, jamais le mépris des autres. Phrases neuves, aucune du parent ni de nos toxic : l'examen de juin se décide maintenant, la version de toi qui a eu la meilleure note, « pas le temps » ne passe pas l'examen, une pause qui rend plus malin (slide Sophia, 5), la notification peut attendre. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "edfc22b8",
+      "texte_overlay": "toxic study motivation\nthat works a little TOO well\n\nuse responsibly because\nunfortunately my ego\nresponds to this shit",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "fd6eb2c8",
+      "texte_overlay": "the june exam is being decided right now.\nin november. tonight.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ea38d1fc",
+      "texte_overlay": "somewhere there's a version of you who got the top grade.\nshe studied tonight.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "17f636d9",
+      "texte_overlay": "\"i didn't have time\" won't be on the test.\nthe chapter will.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "9045367f",
+      "texte_overlay": "even your breaks can make you smarter.\nscrolling never did.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "even your breaks can make you smarter.\n5 minutes on a micro-learning app like the Sophia app.\nscrolling never did."
+    },
+    {
+      "position": 6,
+      "media_id": "6fe99234",
+      "texte_overlay": "the notification can wait.\nyour future can't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o409",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e3e85828-224b-4c2e-88ab-3ebf43534d5e",
+ "titre": "How to keep your cool when things go wrong #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "twin tribes monolith Dexter Morgan Super Slow",
+ "musique_url": "https://www.tiktok.com/music/twin-tribes-monolith-dexter-morgan-super-7401614052290169605",
+ "inspirations": [
+  "e3e85828-224b-4c2e-88ab-3ebf43534d5e"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (e3e85828, sr 4,2 k r 1,47), 3e et dernière déclinaison après ay-o375 et ay-o392. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o375, o392.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8d08d09c-f635-45c2-8b66-1bdf51616727",
+   "texte_overlay": "How to keep your cool\nwhen things go wrong",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Slow your breathing first. Four seconds in, six seconds out. Your body calms down before your mind does. Repeat three times.",
+   "media_id": "adef7790-89a5-4a87-96d0-7fab1bb50e3a"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Name the problem in one sentence. \"The flight is cancelled.\" Putting it simply makes it feel smaller and easier to solve.",
+   "media_id": "ae13ab25-6b2b-4dce-a248-354d7d317556"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Ask what you can control right now. Rebook, call, wait, eat. Acting on one small thing stops the feeling of chaos.",
+   "media_id": "ae6f2ca7-b93a-4953-9bc2-57c9c8b433c9"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep your voice low and slow. Even when others raise theirs. Calm is contagious, and people start following your lead.",
+   "media_id": "aee3f0d0-a639-4c20-b25e-2301066a73ee"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A broader view of the world makes daily problems feel smaller.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A broader view of the world makes daily problems feel smaller.",
+   "media_id": "a5ea2366-98ed-45d5-8d92-94a5ffb14a41"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Find something to laugh about. Humour in bad moments relaxes everyone, including you. A light joke can turn a disaster into a story you'll tell for years.",
+   "media_id": "af2d7958-7738-4549-8654-8545ac753087"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Look back afterwards. What went well, what you'd change. Each hard moment prepares you for the next one. You get calmer every time.",
+   "media_id": "af40fbb9-b96b-4e3d-80f9-0b1f98b49aab"
+  }
+ ]
+}

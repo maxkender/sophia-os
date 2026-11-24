@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o400",
+ "type_bleo": "full_test",
+ "titre": "where the names of the months come from #history #latin #calendar #smartgirl #didyouknow",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 4/8 (la jauge en demande 8 sur 27) : accroche jamais faite chez nous (« calendar » absent des accroches de donnees/label.json). Accroches écrites : « where the names of the months come from » (retenue : savoir quotidien, latin), « calendar facts » (écartée : plate), « why there are 12 months » (écartée : étroite). Faits vérifiés : janvier (Janus aux deux visages), février (februa, purification), mars (Mars), juin (Junon), juillet (Jules César), août (Auguste), septembre à décembre (septième à dixième mois, l'année romaine commençait en mars). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d29eb47c",
+   "texte_overlay": "where the names of\nthe months come from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "78d4e861",
+   "texte_overlay": "january\n\njanus, the god with two faces:\none looks back, one ahead.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c790a930",
+   "texte_overlay": "february\n\nfrom \"februa\", a roman\nfestival of purification.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "aee3aeea",
+   "texte_overlay": "march\n\nmars, the god of war.",
+   "texte_sophia": "march\n\nmars, the god of war. i learned all of\nthese on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "08adffa7",
+   "texte_overlay": "june\n\njuno, queen of the gods.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "18afa75b",
+   "texte_overlay": "july and august\n\njulius caesar and augustus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0a7580ff",
+   "texte_overlay": "september to december\n\n\"seventh\" to \"tenth\": the roman\nyear began in march.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "24e982fe",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,123 @@
+{
+ "id": "aw-010",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687141407273798944",
+  "vues": 5076,
+  "accroche": "Mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment)"
+ },
+ "titre": {
+  "en": "my weird little habits that actually help me sleep"
+ },
+ "legendes": {
+  "en": "weird but they work 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment) » de @healthy_with_emma6 (5,1 k), sujet : le soir et le sommeil (aw-004 a fait la famille sans sujet). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : la semaine complète ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : pieds chauds et endormissement plus rapide (Kräuchi et al., Nature 1999) ; écrire sur ses émotions et mieux-être (Pennebaker, Psychological Science 1997). Les autres slides n'avancent aucun chiffre. Photos : banque de l'OS ; Atala : 30c0c456 (allée de parc, de dos).",
+ "banque": {
+  "images/banque/wd-couv-a.jpg": "12c5d705-6d55-4f18-8c7a-0a3f1c7b3aa4",
+  "images/banque/wd-couv-b.jpg": "349b9b00-6eb7-490b-af2b-51008e41babb",
+  "images/banque/wd-chaussettes.jpg": "85751175-5a44-4c51-8201-0e6774b0d319",
+  "images/banque/wd-journal.jpg": "97c7ca54-7284-47c0-b32f-dd9feddfe9d6",
+  "images/banque/wd-the.jpg": "5162c159-4516-442e-bda4-8fc6932b584c",
+  "images/banque/wd-course.jpg": "30c0c456-2915-4b95-bcc2-e64b1195d540",
+  "images/banque/wd-lit.jpg": "8fc457c2-26d1-4542-ab67-8e760082fdaf",
+  "images/banque/wd-bougie.jpg": "23b38f8b-a995-4787-8ea1-2a5c46e8e07f"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/wd-couv-a.jpg",
+    "images/banque/wd-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "my weird little habits that actually help me sleep",
+    "note": "(that actually work)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/wd-chaussettes.jpg",
+   "en": {
+    "titre": "i sleep _in socks_",
+    "intro": "yes, _every night_",
+    "paragraphes": [
+     "a study found that warm feet helped people _fall asleep faster_",
+     "fluffy ones, _clean ones_, no judgement"
+    ],
+    "chute": "cold feet are _the enemy_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/wd-journal.jpg",
+   "en": {
+    "titre": "i write my worries _on paper_",
+    "intro": "then i close the notebook. _done_",
+    "paragraphes": [
+     "research on writing about your feelings found it can _help you feel better_",
+     "3 lines, no rules, _no rereading_"
+    ],
+    "chute": "out of your head, _onto the page_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/wd-the.jpg",
+   "en": {
+    "titre": "herbal tea _at 9pm_",
+    "intro": "my brain knows it means _bedtime_",
+    "paragraphes": [
+     "chamomile or mint, never anything _with caffeine_",
+     "the same mug, _the same time_"
+    ],
+    "chute": "a cup that says _goodnight_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/wd-course.jpg",
+   "en": {
+    "titre": "i run _even when i'm tired_",
+    "intro": "weirdly, it's what makes me _sleep the best_",
+    "paragraphes": [
+     "i never knew how far or how often to go, so i'd skip _for weeks_",
+     "my tip: a running coach app like Atala sets up _my whole week_, so i just follow it"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/wd-lit.jpg",
+   "en": {
+    "titre": "i make my bed _before sleeping_",
+    "intro": "fluffing the pillows, _straightening the sheets_",
+    "paragraphes": [
+     "getting into a neat bed feels like _a hotel_ every night",
+     "2 minutes, _lights low_"
+    ],
+    "chute": "small luxury, _every night_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/wd-bougie.jpg",
+   "en": {
+    "titre": "a candle _instead of the big light_",
+    "intro": "the last hour is _candles only_",
+    "paragraphes": [
+     "dim light feels like a signal that _the day is over_",
+     "blow it out when _you get into bed_"
+    ],
+    "chute": "soft light, _soft sleep_"
+   }
+  }
+ ]
+}

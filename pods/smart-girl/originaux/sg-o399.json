@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o399",
+ "type_bleo": "full_test",
+ "titre": "high heels were invented for men #fashionhistory #history #heels #smartgirl #didyouknow",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/8 (la jauge en demande 8 sur 27) : accroche jamais faite chez nous (« heels » absent des accroches de donnees/label.json). Accroches écrites : « high heels were invented for men » (retenue : surprise, mode + histoire), « the history of high heels » (écartée : plate), « fashion facts » (écartée : vague). Faits vérifiés : talons des cavaliers perses pour tenir l'étrier, adoptés par l'aristocratie européenne au XVIIe siècle, talons rouges de Louis XIV réservés à la cour, abandonnés par les hommes au XVIIIe siècle, stiletto des années 1950. Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1954c375",
+   "texte_overlay": "high heels were invented\nfor men",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "41cb61cc",
+   "texte_overlay": "persia\n\nhorse riders used heels to keep\ntheir feet in the stirrups.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8042cc97",
+   "texte_overlay": "the 1600s\n\neuropean aristocrats adopted\nthem as a sign of status.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5f601d2c",
+   "texte_overlay": "louis xiv\n\nred heels, for the\nnobles of his court only.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c0759d32",
+   "texte_overlay": "the 1700s\n\nmen gave them up.\nwomen kept them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "53ebb31d",
+   "texte_overlay": "the 1950s\n\nthe stiletto is born.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "aa2997d0",
+   "texte_overlay": "one surprising story a day instead\nof an hour of scrolling.",
+   "texte_sophia": "one surprising story a day on an app like\nSophia instead of an hour of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o324",
+ "type_bleo": "full_test",
+ "titre": "comment je réponds à « parlez-moi d'un échec » #entretien #rechercheemploi #emploi #questionsentretien #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Full test : accroche jamais faite chez nous (une question d'entretien décortiquée). Inspirations reprises de rh-o235. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cdad7a39",
+   "texte_overlay": "comment je réponds à\n« parlez-moi\nd'un échec »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ad38b663",
+   "texte_overlay": "ce qu'ils veulent savoir\nsi tu sais reconnaître une erreur, et ce que tu en fais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "32cdf4a0",
+   "texte_overlay": "à éviter\nun faux échec (« j'ai trop travaillé »)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2094aba8",
+   "texte_overlay": "ma structure\nce qui s'est passé, ma part, ce que j'ai changé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "392219e8",
+   "texte_overlay": "exemple\n« j'ai raté une échéance. j'ai prévenu tard. depuis, je préviens dès le premier doute »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "241aa64d",
+   "texte_overlay": "et finis par ce que tu apprends\nmontre que tu continues à progresser, un peu chaque jour",
+   "texte_sophia": "et finis par ce que tu apprends\nmontre que tu continues à progresser, un peu chaque jour. utilise l'appli Sophia 5 minutes, t'auras un exemple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c4b6dd89",
+   "texte_overlay": "ton échec à toi, c'est quoi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

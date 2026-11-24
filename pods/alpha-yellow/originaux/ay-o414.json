@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o414",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e53a9aec-cdea-4b51-b365-2194dfecd498",
+ "titre": "Les vérités sur la vie qu'on comprend toujours trop tard #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "e53a9aec-cdea-4b51-b365-2194dfecd498"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 7 de la boîte (e53a9aec, notre ay-o327), 1re déclinaison, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots. Vérités neuves, aucune reprise d'ay-o327 ni de 81b924e4. Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9639491b-39ae-492f-a130-454dce0fb7e2",
+   "texte_overlay": "Les vérités sur la vie\nqu'on comprend toujours trop tard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Le temps passe plus vite chaque année. Les étés deviennent courts, les années filent. Fais maintenant ce que tu repousses depuis longtemps.",
+   "media_id": "b73cb598-eaad-4756-9148-7c062e0afd23"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Les vrais amis se comptent sur une main. Ce n'est pas triste, c'est précieux. Prends soin de ceux qui sont toujours là.",
+   "media_id": "b795f881-e36e-4c85-b4f0-a024440da4a3"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Le bonheur se cache dans les petites choses. Un café chaud, une soirée calme, un rire partagé. Apprends à les remarquer.",
+   "media_id": "b83092ae-9abc-4c2e-b769-2ea025a7df41"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Tu n'as pas besoin de l'approbation de tout le monde. Ceux qui comptent t'aiment tel que tu es. Les autres passeront.",
+   "media_id": "b952bf28-a073-47fb-a18b-9fc8338abd5c"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Avant : je pensais avoir le temps d'apprendre plus tard. Après : cinq minutes d'histoire, d'art ou de science par jour, et je n'attends plus.",
+   "texte_sophia": "Avant : je pensais avoir le temps d'apprendre plus tard. Après : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Je n'attends plus.",
+   "media_id": "ca089c16-53c3-4dd2-af3c-e44a1faa7674"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Ton corps se souviendra de tout. Le sommeil, le sport, la nourriture. Ce que tu fais aujourd'hui, tu le sentiras dans vingt ans.",
+   "media_id": "b95a64bb-d3bb-4bbf-875d-65c2400fb0dc"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Il n'est jamais trop tard pour devenir quelqu'un de meilleur. Chaque jour est une nouvelle chance de changer un petit détail.",
+   "media_id": "b9cf2e3a-13ad-4297-99c2-2463a5d7a289"
+  }
+ ]
+}

@@ -41,6 +41,9 @@ const frequences = vi.hoisted(() => ({
   enregistrerFrequences: vi.fn(async () => undefined),
 }));
 vi.mock("@/features/frequences/api", async (orig) => ({ ...(await orig<typeof import("@/features/frequences/api")>()), ...frequences }));
+vi.mock("./pontHubApi", () => ({
+  lireEtatPontHub: vi.fn(async () => ({ dernier_succes_at: null, dernier_echec: null, appels_24h: 0, echecs_24h: 0, incidents: [] })),
+}));
 const auth = vi.hoisted(() => ({ role: "admin" }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: auth.role }) }));
 

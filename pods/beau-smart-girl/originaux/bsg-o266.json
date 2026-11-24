@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o266",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3c9c9514-209b-4baf-9133-f0ea01a6fefc",
+  "titre": "les sujets qui rendent n'importe quel dîner passionnant (promis, pas la météo) #conversation #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "3c9c9514-209b-4baf-9133-f0ea01a6fefc"
+  ],
+  "notes": "G2, déclinaison de 3c9c9514 (« les sujets de conversation qui marchent à tous les coups, et ce n'est pas la météo », G1 gagnante, génération 1 en français ; meilleur passage tr 4,5 k vues, r 2,17), en français, 3e et dernière déclinaison (après bsg-o242 et o251). Accroche reformulée : « les sujets qui rendent n'importe quel dîner passionnant (promis, pas la météo) ». cta B. Sujets neufs. Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Venus : un jour vénusien dure plus longtemps que son année. Routine du 24/11 sur BLEO (par_jour passé à 16 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 11 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées au guichet le 22/11), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8b80d0ae",
+      "texte_overlay": "les sujets qui rendent\nn'importe quel dîner passionnant\n(promis, pas la météo)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "8c677d68",
+      "texte_overlay": "1. la dernière fois qu'il a été fier de lui\n\nles gens adorent qu'on le demande.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c463e3b1",
+      "texte_overlay": "2. le film qu'il pourrait revoir cent fois\n\net la scène qu'il connaît par cœur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "22e9f93e",
+      "texte_overlay": "3. une info qui retourne le cerveau\n\nce matin, j'ai appris que sur vénus, un jour dure plus longtemps qu'une année.\nle dîner a duré une heure de plus.",
+      "texte_sophia": "3. une info qui retourne le cerveau\n\nce matin, l'appli Sophia m'a appris que sur vénus, un jour dure plus longtemps qu'une année.\nle dîner a duré une heure de plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "96520a3f",
+      "texte_overlay": "4. la tradition de sa famille\n\nun plat, une fête, une expression.\non découvre d'où il vient.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "933789d0",
+      "texte_overlay": "5. ce qu'il ferait s'il n'avait pas peur\n\nla question qui rapproche le plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "8e7bc7d5",
+      "texte_overlay": "garde-la pour ton prochain dîner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

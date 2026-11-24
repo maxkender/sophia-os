@@ -10,7 +10,9 @@
   "tr": "Okulun sana öğretmediği 10/10 beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
-  "sr": "Veštine 10/10 koje te škola neće naučiti"
+  "sr": "Veštine 10/10 koje te škola neće naučiti",
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg",
+  "el": "Δεξιότητες 10/10 που δεν σου μαθαίνει το σχολείο"
  },
  "legendes": {
   "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -21,7 +23,9 @@
   "tr": "Okulun sana öğretmediği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine"
+  "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που δεν σου μαθαίνει το σχολείο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -220,6 +224,50 @@
      {
       "t": "NAUČITI",
       "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 111
+     },
+     {
+      "t": "AMIKRE AZ ISKOLA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NEM TANÍT",
+      "cap": 150
+     },
+     {
+      "t": "MEG",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 111
+     },
+     {
+      "t": "ΠΟΥ ΤΟ ΣΧΟΛΕΙΟ",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΔΕΝ ΣΟΥ",
+      "cap": 120
+     },
+     {
+      "t": "ΜΑΘΑΙΝΕΙ",
+      "cap": 230,
       "couleur": "brun"
      }
     ]
@@ -433,6 +481,52 @@
     "sous": [
      "30 min za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "CSERÉLJ",
+     [
+      {
+       "t": "KEREKET",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DBeKbNlID0w",
+     "titre": "Hogyan cserélj kereket az autódon? - Alapjárat Bütykölde",
+     "chaine": "Alapjárat",
+     "vues": "28 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/FvGUjxhv8-2nq7HQ9QWaRNG2shHjBuQqp-MzW0Mk2Aeb-pOaXD03Zj65F5xcHjxKzAoZcOGEGic=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΛΛΑΖΕΙΣ",
+     [
+      {
+       "t": "ΛΑΣΤΙΧΟ",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ],
+    "video": {
+     "id": "JrYmM_nJY5A",
+     "titre": "DIY: Πως αλλάζουμε ένα 'σκασμένο' λάστιχο",
+     "chaine": "Mind The Car",
+     "vues": "48 χιλ. προβολές",
+     "date": "πριν από 9 έτη",
+     "duree": "4:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mrUGS2ncDcd9bAhmdBWjE1zUT6Y4GTPxSLWjK7Zj-VCQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -643,6 +737,52 @@
     "sous": [
      "2-3 sata za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "TAROLJ",
+     [
+      {
+       "t": "AZ ÁLLÁSINTERJÚN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WH9e_12gCk8",
+     "titre": "Hogyan válaszolj az 5 legrémisztőbb állásinterjú kérdésre?",
+     "chaine": "CV Factory - Karrierpercek Ágival",
+     "vues": "49 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lhCmXwogkR9CPJW9PWxKhpq2RT8N1MNRsqUUoFo5J_qwI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΠΕΡΝΑΣ",
+     [
+      {
+       "t": "ΜΙΑ ΣΥΝΕΝΤΕΥΞΗ",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "MB_GrrFZdPs",
+     "titre": "Συνέντευξη για Δουλειά: 9 Πράγματα που ΠΡΕΠΕΙ να Ξέρεις - Business Review Greece",
+     "chaine": "Business Review Greece",
+     "vues": "30 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "7:45",
+     "avatar": "https://yt3.ggpht.com/QRRYkzkrslaOasOSeBh_VadSPI-5uwk6RmVIUMEhrbdQPyrlBWCuEQA-KLe_RjY0mZZCwhHDpQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -836,6 +976,48 @@
     "sous": [
      "5 min dnevno"
     ]
+   },
+   "hu": {
+    "titre": [
+     "PÓTOLD",
+     [
+      {
+       "t": "A HIÁNYOSSÁGAIDAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΚΑΛΥΨΕ",
+     [
+      {
+       "t": "ΤΑ ΚΕΝΑ ΣΟΥ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    }
    }
   },
   {
@@ -1046,6 +1228,52 @@
     "sous": [
      "Vežbanje nekoliko dana"
     ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "KEZELD",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "A STRESSZT"
+    ],
+    "video": {
+     "id": "6KTVygS4fR4",
+     "titre": "A stressz három megközelítése - verbális, mentális és testközpontú stresszoldás | STRESSZKEZELÉS",
+     "chaine": "Kaszás Ágnes",
+     "vues": "1,2 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/BtqcZLOF13Ca6WHgdH3O7zVRF0-smMS95mCuCbvCmWKZyGm7TgerrzApU8_YfBbVDh67Eeu_9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több napos gyakorlás"
+    ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΝΑ ΔΙΑΧΕΙΡΙΖΕΣΑΙ",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "ΤΟ ΑΓΧΟΣ"
+    ],
+    "sous": [
+     "εξάσκηση για αρκετές μέρες"
+    ],
+    "video": {
+     "id": "Fpj6zNRzwPk",
+     "titre": "Τι να κάνεις όταν έχεις επίμονο άγχος | Agnes Alice Mariakaki",
+     "chaine": "Agnes Alice Mariakaki",
+     "vues": "104 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "12:52",
+     "avatar": "https://yt3.ggpht.com/rkttEp8D4t2dpQQ8g7V-cUvWKCZpecKEyBeEawkJAWvPyCOjRG2ynSfltGfDPqcWUgUy_c5jyw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1256,6 +1484,52 @@
     "sous": [
      "≈ 10 sati za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "OLVASS",
+     [
+      {
+       "t": "KÉTSZER GYORSABBAN",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RyfZh_1qhcQ",
+     "titre": "Villámolvasás elmagyarázva",
+     "chaine": "Lantos Tanulási Stratégiák",
+     "vues": "23 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "6:42",
+     "avatar": "https://yt3.ggpht.com/RdoLob1EMcMjlbJCz3ZV_Ao8nqZpSh0KSrE6ZiYMeIhhgRQf-PAvkDf_rE88ysOelC61T-f8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΔΙΑΒΑΖΕΙΣ",
+     [
+      {
+       "t": "ΔΙΠΛΑΣΙΑ ΓΡΗΓΟΡΑ",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "sous": [
+     "≈ 10 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "JTbNEeegusQ",
+     "titre": "Πώς να Διαβάζεις 2 Φορές Πιο Γρήγορα & να Θυμάσαι Περισσότερα!",
+     "chaine": "Εγκέφαλος - Μνήμη - Μάθηση",
+     "vues": "180 προβολές",
+     "date": "πριν από 3 εβδ.",
+     "duree": "18:33",
+     "avatar": "https://yt3.ggpht.com/x_iGTTbl0_hxu7pVawP11se6kg_uYnP2zsUKXAZMX13bGF4vkIRzDLzqFpTogwag63971U5l=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1466,6 +1740,52 @@
     "sous": [
      "≈ 100 sati za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG",
+     [
+      {
+       "t": "PROGRAMOZNI",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "b09clOkzbtc",
+     "titre": "Mi az a programozás? (#0 Programozás Tutorial)",
+     "chaine": "KódKurzus",
+     "vues": "109 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "9:52",
+     "avatar": "https://yt3.ggpht.com/H7fL2NL-ahLtc8ljbC1aLuMGarOBm4muGaFxAoarqntiua4U1JiPz-7u-se662NgsKatEUY_2A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "ΠΡΟΓΡΑΜΜΑΤΙΣΜΟ",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "≈ 100 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "or6vnjYtEoU",
+     "titre": "Προγραμματισμός σε C για Αρχάριους | FULL COURSE Ελληνικά",
+     "chaine": "CodeGRow",
+     "vues": "11 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "3:37:20",
+     "avatar": "https://yt3.ggpht.com/Ppryh4nJsiYSHAx-9Q6elmkTZEH48jZ9g2CJxlPJ3jEwrjVw3bpUgBEQ3F_Ic67QtRVTfNFejg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

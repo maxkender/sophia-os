@@ -14,7 +14,8 @@
   "de": "5 wissenschaftliche ideen, die verdammt schwer sind",
   "nl": "5 wetenschappelijke ideeën die echt verdomd moeilijk zijn",
   "pt-BR": "5 ideias da ciência difíceis pra c*ralho",
-  "sv": "5 vetenskapliga idéer som är sjukt jävla svåra"
+  "sv": "5 vetenskapliga idéer som är sjukt jävla svåra",
+  "hu": "5 tudományos ötlet, ami tényleg k*rva nehéz"
  },
  "legendes": {
   "en": "#niche #science #physics #smarttok #lockedin",
@@ -23,7 +24,8 @@
   "de": "#wissenschaft #physik #wissen #lernen",
   "nl": "#wetenschap #natuurkunde #kennis #leren",
   "pt-BR": "#ciência #física #conhecimento #aprender",
-  "sv": "#vetenskap #fysik #kunskap #lärande"
+  "sv": "#vetenskap #fysik #kunskap #lärande",
+  "hu": "#tudomány #fizika #tudás #tanulás"
  },
  "musique": {
   "titre": "original sound - Spëāķèř",
@@ -67,6 +69,11 @@
     "titre": "5 vetenskapliga idéer som är sjukt jävla svåra",
     "image": "images/cerveau-27.jpg",
     "legende": "(försök förklara dem)"
+   },
+   "hu": {
+    "titre": "5 tudományos ötlet, ami tényleg k*rva nehéz",
+    "image": "images/cerveau-27.jpg",
+    "legende": "(próbáld elmagyarázni)"
    }
   },
   {
@@ -112,6 +119,12 @@
     "difficulte": "30/50",
     "texte": "einstein: klockor går fortare högre upp och långsammare i hög fart. klockorna i gps-satelliterna drar iväg ungefär 38 mikrosekunder om dagen och måste rättas",
     "image": "images/satellite.jpg"
+   },
+   "hu": {
+    "titre": "Az idő eltérő sebességgel telik",
+    "difficulte": "30/50",
+    "texte": "einstein: az órák magasabban gyorsabban, nagy sebességnél lassabban járnak. a gps-műholdak órái naponta kb. 38 mikroszekundumot csúsznak, ezt korrigálni kell",
+    "image": "images/satellite.jpg"
    }
   },
   {
@@ -156,6 +169,12 @@
     "titre": "Vissa oändligheter är större",
     "difficulte": "36/50",
     "texte": "georg cantor bevisade att det finns fler tal mellan 0 och 1 än det finns heltal, fast båda listorna aldrig tar slut",
+    "image": "images/miroirs.jpg"
+   },
+   "hu": {
+    "titre": "Egyes végtelenek nagyobbak",
+    "difficulte": "36/50",
+    "texte": "georg cantor bebizonyította, hogy 0 és 1 között több szám van, mint ahány egész szám, pedig egyik lista sem ér véget",
     "image": "images/miroirs.jpg"
    }
   },
@@ -203,6 +222,12 @@
     "difficulte": "4/50",
     "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. vetenskap utan huvudvärk",
     "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "difficulte": "4/50",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. tudomány fejfájás nélkül",
+    "telephone": "quiz"
    }
   },
   {
@@ -247,6 +272,12 @@
     "titre": "Kvantsammanflätning",
     "difficulte": "42/50",
     "texte": "mät en partikel och du vet direkt något om dess partner, hur långt bort den än är. einstein kallade det \"spöklik verkan på avstånd\"",
+    "image": "images/particules.jpg"
+   },
+   "hu": {
+    "titre": "Kvantum-összefonódás",
+    "difficulte": "42/50",
+    "texte": "mérj meg egy részecskét, és azonnal tudsz valamit a párjáról, bármilyen messze is van. einstein \"kísérteties távolhatásnak\" nevezte",
     "image": "images/particules.jpg"
    }
   },
@@ -293,6 +324,12 @@
     "difficulte": "45/50",
     "texte": "oordningen i ett slutet system tenderar alltid att öka. vissa fysiker tror att det är därför tiden bara går framåt",
     "image": "images/sablier-cosmos.jpg"
+   },
+   "hu": {
+    "titre": "Entrópia",
+    "difficulte": "45/50",
+    "texte": "egy zárt rendszerben a rendezetlenség mindig nőni hajlamos. egyes fizikusok szerint ezért halad az idő csak előre",
+    "image": "images/sablier-cosmos.jpg"
    }
   },
   {
@@ -337,6 +374,12 @@
     "titre": "Gödels ofullständighet",
     "difficulte": "49/50",
     "texte": "år 1931 bevisade kurt gödel att varje motsägelsefritt matematiskt system som kan räkna innehåller sanna påståenden som det aldrig kan bevisa",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "hu": {
+    "titre": "Gödel nemteljességi tétele",
+    "difficulte": "49/50",
+    "texte": "1931-ben kurt gödel bebizonyította, hogy minden ellentmondásmentes, számolni tudó matematikai rendszerben vannak igaz állítások, amelyeket sosem tud bizonyítani",
     "image": "images/vieil-homme-livre.jpg"
    }
   }

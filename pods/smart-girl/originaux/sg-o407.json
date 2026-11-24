@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o407",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ef149b0b-030d-438d-8d6c-71f4f654268a",
+ "titre": "how i stay neat and intelligent at school all at the same time #studytok #thatgirl #smartgirl #school #routine",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "ef149b0b-030d-438d-8d6c-71f4f654268a"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 89 de la boîte (parent ef149b0b, langue source en) : accroche du parent mot pour mot. Idées du parent (douche du soir l'hiver, ongles courts et nets, un seul parfum, routine de soin, bougies pendant l'étude, 6 à 8 h de sommeil, étudier au-delà des devoirs). Sophia sur le dernier à la première personne (cta A). Remplace un dépôt refusé. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e055f376",
+   "texte_overlay": "how i stay neat and intelligent\nat school all at the same time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670081539195079968/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ed3554f0",
+   "texte_overlay": "a strict shower routine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670081539195079968/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "867326b7",
+   "texte_overlay": "short, clean nails",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670081539195079968/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9a300f61",
+   "texte_overlay": "one perfume, used lightly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670081539195079968/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fa168113",
+   "texte_overlay": "skincare morning and night",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670081539195079968/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "20888b60",
+   "texte_overlay": "candles while i study\n\nwarm light is calmer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670081539195079968/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "490c797a",
+   "texte_overlay": "7-8 hours of sleep",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670081539195079968/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5e69938a",
+   "texte_overlay": "i study beyond homework\n\nwhen i finish early, i read about\nthings school doesn't teach.",
+   "texte_sophia": "i study beyond homework\n\nwhen i finish early, i open an app like\nSophia for things school doesn't teach.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670081539195079968/8.jpg"
+  }
+ ]
+}

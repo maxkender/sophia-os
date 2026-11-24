@@ -5338,6 +5338,16 @@ export const fr = {
         secoursConnecter: "Connecter le compte de secours",
         secoursReconnecter: "Reconnecter le compte de secours",
         alerteSecours: "Le compte Upwork de secours est déconnecté : les messages ne passent plus que par le compte de Max. Reconnecte-le.",
+        pont: {
+          titre: "Pont Hub ↔ OS",
+          ok: "OK",
+          panne: "En panne",
+          incident: "« {{action}} » échoue sans interruption depuis le {{depuis}} ({{n}} échec(s)). Dernière erreur : {{erreur}}",
+          succes: "Dernière réussite : {{quand}}",
+          echec: "Dernier échec : {{quand}} · « {{action}} » · HTTP {{code}} · {{erreur}}",
+          aucunEchec: "Aucun échec ces 7 derniers jours",
+          appels: "{{n}} appel(s) du site en 24 h, dont {{echecs}} en échec",
+        },
         titreTaches: "Tâches automatiques : dernier passage",
         taches: {
           recrues: "Vérification des recrues",

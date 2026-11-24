@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { appeler, capterSource, garderJeton, lireJeton, type Moi, type PaysPaie } from "./api";
-import { langueInitiale, LANGUES, traducteur } from "./i18n";
+import { chargerLangue, estRtl, langueChargee, langueInitiale, LANGUES, traducteur } from "./i18n";
 import { Logo } from "./Logo";
 import Arrivee from "./pages/Arrivee";
 import Candidature, { type Envoi } from "./pages/Candidature";
@@ -15,10 +15,12 @@ import Etat from "./pages/Etat";
 import Faq from "./pages/Faq";
 import Legal from "./pages/Legal";
 import Modele from "./pages/Modele";
+import Presentation from "./pages/Presentation";
+import { marquerPresentationVue, presentationVue } from "./presentation";
 
 type Ecran =
   | "arrivee" | "candidature" | "ferme" | "codes" | "decision" | "contrat" | "dashboard" | "connexion" | "legal" | "privacy"
-  | "expiree" | "refusee" | "modele" | "faq";
+  | "expiree" | "refusee" | "modele" | "faq" | "presentation";
 
 /** Les pages publiques qui ont leur propre adresse (liens partageables) ; /admin est à part. */
 const CHEMINS: Partial<Record<Ecran, string>> = { modele: "/contract", legal: "/legal", privacy: "/privacy", faq: "/faq" };
@@ -34,7 +36,12 @@ export default function App() {
 }
 
 function Site() {
-  const [langue, setLangue] = useState(langueInitiale);
+  const [langue, setLangueAffichee] = useState(langueInitiale);
+  /** Changer de langue : le fichier de la langue est chargé d'abord, puis la page bascule d'un coup. */
+  const setLangue = (code: string) => {
+    if (langueChargee(code)) return setLangueAffichee(code);
+    chargerLangue(code).then(() => setLangueAffichee(code));
+  };
   const t = useMemo(() => traducteur(langue), [langue]);
   const [ecran, setEcran] = useState<Ecran>(() => ecranDuChemin() ?? "arrivee");
   const [mode, setMode] = useState("test");
@@ -51,6 +58,13 @@ function Site() {
       // historique indisponible
     }
     globalThis.scrollTo(0, 0);
+  };
+
+  /** « Postuler » : la présentation d'abord (une fois par session), puis le formulaire. */
+  const postuler = () => aller(presentationVue() ? "candidature" : "presentation");
+  const finirPresentation = () => {
+    marquerPresentationVue();
+    aller("candidature");
   };
 
   useEffect(() => {
@@ -81,6 +95,7 @@ function Site() {
 
   useEffect(() => {
     document.documentElement.lang = langue;
+    document.documentElement.dir = estRtl(langue) ? "rtl" : "ltr";
     try {
       localStorage.setItem("join_langue", langue);
     } catch {
@@ -129,7 +144,7 @@ function Site() {
               <>
                 <button type="button" className="nav__link" onClick={() => aller("connexion")}>{t("nav.login")}</button>
                 {ecran === "arrivee" && (
-                  <button type="button" className="btn btn--sm nav__cta" onClick={() => aller("candidature")}>{t("nav.apply")}</button>
+                  <button type="button" className="btn btn--sm nav__cta" onClick={postuler}>{t("nav.apply")}</button>
                 )}
               </>
             )}
@@ -138,13 +153,19 @@ function Site() {
       </header>
 
       {ecran === "arrivee" && (
-        <Arrivee t={t} langue={langue} pays={pays} onPostuler={() => aller("candidature")}
+        <Arrivee t={t} langue={langue} pays={pays} onPostuler={postuler}
           faq={<Faq t={t} onContrat={() => aller("modele")} onPrivacy={() => aller("privacy")} />} />
       )}
       {ecran === "faq" && (
         <main className="page"><Faq t={t} onContrat={() => aller("modele")} onPrivacy={() => aller("privacy")} /></main>
       )}
-      {ecran === "modele" && <Modele t={t} langue={langue} pays={pays} onPostuler={() => aller("candidature")} />}
+      {ecran === "modele" && <Modele t={t} langue={langue} pays={pays} onPostuler={postuler} />}
+      {ecran === "presentation" && <Presentation t={t} langue={langue} pays={pays} onFini={finirPresentation} />}
+      {ecran === "candidature" && (
+        <div className="wrap etroite onb__revoir">
+          <button type="button" className="lien" onClick={() => aller("presentation")}>{t("onb.replay")}</button>
+        </div>
+      )}
       {ecran === "candidature" && (
         <Candidature t={t} langue={langue} pays={pays} onLegal={() => aller("privacy")} onContrat={() => aller("modele")} onEnvoye={(e) => {
           setEnvoi(e);
@@ -171,7 +192,7 @@ function Site() {
       {ecran === "connexion" && <Connexion t={t} onConnecte={() => chargerMoi(true)} />}
       {(ecran === "legal" || ecran === "privacy") && <Legal t={t} section={ecran} />}
 
-      <footer className="footer">
+      {ecran !== "presentation" && <footer className="footer">
         <div className="wrap">
           <div className="footer__top">
             <p className="footer__tagline">{t("foot.tagline")}</p>
@@ -189,7 +210,7 @@ function Site() {
             <span>{t("foot.rights", { year: new Date().getFullYear() })}</span>
           </div>
         </div>
-      </footer>
+      </footer>}
     </>
   );
 }

@@ -1,0 +1,421 @@
+{
+ "post_id": "var-livres-3",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "texte": "5 βιβλία που διαβάζονται ακριβώς σαν [[σειρά]]"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "texte": "(αδύνατον να τα αφήσεις κάτω)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1f9ba059.jpg",
+      "boite": [
+       0,
+       0,
+       832,
+       1248
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "make decisions before you feel ready"
+     ],
+     "texte": "1. [[Χρονικό ενός προαναγγελθέντος θανάτου]]"
+    },
+    "T2": {
+     "en": [
+      "there will never be a",
+      "perfect moment, you will",
+      "never feel ready"
+     ],
+     "texte": "Γκαρσία Μάρκες. από την πρώτη σελίδα ξέρεις ότι θα πεθάνει"
+    },
+    "T3": {
+     "en": [
+      "take that risk you've",
+      "been thinking about, you",
+      "have nothing to lose"
+     ],
+     "texte": "όλο το χωριό το ήξερε, κανείς δεν τον προειδοποίησε. [[πρέπει να μάθεις γιατί]]"
+    },
+    "T4": {
+     "en": [
+      "procrastination is making you lose trust in yourself"
+     ],
+     "texte": "μόλις 120 σελίδες, διαβάζεται σαν [[καλό αστυνομικό]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0d90650e.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "texte": "2. [[Καλημέρα θλίψη]] (1954)"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "texte": "η Σαγκάν το έγραψε στα 18 της. ένα καλοκαίρι στη Γαλλική Ριβιέρα"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "texte": "η Σεσίλ είναι 17, η ζωή της τέλεια, ώσπου έρχεται η Αν. και τότε [[στήνει ένα σχέδιο]]"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "texte": "τη μισείς, την καταλαβαίνεις και γυρνάς σελίδες [[χωρίς να μπορείς να σταματήσεις]]"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "texte": "[[ένα βράδυ]] και τελείωσε"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0ba43121.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "texte": "3. [[Φαρενάιτ 451]], Ρέι Μπράντμπερι"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "texte": "ένας κόσμος όπου οι πυροσβέστες [[καίνε βιβλία]]"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "texte": "ο Μόνταγκ τα καίει κάθε μέρα, ώσπου ένα βράδυ κρατάει ένα και [[αρχίζει να διαβάζει]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "texte": "γράφτηκε το 1953 και μιλάει ξεκάθαρα [[για εμάς και τις οθόνες μας]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_38d562a6.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "4. [[Γράμμα μιας άγνωστης]], Τσβάιχ"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "ένας διάσημος συγγραφέας παίρνει ένα γράμμα από μια γυναίκα που δεν θυμάται καν. τον αγαπά κρυφά από τα 13 της και [[του τα λέει όλα]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "100 σελίδες, [[σκέτη γροθιά]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "και το βράδυ, παλιά έκανα ατελείωτο σκρολ, ενώ τώρα μαθαίνω κάτι καινούργιο σε 5 λεπτά στην [[εφαρμογή Sophia]]"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "χθες ήταν γιατί η Αναγέννηση ξεκίνησε στην Ιταλία. ακόμα το συζητάω"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "wake up before everyone else"
+     ],
+     "texte": "5. [[Ο Υπέροχος Γκάτσμπυ]] (1925)"
+    },
+    "T2": {
+     "en": [
+      "no messages, no notifications, no one needs you yet"
+     ],
+     "texte": "τρελά πάρτι κι ένας οικοδεσπότης [[που κανείς δεν ξέρει]]"
+    },
+    "T3": {
+     "en": [
+      "the first hour of the day is",
+      "when your focus is at its",
+      "best, so use it for your",
+      "own goals"
+     ],
+     "texte": "έχει τη βίλα, τα λεφτά, τα πάρτι, αλλά θέλει [[ένα μόνο πράγμα]] στην απέναντι όχθη του κόλπου"
+    },
+    "T4": {
+     "en": [
+      "before anyone else can",
+      "take your attention"
+     ],
+     "texte": "όσο προχωράς, [[τόσο πιο πολύ ραγίζουν όλα]]"
+    },
+    "T5": {
+     "en": [
+      "even 30 minutes earlier makes a difference"
+     ],
+     "texte": "Φιτζέραλντ, 180 σελίδες, [[ένα σαββατοκύριακο]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_a649b19b.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 200,
+      "l": 762,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 200,
+       "l": 762,
+       "h": 56,
+       "base": 243
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 345,
+      "l": 855,
+      "h": 38
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 345,
+       "l": 855,
+       "h": 38,
+       "base": 373
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 45,
+      "y": 415,
+      "l": 495,
+      "h": 479
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 558,
+      "y": 445,
+      "l": 419,
+      "h": 168
+     },
+     "lignes": [
+      {
+       "x": 558,
+       "y": 445,
+       "l": 419,
+       "h": 37,
+       "base": 473
+      },
+      {
+       "x": 559,
+       "y": 489,
+       "l": 395,
+       "h": 36,
+       "base": 517
+      },
+      {
+       "x": 558,
+       "y": 532,
+       "l": 364,
+       "h": 37,
+       "base": 560
+      },
+      {
+       "x": 560,
+       "y": 577,
+       "l": 166,
+       "h": 36,
+       "base": 605
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 561,
+      "y": 681,
+      "l": 380,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 564,
+       "y": 681,
+       "l": 377,
+       "h": 37,
+       "base": 709
+      },
+      {
+       "x": 561,
+       "y": 725,
+       "l": 308,
+       "h": 36,
+       "base": 753
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 924,
+      "l": 704,
+      "h": 36
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 924,
+       "l": 704,
+       "h": 36,
+       "base": 952
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  }
+ }
+}

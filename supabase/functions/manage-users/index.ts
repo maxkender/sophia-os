@@ -2143,12 +2143,17 @@ async function referenceLibre(
   const { data: refs } = await q;
   if (!refs || refs.length === 0) return null;
 
-  const { data: comptes } = await supabase
-    .from("comptes")
-    .select("compte_reference_id")
-    .eq("langue", langue)
-    .not("compte_reference_id", "is", null);
-  const prisDansCetteLangue = new Set((comptes ?? []).map((c) => c.compte_reference_id));
+  // 24/11 : lu par pages (keyset sur id) : une langue peut dépasser le plafond de 1000 lignes.
+  const comptes = await lireTout<{ id: string; compte_reference_id: string | null }>(
+    `références prises (${langue})`,
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("id, compte_reference_id").eq("langue", langue).not("compte_reference_id", "is", null);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id },
+  );
+  const prisDansCetteLangue = new Set(comptes.map((c) => c.compte_reference_id));
 
   const libres = refs.filter((r) => !prisDansCetteLangue.has(r.id));
   if (libres.length === 0) return null;

@@ -424,9 +424,26 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     if (error) throw error;
   }
 
-  // 4. Création par le chemin de l'admin (manage-users), jamais un second chemin.
+  // 4. Reprise d'une réservation laissée par un appel à l'issue inconnue : le posteur a pu être créé. On le
+  //    cherche avant d'en créer un autre (24/11 : sans ce contrôle, chaque reprise recréait un posteur complet,
+  //    jusqu'à 23 profils pour une même recrue, voir 0851).
+  let reprise: ResultatCreation | null = null;
+  if (lien) {
+    const orphelin = await posteurOrphelin(supabase, String(lien.created_at ?? lien.reserve_at), prenom, nom);
+    if (orphelin.statut === "incomplet") {
+      const erreur = `creation_incertaine : un essai précédent a créé ${orphelin.profileIds.length} posteur(s) sans compte complet, ` +
+        `à vérifier avant d'en créer un autre (${orphelin.profileIds.join(", ")})`;
+      await noterEchec(supabase, hubId, emailPerso, `${prenom} ${nom}`.trim(), erreur);
+      return json({ ok: false, error: erreur }, 409);
+    }
+    if (orphelin.statut === "complet") {
+      reprise = { ok: true, userId: orphelin.profileId, email: orphelin.email, compteId: orphelin.compteId, password: null };
+    }
+  }
+
+  // 5. Création par le chemin de l'admin (manage-users), jamais un second chemin.
   const paysCompte = paysAEnvoyer(langue, pays);
-  const cree = await appelerManageUsers({
+  const cree = reprise ?? await appelerManageUsers({
     action: "create",
     prenom,
     nom,
@@ -452,10 +469,11 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     }
     await supabase.from("hub_posteurs").delete().eq("hub_id", hubId).eq("statut", "en_cours");
     await noterEchec(supabase, hubId, emailPerso, `${prenom} ${nom}`.trim(), `creation_refusee : ${cree.error}`);
-    return json({ ok: false, error: `creation_refusee : ${cree.error}` }, 422);
+    // 24/11 : une panne côté OS que manage-users a annulée (rien n'a été créé) se réessaie : 502, pas 422.
+    return json({ ok: false, error: `creation_refusee : ${cree.error}` }, cree.reessayable ? 502 : 422);
   }
 
-  // Sans mot de passe dans la réponse (ne devrait pas arriver) : on en met un en place nous-mêmes.
+  // Sans mot de passe dans la réponse (ne devrait pas arriver ; jamais pour une reprise) : on en met un en place nous-mêmes.
   let password = cree.password;
   if (!password) {
     password = motDePasseRecrue();
@@ -463,7 +481,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     if (errMdp) throw errMdp;
   }
 
-  // 5. Le lien d'abord (un rejeu retrouvera le poster), puis le profil.
+  // 6. Le lien d'abord (un rejeu retrouvera le poster), puis le profil.
   const { error: errCree } = await supabase
     .from("hub_posteurs")
     // 0583 : mdp_reel = le mot de passe renvoyé au site est bien celui en place (le rattrapage n'y touche pas).
@@ -675,7 +693,59 @@ async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
 
 type ResultatCreation =
   | { ok: true; userId: string; email: string; compteId: string | null; password: string | null }
-  | { ok: false; incertain: boolean; error: string };
+  | { ok: false; incertain: boolean; reessayable?: boolean; error: string };
+
+type Orphelin =
+  | { statut: "aucun" }
+  | { statut: "complet"; profileId: string; email: string; compteId: string }
+  | { statut: "incomplet"; profileIds: string[] };
+
+/**
+ * 24/11 : un posteur créé par un essai précédent pour ce signé, dont la réponse s'est perdue : même prénom et
+ * même nom (manage-users les enregistre tels qu'on les envoie), actif, sans contrat Upwork, créé depuis la
+ * première réservation, et relié à aucun signé du Hub. « complet » : il a un compte actif avec son identité, on
+ * le reprend tel quel. « incomplet » : il existe mais sans compte complet, un humain tranche (rien n'est créé).
+ */
+async function posteurOrphelin(supabase: Supabase, depuis: string, prenom: string, nom: string): Promise<Orphelin> {
+  let requete = supabase
+    .from("profiles")
+    .select("id, email")
+    .eq("prenom", prenom)
+    .eq("is_active", true)
+    .is("upwork_contract_id", null)
+    // manage-users appelé par le Hub (cron) ne pose pas de manager : celui-ci est posé à l'étape 6.
+    .is("manager_id", null)
+    .gte("created_at", depuis)
+    .order("created_at", { ascending: false })
+    .limit(50);
+  requete = nom ? requete.eq("nom", nom) : requete.is("nom", null);
+  const { data, error } = await requete;
+  if (error) throw error;
+  const profils = (data ?? []) as { id: string; email: string | null }[];
+  if (!profils.length) return { statut: "aucun" };
+
+  const { data: lies, error: errLies } = await supabase
+    .from("hub_posteurs")
+    .select("profile_id")
+    .in("profile_id", profils.map((p) => p.id));
+  if (errLies) throw errLies;
+  const dejaLies = new Set(((lies ?? []) as { profile_id: string | null }[]).map((l) => l.profile_id));
+  const libres = profils.filter((p) => !dejaLies.has(p.id));
+  if (!libres.length) return { statut: "aucun" };
+
+  const { data: lus, error: errComptes } = await supabase
+    .from("comptes")
+    .select("id, poster_id, persona_nom")
+    .in("poster_id", libres.map((p) => p.id))
+    .eq("is_active", true);
+  if (errComptes) throw errComptes;
+  const comptes = (lus ?? []) as { id: string; poster_id: string; persona_nom: string | null }[];
+  for (const p of libres) {
+    const compte = comptes.find((c) => c.poster_id === p.id && (c.persona_nom ?? "").trim() !== "");
+    if (compte) return { statut: "complet", profileId: p.id, email: p.email ?? "", compteId: compte.id };
+  }
+  return { statut: "incomplet", profileIds: libres.map((p) => p.id) };
+}
 
 async function appelerManageUsers(corps: Record<string, unknown>): Promise<ResultatCreation> {
   const url = Deno.env.get("SUPABASE_URL");
@@ -701,8 +771,13 @@ async function appelerManageUsers(corps: Record<string, unknown>): Promise<Resul
     return { ok: true, userId: String(charge.userId), email: String(charge.email ?? ""), compteId: charge.compte?.id || null, password };
   }
   const erreur = String(charge?.error ?? `HTTP ${reponse.status}`).slice(0, 300);
+  // 24/11 : manage-users annule désormais ce qu'il a créé quand il échoue après createUser, et le dit
+  // (`annule`) : l'issue est alors connue, rien n'a été créé, et la panne se réessaie.
+  if (charge?.annule === "supprime" || charge?.annule === "desactive" || charge?.annule === "rien_cree") {
+    return { ok: false, incertain: false, reessayable: true, error: erreur };
+  }
   // Un 5xx (ou une réponse illisible) peut arriver APRÈS createUser : issue inconnue.
-  return { ok: false, incertain: reponse.status >= 500 || !charge, error: erreur };
+  return { ok: false, incertain: reponse.status >= 500 || !charge, reessayable: reponse.status >= 500, error: erreur };
 }
 
 // deno-lint-ignore no-explicit-any

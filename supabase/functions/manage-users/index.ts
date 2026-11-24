@@ -502,50 +502,13 @@ async function gererRequete(request: Request): Promise<Response> {
       return json({ error: detail || `Création refusée pour ${email}` }, 400);
     }
 
-    if (data.user) {
-      await supabase
-        .from("profiles")
-        .update({
-          prenom,
-          nom: nom || null,
-          is_active: true,
-          // 9/11 (Max) : 12345678 pour l'instant, pas de changement obligatoire.
-          must_change_password: false,
-          ...lectureContact.contact,
-          // 31/10 : relié au contrat tout de suite (plus d'attente de contrats_relier).
-          ...(contratId ? { upwork_contract_id: contratId } : {}),
-        })
-        .eq("id", data.user.id);
-      await libererContrat(data.user.id);
-
-      if (roleVoulu === "hiring_manager") {
-        await supabase.from("user_roles").delete().eq("user_id", data.user.id);
-        await supabase.from("user_roles").insert({ user_id: data.user.id, role: "hiring_manager" });
-        const ensemble = [
-          ...new Set(languesRecues.length > 0 ? languesRecues : (langue ? [langue] : [])),
-        ];
-        const patchHm: Record<string, unknown> = {};
-        if (ensemble.length > 0) {
-          patchHm.nationalite = ensemble[0];
-          patchHm.langues = ensemble;
-        }
-        const rattachement = rattachementNouvelHm(
-          acces.role,
-          acces.userId,
-          await managerDe(supabase, acces),
-        );
-        if (rattachement !== undefined) patchHm.manager_id = rattachement;
-        if (Object.keys(patchHm).length > 0) {
-          await supabase.from("profiles").update(patchHm).eq("id", data.user.id);
-        }
-      } else if (estRoleManager(acces.role) && acces.userId !== "cron") {
-        await supabase
-          .from("profiles")
-          .update({ manager_id: acces.userId })
-          .eq("id", data.user.id);
-      }
-    }
-
+    // 24/11 : tout ou rien. Du 23/11 au 24/11, l'étape identité plantait APRÈS createUser : la réponse était
+    // un 500, le login et le compte restaient, et l'appelant (hub-posteurs) recréait un posteur complet à chaque
+    // essai : 417 coquilles vides pour 32 recrues (0851). Désormais, une erreur après createUser annule ce que
+    // CETTE requête vient de créer (le login qu'elle a créé, rien d'autre), rend l'entrée de File et libère le
+    // contrat : un 500 avec `annule` veut dire « rien n'a été créé », et l'appelant peut réessayer sans risque.
+    // `fileARendre` : l'entrée de File est-elle encore à rendre si on annule (preparerCompte la rend lui-même
+    // quand son insert échoue, la branche « ni perso ni CM » plus bas aussi).
     let compte: {
       id: string;
       type_compte?: string;
@@ -554,56 +517,118 @@ async function gererRequete(request: Request): Promise<Response> {
       labelId: string | null;
       ugc: boolean;
     } | null = null;
-    if (data.user && creerPerso) {
-      const postsParJour = normaliserPostsParJour(body.posts_par_jour);
-      compte = {
-        ...(await preparerCompte(
-          supabase,
-          data.user.id,
-          langue,
-          referenceId,
-          fileItem,
-          postsParJour,
-          personaUgc,
-          fileItemQueue,
-          { application, partsApplications, pays: paysSaisi(body) },
-        )),
-        type_compte: "perso",
-      };
-      if (compte.id) await ajouterLangueProfil(supabase, data.user.id, langue);
-      const handlePerso = String(body.handle_tiktok ?? "").trim().replace(/^@+/, "");
-      if (compte.id && handlePerso) {
-        await supabase.from("comptes").update({ handle_tiktok: handlePerso }).eq("id", compte.id);
-      }
-    } else if (data.user && creerCm) {
-      const cm = await creerCompteCmPourPoster(supabase, acces, data.user.id, langue, body);
-      if (!cm.ok) return cm;
-      try {
-        const payload = await cm.clone().json() as { compteId?: string };
-        compte = {
-          id: payload.compteId ?? "",
-          type_compte: "cm",
-          reference: null,
-          persona: false,
-          labelId: null,
-          ugc: false,
-        };
-      } catch {
-        compte = {
-          id: "",
-          type_compte: "cm",
-          reference: null,
-          persona: false,
-          labelId: null,
-          ugc: false,
-        };
-      }
-    } else if (fileItemQueue) {
-      await unshiftLabelFile(supabase, fileItemQueue);
-    }
+    let fileARendre = Boolean(fileItemQueue);
+    try {
+      if (data.user) {
+        await supabase
+          .from("profiles")
+          .update({
+            prenom,
+            nom: nom || null,
+            is_active: true,
+            // 9/11 (Max) : 12345678 pour l'instant, pas de changement obligatoire.
+            must_change_password: false,
+            ...lectureContact.contact,
+            // 31/10 : relié au contrat tout de suite (plus d'attente de contrats_relier).
+            ...(contratId ? { upwork_contract_id: contratId } : {}),
+          })
+          .eq("id", data.user.id);
+        await libererContrat(data.user.id);
 
-    if (roleVoulu === "poster" && langue) {
-      await etendreLanguesManager(supabase, acces, langue);
+        if (roleVoulu === "hiring_manager") {
+          await supabase.from("user_roles").delete().eq("user_id", data.user.id);
+          await supabase.from("user_roles").insert({ user_id: data.user.id, role: "hiring_manager" });
+          const ensemble = [
+            ...new Set(languesRecues.length > 0 ? languesRecues : (langue ? [langue] : [])),
+          ];
+          const patchHm: Record<string, unknown> = {};
+          if (ensemble.length > 0) {
+            patchHm.nationalite = ensemble[0];
+            patchHm.langues = ensemble;
+          }
+          const rattachement = rattachementNouvelHm(
+            acces.role,
+            acces.userId,
+            await managerDe(supabase, acces),
+          );
+          if (rattachement !== undefined) patchHm.manager_id = rattachement;
+          if (Object.keys(patchHm).length > 0) {
+            await supabase.from("profiles").update(patchHm).eq("id", data.user.id);
+          }
+        } else if (estRoleManager(acces.role) && acces.userId !== "cron") {
+          await supabase
+            .from("profiles")
+            .update({ manager_id: acces.userId })
+            .eq("id", data.user.id);
+        }
+      }
+
+      if (data.user && creerPerso) {
+        const postsParJour = normaliserPostsParJour(body.posts_par_jour);
+        compte = {
+          ...(await preparerCompte(
+            supabase,
+            data.user.id,
+            langue,
+            referenceId,
+            fileItem,
+            postsParJour,
+            personaUgc,
+            fileItemQueue,
+            { application, partsApplications, pays: paysSaisi(body) },
+          )),
+          type_compte: "perso",
+        };
+        if (!compte.id) fileARendre = false;
+        if (compte.id) await ajouterLangueProfil(supabase, data.user.id, langue);
+        const handlePerso = String(body.handle_tiktok ?? "").trim().replace(/^@+/, "");
+        if (compte.id && handlePerso) {
+          await supabase.from("comptes").update({ handle_tiktok: handlePerso }).eq("id", compte.id);
+        }
+      } else if (data.user && creerCm) {
+        const cm = await creerCompteCmPourPoster(supabase, acces, data.user.id, langue, body);
+        if (!cm.ok) {
+          // Même règle : le login que cette requête vient de créer ne reste pas sans son compte.
+          const annule = await annulerCreation(supabase, data.user.id);
+          await libererContrat(null);
+          console.error(`[manage-users] create : compte CM refusé (${email}), création annulée (${annule})`);
+          return cm;
+        }
+        try {
+          const payload = await cm.clone().json() as { compteId?: string };
+          compte = {
+            id: payload.compteId ?? "",
+            type_compte: "cm",
+            reference: null,
+            persona: false,
+            labelId: null,
+            ugc: false,
+          };
+        } catch {
+          compte = {
+            id: "",
+            type_compte: "cm",
+            reference: null,
+            persona: false,
+            labelId: null,
+            ugc: false,
+          };
+        }
+      } else if (fileItemQueue) {
+        fileARendre = false;
+        await unshiftLabelFile(supabase, fileItemQueue);
+      }
+
+      if (roleVoulu === "poster" && langue) {
+        await etendreLanguesManager(supabase, acces, langue);
+      }
+    } catch (e) {
+      const cause = messageErreur(e);
+      const annule = data.user ? await annulerCreation(supabase, data.user.id) : "rien_cree";
+      await libererContrat(null);
+      if (fileItemQueue && fileARendre) await unshiftLabelFile(supabase, fileItemQueue);
+      console.error(`[manage-users] create : erreur après createUser (${email}), création annulée (${annule}) : ${cause}`);
+      return json({ error: `creation_annulee : ${cause}`, annule }, 500);
     }
 
     return json({
@@ -2000,6 +2025,24 @@ function normaliserPostsParJour(n: unknown): number {
   const v = Number(n);
   if (!Number.isFinite(v)) return 2;
   return Math.min(3, Math.max(1, Math.round(v)));
+}
+
+/**
+ * 24/11 : annule une création qui a échoué en route (voir `create`). Ne touche QUE le login que la requête en
+ * cours vient de créer avec createUser : sa suppression emporte le profil, ses rôles et ses comptes (clés
+ * étrangères en cascade). Si la suppression est refusée (une ligne qui la bloque), le profil et ses comptes sont
+ * désactivés : un posteur inactif n'est compté nulle part (répartition, labels, accueils).
+ */
+async function annulerCreation(
+  supabase: Supabase,
+  userId: string,
+): Promise<"supprime" | "desactive" | "echec"> {
+  const { error } = await supabase.auth.admin.deleteUser(userId);
+  if (!error) return "supprime";
+  console.error(`[manage-users] annulerCreation ${userId} : suppression refusée (${error.message}), désactivation`);
+  const comptes = await supabase.from("comptes").update({ is_active: false }).eq("poster_id", userId);
+  const profil = await supabase.from("profiles").update({ is_active: false }).eq("id", userId);
+  return comptes.error || profil.error ? "echec" : "desactive";
 }
 
 async function preparerCompte(

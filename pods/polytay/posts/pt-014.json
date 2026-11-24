@@ -1,0 +1,616 @@
+{
+ "id": "pt-014",
+ "titre": {
+  "en": "things i stopped doing that made me smarter",
+  "fr": "ce que j'ai arrêté de faire et qui m'a rendue plus cultivée",
+  "es": "cosas que dejé de hacer y me hicieron más culta",
+  "es-419": "cosas que dejé de hacer y me hicieron más culta",
+  "it": "cose che ho smesso di fare e che mi hanno resa più colta",
+  "tr": "bırakınca beni daha bilgili yapan şeyler",
+  "pt-BR": "coisas que eu parei de fazer e me deixaram mais culta",
+  "sl": "stvari, ki sem jih nehala početi in so me naredile bolj razgledano",
+  "de": "dinge, mit denen ich aufgehört habe und die mich klüger gemacht haben",
+  "sk": "veci, s ktorými som prestala a vďaka ktorým som rozhľadenejšia",
+  "sv": "saker jag slutade göra som gjorde mig smartare"
+ },
+ "legendes": {
+  "en": "sometimes getting smarter is mostly quitting things. which one are you dropping <3 #girlblogger #selfimprovement #learning #thatgirl #booktok",
+  "fr": "parfois, devenir plus cultivée, c'est surtout arrêter des trucs. tu lâches lequel <3 #girlblogger #developpementpersonnel #apprendre #thatgirl #booktokfrance",
+  "es": "a veces ser más culta es sobre todo dejar cosas. ¿cuál dejas tú? <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktokespaña",
+  "es-419": "a veces ser más culta es más que nada dejar cosas. ¿cuál dejas tú? <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktoklatam",
+  "it": "a volte diventare più colta vuol dire soprattutto smettere di fare cose. tu quale molli <3 #girlblogger #crescitapersonale #imparare #thatgirl #booktokitalia",
+  "tr": "bazen daha bilgili olmak, çoğunlukla bir şeyleri bırakmaktır. sen hangisini bırakıyorsun <3 #girlblogger #kişiselgelişim #öğrenmek #thatgirl #booktoktürkiye",
+  "pt-BR": "às vezes ficar mais culta é principalmente parar de fazer coisas. qual você vai largar <3 #girlblogger #autodesenvolvimento #aprender #thatgirl #booktokbrasil",
+  "sl": "včasih je biti bolj razgledana predvsem to, da nehaš z nečim. katero opustiš ti <3 #girlblogger #osebnirazvoj #učenje #thatgirl #booktok",
+  "de": "manchmal heißt klüger werden vor allem: mit dingen aufhören. womit hörst du auf <3 #girlblogger #selbstverbesserung #lernen #thatgirl #booktokdeutschland",
+  "sk": "niekedy byť rozhľadenejšia znamená hlavne s niečím prestať. s čím prestaneš ty <3 #girlblogger #osobnyrozvoj #ucenie #thatgirl #booktok",
+  "sv": "ibland handlar det om att sluta med saker för att bli smartare. vilken slutar du med <3 #girlblogger #självutveckling #lärande #thatgirl #booktoksverige"
+ },
+ "musique": {
+  "titre": "Solace",
+  "url": "https://www.tiktok.com/music/Solace-7629352188019509265"
+ },
+ "notes": "Full test (BLEO, 24/11) : accroche neuve chez nous (l'envers de « things that made me smarter »), au gabarit de son tube. Éléments à nous : arrêter de survoler, de faire semblant de comprendre, de finir la journée sur le feed (Sophia), de faire trois choses à la fois, de dire « je ne suis pas une personne science ». Slide Sophia (4) : « 3. i stopped ending the day on the feed », cta A (reformulé). Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-jardin-portes.jpg": "766014c6-0b48-4d12-aede-dc390d2c8933",
+  "images/banque/couv-livre-lit-chaud.jpg": "1d8c78af-0fdc-4494-ab54-ecc0d1e58eab",
+  "images/banque/pages-manuscrites.jpg": "10abf1de-145f-4bb9-b50d-d53be10a4c1a",
+  "images/banque/livre-lunettes-drap.jpg": "14f9ce06-57e9-42fd-8a30-e03efdbf8448",
+  "images/banque/main-carnet-lit.jpg": "11d5209d-f858-4d3e-967c-ab6e7e1f2bde",
+  "images/banque/notes-surlignees.jpg": "0a46c05c-b424-4e82-aee8-ae9b37dae81a",
+  "images/banque/lampe-orange-chat.jpg": "220f4bff-e9d3-40f7-935b-db1feff9f581",
+  "images/banque/bol-lit.jpg": "15bf6f2f-fa95-490f-971e-42067552d768",
+  "images/banque/oreillers.jpg": "17191b45-e7ac-4a6a-ae37-d6b7e9db9ce0",
+  "images/banque/ordi-tricot-panier.jpg": "1da572d1-ee0a-46a7-bc00-cd62f3a95d89",
+  "images/banque/bureau-soleil.jpg": "1801f7ea-6faa-4b7d-848d-9b5f16e1f3f0"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-jardin-portes.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-livre-lit-chaud.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things i stopped\ndoing that made\nme smarter"
+   },
+   "fr": {
+    "titre": "ce que j'ai arrêté\nde faire et qui m'a\nrendue plus cultivée"
+   },
+   "es": {
+    "titre": "cosas que dejé de\nhacer y me hicieron\nmás culta"
+   },
+   "es-419": {
+    "titre": "cosas que dejé de\nhacer y me hicieron\nmás culta"
+   },
+   "it": {
+    "titre": "cose che ho smesso\ndi fare e che mi\nhanno resa più colta"
+   },
+   "tr": {
+    "titre": "bırakınca beni\ndaha bilgili\nyapan şeyler"
+   },
+   "pt-BR": {
+    "titre": "coisas que eu parei\nde fazer e me\ndeixaram mais culta"
+   },
+   "sl": {
+    "titre": "stvari, ki sem jih\nnehala početi in so\nme naredile bolj\nrazgledano"
+   },
+   "de": {
+    "titre": "womit ich aufgehört\nhabe und was mich\nklüger gemacht hat"
+   },
+   "sk": {
+    "titre": "veci, s ktorými som\nprestala a vďaka\nktorým som\nrozhľadenejšia"
+   },
+   "sv": {
+    "titre": "saker jag slutade\ngöra som gjorde\nmig smartare"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/pages-manuscrites.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/livre-lunettes-drap.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. i stopped skimming",
+    "paragraphes": [
+     "I used to read ten articles a day and remember none. now I read one, slowly, all the way to the end.",
+     "Turns out reading less, but properly, is how things actually stay in your head"
+    ]
+   },
+   "fr": {
+    "titre": "1. j'ai arrêté de survoler",
+    "paragraphes": [
+     "Avant, je lisais dix articles par jour et je n'en retenais aucun. maintenant j'en lis un, lentement, jusqu'au bout.",
+     "Lire moins mais bien, c'est comme ça que les choses restent vraiment"
+    ]
+   },
+   "es": {
+    "titre": "1. dejé de leer por encima",
+    "paragraphes": [
+     "Antes leía diez artículos al día y no recordaba ninguno. ahora leo uno, despacio, hasta el final.",
+     "Leer menos, pero bien, es lo que hace que las cosas se queden"
+    ]
+   },
+   "es-419": {
+    "titre": "1. dejé de leer por encima",
+    "paragraphes": [
+     "Antes leía diez artículos al día y no me acordaba de ninguno. ahora leo uno, despacio, hasta el final.",
+     "Leer menos, pero bien, es lo que hace que las cosas se queden"
+    ]
+   },
+   "it": {
+    "titre": "1. ho smesso di leggere in diagonale",
+    "paragraphes": [
+     "Prima leggevo dieci articoli al giorno e non ne ricordavo nessuno. ora ne leggo uno, piano, fino alla fine.",
+     "Leggere meno, ma bene, è ciò che fa restare le cose in testa"
+    ]
+   },
+   "tr": {
+    "titre": "1. üstünkörü okumayı bıraktım",
+    "paragraphes": [
+     "Eskiden günde on makale okuyup hiçbirini hatırlamazdım. şimdi bir tane okuyorum, yavaşça, sonuna kadar.",
+     "Az ama düzgün okumak, şeylerin gerçekten akılda kalmasını sağlıyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. parei de ler por cima",
+    "paragraphes": [
+     "Eu lia dez artigos por dia e não lembrava de nenhum. agora leio um, devagar, até o fim.",
+     "Ler menos, mas direito, é o que faz as coisas ficarem na cabeça"
+    ]
+   },
+   "sl": {
+    "titre": "1. nehala sem preletavati",
+    "paragraphes": [
+     "Prej sem na dan prebrala deset člankov in si nisem zapomnila nobenega. zdaj preberem enega, počasi, do konca.",
+     "Brati manj, a dobro, je tisto, kar ostane v glavi"
+    ]
+   },
+   "de": {
+    "titre": "1. ich habe aufgehört zu überfliegen",
+    "paragraphes": [
+     "Früher habe ich zehn artikel am tag gelesen und mir keinen gemerkt. jetzt lese ich einen, langsam, bis zum ende.",
+     "Weniger lesen, aber richtig, ist das, was wirklich hängen bleibt"
+    ]
+   },
+   "sk": {
+    "titre": "1. prestala som len prebehnúť text",
+    "paragraphes": [
+     "Predtým som denne prečítala desať článkov a nepamätala si ani jeden. teraz čítam jeden, pomaly, až do konca.",
+     "Čítať menej, ale poriadne, je to, čo naozaj ostane v hlave"
+    ]
+   },
+   "sv": {
+    "titre": "1. jag slutade skumläsa",
+    "paragraphes": [
+     "Förut läste jag tio artiklar om dagen och mindes ingen. nu läser jag en, långsamt, hela vägen till slutet.",
+     "Att läsa mindre, men ordentligt, är det som faktiskt fastnar"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/main-carnet-lit.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/notes-surlignees.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. i stopped nodding along",
+    "paragraphes": [
+     "When someone mentions something I don't know, I just ask. or I write it down and look it up that night.",
+     "Every little 'what's that?' turned into something I can now explain myself"
+    ]
+   },
+   "fr": {
+    "titre": "2. j'ai arrêté de hocher la tête",
+    "paragraphes": [
+     "Quand quelqu'un parle d'un truc que je ne connais pas, je demande. ou je le note et je cherche le soir même.",
+     "Chaque petit « c'est quoi ? » est devenu quelque chose que je sais expliquer"
+    ]
+   },
+   "es": {
+    "titre": "2. dejé de asentir sin entender",
+    "paragraphes": [
+     "Cuando alguien habla de algo que no conozco, pregunto. o lo apunto y lo busco esa misma noche.",
+     "Cada pequeño «¿qué es eso?» se convirtió en algo que ahora sé explicar"
+    ]
+   },
+   "es-419": {
+    "titre": "2. dejé de asentir sin entender",
+    "paragraphes": [
+     "Cuando alguien habla de algo que no conozco, pregunto. o lo anoto y lo busco esa misma noche.",
+     "Cada pequeño «¿qué es eso?» se volvió algo que ahora puedo explicar"
+    ]
+   },
+   "it": {
+    "titre": "2. ho smesso di annuire e basta",
+    "paragraphes": [
+     "Quando qualcuno parla di qualcosa che non conosco, chiedo. oppure me lo segno e lo cerco quella sera stessa.",
+     "Ogni piccolo «cos'è?» è diventato qualcosa che ora so spiegare"
+    ]
+   },
+   "tr": {
+    "titre": "2. anlamadan başımı sallamayı bıraktım",
+    "paragraphes": [
+     "Biri bilmediğim bir şeyden bahsettiğinde soruyorum. ya da not alıp o gece araştırıyorum.",
+     "Her küçük «o ne?» artık kendim anlatabildiğim bir şeye dönüştü"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. parei de fingir que entendi",
+    "paragraphes": [
+     "Quando alguém fala de algo que eu não conheço, eu pergunto. ou anoto e pesquiso na mesma noite.",
+     "Cada pequeno «o que é isso?» virou algo que agora eu sei explicar"
+    ]
+   },
+   "sl": {
+    "titre": "2. nehala sem samo kimati",
+    "paragraphes": [
+     "Ko kdo omeni nekaj, česar ne poznam, vprašam. ali si zapišem in še isti večer poiščem.",
+     "Vsak mali »kaj je to?« je postal nekaj, kar zdaj znam razložiti"
+    ]
+   },
+   "de": {
+    "titre": "2. ich nicke nicht mehr nur",
+    "paragraphes": [
+     "Wenn jemand etwas erwähnt, das ich nicht kenne, frage ich nach. oder ich schreibe es auf und schlage es am selben abend nach.",
+     "Jedes kleine »was ist das?« wurde etwas, das ich jetzt selbst erklären kann"
+    ]
+   },
+   "sk": {
+    "titre": "2. prestala som len prikyvovať",
+    "paragraphes": [
+     "Keď niekto spomenie niečo, čo nepoznám, spýtam sa. alebo si to zapíšem a ešte v ten večer vyhľadám.",
+     "Z každého malého »čo to je?« sa stalo niečo, čo už viem vysvetliť"
+    ]
+   },
+   "sv": {
+    "titre": "2. jag slutade bara nicka",
+    "paragraphes": [
+     "När någon nämner något jag inte känner till frågar jag. eller så skriver jag ner det och slår upp det samma kväll.",
+     "Varje litet »vad är det?« blev något jag nu kan förklara själv"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/lampe-orange-chat.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. i stopped ending the day on the feed",
+    "paragraphes": [
+     "Now I do one short lesson on Sophia instead of scrolling before bed. history, philosophy or science, written by actual professors, with a little quiz after.",
+     "Ten minutes, and I fall asleep with one real thing in my head"
+    ]
+   },
+   "fr": {
+    "titre": "3. j'ai arrêté de finir la journée sur le feed",
+    "paragraphes": [
+     "Maintenant je fais une petite leçon sur Sophia au lieu de scroller avant de dormir. histoire, philosophie ou sciences, écrite par de vrais profs, avec un petit quiz après.",
+     "Dix minutes, et je m'endors avec une vraie chose en tête"
+    ]
+   },
+   "es": {
+    "titre": "3. dejé de acabar el día en el feed",
+    "paragraphes": [
+     "Ahora hago una lección corta en Sophia en vez de hacer scroll antes de dormir. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos, y me duermo con algo real en la cabeza"
+    ]
+   },
+   "es-419": {
+    "titre": "3. dejé de terminar el día en el feed",
+    "paragraphes": [
+     "Ahora tomo una lección corta en Sophia en lugar de hacer scroll antes de dormir. historia, filosofía o ciencia, escrita por profesores de verdad, con un pequeño quiz al final.",
+     "Diez minutos, y me duermo con algo real en la cabeza"
+    ]
+   },
+   "it": {
+    "titre": "3. ho smesso di finire sul feed",
+    "paragraphes": [
+     "Ora faccio una breve lezione su Sophia invece di scrollare prima di dormire. storia, filosofia o scienze, scritta da veri professori, con un piccolo quiz alla fine.",
+     "Dieci minuti, e mi addormento con una cosa vera in testa"
+    ]
+   },
+   "tr": {
+    "titre": "3. günü akışta bitirmeyi bıraktım",
+    "paragraphes": [
+     "Artık yatmadan önce scroll yapmak yerine Sophia'da kısa bir ders yapıyorum. tarih, felsefe ya da bilim; gerçek profesörler yazıyor, sonunda da küçük bir test var.",
+     "On dakika, ve aklımda gerçek bir şeyle uyuyorum"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. parei de terminar o dia no feed",
+    "paragraphes": [
+     "Agora eu faço uma aula curtinha no Sophia em vez de ficar rolando o feed antes de dormir. história, filosofia ou ciência, escrita por professores de verdade, com um quiz no final.",
+     "Dez minutos, e eu durmo com uma coisa de verdade na cabeça"
+    ]
+   },
+   "sl": {
+    "titre": "3. nehala sem končati dan na feedu",
+    "paragraphes": [
+     "Zdaj pred spanjem namesto skrolanja naredim eno kratko lekcijo v aplikaciji Sophia. zgodovina, filozofija ali znanost, napisali so jo pravi profesorji, na koncu pa kratek kviz.",
+     "Deset minut, in zaspim z nečim resničnim v glavi"
+    ]
+   },
+   "de": {
+    "titre": "3. der tag endet nicht mehr im feed",
+    "paragraphes": [
+     "Jetzt mache ich vor dem schlafen eine kurze lektion auf Sophia, statt zu scrollen. geschichte, philosophie oder wissenschaft, von echten professoren, mit einem kleinen quiz.",
+     "Zehn minuten, und ich schlafe mit etwas echtem im kopf ein"
+    ]
+   },
+   "sk": {
+    "titre": "3. prestala som končiť deň na feede",
+    "paragraphes": [
+     "Teraz si pred spaním namiesto scrollovania dám jednu krátku lekciu v aplikácii Sophia. dejiny, filozofia alebo veda, napísané skutočnými profesormi, a na konci malý kvíz.",
+     "Desať minút a zaspávam s niečím skutočným v hlave"
+    ]
+   },
+   "sv": {
+    "titre": "3. jag slutade avsluta dagen i flödet",
+    "paragraphes": [
+     "Nu gör jag en kort lektion på Sophia i stället för att scrolla innan jag somnar. historia, filosofi eller naturvetenskap, skriven av riktiga professorer, med ett litet quiz efteråt.",
+     "Tio minuter, och jag somnar med något riktigt i huvudet"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/bol-lit.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/oreillers.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. i stopped doing three things at once",
+    "paragraphes": [
+     "No more podcast, show and phone at the same time. one thing, until it's done, then the next.",
+     "My attention came back, and so did my memory"
+    ]
+   },
+   "fr": {
+    "titre": "4. j'ai arrêté de tout faire en même temps",
+    "paragraphes": [
+     "Plus de podcast, série et téléphone en même temps. une chose, jusqu'au bout, puis la suivante.",
+     "Mon attention est revenue, et ma mémoire aussi"
+    ]
+   },
+   "es": {
+    "titre": "4. dejé de hacer tres cosas a la vez",
+    "paragraphes": [
+     "Nada de podcast, serie y móvil a la vez. una cosa, hasta terminarla, y luego la siguiente.",
+     "Volvió mi atención, y también mi memoria"
+    ]
+   },
+   "es-419": {
+    "titre": "4. dejé de hacer tres cosas a la vez",
+    "paragraphes": [
+     "Nada de podcast, serie y celular al mismo tiempo. una cosa, hasta terminarla, y después la siguiente.",
+     "Regresó mi atención, y también mi memoria"
+    ]
+   },
+   "it": {
+    "titre": "4. ho smesso di fare tre cose insieme",
+    "paragraphes": [
+     "Niente più podcast, serie e telefono allo stesso tempo. una cosa, fino alla fine, poi la successiva.",
+     "È tornata l'attenzione, e anche la memoria"
+    ]
+   },
+   "tr": {
+    "titre": "4. aynı anda üç şey yapmayı bıraktım",
+    "paragraphes": [
+     "Aynı anda podcast, dizi ve telefon yok artık. tek bir şey, bitene kadar, sonra diğeri.",
+     "Dikkatim geri geldi, hafızam da"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. parei de fazer três coisas juntas",
+    "paragraphes": [
+     "Nada de podcast, série e celular juntos. uma coisa, até terminar, depois a próxima.",
+     "Minha atenção voltou, e minha memória também"
+    ]
+   },
+   "sl": {
+    "titre": "4. nehala sem delati tri stvari hkrati",
+    "paragraphes": [
+     "Nič več podkasta, serije in telefona naenkrat. ena stvar, do konca, potem naslednja.",
+     "Vrnila se mi je pozornost, in tudi spomin"
+    ]
+   },
+   "de": {
+    "titre": "4. nicht mehr drei dinge gleichzeitig",
+    "paragraphes": [
+     "Kein podcast, keine serie und kein handy mehr auf einmal. eine sache, bis sie fertig ist, dann die nächste.",
+     "Meine konzentration kam zurück, und mein gedächtnis auch"
+    ]
+   },
+   "sk": {
+    "titre": "4. prestala som robiť tri veci naraz",
+    "paragraphes": [
+     "Už žiadny podcast, seriál a mobil naraz. jedna vec, kým nie je hotová, potom ďalšia.",
+     "Vrátila sa mi pozornosť, aj pamäť"
+    ]
+   },
+   "sv": {
+    "titre": "4. jag slutade göra tre saker samtidigt",
+    "paragraphes": [
+     "Ingen podd, serie och mobil på samma gång längre. en sak, tills den är klar, sedan nästa.",
+     "Min koncentration kom tillbaka, och mitt minne också"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/ordi-tricot-panier.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/bureau-soleil.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. i stopped saying 'i'm bad at it'",
+    "paragraphes": [
+     "Nobody is born a maths person or a history person. I picked the subject I always avoided and gave it one video a week.",
+     "It's now one of the things I love talking about most"
+    ]
+   },
+   "fr": {
+    "titre": "5. j'ai arrêté de dire « je suis nulle en ça »",
+    "paragraphes": [
+     "Personne ne naît matheuse ou littéraire. j'ai pris la matière que j'évitais toujours et je lui ai donné une vidéo par semaine.",
+     "C'est devenu un de mes sujets de conversation préférés"
+    ]
+   },
+   "es": {
+    "titre": "5. dejé de decir «se me da fatal»",
+    "paragraphes": [
+     "Nadie nace de ciencias o de letras. elegí la asignatura que siempre evitaba y le di un vídeo a la semana.",
+     "Ahora es uno de mis temas de conversación favoritos"
+    ]
+   },
+   "es-419": {
+    "titre": "5. dejé de decir «soy pésima para eso»",
+    "paragraphes": [
+     "Nadie nace de ciencias o de letras. elegí la materia que siempre evitaba y le di un video por semana.",
+     "Ahora es uno de mis temas favoritos para platicar"
+    ]
+   },
+   "it": {
+    "titre": "5. ho smesso di dire «non sono portata»",
+    "paragraphes": [
+     "Nessuno nasce scientifico o umanista. ho scelto la materia che evitavo sempre e le ho dato un video a settimana.",
+     "Ora è uno degli argomenti di cui amo di più parlare"
+    ]
+   },
+   "tr": {
+    "titre": "5. «kötüyüm» demeyi bıraktım",
+    "paragraphes": [
+     "Kimse sayısalcı ya da sözelci doğmaz. hep kaçtığım dersi seçip ona haftada bir video ayırdım.",
+     "Artık en sevdiğim sohbet konularından biri"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. parei de dizer «sou péssima nisso»",
+    "paragraphes": [
+     "Ninguém nasce de exatas ou de humanas. peguei a matéria que eu sempre evitava e dei um vídeo por semana pra ela.",
+     "Hoje é um dos meus assuntos favoritos"
+    ]
+   },
+   "sl": {
+    "titre": "5. nič več »v tem sem slaba«",
+    "paragraphes": [
+     "Nihče se ne rodi naravoslovec ali družboslovec. izbrala sem predmet, ki sem se mu vedno izogibala, in mu dala en video na teden.",
+     "Zdaj je to ena mojih najljubših tem za pogovor"
+    ]
+   },
+   "de": {
+    "titre": "5. nie mehr »darin bin ich schlecht«",
+    "paragraphes": [
+     "Niemand wird als mathe- oder sprachmensch geboren. ich habe das fach genommen, das ich immer gemieden habe, und ihm ein video pro woche gegeben.",
+     "Heute rede ich über kaum etwas lieber"
+    ]
+   },
+   "sk": {
+    "titre": "5. koniec s »v tom som zlá«",
+    "paragraphes": [
+     "Nikto sa nenarodí ako matematik alebo humanista. vybrala som si predmet, ktorému som sa vždy vyhýbala, a dala mu jedno video týždenne.",
+     "Dnes je to jedna z mojich najobľúbenejších tém"
+    ]
+   },
+   "sv": {
+    "titre": "5. jag slutade säga »jag är dålig på det«",
+    "paragraphes": [
+     "Ingen föds till mattemänniska eller språkmänniska. jag valde ämnet jag alltid undvikit och gav det en video i veckan.",
+     "Nu är det ett av mina favoritämnen att prata om"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

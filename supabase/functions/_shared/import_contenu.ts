@@ -2414,7 +2414,7 @@ async function prolongerLease(supabase: Supabase, contenuId: string): Promise<vo
 }
 
 /**
- * Stocke le résultat Fal/Replicate. verifyClean est en pause (pas d'appel Gemini).
+ * Stocke le résultat Fal/Replicate. Depuis le 24/11, `cleanImage` vérifie qu'il ne reste pas de texte (verif_texte.ts).
  *
  * Ne relance jamais : tout échec revient en `mediaId: null` avec le compteur de
  * tentatives à jour, pour que l'appelant décide (orphelin, biblio, brut).
@@ -2503,7 +2503,7 @@ async function nettoyerSlide(
         );
       },
       // Import TikTok slideshow : upscale Fal avant strip métadonnées ; chaque essai part d'un autre chemin.
-      { upscaleAvantStrip: true, essai: tentatives },
+      { upscaleAvantStrip: true, essai: tentatives, verifierTexte: true },
     );
     propreBase64 = propre?.base64 ?? null;
     moteur = propre?.moteur;

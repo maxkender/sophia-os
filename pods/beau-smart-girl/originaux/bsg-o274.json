@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o274",
+  "type_bleo": "full_test",
+  "titre": "les monuments du monde et leur histoire en une phrase #voyage #histoire #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa : la tour a commencé à pencher pendant sa construction. Statue de la Liberté : vérifié le 9/11. Routine du 24/11 sur BLEO (par_jour passé à 16 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 11 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées au guichet le 22/11), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "bc8ff3d8",
+      "texte_overlay": "les monuments du monde\net leur histoire en une phrase",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c5ece572",
+      "texte_overlay": "1. la tour de pise\n\nce matin, j'ai appris que la tour de pise a commencé à pencher pendant sa construction.\nrien n'était voulu.",
+      "texte_sophia": "1. la tour de pise\n\nce matin, l'appli Sophia m'a appris que la tour de pise a commencé à pencher pendant sa construction.\nrien n'était voulu.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "99b7219b",
+      "texte_overlay": "2. le colisée\n\nun amphithéâtre de rome\nqui accueillait des combats de gladiateurs.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2620c7d2",
+      "texte_overlay": "3. le taj mahal\n\nun mausolée construit par un empereur\nen mémoire de son épouse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6d3cfd26",
+      "texte_overlay": "4. la statue de la liberté\n\nun cadeau de la france\naux états-unis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c5f68d90",
+      "texte_overlay": "5. le machu picchu\n\nune cité inca perchée dans les andes,\nredécouverte bien plus tard.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "922ed630",
+      "texte_overlay": "lequel tu rêves de voir ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

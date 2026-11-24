@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o280",
+  "type_bleo": "full_test",
+  "titre": "les mots désuets qu'on devrait remettre à la mode #mots #francais #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Mots anciens, sans étymologie risquée. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/R.U.R. : le mot « robot » vient de cette pièce tchèque de 1920. Routine du 24/11 sur BLEO (par_jour passé à 16 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 11 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées au guichet le 22/11), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "afc615d1",
+      "texte_overlay": "les mots désuets\nqu'on devrait remettre à la mode",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "texte_overlay": "1. saperlipopette\n\nl'exclamation la plus joyeuse\nde la langue française.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+      "media_id": "53a458a4"
+    },
+    {
+      "position": 3,
+      "texte_overlay": "2. jouvencelle\n\nune jeune fille,\ndit avec élégance.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+      "media_id": "08f69384"
+    },
+    {
+      "position": 4,
+      "texte_overlay": "3. s'esbaudir\n\nse réjouir bruyamment.\nà ressortir au prochain anniversaire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+      "media_id": "784571a2"
+    },
+    {
+      "position": 5,
+      "texte_overlay": "4. flagorneur\n\ncelui qui flatte pour obtenir quelque chose.\non en connaît tous un.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+      "media_id": "14329ae2"
+    },
+    {
+      "position": 6,
+      "media_id": "2c045404",
+      "texte_overlay": "5. et les mots qui naissent\n\nce matin, j'ai appris que le mot robot vient d'une pièce de théâtre tchèque de 1920.\nles mots ont tous une date de naissance.",
+      "texte_sophia": "5. et les mots qui naissent\n\nce matin, l'appli Sophia m'a appris que le mot robot vient d'une pièce de théâtre tchèque de 1920.\nles mots ont tous une date de naissance.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "texte_overlay": "tu en connais d'autres ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg",
+      "media_id": "17e6f720"
+    }
+  ]
+}

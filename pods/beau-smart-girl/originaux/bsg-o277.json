@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o277",
+  "type_bleo": "full_test",
+  "titre": "comment je prépare un voyage pour en revenir plus cultivée #voyage #culture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 24/11 sur BLEO (par_jour passé à 16 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 11 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées au guichet le 22/11), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "58c37a42",
+      "texte_overlay": "comment je prépare un voyage\npour en revenir plus cultivée",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b5981f1e",
+      "texte_overlay": "1. un roman qui se passe là-bas\n\nlu avant de partir.\nles rues ont déjà une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bf35c5e4",
+      "texte_overlay": "2. dix mots de la langue\n\nbonjour, merci, délicieux.\nles gens sourient tout de suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0d5478a9",
+      "texte_overlay": "3. un musée, un marché, un quartier\n\npas plus par jour.\non voit mieux en voyant moins.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a56e71c7",
+      "texte_overlay": "4. un carnet de voyage\n\nun ticket, une fleur, une phrase.\nle meilleur souvenir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b2dd1029",
+      "texte_overlay": "5. l'histoire du pays avant\n\navant, je découvrais tout sur place, en vitesse.\nmaintenant, j'apprends un truc sur le monde chaque matin. et je pars en connaissant déjà le pays.",
+      "texte_sophia": "5. l'histoire du pays avant\n\navant, je découvrais tout sur place, en vitesse.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je pars en connaissant déjà le pays.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "37af49a6",
+      "texte_overlay": "tu pars où, la prochaine fois ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

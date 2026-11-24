@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o306",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3ec6e577-14dc-41e4-b512-88a4ef8f0bef",
+ "titre": "Uncomfortable things to do instead of scrolling when you're bored #men #comfortzone #growth #boredom #selfimprovement",
+ "musique_titre": "sonido original",
+ "musique_url": "https://www.tiktok.com/music/sonido-original-7607213209031887638",
+ "inspirations": [
+  "3ec6e577-14dc-41e4-b512-88a4ef8f0bef"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 24/11. Déclinaison G1 de la ligne 30 de la boîte (parent 3ec6e577, @livingondreambig, langue source en). Accroche du parent mot pour mot. Format : consigne en titre puis une phrase. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1877fff2",
+   "texte_overlay": "uncomfortable things to do\ninstead of scrolling when you're bored",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "249dbcbc",
+   "texte_overlay": "call someone instead of texting\n\nhear their voice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5bac860d",
+   "texte_overlay": "do 50 push-ups, right now\n\nin sets if you need.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4dc53e47",
+   "texte_overlay": "cook something you've never made\n\nfail. try again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "06b67dc7",
+   "texte_overlay": "learn something completely new\n\nfive minutes of art history,\nphysics, anything.",
+   "texte_sophia": "learn something completely new\n\nuse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7a1114c7",
+   "texte_overlay": "write down what you're avoiding\n\nthen do the smallest part.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/6.jpg"
+  }
+ ]
+}

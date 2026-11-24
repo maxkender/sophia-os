@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o294",
+ "type_bleo": "full_test",
+ "titre": "How to master small talk with anyone #men #socialskills #conversation #confidence #selfimprovement",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 24/11. Full test du jour (2 sur 8, jauge : 8 sur 25). Accroche jamais faite chez nous : « small talk » seulement dans des items dans donnees/label.json. reference_url : post source de am-o117, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c7eaf8d0",
+   "texte_overlay": "How to master small talk\nwith anyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1a26c989",
+   "texte_overlay": "1. Start with the place\n\n\"How do you know the host?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "307103f3",
+   "texte_overlay": "2. Ask \"what's keeping you busy?\"\n\nNot \"what do you do?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "94331960",
+   "texte_overlay": "3. Have three topics ready\n\nNews, a fact, a story.",
+   "texte_sophia": "3. Have three topics ready\n\nI get mine from the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "584c6e2f",
+   "texte_overlay": "4. Remember one detail\n\nBring it up next time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1a225b32",
+   "texte_overlay": "5. Leave on a high note\n\n\"Great talking to you.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  }
+ ]
+}

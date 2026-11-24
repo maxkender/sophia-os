@@ -1,0 +1,69 @@
+{
+ "source_id": "am-o305",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ba0b2562-b958-4a58-a518-31fa5caddf22",
+ "titre": "10 Ways to Build an Unstoppable Alter Ego. #men #alterego #discipline #mindset #selfimprovement",
+ "musique_titre": "even the sky doesn't answer",
+ "musique_url": "https://www.tiktok.com/music/even-the-sky-doesn-t-answer-7395531748757293072",
+ "inspirations": [
+  "ba0b2562-b958-4a58-a518-31fa5caddf22"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 24/11. Déclinaison G1 de la ligne 5 de la boîte (parent ba0b2562, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Titre. » + deux lignes ; 2 par slide pour tenir en 10 slides. Items neufs, aucun du parent. reference_url du parent (1 à 11) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f3fd5252",
+   "texte_overlay": "10 Ways to Build an\nUnstoppable Alter Ego.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c951a51",
+   "texte_overlay": "1. Give him a name.\n\nCall on him when you need him.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "525b58e4",
+   "texte_overlay": "2. Train at 5 a.m.\n\nWhile the old you sleeps.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "08c43d6f",
+   "texte_overlay": "3. Change how you dress.\n\nThe outside leads the inside.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "70be3bd6",
+   "texte_overlay": "4. Walk slower.\n\n5. Speak lower.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "499dfe00",
+   "texte_overlay": "6. Know more than you show.\n\nLearn every single day.",
+   "texte_sophia": "6. Know more than you show.\n\nI learn daily\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "767438d4",
+   "texte_overlay": "7. Write his rules down.\n\nRead them every morning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2658da35",
+   "texte_overlay": "8. Cut what he wouldn't tolerate.\n\nApps, habits, people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "6f60c579",
+   "texte_overlay": "9. Act before you feel ready.\n\n10. Let results do the talking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657344949825899806/9.jpg"
+  }
+ ]
+}

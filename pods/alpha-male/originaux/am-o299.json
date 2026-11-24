@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o299",
+ "type_bleo": "full_test",
+ "titre": "Knots every man should know how to tie #men #skills #knots #outdoors #selfreliance",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 24/11. Full test du jour (7 sur 8, jauge : 8 sur 25). Accroche jamais faite chez nous : aucun « knots » dans donnees/label.json. reference_url : post source de am-o099, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2746ffba",
+   "texte_overlay": "Knots every man should know\nhow to tie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "13c07458",
+   "texte_overlay": "1. Bowline\n\nA loop that never slips.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3d6d5ff0",
+   "texte_overlay": "2. Four-in-hand\n\nThe tie knot for every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3dd98da0",
+   "texte_overlay": "3. Taut-line hitch\n\nFor tents and tarps.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "046bd943",
+   "texte_overlay": "4. Trucker's hitch\n\nTie down anything on a roof.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "768ff40a",
+   "texte_overlay": "5. Learn the story behind them\n\nSailors invented most of them.",
+   "texte_sophia": "5. Learn the story behind them\n\nI learned it on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/6.jpg"
+  }
+ ]
+}

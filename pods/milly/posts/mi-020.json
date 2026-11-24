@@ -1,0 +1,776 @@
+{
+ "id": "mi-020",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7704963048049495326",
+  "vues": 38000,
+  "publie_le": "2026-11-10",
+  "accroche": "How to / overcome / a Dopamine / Crash"
+ },
+ "fond": "creme",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
+ "notes": "Full test (boîte vide), sur un post neuf du compte modèle relevé à la veille du 23/11 : « How to overcome a Dopamine Crash » de @bdnf.milly (38 k vues, 10/11, fond crème). Nos conseils, rien de médical ni de produit ; pas de « dopamine detox » présentée comme un fait. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : les neurones à dopamine codent l'écart entre récompense attendue et obtenue (Schultz, Dayan et Montague, Science 1997) ; la dopamine sert surtout à « vouloir », moins à « aimer » (Berridge et Robinson, Brain Research Reviews 1998) ; beaucoup préféraient se donner un léger choc électrique plutôt que rester 6 à 15 minutes seuls avec leurs pensées, 67 % des hommes et 25 % des femmes (Wilson et al., Science 2014). 11 langues. Images : banque (tep, irm-activite, golgi), sans texte.",
+ "titre": {
+  "en": "How to overcome a Dopamine Crash",
+  "fr": "Comment surmonter une chute de dopamine",
+  "es": "Cómo superar un bajón de dopamina",
+  "es-419": "Cómo superar un bajón de dopamina",
+  "it": "Come superare un calo di dopamina",
+  "tr": "Dopamin çöküşünü nasıl atlatırsın",
+  "pt-BR": "Como superar uma queda de dopamina",
+  "sl": "Kako premagati dopaminski padec",
+  "hr": "Kako prebroditi pad dopamina",
+  "de": "Wie du einen Dopamin-Crash überwindest",
+  "hu": "Hogyan győzd le a dopaminzuhanást"
+ },
+ "legendes": {
+  "en": "from quick hits to slow rewards #dopamine #focus #brain #habits #motivation",
+  "fr": "des petites doses rapides aux récompenses lentes #dopamine #concentration #cerveau #habitudes #motivation",
+  "es": "de los chutes rápidos a las recompensas lentas #dopamina #concentración #cerebro #hábitos #motivación",
+  "es-419": "de los golpes rápidos a las recompensas lentas #dopamina #concentración #cerebro #hábitos #motivación",
+  "it": "dalle dosi rapide alle ricompense lente #dopamina #concentrazione #cervello #abitudini #motivazione",
+  "tr": "hızlı dozlardan yavaş ödüllere #dopamin #odaklanma #beyin #alışkanlıklar #motivasyon",
+  "pt-BR": "dos estímulos rápidos às recompensas lentas #dopamina #foco #cerebro #habitos #motivacao",
+  "sl": "od hitrih odmerkov k počasnim nagradam #dopamin #zbranost #možgani #navade #motivacija",
+  "hr": "od brzih doza do sporih nagrada #dopamin #koncentracija #mozak #navike #motivacija",
+  "de": "von schnellen kicks zu langsamen belohnungen #dopamin #konzentration #gehirn #gewohnheiten #motivation",
+  "hu": "a gyors löketektől a lassú jutalmakig #dopamin #koncentráció #agy #szokások #motiváció"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/tep.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "overcome",
+      "taille": "petit"
+     },
+     {
+      "t": "a Dopamine",
+      "taille": "moyen"
+     },
+     {
+      "t": "Crash",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "surmonter une",
+      "taille": "petit"
+     },
+     {
+      "t": "chute de",
+      "taille": "moyen"
+     },
+     {
+      "t": "Dopamine",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "superar un",
+      "taille": "petit"
+     },
+     {
+      "t": "bajón de",
+      "taille": "moyen"
+     },
+     {
+      "t": "Dopamina",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "superar un",
+      "taille": "petit"
+     },
+     {
+      "t": "bajón de",
+      "taille": "moyen"
+     },
+     {
+      "t": "Dopamina",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "superare un",
+      "taille": "petit"
+     },
+     {
+      "t": "calo di",
+      "taille": "moyen"
+     },
+     {
+      "t": "Dopamina",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Dopamin",
+      "taille": "grand"
+     },
+     {
+      "t": "çöküşünü",
+      "taille": "moyen"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Atlatırsın",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "superar uma",
+      "taille": "petit"
+     },
+     {
+      "t": "queda de",
+      "taille": "moyen"
+     },
+     {
+      "t": "Dopamina",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "premagati",
+      "taille": "petit"
+     },
+     {
+      "t": "Dopaminski",
+      "taille": "grand"
+     },
+     {
+      "t": "Padec",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "prebroditi",
+      "taille": "petit"
+     },
+     {
+      "t": "pad",
+      "taille": "petit"
+     },
+     {
+      "t": "Dopamina",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 3
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du einen",
+      "taille": "petit"
+     },
+     {
+      "t": "Dopamin-Crash",
+      "taille": "grand"
+     },
+     {
+      "t": "überwindest",
+      "taille": "moyen"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan győzd le a",
+      "taille": "petit"
+     },
+     {
+      "t": "Dopamin-",
+      "taille": "grand"
+     },
+     {
+      "t": "zuhanást",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "What Dopamine Really Does",
+    "blocs": [
+     {
+      "p": "Dopamine is less about pleasure than about wanting. Researchers found that it drives the urge to seek a reward far more than the enjoyment of getting it."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Dopamine neurons also react to surprise: they fire most when a reward is better than expected. Endless feeds, full of small unpredictable rewards, keep that system busy, and ordinary tasks start to feel flat."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Ce que fait vraiment la dopamine",
+    "blocs": [
+     {
+      "p": "La dopamine sert moins au plaisir qu'au désir. Des chercheurs ont montré qu'elle pousse surtout à chercher une récompense, bien plus qu'elle ne fait apprécier le fait de l'obtenir."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Les neurones à dopamine réagissent aussi à la surprise : ils s'activent le plus quand une récompense est meilleure que prévu. Les fils sans fin, pleins de petites récompenses imprévisibles, occupent ce système, et les tâches ordinaires finissent par sembler fades."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Qué hace de verdad la dopamina",
+    "blocs": [
+     {
+      "p": "La dopamina tiene menos que ver con el placer que con el deseo. Los investigadores vieron que impulsa sobre todo las ganas de buscar una recompensa, mucho más que el disfrute de conseguirla."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Las neuronas de dopamina también reaccionan a la sorpresa: se activan más cuando una recompensa es mejor de lo esperado. Los feeds sin fin, llenos de pequeñas recompensas imprevisibles, mantienen ocupado ese sistema, y las tareas normales empiezan a parecer sosas."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Lo que de verdad hace la dopamina",
+    "blocs": [
+     {
+      "p": "La dopamina tiene menos que ver con el placer que con las ganas. Los investigadores encontraron que impulsa sobre todo el deseo de buscar una recompensa, mucho más que el gusto de obtenerla."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Las neuronas de dopamina también reaccionan a la sorpresa: se activan más cuando una recompensa es mejor de lo que esperabas. Los feeds infinitos, llenos de pequeñas recompensas impredecibles, mantienen ocupado ese sistema, y las tareas normales empiezan a sentirse sin chiste."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Cosa fa davvero la dopamina",
+    "blocs": [
+     {
+      "p": "La dopamina riguarda meno il piacere che il desiderio. I ricercatori hanno scoperto che spinge soprattutto a cercare una ricompensa, molto più che a godersela una volta ottenuta."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "I neuroni dopaminergici reagiscono anche alla sorpresa: si attivano di più quando una ricompensa è migliore del previsto. I feed infiniti, pieni di piccole ricompense imprevedibili, tengono occupato questo sistema, e i compiti normali iniziano a sembrare piatti."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Dopamin aslında ne yapar",
+    "blocs": [
+     {
+      "p": "Dopamin hazdan çok istekle ilgilidir. Araştırmacılar, onun bir ödülü elde etmenin keyfinden çok, o ödülü arama dürtüsünü harekete geçirdiğini buldu."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Dopamin nöronları sürprize de tepki verir: bir ödül beklenenden iyi olduğunda en çok ateşlenirler. Küçük ve öngörülemeyen ödüllerle dolu sonsuz akışlar bu sistemi meşgul tutar ve sıradan işler yavan gelmeye başlar."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "O que a dopamina realmente faz",
+    "blocs": [
+     {
+      "p": "A dopamina tem menos a ver com prazer do que com vontade. Pesquisadores descobriram que ela move sobretudo o impulso de buscar uma recompensa, muito mais do que o gosto de consegui-la."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Os neurônios de dopamina também reagem à surpresa: disparam mais quando uma recompensa é melhor do que o esperado. Feeds infinitos, cheios de pequenas recompensas imprevisíveis, mantêm esse sistema ocupado, e as tarefas comuns começam a parecer sem graça."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Kaj dopamin res počne",
+    "blocs": [
+     {
+      "p": "Dopamin je manj povezan z užitkom kot z željo. Raziskovalci so ugotovili, da predvsem poganja nagon po iskanju nagrade, veliko bolj kot uživanje, ko jo dobimo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Dopaminski nevroni se odzivajo tudi na presenečenje: najbolj se sprožijo, ko je nagrada boljša od pričakovane. Neskončni viri, polni majhnih nepredvidljivih nagrad, ta sistem nenehno zaposlujejo, običajna opravila pa začnejo delovati pusto."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Što dopamin zapravo radi",
+    "blocs": [
+     {
+      "p": "Dopamin je manje povezan s užitkom, a više sa željom. Istraživači su otkrili da ponajprije pokreće poriv da tražimo nagradu, mnogo više nego uživanje kad je dobijemo."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Dopaminski neuroni reagiraju i na iznenađenje: najjače se aktiviraju kad je nagrada bolja od očekivane. Beskrajni feedovi, puni malih nepredvidivih nagrada, stalno zaokupljaju taj sustav, a obični zadaci počinju se činiti bljutavima."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Was Dopamin wirklich tut",
+    "blocs": [
+     {
+      "p": "Dopamin hat weniger mit Genuss zu tun als mit Wollen. Forschende fanden, dass es vor allem den Drang antreibt, eine Belohnung zu suchen, weit mehr als die Freude, sie zu bekommen."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Dopaminneuronen reagieren auch auf Überraschung: Sie feuern am stärksten, wenn eine Belohnung besser ausfällt als erwartet. Endlose Feeds voller kleiner, unvorhersehbarer Belohnungen halten dieses System beschäftigt, und gewöhnliche Aufgaben wirken plötzlich fade."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Mit csinál valójában a dopamin",
+    "blocs": [
+     {
+      "p": "A dopamin kevésbé szól az élvezetről, mint a vágyról. A kutatók szerint főleg a jutalom keresésének késztetését hajtja, sokkal inkább, mint a megszerzés örömét."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "A dopaminerg neuronok a meglepetésre is reagálnak: akkor tüzelnek a legjobban, ha egy jutalom jobb a vártnál. A kis, kiszámíthatatlan jutalmakkal teli végtelen hírfolyamok folyamatosan lekötik ezt a rendszert, a hétköznapi feladatok pedig laposnak tűnnek."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Trade Quick Hits For Slow Rewards",
+    "blocs": [
+     {
+      "p": "Work that pays off slowly needs practice to feel rewarding again. Learning is one of the best: each new idea is a small, real reward that builds on the last one."
+     },
+     {
+      "p": "Replace the last scroll of the day with one short lesson, like a training session. Small, steady and finished."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Échange les petites doses contre des récompenses lentes",
+    "blocs": [
+     {
+      "p": "Un travail qui paie lentement demande de l'entraînement pour redevenir gratifiant. Apprendre en fait partie : chaque idée nouvelle est une petite vraie récompense qui s'appuie sur la précédente."
+     },
+     {
+      "p": "Remplace le dernier scroll de la journée par une courte leçon, comme un entraînement. Petite, régulière et terminée."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Cambia chutes rápidos por recompensas lentas",
+    "blocs": [
+     {
+      "p": "El trabajo que da frutos despacio necesita práctica para volver a sentirse gratificante. Aprender es de lo mejor: cada idea nueva es una recompensa pequeña y real que se apoya en la anterior."
+     },
+     {
+      "p": "Cambia el último scroll del día por una lección corta, como un entrenamiento. Pequeña, constante y terminada."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Cambia lo rápido por recompensas lentas",
+    "blocs": [
+     {
+      "p": "El trabajo que da frutos despacio necesita práctica para volver a sentirse gratificante. Aprender es de lo mejor: cada idea nueva es una recompensa pequeña y real que se construye sobre la anterior."
+     },
+     {
+      "p": "Cambia el último scroll del día por una lección corta, como un entrenamiento. Pequeña, constante y terminada."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Scambia dosi rapide con ricompense lente",
+    "blocs": [
+     {
+      "p": "Un lavoro che ripaga lentamente ha bisogno di allenamento per tornare gratificante. Imparare è tra i migliori: ogni idea nuova è una piccola ricompensa vera che si appoggia sulla precedente."
+     },
+     {
+      "p": "Sostituisci l'ultimo scroll della giornata con una breve lezione, come un allenamento. Piccola, costante e finita."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Hızlı dozları yavaş ödüllerle değiştir",
+    "blocs": [
+     {
+      "p": "Yavaş karşılık veren bir işin yeniden tatmin edici gelmesi için pratik gerekir. Öğrenmek bunların en iyilerinden biridir: her yeni fikir, bir öncekinin üzerine kurulan küçük ve gerçek bir ödüldür."
+     },
+     {
+      "p": "Günün son kaydırmasını kısa bir dersle değiştir, bir antrenman gibi. Küçük, düzenli ve tamamlanmış."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Troque estímulos rápidos por recompensas lentas",
+    "blocs": [
+     {
+      "p": "Um trabalho que dá retorno devagar precisa de prática para voltar a ser gratificante. Aprender é dos melhores: cada ideia nova é uma recompensa pequena e real que se apoia na anterior."
+     },
+     {
+      "p": "Troque a última rolagem do dia por uma lição curta, como um treino. Pequena, constante e concluída."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Hitre odmerke zamenjaj s počasnimi nagradami",
+    "blocs": [
+     {
+      "p": "Delo, ki se obrestuje počasi, potrebuje vajo, da spet postane nagrajujoče. Učenje je med najboljšimi: vsaka nova zamisel je majhna resnična nagrada, ki se opira na prejšnjo."
+     },
+     {
+      "p": "Zadnje drsenje dneva zamenjaj s kratko lekcijo, kot trening. Majhno, redno in dokončano."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Zamijeni brze doze sporim nagradama",
+    "blocs": [
+     {
+      "p": "Posao koji se isplati polako treba vježbu da opet postane nagrađujući. Učenje je među najboljima: svaka nova ideja mala je stvarna nagrada koja se oslanja na prethodnu."
+     },
+     {
+      "p": "Zamijeni zadnje skrolanje u danu kratkom lekcijom, kao trening. Malo, redovito i dovršeno."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Tausch schnelle Kicks gegen langsame Belohnungen",
+    "blocs": [
+     {
+      "p": "Arbeit, die sich langsam auszahlt, braucht Übung, um sich wieder lohnend anzufühlen. Lernen gehört zu den besten: Jede neue Idee ist eine kleine, echte Belohnung, die auf der vorigen aufbaut."
+     },
+     {
+      "p": "Ersetze das letzte Scrollen des Tages durch eine kurze Lektion, wie ein Training. Klein, regelmäßig und abgeschlossen."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Cseréld a gyors löketeket lassú jutalmakra",
+    "blocs": [
+     {
+      "p": "A lassan megtérülő munkát gyakorolni kell, hogy újra jutalmazónak érezd. A tanulás az egyik legjobb: minden új gondolat kicsi, valódi jutalom, amely az előzőre épül."
+     },
+     {
+      "p": "Cseréld le a nap utolsó görgetését egy rövid leckére, mint egy edzés. Kicsi, rendszeres és befejezett."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Learn To Sit With Boredom",
+    "blocs": [
+     {
+      "p": "Boredom is hard for most of us: in one study, many people chose to give themselves a mild electric shock rather than sit alone with their thoughts for 6 to 15 minutes."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Practise a few quiet minutes a day without a screen: a walk, a coffee, a window. The less you flee boredom, the more ordinary work starts to hold your attention again."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends à supporter l'ennui",
+    "blocs": [
+     {
+      "p": "L'ennui est dur pour la plupart d'entre nous : dans une étude, beaucoup de gens ont préféré s'infliger une légère décharge électrique plutôt que rester seuls avec leurs pensées pendant 6 à 15 minutes."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Entraîne-toi à quelques minutes calmes par jour sans écran : une marche, un café, une fenêtre. Moins tu fuis l'ennui, plus le travail ordinaire retient à nouveau ton attention."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende a aguantar el aburrimiento",
+    "blocs": [
+     {
+      "p": "El aburrimiento nos cuesta a casi todos: en un estudio, mucha gente prefirió darse una descarga eléctrica leve antes que quedarse a solas con sus pensamientos de 6 a 15 minutos."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Practica unos minutos tranquilos al día sin pantalla: un paseo, un café, una ventana. Cuanto menos huyas del aburrimiento, más volverá el trabajo normal a captar tu atención."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aprende a tolerar el aburrimiento",
+    "blocs": [
+     {
+      "p": "El aburrimiento nos cuesta a casi todos: en un estudio, muchas personas prefirieron darse una descarga eléctrica leve antes que quedarse a solas con sus pensamientos de 6 a 15 minutos."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Practica unos minutos tranquilos al día sin pantalla: una caminata, un café, una ventana. Entre menos huyas del aburrimiento, más vuelve el trabajo normal a atrapar tu atención."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Impara a stare con la noia",
+    "blocs": [
+     {
+      "p": "La noia è difficile per quasi tutti: in uno studio, molte persone hanno preferito darsi una lieve scossa elettrica piuttosto che restare sole con i propri pensieri per 6-15 minuti."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Allenati a qualche minuto tranquillo al giorno senza schermo: una passeggiata, un caffè, una finestra. Meno fuggi dalla noia, più il lavoro ordinario torna a trattenere la tua attenzione."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Can sıkıntısına katlanmayı öğren",
+    "blocs": [
+     {
+      "p": "Can sıkıntısı çoğumuz için zordur: bir çalışmada pek çok kişi, 6 ila 15 dakika düşünceleriyle baş başa kalmak yerine kendine hafif bir elektrik şoku vermeyi seçti."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Günde birkaç dakikayı ekransız ve sakin geçirmeyi dene: bir yürüyüş, bir kahve, bir pencere. Can sıkıntısından ne kadar az kaçarsan, sıradan işler dikkatini o kadar geri kazanır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda a lidar com o tédio",
+    "blocs": [
+     {
+      "p": "O tédio é difícil para quase todo mundo: em um estudo, muitas pessoas preferiram se dar um leve choque elétrico a ficar sozinhas com os próprios pensamentos por 6 a 15 minutos."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Treine alguns minutos tranquilos por dia sem tela: uma caminhada, um café, uma janela. Quanto menos você foge do tédio, mais o trabalho comum volta a prender sua atenção."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Nauči se prenašati dolgčas",
+    "blocs": [
+     {
+      "p": "Dolgčas je težak za večino: v eni raziskavi so mnogi raje sprožili blag električni sunek, kot da bi 6 do 15 minut ostali sami s svojimi mislimi."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Vadi nekaj mirnih minut na dan brez zaslona: sprehod, kava, okno. Manj kot bežiš pred dolgčasom, bolj ti običajno delo spet drži pozornost."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Nauči podnositi dosadu",
+    "blocs": [
+     {
+      "p": "Dosada je teška većini nas: u jednom istraživanju mnogi su radije sami sebi zadali blagi strujni udar nego da 6 do 15 minuta ostanu sami sa svojim mislima."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Vježbaj nekoliko mirnih minuta dnevno bez ekrana: šetnja, kava, prozor. Što manje bježiš od dosade, to ti obični posao više ponovno drži pažnju."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne, Langeweile auszuhalten",
+    "blocs": [
+     {
+      "p": "Langeweile fällt den meisten schwer: In einer Studie gaben sich viele lieber einen leichten Stromschlag, als 6 bis 15 Minuten allein mit ihren Gedanken zu sitzen."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Übe ein paar ruhige Minuten am Tag ohne Bildschirm: ein Spaziergang, ein Kaffee, ein Fenster. Je weniger du vor der Langeweile fliehst, desto eher hält gewöhnliche Arbeit deine Aufmerksamkeit wieder."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanuld meg elviselni az unalmat",
+    "blocs": [
+     {
+      "p": "Az unalom a legtöbbünknek nehéz: egy vizsgálatban sokan inkább enyhe áramütést mértek magukra, mint hogy 6-15 percig egyedül maradjanak a gondolataikkal."
+     },
+     {
+      "image": "images/golgi.jpg"
+     },
+     {
+      "p": "Gyakorolj naponta néhány nyugodt, képernyő nélküli percet: egy séta, egy kávé, egy ablak. Minél kevésbé menekülsz az unalom elől, annál inkább leköti újra a figyelmedet a hétköznapi munka."
+     }
+    ]
+   }
+  }
+ ]
+}

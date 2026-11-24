@@ -1,0 +1,432 @@
+{
+ "id": "sm-019",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "Juna",
+  "url": "https://www.tiktok.com/music/juna-7359782220351440912"
+ },
+ "notes": "Full test du 24/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle) : « apps that make me feel like that girl ». Sophia en 3e carte (cta A), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Tiimo (planificateur visuel en blocs et routines), Daylio (micro-journal d'humeur), Tide (sons de nature, minuteur, méditation). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 21 et du 22/11). Musique : la sienne de « the formula to ace every class » (311 k). NON DÉPOSÉ le 24/11 : l'OS refuse le dépôt (« le label du pod sert 3 applications hors Sophia ») ; depuis le 23/11 10:19, label_applications de cozy_girl = micabo, Unswipe, Atala, sans Sophia. À déposer tel quel (`npm run livrer -- sm-019`) une fois le label rendu à Sophia.",
+ "titre": {
+  "en": "apps that make me feel like that girl",
+  "fr": "les applis qui me font me sentir that girl",
+  "es": "apps que me hacen sentir that girl",
+  "es-419": "apps que me hacen sentir that girl",
+  "it": "app che mi fanno sentire that girl",
+  "tr": "kendimi that girl gibi hissettiren uygulamalar",
+  "pt-BR": "apps que me fazem sentir that girl",
+  "de": "apps, mit denen ich mich wie that girl fühle",
+  "sl": "aplikacije, s katerimi se počutim kot that girl",
+  "hu": "appok, amiktől that girlnek érzem magam"
+ },
+ "legendes": {
+  "en": "that girl era, one app at a time ✨🍵 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "l'ère that girl, une appli à la fois ✨🍵 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "era that girl, una app a la vez ✨🍵 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "era that girl, una app a la vez ✨🍵 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "era that girl, un'app alla volta ✨🍵 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "that girl dönemi, her seferinde bir uygulama ✨🍵 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "era that girl, um app de cada vez ✨🍵 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "that-girl-ära, eine app nach der anderen ✨🍵 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "that girl obdobje, aplikacija za aplikacijo ✨🍵 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "that girl korszak, appról appra ✨🍵 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 40,
+     "y": 150,
+     "l": 220,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 830,
+     "y": 150,
+     "l": 180,
+     "rotation": 8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 740,
+     "l": 210,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that make\nme feel like\nthat girl",
+    "sous": "soft life,\nsoft habits"
+   },
+   "fr": {
+    "titre": "les applis qui\nme rendent\nthat girl",
+    "sous": "vie douce,\nhabitudes douces"
+   },
+   "es": {
+    "titre": "apps que me\nhacen sentir\nthat girl",
+    "sous": "vida suave,\nhábitos suaves"
+   },
+   "es-419": {
+    "titre": "apps que me\nhacen sentir\nthat girl",
+    "sous": "vida suave,\nhábitos suaves"
+   },
+   "it": {
+    "titre": "app che mi\nfanno sentire\nthat girl",
+    "sous": "vita soft,\nabitudini soft"
+   },
+   "tr": {
+    "titre": "beni that girl\ngibi\nhissettiren\nuygulamalar",
+    "sous": "yumuşak hayat,\nyumuşak alışkanlık"
+   },
+   "pt-BR": {
+    "titre": "apps que me\nfazem sentir\nthat girl",
+    "sous": "vida leve,\nhábitos leves"
+   },
+   "de": {
+    "titre": "apps, mit\ndenen ich that\ngirl bin",
+    "sous": "soft life,\nsoft habits"
+   },
+   "sl": {
+    "titre": "aplikacije za\nobčutek\nthat girl",
+    "sous": "mehko življenje,\nmehke navade"
+   },
+   "hu": {
+    "titre": "appok,\namiktől that\ngirl lettem",
+    "sous": "puha élet,\npuha szokások"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/tiimo/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "my morning and night routines as colorful blocks with a visual timer. it makes the whole day feel calm and intentional."
+   },
+   "fr": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mes routines du matin et du soir en blocs colorés avec un minuteur visuel. toute la journée paraît calme et posée."
+   },
+   "es": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mis rutinas de mañana y noche en bloques de colores con un temporizador visual. todo el día se siente tranquilo."
+   },
+   "es-419": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "mis rutinas de mañana y noche en bloques de colores con un temporizador visual. todo el día se siente tranquilo."
+   },
+   "it": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "le mie routine del mattino e della sera in blocchi colorati con un timer visivo. tutta la giornata sembra calma."
+   },
+   "tr": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "sabah ve akşam rutinlerim görsel bir sayaçla renkli bloklarda. tüm gün sakin ve bilinçli geçiyor."
+   },
+   "pt-BR": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "minhas rotinas de manhã e de noite em blocos coloridos com um timer visual. o dia todo fica calmo e com propósito."
+   },
+   "de": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "meine morgen- und abendroutinen als bunte blöcke mit visuellem timer. der ganze tag fühlt sich ruhig und bewusst an."
+   },
+   "sl": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "jutranje in večerne rutine kot barvni bloki z vizualnim časovnikom. cel dan je miren in premišljen."
+   },
+   "hu": {
+    "nom": "Tiimo",
+    "plateformes": "iOS, Android",
+    "texte": "a reggeli és esti rutinjaim színes blokkok vizuális időzítővel. az egész nap nyugodt és tudatos lesz."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/daylio/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 820,
+     "y": 750,
+     "l": 190,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "i log my mood and habits in two taps, then watch the good patterns grow week after week."
+   },
+   "fr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "je note mon humeur et mes habitudes en deux clics, puis je vois les bons schémas grandir semaine après semaine."
+   },
+   "es": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "apunto mi humor y mis hábitos en dos toques y veo cómo crecen los buenos patrones semana tras semana."
+   },
+   "es-419": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "anoto mi ánimo y mis hábitos en dos toques y veo cómo crecen los buenos patrones semana tras semana."
+   },
+   "it": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "segno umore e abitudini in due tocchi e vedo crescere le buone abitudini settimana dopo settimana."
+   },
+   "tr": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "ruh halimi ve alışkanlıklarımı iki dokunuşla kaydediyorum, iyi alışkanlıkların hafta hafta büyüdüğünü görüyorum."
+   },
+   "pt-BR": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "marco meu humor e meus hábitos em dois toques e vejo os bons padrões crescendo semana após semana."
+   },
+   "de": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "ich trage stimmung und gewohnheiten mit zwei taps ein und sehe, wie die guten muster woche für woche wachsen."
+   },
+   "sl": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "razpoloženje in navade zapišem z dvema dotikoma in gledam, kako dobri vzorci rastejo iz tedna v teden."
+   },
+   "hu": {
+    "nom": "Daylio",
+    "plateformes": "iOS, Android",
+    "texte": "két koppintással rögzítem a hangulatom és a szokásaim, és látom, ahogy hétről hétre nőnek a jó minták."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 860,
+     "y": 90,
+     "l": 160,
+     "rotation": 10
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "my favorite part of the morning!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "mon moment préféré du matin !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡mi parte favorita de la mañana!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡mi parte favorita de la mañana!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "il mio momento preferito del mattino!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "sabahın en sevdiğim kısmı!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "minha parte favorita da manhã!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "mein lieblingsteil am morgen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "moj najljubši del jutra!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "a reggel kedvenc része!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/tide/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "rain sounds and a gentle timer for my study sessions, plus a short meditation before bed."
+   },
+   "fr": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "des sons de pluie et un minuteur tout doux pour mes révisions, plus une courte méditation avant de dormir."
+   },
+   "es": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sonidos de lluvia y un temporizador suave para estudiar, y una meditación corta antes de dormir."
+   },
+   "es-419": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sonidos de lluvia y un temporizador suave para estudiar, y una meditación corta antes de dormir."
+   },
+   "it": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "suoni di pioggia e un timer delicato per studiare, più una breve meditazione prima di dormire."
+   },
+   "tr": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "ders çalışırken yağmur sesleri ve yumuşak bir sayaç, yatmadan önce de kısa bir meditasyon."
+   },
+   "pt-BR": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sons de chuva e um timer suave pra estudar, e uma meditação curtinha antes de dormir."
+   },
+   "de": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "regengeräusche und ein sanfter timer fürs lernen, dazu eine kurze meditation vorm schlafen."
+   },
+   "sl": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "zvoki dežja in nežen časovnik za učenje, pred spanjem pa kratka meditacija."
+   },
+   "hu": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "esőhangok és egy szelíd időzítő a tanuláshoz, lefekvés előtt pedig egy rövid meditáció."
+   }
+  }
+ ]
+}

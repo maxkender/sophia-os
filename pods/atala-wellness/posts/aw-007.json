@@ -1,0 +1,126 @@
+{
+ "id": "aw-007",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7685658162329963808",
+  "vues": 6080,
+  "accroche": "Comment vraiment reprogrammer ton corps, une habitude à la fois"
+ },
+ "titre": {
+  "en": "how to actually reset your body, one habit at a time"
+ },
+ "legendes": {
+  "en": "start with the easiest one ✨ #wellness #healthyhabits #thatgirl #selfcare #reset"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « comment vraiment reprogrammer ton corps, une habitude à la fois » de @healthy_with_emma6 (6,1 k). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : augmenter petit à petit, prévention par la méthode ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : 7 heures de sommeil ou plus pour un adulte (Watson et al., Sleep 2015, consensus AASM/SRS) ; respiration lente et détente, moins d'anxiété (Zaccaro et al., Frontiers in Human Neuroscience 2018, revue) ; finir la douche par 30 à 90 s d'eau froide et moins de jours d'arrêt maladie (Buijze et al., PLoS ONE 2016) ; écouter de la musique et moins de stress (de Witte et al., Health Psychology Review 2020, méta-analyse) ; 90 minutes de marche dans la nature et moins de rumination qu'en ville (Bratman et al., PNAS 2015). Photos : banque de l'OS ; Atala : 4b54aed1 (bord de mer au lever du soleil).",
+ "banque": {
+  "images/banque/rs-couv-a.jpg": "07321e82-afcd-4dca-bdf1-2163885fcde5",
+  "images/banque/rs-couv-b.jpg": "12aa2ce1-0ae2-46d2-85a3-8ba640a30879",
+  "images/banque/rs-sommeil.jpg": "1e4ad037-5e9e-4e46-b289-5f21d73dd8a7",
+  "images/banque/rs-souffle.jpg": "0de73a0f-b6ac-48cf-874c-b65f3d2834ca",
+  "images/banque/rs-douche.jpg": "a52f3d12-69ac-4ee6-af3e-0e1b9a83e578",
+  "images/banque/rs-course.jpg": "4b54aed1-64dc-4ca1-bd6a-7d03906bd7eb",
+  "images/banque/rs-musique.jpg": "6747bf28-ad8e-4954-8143-b16b1d756c8a",
+  "images/banque/rs-nature.jpg": "39b28c5b-4bed-407e-b7f4-0eaa22e86b13"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/rs-couv-a.jpg",
+    "images/banque/rs-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "how to actually reset your body, one habit at a time",
+    "note": "(backed by science)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/rs-sommeil.jpg",
+   "en": {
+    "titre": "sleep _7 hours_, minimum",
+    "intro": "it's the base of _every other habit_",
+    "paragraphes": [
+     "sleep experts agree that adults need _7 hours or more_ every night",
+     "pick your wake-up time, then count _back 8 hours_"
+    ],
+    "chute": "nothing works if _you're exhausted_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/rs-souffle.jpg",
+   "en": {
+    "titre": "breathe _slower_",
+    "intro": "your breath is _the fastest reset_ you have",
+    "paragraphes": [
+     "a review found that slow breathing is linked to _more calm and less anxiety_",
+     "in for 4, out for 6. _5 times_, anywhere"
+    ],
+    "chute": "free, invisible, _always with you_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/rs-douche.jpg",
+   "en": {
+    "titre": "end your shower _cold_",
+    "intro": "30 seconds. _that's it_",
+    "paragraphes": [
+     "in a big study, people who ended their shower with cold water _took fewer sick days_",
+     "warm first, then cold for _the last 30 seconds_"
+    ],
+    "chute": "you'll scream. _then you'll love it_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/rs-course.jpg",
+   "en": {
+    "titre": "build up _slowly_",
+    "intro": "running reset _my energy_ more than anything",
+    "paragraphes": [
+     "i used to add too much too fast, and every time i _had to stop_ for weeks",
+     "my tip: a running coach app like Atala builds your weeks up _little by little_, so you keep going"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   },
+   "cadrage": {
+    "y": 0.92
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/rs-musique.jpg",
+   "en": {
+    "titre": "music _on purpose_",
+    "intro": "not background noise. _the songs you love_",
+    "paragraphes": [
+     "a big review found that listening to music _lowers stress_",
+     "one playlist for mornings, _one for hard days_"
+    ],
+    "chute": "your mood has _a soundtrack_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/rs-nature.jpg",
+   "en": {
+    "titre": "walk _somewhere green_",
+    "intro": "your brain needs _a break from the city_",
+    "paragraphes": [
+     "a study found a long walk in nature _quieted overthinking_ more than a walk in the city",
+     "park, forest, river. _no podcast_ this time"
+    ],
+    "chute": "the reset is _outside_"
+   }
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "id": "bn-011",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7707980369747823880",
+  "vues": 494600,
+  "publie_le": "2026-11-14",
+  "accroche": "GLOW UP HACKS FOR MEN."
+ },
+ "titre": {
+  "en": "glow up tips no one tells men"
+ },
+ "legendes": {
+  "en": "the boring stuff works #glowup #selfimprovement #tipsformen #running #menshealth"
+ },
+ "musique": {
+  "titre": "FUNDO DE VIDEO",
+  "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
+ },
+ "notes": "Full test (boîte vide). Famille « GLOW UP HACKS FOR MEN. » de @built.not.born61 (494.6 k vues, 2026-11-14), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : a80b4cad, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix TU (hook de 7 mots), argument « débute : un plan qui part de zéro » ; caféine : demi-vie d'environ 5 h (FDA, NIH). Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-sweat.png": "a80b4cad-6639-487e-a8b7-454c028b4bf9"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-10.png",
+   "en": {
+    "titre": "GLOW UP TIPS\nNO ONE TELLS MEN."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/tasse.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "1. No coffee after 2 pm",
+    "texte": "Caffeine stays in your body for hours. Late coffee quietly ruins your sleep."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/cintre.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "2. Wear fitted basics",
+    "texte": "Black, white, grey and navy. Fitted basics look better than loud logos."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-sweat.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Start running",
+    "texte": "The fastest glow up is getting fit. A running coach app like Atala gives you a plan that starts from zero if you need it."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/deodorant.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "4. Stay fresh all day",
+    "texte": "Deodorant every morning, a clean shirt after the gym. Small things, big difference."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/masque.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Sleep 8 hours",
+    "texte": "Your face shows every short night. Same bedtime, dark room, phone away."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-5.png",
+   "en": {
+    "texte": "Follow for more"
+   }
+  }
+ ]
+}

@@ -2,6 +2,7 @@ import { dansFenetre, type Delais, instantLocal, lireMode, lundiParis, partiesLo
 import type { MalgreStop } from "../_shared/stop.ts";
 import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { passageDu } from "../_shared/frequences.ts";
+import { lireParLots } from "../_shared/lots.ts";
 import {
   libelleCanaux,
   envoiEtape,
@@ -1392,9 +1393,11 @@ async function envoisAujourdhui(supabase: Supabase, posteurs: string[], maintena
   const ids = [...new Set(posteurs)];
   if (!ids.length) return m;
   const debut = instantLocal(partiesLocales(maintenant, "Europe/Paris").date, 0, "Europe/Paris").toISOString();
-  const { data } = await supabase.from("nudges").select("poster_id, type, canaux, slack_erreur")
-    .in("poster_id", ids).gte("envoye_at", debut).limit(5000);
-  for (const n of data ?? []) {
+  // 24/11 : plus de 400 posteurs : lus par lots (le in() trop long cassait chaque passage).
+  const data = await lireParLots(ids, "recrues-check : envois du jour", (lot) =>
+    supabase.from("nudges").select("poster_id, type, canaux, slack_erreur")
+      .in("poster_id", lot).gte("envoye_at", debut).limit(900));
+  for (const n of data) {
     if (n.slack_erreur && !(n.canaux as string[] | null)?.length) continue;
     const f = m.get(n.poster_id as string) ?? new Set<string>();
     f.add(familleMessage(n.type as string));

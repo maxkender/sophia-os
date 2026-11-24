@@ -13,8 +13,9 @@
 -- « sensitive », Fal 422 / image noire) et de la limite de débit Replicate (429, crédit sous 10 $).
 --
 -- Désormais (code) :
---   * chaque essai d'une slide commence par un autre chemin : Replicate → Fal, puis Fal → édition IA (Nano Banana
---     Pro edit), puis édition IA → Replicate, puis Replicate → Fal ;
+--   * chaque essai d'une slide commence par un autre chemin : Replicate → Fal, puis Fal → effaceur (Gemini Flash
+--     repère les rectangles de texte, LaMa les efface : ~0,0004 $, sans modération), puis effaceur → Replicate,
+--     puis Replicate → Fal ;
 --   * pas de remplacement avant le bout des 4 essais ;
 --   * dans les labels de `reglages.nettoyage.images_obligatoires_labels` (et les sources de
 --     `images_obligatoires_sources`), jamais de remplacement ni de slide brute : toujours sale après 4 essais, le

@@ -6,8 +6,7 @@ import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
 import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
-import { editerNanoBananaPro } from "./fal_nano_banana.ts";
-import { type CheminNettoyage, cheminsPourEssai, CONSIGNE_RETRAIT_TEXTE } from "./chemins_nettoyage.ts";
+import { type CheminNettoyage, cheminsPourEssai } from "./chemins_nettoyage.ts";
 import { upscaleViaSeedVr } from "./fal_seedvr_upscale.ts";
 import { falAuthHeaders, falHebergerOctets, falKey, falQueueAwaitJson, falQueueSubmit } from "./fal_queue.ts";
 import { serviceClient } from "./supabase.ts";
@@ -926,7 +925,7 @@ async function luminanceMoyenne(bytes: Uint8Array): Promise<number | null> {
 }
 
 /** Moteur effectivement utilisé pour un nettoyage réussi. */
-export type MoteurNettoyage = "text_removal" | "replicate_text_removal" | "nano_banana_edit";
+export type MoteurNettoyage = "text_removal" | "replicate_text_removal" | "effaceur_lama";
 
 export type ProviderNettoyage = "fal" | "replicate";
 
@@ -934,7 +933,7 @@ export type ProviderNettoyage = "fal" | "replicate";
 export type EtapeNettoyageId =
   | "text_removal"
   | "replicate_text_removal"
-  | "nano_banana_edit"
+  | "effaceur_lama"
   | "upscale"
   | "c2pa"
   | "ready";
@@ -971,19 +970,20 @@ export interface CleanImageOpts {
   essai?: number;
 }
 
-/** Retrait du texte par édition IA (Nano Banana Pro edit) : autre modèle, autre filtre que Fal/Replicate text-removal. */
-async function nettoyerViaNanoBanana(
+/**
+ * Effaceur : Gemini Flash repère les rectangles de texte (lecture, jamais refusée), LaMa (Replicate, sans
+ * modération, ~0,0004 $) efface ces zones. Rien d'inventé : il prolonge le décor autour du masque.
+ */
+async function nettoyerViaEffaceur(
   imageUrl: string,
-  onProgress?: (p: { phase: string; polls?: number; detail?: string }) => void | Promise<void>,
+  onProgress?: (detail: string) => void | Promise<void>,
 ): Promise<string | null> {
-  if (!falKey()) return null;
-  const r = await editerNanoBananaPro(imageUrl, CONSIGNE_RETRAIT_TEXTE, onProgress, { aspectRatio: "auto", resolution: "2K", budgetMs: 90_000 });
-  let binaire = "";
-  const CHUNK = 0x8000;
-  for (let i = 0; i < r.bytes.length; i += CHUNK) {
-    binaire += String.fromCharCode(...r.bytes.subarray(i, i + CHUNK));
-  }
-  return btoa(binaire);
+  await onProgress?.("repérage des zones de texte (Gemini Flash)");
+  const image = await fetchImageAsInline(imageUrl);
+  const resultat = await inpaintFallback(image, imageUrl);
+  if (!resultat) throw new Error("effaceur : aucune zone de texte repérée, ou aucun jeton Replicate");
+  await onProgress?.("zones effacées (LaMa)");
+  return resultat;
 }
 
 async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
@@ -1020,7 +1020,7 @@ export async function cleanImage(
 
   const premier = await lireProviderPrincipal();
   const chaine: CheminNettoyage[] = cheminsPourEssai(premier, opts?.essai);
-  const NOMS: Record<CheminNettoyage, string> = { fal: "Fal", replicate: "Replicate", nano_banana: "Nano Banana (édition IA)" };
+  const NOMS: Record<CheminNettoyage, string> = { fal: "Fal", replicate: "Replicate", effaceur: "Effaceur (Gemini + LaMa)" };
 
   let base64: string | null = null;
   let moteur: MoteurNettoyage | null = null;
@@ -1032,7 +1032,7 @@ export async function cleanImage(
     const estPremier = i === 0;
     const autre = chaine[i + 1] ? NOMS[chaine[i + 1]!] : "aucun";
     const etapeId: EtapeNettoyageId =
-      provider === "fal" ? "text_removal" : provider === "replicate" ? "replicate_text_removal" : "nano_banana_edit";
+      provider === "fal" ? "text_removal" : provider === "replicate" ? "replicate_text_removal" : "effaceur_lama";
     const nom = NOMS[provider];
 
     if (base64) {
@@ -1055,14 +1055,9 @@ export async function cleanImage(
     let polls = 0;
     try {
       const resultat =
-        provider === "nano_banana"
-          ? await nettoyerViaNanoBanana(imageUrl, async (p) => {
-              if (typeof p.polls === "number") polls = p.polls;
-              await emit({
-                etape: etapeId,
-                statut: "encours",
-                detail: `${rang === 1 ? "①" : "②"} ${nom}: ${p.phase}${p.detail ? ` (${p.detail})` : ""}`,
-              });
+        provider === "effaceur"
+          ? await nettoyerViaEffaceur(imageUrl, async (detail) => {
+              await emit({ etape: etapeId, statut: "encours", detail: `${rang === 1 ? "①" : "②"} ${nom}: ${detail}` });
             })
           : provider === "fal"
           ? await nettoyerViaFalTextRemoval(imageUrl, async (p) => {
@@ -1124,7 +1119,7 @@ export async function cleanImage(
 
       if (resultat && !(await sembleDegeneree(resultat))) {
         base64 = resultat;
-        moteur = etapeId === "text_removal" ? "text_removal" : etapeId === "replicate_text_removal" ? "replicate_text_removal" : "nano_banana_edit";
+        moteur = etapeId === "text_removal" ? "text_removal" : etapeId === "replicate_text_removal" ? "replicate_text_removal" : "effaceur_lama";
         await emit({
           etape: etapeId,
           statut: "ok",

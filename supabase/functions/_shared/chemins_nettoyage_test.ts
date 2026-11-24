@@ -10,10 +10,10 @@ Deno.test("sans numéro d'essai : principal puis second, comme avant", () => {
 
 Deno.test("chaque essai commence par un autre chemin, et les trois passent", () => {
   assertEquals(cheminsPourEssai("replicate", 1), ["replicate", "fal"]);
-  assertEquals(cheminsPourEssai("replicate", 2), ["fal", "nano_banana"]);
-  assertEquals(cheminsPourEssai("replicate", 3), ["nano_banana", "replicate"]);
+  assertEquals(cheminsPourEssai("replicate", 2), ["fal", "effaceur"]);
+  assertEquals(cheminsPourEssai("replicate", 3), ["effaceur", "replicate"]);
   assertEquals(cheminsPourEssai("replicate", 4), ["replicate", "fal"]);
-  assertEquals(cheminsPourEssai("fal", 2), ["replicate", "nano_banana"]);
+  assertEquals(cheminsPourEssai("fal", 2), ["replicate", "effaceur"]);
   const premiers = [1, 2, 3].map((e) => cheminsPourEssai("replicate", e)[0]);
   assertEquals(new Set(premiers).size, 3);
 });

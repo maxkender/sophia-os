@@ -1889,8 +1889,8 @@ async function executerPasImport(
                 ? "Fal"
                 : s.moteur === "replicate_text_removal"
                   ? "FALLBACK Replicate"
-                  : s.moteur === "nano_banana_edit"
-                  ? "Édition IA (Nano Banana)"
+                  : s.moteur === "effaceur_lama"
+                  ? "Effaceur (Gemini + LaMa)"
                   : s.moteur ?? "—";
             const head =
               `══ slide #${s.position} · ${s.ok ? "OK" : "ÉCHEC"} · moteur=${moteurLabel}` +
@@ -2431,7 +2431,7 @@ async function nettoyerSlide(
   const labelEtape: Record<string, string> = {
     text_removal: "① Fal",
     replicate_text_removal: "② FALLBACK Replicate",
-    nano_banana_edit: "Édition IA (Nano Banana)",
+    effaceur_lama: "Effaceur (Gemini + LaMa)",
     upscale: "③ Upscale SeedVR",
     c2pa: "④ Enlève clés C2PA",
     ready: "⑤ Ready",

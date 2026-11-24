@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o293",
+ "type_bleo": "full_test",
+ "titre": "Rules for lending your car to a friend #men #car #friendship #respect #rules",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 24/11. Full test du jour (1 sur 8, jauge : 8 sur 25). Accroche jamais faite chez nous : aucune accroche « lend your car » dans donnees/label.json. reference_url : post source de am-o034, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0a3a5b4f",
+   "texte_overlay": "Rules for lending your car\nto a friend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "94a57873",
+   "texte_overlay": "1. Return it with a full tank",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0f991429",
+   "texte_overlay": "2. Cleaner than you got it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ed440f50",
+   "texte_overlay": "3. Text when you park it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b3418d23",
+   "texte_overlay": "4. Any ticket is yours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1e12bf87",
+   "texte_overlay": "5. If you break it, you fix it.\nNo debate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8798aecc",
+   "texte_overlay": "6. Know the basics of the car\n\nLights, fuel, tire pressure.",
+   "texte_sophia": "6. Know the basics of the car\n\nI learned them\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

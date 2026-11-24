@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o296",
+ "type_bleo": "full_test",
+ "titre": "Rules for surviving a long flight #men #travel #flight #airport #tips",
+ "musique_titre": "Expansion",
+ "musique_url": "https://www.tiktok.com/music/expansion-7383085187666184209",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 24/11. Full test du jour (4 sur 8, jauge : 8 sur 25). Accroche jamais faite chez nous : aucun « long flight » dans donnees/label.json. reference_url : post source de am-o036 (2 à 7), vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6f54267a",
+   "texte_overlay": "Rules for surviving a long flight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1d55a879",
+   "texte_overlay": "1. Window seat to sleep,\naisle seat to move",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6d9c5d2d",
+   "texte_overlay": "2. Water every hour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "600780b3",
+   "texte_overlay": "3. Layers, not one big hoodie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "763d5493",
+   "texte_overlay": "4. Plan your entertainment\n\nA book, a podcast, a lesson.",
+   "texte_sophia": "4. Plan your entertainment\n\nI download lessons\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fca7920c",
+   "texte_overlay": "5. Walk the aisle every two hours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  }
+ ]
+}

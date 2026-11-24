@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o294",
+ "type_bleo": "full_test",
+ "titre": "How to never forget a name again #men #socialskills #memory #respect #selfimprovement",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 24/11. Full test du jour (2 sur 8, jauge : 8 sur 25). Réécrit après refus theme_gagnant (small talk). Accroche jamais faite chez nous : « remember names » seulement dans des items dans donnees/label.json. reference_url : post source de am-o117, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c7eaf8d0",
+   "texte_overlay": "How to never forget\na name again",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1a26c989",
+   "texte_overlay": "1. Say it back right away\n\n\"Nice to meet you, Daniel.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "307103f3",
+   "texte_overlay": "2. Link it to something\n\nDaniel with the blue jacket.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1a225b32",
+   "texte_overlay": "3. Use it once more\nbefore you leave",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "584c6e2f",
+   "texte_overlay": "4. Write it down after\n\nName, place, one detail.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0e5f8aab",
+   "texte_overlay": "5. Train your memory daily\n\nIt's a muscle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg",
+   "texte_sophia": "5. Train your memory daily\n\nI do it with the Sophia app."
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o315",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4d6c0f48-8b22-4568-9196-483672ef7fbd",
+ "titre": "7 life changing events in your early 20s #20s #life #men #growth #lessons",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [
+  "4d6c0f48-8b22-4568-9196-483672ef7fbd"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 24/11. Déclinaison G1 de la ligne 41 de la boîte (parent 4d6c0f48, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. » + moment en deux lignes. Items neufs, aucun du parent. reference_url du parent (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a6efdc1",
+   "texte_overlay": "7 life changing events\nin your early 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634291581117418760/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "61077cc6",
+   "texte_overlay": "1. Your first paycheck.\n\nAnd your first rent.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634291581117418760/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "48400b3c",
+   "texte_overlay": "2. The night your friend group\nsplits in two.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634291581117418760/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0c3adca8",
+   "texte_overlay": "3. The first time you drive\nsomewhere completely alone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634291581117418760/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "485003ee",
+   "texte_overlay": "4. Cooking a real meal\nfor someone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634291581117418760/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3a2648bb",
+   "texte_overlay": "5. Realizing school taught you\nless than you thought.\n\nSo you start learning again.",
+   "texte_sophia": "5. Realizing school taught you\nless than you thought.\n\nI started again on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634291581117418760/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "209b660e",
+   "texte_overlay": "6. Hearing your parents\nask you for advice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634291581117418760/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c5cb7d5c",
+   "texte_overlay": "7. The day you stop waiting\nfor permission.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634291581117418760/8.jpg"
+  }
+ ]
+}

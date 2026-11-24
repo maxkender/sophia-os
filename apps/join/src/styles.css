@@ -443,8 +443,40 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 .footer__bas { border-top: 1px solid #ffffff24; margin-top: clamp(24px, 4vw, 40px); padding-top: 18px; color: #ffffffb3; font-size: .85rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
 .footer .logo { color: var(--white); }
 
+/* Présentation avant le formulaire (24/11) : écrans plein cadre, texte tapé, gros bouton en bas */
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+#root > main.onb { flex: 1 0 auto; display: flex; flex-direction: column; }
+.onb__cadre { display: flex; flex-direction: column; gap: clamp(20px, 4vh, 40px); padding-block: clamp(16px, 3vh, 32px) max(20px, env(safe-area-inset-bottom)); flex: 1; width: min(100% - 2 * var(--gutter), 640px); }
+.onb__haut { display: flex; align-items: center; gap: 16px; }
+.onb__barre { flex: 1; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px; }
+.onb__barre span { height: 5px; border-radius: 999px; background: var(--line); transition: background .4s var(--ease); }
+.onb__barre span.fait { background: var(--brand-gradient); }
+.onb__passer { background: none; border: 0; cursor: pointer; color: var(--muted); font-weight: 550; font-size: .92rem; padding: 8px 2px; }
+.onb__passer:hover { color: var(--navy); }
+.onb__corps { flex: 1; display: grid; align-content: center; gap: clamp(16px, 2.6vh, 24px); animation: onb-entree .45s var(--ease); }
+.onb__textes { display: grid; gap: clamp(14px, 2.4vh, 22px); }
+.onb__titre { font-size: clamp(2.1rem, 6vw, 3.4rem); }
+.onb__texte { color: var(--fg-soft); font-size: clamp(1.12rem, 1.6vw, 1.3rem); line-height: 1.55; text-wrap: pretty; }
+.onb__pile { display: grid; }
+.onb__pile > * { grid-area: 1 / 1; }
+.onb__fantome { visibility: hidden; }
+.onb__curseur { display: inline-block; width: .08em; min-width: 2px; height: 1em; margin-left: 2px; vertical-align: -.12em; background: var(--blue); animation: onb-curseur .9s steps(1) infinite; }
+.onb__plus { display: grid; gap: 14px; justify-items: start; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s var(--ease); pointer-events: none; }
+.onb__plus.visible { opacity: 1; transform: none; pointer-events: auto; }
+.onb__paie { width: 100%; }
+.onb__liens { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.onb__bas { display: flex; gap: 10px; position: sticky; bottom: max(12px, env(safe-area-inset-bottom)); }
+.onb__retour { flex: none; width: 56px; padding: 0; font-size: 1.2rem; background: var(--surface); }
+.onb__suite { flex: 1; }
+@media (min-width: 700px) { .onb__bas { justify-content: flex-end; } .onb__suite { flex: 0 1 280px; } }
+.onb__revoir { padding-top: clamp(16px, 3vw, 28px); margin-bottom: calc(-1 * clamp(16px, 3vw, 40px)); position: relative; z-index: 1; }
+@keyframes onb-entree { from { opacity: 0; transform: translateY(10px); } }
+@keyframes onb-curseur { 50% { opacity: 0; } }
+
 @media (prefers-reduced-motion: reduce) {
   .btn { transition: none; }
+  .onb__corps, .onb__curseur { animation: none; }
+  .onb__plus, .onb__barre span { transition: none; }
 }
 
 /* Le pied de page reste en bas même sur les pages courtes. */

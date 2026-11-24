@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o268",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "91366050-cfa8-4dd0-8a9a-b2e4350b1429",
+  "titre": "comment je suis devenue la fille aux anecdotes (sans jamais faire l'intello) #culture #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [
+    "91366050-cfa8-4dd0-8a9a-b2e4350b1429"
+  ],
+  "notes": "G2, déclinaison de 91366050 (« comment je suis devenue la fille qui sait toujours un truc sans être une intello », G1 gagnante, génération 1 en français ; meilleur passage en 856 vues, r 6,2), en français, 3e et dernière déclinaison (après bsg-o244 et o252). Accroche reformulée : « comment je suis devenue la fille aux anecdotes (sans jamais faire l'intello) ». cta C. Habitudes neuves. Routine du 24/11 sur BLEO (par_jour passé à 16 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 11 déclinaisons ; seules les lignes 1 à 5 de la boîte se déclinent, donc 5 déclinaisons et 11 full tests. Lignes sautées : 6 et 8 (accroches de plus de 120 caractères, refusées au guichet le 22/11), 7 (accroche exigée bancale « how to destroy yourself »), 9 (« tinas ai »), 10 (« neurosciences »), 11 (« je notes »), 12 (« ge things »), 13 (« backed by science »), 14 (« enterimarnt »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "57fffeee",
+      "texte_overlay": "comment je suis devenue la fille aux anecdotes\n(sans jamais faire l'intello)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b3b1f846",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bfd20fe7",
+      "texte_overlay": "1. je lis les petites lignes\n\nles légendes des photos,\nles notes au bas des menus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "5d6262ab",
+      "texte_overlay": "2. je demande « pourquoi ? »\n\npourquoi ce nom, cette forme, cette date.\nla réponse est toujours une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "be929643",
+      "texte_overlay": "3. je retiens une seule chose par jour\n\npas dix.\nune, mais vraiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3862e771",
+      "texte_overlay": "4. je la raconte le soir même\n\nà ma sœur, à une amie, à ma mère.\nça s'ancre pour toujours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2376a942",
+      "texte_overlay": "5. je ris de ce que je ne sais pas\n\npersonne n'aime les je-sais-tout.\ntout le monde aime les curieux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "fa1e7768",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

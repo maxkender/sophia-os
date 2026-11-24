@@ -1,0 +1,124 @@
+{
+ "id": "aw-006",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7690468134733597984",
+  "vues": 49300,
+  "publie_le": "2026-09-28",
+  "accroche": "ces secrets des parisiennes toujours parfaites <3"
+ },
+ "titre": {
+  "en": "secrets of french girls who always look effortless"
+ },
+ "legendes": {
+  "en": "steal one, thank me later 🤍 #wellness #healthyhabits #thatgirl #selfcare #frenchgirl"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « ces secrets des parisiennes toujours parfaites » de @healthy_with_emma6 (49,3 k, et 6,5 k, 5,1 k, 3 k pour ses reprises), transposée en « french girls ». 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : un plan à son niveau, même de zéro ; « a running coach app like Atala » ; sans « AI »). Fait vérifié : des fleurs offertes et une humeur plus positive, des « vrais » sourires (Haviland-Jones et al., Evolutionary Psychology 2005). Les autres slides n'avancent aucun chiffre. Photos : banque de l'OS ; Atala : 3d423f1c (front de mer au coucher du soleil, de dos).",
+ "banque": {
+  "images/banque/fr-couv-a.jpg": "838c1f6b-0a9e-442e-a2e3-a9bb567bf1b0",
+  "images/banque/fr-couv-b.jpg": "fcb92183-ea0d-4c3b-a6c2-9321bd1662fc",
+  "images/banque/fr-marche.jpg": "1ff6149a-e8c9-48d4-a9f8-e6a19482f9c9",
+  "images/banque/fr-fleurs.jpg": "038e8184-c824-49a5-8ca7-fe116478f61b",
+  "images/banque/fr-cheveux.jpg": "22012ea9-2307-4f09-88dd-5be36673415a",
+  "images/banque/fr-course.jpg": "3d423f1c-dbd3-4fb7-a58f-e31876e442a2",
+  "images/banque/fr-dejeuner.jpg": "0c4d8fcc-c19a-41fe-83de-d32b596ce631",
+  "images/banque/fr-livre.jpg": "088ad524-dad1-402b-98e6-ddea75a4f37d"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/fr-couv-a.jpg",
+    "images/banque/fr-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "secrets of french girls who always look effortless",
+    "note": "(no effort required)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fr-marche.jpg",
+   "en": {
+    "titre": "they _walk everywhere_",
+    "intro": "the metro only if it's _really far_",
+    "paragraphes": [
+     "they move all day _without a gym_, just their own two feet",
+     "flat shoes in the bag, _headphones in_"
+    ],
+    "chute": "the city is _the workout_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fr-fleurs.jpg",
+   "en": {
+    "titre": "fresh flowers, _every week_",
+    "intro": "not for a date. _for themselves_",
+    "paragraphes": [
+     "a study found that receiving flowers put people in _a better mood_, with real smiles",
+     "one small bunch from the market, _a glass as a vase_"
+    ],
+    "chute": "pretty things make _pretty days_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fr-cheveux.jpg",
+   "en": {
+    "titre": "they let their hair _air dry_",
+    "intro": "less heat, _more texture_",
+    "paragraphes": [
+     "no straightener every morning, just _a good brush_ and time",
+     "wash at night, _braid it_, wake up with waves"
+    ],
+    "chute": "effortless is _the point_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/fr-course.jpg",
+   "en": {
+    "titre": "_a little run_ before the day",
+    "intro": "not for a time, just to _feel good_",
+    "paragraphes": [
+     "i thought running was only for _sporty girls_, so i never even tried",
+     "my tip: a running coach app like Atala starts you _at your level_, even if you've never run"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fr-dejeuner.jpg",
+   "en": {
+    "titre": "lunch _sitting down_",
+    "intro": "never at the desk, _never rushed_",
+    "paragraphes": [
+     "a real plate, a real chair, and _no phone_ on the table",
+     "even 20 minutes counts. _go outside_ if you can"
+    ],
+    "chute": "slow lunch, _calm afternoon_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/fr-livre.jpg",
+   "en": {
+    "titre": "a book _in the bag_",
+    "intro": "always. even for _a short trip_",
+    "paragraphes": [
+     "a few pages on the metro instead of _scrolling_",
+     "paperback, small, _a bit worn_"
+    ],
+    "chute": "that's the whole _aesthetic_"
+   }
+  }
+ ]
+}

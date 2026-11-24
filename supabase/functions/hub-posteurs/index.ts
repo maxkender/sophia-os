@@ -59,6 +59,12 @@
  * Réponses `{ ok: true, … }` ou `{ ok: false, error }`. Un 4xx est un refus
  * définitif (le site ne réessaie pas et l'affiche sur la fiche), un 5xx est
  * réessayable.
+ *
+ * 0848 (24/11) : chaque appel authentifié est noté dans `hub_pont_appels`
+ * (action, ok = code < 500, code, erreur ≤ 300 car.), jamais le corps ni le
+ * secret. Un cron (5 min) ouvre une alerte dans Control (Aujourd'hui ›
+ * Technique, DM Slack à Max) quand une action échoue sans interruption depuis
+ * plus de 15 min ; elle se ferme au premier succès.
  */
 
 import {
@@ -78,6 +84,7 @@ import {
   resoudreAffectationSite,
   secretValide,
 } from "../_shared/hub_posteurs.ts";
+import { actionPourJournal, appelReussi, erreurPourJournal } from "../_shared/hub_pont.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
 import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
@@ -110,10 +117,20 @@ Deno.serve(async (request) => {
   try {
     body = await request.json();
   } catch {
-    return json({ ok: false, error: "corps JSON requis" }, 400);
+    const reponse = json({ ok: false, error: "corps JSON requis" }, 400);
+    journaliser(serviceClient, "?", reponse);
+    return reponse;
   }
 
   const supabase = serviceClient();
+  const reponse = await traiter(supabase, body);
+  // 0848 : chaque appel authentifié est noté (action, code, erreur), sans attendre ni jamais casser la réponse.
+  journaliser(() => supabase, actionPourJournal(body?.action), reponse);
+  return reponse;
+});
+
+// deno-lint-ignore no-explicit-any
+async function traiter(supabase: Supabase, body: any): Promise<Response> {
   try {
     switch (body?.action) {
       case "ping":
@@ -173,7 +190,30 @@ Deno.serve(async (request) => {
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
-});
+}
+
+/**
+ * 0848 : note l'appel dans `hub_pont_appels` (action, ok, code, erreur tronquée) pour l'alerte
+ * « Pont Hub ↔ OS » de Control. Jamais le corps de la requête ni le secret. « Fire and forget » :
+ * l'écriture part après la réponse et un échec d'écriture est seulement loggé.
+ */
+function journaliser(client: () => Supabase, action: string, reponse: Response): void {
+  const code = reponse.status;
+  const lecture = code >= 400
+    ? reponse.clone().json().then((c: { error?: unknown }) => c?.error ?? null, () => null)
+    : Promise.resolve(null);
+  const ecrit = (async () => {
+    try {
+      const erreur = erreurPourJournal(await lecture);
+      const { error } = await client().from("hub_pont_appels").insert({ action, ok: appelReussi(code), code, erreur });
+      if (error) console.error("[hub-posteurs] hub_pont_appels", error.message);
+    } catch (e) {
+      console.error("[hub-posteurs] hub_pont_appels", messageErreur(e));
+    }
+  })();
+  const edge = (globalThis as { EdgeRuntime?: { waitUntil: (p: Promise<unknown>) => void } }).EdgeRuntime;
+  if (edge) edge.waitUntil(ecrit);
+}
 
 // ---------------------------------------------------------------------------
 
@@ -461,8 +501,6 @@ async function lireCohorteRuul(
   return profil ?? null;
 }
 
-/** Rejeu sur un poster déjà créé : rien n'est recréé, le rattachement au HM est revérifié. */
-// deno-lint-ignore no-explicit-any
 /** 0690 : une création refusée laisse une trace (une ligne par signé), pour « Aujourd'hui ». */
 async function noterEchec(supabase: Supabase, hubId: string, email: string | null, nom: string, erreur: string): Promise<void> {
   const { data } = await supabase.from("hub_echecs").select("essais").eq("hub_id", hubId).maybeSingle();
@@ -473,6 +511,8 @@ async function noterEchec(supabase: Supabase, hubId: string, email: string | nul
   if (error) console.error("[hub-posteurs] hub_echecs", error.message);
 }
 
+/** Rejeu sur un poster déjà créé : rien n'est recréé, le rattachement au HM est revérifié. */
+// deno-lint-ignore no-explicit-any
 async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
   const { data: profil, error } = await supabase
     .from("profiles")

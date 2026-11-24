@@ -15,7 +15,8 @@
   "es-419": "corredora novata: los do & don’ts",
   "hu": "kezdő futó: a do & don’ts",
   "ro": "începătoare: do & don’ts",
-  "tr": "yeni başlayan: do & don’ts"
+  "tr": "yeni başlayan: do & don’ts",
+  "el": "αρχάρια δρομέας: τα do & don’ts"
  },
  "legendes": {
   "en": "#running #beginnerrunner #runningtips #girlswhorun #runningadvice",
@@ -25,7 +26,8 @@
   "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
   "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
   "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
-  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu"
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
  },
  "musique": {
   "titre": "La Mentira",
@@ -59,6 +61,9 @@
    },
    "tr": {
     "titre": "yeni başlayan:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "αρχάρια δρομέας:\nτα do & don’ts"
    }
   },
   {
@@ -166,6 +171,18 @@
     "dont": [
      "fazla hızlı\nbir başlangıç",
      "pamuklu tişört"
+    ]
+   },
+   "el": {
+    "titre": "οι πρώτες έξοδοι",
+    "do": [
+     "καλά παπούτσια",
+     "εφαρμογή coach\nσαν το atala",
+     "λίγο περπάτημα\nείναι οκ"
+    ],
+    "dont": [
+     "ξεκινάς\nπολύ γρήγορα",
+     "μπλούζα\nαπό βαμβάκι"
     ]
    }
   },
@@ -275,6 +292,18 @@
      "koca bir\ntabak makarna",
      "üç kahve"
     ]
+   },
+   "el": {
+    "titre": "πριν το τρέξιμο",
+    "do": [
+     "μια μπανάνα",
+     "ποτήρι νερό",
+     "έτοιμα ρούχα"
+    ],
+    "dont": [
+     "βαρύ φαγητό",
+     "τρεις καφέδες"
+    ]
    }
   },
   {
@@ -382,6 +411,18 @@
     "dont": [
      "ağır squat",
      "şarap içmek"
+    ]
+   },
+   "el": {
+    "titre": "μετά το τρέξιμο",
+    "do": [
+     "ρολό μασάζ",
+     "ένα τσάι",
+     "8 ώρες ύπνο"
+    ],
+    "dont": [
+     "βαριά squats",
+     "ποτήρι κρασί"
     ]
    }
   }

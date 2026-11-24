@@ -16,7 +16,8 @@
   "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă",
   "cs": "10 dovedností 10/10, které mají větší cenu než diplom",
   "sr": "10 veština 10/10 koje vrede više od diplome",
-  "hu": "10/10 készségek, amik többet érnek egy diplománál"
+  "hu": "10/10 készségek, amik többet érnek egy diplománál",
+  "el": "10 δεξιότητες 10/10 που αξίζουν περισσότερο από ένα πτυχίο"
  },
  "legendes": {
   "fr": "10 compétences 10/10 qui valent plus qu'un diplôme #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -28,13 +29,14 @@
   "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "10 dovedností 10/10, které mají větší cenu než diplom #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "10 veština 10/10 koje vrede više od diplome #učinatiktoku #samorazvoj #veštine",
-  "hu": "10/10 készségek, amik többet érnek egy diplománál #tanuljtiktokon #önfejlesztés #készségek"
+  "hu": "10/10 készségek, amik többet érnek egy diplománál #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "10 δεξιότητες 10/10 που αξίζουν περισσότερο από ένα πτυχίο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
  },
  "musique": {
   "titre": "son original - psycho - psycho",
   "url": "https://www.tiktok.com/music/son-original-psycho-7668282687572462358"
  },
- "notes": "Routine du 16/11. Son post à 81,2 k : sa couverture (lignes noir/brun/noir/brun, cap relevés 122/176/150/198), ses 5 compétences dans son ordre avec ses couleurs et ses temps, fautes corrigées (« COMPÉTENCES », « PSYCHOLOGIE », « LES INTÉRÊTS COMPOSÉS », « UTILISER L'IA »). Autres vraies vidéos que les siennes (Matthieu Louvet, Michael Aguilar, Timothée Falcon, Bastien Pelissier, Ludo Salenne), natives dans chaque langue. Sophia en étape 4 sur 7 (cta A : « S'INSTRUIRE / CHAQUE JOUR »), sa slide « ABONNE-TOI » retirée.",
+ "notes": "Routine du 16/11. Son post à 81,2 k : sa couverture (lignes noir/brun/noir/brun, cap relevés 122/176/150/198), ses 5 compétences dans son ordre avec ses couleurs et ses temps, fautes corrigées (« COMPÉTENCES », « PSYCHOLOGIE », « LES INTÉRÊTS COMPOSÉS », « UTILISER L'IA »). Autres vraies vidéos que les siennes (Matthieu Louvet, Michael Aguilar, Timothée Falcon, Bastien Pelissier, Ludo Salenne), natives dans chaque langue. Sophia en étape 4 sur 7 (cta A : « S'INSTRUIRE / CHAQUE JOUR »), sa slide « ABONNE-TOI » retirée. el (24/11) : « psychologie inversée » devient « l'art de la persuasion » (aucune vidéo grecque sérieuse sur la psychologie inversée).",
  "slides": [
   {
    "type": "couverture",
@@ -255,6 +257,28 @@
       "t": "DIPLOMÁNÁL",
       "couleur": "brun",
       "cap": 198
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 122
+     },
+     {
+      "t": "ΠΟΥ ΑΞΙΖΟΥΝ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΠΕΡΙΣΣΟΤΕΡΟ ΑΠΟ",
+      "cap": 150
+     },
+     {
+      "t": "ΕΝΑ ΠΤΥΧΙΟ",
+      "cap": 198,
+      "couleur": "brun"
      }
     ]
    }
@@ -490,6 +514,29 @@
     "sous": [
      "1-2 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΚΑΤΑΝΟΗΣΕ",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "ΤΟΝ ΑΝΑΤΟΚΙΣΜΟ"
+    ],
+    "sous": [
+     "1-2 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "8GO7vwKT8C0",
+     "titre": "Τι είναι ο Ανατοκισμός; (Compound Interest)",
+     "chaine": "The Financial Gate",
+     "vues": "4,8 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "5:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nvl_Cv5hzoXTvu-NM5AXITPxQ6rmRxwMvvovl2HJbED-A=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -723,6 +770,29 @@
     "sous": [
      "3-4 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "Η ΤΕΧΝΗ",
+     [
+      {
+       "t": "ΤΗΣ ΠΕΙΘΟΥΣ",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "sous": [
+     "3-4 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "1DQtI5k7yPo",
+     "titre": "6 τρόποι για να πείθεις τους άλλους",
+     "chaine": "theSPEAKERS",
+     "vues": "1,7 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/a75sU0EY5aCiBX06xvnXrb9Odrwu3Tz0GYLcKytr7AFFg64gHfU49LVBOZSdgcVPBkAixAxN5A=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -937,6 +1007,27 @@
     "sous": [
      "napi 5 perc"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΑΙΝΕ",
+     [
+      {
+       "t": "ΚΑΘΕ ΜΕΡΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    }
    }
   },
   {
@@ -1170,6 +1261,29 @@
     "sous": [
      "4-5 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΚΕΡΔΙΣΕ",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "ΤΗΝ ΠΡΟΣΟΧΗ"
+    ],
+    "sous": [
+     "4-5 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "ZcQttmOeR88",
+     "titre": "Πώς να ξεκινάς μία ομιλία | Νίνα Καλούτσα",
+     "chaine": "Nina Kaloutsa - VOICE. PUBLIC SPEAKING. PRESENCE.",
+     "vues": "7,3 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "12:36",
+     "avatar": "https://yt3.ggpht.com/KOXn-EzywU8PzoMq488A8WyrcpXpMS4pfr_vARxHlY1Ds20DEElkgzWOVwNJD-a2o0X6iOxW3g=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1406,6 +1520,29 @@
     "sous": [
      "2-3 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΠΟΥΛΑΣ",
+     [
+      {
+       "t": "ΟΤΙΔΗΠΟΤΕ",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "C55X3M3Q13I",
+     "titre": "🔴 4 Τακτικές για να πουλήσετε οτιδήποτε στον οποιονδήποτε | Zissis Ahladas' Training",
+     "chaine": "Zissis Ahladas",
+     "vues": "31 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "19:04",
+     "avatar": "https://yt3.ggpht.com/0vh5_DaNMQk5HjeVJJL65sGYpf-my2ToilvqdZ1g3Avp7E__lYs2IlXwPWhzocptwmkvp9wFGg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1639,6 +1776,29 @@
     "sous": [
      "2-3 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΝΑ ΧΡΗΣΙΜΟΠΟΙΕΙΣ",
+       "couleur": "#3a929a"
+      }
+     ],
+     "ΣΩΣΤΑ ΤΗΝ ΤΝ"
+    ],
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "fjLZcVm0PaY",
+     "titre": "«Τι είναι η Τεχνητή Νοημοσύνη;» (animation ντοκιμαντέρ)",
+     "chaine": "George Chatzivasileiou - Avatar Productions",
+     "vues": "21 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "5:37",
+     "avatar": "https://yt3.ggpht.com/vyaOMek743Sv-o_qMtzoPyWCyM8oefjwh6448Ma75MvIfGHrDNLC14gNcmw910ZW-xJ8pHYg1yc=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

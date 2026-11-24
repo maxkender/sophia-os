@@ -11,7 +11,8 @@
   "ro": "Abilități 10/10 pe care școala nu te învață",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
   "sr": "Veštine 10/10 koje te škola neće naučiti",
-  "hu": "10/10-es készségek, amikre az iskola nem tanít meg"
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg",
+  "el": "Δεξιότητες 10/10 που δεν σου μαθαίνει το σχολείο"
  },
  "legendes": {
   "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -23,7 +24,8 @@
   "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine",
-  "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek"
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που δεν σου μαθαίνει το σχολείο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -244,6 +246,28 @@
      {
       "t": "MEG",
       "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 111
+     },
+     {
+      "t": "ΠΟΥ ΤΟ ΣΧΟΛΕΙΟ",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΔΕΝ ΣΟΥ",
+      "cap": 120
+     },
+     {
+      "t": "ΜΑΘΑΙΝΕΙ",
+      "cap": 230,
       "couleur": "brun"
      }
     ]
@@ -480,6 +504,29 @@
     "sous": [
      "30 perc a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΑΛΛΑΖΕΙΣ",
+     [
+      {
+       "t": "ΛΑΣΤΙΧΟ",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ],
+    "video": {
+     "id": "JrYmM_nJY5A",
+     "titre": "DIY: Πως αλλάζουμε ένα 'σκασμένο' λάστιχο",
+     "chaine": "Mind The Car",
+     "vues": "48 χιλ. προβολές",
+     "date": "πριν από 9 έτη",
+     "duree": "4:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mrUGS2ncDcd9bAhmdBWjE1zUT6Y4GTPxSLWjK7Zj-VCQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -713,6 +760,29 @@
     "sous": [
      "2-3 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΠΕΡΝΑΣ",
+     [
+      {
+       "t": "ΜΙΑ ΣΥΝΕΝΤΕΥΞΗ",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "MB_GrrFZdPs",
+     "titre": "Συνέντευξη για Δουλειά: 9 Πράγματα που ΠΡΕΠΕΙ να Ξέρεις - Business Review Greece",
+     "chaine": "Business Review Greece",
+     "vues": "30 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "7:45",
+     "avatar": "https://yt3.ggpht.com/QRRYkzkrslaOasOSeBh_VadSPI-5uwk6RmVIUMEhrbdQPyrlBWCuEQA-KLe_RjY0mZZCwhHDpQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -927,6 +997,27 @@
     "sous": [
      "napi 5 perc"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΚΑΛΥΨΕ",
+     [
+      {
+       "t": "ΤΑ ΚΕΝΑ ΣΟΥ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    }
    }
   },
   {
@@ -1160,6 +1251,29 @@
     "sous": [
      "több napos gyakorlás"
     ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΝΑ ΔΙΑΧΕΙΡΙΖΕΣΑΙ",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "ΤΟ ΑΓΧΟΣ"
+    ],
+    "sous": [
+     "εξάσκηση για αρκετές μέρες"
+    ],
+    "video": {
+     "id": "Fpj6zNRzwPk",
+     "titre": "Τι να κάνεις όταν έχεις επίμονο άγχος | Agnes Alice Mariakaki",
+     "chaine": "Agnes Alice Mariakaki",
+     "vues": "104 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "12:52",
+     "avatar": "https://yt3.ggpht.com/rkttEp8D4t2dpQQ8g7V-cUvWKCZpecKEyBeEawkJAWvPyCOjRG2ynSfltGfDPqcWUgUy_c5jyw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1393,6 +1507,29 @@
     "sous": [
      "≈ 10 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΔΙΑΒΑΖΕΙΣ",
+     [
+      {
+       "t": "ΔΙΠΛΑΣΙΑ ΓΡΗΓΟΡΑ",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "sous": [
+     "≈ 10 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "JTbNEeegusQ",
+     "titre": "Πώς να Διαβάζεις 2 Φορές Πιο Γρήγορα & να Θυμάσαι Περισσότερα!",
+     "chaine": "Εγκέφαλος - Μνήμη - Μάθηση",
+     "vues": "180 προβολές",
+     "date": "πριν από 3 εβδ.",
+     "duree": "18:33",
+     "avatar": "https://yt3.ggpht.com/x_iGTTbl0_hxu7pVawP11se6kg_uYnP2zsUKXAZMX13bGF4vkIRzDLzqFpTogwag63971U5l=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1626,6 +1763,29 @@
     "sous": [
      "≈ 100 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "ΠΡΟΓΡΑΜΜΑΤΙΣΜΟ",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "≈ 100 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "or6vnjYtEoU",
+     "titre": "Προγραμματισμός σε C για Αρχάριους | FULL COURSE Ελληνικά",
+     "chaine": "CodeGRow",
+     "vues": "11 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "3:37:20",
+     "avatar": "https://yt3.ggpht.com/Ppryh4nJsiYSHAx-9Q6elmkTZEH48jZ9g2CJxlPJ3jEwrjVw3bpUgBEQ3F_Ic67QtRVTfNFejg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

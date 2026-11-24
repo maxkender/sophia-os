@@ -16,7 +16,8 @@
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll",
   "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování",
   "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja",
-  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz"
+  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz",
+  "el": "10/10 δεξιότητες που μπορείς να μάθεις αντί να σκρολάρεις"
  },
  "legendes": {
   "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -28,7 +29,8 @@
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
-  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek"
+  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "10/10 δεξιότητες που μπορείς να μάθεις αντί να σκρολάρεις #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -255,6 +257,28 @@
       "t": "HELYETT",
       "couleur": "#f7b955",
       "cap": 152
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 110
+     },
+     {
+      "t": "ΓΙΑ ΝΑ ΜΑΘΕΙΣ",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "ΑΝΤΙ ΝΑ",
+      "cap": 118
+     },
+     {
+      "t": "ΣΚΡΟΛΑΡΕΙΣ",
+      "cap": 152,
+      "couleur": "#f7b955"
      }
     ]
    }
@@ -490,6 +514,29 @@
     "sous": [
      "2-3 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΓΙΝΕΙΣ",
+     [
+      {
+       "t": "ΕΥΓΛΩΤΤΟΣ",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 ώρες για να μάθεις"
+    ],
+    "video": {
+     "id": "Go6qM2uzLks",
+     "titre": "5 ΥΠΕΡ-TIP ΓΙΑ ΝΑ ΜΙΛΑΣ ΜΕ ΑΥΤΟΠΕΠΟΙΘΗΣΗ (και αγάπη) +1 Χρυσή Συμβουλή ΟΡΘΟΦΩΝΙΑΣ | Sotiria Selisiou",
+     "chaine": "Sotiria Selisiou",
+     "vues": "14 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "10:07",
+     "avatar": "https://yt3.ggpht.com/eybTridLrFjmQPMg29DqMNjypnEmsgxkKRd3dMVBplPtZZIE1CH03lCYyGTXPz8wNzqU9RjaSA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -723,6 +770,29 @@
     "sous": [
      "30 perc a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΟΙΜΑΣΑΙ",
+     [
+      {
+       "t": "ΣΕ 2 ΛΕΠΤΑ",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ],
+    "video": {
+     "id": "anakRcuzChc",
+     "titre": "Πως Να Κοιμηθείς Γρήγορα & Ήρεμα! (10 Λάθη Πριν Τον Ύπνο)",
+     "chaine": "Rogmes",
+     "vues": "54 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "12:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_nczqv5uS2LlyJCwdx3ymWMU05aA38mbXka3eYLO5Ag=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -937,6 +1007,27 @@
     "sous": [
      "napi 5 perc"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΜΙΛΑΣ",
+     [
+      {
+       "t": "ΓΙΑ ΤΑ ΠΑΝΤΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    }
    }
   },
   {
@@ -1170,6 +1261,29 @@
     "sous": [
      "1 óra a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΝΑ ΤΡΕΧΕΙΣ",
+       "couleur": "#a5877b"
+      }
+     ],
+     "ΧΩΡΙΣ ΤΡΑΥΜΑΤΙΣΜΟ"
+    ],
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ],
+    "video": {
+     "id": "W1FfXuk0sdQ",
+     "titre": "Ποιός είναι ο σωστός τρόπος τρεξίματος;",
+     "chaine": "Χρύσα Βαφειάδη Φυσικοθεραπεία",
+     "vues": "7 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "4:20",
+     "avatar": "https://yt3.ggpht.com/ytbQklDyFJyH23oJQMxH35aZDpuuosGyilCxw2B6PZH0AnD4bNR80_5ji07R7bhx_F69cdwdSA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1403,6 +1517,29 @@
     "sous": [
      "15 perc a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΧΝΕΙΣ",
+     [
+      {
+       "t": "ΚΑΛΟ ΚΑΦΕ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ],
+    "video": {
+     "id": "O_tXdhtw-nU",
+     "titre": "Μπρίκι Εσπρέσο: Το Κόλπο Για Νόστιμο Καφέ Στο Σπίτι!",
+     "chaine": "DEMIS THE HANDYMAN",
+     "vues": "43 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/Womec41CFbE5bM3tGIVDSZBWm17fm6F661f_HT3BRHqJEDWjrO1BusZHWeeQwrBa1AIwQgQrXA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1636,6 +1773,29 @@
     "sous": [
      "15 perc a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΝΑ ΣΙΔΕΡΩΝΕΙΣ",
+       "couleur": "#bd6851"
+      }
+     ],
+     "ΠΟΥΚΑΜΙΣΟ"
+    ],
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ],
+    "video": {
+     "id": "iSuT-Td5jSw",
+     "titre": "Πουκάμισο: Το σωστό σιδέρωμα βήμα προς βήμα",
+     "chaine": "Andro TV",
+     "vues": "120 χιλ. προβολές",
+     "date": "πριν από 13 έτη",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/bFKn3nqw7lFdV_Yk42qrAILDPIKTdhB10R7tUgb-f9KPJpTwJsH8P3iPD9OfQnEY1z2Av32jxw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

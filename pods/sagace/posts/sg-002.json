@@ -16,7 +16,8 @@
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování",
   "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja",
-  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni"
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni",
+  "el": "10 δεξιότητες 10/10 να μάθεις αντί να σκρολάρεις"
  },
  "legendes": {
   "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -28,7 +29,8 @@
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
   "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
-  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni #tanuljtiktokon #önfejlesztés #készségek"
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "10 δεξιότητες 10/10 να μάθεις αντί να σκρολάρεις #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες"
  },
  "musique": {
   "titre": "original sound - m - m",
@@ -255,6 +257,28 @@
       "t": "HELYETT",
       "couleur": "brun",
       "cap": 188
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 138
+     },
+     {
+      "t": "ΝΑ ΜΑΘΕΙΣ",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "ΑΝΤΙ ΝΑ",
+      "cap": 149
+     },
+     {
+      "t": "ΣΚΡΟΛΑΡΕΙΣ",
+      "cap": 188,
+      "couleur": "brun"
      }
     ]
    }
@@ -550,6 +574,35 @@
      160,
      100
     ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "ΝΑ ΚΟΒΕΙΣ",
+       "couleur": "#406f27"
+      }
+     ],
+     "ΛΑΧΑΝΙΚΑ"
+    ],
+    "sous": [
+     "1-2 ώρες για να μάθεις"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "H2J2P5iVnkM",
+     "titre": "Κοπές Λαχανικών | Μέρος Α | Master Class By Chef Panos Ioannidis",
+     "chaine": "Panos Ioannidis",
+     "vues": "494 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k7uYJYWgNVLwHRstAHpg4QERAXbsdj-B1_wj-Tns0k7yo=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -893,6 +946,40 @@
      120,
      125
     ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΜΑΘΕ",
+       "couleur": "#66696f"
+      }
+     ],
+     "ΝΑ ΕΧΕΙΣ ΣΩΣΤΗ",
+     [
+      {
+       "t": "ΣΤΑΣΗ ΣΩΜΑΤΟΣ",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "qG2QtVFxyuw",
+     "titre": "5 ΤΡΟΠΟΙ ΝΑ ΒΕΛΤΙΩΣΕΤΕ ΤΗΝ ΣΤΑΣΗ ΤΟΥ ΣΩΜΑΤΟΣ",
+     "chaine": "Ακαδημία Υγείας",
+     "vues": "296 χιλ. προβολές",
+     "date": "πριν από 8 έτη",
+     "duree": "9:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLa01dkQUqdwIwDUZTrfdzEFs84eNlJ1XR722DabTybcI=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1107,6 +1194,27 @@
     "sous": [
      "napi 5 perc"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΜΟΡΦΩΣΟΥ",
+     [
+      {
+       "t": "ΣΕ 5 ΛΕΠΤΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    }
    }
   },
   {
@@ -1400,6 +1508,35 @@
      160,
      100
     ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "ΝΑ ΒΡΙΣΚΕΙΣ",
+       "couleur": "#b131c4"
+      }
+     ],
+     "ΤΟΥΣ ΑΣΤΕΡΙΣΜΟΥΣ"
+    ],
+    "sous": [
+     "1-2 ώρες για να μάθεις"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "TmKwHSlCZxI",
+     "titre": "4. Νυχτερινός Ουρανός και Αστρονομία",
+     "chaine": "The Skeptic Theory",
+     "vues": "74 χιλ. προβολές",
+     "date": "πριν από 8 έτη",
+     "duree": "11:28",
+     "avatar": "https://yt3.ggpht.com/kExZFMIgQld0E2iemHVsnz3KvG3QV-FvtBtUJqvPBJduD2lmlKkdzQ-LBXghreFBTw2E6baSXQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1697,6 +1834,36 @@
      "napi 2-3 óra",
      "a tanuláshoz"
     ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     "ΝΑ ΚΑΝΕΙΣ",
+     [
+      {
+       "t": "ΚΑΤΑΚΟΡΥΦΟ",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "sous": [
+     "2-3 ώρες τη μέρα",
+     "για να μάθεις"
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ],
+    "video": {
+     "id": "XPq_SMTu_Rc",
+     "titre": "Θελεις Τελειο ΚΑΤΑΚΟΡΥΦΟ ?? ΚΑΝΕ ΑΥΤΟ ! Chris Kogias",
+     "chaine": "Chris Kogias",
+     "vues": "5,8 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "5:35",
+     "avatar": "https://yt3.ggpht.com/Xn5VcSrrvtn14JJOPGNV6vT83f-v4rCwaUhBSNe3ejbqejgEsleQW5sGAb3HfkN9OuOlYiTV=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1990,6 +2157,35 @@
      150,
      100
     ]
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "ΤΟΥΣ ΒΑΣΙΚΟΥΣ",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "ΚΟΜΠΟΥΣ"
+    ],
+    "sous": [
+     "1-2 ώρες για να μάθεις"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "TQimVEfkjx0",
+     "titre": "ΒΑΣΙΚΟΙ ΚΟΜΠΟΙ: Οχταρόκομπος",
+     "chaine": "The Northest Rhombus",
+     "vues": "121 χιλ. προβολές",
+     "date": "πριν από 6 έτη",
+     "duree": "4:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nLYu4FZHeTD0jDwqB1RhsRwa0_oE_HWzfXzM6uTkk93Fw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

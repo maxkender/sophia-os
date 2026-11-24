@@ -1,0 +1,294 @@
+{
+ "post_id": "var-dates-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "des dates pas chères et [[sans tel]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(que t'as jamais testées)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0d14c97a.jpg",
+      "boite": [
+       0,
+       1023,
+       1504,
+       1016
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening",
+      "to music"
+     ],
+     "fr": "arrête [[la musique non-stop]]",
+     "texte": "une balade [[à l'appareil jetable]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every empty second with podcasts,",
+      "music, youtube, or scrolling"
+     ],
+     "fr": "arrête de combler [[le moindre blanc]] avec podcasts, musique, youtube ou scroll",
+     "texte": "achetez un appareil photo jetable : 27 photos pour vous deux, [[zéro écran]]"
+    },
+    "T3": {
+     "en": [
+      "your brain",
+      "needs quiet",
+      "time to connect",
+      "ideas, replay",
+      "information, and",
+      "actually form its",
+      "own thought"
+     ],
+     "fr": "ton cerveau a besoin de calme pour faire des liens, digérer les infos et [[vraiment avoir ses propres idées]]",
+     "texte": "impossible de revoir les photos, alors vous regardez autour de vous et vous shootez [[que ce qui vaut le coup]]"
+    },
+    "T4": {
+     "en": [
+      "instead of constantly reacting to",
+      "someone else’s"
+     ],
+     "fr": "au lieu de [[toujours réagir]] à [[celles des autres]]",
+     "texte": "vous les faites développer : [[excuse pour un 2e date]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0d3b010d.jpg",
+      "boite": [
+       0,
+       121,
+       2048,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to multitask"
+     ],
+     "fr": "arrête [[le multitâche]]",
+     "texte": "les [[mots croisés]] au café"
+    },
+    "T2": {
+     "en": [
+      "texting, watching youtube, and doing homework",
+      "isn't doing 3 things at once"
+     ],
+     "fr": "texter, mater des vidéos, faire tes devoirs : c'est pas [[3 trucs à la fois]]",
+     "texte": "un journal, un seul stylo, une table en terrasse. [[un café chacun]] et c'est parti"
+    },
+    "T3": {
+     "en": [
+      "a stanford study",
+      "found heavy",
+      "multitaskers get",
+      "worse at",
+      "ignoring",
+      "distractions"
+     ],
+     "fr": "une étude de stanford montre que les pros du multitâche [[se laissent plus distraire]]",
+     "texte": "vous allez vous embrouiller sur le 7 vertical et découvrir [[qui est le plus têtu]]"
+    },
+    "T4": {
+     "en": [
+      "pick one thing and finish it before",
+      "you start the next"
+     ],
+     "fr": "choisis un truc et [[finis-le]] avant d'attaquer le suivant",
+     "texte": "pas finie ? gardez la grille pour [[le prochain date]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0868bc72.jpg",
+      "boite": [
+       0,
+       80,
+       2368,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "le défi de la [[brocante à 10 €]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "chacun a 10 € et 30 minutes pour dénicher [[le cadeau le plus improbable]] pour l'autre"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "vous vous retrouvez, vous déballez, et chacun doit [[raconter l'histoire]] de son objet"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
+     "texte": "ce qui a remplacé mon scroll : les brocantes, un livre dans mon sac, et [[l'appli Sophia]] quand je prends mon tel"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "promenez [[les chiens d'un refuge]] ensemble"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "c'est gratuit et ils adorent"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "plein de refuges cherchent des bénévoles pour sortir les chiens le week-end. [[demandez avant]], ils vous expliquent"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "un chien qui vous traîne à travers le parc, ça tue [[tous les silences gênants]]. et tu vois comment l'autre traite un animal"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_103521fe.jpg",
+      "boite": [
+       408,
+       0,
+       1839,
+       1600
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "une balade [[sous la pluie]], avec un seul parapluie"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "quand il pleut, tout le monde reste chez soi : [[la ville est à vous]]"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "un seul parapluie pour deux, donc faut marcher collés, au même pas, et [[rire quand ça rate]]"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "puis [[un chocolat chaud]], au sec"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_557ac2e8.jpg",
+      "boite": [
+       178,
+       0,
+       1404,
+       2036
+      ]
+     }
+    }
+   }
+  }
+ }
+}

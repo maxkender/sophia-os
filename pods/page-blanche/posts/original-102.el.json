@@ -1,0 +1,304 @@
+{
+ "post_id": "original-102",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 signs that you've harmed",
+      "your brain from scrolling"
+     ],
+     "fr": "5 signes que le scroll t'a grillé le cerveau",
+     "texte": "τυχαίες γνώσεις που θα αλλάξουν πώς βλέπεις τον κόσμο"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience-backed sources at the end)"
+     ],
+     "fr": "(les sources en neurosciences sont à la fin)",
+     "texte": "(όλα αληθινά, έλεγξα κάθε πηγή)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0cfd84a3.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "meditate for 10 minutes"
+     ],
+     "fr": "[[médite]] 10 minutes",
+     "texte": "γιατί ο ουρανός είναι [[μπλε]]"
+    },
+    "T2": {
+     "en": [
+      "most people can’t sit alone with their thoughts for",
+      "a few minutes without grabbing their phone"
+     ],
+     "fr": "la plupart des gens tiennent pas quelques minutes [[seuls avec leurs pensées]] sans attraper leur tel",
+     "texte": "το φως του ήλιου μοιάζει λευκό, αλλά είναι μείγμα απ' όλα τα χρώματα, και ο αέρας [[δεν τα μεταχειρίζεται ίδια]]"
+    },
+    "T3": {
+     "en": [
+      "meditation is proven to",
+      "strengthen your",
+      "prefrontal cortex"
+     ],
+     "fr": "c'est prouvé, la méditation [[renforce ton cortex préfrontal]]",
+     "texte": "τα μόρια του αέρα [[σκεδάζουν το μπλε φως]] πολύ πιο πολύ από το κόκκινο"
+    },
+    "T4": {
+     "en": [
+      "the part of your brain",
+      "behind focus and",
+      "self-control"
+     ],
+     "fr": "celle qui gère [[ta concentration et ton self-control]]",
+     "texte": "οι φυσικοί το λένε [[σκέδαση Rayleigh]], από το 1871"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00909276.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "ο νυχτερινός ουρανός είναι [[παλιό φως]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "το φως του ήλιου θέλει λίγο πάνω από 8 λεπτά για να σε φτάσει"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "κατά τους αστρονόμους, το φως της ανδρομέδας ξεκίνησε [[πριν από 2,5 εκατ. χρόνια]]"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "όταν κοιτάς ψηλά, βλέπεις τα πάντα όπως ήταν όταν ξεκίνησε το φως τους. την ανδρομέδα, [[πριν καν υπάρξει το είδος μας]]"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "και όχι, τα περισσότερα δεν έχουν πεθάνει"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0206cc3f.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "η κλεοπάτρα και [[η προσελήνωση]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "έζησε πιο κοντά χρονικά στην προσελήνωση παρά στο χτίσιμο της [[μεγάλης πυραμίδας]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "οι αιγυπτιολόγοι τη χρονολογούν [[γύρω στο 2560 π.Χ.]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "η κλεοπάτρα ήρθε περίπου 2.500 χρόνια μετά. το απόλλων 11 προσεδαφίστηκε [[λιγότερο από 2.000 χρόνια μετά τον θάνατό της]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_05179e7d.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "μάθε [[κάτι καινούργιο κάθε μέρα]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "ό,τι σκρολάρεις το έχεις ξεχάσει ως το βράδυ, αλλά κάτι που κατάλαβες πραγματικά [[μένει μαζί σου]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "κάν' το [[μικρή ιεροτελεστία]]."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "παλιά έκανα ατελείωτο σκρολ, τώρα όταν είμαι ήδη στο κινητό κάνω [[ένα μάθημα 5 λεπτών στην εφαρμογή Sophia]]"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "το σημερινό ήταν γιατί η αναγέννηση [[ξεκίνησε στην ιταλία]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "ευχαρίστησε τον ωκεανό [[για τον αέρα σου]]"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "οι ωκεανογράφοι εκτιμούν ότι [[περίπου το μισό]] οξυγόνο της γης παράγεται στον ωκεανό"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "κυρίως από πλαγκτόν [[τόσο μικρό που δεν φαίνεται]], που κάνει φωτοσύνθεση σαν τα φυτά"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "δεν το έχεις δει ποτέ, αλλά [[αναπνέεις τη δουλειά του]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07b67fbe.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  }
+ }
+}

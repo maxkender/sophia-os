@@ -1,0 +1,283 @@
+{
+ "post_id": "original-101",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that make you",
+      "disgustingly attractive"
+     ],
+     "fr": "10/10 habitudes qui te rendent follement irrésistible",
+     "texte": "cómo ser turista en [[tu propia ciudad]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(sin subirte a un avión)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0de46af9.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start working out"
+     ],
+     "fr": "mets-toi [[au sport]]",
+     "texte": "camina por [[una calle nueva]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but it's true. the gym,",
+      "running, pilates, whatever you'll stick to"
+     ],
+     "fr": "JE SAIS, tout le monde le dit, mais c'est vrai. la salle, la course, le pilates, [[ce que tu tiendras sur la durée]]",
+     "texte": "siempre haces las mismas rutas, así que tu cerebro [[deja de fijarse en nada]]"
+    },
+    "T3": {
+     "en": [
+      "exercise is proven to",
+      "boost your mood and",
+      "confidence, not just",
+      "how you look"
+     ],
+     "fr": "c'est [[prouvé]] : le sport booste ton [[moral et ta confiance]], pas juste ton physique",
+     "texte": "bájate una parada antes o vuelve a casa [[por el camino largo]], sin música por una vez"
+    },
+    "T4": {
+     "en": [
+      "you have more energy, more confidence, and",
+      "that is what makes you attractive"
+     ],
+     "fr": "t'as plus d'énergie, [[plus confiance en toi]], et [[c'est exactement ça qui attire]]",
+     "texte": "verás una panadería, un mural o un parquecito que [[siempre estuvo ahí]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_22613d69.jpg",
+      "boite": [
+       0,
+       0,
+       1080,
+       1920
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "siéntate en un café [[con una libreta]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "elige una mesa junto a la ventana y [[deja el teléfono en la mochila]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "mira la calle y apunta [[tres cosas]] que notaría un turista de verdad"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "cómo camina la gente, los letreros viejos, el olor a pan. [[tu ciudad vuelve a ser interesante]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_11e407ca.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "aprende [[la historia detrás]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "una calle es solo una calle [[hasta que conoces su historia]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "en el bus aprendo cosas como [[por qué el cielo es azul]], y miro la ciudad con otros ojos"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "lo que reemplazó mi scroll del fin de semana: un mapa de papel, una libreta y [[la app Sophia]] cuando agarro el teléfono igual"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a second language"
+     ],
+     "fr": "apprends [[une deuxième langue]]",
+     "texte": "entra en [[los edificios por los que pasas]]"
+    },
+    "T2": {
+     "en": [
+      "hearing someone switch into another language",
+      "is instantly attractive"
+     ],
+     "fr": "entendre quelqu'un passer d'une langue à l'autre, c'est [[instantanément attirant]]",
+     "texte": "la biblioteca vieja, la iglesia de la esquina, esa librería [[para la que nunca tienes tiempo]]"
+    },
+    "T3": {
+     "en": [
+      "duolingo, shows",
+      "with subtitles,",
+      "talking to people,",
+      "whatever works",
+      "for you"
+     ],
+     "fr": "une appli de langues, des séries sous-titrées, parler aux gens, ce qui te va",
+     "texte": "muchos no cuestan nada y están llenos de [[pequeños detalles]]"
+    },
+    "T4": {
+     "en": [
+      "and you get to talk to more people, which makes",
+      "you way more interesting"
+     ],
+     "fr": "et tu peux parler à [[plus de monde]], du coup t'as [[bien plus de conversation]]",
+     "texte": "diez minutos dentro se sienten como [[un viajecito al extranjero]], sin avión"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0dc6c826.jpg",
+      "boite": [
+       0,
+       0,
+       1600,
+       2656
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn an instrument"
+     ],
+     "fr": "apprends [[un instrument]]",
+     "texte": "busca [[un nuevo sitio para el atardecer]]"
+    },
+    "T2": {
+     "en": [
+      "everyone stops to listen when someone can",
+      "actually play"
+     ],
+     "fr": "tout le monde écoute quand quelqu'un [[sait vraiment jouer]]",
+     "texte": "una azotea, un puente, una colina, un mirador nuevo"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever. you'll be bad",
+      "at it for months, and",
+      "most people quit"
+     ],
+     "fr": "piano, guitare, batterie, peu importe. tu vas [[galérer pendant des mois]], et la plupart abandonnent",
+     "texte": "llega un poco antes, siéntate y [[mira cómo cambia el cielo]], sin fotos los primeros cinco minutos"
+    },
+    "T4": {
+     "en": [
+      "so when you can play, it shows patience and a passion",
+      "of your own, and that's really attractive"
+     ],
+     "fr": "alors quand tu sais jouer, ça montre [[ta patience]] et [[une vraie passion à toi]], et ça c'est [[ultra attirant]]",
+     "texte": "y ahí te das cuenta: llevas todo este tiempo viviendo en un lugar [[que vale la pena visitar]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0610f26e.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

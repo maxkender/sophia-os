@@ -1,0 +1,1661 @@
+{
+ "id": "sg-041",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7704018547965463841",
+  "vues": 5273,
+  "publie_le": "2026-11-03",
+  "accroche": "Compétences 10/10 qui te transforme en génie"
+ },
+ "titre": {
+  "fr": "Compétences 10/10 qui te transforment en génie",
+  "en": "10/10 skills that turn you into a genius",
+  "de": "10/10 Skills, die dich zum Genie machen",
+  "it": "Competenze 10/10 che ti trasformano in un genio",
+  "pt-BR": "Habilidades 10/10 que te transformam em um gênio",
+  "tr": "Seni dahiye dönüştüren 10/10 beceriler",
+  "ro": "Abilități 10/10 care te transformă într-un geniu",
+  "cs": "Dovednosti 10/10, které z tebe udělají génia",
+  "hu": "10/10-es készségek, amiktől zseni leszel",
+  "el": "Δεξιότητες 10/10 που σε κάνουν ιδιοφυΐα",
+  "sr": "Veštine 10/10 koje te pretvaraju u genija"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui te transforment en génie #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that turn you into a genius #learnontiktok #selfimprovement #skills",
+  "de": "10/10 Skills, die dich zum Genie machen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Competenze 10/10 che ti trasformano in un genio #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que te transformam em um gênio #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Seni dahiye dönüştüren 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care te transformă într-un geniu #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které z tebe udělají génia #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amiktől zseni leszel #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που σε κάνουν ιδιοφυΐα #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje te pretvaraju u genija #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - T07",
+  "url": "https://www.tiktok.com/music/original-sound-7690376253924231949"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "672cab45-fb5b-4f9a-972a-86fe1d775c3d",
+ "notes": "Déclinaison G1 de sg-019 (24/11) : titre, légende et couverture de sg-019 mot pour mot, hu/el/sr traduits. 5 autres compétences « de génie » : compter en binaire, lire le langage corporel, maîtriser Excel, comprendre le tableau périodique, la règle de trois ; vraies vidéos natives. Sophia en étape 4 sur 7 (cta A : « DEVENIR UNE / ENCYCLOPÉDIE »). Pas de ligne de temps, comme sg-019.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "QUI TE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "TRANSFORMENT",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "EN GÉNIE",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "THAT TURN YOU",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "INTO A",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "GENIUS",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "DIE DICH ZUM",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "GENIE",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "MACHEN",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZE",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "CHE TI",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "TRASFORMANO",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "IN UN GENIO",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "QUE TE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "TRANSFORMAM",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "EM UM GÊNIO",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "SENİ",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "DAHİYE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "DÖNÜŞTÜREN",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "CARE TE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "TRANSFORMĂ",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "ÎNTR-UN GENIU",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "KTERÉ Z TEBE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "UDĚLAJÍ",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "GÉNIA",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "AMIKTŐL",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "ZSENI",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "LESZEL",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "ΠΟΥ ΣΕ",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "ΚΑΝΟΥΝ",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "ΙΔΙΟΦΥΪΑ",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "couleur": "brun",
+      "cap": 127
+     },
+     {
+      "t": "KOJE TE",
+      "couleur": "noir",
+      "cap": 91
+     },
+     {
+      "t": "PRETVARAJU",
+      "couleur": "brun",
+      "cap": 123
+     },
+     {
+      "t": "U GENIJA",
+      "couleur": "noir",
+      "cap": 182
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPTER",
+     [
+      {
+       "t": "EN BINAIRE",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Tp6-w3j2MP4",
+     "titre": "Comprendre le système binaire",
+     "chaine": "Yvan Monka",
+     "vues": "806 k vues",
+     "date": "il y a 9 ans",
+     "duree": "19:21",
+     "avatar": "https://yt3.ggpht.com/gvUaZyIzPX9dLJG6RWkMmVQy24WquKZ5oOC_xgOImTx1wN9POYD0djENv1P46yEYChsQs98d=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "COUNT",
+     [
+      {
+       "t": "IN BINARY",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "puaaRoWL-Ec",
+     "titre": "How to count in binary",
+     "chaine": "Trevor Storr",
+     "vues": "430K views",
+     "date": "11 years ago",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_npwls_4QESmYAX5kA5TP0EevzRqmIN_xY_MbG-vx4GocA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BINÄR",
+     [
+      {
+       "t": "ZÄHLEN",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I3-cmqbVF0Y",
+     "titre": "Binärsystem  - Dualsystem  - ganz einfach erklärt (+ typische Aufgaben in der Mathearbeit)",
+     "chaine": "Lehrerschmidt",
+     "vues": "642.535 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "13:20",
+     "avatar": "https://yt3.ggpht.com/UyZNd_1wpswHfD461v_saXO6_nuxm4-C5TRz3PClMyBblASW2nOnMPXpUapKZJvXg47V198f6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CONTARE",
+     [
+      {
+       "t": "IN BINARIO",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PoSEFIuP7xk",
+     "titre": "SISTEMA BINARIO - INTRODUZIONE E CONCETTI FONDAMENTALI",
+     "chaine": "YouPhysics - Loris Fato",
+     "vues": "82K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "4:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loCp6P1ahzzWp24fpKdRcIL5OMnHcbW6E8R1N0GxJjHCs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "CONTAR",
+     [
+      {
+       "t": "EM BINÁRIO",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q3xLvOsqhpo",
+     "titre": "Entenda o sistema binário e como ele funciona. (Informática Básica)",
+     "chaine": "Eu TI Ensino",
+     "vues": "337 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "7:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nhU3vM4t5pVT7KThWplHsvKUxTX8lohXeYcpmbPzZ1hg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "İKİLİK SİSTEMDE",
+     [
+      {
+       "t": "SAYMAK",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "evBt1nnPGIQ",
+     "titre": "İKİLİK (BİNARY) SAYI SİSTEMİ - SAYI DÖNÜŞÜMLERİ",
+     "chaine": "Ahmet Hilmi Tuna Öztürk",
+     "vues": "274 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/dIiqay115jLKZni_9VER7dstvrfLD-i6qxSOcJ3_uV9Im1Tnml2BoBW7dD9rLwkApU4fx5ksJyQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ NUMERI",
+     [
+      {
+       "t": "ÎN BINAR",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l_bMid8ux1E",
+     "titre": "De ce calculatoarele folosesc sistemul binar: explicat pe înțelesul tuturor 0️⃣1️⃣ | Episodul 4",
+     "chaine": "Facem Soft",
+     "vues": "2,3 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "10:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lzcv_Ojpjl9A0qbJLD1ESL7OqYMp79tIg7oNKcGUjqinY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "POČÍTAT",
+     [
+      {
+       "t": "BINÁRNĚ",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G3-qc-T5cmw",
+     "titre": "Dvojková soustava - Jak na to",
+     "chaine": "Marek Valášek",
+     "vues": "53 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "12:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIGoNF2GYwRjLYKfz8_gDYarbsorv9nIwEID8VbA0XtHs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "SZÁMOLJ",
+     [
+      {
+       "t": "BINÁRISAN",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NxER79C1rdQ",
+     "titre": "Kettes számrendszer 1. Bináris szám felírása tízes számrendszerben | Matematika - 5. osztály",
+     "chaine": "Zsebtanár",
+     "vues": "23 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "3:45",
+     "avatar": "https://yt3.ggpht.com/M4mXLGjBpFgPAmuAIGmYMXkzbpvYn0lBVbhMh1xhpZMCB9lA6BG0BtUNFC3LuDWks3nCCL6N=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΕΤΡΑ",
+     [
+      {
+       "t": "ΣΤΟ ΔΥΑΔΙΚΟ",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5cUrRur7QyQ",
+     "titre": "Τι είναι οι Δυαδικοί αριθμοί και γιατί τους χρειάζονται οι υπολογιστές μας",
+     "chaine": "Evangelos Papapanagiotou",
+     "vues": "14 χιλ. προβολές",
+     "date": "πριν από 12 έτη",
+     "duree": "6:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mw8zE22NaEg9APXtQh_oYBwhSLbziXQQWtlUcLtdMDm8Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "BROJATI",
+     [
+      {
+       "t": "BINARNO",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Wb3arrqwPYA",
+     "titre": "Pretvaranje binarnih u dekadne za normalne ljude",
+     "chaine": "Martin Jovanović",
+     "vues": "93 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kXqU0EP48WVLUmBTuce4DFZ-vVtNtoFHFbY0C4T2Z6us0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LIRE LE",
+     [
+      {
+       "t": "LANGAGE CORPOREL",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wN7N93Qo_h4",
+     "titre": "Décrypte le Langage Corporel comme un Pro : 5 Signaux Subtils que 90% des Gens Ignorent",
+     "chaine": "Changebooster",
+     "vues": "37 k vues",
+     "date": "il y a 3 ans",
+     "duree": "15:40",
+     "avatar": "https://yt3.ggpht.com/3jY7hlqh6aQ7qDvqh00GtcH7RdIS7zeUqDuQbRRIQ3wqXxyiFa_cKLY4wTB4c8Uubo2dM85tKQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "READ",
+     [
+      {
+       "t": "BODY LANGUAGE",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "88aE0T_GMTk",
+     "titre": "How To Read Anyone's Body Language",
+     "chaine": "Socially Blake",
+     "vues": "13K views",
+     "date": "1 year ago",
+     "duree": "10:11",
+     "avatar": "https://yt3.ggpht.com/SHXzwwXjQAd3Gn_O1jdUcJ5LezLL5JHJnsSKquxusvQ-jmS3h9sdsJf09dgrhWYljRG3rg10eg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KÖRPERSPRACHE",
+       "couleur": "#c04848"
+      }
+     ],
+     "LESEN"
+    ],
+    "video": {
+     "id": "YOOZ8jttiA8",
+     "titre": "Sehen, was Andere denken (Körpersprache lesen) | Teil 1",
+     "chaine": "Logical Lemon",
+     "vues": "2,5 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "7:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LEGGERE IL",
+     [
+      {
+       "t": "LINGUAGGIO DEL CORPO",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qnndSxIgeJY",
+     "titre": "L'immenso potere del linguaggio del corpo (che tutti sottovalutano)",
+     "chaine": "Marco Montemagno",
+     "vues": "29K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "LER A",
+     [
+      {
+       "t": "LINGUAGEM CORPORAL",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XhsTRiChouc",
+     "titre": "Como LER as PESSOAS? (em 5 minutos)",
+     "chaine": "Duo",
+     "vues": "312 mil visualizações",
+     "date": "há 5 meses",
+     "duree": "5:33",
+     "avatar": "https://yt3.ggpht.com/AslfWRZCzEx4-Ate0tSoXgtCbXqtYiTPdRkmTnjx03urkW5GKQEn2ci0GYjAtHms0T9QBPBoEl4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BEDEN DİLİNİ",
+       "couleur": "#c04848"
+      }
+     ],
+     "OKUMAK"
+    ],
+    "video": {
+     "id": "t--o5qJCxK0",
+     "titre": "14 Tehlikeli Beden Dili Hareketi (Yorumlarıyla)",
+     "chaine": "Oğuz Benlioğlu",
+     "vues": "185 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "12:29",
+     "avatar": "https://yt3.ggpht.com/14vkz4BMZMNC_-JYYgn-1Nlvi3M6krWlI2HPii08L-xmBPl3zfGjwFAWe6G_oQ2PJJo8nkC6=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ CITEȘTI",
+     [
+      {
+       "t": "LIMBAJUL TRUPULUI",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KizjNMzEjCo",
+     "titre": "Psiholog: 5 Secrete despre Comunicarea in Limbajul Nonverbal",
+     "chaine": "Alexandru Pleșea - Psiholog, Trainer",
+     "vues": "34 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "10:28",
+     "avatar": "https://yt3.ggpht.com/uMCRsdY56XWnIhpKLG2MbGDjnsfsaptHUkNWcqPpQAJoVaCUUWQs-cMSEfrN8YXNM_jfiP2w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ČÍST",
+     [
+      {
+       "t": "ŘEČ TĚLA",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m6PkTIaXMG4",
+     "titre": "ŘEČ TĚLA - JAK ČÍST V LIDECH",
+     "chaine": "AlfaBeing",
+     "vues": "52 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "8:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRcZi4K9UkxvhRcUMhgrFsdj7DRD3rrMtI4luN1qaLKi4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "OLVASS A",
+     [
+      {
+       "t": "TESTBESZÉDBŐL",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pIZUpHOvlZ4",
+     "titre": "A Testbeszéd Alapjai",
+     "chaine": "Tanulom Magam",
+     "vues": "161 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "12:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΔΙΑΒΑΣΕ ΤΗ",
+     [
+      {
+       "t": "ΓΛΩΣΣΑ ΤΟΥ ΣΩΜΑΤΟΣ",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B34zVCXIgTk",
+     "titre": "Μάθε να Διαβάζεις την ΓΛΩΣΣΑ του ΣΩΜΑΤΟΣ | ΨΥΧΟΛΟΓΙΑ",
+     "chaine": "Νικόλαος Βαμβακάρης",
+     "vues": "94 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "9:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpt5mXiQpvP0Jr9oKl-hOji6l8kbOcmLq_tgR4FEj5SYY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "ČITATI",
+     [
+      {
+       "t": "GOVOR TELA",
+       "couleur": "#c04848"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tH5I5iMjd_U",
+     "titre": "GOVOR TELA I PSIHOLOGIJA: Otkrijte pravu istinu!",
+     "chaine": "Marko Burazor",
+     "vues": "3,8 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "9:20",
+     "avatar": "https://yt3.ggpht.com/NANCqdBE4r0tlCardgdNysJfoWk5NQMU0h9Bw1eAlQhphqD9Etr8NxZKBaGVVxqiWGiGFkMCiA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "DEVENIR UNE",
+     [
+      {
+       "t": "ENCYCLOPÉDIE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BECOME A",
+     [
+      {
+       "t": "WALKING ENCYCLOPEDIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN WANDELNDES",
+     [
+      {
+       "t": "LEXIKON WERDEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "DIVENTARE UN'",
+     [
+      {
+       "t": "ENCICLOPEDIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "VIRAR UMA",
+     [
+      {
+       "t": "ENCICLOPÉDIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "AYAKLI",
+     [
+      {
+       "t": "ANSİKLOPEDİ OL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DEVII O",
+     [
+      {
+       "t": "ENCICLOPEDIE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BÝT CHODÍCÍ",
+     [
+      {
+       "t": "ENCYKLOPEDIÍ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "LEGYÉL KÉT LÁBON",
+     [
+      {
+       "t": "JÁRÓ LEXIKON",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΓΙΝΕ ΜΙΑ",
+     [
+      {
+       "t": "ΕΓΚΥΚΛΟΠΑΙΔΕΙΑ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POSTANI",
+     [
+      {
+       "t": "ENCIKLOPEDIJA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "MAÎTRISER",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rvg-ZsAqInk",
+     "titre": "Apprendre Excel pour débutants - Les bases d'Excel",
+     "chaine": "Excel Formation",
+     "vues": "3,9 M de vues",
+     "date": "il y a 7 ans",
+     "duree": "11:23",
+     "avatar": "https://yt3.ggpht.com/6ue20Uq1NEtKtHwEny3-_qSNutZPzV5mcPOmMku11-bk3UFc50e0zYxRRMAY3gO-vfC7lWoCzw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "MASTER",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LgXzzu68j7M",
+     "titre": "Excel Tutorial for Beginners",
+     "chaine": "Kevin Stratvert",
+     "vues": "7.9M views",
+     "date": "3 years ago",
+     "duree": "16:17",
+     "avatar": "https://yt3.ggpht.com/FHaircC3fnPqOhk3M4POJQlPF2_yVnCj5W60SNbFL_zK5jzmJ5mNyFVaoLKZufC4uPo4WP8gQw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ],
+     "BEHERRSCHEN"
+    ],
+    "video": {
+     "id": "-z24E5dT0HE",
+     "titre": "MICROSOFT EXCEL GRUNDLAGEN IN 30 MINUTEN - Lerne schnell und einfach mit Excel umzugehen (Crashkurs)",
+     "chaine": "Digitale Profis",
+     "vues": "676.924 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "30:33",
+     "avatar": "https://yt3.ggpht.com/goMcKDy7P2YhPf66gAgBh0U_MUKyNijI425aXGeBJhbTxdXyDQbww2IFZFcC07-35L4qX_4jew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PADRONEGGIARE",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dEkEfmK25Bs",
+     "titre": "Microsoft Excel: Impara ad usarlo in 10 minuti! (Corso per principianti)",
+     "chaine": "Microsoft ExpertZone Italia",
+     "vues": "239K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "13:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kuwIOmc7UoY-ZC88t0I-JqcRbNYfQSfjqWJPTlzzx_tHM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "DOMINAR O",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QQhXangMDNA",
+     "titre": "Como Aprender Excel do ZERO [GUIA ATUALIZADO]",
+     "chaine": "Curso de Excel Online",
+     "vues": "1,5 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "21:57",
+     "avatar": "https://yt3.ggpht.com/WG-RqY7Q9jZG51FmpELPveUHhkT6KrfgSsoLTPBBhbnNOUNiogghTNzpLfAm55R8ZFay8Hzi6A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "nE1SL7qb-ks",
+     "titre": "10 Dakikada Excel Öğren! – Hızlandırılmış Ücretsiz Excel Eğitimi",
+     "chaine": "Emre Akyüz",
+     "vues": "684 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "13:48",
+     "avatar": "https://yt3.ggpht.com/h3S6F8PsoRJ525vkcCxF8ajOwmO0rVP0WycWOpdwRH0NKjielIPaaEeY56RppwJRkqG03ADg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ STĂPÂNEȘTI",
+     [
+      {
+       "t": "EXCELUL",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Gqt71gtMbes",
+     "titre": "📊 Microsoft Excel – Tutorial Pas cu Pas pentru Începători in Romana 📊",
+     "chaine": "Aidu",
+     "vues": "181 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "19:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh4zcY1ims9_M3uCtkRYl17QaUFx9zTqdTS6sEWTV8Mh4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "OVLÁDNOUT",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IaJjZnOovOg",
+     "titre": "Základy Excelu 1 - základní ovládání krok za krokem",
+     "chaine": "Karel Kohout lektor",
+     "vues": "88 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "28:37",
+     "avatar": "https://yt3.ggpht.com/zGTsubgsvTM8y490SaFsr3I1jWqffGpFaN85u3olGEx3VtF-iJ-aHv61yRmP9j9R-X4ZYJ7kEQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "TANULD MEG AZ",
+     [
+      {
+       "t": "EXCELT",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-9_iMECopjY",
+     "titre": "Excel - Alapok [magyar nyelvű oktatóvideó] | Excel videosorozat 1. rész",
+     "chaine": "video LCZ",
+     "vues": "658 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "20:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtvoyfkol_VcNslvSu4JC-Lo_IkqTWJ4OS_aabkogWlg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΜΑΘΕ",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WLsxJ0W7UTs",
+     "titre": "Excel. Τα πρώτα που πρέπει να ξέρεις αν δεν το έχεις ανοίξει ποτέ",
+     "chaine": "Βασίλης Ταβουλτσίδης (LearnSoft)",
+     "vues": "26 χιλ. προβολές",
+     "date": "πριν από 4 έτη",
+     "duree": "7:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kUGnwPC9bczM_HohOveGbmJQcpj1PFQDEjvP3G90zIK98=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "SAVLADATI",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#1f7a45"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IlwubYEizb4",
+     "titre": "Excel za početnike - Osnovni kurs I",
+     "chaine": "Mirjana Vukšić",
+     "vues": "405 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "15:14",
+     "avatar": "https://yt3.ggpht.com/rIlUXBXEHgV8MwCpzKG7b0Xs3cotYTQGccqc-LQ9fyUYQIFJMPSovhD1mGFm3WvBlK4EheDlOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMPRENDRE LE",
+     [
+      {
+       "t": "TABLEAU PÉRIODIQUE",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "L6QmzMCl8JQ",
+     "titre": "Comprendre la CLASSIFICATION periodique de Mendeleïev | Physique-Chimie (lycée)",
+     "chaine": "Paul Olivier",
+     "vues": "436 k vues",
+     "date": "il y a 6 ans",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/WNEB8PxuQwJCe_opdexpytXeQH6yAIvn-zNQW_a_RyMyJtZoO-55PDMt-M8_gNeUgN7sBD4FDg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "UNDERSTAND THE",
+     [
+      {
+       "t": "PERIODIC TABLE",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0RRVV4Diomg",
+     "titre": "The Periodic Table: Crash Course Chemistry #4",
+     "chaine": "CrashCourse",
+     "vues": "8.8M views",
+     "date": "13 years ago",
+     "duree": "11:22",
+     "avatar": "https://yt3.ggpht.com/E454zI2spNFZsN_wgJPTHjMsqs1fFqb_qp4PYanWuyaXQJp98wKEV1kIQYlR57epaweO5P8v=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "PERIODENSYSTEM",
+       "couleur": "#7b4fa8"
+      }
+     ],
+     "VERSTEHEN"
+    ],
+    "video": {
+     "id": "J2KJRRH0E3Y",
+     "titre": "Periodensystem der Elemente I Teil 1 I musstewissen Chemie",
+     "chaine": "musstewissen Chemie",
+     "vues": "1,7 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "8:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lLlUyu4r5rMt6uoV8Ys3r5YenwTrehRA0zw6YkNa6mjQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CAPIRE LA",
+     [
+      {
+       "t": "TAVOLA PERIODICA",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GYm8BiyIrkQ",
+     "titre": "Come leggere la tavola periodica",
+     "chaine": "Marco Scardina",
+     "vues": "57K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kJ81LEAqgEsf0CkNnsW0oadxd3dYs3e912_kKhQTx7rCQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDER A",
+     [
+      {
+       "t": "TABELA PERIÓDICA",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Vsnq2hJ2UZc",
+     "titre": "Entenda a TABELA PERIÓDICA em 10 minutos - Toda Matéria",
+     "chaine": "Toda Matéria",
+     "vues": "2,9 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "9:25",
+     "avatar": "https://yt3.ggpht.com/HzNmGq7dz8hluGyGAmMijcUKc_sp-9cynIvm9U41wDVqDmfREuHWjyuphcyajKWkrTfMTvZBgg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PERİYODİK TABLOYU",
+       "couleur": "#7b4fa8"
+      }
+     ],
+     "ANLAMAK"
+    ],
+    "video": {
+     "id": "fHdSMmF11tA",
+     "titre": "PERİYODİK TABLONUN SERÜVENİ | PERİYODİK TABLO NASIL GELİŞTİ?",
+     "chaine": "AHALİ",
+     "vues": "14 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7a4I_AElek1xNiwHdgDNp8ritUlQcvAdV0CrnjZmuu2w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNȚELEGI",
+     [
+      {
+       "t": "TABELUL PERIODIC",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sl0iZUjo7dQ",
+     "titre": "Tabelul periodic grupe si perioade | Lectii-Virtuale.ro",
+     "chaine": "Lecții Virtuale",
+     "vues": "61 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "15:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k2iY6nYfgdtU_3MMtRkMcmULgiG-5GAfcahIl7ipt3AZQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "POCHOPIT",
+     [
+      {
+       "t": "PERIODICKOU TABULKU",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nSj-FDZMn9U",
+     "titre": "Periodické společenství prvků – NEZkreslená věda II",
+     "chaine": "Otevřená věda",
+     "vues": "365 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kkBqW7uAONvhqfe-SlW7Jn9L1YgmBytSmhMHkhjlllzDM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "ÉRTSD MEG A",
+     [
+      {
+       "t": "PERIÓDUSOS RENDSZERT",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OLaVsjMpkzM",
+     "titre": "Mire is jó a periódusos rendszer?  Periódusos rendszer alapok 1.rész",
+     "chaine": "Kémia Gyerekszemmel",
+     "vues": "24 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "7:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_miDTjsotWjZ-bdPnDq61Q_q6oYOAW6wPEO2PKFVt4PBg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "ΚΑΤΑΛΑΒΕ ΤΟΝ",
+     [
+      {
+       "t": "ΠΕΡΙΟΔΙΚΟ ΠΙΝΑΚΑ",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gjQM6b7nH1o",
+     "titre": "Η ιστορία του Περιοδικού Πίνακα (με τον Mad Scientist)",
+     "chaine": "Καθημερινή Φυσική",
+     "vues": "214 χιλ. προβολές",
+     "date": "πριν από 9 έτη",
+     "duree": "9:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kpl3IkPUe4HDF9LyLYpo9i9_r8P6cjq_7Qxn0A1IR-S30=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "RAZUMETI",
+     [
+      {
+       "t": "PERIODNI SISTEM",
+       "couleur": "#7b4fa8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "njbP3Sp10Fk",
+     "titre": "Kako čitati Periodni sistem elemenata",
+     "chaine": "Nauka govori",
+     "vues": "42 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "6:28",
+     "avatar": "https://yt3.ggpht.com/UfGVnHj7LQtp3T-FUTokb5UljEYcrzHbJ9rkj7xWW9zLUN9KsoHGJUttu26bn9gw7um5o9sQ2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "MAÎTRISER LA",
+     [
+      {
+       "t": "RÈGLE DE TROIS",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OjddsZVyIr4",
+     "titre": "La Règle de trois : comment ça marche ?",
+     "chaine": "PLUS BELLES LES MATHS",
+     "vues": "636 k vues",
+     "date": "il y a 12 ans",
+     "duree": "2:46",
+     "avatar": "https://yt3.ggpht.com/sgNV0i4k4Dm7GWECnouMGb8KitoF7VPWs18rxFLrTLLXbvr-Tgf4xgI4mmWqMhZTUkUPbYpm7g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "SOLVE",
+     [
+      {
+       "t": "PROPORTIONS",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "USmit5zUGas",
+     "titre": "Math Antics - Proportions",
+     "chaine": "mathantics",
+     "vues": "3.6M views",
+     "date": "12 years ago",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nU3J1nLOa0vCVpUxDEiRQktMopkv3-TzUPFNFjYVCkOb4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DREISATZ",
+       "couleur": "#e07b28"
+      }
+     ],
+     "RECHNEN"
+    ],
+    "video": {
+     "id": "vhr1JSb--8s",
+     "titre": "DREISATZ rechnen einfach erklärt – proportionale Zuordnung Tabelle, Beispiele",
+     "chaine": "MathemaTrick",
+     "vues": "471.949 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "12:07",
+     "avatar": "https://yt3.ggpht.com/ugyuS-QZor_23jIe3iTM7zBQD80i8pDIES7gam-yVES2m-kUnzoQLTOpcBAFrqsrk0qlRw8Psw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RISOLVERE LE",
+     [
+      {
+       "t": "PROPORZIONI",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Op9ZkqqKnYI",
+     "titre": "PROPORZIONI 1: come si calcola il termine incognito                       _ PR05",
+     "chaine": "matematicale",
+     "vues": "464K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "4:17",
+     "avatar": "https://yt3.ggpht.com/_eJt6cu3SNbJfvp7XEsfx15IfgztSWXA2mFdwdERduPWlFptLiQMm3yaONwgLfpKzdDHL13n=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "DOMINAR A",
+     [
+      {
+       "t": "REGRA DE TRÊS",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q846Qdi-od8",
+     "titre": "REGRA DE TRÊS SIMPLES | FÁCIL e RÁPIDO",
+     "chaine": "Dicasdemat Sandro Curió",
+     "vues": "2,2 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "7:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRbvYBdE058O7f7q0sdVQpy6yrm9Od-7oM_2zeLLjEs7U=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ORAN ORANTI",
+       "couleur": "#e07b28"
+      }
+     ],
+     "ÇÖZMEK"
+    ],
+    "video": {
+     "id": "dneCaDbKuOQ",
+     "titre": "YKS- Doğru Orantı-Ters Orantı-Bileşik Orantı",
+     "chaine": "Sinüs Akademi",
+     "vues": "110 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "23:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ms2OEjd_YRZBF4Atp4ImyPgI46fFlPZdHsEn-zd6D9Ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "REGULA",
+     [
+      {
+       "t": "DE TREI SIMPLĂ",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "E8ZTmztGwJo",
+     "titre": "Regula de 3 simpla",
+     "chaine": "MatePeScurt",
+     "vues": "187 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "9:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_msqftRXfSBN2uTXzuSuaq2810huZj3TfeQ5lzz-rCMWQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ZVLÁDNOUT",
+     [
+      {
+       "t": "TROJČLENKU",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XiRbhlTrQZU",
+     "titre": "Trojčlenka",
+     "chaine": "matematika fyzika",
+     "vues": "63 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "7:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nKq2lnbxg_eiEp8eom7_6lGz7iKWqsysItsgqaqd-_-A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "OLDD MEG AZ",
+     [
+      {
+       "t": "ARÁNYOSSÁGOT",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GfrM3SXhGi4",
+     "titre": "Egyenes arányosság és egyenes arányossággal megoldható feladatok",
+     "chaine": "Videotanár - digitális tananyag",
+     "vues": "84 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "10:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbbyV2R67o-d_4B-BRJogdx48HDsbtrEpF5xe2BVRv2AA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "el": {
+    "titre": [
+     "Η ΑΠΛΗ",
+     [
+      {
+       "t": "ΜΕΘΟΔΟΣ ΤΩΝ ΤΡΙΩΝ",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ECHx5RlkrnE",
+     "titre": "Απλή Μέθοδος των Τριών - Ανάλογα Ποσά (ΣΤ' τάξη)",
+     "chaine": "RaniaSchool",
+     "vues": "48 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "5:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kt45gwb-xhzWIxSt4huAwo1b3P1MualGOKqy3l7pvhg7k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "REŠI",
+     [
+      {
+       "t": "PROPORCIJU",
+       "couleur": "#e07b28"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0tN3h24exD8",
+     "titre": "Primena proporcije u direktnoj i obrnutoj proporcionalnosti",
+     "chaine": "nevsky.edu",
+     "vues": "89 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "8:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nztMyiHoPfGm49JTSEgUnBmn7_alAeNtFOHB9hsx0xdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

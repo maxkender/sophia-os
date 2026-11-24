@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o331",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "241d26c1-3999-4ae4-a130-506170ed7e3f",
+ "titre": "comment j'ai dit non à une promotion (et pourquoi je ne le regrette pas), partie 4 #travail #promotion #carriere #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G1 de la ligne #14 (parent 241d26c1), 3e et dernière : accroche du parent mot pour mot, autre histoire (inventée, aucune vraie entreprise). Inspirations reprises de rh-o153. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a5e36e42",
+   "texte_overlay": "comment j'ai dit non à une promotion\n(et pourquoi je ne le regrette pas)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a2a50b7a",
+   "texte_overlay": "on me proposait le poste de ma manager\nqui partait en burn-out",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3997b3dd",
+   "texte_overlay": "j'ai vu ce que le poste lui avait coûté\net personne ne voulait changer l'organisation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3195c188",
+   "texte_overlay": "j'ai demandé ce qui allait changer\nla réponse : rien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "181198d5",
+   "texte_overlay": "alors j'ai dit non\net j'ai proposé de reprendre une partie de ses dossiers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3879ecc0",
+   "texte_overlay": "j'ai préparé la suite pour moi\nmes 3 sources : une formation, un mentor, 5 minutes par jour",
+   "texte_sophia": "j'ai préparé la suite pour moi\nmes 3 sources : une formation, un mentor, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "012ed24e",
+   "texte_overlay": "6 mois après, on m'a proposé mieux\nailleurs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f7185071",
+   "texte_overlay": "t'as déjà refusé quelque chose au travail ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

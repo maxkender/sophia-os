@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o332",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "592b74ca-f2bc-4427-ae72-af02a823e558",
+ "titre": "les questions pièges que je posais en entretien quand j'étais rh (partie 4) #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G1 de la ligne #15 (parent 592b74ca), 3e et dernière : accroche du parent mot pour mot, questions différentes de rh-o044, rh-o310 et rh-o321. Inspirations reprises de rh-o044. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8ca3d196",
+   "texte_overlay": "les questions pièges que je posais en entretien\nquand j'étais rh\n(et ce que je voulais entendre)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f48c653c",
+   "texte_overlay": "1. « vous avez postulé ailleurs ? »\nle piège : mentir.\nce que je voulais : la vérité, et pourquoi nous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1ef07dc8",
+   "texte_overlay": "2. « comment vos collègues vous décriraient ? »\nle piège : 3 adjectifs.\nce que je voulais : un exemple pour un adjectif",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3bd975f6",
+   "texte_overlay": "3. « qu'est-ce que vous avez appris récemment ? »\nle piège : « rien de spécial ».\nce que je voulais : un vrai sujet. j'adorais celles qui apprenaient 5 minutes par jour",
+   "texte_sophia": "3. « qu'est-ce que vous avez appris récemment ? »\nle piège : « rien de spécial ».\nce que je voulais : un vrai sujet. j'adorais celles qui apprenaient 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bc03c894",
+   "texte_overlay": "4. « vous préférez quel type de manager ? »\nle piège : décrire le manager parfait.\nce que je voulais : ce dont tu as besoin pour bien travailler",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "efb16c81",
+   "texte_overlay": "5. « quel est votre plus grand regret pro ? »\nle piège : « aucun ».\nce que je voulais : un vrai regret, et la leçon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4b057527",
+   "texte_overlay": "réponds à la n°3 en commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

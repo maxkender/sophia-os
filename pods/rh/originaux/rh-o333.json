@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o333",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0530a7bf-2e20-42d6-993c-628f5f0e4b06",
+ "titre": "ex-rh : je note vos réponses d'entretien de 1 à 10 (sans pitié), partie 4 #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne #16 (parent 0530a7bf), 3e et dernière : accroche du parent mot pour mot, réponses différentes de rh-o050, rh-o251 et rh-o322. Inspirations reprises de rh-o050. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b923173a",
+   "texte_overlay": "ex-rh : je note vos réponses d'entretien\nde 1 à 10\n(sans pitié)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3347a655",
+   "texte_overlay": "« je suis passionnée par votre entreprise »\n2/10\npar quoi, exactement ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2f217fba",
+   "texte_overlay": "« j'ai géré 40 commandes par jour pendant les soldes »\n8/10\nun chiffre, un contexte. parfait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3b8cc94d",
+   "texte_overlay": "« je n'aime pas le travail répétitif »\n4/10\nhonnête, mais dis comment tu t'y prends quand même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2ac69465",
+   "texte_overlay": "« j'apprends l'anglais 10 minutes par jour depuis 3 mois »\n9/10\nrégulier, vérifiable, et ça montre ta discipline",
+   "texte_sophia": "« j'apprends l'anglais 10 minutes par jour depuis 3 mois »\n9/10\nutilise l'appli Sophia 5 minutes par jour, et t'auras ta réponse à 9/10",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "65edf35d",
+   "texte_overlay": "« je n'ai pas d'expérience mais je suis motivée »\n3/10\nraconte plutôt ce que t'as déjà fait qui s'en rapproche",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2d411e2f",
+   "texte_overlay": "note ta réponse à « pourquoi ce poste ? »\nen commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  }
+ ]
+}

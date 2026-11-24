@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o325",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai appris en demandant un mentor au travail #mentor #carriere #travail #reseau #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (demander un mentor). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d08df46c",
+   "texte_overlay": "ce que j'ai appris\nen demandant un mentor\nau travail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3249fc14",
+   "texte_overlay": "personne ne dit non à un café\n« je peux te poser 3 questions sur ton parcours ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0f33e31c",
+   "texte_overlay": "il faut arriver avec des questions précises\npas « tu me conseilles quoi ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f5a8200c",
+   "texte_overlay": "une fois par mois suffit\n30 minutes, pas plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4412f862",
+   "texte_overlay": "il faut faire ce qu'il conseille\net lui dire ce que ça a donné",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "04b6c542",
+   "texte_overlay": "le meilleur conseil qu'on m'a donné\napprendre un peu chaque jour. moi, c'est 5 minutes le matin",
+   "texte_sophia": "le meilleur conseil qu'on m'a donné\napprendre un peu chaque jour. moi, c'est 5 minutes le matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "42aec155",
+   "texte_overlay": "t'as un mentor, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

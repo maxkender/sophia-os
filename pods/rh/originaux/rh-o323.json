@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o323",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais quand je m'ennuie au travail #travail #ennui #carriere #motivation #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 24/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (l'ennui au travail). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bb3c0ed7",
+   "texte_overlay": "ce que je fais\nquand je m'ennuie\nau travail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f9afa8b3",
+   "texte_overlay": "je demande une mission en plus\nà mon manager, avec une idée précise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "209990d0",
+   "texte_overlay": "j'aide un collègue d'une autre équipe\net je découvre son métier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "367f375b",
+   "texte_overlay": "j'améliore un process qui m'agace\npersonne ne me l'a demandé, tout le monde me remercie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "36125a70",
+   "texte_overlay": "je mets à jour mon CV\nau cas où l'ennui dure",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d924eba0",
+   "texte_overlay": "j'apprends un truc qui n'a rien à voir\nmes 3 sources : un livre, un podcast, 5 minutes par jour",
+   "texte_sophia": "j'apprends un truc qui n'a rien à voir\nmes 3 sources : un livre, un podcast, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "43da5456",
+   "texte_overlay": "tu t'ennuies au boulot, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

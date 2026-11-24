@@ -9418,6 +9418,7 @@ export const fr = {
     nettoyageEtapes: {
       textRemoval: "Fal text-removal",
       replicateTextRemoval: "Replicate text-removal (fallback)",
+      nanoBananaEdit: "Édition IA (Nano Banana)",
       upscale: "Upscale Fal SeedVR",
       c2pa: "Content Credentials",
       ready: "Ready",

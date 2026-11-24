@@ -2,13 +2,14 @@
 export type EtapeNettoyageId =
   | "text_removal"
   | "replicate_text_removal"
+  | "nano_banana_edit"
   | "upscale"
   | "c2pa"
   | "ready";
 
 export type StatutEtape = "encours" | "ok" | "echec" | "saute" | "attente";
 
-export type MoteurNettoyage = "text_removal" | "replicate_text_removal";
+export type MoteurNettoyage = "text_removal" | "replicate_text_removal" | "nano_banana_edit";
 
 /** Qui tourne en premier dans cleanImage (réglage `nettoyage.provider_principal`). */
 export type ProviderNettoyage = "fal" | "replicate";

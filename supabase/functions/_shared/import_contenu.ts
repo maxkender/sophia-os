@@ -43,6 +43,7 @@ import {
   tentativesSlide,
 } from "./nettoyage_file.ts";
 import { decisionStickerImport } from "./nettoyage_stickers.ts";
+import { chargerImagesObligatoires } from "./images_obligatoires.ts";
 import {
   incrementerTentativeSlide,
   patchSlideMediaId,
@@ -1452,6 +1453,26 @@ async function rejeterSticker(
 }
 
 /**
+ * Label où l'image est le sujet (`reglages.nettoyage`, voir images_obligatoires.ts) : une slide restée sale après
+ * tous ses essais n'est ni remplacée ni gardée brute. Le slideshow est écarté.
+ */
+async function rejeterNettoyageRate(
+  supabase: Supabase,
+  contenuId: string,
+  position: number,
+  tentatives: number,
+): Promise<AvancerImportResultat> {
+  await marquer(supabase, contenuId, {
+    statut: "rejete",
+    import_statut: "done",
+    import_etape: "nettoyage_rate",
+    import_erreur: `Slide ${position} impossible à nettoyer après ${tentatives} essais ; image d'origine obligatoire dans ce label, pas de remplacement — TikTok non importé`,
+    import_tentatives: 0,
+  });
+  return { etape: "nettoyage_rate", progres: true };
+}
+
+/**
  * Un pas du pipeline. Ordre :
  * OCR hook → pertinence → OCR reste → ELO par langue (gate) → nettoyage (1×)
  * → caption visuelle (Florence → Moondream) → valide (texte OCR source uniquement).
@@ -1757,6 +1778,8 @@ async function executerPasImport(
     if (slides.some((s) => !s.media_id)) {
       const rapports: NettoyageSlideRapport[] = [];
       let progres = false;
+      // Label où l'image est le sujet : jamais d'image d'un autre post, jamais de slide brute.
+      const imagesOrigine = await chargerImagesObligatoires(supabase, contenu);
 
       // 5· — Slide promo d'une source autorisée : sa carte App Store ou sa
       // capture d'appli ne se nettoie pas. Son image est remplacée par une
@@ -1767,7 +1790,7 @@ async function executerPasImport(
           ok: false,
           lignes: [`slide #${slide.position} · slide promo (sticker pub)`],
         };
-        const remplacant = await tenterRemplacementLabel(supabase, contenu, slides, rapport);
+        const remplacant = imagesOrigine ? null : await tenterRemplacementLabel(supabase, contenu, slides, rapport);
         if (!remplacant) return await rejeterSticker(supabase, contenu.id, slide.position);
         rapport.motif = "slide promo : image remplacée (biblio même label)";
         slide.media_id = remplacant;
@@ -1787,9 +1810,11 @@ async function executerPasImport(
             `slide #${slide.position} · ${tentativesSlide(slide)} tentatives épuisées`,
           ],
         };
-        const secours =
-          (await trouverPropreExistant(supabase, contenu.id, slide.position))?.id ??
-            (await tenterRemplacementLabel(supabase, contenu, slides, rapport));
+        const propre = (await trouverPropreExistant(supabase, contenu.id, slide.position))?.id ?? null;
+        if (!propre && imagesOrigine) {
+          return await rejeterNettoyageRate(supabase, contenu.id, slide.position, tentativesSlide(slide));
+        }
+        const secours = propre ?? (await tenterRemplacementLabel(supabase, contenu, slides, rapport));
         slide.media_id = secours ?? (await stockerBrut(supabase, contenu, slide));
         slide.tentatives = undefined;
         rapport.ok = Boolean(secours);
@@ -1827,7 +1852,10 @@ async function executerPasImport(
               `→ propre deja en storage rattache media_id=${orphelin.id}`,
             );
           } else {
-            lie = await tenterRemplacementLabel(supabase, contenu, slides, r.rapport);
+            // 24/11 : plus de remplacement au premier échec. La slide repasse avec un autre chemin
+            // (chemins_nettoyage.ts) ; le remplacement n'arrive qu'à bout d'essais (5a), et jamais
+            // dans un label où l'image est le sujet.
+            r.rapport.lignes.push("⑥ pas de remplacement à ce stade : nouvel essai par un autre chemin");
           }
         }
 
@@ -1861,6 +1889,8 @@ async function executerPasImport(
                 ? "Fal"
                 : s.moteur === "replicate_text_removal"
                   ? "FALLBACK Replicate"
+                  : s.moteur === "nano_banana_edit"
+                  ? "Édition IA (Nano Banana)"
                   : s.moteur ?? "—";
             const head =
               `══ slide #${s.position} · ${s.ok ? "OK" : "ÉCHEC"} · moteur=${moteurLabel}` +
@@ -2401,6 +2431,7 @@ async function nettoyerSlide(
   const labelEtape: Record<string, string> = {
     text_removal: "① Fal",
     replicate_text_removal: "② FALLBACK Replicate",
+    nano_banana_edit: "Édition IA (Nano Banana)",
     upscale: "③ Upscale SeedVR",
     c2pa: "④ Enlève clés C2PA",
     ready: "⑤ Ready",
@@ -2471,8 +2502,8 @@ async function nettoyerSlide(
           `[import nettoyage] contenu=${contenu.id} slide=${slide.position} ${line}`,
         );
       },
-      // Import TikTok slideshow : upscale Fal avant strip métadonnées.
-      { upscaleAvantStrip: true },
+      // Import TikTok slideshow : upscale Fal avant strip métadonnées ; chaque essai part d'un autre chemin.
+      { upscaleAvantStrip: true, essai: tentatives },
     );
     propreBase64 = propre?.base64 ?? null;
     moteur = propre?.moteur;

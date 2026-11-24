@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o176",
+  "type_bleo": "full_test",
+  "titre": "how i stopped leaving everything until the deadline #studytok #studytips #procrastination",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« until the deadline » absent du label). Accroches écrites : « how i stopped leaving everything until the deadline » (retenue : une galère universelle), « beat procrastination » (écartée : vague), « why you procrastinate » (écartée : explication sans promesse). Gestes vrais : une fausse date limite 3 jours avant, couper en tâches de 20 minutes, commencer le jour même par la plus petite, une récompense curieuse après chaque tâche (slide Sophia, 5), dire son plan à quelqu'un, le bureau prêt la veille. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "25a0d56a",
+      "texte_overlay": "how i stopped leaving everything\nuntil the deadline",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3b304998",
+      "texte_overlay": "my deadline is 3 days before the real one.\nin my planner, in red.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6d9cd453",
+      "texte_overlay": "every project gets cut into 20-minute tasks.\n\"essay\" is scary. \"find 3 quotes\" isn't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6f1f916e",
+      "texte_overlay": "i start the same day it's given.\nthe smallest task. just to begin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8d652c90",
+      "texte_overlay": "after each task, a small reward:\n5 minutes learning something fun.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "after each task, a small reward:\n5 minutes on a micro-learning app like the Sophia app.\nsomething fun, not a feed."
+    },
+    {
+      "position": 6,
+      "media_id": "d69b4731",
+      "texte_overlay": "i tell someone my plan.\n\"i'm doing the intro tonight\" is hard to skip once it's said.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "949e01b0",
+      "texte_overlay": "my desk is ready the night before.\ntomorrow-me just sits down.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

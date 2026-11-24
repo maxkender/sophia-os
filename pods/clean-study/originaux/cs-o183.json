@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o183",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "98a86d26-4a31-42ae-b1fd-8bb1dfa6dd42",
+  "titre": "exquisite words to add to your vocabulary (part 3) #vocabulary #studytok #english",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "98a86d26-4a31-42ae-b1fd-8bb1dfa6dd42"
+  ],
+  "notes": "Déclinaison G1 de 98a86d26 (r 2,5 en turc), ligne 10 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot, avec « (part 3) ». Mots neufs, aucun du parent ni de nos listes de vocabulaire (cs-o050, cs-o096, cs-o102, cs-o106, cs-o120, cs-o143) ; définitions et exemples vérifiés dans leur sens courant : ethereal, sagacious, ardent, lethargic, profound. Place Sophia : slide 6. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "bb79a5e6",
+      "texte_overlay": "exquisite words to add to\nyour vocabulary\n(part 3)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "72cca94d",
+      "texte_overlay": "ethereal\nadjective — extremely delicate and light\n\"the morning fog looked ethereal over the lake.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cd2e19b2",
+      "texte_overlay": "sagacious\nadjective — wise, with good judgement\n\"a sagacious friend tells you to start early.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d8a9e4c8",
+      "texte_overlay": "ardent\nadjective — very enthusiastic\n\"an ardent reader finishes a book a week.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d8818ef3",
+      "texte_overlay": "lethargic\nadjective — sluggish and without energy\n\"i feel lethargic after a whole day of scrolling.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "db956bea",
+      "texte_overlay": "profound\nadjective — very deep or great\n\"her answer was short but profound.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "profound\nadjective, very deep or great\n\"i learn profound little facts on a micro-learning app\nlike the Sophia app.\""
+    },
+    {
+      "position": 7,
+      "media_id": "7b4397be",
+      "texte_overlay": "part 4? 📜",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

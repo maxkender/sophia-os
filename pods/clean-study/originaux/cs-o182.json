@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o182",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "60813e6e-7067-4d54-8bef-4751c7222940",
+  "titre": "how i ask my teacher for help without feeling awkward #studytok #studytips #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "60813e6e-7067-4d54-8bef-4751c7222940"
+  ],
+  "notes": "Déclinaison G1 de 60813e6e (notre cs-o116 : r 5,93 en arabe), ligne 9 de la boîte, 2e déclinaison de la famille. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o116 ni de cs-o150 : relire la consigne avant d'y aller, demander pendant les heures prévues, dire « merci » et appliquer le conseil, préparer ses questions dans un carnet, montrer qu'on s'intéresse au sujet (slide Sophia, 5), revenir dire que ça a marché. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5af40c58",
+      "texte_overlay": "how i ask my teacher for help\nwithout feeling awkward",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "af2e8686",
+      "texte_overlay": "i reread the instructions first.\nhalf my questions answer themselves.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "188d3023",
+      "texte_overlay": "i go during their office hours or after class.\nthat's what that time is for.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4058f2ff",
+      "texte_overlay": "my questions live in one small notebook.\nwhen i go, i'm ready.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "aee9c8da",
+      "texte_overlay": "i use their advice the very next time.\nthey notice. every time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d465eeab",
+      "texte_overlay": "i show i'm curious about the subject, not just the grade.\na related fact, a question beyond the test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "i show i'm curious about the subject, not just the grade.\na related fact from a micro-learning app\nlike the Sophia app."
+    },
+    {
+      "position": 7,
+      "media_id": "a101b3d5",
+      "texte_overlay": "and i say thank you. out loud.\nthe next question is so much easier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

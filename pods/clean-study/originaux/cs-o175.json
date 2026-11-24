@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o175",
+  "type_bleo": "full_test",
+  "titre": "how i prepare a school presentation so i don't freeze #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (la présentation orale n'a pas d'accroche dans le label). Accroches écrites : « how i prepare a school presentation so i don't freeze » (retenue : une peur très partagée), « presentation tips » (écartée : plate), « never be nervous again » (écartée : promesse absolue). Gestes vrais : une idée par diapo, des mots-clés et pas de phrases, répéter debout à voix haute 3 fois, une anecdote pour commencer (slide Sophia, 4), regarder une personne à la fois, respirer avant de commencer. Rien de médical. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c858f902",
+      "texte_overlay": "how i prepare a school presentation\nso i don't freeze",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6b18090f",
+      "texte_overlay": "one idea per slide.\nif i can't say it in one sentence, it's two slides.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7baa1ef1",
+      "texte_overlay": "keywords on my cards, never full sentences.\nreading kills the presentation.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b32081bf",
+      "texte_overlay": "i open with a short story or a surprising fact.\neveryone looks up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg",
+      "texte_sophia": "i open with a surprising fact i found\non a micro-learning app like the Sophia app.\neveryone looks up."
+    },
+    {
+      "position": 5,
+      "media_id": "369a3992",
+      "texte_overlay": "i rehearse standing up, out loud, 3 times.\nonce alone, once timed, once for someone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a3b578d6",
+      "texte_overlay": "i talk to one person at a time.\nnot \"the class\". one face, then the next.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "337bb9fc",
+      "texte_overlay": "one slow breath before i start.\nthe first sentence is the hardest. then it flows.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

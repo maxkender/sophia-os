@@ -1,0 +1,186 @@
+{
+  "id": "rt-001",
+  "source": {
+    "url": "https://www.tiktok.com/@raretheory_/photo/7707988177188965652",
+    "vues": 652500,
+    "publie_le": "2026-11-14",
+    "accroche": "topic to research when u're bored pt.2"
+  },
+  "titre": {
+    "en": "topics to research when u're bored"
+  },
+  "legendes": {
+    "en": "there's a whole world of things worth understanding outside ur usual interests.\n\nphilosophy explains how we think, art shows how people saw their world, space makes ur problems look tiny, and old myths explain why we still tell the same stories.\n\nsave this as ur research guide. pick one topic and go down the rabbit hole.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/lampe-livres.jpg": "35cf375e-d12d-4304-9751-035c8241352d",
+    "images/banque/librairie-dos.jpg": "e16249c0-76ca-4abe-af91-d66e457a9c0d"
+  },
+  "notes": "Preuve : « topic to research when u're bored pt.2 » de @raretheory_ (652,5 k vues, 104 k enregistrements, 14/11) et sa partie 1 (151,1 k, 11/11) : même gabarit (fond bordeaux, Arial Narrow crème, couverture au titre justifié avec deux petites photos, une catégorie et ses sujets par slide, la fin en paragraphe justifié avec sa dernière phrase en gras), même musique (original sound - starxedittt). Catégories à nous (les siennes : psychologie, économie, histoire, géopolitique, politique, anglais, sciences, informatique, sciences de la Terre) ; sujets réels, vérifiés. Slide Sophia (6) : « 05 — one lesson a day », le LOGO de Sophia à la place de sa petite photo (ses listes « skills i'm glad i started learning at 14 »), jamais une capture ; cta A. Sophia : une leçon courte par jour (histoire, philosophie, sciences, géopolitique, littérature, économie) écrite par des profs, un quiz après chaque leçon, 10 minutes (fiche du podz 25). Photos : banques de Sophia, sans visage (une fille de dos), sans marque ni texte lisible.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        { "image": "images/banque/lampe-livres.jpg", "cadrage": { "y": 0.45 } },
+        { "image": "images/banque/librairie-dos.jpg", "cadrage": { "x": 0.55 } }
+      ],
+      "en": {
+        "titre": "topics to research\nwhen u're bored",
+        "sous_titre": "and get a little smarter day by day"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Philosophy & Big Questions",
+        "sujets": [
+          "The Trolley Problem",
+          "Stoicism",
+          "Existentialism",
+          "Plato's Allegory of the Cave",
+          "The Ship of Theseus",
+          "Free Will vs Determinism",
+          "Utilitarianism",
+          "Absurdism",
+          "The Social Contract",
+          "\"I Think, Therefore I Am\"",
+          "Pascal's Wager",
+          "Occam's Razor",
+          "Moral Relativism",
+          "The Veil of Ignorance"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Art & Architecture",
+        "sujets": [
+          "The Renaissance",
+          "Baroque Art",
+          "Impressionism",
+          "Cubism",
+          "Surrealism",
+          "Pop Art",
+          "Gothic Cathedrals",
+          "The Bauhaus",
+          "Art Nouveau",
+          "Brutalism",
+          "Japanese Ukiyo-e",
+          "The Sistine Chapel Ceiling",
+          "Byzantine Mosaics",
+          "Street Art"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Space & Astronomy",
+        "sujets": [
+          "Black Holes",
+          "The Big Bang",
+          "Dark Matter",
+          "Dark Energy",
+          "Exoplanets",
+          "The Life Cycle of Stars",
+          "Neutron Stars",
+          "The Fermi Paradox",
+          "The Drake Equation",
+          "Time Dilation",
+          "The Kuiper Belt",
+          "The Space Race",
+          "The Apollo Missions",
+          "The Search for Life on Mars"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Mythology & Ancient Stories",
+        "sujets": [
+          "Greek Mythology",
+          "Norse Mythology",
+          "Egyptian Mythology",
+          "The Epic of Gilgamesh",
+          "The Trojan War",
+          "The Odyssey",
+          "The Ramayana",
+          "Aztec Mythology",
+          "Celtic Mythology",
+          "Japanese Folklore (Yōkai)",
+          "Arthurian Legends",
+          "The Oracle of Delphi",
+          "Slavic Folklore",
+          "Chinese Mythology"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "one lesson a day",
+        "paragraphes": [
+          "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
+          "each lesson is written by actual professors and ends with a little quiz, so it actually sticks. 10 minutes, then i pick one topic from this list and go deeper."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Words & Languages",
+        "sujets": [
+          "Etymology",
+          "Proto-Indo-European",
+          "The Great Vowel Shift",
+          "Latin & Greek Roots",
+          "Dead Languages",
+          "Writing Systems",
+          "The Rosetta Stone",
+          "Sign Languages",
+          "Constructed Languages",
+          "Loanwords",
+          "Dialects vs Languages",
+          "Endangered Languages",
+          "Rhetoric & Persuasion",
+          "The Origins of the Alphabet"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Inventions That Changed Everything",
+        "sujets": [
+          "The Printing Press",
+          "The Compass",
+          "Paper Money",
+          "Gunpowder",
+          "The Steam Engine",
+          "The Telegraph",
+          "The Light Bulb",
+          "The Airplane",
+          "Penicillin",
+          "The Transistor",
+          "Refrigeration",
+          "The Internet",
+          "GPS",
+          "The Smartphone"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this as ur research guide. pick one topic tonight, follow the rabbit hole, and come back for pt.2.",
+        "gras": "OR.. u'll forget it by tomorrow."
+      }
+    }
+  ]
+}

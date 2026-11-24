@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o412",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "edc213bd-cb5c-423d-b4ef-04f8c02e2206",
+ "titre": "how to calm your nervous system in 7 days #nervoussystem #calm #mentalhealth #smartgirl #selfcare",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 9 de la boîte (parent edc213bd, langue source tr) : accroche du parent mot pour mot. Les six conseils du parent (20 minutes de marche sans écouteurs, vider sa tête sur papier, expirer plus long qu'inspirer, cinq minutes de belle chose au lieu du scroll du matin, ranger un petit coin chaque soir, une seule priorité pour demain). Sophia en 4 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6e275ce4",
+   "texte_overlay": "how to calm your nervous\nsystem in 7 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "931269ea",
+   "texte_overlay": "1. a 20-minute walk without\nearphones",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2e79b70e",
+   "texte_overlay": "2. write everything down\nbefore bed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "70c5899a",
+   "texte_overlay": "3. breathe out longer than\nyou breathe in",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fad77a81",
+   "texte_overlay": "4. five beautiful minutes instead\nof the morning scroll",
+   "texte_sophia": "4. five minutes on an app like Sophia\ninstead of the morning scroll",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "969399a7",
+   "texte_overlay": "5. tidy one small corner\nevery evening",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d6f03bfb",
+   "texte_overlay": "6. one priority for tomorrow,\nnot ten",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "be8619ab",
+   "texte_overlay": "try it for 7 days and\ntell me <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

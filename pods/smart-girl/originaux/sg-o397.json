@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o397",
+ "type_bleo": "full_test",
+ "titre": "how to read a menu in a french restaurant #france #paris #restaurant #smartgirl #french",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/8 (la jauge en demande 8 sur 27) : accroche jamais faite chez nous (« menu » absent des accroches de donnees/label.json). Accroches écrites : « how to read a menu in a french restaurant » (retenue : utile en voyage, savoir-vivre), « french restaurant etiquette » (écartée : proche de l'étiquette gagnante), « french food words » (écartée : proche des mots). Faits vérifiés : l'entrée est le hors-d'œuvre (pas le plat), le plat est le plat principal, « saignant » et « à point », la carafe d'eau gratuite, l'addition qu'on demande, « menu » = formule et « à la carte » = au choix. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a71ec03b",
+   "texte_overlay": "how to read a menu in\na french restaurant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3832fd20",
+   "texte_overlay": "entrée\n\nthe starter, not the main.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4ded1d71",
+   "texte_overlay": "plat\n\nthe main course.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b66c1f09",
+   "texte_overlay": "menu vs à la carte\n\n\"le menu\" is a set price.\n\"à la carte\" is choosing freely.",
+   "texte_sophia": "menu vs à la carte\n\na set price vs choosing freely. i learned\nthe difference on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2bacbbb6",
+   "texte_overlay": "saignant / à point\n\nrare / medium.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4c1fface",
+   "texte_overlay": "une carafe d'eau\n\ntap water, always free.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e34cf1d4",
+   "texte_overlay": "l'addition\n\nthe bill never comes\nuntil you ask for it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5feb3e42",
+   "texte_overlay": "bon appétit!",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o419",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ea005f5f-7e1f-4c2a-85b6-74503cc0fefc",
+ "titre": "games that actually make you smarter #games #smarter #smartgirl #chess #brain",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "ea005f5f-7e1f-4c2a-85b6-74503cc0fefc"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 86 de la boîte (parent ea005f5f, langue source es) : accroche du parent mot pour mot. Jeux du parent deux par slide (échecs, go, sudoku, mots croisés, Scrabble, dual n-back, énigmes logiques, bridge, Set) et le micro-apprentissage en dernier comme chez le parent. Sophia à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "29e8c1ab",
+   "texte_overlay": "games that actually\nmake you smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684356484968320277/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d8a9e4c8",
+   "texte_overlay": "chess\nthinking several moves ahead.\n\ngo\nan ancient game of territory.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684356484968320277/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a34f59a5",
+   "texte_overlay": "sudoku\npure logic and memory.\n\ncrosswords\nvocabulary and lateral thinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684356484968320277/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "13230afa",
+   "texte_overlay": "scrabble\nseeing patterns in words.\n\ndual n-back\nworking memory, backed by research.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684356484968320277/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f8c4c2ab",
+   "texte_overlay": "logic puzzles\npure deduction.\n\nbridge\nmemory, probability, partnership.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684356484968320277/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c734b03e",
+   "texte_overlay": "set\nvisual speed and flexibility.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684356484968320277/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ce45f805",
+   "texte_overlay": "micro-learning\n\nthe game i play every morning:\nfive minutes, one new topic.",
+   "texte_sophia": "micro-learning\n\nthe game i play every morning on an app\nlike Sophia: five minutes, one new topic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684356484968320277/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "76123e98",
+   "texte_overlay": "follow for more",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684356484968320277/8.jpg"
+  }
+ ]
+}

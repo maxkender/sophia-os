@@ -14,7 +14,8 @@
   "pt-BR": "10 habilidades 10/10 que valem mais que um diploma",
   "tr": "Diplomadan daha değerli 10 beceri 10/10",
   "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă",
-  "cs": "10 dovedností 10/10, které mají větší cenu než diplom"
+  "cs": "10 dovedností 10/10, které mají větší cenu než diplom",
+  "sr": "10 veština 10/10 koje vrede više od diplome"
  },
  "legendes": {
   "fr": "10 compétences 10/10 qui valent plus qu'un diplôme #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -24,7 +25,8 @@
   "pt-BR": "10 habilidades 10/10 que valem mais que um diploma #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Diplomadan daha değerli 10 beceri 10/10 #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "10 dovedností 10/10, které mají větší cenu než diplom #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "10 dovedností 10/10, které mají větší cenu než diplom #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "10 veština 10/10 koje vrede više od diplome #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "son original - psycho - psycho",
@@ -205,6 +207,28 @@
      },
      {
       "t": "DIPLOM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 122
+     },
+     {
+      "t": "KOJE VREDE",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "VIŠE OD",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOME",
       "cap": 198,
       "couleur": "brun"
      }
@@ -396,6 +420,29 @@
     "sous": [
      "1–2 hodiny na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "RAZUMETI",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "SLOŽENU KAMATU"
+    ],
+    "video": {
+     "id": "ztQGj-jYCII",
+     "titre": "Složena Kamata – Balkanski Matematički Rebus",
+     "chaine": "Vladimir Đukanović",
+     "vues": "9,4 hilj. pregleda",
+     "date": "pre 2 godine",
+     "duree": "7:11",
+     "avatar": "https://yt3.ggpht.com/wFTvpBaM1qs8TcyBDgM8C8NZpKEycVrSvEbUq7ETvMSM_ZmmZTGUEbt20_ZV_2cWZKm8Jww6Og=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 sata za učenje"
+    ]
    }
   },
   {
@@ -583,6 +630,29 @@
     "sous": [
      "3–4 hodiny na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "OBRNUTA",
+     [
+      {
+       "t": "PSIHOLOGIJA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TqbxVlCTJio",
+     "titre": "OBRNUTA PSIHOLOGIJA",
+     "chaine": "Dr Darko Tadić - Veštine življenja",
+     "vues": "6 hilj. pregleda",
+     "date": "pre 2 godine",
+     "duree": "15:25",
+     "avatar": "https://yt3.ggpht.com/rpY69WbNfrI8m6NrjzIajyv0P5-08GW4RL-gfKhSza_XLWUIBYxfWAJPPCxuMEoLOnGYT-MS9KU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 sata za učenje"
+    ]
    }
   },
   {
@@ -754,6 +824,27 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "UČITI",
+     [
+      {
+       "t": "SVAKOG DANA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
     ]
    }
   },
@@ -941,6 +1032,29 @@
     },
     "sous": [
      "4–5 hodin na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "PRIVUĆI",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "PAŽNJU"
+    ],
+    "video": {
+     "id": "Z1X4yohHNSQ",
+     "titre": "Kako privući i zadržati pažnju? Kako ispričati priču?",
+     "chaine": "Vladimir Mladenov",
+     "vues": "278 pregleda",
+     "date": "pre 3 godine",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/JwpRz2mC8KpQeBtfALTMRd83hGP19nmE-z30Yix4V8ol2hGgrg4VoN7cRdvZ4iY5cTxaEr-JTQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 sati za učenje"
     ]
    }
   },
@@ -1132,6 +1246,29 @@
     "sous": [
      "2–3 hodiny na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "PRODATI",
+     [
+      {
+       "t": "BILO ŠTA",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "52BP-CtRaxc",
+     "titre": "Prodaja: Kako Prodati Bilo Sta",
+     "chaine": "Dejan Savić - Sistemi su Rešenje",
+     "vues": "12 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "7:14",
+     "avatar": "https://yt3.ggpht.com/_Bp0RtUzuAaCrFYXsaGYwk4CwdePbjLkSg9Rdc_qirm0XWjFhpikaVoAm05pcBuZGF7g50iy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
+    ]
    }
   },
   {
@@ -1318,6 +1455,29 @@
     },
     "sous": [
      "2–3 hodiny na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "DOBRO",
+       "couleur": "#3a929a"
+      }
+     ],
+     "KORISTITI AI"
+    ],
+    "video": {
+     "id": "REjmrSrSNLI",
+     "titre": "Kako da postaneš AI ekspert",
+     "chaine": "Ai Radionica",
+     "vues": "13 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "11:35",
+     "avatar": "https://yt3.ggpht.com/6nG7S-mb0fkcBj8VQNFfp_inBUYBdXDSUnQyDHfJ6qnJgBG5BG9VIUYzX6hDWVmpppahzd2s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 sata za učenje"
     ]
    }
   }

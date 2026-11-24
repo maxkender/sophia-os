@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o404",
+ "type_bleo": "full_test",
+ "titre": "Stoic lessons that make modern life easier #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Stoic lessons that make modern life easier » (retenue), « Marcus Aurelius rules for men » (écartée : fait parler un auteur), « Be more stoic » (écartée : plat). Idées stoïciennes résumées, aucune citation inventée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5895d55d-cb10-4f64-86a1-cfc06ee7c63d",
+   "texte_overlay": "Stoic lessons that make\nmodern life easier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Focus only on what you control. Your effort, your words, your reactions. Traffic, other people's moods and the weather are not your job.",
+   "media_id": "a1f4f5c2-12b7-4cdd-babf-55e18b75de21"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Expect obstacles. The Stoics imagined problems before they happened. When the train is late or plans fail, you're calm because you saw it coming.",
+   "media_id": "a1fa3f19-c5f8-46c2-833e-c0830a708459"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Judge less, understand more. People act from their own fears and habits. Seeing that makes it much easier to stay patient.",
+   "media_id": "a241e0cb-2dd9-48e8-98bc-44987c16afbe"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Remember that everything passes. Good days and bad days both end. This thought keeps you humble in success and strong in hard times.",
+   "media_id": "a24bc6b3-8f2b-48dc-877c-cf72f10e8984"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Read a little philosophy every day. I do five minutes a day of history, art or science, and old ideas help me with very modern problems.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Old ideas help me with very modern problems.",
+   "media_id": "5b7daa95-e0a3-4575-85bc-c5bbba9e73b9"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Live simply. You need less than you think. Fewer things to protect means fewer worries and more freedom. Own less, worry less.",
+   "media_id": "a259311b-b35c-4687-ad4b-f16772ca72f6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Use the obstacle. A setback is a chance to practise patience, courage or creativity. Every problem trains something useful in you.",
+   "media_id": "a2f2e84d-24ea-4b03-9d19-cdae812b489a"
+  }
+ ]
+}

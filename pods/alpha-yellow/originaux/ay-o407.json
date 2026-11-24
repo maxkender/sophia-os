@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o407",
+ "type_bleo": "full_test",
+ "titre": "What to do in the first hour after work #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « What to do in the first hour after work » (retenue), « The after-work routine that changed my evenings » (écartée : plus long), « Stop wasting your evenings » (écartée : proche d'ay-o303).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8b5694d8-e321-4724-878c-92c011b09be4",
+   "texte_overlay": "What to do in the first hour\nafter work",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Make a clear end to the workday. Close the laptop, write tomorrow's top three tasks. A clean finish stops work from following you home.",
+   "media_id": "a90dd087-22f3-45ae-bbf1-f5f925050891"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Move your body first. A walk, a run, the gym. Twenty minutes of movement clears the stress of the day better than the couch.",
+   "media_id": "a98fcbf3-152a-4dfc-9789-97b85779f100"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Shower and change clothes. A simple ritual that tells your brain you're off duty and ready for your own time. It takes five minutes.",
+   "media_id": "a9b26f59-e3a3-4e10-bc2d-f9cd5c7d9e69"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Eat a proper meal. Not snacks in front of a screen. A real dinner gives you energy for the rest of the evening. Cook something simple.",
+   "media_id": "a9ece2e7-6618-4bf9-83b0-d1f889266951"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your mind with something good. I do five minutes a day of history, art or science, and it's the best switch between work and free time.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It's the best switch between work and free time.",
+   "media_id": "a04728e0-b626-4eb2-8a9e-967e743d338e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Call or see someone. A friend, your partner, your family. Ten minutes of real connection lifts your mood more than any series.",
+   "media_id": "a9fc274f-5f0b-4ce0-92f7-317961bb7bd4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keep the phone away for the first hour. Your evening suddenly feels longer, calmer and much more your own. Try it tomorrow.",
+   "media_id": "aac0700c-bb42-4841-b099-58cc3b9750d5"
+  }
+ ]
+}

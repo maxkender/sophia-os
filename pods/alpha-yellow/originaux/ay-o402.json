@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o402",
+ "type_bleo": "full_test",
+ "titre": "How to train like a man who wants to live long #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "twin tribes monolith Dexter Morgan Super Slow",
+ "musique_url": "https://www.tiktok.com/music/twin-tribes-monolith-dexter-morgan-super-7401614052290169605",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to train like a man who wants to live long » (retenue), « Longevity workout for men » (écartée : jargon), « Train for 80, not for summer » (écartée : moins clair). Conseils généraux, sans promesse médicale.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "325225ff-7d18-46b9-8558-07909db2e4c4",
+   "texte_overlay": "How to train like a man\nwho wants to live long",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Lift weights two or three times a week. Strength protects your joints, bones and posture as you age. It's the base of a long, active life.",
+   "media_id": "8666ece7-7bb5-4411-88e1-2849f4df084e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Walk a lot every day. Eight to ten thousand steps keep your heart, mind and weight in good shape. It's the most underrated exercise there is.",
+   "media_id": "86713c17-4942-4148-b5da-a0d688175d33"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Do some cardio that makes you breathe hard. Running, cycling, swimming, rowing. A strong heart and lungs are worth more than big arms.",
+   "media_id": "89bfaeef-3099-4d51-add1-5a633cd69d98"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stretch and move your joints daily. Hips, back, shoulders. Ten minutes of mobility keeps you moving freely at sixty and beyond.",
+   "media_id": "8bf0d74d-fccc-4492-97e0-703fee12263a"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I only trained my body. After: five minutes a day of history, art or science, and I train my mind too, because both need it to last.",
+   "texte_sophia": "Before: I only trained my body. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I train my mind too, because both need it to last.",
+   "media_id": "fc7de629-eeac-4692-9cf1-abf34c483237"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Train your balance. Stand on one leg, walk on uneven ground, do yoga. Good balance prevents falls and injuries later in life.",
+   "media_id": "8dbeb149-ca16-4e4e-b26d-b9cb70c4b236"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Recover as seriously as you train. Sleep, rest days and good food are where your body actually gets stronger. Rest is training too.",
+   "media_id": "8e6d40d2-e42b-424d-a45a-079212979939"
+  }
+ ]
+}

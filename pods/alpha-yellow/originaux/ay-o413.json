@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o413",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c4a992ec-f750-46a1-97c1-164373e5c5af",
+ "titre": "How to be charismatic without being good-looking #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "c4a992ec-f750-46a1-97c1-164373e5c5af"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 6 de la boîte (c4a992ec, es 5,9 k r 2,01), 3e et dernière déclinaison après ay-o364 et ay-o399. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o364, o399. Aucune star nommée ni montrée sur la slide Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "938ebc80-88c6-4389-989a-6da76e88023d",
+   "texte_overlay": "How to be charismatic\nwithout being good-looking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689885995193486600/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Make people feel heard. Repeat back what they said in your own words. Feeling understood is rarer and more attractive than good looks.",
+   "media_id": "b42197e8-d0c7-4040-809a-99626ed6717e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Have opinions and share them kindly. A man with clear views, expressed with respect, is far more memorable than one who agrees with everything.",
+   "media_id": "b48086ff-b6de-4c65-8e1c-3662345b3bdf"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Use humour generously. Laugh at their jokes, tell your own, laugh at yourself. Fun people are magnetic whatever they look like.",
+   "media_id": "b5d16d1c-2cce-49d7-accf-b4d535127221"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep good posture and eye contact. Simple body language changes how people see you within seconds. Start today, it's free.",
+   "media_id": "b5d7d850-7b78-4760-97f8-8474a2501bce"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Interesting stories make people forget about looks completely.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Interesting stories make people forget about looks completely.",
+   "media_id": "c1b128f0-1c61-48a1-85db-7861a56bf408"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Be passionate about something. When you light up about a topic, people lean in and listen. Find yours and talk about it with real joy.",
+   "media_id": "b6117b93-9ae3-4d0a-b63e-167af3740b2b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be kind and consistent. Charisma that lasts comes from how you treat people every day, not from a first impression.",
+   "media_id": "b67b4d9e-55c9-4206-b947-5aa5d04c470e"
+  }
+ ]
+}

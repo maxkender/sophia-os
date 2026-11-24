@@ -1,4 +1,4 @@
--- 0848 : Bible · une section par application, sans liste figée (demande du
+-- 0850 : Bible · une section par application, sans liste figée (demande du
 -- 23/11 : « pourquoi je ne peux pas choisir Artura ici ? … ça doit être
 -- automatique quand on crée une appli »).
 --
@@ -20,7 +20,7 @@
 -- Aucune donnée n'est modifiée. Le front lit la table `applications` pour
 -- dresser ses sections (plus le catalogue du code, pour ne pas attendre).
 --
--- À appliquer AVANT le merge du front. Idempotente.
+-- ✅ Appliquée le 2026-11-24 (MCP), avant le merge du front. Idempotente.
 --
 -- Retour arrière (tant qu'aucun bloc n'a une section hors des quatre d'origine) :
 --   drop trigger labels_proposes_section_valide on public.labels_proposes;

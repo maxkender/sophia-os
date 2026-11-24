@@ -24,7 +24,7 @@ export type EtapeSource = "en_import" | "essai" | "weekly" | "essai_rate" | "arr
 /** Un onglet de la page : les propositions de l'éclaireur, une étape du chemin, ou la corbeille. */
 export type Vue = "propositions" | EtapeManuelle | EtapeSource | "corbeille";
 /**
- * La section d'un bloc : le slug d'une application de l'OS, ou « idees ». Plus de liste figée (0848) : une
+ * La section d'un bloc : le slug d'une application de l'OS, ou « idees ». Plus de liste figée (0850) : une
  * application créée dans l'OS a sa section toute seule.
  */
 export type Section = string;

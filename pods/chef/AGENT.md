@@ -59,6 +59,7 @@ Les podz :
 | 23 · Remakes @studyingsmiski (Sophia) | `studyingsmiski` | `session_017c8FRYPaAJ2uED5dZTv6Rf` | cozy_girl (Sophia seule, images finies, en anglais, genre femme ; les listes d'applis et guides d'étude « cozy » de @studyingsmiski, ciel en papier, cartes en timbre, stickers détourés et bulles à la main, Sophia et sa vraie icône partout où elle met Turbo AI ; lancé par Adrien le 20/11 pour micabo, passé à Sophia le même jour (0783), pilote sm-001) |
 | 24 · Originaux @thebiomechanic (Atala) | `biomechanic` | `session_017c8FRVNqSCbNNV5C2KjGi5` | biomechanic_run (Atala seule, images finies, en anglais ; les tier lists « … Tierlist For Optimal Health (Science based) » de @thebiomechanic, fond blanc, Playfair, jauge CORTISOL, F à S, toutes les photos de la banque, un tier « courir » (A ou S) avec une photo de course et le logo d'Atala ; lancé par Adrien le 20/11, pilote bm-001 ; Atala encore inactive) |
 | 25 · Originaux @polytay (Sophia) | `polytay` | `session_017c8FRWrtvELZfHQP5vye5G` | polytay (Sophia seule, images finies, en anglais, genre femme ; les listes « learn everything » de @polytay, couverture en collage, un élément par slide avec deux photos de la banque, Sophia en élément avec son logo, jamais une capture ; lancé par Adrien le 20/11, pilote pt-001) |
+| 26 · Originaux @traceygreen589 (Atala + Artura) | `tracey` | session à créer | tracey (Atala et Artura, le premier podz multi-applis ; images finies, en anglais ; les listes « 10/10 hobbies that actually work if you have adhd », Arial, IRM en couverture, un loisir par slide ; dans chaque post une slide « running » avec le logo d'Atala et une slide « learning to look at art » avec le logo d'Artura ; lancé par Adrien le 24/11, pilote tg-001 ; Atala et Artura encore inactives) |
 
 ## Règles absolues
 
@@ -93,8 +94,8 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11, 13, 15 à 25 ; le 6, relancé le 15/11, y
-  revient à son premier remake validé ; 16 à 22, 24 et 25 sont des originaux
+- **La voie 2** (podz 1, 10, 11, 13, 15 à 26 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé ; 16 à 22 et 24 à 26 sont des originaux
   en images finies, 23 des remakes en images finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests

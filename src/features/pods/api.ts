@@ -51,6 +51,8 @@ export interface Livraison {
   /**
    * Variantes par application autre que Sophia (0276), par langue. Label hors
    * Sophia (pod 6, UnSwipe seul) : la seule version servie, tirée du deck déposé.
+   * Label hors Sophia de plusieurs applications (24/11, Atala + Artura) : une
+   * variante par application, mêmes images, seule la slide de CETTE application marquée.
    */
   decks_applications?: Record<string, Record<string, { hashtags?: string; slides: SlideLivraison[] }>> | null;
   statut: StatutLivraison;
@@ -377,7 +379,8 @@ export const nomApplication = (slug: string): string => ficheApplication(slug)?.
 /**
  * Versions montrables d'un deck dans une langue : le deck Sophia s'il porte la
  * slide Sophia (ou s'il n'y a rien d'autre), puis chaque application livrée.
- * Un pod hors Sophia (pod 6) n'a donc que sa version UnSwipe.
+ * Un pod hors Sophia (pod 6) n'a donc que sa version UnSwipe ; un label hors
+ * Sophia de plusieurs applications, une version par application.
  */
 export function variantesDeck(
   l: Pick<Livraison, "decks" | "decks_applications">,

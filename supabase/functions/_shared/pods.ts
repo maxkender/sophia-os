@@ -18,7 +18,7 @@ import { SLUGS_APPLICATIONS } from "./catalogue_applications.ts";
 import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
 import { lireParLots } from "./lots.ts";
 import { chargerPrompt } from "./supabase.ts";
-import { passagesPourTier, type Tier } from "./tierlist.ts";
+import { passagesPourTier, type Tier, tierImport } from "./tierlist.ts";
 import { sonderSchemaTiersApplication, TABLE_TIERS_APPLICATION } from "./tiers_application.ts";
 
 // deno-lint-ignore no-explicit-any
@@ -366,8 +366,13 @@ export function controlerImageBanque(octets: Uint8Array, legende: string): strin
 export interface SlideDeposee {
   position: number;
   position_sophia?: boolean;
-  /** Alias de `position_sophia` (la slide de l'app), surtout pour les decks d'application. */
-  position_app?: boolean;
+  /**
+   * Alias de `position_sophia` (la slide de l'app), surtout pour les decks
+   * d'application et les labels hors Sophia d'UNE application (`true`). Label
+   * hors Sophia qui sert PLUSIEURS applications (24/11) : le slug de
+   * l'application de la slide (`"atala"`), voir `verifierMarquesApplications`.
+   */
+  position_app?: boolean | string;
   jpeg_base64: string;
 }
 
@@ -395,11 +400,17 @@ const RE_CODE_LANGUE = /^[a-z]{2}(-(?:[A-Z]{2}|\d{3}))?$/;
  *   Chaque deck porte UNE slide de l'application du label (`position_app`, ou
  *   son alias `position_sophia`), jamais la couverture : l'OS en tire la
  *   variante de l'application (`decksApplicationDepuisBase`).
+ * - `[slug]` : la même chose quand on connaît le slug de l'application ;
+ *   `position_app` peut alors aussi valoir ce slug, jamais un autre.
+ * - `[slug, slug, …]` : label hors Sophia qui sert PLUSIEURS applications
+ *   (Atala et Artura, 24/11) : une slide par application, marquée de son slug
+ *   (`verifierMarquesApplications`) ; l'OS tire une variante par application
+ *   (`decksApplicationsDepuisBase`).
  */
 export function verifierDepot(
   decks: Record<string, DeckDepose> | null | undefined,
   langueSource: string,
-  slideApp: "sophia" | "application" = "sophia",
+  slideApp: "sophia" | "application" | readonly string[] = "sophia",
 ): string[] {
   const erreurs: string[] = [];
   const langues = Object.keys(decks ?? {});
@@ -415,6 +426,19 @@ export function verifierDepot(
       if (!slides.some((s) => s.position_sophia)) erreurs.push(`${langue} : aucune slide de l'app`);
       continue;
     }
+    if (typeof slideApp !== "string" && slideApp.length > 1) {
+      erreurs.push(...verifierMarquesApplications(langue, slides, slideApp));
+      continue;
+    }
+    const seule = typeof slideApp === "string" ? null : (slideApp[0] ?? null);
+    if (seule) {
+      for (const s of slides) {
+        const marque = slugSlideApp(s);
+        if (marque !== null && marque !== seule) {
+          erreurs.push(`${langue} #${s.position} : position_app « ${marque} » : le label ne sert que ${seule}`);
+        }
+      }
+    }
     const apps = slides.filter(estSlideApp);
     if (apps.length !== 1) erreurs.push(`${langue} : ${apps.length} slide(s) de l'app (une seule attendue)`);
     else if (positions.length && Number(apps[0].position) === Math.min(...positions)) {
@@ -424,6 +448,64 @@ export function verifierDepot(
   return erreurs;
 }
 
+/**
+ * Label hors Sophia qui sert PLUSIEURS applications (décision d'Adrien du
+ * 24/11, Atala et Artura) : chaque post porte une slide d'appli par
+ * application. Dans chaque deck, pour chaque application servie, UNE slide
+ * marquée `position_app: "<slug>"`, jamais la couverture ; une slide ne porte
+ * qu'une application. `position_app: true` (ou `position_sophia`) ne dit pas
+ * laquelle : refusé. Rend les erreurs du deck de `langue` (vide = accepté).
+ */
+export function verifierMarquesApplications(
+  langue: string,
+  slides: readonly Partial<SlideDeposee>[],
+  slugs: readonly string[],
+): string[] {
+  const erreurs: string[] = [];
+  const servies = new Set(slugs);
+  const liste = slugs.join(", ");
+  const positions = slides.map((s) => Number(s.position));
+  const couverture = positions.length ? Math.min(...positions) : null;
+  const parApplication = new Map<string, number[]>(slugs.map((slug) => [slug, []]));
+  for (const s of slides) {
+    const ou = `${langue} #${s.position}`;
+    const marque = (s as { position_app?: unknown }).position_app;
+    if (marque === undefined || marque === null || marque === false || marque === "") {
+      if (s.position_sophia) {
+        erreurs.push(`${ou} : position_sophia ambigu, le label sert ${liste} : marque la slide position_app: "<slug>"`);
+      }
+      continue;
+    }
+    if (marque === true) {
+      erreurs.push(`${ou} : position_app: true ambigu, le label sert ${liste} : mets le slug de l'application (position_app: "${slugs[0]}")`);
+      continue;
+    }
+    if (Array.isArray(marque)) {
+      erreurs.push(`${ou} : une slide ne porte qu'une application (position_app: "<slug>")`);
+      continue;
+    }
+    if (typeof marque !== "string") {
+      erreurs.push(`${ou} : position_app invalide (slug attendu : ${liste})`);
+      continue;
+    }
+    if (!servies.has(marque)) {
+      erreurs.push(`${ou} : position_app « ${marque} » : le label ne sert pas cette application (${liste})`);
+      continue;
+    }
+    parApplication.get(marque)!.push(Number(s.position));
+  }
+  for (const slug of slugs) {
+    const p = parApplication.get(slug)!;
+    if (p.length !== 1) erreurs.push(`${langue} : ${p.length} slide(s) ${slug} (une seule attendue)`);
+    else if (p[0] === couverture) erreurs.push(`${langue} : la slide ${slug} ne peut pas être la couverture`);
+  }
+  return erreurs;
+}
+
+/** Slug marqué sur une slide d'un label multi-applications (`position_app: "atala"`), sinon `null`. */
+export const slugSlideApp = (s: { position_app?: unknown }): string | null =>
+  typeof s.position_app === "string" && s.position_app !== "" ? s.position_app : null;
+
 /** Slide d'un deck déposé, une fois son image au stockage. */
 export interface SlideEnvoyee {
   position: number;
@@ -431,6 +513,8 @@ export interface SlideEnvoyee {
   url: string | null;
   /** La slide de l'application (`position_app` ou `position_sophia` au dépôt). */
   app: boolean;
+  /** Label multi-applications : le slug marqué sur la slide (`slugSlideApp`), sinon absent ou `null`. */
+  application?: string | null;
 }
 
 /**
@@ -452,6 +536,46 @@ export function decksApplicationDepuisBase(
     };
   }
   return { [slugApp]: parLangue };
+}
+
+/**
+ * Les variantes d'un label hors Sophia, une par application servie. Une seule
+ * application : `decksApplicationDepuisBase`, à l'identique (la slide marquée
+ * `app`). Plusieurs (Atala et Artura, 24/11) : pour chacune, les MÊMES images,
+ * seule la slide marquée de son slug (`application`) est sa slide d'appli ; la
+ * slide de l'autre application reste dans le deck comme une slide de contenu.
+ */
+export function decksApplicationsDepuisBase(
+  slugs: readonly string[],
+  decks: Record<string, { hashtags: string; slides: SlideEnvoyee[] }>,
+): DecksApplicationsLivres {
+  if (slugs.length === 1) return decksApplicationDepuisBase(slugs[0], decks);
+  const sortie: DecksApplicationsLivres = {};
+  for (const slug of slugs) {
+    const marques = Object.fromEntries(
+      Object.entries(decks).map(([langue, d]) => [
+        langue,
+        { hashtags: d.hashtags, slides: d.slides.map((s) => ({ ...s, app: s.application === slug })) },
+      ]),
+    );
+    Object.assign(sortie, decksApplicationDepuisBase(slug, marques));
+  }
+  return sortie;
+}
+
+/** Fusion par application PUIS par langue : une langue redéposée remplace l'ancienne. */
+export function fusionnerDecksApps(
+  avant: DecksApplicationsLivres | null | undefined,
+  nouveau: DecksApplicationsLivres,
+): DecksApplicationsLivres {
+  const r: DecksApplicationsLivres = { ...(avant ?? {}) };
+  for (const [app, parLangue] of Object.entries(nouveau)) r[app] = { ...(r[app] ?? {}), ...parLangue };
+  return r;
+}
+
+/** `{ unswipe: ["fr"] }` ; label multi-applications : `{ atala: ["en"], artura: ["en"] }`. */
+export function resumeDecksApps(d: DecksApplicationsLivres | null | undefined): Record<string, string[]> {
+  return Object.fromEntries(Object.entries(d ?? {}).map(([app, parLangue]) => [app, Object.keys(parLangue ?? {})]));
 }
 
 /**
@@ -491,7 +615,8 @@ export interface SlideAppLivree {
 export type DecksApplicationsLivres = Record<string, Record<string, { hashtags?: string; slides: SlideAppLivree[] }>>;
 
 /** La slide de l'application (`position_app`, ou son alias `position_sophia`). */
-export const estSlideApp = (s: Partial<SlideAppDeposee>): boolean => Boolean(s.position_app || s.position_sophia);
+export const estSlideApp = (s: { position_app?: unknown; position_sophia?: unknown }): boolean =>
+  Boolean(s.position_app || s.position_sophia);
 
 /**
  * Contrôles des decks d'application d'un dépôt, AVANT tout envoi au stockage.
@@ -680,6 +805,124 @@ export async function ecrireDecksApplications(
     if (tErr) throw new Error(`rang ${slug} : ${tErr.message ?? tErr}`);
   }
   return slugs;
+}
+
+// ---------------------------------------------------------------------------
+// Validation d'une livraison d'un label hors Sophia multi-applications (24/11)
+// ---------------------------------------------------------------------------
+
+/** Ce que la validation a mesuré pour UNE application du label. */
+export interface NoteApplicationLivraison {
+  slug: string;
+  /** Pertinence notée avec le prompt de l'application (`pertinence_<slug>`). */
+  pertinence: number;
+  raison: string;
+  /** Note d'import (ELO) calculée avec CETTE pertinence. */
+  elo: number;
+}
+
+export interface RangApplicationLivraison extends NoteApplicationLivraison {
+  /** La note arrondie au centième, comme `pod_livraisons.note_import`. */
+  note: number;
+  /** Rang d'entrée de l'application ; `null` : sous le seuil, elle ne sert pas ce contenu. */
+  tier: Tier | null;
+}
+
+/**
+ * Rang de chaque application d'un label multi-applications, chacune comme
+ * l'application seule d'un label hors Sophia (pod 6) : rang imposé (« Tout
+ * valider en B », validation automatique), sinon celui d'un original (pas de
+ * post source), sinon celui de SA note d'import (`null` sous le seuil). La
+ * livraison n'est écartée que si AUCUNE application n'a de rang, comme un
+ * import n'est rejeté que s'il n'est pertinent pour aucune application.
+ * `meilleure` : la note la plus haute (à égalité, la première) ; c'est celle
+ * de la livraison (`note_import`, `tier`) et de la porte
+ * (`contenus.pertinence_score`, le max des applications, comme à l'import).
+ */
+export function rangsApplicationsLivraison(
+  notes: readonly NoteApplicationLivraison[],
+  opts: { tierForce: Tier | null; original: boolean; seuil: number },
+): { rangs: RangApplicationLivraison[]; retenues: RangApplicationLivraison[]; meilleure: RangApplicationLivraison | null } {
+  const rangs: RangApplicationLivraison[] = notes.map((n) => ({
+    ...n,
+    note: Math.round(n.elo * 100) / 100,
+    tier: opts.tierForce ?? (opts.original ? (TIER_ORIGINAL as Tier) : tierImport(n.elo, opts.seuil)),
+  }));
+  const meilleure = rangs.reduce<RangApplicationLivraison | null>((m, r) => (m === null || r.elo > m.elo ? r : m), null);
+  return { rangs, retenues: rangs.filter((r) => r.tier !== null), meilleure };
+}
+
+/**
+ * Ce que la validation d'un label multi-applications a décidé, pour le rapport
+ * du contenu (`tier_rapport`) et la réponse : les applications servies, la
+ * pertinence, la note et le rang de chacune, celles sous le seuil
+ * (`ecartees`) et celles du label sans variante (`sans_deck`, cochées après
+ * le dépôt).
+ */
+export function rapportApplicationsLivraison(rangs: readonly RangApplicationLivraison[], sansDeck: readonly string[] = []) {
+  const ecartees = rangs.filter((r) => !r.tier).map((r) => r.slug);
+  return {
+    applications: rangs.filter((r) => r.tier).map((r) => r.slug),
+    par_application: Object.fromEntries(
+      rangs.map((r) => [
+        r.slug,
+        { pertinence: r.pertinence, elo: r.note, tier: r.tier, passages: r.tier ? passagesPourTier(r.tier) : 0 },
+      ]),
+    ),
+    ...(ecartees.length ? { ecartees } : {}),
+    ...(sansDeck.length ? { sans_deck: [...sansDeck] } : {}),
+  };
+}
+
+/**
+ * Validation d'un label multi-applications : une application sous le seuil ne
+ * sert pas le contenu. Sa ligne `contenu_pertinences` le dit (non éligible,
+ * avec sa note), comme à l'import ; ni deck, ni rang. Toute erreur LÈVE :
+ * l'appelant défait le contenu.
+ */
+export async function ecarterApplicationLivraison(
+  supabase: Supabase,
+  contenuId: string,
+  applicationId: string,
+  r: RangApplicationLivraison,
+  opts: { pod: string; seuil: number },
+): Promise<void> {
+  const { error } = await supabase.from("contenu_pertinences").upsert(
+    {
+      contenu_id: contenuId,
+      application_id: applicationId,
+      score: scoreStockable(r.pertinence),
+      note: r.note,
+      eligible: false,
+      raison: `livraison pod ${opts.pod} : note ${r.note} < ${opts.seuil} (pertinence ${r.pertinence} : ${r.raison})`,
+      prompt_cle: `pertinence_${r.slug}`,
+      angles: null,
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: "contenu_id,application_id" },
+  );
+  if (error) throw new Error(`pertinence ${r.slug} : ${error.message ?? error}`);
+}
+
+/**
+ * Livraison « langues » d'un post d'un label multi-applications : ses
+ * variantes ne vont qu'aux applications que le post sert déjà (ligne
+ * `contenu_pertinences` éligible, écrite à sa validation), avec LEUR
+ * pertinence. Une application écartée à la validation (sous le seuil), ou
+ * cochée sur le label depuis, n'est pas servie par ces nouvelles langues.
+ */
+export function applicationsDesLanguesLivrees(
+  slugsLivres: readonly string[],
+  pertinences: ReadonlyMap<string, { eligible: boolean; score: number | null }>,
+): { servies: { slug: string; score: number | null }[]; ignorees: string[] } {
+  const servies: { slug: string; score: number | null }[] = [];
+  const ignorees: string[] = [];
+  for (const slug of slugsLivres) {
+    const p = pertinences.get(slug);
+    if (p?.eligible) servies.push({ slug, score: p.score });
+    else ignorees.push(slug);
+  }
+  return { servies, ignorees };
 }
 
 // ---------------------------------------------------------------------------

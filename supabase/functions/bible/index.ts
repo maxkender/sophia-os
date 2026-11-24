@@ -5,14 +5,19 @@
  *       19/11 : les 3 DERNIERS TikToks du compte (scraper Apify, ~12 derniers lus), avec les stats du profil ;
  *       chaque miniature est téléchargée tout de suite et copiée dans medias/bible/<handle>/ (une URL TikTok
  *       expire). Les liens déjà enregistrés servent en secours ; sinon l'erreur est notée sur la fiche.
+ *   POST { action: "miniatures_propositions", ids }
+ *       24/11 : l'aperçu des propositions de l'éclaireur (sources_candidats). Les posts d'exemple de chaque
+ *       proposition (3 au plus, 5 propositions par appel) sont relevés en UN appel Apify, leur couverture copiée
+ *       dans medias/bible/<handle>/ et notée dans `exemples` (miniature_url, ou erreur : pas de nouvel essai).
  *   POST { action: "resoudre", urls }
  *       Les liens courts (vm.tiktok.com, vt.tiktok.com, tiktok.com/t/…) suivis jusqu'au vrai lien
  *       (@handle et, pour un post, son /video/ ou /photo/). 50 liens au plus ; rien n'est écrit.
  *
- * N'écrit que dans bible_comptes (posts, miniatures, stats auto). Ne touche ni à l'import ni à rien d'autre.
+ * N'écrit que dans bible_comptes (posts, miniatures, stats auto) et dans `sources_candidats.exemples` (les
+ * miniatures). Ne touche ni à l'import ni à rien d'autre.
  */
 import { downloadMedia, postsAvecImage } from "../_shared/apify.ts";
-import { cheminMiniature, estLienCourt, estLienPost, type PostBible, statsProfil, troisDerniers } from "../_shared/bible.ts";
+import { cheminMiniature, estLienCourt, estLienPost, exemplesSansApercu, idPost, type PostBible, statsProfil, troisDerniers } from "../_shared/bible.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -29,6 +34,11 @@ Deno.serve(async (request) => {
       const id = String(body.id ?? "");
       if (!/^[0-9a-f-]{36}$/.test(id)) return json({ ok: false, error: "id invalide" }, 400);
       return json(await miniatures(db, id));
+    }
+    if (body?.action === "miniatures_propositions") {
+      const ids = (Array.isArray(body.ids) ? body.ids : []).filter((x: unknown): x is string => typeof x === "string" && /^[0-9a-f-]{36}$/.test(x)).slice(0, 5);
+      if (!ids.length) return json({ ok: false, error: "ids manquants" }, 400);
+      return json(await miniaturesPropositions(db, ids));
     }
     if (body?.action === "resoudre") {
       const urls = (Array.isArray(body.urls) ? body.urls : []).filter((u: unknown): u is string => typeof u === "string").slice(0, 50);
@@ -176,4 +186,51 @@ async function miniatures(db: Db, id: string) {
   const { error: e2 } = await db.rpc("bible_miniatures_ecrire", { p_id: id, p_posts: sortie, p_statut: statut, p_erreur: erreurs, p_stats: stats });
   if (e2) throw new Error(e2.message);
   return { ok: true, statut, source, miniatures: ok, posts: sortie.length };
+}
+
+/**
+ * 24/11 : les miniatures des posts d'exemple de quelques propositions. Un seul appel Apify pour tous les liens ;
+ * si Apify ne répond pas, rien n'est écrit (on réessaiera à la prochaine visite). Un post sans image garde une
+ * `erreur` : il n'est pas redemandé à chaque ouverture de la page.
+ */
+async function miniaturesPropositions(db: Db, ids: string[]) {
+  const { data, error } = await db.from("sources_candidats").select("id, handle_tiktok, exemples").in("id", ids);
+  if (error) throw new Error(error.message);
+  const fiches = ((data ?? []) as { id: string; handle_tiktok: string; exemples: unknown }[])
+    .map((f) => ({ ...f, exemples: (Array.isArray(f.exemples) ? f.exemples : []) as Record<string, unknown>[] }))
+    .map((f) => ({ ...f, rangs: exemplesSansApercu(f.exemples) }))
+    .filter((f) => f.rangs.length > 0);
+  if (!fiches.length) return { ok: true, miniatures: 0, propositions: 0 };
+  if (!Deno.env.get("APIFY_TOKEN")) return { ok: false, error: "scraper non configuré" };
+
+  const liens = fiches.flatMap((f) => f.rangs.map((i) => String(f.exemples[i]!.url)));
+  const images = new Map<string, string>();
+  try {
+    for (const p of await postsAvecImage({ postURLs: liens, resultsPerPage: 1 })) {
+      const id = idPost(p.url);
+      if (id && p.image) images.set(id, p.image);
+    }
+  } catch (e) {
+    return { ok: false, error: `TikTok ne répond pas (${messageErreur(e).slice(0, 120)})` };
+  }
+
+  let ok = 0;
+  for (const f of fiches) {
+    const handle = f.handle_tiktok.trim().replace(/^@+/, "").toLowerCase();
+    const exemples = [...f.exemples];
+    for (const i of f.rangs) {
+      const url = String(exemples[i]!.url);
+      try {
+        const image = await miniatureOembed(url, images.get(idPost(url) ?? ""));
+        const chemin = cheminMiniature(handle, url, i);
+        exemples[i] = { ...exemples[i], miniature_path: chemin, miniature_url: await copier(db, chemin, image), erreur: null };
+        ok++;
+      } catch (e) {
+        exemples[i] = { ...exemples[i], erreur: messageErreur(e).slice(0, 160) };
+      }
+    }
+    const { error: e2 } = await db.from("sources_candidats").update({ exemples }).eq("id", f.id);
+    if (e2) throw new Error(e2.message);
+  }
+  return { ok: true, miniatures: ok, propositions: fiches.length };
 }

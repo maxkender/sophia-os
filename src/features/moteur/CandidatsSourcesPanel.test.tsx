@@ -267,7 +267,7 @@ describe("candidatsSources", () => {
       dernierSlideshow: "2026-11-11",
       releveLe: "2026-11-12",
     });
-    expect(c.exemples).toEqual([{ url: "https://x", vues: 1900000, accroche: "ZUFÄLLIGE FAKTEN" }]);
+    expect(c.exemples).toEqual([{ url: "https://x", vues: 1900000, accroche: "ZUFÄLLIGE FAKTEN", miniature: null, sansMiniature: false }]);
   });
 
   it("compte les onglets et trie par score", () => {

@@ -1,6 +1,8 @@
+import { langueTraduite } from "./traduction_email.ts";
 import { assert, assertEquals, assertMatch } from "jsr:@std/assert@1";
 
 import {
+  langueEmailJoin,
   type CandidatureJoin,
   CONTRAT_AJOUTS_V4,
   CONTRAT_RESUME,
@@ -300,4 +302,14 @@ Deno.test("étapes de l'admin et décisions possibles", () => {
   assertEquals(decisionsAdminPossibles("signee"), { accepter: false, refuser: false });
   assertEquals(decisionsAdminPossibles("codes"), { accepter: false, refuser: true });
   assertEquals(decisionsAdminPossibles("refusee"), { accepter: true, refuser: false });
+});
+
+Deno.test("join : les emails partent dans la langue du candidat, nouvelles langues comprises", () => {
+  assertEquals(langueEmailJoin("pt"), "pt-BR");
+  assertEquals(langueEmailJoin("nb"), "no");
+  assertEquals(langueEmailJoin(""), "en");
+  for (const l of ["he", "fi", "lv", "sv", "lt", "sl", "no", "et", "ar", "ru", "ja", "da", "ko", "hu", "pl", "fr", "es", "pt", "bg"]) {
+    assert(langueTraduite(langueEmailJoin(l)), l);
+  }
+  assert(!langueTraduite(langueEmailJoin("en")));
 });

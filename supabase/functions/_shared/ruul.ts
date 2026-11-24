@@ -109,7 +109,7 @@ export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
   const pied = { ...PIED_EN, ...(e.pied ?? {}) };
   const help = e.sansPied || e.aideDansTexte || aideDejaDite(e.corps) ? null : pied.help;
   const arret = e.sansPied ? null : (e.arret ?? lienArret(e.lienStop));
-  const html = `<!doctype html><html lang="${echapper(e.langue ?? "en")}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${echapper(e.objet)}</title></head>
+  const html = `<!doctype html><html lang="${echapper(e.langue ?? "en")}"${/^(ar|he)\b/.test(e.langue ?? "") ? ' dir="rtl"' : ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${echapper(e.objet)}</title></head>
 <body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px;padding:28px 24px">

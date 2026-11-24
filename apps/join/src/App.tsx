@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { appeler, capterSource, garderJeton, lireJeton, type Moi, type PaysPaie } from "./api";
-import { langueInitiale, LANGUES, traducteur } from "./i18n";
+import { chargerLangue, estRtl, langueChargee, langueInitiale, LANGUES, traducteur } from "./i18n";
 import { Logo } from "./Logo";
 import Arrivee from "./pages/Arrivee";
 import Candidature, { type Envoi } from "./pages/Candidature";
@@ -36,7 +36,12 @@ export default function App() {
 }
 
 function Site() {
-  const [langue, setLangue] = useState(langueInitiale);
+  const [langue, setLangueAffichee] = useState(langueInitiale);
+  /** Changer de langue : le fichier de la langue est chargé d'abord, puis la page bascule d'un coup. */
+  const setLangue = (code: string) => {
+    if (langueChargee(code)) return setLangueAffichee(code);
+    chargerLangue(code).then(() => setLangueAffichee(code));
+  };
   const t = useMemo(() => traducteur(langue), [langue]);
   const [ecran, setEcran] = useState<Ecran>(() => ecranDuChemin() ?? "arrivee");
   const [mode, setMode] = useState("test");
@@ -90,6 +95,7 @@ function Site() {
 
   useEffect(() => {
     document.documentElement.lang = langue;
+    document.documentElement.dir = estRtl(langue) ? "rtl" : "ltr";
     try {
       localStorage.setItem("join_langue", langue);
     } catch {

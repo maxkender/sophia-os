@@ -318,7 +318,7 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 }
 .recherche__liste li button {
   width: 100%;
-  text-align: left;
+  text-align: start;
   background: none;
   border: 0;
   padding: 10px 12px;
@@ -341,7 +341,7 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 .marque-xl svg { width: 64px; height: 64px; }
 
 /* Contrat */
-.resume { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.resume { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; }
 .contrat {
   white-space: pre-wrap;
   font-family: var(--font);
@@ -383,14 +383,14 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 .video { display: grid; justify-items: center; gap: 10px; margin-top: 24px; }
 .video__cadre { width: min(100%, 340px); border-radius: 22px; overflow: hidden; background: var(--navy); box-shadow: 0 24px 60px -40px #002da080; }
 .video__cadre iframe { width: 100%; height: 100%; border: 0; display: block; }
-.etapes-courtes { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.etapes-courtes { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; }
 
 /* Mentions légales, confidentialité, FAQ */
 .legal { display: grid; gap: 18px; }
 .legal__bloc { display: grid; gap: 10px; scroll-margin-top: 90px; }
 .legal__bloc p, .legal__liste li { overflow-wrap: anywhere; }
 .legal__st { font-size: 1rem; font-weight: 650; margin-top: 8px; }
-.legal__liste { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.legal__liste { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; }
 .societe { font-size: .9rem; display: grid; gap: 2px; }
 .faq { display: grid; gap: 12px; }
 .faq__item { display: grid; gap: 10px; }
@@ -409,7 +409,7 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 @media (min-width: 1000px) { .adm__corps:has(.adm__fiche) { grid-template-columns: minmax(0, 1fr) minmax(360px, 440px); } }
 .adm__table-zone { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; }
 .adm__table { width: 100%; border-collapse: collapse; font-size: .88rem; }
-.adm__table th, .adm__table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.adm__table th, .adm__table td { text-align: start; padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 .adm__table th { font-weight: 600; color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
 .adm__table tbody tr { cursor: pointer; }
 .adm__table tbody tr:hover, .adm__choisi { background: #f1f4fb; }
@@ -460,15 +460,36 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 .onb__pile { display: grid; }
 .onb__pile > * { grid-area: 1 / 1; }
 .onb__fantome { visibility: hidden; }
-.onb__curseur { display: inline-block; width: .08em; min-width: 2px; height: 1em; margin-left: 2px; vertical-align: -.12em; background: var(--blue); animation: onb-curseur .9s steps(1) infinite; }
+.onb__curseur { display: inline-block; width: .08em; min-width: 2px; height: 1em; margin-inline-start: 2px; vertical-align: -.12em; background: var(--blue); animation: onb-curseur .9s steps(1) infinite; }
 .onb__plus { display: grid; gap: 14px; justify-items: start; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s var(--ease); pointer-events: none; }
 .onb__plus.visible { opacity: 1; transform: none; pointer-events: auto; }
 .onb__paie { width: 100%; }
 .onb__liens { display: flex; flex-wrap: wrap; gap: 6px 22px; }
-.onb__bas { display: flex; gap: 10px; position: sticky; bottom: max(12px, env(safe-area-inset-bottom)); }
+/* 24/11 : « Continuer » reste visible sans faire défiler, même sur les écrans longs (5, 7, 8) au téléphone. Le
+   halo coupe en « clip » (pas « hidden », qui casserait le collage), et le bas garde un fond pour la lisibilité. */
+main.onb.halo { overflow: clip; }
+.onb__bas { display: flex; gap: 10px; position: sticky; bottom: 0; z-index: 2; padding-block: 12px max(12px, env(safe-area-inset-bottom)); margin-block-end: calc(-1 * max(20px, env(safe-area-inset-bottom))); background: linear-gradient(to top, var(--bg, #fff) 70%, transparent); }
 .onb__retour { flex: none; width: 56px; padding: 0; font-size: 1.2rem; background: var(--surface); }
 .onb__suite { flex: 1; }
 @media (min-width: 700px) { .onb__bas { justify-content: flex-end; } .onb__suite { flex: 0 1 280px; } }
+.onb__lignes { display: grid; gap: .55em; }
+.onb__lignes p { margin: 0; }
+.onb__liste { margin: 0; padding-inline-start: 1.5em; display: grid; gap: .35em; }
+.onb__liste li { padding-inline-start: .2em; }
+.onb__liste li::marker { color: var(--blue); font-weight: 700; }
+.onb__liste li.onb__attente::marker { color: transparent; }
+.onb__video { display: grid; justify-items: center; gap: 8px; width: 100%; }
+.onb__video p { margin: 0; color: var(--fg-soft); font-weight: 550; text-align: center; }
+.onb__video .video__cadre { height: clamp(150px, 28svh, 420px); width: auto; max-width: 100%; }
+.onb__video a { font-size: .92rem; }
+/* Téléphone : la vidéo en vignette à côté de sa phrase, pour que tout l'écran 8 tienne au-dessus de « Postuler ». */
+@media (max-width: 699px) {
+  .onb__video { grid-template-columns: auto 1fr; grid-template-rows: 1fr auto auto 1fr; justify-items: start; column-gap: 14px; }
+  .onb__video .video__cadre { grid-column: 1; grid-row: 1 / -1; height: clamp(130px, 24svh, 200px); border-radius: 16px; }
+  .onb__video p { grid-column: 2; grid-row: 2; text-align: start; }
+  .onb__video a { grid-column: 2; grid-row: 3; }
+}
+.onb--fin .onb__corps { align-content: start; }
 .onb__revoir { padding-top: clamp(16px, 3vw, 28px); margin-bottom: calc(-1 * clamp(16px, 3vw, 40px)); position: relative; z-index: 1; }
 @keyframes onb-entree { from { opacity: 0; transform: translateY(10px); } }
 @keyframes onb-curseur { 50% { opacity: 0; } }
@@ -482,3 +503,7 @@ legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
 /* Le pied de page reste en bas même sur les pages courtes. */
 #root { min-height: 100svh; display: flex; flex-direction: column; }
 #root > main { flex: 1 0 auto; }
+
+/* 24/11 : langues de droite à gauche (he, ar). Les adresses, numéros et le contrat anglais restent de gauche à droite. */
+[dir="rtl"] input[type="email"], [dir="rtl"] input[type="tel"], [dir="rtl"] input[inputmode="numeric"] { direction: ltr; text-align: right; }
+[dir="rtl"] .contrat, [dir="rtl"] .resume[lang="en"] { direction: ltr; text-align: left; }

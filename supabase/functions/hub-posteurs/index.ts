@@ -78,7 +78,7 @@ import {
   resoudreAffectationSite,
   secretValide,
 } from "../_shared/hub_posteurs.ts";
-import { lireParLots } from "../_shared/lots.ts";
+import { lireParLots, lireTout } from "../_shared/lots.ts";
 import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
@@ -231,10 +231,18 @@ async function lirePaysOuverts(supabase: Supabase): Promise<PaysOuvert[]> {
 async function lireLanguesComptes(supabase: Supabase, pays: string[]): Promise<LanguesComptes> {
   const sansLangue = pays.filter((p) => !LANGUE_PAR_PAYS[p]);
   if (sansLangue.length === 0) return {};
-  const { data, error } = await supabase.from("comptes").select("pays, langue").in("pays", sansLangue);
-  if (error) throw error;
+  // 24/11 : plus de 1000 comptes : lus par pages (le plafond PostgREST cassait « zones » depuis 01:17 UTC).
+  const data = await lireTout<{ id: string; pays: string | null; langue: string | null }>(
+    "hub zones : langues des comptes",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("id, pays, langue").in("pays", sansLangue);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (l) => l.id },
+  );
   const parPays: Record<string, Record<string, number>> = {};
-  for (const c of (data ?? []) as { pays: string | null; langue: string | null }[]) {
+  for (const c of data) {
     if (!c.pays || !c.langue) continue;
     const l = (parPays[c.pays] ??= {});
     l[c.langue] = (l[c.langue] ?? 0) + 1;
@@ -244,9 +252,16 @@ async function lireLanguesComptes(supabase: Supabase, pays: string[]): Promise<L
 
 /** Langues dans lesquelles publient les comptes actifs de l'OS. */
 async function lireLanguesOs(supabase: Supabase): Promise<Set<string>> {
-  const { data, error } = await supabase.from("comptes").select("langue").eq("is_active", true);
-  if (error) throw error;
-  return new Set(((data ?? []) as { langue: string | null }[]).map((c) => c.langue).filter((l): l is string => !!l));
+  const data = await lireTout<{ id: string; langue: string | null }>(
+    "hub zones : langues de l'OS",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("id, langue").eq("is_active", true);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (l) => l.id },
+  );
+  return new Set(data.map((c) => c.langue).filter((l): l is string => !!l));
 }
 
 /** Pays recrutés (`hm_pays`, 0516), avec leur HM quand elle a un compte OS. */

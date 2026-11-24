@@ -1,0 +1,286 @@
+{
+ "id": "dr-058",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2000000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of old money hobbies",
+  "tr": "Köklü zenginlerin hobi buzdağı",
+  "sv": "Isberget av gamla pengars hobbyer"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #oldmoney #lockedin #selfimprovement",
+  "tr": "#buzdağı #hobi #oldmoney #kişiselgelişim",
+  "sv": "#isberg #hobbyer #oldmoney #självutveckling"
+ },
+ "musique": {
+  "titre": "original sound - Spëāķèř",
+  "url": "https://www.tiktok.com/music/original-sound-7667487181728631574"
+ },
+ "notes": "Original sur son iceberg à 2 M (« Iceberg of Autistic hobbies »), sujet « old money ». Sophia au 2e étage (icône). Objets Seedream (faucon raté jeté). En, tr, sv ; variantes 2, 3, 4.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "old money hobbies",
+    "variante": 2
+   },
+   "tr": {
+    "haut": "Köklü zenginlerin",
+    "bas": "hobi buzdağı",
+    "variante": 3
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "gamla pengars hobbyer",
+    "variante": 4
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "tennis",
+       "image": "images/objets/raquette.png"
+      },
+      {
+       "t": "golf",
+       "image": "images/objets/golf.png"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "reading",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "one sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "horse riding",
+       "image": "images/objets/selle.png"
+      },
+      {
+       "t": "rowing",
+       "image": "images/objets/aviron.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "sailing",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "growing roses",
+       "image": "images/objets/rose.png"
+      },
+      {
+       "t": "fencing",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "bridge",
+       "image": "images/objets/cartes.png"
+      }
+     ],
+     [
+      {
+       "t": "old maps",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "learning latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "writing letters",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "a private library",
+       "image": "images/objets/etagere.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "tenis",
+       "image": "images/objets/raquette.png"
+      },
+      {
+       "t": "golf",
+       "image": "images/objets/golf.png"
+      },
+      {
+       "t": "satranç",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "okumak",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "binicilik",
+       "image": "images/objets/selle.png"
+      },
+      {
+       "t": "kürek",
+       "image": "images/objets/aviron.png"
+      },
+      {
+       "t": "piyano",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "yelken",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "gül yetiştirmek",
+       "image": "images/objets/rose.png"
+      },
+      {
+       "t": "eskrim",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "briç",
+       "image": "images/objets/cartes.png"
+      }
+     ],
+     [
+      {
+       "t": "eski haritalar",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "latince",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "mektup yazmak",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "özel bir kütüphane",
+       "image": "images/objets/etagere.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "tennis",
+       "image": "images/objets/raquette.png"
+      },
+      {
+       "t": "golf",
+       "image": "images/objets/golf.png"
+      },
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "läsa",
+       "image": "images/objets/pile-livres.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "ridning",
+       "image": "images/objets/selle.png"
+      },
+      {
+       "t": "rodd",
+       "image": "images/objets/aviron.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      }
+     ],
+     [
+      {
+       "t": "segling",
+       "image": "images/objets/maquette-bateau.png"
+      },
+      {
+       "t": "odla rosor",
+       "image": "images/objets/rose.png"
+      },
+      {
+       "t": "fäktning",
+       "image": "images/objets/fleuret.png"
+      },
+      {
+       "t": "bridge",
+       "image": "images/objets/cartes.png"
+      }
+     ],
+     [
+      {
+       "t": "gamla kartor",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "lära sig latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "skriva brev",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "ett eget bibliotek",
+       "image": "images/objets/etagere.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   }
+  }
+ ]
+}

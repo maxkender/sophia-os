@@ -14,7 +14,8 @@
   "pt-BR": "5 hábitos nichados de quem parece saber de tudo",
   "tr": "her şeyi biliyor gibi görünenlerin 5 niş alışkanlığı",
   "sv": "5 nischade vanor hos folk som verkar kunna allt",
-  "nl": "5 niche gewoontes van mensen die alles weten"
+  "nl": "5 niche gewoontes van mensen die alles weten",
+  "hu": "5 niche szokás azoktól, akik mintha mindent tudnának"
  },
  "legendes": {
   "en": "#niche #superintelligence #lockedin #selfimprovement",
@@ -23,7 +24,8 @@
   "pt-BR": "#conhecimento #aprender #hábitos #autodesenvolvimento",
   "tr": "#bilgi #öğrenmek #alışkanlık #kişiselgelişim",
   "sv": "#kunskap #lärande #vanor #självutveckling",
-  "nl": "#kennis #leren #gewoontes #zelfontwikkeling"
+  "nl": "#kennis #leren #gewoontes #zelfontwikkeling",
+  "hu": "#tudás #tanulás #szokások #önfejlesztés"
  },
  "musique": {
   "titre": "son original - leonardo®",
@@ -67,6 +69,11 @@
     "titre": "5 niche gewoontes van mensen die alles weten",
     "image": "images/cerveau-bleu.jpg",
     "legende": "(een gewoonte, geen gave)"
+   },
+   "hu": {
+    "titre": "5 niche szokás azoktól, akik mintha mindent tudnának",
+    "image": "images/cerveau-30.jpg",
+    "legende": "(szokás, nem tehetség)"
    }
   },
   {
@@ -105,6 +112,11 @@
     "titre": "Vraag twee keer waarom",
     "texte": "als iets vanzelfsprekend klinkt, vraag waarom. vraag dan nog een keer waarom. bij het tweede antwoord begint echt begrip",
     "image": "images/homme-chapeau.jpg"
+   },
+   "hu": {
+    "titre": "Kérdezd meg kétszer, miért",
+    "texte": "ha valami magától értetődőnek tűnik, kérdezd meg, miért. aztán kérdezd meg újra. a második válasznál kezdődik az igazi megértés",
+    "image": "images/homme-chapeau.jpg"
    }
   },
   {
@@ -142,6 +154,11 @@
    "nl": {
     "titre": "Lees de voetnoten",
     "texte": "sla de samenvatting over en ga naar de bron die erin staat. daar zitten de details die niemand herhaalt",
+    "image": "images/lecteur-moghol.jpg"
+   },
+   "hu": {
+    "titre": "Olvasd el a lábjegyzeteket",
+    "texte": "hagyd ki az összefoglalót, és menj a forráshoz, amire hivatkozik. ott rejtőznek a részletek, amiket senki sem ismétel",
     "image": "images/lecteur-moghol.jpg"
    }
   },
@@ -182,6 +199,11 @@
     "titre": "Elke dag een les op Sophia",
     "texte": "een soort mini-college elke ochtend: geschiedenis, filosofie, wetenschap, economie. 10 minuten, één quiz, morgen een nieuw onderwerp",
     "telephone": "accueil"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "mint egy kis előadás minden reggel: történelem, filozófia, tudomány, közgazdaság. 10 perc, egy kvíz, holnap új téma",
+    "telephone": "accueil"
    }
   },
   {
@@ -220,6 +242,11 @@
     "titre": "Leer hoe dingen heten",
     "texte": "de boom in je straat, de vulkaan op het schilderij, de stijl van het gebouw waar je langs loopt. namen maken van de wereld iets waar je over kunt nadenken",
     "image": "images/paysage-palmiers.jpg"
+   },
+   "hu": {
+    "titre": "Tanuld meg a dolgok nevét",
+    "texte": "a fa az utcádban, a vulkán a festményen, a ház stílusa, ami mellett elsétálsz. a nevek gondolkodni valóvá teszik a világot",
+    "image": "images/paysage-palmiers.jpg"
    }
   },
   {
@@ -257,6 +284,11 @@
    "nl": {
     "titre": "Eén onderwerp, één week",
     "texte": "kies een onderwerp en blijf er zeven dagen bij: een oorlog, een planeet, een schilder. diepgang zorgt dat kennis blijft hangen",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "hu": {
+    "titre": "Egy téma, egy hét",
+    "texte": "válassz egy témát, és maradj rajta hét napig: egy háború, egy bolygó, egy festő. a mélység teszi tartóssá a tudást",
     "image": "images/portrait-raeburn.jpg"
    }
   }

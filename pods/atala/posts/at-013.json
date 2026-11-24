@@ -9,11 +9,23 @@
  },
  "titre": {
   "en": "snowy runs do and don’ts",
-  "fr": "sous la neige : les do & don’ts"
+  "fr": "sous la neige : les do & don’ts",
+  "de": "im schnee laufen: die do & don’ts",
+  "it": "corsa sulla neve: i do & don’ts",
+  "es-419": "correr en la nieve: los do & don’ts",
+  "hu": "futás hóban: a do & don’ts",
+  "ro": "alergat pe zăpadă: do & don’ts",
+  "tr": "karda koşu: do & don’ts"
  },
  "legendes": {
   "en": "#running #winterrunning #snowrun #runningtips #girlswhorun",
-  "fr": "#courseapied #hiver #neige #conseil #girlswhorun"
+  "fr": "#courseapied #hiver #neige #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu"
  },
  "musique": {
   "titre": "Housewife",
@@ -29,6 +41,24 @@
    },
    "fr": {
     "titre": "sous la neige :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "im schnee laufen:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "corsa sulla neve:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "correr en la nieve:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "futás hóban:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "alergat pe zăpadă:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "karda koşu:\ndo & don’ts"
    }
   },
   {
@@ -64,6 +94,78 @@
     "dont": [
      "un t-shirt\nen coton",
      "des semelles\ntoutes lisses"
+    ]
+   },
+   "de": {
+    "titre": "vor dem lauf",
+    "do": [
+     "trailschuhe\nmit grip",
+     "coach-app\nwie atala",
+     "fäustlinge"
+    ],
+    "dont": [
+     "baumwollshirt",
+     "glatte sohlen"
+    ]
+   },
+   "it": {
+    "titre": "prima di uscire",
+    "do": [
+     "scarpe che\nfanno presa",
+     "app coach\ncome atala",
+     "guanti caldi"
+    ],
+    "dont": [
+     "una maglia\nin cotone",
+     "suole lisce"
+    ]
+   },
+   "es-419": {
+    "titre": "antes de salir",
+    "do": [
+     "tenis con\nbuen agarre",
+     "app con coach\ncomo atala",
+     "buenos guantes"
+    ],
+    "dont": [
+     "una playera\nde algodón",
+     "suelas lisas"
+    ]
+   },
+   "hu": {
+    "titre": "indulás előtt",
+    "do": [
+     "terepcipő\njó tapadással",
+     "edzős app,\nmint az atala",
+     "meleg kesztyű"
+    ],
+    "dont": [
+     "pamutpóló",
+     "sima talp"
+    ]
+   },
+   "ro": {
+    "titre": "înainte să ieși",
+    "do": [
+     "încălțări\ncu aderență",
+     "aplicație de\ncoach ca atala",
+     "mănuși calde"
+    ],
+    "dont": [
+     "tricou\nde bumbac",
+     "tălpi netede"
+    ]
+   },
+   "tr": {
+    "titre": "çıkmadan önce",
+    "do": [
+     "iyi tutan\ntrail ayakkabı",
+     "atala gibi\nkoç uygulaması",
+     "sıcak eldiven"
+    ],
+    "dont": [
+     "pamuklu tişört",
+     "düz taban"
     ]
    }
   },
@@ -101,6 +203,78 @@
      "viser\nun record",
      "deux écouteurs"
     ]
+   },
+   "de": {
+    "titre": "draußen",
+    "do": [
+     "kurze schritte",
+     "sonnenbrille",
+     "eine mütze"
+    ],
+    "dont": [
+     "bestzeit jagen",
+     "beide\nkopfhörer drin"
+    ]
+   },
+   "it": {
+    "titre": "fuori",
+    "do": [
+     "passi corti,\nritmo lento",
+     "occhiali\nda sole",
+     "un berretto"
+    ],
+    "dont": [
+     "inseguire\nil record",
+     "entrambi\ngli auricolari"
+    ]
+   },
+   "es-419": {
+    "titre": "afuera",
+    "do": [
+     "pasos cortos,\nritmo lento",
+     "lentes de sol",
+     "un gorro"
+    ],
+    "dont": [
+     "buscar\nun récord",
+     "audífonos\nen ambos oídos"
+    ]
+   },
+   "hu": {
+    "titre": "kint",
+    "do": [
+     "rövid lépés,\nlassú tempó",
+     "napszemüveg",
+     "egy sapka"
+    ],
+    "dont": [
+     "csúcsra hajtás",
+     "fülhallgató\nmindkét fülben"
+    ]
+   },
+   "ro": {
+    "titre": "afară",
+    "do": [
+     "pași mici,\nritm lent",
+     "ochelari\nde soare",
+     "o căciulă"
+    ],
+    "dont": [
+     "vânătoare\nde record",
+     "ambele căști"
+    ]
+   },
+   "tr": {
+    "titre": "dışarıda",
+    "do": [
+     "kısa adım,\nyavaş tempo",
+     "güneş gözlüğü",
+     "bir bere"
+    ],
+    "dont": [
+     "rekor peşinde",
+     "çift kulaklık"
+    ]
    }
   },
   {
@@ -136,6 +310,78 @@
     "dont": [
      "sèche-cheveux\nsur baskets",
      "scroller\nencore trempée"
+    ]
+   },
+   "de": {
+    "titre": "zu hause",
+    "do": [
+     "heißer tee",
+     "gleich was\ntrockenes an",
+     "zeitung in\nden schuhen"
+    ],
+    "dont": [
+     "föhn auf\nden schuhen",
+     "nass am\nhandy hängen"
+    ]
+   },
+   "it": {
+    "titre": "a casa",
+    "do": [
+     "un tè caldo",
+     "abiti asciutti",
+     "giornale\nnelle scarpe"
+    ],
+    "dont": [
+     "il phon\nsulle scarpe",
+     "scrollare\nda fradicia"
+    ]
+   },
+   "es-419": {
+    "titre": "en casa",
+    "do": [
+     "un té caliente",
+     "ropa seca\nde inmediato",
+     "periódico en\nlos tenis"
+    ],
+    "dont": [
+     "secadora en\nlos tenis",
+     "scrollear\ntoda mojada"
+    ]
+   },
+   "hu": {
+    "titre": "otthon",
+    "do": [
+     "forró tea",
+     "azonnal\nszáraz ruha",
+     "újságpapír\na cipőben"
+    ],
+    "dont": [
+     "hajszárító\na cipőn",
+     "görgetés\nvizes ruhában"
+    ]
+   },
+   "ro": {
+    "titre": "acasă",
+    "do": [
+     "ceai fierbinte",
+     "imediat\nhaine uscate",
+     "ziare\nîn pantofi"
+    ],
+    "dont": [
+     "uscător de păr\npe pantofi",
+     "scroll\nîn hainele ude"
+    ]
+   },
+   "tr": {
+    "titre": "eve dönünce",
+    "do": [
+     "sıcak çay",
+     "hemen\nkuru kıyafet",
+     "ayakkabıya\ngazete kâğıdı"
+    ],
+    "dont": [
+     "ayakkabıya fön",
+     "ıslak halde\nscroll yapmak"
     ]
    }
   }

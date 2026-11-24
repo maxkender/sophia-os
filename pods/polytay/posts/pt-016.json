@@ -1,0 +1,616 @@
+{
+ "id": "pt-016",
+ "titre": {
+  "en": "hobbies to start this winter that make you more interesting",
+  "fr": "hobbies à commencer cet hiver pour devenir plus intéressante",
+  "es": "hobbies para empezar este invierno que te hacen más interesante",
+  "es-419": "hobbies para empezar este invierno que te hacen más interesante",
+  "it": "hobby da iniziare quest'inverno che ti rendono più interessante",
+  "tr": "bu kış başlayıp seni daha ilginç yapacak hobiler",
+  "pt-BR": "hobbies pra começar nesse inverno que te deixam mais interessante",
+  "sl": "hobiji za to zimo, zaradi katerih boš bolj zanimiva",
+  "de": "hobbys für diesen winter, die dich interessanter machen",
+  "sk": "koníčky na túto zimu, vďaka ktorým budeš zaujímavejšia",
+  "sv": "hobbys att börja med i vinter som gör dig mer intressant"
+ },
+ "legendes": {
+  "en": "winter is long, make it the season you learned something. pick one <3 #girlblogger #winterhobbies #learning #selfimprovement #booktok",
+  "fr": "l'hiver est long, fais-en la saison où tu as appris quelque chose. choisis-en un <3 #girlblogger #hobbiesdhiver #apprendre #developpementpersonnel #booktokfrance",
+  "es": "el invierno es largo, haz que sea la estación en la que aprendiste algo. elige uno <3 #girlblogger #hobbiesdeinvierno #aprender #desarrollopersonal #booktokespaña",
+  "es-419": "el invierno es largo, que sea la temporada en la que aprendiste algo. elige uno <3 #girlblogger #hobbiesdeinvierno #aprender #desarrollopersonal #booktoklatam",
+  "it": "l'inverno è lungo, fanne la stagione in cui hai imparato qualcosa. scegline uno <3 #girlblogger #hobbyinvernali #imparare #crescitapersonale #booktokitalia",
+  "tr": "kış uzun, onu bir şey öğrendiğin mevsim yap. birini seç <3 #girlblogger #kışhobileri #öğrenmek #kişiselgelişim #booktoktürkiye",
+  "pt-BR": "o inverno é longo, faz dele a estação em que você aprendeu algo. escolhe um <3 #girlblogger #hobbiesdeinverno #aprender #autodesenvolvimento #booktokbrasil",
+  "sl": "zima je dolga, naj bo letni čas, ko si se nečesa naučila. izberi enega <3 #girlblogger #zimskihobiji #učenje #osebnirazvoj #booktok",
+  "de": "der winter ist lang, mach ihn zu der jahreszeit, in der du etwas gelernt hast. such dir eins aus <3 #girlblogger #winterhobbys #lernen #selbstverbesserung #booktokdeutschland",
+  "sk": "zima je dlhá, nech je to obdobie, keď si sa niečo naučila. vyber si jeden <3 #girlblogger #zimnekonicky #ucenie #osobnyrozvoj #booktok",
+  "sv": "vintern är lång, gör den till årstiden då du lärde dig något. välj en <3 #girlblogger #vinterhobbys #lärande #självutveckling #booktoksverige"
+ },
+ "musique": {
+  "titre": "life is moving",
+  "url": "https://www.tiktok.com/music/life-is-moving-7537780321103005713"
+ },
+ "notes": "Full test (BLEO, 24/11) : accroche neuve chez nous, au gabarit de son tube. Éléments à nous : la calligraphie, apprendre les oiseaux de sa fenêtre, Sophia, le go (le plus ancien jeu de plateau encore joué, né en chine il y a plus de 2 500 ans : formulé prudemment), un jardin botanique chaque mois. Slide Sophia (4) : « 3. one lesson a night », cta C. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-ombrelle-jardin.jpg": "a289feac-c76a-41fc-be8a-16b0a64558dc",
+  "images/banque/jardin-vue.jpg": "40a85b56-a8fc-4790-bf65-989fe036a8d5",
+  "images/banque/carnet-rouge-cuillere.jpg": "00b3be1d-1ced-45e6-9fb3-72b2dbf93789",
+  "images/banque/main-ecriture.jpg": "0c3314cb-73a9-4715-8e83-cd2f4082896d",
+  "images/banque/oiseaux-mur.jpg": "e9d45800-a430-467f-8025-cf62ab3adc4e",
+  "images/banque/oiseau-main.jpg": "65482ccb-458f-48ae-ac8c-701aef1e1db9",
+  "images/banque/jeu-de-go.jpg": "e735b4b5-3b6e-4245-8e8b-c57e2ec30e29",
+  "images/banque/jardin-montagne.jpg": "f9e4042b-80df-4ed7-aba2-cd74e6a5fe2a",
+  "images/banque/cerisier.jpg": "fc94796d-59fc-46d7-81dc-1d1b40d1bd6a",
+  "images/banque/arbre-fleuri.jpg": "55cd211e-1790-4d9c-ac8f-e487d2f799ce",
+  "images/banque/ciel-rose-mer.jpg": "0014a691-74d1-4654-9a23-a478c9903a23"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-ombrelle-jardin.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/jardin-vue.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 530
+   },
+   "en": {
+    "titre": "hobbies to start\nthis winter that\nmake you more\ninteresting"
+   },
+   "fr": {
+    "titre": "hobbies à\ncommencer cet hiver\npour devenir plus\nintéressante"
+   },
+   "es": {
+    "titre": "hobbies para\nempezar este\ninvierno que te\nhacen más\ninteresante"
+   },
+   "es-419": {
+    "titre": "hobbies para\nempezar este\ninvierno que te\nhacen más\ninteresante"
+   },
+   "it": {
+    "titre": "hobby da iniziare\nquest'inverno che ti\nrendono più\ninteressante"
+   },
+   "tr": {
+    "titre": "bu kış başlayıp\nseni daha ilginç\nyapacak hobiler"
+   },
+   "pt-BR": {
+    "titre": "hobbies pra começar\nnesse inverno que te\ndeixam mais\ninteressante"
+   },
+   "sl": {
+    "titre": "hobiji za to zimo,\nzaradi katerih boš\nbolj zanimiva"
+   },
+   "de": {
+    "titre": "hobbys für diesen\nwinter, die dich\ninteressanter\nmachen"
+   },
+   "sk": {
+    "titre": "koníčky na túto\nzimu, vďaka ktorým\nbudeš zaujímavejšia"
+   },
+   "sv": {
+    "titre": "hobbys att börja\nmed i vinter som\ngör dig mer\nintressant"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/carnet-rouge-cuillere.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/main-ecriture.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. calligraphy",
+    "paragraphes": [
+     "A pen, a notebook and ten minutes a night. copy one short poem in your best handwriting and look up who wrote it.",
+     "Your handwriting gets beautiful, and you end the winter with a notebook of poems"
+    ]
+   },
+   "fr": {
+    "titre": "1. la calligraphie",
+    "paragraphes": [
+     "Un stylo, un carnet et dix minutes par soir. recopie un court poème de ta plus belle écriture et cherche qui l'a écrit.",
+     "Ton écriture devient belle, et tu finis l'hiver avec un carnet de poèmes"
+    ]
+   },
+   "es": {
+    "titre": "1. caligrafía",
+    "paragraphes": [
+     "Un boli, una libreta y diez minutos cada noche. copia un poema corto con tu mejor letra y busca quién lo escribió.",
+     "Tu letra se vuelve bonita, y acabas el invierno con una libreta de poemas"
+    ]
+   },
+   "es-419": {
+    "titre": "1. caligrafía",
+    "paragraphes": [
+     "Una pluma, un cuaderno y diez minutos cada noche. copia un poema corto con tu mejor letra y busca quién lo escribió.",
+     "Tu letra se vuelve bonita, y terminas el invierno con un cuaderno de poemas"
+    ]
+   },
+   "it": {
+    "titre": "1. la calligrafia",
+    "paragraphes": [
+     "Una penna, un quaderno e dieci minuti ogni sera. ricopia una breve poesia con la tua grafia più bella e cerca chi l'ha scritta.",
+     "La tua grafia diventa bellissima, e finisci l'inverno con un quaderno di poesie"
+    ]
+   },
+   "tr": {
+    "titre": "1. kaligrafi",
+    "paragraphes": [
+     "Bir kalem, bir defter ve her gece on dakika. kısa bir şiiri en güzel yazınla kopyala ve kimin yazdığına bak.",
+     "Yazın güzelleşir, ve kışı bir şiir defteriyle bitirirsin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. caligrafia",
+    "paragraphes": [
+     "Uma caneta, um caderno e dez minutos por noite. copia um poema curto com a sua letra mais bonita e pesquisa quem escreveu.",
+     "Sua letra fica linda, e você termina o inverno com um caderno de poemas"
+    ]
+   },
+   "sl": {
+    "titre": "1. kaligrafija",
+    "paragraphes": [
+     "Pisalo, zvezek in deset minut vsak večer. v najlepši pisavi prepiši kratko pesem in poišči, kdo jo je napisal.",
+     "Pisava ti postane lepa, in zimo končaš z zvezkom pesmi"
+    ]
+   },
+   "de": {
+    "titre": "1. kalligrafie",
+    "paragraphes": [
+     "Ein stift, ein heft und zehn minuten am abend. schreib ein kurzes gedicht in deiner schönsten schrift ab und schau nach, wer es geschrieben hat.",
+     "Deine schrift wird schön, und du beendest den winter mit einem heft voller gedichte"
+    ]
+   },
+   "sk": {
+    "titre": "1. kaligrafia",
+    "paragraphes": [
+     "Pero, zošit a desať minút každý večer. prepíš krátku báseň svojím najkrajším písmom a zisti, kto ju napísal.",
+     "Písmo ti skrásnie, a zimu zakončíš so zošitom básní"
+    ]
+   },
+   "sv": {
+    "titre": "1. kalligrafi",
+    "paragraphes": [
+     "En penna, ett block och tio minuter varje kväll. skriv av en kort dikt med din finaste handstil och ta reda på vem som skrev den.",
+     "Handstilen blir vacker, och du avslutar vintern med en bok full av dikter"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/oiseaux-mur.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/oiseau-main.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. the birds outside your window",
+    "paragraphes": [
+     "Learn the names of the birds you see every day. start with three, and notice which ones stay all winter.",
+     "Every walk turns into a little game of spotting, and you start hearing them everywhere"
+    ]
+   },
+   "fr": {
+    "titre": "2. les oiseaux de ta fenêtre",
+    "paragraphes": [
+     "Apprends le nom des oiseaux que tu vois chaque jour. commence par trois, et regarde lesquels restent tout l'hiver.",
+     "Chaque balade devient un petit jeu, et tu les entends soudain partout"
+    ]
+   },
+   "es": {
+    "titre": "2. los pájaros de tu ventana",
+    "paragraphes": [
+     "Aprende el nombre de los pájaros que ves cada día. empieza por tres, y fíjate en cuáles se quedan todo el invierno.",
+     "Cada paseo se convierte en un juego, y de repente los oyes por todas partes"
+    ]
+   },
+   "es-419": {
+    "titre": "2. los pájaros de tu ventana",
+    "paragraphes": [
+     "Aprende el nombre de los pájaros que ves todos los días. empieza con tres, y fíjate cuáles se quedan todo el invierno.",
+     "Cada caminata se vuelve un juego, y de pronto los escuchas por todos lados"
+    ]
+   },
+   "it": {
+    "titre": "2. gli uccelli fuori dalla finestra",
+    "paragraphes": [
+     "Impara il nome degli uccelli che vedi ogni giorno. inizia da tre, e nota quali restano tutto l'inverno.",
+     "Ogni passeggiata diventa un piccolo gioco, e all'improvviso li senti ovunque"
+    ]
+   },
+   "tr": {
+    "titre": "2. penceredeki kuşlar",
+    "paragraphes": [
+     "Her gün gördüğün kuşların adlarını öğren. üç taneyle başla, ve hangilerinin bütün kış kaldığına dikkat et.",
+     "Her yürüyüş küçük bir oyuna dönüşür, ve birden onları her yerde duymaya başlarsın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. os pássaros da sua janela",
+    "paragraphes": [
+     "Aprende o nome dos pássaros que você vê todo dia. começa com três, e repara quais ficam o inverno inteiro.",
+     "Cada caminhada vira um joguinho, e de repente você escuta eles em todo lugar"
+    ]
+   },
+   "sl": {
+    "titre": "2. ptice pred oknom",
+    "paragraphes": [
+     "Nauči se imen ptic, ki jih vidiš vsak dan. začni s tremi in opazuj, katere ostanejo vso zimo.",
+     "Vsak sprehod postane mala igra, in naenkrat jih slišiš povsod"
+    ]
+   },
+   "de": {
+    "titre": "2. die vögel vor deinem fenster",
+    "paragraphes": [
+     "Lern die namen der vögel, die du jeden tag siehst. fang mit drei an und achte darauf, welche den ganzen winter bleiben.",
+     "Jeder spaziergang wird zum kleinen spiel, und plötzlich hörst du sie überall"
+    ]
+   },
+   "sk": {
+    "titre": "2. vtáky za oknom",
+    "paragraphes": [
+     "Nauč sa mená vtákov, ktoré vidíš každý deň. začni troma a všímaj si, ktoré ostávajú celú zimu.",
+     "Každá prechádzka sa zmení na malú hru, a zrazu ich počuješ všade"
+    ]
+   },
+   "sv": {
+    "titre": "2. fåglarna utanför fönstret",
+    "paragraphes": [
+     "Lär dig namnen på fåglarna du ser varje dag. börja med tre, och lägg märke till vilka som stannar hela vintern.",
+     "Varje promenad blir en liten lek, och plötsligt hör du dem överallt"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/ciel-rose-mer.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson a night",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. it's my little winter ritual under the blanket.",
+     "Ten minutes, and the long dark evenings suddenly feel useful"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon par soir",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. c'est mon petit rituel d'hiver sous le plaid.",
+     "Dix minutes, et les longues soirées noires deviennent soudain utiles"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección cada noche",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. es mi ritual de invierno bajo la manta.",
+     "Diez minutos, y las noches largas y oscuras de repente sirven para algo"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección cada noche",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. es mi ritual de invierno bajo la cobija.",
+     "Diez minutos, y las noches largas y oscuras de pronto se vuelven útiles"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione a sera",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. è il mio rituale d'inverno sotto la coperta.",
+     "Dieci minuti, e le lunghe sere buie diventano all'improvviso utili"
+    ]
+   },
+   "tr": {
+    "titre": "3. her gece bir ders",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. battaniyenin altındaki kış ritüelim bu.",
+     "On dakika, ve uzun karanlık akşamlar birden işe yarar hâle geliyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula por noite",
+    "paragraphes": [
+     "Uma aula por dia no Sophia, tipo por que a gente sonha, com um quiz no final. é meu ritualzinho de inverno debaixo da coberta.",
+     "Dez minutos, e as noites longas e escuras de repente ficam úteis"
+    ]
+   },
+   "sl": {
+    "titre": "3. ena lekcija na večer",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. to je moj zimski obred pod odejo.",
+     "Deset minut, in dolgi temni večeri so nenadoma koristni"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion am abend",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. mein kleines winterritual unter der decke.",
+     "Zehn minuten, und die langen dunklen abende sind plötzlich nützlich"
+    ]
+   },
+   "sk": {
+    "titre": "3. jedna lekcia každý večer",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. môj malý zimný rituál pod dekou.",
+     "Desať minút a dlhé tmavé večery sú zrazu užitočné"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion varje kväll",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. min lilla vinterritual under filten.",
+     "Tio minuter, och de långa mörka kvällarna känns plötsligt meningsfulla"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/jeu-de-go.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/jardin-montagne.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. the game of go",
+    "paragraphes": [
+     "Learn go, a board game born in china thousands of years ago. black and white stones, very simple rules, endless strategy.",
+     "It teaches you patience, and it's the most beautiful board you'll ever play on"
+    ]
+   },
+   "fr": {
+    "titre": "4. le jeu de go",
+    "paragraphes": [
+     "Apprends le go, un jeu de plateau né en chine il y a des milliers d'années. des pierres noires et blanches, des règles simples, une stratégie sans fin.",
+     "Ça t'apprend la patience, et c'est le plus beau plateau sur lequel tu joueras"
+    ]
+   },
+   "es": {
+    "titre": "4. el juego del go",
+    "paragraphes": [
+     "Aprende go, un juego de mesa nacido en china hace miles de años. piedras blancas y negras, reglas muy simples, estrategia infinita.",
+     "Te enseña paciencia, y es el tablero más bonito en el que jugarás"
+    ]
+   },
+   "es-419": {
+    "titre": "4. el juego de go",
+    "paragraphes": [
+     "Aprende go, un juego de mesa que nació en china hace miles de años. piedras blancas y negras, reglas muy simples, estrategia infinita.",
+     "Te enseña paciencia, y es el tablero más bonito en el que vas a jugar"
+    ]
+   },
+   "it": {
+    "titre": "4. il gioco del go",
+    "paragraphes": [
+     "Impara il go, un gioco da tavolo nato in cina migliaia di anni fa. pietre bianche e nere, regole semplicissime, strategia infinita.",
+     "Ti insegna la pazienza, ed è la scacchiera più bella su cui giocherai"
+    ]
+   },
+   "tr": {
+    "titre": "4. go oyunu",
+    "paragraphes": [
+     "Go'yu öğren, binlerce yıl önce çin'de doğmuş bir masa oyunu. siyah ve beyaz taşlar, çok basit kurallar, sonsuz strateji.",
+     "Sana sabrı öğretir, ve oynayacağın en güzel oyun tahtasıdır"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. o jogo de go",
+    "paragraphes": [
+     "Aprende go, um jogo de tabuleiro que nasceu na china há milhares de anos. pedras pretas e brancas, regras bem simples, estratégia infinita.",
+     "Te ensina paciência, e é o tabuleiro mais bonito em que você vai jogar"
+    ]
+   },
+   "sl": {
+    "titre": "4. igra go",
+    "paragraphes": [
+     "Nauči se goja, namizne igre, ki se je pred tisočletji rodila na kitajskem. črni in beli kamni, preprosta pravila, neskončna strategija.",
+     "Nauči te potrpežljivosti, in je najlepša igralna plošča, na kateri boš igrala"
+    ]
+   },
+   "de": {
+    "titre": "4. das spiel go",
+    "paragraphes": [
+     "Lern go, ein brettspiel, das vor tausenden von jahren in china entstand. schwarze und weiße steine, ganz einfache regeln, endlose strategie.",
+     "Es lehrt dich geduld, und es ist das schönste spielbrett, auf dem du je spielst"
+    ]
+   },
+   "sk": {
+    "titre": "4. hra go",
+    "paragraphes": [
+     "Nauč sa go, doskovú hru, ktorá vznikla v číne pred tisíckami rokov. čierne a biele kamene, veľmi jednoduché pravidlá, nekonečná stratégia.",
+     "Naučí ťa trpezlivosti, a je to najkrajšia doska, na ktorej budeš hrať"
+    ]
+   },
+   "sv": {
+    "titre": "4. brädspelet go",
+    "paragraphes": [
+     "Lär dig go, ett brädspel som föddes i kina för tusentals år sedan. svarta och vita stenar, enkla regler, oändlig strategi.",
+     "Det lär dig tålamod, och det är det vackraste bräde du kommer att spela på"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/cerisier.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/arbre-fleuri.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. a botanical garden every month",
+    "paragraphes": [
+     "Go to a botanical garden once a month and learn the names of five plants. come back in spring to see them change.",
+     "You'll never look at a park the same way again"
+    ]
+   },
+   "fr": {
+    "titre": "5. un jardin botanique par mois",
+    "paragraphes": [
+     "Va dans un jardin botanique une fois par mois et apprends le nom de cinq plantes. reviens au printemps pour les voir changer.",
+     "Tu ne regarderas plus jamais un parc de la même façon"
+    ]
+   },
+   "es": {
+    "titre": "5. un jardín botánico cada mes",
+    "paragraphes": [
+     "Ve a un jardín botánico una vez al mes y aprende el nombre de cinco plantas. vuelve en primavera para verlas cambiar.",
+     "Nunca volverás a mirar un parque igual"
+    ]
+   },
+   "es-419": {
+    "titre": "5. un jardín botánico cada mes",
+    "paragraphes": [
+     "Ve a un jardín botánico una vez al mes y aprende el nombre de cinco plantas. regresa en primavera para verlas cambiar.",
+     "Nunca vas a volver a ver un parque igual"
+    ]
+   },
+   "it": {
+    "titre": "5. un orto botanico ogni mese",
+    "paragraphes": [
+     "Vai in un orto botanico una volta al mese e impara il nome di cinque piante. torna in primavera per vederle cambiare.",
+     "Non guarderai mai più un parco allo stesso modo"
+    ]
+   },
+   "tr": {
+    "titre": "5. her ay bir botanik bahçesi",
+    "paragraphes": [
+     "Ayda bir botanik bahçesine git ve beş bitkinin adını öğren. baharda değiştiklerini görmek için geri dön.",
+     "Bir parka bir daha asla aynı gözle bakmazsın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. um jardim botânico por mês",
+    "paragraphes": [
+     "Vai a um jardim botânico uma vez por mês e aprende o nome de cinco plantas. volta na primavera pra ver elas mudarem.",
+     "Você nunca mais vai olhar pra um parque do mesmo jeito"
+    ]
+   },
+   "sl": {
+    "titre": "5. botanični vrt vsak mesec",
+    "paragraphes": [
+     "Enkrat na mesec pojdi v botanični vrt in se nauči imen petih rastlin. spomladi se vrni in poglej, kako so se spremenile.",
+     "Na park ne boš nikoli več gledala enako"
+    ]
+   },
+   "de": {
+    "titre": "5. jeden monat ein botanischer garten",
+    "paragraphes": [
+     "Geh einmal im monat in einen botanischen garten und lern die namen von fünf pflanzen. komm im frühling wieder und sieh, wie sie sich verändern.",
+     "Du wirst einen park nie wieder mit denselben augen sehen"
+    ]
+   },
+   "sk": {
+    "titre": "5. botanická záhrada každý mesiac",
+    "paragraphes": [
+     "Raz mesačne choď do botanickej záhrady a nauč sa mená piatich rastlín. na jar sa vráť a pozri, ako sa zmenili.",
+     "Na park sa už nikdy nebudeš pozerať rovnako"
+    ]
+   },
+   "sv": {
+    "titre": "5. botanisk trädgård varje månad",
+    "paragraphes": [
+     "Gå till en botanisk trädgård en gång i månaden och lär dig namnen på fem växter. kom tillbaka på våren och se dem förändras.",
+     "Du kommer aldrig att se på en park på samma sätt igen"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

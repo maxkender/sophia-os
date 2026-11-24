@@ -420,3 +420,94 @@ export function reservationPerimee(reserveAt: string | null | undefined, mainten
   const t = reserveAt ? new Date(reserveAt).getTime() : NaN;
   return !Number.isFinite(t) || maintenant - t > RESERVATION_PERIMEE_MS;
 }
+
+// ---------------------------------------------------------------------------
+// 24/11 : rejeu des signés bloqués (action `rejouer_bloques`).
+
+/** Ce que l'OS sait d'un signé bloqué : sa candidature (copie du site) et sa réservation. */
+export interface CandidatureBloquee {
+  site_id: string;
+  nom: string | null;
+  email: string | null;
+  pays: string | null;
+  pays_brut: string | null;
+  ref: string | null;
+  ruul_email: string | null;
+  start_monday: string | null;
+}
+
+export interface ReservationBloquee {
+  hub_id: string;
+  email_perso: string | null;
+  pays_code: string | null;
+  applications: string[] | null;
+  debut_le: string | null;
+}
+
+/** « Γιαννης Γιαννουλακης » → prénom « Γιαννης », nom « Γιαννουλακης » (premier mot / le reste). */
+export function separerNom(complet: string | null | undefined): { prenom: string; nom: string } {
+  const mots = String(complet ?? "").trim().split(/\s+/).filter(Boolean);
+  return { prenom: mots[0] ?? "", nom: mots.slice(1).join(" ") };
+}
+
+/** Le lundi de départ : celui de la candidature s'il n'est pas passé, sinon le premier lundi après aujourd'hui. */
+export function lundiDeDepart(start: string | null | undefined, aujourdhui: string): string | null {
+  const s = dateIso(start);
+  if (s && s >= aujourdhui) return s;
+  const d = new Date(`${aujourdhui}T00:00:00Z`);
+  if (Number.isNaN(d.getTime())) return s;
+  const isoJour = d.getUTCDay() === 0 ? 7 : d.getUTCDay();
+  d.setUTCDate(d.getUTCDate() + (8 - isoJour));
+  return d.toISOString().slice(0, 10);
+}
+
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+/**
+ * Le corps que le site aurait envoyé à `creer_posteur` pour ce signé, reconstruit depuis
+ * `ruul_candidatures` et `hub_posteurs`, avec la zone et le tarif de la semaine de l'OS
+ * (`zones_paie_pays` → `zones_paie`). `manques` : ce qui manque ou est douteux (le rejeu l'écarte).
+ */
+export function corpsRejeu(
+  c: CandidatureBloquee,
+  r: ReservationBloquee,
+  paysOuverts: PaysOuvert[],
+  tarifs: Readonly<Record<string, number | null>>,
+  aujourdhui: string,
+): { corps: Record<string, unknown>; manques: string[] } {
+  const { prenom, nom } = separerNom(c.nom);
+  const pays = codePays(r.pays_code ?? c.pays, c.pays_brut);
+  const zone = pays ? paysOuverts.find((p) => p.pays === pays)?.zone ?? null : null;
+  const tarif = zone ? tarifs[zone] ?? null : null;
+  const emailPerso = String(r.email_perso ?? c.email ?? "").trim().toLowerCase();
+  const ruulEmail = String(c.ruul_email ?? "").trim().toLowerCase();
+  const start = lundiDeDepart(c.start_monday ?? r.debut_le, aujourdhui);
+  const corps: Record<string, unknown> = {
+    action: "creer_posteur",
+    hub_id: r.hub_id,
+    prenom,
+    nom,
+    email_perso: emailPerso,
+    pays_code: pays,
+    pays_nom: c.pays_brut ?? null,
+    applications: r.applications ?? [],
+    ruul_email: ruulEmail,
+    ref: c.ref ?? null,
+    plateforme_paie: "ruul",
+    zone,
+    tarif_semaine: tarif,
+    start_monday: start,
+    application_id: c.site_id,
+  };
+  const manques: string[] = [];
+  if (!estUuid(r.hub_id)) manques.push("hub_id");
+  if (!prenom) manques.push("prenom");
+  if (!nom) manques.push("nom");
+  if (!EMAIL.test(emailPerso)) manques.push("email_perso");
+  if (!EMAIL.test(ruulEmail)) manques.push("ruul_email");
+  if (!pays) manques.push("pays_code");
+  else if (!zone) manques.push("pays_non_ouvert");
+  if (zone && !(Number(tarif) > 0)) manques.push("tarif_semaine");
+  if (!start) manques.push("start_monday");
+  return { corps, manques };
+}

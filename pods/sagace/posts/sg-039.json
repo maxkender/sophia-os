@@ -1,0 +1,1785 @@
+{
+ "id": "sg-039",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "62494e58-f4d6-46eb-89e2-178d6812c1f0",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7676494598587419937",
+  "vues": 81500,
+  "publie_le": "2026-08-21",
+  "accroche": "Les compétences 10/10 que tu peux apprendre en un jour"
+ },
+ "titre": {
+  "fr": "Les compétences 10/10 que tu peux apprendre en un jour",
+  "en": "10/10 skills you can learn in one day",
+  "de": "10/10-Skills, die du an einem Tag lernen kannst",
+  "it": "Abilità da 10/10 che puoi imparare in un giorno",
+  "pt-BR": "Habilidades nota 10 que você pode aprender em um dia",
+  "tr": "Bir günde öğrenebileceğin 10/10 beceriler",
+  "ro": "Abilități de 10/10 pe care le poți învăța într-o zi",
+  "cs": "Dovednosti na 10/10, které se naučíš za jeden den",
+  "hu": "10/10-es készségek, amiket egy nap alatt megtanulhatsz",
+  "el": "Δεξιότητες 10/10 που μπορείς να μάθεις σε μία μέρα",
+  "sr": "Veštine 10/10 koje možeš da naučiš za jedan dan"
+ },
+ "legendes": {
+  "fr": "Les compétences 10/10 que tu peux apprendre en un jour #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills you can learn in one day #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die du an einem Tag lernen kannst #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità da 10/10 che puoi imparare in un giorno #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades nota 10 que você pode aprender em um dia #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Bir günde öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități de 10/10 pe care le poți învăța într-o zi #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti na 10/10, které se naučíš za jeden den #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10-es készségek, amiket egy nap alatt megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 που μπορείς να μάθεις σε μία μέρα #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 koje možeš da naučiš za jedan dan #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "sonido original - Lexn🧛🏽",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "Déclinaison G1 de sg-006 (« Les compétences 10/10 que tu peux apprendre en un jour », routine du 24/11) : titre, légende et couverture de sg-006 mot pour mot (hu, el, sr traduits). Autres compétences : œuf poché, PLS, mayonnaise maison, tour de cartes facile, couper un ananas ; autres vraies vidéos natives. Sophia en étape 4 sur 7, cta B « DEVENIR / INCOLLABLE ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 138
+     },
+     {
+      "t": "QUE TU PEUX",
+      "cap": 120
+     },
+     {
+      "t": "APPRENDRE",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "EN UNE JOURNÉE",
+      "cap": 118
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 138
+     },
+     {
+      "t": "YOU CAN",
+      "cap": 120
+     },
+     {
+      "t": "LEARN",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "IN ONE DAY",
+      "cap": 118
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS, DIE DU",
+      "cap": 138
+     },
+     {
+      "t": "AN EINEM TAG",
+      "cap": 120
+     },
+     {
+      "t": "LERNEN",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "KANNST",
+      "cap": 118
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 138
+     },
+     {
+      "t": "CHE PUOI",
+      "cap": 120
+     },
+     {
+      "t": "IMPARARE",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "IN UN GIORNO",
+      "cap": 118
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "QUE VOCÊ PODE",
+      "cap": 120
+     },
+     {
+      "t": "APRENDER",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "EM UM DIA",
+      "cap": 118
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "BİR GÜNDE",
+      "cap": 138
+     },
+     {
+      "t": "ÖĞRENEBİLECEĞİN",
+      "couleur": "brun",
+      "cap": 175
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 138
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 138
+     },
+     {
+      "t": "PE CARE LE POȚI",
+      "cap": 120
+     },
+     {
+      "t": "ÎNVĂȚA",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "ÎNTR-O ZI",
+      "cap": 118
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "cap": 138
+     },
+     {
+      "t": "KTERÉ SE",
+      "cap": 120
+     },
+     {
+      "t": "NAUČÍŠ",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "ZA JEDEN DEN",
+      "cap": 118
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 138
+     },
+     {
+      "t": "AMIKET EGY NAP ALATT",
+      "cap": 120
+     },
+     {
+      "t": "MEGTANULHATSZ",
+      "couleur": "brun",
+      "cap": 190
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "cap": 138
+     },
+     {
+      "t": "ΠΟΥ ΜΠΟΡΕΙΣ",
+      "cap": 120
+     },
+     {
+      "t": "ΝΑ ΜΑΘΕΙΣ",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "ΣΕ ΜΙΑ ΜΕΡΑ",
+      "cap": 118
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 138
+     },
+     {
+      "t": "KOJE MOŽEŠ DA",
+      "cap": 120
+     },
+     {
+      "t": "NAUČIŠ",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "ZA JEDAN DAN",
+      "cap": 118
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉUSSIR",
+     [
+      {
+       "t": "UN ŒUF POCHÉ",
+       "couleur": "#f2a516"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WcaYANOUSRY",
+     "titre": "Réaliser un oeuf poché - 750g",
+     "chaine": "750g",
+     "vues": "1,4 M de vues",
+     "date": "il y a 14 ans",
+     "duree": "2:16",
+     "avatar": "https://yt3.ggpht.com/JcO3vwva6-fbfK_Rm2dIdIRQ4-owfjiYZKQabYPcNMvdsN9ClM0JRf5K9_fgQKhrVl8Qrpn5AHI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "POACH",
+       "couleur": "#f2a516"
+      }
+     ],
+     "AN EGG"
+    ],
+    "video": {
+     "id": "0sl3eMAXspE",
+     "titre": "How to Poach Eggs For Beginners | Food Network",
+     "chaine": "Food Network",
+     "vues": "6.1M views",
+     "date": "9 years ago",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/AHHVxk0AS_wQ4s3QybW6z388ZvCwd_yKU2PZpSr7B_hNx5I98aEH3AzR37Qv2NRusMlRHGRV1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN EI",
+     [
+      {
+       "t": "POCHIEREN",
+       "couleur": "#f2a516"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hJdRfMTX6Tw",
+     "titre": "Das BESTE pochiertes Ei - kennst Du diesen einfachen Trick?",
+     "chaine": "JANNIK kocht - leckere Rezepte!",
+     "vues": "725.540 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "3:47",
+     "avatar": "https://yt3.ggpht.com/DKPnDdtpy7DcS-LCZX--0_TRv33YgcpDXSW0DVzJgemBuHMUyIqR5vIAa2aAqLyR2S5ROGSVkQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "L'UOVO IN CAMICIA",
+       "couleur": "#f2a516"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T5LzJ0Pxud4",
+     "titre": "Come fare l'uovo in camicia perfetto, proprio come uno Chef!",
+     "chaine": "Sonia Peronaci Official",
+     "vues": "166K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/CewIn3-SXC3tXhhFOXpVNWTU8Blpx60r6odkd9nI152TgGCJXVjhrbxEM2uDNE7aU9NKjC5BJfc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "OVO POCHÊ",
+       "couleur": "#f2a516"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fLX5SRDsmiA",
+     "titre": "Como fazer Ovo Poche",
+     "chaine": "ComoFaz",
+     "vues": "5 mi visualizações",
+     "date": "há 13 anos",
+     "duree": "3:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrRFChgBJWc483czaegWXUGNjhv6_ImWYAnTA87PMnc2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "POŞE YUMURTA",
+       "couleur": "#f2a516"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "tGKK35lypkk",
+     "titre": "Poşe Yumurta Nasıl Yapılır? | En Kolay Yöntem - Arda'nın Mutfağı",
+     "chaine": "Arda'nın Mutfağı",
+     "vues": "1,3 Mn görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lk24AhOAPMb7_W6kAaMBVn-rJrBwpsVkgvJuIq5pR_W9s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "UN OU POȘAT",
+       "couleur": "#f2a516"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xuluFn9jcRI",
+     "titre": "Cum se face un ou posat perfect (ou romanesc) | Bucataras TV",
+     "chaine": "Bucataras TV",
+     "vues": "350 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "4:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdv6lf5Fpwpm8Bwn3dO26qi3pJLXWsKZlT_qcHE29Il2I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "ZTRACENÉ VEJCE",
+       "couleur": "#f2a516"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XnvtauUeIYE",
+     "titre": "Zastřené vejce jednoduše krok za krokem! | Menu od Koko",
+     "chaine": "Menu od Koko",
+     "vues": "81 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "4:45",
+     "avatar": "https://yt3.ggpht.com/X4uvgEmR17jPlRV5wmUFekamOyU7V0fiB9hwLCJnTstprXYaFK2llfKaLeCW4VZKfnSLavNkklc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 minut na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "BUGGYANTOTT",
+       "couleur": "#f2a516"
+      }
+     ],
+     "TOJÁST KÉSZÍTENI"
+    ],
+    "video": {
+     "id": "I4Gp3-abHjo",
+     "titre": "Buggyantott TOJÁS, ahogy azt KELL 🥚",
+     "chaine": "Street Kitchen",
+     "vues": "119 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/3fJMKfBUrEM8w4WhBqBI-Md-eoeRjHcnuQZ9EGOOtgDa2nRkBRrVRwop9sZ-SlvEBei7E0lT0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΞΕΙΣ",
+     [
+      {
+       "t": "ΑΥΓΑ ΠΟΣΕ",
+       "couleur": "#f2a516"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bx6LATproyA",
+     "titre": "Αυγά Ποσέ | Άκης Πετρετζίκης",
+     "chaine": "Άκης Πετρετζίκης",
+     "vues": "548 χιλ. προβολές",
+     "date": "πριν από 10 έτη",
+     "duree": "2:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lLV72YCxwdZEQtRYjPH6t7qAVkutpH67S_o4FtjH2YOsk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "POŠIRANO JAJE",
+       "couleur": "#f2a516"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ggxVSxUX63M",
+     "titre": "Poširano jaje - najbrži i najzdraviji doručak!",
+     "chaine": "Gurman TV",
+     "vues": "52 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "3:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mNSvFzxpbkNsKc0jMIG_NkdDoYtXi5xYAcfHsoRawgqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "SAVOIR METTRE",
+     [
+      {
+       "t": "EN PLS",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Eak9JO1zO2U",
+     "titre": "Conduite à tenir la PLS : Position Latérale de Sécurité - Protection Civile de Paris",
+     "chaine": "Protection Civile Paris Seine",
+     "vues": "1,3 M de vues",
+     "date": "il y a 14 ans",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mysn2vWz0z1sNjQCCq5z8f3qSHjtHiycl_ZrQ2KbNYruk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "THE",
+     [
+      {
+       "t": "RECOVERY POSITION",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GmqXqwSV3bo",
+     "titre": "The Recovery Position - First Aid Training - St John Ambulance",
+     "chaine": "St John Ambulance",
+     "vues": "2.4M views",
+     "date": "10 years ago",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/3_EKVZ4cYtPnl5RtfXgOGkN4w3KpDelNVlEs1qjcyfyxDLDIt8km0jA5Iq6J7FxewSsN1LVVtA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DIE",
+     [
+      {
+       "t": "STABILE SEITENLAGE",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eF9rO3g-dYY",
+     "titre": "Erste-Hilfe-Tutorial: stabile Seitenlage",
+     "chaine": "Johanniter-Unfall-Hilfe e.V.",
+     "vues": "120.833 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l15BdS2HJgtfPyrqRwzI-VEDm_3cXsE0W-tk9JHGDmYrc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "LA POSIZIONE",
+     [
+      {
+       "t": "LATERALE DI SICUREZZA",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z7Lmdp4wQes",
+     "titre": "Posizione laterale di sicurezza",
+     "chaine": "Croce Bianca Bolzano",
+     "vues": "240K visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ki8C_yRtWvMEt4f4_lSWSl6u0yhVe5P60OBWWDeuclzQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "POSIÇÃO LATERAL",
+     [
+      {
+       "t": "DE SEGURANÇA",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "u3kcvuAikKk",
+     "titre": "POSIÇÃO LATERAL DE SEGURANÇA NA PRÁTICA (PRIMEIROS SOCORROS E SBV)",
+     "chaine": "Instituto Brasileiro de APH - IBRAPH",
+     "vues": "143 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/NU2A8hwUGfhM34t6RDla2rnrKqsoFombi67EC4axM-7n1c4TEmNgtg8G_lllWmMMGonCzhpm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KOMA",
+     [
+      {
+       "t": "POZİSYONU",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XKfk4G5yoEc",
+     "titre": "KOMADA İLKYARDIM",
+     "chaine": "Türk Kızılay",
+     "vues": "202 B görüntüleme",
+     "date": "11 yıl önce",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/1l50f91MjnPJt6xgKz9n6J-9NHizqc-lOspcAjM19g1Ev_7RoYiyxTGn9T3XTlbkwt_E5FKe=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "POZIȚIA LATERALĂ",
+     [
+      {
+       "t": "DE SIGURANȚĂ",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N42ZcGDy_pE",
+     "titre": "Poziția laterală de siguranță copil și adult",
+     "chaine": "Manual Video de Prim Ajutor",
+     "vues": "142 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "2:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ninhD620v-pMRm1X6Le7PVNqWa8Lny3EpIyu1nmPmDHg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "STABILIZOVANÁ",
+     [
+      {
+       "t": "POLOHA",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "niEmIT67c-k",
+     "titre": "2. Stabilizovaná poloha - Červený kříž",
+     "chaine": "cckmost",
+     "vues": "132 tis. zhlédnutí",
+     "date": "před 16 lety",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kgTsKip43zbC_Xkpi4kCVZy6qcM_UpMqIOmFLHkyA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 minut na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "STABIL",
+     [
+      {
+       "t": "OLDALFEKTETÉS",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rWHmpUQJnzY",
+     "titre": "Stabil oldalfektetés 2021",
+     "chaine": "elsosegely. hu",
+     "vues": "255 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lI2WXIOf2Avm3PQP5KsMW20uWm6ivgxXndmOOPGZwES6w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΘΕΣΗ",
+     [
+      {
+       "t": "ΑΝΑΝΗΨΗΣ",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O7HSq3AkGiE",
+     "titre": "Πρώτες Βοήθειες Θέση Ανάνηψης για Ενήλικες",
+     "chaine": "First Aid Greece",
+     "vues": "31 χιλ. προβολές",
+     "date": "πριν από 16 έτη",
+     "duree": "1:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nX-1PK63UEUYeP71cVUu7rvbpAhg60UNJm0m5GD7s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "BOČNI",
+     [
+      {
+       "t": "KOMA POLOŽAJ",
+       "couleur": "#d7263d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xhMxM-XGzj4",
+     "titre": "VIDEO LEKCIJA: BOČNI KOMA POLOŽAJ",
+     "chaine": "Crveni krst Beograd",
+     "vues": "12 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "0:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lZQqHsApNiIjZ-9_dNy8RLkz6k9ERGLG8PuNxrIXDz8FQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "DEVENIR",
+     [
+      {
+       "t": "INCOLLABLE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BECOME",
+     [
+      {
+       "t": "UNBEATABLE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "IM QUIZ",
+     [
+      {
+       "t": "UNSCHLAGBAR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "DIVENTARE",
+     [
+      {
+       "t": "IMBATTIBILE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FICAR",
+     [
+      {
+       "t": "IMBATÍVEL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BİLGİ",
+     [
+      {
+       "t": "CANAVARI OLMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DEVII",
+     [
+      {
+       "t": "DE NEÎNTRECUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BÝT",
+     [
+      {
+       "t": "NEPORAZITELNÝ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "LEGYÉL",
+     [
+      {
+       "t": "VERHETETLEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΓΙΝΕ",
+     [
+      {
+       "t": "ΑΣΥΝΑΓΩΝΙΣΤΟΣ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "μάθε κάτι καινούργιο",
+      "κάθε μέρα."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POSTANI",
+     [
+      {
+       "t": "NEPOBEDIV",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo",
+      "svaki dan."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉUSSIR",
+     [
+      {
+       "t": "UNE MAYONNAISE",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RWvEiaW11pE",
+     "titre": "mayonnaise maison",
+     "chaine": "Chef Michel Dumas et Jean-Pierre Dumas",
+     "vues": "502 k vues",
+     "date": "il y a 12 ans",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/l8rHmFjLzCJ3MWO1pQw95djgJXAFUdLXSq8uC-Ctu1M99M05nvGe1qhvDl1iu3qgNKGOhQ3b=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "HOMEMADE MAYO",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-CVYVFj1vmQ",
+     "titre": "HOW TO MAKE MAYONNAISE | easy mayo recipe with stick blender",
+     "chaine": "Downshiftology",
+     "vues": "2.3M views",
+     "date": "10 years ago",
+     "duree": "1:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ny-fWRtdlXzNqyAJKys2f9CBzhZXd0JSsjnlgKm6p2tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "MAYONNAISE",
+     [
+      {
+       "t": "SELBER MACHEN",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kl_6nXt48KE",
+     "titre": "Mayonnaise selber machen | Mayo mit dem Stabmixer einfach zubereiten | EDEKA",
+     "chaine": "EDEKA",
+     "vues": "187.120 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "0:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjA0GAMU6J07GLPU5B3dgDj9OqxME-nrOPothNhUnjmEI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE LA",
+     [
+      {
+       "t": "MAIONESE",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KfouIuXcd7E",
+     "titre": "Maionese fatta in casa in un minuto",
+     "chaine": "PassionieRicette di MarGi",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kq-bwHJxDDLwyv82Pq3OS-E2OV-z4nNqaqXVvaMRo6XUI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "MAIONESE",
+     [
+      {
+       "t": "CASEIRA",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_Z3SF6R9i4Q",
+     "titre": "COMO FAZER MAIONESE CASEIRA  | Cozinha Básica",
+     "chaine": "Mohamad Hindi",
+     "vues": "1,1 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "3:07",
+     "avatar": "https://yt3.ggpht.com/0ZPN6lLPDhWfMyqjDtuVZ4pWkaLiaNjUMXqnZUo4MmpmLwqyBezVu6FOKxfgrGLlj5D665HW3P0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "EV YAPIMI",
+     [
+      {
+       "t": "MAYONEZ",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zKKEnANXLMM",
+     "titre": "Evde Mayonez Yapımı | Ev Yapımı",
+     "chaine": "Refika'nın Mutfağı",
+     "vues": "674 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "6:22",
+     "avatar": "https://yt3.ggpht.com/cqoZ06A5fIOfkQOrHQI5xgf7V5uQ2qtm336J9kmaHSHy554jgIUBqHTM6p5fqhHT8QhR3nkU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "MAIONEZĂ",
+     [
+      {
+       "t": "DE CASĂ",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3_C6jFjM-Jc",
+     "titre": "Maioneza clasica de casa (CC Eng Sub) | JamilaCuisine",
+     "chaine": "JamilaCuisine",
+     "vues": "1 mil. vizionări",
+     "date": "acum 6 ani",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/s2Fxa4zotL6Fkm8JY4IT62dFuWBbYIZRVm27YvbpkVpv-79b3f9qaesA15ldMAQhI07WjcotwQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "DOMÁCÍ",
+     [
+      {
+       "t": "MAJONÉZA",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Io4J1Q34Joc",
+     "titre": "Domácí majonéza | Josef Holub",
+     "chaine": "Dnes Vaří Děda",
+     "vues": "35 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "2:47",
+     "avatar": "https://yt3.ggpht.com/giE69JJ-nMQNMaqzLOThSR7li2JMvB354sVu_QB8pLfWad5Eynve6LMX_lJTZM9g3a5NiOANuw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 minut na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HÁZI",
+     [
+      {
+       "t": "MAJONÉZ",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rzj-iNCMiaA",
+     "titre": "Házi majonéz készítése 4 perc alatt (ELRONTHATATLAN RECEPT!!!)",
+     "chaine": "Kemény Tojás",
+     "vues": "192 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l7MqFKSGZe5X8GoRw1hyhAyHgnJK74-4qAALa6ErrJ3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΣΠΙΤΙΚΗ",
+     [
+      {
+       "t": "ΜΑΓΙΟΝΕΖΑ",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4ok-BXpNNTI",
+     "titre": "Μαγιονέζα με ελαιόλαδο | Γαστρονόμος",
+     "chaine": "Γαστρονόμος",
+     "vues": "116 χιλ. προβολές",
+     "date": "πριν από 13 έτη",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lLtQS1y2YrYEj4PApTzZtmRjwv9HdmIb4KaShek8BoIos=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "DOMAĆI",
+     [
+      {
+       "t": "MAJONEZ",
+       "couleur": "#a7863a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fTbjwD4x2Rk",
+     "titre": "KAKO NAPRAVITI DOMAĆI MAJONEZ ZA NEKOLIKO MINUTA",
+     "chaine": "Bokina kuhinja",
+     "vues": "235 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/sy7-Tuog_NzLc3H1vaPf9vKQ1YZMYT-JPUQC1CCOx9IIEuvbopuDCnjQOCsSPdV3oLh5RR8F=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "UN TOUR DE CARTES",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cd5T_1LHry0",
+     "titre": "Le tour de carte le plus facile expliqué !",
+     "chaine": "MagieGratuit",
+     "vues": "2,3 M de vues",
+     "date": "il y a 13 ans",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXU3F3x8Sbq-OHN1zcTlFC9lyNevYebQpU43-d3Fl1v60=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DO",
+     [
+      {
+       "t": "A CARD TRICK",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jzjhcfVvWRA",
+     "titre": "Easiest Card Trick Ever",
+     "chaine": "Mismag822 - The Card Trick Teacher",
+     "vues": "13M views",
+     "date": "12 years ago",
+     "duree": "5:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kewJ1ehIN24-fQ9jmU3jX3_CdRRoOs63ED03_xK-_s4jM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KARTENTRICKS",
+       "couleur": "#7a3fa0"
+      }
+     ],
+     "FÜR ANFÄNGER"
+    ],
+    "video": {
+     "id": "eLvfKCC1OLQ",
+     "titre": "Der EINFACHSTE Kartentrick für Anfänger 🎩✨ Ohne Vorbereitung!",
+     "chaine": "Zaubern mit Ingo Ahnfeldt",
+     "vues": "17.884 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/rFA1flO9wJ-1Se8bOlmjsieuaaLwnoPd9FUuo8jTc9v3DDVvGOgSYvi5kE6yYPLNTQBrTgD1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UN TRUCCO",
+     [
+      {
+       "t": "CON LE CARTE",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TK4MKAr_4mw",
+     "titre": "IL FANTASTICO GIOCO DELLE 16 CARTE (facilissimo) / Tutorial magia",
+     "chaine": "Jack Nobile",
+     "vues": "945K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "6:57",
+     "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "MÁGICA",
+     [
+      {
+       "t": "COM BARALHO",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XlZwidULB28",
+     "titre": "MÁGICA PARA INICIANTES (Curso de Mágicas com Baralho #9)",
+     "chaine": "Felipe Barbieri",
+     "vues": "2,2 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/hiKeUuhODZtLDpaRg_3sV4M9JkiJjPH4OP3p0AKDiHb46Cm1KcfNb-XbO8RXxJJumRWLWxOn=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KART NUMARASI",
+       "couleur": "#7a3fa0"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "0f7FnBotvOk",
+     "titre": "Çok Basit Etkileyici Kart Numarası Nasıl Yapılır ?",
+     "chaine": "İskambil",
+     "vues": "184 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "2:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGgUFw4_QzkyVOpeGOXxB_5xMET0vtSKCNRxDLCHmcQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "UN TRUC",
+     [
+      {
+       "t": "CU CĂRȚI",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5cQoaM-2QH8",
+     "titre": "Truc de magie cu carti extrem de simplu dar impresionant explicat",
+     "chaine": "Ora de Magie - Barbu Alexandru",
+     "vues": "55 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "6:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mMx4aQBcFxOnQhBgipN6akem-PocgfUy8vvYXFZxI3OV4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "KARETNÍ",
+     [
+      {
+       "t": "TRIK",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MGk7J_Ldf6s",
+     "titre": "Extrémně jednoduchý karetní trik s vysvětlením!!!",
+     "chaine": "Exit8472",
+     "vues": "244 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEghG64tYjWfI7Hx0zD_In8vanBCx--wWhLq067wFfTrY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "EGY",
+     [
+      {
+       "t": "KÁRTYATRÜKK",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YPHU4oiAi5k",
+     "titre": "Kártyatrükkök magyarázattal: Az eddigi legegyszerűbb trükk!",
+     "chaine": "Kártyatrükkök Magyarul",
+     "vues": "89 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mQDh2PDNBB9uIkPhpvZ-iWlgQyOoiNR3k1FjGEa7bnfQI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΕΝΑ ΚΟΛΠΟ",
+     [
+      {
+       "t": "ΜΕ ΤΡΑΠΟΥΛΑ",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z-j8TuD3nAk",
+     "titre": "Το μόνο μαγικό κόλπο με τράπουλα που πρέπει να ξέρεις",
+     "chaine": "Ερμής Ο Μάγος",
+     "vues": "18 χιλ. προβολές",
+     "date": "πριν από 3 έτη",
+     "duree": "3:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncpIuBxhRCLXLjzIRghsDIBP5Zrr_7EgUwPSH8arLtZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "TRIK",
+     [
+      {
+       "t": "SA KARTAMA",
+       "couleur": "#7a3fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "o9K44eMctjE",
+     "titre": "Moj NAJBOLJI Trik sa Kartama",
+     "chaine": "Jacks&Jokers15",
+     "vues": "165 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/H4CJR2exrE5vHLR2kWMw6c7tYKy5h34-SVZF5wjanb-J5gpPmldgBUcH9E0dVH7W_s-47ysVeg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COUPER",
+     [
+      {
+       "t": "UN ANANAS",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AHSY9Y_cgDc",
+     "titre": "Comment couper un ananas ?",
+     "chaine": "Gourmand",
+     "vues": "752 k vues",
+     "date": "il y a 12 ans",
+     "duree": "0:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXvYCQmxxrByfT3FJcKYHtbjmyKFbc3J79YopAsq6F__Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CUT",
+     [
+      {
+       "t": "A PINEAPPLE",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ygHkokZUDsI",
+     "titre": "How To Cut A Pineapple | 5 Easy Steps",
+     "chaine": "Home Cook Basics",
+     "vues": "910K views",
+     "date": "4 years ago",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kR0S9vWuRM6-mLy-_Qc5M86fMXmmAZaCsJyQVcBBiq2Mo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE ANANAS",
+     [
+      {
+       "t": "SCHNEIDEN",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dPqbl9pCvq4",
+     "titre": "Ananas schneiden 🍍🔪| So einfach geht’s | REWE Deine Küche",
+     "chaine": "REWE Deine Küche",
+     "vues": "394.107 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/6ICLmrRXwxYi-Dtkm5yu8BPBeGYEwYsAGj5a3sP6dUOUNZir2D3Pz7EkOoG4dgxN17AT0z9k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "TAGLIARE",
+     [
+      {
+       "t": "L'ANANAS",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hXlh3YE2yo4",
+     "titre": "COME TAGLIARE L'ANANAS IN MANIERA SEMPLICE | FoodVlogger",
+     "chaine": "Carlo Gaiano",
+     "vues": "752K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "1:24",
+     "avatar": "https://yt3.ggpht.com/ECM1XeHU5PBh7_RbRbNnBNAQaHwgHkaBlDDNyFTbcwUi4kb98EsTbEQ2679sA5rUxGv-UBBBJA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CORTAR",
+     [
+      {
+       "t": "ABACAXI",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "J1346YgWru8",
+     "titre": "Como CORTAR ABACAXI de maneira FÁCIL e RÁPIDA!",
+     "chaine": "Cozinha 101",
+     "vues": "168 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "0:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k85wYaHme4uj2N_e53NXnIHa1XDRJTHfz8OFchpIeG9w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ANANAS",
+     [
+      {
+       "t": "KESMEK",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5E6ll1avf40",
+     "titre": "ANANAS NASIL SOYULUR - Kolay Ananas Nasıl Dilimlenir- ANANAS Nasıl DİLİMLENİR",
+     "chaine": "Nefis Yemek Önerileri",
+     "vues": "137 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "1:58",
+     "avatar": "https://yt3.ggpht.com/BnAp63T6ql4L8joVLrckqtndSidTKa5zBvV0EFtxNICfFNjE718fdy_Nbt0PDz_N3ebB3PG1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ TAI",
+     [
+      {
+       "t": "UN ANANAS",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6Q3-KfjcKz8",
+     "titre": "Cum sa tai un ananas • Ajutor in bucatarie",
+     "chaine": "LidlRomania",
+     "vues": "215 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/f1hZke-aLAMXJN3E__8tckDl7b5Pc8n4e1xAzEEK_o47MbSBUalaGyvpgvcRQZG6nB8jjbb59Iw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAKRÁJET",
+     [
+      {
+       "t": "ANANAS",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z6F7fJ66YVw",
+     "titre": "Ananas - výběr, krájení a loupání.",
+     "chaine": "Miluji Vaření",
+     "vues": "91 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "2:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nE5R4-roMbUf3zpv-d9PKV0ekFGbob5QWimLWk5Gpm7g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 minut na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ANANÁSZT",
+     [
+      {
+       "t": "PUCOLNI",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QAkkTIR8S6s",
+     "titre": "Ananász hámozása, darabolása  | Lidl Konyha",
+     "chaine": "Lidl Magyarország",
+     "vues": "26 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKtBGk4-itgJpYw9YGiSpULdzspB5nZvfztDF0zfT8F0Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΚΟΒΕΙΣ",
+     [
+      {
+       "t": "ΑΝΑΝΑ",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Cbiou80Kgco",
+     "titre": "🔪 Μάθε πώς να Κόβεις Ανανά 🍍 | Lidl Hellas",
+     "chaine": "Lidl Hellas",
+     "vues": "75 χιλ. προβολές",
+     "date": "πριν από 5 έτη",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/Sai54wXrAovUhdka6_LLOZn8qTkqOqRtfuFk49x3ZMzRsJrlXTZhitL1nb5sZBP0SPxEycJ_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ISEĆI",
+     [
+      {
+       "t": "ANANAS",
+       "couleur": "#2e9e5b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K9U5e10MP7E",
+     "titre": "Kako iseći i očistiti ANANAS od kore",
+     "chaine": "Lekovite Biljke",
+     "vues": "108 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "3:17",
+     "avatar": "https://yt3.ggpht.com/8uCo2Bl243sKaVszuzXRzH1EX10Kd6__e4XFqBZ-5xSuhJxQ1plG__POORxwRbLhP3upeFPpyg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min za učenje"
+    ]
+   }
+  }
+ ]
+}

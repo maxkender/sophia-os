@@ -15,7 +15,8 @@
   "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler",
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll",
   "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování",
-  "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja"
+  "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja",
+  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz"
  },
  "legendes": {
   "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -26,7 +27,8 @@
   "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja #učinatiktoku #samorazvoj #veštine"
+  "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -231,6 +233,28 @@
       "t": "SKROLOVANJA",
       "cap": 152,
       "couleur": "#f7b955"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 110
+     },
+     {
+      "t": "AMIKET MEGTANULHATSZ",
+      "couleur": "#f7b955",
+      "cap": 139
+     },
+     {
+      "t": "GÖRGETÉS",
+      "cap": 118
+     },
+     {
+      "t": "HELYETT",
+      "couleur": "#f7b955",
+      "cap": 152
      }
     ]
    }
@@ -443,6 +467,29 @@
     "sous": [
      "2-3 sata za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "BESZÉLJ",
+     [
+      {
+       "t": "MAGABIZTOSAN",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aKZteewQ-u8",
+     "titre": "Hogyan Beszélj Bárkivel?",
+     "chaine": "Törhetetlen",
+     "vues": "36 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "5:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_iHRN_l0TsKsAqRXBnKvUhZMHXsLhXvCXgVIQHJzdJTRw7Wt_G9XEs4chamQySZQzjQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -653,6 +700,29 @@
     "sous": [
      "30 min za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "ALUDJ EL",
+     [
+      {
+       "t": "2 PERC ALATT",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bwIX9vHXDkE",
+     "titre": "Hogyan aludj el 2 perc alatt?",
+     "chaine": "Levi Passed",
+     "vues": "70 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "5:44",
+     "avatar": "https://yt3.ggpht.com/e2IbPr4pScz8qWubfNbH1N00N-KBFudpmnCOQh5QfizqmKCATP6NrAJUXgfKeSUm2FA3bDySyhk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -845,6 +915,27 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "BESZÉLJ",
+     [
+      {
+       "t": "BÁRMIRŐL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -1056,6 +1147,29 @@
     "sous": [
      "1 sat za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "FUSS",
+       "couleur": "#a5877b"
+      }
+     ],
+     "SÉRÜLÉS NÉLKÜL"
+    ],
+    "video": {
+     "id": "_RqGGkKtyU4",
+     "titre": "A futás helyes technikája",
+     "chaine": "Fehérvár FMC",
+     "vues": "157 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "4:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k1hyzOiQZDkq2BmTKt4xhHVGV8glA6UZ3Kr5AwJfWcKUg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -1266,6 +1380,29 @@
     "sous": [
      "15 min za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "FŐZZ",
+     [
+      {
+       "t": "JÓ KÁVÉT",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "a1m7XUaTeS8",
+     "titre": "3 SZABÁLY A JÓ KOTYOGÓS KÁVÉHOZ!!",
+     "chaine": "unlimited",
+     "vues": "42 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYydcXq4cjIfSn7yJx7D01vOsMqhfw8a9V0LXid0FyEA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -1475,6 +1612,29 @@
     },
     "sous": [
      "15 min za učenje"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "VASALJ KI",
+       "couleur": "#bd6851"
+      }
+     ],
+     "EGY INGET"
+    ],
+    "video": {
+     "id": "ednqn14rJE0",
+     "titre": "Az ing vasalás művészete | #hastílusvanmindenvan",
+     "chaine": "BIHARI ÁDÁM",
+     "vues": "63 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "10:21",
+     "avatar": "https://yt3.ggpht.com/NlJcj57qyDnEOkznr1QsD0tYF7W2EYFXCqsbPiZ0AXD6hbUeOkYR9NJmGYpUb-pm6V5ig7lIiIA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
     ]
    }
   }

@@ -15,7 +15,8 @@
   "tr": "Diplomadan daha değerli 10 beceri 10/10",
   "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă",
   "cs": "10 dovedností 10/10, které mají větší cenu než diplom",
-  "sr": "10 veština 10/10 koje vrede više od diplome"
+  "sr": "10 veština 10/10 koje vrede više od diplome",
+  "hu": "10/10 készségek, amik többet érnek egy diplománál"
  },
  "legendes": {
   "fr": "10 compétences 10/10 qui valent plus qu'un diplôme #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -26,7 +27,8 @@
   "tr": "Diplomadan daha değerli 10 beceri 10/10 #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "10 dovedností 10/10, které mají větší cenu než diplom #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "10 veština 10/10 koje vrede više od diplome #učinatiktoku #samorazvoj #veštine"
+  "sr": "10 veština 10/10 koje vrede više od diplome #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10 készségek, amik többet érnek egy diplománál #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "son original - psycho - psycho",
@@ -231,6 +233,28 @@
       "t": "DIPLOME",
       "cap": 198,
       "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 122
+     },
+     {
+      "t": "AMIK TÖBBET",
+      "couleur": "brun",
+      "cap": 176
+     },
+     {
+      "t": "ÉRNEK EGY",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOMÁNÁL",
+      "couleur": "brun",
+      "cap": 198
      }
     ]
    }
@@ -443,6 +467,29 @@
     "sous": [
      "1-2 sata za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "ÉRTSD MEG",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "A KAMATOS KAMATOT"
+    ],
+    "video": {
+     "id": "4GnoUKe8Fuk",
+     "titre": "Kamatos kamat",
+     "chaine": "Anna Bede",
+     "vues": "56 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "15:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_luVqx0PttKLpvdCx4kBVbw-Nh9S_mWodxrMBmEdRnz7rk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -653,6 +700,29 @@
     "sous": [
      "3-4 sata za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "FORDÍTOTT",
+     [
+      {
+       "t": "PSZICHOLÓGIA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Tw9ICxKybk0",
+     "titre": "Fordított pszichológia",
+     "chaine": "Gyereknevelés",
+     "vues": "908 megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/GV_zjCVBf95bxC6XPixFXGyCtRcbZZnoZPI_QYkvGLBgzoBRxPGUSLDcC6PperwHJFx7q79_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -845,6 +915,27 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULJ",
+     [
+      {
+       "t": "MINDEN NAP",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -1055,6 +1146,29 @@
     },
     "sous": [
      "4-5 sati za učenje"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "RAGADD MEG",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "A FIGYELMET"
+    ],
+    "video": {
+     "id": "EVLmV8ROGfk",
+     "titre": "Hogyan kezdj erősen egy előadást? – A figyelem megragadásának kulcsa | Szabó Atis - AddEloMagad.hu",
+     "chaine": "AddEloMagad - Szabó Atis",
+     "vues": "109 megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "5:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_li83yS27jNuqfIG_zKX8pixre8H_5whRgzC9YLB8Ilh4s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 óra a tanuláshoz"
     ]
    }
   },
@@ -1269,6 +1383,29 @@
     "sous": [
      "2-3 sata za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "ADJ EL",
+     [
+      {
+       "t": "BÁRMIT",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZeLL3VuGqjE",
+     "titre": "Hogyan adj el BÁRMIT, BÁRKINEK - Az eladás pszichológiája",
+     "chaine": "Szendrei Ádám - Pénzügyi Szabadság",
+     "vues": "55 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "16:06",
+     "avatar": "https://yt3.ggpht.com/WVAR0nX6v2Pfk6JHDiYhHX6an9rLLCfFJGUbBBKY4QWxBw3ombGoXPhX7lpoNHAE9ymXNZ-5fA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -1478,6 +1615,29 @@
     },
     "sous": [
      "2-3 sata za učenje"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "HASZNÁLD JÓL",
+       "couleur": "#3a929a"
+      }
+     ],
+     "A MI-T"
+    ],
+    "video": {
+     "id": "4oaVwhCr9U4",
+     "titre": "AI & ChatGPT: Kezdd el használni 8,5 perc alatt (teljesen kezdőknek is)",
+     "chaine": "AiLumination",
+     "vues": "100 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/9xuCkGYPLrTSOplS5OHWlUt63lVbwLGkm4VdAUruTVSHjFpwVOMWcL-Q65I-kkmX_poDWNaf7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
     ]
    }
   }

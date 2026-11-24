@@ -15,7 +15,8 @@
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování",
-  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja"
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja",
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni"
  },
  "legendes": {
   "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -26,7 +27,8 @@
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine"
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - m - m",
@@ -229,6 +231,28 @@
      },
      {
       "t": "SKROLOVANJA",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 138
+     },
+     {
+      "t": "AMIKET ÉRDEMES",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "GÖRGETÉS",
+      "cap": 149
+     },
+     {
+      "t": "HELYETT",
       "couleur": "brun",
       "cap": 188
      }
@@ -491,6 +515,35 @@
     },
     "sous": [
      "1-2 sata za učenje"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULD MEG",
+     [
+      {
+       "t": "FELVÁGNI",
+       "couleur": "#406f27"
+      }
+     ],
+     "A ZÖLDSÉGEKET"
+    ],
+    "video": {
+     "id": "q_QtwiW4QjU",
+     "titre": "Darabolási, Szeletelési Technikák / Főzősuli - Zsebszakács",
+     "chaine": "Buday Péter, a Zsebszakács",
+     "vues": "46 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "2:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcNUpeWehGqiMvcVWueViTyjWsL4SHpdqaauXZ5EsQXg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra a tanuláshoz"
     ],
     "tailles": [
      110,
@@ -806,6 +859,40 @@
      120,
      125
     ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "TANULJ MEG",
+       "couleur": "#66696f"
+      }
+     ],
+     "HELYESEN",
+     [
+      {
+       "t": "TARTANI A TESTED",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O6sTKl2xCrw",
+     "titre": "Helyes testtartás",
+     "chaine": "Országos Gerincgyógyászati Központ",
+     "vues": "38 E megtekintés",
+     "date": "11 évvel ezelőtt",
+     "duree": "2:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kx7TDimVCbeprDxmx3Ue95VsO7U5oiuTvl4GypKgfgpXs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ]
    }
   },
   {
@@ -998,6 +1085,27 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MŰVELŐDJ",
+     [
+      {
+       "t": "5 PERC ALATT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -1257,6 +1365,35 @@
     },
     "sous": [
      "1-2 sata za učenje"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULD MEG",
+     [
+      {
+       "t": "FELISMERNI",
+       "couleur": "#b131c4"
+      }
+     ],
+     "A CSILLAGKÉPEKET"
+    ],
+    "video": {
+     "id": "0auA6K6b7LM",
+     "titre": "A csillagos égbolt",
+     "chaine": "Szilárd Sneff",
+     "vues": "7,8 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "12:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nI_EKBK2Twupim9wWi7umF9rFLguW5uiamzQVciY36k6E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra a tanuláshoz"
     ],
     "tailles": [
      110,
@@ -1536,6 +1673,30 @@
      110,
      170
     ]
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG",
+     [
+      {
+       "t": "KÉZEN ÁLLNI",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w24AItR5_-s",
+     "titre": "Kézállás tutorial - A kézállás megtanulása 3 percben",
+     "chaine": "Hall Of Parkour Hungary",
+     "vues": "20 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "3:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRh0NU-hJfFjFEs2oGw37d_zOLxXA9wycrT8q0a4BX7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "napi 2-3 óra",
+     "a tanuláshoz"
+    ]
    }
   },
   {
@@ -1794,6 +1955,35 @@
     },
     "sous": [
      "1-2 sata za učenje"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULD MEG",
+     [
+      {
+       "t": "A 15 LEGFONTOSABB",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "CSOMÓT"
+    ],
+    "video": {
+     "id": "UWTNQzkj4OM",
+     "titre": "Bushcraft Alapok - CSOMÓZÁS /a legfontosabb csomók/",
+     "chaine": "Minden, ami Bushcraft",
+     "vues": "51 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "12:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nX_QT9OpeaiVeBFmIOskgSz7xZPdlCRdum8o_Dcru9t1s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra a tanuláshoz"
     ],
     "tailles": [
      110,

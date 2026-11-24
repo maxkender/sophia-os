@@ -10,7 +10,8 @@
   "tr": "Okulun sana öğretmediği 10/10 beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
-  "sr": "Veštine 10/10 koje te škola neće naučiti"
+  "sr": "Veštine 10/10 koje te škola neće naučiti",
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg"
  },
  "legendes": {
   "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -21,7 +22,8 @@
   "tr": "Okulun sana öğretmediği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine"
+  "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -219,6 +221,28 @@
      },
      {
       "t": "NAUČITI",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 111
+     },
+     {
+      "t": "AMIKRE AZ ISKOLA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NEM TANÍT",
+      "cap": 150
+     },
+     {
+      "t": "MEG",
       "cap": 283,
       "couleur": "brun"
      }
@@ -433,6 +457,29 @@
     "sous": [
      "30 min za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "CSERÉLJ",
+     [
+      {
+       "t": "KEREKET",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DBeKbNlID0w",
+     "titre": "Hogyan cserélj kereket az autódon? - Alapjárat Bütykölde",
+     "chaine": "Alapjárat",
+     "vues": "28 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/FvGUjxhv8-2nq7HQ9QWaRNG2shHjBuQqp-MzW0Mk2Aeb-pOaXD03Zj65F5xcHjxKzAoZcOGEGic=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -643,6 +690,29 @@
     "sous": [
      "2-3 sata za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "TAROLJ",
+     [
+      {
+       "t": "AZ ÁLLÁSINTERJÚN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WH9e_12gCk8",
+     "titre": "Hogyan válaszolj az 5 legrémisztőbb állásinterjú kérdésre?",
+     "chaine": "CV Factory - Karrierpercek Ágival",
+     "vues": "49 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lhCmXwogkR9CPJW9PWxKhpq2RT8N1MNRsqUUoFo5J_qwI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -835,6 +905,27 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "PÓTOLD",
+     [
+      {
+       "t": "A HIÁNYOSSÁGAIDAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -1046,6 +1137,29 @@
     "sous": [
      "Vežbanje nekoliko dana"
     ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "KEZELD",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "A STRESSZT"
+    ],
+    "video": {
+     "id": "6KTVygS4fR4",
+     "titre": "A stressz három megközelítése - verbális, mentális és testközpontú stresszoldás | STRESSZKEZELÉS",
+     "chaine": "Kaszás Ágnes",
+     "vues": "1,2 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/BtqcZLOF13Ca6WHgdH3O7zVRF0-smMS95mCuCbvCmWKZyGm7TgerrzApU8_YfBbVDh67Eeu_9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több napos gyakorlás"
+    ]
    }
   },
   {
@@ -1256,6 +1370,29 @@
     "sous": [
      "≈ 10 sati za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "OLVASS",
+     [
+      {
+       "t": "KÉTSZER GYORSABBAN",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RyfZh_1qhcQ",
+     "titre": "Villámolvasás elmagyarázva",
+     "chaine": "Lantos Tanulási Stratégiák",
+     "vues": "23 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "6:42",
+     "avatar": "https://yt3.ggpht.com/RdoLob1EMcMjlbJCz3ZV_Ao8nqZpSh0KSrE6ZiYMeIhhgRQf-PAvkDf_rE88ysOelC61T-f8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -1465,6 +1602,29 @@
     },
     "sous": [
      "≈ 100 sati za učenje"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG",
+     [
+      {
+       "t": "PROGRAMOZNI",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "b09clOkzbtc",
+     "titre": "Mi az a programozás? (#0 Programozás Tutorial)",
+     "chaine": "KódKurzus",
+     "vues": "109 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "9:52",
+     "avatar": "https://yt3.ggpht.com/H7fL2NL-ahLtc8ljbC1aLuMGarOBm4muGaFxAoarqntiua4U1JiPz-7u-se662NgsKatEUY_2A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 óra a tanuláshoz"
     ]
    }
   }

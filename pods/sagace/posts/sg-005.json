@@ -15,7 +15,8 @@
   "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri",
   "ro": "10 abilități inutile, dar care te fac de 10x mai cool",
   "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool",
-  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim"
+  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim",
+  "hu": "10 haszontalan készség, amitől 10x menőbb leszel"
  },
  "legendes": {
   "fr": "10 compétences inutiles mais qui te rendent 10x plus cool #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -26,13 +27,14 @@
   "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități inutile, dar care te fac de 10x mai cool #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim #učinatiktoku #samorazvoj #veštine"
+  "sr": "10 veština koje su beskorisne, ali te čine 10x kulijim #učinatiktoku #samorazvoj #veštine",
+  "hu": "10 haszontalan készség, amitől 10x menőbb leszel #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - Jacob . P",
   "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
  },
- "notes": "Son post à 149 k (28/08), en 5 langues. Couverture à l'identique (4 lignes noir/brun/noir/brun, caps relevés 111/198/93/146), « INUTILE » et « PHALANGE » corrigés, « MAIS QUI TE RENDENT » comme son accroche. Ses 5 tours dans son ordre, une vidéo native par langue (les siennes : Oscar Owen, Abracademie, MagieExpliquée, Rumble non reprises). Sophia en étape 4 sur 7 (cta B : « CONNAÎTRE / DES FUN FACTS », de : « UNNÜTZES / WISSEN »), sa slide « ABONNE-TOI » retirée. Serbe (rattrapage du 23/11) : en latin, chaînes serbes ; aucun tuto serbe du coin roll : l'étape 2 montre des tours de pièce (DARMA. TV, « IZVEDI TRIK SA NOVČIĆEM ») ; la bouteille : « OTVORI FLAŠU BEZ OTVARAČA » (Nikola kralj, quatre façons).",
+ "notes": "Son post à 149 k (28/08), en 5 langues. Couverture à l'identique (4 lignes noir/brun/noir/brun, caps relevés 111/198/93/146), « INUTILE » et « PHALANGE » corrigés, « MAIS QUI TE RENDENT » comme son accroche. Ses 5 tours dans son ordre, une vidéo native par langue (les siennes : Oscar Owen, Abracademie, MagieExpliquée, Rumble non reprises). Sophia en étape 4 sur 7 (cta B : « CONNAÎTRE / DES FUN FACTS », de : « UNNÜTZES / WISSEN »), sa slide « ABONNE-TOI » retirée. Serbe (rattrapage du 23/11) : en latin, chaînes serbes ; aucun tuto serbe du coin roll : l'étape 2 montre des tours de pièce (DARMA. TV, « IZVEDI TRIK SA NOVČIĆEM ») ; la bouteille : « OTVORI FLAŠU BEZ OTVARAČA » (Nikola kralj, quatre façons). hu (24/11) : la bouteille ouverte avec une feuille devient « un tour avec une corde » (Németh Gábor), faute de tuto hongrois sans bière.",
  "slides": [
   {
    "type": "couverture",
@@ -231,6 +233,28 @@
       "t": "10x KULIJIM",
       "couleur": "brun",
       "cap": 146
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "HASZONTALAN",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "KÉSZSÉGEK, AMIKTŐL",
+      "cap": 93
+     },
+     {
+      "t": "10X MENŐBB",
+      "couleur": "brun",
+      "cap": 146
+     },
+     {
+      "t": "LESZEL",
+      "cap": 111
      }
     ]
    }
@@ -452,6 +476,30 @@
     "sous": [
      "30 min za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "GÖRGESS",
+     [
+      {
+       "t": "EGY ÉRMÉT",
+       "couleur": "#a86c58"
+      }
+     ],
+     "AZ UJJAID KÖZÖTT"
+    ],
+    "video": {
+     "id": "VW3Aooih7jw",
+     "titre": "HIHETETLENÜL Látványos Fogás Pénzzel | Coin Roll Magyarázattal Magyarul",
+     "chaine": "Forzor",
+     "vues": "5,2 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpDzoDuCpPfbsRkLC-S-JdjatqK9QDF4B1y6DIB-ZB4w8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -671,6 +719,29 @@
     "sous": [
      "1-2 sata za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG",
+     [
+      {
+       "t": "KÁRTYÁT DOBNI",
+       "couleur": "#d07a78"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qskbVjlLROk",
+     "titre": "Így Dobj El Egy Kártyát 30 Méterre! Kártyadobás Magyarázattal",
+     "chaine": "Forzor",
+     "vues": "21 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpDzoDuCpPfbsRkLC-S-JdjatqK9QDF4B1y6DIB-ZB4w8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -863,6 +934,27 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ISMERJ",
+     [
+      {
+       "t": "ÉRDEKES TÉNYEKET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj valami újat",
+      "minden nap."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -1191,6 +1283,40 @@
     "sous": [
      "30 min za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "TANULD MEG",
+       "couleur": "#2a1470"
+      }
+     ],
+     "A KÁRTYA-",
+     [
+      {
+       "t": "VÍZESÉST",
+       "couleur": "#2a1470"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Dpv_l8tHZ24",
+     "titre": "ELKÉPESZTŐ Kártyafogás! | Dribble (Lapejtés) Magyarázat| Kártyafogások Magyarázattal Kezdőknek",
+     "chaine": "Forzor",
+     "vues": "3,6 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "1:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpDzoDuCpPfbsRkLC-S-JdjatqK9QDF4B1y6DIB-ZB4w8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ],
+    "tailles": [
+     130,
+     100,
+     165
+    ]
    }
   },
   {
@@ -1408,6 +1534,29 @@
     },
     "sous": [
      "1 sat za učenje"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG",
+     [
+      {
+       "t": "TOLLAT PÖRGETNI",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cE8ikUp1-Bk",
+     "titre": "PEN SPINNING #1 | Toll Pörgetése az Ujjak Között | MAGYARÁZAT MAGYARUL",
+     "chaine": "Forzor",
+     "vues": "45 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "3:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpDzoDuCpPfbsRkLC-S-JdjatqK9QDF4B1y6DIB-ZB4w8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
     ]
    }
   },
@@ -1627,6 +1776,29 @@
     },
     "sous": [
      "30 min za učenje"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG",
+     [
+      {
+       "t": "EGY KÖTÉLTRÜKKÖT",
+       "couleur": "#7a7062"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TVTd_H5vR7Q",
+     "titre": "Trükk Tanulás  KÖTÉLTRÜKK KEZDŐKNEK  Németh Gábor bűvész",
+     "chaine": "Németh Gábor bűvész",
+     "vues": "9,7 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "5:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMsf3gTJL3KZznZjvT18Q95Ii1btXQCdb66gkzvrWcPMk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
     ]
    }
   }

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o305",
+ "type_bleo": "full_test",
+ "titre": "self taught skills that make you stand out #selftaught #skills #learning #selfimprovement #growth",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "5b39aa5e-5308-40f5-8693-18773c10278f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5b39aa5e). full test BLEO : accroche jamais faite (format « self taught skills that make you X »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c32224eb-7aa6-4ddd-9297-38bbb4e6d7cf",
+   "texte_overlay": "self taught skills that\nmake you stand out",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "08e19dea-5f7d-4142-9b55-5eb6f396af79",
+   "texte_overlay": "cooking without recipes\n\nlearn the basics of flavour and you'll never need a recipe again. people who can cook from whatever's in the fridge always seem calm and so capable at home.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6298ecf1-ce08-4315-ba29-b680e9034d14",
+   "texte_overlay": "writing clearly\n\npractise writing short, clear messages and emails. clear writing is rare, and it quietly makes people trust your judgement in everything else you ever do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "655ba568-3194-47c7-a8e7-768bfad551fa",
+   "texte_overlay": "general knowledge\n\nknowing a little about everything makes you stand out in any room, and you can teach yourself in just a few minutes a day. curious generalists are welcome in every conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/4.jpg",
+   "texte_sophia": "general knowledge\n\ni taught myself general knowledge, 5 minutes a day with one lesson in the Sophia app: art, history, science. now i can join almost any conversation and add something."
+  },
+  {
+   "position": 5,
+   "media_id": "549d261a-a369-493c-955c-5abfe3c61180",
+   "texte_overlay": "public speaking\n\nrecord yourself talking for two minutes about anything, then watch it back. a few weeks of this and you'll speak more calmly than most people around you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a45c1022-90ea-4eaa-99ef-482937e405fd",
+   "texte_overlay": "basic first aid\n\nlearn simple first aid from free videos and practise the steps. being the calm person who knows what to do in a crisis is a skill everyone deeply respects.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/6.jpg"
+  }
+ ]
+}

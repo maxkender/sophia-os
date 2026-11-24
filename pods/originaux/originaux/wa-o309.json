@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o309",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a07b373e-9cd9-45e5-9a69-5ea8b2709e52",
+ "titre": "bizarre habits to make you the most magnetic person in the room #magnetic #charisma #socialskills #selfimprovement #habits",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "d44988d2-cdb3-45fa-86f0-7f140e11af99"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d44988d2). déclinaison G1 de « bizarre habits to make you the most magnetic person in the room » (parent a07b373e). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42bc97b3-feb8-4b42-9253-ce91d02baf03",
+   "texte_overlay": "bizarre habits to make you\nthe most magnetic person\nin the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b4c72782-8829-48f4-bff2-d58cd559537b",
+   "texte_overlay": "the last to look away\n\nin conversations this week, hold eye contact one second longer than feels natural before looking away. it reads as calm, confident and genuinely interested.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3466fd61-3045-4e35-b336-e007655fa654",
+   "texte_overlay": "asking a second question\n\nwhen someone answers your question, ask one more about what they just said. most people stop at one, so the second question makes people feel truly heard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "461ff1dc-ff06-4a46-ac60-d14601a244da",
+   "texte_overlay": "a slower voice\n\nspeak a little slower and a little lower for one week. a relaxed voice makes people lean in, and it tells everyone you're comfortable and in no hurry.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fbd7bc9d-c6ae-4e9a-8a6a-1da9403e5039",
+   "texte_overlay": "one fascinating thing\n\nlearn one fascinating thing every day in 5 minutes, like a strange animal or a lost city. people always drift towards whoever has the best story to tell.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/5.jpg",
+   "texte_sophia": "one fascinating thing\n\nlearn one fascinating thing a day, a strange animal or a lost city. the Sophia app turns it into one short lesson a day, and people always gather around a good story."
+  },
+  {
+   "position": 6,
+   "media_id": "12f4b312-c74e-431f-9dfa-5b4edddf5ab3",
+   "texte_overlay": "leaving first\n\nleave parties and conversations while they're still good, not when they fade. people remember the ones who left on a high note and want to see them again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/6.jpg"
+  }
+ ]
+}

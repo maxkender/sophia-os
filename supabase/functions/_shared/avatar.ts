@@ -1,5 +1,6 @@
 import { labelsFreres, type LabelPhoto } from "./avatar_application.ts";
 import { themeDuLabel, type Genre, type ThemeLabel } from "./label_theme.ts";
+import { lireTout } from "./lots.ts";
 import type { serviceClient } from "./supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -11,12 +12,22 @@ export interface VisuelAvatar {
   used_count: number;
 }
 
+/**
+ * 24/11 : plus de 1000 comptes avec une photo : lus par pages (keyset sur id), sinon le garde-fou
+ * « lecture tronquée » levait APRÈS la création du login et du compte (manage-users create) et
+ * chaque création ratée laissait une fiche orpheline.
+ */
 async function urlsDejaPrises(supabase: Supabase): Promise<Set<string>> {
-  const { data: dejaAvatars } = await supabase
-    .from("comptes")
-    .select("avatar_url")
-    .not("avatar_url", "is", null);
-  return new Set((dejaAvatars ?? []).map((c) => c.avatar_url as string));
+  const dejaAvatars = await lireTout<{ id: string; avatar_url: string | null }>(
+    "avatars déjà pris",
+    (curseur, taille) => {
+      let q = supabase.from("comptes").select("id, avatar_url").not("avatar_url", "is", null);
+      if (curseur) q = q.gt("id", curseur.id);
+      return q.order("id", { ascending: true }).limit(taille);
+    },
+    { ancre: (c) => c.id },
+  );
+  return new Set(dejaAvatars.map((c) => c.avatar_url as string));
 }
 
 async function chercherVisuels(

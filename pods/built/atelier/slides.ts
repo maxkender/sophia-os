@@ -109,7 +109,7 @@ function rectArrondi(ctx: Ctx, x: number, y: number, l: number, h: number, r: nu
 
 /** Ses titres : League Spartan Bold resserrée de 2,5 % (largeurs mesurées sur ses slides). */
 function policeTitre(ctx: Ctx, taille: number) {
-  ctx.font = `${taille}px "${POLICE.titre}"`;
+  ctx.font = `${taille}px "${POLICE.titre}", "${POLICE.titreGrec}"`;
   ctx.letterSpacing = `${(-0.0246 * taille).toFixed(2)}px`;
 }
 function policeTexte(ctx: Ctx, taille: number, police: string = POLICE.texte) {

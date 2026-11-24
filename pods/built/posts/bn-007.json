@@ -8,10 +8,28 @@
   "accroche": "How To Become Extremely Attractive."
  },
  "titre": {
-  "en": "how to look more attractive without trying"
+  "en": "how to look more attractive without trying",
+  "de": "wie du attraktiver wirkst, ohne dich anzustrengen",
+  "es-419": "cómo verte más atractivo sin esforzarte",
+  "it": "come sembrare più attraente senza sforzo",
+  "pl": "jak wyglądać atrakcyjniej bez wysiłku",
+  "tr": "çabalamadan daha çekici görünmenin yolları",
+  "hu": "hogyan légy vonzóbb erőlködés nélkül",
+  "el": "πώς να δείχνεις πιο ελκυστικός χωρίς προσπάθεια",
+  "ro": "cum să pari mai atrăgător fără efort",
+  "sr": "kako da izgledaš privlačnije bez truda"
  },
  "legendes": {
-  "en": "effortless is a habit #attractive #selfimprovement #tipsformen #running #confidence"
+  "en": "effortless is a habit #attractive #selfimprovement #tipsformen #running #confidence",
+  "de": "lässig ist eine gewohnheit #attractive #selfimprovement #tipsformen #running #confidence",
+  "es-419": "verse natural también es un hábito #attractive #selfimprovement #tipsformen #running #confidence",
+  "it": "la naturalezza è un'abitudine #attractive #selfimprovement #tipsformen #running #confidence",
+  "pl": "luz to też nawyk #attractive #selfimprovement #tipsformen #running #confidence",
+  "tr": "rahatlık da bir alışkanlık #attractive #selfimprovement #tipsformen #running #confidence",
+  "hu": "a laza is egy szokás #attractive #selfimprovement #tipsformen #running #confidence",
+  "el": "το άνετο είναι συνήθεια #attractive #selfimprovement #tipsformen #running #confidence",
+  "ro": "și naturalețea e un obicei #attractive #selfimprovement #tipsformen #running #confidence",
+  "sr": "i opuštenost je navika #attractive #selfimprovement #tipsformen #running #confidence"
  },
  "musique": {
   "titre": "Originalton",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-7.png",
    "en": {
     "titre": "HOW TO LOOK\nMORE ATTRACTIVE\nWITHOUT TRYING."
+   },
+   "de": {
+    "titre": "WIE DU\nATTRAKTIVER WIRKST,\nOHNE DICH ANZUSTRENGEN."
+   },
+   "es-419": {
+    "titre": "CÓMO VERTE\nMÁS ATRACTIVO\nSIN ESFORZARTE."
+   },
+   "it": {
+    "titre": "COME SEMBRARE\nPIÙ ATTRAENTE\nSENZA SFORZO."
+   },
+   "pl": {
+    "titre": "JAK WYGLĄDAĆ\nATRAKCYJNIEJ\nBEZ WYSIŁKU."
+   },
+   "tr": {
+    "titre": "ÇABALAMADAN\nDAHA ÇEKİCİ\nGÖRÜNMENİN YOLLARI."
+   },
+   "hu": {
+    "titre": "HOGYAN LÉGY\nVONZÓBB\nERŐLKÖDÉS NÉLKÜL."
+   },
+   "el": {
+    "titre": "ΠΩΣ ΝΑ ΔΕΙΧΝΕΙΣ\nΠΙΟ ΕΛΚΥΣΤΙΚΟΣ\nΧΩΡΙΣ ΠΡΟΣΠΑΘΕΙΑ."
+   },
+   "ro": {
+    "titre": "CUM SĂ PARI\nMAI ATRĂGĂTOR\nFĂRĂ EFORT."
+   },
+   "sr": {
+    "titre": "KAKO DA IZGLEDAŠ\nPRIVLAČNIJE\nBEZ TRUDA."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Smell clean, not loud",
     "texte": "Shower, deodorant, one spray of cologne. Clean beats strong every time."
+   },
+   "de": {
+    "titre": "1. Riech sauber, nicht laut",
+    "texte": "Duschen, Deo, ein Sprüher Parfüm. Sauber schlägt stark, jedes Mal."
+   },
+   "es-419": {
+    "titre": "1. Huele a limpio",
+    "texte": "Baño, desodorante y un disparo de perfume. Lo limpio le gana a lo fuerte siempre."
+   },
+   "it": {
+    "titre": "1. Profuma di pulito",
+    "texte": "Doccia, deodorante, uno spruzzo di profumo. Il pulito batte il forte, sempre."
+   },
+   "pl": {
+    "titre": "1. Pachnij czysto",
+    "texte": "Prysznic, dezodorant, jedno psiknięcie perfum. Czysto wygrywa z mocno, zawsze."
+   },
+   "tr": {
+    "titre": "1. Temiz koku",
+    "texte": "Duş, deodorant, bir sıkım parfüm. Temiz koku her zaman ağır kokuyu yener."
+   },
+   "hu": {
+    "titre": "1. Legyél tiszta illatú",
+    "texte": "Zuhany, dezodor, egy fújás parfüm. A tiszta mindig legyőzi az erőset."
+   },
+   "el": {
+    "titre": "1. Μύρισε καθαρό",
+    "texte": "Ντους, αποσμητικό, ένας ψεκασμός άρωμα. Το καθαρό κερδίζει το βαρύ, πάντα."
+   },
+   "ro": {
+    "titre": "1. Miroase a curat",
+    "texte": "Duș, deodorant, un puf de parfum. Curatul bate mirosul puternic, mereu."
+   },
+   "sr": {
+    "titre": "1. Mirisi čisto",
+    "texte": "Tuš, dezodorans, jedan prsk parfema. Čisto uvek pobeđuje jako."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Keep your nails short",
     "texte": "Short and clean, always. People notice your hands more than you think."
+   },
+   "de": {
+    "titre": "2. Kurze Nägel",
+    "texte": "Kurz und sauber, immer. Leute achten mehr auf deine Hände, als du denkst."
+   },
+   "es-419": {
+    "titre": "2. Uñas cortas",
+    "texte": "Cortas y limpias, siempre. La gente se fija en tus manos más de lo que crees."
+   },
+   "it": {
+    "titre": "2. Unghie corte",
+    "texte": "Corte e pulite, sempre. La gente guarda le tue mani più di quanto pensi."
+   },
+   "pl": {
+    "titre": "2. Krótkie paznokcie",
+    "texte": "Krótkie i czyste, zawsze. Ludzie patrzą na twoje dłonie częściej, niż myślisz."
+   },
+   "tr": {
+    "titre": "2. Tırnakların kısa olsun",
+    "texte": "Her zaman kısa ve temiz. İnsanlar ellerine sandığından daha çok bakar."
+   },
+   "hu": {
+    "titre": "2. Rövid körmök",
+    "texte": "Rövid és tiszta, mindig. Többen nézik a kezed, mint gondolnád."
+   },
+   "el": {
+    "titre": "2. Κοντά νύχια",
+    "texte": "Κοντά και καθαρά, πάντα. Ο κόσμος κοιτάει τα χέρια σου πιο πολύ απ' όσο νομίζεις."
+   },
+   "ro": {
+    "titre": "2. Unghii scurte",
+    "texte": "Scurte și curate, mereu. Oamenii se uită la mâinile tale mai mult decât crezi."
+   },
+   "sr": {
+    "titre": "2. Kratki nokti",
+    "texte": "Kratki i čisti, uvek. Ljudi gledaju tvoje ruke više nego što misliš."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Get fit by running",
     "texte": "No gym needed to look fit. A running coach app like Atala builds your plan around the days you can run."
+   },
+   "de": {
+    "titre": "3. Werd fit durchs Laufen",
+    "texte": "Fit aussehen geht auch ohne Gym. Eine Lauf-App mit Coach wie Atala baut deinen Plan um die Tage, an denen du laufen kannst."
+   },
+   "es-419": {
+    "titre": "3. Ponte en forma corriendo",
+    "texte": "No necesitas gimnasio para verte en forma. Una app de running con entrenador como Atala arma tu plan según los días que puedes correr."
+   },
+   "it": {
+    "titre": "3. Rimettiti in forma correndo",
+    "texte": "Non serve la palestra per sembrare in forma. Un'app con coach per la corsa come Atala costruisce il piano sui giorni in cui puoi correre."
+   },
+   "pl": {
+    "titre": "3. Złap formę biegając",
+    "texte": "Nie potrzebujesz siłowni, żeby wyglądać na wysportowanego. Aplikacja z trenerem biegania, taka jak Atala, układa plan pod dni, w które możesz biegać."
+   },
+   "tr": {
+    "titre": "3. Koşarak forma gir",
+    "texte": "Fit görünmek için spor salonu şart değil. Atala gibi bir koşu koçu uygulaması planını koşabildiğin günlere göre kurar."
+   },
+   "hu": {
+    "titre": "3. Legyél fitt futással",
+    "texte": "Nem kell edzőterem, hogy fittnek tűnj. Egy futóedzős app, mint az Atala, azokra a napokra építi a terved, amikor futni tudsz."
+   },
+   "el": {
+    "titre": "3. Γίνε fit με τρέξιμο",
+    "texte": "Δεν χρειάζεσαι γυμναστήριο για να δείχνεις fit. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala φτιάχνει το πλάνο στις μέρες που μπορείς να τρέξεις."
+   },
+   "ro": {
+    "titre": "3. Pune-te în formă alergând",
+    "texte": "Nu-ți trebuie sală ca să arăți în formă. O aplicație cu antrenor de alergare, ca Atala, îți face planul pe zilele în care poți alerga."
+   },
+   "sr": {
+    "titre": "3. Uđi u formu trčanjem",
+    "texte": "Ne treba ti teretana da izgledaš u formi. Aplikacija sa trenerom za trčanje, kao što je Atala, pravi ti plan oko dana kad možeš da trčiš."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Wear one good watch",
     "texte": "A simple watch makes any outfit look finished. No logo, no noise."
+   },
+   "de": {
+    "titre": "4. Trag eine gute Uhr",
+    "texte": "Eine schlichte Uhr macht jedes Outfit komplett. Kein Logo, kein Lärm."
+   },
+   "es-419": {
+    "titre": "4. Usa un buen reloj",
+    "texte": "Un reloj sencillo hace que cualquier outfit se vea completo. Sin logos, sin ruido."
+   },
+   "it": {
+    "titre": "4. Un buon orologio",
+    "texte": "Un orologio semplice completa qualsiasi outfit. Niente logo, niente rumore."
+   },
+   "pl": {
+    "titre": "4. Noś dobry zegarek",
+    "texte": "Prosty zegarek domyka każdy outfit. Bez logo, bez hałasu."
+   },
+   "tr": {
+    "titre": "4. İyi bir saat tak",
+    "texte": "Sade bir saat her kombini tamamlar. Logo yok, gürültü yok."
+   },
+   "hu": {
+    "titre": "4. Hordj egy jó órát",
+    "texte": "Egy egyszerű óra minden szettet befejez. Se logó, se zaj."
+   },
+   "el": {
+    "titre": "4. Φόρα ένα καλό ρολόι",
+    "texte": "Ένα απλό ρολόι ολοκληρώνει κάθε ντύσιμο. Χωρίς λογότυπο, χωρίς φασαρία."
+   },
+   "ro": {
+    "titre": "4. Poartă un ceas bun",
+    "texte": "Un ceas simplu completează orice ținută. Fără logo, fără zgomot."
+   },
+   "sr": {
+    "titre": "4. Nosi dobar sat",
+    "texte": "Jednostavan sat zaokruži svaku kombinaciju. Bez logoa, bez buke."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Keep your hair trimmed",
     "texte": "A fresh cut every few weeks keeps you sharp, even in a plain t-shirt."
+   },
+   "de": {
+    "titre": "5. Halte die Haare kurz",
+    "texte": "Alle paar Wochen ein frischer Schnitt, und du siehst gepflegt aus, selbst im schlichten T-Shirt."
+   },
+   "es-419": {
+    "titre": "5. Pelo siempre recortado",
+    "texte": "Un corte fresco cada pocas semanas te mantiene bien, hasta con una playera lisa."
+   },
+   "it": {
+    "titre": "5. Capelli sempre in ordine",
+    "texte": "Un taglio fresco ogni poche settimane e sei a posto, anche con una t-shirt semplice."
+   },
+   "pl": {
+    "titre": "5. Dbaj o fryzurę",
+    "texte": "Świeże cięcie co kilka tygodni i wyglądasz dobrze nawet w zwykłym T-shircie."
+   },
+   "tr": {
+    "titre": "5. Saçını kısa tut",
+    "texte": "Birkaç haftada bir taze kesim, düz bir tişörtle bile derli toplu görünürsün."
+   },
+   "hu": {
+    "titre": "5. Tartsd rövidre a hajad",
+    "texte": "Pár hetente egy friss hajvágás, és ápolt vagy egy sima pólóban is."
+   },
+   "el": {
+    "titre": "5. Κοντό κούρεμα",
+    "texte": "Ένα φρέσκο κούρεμα κάθε λίγες βδομάδες και δείχνεις περιποιημένος, ακόμα και με απλό μπλουζάκι."
+   },
+   "ro": {
+    "titre": "5. Părul mereu tuns",
+    "texte": "O tunsoare proaspătă la câteva săptămâni și arăți îngrijit chiar și într-un tricou simplu."
+   },
+   "sr": {
+    "titre": "5. Uredna kosa",
+    "texte": "Sveže šišanje na par nedelja i izgledaš sređeno i u običnoj majici."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-3.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

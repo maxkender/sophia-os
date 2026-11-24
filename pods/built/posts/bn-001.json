@@ -7,10 +7,28 @@
   "accroche": "GLOW UP HACKS FOR MEN."
  },
  "titre": {
-  "en": "5 glow up habits every man needs"
+  "en": "5 glow up habits every man needs",
+  "de": "5 glow-up-gewohnheiten für jeden mann",
+  "es-419": "5 hábitos de glow up que todo hombre necesita",
+  "it": "5 abitudini glow up che ogni uomo deve avere",
+  "pl": "5 nawyków glow up dla każdego faceta",
+  "tr": "her erkeğin ihtiyacı olan 5 glow up alışkanlığı",
+  "hu": "5 glow up szokás, ami minden férfinak kell",
+  "el": "5 συνήθειες που χρειάζεται κάθε άντρας",
+  "ro": "5 obiceiuri de glow up de care are nevoie orice bărbat",
+  "sr": "5 glow up navika koje svakom muškarcu trebaju"
  },
  "legendes": {
-  "en": "small habits, big difference #selfimprovement #glowup #tipsformen #running #discipline"
+  "en": "small habits, big difference #selfimprovement #glowup #tipsformen #running #discipline",
+  "de": "kleine gewohnheiten, großer unterschied #selfimprovement #glowup #tipsformen #running #discipline",
+  "es-419": "pequeños hábitos, gran diferencia #selfimprovement #glowup #tipsformen #running #discipline",
+  "it": "piccole abitudini, grande differenza #selfimprovement #glowup #tipsformen #running #discipline",
+  "pl": "małe nawyki, duża różnica #selfimprovement #glowup #tipsformen #running #discipline",
+  "tr": "küçük alışkanlıklar, büyük fark #selfimprovement #glowup #tipsformen #running #discipline",
+  "hu": "kis szokások, nagy különbség #selfimprovement #glowup #tipsformen #running #discipline",
+  "el": "μικρές συνήθειες, μεγάλη διαφορά #selfimprovement #glowup #tipsformen #running #discipline",
+  "ro": "obiceiuri mici, diferență mare #selfimprovement #glowup #tipsformen #running #discipline",
+  "sr": "male navike, velika razlika #selfimprovement #glowup #tipsformen #running #discipline"
  },
  "musique": {
   "titre": "FUNDO DE VIDEO",
@@ -26,6 +44,33 @@
    "image": "images/detoures/couverture.png",
    "en": {
     "titre": "5 GLOW UP HABITS\nEVERY MAN NEEDS."
+   },
+   "de": {
+    "titre": "5 GLOW-UP-\nGEWOHNHEITEN FÜR\nJEDEN MANN."
+   },
+   "es-419": {
+    "titre": "5 HÁBITOS DE GLOW UP\nQUE TODO HOMBRE\nNECESITA."
+   },
+   "it": {
+    "titre": "5 ABITUDINI GLOW UP\nCHE OGNI UOMO\nDEVE AVERE."
+   },
+   "pl": {
+    "titre": "5 NAWYKÓW GLOW UP\nDLA KAŻDEGO\nFACETA."
+   },
+   "tr": {
+    "titre": "HER ERKEĞİN\nİHTİYACI OLAN 5\nGLOW UP ALIŞKANLIĞI."
+   },
+   "hu": {
+    "titre": "5 GLOW UP SZOKÁS,\nAMI MINDEN\nFÉRFINAK KELL."
+   },
+   "el": {
+    "titre": "5 ΣΥΝΗΘΕΙΕΣ\nΠΟΥ ΧΡΕΙΑΖΕΤΑΙ\nΚΑΘΕ ΑΝΤΡΑΣ."
+   },
+   "ro": {
+    "titre": "5 OBICEIURI\nDE GLOW UP DE CARE\nARE NEVOIE ORICE BĂRBAT."
+   },
+   "sr": {
+    "titre": "5 GLOW UP NAVIKA\nKOJE SVAKOM\nMUŠKARCU TREBAJU."
    }
   },
   {
@@ -36,7 +81,43 @@
     "titre": "1. Fix your posture",
     "texte": "Shoulders back, chin tucked, phone at eye level. Standing tall makes you look taller and more confident."
    },
-   "taille": 440
+   "taille": 440,
+   "de": {
+    "titre": "1. Richte deine Haltung",
+    "texte": "Schultern zurück, Kinn leicht rein, Handy auf Augenhöhe. Aufrecht wirkst du größer und selbstbewusster."
+   },
+   "es-419": {
+    "titre": "1. Corrige tu postura",
+    "texte": "Hombros atrás, mentón adentro, el celular a la altura de los ojos. Erguido te ves más alto y seguro."
+   },
+   "it": {
+    "titre": "1. Sistema la postura",
+    "texte": "Spalle indietro, mento dentro, telefono all'altezza degli occhi. Dritto sembri più alto e più sicuro."
+   },
+   "pl": {
+    "titre": "1. Popraw postawę",
+    "texte": "Barki do tyłu, broda lekko cofnięta, telefon na wysokości oczu. Wyprostowany wyglądasz pewniej."
+   },
+   "tr": {
+    "titre": "1. Duruşunu düzelt",
+    "texte": "Omuzlar geride, çene içeride, telefon göz hizasında. Dik durunca daha uzun ve özgüvenli görünürsün."
+   },
+   "hu": {
+    "titre": "1. Javíts a tartásodon",
+    "texte": "Vállak hátra, áll kissé be, telefon szemmagasságban. Egyenesen magasabbnak és magabiztosabbnak tűnsz."
+   },
+   "el": {
+    "titre": "1. Φτιάξε τη στάση σου",
+    "texte": "Ώμοι πίσω, πηγούνι μέσα, κινητό στο ύψος των ματιών. Όρθιος δείχνεις πιο ψηλός και σίγουρος."
+   },
+   "ro": {
+    "titre": "1. Corectează-ți postura",
+    "texte": "Umerii pe spate, bărbia ușor trasă, telefonul la nivelul ochilor. Drept arăți mai înalt și mai sigur."
+   },
+   "sr": {
+    "titre": "1. Ispravi držanje",
+    "texte": "Ramena nazad, brada blago uvučena, telefon u visini očiju. Uspravan izgledaš viši i sigurniji."
+   }
   },
   {
    "type": "conseil",
@@ -46,6 +127,42 @@
    "en": {
     "titre": "2. Sleep 7 to 9 hours",
     "texte": "Same bedtime every night, even on weekends. Sleep is when your body recovers and the tired look leaves your face."
+   },
+   "de": {
+    "titre": "2. Schlaf 7 bis 9 Stunden",
+    "texte": "Jeden Abend zur gleichen Zeit ins Bett, auch am Wochenende. Im Schlaf erholt sich dein Körper."
+   },
+   "es-419": {
+    "titre": "2. Duerme de 7 a 9 horas",
+    "texte": "Misma hora de dormir cada noche, también el fin de semana. Mientras duermes, tu cuerpo se recupera."
+   },
+   "it": {
+    "titre": "2. Dormi dalle 7 alle 9 ore",
+    "texte": "Stessa ora per andare a letto, anche nel weekend. Mentre dormi il corpo recupera e si vede in faccia."
+   },
+   "pl": {
+    "titre": "2. Śpij 7 do 9 godzin",
+    "texte": "Ta sama pora snu co wieczór, także w weekend. W nocy ciało się regeneruje i widać to na twarzy."
+   },
+   "tr": {
+    "titre": "2. 7-9 saat uyu",
+    "texte": "Her gece aynı saatte yat, hafta sonu da. Vücudun uykuda toparlanır ve yorgun ifade yüzünden gider."
+   },
+   "hu": {
+    "titre": "2. Aludj 7-9 órát",
+    "texte": "Minden este ugyanakkor feküdj le, hétvégén is. Alvás közben regenerálódik a tested."
+   },
+   "el": {
+    "titre": "2. Κοιμήσου 7 με 9 ώρες",
+    "texte": "Ίδια ώρα ύπνου κάθε βράδυ, και τα Σαββατοκύριακα. Στον ύπνο το σώμα σου ανακάμπτει."
+   },
+   "ro": {
+    "titre": "2. Dormi 7-9 ore",
+    "texte": "Te culci la aceeași oră în fiecare seară, și în weekend. În somn corpul se reface."
+   },
+   "sr": {
+    "titre": "2. Spavaj 7 do 9 sati",
+    "texte": "Svako veče u isto vreme u krevet, i vikendom. Dok spavaš, telo se oporavlja."
    }
   },
   {
@@ -57,6 +174,42 @@
    "en": {
     "titre": "3. Start running",
     "texte": "3 easy runs a week build real stamina. A running coach app like Atala gives you a plan that starts at your level."
+   },
+   "de": {
+    "titre": "3. Fang an zu laufen",
+    "texte": "3 lockere Läufe pro Woche bauen echte Ausdauer auf. Eine Lauf-App mit Coach wie Atala gibt dir einen Plan für dein Level."
+   },
+   "es-419": {
+    "titre": "3. Empieza a correr",
+    "texte": "3 trotes suaves por semana te dan resistencia de verdad. Una app de running con entrenador como Atala te da un plan a tu nivel."
+   },
+   "it": {
+    "titre": "3. Inizia a correre",
+    "texte": "3 corse leggere a settimana costruiscono vera resistenza. Un'app con coach per la corsa come Atala ti dà un piano al tuo livello."
+   },
+   "pl": {
+    "titre": "3. Zacznij biegać",
+    "texte": "3 spokojne biegi w tygodniu budują prawdziwą kondycję. Aplikacja z trenerem biegania, taka jak Atala, da ci plan na twój poziom."
+   },
+   "tr": {
+    "titre": "3. Koşmaya başla",
+    "texte": "Haftada 3 hafif koşu gerçek bir dayanıklılık kazandırır. Atala gibi bir koşu koçu uygulaması sana seviyene göre bir plan verir."
+   },
+   "hu": {
+    "titre": "3. Kezdj el futni",
+    "texte": "Heti 3 könnyű futás valódi állóképességet ad. Egy futóedzős app, mint az Atala, a szintedhez igazított tervet ad."
+   },
+   "el": {
+    "titre": "3. Ξεκίνα τρέξιμο",
+    "texte": "3 χαλαρά τρεξίματα την εβδομάδα χτίζουν αντοχή. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala σου δίνει πλάνο για το επίπεδό σου."
+   },
+   "ro": {
+    "titre": "3. Începe să alergi",
+    "texte": "3 alergări ușoare pe săptămână îți construiesc rezistență. O aplicație cu antrenor de alergare, ca Atala, îți dă un plan pe nivelul tău."
+   },
+   "sr": {
+    "titre": "3. Počni da trčiš",
+    "texte": "3 laka trčanja nedeljno grade pravu izdržljivost. Aplikacija sa trenerom za trčanje, kao što je Atala, daje ti plan za tvoj nivo."
    }
   },
   {
@@ -67,6 +220,42 @@
    "en": {
     "titre": "4. Drink water first",
     "texte": "Water before coffee, then a bottle on your desk all day. Even mild dehydration drains your focus and your energy."
+   },
+   "de": {
+    "titre": "4. Erst Wasser trinken",
+    "texte": "Wasser vor dem Kaffee, dann eine Flasche auf dem Schreibtisch. Schon wenig Flüssigkeitsmangel raubt dir Fokus."
+   },
+   "es-419": {
+    "titre": "4. Primero, agua",
+    "texte": "Agua antes del café y una botella en tu escritorio todo el día. Un poco de deshidratación ya te quita foco."
+   },
+   "it": {
+    "titre": "4. Prima l'acqua",
+    "texte": "Acqua prima del caffè, poi una borraccia sulla scrivania. Anche poca disidratazione ti toglie concentrazione."
+   },
+   "pl": {
+    "titre": "4. Najpierw woda",
+    "texte": "Woda przed kawą, potem butelka na biurku. Nawet lekkie odwodnienie odbiera skupienie i energię."
+   },
+   "tr": {
+    "titre": "4. Önce su iç",
+    "texte": "Kahveden önce su, sonra gün boyu masanda bir şişe. Hafif susuzluk bile odağını ve enerjini düşürür."
+   },
+   "hu": {
+    "titre": "4. Először vizet igyál",
+    "texte": "Víz a kávé előtt, aztán egy palack az asztalodon. Már az enyhe kiszáradás is elveszi a fókuszod."
+   },
+   "el": {
+    "titre": "4. Πρώτα νερό",
+    "texte": "Νερό πριν τον καφέ και ένα μπουκάλι στο γραφείο. Ακόμα και λίγη αφυδάτωση ρίχνει τη συγκέντρωση."
+   },
+   "ro": {
+    "titre": "4. Întâi apă",
+    "texte": "Apă înainte de cafea, apoi o sticlă pe birou toată ziua. Chiar și o deshidratare ușoară îți ia din concentrare."
+   },
+   "sr": {
+    "titre": "4. Prvo voda",
+    "texte": "Voda pre kafe, pa flaša na stolu ceo dan. Čak i blaga dehidracija ti uzima fokus."
    }
   },
   {
@@ -77,13 +266,76 @@
     "titre": "5. Get morning sunlight",
     "texte": "10 minutes outside after you wake up. Morning light sets your body clock, so you sleep better at night."
    },
-   "taille": 560
+   "taille": 560,
+   "de": {
+    "titre": "5. Hol dir Morgenlicht",
+    "texte": "10 Minuten draußen nach dem Aufstehen. Morgenlicht stellt deine innere Uhr, du schläfst abends besser."
+   },
+   "es-419": {
+    "titre": "5. Toma luz por la mañana",
+    "texte": "10 minutos afuera al despertar. La luz de la mañana ajusta tu reloj interno y duermes mejor de noche."
+   },
+   "it": {
+    "titre": "5. Prendi luce al mattino",
+    "texte": "10 minuti fuori appena sveglio. La luce del mattino regola il tuo orologio interno e la sera dormi meglio."
+   },
+   "pl": {
+    "titre": "5. Łap poranne światło",
+    "texte": "10 minut na zewnątrz po przebudzeniu. Poranne światło ustawia zegar biologiczny i lepiej śpisz."
+   },
+   "tr": {
+    "titre": "5. Sabah ışığı al",
+    "texte": "Uyandıktan sonra 10 dakika dışarıda kal. Sabah ışığı biyolojik saatini ayarlar, gece daha iyi uyursun."
+   },
+   "hu": {
+    "titre": "5. Kapj reggeli fényt",
+    "texte": "Ébredés után 10 perc a szabadban. A reggeli fény beállítja a belső órádat, este jobban alszol."
+   },
+   "el": {
+    "titre": "5. Πάρε πρωινό φως",
+    "texte": "10 λεπτά έξω μόλις ξυπνήσεις. Το πρωινό φως ρυθμίζει το ρολόι του σώματος και κοιμάσαι καλύτερα."
+   },
+   "ro": {
+    "titre": "5. Ia lumină dimineața",
+    "texte": "10 minute afară după ce te trezești. Lumina dimineții îți reglează ceasul intern și dormi mai bine."
+   },
+   "sr": {
+    "titre": "5. Uhvati jutarnje svetlo",
+    "texte": "10 minuta napolju čim ustaneš. Jutarnje svetlo podešava unutrašnji sat i bolje spavaš noću."
+   }
   },
   {
    "type": "fin",
    "image": "images/detoures/fin.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

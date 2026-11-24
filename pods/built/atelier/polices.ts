@@ -15,8 +15,11 @@ export const POLICE = {
   texte: "BN Texte",
   /** « Follow for more » : Arimo Regular (la linéale par défaut de Canva). */
   fin: "BN Fin",
+  /** Le grec des titres (League Spartan n'a pas de grec) : Manrope ExtraBold, géométrique, pris glyphe par glyphe en repli. */
+  titreGrec: "BN Titre Grec",
 } as const;
 
 GlobalFonts.registerFromPath(join(DOSSIER, "LeagueSpartan-Bold.ttf"), POLICE.titre);
 GlobalFonts.registerFromPath(join(DOSSIER, "IBMPlexSans-Regular.ttf"), POLICE.texte);
 GlobalFonts.registerFromPath(join(DOSSIER, "Arimo-Regular.ttf"), POLICE.fin);
+GlobalFonts.registerFromPath(join(DOSSIER, "Manrope-ExtraBold.ttf"), POLICE.titreGrec);

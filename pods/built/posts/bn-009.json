@@ -8,10 +8,28 @@
   "accroche": "5 THINGS TO DO BEFORE 2027"
  },
  "titre": {
-  "en": "things every man should do before 30"
+  "en": "things every man should do before 30",
+  "de": "dinge, die jeder mann vor 30 machen sollte",
+  "es-419": "cosas que todo hombre debe hacer antes de los 30",
+  "it": "cose che ogni uomo dovrebbe fare prima dei 30",
+  "pl": "rzeczy, które każdy facet powinien zrobić przed 30",
+  "tr": "her erkeğin 30'undan önce yapması gerekenler",
+  "hu": "amit minden férfinak 30 előtt meg kell tennie",
+  "el": "πράγματα που πρέπει να κάνει κάθε άντρας πριν τα 30",
+  "ro": "lucruri de făcut înainte de 30 ca bărbat",
+  "sr": "stvari koje svaki muškarac treba da uradi pre 30"
  },
  "legendes": {
-  "en": "start before you feel ready #selfimprovement #lifeadvice #tipsformen #running #goals"
+  "en": "start before you feel ready #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "de": "fang an, bevor du dich bereit fühlst #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "es-419": "empieza antes de sentirte listo #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "it": "inizia prima di sentirti pronto #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "pl": "zacznij, zanim poczujesz się gotowy #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "tr": "hazır hissetmeden başla #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "hu": "kezdd el, mielőtt késznek érzed magad #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "el": "ξεκίνα πριν νιώσεις έτοιμος #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "ro": "începe înainte să te simți pregătit #selfimprovement #lifeadvice #tipsformen #running #goals",
+  "sr": "počni pre nego što se osetiš spremnim #selfimprovement #lifeadvice #tipsformen #running #goals"
  },
  "musique": {
   "titre": "A Good Man with a Broken Heart",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-9.png",
    "en": {
     "titre": "THINGS EVERY MAN\nSHOULD DO\nBEFORE 30."
+   },
+   "de": {
+    "titre": "DINGE, DIE JEDER\nMANN VOR 30\nMACHEN SOLLTE."
+   },
+   "es-419": {
+    "titre": "COSAS QUE TODO\nHOMBRE DEBE HACER\nANTES DE LOS 30."
+   },
+   "it": {
+    "titre": "COSE CHE OGNI\nUOMO DOVREBBE FARE\nPRIMA DEI 30."
+   },
+   "pl": {
+    "titre": "RZECZY, KTÓRE\nKAŻDY FACET POWINIEN\nZROBIĆ PRZED 30."
+   },
+   "tr": {
+    "titre": "HER ERKEĞİN\n30'UNDAN ÖNCE\nYAPMASI GEREKENLER."
+   },
+   "hu": {
+    "titre": "AMIT MINDEN\nFÉRFINAK 30 ELŐTT\nMEG KELL TENNIE."
+   },
+   "el": {
+    "titre": "ΠΡΑΓΜΑΤΑ ΠΟΥ\nΠΡΕΠΕΙ ΝΑ ΚΑΝΕΙ\nΚΑΘΕ ΑΝΤΡΑΣ ΠΡΙΝ ΤΑ 30."
+   },
+   "ro": {
+    "titre": "LUCRURI DE FĂCUT\nÎNAINTE DE 30\nCA BĂRBAT."
+   },
+   "sr": {
+    "titre": "STVARI KOJE SVAKI\nMUŠKARAC TREBA\nDA URADI PRE 30."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Learn to cook 5 meals",
     "texte": "Cheap, healthy and impressive. Five meals you can make without a recipe."
+   },
+   "de": {
+    "titre": "1. Lern 5 Gerichte kochen",
+    "texte": "Günstig, gesund und beeindruckend. Fünf Gerichte, die du ohne Rezept kannst."
+   },
+   "es-419": {
+    "titre": "1. Aprende 5 platillos",
+    "texte": "Baratos, sanos e impresionantes. Cinco platillos que puedas hacer sin receta."
+   },
+   "it": {
+    "titre": "1. Impara 5 piatti",
+    "texte": "Economici, sani e d'effetto. Cinque piatti che sai fare senza ricetta."
+   },
+   "pl": {
+    "titre": "1. Naucz się 5 dań",
+    "texte": "Tanie, zdrowe i robią wrażenie. Pięć dań, które zrobisz bez przepisu."
+   },
+   "tr": {
+    "titre": "1. 5 yemek öğren",
+    "texte": "Ucuz, sağlıklı ve etkileyici. Tarifsiz yapabildiğin beş yemek."
+   },
+   "hu": {
+    "titre": "1. Tanulj meg 5 ételt",
+    "texte": "Olcsó, egészséges és lenyűgöző. Öt étel, amit recept nélkül is megcsinálsz."
+   },
+   "el": {
+    "titre": "1. Μάθε 5 φαγητά",
+    "texte": "Φθηνά, υγιεινά και εντυπωσιακά. Πέντε φαγητά που φτιάχνεις χωρίς συνταγή."
+   },
+   "ro": {
+    "titre": "1. Învață 5 rețete",
+    "texte": "Ieftine, sănătoase și impresionante. Cinci feluri pe care le faci fără rețetă."
+   },
+   "sr": {
+    "titre": "1. Nauči 5 jela",
+    "texte": "Jeftina, zdrava i impresivna. Pet jela koja praviš bez recepta."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Build an emergency fund",
     "texte": "Save a few months of expenses. Money stress drops when you have a cushion."
+   },
+   "de": {
+    "titre": "2. Bau ein Notfallpolster auf",
+    "texte": "Spar ein paar Monatsausgaben. Geldstress sinkt, wenn du ein Polster hast."
+   },
+   "es-419": {
+    "titre": "2. Ten un fondo de emergencia",
+    "texte": "Ahorra unos meses de gastos. El estrés por dinero baja cuando tienes un colchón."
+   },
+   "it": {
+    "titre": "2. Crea un fondo emergenze",
+    "texte": "Metti da parte qualche mese di spese. Lo stress per i soldi cala quando hai un cuscinetto."
+   },
+   "pl": {
+    "titre": "2. Zbuduj fundusz awaryjny",
+    "texte": "Odłóż kilka miesięcy wydatków. Stres o pieniądze spada, gdy masz poduszkę."
+   },
+   "tr": {
+    "titre": "2. Acil durum fonu kur",
+    "texte": "Birkaç aylık giderini biriktir. Bir yastığın olunca para stresi azalır."
+   },
+   "hu": {
+    "titre": "2. Legyen vésztartalékod",
+    "texte": "Tegyél félre pár havi kiadást. A pénzstressz csökken, ha van tartalékod."
+   },
+   "el": {
+    "titre": "2. Φτιάξε ένα αποθεματικό",
+    "texte": "Κράτα στην άκρη μερικούς μήνες εξόδων. Το άγχος για τα λεφτά πέφτει όταν έχεις μαξιλάρι."
+   },
+   "ro": {
+    "titre": "2. Fă-ți un fond de urgență",
+    "texte": "Pune deoparte câteva luni de cheltuieli. Stresul cu banii scade când ai o rezervă."
+   },
+   "sr": {
+    "titre": "2. Napravi rezervni fond",
+    "texte": "Uštedi par meseci troškova. Stres zbog para pada kad imaš rezervu."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Run a 10K",
     "texte": "A real goal keeps you training. A running coach app like Atala builds your weeks around the race."
+   },
+   "de": {
+    "titre": "3. Lauf 10 km",
+    "texte": "Ein echtes Ziel hält dich im Training. Eine Lauf-App mit Coach wie Atala baut deine Wochen rund um den Lauf."
+   },
+   "es-419": {
+    "titre": "3. Corre un 10K",
+    "texte": "Una meta real te mantiene entrenando. Una app de running con entrenador como Atala arma tus semanas alrededor de la carrera."
+   },
+   "it": {
+    "titre": "3. Corri una 10 km",
+    "texte": "Un obiettivo vero ti fa allenare. Un'app con coach per la corsa come Atala costruisce le tue settimane intorno alla gara."
+   },
+   "pl": {
+    "titre": "3. Przebiegnij 10 km",
+    "texte": "Prawdziwy cel trzyma cię przy treningu. Aplikacja z trenerem biegania, taka jak Atala, układa twoje tygodnie pod start."
+   },
+   "tr": {
+    "titre": "3. 10 km koş",
+    "texte": "Gerçek bir hedef seni antrenmanda tutar. Atala gibi bir koşu koçu uygulaması haftalarını yarışa göre kurar."
+   },
+   "hu": {
+    "titre": "3. Fuss le egy 10 km-t",
+    "texte": "Egy valódi cél edzésben tart. Egy futóedzős app, mint az Atala, a versenyhez igazítja a heteidet."
+   },
+   "el": {
+    "titre": "3. Τρέξε 10 χλμ.",
+    "texte": "Ένας αληθινός στόχος σε κρατάει στην προπόνηση. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala χτίζει τις βδομάδες σου γύρω από τον αγώνα."
+   },
+   "ro": {
+    "titre": "3. Aleargă 10 km",
+    "texte": "Un obiectiv real te ține la antrenament. O aplicație cu antrenor de alergare, ca Atala, îți construiește săptămânile în jurul cursei."
+   },
+   "sr": {
+    "titre": "3. Istrči 10 km",
+    "texte": "Pravi cilj te drži na treningu. Aplikacija sa trenerom za trčanje, kao što je Atala, slaže tvoje nedelje oko trke."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Travel alone once",
     "texte": "One trip on your own teaches you more about yourself than a year at home."
+   },
+   "de": {
+    "titre": "4. Reis einmal allein",
+    "texte": "Eine Reise allein lehrt dich mehr über dich als ein Jahr zu Hause."
+   },
+   "es-419": {
+    "titre": "4. Viaja solo una vez",
+    "texte": "Un viaje por tu cuenta te enseña más de ti que un año en casa."
+   },
+   "it": {
+    "titre": "4. Viaggia da solo",
+    "texte": "Un viaggio da solo ti insegna più su di te che un anno a casa."
+   },
+   "pl": {
+    "titre": "4. Podróżuj sam",
+    "texte": "Jedna samotna podróż uczy cię o sobie więcej niż rok w domu."
+   },
+   "tr": {
+    "titre": "4. Bir kez yalnız seyahat et",
+    "texte": "Tek başına bir yolculuk sana kendin hakkında evde geçen bir yıldan fazlasını öğretir."
+   },
+   "hu": {
+    "titre": "4. Utazz egyszer egyedül",
+    "texte": "Egy egyedül tett út többet tanít magadról, mint egy év otthon."
+   },
+   "el": {
+    "titre": "4. Ταξίδεψε μόνος μία φορά",
+    "texte": "Ένα ταξίδι μόνος σου σε μαθαίνει περισσότερα για σένα από έναν χρόνο στο σπίτι."
+   },
+   "ro": {
+    "titre": "4. Călătorește singur",
+    "texte": "O călătorie singur te învață mai mult despre tine decât un an acasă."
+   },
+   "sr": {
+    "titre": "4. Putuj sam bar jednom",
+    "texte": "Jedno putovanje sam te nauči više o sebi nego godina kod kuće."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Keep a journal",
     "texte": "Write a few lines every night. Later, you'll see how far you've come."
+   },
+   "de": {
+    "titre": "5. Führ ein Tagebuch",
+    "texte": "Schreib jeden Abend ein paar Zeilen. Später siehst du, wie weit du gekommen bist."
+   },
+   "es-419": {
+    "titre": "5. Lleva un diario",
+    "texte": "Escribe unas líneas cada noche. Después vas a ver todo lo que avanzaste."
+   },
+   "it": {
+    "titre": "5. Tieni un diario",
+    "texte": "Scrivi qualche riga ogni sera. Più avanti vedrai quanta strada hai fatto."
+   },
+   "pl": {
+    "titre": "5. Pisz dziennik",
+    "texte": "Kilka zdań co wieczór. Później zobaczysz, jak daleko zaszedłeś."
+   },
+   "tr": {
+    "titre": "5. Günlük tut",
+    "texte": "Her akşam birkaç satır yaz. Sonra ne kadar yol aldığını görürsün."
+   },
+   "hu": {
+    "titre": "5. Írj naplót",
+    "texte": "Pár sor minden este. Később látni fogod, mennyit fejlődtél."
+   },
+   "el": {
+    "titre": "5. Κράτα ημερολόγιο",
+    "texte": "Γράψε λίγες γραμμές κάθε βράδυ. Αργότερα θα δεις πόσο δρόμο έκανες."
+   },
+   "ro": {
+    "titre": "5. Ține un jurnal",
+    "texte": "Scrie câteva rânduri în fiecare seară. Mai târziu vei vedea cât de departe ai ajuns."
+   },
+   "sr": {
+    "titre": "5. Vodi dnevnik",
+    "texte": "Par redova svako veče. Kasnije ćeš videti koliko si napredovao."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-5.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

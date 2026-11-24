@@ -1,4 +1,4 @@
-import { lireParLots } from "../_shared/lots.ts";
+import { lireParLots, lireTout } from "../_shared/lots.ts";
 import {
   abregerPourJournal,
   aRenouveler,
@@ -3911,9 +3911,26 @@ async function accueillir(supabase: Supabase, par: string | null) {
     ? await supabase.from("accueils").select("*").in("contrat_id", ids)
     : { data: [] };
   const connuDe = new Map((connus ?? []).map((a) => [String(a.contrat_id), a]));
-  const [{ data: profils }, { data: comptesPays }, hms, { data: hmNotees }] = await Promise.all([
-    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id, canal_paie"),
-    supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
+  // 24/11 : plus de 1000 profils et comptes : lus par pages (le plafond PostgREST cassait chaque passage).
+  const [profils, comptesPays, hms, { data: hmNotees }] = await Promise.all([
+    lireTout<{ id: string; prenom: string | null; nom: string | null; is_active: boolean; upwork_contract_id: string | null; canal_paie: string | null }>(
+      "accueil : profils",
+      (curseur, taille) => {
+        let q = supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id, canal_paie");
+        if (curseur) q = q.gt("id", curseur.id);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+      { ancre: (l) => l.id },
+    ),
+    lireTout<{ id: string; poster_id: string; pays: string | null; langue: string | null }>(
+      "accueil : comptes avec pays",
+      (curseur, taille) => {
+        let q = supabase.from("comptes").select("id, poster_id, pays, langue").not("pays", "is", null);
+        if (curseur) q = q.gt("id", curseur.id);
+        return q.order("id", { ascending: true }).limit(taille);
+      },
+      { ancre: (l) => l.id },
+    ),
     hmsDeLOs(supabase),
     supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
   ]);

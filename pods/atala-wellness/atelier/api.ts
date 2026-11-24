@@ -8,11 +8,11 @@ export const COMPTES_SOURCE = ["healthy_with_emma6"] as const;
 /** L'appli servie : Atala (coach de course par IA), id du catalogue de l'OS. */
 export const APPLICATION = { slug: "atala", id: "00000000-0000-4000-8000-000000000004", nom: "Atala" } as const;
 /**
- * Les langues livrées : l'anglais seul (demande d'Adrien du 19/11), lancement
+ * Les langues livrées : anglais (19/11), puis fr, de, it, hu, ro et el (ordre d'Adrien du 24/11), lancement
  * du 19/11. Cette liste est déclarée à l'OS à chaque `npm run boite` (0654) et
  * remplace `pods.langues` : l'attribution des comptes la lit.
  */
-export const LANGUES = ["en"] as const;
+export const LANGUES = ["en", "fr", "de", "it", "hu", "ro", "el"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

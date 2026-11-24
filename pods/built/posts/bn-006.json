@@ -8,10 +8,28 @@
   "accroche": "GLOW UP HACKS FOR MEN."
  },
  "titre": {
-  "en": "glow up rules every man needs"
+  "en": "glow up rules every man needs",
+  "de": "glow-up-regeln, die jeder mann braucht",
+  "es-419": "reglas de glow up que todo hombre necesita",
+  "it": "regole di glow up che ogni uomo deve seguire",
+  "pl": "zasady glow up, których potrzebuje każdy facet",
+  "tr": "her erkeğin ihtiyacı olan glow up kuralları",
+  "hu": "glow up szabályok, amik minden férfinak kellenek",
+  "el": "κανόνες glow up που χρειάζεται κάθε άντρας",
+  "ro": "reguli de glow up de care are nevoie orice bărbat",
+  "sr": "glow up pravila koja svakom muškarcu trebaju"
  },
  "legendes": {
-  "en": "small changes, big glow up #glowup #selfimprovement #tipsformen #running #mensgrooming"
+  "en": "small changes, big glow up #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "de": "kleine änderungen, großer glow up #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "es-419": "pequeños cambios, gran glow up #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "it": "piccoli cambi, grande glow up #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "pl": "małe zmiany, duży glow up #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "tr": "küçük değişiklikler, büyük glow up #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "hu": "kis változtatások, nagy glow up #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "el": "μικρές αλλαγές, μεγάλο glow up #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "ro": "schimbări mici, glow up mare #glowup #selfimprovement #tipsformen #running #mensgrooming",
+  "sr": "male promene, veliki glow up #glowup #selfimprovement #tipsformen #running #mensgrooming"
  },
  "musique": {
   "titre": "FUNDO DE VIDEO",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-6.png",
    "en": {
     "titre": "GLOW UP RULES\nEVERY MAN NEEDS."
+   },
+   "de": {
+    "titre": "GLOW-UP-REGELN,\nDIE JEDER MANN\nBRAUCHT."
+   },
+   "es-419": {
+    "titre": "REGLAS DE GLOW UP\nQUE TODO HOMBRE\nNECESITA."
+   },
+   "it": {
+    "titre": "REGOLE DI GLOW UP\nCHE OGNI UOMO\nDEVE SEGUIRE."
+   },
+   "pl": {
+    "titre": "ZASADY GLOW UP,\nKTÓRYCH POTRZEBUJE\nKAŻDY FACET."
+   },
+   "tr": {
+    "titre": "HER ERKEĞİN\nİHTİYACI OLAN\nGLOW UP KURALLARI."
+   },
+   "hu": {
+    "titre": "GLOW UP SZABÁLYOK,\nAMIK MINDEN\nFÉRFINAK KELLENEK."
+   },
+   "el": {
+    "titre": "ΚΑΝΟΝΕΣ GLOW UP\nΠΟΥ ΧΡΕΙΑΖΕΤΑΙ\nΚΑΘΕ ΑΝΤΡΑΣ."
+   },
+   "ro": {
+    "titre": "REGULI DE GLOW UP\nDE CARE ARE NEVOIE\nORICE BĂRBAT."
+   },
+   "sr": {
+    "titre": "GLOW UP PRAVILA\nKOJA SVAKOM\nMUŠKARCU TREBAJU."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Wash your face",
     "texte": "Twice a day, then a simple moisturizer. Clear skin is the easiest glow up there is."
+   },
+   "de": {
+    "titre": "1. Wasch dein Gesicht",
+    "texte": "Zweimal am Tag, dann eine einfache Feuchtigkeitscreme. Reine Haut ist der einfachste Glow-up."
+   },
+   "es-419": {
+    "titre": "1. Lávate la cara",
+    "texte": "Dos veces al día y luego una crema hidratante simple. Una piel limpia es el glow up más fácil."
+   },
+   "it": {
+    "titre": "1. Lavati il viso",
+    "texte": "Due volte al giorno, poi una crema idratante semplice. Una pelle pulita è il glow up più facile."
+   },
+   "pl": {
+    "titre": "1. Myj twarz",
+    "texte": "Dwa razy dziennie, potem prosty krem nawilżający. Czysta skóra to najłatwiejszy glow up."
+   },
+   "tr": {
+    "titre": "1. Yüzünü yıka",
+    "texte": "Günde iki kez, ardından basit bir nemlendirici. Temiz cilt en kolay glow up'tır."
+   },
+   "hu": {
+    "titre": "1. Mosd meg az arcod",
+    "texte": "Naponta kétszer, utána egy egyszerű hidratáló. A tiszta bőr a legkönnyebb glow up."
+   },
+   "el": {
+    "titre": "1. Πλύνε το πρόσωπό σου",
+    "texte": "Δύο φορές τη μέρα και μετά μια απλή ενυδατική. Το καθαρό δέρμα είναι το πιο εύκολο glow up."
+   },
+   "ro": {
+    "titre": "1. Spală-te pe față",
+    "texte": "De două ori pe zi, apoi o cremă hidratantă simplă. Pielea curată e cel mai ușor glow up."
+   },
+   "sr": {
+    "titre": "1. Umivaj lice",
+    "texte": "Dva puta dnevno, pa obična hidratantna krema. Čista koža je najlakši glow up."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Keep your smile bright",
     "texte": "Brush twice a day and floss at night. A clean smile is the first thing people notice."
+   },
+   "de": {
+    "titre": "2. Halte dein Lächeln hell",
+    "texte": "Zweimal am Tag putzen, abends Zahnseide. Ein sauberes Lächeln fällt zuerst auf."
+   },
+   "es-419": {
+    "titre": "2. Cuida tu sonrisa",
+    "texte": "Cepíllate dos veces al día e hilo dental en la noche. Una sonrisa limpia es lo primero que se nota."
+   },
+   "it": {
+    "titre": "2. Cura il tuo sorriso",
+    "texte": "Lavati i denti due volte al giorno e usa il filo la sera. Un sorriso pulito si nota per primo."
+   },
+   "pl": {
+    "titre": "2. Dbaj o uśmiech",
+    "texte": "Myj zęby dwa razy dziennie, wieczorem nitkuj. Czysty uśmiech widać najpierw."
+   },
+   "tr": {
+    "titre": "2. Gülüşüne iyi bak",
+    "texte": "Günde iki kez fırçala, akşam diş ipi kullan. Temiz bir gülüş ilk fark edilen şeydir."
+   },
+   "hu": {
+    "titre": "2. Ápold a mosolyod",
+    "texte": "Mosd a fogad naponta kétszer, este fogselyem. A tiszta mosolyt veszik észre először."
+   },
+   "el": {
+    "titre": "2. Φρόντισε το χαμόγελο",
+    "texte": "Βούρτσισμα δύο φορές τη μέρα και οδοντικό νήμα το βράδυ. Ένα καθαρό χαμόγελο φαίνεται πρώτο."
+   },
+   "ro": {
+    "titre": "2. Ai grijă de zâmbet",
+    "texte": "Periaj de două ori pe zi și ață dentară seara. Un zâmbet curat se vede primul."
+   },
+   "sr": {
+    "titre": "2. Čuvaj osmeh",
+    "texte": "Peri zube dva puta dnevno i koristi konac uveče. Čist osmeh se prvi primeti."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Start running",
     "texte": "Easy runs 2 or 3 times a week, no rush. Personally, I follow a plan from a running coach app like Atala."
+   },
+   "de": {
+    "titre": "3. Fang an zu laufen",
+    "texte": "Lockere Läufe, 2- bis 3-mal pro Woche, ohne Stress. Ich persönlich folge dem Plan einer Lauf-App mit Coach wie Atala."
+   },
+   "es-419": {
+    "titre": "3. Empieza a correr",
+    "texte": "Trotes suaves 2 o 3 veces por semana, sin prisa. Yo, en lo personal, sigo un plan de una app de running con entrenador como Atala."
+   },
+   "it": {
+    "titre": "3. Inizia a correre",
+    "texte": "Corse leggere 2 o 3 volte a settimana, senza fretta. Io personalmente seguo il piano di un'app con coach per la corsa come Atala."
+   },
+   "pl": {
+    "titre": "3. Zacznij biegać",
+    "texte": "Spokojne biegi 2-3 razy w tygodniu, bez pośpiechu. Ja osobiście trzymam się planu z aplikacji z trenerem biegania, takiej jak Atala."
+   },
+   "tr": {
+    "titre": "3. Koşmaya başla",
+    "texte": "Haftada 2-3 hafif koşu, acele yok. Ben kişisel olarak Atala gibi bir koşu koçu uygulamasının planını takip ediyorum."
+   },
+   "hu": {
+    "titre": "3. Kezdj el futni",
+    "texte": "Könnyű futások heti 2-3-szor, kapkodás nélkül. Én személy szerint egy futóedzős app, mint az Atala, tervét követem."
+   },
+   "el": {
+    "titre": "3. Ξεκίνα τρέξιμο",
+    "texte": "Χαλαρά τρεξίματα 2 με 3 φορές τη βδομάδα, χωρίς βιασύνη. Προσωπικά ακολουθώ το πλάνο μιας εφαρμογής προπονητή τρεξίματος όπως το Atala."
+   },
+   "ro": {
+    "titre": "3. Începe să alergi",
+    "texte": "Alergări ușoare de 2-3 ori pe săptămână, fără grabă. Eu personal urmez planul unei aplicații cu antrenor de alergare, ca Atala."
+   },
+   "sr": {
+    "titre": "3. Počni da trčiš",
+    "texte": "Laka trčanja 2 do 3 puta nedeljno, bez žurbe. Ja lično pratim plan aplikacije sa trenerom za trčanje, kao što je Atala."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Sleep in the dark",
     "texte": "Cool, dark and quiet room. Better sleep shows on your face the next morning."
+   },
+   "de": {
+    "titre": "4. Schlaf im Dunkeln",
+    "texte": "Kühles, dunkles und ruhiges Zimmer. Besserer Schlaf zeigt sich am nächsten Morgen im Gesicht."
+   },
+   "es-419": {
+    "titre": "4. Duerme a oscuras",
+    "texte": "Cuarto fresco, oscuro y silencioso. Dormir mejor se nota en tu cara a la mañana siguiente."
+   },
+   "it": {
+    "titre": "4. Dormi al buio",
+    "texte": "Stanza fresca, buia e silenziosa. Un sonno migliore si vede in faccia la mattina dopo."
+   },
+   "pl": {
+    "titre": "4. Śpij w ciemności",
+    "texte": "Chłodny, ciemny i cichy pokój. Lepszy sen widać rano na twarzy."
+   },
+   "tr": {
+    "titre": "4. Karanlıkta uyu",
+    "texte": "Serin, karanlık ve sessiz bir oda. İyi uyku ertesi sabah yüzünden belli olur."
+   },
+   "hu": {
+    "titre": "4. Aludj sötétben",
+    "texte": "Hűvös, sötét és csendes szoba. A jobb alvás másnap reggel látszik az arcodon."
+   },
+   "el": {
+    "titre": "4. Κοιμήσου στο σκοτάδι",
+    "texte": "Δροσερό, σκοτεινό και ήσυχο δωμάτιο. Ο καλύτερος ύπνος φαίνεται στο πρόσωπο το επόμενο πρωί."
+   },
+   "ro": {
+    "titre": "4. Dormi pe întuneric",
+    "texte": "Cameră răcoroasă, întunecată și liniștită. Somnul mai bun se vede pe față a doua zi."
+   },
+   "sr": {
+    "titre": "4. Spavaj u mraku",
+    "texte": "Hladna, mračna i tiha soba. Bolji san se vidi na licu sledećeg jutra."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Stand tall",
     "texte": "Shoulders back, chin level, chest open. Good posture makes any outfit look better."
+   },
+   "de": {
+    "titre": "5. Steh aufrecht",
+    "texte": "Schultern zurück, Kinn gerade, Brust offen. Gute Haltung lässt jedes Outfit besser aussehen."
+   },
+   "es-419": {
+    "titre": "5. Párate derecho",
+    "texte": "Hombros atrás, mentón recto, pecho abierto. Una buena postura hace que cualquier outfit se vea mejor."
+   },
+   "it": {
+    "titre": "5. Stai dritto",
+    "texte": "Spalle indietro, mento dritto, petto aperto. Una buona postura migliora qualsiasi outfit."
+   },
+   "pl": {
+    "titre": "5. Stój prosto",
+    "texte": "Barki do tyłu, broda prosto, klatka otwarta. Dobra postawa poprawia każdy outfit."
+   },
+   "tr": {
+    "titre": "5. Dik dur",
+    "texte": "Omuzlar geride, çene düz, göğüs açık. İyi bir duruş her kombini daha iyi gösterir."
+   },
+   "hu": {
+    "titre": "5. Állj egyenesen",
+    "texte": "Vállak hátra, áll egyenesen, mellkas nyitva. A jó tartás minden szettet feldob."
+   },
+   "el": {
+    "titre": "5. Στάσου ίσια",
+    "texte": "Ώμοι πίσω, πηγούνι ίσιο, στήθος ανοιχτό. Η καλή στάση κάνει κάθε ντύσιμο να δείχνει καλύτερο."
+   },
+   "ro": {
+    "titre": "5. Stai drept",
+    "texte": "Umerii pe spate, bărbia dreaptă, pieptul deschis. O postură bună face orice ținută mai bună."
+   },
+   "sr": {
+    "titre": "5. Stoj uspravno",
+    "texte": "Ramena nazad, brada ravno, grudi otvorene. Dobro držanje ulepša svaku kombinaciju."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-2.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

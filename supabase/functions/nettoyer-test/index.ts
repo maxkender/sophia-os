@@ -1,3 +1,4 @@
+import type { CheminNettoyage } from "../_shared/chemins_nettoyage.ts";
 import { cleanImage, type EvenementEtape } from "../_shared/gemini.ts";
 import { reponseNdjson, veutStream } from "../_shared/nettoyage_etapes.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -7,15 +8,19 @@ const BUCKET = "medias";
 /**
  * Nettoyage de TEST, non destructif.
  *
- *   { url, stream?: true }
- *     → JSON { ok, url, moteur, etapes }
+ *   { url, stream?: true, chemins?: ["replicate" | "fal" | "effaceur", …], upscale?: true }
+ *     → JSON { ok, url, moteur, etapes, duree_ms }
  *     → ou NDJSON si stream=true (une ligne / étape, puis ready + url)
+ *
+ * `chemins` (24/11) : impose les moteurs, dans l'ordre, pour comparer un moteur à un autre sur la même image.
+ * `upscale` : passe aussi par SeedVR, comme l'import.
  */
+const CHEMINS: CheminNettoyage[] = ["replicate", "fal", "effaceur"];
 Deno.serve(async (request) => {
   const denied = await assertAuthorised(request);
   if (denied) return denied;
 
-  let corps: { url?: string; stream?: boolean } = {};
+  let corps: { url?: string; stream?: boolean; chemins?: unknown; upscale?: boolean } = {};
   try {
     corps = await request.json();
   } catch {
@@ -23,6 +28,13 @@ Deno.serve(async (request) => {
   }
   const url = corps.url ?? null;
   if (!url) return json({ error: "url requise" }, 400);
+  const chemins = Array.isArray(corps.chemins)
+    ? corps.chemins.filter((c): c is CheminNettoyage => CHEMINS.includes(c as CheminNettoyage))
+    : [];
+  if (Array.isArray(corps.chemins) && chemins.length !== corps.chemins.length) {
+    return json({ error: `chemins : ${CHEMINS.join(", ")}` }, 400);
+  }
+  const debut = Date.now();
 
   const stream = veutStream(request, corps);
 
@@ -30,7 +42,10 @@ Deno.serve(async (request) => {
     emit?: (e: Record<string, unknown>) => void,
   ) => {
     const onEtape = emit ? (e: EvenementEtape) => emit(e) : undefined;
-    const propre = await cleanImage(url, onEtape);
+    const propre = await cleanImage(url, onEtape, {
+      ...(chemins.length ? { chemins } : {}),
+      ...(corps.upscale ? { upscaleAvantStrip: true } : {}),
+    });
     if (!propre) {
       emit?.({ etape: "ready", statut: "echec", detail: "aucune image renvoyée" });
       return { ok: false as const, motif: "aucune image renvoyée", etapes: [] };
@@ -58,6 +73,7 @@ Deno.serve(async (request) => {
       url: publique,
       moteur: propre.moteur,
       etapes: propre.etapes,
+      duree_ms: Date.now() - debut,
     };
   };
 

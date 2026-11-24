@@ -20,6 +20,21 @@
  *       variante de l'application. La validation note alors la pertinence
  *       avec `pertinence_<app>`, laisse le rang Sophia à D / 0 et donne le
  *       rang calculé à l'application.
+ *       Label qui ne sert PAS Sophia mais PLUSIEURS applications (décision
+ *       d'Adrien du 24/11, podz 100 % podz, ex. Atala + Artura) : toujours un
+ *       seul deck par langue, sans `decks_applications`, mais UNE slide par
+ *       application, marquée de son slug : `position_app: "atala"`,
+ *       `position_app: "artura"` (jamais la couverture, une application par
+ *       slide ; `position_app: true` est ambigu, refusé ; un slug que le label
+ *       ne sert pas aussi). L'OS tire une variante par application : les
+ *       mêmes images, seule la slide de CETTE application marquée, celle de
+ *       l'autre restant une slide de contenu. Chaque compte du label reçoit
+ *       la variante de l'application qu'il promeut. À la validation, chaque
+ *       application est notée avec SON prompt (`pertinence_<app>`) et reçoit
+ *       SON rang, comme l'application seule d'un label ; une application sous
+ *       le seuil ne sert pas le post (ligne `contenu_pertinences` non
+ *       éligible), la livraison n'est écartée que si aucune ne passe. Un
+ *       label d'une seule application accepte aussi `position_app: "<son slug>"`.
  *
  *   { action: "deposer", type: "original", pod, source_id, titre,
  *     langue_source, musique_url?, musique_titre?, inspirations?, slides }
@@ -82,7 +97,8 @@
  *
  * Redéposer un post en attente remplace ses langues redéposées. Déposer une
  * langue pour un post déjà validé crée une livraison « langues » (à valider)
- * qui l'ajoutera au contenu existant.
+ * qui l'ajoutera au contenu existant (label de plusieurs applications : aux
+ * seules applications que le post sert déjà).
  *
  * Le pod ne choisit ni les comptes ni la fréquence : c'est la tierlist qui
  * diffuse le contenu validé, comme n'importe quel autre.
@@ -91,16 +107,23 @@
 import { genererHashtagsSlideshow, scoreRelevance } from "../_shared/gemini.ts";
 import { eloParLangue, lireScoring } from "../_shared/import_contenu.ts";
 import {
+  applicationsDesLanguesLivrees,
   applicationsHorsSophia,
   BANQUE_PODZ,
   CHEMIN_POD,
   controlerImageBanque,
-  decksApplicationDepuisBase,
+  decksApplicationsDepuisBase,
+  ecarterApplicationLivraison,
+  fusionnerDecksApps,
   livraisonsAutoValidables,
   type LivraisonEnAttente,
   ouvrirApplicationsOriginal,
   ecrireDecksApplications,
   estSlideApp,
+  rangsApplicationsLivraison,
+  rapportApplicationsLivraison,
+  resumeDecksApps,
+  slugSlideApp,
   LEGENDE_A_ECARTER,
   LEGENDE_A_ECARTER_PERSONNES,
   motifDebutDeMot,
@@ -235,17 +258,22 @@ async function legendeLocale(textes: string[], titre: string | null, langue: str
   return genere || repli.trim();
 }
 
+/** Une application servie par le label d'un pod. */
+type AppDuLabel = { id: string; slug: string };
+
 /**
- * Application du label d'un pod quand ce label ne sert PAS Sophia (pod 6,
- * label UnSwipe seul) : son id et son slug. `null` : le label sert Sophia, le
- * cas de tous les pods d'avant (ou aucune application cochée : deck Sophia). Un label hors
- * Sophia qui sert plusieurs applications lève : un deck déposé ne porte qu'une
- * pub.
+ * Applications du label d'un pod quand ce label ne sert PAS Sophia, leur id et
+ * leur slug, triées par slug. Une seule (pod 6, label UnSwipe seul ; podz
+ * d'Atala) : le deck déposé porte SA slide (`position_app: true`). Plusieurs
+ * (décision d'Adrien du 24/11 : un podz 100 % podz pour Atala ET Artura) :
+ * une slide par application, marquée de son slug. `null` : le label sert
+ * Sophia, le cas de tous les pods d'avant (ou aucune application cochée :
+ * deck Sophia).
  */
-async function applicationHorsSophiaDuPod(
+async function applicationsHorsSophiaDuPod(
   supabase: Supabase,
   labelId: string | null,
-): Promise<{ id: string; slug: string } | null> {
+): Promise<AppDuLabel[] | null> {
   if (!labelId) return null;
   const { data: liens, error } = await supabase
     .from("label_applications")
@@ -254,12 +282,17 @@ async function applicationHorsSophiaDuPod(
   if (error) throw new Error(`label_applications : ${messageErreur(error)}`);
   const horsSophia = applicationsHorsSophia(applicationsDuLabel(labelId, liens ?? []), ID_SOPHIA);
   if (!horsSophia) return null;
-  if (horsSophia.length !== 1) {
-    throw new Error(`le label du pod sert ${horsSophia.length} applications hors Sophia : non pris en charge`);
+  if (horsSophia.length === 1) {
+    const { data: app, error: aErr } = await supabase.from("applications").select("id, slug").eq("id", horsSophia[0]).single();
+    if (aErr || !app) throw new Error(`application ${horsSophia[0]} : ${messageErreur(aErr)}`);
+    return [app as AppDuLabel];
   }
-  const { data: app, error: aErr } = await supabase.from("applications").select("id, slug").eq("id", horsSophia[0]).single();
-  if (aErr || !app) throw new Error(`application ${horsSophia[0]} : ${messageErreur(aErr)}`);
-  return app as { id: string; slug: string };
+  const { data: apps, error: aErr } = await supabase.from("applications").select("id, slug").in("id", horsSophia);
+  if (aErr) throw new Error(`applications : ${messageErreur(aErr)}`);
+  const trouvees = (apps ?? []) as AppDuLabel[];
+  const manquante = horsSophia.find((id) => !trouvees.some((a) => a.id === id));
+  if (manquante) throw new Error(`application ${manquante} : introuvable`);
+  return [...trouvees].sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 /**
@@ -309,15 +342,22 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   }
   const avecApps = Object.keys(decksApps).length > 0;
   // Label hors Sophia (pod 6) : le deck déposé EST celui de l'application, sa
-  // slide marquée `position_app` ; l'OS en tire la variante lui-même.
-  const appLabel = await applicationHorsSophiaDuPod(supabase, pod.label_id);
-  if (appLabel && avecApps) {
+  // slide marquée `position_app` ; l'OS en tire la variante lui-même. Label hors
+  // Sophia de plusieurs applications (24/11) : une slide par application,
+  // marquée de son slug (`position_app: "atala"`) ; l'OS tire une variante par
+  // application, chacune avec la seule slide de son application.
+  const appsLabel = await applicationsHorsSophiaDuPod(supabase, pod.label_id);
+  const appLabel = appsLabel?.length === 1 ? appsLabel[0] : null;
+  const slugsLabel = appsLabel?.map((a) => a.slug) ?? [];
+  if (appsLabel && avecApps) {
     return json({
       ok: false,
-      error: `label hors Sophia : dépose un seul deck par langue, la slide ${appLabel.slug} marquée position_app (l'OS en tire la variante)`,
+      error: appLabel
+        ? `label hors Sophia : dépose un seul deck par langue, la slide ${appLabel.slug} marquée position_app (l'OS en tire la variante)`
+        : `label hors Sophia (${slugsLabel.join(", ")}) : dépose un seul deck par langue, une slide par application marquée position_app: "<slug>" (l'OS en tire les variantes)`,
     }, 400);
   }
-  const avecVariantes = avecApps || appLabel !== null;
+  const avecVariantes = avecApps || appsLabel !== null;
 
   // Trois cas selon ce qui existe déjà pour ce post :
   //  - rien : nouvelle livraison (la langue source est obligatoire) ;
@@ -339,7 +379,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
   const appsSeules = complement && avecApps && Object.keys(decks).length === 0;
   const erreurs = appsSeules
     ? []
-    : verifierDepot(decks, existante ? Object.keys(decks)[0] : langueSource, appLabel ? "application" : "sophia");
+    : verifierDepot(decks, existante ? Object.keys(decks)[0] : langueSource, appsLabel ? slugsLabel : "sophia");
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
 
   // BLEO (0653, voie 2) : un remake peut déclarer `type_bleo` comme un original
@@ -503,8 +543,8 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
       const path = `pods/${slug}/${sourceId}/${langue}/${s.position}.jpg`;
       const { media_id, url } = await envoyer(path, binaires.get(`${langue}/${s.position}`)!, langue);
       // Label hors Sophia : aucune slide Sophia dans le deck de base.
-      slides.push({ position: s.position, media_id, url, position_sophia: appLabel ? false : Boolean(s.position_sophia) });
-      envoyees[langue].slides.push({ position: Number(s.position), media_id, url, app: estSlideApp(s) });
+      slides.push({ position: s.position, media_id, url, position_sophia: appsLabel ? false : Boolean(s.position_sophia) });
+      envoyees[langue].slides.push({ position: Number(s.position), media_id, url, app: estSlideApp(s), application: slugSlideApp(s) });
       sophia.get(langue)?.set(Number(s.position), { media_id, url, position_sophia: Boolean(s.position_sophia || s.position_app) });
     }
     sortie[langue] = { hashtags, slides };
@@ -512,8 +552,8 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
 
   // Decks d'application : la slide de l'app (et toute autre image fournie) au
   // stockage, le reste repris du deck Sophia de même langue et position. Label
-  // hors Sophia : la variante de son application, tirée du deck déposé.
-  const sortieApps: DecksApplicationsLivres = appLabel ? decksApplicationDepuisBase(appLabel.slug, envoyees) : {};
+  // hors Sophia : la variante de chacune de ses applications, tirée du deck déposé.
+  const sortieApps: DecksApplicationsLivres = appsLabel ? decksApplicationsDepuisBase(slugsLabel, envoyees) : {};
   for (const [app, parLangue] of Object.entries(decksApps)) {
     sortieApps[app] = {};
     for (const [langue, deck] of Object.entries(parLangue)) {
@@ -636,21 +676,6 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
 type RefSlide = { media_id: string | null; url: string | null; position_sophia: boolean };
 type RefSlideDeck = { position: number; media_id?: string | null; url?: string | null; position_sophia?: boolean };
 
-/** Fusion par application PUIS par langue : une langue redéposée remplace l'ancienne. */
-function fusionnerDecksApps(
-  avant: DecksApplicationsLivres | null | undefined,
-  nouveau: DecksApplicationsLivres,
-): DecksApplicationsLivres {
-  const r: DecksApplicationsLivres = { ...(avant ?? {}) };
-  for (const [app, parLangue] of Object.entries(nouveau)) r[app] = { ...(r[app] ?? {}), ...parLangue };
-  return r;
-}
-
-/** `{ unswipe: ["fr"] }` */
-function resumeDecksApps(d: DecksApplicationsLivres | null | undefined): Record<string, string[]> {
-  return Object.fromEntries(Object.entries(d ?? {}).map(([app, parLangue]) => [app, Object.keys(parLangue ?? {})]));
-}
-
 const TIERS_FORCABLES = ["A", "B", "C"] as const;
 
 async function valider(
@@ -668,22 +693,45 @@ async function valider(
   const { data: pod } = await supabase.from("pods").select("slug, label_id").eq("slug", l.pod).single();
   if (!pod?.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
   // Label hors Sophia (pod 6) : la livraison ne sert que son application.
-  const appLabel = await applicationHorsSophiaDuPod(supabase, pod.label_id);
+  const appsLabel = await applicationsHorsSophiaDuPod(supabase, pod.label_id);
+  const appLabel = appsLabel?.length === 1 ? appsLabel[0] : null;
   if (appLabel && !Object.keys(l.decks_applications?.[appLabel.slug] ?? {}).length) {
     return json({ ok: false, error: `livraison sans deck ${appLabel.slug} : rien à servir pour ce label` }, 409);
+  }
+  // Label hors Sophia de plusieurs applications (24/11) : chacune avec SA
+  // variante, SA pertinence et SON rang. Une application cochée sur le label
+  // après le dépôt n'a pas de variante : ce post ne la sert pas.
+  const appsMulti = appsLabel && appsLabel.length > 1
+    ? appsLabel.filter((a) => Object.keys(l.decks_applications?.[a.slug] ?? {}).length)
+    : null;
+  const sansDeck = appsMulti ? appsLabel!.filter((a) => !appsMulti.includes(a)).map((a) => a.slug) : [];
+  if (appsMulti && !appsMulti.length) {
+    return json({ ok: false, error: `livraison sans deck ${sansDeck.join(" ni ")} : rien à servir pour ce label` }, 409);
   }
 
   // Note d'import CLASSIQUE, comme un slideshow importé. Label hors Sophia :
   // pertinence notée par le prompt de SON application, jamais celui de Sophia.
+  // Plusieurs applications : une note par application, chacune par son prompt ;
+  // la porte (`contenus.pertinence_score`) est la plus haute, comme à l'import.
   const textes: string[] = l.transcription?.textes ?? [];
-  const clePrompt = appLabel ? `pertinence_${appLabel.slug}` : "pertinence";
-  const instructions = await chargerPrompt(supabase, clePrompt);
-  if (appLabel && !instructions) return json({ ok: false, error: `prompt ${clePrompt} manquant` }, 409);
-  const pertinence = await scoreRelevance({
-    caption: textes.join("\n"),
-    hookText: textes[0] ?? l.titre ?? "",
-    instructions,
-  });
+  const texteNote = { caption: textes.join("\n"), hookText: textes[0] ?? l.titre ?? "" };
+  let pertinence: { score: number; reason: string };
+  let notesApps: { slug: string; pertinence: number; raison: string }[] | null = null;
+  if (appsMulti) {
+    const notees = await noterApplicationsLivraison(supabase, appsMulti, texteNote);
+    if ("erreur" in notees) return json({ ok: false, error: notees.erreur }, 409);
+    notesApps = notees.notes;
+    const porte = notesApps.reduce((m, n) => (n.pertinence > m.pertinence ? n : m));
+    pertinence = {
+      score: porte.pertinence,
+      reason: notesApps.map((n) => `${n.slug} (${n.pertinence}) : ${n.raison}`).join(" · "),
+    };
+  } else {
+    const clePrompt = appLabel ? `pertinence_${appLabel.slug}` : "pertinence";
+    const instructions = await chargerPrompt(supabase, clePrompt);
+    if (appLabel && !instructions) return json({ ok: false, error: `prompt ${clePrompt} manquant` }, 409);
+    pertinence = await scoreRelevance({ ...texteNote, instructions });
+  }
   const scoring = await lireScoring(supabase);
   // PAS de `pisteSource` ici, volontairement : une livraison de pod n'a pas de
   // compte de référence dont on aurait la piste. Le terme reste donc inactif et
@@ -695,21 +743,34 @@ async function valider(
   // point plus facilement. Marginal et dans le sens permissif ; si ça devenait
   // gênant, la correction est de résoudre leur compte de référence, pas de
   // rétablir le seuil (ça casserait l'import classique).
-  const elo = eloParLangue({
-    pertinence: pertinence.score,
-    vues: l.source_vues,
-    langue: l.langue_source,
-    langueSource: l.langue_source,
-    prior: scoring.prior,
-    k: scoring.k,
-    poidsVues: scoring.poidsVues,
-    vuesPlafond: scoring.vuesPlafond,
-  });
+  const eloDe = (score: number) =>
+    eloParLangue({
+      pertinence: score,
+      vues: l.source_vues,
+      langue: l.langue_source,
+      langueSource: l.langue_source,
+      prior: scoring.prior,
+      k: scoring.k,
+      poidsVues: scoring.poidsVues,
+      vuesPlafond: scoring.vuesPlafond,
+    });
+  const elo = eloDe(pertinence.score);
   const note = Math.round(elo * 100) / 100;
   // Original en images finies (pas de post source, donc pas de vues) : rang
   // fixe, comme les originaux traduisibles. La note seule l'écarterait toujours.
   const original = !l.source_url;
   const tier = tierForce ?? (original ? TIER_ORIGINAL : tierImport(elo, scoring.eloSeuil));
+  // Plusieurs applications : le rang de CHACUNE depuis SA note. La livraison
+  // prend la meilleure (celle de la porte, ci-dessus) ; une application sous
+  // le seuil ne sert pas ce contenu, et la livraison n'est écartée que si
+  // aucune ne passe.
+  const rangsApps = notesApps
+    ? rangsApplicationsLivraison(notesApps.map((n) => ({ ...n, elo: eloDe(n.pertinence) })), {
+      tierForce,
+      original,
+      seuil: scoring.eloSeuil,
+    })
+    : null;
   const maintenant = new Date().toISOString();
   if (!tier) {
     await supabase
@@ -717,7 +778,11 @@ async function valider(
       .update({
         statut: "ecartee_note",
         note_import: note,
-        motif: `note ${note} < ${scoring.eloSeuil} (pertinence ${pertinence.score} : ${pertinence.reason})`,
+        motif: rangsApps
+          ? rangsApps.rangs
+            .map((r) => `${r.slug} : note ${r.note} < ${scoring.eloSeuil} (pertinence ${r.pertinence} : ${r.raison})`)
+            .join(" · ")
+          : `note ${note} < ${scoring.eloSeuil} (pertinence ${pertinence.score} : ${pertinence.reason})`,
         decide_par: userId,
         decide_le: maintenant,
       })
@@ -758,9 +823,9 @@ async function valider(
         reference_url: null,
       })),
       // Hors Sophia : aucun rang Sophia (D / 0, comme un import « hors
-      // Sophia ») ; le rang calculé va à l'application du label.
-      tier: appLabel ? "D" : tier,
-      passages_prevus: appLabel ? 0 : passagesPourTier(tier),
+      // Sophia ») ; le rang calculé va à l'application du label (à chacune).
+      tier: appsLabel ? "D" : tier,
+      passages_prevus: appsLabel ? 0 : passagesPourTier(tier),
       tier_cycle: 0,
       tier_maj_at: maintenant,
       tier_rapport: {
@@ -772,6 +837,7 @@ async function valider(
         force: Boolean(tierForce),
         passages: passagesPourTier(tier),
         ...(appLabel ? { hors_sophia: true, application: appLabel.slug } : {}),
+        ...(rangsApps ? { hors_sophia: true, ...rapportApplicationsLivraison(rangsApps.rangs, sansDeck) } : {}),
       },
       livre: true,
       pod: l.pod,
@@ -815,12 +881,31 @@ async function valider(
     if (mErr) throw mErr;
     // Variantes par application fournies par le pod (0276) : decks prêts,
     // réserve et rang de chaque application.
-    await ecrireDecksApplications(supabase, contenu.id, l, {
-      tierForce,
-      pertinenceScore: pertinence.score,
-      pod: l.pod,
-      tierApp: appLabel ? tier : null,
-    });
+    if (rangsApps) {
+      // Plusieurs applications : chacune SA variante, avec SA pertinence et
+      // SON rang, comme l'application seule d'un label hors Sophia ; une
+      // application sous le seuil est notée non éligible, sans deck ni rang.
+      for (const r of rangsApps.rangs) {
+        if (r.tier) {
+          await ecrireDecksApplications(
+            supabase,
+            contenu.id,
+            { id: l.id, decks_applications: { [r.slug]: l.decks_applications[r.slug] } },
+            { tierForce, pertinenceScore: r.pertinence, pod: l.pod, tierApp: r.tier },
+          );
+        } else {
+          const app = appsMulti!.find((a) => a.slug === r.slug)!;
+          await ecarterApplicationLivraison(supabase, contenu.id, app.id, r, { pod: l.pod, seuil: scoring.eloSeuil });
+        }
+      }
+    } else {
+      await ecrireDecksApplications(supabase, contenu.id, l, {
+        tierForce,
+        pertinenceScore: pertinence.score,
+        pod: l.pod,
+        tierApp: appLabel ? tier : null,
+      });
+    }
   } catch (e) {
     // Pas de contenu à moitié créé : il sortirait au tirage sans ses decks.
     await supabase.from("contenus").delete().eq("id", contenu.id);
@@ -839,7 +924,34 @@ async function valider(
   const rattachement = l.type_bleo === "declinaison" && l.parent_contenu_id
     ? await rattacherDeclinaison(supabase, contenu.id, l.parent_contenu_id)
     : null;
-  return json({ ok: true, statut: "validee", contenu_id: contenu.id, tier, note, ...(rattachement ? { bleo_rattachement: rattachement } : {}) });
+  return json({
+    ok: true,
+    statut: "validee",
+    contenu_id: contenu.id,
+    tier,
+    note,
+    ...(rangsApps ? rapportApplicationsLivraison(rangsApps.rangs, sansDeck) : {}),
+    ...(rattachement ? { bleo_rattachement: rattachement } : {}),
+  });
+}
+
+/**
+ * Label multi-applications : la pertinence de la livraison pour CHAQUE
+ * application, notée avec SON prompt (`pertinence_<slug>`), jamais celui de
+ * Sophia ni celui d'une autre. Un prompt manquant bloque la validation, comme
+ * pour l'application seule d'un label hors Sophia.
+ */
+async function noterApplicationsLivraison(
+  supabase: Supabase,
+  apps: AppDuLabel[],
+  texte: { caption: string; hookText: string },
+): Promise<{ erreur: string } | { notes: { slug: string; pertinence: number; raison: string }[] }> {
+  const cles = apps.map((a) => `pertinence_${a.slug}`);
+  const prompts = await Promise.all(cles.map((cle) => chargerPrompt(supabase, cle)));
+  const manquant = cles.find((_, i) => !prompts[i]);
+  if (manquant) return { erreur: `prompt ${manquant} manquant` };
+  const notes = await Promise.all(apps.map((_, i) => scoreRelevance({ ...texte, instructions: prompts[i] })));
+  return { notes: apps.map((a, i) => ({ slug: a.slug, pertinence: notes[i].score, raison: notes[i].reason })) };
 }
 
 async function rejeter(supabase: Supabase, id: string, userId: string | null, motif: string | null) {
@@ -857,6 +969,9 @@ async function rejeter(supabase: Supabase, id: string, userId: string | null, mo
 // deno-lint-ignore no-explicit-any
 async function validerLangues(supabase: Supabase, l: any, userId: string | null) {
   if (!l.contenu_id) return json({ ok: false, error: "contenu d'origine introuvable" }, 409);
+  // Label hors Sophia de plusieurs applications (24/11) : les nouvelles langues
+  // ne vont qu'aux applications que le post sert déjà, avec LEUR pertinence.
+  const multi = await applicationsServiesDuPost(supabase, l);
   const decks = l.decks as Record<string, { hashtags: string; slides: { position: number; media_id: string; position_sophia: boolean }[] }>;
   const textes: string[] = l.transcription?.textes ?? [];
   // Une légende par langue, toutes en même temps : à la suite, 7 langues
@@ -887,11 +1002,26 @@ async function validerLangues(supabase: Supabase, l: any, userId: string | null)
     await supabase.from("media_library").update({ contenu_id: l.contenu_id }).in("id", medias);
   }
   const { data: contenu } = await supabase.from("contenus").select("pertinence_score").eq("id", l.contenu_id).maybeSingle();
-  const applications = await ecrireDecksApplications(supabase, l.contenu_id, l, {
-    tierForce: null,
-    pertinenceScore: contenu?.pertinence_score ?? null,
-    pod: l.pod,
-  });
+  let applications: string[];
+  if (multi) {
+    applications = [];
+    for (const { slug, score } of multi.servies) {
+      applications.push(
+        ...(await ecrireDecksApplications(
+          supabase,
+          l.contenu_id,
+          { id: l.id, decks_applications: { [slug]: l.decks_applications[slug] } },
+          { tierForce: null, pertinenceScore: score ?? contenu?.pertinence_score ?? null, pod: l.pod },
+        )),
+      );
+    }
+  } else {
+    applications = await ecrireDecksApplications(supabase, l.contenu_id, l, {
+      tierForce: null,
+      pertinenceScore: contenu?.pertinence_score ?? null,
+      pod: l.pod,
+    });
+  }
   const { data: decidee } = await supabase
     .from("pod_livraisons")
     .update({ statut: "validee", decide_par: userId, decide_le: new Date().toISOString(), motif: null })
@@ -901,7 +1031,49 @@ async function validerLangues(supabase: Supabase, l: any, userId: string | null)
   // Décidée pendant la validation : les langues sont déjà dans le contenu (rien
   // à défaire sans toucher au contenu en ligne), on le dit.
   if (!decidee?.length) return json({ ok: false, error: "livraison décidée pendant la validation (langues déjà ajoutées)" }, 409);
-  return json({ ok: true, statut: "validee", contenu_id: l.contenu_id, langues: Object.keys(decks), applications });
+  return json({
+    ok: true,
+    statut: "validee",
+    contenu_id: l.contenu_id,
+    langues: Object.keys(decks),
+    applications,
+    ...(multi?.ignorees.length ? { applications_ignorees: multi.ignorees } : {}),
+  });
+}
+
+/**
+ * Livraison « langues » d'un label hors Sophia de plusieurs applications : les
+ * applications que le post sert déjà (ligne `contenu_pertinences` éligible),
+ * avec leur pertinence, et celles dont la variante n'est pas servie. `null` :
+ * tout autre label (une seule variante livrée, ou label qui sert Sophia), le
+ * chemin d'avant, à l'identique.
+ */
+// deno-lint-ignore no-explicit-any
+async function applicationsServiesDuPost(supabase: Supabase, l: any): Promise<ReturnType<typeof applicationsDesLanguesLivrees> | null> {
+  const decksApps = (l.decks_applications ?? {}) as DecksApplicationsLivres;
+  const slugs = Object.keys(decksApps).filter((s) => Object.keys(decksApps[s] ?? {}).length > 0);
+  if (slugs.length < 2) return null;
+  const { data: pod } = await supabase.from("pods").select("label_id").eq("slug", l.pod).maybeSingle();
+  const appsLabel = await applicationsHorsSophiaDuPod(supabase, pod?.label_id ?? null);
+  if (!appsLabel || appsLabel.length < 2) return null;
+  const { data: apps, error } = await supabase.from("applications").select("id, slug").in("slug", slugs);
+  if (error) throw new Error(`applications : ${messageErreur(error)}`);
+  const slugParId = new Map(((apps ?? []) as AppDuLabel[]).map((a) => [a.id, a.slug]));
+  const { data: lignes, error: pErr } = slugParId.size
+    ? await supabase
+      .from("contenu_pertinences")
+      .select("application_id, eligible, score")
+      .eq("contenu_id", l.contenu_id)
+      .in("application_id", [...slugParId.keys()])
+    : { data: [], error: null };
+  if (pErr) throw new Error(`contenu_pertinences : ${messageErreur(pErr)}`);
+  const pertinences = new Map(
+    ((lignes ?? []) as { application_id: string; eligible: boolean | null; score: number | null }[]).map((p) => [
+      slugParId.get(p.application_id)!,
+      { eligible: Boolean(p.eligible), score: p.score == null ? null : Number(p.score) },
+    ]),
+  );
+  return applicationsDesLanguesLivrees(slugs, pertinences);
 }
 
 /**

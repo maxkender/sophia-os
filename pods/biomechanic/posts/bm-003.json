@@ -8,10 +8,16 @@
   "accroche": "Sports Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "cardio tierlist for optimal health"
+  "en": "cardio tierlist for optimal health",
+  "it": "tierlist del cardio per una salute ottimale",
+  "hu": "kardió tierlist az optimális egészségért",
+  "sr": "kardio tierlista za optimalno zdravlje"
  },
  "legendes": {
-  "en": "where does your cardio rank? 🫀 #cardio #running #health #biohacking #fitness"
+  "en": "where does your cardio rank? 🫀 #cardio #running #health #biohacking #fitness",
+  "it": "il tuo cardio dove si piazza? 🫀 #cardio #corsa #salute #fitness #biohacking",
+  "hu": "hol áll a kardiód? 🫀 #kardió #futás #egészség #biohacking #fitness",
+  "sr": "gde je tvoj kardio? 🫀 #kardio #trčanje #zdravlje #biohacking #fitnes"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -42,6 +48,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist del Cardio",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Kardió Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Kardio Tierlista",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -56,6 +83,30 @@
     "paragraphes": [
      "Your heart is a muscle. Without regular cardio, your resting heart rate creeps up and even a flight of stairs starts to leave you out of breath.",
      "Low cardio fitness is one of the strongest predictors of poor health as you age. Anything else beats it."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Zero Cardio",
+    "paragraphes": [
+     "Il cuore è un muscolo. Senza cardio regolare il battito a riposo sale e anche una rampa di scale ti lascia senza fiato.",
+     "Una forma cardio scarsa è uno dei segnali più forti di cattiva salute con l'età. Qualsiasi altra cosa è meglio."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Semmi Kardió",
+    "paragraphes": [
+     "A szíved is izom. Rendszeres kardió nélkül a nyugalmi pulzus nő, és már egy lépcsősor is kifullaszt.",
+     "Az alacsony kardió-erőnlét az egyik legerősebb előrejelzője a rossz egészségnek az évek során. Bármi más jobb."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Bez Ikakvog Kardija",
+    "paragraphes": [
+     "Srce je mišić. Bez redovnog kardija puls u mirovanju raste, a i jedno stepenište počne da te zaduva.",
+     "Slaba kardio forma je jedan od najjačih pokazatelja lošeg zdravlja s godinama. Sve drugo je bolje."
     ]
    }
   },
@@ -72,6 +123,30 @@
      "Hard intervals are a big stress on your body. Done every day, your muscles and nervous system never get the easy days they need to adapt.",
      "Two hard sessions a week is plenty. Every day, it's the fastest way to burn out or get hurt."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "HIIT Tutti i Giorni",
+    "paragraphes": [
+     "Le ripetute dure sono un grosso stress per il corpo. Ogni giorno, muscoli e sistema nervoso non hanno mai i giorni facili per adattarsi.",
+     "Due sedute dure a settimana bastano. Ogni giorno è il modo più veloce per bruciarti o farti male."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "HIIT Minden Nap",
+    "paragraphes": [
+     "A kemény intervallum nagy stressz a testnek. Minden nap végezve az izmaid és az idegrendszered sosem kap könnyű napot.",
+     "Heti két kemény edzés bőven elég. Minden nap a leggyorsabb út a kiégéshez vagy a sérüléshez."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "HIIT Svaki Dan",
+    "paragraphes": [
+     "Teški intervali su veliki stres za telo. Svaki dan, mišići i nervni sistem nikad nemaju lake dane da se prilagode.",
+     "Dva teška treninga nedeljno su dovoljna. Svaki dan je najbrži put do pregorevanja ili povrede."
+    ]
    }
   },
   {
@@ -86,6 +161,30 @@
     "paragraphes": [
      "Walking slowly while scrolling barely lifts your heart rate. It's movement, but your heart and lungs are hardly asked to work.",
      "Better than the sofa. It lands in D because most people stop there and call it cardio."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Tapis Lento e Telefono",
+    "paragraphes": [
+     "Camminare piano scrollando alza appena il battito. È movimento, ma cuore e polmoni lavorano pochissimo.",
+     "Meglio del divano. Finisce in D perché quasi tutti si fermano lì e lo chiamano cardio."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Lassú Futópad Telefonnal",
+    "paragraphes": [
+     "Lassú séta görgetés közben alig emeli a pulzust. Mozgás, de a szív és a tüdő alig dolgozik.",
+     "Jobb a kanapénál. Azért D, mert a legtöbben itt megállnak, és ezt hívják kardiónak."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Spora Traka uz Telefon",
+    "paragraphes": [
+     "Spor hod uz skrolovanje jedva podigne puls. To je kretanje, ali srce i pluća gotovo ne rade.",
+     "Bolje od kauča. U D je jer većina tu stane i to zove kardio."
     ]
    }
   },
@@ -102,6 +201,30 @@
      "Steps are a great daily base, but most of them happen at a pace that never leaves you out of breath.",
      "Keep the steps. They just need a few sessions a week where your heart rate actually goes up."
     ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Contare Solo i Passi",
+    "paragraphes": [
+     "I passi sono un'ottima base quotidiana, ma quasi tutti avvengono a un ritmo che non ti fa mai mancare il fiato.",
+     "Tieni i passi. Servono solo alcune sedute a settimana in cui il battito sale davvero."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Csak Lépésszámlálás",
+    "paragraphes": [
+     "A lépések remek napi alapot adnak, de a legtöbbjük olyan tempóban történik, ami sosem fullaszt ki.",
+     "Maradjanak a lépések. Csak kell mellé néhány heti edzés, ahol tényleg megugrik a pulzus."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Samo Brojanje Koraka",
+    "paragraphes": [
+     "Koraci su odlična dnevna osnova, ali većina njih je tempom koji te nikad ne zaduva.",
+     "Zadrži korake. Treba im samo nekoliko treninga nedeljno kad puls stvarno skoči."
+    ]
    }
   },
   {
@@ -116,6 +239,30 @@
     "paragraphes": [
      "Short all-out sprints build speed and power, and the whole session is over before you know it.",
      "Great as a small part of your week. On their own, they skip the easy aerobic work your heart needs."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Solo Sprint",
+    "paragraphes": [
+     "Gli sprint brevi a tutta costruiscono velocità e potenza, e la seduta finisce in un attimo.",
+     "Ottimi come piccola parte della settimana. Da soli saltano il lavoro aerobico facile di cui il cuore ha bisogno."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Csak Sprintek",
+    "paragraphes": [
+     "A rövid, maximális sprintek gyorsaságot és erőt építenek, és az edzés egy szempillantás alatt véget ér.",
+     "Remek a hét kis részeként. Egymagukban kihagyják a könnyű aerob munkát, amire a szívnek szüksége van."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Samo Sprintevi",
+    "paragraphes": [
+     "Kratki sprintevi punom snagom grade brzinu i snagu, a trening se završi za tren.",
+     "Odlični kao mali deo nedelje. Sami preskaču lagan aerobni rad koji je srcu potreban."
     ]
    }
   },
@@ -132,6 +279,30 @@
      "Climbing stairs drives your heart rate up fast and works your legs hard with every single step.",
      "It's brutal for a few minutes, but most people can't keep it up long enough to build a real aerobic base."
     ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Fare le Scale",
+    "paragraphes": [
+     "Salire le scale fa salire il battito in fretta e fa lavorare le gambe a ogni gradino.",
+     "Massacrante per qualche minuto, ma quasi nessuno regge abbastanza da costruire una vera base aerobica."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Lépcsőzés",
+    "paragraphes": [
+     "A lépcsőzés gyorsan felviszi a pulzust, és minden lépcsőfokon keményen dolgoztatja a lábad.",
+     "Pár percig brutális, de a legtöbben nem bírják elég sokáig egy igazi aerob alaphoz."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Penjanje Uz Stepenice",
+    "paragraphes": [
+     "Stepenice brzo podignu puls i teško rade noge na svakom stepeniku.",
+     "Brutalno na par minuta, ali većina ne može dovoljno dugo da izgradi pravu aerobnu bazu."
+    ]
    }
   },
   {
@@ -146,6 +317,30 @@
     "paragraphes": [
      "Long rides train your heart and lungs with almost no impact on your joints, so you can go for hours.",
      "It misses A tier because it barely loads your bones, and they need some impact to stay strong."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Bici",
+    "paragraphes": [
+     "Le uscite lunghe allenano cuore e polmoni senza quasi impatto sulle articolazioni, così puoi andare per ore.",
+     "Manca la A perché carica poco le ossa, e le ossa hanno bisogno di un po' di impatto."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Kerékpározás",
+    "paragraphes": [
+     "A hosszú tekerés edzi a szívet és a tüdőt, szinte semmi terhelés nélkül az ízületeken, így órákig bírod.",
+     "Azért nem A, mert alig terheli a csontokat, pedig nekik kell némi ütés, hogy erősek maradjanak."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Vožnja Bicikla",
+    "paragraphes": [
+     "Duge vožnje treniraju srce i pluća gotovo bez udara na zglobove, pa možeš satima.",
+     "Nije A jer jedva opterećuje kosti, a njima treba malo udara da ostanu jake."
     ]
    }
   },
@@ -162,6 +357,30 @@
      "Swimming works your whole body and your breathing at once, with zero impact on your joints.",
      "Like cycling, it gives your bones almost no load, and technique limits how long most people can swim."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Nuoto",
+    "paragraphes": [
+     "Il nuoto fa lavorare tutto il corpo e il respiro insieme, con zero impatto sulle articolazioni.",
+     "Come la bici, carica poco le ossa, e la tecnica limita quanto a lungo si riesce a nuotare."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Úszás",
+    "paragraphes": [
+     "Az úszás egyszerre dolgoztatja az egész tested és a légzésed, nulla ízületi terheléssel.",
+     "A kerékpárhoz hasonlóan alig terheli a csontokat, és a technika korlátozza, meddig bírod."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Plivanje",
+    "paragraphes": [
+     "Plivanje radi celo telo i disanje odjednom, bez ikakvog udara na zglobove.",
+     "Kao bicikl, jedva opterećuje kosti, a tehnika ograničava koliko dugo većina može da pliva."
+    ]
    }
   },
   {
@@ -176,6 +395,30 @@
     "paragraphes": [
      "Hours outside at a steady effort, with your legs carrying your weight up every climb. Your heart works without you noticing.",
      "It only misses S tier because most people can't get to a hill more than once a week."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Escursioni in Salita",
+    "paragraphes": [
+     "Ore all'aperto a sforzo costante, con le gambe che portano il tuo peso a ogni salita. Il cuore lavora senza che te ne accorga.",
+     "Manca la S solo perché quasi nessuno arriva a una collina più di una volta a settimana."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Hegymenet Túrázva",
+    "paragraphes": [
+     "Órák a szabadban egyenletes erőfeszítéssel, a lábad minden emelkedőn viszi a súlyod. A szíved észrevétlenül dolgozik.",
+     "Csak azért nem S, mert a legtöbben hetente legfeljebb egyszer jutnak el egy dombra."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Planinarenje Uzbrdo",
+    "paragraphes": [
+     "Sati napolju uz ravnomeran napor, a noge nose tvoju težinu na svakom usponu. Srce radi a da ne primetiš.",
+     "Nije S samo zato što većina ne stigne do brda više od jednom nedeljno."
     ]
    }
   },
@@ -193,6 +436,30 @@
      "Running at a relaxed pace trains your heart, loads your bones and needs nothing but shoes and a door.",
      "Most beginners do too much too soon and stop after two weeks. A running coach app like Atala starts from your level and builds up little by little."
     ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Corsa Facile",
+    "paragraphes": [
+     "Correre tranquillo allena il cuore, carica le ossa e richiede solo scarpe e una porta.",
+     "Molti principianti fanno troppo, troppo presto, e mollano dopo due settimane. Un'app con coach per la corsa come Atala parte dal tuo livello e sale poco a poco."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Könnyű Futás",
+    "paragraphes": [
+     "A laza futás edzi a szívet, terheli a csontokat, és csak egy cipő meg egy ajtó kell hozzá.",
+     "A kezdők többsége túl sokat fut túl hamar, és két hét után feladja. Egy futóedző app, mint az Atala, a szintedről indul, és apránként emel."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Lagano Trčanje",
+    "paragraphes": [
+     "Opušteno trčanje trenira srce, opterećuje kosti i traži samo patike i vrata.",
+     "Većina početnika radi previše prebrzo i odustane posle dve nedelje. Aplikacija sa trenerom za trčanje kao što je Atala kreće od tvog nivoa i diže malo po malo."
+    ]
    }
   },
   {
@@ -207,6 +474,30 @@
     "paragraphes": [
      "The best endurance athletes keep most of their training easy and save a small part for hard efforts.",
      "That mix beats any single type of cardio: it builds a big aerobic base without wearing you out."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Quasi Tutto Facile, Poco Duro",
+    "paragraphes": [
+     "I migliori atleti di resistenza fanno quasi tutto l'allenamento facile e tengono una piccola parte per gli sforzi duri.",
+     "Questo mix batte ogni singolo tipo di cardio: costruisce una grande base aerobica senza sfinirti."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Főleg Könnyű, Kicsit Kemény",
+    "paragraphes": [
+     "A legjobb állóképességi sportolók az edzés nagy részét könnyen végzik, és csak kis részét hagyják kemény munkára.",
+     "Ez a keverék minden egyes kardiófajtát legyőz: nagy aerob alapot épít, kimerítés nélkül."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Uglavnom Lako, Malo Teško",
+    "paragraphes": [
+     "Najbolji sportisti izdržljivosti veći deo treninga rade lako, a mali deo čuvaju za teške napore.",
+     "Ta mešavina pobeđuje svaku pojedinačnu vrstu kardija: gradi veliku aerobnu bazu bez iscrpljivanja."
     ]
    }
   }

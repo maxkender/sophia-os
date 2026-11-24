@@ -8,10 +8,22 @@
   "accroche": "6 habitudes wellness qui font leur effet au bout d'une semaine"
  },
  "titre": {
-  "en": "6 wellness habits that fix your sleep in a week"
+  "en": "6 wellness habits that fix your sleep in a week",
+  "fr": "6 habitudes wellness pour mieux dormir en une semaine",
+  "de": "6 wellness-habits für besseren schlaf in 1 woche",
+  "it": "6 abitudini wellness per dormire meglio in 7 giorni",
+  "hu": "6 wellness szokás a jobb alvásért egy hét alatt",
+  "ro": "6 obiceiuri wellness pentru somn mai bun în 7 zile",
+  "el": "6 συνήθειες ευεξίας για καλύτερο ύπνο σε 7 μέρες"
  },
  "legendes": {
-  "en": "which one are you trying tonight? 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep"
+  "en": "which one are you trying tonight? 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "fr": "tu testes laquelle ce soir ? 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "de": "welche testest du heute abend? 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "it": "quale provi stasera? 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "hu": "melyiket próbálod ki ma este? 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "ro": "pe care îl încerci diseară? 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep",
+  "el": "ποια θα δοκιμάσεις απόψε; 🌙 #wellness #healthyhabits #thatgirl #selfcare #sleep"
  },
  "musique": {
   "titre": "save a prayer",
@@ -38,6 +50,30 @@
    "en": {
     "titre": "6 wellness habits that fix your sleep in just one week",
     "note": "(backed by science)"
+   },
+   "fr": {
+    "titre": "6 habitudes wellness qui règlent ton sommeil en une semaine",
+    "note": "(validées par la science)"
+   },
+   "de": {
+    "titre": "6 wellness-habits für besseren schlaf in nur einer woche",
+    "note": "(laut wissenschaft)"
+   },
+   "it": {
+    "titre": "6 abitudini wellness che sistemano il sonno in una settimana",
+    "note": "(lo dice la scienza)"
+   },
+   "hu": {
+    "titre": "6 wellness szokás, ami 1 hét alatt rendbe teszi az alvásod",
+    "note": "(a tudomány szerint)"
+   },
+   "ro": {
+    "titre": "6 obiceiuri wellness care îți repară somnul într-o săptămână",
+    "note": "(dovedite științific)"
+   },
+   "el": {
+    "titre": "6 συνήθειες ευεξίας που φτιάχνουν τον ύπνο σε μία εβδομάδα",
+    "note": "(το λέει η επιστήμη)"
    }
   },
   {
@@ -51,6 +87,60 @@
      "pick one time and keep it, _sleep in max 1 hour_"
     ],
     "chute": "your body loves _a routine_"
+   },
+   "fr": {
+    "titre": "lève-toi à _la même heure_",
+    "intro": "même le week-end. oui, _même le dimanche_",
+    "paragraphes": [
+     "selon une étude sur des étudiants, des horaires irréguliers _retardaient leur horloge interne_",
+     "une heure fixe, et _1 heure de grasse mat' max_"
+    ],
+    "chute": "ton corps adore _la routine_"
+   },
+   "de": {
+    "titre": "_zur gleichen zeit_ aufstehen",
+    "intro": "auch am wochenende. ja, _auch sonntags_",
+    "paragraphes": [
+     "eine studie mit studis fand: unregelmäßiger schlaf _verschob ihre innere uhr nach hinten_",
+     "eine feste zeit, _höchstens 1 stunde länger_"
+    ],
+    "chute": "dein körper liebt _routine_"
+   },
+   "it": {
+    "titre": "svegliati _alla stessa ora_",
+    "intro": "anche nel weekend. sì, _pure la domenica_",
+    "paragraphes": [
+     "uno studio sugli studenti: orari di sonno irregolari _spostavano più in là l'orologio biologico_",
+     "un orario fisso, _max 1 ora in più a letto_"
+    ],
+    "chute": "il tuo corpo ama _la routine_"
+   },
+   "hu": {
+    "titre": "kelj _ugyanakkor_",
+    "intro": "hétvégén is. igen, _vasárnap is_",
+    "paragraphes": [
+     "egy diákokon végzett kutatásban a rendszertelen alvás _későbbre tolta a belső órájukat_",
+     "egy fix időpont, _max 1 óra lustálkodás_"
+    ],
+    "chute": "a tested _imádja a rutint_"
+   },
+   "ro": {
+    "titre": "trezește-te _la aceeași oră_",
+    "intro": "și în weekend. da, _și duminica_",
+    "paragraphes": [
+     "un studiu pe studenți: somnul neregulat _le împingea ceasul intern mai târziu_",
+     "alege o oră și ține-o, _maxim 1 oră în plus_"
+    ],
+    "chute": "corpul tău iubește _rutina_"
+   },
+   "el": {
+    "titre": "ξύπνα _την ίδια ώρα_",
+    "intro": "και το weekend. ναι, _και την κυριακή_",
+    "paragraphes": [
+     "έρευνα σε φοιτητές βρήκε ότι το ακανόνιστο ωράριο ύπνου _μετέθετε το βιολογικό τους ρολόι αργότερα_",
+     "σταθερή ώρα, _το πολύ 1 ώρα παραπάνω_"
+    ],
+    "chute": "το σώμα λατρεύει _ρουτίνα_"
    }
   },
   {
@@ -64,6 +154,60 @@
      "switch to decaf or herbal tea _after lunch_"
     ],
     "chute": "keep the coffee for _the morning_"
+   },
+   "fr": {
+    "titre": "_pas de café_ après 14h",
+    "intro": "ton café de l'aprèm est _encore réveillé à minuit_",
+    "paragraphes": [
+     "dans une étude, une forte dose de caféine 6 h avant le coucher _a coupé plus d'1 h de sommeil_",
+     "passe au déca ou à la tisane _après le déjeuner_"
+    ],
+    "chute": "garde le café pour _le matin_"
+   },
+   "de": {
+    "titre": "_kein kaffee_ ab 14 uhr",
+    "intro": "dein nachmittagskaffee ist _um mitternacht noch wach_",
+    "paragraphes": [
+     "in einer studie hat eine hohe dosis koffein 6 h vorm schlafen _über 1 stunde schlaf gekostet_",
+     "decaf oder kräutertee _nach dem mittag_"
+    ],
+    "chute": "kaffee nur _für den morgen_"
+   },
+   "it": {
+    "titre": "_stop caffè_ dopo le 14",
+    "intro": "il caffè del pomeriggio è _ancora sveglio a mezzanotte_",
+    "paragraphes": [
+     "in uno studio, una forte dose di caffeina 6 ore prima di letto _ha tolto oltre un'ora di sonno_",
+     "passa al deca o a una tisana _dopo pranzo_"
+    ],
+    "chute": "il caffè tienilo per _la mattina_"
+   },
+   "hu": {
+    "titre": "_nincs kávé_ 14 után",
+    "intro": "a délutáni kávéd _éjfélkor is ébren van_",
+    "paragraphes": [
+     "egy kutatásban erős koffein 6 órával alvás előtt _1 óránál többet elvett az alvásból_",
+     "válts koffeinmentesre vagy gyógyteára _ebéd után_"
+    ],
+    "chute": "a kávét hagyd _reggelre_"
+   },
+   "ro": {
+    "titre": "_fără cafea_ după ora 14",
+    "intro": "cafeaua de după-amiază _e încă trează la miezul nopții_",
+    "paragraphes": [
+     "într-un studiu, o doză mare de cofeină cu 6 ore înainte de somn _a tăiat peste o oră de somn_",
+     "treci pe decaf sau ceai de plante _după prânz_"
+    ],
+    "chute": "păstrează cafeaua pentru _dimineață_"
+   },
+   "el": {
+    "titre": "_όχι καφές_ μετά τις 2",
+    "intro": "ο απογευματινός καφές _είναι ακόμα ξύπνιος τα μεσάνυχτα_",
+    "paragraphes": [
+     "σε έρευνα, μια μεγάλη δόση καφεΐνης 6 ώρες πριν τον ύπνο _έκοψε πάνω από μία ώρα ύπνο_",
+     "decaf ή βότανα _μετά το μεσημεριανό_"
+    ],
+    "chute": "κράτα τον καφέ για _το πρωί_"
    }
   },
   {
@@ -77,6 +221,60 @@
      "window open 10 minutes, _light duvet_, socks if you want"
     ],
     "chute": "cold room, _deep sleep_"
+   },
+   "fr": {
+    "titre": "une chambre _fraîche_",
+    "intro": "ton corps doit _se refroidir_ pour s'endormir",
+    "paragraphes": [
+     "experts du sommeil : chambre fraîche, _autour de 18°C_",
+     "fenêtre ouverte 10 min, _couette légère_, chaussettes si tu veux"
+    ],
+    "chute": "frais = _sommeil profond_"
+   },
+   "de": {
+    "titre": "halt dein zimmer _kühl_",
+    "intro": "dein körper muss _abkühlen_, um einzuschlafen",
+    "paragraphes": [
+     "schlafexperten raten zu einem kühlen zimmer, _um die 18°C_",
+     "10 minuten fenster auf, _leichte decke_, socken nach lust"
+    ],
+    "chute": "kühler raum, _tiefschlaf_"
+   },
+   "it": {
+    "titre": "camera _fresca_",
+    "intro": "il corpo deve _raffreddarsi_ per addormentarsi",
+    "paragraphes": [
+     "esperti del sonno: camera fresca, _sui 18°C_",
+     "finestra aperta 10 minuti, _piumino leggero_, calzini se vuoi"
+    ],
+    "chute": "fresco = _sonno profondo_"
+   },
+   "hu": {
+    "titre": "legyen _hűvös_ a szobád",
+    "intro": "a testednek _le kell hűlnie_, hogy elaludj",
+    "paragraphes": [
+     "alvásszakértők hűvös hálószobát javasolnak, _18°C körül_",
+     "10 perc nyitott ablak, _könnyű paplan_, zokni, ha akarod"
+    ],
+    "chute": "hideg szoba, _mély alvás_"
+   },
+   "ro": {
+    "titre": "o cameră _răcoroasă_",
+    "intro": "corpul trebuie _să se răcească_ ca să adormi",
+    "paragraphes": [
+     "experții în somn: dormitor răcoros, _cam 18°C_",
+     "geamul deschis 10 minute, _plapumă ușoară_, șosete dacă vrei"
+    ],
+    "chute": "cameră rece, _somn adânc_"
+   },
+   "el": {
+    "titre": "δωμάτιο _δροσερό_",
+    "intro": "το σώμα πρέπει _να δροσιστεί_ για να κοιμηθεί",
+    "paragraphes": [
+     "ειδικοί ύπνου: δροσερό δωμάτιο, _γύρω στους 18°C_",
+     "παράθυρο ανοιχτό 10 λεπτά, _ελαφρύ πάπλωμα_, κάλτσες αν θες"
+    ],
+    "chute": "κρύο δωμάτιο, _βαθύς ύπνος_"
    }
   },
   {
@@ -92,6 +290,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _le matin_",
+    "intro": "les études lient le sport régulier à _un meilleur sommeil_",
+    "paragraphes": [
+     "départ en force, une semaine sautée, et _j'étais perdue_ au retour",
+     "mon tip : avec une appli de coaching running comme Atala, je peux _écrire au coach_ si la semaine déborde"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "_morgens_ laufen",
+    "intro": "studien verknüpfen regelmäßigen sport mit _besserem schlaf_",
+    "paragraphes": [
+     "stark gestartet, eine woche verpasst, und _beim comeback verloren_",
+     "mein tipp: mit einer lauf-coach-app wie Atala kann ich _meinem coach schreiben_, wenn eine woche zu viel wird"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _la mattina_",
+    "intro": "gli studi collegano lo sport regolare a _un sonno migliore_",
+    "paragraphes": [
+     "partivo forte, saltavo una settimana e al rientro _ero persa_",
+     "il mio consiglio: con un'app coach per la corsa come Atala posso _scrivere al coach_ se la settimana pesa"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss _reggel_",
+    "intro": "a kutatások szerint a rendszeres mozgás _jobb alvással_ jár",
+    "paragraphes": [
+     "erős kezdés, egy kihagyott hét, és visszatérve _elveszett voltam_",
+     "a tippem: egy futóedző appban, mint az Atala, _írhatok az edzőmnek_, ha túl sok egy hét"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _dimineața_",
+    "intro": "studiile leagă sportul regulat de _un somn mai bun_",
+    "paragraphes": [
+     "start în forță, o săptămână sărită și la revenire _eram pierdută_",
+     "sfatul meu: cu o aplicație de running coach ca Atala, pot _să-i scriu coach-ului_ dacă săptămâna e prea grea"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _το πρωί_",
+    "intro": "έρευνες συνδέουν την τακτική άσκηση με _καλύτερο ύπνο_",
+    "paragraphes": [
+     "ξεκινούσα δυνατά, έχανα μια εβδομάδα και _ένιωθα χαμένη_ στην επιστροφή",
+     "το tip μου: με μια εφαρμογή τρεξίματος όπως η Atala, _γράφω στον προπονητή μου_ όταν η εβδομάδα με ζορίζει"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -105,6 +369,60 @@
      "lamps and candles only, _big lights off_"
     ],
     "chute": "cozy is _the whole point_"
+   },
+   "fr": {
+    "titre": "_lumière tamisée_ après 21h",
+    "intro": "lumière vive, et ton cerveau croit _qu'il fait jour_",
+    "paragraphes": [
+     "selon une étude, la lumière normale d'une pièce le soir _retardait la mélatonine_, l'hormone qui te dit qu'il fait nuit",
+     "lampes et bougies, _plafonnier éteint_"
+    ],
+    "chute": "cosy, _c'est le but_"
+   },
+   "de": {
+    "titre": "_licht dimmen_ ab 21 uhr",
+    "intro": "helles licht sagt deinem gehirn: _es ist noch tag_",
+    "paragraphes": [
+     "eine studie fand: normales raumlicht am abend _verzögerte melatonin_, das hormon, das dir nacht signalisiert",
+     "nur lampen und kerzen, _deckenlicht aus_"
+    ],
+    "chute": "gemütlich ist _das ziel_"
+   },
+   "it": {
+    "titre": "_luci soffuse_ dopo le 21",
+    "intro": "la luce forte dice al cervello _che è ancora giorno_",
+    "paragraphes": [
+     "uno studio: la normale luce di casa la sera _ritardava la melatonina_, l'ormone che ti dice che è notte",
+     "solo lampade e candele, _luci grandi spente_"
+    ],
+    "chute": "il cozy è _proprio il punto_"
+   },
+   "hu": {
+    "titre": "_tompítsd a fényt_ 21 után",
+    "intro": "erős fénynél az agyad azt hiszi, _még nappal van_",
+    "paragraphes": [
+     "egy kutatás szerint az esti szobai fény _késleltette a melatonint_, azt a hormont, ami jelzi, hogy éjszaka van",
+     "csak lámpák és gyertyák, _nagy villany le_"
+    ],
+    "chute": "a cozy _a lényeg_"
+   },
+   "ro": {
+    "titre": "_lumină slabă_ după ora 21",
+    "intro": "lumina puternică îi spune creierului _că încă e zi_",
+    "paragraphes": [
+     "un studiu a găsit că lumina normală din cameră seara _întârzia melatonina_, hormonul care îți spune că e noapte",
+     "doar lămpi și lumânări, _lustra stinsă_"
+    ],
+    "chute": "cozy e _ideea_"
+   },
+   "el": {
+    "titre": "_χαμήλωσε τα φώτα_ μετά τις 9",
+    "intro": "με δυνατό φως, το μυαλό νομίζει _ότι είναι μέρα_",
+    "paragraphes": [
+     "έρευνα βρήκε ότι το κανονικό φως δωματίου το βράδυ _καθυστερούσε τη μελατονίνη_, την ορμόνη που λέει ότι είναι νύχτα",
+     "πορτατίφ και κεριά, _φώτα οροφής σβηστά_"
+    ],
+    "chute": "το cozy είναι _όλο το νόημα_"
    }
   },
   {
@@ -118,6 +436,60 @@
      "dim lamp, a boring book, _no phone_"
     ],
     "chute": "your bed is _for sleeping_"
+   },
+   "fr": {
+    "titre": "pas sommeil ? _lève-toi_",
+    "intro": "éveillée au lit, ton cerveau apprend que lit = _éveil_",
+    "paragraphes": [
+     "experts du sommeil : lève-toi après environ 20 minutes éveillée, reviens _quand tu as sommeil_",
+     "petite lampe, livre ennuyeux, _zéro tél_"
+    ],
+    "chute": "ton lit, c'est _pour dormir_"
+   },
+   "de": {
+    "titre": "kein schlaf? _steh auf_",
+    "intro": "wach liegen bringt deinem gehirn bei: bett = _wach_",
+    "paragraphes": [
+     "schlafexperten raten, nach etwa 20 minuten wachliegen aufzustehen und _erst müde zurückzukommen_",
+     "schummerlicht, ödes buch, _kein handy_"
+    ],
+    "chute": "dein bett ist _zum schlafen_"
+   },
+   "it": {
+    "titre": "non dormi? _alzati_",
+    "intro": "sveglia a letto, il cervello impara: letto = _sveglia_",
+    "paragraphes": [
+     "gli esperti del sonno consigliano di alzarsi dopo circa 20 minuti svegli e tornare _quando hai sonno_",
+     "luce bassa, libro noioso, _niente cell_"
+    ],
+    "chute": "il letto è _per dormire_"
+   },
+   "hu": {
+    "titre": "álmatlan? _kelj fel_",
+    "intro": "ha ébren fekszel, az agyad megtanulja: ágy = _ébrenlét_",
+    "paragraphes": [
+     "alvásszakértők szerint kb. 20 perc ébren fekvés után kelj fel, és _ha álmos vagy_, menj vissza",
+     "tompa fény, uncsi könyv, _nincs mobil_"
+    ],
+    "chute": "az ágy _alvásra_ való"
+   },
+   "ro": {
+    "titre": "insomnie? _ridică-te_",
+    "intro": "stând trează în pat, creierul învață că pat = _treaz_",
+    "paragraphes": [
+     "experții în somn recomandă să te ridici după cam 20 de minute de veghe și să revii _când ți-e somn_",
+     "veioză, carte banală, _fără telefon_"
+    ],
+    "chute": "patul e _pentru somn_"
+   },
+   "el": {
+    "titre": "δεν κοιμάσαι; _σήκω_",
+    "intro": "αν μένεις ξύπνια, μαθαίνει: κρεβάτι = _ξύπνιο_",
+    "paragraphes": [
+     "οι ειδικοί ύπνου λένε να σηκωθείς μετά από περίπου 20 λεπτά ξύπνια και να γυρίσεις _όταν νυστάξεις_",
+     "χαμηλό φως, βαρετό βιβλίο, _όχι κινητό_"
+    ],
+    "chute": "το κρεβάτι είναι _για ύπνο_"
    }
   }
  ]

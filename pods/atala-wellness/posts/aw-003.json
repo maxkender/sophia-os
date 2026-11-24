@@ -7,10 +7,22 @@
   "accroche": "les habitudes que j'ai volées aux filles toujours parfaites"
  },
  "titre": {
-  "en": "habits i stole from girls who always look put together"
+  "en": "habits i stole from girls who always look put together",
+  "fr": "ce que j'ai piqué aux filles toujours impeccables",
+  "de": "was ich mir bei mädels abgeschaut hab, die immer top aussehen",
+  "it": "abitudini che ho rubato alle ragazze sempre impeccabili",
+  "hu": "szokások, amiket a mindig rendezett lányoktól loptam",
+  "ro": "obiceiuri furate de la fetele mereu aranjate",
+  "el": "συνήθειες που έκλεψα από κορίτσια πάντα περιποιημένα"
  },
  "legendes": {
-  "en": "small things, every single day 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether"
+  "en": "small things, every single day 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether",
+  "fr": "des petits trucs, chaque jour 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether",
+  "de": "kleine dinge, jeden einzelnen tag 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether",
+  "it": "piccole cose, ogni singolo giorno 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether",
+  "hu": "apróságok, minden egyes nap 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether",
+  "ro": "lucruri mici, în fiecare zi 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether",
+  "el": "μικρά πράγματα, κάθε μέρα 🤍 #wellness #healthyhabits #thatgirl #selfcare #putTogether"
  },
  "musique": {
   "titre": "save a prayer",
@@ -30,8 +42,38 @@
  "slides": [
   {
    "type": "couverture",
-   "photos": ["images/banque/couverture-e.jpg", "images/banque/couverture-f.jpg"],
-   "en": { "titre": "habits i stole from girls who always look put together", "note": "(that actually work)" }
+   "photos": [
+    "images/banque/couverture-e.jpg",
+    "images/banque/couverture-f.jpg"
+   ],
+   "en": {
+    "titre": "habits i stole from girls who always look put together",
+    "note": "(that actually work)"
+   },
+   "fr": {
+    "titre": "habitudes que j'ai piquées aux filles toujours impeccables",
+    "note": "(qui marchent vraiment)"
+   },
+   "de": {
+    "titre": "was ich mir bei mädels abgeschaut hab, die immer top aussehen",
+    "note": "(die echt wirken)"
+   },
+   "it": {
+    "titre": "abitudini che ho rubato alle ragazze sempre impeccabili",
+    "note": "(funzionano davvero)"
+   },
+   "hu": {
+    "titre": "szokások, amiket a mindig rendezett lányoktól loptam",
+    "note": "(tényleg működnek)"
+   },
+   "ro": {
+    "titre": "obiceiuri furate de la fetele mereu aranjate",
+    "note": "(chiar funcționează)"
+   },
+   "el": {
+    "titre": "συνήθειες που έκλεψα από κορίτσια πάντα περιποιημένα",
+    "note": "(που όντως πιάνουν)"
+   }
   },
   {
    "type": "habitude",
@@ -44,6 +86,60 @@
      "outfit on the chair, bag by the door, _done_"
     ],
     "chute": "that is the _whole secret_"
+   },
+   "fr": {
+    "titre": "choisis ta tenue _la veille_",
+    "intro": "la toi du matin a _zéro patience_",
+    "paragraphes": [
+     "une décision de moins au réveil, et _zéro panique_ devant le miroir",
+     "tenue sur la chaise, sac près de la porte, _fini_"
+    ],
+    "chute": "c'est _tout le secret_"
+   },
+   "de": {
+    "titre": "outfit _am abend vorher_ wählen",
+    "intro": "dein morgen-ich hat _null geduld_",
+    "paragraphes": [
+     "eine entscheidung weniger beim aufwachen und _keine panik_ vorm spiegel",
+     "outfit auf den stuhl, tasche an die tür, _fertig_"
+    ],
+    "chute": "das ist _das ganze geheimnis_"
+   },
+   "it": {
+    "titre": "scegli l'outfit _la sera prima_",
+    "intro": "la te del mattino ha _zero pazienza_",
+    "paragraphes": [
+     "una decisione in meno al risveglio, e _zero panico_ davanti allo specchio",
+     "outfit sulla sedia, borsa alla porta, _fatto_"
+    ],
+    "chute": "è _tutto il segreto_"
+   },
+   "hu": {
+    "titre": "válaszd ki a ruhád _előző este_",
+    "intro": "a reggeli éned _nulla türelemmel_ bír",
+    "paragraphes": [
+     "eggyel kevesebb döntés ébredéskor, és _semmi pánik_ a tükör előtt",
+     "ruha a széken, táska az ajtónál, _kész_"
+    ],
+    "chute": "ez _az egész titok_"
+   },
+   "ro": {
+    "titre": "alege-ți ținuta _de cu seară_",
+    "intro": "tu cea de dimineață ai _zero răbdare_",
+    "paragraphes": [
+     "o decizie în minus la trezire și _zero panică_ în fața oglinzii",
+     "ținuta pe scaun, geanta la ușă, _gata_"
+    ],
+    "chute": "ăsta e _tot secretul_"
+   },
+   "el": {
+    "titre": "διάλεξε ρούχα _από το βράδυ_",
+    "intro": "η πρωινή σου εκδοχή έχει _μηδέν υπομονή_",
+    "paragraphes": [
+     "μια απόφαση λιγότερη στο ξύπνημα και _καθόλου πανικός_ στον καθρέφτη",
+     "ρούχα στην καρέκλα, τσάντα στην πόρτα, _τέλος_"
+    ],
+    "chute": "αυτό είναι _όλο το μυστικό_"
    }
   },
   {
@@ -57,6 +153,60 @@
      "lemon, cucumber, mint. _make it pretty_ and you'll drink more"
     ],
     "chute": "a cute bottle is _half the habit_"
+   },
+   "fr": {
+    "titre": "_une gourde_ partout avec toi",
+    "intro": "jamais elles _n'oublient de boire_ de la journée",
+    "paragraphes": [
+     "si elle est dans ton sac, tu bois sans _même y penser_",
+     "citron, concombre, menthe. _fais-la jolie_ et tu boiras plus"
+    ],
+    "chute": "jolie gourde, _moitié de l'habitude_"
+   },
+   "de": {
+    "titre": "_eine trinkflasche_ immer dabei",
+    "intro": "sie sind nie die, die _das trinken vergisst_",
+    "paragraphes": [
+     "ist sie in der tasche, trinkst du _ohne nachzudenken_",
+     "zitrone, gurke, minze. _mach sie hübsch_ und du trinkst mehr"
+    ],
+    "chute": "süße flasche = _die halbe miete_"
+   },
+   "it": {
+    "titre": "_una borraccia_ sempre con te",
+    "intro": "non sono mai quella che _si scorda di bere_ tutto il giorno",
+    "paragraphes": [
+     "se è in borsa, bevi senza _neanche pensarci_",
+     "limone, cetriolo, menta. _rendila carina_ e berrai di più"
+    ],
+    "chute": "borraccia carina = _metà dell'opera_"
+   },
+   "hu": {
+    "titre": "_kulacs_ mindig nálad",
+    "intro": "ők sosem azok, akik _elfelejtenek inni_ egész nap",
+    "paragraphes": [
+     "ha a táskádban van, _gondolkodás nélkül_ kortyolsz",
+     "citrom, uborka, menta. _legyen csinos_, és többet iszol"
+    ],
+    "chute": "egy cuki kulacs _a szokás fele_"
+   },
+   "ro": {
+    "titre": "_o sticlă de apă_ mereu la tine",
+    "intro": "nu sunt niciodată fata care _a uitat să bea_ toată ziua",
+    "paragraphes": [
+     "dacă e în geantă, bei fără _să te gândești_",
+     "lămâie, castravete, mentă. _fă-o drăguță_ și o să bei mai mult"
+    ],
+    "chute": "sticlă drăguță = _jumătate din obicei_"
+   },
+   "el": {
+    "titre": "_ένα μπουκάλι νερό_ παντού",
+    "intro": "δεν είναι ποτέ αυτή που _ξέχασε να πιει_ όλη μέρα",
+    "paragraphes": [
+     "αν είναι στην τσάντα, πίνεις χωρίς _καν να το σκεφτείς_",
+     "λεμόνι, αγγούρι, δυόσμος. _κάν' το όμορφο_ και θα πίνεις πιο πολύ"
+    ],
+    "chute": "όμορφο μπουκάλι = _μισή συνήθεια_"
    }
   },
   {
@@ -70,6 +220,60 @@
      "make the bed, clothes away, _10 minutes_ max"
     ],
     "chute": "calm room, _calm head_"
+   },
+   "fr": {
+    "titre": "range ta chambre _chaque soir_",
+    "intro": "une chambre en bazar te suit _toute la soirée_",
+    "paragraphes": [
+     "selon une étude, les femmes qui trouvaient leur maison encombrée _restaient plus stressées_ le soir",
+     "lit fait, vêtements rangés, _10 minutes_ max"
+    ],
+    "chute": "chambre zen, _tête zen_"
+   },
+   "de": {
+    "titre": "zimmer-reset _jeden abend_",
+    "intro": "chaos im zimmer folgt dir _in den abend_",
+    "paragraphes": [
+     "laut einer studie _blieben frauen abends gestresster_, die ihr zuhause als unordentlich beschrieben",
+     "bett machen, kleidung weg, _10 minuten_ max"
+    ],
+    "chute": "ruhe im zimmer, _ruhe im kopf_"
+   },
+   "it": {
+    "titre": "riordina la camera _ogni sera_",
+    "intro": "il disordine in camera ti segue _fino a sera_",
+    "paragraphes": [
+     "uno studio: le donne che descrivevano la casa come disordinata _restavano più stressate_ la sera",
+     "letto fatto, vestiti via, _10 minuti_ max"
+    ],
+    "chute": "stanza zen, _testa zen_"
+   },
+   "hu": {
+    "titre": "rendezd a szobád _minden este_",
+    "intro": "a rendetlen szoba _az estédbe_ is elkísér",
+    "paragraphes": [
+     "egy kutatásban a nők, akik zsúfoltnak írták le az otthonukat, _este is stresszesebbek maradtak_",
+     "ágyazás, ruhák el, _10 perc_ max"
+    ],
+    "chute": "nyugi szoba, _nyugi fej_"
+   },
+   "ro": {
+    "titre": "fă ordine _în fiecare seară_",
+    "intro": "o cameră dezordonată te urmărește _toată seara_",
+    "paragraphes": [
+     "un studiu a arătat că femeile care își descriau casa ca aglomerată _rămâneau mai stresate_ seara",
+     "patul făcut, hainele la loc, _10 minute_ max"
+    ],
+    "chute": "cameră calmă, _minte calmă_"
+   },
+   "el": {
+    "titre": "συμμάζεμα _κάθε βράδυ_",
+    "intro": "ένα ακατάστατο δωμάτιο σε ακολουθεί _και το βράδυ_",
+    "paragraphes": [
+     "μια έρευνα βρήκε ότι γυναίκες που έβλεπαν το σπίτι τους ακατάστατο _έμεναν πιο αγχωμένες_ το βράδυ",
+     "στρώσε κρεβάτι, ρούχα στη θέση, _10 λεπτά_ max"
+    ],
+    "chute": "ήρεμο δωμάτιο, _ήρεμο μυαλό_"
    }
   },
   {
@@ -85,12 +289,80 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _avant ta journée_",
+    "intro": "les filles organisées _bougent dès le réveil_",
+    "paragraphes": [
+     "je partais beaucoup trop vite, puis j'étais _trop crevée pour y retourner_ le lendemain",
+     "mon tip : pars doucement. une appli de coaching running comme Atala te dit _quand ralentir_, et t'as vraiment envie d'y retourner"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "laufen _vor dem alltag_",
+    "intro": "mädels, die alles im griff haben, _bewegen sich zuerst_",
+    "paragraphes": [
+     "ich lief viel zu schnell los, am tag drauf _zu kaputt für runde zwei_",
+     "mein tipp: starte langsam. eine lauf-coach-app wie Atala sagt dir, _wann du bremsen solltest_, so hast du echt wieder lust"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _prima della giornata_",
+    "intro": "le ragazze organizzate _si muovono per prima cosa_",
+    "paragraphes": [
+     "partivo troppo veloce, e il giorno dopo ero _troppo stanca per tornarci_",
+     "il mio consiglio: parti piano. un'app coach per la corsa come Atala ti dice _quando rallentare_, così ti torna la voglia"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss, _mielőtt indul a nap_",
+    "intro": "a rendezett lányok _már reggel mozognak_",
+    "paragraphes": [
+     "régen túl gyorsan kezdtem, aztán másnap _túl fáradt voltam_ újra menni",
+     "a tippem: kezdd lassan. egy futóedző app, mint az Atala, megmondja, _mikor lassíts_, így tényleg lesz kedved újra menni"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _înaintea zilei_",
+    "intro": "fetele organizate _se mișcă la prima oră_",
+    "paragraphes": [
+     "porneam mult prea repede, apoi a doua zi eram _prea obosită să mai ies_",
+     "sfatul meu: pornește încet. o aplicație de running coach ca Atala îți spune _când să încetinești_, așa chiar vrei să mai ieși"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _πριν ξεκινήσει η μέρα_",
+    "intro": "τα οργανωμένα κορίτσια _κινούνται με το ξύπνημα_",
+    "paragraphes": [
+     "ξεκινούσα πολύ γρήγορα και την άλλη μέρα ήμουν _πολύ κουρασμένη να ξαναβγώ_",
+     "το tip μου: ξεκίνα αργά. μια εφαρμογή προπονητή όπως η Atala σου λέει _πότε να επιβραδύνεις_, και θες να ξαναβγείς"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
    "type": "habitude",
    "photo": "images/banque/cafe.jpg",
-   "cadrage": { "x": 0 },
+   "cadrage": {
+    "x": 0
+   },
    "en": {
     "titre": "drink your coffee _slowly_",
     "intro": "they never look rushed, because _they aren't_",
@@ -99,6 +371,60 @@
      "no phone, no emails. _just the coffee_ and the window"
     ],
     "chute": "slow mornings look _so good_ on you"
+   },
+   "fr": {
+    "titre": "bois ton café _lentement_",
+    "intro": "jamais l'air pressées, car _elles ne le sont pas_",
+    "paragraphes": [
+     "10 minutes calmes avant la journée _changent toute la matinée_",
+     "ni téléphone ni mails. _juste le café_ et la fenêtre"
+    ],
+    "chute": "les matins lents te vont _si bien_"
+   },
+   "de": {
+    "titre": "kaffee _langsam_ trinken",
+    "intro": "sie wirken nie gehetzt, weil _sie es nicht sind_",
+    "paragraphes": [
+     "10 ruhige minuten vor dem tag _verändern den ganzen morgen_",
+     "kein handy, keine mails. _nur der kaffee_ und das fenster"
+    ],
+    "chute": "langsame morgen stehen dir _so gut_"
+   },
+   "it": {
+    "titre": "bevi il caffè _con calma_",
+    "intro": "non sembrano mai di corsa, perché _non lo sono_",
+    "paragraphes": [
+     "10 minuti calmi prima del giorno _cambiano tutta la mattina_",
+     "niente telefono, niente mail. _solo il caffè_ e la finestra"
+    ],
+    "chute": "le mattine lente ti stanno _così bene_"
+   },
+   "hu": {
+    "titre": "idd _lassan_ a kávéd",
+    "intro": "sosem tűnnek kapkodónak, mert _nem is azok_",
+    "paragraphes": [
+     "10 nyugodt perc a nap előtt _az egész reggelt megváltoztatja_",
+     "se telefon, se email. _csak a kávé_ és az ablak"
+    ],
+    "chute": "a lassú reggelek _nagyon jól_ állnak"
+   },
+   "ro": {
+    "titre": "bea cafeaua _încet_",
+    "intro": "nu par niciodată grăbite, pentru că _nu sunt_",
+    "paragraphes": [
+     "10 minute de liniște înainte de zi _schimbă toată dimineața_",
+     "fără telefon, fără mailuri. _doar cafeaua_ și fereastra"
+    ],
+    "chute": "diminețile lente îți stau _atât de bine_"
+   },
+   "el": {
+    "titre": "πιες τον καφέ _αργά_",
+    "intro": "δεν δείχνουν ποτέ βιαστικές, γιατί _δεν είναι_",
+    "paragraphes": [
+     "10 ήρεμα λεπτά πριν τη μέρα _αλλάζουν όλο το πρωί_",
+     "χωρίς κινητό, χωρίς mail. _μόνο ο καφές_ και το παράθυρο"
+    ],
+    "chute": "τα αργά πρωινά σου _πάνε τόσο_"
    }
   },
   {
@@ -112,6 +438,60 @@
      "3 lines, _5 minutes_, lights off"
     ],
     "chute": "plan it, then _let it go_"
+   },
+   "fr": {
+    "titre": "écris _ta to-do_ de demain",
+    "intro": "ton cerveau arrête de _la ressasser_ au lit",
+    "paragraphes": [
+     "dans une étude, ceux qui écrivaient leur to-do avant de dormir _s'endormaient plus vite_ que ceux qui notaient ce qu'ils avaient fini",
+     "3 lignes, _5 minutes_, on éteint"
+    ],
+    "chute": "planifie, puis _lâche prise_"
+   },
+   "de": {
+    "titre": "die _to-do-liste_ für morgen",
+    "intro": "im bett _kreist sie nicht mehr_ im kopf",
+    "paragraphes": [
+     "in einer studie _schliefen leute schneller ein_, die vor dem schlafen ihre to-dos notierten, als die, die erledigtes aufschrieben",
+     "3 zeilen, _5 minuten_, licht aus"
+    ],
+    "chute": "planen, dann _loslassen_"
+   },
+   "it": {
+    "titre": "scrivi la _to-do list_ di domani",
+    "intro": "il cervello smette di _ripassarla_ a letto",
+    "paragraphes": [
+     "in uno studio, chi scriveva la to-do list prima di dormire _si addormentava prima_ di chi scriveva cosa aveva finito",
+     "3 righe, _5 minuti_, luci spente"
+    ],
+    "chute": "scrivi, poi _lascia andare_"
+   },
+   "hu": {
+    "titre": "írd meg a holnapi _teendőlistát_",
+    "intro": "az agyad nem _pörgeti tovább_ az ágyban",
+    "paragraphes": [
+     "egy kutatásban, akik lefekvés előtt teendőlistát írtak, _gyorsabban elaludtak_, mint akik a már elvégzett dolgokról írtak",
+     "3 sor, _5 perc_, lámpaoltás"
+    ],
+    "chute": "tervezd, aztán _engedd el_"
+   },
+   "ro": {
+    "titre": "scrie _to-do list-ul_ de mâine",
+    "intro": "creierul nu _o mai derulează_ în pat",
+    "paragraphes": [
+     "într-un studiu, cei care își scriau to-do list-ul înainte de somn _adormeau mai repede_ decât cei care scriau ce terminaseră",
+     "3 rânduri, _5 minute_, stingi lumina"
+    ],
+    "chute": "planifică, apoi _lasă-l_"
+   },
+   "el": {
+    "titre": "γράψε το _to-do list_ του αύριο",
+    "intro": "το μυαλό _δεν το ξαναπαίζει_ στο κρεβάτι",
+    "paragraphes": [
+     "σε έρευνα, όσοι έγραφαν to-do list πριν τον ύπνο _αποκοιμιόντουσαν πιο γρήγορα_ από όσους έγραφαν τι είχαν τελειώσει",
+     "3 γραμμές, _5 λεπτά_, φώτα σβηστά"
+    ],
+    "chute": "σχεδίασέ το, μετά _άφησέ το_"
    }
   }
  ]

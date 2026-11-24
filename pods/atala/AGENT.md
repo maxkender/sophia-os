@@ -35,7 +35,7 @@ Le prompt de placement d'Atala a changé le 20/11 (table `prompts`, clé `placem
 	- jamais une formule de pub : ni « download », ni « link in bio », ni « free », ni « the best app ». Jamais Pacewell ni une autre appli de plans de course (Runna, Nike Run Club, Couch to 5K…).
 - **Le label** : `dos_donts_run` (migration 0776), qui sert **Atala seul**, 100 % podz, genre `femme` ; son nom finit par `_run`, ses comptes ont l'identité du running. L'OS le range en voie 2 dès le premier original validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » ou Adrien et Max (Pilotage). **Atala est encore inactive** dans l'OS : rien n'est publié avant son activation, mais la file et la validation marchent. `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En anglais et en français** (`LANGUES` dans `atelier/api.ts`), comme elles : minuscules dans les légendes, phrases courtes, conseils concrets. L'anglais part toujours (langue source) ; le français part quand le label a un compte français (`npm run livrer` le dit), sinon plus tard avec `--complement`.
+- **Les langues** (`LANGUES` dans `atelier/api.ts`, ordre d'Adrien du 24/11) : anglais (source), français, hongrois, italien, allemand, roumain, turc, espagnol d'Amérique latine, grec (`en fr hu it de ro tr es-419 el`). Chaque original neuf part dans toutes celles où le label a un compte (`npm run livrer` s'y tient) ; un original déjà validé se rattrape avec `--complement --langues …`. Traduis à la main, au ton de leurs posts : minuscules, phrases courtes, 14 signes par ligne, pas de mot seul sur la dernière ligne (raccourcis plutôt). La vignette d'Atala suit `placement_atala` avec le mot pour « appli » : de « coach-app wie atala », it « app coach come atala », es-419 « app con coach como atala », hu « edzős app, mint az atala », ro « aplicație de coach ca atala », tr « atala gibi koç uygulaması ». **Le grec (el)** (polices validées par Adrien le 24/11) : ni Playfair Display ni Red Hat Mono n'ont l'alphabet grec, l'atelier passe donc sur des polices de secours, Noto Serif Display pour les titres et Fira Mono Medium pour les légendes (une légende grecque est tout entière en Fira Mono). En grec, la vignette d'Atala : « εφαρμογή coach σαν το atala ».
 - **Parfait ou rien**. Un original part seulement quand chaque slide est au niveau des leurs. Sinon, il attend le lendemain.
 
 ## Les règles d'un original
@@ -57,7 +57,7 @@ Le prompt de placement d'Atala a changé le 20/11 (table `prompts`, clé `placem
 - **Titres** en Playfair Display (184 px de leur slide), `*mot*` en italique gras (« how to be the 6am *running girl* ») ; « Do ✓ » et « Don't ✕ » en Red Hat Mono SemiBold, le signe dessiné au trait ; légendes en Red Hat Mono SemiBold 48,5, centrées.
 - **Couverture** : le titre sur deux lignes, trois chevrons fins, la coureuse en bas, plein pied.
 - **Le logo d'Atala** : `assets/atala/icone.png` (l'icône de l'OS, `src/assets/applications/atala.png`, recomposée en 1024 px), coins arrondis comme sur un téléphone.
-- Red Hat Mono n'a pas de cyrillique : pas de bulgare ni de russe sans une autre police.
+- Red Hat Mono n'a pas de cyrillique : pas de bulgare ni de russe sans une autre police. Le grec passe par les polices de secours (`FAMILLE` dans `atelier/polices.ts`).
 
 ## Tes outils (dans `pods/atala/`)
 

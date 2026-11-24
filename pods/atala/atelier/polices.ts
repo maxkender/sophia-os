@@ -1,8 +1,13 @@
 // Les polices des comptes modèles (@hannah.run5, @katrina.run : le même
 // gabarit Canva), calées sur leurs slides (relevé du 19/11) et enregistrées
 // sous des noms à nous. Fichiers statiques officiels de Google Fonts, SIL OFL
-// (polices/OFL-*.txt). Red Hat Mono n'a pas de cyrillique : en bulgare ou en
-// russe, il faudra une autre police de légendes.
+// (polices/OFL-*.txt). Ni Playfair ni Red Hat Mono n'ont le grec : chaque
+// famille a donc une police de secours grecque (validée par Adrien le 24/11),
+// qui ne sert qu'aux lettres que la première n'a pas (`FAMILLE`) : Noto Serif
+// Display Regular (titres, une didone comme Playfair), Noto Serif Display
+// ExtraBold Italic (mot appuyé), Fira Mono Medium (légendes : une légende
+// grecque passe tout entière en Fira Mono, voir slides.ts). Pas de cyrillique : en bulgare ou
+// en russe, il faudra d'autres polices.
 
 import { GlobalFonts } from "@napi-rs/canvas";
 import { join } from "node:path";
@@ -21,3 +26,15 @@ export const POLICE = {
 GlobalFonts.registerFromPath(join(DOSSIER, "PlayfairDisplay-Regular.ttf"), POLICE.titre);
 GlobalFonts.registerFromPath(join(DOSSIER, "PlayfairDisplay-ExtraBoldItalic.ttf"), POLICE.appui);
 GlobalFonts.registerFromPath(join(DOSSIER, "RedHatMono-SemiBold.ttf"), POLICE.legende);
+GlobalFonts.registerFromPath(join(DOSSIER, "NotoSerifDisplay-Regular.ttf"), "AT Titre Grec");
+GlobalFonts.registerFromPath(join(DOSSIER, "NotoSerifDisplay-ExtraBoldItalic.ttf"), "AT Appui Grec");
+GlobalFonts.registerFromPath(join(DOSSIER, "FiraMono-Medium.ttf"), "AT Legende Grec");
+
+/** Les familles à donner à `ctx.font` : la police du gabarit, puis sa police de secours grecque. */
+export const FAMILLE = {
+  titre: `"${POLICE.titre}", "AT Titre Grec"`,
+  appui: `"${POLICE.appui}", "AT Appui Grec"`,
+  legende: `"${POLICE.legende}", "AT Legende Grec"`,
+  /** Une légende grecque, tout entière en Fira Mono Medium. */
+  legendeGrec: `"AT Legende Grec"`,
+} as const;

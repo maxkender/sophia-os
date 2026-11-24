@@ -9418,6 +9418,7 @@ export const fr = {
     nettoyageEtapes: {
       textRemoval: "Fal text-removal",
       replicateTextRemoval: "Replicate text-removal (fallback)",
+      effaceurLama: "Effaceur (Gemini + LaMa)",
       upscale: "Upscale Fal SeedVR",
       c2pa: "Content Credentials",
       ready: "Ready",

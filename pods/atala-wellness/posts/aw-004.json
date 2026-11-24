@@ -7,10 +7,22 @@
   "accroche": "Mes petites habitudes bizarres que je fais en cachette (et qui marchent vraiment)"
  },
  "titre": {
-  "en": "my weird little habits that actually work"
+  "en": "my weird little habits that actually work",
+  "fr": "mes habitudes bizarres qui marchent vraiment",
+  "de": "meine komischen habits, die echt wirken",
+  "it": "le mie abitudini strane che funzionano",
+  "hu": "a fura kis szokásaim, amik tényleg működnek",
+  "ro": "obiceiurile mele ciudate care chiar merg",
+  "el": "οι περίεργες συνήθειές μου που πιάνουν"
  },
  "legendes": {
-  "en": "don't judge me, they work 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits"
+  "en": "don't judge me, they work 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits",
+  "fr": "me juge pas, ça marche 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits",
+  "de": "nicht urteilen, sie wirken 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits",
+  "it": "non giudicarmi, funzionano 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits",
+  "hu": "ne ítélj el, működnek 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits",
+  "ro": "nu mă judeca, funcționează 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits",
+  "el": "μη με κρίνεις, πιάνουν 🤍 #wellness #healthyhabits #thatgirl #selfcare #weirdhabits"
  },
  "musique": {
   "titre": "save a prayer",
@@ -37,6 +49,30 @@
    "en": {
     "titre": "my weird little habits that actually work",
     "note": "(backed by science)"
+   },
+   "fr": {
+    "titre": "mes habitudes bizarres qui marchent vraiment",
+    "note": "(validées par la science)"
+   },
+   "de": {
+    "titre": "meine komischen habits, die echt wirken",
+    "note": "(laut wissenschaft)"
+   },
+   "it": {
+    "titre": "le mie abitudini strane che funzionano",
+    "note": "(lo dice la scienza)"
+   },
+   "hu": {
+    "titre": "a fura kis szokásaim, amik tényleg működnek",
+    "note": "(a tudomány szerint)"
+   },
+   "ro": {
+    "titre": "obiceiurile mele ciudate care chiar merg",
+    "note": "(dovedite științific)"
+   },
+   "el": {
+    "titre": "οι περίεργες συνήθειές μου που πιάνουν",
+    "note": "(το λέει η επιστήμη)"
    }
   },
   {
@@ -50,6 +86,60 @@
      "candle on, music low, _no phone_ in the bathroom"
     ],
     "chute": "my favorite part of _the whole day_"
+   },
+   "fr": {
+    "titre": "un _bain chaud_ le soir",
+    "intro": "d'abord le chaud, et ton corps _se refroidit_ juste après",
+    "paragraphes": [
+     "une revue d'études : un bain ou une douche chaude 1 à 2 heures avant le coucher aide à _s'endormir plus vite_",
+     "bougie, son bas, _pas de tél_ dans la salle de bain"
+    ],
+    "chute": "mon moment préféré de _toute la journée_"
+   },
+   "de": {
+    "titre": "_warm baden_ vorm schlafen",
+    "intro": "erst warm, dann _kühlt dein körper ab_",
+    "paragraphes": [
+     "eine review fand: warm baden oder duschen 1 bis 2 stunden vorm schlafen hilft, _schneller einzuschlafen_",
+     "kerze an, musik leise, _kein handy_ im bad"
+    ],
+    "chute": "mein lieblingsteil _des ganzen tages_"
+   },
+   "it": {
+    "titre": "_bagno caldo_ la sera",
+    "intro": "prima il caldo, e il tuo corpo _si raffredda_ subito dopo",
+    "paragraphes": [
+     "una review ha visto che un bagno o una doccia calda 1-2 ore prima di dormire aiuta ad _addormentarsi prima_",
+     "candela, musica bassa, _niente telefono_ in bagno"
+    ],
+    "chute": "il mio momento top _della giornata_"
+   },
+   "hu": {
+    "titre": "_meleg fürdő_ este",
+    "intro": "előbb meleg, aztán a tested _lehűl_",
+    "paragraphes": [
+     "egy áttekintés szerint az 1-2 órával lefekvés előtti meleg fürdő vagy zuhany segített _gyorsabban elaludni_",
+     "gyertya, halk zene, _telefon nélkül_ a fürdőben"
+    ],
+    "chute": "a kedvenc részem _az egész napból_"
+   },
+   "ro": {
+    "titre": "o _baie caldă_ seara",
+    "intro": "întâi cald, apoi corpul _se răcește_ imediat",
+    "paragraphes": [
+     "o analiză a găsit că o baie sau un duș cald cu 1-2 ore înainte de somn ajuta oamenii _să adoarmă mai repede_",
+     "lumânare, muzică încet, _fără telefon_ în baie"
+    ],
+    "chute": "partea mea preferată _din toată ziua_"
+   },
+   "el": {
+    "titre": "_ζεστό μπάνιο_ το βράδυ",
+    "intro": "πρώτα ζέστη, και μετά το σώμα _δροσίζεται_",
+    "paragraphes": [
+     "μια ανασκόπηση βρήκε ότι ζεστό μπάνιο ή ντους 1-2 ώρες πριν τον ύπνο βοηθούσε _να κοιμηθείς πιο γρήγορα_",
+     "κερί, χαμηλή μουσική, _χωρίς κινητό_ στο μπάνιο"
+    ],
+    "chute": "η αγαπημένη μου στιγμή _όλης της μέρας_"
    }
   },
   {
@@ -63,6 +153,60 @@
      "10 seconds, _very cold_, breathe out slowly"
     ],
     "chute": "weird? yes. _it works_"
+   },
+   "fr": {
+    "titre": "_eau froide_ sur le visage",
+    "intro": "quand je stresse, je file _direct au lavabo_",
+    "paragraphes": [
+     "l'eau froide sur le visage déclenche un réflexe qui _ralentit ton cœur_",
+     "10 secondes, _très froide_, expire lentement"
+    ],
+    "chute": "chelou ? oui. _ça marche_"
+   },
+   "de": {
+    "titre": "_kaltwasser_ ins gesicht",
+    "intro": "bin ich gestresst, geht's _direkt ans waschbecken_",
+    "paragraphes": [
+     "kaltes wasser im gesicht löst einen reflex aus, der _deinen puls senkt_",
+     "10 sekunden, _sehr kalt_, langsam ausatmen"
+    ],
+    "chute": "komisch? ja. _es wirkt_"
+   },
+   "it": {
+    "titre": "_acqua fredda_ sul viso",
+    "intro": "quando sono stressata, vado _dritta al lavandino_",
+    "paragraphes": [
+     "l'acqua fredda sul viso attiva un riflesso che _rallenta il battito_",
+     "10 secondi, _freddissima_, espira piano"
+    ],
+    "chute": "strano? sì. _funziona_"
+   },
+   "hu": {
+    "titre": "_hideg víz_ az arcomra",
+    "intro": "ha stresszes vagyok, _egyből a csaphoz_ megyek",
+    "paragraphes": [
+     "a hideg víz az arcon reflexet indít, ami _lassítja a szívverést_",
+     "10 másodperc, _nagyon hideg_, lassan fújd ki"
+    ],
+    "chute": "fura? igen. _működik_"
+   },
+   "ro": {
+    "titre": "_apă rece_ pe față",
+    "intro": "când sunt stresată, merg _direct la chiuvetă_",
+    "paragraphes": [
+     "apa rece pe față declanșează un reflex care _îți încetinește pulsul_",
+     "10 secunde, _foarte rece_, expiră încet"
+    ],
+    "chute": "ciudat? da. _merge_"
+   },
+   "el": {
+    "titre": "_κρύο νερό_ στο πρόσωπο",
+    "intro": "όταν αγχώνομαι, πάω _κατευθείαν στον νιπτήρα_",
+    "paragraphes": [
+     "το κρύο νερό στο πρόσωπο πυροδοτεί αντανακλαστικό που _ρίχνει τους παλμούς_",
+     "10 δευτερόλεπτα, _πολύ κρύο_, εκπνοή αργά"
+    ],
+    "chute": "περίεργο; ναι. _πιάνει_"
    }
   },
   {
@@ -76,6 +220,60 @@
      "kitchen, hallway, anywhere. _just not next to you_"
     ],
     "chute": "out of sight, _out of mind_. literally"
+   },
+   "fr": {
+    "titre": "mon tél _dans une autre pièce_",
+    "intro": "même en silencieux, il _vole ta concentration_",
+    "paragraphes": [
+     "dans une étude, tél dans une autre pièce, on _réussissait mieux les tests d'attention_ qu'avec lui sur le bureau, même en silencieux",
+     "cuisine, couloir, n'importe où. _juste pas à côté de toi_"
+    ],
+    "chute": "loin des yeux, _loin du cœur_. vraiment"
+   },
+   "de": {
+    "titre": "handy _im anderen raum_",
+    "intro": "selbst lautlos _klaut es deinen fokus_",
+    "paragraphes": [
+     "in einer studie _schnitten leute in fokustests besser ab_, wenn das handy in einem anderen raum lag statt auf dem tisch, selbst lautlos",
+     "küche, flur, egal. _nur nicht neben dir_"
+    ],
+    "chute": "aus den augen, _aus dem sinn_. wortwörtlich"
+   },
+   "it": {
+    "titre": "telefono _in un'altra stanza_",
+    "intro": "anche in silenzioso, _ti ruba la concentrazione_",
+    "paragraphes": [
+     "in uno studio, col telefono in un'altra stanza _si andava meglio nei test di attenzione_ che averlo sulla scrivania, anche silenzioso",
+     "cucina, corridoio, dove vuoi. _ma non accanto a te_"
+    ],
+    "chute": "occhio non vede, _cuore non duole_"
+   },
+   "hu": {
+    "titre": "a telefonom _másik szobában_",
+    "intro": "némítva is _elszívja a fókuszod_",
+    "paragraphes": [
+     "egy kutatásban a másik szobában hagyott telefonnal _jobban ment a fókuszteszt_, mint az asztalon, még némítva is",
+     "konyha, folyosó, bárhol. _csak ne melletted_"
+    ],
+    "chute": "nem látod, _nem gondolsz rá_. szó szerint"
+   },
+   "ro": {
+    "titre": "telefonul _în altă cameră_",
+    "intro": "chiar și pe silențios, _îți fură concentrarea_",
+    "paragraphes": [
+     "într-un studiu, cu telefonul în altă cameră _testele de atenție mergeau mai bine_ decât cu el pe birou, chiar pe silențios",
+     "bucătărie, hol, oriunde. _doar nu lângă tine_"
+    ],
+    "chute": "ochii ce nu se văd _se uită_. la propriu"
+   },
+   "el": {
+    "titre": "το κινητό _σε άλλο δωμάτιο_",
+    "intro": "ακόμα και στο αθόρυβο, _σου κλέβει τη συγκέντρωση_",
+    "paragraphes": [
+     "σε έρευνα, με το κινητό σε άλλο δωμάτιο _τα πήγαιναν καλύτερα σε τεστ προσοχής_ από ό,τι με αυτό στο γραφείο, ακόμα και στο αθόρυβο",
+     "κουζίνα, διάδρομος, οπουδήποτε. _απλώς όχι δίπλα σου_"
+    ],
+    "chute": "μακριά από τα μάτια, _μακριά από την καρδιά_"
    }
   },
   {
@@ -91,6 +289,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _à une allure ridicule_",
+    "intro": "ma manie la plus bizarre : courir assez lent _pour parler_",
+    "paragraphes": [
+     "essoufflée à chaque fois, _je redoutais chaque sortie_, alors j'ai arrêté",
+     "mon tip : une appli de coaching running comme Atala te donne _ton allure_ par sortie, fini la course contre toi"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "lauf _albern langsam_",
+    "intro": "schrägster habit: so langsam, dass _ich noch reden kann_",
+    "paragraphes": [
+     "als ich jedes mal außer atem war, _graute mir vor jedem lauf_ und ich hörte auf",
+     "mein tipp: eine lauf-coach-app wie Atala gibt dir _dein tempo_ für jeden lauf, kein wettrennen mehr mit dir selbst"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _ridicolmente piano_",
+    "intro": "abitudine più strana: corro piano _da poter parlare_",
+    "paragraphes": [
+     "quando avevo sempre il fiatone, _odiavo ogni corsa_ e ho smesso",
+     "il mio consiglio: un'app coach per la corsa come Atala ti dà _il tuo ritmo_ a ogni uscita, stop gare con te stessa"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss _nevetségesen lassan_",
+    "intro": "legfurább szokásom: lassan futok, _hogy beszélni tudjak_",
+    "paragraphes": [
+     "amikor mindig kifulladtam, _minden futástól rettegtem_, és abbahagytam",
+     "a tippem: egy futóedző app, mint az Atala, minden futáshoz megadja _a tempódat_, így nem versenyzel magaddal"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _ridicol de încet_",
+    "intro": "cel mai ciudat: alerg încet _cât să pot vorbi_",
+    "paragraphes": [
+     "când rămâneam mereu fără suflu, _uram fiecare alergare_ și m-am oprit",
+     "sfatul meu: o aplicație de running coach ca Atala îți dă _ritmul tău_ la fiecare ieșire, fără întreceri cu tine"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _αστεία αργά_",
+    "intro": "η πιο περίεργη: τρέχω αργά, _ώστε να μιλάω_",
+    "paragraphes": [
+     "όταν λαχάνιαζα κάθε φορά, _σιχαινόμουν κάθε τρέξιμο_ και σταμάτησα",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala σου δίνει _τον ρυθμό σου_ σε κάθε τρέξιμο, χωρίς κόντρα με σένα"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -104,6 +368,60 @@
      "\"okay, _your name_, you've got this\". it sounds crazy, i know"
     ],
     "chute": "be your own _best friend_"
+   },
+   "fr": {
+    "titre": "je me parle _avec mon prénom_",
+    "intro": "oui, _à voix haute_. à la 3e personne",
+    "paragraphes": [
+     "une étude a montré que se parler avec son prénom aide à _rester plus calme_ sous le stress",
+     "« ok, _ton prénom_, tu gères ». ça paraît fou, je sais"
+    ],
+    "chute": "sois _ta meilleure amie_"
+   },
+   "de": {
+    "titre": "ich rede mich _mit namen_ an",
+    "intro": "ja, _laut_. in der dritten person",
+    "paragraphes": [
+     "eine studie fand: wer sich beim selbstgespräch mit namen anspricht, _bleibt unter stress ruhiger_",
+     "\"okay, _dein name_, du schaffst das\". klingt verrückt, ich weiß"
+    ],
+    "chute": "sei _deine beste freundin_"
+   },
+   "it": {
+    "titre": "mi parlo _con il mio nome_",
+    "intro": "sì, _ad alta voce_. in terza persona",
+    "paragraphes": [
+     "uno studio ha visto che usare il tuo nome quando ti parli aiuta a _restare più calma_ sotto stress",
+     "\"ok, _tuo nome_, ce la fai\". sembra folle, lo so"
+    ],
+    "chute": "sii la tua _migliore amica_"
+   },
+   "hu": {
+    "titre": "_a nevemen_ szólítom magam",
+    "intro": "igen, _hangosan_. harmadik személyben",
+    "paragraphes": [
+     "egy kutatás szerint ha a saját neveden beszélsz magadhoz, _nyugodtabb maradsz_ stresszben",
+     "\"oké, _a neved_, menni fog\". őrültségnek hangzik, tudom"
+    ],
+    "chute": "légy _a legjobb barátnőd_"
+   },
+   "ro": {
+    "titre": "vorbesc cu mine _pe nume_",
+    "intro": "da, _cu voce tare_. la persoana a treia",
+    "paragraphes": [
+     "un studiu a arătat că dacă îți spui pe nume când vorbești cu tine, _rămâi mai calmă_ sub stres",
+     "\"ok, _numele tău_, poți\". sună nebunește, știu"
+    ],
+    "chute": "fii-ți _cea mai bună prietenă_"
+   },
+   "el": {
+    "titre": "μου μιλάω _με το όνομά μου_",
+    "intro": "ναι, _δυνατά_. σε τρίτο πρόσωπο",
+    "paragraphes": [
+     "μια έρευνα βρήκε ότι αν μιλάς στον εαυτό σου με το όνομά σου, _μένεις πιο ήρεμη_ στο άγχος",
+     "\"οκ, _το όνομά σου_, τα καταφέρνεις\". ακούγεται τρελό, το ξέρω"
+    ],
+    "chute": "γίνε η _καλύτερή σου φίλη_"
    }
   },
   {
@@ -117,6 +435,60 @@
      "a good coffee counts. _small wins count_"
     ],
     "chute": "end the day on _a good note_"
+   },
+   "fr": {
+    "titre": "_3 bonnes choses_ chaque soir",
+    "intro": "au coucher, j'écris _ce qui s'est bien passé_",
+    "paragraphes": [
+     "dans une étude, le faire chaque soir une semaine rendait _plus heureux pendant des mois_",
+     "un bon café compte. _les mini-victoires aussi_"
+    ],
+    "chute": "finis _sur une bonne note_"
+   },
+   "de": {
+    "titre": "_3 gute dinge_ jeden abend",
+    "intro": "vorm schlafen schreibe ich auf, _was gut lief_",
+    "paragraphes": [
+     "in einer studie machte es eine woche jeden abend _monatelang glücklicher_",
+     "ein guter kaffee zählt. _kleine siege zählen_"
+    ],
+    "chute": "tagesende _mit gutem gefühl_"
+   },
+   "it": {
+    "titre": "_3 cose belle_ ogni sera",
+    "intro": "prima di dormire, scrivo _cosa è andato bene_",
+    "paragraphes": [
+     "in uno studio, chi l'ha fatto ogni sera per una settimana era _più felice per mesi_",
+     "un buon caffè conta. _le mini vittorie pure_"
+    ],
+    "chute": "chiudi la giornata _in bellezza_"
+   },
+   "hu": {
+    "titre": "_3 jó dolog_ minden este",
+    "intro": "lefekvés előtt leírom, _mi ment jól_",
+    "paragraphes": [
+     "egy kutatásban, akik egy hétig minden este csinálták, _hónapokig boldogabbak_ voltak",
+     "egy jó kávé is számít. _minden kis győzelem_"
+    ],
+    "chute": "zárd a napot _valami jóval_"
+   },
+   "ro": {
+    "titre": "_3 lucruri bune_ pe seară",
+    "intro": "înainte de somn, notez _ce a mers bine_",
+    "paragraphes": [
+     "într-un studiu, o săptămână de seri așa i-a făcut _mai fericiți luni de zile_",
+     "o cafea bună contează. _și micile victorii_"
+    ],
+    "chute": "încheie ziua _frumos_"
+   },
+   "el": {
+    "titre": "_3 καλά πράγματα_ κάθε βράδυ",
+    "intro": "πριν τον ύπνο, γράφω _τι πήγε καλά_",
+    "paragraphes": [
+     "σε έρευνα, όσοι το έκαναν κάθε βράδυ για μια εβδομάδα ήταν _πιο χαρούμενοι για μήνες_",
+     "ο καλός καφές μετράει. _κάθε μικρή νίκη_"
+    ],
+    "chute": "κλείσε τη μέρα _με κάτι καλό_"
    }
   }
  ]

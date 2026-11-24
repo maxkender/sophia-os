@@ -40,6 +40,7 @@ import { LigneLabel, TitreApp } from "./Bloc";
 import { type EntreeMenu, MenuActions } from "./MenuActions";
 import { BarrePliage } from "./Pli";
 import { usePliage } from "./pliage";
+import { PanneauSujets } from "./PanneauSujets";
 import { chargerApercus, deciderProposition, lirePropositions, LOT_APERCUS, passerDansLaBible, type Proposition, sansApercu } from "./propositions";
 import { compterSources, ligneResultat, lireSources, rangerSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
 import { couleurSection, PASTILLE_A_CREER, PASTILLE_PODZ } from "./teintes";
@@ -420,6 +421,7 @@ export function PageBible() {
       {(comptes.isLoading || cartes.isLoading || (estVueSource(vue) && donnees.isLoading) || (vue === "propositions" && propositions.isLoading)) && <p className="text-sm text-stone-500">Chargement…</p>}
       {vue === "propositions" && propositions.isError && <p className="text-sm text-destructive">Les propositions n'ont pas pu être lues : {(propositions.error as Error).message}</p>}
       {donnees.isError && <p className="text-sm text-destructive">Les sources n'ont pas pu être lues : {(donnees.error as Error).message}</p>}
+      {vue === "propositions" && <PanneauSujets />}
 
       {vue === "propositions" ? (
         propositions.data && (

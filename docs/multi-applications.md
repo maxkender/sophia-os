@@ -82,6 +82,10 @@ Sept choses ont changé depuis la rédaction de ce document :
 seconde application ne voit réécrire que sa slide d'appli, et la valeur BLEO
 est commune : les vues d'une application faussent le score de l'autre. Un
 label et un podz par application (comme Fathomly, Kaja, that_girl_study).
+**Exception décidée par Adrien le 24/11** : un label 100 % podz (images
+finies) peut servir plusieurs applications quand CHAQUE post porte une slide
+par application (@traceygreen589 : Atala et Artura). Voir § « Labels 100 %
+podz de plusieurs applications ».
 
 ## 1. Le modèle
 
@@ -662,6 +666,69 @@ pertinences dépassent un seuil élevé sur un label commun. Le modèle le perme
 déjà : variante `dual:sophia+unswipe` dans `contenu_langue_decks`, poids 0,5 par
 application dans la fenêtre de répartition (`EntreeFenetre.poids`), et une
 colonne `passages.application_secondaire_id` à ajouter.
+
+## Labels 100 % podz de plusieurs applications (24/11)
+
+Décision d'Adrien du 24/11 : « autoriser des podz 100 % podz qui couvrent
+plusieurs apps ». Premier cas : le podz de @traceygreen589, dont le label sert
+Atala ET Artura. Chaque post porte deux slides d'appli : une slide course avec
+le logo d'Atala, une slide art avec le logo d'Artura. Chaque compte du label
+promeut UNE application (sa répartition, choisie ailleurs dans l'OS) et reçoit
+la version de son application. Aucune migration : `label_applications` sait
+déjà lier un label à plusieurs applications.
+
+- **Dépôt** (`pods`, action `deposer`, images finies) : un seul deck par
+  langue dans `decks`, sans `decks_applications` (refusé, comme pour un label
+  d'une seule application). Chaque application du label a, dans CHAQUE deck,
+  une slide et une seule marquée de son slug, jamais la couverture :
+
+  ```json
+  "slides": [
+    { "position": 1, "jpeg_base64": "…" },
+    { "position": 2, "jpeg_base64": "…" },
+    { "position": 3, "jpeg_base64": "…", "position_app": "atala" },
+    { "position": 4, "jpeg_base64": "…" },
+    { "position": 5, "jpeg_base64": "…", "position_app": "artura" },
+    { "position": 6, "jpeg_base64": "…" }
+  ]
+  ```
+
+  Refusés (400) : `position_app: true` ou `position_sophia` (ambigus : quelle
+  application ?), un slug que le label ne sert pas, une application sans sa
+  slide ou avec deux, une slide d'appli en couverture, une liste de slugs sur
+  une slide. Un label d'une seule application accepte toujours
+  `position_app: true`, et aussi `position_app: "<son slug>"`, jamais un autre.
+- **Variantes** : l'OS tire une variante par application
+  (`decksApplicationsDepuisBase`, `_shared/pods.ts`) : les MÊMES images, seule
+  la slide de CETTE application marquée ; la slide de l'autre reste dans le
+  deck comme une slide de contenu. Le deck de base (`decks`) n'a aucune slide
+  Sophia. Un redépôt remplace ses langues application par application
+  (`fusionnerDecksApps`), une langue ajoutée à un post validé fait une
+  livraison « langues » avec les deux variantes. La réponse liste chaque
+  application et ses langues (`applications: { atala: ["en"], artura: ["en"] }`).
+- **Validation** (à la main, « Tout valider en B », validation automatique) :
+  chaque application est notée avec SON prompt (`pertinence_atala`,
+  `pertinence_artura` ; un prompt manquant bloque, 409) et reçoit SON rang,
+  exactement comme l'application seule d'un label hors Sophia : rang imposé,
+  sinon rang d'un original (pas de post source), sinon le rang de SA note
+  d'import (`rangsApplicationsLivraison`). Pour chacune : deck `pret` dans
+  `contenu_langue_decks` (variante = son slug), ligne `contenu_pertinences`
+  éligible, rang dans `contenu_tiers_application`. Le rang Sophia reste D / 0.
+  `contenus.pertinence_score` est la porte : la plus haute des pertinences,
+  comme à l'import ; `note_import` et `tier` de la livraison, la meilleure
+  note. Une application sous le seuil ne sert pas le post (ligne
+  `contenu_pertinences` non éligible avec sa note, ni deck ni rang) ; la
+  livraison n'est écartée que si AUCUNE application ne passe (le motif donne
+  la note de chacune). `contenus.tier_rapport` et la réponse portent
+  `applications` (servies), `par_application` (pertinence, note, rang),
+  `ecartees` et `sans_deck` (application cochée sur le label après le dépôt :
+  ce post ne la sert pas).
+- **Livraison « langues »** d'un post validé : les nouvelles langues ne vont
+  qu'aux applications que le post sert déjà (ligne éligible), avec LEUR
+  pertinence ; les autres sont rendues dans `applications_ignorees`.
+- **Limite** : la valeur BLEO d'un contenu reste commune à ses applications
+  (voir § « À lire d'abord ») : les vues des comptes Atala et celles des
+  comptes Artura font la même valeur.
 
 ## Angle de placement (label × application)
 

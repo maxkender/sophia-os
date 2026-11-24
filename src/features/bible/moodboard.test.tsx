@@ -17,6 +17,16 @@ const src = vi.hoisted(() => ({ lireSources: vi.fn() }));
 vi.mock("./sources", async (orig) => ({ ...(await orig<typeof import("./sources")>()), ...src }));
 const prop = vi.hoisted(() => ({ lirePropositions: vi.fn(), passerDansLaBible: vi.fn(), deciderProposition: vi.fn(), chargerApercus: vi.fn(async () => false) }));
 vi.mock("./propositions", async (orig) => ({ ...(await orig<typeof import("./propositions")>()), ...prop }));
+// Le panneau des sujets de recherche (0853) lit la base à part : ici, une file vide.
+const sujets = vi.hoisted(() => ({
+  lireSujets: vi.fn(async () => []),
+  lireBudgetEclaireurs: vi.fn(async () => ({ plafondUsd: 50, depenseUsd: 0, resteUsd: 50, sujetsEnAttente: 0 })),
+  ajouterSujet: vi.fn(async () => undefined),
+  annulerSujet: vi.fn(async () => undefined),
+}));
+vi.mock("./sujets", async (orig) => ({ ...(await orig<typeof import("./sujets")>()), ...sujets }));
+const suivi = vi.hoisted(() => ({ lireSuiviImport: vi.fn(async () => ({ suivis: [], journalDisponible: true, lu: Date.now() })) }));
+vi.mock("./suiviImport", async (orig) => ({ ...(await orig<typeof import("./suiviImport")>()), ...suivi }));
 
 import { appsDe, compterEtapes, declarerApplications, handlesDuTexte, ranger, REMARQUE_UGC, SECTIONS, vuesCourtes } from "./moodboard";
 import { DialogueAjout } from "./DialoguesBible";

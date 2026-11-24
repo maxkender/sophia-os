@@ -9,11 +9,25 @@
  },
  "titre": {
   "en": "beginner runner do and don’ts",
-  "fr": "débuter le running : les do & don’ts"
+  "fr": "débuter le running : les do & don’ts",
+  "de": "lauf-anfängerin: die do & don’ts",
+  "it": "principianti: i do & don’ts",
+  "es-419": "corredora novata: los do & don’ts",
+  "hu": "kezdő futó: a do & don’ts",
+  "ro": "începătoare: do & don’ts",
+  "tr": "yeni başlayan: do & don’ts",
+  "el": "αρχάρια δρομέας: τα do & don’ts"
  },
  "legendes": {
   "en": "#running #beginnerrunner #runningtips #girlswhorun #runningadvice",
-  "fr": "#courseapied #running #debutante #conseil #girlswhorun"
+  "fr": "#courseapied #running #debutante #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
  },
  "musique": {
   "titre": "La Mentira",
@@ -29,6 +43,27 @@
    },
    "fr": {
     "titre": "débuter le running :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "lauf-anfängerin:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "principianti:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "corredora novata:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "kezdő futó:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "începătoare:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "yeni başlayan:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "αρχάρια δρομέας:\nτα do & don’ts"
    }
   },
   {
@@ -64,6 +99,90 @@
     "dont": [
      "partir\ntrop vite",
      "un t-shirt\nen coton"
+    ]
+   },
+   "de": {
+    "titre": "die ersten läufe",
+    "do": [
+     "laufschuhe",
+     "coach-app\nwie atala",
+     "gehpausen\nsind okay"
+    ],
+    "dont": [
+     "zu schnell los",
+     "baumwollshirt"
+    ]
+   },
+   "it": {
+    "titre": "le prime uscite",
+    "do": [
+     "scarpe\nda running",
+     "app coach\ncome atala",
+     "camminare\nva bene"
+    ],
+    "dont": [
+     "partire\ntroppo forte",
+     "una maglia\nin cotone"
+    ]
+   },
+   "es-419": {
+    "titre": "primeras salidas",
+    "do": [
+     "tenis\nde running",
+     "app con coach\ncomo atala",
+     "caminar\nestá bien"
+    ],
+    "dont": [
+     "salir\nmuy rápido",
+     "una playera\nde algodón"
+    ]
+   },
+   "hu": {
+    "titre": "az első futások",
+    "do": [
+     "jó futócipő",
+     "edzős app,\nmint az atala",
+     "sétálni\nis szabad"
+    ],
+    "dont": [
+     "túl gyors rajt",
+     "pamutpóló"
+    ]
+   },
+   "ro": {
+    "titre": "primele ieșiri",
+    "do": [
+     "pantofi buni\nde alergare",
+     "aplicație de\ncoach ca atala",
+     "pauzele de\nmers sunt ok"
+    ],
+    "dont": [
+     "plecat\nprea repede",
+     "tricou\nde bumbac"
+    ]
+   },
+   "tr": {
+    "titre": "ilk koşuların",
+    "do": [
+     "iyi ayakkabı",
+     "atala gibi\nkoç uygulaması",
+     "yürümek\nde serbest"
+    ],
+    "dont": [
+     "fazla hızlı\nbir başlangıç",
+     "pamuklu tişört"
+    ]
+   },
+   "el": {
+    "titre": "οι πρώτες έξοδοι",
+    "do": [
+     "καλά παπούτσια",
+     "εφαρμογή coach\nσαν το atala",
+     "λίγο περπάτημα\nείναι οκ"
+    ],
+    "dont": [
+     "ξεκινάς\nπολύ γρήγορα",
+     "μπλούζα\nαπό βαμβάκι"
     ]
    }
   },
@@ -101,6 +220,90 @@
      "un gros plat\nde pâtes",
      "trois cafés"
     ]
+   },
+   "de": {
+    "titre": "vor dem lauf",
+    "do": [
+     "eine banane",
+     "wasser trinken",
+     "sachen bereit"
+    ],
+    "dont": [
+     "ein großer\nteller pasta",
+     "drei kaffee"
+    ]
+   },
+   "it": {
+    "titre": "prima di correre",
+    "do": [
+     "una banana",
+     "un po’ d’acqua",
+     "tutto pronto"
+    ],
+    "dont": [
+     "un piattone\ndi pasta",
+     "tre caffè"
+    ]
+   },
+   "es-419": {
+    "titre": "antes de correr",
+    "do": [
+     "un plátano",
+     "un vaso\nde agua",
+     "ropa lista"
+    ],
+    "dont": [
+     "un platote\nde pasta",
+     "tres cafés"
+    ]
+   },
+   "hu": {
+    "titre": "futás előtt",
+    "do": [
+     "egy banán",
+     "egy pohár víz",
+     "kész szerelés"
+    ],
+    "dont": [
+     "egy nagy\ntányér tészta",
+     "három kávé"
+    ]
+   },
+   "ro": {
+    "titre": "înainte să alergi",
+    "do": [
+     "o banană",
+     "un pahar\ncu apă",
+     "hainele gata"
+    ],
+    "dont": [
+     "o farfurie\nde paste",
+     "trei cafele"
+    ]
+   },
+   "tr": {
+    "titre": "koşudan önce",
+    "do": [
+     "bir muz",
+     "bir bardak su",
+     "hazır kıyafet"
+    ],
+    "dont": [
+     "koca bir\ntabak makarna",
+     "üç kahve"
+    ]
+   },
+   "el": {
+    "titre": "πριν το τρέξιμο",
+    "do": [
+     "μια μπανάνα",
+     "ποτήρι νερό",
+     "έτοιμα ρούχα"
+    ],
+    "dont": [
+     "βαρύ φαγητό",
+     "τρεις καφέδες"
+    ]
    }
   },
   {
@@ -136,6 +339,90 @@
     "dont": [
      "squats lourds",
      "un verre\nde vin"
+    ]
+   },
+   "de": {
+    "titre": "nach dem lauf",
+    "do": [
+     "faszienrolle",
+     "eine tasse tee",
+     "8 std. schlaf"
+    ],
+    "dont": [
+     "harter beintag",
+     "ein glas wein"
+    ]
+   },
+   "it": {
+    "titre": "dopo la corsa",
+    "do": [
+     "un foam roller",
+     "una tisana",
+     "8 ore di sonno"
+    ],
+    "dont": [
+     "squat pesanti",
+     "un bicchiere\ndi vino"
+    ]
+   },
+   "es-419": {
+    "titre": "después de correr",
+    "do": [
+     "un rodillo",
+     "una taza de té",
+     "8 horas\nde sueño"
+    ],
+    "dont": [
+     "mucha pierna\nen el gym",
+     "una copa\nde vino"
+    ]
+   },
+   "hu": {
+    "titre": "futás után",
+    "do": [
+     "masszázshenger",
+     "egy csésze tea",
+     "8 óra alvás"
+    ],
+    "dont": [
+     "nehéz lábnap",
+     "egy pohár bor"
+    ]
+   },
+   "ro": {
+    "titre": "după alergare",
+    "do": [
+     "rola de masaj",
+     "o cană de ceai",
+     "8 ore de somn"
+    ],
+    "dont": [
+     "zi grea\nde picioare",
+     "un pahar\nde vin"
+    ]
+   },
+   "tr": {
+    "titre": "koşudan sonra",
+    "do": [
+     "köpük rulo",
+     "bir fincan çay",
+     "8 saat uyku"
+    ],
+    "dont": [
+     "ağır squat",
+     "şarap içmek"
+    ]
+   },
+   "el": {
+    "titre": "μετά το τρέξιμο",
+    "do": [
+     "ρολό μασάζ",
+     "ένα τσάι",
+     "8 ώρες ύπνο"
+    ],
+    "dont": [
+     "βαριά squats",
+     "ποτήρι κρασί"
     ]
    }
   }

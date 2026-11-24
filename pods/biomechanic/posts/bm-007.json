@@ -8,10 +8,16 @@
   "accroche": "Longevity Tierlist For Optimal Health (Science based)"
  },
  "titre": {
-  "en": "longevity tierlist for optimal health"
+  "en": "longevity tierlist for optimal health",
+  "it": "tierlist della longevità per una salute ottimale",
+  "hu": "hosszú élet tierlist az optimális egészségért",
+  "sr": "tierlista dugovečnosti za optimalno zdravlje"
  },
  "legendes": {
-  "en": "the habits that add years ⏳ #longevity #health #biohacking #running #wellness"
+  "en": "the habits that add years ⏳ #longevity #health #biohacking #running #wellness",
+  "it": "le abitudini che ti regalano anni ⏳ #longevità #salute #benessere #corsa #biohacking",
+  "hu": "a szokások, amik éveket adnak ⏳ #hosszúélet #egészség #biohacking #futás #wellness",
+  "sr": "navike koje dodaju godine ⏳ #dugovečnost #zdravlje #biohacking #trčanje #wellness"
  },
  "musique": {
   "titre": "Becha (Sped Up)",
@@ -42,6 +48,27 @@
      "For *Optimal* Health"
     ],
     "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist Longevità",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Hosszú Élet Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Tierlista Dugog Veka",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
    }
   },
   {
@@ -56,6 +83,30 @@
     "paragraphes": [
      "Long hours without moving slow down your metabolism and weaken the muscles that keep you independent later in life.",
      "It's one of the habits most linked to a shorter life. Breaking it up is the first win."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Seduto Tutto il Giorno",
+    "paragraphes": [
+     "Lunghe ore senza muoverti rallentano il metabolismo e indeboliscono i muscoli che ti tengono autonomo da anziano.",
+     "È una delle abitudini più legate a una vita più corta. Spezzarla è la prima vittoria."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Egész Nap Ülni",
+    "paragraphes": [
+     "A mozgás nélküli hosszú órák lassítják az anyagcserét, és gyengítik az izmokat, amik idősen önállóan tartanak.",
+     "Az egyik leginkább rövidebb élettel összefüggő szokás. Megtörni az első győzelem."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Sedenje Ceo Dan",
+    "paragraphes": [
+     "Dugi sati bez kretanja usporavaju metabolizam i slabe mišiće koji te kasnije u životu drže samostalnim.",
+     "Jedna je od navika najviše povezanih sa kraćim životom. Prekinuti je je prva pobeda."
     ]
    }
   },
@@ -72,6 +123,30 @@
      "Short sleep, night after night, is linked to a higher risk of heart problems and a shorter life.",
      "No other habit on this list can make up for it."
     ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Cinque Ore di Sonno",
+    "paragraphes": [
+     "Dormire poco, notte dopo notte, è legato a un rischio più alto di problemi al cuore e a una vita più corta.",
+     "Nessun'altra abitudine della lista può compensarlo."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Öt Óra Alvás",
+    "paragraphes": [
+     "A rövid alvás éjszakáról éjszakára nagyobb szívbetegség-kockázattal és rövidebb élettel jár.",
+     "Ezen a listán semmilyen más szokás nem pótolja."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Pet Sati Sna",
+    "paragraphes": [
+     "Kratak san, noć za noći, povezan je sa većim rizikom od srčanih problema i kraćim životom.",
+     "Nijedna druga navika sa liste ne može to da nadoknadi."
+    ]
    }
   },
   {
@@ -86,6 +161,30 @@
     "paragraphes": [
      "Constant stress keeps your body on high alert. Over years, that wears down your heart, your sleep and your mood.",
      "Stress itself isn't the problem. Never letting it out is."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Stress Senza Sfogo",
+    "paragraphes": [
+     "Lo stress costante tiene il corpo in allerta. Negli anni consuma cuore, sonno e umore.",
+     "Il problema non è lo stress. È non sfogarlo mai."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Stressz Levezetés Nélkül",
+    "paragraphes": [
+     "Az állandó stressz riadókészültségben tartja a tested. Évek alatt felőrli a szívet, az alvást és a hangulatot.",
+     "Nem a stressz a gond. Hanem hogy sosem engeded ki."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Stres Bez Ventila",
+    "paragraphes": [
+     "Stalni stres drži telo u stanju uzbune. Godinama troši srce, san i raspoloženje.",
+     "Problem nije stres. Problem je što ga nikad ne izbaciš."
     ]
    }
   },
@@ -102,6 +201,30 @@
      "Loneliness is linked to a shorter life about as strongly as some of the worst habits we know.",
      "It's in D, not F, because it's the easiest to fix today."
     ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Non Vedere Nessuno",
+    "paragraphes": [
+     "La solitudine è legata a una vita più corta quasi quanto alcune delle peggiori abitudini che conosciamo.",
+     "È in D e non in F perché si può sistemare già oggi."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Hetekig Senkivel",
+    "paragraphes": [
+     "A magány nagyjából olyan erősen jár rövidebb élettel, mint az általunk ismert legrosszabb szokások némelyike.",
+     "Azért D és nem F, mert már ma javítható."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Nedeljama Bez Ikoga",
+    "paragraphes": [
+     "Usamljenost je povezana sa kraćim životom skoro koliko i neke od najgorih navika koje znamo.",
+     "U D je, a ne u F, jer može da se popravi već danas."
+    ]
    }
   },
   {
@@ -116,6 +239,30 @@
     "paragraphes": [
      "Walking more is linked to living longer, but the benefit levels off well before the famous number.",
      "Great habit. The exact number matters less than you'd think."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Inseguire i 10.000 Passi",
+    "paragraphes": [
+     "Camminare di più è legato a vivere più a lungo, ma il beneficio si stabilizza ben prima del numero famoso.",
+     "Ottima abitudine. Il numero esatto conta meno di quanto pensi."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Hajsza a 10 000 Lépésért",
+    "paragraphes": [
+     "A több séta hosszabb élettel jár, de a haszon jóval a híres szám előtt kiegyenlítődik.",
+     "Remek szokás. A pontos szám kevésbé számít, mint gondolnád."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Jurnjava za 10.000 Koraka",
+    "paragraphes": [
+     "Više hodanja povezano je sa dužim životom, ali korist se ustali mnogo pre čuvenog broja.",
+     "Odlična navika. Tačan broj je manje važan nego što misliš."
     ]
    }
   },
@@ -132,6 +279,30 @@
      "A few calm minutes a day can lower stress and help you sleep, which both matter for a long life.",
      "Helpful, but the direct proof for a longer life is thin."
     ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Meditazione",
+    "paragraphes": [
+     "Pochi minuti di calma al giorno possono abbassare lo stress e aiutarti a dormire, due cose che contano per una vita lunga.",
+     "Utile, ma le prove dirette su una vita più lunga sono poche."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Meditáció",
+    "paragraphes": [
+     "Napi pár nyugodt perc csökkentheti a stresszt és segítheti az alvást, ami mindkettő számít a hosszú élethez.",
+     "Hasznos, de a hosszabb életre kevés a közvetlen bizonyíték."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Meditacija",
+    "paragraphes": [
+     "Nekoliko mirnih minuta dnevno može da smanji stres i pomogne snu, a oba su važna za dug život.",
+     "Korisno, ali direktnih dokaza za duži život je malo."
+    ]
    }
   },
   {
@@ -146,6 +317,30 @@
     "paragraphes": [
      "A short walk after eating helps your body handle the sugar from your meal, with almost no effort.",
      "Small, easy, and it adds up over thousands of meals."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Camminare Dopo i Pasti",
+    "paragraphes": [
+     "Una breve camminata dopo mangiato aiuta il corpo a gestire lo zucchero del pasto, quasi senza sforzo.",
+     "Piccola, facile, e si somma su migliaia di pasti."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Séta Étkezés Után",
+    "paragraphes": [
+     "Egy rövid séta evés után segít a testnek kezelni az étel cukrát, szinte erőfeszítés nélkül.",
+     "Kicsi, könnyű, és ezer étkezés alatt összeadódik."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Šetnja Posle Obroka",
+    "paragraphes": [
+     "Kratka šetnja posle jela pomaže telu da obradi šećer iz obroka, gotovo bez napora.",
+     "Malo, lako, a sabira se kroz hiljade obroka."
     ]
    }
   },
@@ -162,6 +357,30 @@
      "People who spend about two hours a week in nature report better health and wellbeing.",
      "It misses A tier because it works best with real movement on top."
     ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Tempo nella Natura",
+    "paragraphes": [
+     "Chi passa circa due ore a settimana nella natura dice di stare meglio in salute e nel benessere.",
+     "Manca la A perché funziona meglio con un vero movimento in più."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Idő a Természetben",
+    "paragraphes": [
+     "Akik hetente körülbelül két órát töltenek a természetben, jobb egészségről és közérzetről számolnak be.",
+     "Azért nem A, mert valódi mozgással együtt működik a legjobban."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Vreme u Prirodi",
+    "paragraphes": [
+     "Ljudi koji provedu oko dva sata nedeljno u prirodi prijavljuju bolje zdravlje i osećaj blagostanja.",
+     "Nije A jer najbolje radi uz pravo kretanje."
+    ]
    }
   },
   {
@@ -176,6 +395,30 @@
     "paragraphes": [
      "After 30, you slowly lose muscle every decade. Strength training slows that down, and stronger people tend to live longer.",
      "Two sessions a week is enough to keep the muscle you'll need at 80."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Allenare la Forza",
+    "paragraphes": [
+     "Dopo i 30 anni perdi un po' di muscolo ogni decennio. La forza rallenta tutto questo, e chi è più forte tende a vivere di più.",
+     "Due sedute a settimana bastano per tenere i muscoli che ti serviranno a 80 anni."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Súlyzós Edzés",
+    "paragraphes": [
+     "30 után évtizedenként lassan izmot veszítesz. Az erősítés ezt lassítja, és az erősebb emberek tovább élnek.",
+     "Heti két edzés elég, hogy megtartsd az izmot, ami 80 évesen kell majd."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Trening Snage",
+    "paragraphes": [
+     "Posle 30. godine polako gubiš mišiće svake decenije. Snaga to usporava, a jači ljudi obično žive duže.",
+     "Dva treninga nedeljno su dovoljna da sačuvaš mišiće koji će ti trebati sa 80."
     ]
    }
   },
@@ -193,7 +436,31 @@
      "The trick is the strength work too. A running coach app like Atala puts it into your week."
     ]
    },
-   "format": "carre"
+   "format": "carre",
+   "it": {
+    "tier": "A",
+    "nom": "Correre Qualche Volta a Settimana",
+    "paragraphes": [
+     "Chi corre tende a vivere diversi anni in più, anche a ritmo lento e con pochi chilometri.",
+     "Il trucco è anche la forza. Un'app con coach per la corsa come Atala la mette nella tua settimana."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Futás Hetente Néhányszor",
+    "paragraphes": [
+     "A futók általában több évvel tovább élnek, mint a nem futók, lassú tempóban és kevés kilométerrel is.",
+     "A titok az erősítés is. Egy futóedző app, mint az Atala, beteszi a hetedbe."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Trčanje Par Puta Nedeljno",
+    "paragraphes": [
+     "Trkači obično žive nekoliko godina duže od onih koji ne trče, čak i sporim tempom i sa malo kilometara.",
+     "Trik je i u treningu snage. Aplikacija sa trenerom za trčanje kao što je Atala ga ubaci u tvoju nedelju."
+    ]
+   }
   },
   {
    "type": "tier",
@@ -207,6 +474,30 @@
     "paragraphes": [
      "The longest study on adult life found that good relationships predict a long, healthy life best.",
      "Nothing else on this list matters as much as that."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Amicizie Vere",
+    "paragraphes": [
+     "Lo studio più lungo sulla vita adulta ha scoperto che buone relazioni predicono meglio di tutto una vita lunga e sana.",
+     "Niente in questa lista conta quanto questo."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Igaz Barátságok",
+    "paragraphes": [
+     "A felnőtt életről szóló leghosszabb kutatás szerint a jó kapcsolatok jelzik előre legjobban a hosszú, egészséges életet.",
+     "Ezen a listán semmi sem számít ennyire."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Prava Prijateljstva",
+    "paragraphes": [
+     "Najduže istraživanje odraslog života pokazalo je da dobri odnosi najbolje predviđaju dug i zdrav život.",
+     "Ništa na ovoj listi nije toliko važno."
     ]
    }
   }

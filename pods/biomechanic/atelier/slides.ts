@@ -253,7 +253,16 @@ function morceaux(ligne: string): Morceau[] {
   return out;
 }
 
-function jauge(ctx: Ctx) {
+/** Les mots de la jauge dans chaque langue (« CORTISOL » et LOW / MEDIUM / HIGH chez lui). */
+const JAUGE: Record<string, { bas: string; moyen: string; haut: string; titre: string }> = {
+  en: { bas: "LOW", moyen: "MEDIUM", haut: "HIGH", titre: "CORTISOL" },
+  it: { bas: "BASSO", moyen: "MEDIO", haut: "ALTO", titre: "CORTISOLO" },
+  hu: { bas: "ALACSONY", moyen: "KÖZEPES", haut: "MAGAS", titre: "KORTIZOL" },
+  sr: { bas: "NIZAK", moyen: "SREDNJI", haut: "VISOK", titre: "KORTIZOL" },
+};
+
+function jauge(ctx: Ctx, langue: string) {
+  const mots = JAUGE[langue] ?? JAUGE.en;
   const j = COUV.jauge;
   const debut = Math.PI - j.deborde;
   const fin = 2 * Math.PI + j.deborde;
@@ -282,9 +291,9 @@ function jauge(ctx: Ctx) {
     ctx.fillText(t, 0, 9);
     ctx.restore();
   };
-  etiquette("LOW", debut + 0.32);
-  etiquette("MEDIUM", (3 * Math.PI) / 2 - 0.12);
-  etiquette("HIGH", fin - 0.32);
+  etiquette(mots.bas, debut + 0.32);
+  etiquette(mots.moyen, (3 * Math.PI) / 2 - 0.12);
+  etiquette(mots.haut, fin - 0.32);
   // L'aiguille, dans le rouge.
   const a = j.aiguille;
   const bout = { x: j.cx + Math.cos(a) * j.longueur, y: j.cy + Math.sin(a) * j.longueur };
@@ -299,10 +308,10 @@ function jauge(ctx: Ctx) {
   ctx.arc(j.cx, j.cy, 16, 0, Math.PI * 2);
   ctx.fill();
   ctx.font = `${COUV.cortisol.taille}px "${POLICE.jauge}"`;
-  ctx.fillText("CORTISOL", L / 2, COUV.cortisol.base);
+  ctx.fillText(mots.titre, L / 2, COUV.cortisol.base);
 }
 
-async function couverture(ctx: Ctx, s: Slide, c: TexteCouverture) {
+async function couverture(ctx: Ctx, s: Slide, c: TexteCouverture, langue: string) {
   if (s.icone) {
     const im = await image(s.icone);
     const h = COUV.icone.h;
@@ -332,7 +341,7 @@ async function couverture(ctx: Ctx, s: Slide, c: TexteCouverture) {
     const k = Math.min(COUV.dessin.l / im.width, COUV.dessin.h / im.height);
     ctx.drawImage(im, (L - im.width * k) / 2, COUV.dessin.y + (COUV.dessin.h - im.height * k) / 2, im.width * k, im.height * k);
   }
-  jauge(ctx);
+  jauge(ctx, langue);
 }
 
 // ---------------------------------------------------------------------------
@@ -345,7 +354,7 @@ export async function rendreSlide(post: Post, s: Slide, langue: string): Promise
   ctx.textBaseline = "alphabetic";
   const c = contenu<Record<string, unknown>>(s, langue);
   if (!c) throw new Error(`${post.id} : slide ${s.type} sans texte en ${langue}`);
-  if (s.type === "couverture") await couverture(ctx, s, c as TexteCouverture);
+  if (s.type === "couverture") await couverture(ctx, s, c as TexteCouverture, langue);
   else if (s.type === "tier") await tier(ctx, s, c as TexteTier, false);
   else if (s.type === "atala") await tier(ctx, s, c as TexteTier, true);
   else throw new Error(`type de slide inconnu : ${s.type}`);

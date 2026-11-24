@@ -8,10 +8,28 @@
   "accroche": "6 RULES FOR MEN."
  },
  "titre": {
-  "en": "5 rules for young men"
+  "en": "5 rules for young men",
+  "de": "5 regeln für junge männer",
+  "es-419": "5 reglas para hombres jóvenes",
+  "it": "5 regole per i giovani uomini",
+  "pl": "5 zasad dla młodych facetów",
+  "tr": "genç erkekler için 5 kural",
+  "hu": "5 szabály fiatal férfiaknak",
+  "el": "5 κανόνες για νέους άντρες",
+  "ro": "5 reguli pentru bărbații tineri",
+  "sr": "5 pravila za mlade muškarce"
  },
  "legendes": {
-  "en": "learn these early #selfimprovement #youngmen #tipsformen #running #discipline"
+  "en": "learn these early #selfimprovement #youngmen #tipsformen #running #discipline",
+  "de": "lern das früh #selfimprovement #youngmen #tipsformen #running #discipline",
+  "es-419": "apréndelas temprano #selfimprovement #youngmen #tipsformen #running #discipline",
+  "it": "imparale presto #selfimprovement #youngmen #tipsformen #running #discipline",
+  "pl": "naucz się tego wcześnie #selfimprovement #youngmen #tipsformen #running #discipline",
+  "tr": "bunları erken öğren #selfimprovement #youngmen #tipsformen #running #discipline",
+  "hu": "tanuld meg korán #selfimprovement #youngmen #tipsformen #running #discipline",
+  "el": "μάθ' τους νωρίς #selfimprovement #youngmen #tipsformen #running #discipline",
+  "ro": "învață-le devreme #selfimprovement #youngmen #tipsformen #running #discipline",
+  "sr": "nauči ih rano #selfimprovement #youngmen #tipsformen #running #discipline"
  },
  "musique": {
   "titre": "Keep On Winning",
@@ -27,6 +45,33 @@
    "image": "images/detoures/couverture-11.png",
    "en": {
     "titre": "5 RULES FOR\nYOUNG MEN."
+   },
+   "de": {
+    "titre": "5 REGELN\nFÜR JUNGE\nMÄNNER."
+   },
+   "es-419": {
+    "titre": "5 REGLAS\nPARA HOMBRES\nJÓVENES."
+   },
+   "it": {
+    "titre": "5 REGOLE\nPER I GIOVANI\nUOMINI."
+   },
+   "pl": {
+    "titre": "5 ZASAD\nDLA MŁODYCH\nFACETÓW."
+   },
+   "tr": {
+    "titre": "GENÇ ERKEKLER\nİÇİN\n5 KURAL."
+   },
+   "hu": {
+    "titre": "5 SZABÁLY\nFIATAL\nFÉRFIAKNAK."
+   },
+   "el": {
+    "titre": "5 ΚΑΝΟΝΕΣ\nΓΙΑ ΝΕΟΥΣ\nΑΝΤΡΕΣ."
+   },
+   "ro": {
+    "titre": "5 REGULI\nPENTRU BĂRBAȚII\nTINERI."
+   },
+   "sr": {
+    "titre": "5 PRAVILA\nZA MLADE\nMUŠKARCE."
    }
   },
   {
@@ -37,6 +82,42 @@
    "en": {
     "titre": "1. Learn to be alone",
     "texte": "Enjoy your own company. A man who's fine alone makes better choices."
+   },
+   "de": {
+    "titre": "1. Lern, allein zu sein",
+    "texte": "Genieß deine eigene Gesellschaft. Ein Mann, der allein klarkommt, trifft bessere Entscheidungen."
+   },
+   "es-419": {
+    "titre": "1. Aprende a estar solo",
+    "texte": "Disfruta tu propia compañía. Un hombre que está bien solo toma mejores decisiones."
+   },
+   "it": {
+    "titre": "1. Impara a stare da solo",
+    "texte": "Goditi la tua compagnia. Un uomo che sta bene da solo fa scelte migliori."
+   },
+   "pl": {
+    "titre": "1. Naucz się być sam",
+    "texte": "Ciesz się własnym towarzystwem. Facet, któremu dobrze samemu, podejmuje lepsze decyzje."
+   },
+   "tr": {
+    "titre": "1. Yalnız kalmayı öğren",
+    "texte": "Kendi yalnızlığının tadını çıkar. Yalnızken iyi olan adam daha iyi seçimler yapar."
+   },
+   "hu": {
+    "titre": "1. Tanulj meg egyedül lenni",
+    "texte": "Élvezd a saját társaságod. Aki jól van egyedül, jobb döntéseket hoz."
+   },
+   "el": {
+    "titre": "1. Μάθε να είσαι μόνος",
+    "texte": "Απόλαυσε τη δική σου παρέα. Ένας άντρας που είναι καλά μόνος παίρνει καλύτερες αποφάσεις."
+   },
+   "ro": {
+    "titre": "1. Învață să fii singur",
+    "texte": "Bucură-te de propria companie. Un bărbat care e bine singur face alegeri mai bune."
+   },
+   "sr": {
+    "titre": "1. Nauči da budeš sam",
+    "texte": "Uživaj u svom društvu. Muškarac kome je dobro samom donosi bolje odluke."
    }
   },
   {
@@ -47,6 +128,42 @@
    "en": {
     "titre": "2. Read every day",
     "texte": "10 pages a day adds up to about a dozen books a year."
+   },
+   "de": {
+    "titre": "2. Lies jeden Tag",
+    "texte": "10 Seiten am Tag ergeben etwa ein Dutzend Bücher im Jahr."
+   },
+   "es-419": {
+    "titre": "2. Lee todos los días",
+    "texte": "10 páginas al día suman como una docena de libros al año."
+   },
+   "it": {
+    "titre": "2. Leggi ogni giorno",
+    "texte": "10 pagine al giorno fanno circa una dozzina di libri all'anno."
+   },
+   "pl": {
+    "titre": "2. Czytaj codziennie",
+    "texte": "10 stron dziennie to około tuzina książek rocznie."
+   },
+   "tr": {
+    "titre": "2. Her gün oku",
+    "texte": "Günde 10 sayfa, yılda yaklaşık bir düzine kitap eder."
+   },
+   "hu": {
+    "titre": "2. Olvass minden nap",
+    "texte": "Napi 10 oldal nagyjából egy tucat könyv egy évben."
+   },
+   "el": {
+    "titre": "2. Διάβαζε κάθε μέρα",
+    "texte": "10 σελίδες τη μέρα κάνουν περίπου μια ντουζίνα βιβλία τον χρόνο."
+   },
+   "ro": {
+    "titre": "2. Citește zilnic",
+    "texte": "10 pagini pe zi înseamnă cam o duzină de cărți pe an."
+   },
+   "sr": {
+    "titre": "2. Čitaj svaki dan",
+    "texte": "10 strana dnevno je oko desetak knjiga godišnje."
    }
   },
   {
@@ -58,6 +175,42 @@
    "en": {
     "titre": "3. Run before you scroll",
     "texte": "A run clears your head better than any feed. Running coach apps like Atala have the session ready, you just go."
+   },
+   "de": {
+    "titre": "3. Lauf, bevor du scrollst",
+    "texte": "Ein Lauf macht den Kopf freier als jeder Feed. Lauf-Apps mit Coach wie Atala haben die Einheit fertig, du musst nur los."
+   },
+   "es-419": {
+    "titre": "3. Corre antes de hacer scroll",
+    "texte": "Correr te despeja más que cualquier feed. Las apps de running con entrenador como Atala tienen la sesión lista, tú solo sales."
+   },
+   "it": {
+    "titre": "3. Corri prima dello scroll",
+    "texte": "Una corsa ti svuota la testa meglio di qualsiasi feed. Le app con coach per la corsa come Atala hanno la sessione pronta, tu esci e basta."
+   },
+   "pl": {
+    "titre": "3. Biegaj, zanim zaczniesz scrollować",
+    "texte": "Bieg czyści głowę lepiej niż każdy feed. Aplikacje z trenerem biegania, takie jak Atala, mają gotowy trening, ty tylko wychodzisz."
+   },
+   "tr": {
+    "titre": "3. Scroll'dan önce koş",
+    "texte": "Bir koşu kafanı her akıştan iyi boşaltır. Atala gibi koşu koçu uygulamaları antrenmanı hazır tutar, sen sadece çıkarsın."
+   },
+   "hu": {
+    "titre": "3. Fuss, mielőtt görgetsz",
+    "texte": "Egy futás jobban kitisztítja a fejed, mint bármelyik feed. Az olyan futóedzős appok, mint az Atala, kész edzést adnak, neked csak el kell indulnod."
+   },
+   "el": {
+    "titre": "3. Τρέξε πριν κάνεις scroll",
+    "texte": "Ένα τρέξιμο καθαρίζει το μυαλό καλύτερα από κάθε feed. Οι εφαρμογές προπονητή τρεξίματος όπως το Atala έχουν έτοιμη την προπόνηση, εσύ απλώς βγαίνεις."
+   },
+   "ro": {
+    "titre": "3. Aleargă înainte de scroll",
+    "texte": "O alergare îți limpezește mintea mai bine decât orice feed. Aplicațiile cu antrenor de alergare, ca Atala, au antrenamentul gata, tu doar ieși."
+   },
+   "sr": {
+    "titre": "3. Trči pre skrolovanja",
+    "texte": "Trčanje ti očisti glavu bolje od bilo kog feeda. Aplikacije sa trenerom za trčanje, kao što je Atala, imaju trening spreman, ti samo izađeš."
    }
   },
   {
@@ -68,6 +221,42 @@
    "en": {
     "titre": "4. Save before you spend",
     "texte": "Pay yourself first. Move some money to savings the day you get paid."
+   },
+   "de": {
+    "titre": "4. Spar, bevor du ausgibst",
+    "texte": "Zahl dich zuerst selbst. Leg am Zahltag direkt Geld zur Seite."
+   },
+   "es-419": {
+    "titre": "4. Ahorra antes de gastar",
+    "texte": "Págate a ti primero. Separa algo de dinero el mismo día que cobras."
+   },
+   "it": {
+    "titre": "4. Risparmia prima di spendere",
+    "texte": "Paga prima te stesso. Metti via dei soldi il giorno dello stipendio."
+   },
+   "pl": {
+    "titre": "4. Oszczędzaj przed wydawaniem",
+    "texte": "Najpierw zapłać sobie. Odkładaj pieniądze w dniu wypłaty."
+   },
+   "tr": {
+    "titre": "4. Harcamadan önce biriktir",
+    "texte": "Önce kendine öde. Maaş günü biraz parayı kenara koy."
+   },
+   "hu": {
+    "titre": "4. Spórolj, mielőtt költesz",
+    "texte": "Először magadnak fizess. Fizetésnapon tegyél félre pénzt."
+   },
+   "el": {
+    "titre": "4. Αποταμίευσε πριν ξοδέψεις",
+    "texte": "Πλήρωσε πρώτα τον εαυτό σου. Βάλε λεφτά στην άκρη τη μέρα που πληρώνεσαι."
+   },
+   "ro": {
+    "titre": "4. Economisește înainte să cheltui",
+    "texte": "Plătește-te întâi pe tine. Pune bani deoparte în ziua de salariu."
+   },
+   "sr": {
+    "titre": "4. Štedi pre trošenja",
+    "texte": "Prvo plati sebe. Odvoji novac na dan plate."
    }
   },
   {
@@ -78,6 +267,42 @@
    "en": {
     "titre": "5. Stay curious",
     "texte": "Learn a skill that has nothing to do with work. Chess, cooking, a new language."
+   },
+   "de": {
+    "titre": "5. Bleib neugierig",
+    "texte": "Lern etwas, das nichts mit Arbeit zu tun hat. Schach, Kochen, eine neue Sprache."
+   },
+   "es-419": {
+    "titre": "5. Sé curioso",
+    "texte": "Aprende algo que no tenga que ver con el trabajo. Ajedrez, cocina, un idioma nuevo."
+   },
+   "it": {
+    "titre": "5. Resta curioso",
+    "texte": "Impara qualcosa che non c'entra col lavoro. Scacchi, cucina, una nuova lingua."
+   },
+   "pl": {
+    "titre": "5. Bądź ciekawy",
+    "texte": "Naucz się czegoś, co nie ma nic wspólnego z pracą. Szachy, gotowanie, nowy język."
+   },
+   "tr": {
+    "titre": "5. Meraklı kal",
+    "texte": "İşle alakası olmayan bir şey öğren. Satranç, yemek, yeni bir dil."
+   },
+   "hu": {
+    "titre": "5. Maradj kíváncsi",
+    "texte": "Tanulj valamit, aminek semmi köze a munkához. Sakk, főzés, egy új nyelv."
+   },
+   "el": {
+    "titre": "5. Μείνε περίεργος",
+    "texte": "Μάθε κάτι που δεν έχει σχέση με τη δουλειά. Σκάκι, μαγείρεμα, μια νέα γλώσσα."
+   },
+   "ro": {
+    "titre": "5. Rămâi curios",
+    "texte": "Învață ceva ce n-are legătură cu munca. Șah, gătit, o limbă nouă."
+   },
+   "sr": {
+    "titre": "5. Ostani radoznao",
+    "texte": "Nauči nešto što nema veze sa poslom. Šah, kuvanje, novi jezik."
    }
   },
   {
@@ -85,6 +310,33 @@
    "image": "images/detoures/fin-4.png",
    "en": {
     "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
    }
   }
  ]

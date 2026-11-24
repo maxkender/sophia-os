@@ -3,6 +3,7 @@ import { oublierSondeMultiApp } from "./applications_moteur.ts";
 import { ID_SOPHIA } from "./multi_app.ts";
 import { NOTE_ORIGINAL_POD } from "./pertinence_apps.ts";
 import {
+  applicationsDesLanguesLivrees,
   applicationsHorsSophia,
   AUTO_VALIDATION_HEURES,
   BANQUE_PODZ,
@@ -14,8 +15,11 @@ import {
   deckLivreApplication,
   deckLivrePret,
   decksApplicationDepuisBase,
+  decksApplicationsDepuisBase,
+  ecarterApplicationLivraison,
   ecrireDecksApplications,
   estSlideApp,
+  fusionnerDecksApps,
   languesDeckLivre,
   livraisonsAutoValidables,
   metadonneesJpeg,
@@ -28,9 +32,16 @@ import {
   motsCherches,
   PODS_AVEC_PREUVE,
   prochainJour,
+  rangsApplicationsLivraison,
+  rapportApplicationsLivraison,
+  resumeDecksApps,
   sha256Hex,
+  type SlideDeposee,
+  type SlideEnvoyee,
+  slugSlideApp,
   verifierDecksApplications,
   verifierDepot,
+  verifierMarquesApplications,
   verifierOriginal,
   verifierPreuve,
   verifierVideo,
@@ -852,4 +863,257 @@ Deno.test("deckLivreApplication : la variante exacte prime sur la base, et un re
     statut: "ineligible",
     raison: "contenu livré : pas de deck unswipe en pt-BR",
   });
+});
+
+// ---------------------------------------------------------------------------
+// Labels hors Sophia de plusieurs applications (24/11 : Atala et Artura)
+// ---------------------------------------------------------------------------
+
+/** Une slide déposée, marquée (ou non) par `position_app`. */
+const sm = (position: number, position_app?: unknown, extra: Record<string, unknown> = {}) =>
+  ({
+    position,
+    jpeg_base64: "",
+    ...(position_app === undefined ? {} : { position_app }),
+    ...extra,
+  }) as SlideDeposee;
+const ATALA_ARTURA = ["artura", "atala"];
+
+Deno.test("verifierDepot (label multi-applications) : une slide par application, marquée de son slug", () => {
+  const ok = [sm(1), sm(2), sm(3, "atala"), sm(4), sm(5, "artura"), sm(6)];
+  assertEquals(verifierDepot({ en: { slides: ok } }, "en", ATALA_ARTURA), []);
+  // L'ordre des slides n'importe pas, ni celui des applications.
+  assertEquals(verifierDepot({ en: { slides: [...ok].reverse() } }, "en", ["atala", "artura"]), []);
+  // Chaque langue est contrôlée, la langue source reste obligatoire.
+  assertEquals(
+    verifierDepot({ en: { slides: ok }, fr: { slides: [sm(1), sm(2, "atala")] } }, "en", ATALA_ARTURA),
+    ["fr : 0 slide(s) artura (une seule attendue)"],
+  );
+  assertEquals(verifierDepot({ fr: { slides: ok } }, "en", ATALA_ARTURA), ["pas de deck dans la langue source (en)"]);
+});
+
+Deno.test("verifierMarquesApplications : true ambigu, slug inconnu, couverture, doublon, absence", () => {
+  const v = (slides: SlideDeposee[]) => verifierMarquesApplications("en", slides, ATALA_ARTURA);
+  assertEquals(v([sm(1), sm(2, true), sm(3, "artura")]), [
+    'en #2 : position_app: true ambigu, le label sert artura, atala : mets le slug de l\'application (position_app: "artura")',
+    "en : 0 slide(s) atala (une seule attendue)",
+  ]);
+  assertEquals(v([sm(1), sm(2, "atala", { position_sophia: false }), sm(3, undefined, { position_sophia: true }), sm(4, "artura")]), [
+    'en #3 : position_sophia ambigu, le label sert artura, atala : marque la slide position_app: "<slug>"',
+  ]);
+  assertEquals(v([sm(1), sm(2, "atala"), sm(3, "unswipe"), sm(4, "artura")]), [
+    "en #3 : position_app « unswipe » : le label ne sert pas cette application (artura, atala)",
+  ]);
+  assertEquals(v([sm(1), sm(2, "Atala"), sm(3, "artura")]), [
+    "en #2 : position_app « Atala » : le label ne sert pas cette application (artura, atala)",
+    "en : 0 slide(s) atala (une seule attendue)",
+  ]);
+  assertEquals(v([sm(1, "atala"), sm(2), sm(3, "artura")]), ["en : la slide atala ne peut pas être la couverture"]);
+  // La couverture est la plus petite position, pas forcément la 1.
+  assertEquals(v([sm(3, "artura"), sm(4, "atala"), sm(5)]), ["en : la slide artura ne peut pas être la couverture"]);
+  assertEquals(v([sm(1), sm(2, "atala"), sm(3, "atala"), sm(4, "artura")]), ["en : 2 slide(s) atala (une seule attendue)"]);
+  // Deux applications sur la même slide : impossible, une slide ne porte qu'un slug.
+  assertEquals(v([sm(1), sm(2, ["atala", "artura"])]), [
+    'en #2 : une slide ne porte qu\'une application (position_app: "<slug>")',
+    "en : 0 slide(s) artura (une seule attendue)",
+    "en : 0 slide(s) atala (une seule attendue)",
+  ]);
+  assertEquals(v([sm(1), sm(2, 7), sm(3, "atala"), sm(4, "artura")]), ["en #2 : position_app invalide (slug attendu : artura, atala)"]);
+  assertEquals(v([sm(1), sm(2, "atala")]), ["en : 0 slide(s) artura (une seule attendue)"]);
+});
+
+Deno.test("verifierDepot (label d'une application, slug connu) : true comme avant, son slug aussi, jamais un autre", () => {
+  const d = (slides: SlideDeposee[]) => ({ en: { slides } });
+  // Exactement les réponses du mode « application » d'avant.
+  for (
+    const slides of [
+      [sm(1), sm(2, true)],
+      [sm(1), sm(2, undefined, { position_sophia: true })],
+      [sm(1), sm(2)],
+      [sm(1), sm(2, true), sm(3, true)],
+      [sm(1, true), sm(2)],
+      [sm(1), sm(2, true), sm(3, "")],
+    ]
+  ) {
+    assertEquals(verifierDepot(d(slides), "en", ["atala"]), verifierDepot(d(slides), "en", "application"));
+  }
+  assertEquals(verifierDepot(d([sm(1), sm(2, "atala")]), "en", ["atala"]), []);
+  assertEquals(verifierDepot(d([sm(1), sm(2, "artura")]), "en", ["atala"]), [
+    "en #2 : position_app « artura » : le label ne sert que atala",
+  ]);
+});
+
+/** Deck d'une langue tel qu'envoyé au stockage pour un label Atala + Artura. */
+const envoye = (langue: string) => ({
+  hashtags: `#${langue}`,
+  slides: [
+    { position: 3, media_id: `${langue}3`, url: `u-${langue}3`, app: true, application: "atala" },
+    { position: 1, media_id: `${langue}1`, url: null, app: false, application: null },
+    { position: 2, media_id: `${langue}2`, url: `u-${langue}2`, app: false, application: null },
+    { position: 4, media_id: `${langue}4`, url: `u-${langue}4`, app: true, application: "artura" },
+  ] as SlideEnvoyee[],
+});
+
+Deno.test("decksApplicationsDepuisBase : une variante par application, mêmes images, seule SA slide marquée", () => {
+  const d = decksApplicationsDepuisBase(ATALA_ARTURA, { en: envoye("en"), fr: envoye("fr") });
+  assertEquals(Object.keys(d).sort(), ["artura", "atala"]);
+  for (const langue of ["en", "fr"]) {
+    const images = (slug: string) => d[slug][langue].slides.map((s) => s.media_id);
+    assertEquals(images("atala"), [`${langue}1`, `${langue}2`, `${langue}3`, `${langue}4`]);
+    assertEquals(images("artura"), images("atala"));
+    assertEquals(d.atala[langue].slides.filter((s) => s.position_sophia).map((s) => s.position), [3]);
+    assertEquals(d.artura[langue].slides.filter((s) => s.position_sophia).map((s) => s.position), [4]);
+    assertEquals(d.atala[langue].hashtags, `#${langue}`);
+  }
+  // Rien d'autre que les champs d'une variante livrée.
+  assertEquals(d.artura.en.slides[0], { position: 1, media_id: "en1", url: null, position_sophia: false });
+});
+
+Deno.test("decksApplicationsDepuisBase : une seule application, exactement decksApplicationDepuisBase", () => {
+  const base = {
+    en: {
+      hashtags: "#a",
+      slides: [
+        { position: 2, media_id: "m2", url: "u2", app: true, application: null },
+        { position: 1, media_id: "m1", url: null, app: false, application: null },
+      ] as SlideEnvoyee[],
+    },
+  };
+  assertEquals(decksApplicationsDepuisBase(["unswipe"], base), decksApplicationDepuisBase("unswipe", base));
+  // `position_app: "atala"` sur un label Atala seul : la slide marquée est la sienne.
+  const parSlug = {
+    en: {
+      hashtags: "",
+      slides: [
+        { position: 1, media_id: "m1", url: null, app: false },
+        { position: 2, media_id: "m2", url: null, app: true, application: "atala" },
+      ] as SlideEnvoyee[],
+    },
+  };
+  assertEquals(decksApplicationsDepuisBase(["atala"], parSlug).atala.en.slides.map((s) => s.position_sophia), [false, true]);
+});
+
+Deno.test("slugSlideApp : le slug d'une slide marquée d'une chaîne, sinon null", () => {
+  assertEquals(slugSlideApp({ position_app: "artura" }), "artura");
+  assertEquals(slugSlideApp({ position_app: true }), null);
+  assertEquals(slugSlideApp({ position_app: "" }), null);
+  assertEquals(slugSlideApp({}), null);
+  // Une slide marquée d'un slug reste une slide d'appli pour les contrôles d'avant.
+  assertEquals(estSlideApp({ position_app: "atala" }), true);
+});
+
+Deno.test("fusionnerDecksApps / resumeDecksApps : redépôt d'une langue, par application, les autres gardées", () => {
+  const avant = decksApplicationsDepuisBase(ATALA_ARTURA, { en: envoye("en"), fr: envoye("fr") });
+  const redepot = decksApplicationsDepuisBase(ATALA_ARTURA, { fr: envoye("fr2") });
+  const fusion = fusionnerDecksApps(avant, redepot);
+  assertEquals(resumeDecksApps(fusion), { artura: ["en", "fr"], atala: ["en", "fr"] });
+  assertEquals(fusion.atala.fr.slides.map((s) => s.media_id), ["fr21", "fr22", "fr23", "fr24"]);
+  assertEquals(fusion.artura.en, avant.artura.en);
+  // Livraison « langues » sans rien d'avant : les deux applications, la seule langue.
+  assertEquals(resumeDecksApps(fusionnerDecksApps(null, redepot)), { artura: ["fr"], atala: ["fr"] });
+  assertEquals(resumeDecksApps(null), {});
+});
+
+const noteApp = (slug: string, pertinence: number, elo: number) => ({ slug, pertinence, raison: `r-${slug}`, elo });
+const SEUIL = { tierForce: null, original: false, seuil: 54 } as const;
+
+Deno.test("rangsApplicationsLivraison : le rang de chaque application depuis SA note, la meilleure pour la livraison", () => {
+  const r = rangsApplicationsLivraison([noteApp("artura", 30, 51.234), noteApp("atala", 80, 63.456)], SEUIL);
+  assertEquals(r.rangs.map((x) => [x.slug, x.note, x.tier]), [["artura", 51.23, null], ["atala", 63.46, "B"]]);
+  assertEquals(r.retenues.map((x) => x.slug), ["atala"]);
+  assertEquals(r.meilleure?.slug, "atala");
+  // Toutes au-dessus : chacune SON rang.
+  const deux = rangsApplicationsLivraison([noteApp("artura", 90, 72), noteApp("atala", 70, 58)], SEUIL);
+  assertEquals(deux.rangs.map((x) => x.tier), ["A", "C"]);
+  assertEquals(deux.meilleure?.slug, "artura");
+  // Aucune : la livraison est écartée.
+  const aucune = rangsApplicationsLivraison([noteApp("artura", 10, 40), noteApp("atala", 12, 41)], SEUIL);
+  assertEquals([aucune.retenues.length, aucune.meilleure?.tier], [0, null]);
+  // Rang imposé (« Tout valider en B », validation automatique) : toutes, même sous le seuil.
+  assertEquals(rangsApplicationsLivraison(aucune.rangs, { ...SEUIL, tierForce: "B" }).rangs.map((x) => x.tier), ["B", "B"]);
+  // Original en images finies (pas de post source) : le rang d'un original pour chacune.
+  assertEquals(rangsApplicationsLivraison(aucune.rangs, { ...SEUIL, original: true }).rangs.map((x) => x.tier), ["B", "B"]);
+  // À égalité, la première.
+  assertEquals(rangsApplicationsLivraison([noteApp("artura", 60, 60), noteApp("atala", 60, 60)], SEUIL).meilleure?.slug, "artura");
+});
+
+Deno.test("rapportApplicationsLivraison : servies, rang de chacune, écartées, sans variante", () => {
+  const { rangs } = rangsApplicationsLivraison([noteApp("artura", 30, 50), noteApp("atala", 80, 71)], SEUIL);
+  assertEquals(rapportApplicationsLivraison(rangs, ["micabo"]), {
+    applications: ["atala"],
+    par_application: {
+      artura: { pertinence: 30, elo: 50, tier: null, passages: 0 },
+      atala: { pertinence: 80, elo: 71, tier: "A", passages: 4 },
+    },
+    ecartees: ["artura"],
+    sans_deck: ["micabo"],
+  });
+  const toutes = rangsApplicationsLivraison(rangs, { ...SEUIL, tierForce: "B" }).rangs;
+  assertEquals(Object.keys(rapportApplicationsLivraison(toutes)), ["applications", "par_application"]);
+});
+
+Deno.test("applicationsDesLanguesLivrees : les nouvelles langues vont aux seules applications que le post sert", () => {
+  const pertinences = new Map([
+    ["atala", { eligible: true, score: 77 }],
+    ["artura", { eligible: false, score: 30 }],
+  ]);
+  assertEquals(applicationsDesLanguesLivrees(["artura", "atala", "micabo"], pertinences), {
+    servies: [{ slug: "atala", score: 77 }],
+    ignorees: ["artura", "micabo"],
+  });
+});
+
+function mondeMultiApp() {
+  return {
+    applications: [{ id: "app-atala", slug: "atala" }, { id: "app-artura", slug: "artura" }] as L[],
+    contenu_langues: [{ id: "cl-en", contenu_id: "c1", langue: "en" }] as L[],
+    contenu_langue_decks: [] as L[],
+    contenu_pertinences: [] as L[],
+    contenu_tiers_application: [] as L[],
+    contenu_application_tier_etat: [] as L[],
+    media_library: ["en1", "en2", "en3", "en4"].map((id) => ({ id })) as L[],
+  };
+}
+
+Deno.test("validation multi-applications : chaque application SA variante, SA pertinence et SON rang", async () => {
+  oublierSondeTiersApplication();
+  const tables = mondeMultiApp();
+  const sb = fauxEtat(tables, []);
+  const decksApps = decksApplicationsDepuisBase(ATALA_ARTURA, { en: envoye("en") });
+  const { rangs } = rangsApplicationsLivraison([noteApp("artura", 88, 72), noteApp("atala", 66, 61)], SEUIL);
+  // Le chemin de `valider` : une écriture par application, sur SA seule variante.
+  for (const r of rangs) {
+    await ecrireDecksApplications(
+      sb,
+      "c1",
+      { id: "liv-t", decks_applications: { [r.slug]: decksApps[r.slug] } },
+      { tierForce: null, pertinenceScore: r.pertinence, pod: "originaux_tracey", tierApp: r.tier },
+    );
+  }
+  const deck = (slug: string) => tables.contenu_langue_decks.find((d) => d.variante === slug)!;
+  const slideApp = (slides: unknown) =>
+    (slides as { position: number; position_sophia: boolean }[]).filter((s) => s.position_sophia).map((s) => s.position);
+  assertEquals([deck("atala").application_id, slideApp(deck("atala").slides)], ["app-atala", [3]]);
+  assertEquals([deck("artura").application_id, slideApp(deck("artura").slides)], ["app-artura", [4]]);
+  const p = (id: string) => tables.contenu_pertinences.find((l) => l.application_id === id)!;
+  assertEquals([p("app-atala").score, p("app-atala").note, p("app-atala").eligible], [66, 60, true]);
+  assertEquals([p("app-artura").score, p("app-artura").note, p("app-artura").eligible], [88, 70, true]);
+  const t = (id: string) => tables.contenu_tiers_application.find((l) => l.application_id === id)!;
+  assertEquals([t("app-atala").tier, t("app-artura").tier], ["B", "A"]);
+  oublierSondeTiersApplication();
+});
+
+Deno.test("ecarterApplicationLivraison : application sous le seuil, non éligible avec sa note, ni deck ni rang", async () => {
+  const tables = mondeMultiApp();
+  const ecrits: Ecrit[] = [];
+  const { rangs } = rangsApplicationsLivraison([noteApp("artura", 30, 50.5)], SEUIL);
+  await ecarterApplicationLivraison(fauxEtat(tables, ecrits), "c1", "app-artura", rangs[0], { pod: "originaux_tracey", seuil: 54 });
+  assertEquals(ecrits.map((e) => e.table), ["contenu_pertinences"]);
+  const [ligne] = tables.contenu_pertinences;
+  assertEquals(
+    [ligne.application_id, ligne.score, ligne.note, ligne.eligible, ligne.prompt_cle],
+    ["app-artura", 30, 50.5, false, "pertinence_artura"],
+  );
+  assertEquals(ligne.raison, "livraison pod originaux_tracey : note 50.5 < 54 (pertinence 30 : r-artura)");
+  assertEquals(tables.contenu_langue_decks, []);
 });

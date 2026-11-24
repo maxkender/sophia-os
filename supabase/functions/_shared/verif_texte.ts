@@ -17,9 +17,24 @@ export const MODELES_VERIF_TEXTE = ["gemini-3.1-flash-lite", "gemini-3.5-flash"]
 export const CONSIGNE_VERIF_TEXTE =
   `Cette image sort d'un nettoyage qui devait retirer tout le texte AJOUTÉ par-dessus la photo : titres, sous-titres, paragraphes, légendes, numéros, flèches de texte, stickers, pseudos, watermarks.
 Reste-t-il du texte ajouté, lisible, même partiel (un mot, une ligne, un titre stylisé) ?
-Ne compte PAS le texte qui fait partie de la scène photographiée : enseigne, étiquette ou logo sur un produit, écran, vêtement, livre, panneau.
+Ne compte PAS le texte qui fait partie de l'image elle-même : enseigne, étiquette ou logo sur un produit, écran, vêtement, livre, panneau, document, manuscrit, carte, tableau, inscription, règle graduée, pièce de monnaie.
 Réponds UNIQUEMENT par un JSON, rien avant ni après :
 {"texte": true, "extrait": "les mots qui restent"}
+ou
+{"texte": false, "extrait": ""}`;
+
+/**
+ * Avec l'image d'ORIGINE (import) : on ne demande plus « y a-t-il du texte ? » mais « la légende ajoutée est-elle
+ * encore là ? ». Sans l'original, le contrôle comptait le texte de la scène : sur History (@lhistorien2852, 24/11),
+ * le relevé imprimé du signal « Wow! », une règle graduée ou l'écriture d'un manuscrit faisaient écarter le slideshow.
+ */
+export const CONSIGNE_VERIF_TEXTE_COMPAREE =
+  `Image 1 : une slide TikTok d'origine, avec du texte AJOUTÉ par-dessus l'image (légendes, titres, paragraphes, numéros, stickers, pseudos, watermarks).
+Image 2 : la même slide après un nettoyage qui devait retirer ce texte ajouté, et lui seul.
+Dans l'image 2, reste-t-il, même en partie (un mot, une ligne, un titre), du texte qui était AJOUTÉ par-dessus dans l'image 1 ? Compte aussi un texte nouveau qui n'existait pas dans l'image 1 et que le nettoyage aurait inventé.
+Ne compte PAS le texte qui fait partie de l'image elle-même dans l'image 1 (document, manuscrit, carte, tableau, inscription, règle graduée, pièce, enseigne, étiquette, écran, vêtement, livre) : il doit rester.
+Réponds UNIQUEMENT par un JSON, rien avant ni après :
+{"texte": true, "extrait": "les mots ajoutés qui restent"}
 ou
 {"texte": false, "extrait": ""}`;
 

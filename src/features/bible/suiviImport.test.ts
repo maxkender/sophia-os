@@ -36,6 +36,8 @@ describe("phase d'un slideshow", () => {
     expect(phaseDuContenu(contenu({ import_statut: "done", import_etape: "done", statut: "valide" }))).toEqual({ phase: "garde", erreur: null });
     expect(phaseDuContenu(contenu({ import_statut: "done", import_etape: "elo_insuffisant", statut: "rejete", import_erreur: "32 < 40" }))).toEqual({ phase: "ecarte", erreur: "note trop basse : 32 < 40" });
     expect(phaseDuContenu(contenu({ import_statut: "done", import_etape: "rejete", statut: "rejete" })).phase).toBe("ecarte");
+    expect(phaseDuContenu(contenu({ import_statut: "done", import_etape: "nettoyage_rate", statut: "rejete", import_erreur: "Slide 3 impossible à nettoyer après 4 essais" })))
+      .toEqual({ phase: "ecarte", erreur: "image impossible à nettoyer : Slide 3 impossible à nettoyer après 4 essais" });
     expect(phaseDuContenu(contenu({ import_statut: "failed", import_etape: "nettoyage", import_tentatives: 3, import_erreur: "fal 500" }))).toEqual({ phase: "nettoyage", erreur: "fal 500" });
     expect(phaseDuContenu(contenu({ import_statut: "failed", import_etape: "nettoyage", import_tentatives: 8, import_erreur: "fal 500" }))).toEqual({ phase: "abandon", erreur: "fal 500" });
   });

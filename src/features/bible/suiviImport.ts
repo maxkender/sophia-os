@@ -125,8 +125,12 @@ const vide = (): Record<Phase, number> =>
 /** L'étape du pipeline d'un contenu, en phase lisible. */
 export function phaseDuContenu(c: LigneContenu): { phase: Phase; erreur: string | null } {
   const etape = c.import_etape;
-  if (etape === "elo_insuffisant" || etape === "trop_court" || etape === "sticker" || etape === "rejete") {
-    const raison = etape === "elo_insuffisant" ? "note trop basse" : etape === "trop_court" ? "trop peu de slides" : etape === "sticker" ? "sticker pub" : "pas pertinent";
+  const RAISONS: Record<string, string> = {
+    elo_insuffisant: "note trop basse", trop_court: "trop peu de slides", sticker: "sticker pub", rejete: "pas pertinent",
+    nettoyage_rate: "image impossible à nettoyer",
+  };
+  if (etape && RAISONS[etape]) {
+    const raison = RAISONS[etape];
     return { phase: "ecarte", erreur: c.import_erreur ? `${raison} : ${c.import_erreur}` : raison };
   }
   if (c.import_statut === "done") {

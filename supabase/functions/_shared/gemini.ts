@@ -6,6 +6,7 @@ import { messageErreur } from "./supabase.ts";
 import { dimensionsImage, effacerTexte, type Zone } from "./inpaint.ts";
 import { nettoyerViaFalTextRemoval } from "./fal_text_removal.ts";
 import { nettoyerViaReplicateTextRemoval } from "./replicate_text_removal.ts";
+import { type CheminNettoyage, cheminsPourEssai } from "./chemins_nettoyage.ts";
 import { upscaleViaSeedVr } from "./fal_seedvr_upscale.ts";
 import { falAuthHeaders, falHebergerOctets, falKey, falQueueAwaitJson, falQueueSubmit } from "./fal_queue.ts";
 import { serviceClient } from "./supabase.ts";
@@ -924,7 +925,7 @@ async function luminanceMoyenne(bytes: Uint8Array): Promise<number | null> {
 }
 
 /** Moteur effectivement utilisé pour un nettoyage réussi. */
-export type MoteurNettoyage = "text_removal" | "replicate_text_removal";
+export type MoteurNettoyage = "text_removal" | "replicate_text_removal" | "effaceur_lama";
 
 export type ProviderNettoyage = "fal" | "replicate";
 
@@ -932,6 +933,7 @@ export type ProviderNettoyage = "fal" | "replicate";
 export type EtapeNettoyageId =
   | "text_removal"
   | "replicate_text_removal"
+  | "effaceur_lama"
   | "upscale"
   | "c2pa"
   | "ready";
@@ -961,6 +963,27 @@ export interface CleanImageOpts {
   upscaleAvantStrip?: boolean;
   /** Facteur SeedVR (défaut ×2). */
   upscaleFactor?: number;
+  /**
+   * Numéro de l'essai pour cette image (import) : chaque essai commence par un autre chemin
+   * (voir chemins_nettoyage.ts). Absent : principal → second, comme avant.
+   */
+  essai?: number;
+}
+
+/**
+ * Effaceur : Gemini Flash repère les rectangles de texte (lecture, jamais refusée), LaMa (Replicate, sans
+ * modération, ~0,0004 $) efface ces zones. Rien d'inventé : il prolonge le décor autour du masque.
+ */
+async function nettoyerViaEffaceur(
+  imageUrl: string,
+  onProgress?: (detail: string) => void | Promise<void>,
+): Promise<string | null> {
+  await onProgress?.("repérage des zones de texte (Gemini Flash)");
+  const image = await fetchImageAsInline(imageUrl);
+  const resultat = await inpaintFallback(image, imageUrl);
+  if (!resultat) throw new Error("effaceur : aucune zone de texte repérée, ou aucun jeton Replicate");
+  await onProgress?.("zones effacées (LaMa)");
+  return resultat;
 }
 
 async function lireProviderPrincipal(): Promise<ProviderNettoyage> {
@@ -996,8 +1019,8 @@ export async function cleanImage(
   };
 
   const premier = await lireProviderPrincipal();
-  const second: ProviderNettoyage = premier === "fal" ? "replicate" : "fal";
-  const chaine: ProviderNettoyage[] = [premier, second];
+  const chaine: CheminNettoyage[] = cheminsPourEssai(premier, opts?.essai);
+  const NOMS: Record<CheminNettoyage, string> = { fal: "Fal", replicate: "Replicate", effaceur: "Effaceur (Gemini + LaMa)" };
 
   let base64: string | null = null;
   let moteur: MoteurNettoyage | null = null;
@@ -1007,10 +1030,10 @@ export async function cleanImage(
     const provider = chaine[i]!;
     const rang = i + 1;
     const estPremier = i === 0;
-    const autre = provider === "fal" ? "Replicate" : "Fal";
+    const autre = chaine[i + 1] ? NOMS[chaine[i + 1]!] : "aucun";
     const etapeId: EtapeNettoyageId =
-      provider === "fal" ? "text_removal" : "replicate_text_removal";
-    const nom = provider === "fal" ? "Fal" : "Replicate";
+      provider === "fal" ? "text_removal" : provider === "replicate" ? "replicate_text_removal" : "effaceur_lama";
+    const nom = NOMS[provider];
 
     if (base64) {
       await emit({
@@ -1032,7 +1055,11 @@ export async function cleanImage(
     let polls = 0;
     try {
       const resultat =
-        provider === "fal"
+        provider === "effaceur"
+          ? await nettoyerViaEffaceur(imageUrl, async (detail) => {
+              await emit({ etape: etapeId, statut: "encours", detail: `${rang === 1 ? "①" : "②"} ${nom}: ${detail}` });
+            })
+          : provider === "fal"
           ? await nettoyerViaFalTextRemoval(imageUrl, async (p) => {
               if (typeof p.polls === "number") polls = p.polls;
               if (p.phase === "submit") {
@@ -1092,7 +1119,7 @@ export async function cleanImage(
 
       if (resultat && !(await sembleDegeneree(resultat))) {
         base64 = resultat;
-        moteur = etapeId === "text_removal" ? "text_removal" : "replicate_text_removal";
+        moteur = etapeId === "text_removal" ? "text_removal" : etapeId === "replicate_text_removal" ? "replicate_text_removal" : "effaceur_lama";
         await emit({
           etape: etapeId,
           statut: "ok",
@@ -1130,10 +1157,10 @@ export async function cleanImage(
     await emit({
       etape: "ready",
       statut: "echec",
-      detail: "Fal + Replicate text-removal indisponibles ou sorties noires",
+      detail: `${chaine.map((c) => NOMS[c]).join(" + ")} : indisponibles, refusés ou sorties noires`,
     });
     throw new RefusRetouche(
-      "nettoyage: Fal/Replicate text-removal indisponibles ou sorties noires",
+      `nettoyage: ${chaine.map((c) => NOMS[c]).join(" + ")} indisponibles, refusés ou sorties noires`,
     );
   }
 

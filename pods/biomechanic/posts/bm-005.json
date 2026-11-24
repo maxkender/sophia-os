@@ -1,0 +1,214 @@
+{
+ "id": "bm-005",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7699181996311923990",
+  "vues": 130300,
+  "publie_le": "2026-10-21",
+  "accroche": "Recovery Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "recovery tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "recovery is where you actually get fitter 🛌 #recovery #running #health #biohacking #fitness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/rc-tous-les-jours.jpg": "cf27b997-ad1f-4952-aa56-7709acf2f652",
+  "images/banque/rc-nuit-courte.jpg": "6f604af3-a1ea-4760-9a74-f26030c65929",
+  "images/banque/rc-cafe.jpg": "426b427b-f336-49c5-a65c-e7180b816a23",
+  "images/banque/rc-canape.jpg": "8ea93acd-8b3b-4273-ad2c-0802b7f3e704",
+  "images/banque/rc-eau-froide.jpg": "2575d433-ac7a-43fc-b271-39e025318f74",
+  "images/banque/rc-etirement.jpg": "009b4015-94e5-4d07-a7e0-2c4c9df1937a",
+  "images/banque/rc-eau.jpg": "225b03d1-c2e8-49a5-bbb1-9cfc84b177f2",
+  "images/banque/rc-repas.jpg": "31d82fec-b0f7-4b04-a565-0fc68cffa6eb",
+  "images/banque/rc-marche.jpg": "190182ef-8e88-4226-9fb6-67b557ac3bfc",
+  "images/banque/rc-footing.jpg": "8844ed39-0371-4951-8df6-ae3045857c2b",
+  "images/banque/rc-sommeil.jpg": "06e99919-cba3-4d6c-940e-440f4aef69a4"
+ },
+ "notes": "Full test du 24/11 (boîte vide, 5 livraisons calculées : 1 compte du label depuis le 24/11 ; aucun post neuf du compte modèle) : « Recovery Tierlist For Optimal Health (Science based) », sa famille à 130 k (21/10) ; éléments à nous ; `source` gardée pour mémoire, non envoyée. Croquis de couverture neuf (recup.jpg, Seedream). Slide Atala (11) : le second A tier « Easy Recovery Runs », une coureuse de la banque et le logo d'Atala. Texte selon placement_atala : titre de 6 mots → voix TOUCHE PERSO (« I let a running coach app like Atala… ») ; un seul argument : les jours faciles prévus dans la semaine ; version « cta E' ». Faits : l'adaptation se fait pendant la récupération (principe de surcompensation) ; le manque de sommeil nuit à la récupération et à la performance (Fullagar et al., Sports Med 2015) ; protéines et glucides après l'effort pour reconstruire et refaire les réserves (ISSN, Kerksick et al. 2017) ; l'immersion froide après chaque séance peut atténuer certains gains de force (Roberts et al., J Physiol 2015) ; une déshydratation légère baisse humeur et vigilance (Armstrong 2012) ; l'hormone de croissance est surtout sécrétée en sommeil profond. Rien de médical. Photos : banque de l'OS, aucune célébrité, aucune marque lisible.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/recup.jpg",
+   "en": {
+    "lignes": [
+     "Recovery Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-tous-les-jours.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Training Hard Every Day",
+    "paragraphes": [
+     "Your body doesn't get fitter during the session. It adapts in the hours and days after, when it repairs what the training broke down.",
+     "Hard every day means you never get those hours. More effort, less progress."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-nuit-courte.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Under Six Hours Of Sleep",
+    "paragraphes": [
+     "Most of your repair work happens while you sleep. Cut it short and your muscles, mood and focus all pay for it the next day.",
+     "No recovery trick here can make up for a short night."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-cafe.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Coffee Instead Of A Meal",
+    "paragraphes": [
+     "After training, your muscles need protein and carbs to rebuild and refill. An iced coffee gives them almost nothing to work with.",
+     "Fine as a treat. It lands in D when it's the only thing you have until dinner."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-canape.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "A Full Day On The Sofa",
+    "paragraphes": [
+     "Total rest feels like recovery, but lying still all day leaves you stiffer and heavier the next morning.",
+     "Rest days work better with some gentle movement."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-eau-froide.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Cold Water Plunges",
+    "paragraphes": [
+     "Cold water can ease soreness and make you feel fresh again after a hard session.",
+     "Used straight after every workout, it may blunt some of the gains you trained for. Nice, not essential."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-etirement.jpg",
+   "cadrage": {
+    "y": 0.75
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Stretching",
+    "paragraphes": [
+     "A few minutes of stretching helps you feel loose and makes the next session easier to start.",
+     "It feels good, but on its own it does far less for recovery than most people think."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-eau.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Drinking Enough Water",
+    "paragraphes": [
+     "You lose water with every session, and even mild dehydration leaves you tired and less sharp.",
+     "Simple and cheap. It's not A tier only because most people already get close enough."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-repas.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Real Meal After Training",
+    "paragraphes": [
+     "Protein to rebuild muscle, carbs to refill your energy. That's what your body recovers with.",
+     "It misses A tier because the timing matters much less than eating well across the day."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-marche.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Walking On Rest Days",
+    "paragraphes": [
+     "An easy walk gets blood moving through tired legs without adding any real stress to your body.",
+     "It's the easiest way to recover faster, and it gets you outside in daylight too."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/rc-footing.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Easy Recovery Runs",
+    "paragraphes": [
+     "A slow, short run keeps your legs moving and builds your aerobic base without adding much fatigue.",
+     "Keep them truly slow. I let a running coach app like Atala plan which days stay easy."
+    ]
+   },
+   "format": "carre"
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/rc-sommeil.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Seven To Nine Hours Of Sleep",
+    "paragraphes": [
+     "Deep sleep is when your body releases growth hormone and does most of its repair work.",
+     "Nothing on this list comes close. It's free, and it makes every other habit work better."
+    ]
+   }
+  }
+ ]
+}

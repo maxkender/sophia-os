@@ -1,0 +1,214 @@
+{
+ "id": "bm-007",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7701732296717536534",
+  "vues": 97700,
+  "publie_le": "2026-10-28",
+  "accroche": "Longevity Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "longevity tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "the habits that add years ⏳ #longevity #health #biohacking #running #wellness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/lg-assis.jpg": "114b62c2-6936-4a48-9edf-aa9e9a031d6b",
+  "images/banque/lg-nuit.jpg": "1f613ec4-5bc5-4bd4-96d4-f454ca86fc4c",
+  "images/banque/lg-stress.jpg": "22bf1aea-c928-418a-b810-0f0b31ec23aa",
+  "images/banque/lg-seul.jpg": "12aa2ce1-0ae2-46d2-85a3-8ba640a30879",
+  "images/banque/lg-pas.jpg": "4e4b6d23-044e-440d-b09d-aa49696a3aab",
+  "images/banque/lg-meditation.jpg": "56018c05-ba27-4d6c-8332-643a35045479",
+  "images/banque/lg-marche-repas.jpg": "4a365e89-c386-4c28-a6a8-137288345200",
+  "images/banque/lg-nature.jpg": "63a06b2f-05ef-44f9-9eb4-95e25abe4426",
+  "images/banque/lg-muscu.jpg": "680de5cc-c22d-4a40-8271-52b6475a0196",
+  "images/banque/lg-course.jpg": "1ee6c671-2a57-48dc-8023-1c2a7c403ce9",
+  "images/banque/lg-amis.jpg": "0b445d59-ffda-4bcf-8a7f-05da005fb823"
+ },
+ "notes": "Full test du 24/11 : « Longevity Tierlist For Optimal Health (Science based) », sa famille à 98 k (28/10) ; éléments à nous. Croquis de couverture neuf (longevite.jpg, Seedream). Slide Atala (11) : le second A tier « Running A Few Times A Week », deux coureuses de la banque et le logo d'Atala. Texte selon placement_atala : voix TU ; un seul argument : la semaine complète, avec le renforcement prévu dedans ; version « cta G' ». Faits : sédentarité prolongée et mortalité (Ekelund et al., Lancet 2016) ; sommeil court et risque cardiovasculaire et mortalité (Cappuccio et al., Sleep 2010) ; solitude et mortalité, effet comparable à des facteurs de risque majeurs (Holt-Lunstad et al., PLoS Med 2010) ; bénéfice des pas qui plafonne vers 6 000 à 10 000 selon l'âge (Paluch et al., Lancet Public Health 2022) ; marche après repas et glycémie (Buffey et al., Sports Med 2022) ; 120 min par semaine dans la nature (White et al., Sci Rep 2019) ; perte de masse musculaire avec l'âge et renforcement associé à une mortalité plus basse (Momma et al., Br J Sports Med 2022) ; coureurs : environ 3 ans d'espérance de vie en plus, même à faible volume (Lee et al., Prog Cardiovasc Dis 2017) ; Harvard Study of Adult Development (Waldinger). Rien de médical.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/longevite.jpg",
+   "en": {
+    "lignes": [
+     "Longevity Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-assis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Sitting All Day",
+    "paragraphes": [
+     "Long hours without moving slow down your metabolism and weaken the muscles that keep you independent later in life.",
+     "It's one of the habits most linked to a shorter life. Breaking it up is the first win."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-nuit.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Five Hours Of Sleep",
+    "paragraphes": [
+     "Short sleep, night after night, is linked to a higher risk of heart problems and a shorter life.",
+     "No other habit on this list can make up for it."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-stress.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Stress With No Outlet",
+    "paragraphes": [
+     "Constant stress keeps your body on high alert. Over years, that wears down your heart, your sleep and your mood.",
+     "Stress itself isn't the problem. Never letting it out is."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-seul.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Seeing No One For Weeks",
+    "paragraphes": [
+     "Loneliness is linked to a shorter life about as strongly as some of the worst habits we know.",
+     "It's in D, not F, because it's the easiest to fix today."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-pas.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Chasing 10,000 Steps",
+    "paragraphes": [
+     "Walking more is linked to living longer, but the benefit levels off well before the famous number.",
+     "Great habit. The exact number matters less than you'd think."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-meditation.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Meditation",
+    "paragraphes": [
+     "A few calm minutes a day can lower stress and help you sleep, which both matter for a long life.",
+     "Helpful, but the direct proof for a longer life is thin."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-marche-repas.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Walk After Meals",
+    "paragraphes": [
+     "A short walk after eating helps your body handle the sugar from your meal, with almost no effort.",
+     "Small, easy, and it adds up over thousands of meals."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-nature.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Time In Nature",
+    "paragraphes": [
+     "People who spend about two hours a week in nature report better health and wellbeing.",
+     "It misses A tier because it works best with real movement on top."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-muscu.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Lifting Weights",
+    "paragraphes": [
+     "After 30, you slowly lose muscle every decade. Strength training slows that down, and stronger people tend to live longer.",
+     "Two sessions a week is enough to keep the muscle you'll need at 80."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/lg-course.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Running A Few Times A Week",
+    "paragraphes": [
+     "Runners tend to live several years longer than non-runners, even at slow paces and low mileage.",
+     "The trick is the strength work too. A running coach app like Atala puts it into your week."
+    ]
+   },
+   "format": "carre"
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/lg-amis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Close Friendships",
+    "paragraphes": [
+     "The longest study on adult life found that good relationships predict a long, healthy life best.",
+     "Nothing else on this list matters as much as that."
+    ]
+   }
+  }
+ ]
+}

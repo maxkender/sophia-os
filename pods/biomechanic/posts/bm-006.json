@@ -1,0 +1,214 @@
+{
+ "id": "bm-006",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7695383642104761622",
+  "vues": 93400,
+  "publie_le": "2026-10-11",
+  "accroche": "Sleep Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "sleep tierlist for optimal health"
+ },
+ "legendes": {
+  "en": "your sleep starts in the morning 🌙 #sleep #health #biohacking #running #wellness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/sl-ecran.jpg": "1e4ad037-5e9e-4e46-b289-5f21d73dd8a7",
+  "images/banque/sl-cafe.jpg": "442d4c6d-1291-41f9-ba92-3cae329eef01",
+  "images/banque/sl-grasse-mat.jpg": "0e84d491-c9ed-4f2e-97e0-ac69c59b3283",
+  "images/banque/sl-lecture.jpg": "769aa08e-3a2e-40e4-9445-ecfadbf7c04e",
+  "images/banque/sl-bain.jpg": "1657eb4a-5543-449d-823a-8dde8462b533",
+  "images/banque/sl-lumiere.jpg": "addd583e-cde2-4aad-8310-ecf5700200ca",
+  "images/banque/sl-chambre-noire.jpg": "0e849c5e-f01a-4e9b-920d-43130395db80",
+  "images/banque/sl-coucher.jpg": "0b796059-ad91-40fb-8972-83ece7b9d04f",
+  "images/banque/sl-lumiere-matin.jpg": "14266c9b-6a67-4efa-b81f-b8f3862dd421",
+  "images/banque/sl-footing.jpg": "3d423f1c-dbd3-4fb7-a58f-e31876e442a2",
+  "images/banque/sl-reveil.jpg": "0e52f643-cc72-4543-aec8-513ab5fd0969"
+ },
+ "notes": "Full test du 24/11 : « Sleep Tierlist For Optimal Health (Science based) », sa famille à 93 k (11/10) ; éléments à nous ; `source` gardée pour mémoire. Croquis de couverture neuf (sommeil.jpg, Seedream). Slide Atala (11) : le second A tier « Running During The Day », une coureuse de la banque et le logo d'Atala ; slide S en dernier. Texte selon placement_atala : voix TOUCHE PERSO (hook de 6 mots), un seul argument : écrire au coach / le plan s'adapte quand la semaine déborde ; version « cta F' ». Faits : écrans et lumière le soir retardent l'endormissement (Chang et al., PNAS 2015) ; la caféine a une demi-vie de plusieurs heures, 400 mg 6 h avant le coucher réduisent le sommeil (Drake et al., J Clin Sleep Med 2013) ; le décalage du week-end (« social jetlag », Wittmann et al. 2006) ; bain chaud 1 à 2 h avant le coucher et endormissement plus rapide (Haghayegh et al., Sleep Med Rev 2019) ; la baisse de température corporelle accompagne l'endormissement ; lumière du matin et horloge circadienne ; exercice régulier et meilleur sommeil (Kredlow et al., J Behav Med 2015), effort intense dans l'heure avant le coucher (Stutz et al. 2019).",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/sommeil.jpg",
+   "en": {
+    "lignes": [
+     "Sleep Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-ecran.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Screens Until You Pass Out",
+    "paragraphes": [
+     "Bright screens and endless feeds keep your brain alert right when it should be winding down.",
+     "You fall asleep later than you planned, and the sleep you do get is lighter."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-cafe.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Coffee After 3 PM",
+    "paragraphes": [
+     "Caffeine stays in your body for hours. An afternoon coffee is still working at bedtime.",
+     "You might still fall asleep, but your deep sleep pays."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-grasse-mat.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Huge Weekend Lie-Ins",
+    "paragraphes": [
+     "Sleeping in for hours on the weekend shifts your body clock, like flying a few time zones every Friday.",
+     "Monday morning feels awful because your body thinks it's still the middle of the night."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-lecture.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Reading On Your Phone",
+    "paragraphes": [
+     "It feels calmer than scrolling, but the screen keeps you alert and the next notification is one tap away.",
+     "Better than social media. Still not switching off."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-bain.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "A Warm Bath Before Bed",
+    "paragraphes": [
+     "A warm bath an hour or two before bed helps your body cool down after, which tells it to sleep.",
+     "Nice, and it helps a little. It can't fix a bad routine."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-lumiere.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Dim Lights In The Evening",
+    "paragraphes": [
+     "Bright lights at night tell your brain it's still daytime. Dimming them helps your body get ready for sleep.",
+     "Easy to do, but on its own it barely moves the needle."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-chambre-noire.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Dark, Cool Bedroom",
+    "paragraphes": [
+     "Your body temperature has to drop for you to fall asleep. A cool, dark room makes that much easier.",
+     "Easy to fix, but it can't undo a day that fights sleep."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-coucher.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "The Same Bedtime Every Night",
+    "paragraphes": [
+     "Your internal clock runs on rhythm. Going to bed at the same time makes it easier to fall asleep fast.",
+     "It misses A tier: your wake-up time matters most."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-lumiere-matin.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Daylight In The Morning",
+    "paragraphes": [
+     "Bright light early in the day sets your internal clock, so you feel sleepy at the right time at night.",
+     "It only misses S tier because most people need a reason to go outside."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/sl-footing.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "tier": "A",
+    "nom": "Running During The Day",
+    "paragraphes": [
+     "Regular exercise is linked to falling asleep faster and sleeping deeper, unless it's hard and late.",
+     "When my week gets busy, a running coach app like Atala adjusts my plan so I don't skip it."
+    ]
+   },
+   "format": "carre"
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/sl-reveil.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "Waking Up At The Same Time",
+    "paragraphes": [
+     "A fixed wake-up time anchors your whole rhythm: your energy, your hunger and when you get sleepy.",
+     "Every other habit on this list works better with it."
+    ]
+   }
+  }
+ ]
+}

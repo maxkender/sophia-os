@@ -8,7 +8,7 @@ import type { Proposition } from "./propositions";
 import type { DonneesSources, SourceBible } from "./sources";
 
 const api = vi.hoisted(() => ({
-  lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), lancerBatch: vi.fn(), validerCarte: vi.fn(), changerCarte: vi.fn(),
+  lireComptes: vi.fn(), lireCartes: vi.fn(), lireApplications: vi.fn(async () => []), changerEtape: vi.fn(), lancerBatch: vi.fn(), validerCarte: vi.fn(), changerCarte: vi.fn(),
   validerPodz: vi.fn(), marquerPodz: vi.fn(), rattacherCarte: vi.fn(), detacherCarte: vi.fn(), fusionnerCartes: vi.fn(), modifierCarte: vi.fn(), carteDuLabel: vi.fn(), creerCarte: vi.fn(),
   modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
@@ -18,7 +18,7 @@ vi.mock("./sources", async (orig) => ({ ...(await orig<typeof import("./sources"
 const prop = vi.hoisted(() => ({ lirePropositions: vi.fn(), passerDansLaBible: vi.fn(), deciderProposition: vi.fn() }));
 vi.mock("./propositions", async (orig) => ({ ...(await orig<typeof import("./propositions")>()), ...prop }));
 
-import { appsDe, compterEtapes, handlesDuTexte, ranger, REMARQUE_UGC, vuesCourtes } from "./moodboard";
+import { appsDe, compterEtapes, declarerApplications, handlesDuTexte, ranger, REMARQUE_UGC, SECTIONS, vuesCourtes } from "./moodboard";
 import { DialogueAjout } from "./DialoguesBible";
 import { PageBible } from "./PageBible";
 import { REGLES_DEFAUT } from "./sources";
@@ -620,6 +620,38 @@ describe("page Bible", () => {
     expect(confirmer).toHaveBeenCalledWith(expect.stringContaining("Créer le label « clean_girl » pour Sophia ?"));
     await waitFor(() => expect(api.validerCarte).toHaveBeenCalledWith("k2"));
     confirmer.mockRestore();
+  });
+});
+
+describe("une section par application", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    api.lireCartes.mockResolvedValue(CARTES);
+    src.lireSources.mockResolvedValue(donnees());
+    prop.lirePropositions.mockResolvedValue([]);
+  });
+
+  it("Artura (du catalogue, inactive) a sa section ; UnSwipe n'en a pas ; une application créée dans l'OS arrive seule, avant Idées", async () => {
+    const cles = () => SECTIONS.map((s) => s.cle);
+    expect(cles()).toEqual(["atala", "micabo", "sophia", "artura", "idees", "sans"]);
+    expect(appsDe(["artura"])).toEqual({ application_ids: ["00000000-0000-4000-8000-000000000005"], apps_attente: [] });
+    // La page lit les applications de la base : celle qui manque au code s'ajoute, sans doublon.
+    api.lireApplications.mockImplementation(async () => {
+      const apps = [{ id: "00000000-0000-4000-8000-000000000005", slug: "artura", nom: "Artura" }, { id: "00000000-0000-4000-8000-000000000003", slug: "unswipe", nom: "Unswipe" }, { id: "app-neuve", slug: "lumen", nom: "Lumen" }];
+      declarerApplications(apps);
+      return apps;
+    });
+    api.lireComptes.mockResolvedValue([compte({ label_propose_id: "k9" })]);
+    api.lireCartes.mockResolvedValue([carte({ id: "k9", nom: "tableaux_secrets", section: "lumen" })]);
+    rendre();
+    expect((await screen.findByText("tableaux_secrets")).closest("[data-section]")).toHaveAttribute("data-section", "lumen");
+    expect(cles()).toEqual(["atala", "micabo", "sophia", "artura", "lumen", "idees", "sans"]);
+    expect(within(screen.getByRole("group", { name: "App" })).getByRole("button", { name: /Lumen 1/ })).toBeInTheDocument();
+    // Dans « Changer de label » → nouveau label, l'app se choisit parmi toutes, Artura et la nouvelle comprises.
+    fireEvent.click(dansMenu(screen.getByText("@compte.un").closest("[data-compte]") as HTMLElement, "Changer de label"));
+    fireEvent.change(await screen.findByLabelText("Label"), { target: { value: "__nouveau__" } });
+    expect(within(screen.getByRole("combobox", { name: "App" })).getAllByRole("option").map((o) => o.textContent)).toEqual(["Atala", "Micabo", "Sophia", "Artura", "Lumen", "Idées"]);
+    SECTIONS.splice(SECTIONS.findIndex((s) => s.cle === "lumen"), 1);
   });
 });
 

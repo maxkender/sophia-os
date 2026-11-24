@@ -10,7 +10,7 @@
  * (nom de travail, appli « en attente ») est devenue « atala », reliée à la vraie application (0765) : ses cartes se
  * valident comme celles de Sophia et de Micabo (« Créer ce label » crée un label Atala).
  */
-import { idApplication } from "@/features/moteur/catalogueApplications";
+import { CATALOGUE_APPLICATIONS } from "@/features/moteur/catalogueApplications";
 import { supabase } from "@/lib/supabase/client";
 
 import { handleDe } from "./parse";
@@ -23,7 +23,11 @@ export type EtapeManuelle = "a_importer" | "prochain_batch";
 export type EtapeSource = "en_import" | "essai" | "weekly" | "essai_rate" | "arretees";
 /** Un onglet de la page : les propositions de l'éclaireur, une étape du chemin, ou la corbeille. */
 export type Vue = "propositions" | EtapeManuelle | EtapeSource | "corbeille";
-export type Section = "atala" | "micabo" | "sophia" | "idees";
+/**
+ * La section d'un bloc : le slug d'une application de l'OS, ou « idees ». Plus de liste figée (0850) : une
+ * application créée dans l'OS a sa section toute seule.
+ */
+export type Section = string;
 export type Badge = "existe" | "nouveau" | "propose" | "a_confirmer" | "idee";
 
 /**
@@ -45,13 +49,47 @@ export const VUES: readonly { cle: Vue; libelle: string; chemin: boolean; auto: 
 export const estVueSource = (v: Vue): v is EtapeSource =>
   v === "en_import" || v === "essai" || v === "weekly" || v === "essai_rate" || v === "arretees";
 
-export const SECTIONS: readonly { cle: Section | "sans"; libelle: string; sous?: string }[] = [
-  { cle: "atala", libelle: "Atala", sous: "running" },
-  { cle: "micabo", libelle: "Micabo" },
-  { cle: "sophia", libelle: "Sophia" },
+export interface SectionBible { cle: Section | "sans"; libelle: string; sous?: string; applicationId?: string }
+
+/** L'ordre historique de la Bible ; les autres applications suivent, dans l'ordre où elles ont été créées. */
+const ORDRE_HISTORIQUE = ["atala", "micabo", "sophia"];
+/** Les applications qui n'ont pas de section dans la Bible : UnSwipe est arrêtée depuis le 4/11. */
+const HORS_BIBLE = new Set(["unswipe"]);
+const SOUS: Record<string, string> = { atala: "running" };
+const rangApp = (slug: string) => { const i = ORDRE_HISTORIQUE.indexOf(slug); return i < 0 ? ORDRE_HISTORIQUE.length : i; };
+
+/**
+ * Les sections, dans l'ordre : une par application, puis Idées, puis Sans label. La liste part du catalogue des
+ * applications et se complète avec celles de la base (`declarerApplications`) : une application créée à l'écran
+ * (Labels & applications), même inactive, apparaît sans toucher au code.
+ */
+export const SECTIONS: SectionBible[] = [
+  ...CATALOGUE_APPLICATIONS.filter((a) => !HORS_BIBLE.has(a.slug))
+    .map((a, i) => ({ a, i })).sort((x, y) => rangApp(x.a.slug) - rangApp(y.a.slug) || x.i - y.i)
+    .map(({ a }): SectionBible => ({ cle: a.slug, libelle: a.nom.charAt(0).toUpperCase() + a.nom.slice(1), sous: SOUS[a.slug], applicationId: a.id })),
   { cle: "idees", libelle: "Idées" },
   { cle: "sans", libelle: "Sans label" },
 ];
+
+/** Ajoute aux sections les applications de la base qui n'y sont pas encore (avant « Idées »). */
+export function declarerApplications(apps: { id: string; slug: string; nom: string }[]): void {
+  for (const a of apps) {
+    if (HORS_BIBLE.has(a.slug) || a.slug === "idees" || a.slug === "sans" || SECTIONS.some((s) => s.cle === a.slug)) continue;
+    SECTIONS.splice(SECTIONS.findIndex((s) => s.cle === "idees"), 0, { cle: a.slug, libelle: a.nom, applicationId: a.id });
+  }
+}
+
+/** Les applications de l'OS (actives ou non), dans l'ordre de leur création : chacune a sa section dans la Bible. */
+export async function lireApplications(): Promise<{ id: string; slug: string; nom: string }[]> {
+  const { data, error } = await supabase.from("applications").select("id, slug, nom").order("created_at");
+  if (error) throw new Error(error.message);
+  const apps = (data ?? []) as { id: string; slug: string; nom: string }[];
+  declarerApplications(apps);
+  return apps;
+}
+
+/** Les sections qui sont une application (pas Idées, pas Sans label). */
+export const sectionsApps = (): SectionBible[] => SECTIONS.filter((s) => s.applicationId);
 
 export const LIBELLE_BADGE: Record<Badge, string> = {
   existe: "existe",
@@ -61,12 +99,10 @@ export const LIBELLE_BADGE: Record<Badge, string> = {
   idee: "idée",
 };
 
-/** Les applications d'une section : leurs ids viennent du catalogue des applications. */
-const APP_SECTION: Record<Section, { application_ids: string[]; apps_attente: string[] }> = {
-  atala: { application_ids: [idApplication("atala")], apps_attente: [] },
-  micabo: { application_ids: [idApplication("micabo")], apps_attente: [] },
-  sophia: { application_ids: [idApplication("sophia")], apps_attente: [] },
-  idees: { application_ids: [], apps_attente: [] },
+/** Les applications d'une section : l'id de son application ; aucune pour « Idées ». */
+const appsDeSection = (section: Section): { application_ids: string[]; apps_attente: string[] } => {
+  const id = SECTIONS.find((s) => s.cle === section)?.applicationId;
+  return { application_ids: id ? [id] : [], apps_attente: [] };
 };
 
 export interface Miniature {
@@ -244,12 +280,12 @@ export const LIBELLE_BLOCAGE: Record<Blocage, string> = {
 
 /** Une carte dont le label peut être créé d'ici : proposé ou nouveau, pour une app qui existe (toutes sauf « Idées »). */
 export const carteValidable = (c: CarteLabel): boolean =>
-  !c.label_id && (c.badge === "nouveau" || c.badge === "propose") && APP_SECTION[c.section].application_ids.length > 0;
+  !c.label_id && (c.badge === "nouveau" || c.badge === "propose") && appsDeSection(c.section).application_ids.length > 0;
 
 /** Range le compte sous une carte (et met ses apps d'après la section de la carte). */
 export async function changerCarte(id: string, carte: CarteLabel): Promise<void> {
   const { error } = await supabase.from("bible_comptes")
-    .update({ label_propose_id: carte.id, label_id: carte.label_id, ...APP_SECTION[carte.section] }).eq("id", id);
+    .update({ label_propose_id: carte.id, label_id: carte.label_id, ...appsDeSection(carte.section) }).eq("id", id);
   if (error) throw new Error(error.message);
 }
 
@@ -314,7 +350,7 @@ export async function detacherCarte(carteId: string): Promise<{ comptes: number;
 /** Le nom, l'app et la DA d'un label encore proposé (un vrai label se modifie dans Labels & applications). */
 export async function modifierCarte(id: string, p: { nom: string; section: Section; description: string }): Promise<void> {
   const { error } = await supabase.from("labels_proposes")
-    .update({ nom: p.nom, description_da: p.description.trim() || null, section: p.section, ...APP_SECTION[p.section] }).eq("id", id).is("label_id", null);
+    .update({ nom: p.nom, description_da: p.description.trim() || null, section: p.section, ...appsDeSection(p.section) }).eq("id", id).is("label_id", null);
   if (error) throw new Error(error.message);
 }
 
@@ -322,7 +358,7 @@ export async function modifierCarte(id: string, p: { nom: string; section: Secti
 export async function creerCarte(p: { nom: string; section: Section; description: string }): Promise<CarteLabel> {
   const { data, error } = await supabase.from("labels_proposes").insert({
     nom: p.nom, description_da: p.description || null, statut: "a_valider", section: p.section, badge: "nouveau", ordre: 99,
-    ...APP_SECTION[p.section],
+    ...appsDeSection(p.section),
   }).select(COLONNES_CARTE).single();
   if (error) throw new Error(error.message);
   return data as unknown as CarteLabel;
@@ -341,8 +377,8 @@ export async function modifierCompte(id: string, p: { note: string; remarque: st
 export function appsDe(sections: Section[]): { application_ids: string[]; apps_attente: string[] } {
   const u = (x: string[]) => [...new Set(x)];
   return {
-    application_ids: u(sections.flatMap((s) => APP_SECTION[s].application_ids)),
-    apps_attente: u(sections.flatMap((s) => APP_SECTION[s].apps_attente)),
+    application_ids: u(sections.flatMap((s) => appsDeSection(s).application_ids)),
+    apps_attente: u(sections.flatMap((s) => appsDeSection(s).apps_attente)),
   };
 }
 

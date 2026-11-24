@@ -11,7 +11,6 @@
  * lectures que la page Sources fait déjà (stock, r, file, décision du lundi) et dit, en une phrase, où en est chaque
  * source.
  */
-import { idApplication } from "@/features/moteur/catalogueApplications";
 import { contenusParSource, listerSources, performanceSources, type SemaineSources, type SourceLundi, sourcesDeLaSemaine } from "@/features/moteur/api";
 import { type FileSources, type SourceEnAttente, versFileSources } from "@/features/moteur/fileSources";
 import type { PerfSource } from "@/features/moteur/perfSource";
@@ -19,18 +18,22 @@ import type { CompteReference } from "@/features/moteur/types";
 import { supabase } from "@/lib/supabase/client";
 
 import { lireImportes, lireLabels } from "./api";
-import type { CarteLabel, EtapeSource, ResultatLancement, Section, SourceDuCompte, Vue } from "./moodboard";
+import { type CarteLabel, type EtapeSource, type ResultatLancement, type Section, SECTIONS, sectionsApps, type SourceDuCompte, type Vue } from "./moodboard";
 import type { CompteImporte, LabelBible } from "./types";
+
+const PREFERENCE = ["sophia", "micabo", "atala"];
+const rangPreference = (slug: string) => { const i = PREFERENCE.indexOf(slug); return i < 0 ? PREFERENCE.length : i; };
 
 /**
  * La section d'un label de l'OS : celle de sa carte de la Bible s'il en a une, sinon l'app qu'il sert (Sophia
- * d'abord, puis Micabo, puis Atala).
+ * d'abord, puis Micabo, puis Atala, puis les autres applications ; comme `bible_label_section` en base).
  */
 export function sectionDuLabel(labelId: string, cartes: CarteLabel[], labels: LabelBible[]): Section {
   const carte = cartes.find((c) => c.label_id === labelId);
   if (carte) return carte.section;
   const apps = labels.find((l) => l.id === labelId)?.apps ?? [];
-  return (["sophia", "micabo", "atala"] as const).find((s) => apps.includes(idApplication(s))) ?? "sophia";
+  const parPreference = [...sectionsApps()].sort((a, b) => rangPreference(a.cle) - rangPreference(b.cle));
+  return parPreference.find((s) => apps.includes(s.applicationId!))?.cle ?? "sophia";
 }
 
 /** Le handle tel que la Bible le range : minuscules, sans @ (comme `bible_handle` en base). */
@@ -363,7 +366,6 @@ export interface GroupeSources {
   total: number;
 }
 
-const ORDRE_SECTIONS: readonly (Section | "sans")[] = ["atala", "micabo", "sophia", "idees", "sans"];
 
 /**
  * Range les sources d'un onglet comme le moodboard : par app, puis par label (leurs VRAIS labels, pas la carte du
@@ -399,7 +401,7 @@ export function rangerSources(
     });
   }
 
-  return ORDRE_SECTIONS
+  return SECTIONS.map((x) => x.cle)
     .filter((sec) => !filtre.section || filtre.section === sec)
     .map((sec): GroupeSources => {
       if (sec === "sans") {

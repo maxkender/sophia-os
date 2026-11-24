@@ -6302,6 +6302,33 @@
    },
    "notes": "full test BLEO, cta A",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-dates-4",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#dateideas #couple #sanstelephone",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7689918962905124129_1",
+    "2": "7689918962905124129_2",
+    "3": "7703619977630190881_5",
+    "4": "7689918962905124129_4",
+    "5": "7689918962905124129_5",
+    "6": "7689918962905124129_6"
+   },
+   "notes": "declinaison G2 de var-dates-1, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "1b176175-7014-4020-836b-1db3a1b09185"
   }
  ]
 }

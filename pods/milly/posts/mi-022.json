@@ -1,0 +1,780 @@
+{
+ "id": "mi-022",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7684514161577053471",
+  "vues": 310800,
+  "publie_le": "2026-09-24",
+  "accroche": "How to / Study / for 10+ / Hours"
+ },
+ "fond": "noir",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825hp (Prismatic Mix)",
+  "url": "https://www.tiktok.com/music/825hp-Prismatic-Mix-7176902323170445314"
+ },
+ "notes": "Full test (boîte vide). Famille « How to [verbe] … » de @bdnf.milly, format de « How to Study for 10+ Hours » (310,8 k vues), fond noir. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Faits vérifiés : la lecture rapide échange la vitesse contre la compréhension ; seule une petite zone autour du point fixé est vue nettement ; vocabulaire et connaissances sont les vrais leviers (Rayner, Schotter, Masson, Potter et Treiman, Psychological Science in the Public Interest 2016) ; un adulte lit en silence environ 238 mots par minute en moyenne pour de la non-fiction (Brysbaert, Journal of Memory and Language 2019). 11 langues. Images : banque (irm-coronale, tractographie, synapse), sans texte.",
+ "titre": {
+  "en": "How to Read Faster",
+  "fr": "Comment lire beaucoup plus vite",
+  "es": "Cómo leer mucho más rápido",
+  "es-419": "Cómo leer mucho más rápido",
+  "it": "Come leggere molto più velocemente",
+  "tr": "Nasıl çok daha hızlı okursun",
+  "pt-BR": "Como ler muito mais rápido",
+  "sl": "Kako brati veliko hitreje",
+  "hr": "Kako čitati mnogo brže",
+  "de": "Wie du viel schneller liest",
+  "hu": "Hogyan olvass sokkal gyorsabban"
+ },
+ "legendes": {
+  "en": "speed comes from knowing more #reading #learning #brain #studytips #books",
+  "fr": "la vitesse vient de ce qu'on sait #lecture #apprendre #cerveau #méthodedetravail #livres",
+  "es": "la velocidad viene de saber más #lectura #aprender #cerebro #técnicasdeestudio #libros",
+  "es-419": "la velocidad viene de saber más #lectura #aprender #cerebro #tipsdeestudio #libros",
+  "it": "la velocità viene dal sapere di più #lettura #imparare #cervello #metododistudio #libri",
+  "tr": "hız daha çok bilmekten gelir #okuma #öğrenme #beyin #dersçalışma #kitap",
+  "pt-BR": "a velocidade vem de saber mais #leitura #aprender #cerebro #dicasdeestudo #livros",
+  "sl": "hitrost pride iz znanja #branje #učenje #možgani #učnetehnike #knjige",
+  "hr": "brzina dolazi iz znanja #čitanje #učenje #mozak #tehnikeučenja #knjige",
+  "de": "tempo kommt aus wissen #lesen #lernen #gehirn #lerntipps #bücher",
+  "hu": "a gyorsaság a tudásból jön #olvasás #tanulás #agy #tanulásimódszerek #könyvek"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-coronale.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Read",
+      "taille": "grand"
+     },
+     {
+      "t": "much",
+      "taille": "petit"
+     },
+     {
+      "t": "Faster",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Lire",
+      "taille": "grand"
+     },
+     {
+      "t": "beaucoup plus",
+      "taille": "petit"
+     },
+     {
+      "t": "Vite",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Leer",
+      "taille": "grand"
+     },
+     {
+      "t": "mucho más",
+      "taille": "petit"
+     },
+     {
+      "t": "Rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Leer",
+      "taille": "grand"
+     },
+     {
+      "t": "mucho más",
+      "taille": "petit"
+     },
+     {
+      "t": "Rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Leggere",
+      "taille": "grand"
+     },
+     {
+      "t": "molto più",
+      "taille": "petit"
+     },
+     {
+      "t": "Veloce",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "çok daha",
+      "taille": "petit"
+     },
+     {
+      "t": "Hızlı",
+      "taille": "grand"
+     },
+     {
+      "t": "Okursun",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Ler",
+      "taille": "grand"
+     },
+     {
+      "t": "muito mais",
+      "taille": "petit"
+     },
+     {
+      "t": "Rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako brati",
+      "taille": "petit"
+     },
+     {
+      "t": "veliko",
+      "taille": "petit"
+     },
+     {
+      "t": "Hitreje",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "čitati",
+      "taille": "petit"
+     },
+     {
+      "t": "mnogo",
+      "taille": "petit"
+     },
+     {
+      "t": "Brže",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 3
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du",
+      "taille": "petit"
+     },
+     {
+      "t": "viel",
+      "taille": "petit"
+     },
+     {
+      "t": "Schneller",
+      "taille": "grand"
+     },
+     {
+      "t": "liest",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Olvass",
+      "taille": "grand"
+     },
+     {
+      "t": "sokkal",
+      "taille": "petit"
+     },
+     {
+      "t": "Gyorsabban",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Speed Reading Has A Cost",
+    "blocs": [
+     {
+      "p": "A large scientific review of speed reading found that the promise of reading pages at a glance does not hold: when people go much faster than normal, they understand and remember less."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "The eye only sees a small area around the point it fixes in sharp detail. Skimming works for finding something, not for understanding it. An average adult reads around 240 words a minute in silence."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "La lecture rapide a un prix",
+    "blocs": [
+     {
+      "p": "Une grande revue scientifique sur la lecture rapide a montré que la promesse de lire une page d'un coup d'œil ne tient pas : quand on va beaucoup plus vite que d'habitude, on comprend et on retient moins."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "L'œil ne voit nettement qu'une petite zone autour du point qu'il fixe. Survoler sert à trouver quelque chose, pas à le comprendre. Un adulte lit en moyenne environ 240 mots par minute en silence."
+     }
+    ]
+   },
+   "es": {
+    "titre": "La lectura rápida tiene un precio",
+    "blocs": [
+     {
+      "p": "Una gran revisión científica sobre la lectura rápida vio que la promesa de leer páginas de un vistazo no se cumple: cuando se va mucho más rápido de lo normal, se entiende y se recuerda menos."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "El ojo solo ve con nitidez una pequeña zona alrededor del punto que fija. Ojear sirve para encontrar algo, no para entenderlo. Un adulto lee de media unas 240 palabras por minuto en silencio."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Leer rápido tiene un costo",
+    "blocs": [
+     {
+      "p": "Una gran revisión científica sobre la lectura rápida encontró que la promesa de leer páginas de un vistazo no se cumple: cuando lees mucho más rápido de lo normal, entiendes y recuerdas menos."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "El ojo solo ve con nitidez una zona pequeña alrededor del punto que fija. Hojear sirve para encontrar algo, no para entenderlo. Un adulto lee en promedio unas 240 palabras por minuto en silencio."
+     }
+    ]
+   },
+   "it": {
+    "titre": "La lettura veloce ha un prezzo",
+    "blocs": [
+     {
+      "p": "Un'ampia revisione scientifica sulla lettura veloce ha rilevato che la promessa di leggere pagine con un'occhiata non regge: quando si va molto più veloci del normale, si capisce e si ricorda di meno."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "L'occhio vede nitida solo una piccola zona attorno al punto che fissa. Scorrere serve a trovare qualcosa, non a capirla. Un adulto legge in media circa 240 parole al minuto in silenzio."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Hızlı okumanın bir bedeli var",
+    "blocs": [
+     {
+      "p": "Hızlı okuma üzerine büyük bir bilimsel derleme, sayfaları bir bakışta okuma vaadinin tutmadığını buldu: normalden çok daha hızlı okunduğunda daha az anlaşılıyor ve daha az hatırlanıyor."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Göz, yalnızca odaklandığı noktanın çevresindeki küçük bir alanı net görür. Göz gezdirmek bir şeyi bulmaya yarar, anlamaya değil. Bir yetişkin sessizce dakikada ortalama 240 civarı kelime okur."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Leitura dinâmica tem um preço",
+    "blocs": [
+     {
+      "p": "Uma grande revisão científica sobre leitura dinâmica mostrou que a promessa de ler páginas num relance não se sustenta: quando se lê muito mais rápido que o normal, entende-se e lembra-se menos."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "O olho só vê com nitidez uma pequena área em volta do ponto que fixa. Passar os olhos serve para encontrar algo, não para entender. Um adulto lê em média cerca de 240 palavras por minuto em silêncio."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Hitro branje ima ceno",
+    "blocs": [
+     {
+      "p": "Obsežen znanstveni pregled hitrega branja je pokazal, da obljuba o branju strani na en pogled ne drži: ko beremo veliko hitreje kot običajno, manj razumemo in si manj zapomnimo."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Oko ostro vidi le majhno območje okoli točke, ki jo gleda. Preletavanje je dobro za iskanje, ne za razumevanje. Odrasel v tišini v povprečju prebere okoli 240 besed na minuto."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Brzo čitanje ima cijenu",
+    "blocs": [
+     {
+      "p": "Veliki znanstveni pregled brzog čitanja pokazao je da obećanje čitanja stranica u jednom pogledu ne drži: kad čitamo mnogo brže nego inače, manje razumijemo i manje pamtimo."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Oko oštro vidi samo malo područje oko točke koju fiksira. Preletavanje služi za pronalaženje, ne za razumijevanje. Odrasla osoba u tišini u prosjeku pročita oko 240 riječi u minuti."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Schnelllesen hat seinen Preis",
+    "blocs": [
+     {
+      "p": "Eine große wissenschaftliche Übersicht zum Schnelllesen ergab, dass das Versprechen, Seiten mit einem Blick zu lesen, nicht hält: Wer viel schneller als normal liest, versteht und behält weniger."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "Das Auge sieht nur einen kleinen Bereich um den fixierten Punkt scharf. Überfliegen hilft beim Finden, nicht beim Verstehen. Ein Erwachsener liest still im Schnitt etwa 240 Wörter pro Minute."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "A gyorsolvasásnak ára van",
+    "blocs": [
+     {
+      "p": "A gyorsolvasásról készült nagy tudományos áttekintés szerint nem igaz, hogy egy pillantással el lehet olvasni egy oldalt: ha valaki a szokásosnál sokkal gyorsabban olvas, kevesebbet ért meg és kevesebbre emlékszik."
+     },
+     {
+      "image": "images/tractographie.jpg"
+     },
+     {
+      "p": "A szem csak a megnézett pont körüli kis területet látja élesen. Az átfutás arra jó, hogy megtalálj valamit, nem arra, hogy megértsd. Egy felnőtt csendben átlagosan nagyjából 240 szót olvas percenként."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Know More, Read Faster",
+    "blocs": [
+     {
+      "p": "The same review found that what really speeds up reading is language and knowledge. Familiar words and ideas are recognised instantly, and the brain spends less time working out what a sentence means."
+     },
+     {
+      "p": "So the surest way to read faster is to know more. One short lesson every evening, like a training session, makes every future text a little easier."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Sache plus, lis plus vite",
+    "blocs": [
+     {
+      "p": "La même revue a montré que ce qui accélère vraiment la lecture, c'est la langue et le savoir. Les mots et les idées familiers sont reconnus tout de suite, et le cerveau passe moins de temps à comprendre ce que veut dire une phrase."
+     },
+     {
+      "p": "Le moyen le plus sûr de lire plus vite, c'est donc d'en savoir plus. Une courte leçon chaque soir, comme un entraînement, rend chaque texte à venir un peu plus facile."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Sabe más, lee más rápido",
+    "blocs": [
+     {
+      "p": "La misma revisión vio que lo que de verdad acelera la lectura es el lenguaje y el conocimiento. Las palabras e ideas conocidas se reconocen al instante, y el cerebro dedica menos tiempo a descifrar qué quiere decir una frase."
+     },
+     {
+      "p": "Así que la forma más segura de leer más rápido es saber más. Una lección corta cada noche, como un entrenamiento, hace cada texto futuro un poco más fácil."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Sabe más, lee más rápido",
+    "blocs": [
+     {
+      "p": "La misma revisión encontró que lo que de verdad acelera la lectura es el lenguaje y el conocimiento. Las palabras e ideas conocidas se reconocen al instante, y el cerebro tarda menos en entender qué quiere decir una oración."
+     },
+     {
+      "p": "Entonces, la forma más segura de leer más rápido es saber más. Una lección corta cada noche, como un entrenamiento, hace cada texto que venga un poco más fácil."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Sai di più, leggi più veloce",
+    "blocs": [
+     {
+      "p": "La stessa revisione ha rilevato che ciò che accelera davvero la lettura sono la lingua e le conoscenze. Parole e idee familiari si riconoscono subito, e il cervello impiega meno tempo a capire cosa vuol dire una frase."
+     },
+     {
+      "p": "Il modo più sicuro per leggere più veloce è quindi sapere di più. Una breve lezione ogni sera, come un allenamento, rende ogni testo futuro un po' più facile."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Daha çok bil, daha hızlı oku",
+    "blocs": [
+     {
+      "p": "Aynı derleme, okumayı gerçekten hızlandıranın dil ve bilgi olduğunu buldu. Tanıdık kelimeler ve fikirler anında tanınır ve beyin bir cümlenin ne demek istediğini çözmeye daha az zaman harcar."
+     },
+     {
+      "p": "Yani daha hızlı okumanın en sağlam yolu, daha çok bilmektir. Her akşam kısa bir ders, bir antrenman gibi, gelecekteki her metni biraz daha kolaylaştırır."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Saiba mais, leia mais rápido",
+    "blocs": [
+     {
+      "p": "A mesma revisão mostrou que o que realmente acelera a leitura é a linguagem e o conhecimento. Palavras e ideias conhecidas são reconhecidas na hora, e o cérebro gasta menos tempo descobrindo o que uma frase quer dizer."
+     },
+     {
+      "p": "Então o jeito mais seguro de ler mais rápido é saber mais. Uma lição curta toda noite, como um treino, deixa cada texto futuro um pouco mais fácil."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Več veš, hitreje bereš",
+    "blocs": [
+     {
+      "p": "Isti pregled je ugotovil, da branje zares pospešita jezik in znanje. Znane besede in zamisli prepoznamo takoj, možgani pa porabijo manj časa za razbiranje, kaj stavek pomeni."
+     },
+     {
+      "p": "Najzanesljivejši način za hitrejše branje je torej vedeti več. Kratka lekcija vsak večer, kot trening, vsako prihodnje besedilo naredi malo lažje."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Znaj više, čitaj brže",
+    "blocs": [
+     {
+      "p": "Isti je pregled pokazao da čitanje zaista ubrzavaju jezik i znanje. Poznate riječi i ideje prepoznajemo odmah, a mozak troši manje vremena na to da shvati što rečenica znači."
+     },
+     {
+      "p": "Najsigurniji način da čitaš brže zato je da znaš više. Kratka lekcija svake večeri, kao trening, čini svaki budući tekst malo lakšim."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Mehr wissen, schneller lesen",
+    "blocs": [
+     {
+      "p": "Dieselbe Übersicht fand, dass Sprache und Wissen das Lesen wirklich beschleunigen. Vertraute Wörter und Ideen werden sofort erkannt, und das Gehirn braucht weniger Zeit, um zu entschlüsseln, was ein Satz bedeutet."
+     },
+     {
+      "p": "Der sicherste Weg, schneller zu lesen, ist also, mehr zu wissen. Eine kurze Lektion jeden Abend, wie ein Training, macht jeden künftigen Text ein wenig leichter."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tudj többet, olvass gyorsabban",
+    "blocs": [
+     {
+      "p": "Ugyanez az áttekintés azt találta, hogy az olvasást igazán a nyelvtudás és az ismeretek gyorsítják. Az ismerős szavakat és gondolatokat azonnal felismerjük, és az agy kevesebb időt tölt azzal, hogy kibogozza, mit jelent egy mondat."
+     },
+     {
+      "p": "A gyorsabb olvasás legbiztosabb útja tehát az, ha többet tudsz. Minden este egy rövid lecke, mint egy edzés, minden jövőbeli szöveget kicsit könnyebbé tesz."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Read With A Purpose",
+    "blocs": [
+     {
+      "p": "Before you start, ask what you want from the text. Skim the headings to build a map, slow down where the ideas are new, and move quickly where they are not."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Then close the book and summarise it in two sentences. Reading less often but understanding more is faster in the long run than reading everything twice."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Lis avec un but",
+    "blocs": [
+     {
+      "p": "Avant de commencer, demande-toi ce que tu attends du texte. Parcours les titres pour te faire une carte, ralentis là où les idées sont nouvelles, et avance vite là où elles ne le sont pas."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Puis ferme le livre et résume-le en deux phrases. Lire moins souvent mais comprendre plus va plus vite, sur la durée, que tout lire deux fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Lee con un objetivo",
+    "blocs": [
+     {
+      "p": "Antes de empezar, pregúntate qué quieres sacar del texto. Repasa los títulos para hacerte un mapa, frena donde las ideas son nuevas y avanza rápido donde no lo son."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Luego cierra el libro y resúmelo en dos frases. Leer menos veces pero entender más es más rápido, a la larga, que leerlo todo dos veces."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Lee con un propósito",
+    "blocs": [
+     {
+      "p": "Antes de empezar, pregúntate qué quieres sacar del texto. Revisa los títulos para armarte un mapa, ve más lento donde las ideas son nuevas y avanza rápido donde no lo son."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Luego cierra el libro y resúmelo en dos oraciones. Leer menos veces pero entender más es más rápido, a la larga, que leer todo dos veces."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Leggi con uno scopo",
+    "blocs": [
+     {
+      "p": "Prima di iniziare, chiediti cosa vuoi dal testo. Scorri i titoli per farti una mappa, rallenta dove le idee sono nuove e vai veloce dove non lo sono."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Poi chiudi il libro e riassumilo in due frasi. Leggere meno volte ma capire di più è più veloce, alla lunga, che leggere tutto due volte."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Bir amaçla oku",
+    "blocs": [
+     {
+      "p": "Başlamadan önce metinden ne istediğini kendine sor. Bir harita çıkarmak için başlıklara göz at, fikirlerin yeni olduğu yerde yavaşla, olmadığı yerde hızlan."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Sonra kitabı kapat ve iki cümleyle özetle. Daha az okuyup daha çok anlamak, uzun vadede her şeyi iki kez okumaktan daha hızlıdır."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Leia com um objetivo",
+    "blocs": [
+     {
+      "p": "Antes de começar, pergunte o que você quer do texto. Passe os olhos pelos títulos para montar um mapa, desacelere onde as ideias são novas e avance rápido onde não são."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Depois feche o livro e resuma em duas frases. Ler menos vezes e entender mais é mais rápido, a longo prazo, do que ler tudo duas vezes."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Beri z namenom",
+    "blocs": [
+     {
+      "p": "Preden začneš, se vprašaj, kaj želiš od besedila. Preleti naslove, da si narediš zemljevid, upočasni, kjer so zamisli nove, in pohiti, kjer niso."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Nato zapri knjigo in jo povzemi v dveh stavkih. Manjkrat brati in več razumeti je na dolgi rok hitreje kot vse prebrati dvakrat."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Čitaj s ciljem",
+    "blocs": [
+     {
+      "p": "Prije početka zapitaj se što želiš od teksta. Preleti naslove da napraviš kartu, uspori gdje su ideje nove i ubrzaj gdje nisu."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Zatim zatvori knjigu i sažmi je u dvije rečenice. Čitati rjeđe, a razumjeti više dugoročno je brže nego sve pročitati dvaput."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lies mit einem Ziel",
+    "blocs": [
+     {
+      "p": "Frag dich vor dem Start, was du vom Text willst. Überflieg die Überschriften, um dir eine Karte zu machen, werde langsamer, wo die Ideen neu sind, und zügiger, wo sie es nicht sind."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Dann klapp das Buch zu und fass es in zwei Sätzen zusammen. Seltener lesen und mehr verstehen ist auf Dauer schneller, als alles zweimal zu lesen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Olvass céllal",
+    "blocs": [
+     {
+      "p": "Mielőtt belekezdesz, kérdezd meg magadtól, mit vársz a szövegtől. Fusd át a címeket, hogy térképet kapj, lassíts, ahol új a gondolat, és haladj gyorsan, ahol nem."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Aztán csukd be a könyvet, és foglald össze két mondatban. Ritkábban olvasni, de többet érteni hosszú távon gyorsabb, mint mindent kétszer elolvasni."
+     }
+    ]
+   }
+  }
+ ]
+}

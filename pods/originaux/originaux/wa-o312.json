@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o312",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8e8ac2ae-428a-475e-9a40-1c9a433deebf",
+ "titre": "weird psychology tricks that actually work #psychology #mindtricks #humanbehavior #facts #socialskills",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "be8abcd5-6a13-49c3-8184-b8c7e8ba6081"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, be8abcd5). déclinaison G1 de « weird psychology tricks that actually work » (parent 8e8ac2ae). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9cf4f379-cf01-4a0c-8eb8-ff3a48bae296",
+   "texte_overlay": "weird psychology tricks\nthat actually work",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f237e4b7-b929-4abc-9ed1-f7de267e296d",
+   "texte_overlay": "the gentle nod\n\nnod slightly while you ask someone for something. people mirror small movements without noticing, so a soft nod makes saying yes feel more natural to them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "de90e23c-d723-4ff9-9653-5188ca2be5e7",
+   "texte_overlay": "the warm cup\n\noffer a warm drink before a difficult chat. research suggests warmth in the hands makes people see others as warmer, kinder and easier to trust overall.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e8ade1c3-25a2-4c6c-bbf7-4b88d630c84d",
+   "texte_overlay": "the three second pause\n\nwhen someone gives a short answer, stay quiet for three seconds. most people fill the silence with the real answer, the one they were quietly holding back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fa20429e-fa5d-4fd3-afd8-66c5f56fda7c",
+   "texte_overlay": "the curious effect\n\npeople listen more closely to someone who knows a little about everything, and you can build that in minutes a day. a few curious minutes daily quietly change how people respond to you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/5.jpg",
+   "texte_sophia": "the curious effect\n\npeople listen to those who know a bit of everything. the Sophia app turns learning into one short lesson a day, history or science, and people really listen now."
+  },
+  {
+   "position": 6,
+   "media_id": "eb4a6dcc-7c6d-4aef-9624-a0f683facdbb",
+   "texte_overlay": "the name at goodbye\n\nsay someone's name at the end of a goodbye rather than at the start of a hello. it's the last thing they hear from you, and it stays with them longer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o304",
+ "type_bleo": "full_test",
+ "titre": "signs you're not lazy, you're just mentally tired #burnout #mentalhealth #rest #selfcare #signs",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "4d79f4a2-fc0a-4486-b187-f66df926aaac"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4d79f4a2). full test BLEO : accroche jamais faite (format « signs you're not X, you're just Y »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b4b601a2-ad26-4fb1-b191-f00a1d096798",
+   "texte_overlay": "signs you're not lazy,\nyou're just mentally tired",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d80f5565-801a-4942-accb-b11b5be26f11",
+   "texte_overlay": "simple tasks feel huge\n\nreplying to one email feels like climbing a mountain. that heaviness isn't laziness, it's a tired mind asking you for real rest instead of more pressure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f46e6ae6-0962-49b5-8f3f-7505d59d5c3b",
+   "texte_overlay": "you scroll but feel nothing\n\nyou open the same apps again and again without enjoying any of it. endless scrolling is often a worn out brain looking for rest in completely the wrong place.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "eed052d4-2d4c-4686-a2a9-7c4db8c180e8",
+   "texte_overlay": "you miss feeling curious\n\na tired mind stops wondering about things, and gentle learning is one of the softest ways to wake it up again: a star, a painting, a myth, nothing that feels like pressure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/4.jpg",
+   "texte_sophia": "you miss feeling curious\n\ni thought i was just lazy. now i spend 5 minutes a day on one calm lesson in the Sophia app, a star or a painting, and my curiosity slowly came back, and my energy with it."
+  },
+  {
+   "position": 5,
+   "media_id": "e219271c-bcc2-4b5f-b083-a9ac1d36ceb9",
+   "texte_overlay": "you forget small things\n\nyou walk into rooms and forget why. an overloaded mind drops the small details first, which is a clear sign it needs sleep and quiet, not more effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a074067b-07d1-474b-b893-038598bae88c",
+   "texte_overlay": "rest doesn't feel restful\n\neven your days off feel draining because you never really switch off. real rest means time with no screens, no plans and absolutely no guilt about it at all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/6.jpg"
+  }
+ ]
+}

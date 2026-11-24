@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o307",
+ "type_bleo": "full_test",
+ "titre": "small ways to clear your mental clutter #mentalclutter #clarity #focus #mindset #selfimprovement",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). full test BLEO : accroche jamais faite (format « small ways to clear your X »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c9925b9e-4029-4159-8061-d3c42a4f226b",
+   "texte_overlay": "small ways to clear\nyour mental clutter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "64fcf10f-e229-4e94-9b1d-34a5397676e8",
+   "texte_overlay": "writing before deciding\n\nbefore any big decision, write down what you actually want and why. putting thoughts on paper untangles them faster than endlessly circling in your head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5ab657a8-852d-4d5f-8264-17c9ab56105f",
+   "texte_overlay": "feeding your brain well\n\na few calm minutes of learning each day gives your mind fresh ideas and sharper connections. new knowledge gives you new angles on old, stubborn problems.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg",
+   "texte_sophia": "feeding your brain well\n\nmy thoughts used to feel tangled. now i spend 5 minutes a day on one lesson in the Sophia app, history or science, and new ideas help me see problems far more clearly."
+  },
+  {
+   "position": 4,
+   "media_id": "9d915c53-e8f5-40c6-a755-f534681bffa5",
+   "texte_overlay": "walking it out\n\nwhen you're stuck, go for a short walk without your phone. moving your body changes how your brain works, and answers often appear halfway around the block.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "56392065-a638-4f3f-b9eb-40cb80702dba",
+   "texte_overlay": "one tab at a time\n\nclose every browser tab and screen you don't need right now. a cluttered screen creates a cluttered mind, and single tasking makes your thinking so much sharper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e56482f6-6954-4a2c-8f99-25b60f1a0597",
+   "texte_overlay": "sleeping on it\n\nfor important choices, wait one night before deciding. your brain keeps sorting the problem while you sleep, and morning answers are often far wiser and calmer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

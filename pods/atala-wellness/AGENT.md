@@ -33,7 +33,11 @@ Le prompt de placement d'Atala a changé le 20/11 (table `prompts`, clé `placem
 	- jamais une formule de pub : ni « download », ni « link in bio », ni « free », ni « the best app ». Jamais CleanMenu, Pacewell ni une autre appli de course ou de wellness (Runna, Nike Run Club, Strava, Couch to 5K…) : `npm run livrer` le vérifie.
 - **Le label** : `wellness_run` (migration 0778), qui sert **Atala seul**, 100 % podz, genre `femme` ; son nom finit par `_run`, ses comptes ont l'identité du running. L'OS le range en voie 2 dès le premier original validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » ou Adrien et Max (Pilotage). **Atala est encore inactive** dans l'OS : rien n'est publié avant son activation, mais la file et la validation marchent. `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En anglais** (`LANGUES` dans `atelier/api.ts`) : tout en minuscules, phrases courtes, son ton (« tu », complice, un peu cash : « ouvre ta porte avant d'ouvrir tiktok »).
+- **En anglais d'abord, puis fr, de, it, hu, ro et el** (ordre d'Adrien du 24/11, `LANGUES` dans `atelier/api.ts`) : tout en minuscules, phrases courtes, son ton (« tu », complice, un peu cash : « ouvre ta porte avant d'ouvrir tiktok »).
+	- chaque original s'écrit en anglais, puis se traduit à la main dans les six autres langues (clés `fr`, `de`… à côté de `en` dans chaque slide, `titre` et `legendes`) ; `npm run livrer` n'envoie que les langues où le label a un compte ;
+	- les originaux d'avant le 24/11 se rattrapent avec `npm run livrer -- <id> --langues fr,de,it,hu,ro,el --complement` (`pods/ROUTINE.md` §5.5) ;
+	- la slide Atala suit `placement_atala` dans chaque langue, avec le mot pour « appli » (fr « une appli de coaching running comme Atala », de « eine Lauf-Coach-App wie Atala », it « un'app di coaching per la corsa come Atala », hu « egy futóedző app, mint az Atala », ro « o aplicație de antrenor de alergare ca Atala », el « μια εφαρμογή προπονητή τρεξίματος όπως η Atala ») ; la carte garde son nom de l'App Store en anglais (« Atala : AI Running Coach », « Reach your running goals »), « the app: » se traduit ;
+	- les textes allongent (de, hu, el) : `npm run rendu` refuse une colonne plus haute que la photo, raccourcis.
 - **Parfait ou rien**. Un original part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un original

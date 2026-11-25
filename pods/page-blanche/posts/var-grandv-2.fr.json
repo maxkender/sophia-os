@@ -110,8 +110,8 @@
       "listening to something",
       "constantly"
      ],
-     "fr": "laisser [[tes notifs activées]]",
-     "texte": "laisser [[tes notifs activées]]"
+     "fr": "laisser [[toutes tes notifs activées]]",
+     "texte": "laisser [[toutes tes notifs activées]]"
     },
     "T2": {
      "en": [
@@ -138,8 +138,8 @@
       "silence feels boring because you've stopped",
       "practicing it"
      ],
-     "fr": "coupe tout sauf les appels quand [[tu dois bosser]]",
-     "texte": "coupe tout sauf les appels quand [[tu dois bosser]]"
+     "fr": "coupe tout sauf les appels quand [[tu dois vraiment bosser]]",
+     "texte": "coupe tout sauf les appels quand [[tu dois vraiment bosser]]"
     }
    },
    "images": {
@@ -214,8 +214,8 @@
      "en": [
       "doomscrolling everyday"
      ],
-     "fr": "plus [[rien apprendre de neuf]]",
-     "texte": "plus [[rien apprendre de neuf]]"
+     "fr": "[[rien apprendre]] de neuf",
+     "texte": "[[rien apprendre]] de neuf"
     },
     "T2": {
      "en": [

@@ -59,7 +59,7 @@
       "consuming everything at 2x speed"
      ],
      "fr": "tout mettre [[en vitesse x2]]",
-     "texte": "spavaš [[po 6 sati, ne više]]"
+     "texte": "spavaš [[samo po 6 sati, ne više]]"
     },
     "T2": {
      "en": [
@@ -69,7 +69,7 @@
       "starts feeling painfully slow"
      ],
      "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]",
-     "texte": "misliš da je to ok, ali nakon 2 tjedna tvoja pažnja radi loše kao nakon [[neprospavane noći]]"
+     "texte": "misliš da je to sasvim ok, ali već nakon 2 tjedna tvoja pažnja radi loše kao nakon [[neprospavane noći]]"
     },
     "T3": {
      "en": [
@@ -111,7 +111,7 @@
       "constantly"
      ],
      "fr": "écouter un truc [[non-stop]]",
-     "texte": "držiš [[uključene obavijesti]]"
+     "texte": "držiš [[uključene sve obavijesti]]"
     },
     "T2": {
      "en": [
@@ -215,7 +215,7 @@
       "doomscrolling everyday"
      ],
      "fr": "doomscroller [[tous les jours]]",
-     "texte": "ne učiš [[ništa novo]]"
+     "texte": "ne učiš [[baš ništa novo]]"
     },
     "T2": {
      "en": [
@@ -257,7 +257,7 @@
       "procrastinating all day"
      ],
      "fr": "procrastiner [[toute la journée]]",
-     "texte": "sve držiš [[u glavi]]"
+     "texte": "sve stalno držiš [[u glavi]]"
     },
     "T2": {
      "en": [
@@ -276,7 +276,7 @@
       "instantly"
      ],
      "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
-     "texte": "zapiši ih prije nego počneš, [[mozak ti odahne]]"
+     "texte": "zapiši ih prije nego što počneš, [[mozak će ti odahnuti]]"
     }
    },
    "images": {

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o321",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0eccf4eb-b25f-48c5-a817-a520b67f2edf",
+ "titre": "hobbies that will pull you out of your dopamine addiction #dopamine #dopaminedetox #hobbies #screentime #selfimprovement",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "4c740b93-4932-4afb-b567-cfaf14073b35"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4c740b93). déclinaison G1 de « hobbies that will pull you out of your dopamine addiction » (parent 0eccf4eb). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a0c894db-24e9-47a6-91b3-791fb78c25ae",
+   "texte_overlay": "hobbies that will pull you\nout of your dopamine addiction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "03e607cb-428a-41e4-9d79-af3038033e41",
+   "texte_overlay": "long walks with no input\n\nwalk for thirty minutes with no music, podcast or phone. the first ten minutes feel boring, then your brain starts producing its own ideas again. the more you practise it, the more natural it becomes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8fffb59f-e9c4-4cd0-bc24-6c4afdf5319b",
+   "texte_overlay": "working with your hands\n\ndo a puzzle, a crossword or a small model in the evening instead of scrolling. slow rewards slowly teach your brain to enjoy patience again. it's a small change with a surprisingly big effect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "15236a6c-86fa-4cb2-87d9-06263b872bdb",
+   "texte_overlay": "one thing timer\n\nset a twenty five minute timer and do one single thing with your phone in another room. the urge to check it fades faster than you'd expect. try it for one week and notice the difference.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5afa52cc-2dae-456b-80ff-564097faf612",
+   "texte_overlay": "swapping the scroll\n\nevery time you open social media, learn one real thing instead: a space fact, a piece of history. most people never think about it, which is exactly why it works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/5.jpg",
+   "texte_sophia": "swapping the scroll\n\nevery time i reach for the feed, i learn one real thing instead. the Sophia app turns it into one short lesson a day, and real curiosity slowly replaced the scroll."
+  },
+  {
+   "position": 6,
+   "media_id": "78783414-ae14-4258-9492-b342249d5f76",
+   "texte_overlay": "growing a plant\n\ngrow a plant from a seed and look after it daily. waiting weeks to see something grow is the perfect antidote to instant gratification. it sounds simple, but very few people actually do it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o316",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b78b1b68-88d7-4bc3-b9f3-5c11809fd7c1",
+ "titre": "things people notice before you even speak #firstimpressions #bodylanguage #psychology #confidence #socialskills",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "f490daf5-f20d-4891-a1ce-4219bcb84d2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f490daf5). déclinaison G2 de « what people notice about you in the first 7 seconds » (parent b78b1b68). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7561c436-6436-4e9d-b445-dc2432f3d601",
+   "texte_overlay": "things people notice\nbefore you even speak",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5f5b9064-745e-4212-b737-ddf80231b05b",
+   "texte_overlay": "how you walk in\n\npeople read your energy the moment you enter a room. a calm, unhurried entrance tells everyone you're comfortable before you say a single word. it honestly works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f69906c4-e636-4033-afdd-bc69d42980ff",
+   "texte_overlay": "how curious you seem\n\npeople sense real curiosity in seconds, and it grows from feeding your mind a little every day. a curious face looks open, warm and easy to talk to. it honestly works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/3.jpg",
+   "texte_sophia": "how curious you seem\n\npeople sense curiosity before i speak. i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and it shows in my face and in how i listen."
+  },
+  {
+   "position": 4,
+   "media_id": "75cba412-186c-4e92-a380-2048b9063f87",
+   "texte_overlay": "where you look\n\nmeeting someone's eyes warmly, for one second longer than usual, feels like real interest. looking away too quickly can read as nerves or disinterest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a5df6813-fad2-49f3-b91e-67f394293338",
+   "texte_overlay": "what your hands do\n\nopen, relaxed hands look honest and calm. hands hidden in pockets or fidgeting with a phone quietly make people feel a little more guarded. over time, it quietly changes how you feel every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2b205f23-b666-4b5a-8ad2-a6c02db3b481",
+   "texte_overlay": "your shoulders\n\nrelaxed, lowered shoulders say you're at ease. tense, raised shoulders tell people you're stressed, even if your face is smiling perfectly. the more you practise it, the more natural it becomes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/6.jpg"
+  }
+ ]
+}

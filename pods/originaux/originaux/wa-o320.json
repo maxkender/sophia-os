@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o320",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0a264b4f-1004-4494-b8aa-5e353ba9fcfe",
+ "titre": "5 strange hobbies to make you disguistingly intelligent #intelligence #hobbies #brain #learning #selfimprovement",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "dc65211f-db60-4764-80a1-cc17d64c2c16"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, dc65211f). déclinaison G1 de « 5 strange hobbies to make you disguistingly intelligent » (parent 0a264b4f). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1f693030-8cb1-44f9-acad-d78956bec96a",
+   "texte_overlay": "5 strange hobbies to make you\ndisguistingly intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8efec21b-3818-41cb-b22a-460999a5d890",
+   "texte_overlay": "1. arguing alone\n\ndebate yourself about a random topic and switch sides every two minutes. it trains your brain to see every angle of a problem, not just your own. it's a small change with a surprisingly big effect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8fc457c2-26d1-4542-ab67-8e760082fdaf",
+   "texte_overlay": "2. speed summarising\n\nafter every podcast or video, explain it out loud in thirty seconds. it forces your brain to pull out only what truly matters and drop the rest. try it for one week and notice the difference.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3fca203e-a028-4b77-9b43-57b701a3afbc",
+   "texte_overlay": "3. micro learning\n\n5 minutes a day on a brand new topic, art, history or science, slowly builds a remarkable mind. most people never think about it, which is exactly why it works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/4.jpg",
+   "texte_sophia": "3. micro learning\n\ni spend five minutes a day on one lesson in the Sophia app: art, history, science. those tiny daily lessons add up faster than any book i've ever tried to finish."
+  },
+  {
+   "position": 5,
+   "media_id": "ee9279a3-aa1d-4490-bc54-adc97fe840f8",
+   "texte_overlay": "4. reverse learning\n\nlearn the answer first, then figure out why it's true. working backwards builds deeper understanding than simply memorising the steps. it sounds simple, but very few people actually do it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fba165e2-d7e8-400f-8a27-262a2c757158",
+   "texte_overlay": "5. failure collecting\n\nkeep a list of everything you got wrong each week and review it like treasure. intelligence grows exactly where your ego is willing to let go. over time, it quietly changes how you feel every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/6.jpg"
+  }
+ ]
+}

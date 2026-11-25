@@ -1,0 +1,98 @@
+{
+  "id": "hl-001",
+  "source": {
+    "url": "https://www.tiktok.com/@highlevelgame_/photo/7686199268775939350",
+    "vues": 1400000,
+    "publie_le": "2026-09-16",
+    "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
+  },
+  "titre": {
+    "en": "How to give her butterflies on a first date."
+  },
+  "legendes": {
+    "en": "#datingadvice #tipsformen #firstdate #attraction "
+  },
+  "musique": {
+    "titre": "M83 Solitude",
+    "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
+  },
+  "oeuvres": {
+    "images/oeuvres/vermeer-cruche.jpg": { "musee": "The Met", "id": "437881", "titre": "Young Woman with a Water Pitcher", "artiste": "Johannes Vermeer", "date": "ca. 1662", "url": "https://www.metmuseum.org/art/collection/search/437881" }
+  },
+  "notes": "Preuve : « HOW TO GIVE A GIRL BUTTERFLIES. » de @highlevelgame_ (1,4 M vues, 16/09), même famille que « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M et 3,7 M) ; même gabarit (papier blanc cassé, serif bordeaux, couverture en capitales, un conseil par carte avec son titre en gras, « The rule underneath all of it », « Follow so you don't miss … » et la flèche), sa musique de « HOW TO TEXT LIKE A MAN » (M83 Solitude). Conseils à nous. Carte Artura (4), demandée par Adrien (« knows to talk about art ») : « Know how to talk about art. », un vrai tableau du domaine public (Vermeer, Young Woman with a Water Pitcher, The Met 437881) et le LOGO d'Artura, jamais une capture ; cta A (« I learn one painting a day on Artura »). Fait vérifié : on attribue à Vermeer environ 35 tableaux (moins de 40). Pas de @ ni de nom de compte en pied de slide (le sien : @HighLevelGame_).",
+  "slides": [
+    {
+      "type": "couverture",
+      "en": { "titre": "HOW TO GIVE HER\nBUTTERFLIES ON\nA FIRST DATE." }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Pick the place yourself.",
+        "paragraphes": [
+          "Don't ask:\n“Where do you want to go?”",
+          "Say: “I know a place.\nThursday, 7pm.”",
+          "A plan is attractive.\nA question is homework."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Notice one detail.",
+        "paragraphes": [
+          "Not her body. Something she chose.",
+          "“That ring looks like it has a story.”",
+          "Then let her tell it."
+        ]
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/vermeer-cruche.jpg",
+      "en": {
+        "titre": "Know how to talk about art.",
+        "avant": [
+          "Take her to a museum. Stop in front of one painting and tell her its story."
+        ],
+        "apres": [
+          "I learn one painting a day on Artura,\nso I always have a story ready."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "Put your phone away.",
+        "paragraphes": [
+          "Face down is not enough.\nLeave it in your pocket all night.",
+          "She'll notice. Every woman does."
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "End it first.",
+        "paragraphes": [
+          "Leave while it's still good.",
+          "Text her an hour later:\n“Still thinking about that laugh.”"
+        ]
+      }
+    },
+    {
+      "type": "conseil",
+      "en": {
+        "titre": "The rule underneath all of it",
+        "paragraphes": [
+          "Don't try to impress her.\nMake her feel seen.",
+          "**A boy performs.**\n**A man pays attention.**"
+        ]
+      }
+    },
+    {
+      "type": "suivre",
+      "en": { "gras": "Follow", "suite": "what's next." }
+    }
+  ]
+}

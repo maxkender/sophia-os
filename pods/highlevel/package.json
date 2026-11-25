@@ -1,0 +1,25 @@
+{
+  "name": "pod-highlevel",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 30 — originaux au style de @highlevelgame_ (conseils de séduction pour hommes en cartes de texte : papier blanc cassé, serif bordeaux, couverture en capitales, un conseil par carte), pour Artura, en anglais : la carte « Know how to talk about art. » porte un vrai tableau et le logo d'Artura.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "photos": "NODE_USE_ENV_PROXY=1 node atelier/cli-photos.ts",
+    "oeuvre": "NODE_USE_ENV_PROXY=1 node atelier/cli-oeuvre.ts"
+  }
+}

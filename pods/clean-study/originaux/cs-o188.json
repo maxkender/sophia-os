@@ -1,0 +1,51 @@
+{
+  "source_id": "cs-o188",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a539055d-45bb-43ac-8a9c-2c7ef55202a0",
+  "titre": "how to really get each school subject plus a few tips that worked for me #studytok #studytips #school",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "a539055d-45bb-43ac-8a9c-2c7ef55202a0"
+  ],
+  "notes": "Déclinaison G2 de a539055d (la famille de notre cs-o056), ligne 1 de la boîte. Même promesse (comprendre vraiment chaque matière, et quelques conseils personnels), autres mots : « how to really get each school subject plus a few tips that worked for me ». Matières et conseils neufs, aucun de cs-o056 (physique, géographie, biologie, philosophie, langues) : maths, histoire, chimie, littérature, économie. Slide Sophia sur l'histoire (3). Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "e5b81b7c",
+      "texte_overlay": "how to really get each school subject\nplus a few tips that worked for me",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c0c5fee5",
+      "texte_overlay": "Maths\nredo the class examples without looking.\nmy tip: say each step out loud, it shows where you're lost.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7a51d648",
+      "texte_overlay": "History\nlearn the story first, the dates after.\nmy tip: a 5-minute story a day makes it all connect.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg",
+      "texte_sophia": "History\nlearn the story first, the dates after.\nmy tip: 5 minutes a day on a micro-learning app\nlike the Sophia app makes it all connect."
+    },
+    {
+      "position": 4,
+      "media_id": "934793df",
+      "texte_overlay": "Chemistry\ndraw every reaction, don't just read it.\nmy tip: one sheet with the colours of each element.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ddef6e1b",
+      "texte_overlay": "Literature\nwrite 2 lines after each chapter you read.\nmy tip: pick 3 quotes per book, not 30.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "898f8b71",
+      "texte_overlay": "Economics\nlink each idea to the news.\nmy tip: one headline a day, explained in your own words.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

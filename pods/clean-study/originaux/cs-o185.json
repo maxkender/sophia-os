@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o185",
+  "type_bleo": "full_test",
+  "titre": "how i still get homework done when i come home exhausted #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« exhausted » n'est pas une accroche du label). Accroches écrites : « how i still get homework done when i come home exhausted » (retenue : une galère quotidienne), « study when tired » (écartée : plate), « push through tiredness » (écartée : mauvais conseil santé). Santé générale : un goûter et de l'eau, 20 minutes de pause sans écran, commencer par le plus facile, des blocs de 15 minutes, une pause qui change les idées (slide Sophia, 5), savoir s'arrêter et se coucher tôt. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6e25e502",
+      "texte_overlay": "how i still get homework done\nwhen i come home exhausted",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c601e0f7",
+      "texte_overlay": "snack and a big glass of water first.\nhalf of \"exhausted\" is hungry.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "695f3807",
+      "texte_overlay": "20 minutes of real rest. no screen.\nlying down, music, window open.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ba8daae5",
+      "texte_overlay": "then the easiest task first.\nsmall win, brain wakes up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c08b6781",
+      "texte_overlay": "between tasks, 5 minutes of something new.\na fun fact resets my head better than a feed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "between tasks, 5 minutes on a micro-learning app\nlike the Sophia app. a fun fact resets my head\nbetter than a feed."
+    },
+    {
+      "position": 6,
+      "media_id": "5c16521c",
+      "texte_overlay": "15-minute blocks. that's all i ask of tired me.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e1b54d22",
+      "texte_overlay": "and when it's really too much, i stop and sleep early.\ntomorrow-me will do it better.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

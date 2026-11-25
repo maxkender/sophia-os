@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o187",
+  "type_bleo": "full_test",
+  "titre": "how i'm reviewing a whole year of lessons before final exams #studytok #studytips #exams",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [],
+  "notes": "Full test (BLEO), 4e du jour : la boîte n'a que 7 lignes utilisables (§4.2). Accroche jamais faite chez nous (« final exams », « whole year » absents des accroches). Accroches écrites : « how i'm reviewing a whole year of lessons before final exams » (retenue : un gros chantier, un plan clair), « final exam plan » (écartée : plate), « revise a year in a week » (écartée : bachotage). Gestes vrais : la liste de tous les chapitres, une couleur par niveau de maîtrise, une fiche d'une page par chapitre, les anciens contrôles, des pauses qui reposent vraiment (slide Sophia, 5), un sujet complet par semaine. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2000c985",
+      "texte_overlay": "how i'm reviewing a whole year\nof lessons before final exams",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f0301a66",
+      "texte_overlay": "one list with every chapter of the year.\nseeing it all calms me down.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1acb76e6",
+      "texte_overlay": "green, orange, red for each one.\nred chapters get the most time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "bd63138b",
+      "texte_overlay": "one page per chapter. that's my summary.\nno more, no less.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "803f4d07",
+      "texte_overlay": "real breaks between chapters.\n10 minutes learning something that has nothing to do with exams.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "real breaks between chapters.\n10 minutes on a micro-learning app like the Sophia app,\nsomething that has nothing to do with exams."
+    },
+    {
+      "position": 6,
+      "media_id": "acf7d24c",
+      "texte_overlay": "my old tests are my best material.\nthe teacher's favourite questions come back.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5934e832",
+      "texte_overlay": "one full practice exam every week.\nso the real one feels normal.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o192",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "60813e6e-7067-4d54-8bef-4751c7222940",
+  "titre": "how i ask my teacher for help without feeling awkward #studytok #studytips #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "60813e6e-7067-4d54-8bef-4751c7222940"
+  ],
+  "notes": "Déclinaison G1 de 60813e6e (notre cs-o116), ligne 9 de la boîte, 3e et dernière déclinaison de la famille. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o116, cs-o150 ni cs-o182 : demander tôt dans le trimestre, une seule question à la fois, apporter sa copie, accepter de ne pas tout comprendre tout de suite, poser une question de curiosité de temps en temps (slide Sophia, 5), se rappeler que les profs aiment les élèves qui demandent. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "38d562a6",
+      "texte_overlay": "how i ask my teacher for help\nwithout feeling awkward",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f32ff645",
+      "texte_overlay": "i ask early in the term.\nbefore the grade, not after it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c9a511b1",
+      "texte_overlay": "one question at a time.\nnot \"i don't get any of it\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6a37239b",
+      "texte_overlay": "i bring my work.\n\"here's where i got stuck\" says everything.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "81af1f39",
+      "texte_overlay": "if i still don't get it, i say so.\nthey'd rather explain twice than see me fail.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1ca45a6f",
+      "texte_overlay": "sometimes i ask a curious question, not a test one.\nteachers light up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "sometimes i ask a curious question, not a test one,\nsomething i read on a micro-learning app\nlike the Sophia app. teachers light up."
+    },
+    {
+      "position": 7,
+      "media_id": "766eed75",
+      "texte_overlay": "and i remember: they chose this job.\nhelping is the good part.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

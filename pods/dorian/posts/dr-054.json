@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 niche skills that make you disgustingly interesting",
   "de": "5 nischen-skills, die dich absurd interessant machen",
-  "nl": "5 niche skills die je walgelijk interessant maken"
+  "nl": "5 niche skills die je walgelijk interessant maken",
+  "hu": "5 niche készség, amitől iszonyúan érdekes leszel",
+  "it": "5 skill di nicchia che ti rendono interessantissimo",
+  "pt-BR": "5 habilidades nichadas que te deixam interessante demais",
+  "sv": "5 nischade färdigheter som gör dig sjukt intressant",
+  "tr": "seni aşırı ilginç yapan 5 niş beceri"
  },
  "legendes": {
   "en": "#niche #skills #lockedin #selfimprovement",
   "de": "#skills #wissen #lernen #selbstverbesserung",
-  "nl": "#skills #kennis #leren #zelfontwikkeling"
+  "nl": "#skills #kennis #leren #zelfontwikkeling",
+  "hu": "#készségek #tudás #tanulás #önfejlesztés",
+  "it": "#skill #cultura #imparare #crescitapersonale",
+  "pt-BR": "#habilidades #conhecimento #aprender #autodesenvolvimento",
+  "sv": "#färdigheter #kunskap #lärande #självutveckling",
+  "tr": "#beceri #bilgi #öğrenmek #kişiselgelişim"
  },
  "musique": {
   "titre": "original sound - mel - mel",
@@ -39,6 +49,31 @@
     "titre": "5 niche skills die je walgelijk interessant maken",
     "image": "images/cerveau-38.jpg",
     "legende": "(allemaal gratis)"
+   },
+   "hu": {
+    "titre": "5 niche készség, amitől iszonyúan érdekes leszel",
+    "image": "images/cerveau-14.jpg",
+    "legende": "(mind ingyenes)"
+   },
+   "it": {
+    "titre": "5 skill di nicchia che ti rendono interessantissimo",
+    "image": "images/cerveau-16.jpg",
+    "legende": "(tutto gratis)"
+   },
+   "pt-BR": {
+    "titre": "5 habilidades nichadas que te deixam interessante demais",
+    "image": "images/cerveau-18.jpg",
+    "legende": "(tudo de graça)"
+   },
+   "sv": {
+    "titre": "5 nischade färdigheter som gör dig sjukt intressant",
+    "image": "images/cerveau-20.jpg",
+    "legende": "(allt gratis)"
+   },
+   "tr": {
+    "titre": "seni aşırı ilginç yapan 5 niş beceri",
+    "image": "images/cerveau-22.jpg",
+    "legende": "(hepsi ücretsiz)"
    }
   },
   {
@@ -57,6 +92,31 @@
     "titre": "Vogels herkennen aan hun zang",
     "texte": "leer vijf gewone vogels herkennen op het gehoor. daarna klinkt elke ochtendwandeling als een gesprek dat je kunt volgen",
     "image": "images/oiseau-chant.jpg"
+   },
+   "hu": {
+    "titre": "Madarak hangról",
+    "texte": "tanulj meg öt gyakori madarat hallás után. utána minden reggeli séta olyan, mint egy beszélgetés, amit követni tudsz",
+    "image": "images/oiseau-chant.jpg"
+   },
+   "it": {
+    "titre": "Gli uccelli dal canto",
+    "texte": "impara cinque uccelli comuni a orecchio. poi ogni passeggiata al mattino sembra una conversazione che riesci a seguire",
+    "image": "images/oiseau-chant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Pássaros pelo canto",
+    "texte": "aprenda cinco pássaros comuns de ouvido. depois disso, cada caminhada de manhã parece uma conversa que você entende",
+    "image": "images/oiseau-chant.jpg"
+   },
+   "sv": {
+    "titre": "Fåglar på sången",
+    "texte": "lär dig fem vanliga fåglar på gehör. sen låter varje morgonpromenad som ett samtal du kan följa",
+    "image": "images/oiseau-chant.jpg"
+   },
+   "tr": {
+    "titre": "Kuşları ötüşünden tanımak",
+    "texte": "beş yaygın kuşu kulaktan öğren. sonra her sabah yürüyüşü takip edebildiğin bir sohbet gibi gelir",
+    "image": "images/oiseau-chant.jpg"
    }
   },
   {
@@ -74,6 +134,31 @@
    "nl": {
     "titre": "Het verhaal van 10 schilderijen",
     "texte": "wie het schilderde, wanneer, en het ene detail dat iedereen mist. musea worden tien keer leuker",
+    "image": "images/pianiste-renoir.jpg"
+   },
+   "hu": {
+    "titre": "10 festmény története",
+    "texte": "ki festette, mikor, és az az egy részlet, amit mindenki elnéz. a múzeumok tízszer szórakoztatóbbak lesznek",
+    "image": "images/pianiste-renoir.jpg"
+   },
+   "it": {
+    "titre": "La storia di 10 quadri",
+    "texte": "chi l'ha dipinto, quando, e l'unico dettaglio che tutti si perdono. i musei diventano dieci volte più divertenti",
+    "image": "images/pianiste-renoir.jpg"
+   },
+   "pt-BR": {
+    "titre": "A história de 10 quadros",
+    "texte": "quem pintou, quando e o detalhe que todo mundo deixa passar. o museu fica dez vezes mais divertido",
+    "image": "images/pianiste-renoir.jpg"
+   },
+   "sv": {
+    "titre": "Historien bakom 10 tavlor",
+    "texte": "vem som målade, när, och den enda detalj alla missar. museer blir tio gånger roligare",
+    "image": "images/pianiste-renoir.jpg"
+   },
+   "tr": {
+    "titre": "10 tablonun hikâyesi",
+    "texte": "kim yaptı, ne zaman ve herkesin kaçırdığı o tek ayrıntı. müzeler on kat daha eğlenceli olur",
     "image": "images/pianiste-renoir.jpg"
    }
   },
@@ -94,6 +179,31 @@
     "titre": "Elke dag een les op Sophia",
     "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. de makkelijkste manier om altijd iets te vertellen te hebben",
     "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. a legegyszerűbb módja, hogy mindig legyen miről mesélned",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. il modo più semplice per avere sempre qualcosa da raccontare",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. o jeito mais fácil de sempre ter assunto",
+    "telephone": "quiz"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. det enklaste sättet att alltid ha något att berätta",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. anlatacak bir şeyin her zaman olmasının en kolay yolu",
+    "telephone": "quiz"
    }
   },
   {
@@ -112,6 +222,31 @@
     "titre": "Hoe geld ontstaat",
     "texte": "het meeste geld wordt niet gedrukt. de bank of england legde in 2014 uit dat banken nieuw geld maken wanneer ze leningen geven",
     "image": "images/pieces-banque.jpg"
+   },
+   "hu": {
+    "titre": "Hogyan születik a pénz",
+    "texte": "a pénz nagy részét nem nyomtatják. a bank of england 2014-ben elmagyarázta, hogy a bankok hitelezéskor új pénzt hoznak létre",
+    "image": "images/pieces-banque.jpg"
+   },
+   "it": {
+    "titre": "Come nasce il denaro",
+    "texte": "la maggior parte del denaro non viene stampata. la bank of england ha spiegato nel 2014 che le banche creano denaro nuovo quando concedono prestiti",
+    "image": "images/pieces-banque.jpg"
+   },
+   "pt-BR": {
+    "titre": "Como o dinheiro é criado",
+    "texte": "a maior parte do dinheiro não é impressa. o banco da inglaterra explicou em 2014 que os bancos criam dinheiro novo quando emprestam",
+    "image": "images/pieces-banque.jpg"
+   },
+   "sv": {
+    "titre": "Hur pengar skapas",
+    "texte": "de flesta pengar trycks inte. bank of england förklarade 2014 att banker skapar nya pengar när de lånar ut",
+    "image": "images/pieces-banque.jpg"
+   },
+   "tr": {
+    "titre": "Para nasıl yaratılır",
+    "texte": "paranın çoğu basılmaz. bank of england 2014'te bankaların kredi verirken yeni para yarattığını açıkladı",
+    "image": "images/pieces-banque.jpg"
    }
   },
   {
@@ -129,6 +264,31 @@
    "nl": {
     "titre": "Het noorden vinden met een stok",
     "texte": "zet een stok in de grond, markeer de punt van de schaduw, wacht 15 minuten, markeer opnieuw. de lijn ertussen loopt ongeveer van west naar oost",
+    "image": "images/cadran-solaire.jpg"
+   },
+   "hu": {
+    "titre": "Észak egy bottal",
+    "texte": "szúrj le egy botot, jelöld meg az árnyéka csúcsát, várj 15 percet, jelöld meg újra. a két pont közti vonal nagyjából nyugat-kelet irányú",
+    "image": "images/cadran-solaire.jpg"
+   },
+   "it": {
+    "titre": "Il nord con un bastone",
+    "texte": "pianta un bastone, segna la punta dell'ombra, aspetta 15 minuti, segnala di nuovo. la linea tra i due segni va più o meno da ovest a est",
+    "image": "images/cadran-solaire.jpg"
+   },
+   "pt-BR": {
+    "titre": "Achar o norte com um graveto",
+    "texte": "finque um graveto, marque a ponta da sombra, espere 15 minutos e marque de novo. a linha entre as marcas vai mais ou menos de oeste a leste",
+    "image": "images/cadran-solaire.jpg"
+   },
+   "sv": {
+    "titre": "Hitta norr med en pinne",
+    "texte": "sätt ner en pinne, markera skuggans spets, vänta 15 minuter, markera igen. linjen mellan märkena går ungefär från väst till öst",
+    "image": "images/cadran-solaire.jpg"
+   },
+   "tr": {
+    "titre": "Bir sopayla kuzeyi bulmak",
+    "texte": "bir sopa dik, gölgesinin ucunu işaretle, 15 dakika bekle, yeniden işaretle. iki işaret arasındaki çizgi kabaca batıdan doğuya uzanır",
     "image": "images/cadran-solaire.jpg"
    }
   }

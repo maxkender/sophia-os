@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o297",
+  "type_bleo": "full_test",
+  "titre": "les détails d'une fille cultivée qu'on remarque tout de suite #culture #elegance #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit et observations, aucun fait daté. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "76e69cea",
+      "texte_overlay": "les détails d'une fille cultivée\nqu'on remarque tout de suite",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e36355a4",
+      "texte_overlay": "1. elle a toujours un livre dans son sac\n\net elle le lit vraiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "88256811",
+      "texte_overlay": "2. elle pose des questions\n\net elle écoute la réponse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "76147ec4",
+      "texte_overlay": "3. elle cite sans frimer\n\nune phrase, un film, un tableau,\nau bon moment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "554538dc",
+      "texte_overlay": "4. elle dit « je ne sais pas »\n\nsans gêne.\npuis elle cherche.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b24776cb",
+      "texte_overlay": "5. elle apprend chaque jour\n\navant, je pensais qu'il fallait des années d'études.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque matin, j'en sais un peu plus.",
+      "texte_sophia": "5. elle apprend chaque jour\n\navant, je pensais qu'il fallait des années d'études.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque matin, j'en sais un peu plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "dbaa2b07",
+      "texte_overlay": "tu as lequel ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

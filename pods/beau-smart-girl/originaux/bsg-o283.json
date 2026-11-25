@@ -1,0 +1,51 @@
+{
+  "source_id": "bsg-o283",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a1d77bf8-d340-475d-8c29-fca72d906792",
+  "titre": "behaviours that make you look 10x more attractive #glowup #confidence",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "a1d77bf8-d340-475d-8c29-fca72d906792"
+  ],
+  "notes": "G1, déclinaison de a1d77bf8 (« behaviours that make you look 10x more attractive », génération 0 ; meilleur passage tr 22 k vues, r 10,72), en anglais. 1re déclinaison. cta B. Comportements neufs (rien du parent : ni regard soutenu, ni brainrot, ni posture). Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/Roman_Holiday : Audrey Hepburn a gagné l'Oscar pour ce rôle. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0721d33b",
+      "texte_overlay": "behaviours that make you look\n10x more attractive:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e23e9623",
+      "texte_overlay": "remembering small details about people.\n\ntheir dog's name. their exam date.\nthey'll never forget it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d756cca2",
+      "texte_overlay": "laughing at yourself.\n\nconfidence isn't taking yourself seriously.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "923ec333",
+      "texte_overlay": "putting your phone away when someone talks.\n\nfull attention is rare. and magnetic.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "66654253",
+      "texte_overlay": "having a fun fact ready.\n\nthis morning i learned that audrey hepburn won an oscar for roman holiday.\nthe whole table wanted to talk about old movies.",
+      "texte_sophia": "having a fun fact ready.\n\nthis morning, the Sophia app taught me that audrey hepburn won an oscar for roman holiday.\nthe whole table wanted to talk about old movies.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "87a6f872",
+      "texte_overlay": "save this.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

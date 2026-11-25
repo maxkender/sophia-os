@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o289",
+  "type_bleo": "full_test",
+  "titre": "comment je découvre un nouveau pays sans quitter mon canapé #voyage #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d3a5693b",
+      "texte_overlay": "comment je découvre un nouveau pays\nsans quitter mon canapé",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "36f1774a",
+      "texte_overlay": "1. un film de là-bas\n\nen version originale.\nla langue, les rues, les gestes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ab1b357b",
+      "texte_overlay": "2. une recette du pays\n\nles épices racontent l'histoire\nmieux que les livres.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e15ba64c",
+      "texte_overlay": "3. un roman d'un auteur du pays\n\nvu de l'intérieur,\npas par un touriste.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "00f0d1fb",
+      "texte_overlay": "4. un album de musique\n\npendant que le plat mijote.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d51295d1",
+      "texte_overlay": "5. son histoire en petits morceaux\n\navant, je ne connaissais que les capitales.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque mois, un pays de plus.",
+      "texte_sophia": "5. son histoire en petits morceaux\n\navant, je ne connaissais que les capitales.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque mois, un pays de plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e2899385",
+      "texte_overlay": "tu choisirais quel pays ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

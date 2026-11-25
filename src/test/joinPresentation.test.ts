@@ -5,7 +5,8 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
-  CLES_PRESENTATION, decouperCorps, ligneTapee, longueurTape, marquerPresentationVue, NB_ECRANS, presentationVue, texteTape,
+  CLES_PRESENTATION, decouperCorps, ligneTapee, longueurTape, marquerPresentationVue, NB_ECRANS, pasEcriture, presentationVue,
+  texteTape,
 } from "../../apps/join/src/presentation";
 import { NOMS_LANGUES } from "../../apps/join/src/langues";
 
@@ -20,6 +21,15 @@ describe("présentation de apps/join", () => {
     expect(texteTape("Hi", "Ça va", 3)).toEqual({ titre: "Hi", corps: "Ç", fini: false });
     expect(texteTape("Hi", "Ça va", longueurTape("Hi", "Ça va"))).toEqual({ titre: "Hi", corps: "Ça va", fini: true });
     expect(texteTape("Hi", "Ça va", Number.POSITIVE_INFINITY).fini).toBe(true);
+  });
+
+  it("écrit 2 à 3 fois plus vite qu'avant (2 caractères / 30 ms), en 3 secondes au plus par écran", () => {
+    expect(pasEcriture(0)).toBe(5);
+    expect(pasEcriture(200)).toBe(5);
+    for (const total of [300, 650, 900, 1500]) {
+      expect(pasEcriture(total)).toBeGreaterThanOrEqual(5);
+      expect(Math.ceil(total / pasEcriture(total)) * 30).toBeLessThanOrEqual(3000);
+    }
   });
 
   it("découpe le texte en lignes et en vraie liste numérotée, tapées dans l'ordre", () => {

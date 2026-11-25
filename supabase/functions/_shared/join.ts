@@ -107,7 +107,8 @@ export interface SaisieCandidature {
   whatsapp_optin: boolean;
   pays: string;
   majeur: true;
-  deux_telephones: boolean;
+  /** 25/11 (Max) : la question n'est plus posée par Join (null) ; une réponse d'un ancien formulaire est gardée. */
+  deux_telephones: boolean | null;
   entendu: Entendu;
   parrain: string | null;
   reponses: Record<string, string>;
@@ -125,15 +126,15 @@ export function reponsesOS(pays: string, entendu: Entendu, parrain: string | nul
   return {
     pays_actuel: pays,
     heures: "Agreed: 2 slideshows a day, 7 days a week",
-    tiktok: "Agreed: creates and runs the TikTok account we provide",
+    tiktok: "Agreed: creates a new TikTok account with the username, photo and bio we give (it belongs to Vik Studios)",
     contenu: `Heard about us: ${entendu}${parrain ? ` (referred by ${parrain})` : ""}`,
   };
 }
 
 /**
  * Valide le formulaire v2 : champs requis, email, WhatsApp E.164, pays ISO2, 18 ans ou plus (oui obligatoire),
- * deux téléphones (oui/non : règle de l'OS), canal d'arrivée (+ nom du parrain), tarif accepté, engagement,
- * consentement. Le champ piège `site` doit rester vide.
+ * canal d'arrivée (+ nom du parrain), tarif accepté, engagement, consentement. Le champ piège `site` doit rester vide.
+ * 25/11 (Max) : plus de question « deux téléphones » (facultative : absente = null, sinon un booléen).
  */
 export function validerCandidature(b: Record<string, unknown>): Validation {
   const t = (k: string, max = 200) => String(b[k] ?? "").trim().slice(0, max);
@@ -152,7 +153,7 @@ export function validerCandidature(b: Record<string, unknown>): Validation {
   if (!whatsapp) erreurs.push("whatsapp");
   if (!/^[A-Z]{2}$/.test(pays)) erreurs.push("pays");
   if (b.majeur !== true) erreurs.push("majeur");
-  if (typeof b.deux_telephones !== "boolean") erreurs.push("deux_telephones");
+  if (b.deux_telephones != null && typeof b.deux_telephones !== "boolean") erreurs.push("deux_telephones");
   if (!(ENTENDU as readonly string[]).includes(entendu)) erreurs.push("entendu");
   if (entendu === "referral" && !parrain) erreurs.push("parrain");
   if (b.accord_tarif !== true) erreurs.push("accord_tarif");
@@ -164,7 +165,7 @@ export function validerCandidature(b: Record<string, unknown>): Validation {
     ok: true,
     valeurs: {
       prenom, nom, email, whatsapp_e164: whatsapp!, whatsapp_optin: b.whatsapp_optin === true, pays, majeur: true,
-      deux_telephones: b.deux_telephones as boolean, entendu, parrain: parrainGarde,
+      deux_telephones: typeof b.deux_telephones === "boolean" ? b.deux_telephones : null, entendu, parrain: parrainGarde,
       reponses: reponsesOS(pays, entendu, parrainGarde),
       langue: t("langue", 5).toLowerCase() || "en",
     },
@@ -222,11 +223,15 @@ export function codesVerifies(
   return !!c.email_verifie_at && (!codeWhatsappActif(mode) || !!c.whatsapp_verifie_at);
 }
 
+/**
+ * La candidature Join vue par les règles de l'OS. 25/11 (Max) : Join n'exige plus de deuxième téléphone, la condition
+ * « 2 téléphones » de manquesCandidature (ruul.ts, partagée avec l'OS et le Hub, inchangée) est donc remplie ici.
+ */
 export function versCandidatureRuul(c: CandidatureJoin, whatsappExige = true): CandidatureRuul {
   return {
     adulte: c.majeur === true ? true : c.age == null ? (c.majeur === false ? false : null) : c.age >= 18,
     pays: c.pays || null,
-    deux_telephones: c.deux_telephones,
+    deux_telephones: true,
     a_telephone: !!c.whatsapp_verifie_at || (!whatsappExige && !!c.whatsapp_e164),
     nom: `${c.prenom ?? ""} ${c.nom ?? ""}`.trim() || null,
     email: c.email || null,
@@ -671,7 +676,7 @@ export function texteRappel(
     premier_post: debut
       ? `You start posting today: your 2 slideshows are ready on your dashboard (${LIEN_DASHBOARD_OS}). Post them on TikTok, then paste the link of each post on your dashboard.`
       : `We haven't seen your first post yet. Your 2 slideshows a day are ready on your dashboard (${LIEN_DASHBOARD_OS}): post them on TikTok, then paste the link of each post on your dashboard. You're paid for every post you publish.`,
-    tiktok: `Create your TikTok account on your work phone${v.handle ? ` with this exact name: @${v.handle}` : ""}.`,
+    tiktok: `Create your new TikTok account${v.handle ? ` with this exact username: @${v.handle}` : ""}, with the photo and bio shown on your checklist.`,
     warmup: `Log in to your dashboard (${LIEN_DASHBOARD_OS}), click « Start warmup », follow at least 5 accounts and use TikTok normally a few minutes a day.`,
     ruul: `Set up Ruul to get paid (about 10 minutes): create your account${v.ruulEmail ? ` with ${v.ruulEmail}` : ""}, then add your ID and bank details. Your personal Ruul link is on your checklist.`,
     slack: `Join our Slack with your personal email and your full name: ${LIEN_SLACK}`,

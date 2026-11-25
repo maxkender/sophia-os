@@ -139,7 +139,7 @@ function FicheCandidat({ id, onFermer, onDecide }: { id: string; onFermer: () =>
         <dt>WhatsApp</dt><dd>{String(c.whatsapp ?? "")} {c.whatsapp_verifie ? "✓" : "·"} · messages : {c.whatsapp_optin ? "oui" : "non"}</dd>
         <dt>Pays</dt><dd>{nomPays(c.pays, "fr")} ({c.pays})</dd>
         <dt>Candidature</dt><dd>{dateHeure(c.cree_at)} · langue {String(c.langue ?? "")}</dd>
-        <dt>18 ans +</dt><dd>{c.majeur === true ? "oui" : c.age != null ? `${String(c.age)} ans` : "?"} · 2e téléphone : {c.deux_telephones === true ? "oui" : c.deux_telephones === false ? "non" : "?"}</dd>
+        <dt>18 ans +</dt><dd>{c.majeur === true ? "oui" : c.age != null ? `${String(c.age)} ans` : "?"} · 2e téléphone : {c.deux_telephones === true ? "oui" : c.deux_telephones === false ? "non" : "non demandé"}</dd>
         <dt>Source</dt><dd>{[c.entendu, c.parrain ? `parrain : ${String(c.parrain)}` : null, ...Object.entries(source).filter(([k]) => k !== "at").map(([k, v]) => `${k}=${v}`)].filter(Boolean).join(" · ") || "—"}</dd>
         {c.cohorte && <><dt>Cohorte</dt><dd>{c.cohorte}</dd></>}
         {c.handle_tiktok ? <><dt>TikTok</dt><dd>@{String(c.handle_tiktok)}</dd></> : null}

@@ -53,6 +53,14 @@ export function longueurTape(titre: string, corps: string): number {
   return [...titre].length + [...corps].length;
 }
 
+/**
+ * 25/11 (test persona) : le nombre de caractères écrits à chaque pas de 30 ms. Au moins 5 (≈ 165 caractères par
+ * seconde, 2,5 fois plus vite qu'avant), et plus pour un long texte : un écran s'écrit en 3 secondes au plus.
+ */
+export function pasEcriture(total: number): number {
+  return Math.max(5, Math.ceil(Math.max(0, total) / 100));
+}
+
 export function mouvementReduit(): boolean {
   try {
     return globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;

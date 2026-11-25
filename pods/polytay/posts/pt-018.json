@@ -1,0 +1,616 @@
+{
+ "id": "pt-018",
+ "titre": {
+  "en": "things to learn before you turn 25",
+  "fr": "ce qu'il faut apprendre avant 25 ans",
+  "es": "cosas que aprender antes de los 25",
+  "es-419": "cosas que aprender antes de los 25",
+  "it": "cose da imparare prima dei 25 anni",
+  "tr": "25 yaşından önce öğrenmen gerekenler",
+  "pt-BR": "coisas pra aprender antes dos 25",
+  "sl": "stvari, ki se jih je dobro naučiti pred 25. letom",
+  "de": "was du vor 25 lernen solltest",
+  "sk": "veci, ktoré sa oplatí naučiť pred 25",
+  "sv": "saker att lära sig innan du fyller 25"
+ },
+ "legendes": {
+  "en": "not a bucket list, a learning list. how many do you already know <3 #girlblogger #selfimprovement #learning #thatgirl #booktok",
+  "fr": "pas une bucket list, une liste d'apprentissages. tu en sais combien déjà <3 #girlblogger #developpementpersonnel #apprendre #thatgirl #booktokfrance",
+  "es": "no es una bucket list, es una lista para aprender. ¿cuántas sabes ya? <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktokespaña",
+  "es-419": "no es una bucket list, es una lista para aprender. ¿cuántas ya sabes? <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktoklatam",
+  "it": "non una bucket list, una lista di cose da imparare. quante ne sai già <3 #girlblogger #crescitapersonale #imparare #thatgirl #booktokitalia",
+  "tr": "bir bucket list değil, bir öğrenme listesi. kaçını zaten biliyorsun <3 #girlblogger #kişiselgelişim #öğrenmek #thatgirl #booktoktürkiye",
+  "pt-BR": "não é uma bucket list, é uma lista de aprendizados. quantas você já sabe <3 #girlblogger #autodesenvolvimento #aprender #thatgirl #booktokbrasil",
+  "sl": "ne bucket list, ampak seznam za učenje. koliko jih že znaš <3 #girlblogger #osebnirazvoj #učenje #thatgirl #booktok",
+  "de": "keine bucket list, eine lernliste. wie viele kannst du schon <3 #girlblogger #selbstverbesserung #lernen #thatgirl #booktokdeutschland",
+  "sk": "nie bucket list, ale zoznam na učenie. koľko z nich už vieš <3 #girlblogger #osobnyrozvoj #ucenie #thatgirl #booktok",
+  "sv": "inte en bucket list, en lärolista. hur många kan du redan <3 #girlblogger #självutveckling #lärande #thatgirl #booktoksverige"
+ },
+ "musique": {
+  "titre": "Contemplation",
+  "url": "https://www.tiktok.com/music/Contemplation-6834268077673154561"
+ },
+ "notes": "Full test (BLEO, 25/11) : accroche neuve chez nous (« before you turn 25 »), au gabarit de son tube. Éléments à nous : regarder un tableau, trois plats de mémoire, Sophia, garder une plante en vie, l'histoire de sa ville. Slide Sophia (4) : « 3. a bit of everything », cta B. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-allee-verte.jpg": "86d2fdf1-9f47-4609-abf8-2ac2e3f32029",
+  "images/banque/couv-ciel-rose.jpg": "12048e38-3193-45c0-a9a1-059cbb701a6e",
+  "images/banque/peinture-gribouillis.jpg": "297e2fb8-99b2-43f9-857a-9b768910c935",
+  "images/banque/peinture-oiseau.jpg": "81d005ce-b452-4776-8f5b-1c9fba2e7cab",
+  "images/banque/cuisine-lampe.jpg": "d0b32220-0625-464b-9828-165f87d3f423",
+  "images/banque/crepes-myrtilles.jpg": "aa2d8f36-e9e6-454d-9d24-5307bf37e64c",
+  "images/banque/soleil-rouge.jpg": "2efa1cda-d87a-4e7a-bb28-e920da6a4fc3",
+  "images/banque/plante-lampe.jpg": "66ff6708-df69-484b-89c5-23dfb54953ff",
+  "images/banque/feuilles-ombre.jpg": "3d042c1b-cdb6-4695-b80e-6189a37f6459",
+  "images/banque/ville-nuit-montagne.jpg": "06a57bd2-5bc6-4226-9f2b-4a829af26025",
+  "images/banque/rue-brume.jpg": "e78b860b-636e-4a80-a3c6-c8c368fb115c"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-allee-verte.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-ciel-rose.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "things to learn\nbefore you\nturn 25"
+   },
+   "fr": {
+    "titre": "ce qu'il faut\napprendre avant\n25 ans"
+   },
+   "es": {
+    "titre": "cosas que aprender\nantes de los 25"
+   },
+   "es-419": {
+    "titre": "cosas que aprender\nantes de los 25"
+   },
+   "it": {
+    "titre": "cose da imparare\nprima dei 25 anni"
+   },
+   "tr": {
+    "titre": "25 yaşından önce\nöğrenmen\ngerekenler"
+   },
+   "pt-BR": {
+    "titre": "coisas pra aprender\nantes dos 25"
+   },
+   "sl": {
+    "titre": "stvari, ki se jih je\ndobro naučiti\npred 25. letom"
+   },
+   "de": {
+    "titre": "was du vor 25\nlernen solltest"
+   },
+   "sk": {
+    "titre": "veci, ktoré sa\noplatí naučiť\npred 25"
+   },
+   "sv": {
+    "titre": "saker att lära sig\ninnan du fyller 25"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/peinture-gribouillis.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/peinture-oiseau.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. how to look at a painting",
+    "paragraphes": [
+     "Stand in front of one painting and ask three things: what's in the light, who's looking where, what's missing.",
+     "Museums stop being boring forever, and you'll never rush through one again"
+    ]
+   },
+   "fr": {
+    "titre": "1. regarder un tableau",
+    "paragraphes": [
+     "Devant un tableau, pose-toi trois questions : qu'est-ce qui est dans la lumière, qui regarde où, qu'est-ce qui manque.",
+     "Les musées ne sont plus jamais ennuyeux, et tu ne les traverses plus en courant"
+    ]
+   },
+   "es": {
+    "titre": "1. cómo mirar un cuadro",
+    "paragraphes": [
+     "Delante de un cuadro, hazte tres preguntas: qué está en la luz, quién mira hacia dónde, qué falta.",
+     "Los museos dejan de ser aburridos para siempre, y ya no los recorres corriendo"
+    ]
+   },
+   "es-419": {
+    "titre": "1. cómo mirar una pintura",
+    "paragraphes": [
+     "Frente a una pintura, hazte tres preguntas: qué está en la luz, quién mira hacia dónde, qué falta.",
+     "Los museos dejan de ser aburridos para siempre, y ya no los recorres a las carreras"
+    ]
+   },
+   "it": {
+    "titre": "1. come guardare un quadro",
+    "paragraphes": [
+     "Davanti a un quadro, chiediti tre cose: cosa c'è nella luce, chi guarda dove, cosa manca.",
+     "I musei smettono per sempre di essere noiosi, e non li attraversi più di corsa"
+    ]
+   },
+   "tr": {
+    "titre": "1. bir tabloya bakmayı",
+    "paragraphes": [
+     "Bir tablonun önünde kendine üç şey sor: ışıkta ne var, kim nereye bakıyor, ne eksik.",
+     "Müzeler sonsuza dek sıkıcı olmaktan çıkar, ve bir daha koşarak gezmezsin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. como olhar um quadro",
+    "paragraphes": [
+     "Na frente de um quadro, se pergunta três coisas: o que está na luz, quem olha pra onde, o que está faltando.",
+     "Museu nunca mais vai ser chato, e você nunca mais vai passar correndo"
+    ]
+   },
+   "sl": {
+    "titre": "1. kako gledati sliko",
+    "paragraphes": [
+     "Pred sliko si zastavi tri vprašanja: kaj je na svetlobi, kdo gleda kam, kaj manjka.",
+     "Muzeji za vedno nehajo biti dolgočasni, in skozi njih ne tečeš več"
+    ]
+   },
+   "de": {
+    "titre": "1. ein bild anschauen",
+    "paragraphes": [
+     "Stell dir vor einem gemälde drei fragen: was liegt im licht, wer schaut wohin, was fehlt.",
+     "Museen sind nie wieder langweilig, und du rennst nie mehr durch"
+    ]
+   },
+   "sk": {
+    "titre": "1. ako sa pozerať na obraz",
+    "paragraphes": [
+     "Pred obrazom si polož tri otázky: čo je vo svetle, kto sa pozerá kam, čo chýba.",
+     "Múzeá navždy prestanú byť nudné, a už nimi neprebehneš"
+    ]
+   },
+   "sv": {
+    "titre": "1. hur man tittar på en tavla",
+    "paragraphes": [
+     "Framför en tavla, ställ tre frågor: vad ligger i ljuset, vem tittar vart, vad saknas.",
+     "Museer blir aldrig tråkiga igen, och du springer aldrig igenom dem mer"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/cuisine-lampe.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/crepes-myrtilles.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. three dishes from memory",
+    "paragraphes": [
+     "Learn three meals you can cook without a recipe: one for friends, one for a bad day, one from your family.",
+     "You'll always be able to feed people you love, and that's a kind of culture too"
+    ]
+   },
+   "fr": {
+    "titre": "2. trois plats de mémoire",
+    "paragraphes": [
+     "Apprends trois repas que tu sais cuisiner sans recette : un pour les amis, un pour les mauvais jours, un de ta famille.",
+     "Tu pourras toujours nourrir les gens que tu aimes, et ça aussi, c'est de la culture"
+    ]
+   },
+   "es": {
+    "titre": "2. tres platos de memoria",
+    "paragraphes": [
+     "Aprende tres comidas que sepas hacer sin receta: una para amigos, una para un mal día, una de tu familia.",
+     "Siempre podrás dar de comer a quien quieres, y eso también es cultura"
+    ]
+   },
+   "es-419": {
+    "titre": "2. tres platillos de memoria",
+    "paragraphes": [
+     "Aprende tres comidas que puedas hacer sin receta: una para amigos, una para un mal día, una de tu familia.",
+     "Siempre vas a poder darle de comer a quien quieres, y eso también es cultura"
+    ]
+   },
+   "it": {
+    "titre": "2. tre piatti a memoria",
+    "paragraphes": [
+     "Impara tre piatti che sai cucinare senza ricetta: uno per gli amici, uno per le giornate no, uno della tua famiglia.",
+     "Potrai sempre sfamare le persone che ami, e anche questa è cultura"
+    ]
+   },
+   "tr": {
+    "titre": "2. ezbere üç yemek",
+    "paragraphes": [
+     "Tarifsiz yapabildiğin üç yemek öğren: biri arkadaşlar için, biri kötü günler için, biri ailenden.",
+     "Sevdiğin insanları her zaman doyurabilirsin, ve bu da bir kültür"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. três pratos de cabeça",
+    "paragraphes": [
+     "Aprende três comidas que você faz sem receita: uma pros amigos, uma pros dias ruins, uma da sua família.",
+     "Você sempre vai conseguir alimentar quem ama, e isso também é cultura"
+    ]
+   },
+   "sl": {
+    "titre": "2. tri jedi na pamet",
+    "paragraphes": [
+     "Nauči se tri jedi, ki jih skuhaš brez recepta: eno za prijatelje, eno za slab dan, eno iz svoje družine.",
+     "Vedno boš lahko nahranila ljudi, ki jih imaš rada, in tudi to je kultura"
+    ]
+   },
+   "de": {
+    "titre": "2. drei gerichte auswendig",
+    "paragraphes": [
+     "Lern drei gerichte, die du ohne rezept kochen kannst: eins für freunde, eins für schlechte tage, eins aus deiner familie.",
+     "Du kannst immer die menschen satt machen, die du liebst, und auch das ist kultur"
+    ]
+   },
+   "sk": {
+    "titre": "2. tri jedlá naspamäť",
+    "paragraphes": [
+     "Nauč sa tri jedlá, ktoré uvaríš bez receptu: jedno pre kamarátov, jedno na zlé dni, jedno z tvojej rodiny.",
+     "Vždy budeš vedieť nasýtiť ľudí, ktorých máš rada, a aj to je kultúra"
+    ]
+   },
+   "sv": {
+    "titre": "2. tre rätter utantill",
+    "paragraphes": [
+     "Lär dig tre måltider du kan laga utan recept: en för vänner, en för dåliga dagar, en från din familj.",
+     "Du kan alltid bjuda dem du älskar på mat, och det är också kultur"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/soleil-rouge.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. a bit of everything",
+    "paragraphes": [
+     "Sophia gives me one lesson a day, written by actual professors. history, philosophy, geopolitics, with a little quiz after.",
+     "Ten minutes a day, and by 25 you'll know a little about almost everything"
+    ]
+   },
+   "fr": {
+    "titre": "3. un peu de tout",
+    "paragraphes": [
+     "Sophia me donne une leçon par jour, écrite par de vrais profs. histoire, philosophie, géopolitique, avec un petit quiz après.",
+     "Dix minutes par jour, et à 25 ans tu sais un peu de presque tout"
+    ]
+   },
+   "es": {
+    "titre": "3. un poco de todo",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, geopolítica, con un pequeño quiz al final.",
+     "Diez minutos al día, y a los 25 sabrás un poco de casi todo"
+    ]
+   },
+   "es-419": {
+    "titre": "3. un poco de todo",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, geopolítica, con un pequeño quiz al final.",
+     "Diez minutos al día, y a los 25 vas a saber un poco de casi todo"
+    ]
+   },
+   "it": {
+    "titre": "3. un po' di tutto",
+    "paragraphes": [
+     "Sophia mi dà una lezione al giorno, scritta da veri professori. storia, filosofia, geopolitica, con un piccolo quiz alla fine.",
+     "Dieci minuti al giorno, e a 25 anni saprai un po' di quasi tutto"
+    ]
+   },
+   "tr": {
+    "titre": "3. her şeyden biraz",
+    "paragraphes": [
+     "Sophia bana her gün gerçek profesörlerin yazdığı bir ders veriyor. tarih, felsefe, jeopolitik, sonunda da küçük bir test.",
+     "Günde on dakika, ve 25 yaşında neredeyse her şeyden biraz bilirsin"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. um pouco de tudo",
+    "paragraphes": [
+     "O Sophia me dá uma aula por dia, escrita por professores de verdade. história, filosofia, geopolítica, com um quiz no final.",
+     "Dez minutos por dia, e aos 25 você vai saber um pouco de quase tudo"
+    ]
+   },
+   "sl": {
+    "titre": "3. malo vsega",
+    "paragraphes": [
+     "Sophia mi vsak dan da eno lekcijo, ki so jo napisali pravi profesorji. zgodovina, filozofija, geopolitika, na koncu pa kratek kviz.",
+     "Deset minut na dan, in pri 25 veš malo o skoraj vsem"
+    ]
+   },
+   "de": {
+    "titre": "3. ein bisschen von allem",
+    "paragraphes": [
+     "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren. geschichte, philosophie, geopolitik, mit einem kleinen quiz danach.",
+     "Zehn minuten am tag, und mit 25 weißt du ein bisschen über fast alles"
+    ]
+   },
+   "sk": {
+    "titre": "3. trochu zo všetkého",
+    "paragraphes": [
+     "Sophia mi každý deň dá jednu lekciu, ktorú napísali skutoční profesori. dejiny, filozofia, geopolitika a na konci malý kvíz.",
+     "Desať minút denne a v 25 budeš vedieť trochu takmer o všetkom"
+    ]
+   },
+   "sv": {
+    "titre": "3. lite av allt",
+    "paragraphes": [
+     "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. historia, filosofi, geopolitik, med ett litet quiz efteråt.",
+     "Tio minuter om dagen, och vid 25 kan du lite om nästan allt"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/plante-lampe.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/feuilles-ombre.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. how to keep a plant alive",
+    "paragraphes": [
+     "Learn the name of every plant you own, how much light it wants and when it needs water. start with one.",
+     "It's patience in a pot, and your room becomes the nicest place you know"
+    ]
+   },
+   "fr": {
+    "titre": "4. garder une plante en vie",
+    "paragraphes": [
+     "Apprends le nom de chaque plante chez toi, la lumière qu'elle aime et quand l'arroser. commence par une seule.",
+     "C'est de la patience en pot, et ta chambre devient ton endroit préféré"
+    ]
+   },
+   "es": {
+    "titre": "4. cómo mantener viva una planta",
+    "paragraphes": [
+     "Aprende el nombre de cada planta que tienes, cuánta luz quiere y cuándo regarla. empieza por una.",
+     "Es paciencia en una maceta, y tu cuarto se vuelve tu sitio favorito"
+    ]
+   },
+   "es-419": {
+    "titre": "4. cómo mantener viva una planta",
+    "paragraphes": [
+     "Aprende el nombre de cada planta que tienes, cuánta luz quiere y cuándo regarla. empieza con una.",
+     "Es paciencia en una maceta, y tu cuarto se vuelve tu lugar favorito"
+    ]
+   },
+   "it": {
+    "titre": "4. tenere in vita una pianta",
+    "paragraphes": [
+     "Impara il nome di ogni pianta che hai, quanta luce vuole e quando annaffiarla. inizia da una.",
+     "È pazienza in un vaso, e la tua stanza diventa il tuo posto preferito"
+    ]
+   },
+   "tr": {
+    "titre": "4. bir bitkiyi yaşatmayı",
+    "paragraphes": [
+     "Evindeki her bitkinin adını, ne kadar ışık istediğini ve ne zaman sulanacağını öğren. birinden başla.",
+     "Saksıdaki sabır bu, ve odan en sevdiğin yer olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. como manter uma planta viva",
+    "paragraphes": [
+     "Aprende o nome de cada planta que você tem, quanta luz ela quer e quando regar. começa com uma.",
+     "É paciência num vaso, e seu quarto vira seu lugar favorito"
+    ]
+   },
+   "sl": {
+    "titre": "4. kako ohraniti rastlino pri življenju",
+    "paragraphes": [
+     "Nauči se imena vsake rastline, ki jo imaš, koliko svetlobe želi in kdaj jo zaliti. začni z eno.",
+     "To je potrpežljivost v lončku, in tvoja soba postane tvoj najljubši kraj"
+    ]
+   },
+   "de": {
+    "titre": "4. eine pflanze am leben halten",
+    "paragraphes": [
+     "Lern den namen jeder pflanze, die du hast, wie viel licht sie will und wann sie wasser braucht. fang mit einer an.",
+     "Das ist geduld im topf, und dein zimmer wird dein lieblingsort"
+    ]
+   },
+   "sk": {
+    "titre": "4. ako udržať rastlinu pri živote",
+    "paragraphes": [
+     "Nauč sa meno každej rastliny, ktorú máš, koľko svetla chce a kedy ju poliať. začni jednou.",
+     "Je to trpezlivosť v kvetináči, a tvoja izba sa stane tvojím najobľúbenejším miestom"
+    ]
+   },
+   "sv": {
+    "titre": "4. hur man håller en växt vid liv",
+    "paragraphes": [
+     "Lär dig namnet på varje växt du har, hur mycket ljus den vill ha och när den ska vattnas. börja med en.",
+     "Det är tålamod i en kruka, och ditt rum blir din favoritplats"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/ville-nuit-montagne.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/rue-brume.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. the history of your own city",
+    "paragraphes": [
+     "Find out who founded your city, why it's where it is, and what your street was called a hundred years ago.",
+     "You'll walk home differently, and you'll be the best tour guide your friends ever had"
+    ]
+   },
+   "fr": {
+    "titre": "5. l'histoire de ta ville",
+    "paragraphes": [
+     "Cherche qui a fondé ta ville, pourquoi elle est là, et comment s'appelait ta rue il y a cent ans.",
+     "Tu rentres chez toi autrement, et tu deviens la meilleure guide pour tes amis"
+    ]
+   },
+   "es": {
+    "titre": "5. la historia de tu ciudad",
+    "paragraphes": [
+     "Averigua quién fundó tu ciudad, por qué está donde está y cómo se llamaba tu calle hace cien años.",
+     "Volverás a casa de otra manera, y serás la mejor guía para tus amigos"
+    ]
+   },
+   "es-419": {
+    "titre": "5. la historia de tu ciudad",
+    "paragraphes": [
+     "Averigua quién fundó tu ciudad, por qué está donde está y cómo se llamaba tu calle hace cien años.",
+     "Vas a regresar a casa de otra forma, y serás la mejor guía para tus amigos"
+    ]
+   },
+   "it": {
+    "titre": "5. la storia della tua città",
+    "paragraphes": [
+     "Scopri chi ha fondato la tua città, perché è lì e come si chiamava la tua via cento anni fa.",
+     "Tornerai a casa in modo diverso, e sarai la miglior guida per i tuoi amici"
+    ]
+   },
+   "tr": {
+    "titre": "5. kendi şehrinin tarihini",
+    "paragraphes": [
+     "Şehrini kimin kurduğunu, neden orada olduğunu ve sokağının yüz yıl önce adının ne olduğunu bul.",
+     "Eve başka türlü yürürsün, ve arkadaşlarının en iyi rehberi olursun"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. a história da sua cidade",
+    "paragraphes": [
+     "Descobre quem fundou sua cidade, por que ela fica onde fica e qual era o nome da sua rua cem anos atrás.",
+     "Você vai voltar pra casa de outro jeito, e vai ser a melhor guia dos seus amigos"
+    ]
+   },
+   "sl": {
+    "titre": "5. zgodovina tvojega mesta",
+    "paragraphes": [
+     "Ugotovi, kdo je ustanovil tvoje mesto, zakaj je tam, kjer je, in kako se je tvoja ulica imenovala pred sto leti.",
+     "Domov boš hodila drugače, in postala boš najboljša vodička za prijatelje"
+    ]
+   },
+   "de": {
+    "titre": "5. die geschichte deiner stadt",
+    "paragraphes": [
+     "Find heraus, wer deine stadt gegründet hat, warum sie dort liegt und wie deine straße vor hundert jahren hieß.",
+     "Du gehst anders nach hause, und wirst die beste stadtführerin für deine freunde"
+    ]
+   },
+   "sk": {
+    "titre": "5. história tvojho mesta",
+    "paragraphes": [
+     "Zisti, kto založil tvoje mesto, prečo je tam, kde je, a ako sa volala tvoja ulica pred sto rokmi.",
+     "Domov budeš chodiť inak, a budeš pre kamarátov najlepšia sprievodkyňa"
+    ]
+   },
+   "sv": {
+    "titre": "5. din egen stads historia",
+    "paragraphes": [
+     "Ta reda på vem som grundade din stad, varför den ligger där den ligger och vad din gata hette för hundra år sedan.",
+     "Du går hem på ett nytt sätt, och blir dina vänners bästa guide"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

@@ -146,6 +146,8 @@ type Candidature = CandidatureJoin & {
 };
 
 const HEURE = 3_600_000;
+/** Le runtime Edge de Supabase : waitUntil garde la fonction en vie pour un travail lancé après la réponse. */
+declare const EdgeRuntime: { waitUntil(p: Promise<unknown>): void } | undefined;
 const SESSION_COURTE_H = 24;
 const SESSION_LONGUE_H = 24 * 30;
 
@@ -512,8 +514,9 @@ async function copierDansOS(db: Db, c: Candidature, lundi: string, ruulEmail: st
   const cand = c as Candidature & { decision_par?: string | null; entendu?: string | null; parrain?: string | null; source?: Record<string, string> };
   const ref = cand.source?.ref ?? null;
   const { error } = await db.from("ruul_candidatures").upsert({
+    // 25/11 (Max) : Join n'exige plus de deuxième téléphone ; la fiche reste valide pour les règles de l'OS.
     site_id: c.id, nom: `${c.prenom} ${c.nom}`.trim(), email: c.email, pays: c.pays, pays_brut: c.pays, adulte: true,
-    deux_telephones: c.deux_telephones, a_telephone: true, reponses: c.reponses ?? {},
+    deux_telephones: true, a_telephone: true, reponses: c.reponses ?? {},
     referral: cand.entendu === "referral" || !!ref, parrain_nom: cand.parrain ?? null, ref, langue: c.langue,
     // « join_signed » : jamais repris par les étapes de l'ancien site (pending / accepted).
     statut_site: "join_signed", cree_at: c.cree_at, accepte_at: c.decision_at, signe_at: signeAt,
@@ -1434,7 +1437,11 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
         await db.from("join_candidatures").update({ handle_tiktok: handle, cohorte: lundi, maj_at: new Date().toISOString() }).eq("id", c.id);
         c.cohorte = lundi;
         // Tout s'enchaîne seul : compte OS → Slack → bienvenue → invitation Ruul (chaque étape derrière son drapeau join_reel).
-        await enchainer(db, mode, await lireReel(db), c, lundi);
+        // 25/11 : en arrière-plan, la réponse part dès la signature enregistrée (5-6 s d'attente avant). Sans
+        // EdgeRuntime.waitUntil, le travail peut être coupé : le cron horaire reprend l'enchaînement (idempotent).
+        const travail = lireReel(db).then((reel) => enchainer(db, mode, reel, c, lundi))
+          .catch((e) => console.error("join enchainer", e instanceof Error ? e.message : String(e)));
+        if (typeof EdgeRuntime !== "undefined" && EdgeRuntime?.waitUntil) EdgeRuntime.waitUntil(travail);
       } else {
         lundi = c.cohorte ?? lundi;
       }
@@ -1490,6 +1497,12 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       // Le lundi de départ : celui de l'OS quand la fiche existe (un report de l'OS le décale), sinon celui de Join.
       const premier = os?.cohorte_lundi ?? (c.cohorte ? premierPost(c.cohorte, warmupFini, aujourdhuiParis()) : null);
       const lundiOffre = c.decision === "auto" && !sig ? cohorteASignature(c.cohorte) : null;
+      // 25/11 (test persona) : le profil TikTok à créer, le même que celui du dashboard de l'OS quand le compte y existe
+      // (nom, bio et photo du persona) ; sinon le nom du candidat et une bio par défaut.
+      const { data: compteOS } = c.profile_id
+        ? await db.from("comptes").select("persona_nom, persona_bio, avatar_url").eq("poster_id", c.profile_id).eq("is_active", true)
+          .order("created_at", { ascending: true }).limit(1).maybeSingle()
+        : { data: null };
       // Ruul : le lien personnel d'onboarding (API Ruul, gardé 48 h) ; sans lui, l'inscription app.ruul.io/register.
       let lienRuulPerso: string | null = null;
       if (sig && c.profile_id && !faites.ruul) {
@@ -1515,9 +1528,10 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
         ruul_email: os?.ruul_email ?? sig?.ruul_email ?? null,
         compte_os: !!c.profile_id,
         profil_suggere: {
-          nom: c.prenom,
-          bio: "Daily slides that make you smarter ✨",
-          photo: "A natural photo of you, or a calm aesthetic picture (no logo, no text).",
+          nom: (compteOS?.persona_nom as string | null) || c.prenom,
+          bio: (compteOS?.persona_bio as string | null) || "Daily slides that make you smarter ✨",
+          photo: "A calm aesthetic picture (no logo, no text).",
+          photo_url: (compteOS?.avatar_url as string | null) ?? null,
         },
         ruul_visible: c.ruul_visible,
       });

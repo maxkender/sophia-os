@@ -15,3 +15,15 @@ export function formatInternational(indicatif: string, local: string): string {
   if (chiffres.startsWith("00")) return `+${chiffres.slice(2)}`;
   return `+${indicatif}${chiffres.replace(/^0+/, "")}`;
 }
+
+/**
+ * 25/11 : l'indicatif de départ, tiré de la région du navigateur (« pt-BR » → 55, « pl-PL » → 48) ; vide si elle
+ * est inconnue (jamais +33 par défaut). Le pays choisi dans le formulaire le remplace ensuite.
+ */
+export function indicatifDuNavigateur(langues: readonly string[]): string {
+  for (const l of langues) {
+    const region = String(l).split(/[-_]/).find((m, i) => i > 0 && /^[A-Za-z]{2}$/.test(m))?.toUpperCase();
+    if (region && INDICATIFS[region]) return INDICATIFS[region];
+  }
+  return "";
+}

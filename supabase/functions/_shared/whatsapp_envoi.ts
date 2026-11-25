@@ -31,6 +31,25 @@ export async function lireModeWhatsApp(db: Db): Promise<unknown> {
   return data?.valeur ?? { mode: "test", numeros_autorises: [] };
 }
 
+/** L'erreur de l'API Graph (champs utiles seulement : jamais le jeton, absent de ces champs). */
+export interface ErreurGraph {
+  message?: string;
+  code?: number;
+  error_subcode?: number;
+  error_user_title?: string;
+  error_user_msg?: string;
+}
+
+/**
+ * 25/11 : le texte d'une erreur Meta, avec le sous-code et l'explication donnée à l'utilisateur (« 100 Invalid
+ * parameter » seul ne dit pas pourquoi un modèle est refusé) : « 100/2388023 Invalid parameter — titre : message ».
+ */
+export function texteErreurGraph(e: ErreurGraph, status: number): string {
+  const code = `${e.code ?? status}${e.error_subcode ? `/${e.error_subcode}` : ""}`;
+  const detail = [e.error_user_title, e.error_user_msg].map((x) => String(x ?? "").trim()).filter(Boolean).join(" : ");
+  return `${code} ${e.message ?? ""}${detail ? ` — ${detail}` : ""}`.replace(/\s+/g, " ").trim().slice(0, 600);
+}
+
 /** Un appel à l'API Graph avec le jeton (jamais renvoyé ni journalisé). */
 export async function graph(chemin: string, init: { method?: string; body?: unknown } = {}): Promise<{ ok: boolean; status: number; data: Record<string, unknown> | null; erreur: string | null }> {
   const { token } = secretsWhatsApp();
@@ -42,8 +61,8 @@ export async function graph(chemin: string, init: { method?: string; body?: unkn
       ...(init.body ? { body: JSON.stringify(init.body) } : {}),
     });
     const data = await r.json().catch(() => null) as Record<string, unknown> | null;
-    const e = (data?.error ?? null) as { message?: string; code?: number; error_subcode?: number } | null;
-    return { ok: r.ok && !e, status: r.status, data, erreur: e ? `${e.code ?? r.status} ${e.message ?? ""}`.trim().slice(0, 400) : r.ok ? null : `HTTP ${r.status}` };
+    const e = (data?.error ?? null) as ErreurGraph | null;
+    return { ok: r.ok && !e, status: r.status, data, erreur: e ? texteErreurGraph(e, r.status) : r.ok ? null : `HTTP ${r.status}` };
   } catch (e) {
     return { ok: false, status: 0, data: null, erreur: messageErreur(e) };
   }

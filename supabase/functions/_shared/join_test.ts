@@ -50,6 +50,7 @@ import {
   reponsesOS,
   sha256Hex,
   SOCIETE,
+  texteContratComplet,
   texteMessage,
   TYPES_MESSAGE_JOIN,
   validerCandidature,
@@ -99,7 +100,11 @@ Deno.test("candidature : validation v2 (18+, canal, parrain, tarif, engagement, 
   assertEquals(erreurs({ entendu: "referral" }), ["parrain"]);
   assertEquals(erreurs({ entendu: "tv" }), ["entendu"]);
   assertEquals(erreurs({ site: "http://spam" }), ["site"]);
-  assertEquals(erreurs({ deux_telephones: undefined }), ["deux_telephones"]);
+  // 25/11 (Max) : la question « deux téléphones » n'est plus posée (facultative, null quand absente).
+  assertEquals(erreurs({ deux_telephones: undefined }), []);
+  assertEquals(erreurs({ deux_telephones: "oui" }), ["deux_telephones"]);
+  const sansTel = validerCandidature({ ...saisie, deux_telephones: undefined });
+  assert(sansTel.ok && sansTel.valeurs.deux_telephones === null);
   const p = validerCandidature({ ...saisie, entendu: "referral", parrain: " Ana " });
   assert(p.ok && p.valeurs.parrain === "Ana" && p.valeurs.reponses.contenu.includes("Ana"));
   // Le nom du parrain n'est gardé que si le canal est « referral ».
@@ -144,7 +149,10 @@ Deno.test("décision : règles de l'OS (manquesCandidature)", () => {
   assertEquals(decider(cand({ age: null, majeur: false }), ouverts).decision, "a_traiter");
   assertEquals(decider(cand({ age: null, majeur: null }), ouverts).decision, "a_traiter");
   assertEquals(decider(cand({ pays: "PT" }), ouverts).decision, "a_traiter");
-  assertEquals(decider(cand({ deux_telephones: false }), ouverts).decision, "a_traiter");
+  // 25/11 (Max) : Join n'exige plus de deuxième téléphone (la règle de l'OS reste dans ruul.ts, pour l'OS et le Hub).
+  assertEquals(decider(cand({ deux_telephones: false }), ouverts).decision, "auto");
+  assertEquals(decider(cand({ deux_telephones: null }), ouverts).decision, "auto");
+  assertEquals(versCandidatureRuul(cand({ deux_telephones: null })).deux_telephones, true);
   assertEquals(decider(cand({ whatsapp_verifie_at: null }), ouverts).decision, "a_traiter");
   const r = versCandidatureRuul(cand());
   assertEquals(r.adulte, true);
@@ -203,6 +211,9 @@ Deno.test("contrat v4 = v3 + frais Ruul + non-exclusivité, le reste identique",
   assertEquals(await sha256Hex(v3), "3b26b134a70966d251b8485e772c0c5d475493d2623ead6e72567b39d06bd8ff");
   // Le résumé est inchangé.
   assertEquals(await sha256Hex(JSON.stringify(CONTRAT_RESUME)), "0d649acca27b58fe95843a0482c1454cd88503ee946837fcb6c6b7f62bbbee98");
+  // 25/11 : le texte signé de join-v4 (résumé + texte) ne bouge pas ; seul l'affichage du site change (résumé traduit).
+  assertEquals(await sha256Hex(CONTRAT_TEXTE), "aed5196c671b136d0faeb1733a2eda71c1da6f5a0e4a57b6340c0369e9c2afee");
+  assertEquals(await sha256Hex(texteContratComplet()), "890876acdbd36ef0d4587f6cf82ba3aab68571b6af895c3b6ba1852c30afbe96");
 });
 
 Deno.test("contrat : identité complète de la société en tête, plus de cases vides, clauses gardées", () => {

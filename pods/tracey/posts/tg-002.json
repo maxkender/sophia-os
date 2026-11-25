@@ -1,0 +1,105 @@
+{
+ "id": "tg-002",
+ "source": {
+  "url": "https://www.tiktok.com/@traceygreen589/photo/7706916657163177246",
+  "vues": 704700,
+  "publie_le": "2026-11-11",
+  "accroche": "10/10 hobbies that actually work if you have adhd"
+ },
+ "titre": {
+  "en": "10/10 hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #selfimprovement"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Preuve : « 10/10 hobbies that actually work if you have adhd » de @traceygreen589 (704,7 k vues, 11/11), même gabarit que tg-001, loisirs différents (chantier de l'AGENT.md : sa famille 705 k sur d'autres loisirs). Slide 3 « going to a museum alone » : le logo d'Artura sur une salle de musée de la banque (smart_girl, b4cfdb1a), cta B « artura gives me one painting a day and the story behind it, in a few minutes ». Slide 5 « trail running » : le logo d'Atala sur une coureuse de la banque vue de loin (clean_girl_run, 2000d9a6), cta B « atala builds my runs around my goal and adjusts them every week ». Couverture : l'IRM de tg-001. Escalade, poterie et batterie en Seedream (images/photos, 5 images dont 2 refaites : 0,15 $).",
+ "banque": {
+  "images/banque/musee.jpg": "b4cfdb1a-9bd1-4715-801b-91c19cf5e603",
+  "images/banque/trail.jpg": "2000d9a6-49ae-4a21-affb-4d110119fb51"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/escalade.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "bouldering",
+    "accroche": "every wall is a _puzzle_ for your _whole body_",
+    "colonne": [
+     "a route takes a few minutes, you fall, you try again, so a brain that gets bored fast always has a _next attempt_"
+    ],
+    "chute": "most gyms rent shoes and run an intro session"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/musee.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "nom": "going to a museum alone",
+    "accroche": "no one to keep up with, so you _actually look_",
+    "colonne": [
+     "skip the rooms you don't care about and stand in front of one painting until you find something new in it",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one room, one hour, then leave"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/poterie.jpg",
+   "en": {
+    "nom": "pottery",
+    "accroche": "the clay falls apart the _second_ you _drift_",
+    "colonne": [
+     "your hands are covered in clay so the phone can't win, and the wheel gives you _instant feedback_ on every move"
+    ],
+    "chute": "look for a one-night wheel class near you"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/trail.jpg",
+   "cadrage": {
+    "y": 0.7
+   },
+   "en": {
+    "nom": "trail running",
+    "accroche": "new ground _every step_, so you _can't zone out_",
+    "colonne": [
+     "roots, rocks and hills keep giving your brain something new to read, and a race date gives it a _real goal_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "start with a flat park trail, walk the hills"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/batterie.jpg",
+   "en": {
+    "nom": "learning the drums",
+    "accroche": "you use _both hands_ and _both feet_ at once",
+    "colonne": [
+     "keeping four limbs on one beat leaves no room for a wandering thought, and you hear right away when you're _off_"
+    ],
+    "chute": "a practice pad and a metronome are enough"
+   }
+  }
+ ]
+}

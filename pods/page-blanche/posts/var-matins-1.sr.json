@@ -1,0 +1,270 @@
+{
+ "post_id": "var-matins-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "kako da sigurno upropastiš svako svoje jutro"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(testirano svaki dan, nažalost)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_09e0be7c.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "texte": "odloži alarm [[6 puta zaredom]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "texte": "na svakih 9 minuta ponovo zaspiš, a alarm te opet iščupa iz sna. baš odmarajuće"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "texte": "posle sat vremena konačno ustaneš, [[a umor je veći nego na prvom alarmu]], i imaš još 12 minuta"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "texte": "četkica za zube u jednoj ruci, patika u drugoj, i trkom kroz vrata. [[totalni mir]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6b621671.jpg",
+      "boite": [
+       0,
+       150,
+       880,
+       906
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "drži [[zavese navučene]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "ni zraka dnevnog svetla, samo svetlo telefona. mozak misli da je 3 ujutru"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "pa ostaje u režimu spavanja, a ti lutaš po kuhinji kao [[potpuno izgubljeni zombi]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "svetlo je ionako [[za jutarnje tipove]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4045e9b9.jpg",
+      "boite": [
+       0,
+       560,
+       1760,
+       1332
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "texte": "[[skroluj]] u krevetu"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "texte": "jedno oko otvoreno, drugo još spava: 40 minuta tuđih života, vesti koje stresiraju i [[47 notifikacija]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "texte": "još ni sa kim ne progovaraš ni reč, a mozak ti je [[već preopterećen]]. odlično zagrevanje"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "texte": "i nikad ne menjaj taj skrol za knjigu, podkast ili lekciju od 5 minuta dnevno [[u aplikaciji Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "texte": "bez doručka, [[samo kafa]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "texte": "dva espresa na prazan stomak i ništa drugo do podneva"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "texte": "u 10 ti se ruke malo tresu, a koncentracija je [[otišla]]"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "texte": "u 11:40 pojedeš celo pakovanje keksa iznad tastature. [[izbalansirano!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00ba245c.jpg",
+      "boite": [
+       49,
+       0,
+       2270,
+       1760
+      ]
+     }
+    }
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "texte": "napravi listu od [[23 stavke]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "texte": "sve do podneva, naravno. teretana, mejlovi, porez, pozvati baku"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "texte": "u 11:58 je od svega štiklirana tačno jedna: [[napisati listu]]"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "texte": "pa se griži celo popodne i uveče je prepiši, [[još dužu]]. vidimo se sutra!!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_015e2113.jpg",
+      "boite": [
+       0,
+       420,
+       1760,
+       1525
+      ]
+     }
+    }
+   }
+  }
+ }
+}

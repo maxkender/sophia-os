@@ -1,0 +1,246 @@
+{
+ "post_id": "7711812169930657046",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to reset your",
+      "dopamine"
+     ],
+     "fr": "10/10 habitudes pour remettre ta dopamine à zéro",
+     "texte": "10/10 habitudes pour remettre ta dopamine à zéro"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(la science est d'accord)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0ca3b0a3.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take cold showers"
+     ],
+     "fr": "les [[douches froides]]",
+     "texte": "les [[douches froides]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but cold water raises",
+      "your dopamine for hours after you get out"
+     ],
+     "fr": "JE SAIS, tout le monde le dit, mais l'eau froide booste ta dopamine [[pendant des heures]] après",
+     "texte": "JE SAIS, tout le monde le dit, mais l'eau froide booste ta dopamine [[pendant des heures]] après"
+    },
+    "T3": {
+     "en": [
+      "it's the opposite of",
+      "scrolling, the",
+      "discomfort comes",
+      "first and the reward",
+      "comes after"
+     ],
+     "fr": "c'est l'inverse du scroll, [[l'inconfort d'abord]] et la récompense après",
+     "texte": "c'est l'inverse du scroll, [[l'inconfort d'abord]] et la récompense après"
+    },
+    "T4": {
+     "en": [
+      "that's how you reset your dopamine, your brain gets",
+      "used to doing the hard thing first"
+     ],
+     "fr": "c'est comme ça que tu [[remets ta dopamine à zéro]], ton cerveau s'habitue à [[faire le plus dur en premier]]",
+     "texte": "c'est comme ça que tu [[remets ta dopamine à zéro]], ton cerveau s'habitue à [[faire le plus dur en premier]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop stacking your dopamine"
+     ],
+     "fr": "arrête d'[[empiler la dopamine]]",
+     "texte": "arrête d'[[empiler la dopamine]]"
+    },
+    "T2": {
+     "en": [
+      "music at the gym, a snack while you study, a show",
+      "while you eat, your phone during everything"
+     ],
+     "fr": "du son à la salle, un snack en révisant, une série en mangeant, ton tel [[pendant tout le reste]]",
+     "texte": "du son à la salle, un snack en révisant, une série en mangeant, ton tel [[pendant tout le reste]]"
+    },
+    "T3": {
+     "en": [
+      "when every activity",
+      "comes with a bonus",
+      "hit, the activity itself",
+      "starts feeling boring"
+     ],
+     "fr": "quand chaque activité vient avec un bonus, l'activité elle-même [[devient chiante]]",
+     "texte": "quand chaque activité vient avec un bonus, l'activité elle-même [[devient chiante]]"
+    },
+    "T4": {
+     "en": [
+      "do one thing on its own",
+      "and let it be enough,",
+      "that's how normal",
+      "things start feeling",
+      "good again"
+     ],
+     "fr": "fais une chose [[à la fois]], sans rien à côté, et les trucs normaux [[te refont du bien]]",
+     "texte": "fais une chose [[à la fois]], sans rien à côté, et les trucs normaux [[te refont du bien]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lire [[chaque jour]]",
+     "texte": "lire [[chaque jour]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling gives you a tiny hit",
+      "of dopamine every few",
+      "seconds, so anything slower",
+      "feels boring"
+     ],
+     "fr": "le scroll te file [[une micro dose de dopamine]] toutes les 3 sec, alors tout le reste paraît lent",
+     "texte": "le scroll te file [[une micro dose de dopamine]] toutes les 3 sec, alors tout le reste paraît lent"
+    },
+    "T3": {
+     "en": [
+      "i used to scroll all day until i",
+      "found this which blocks my",
+      "apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "[[avant je scrollais H24]], maintenant je fais 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et le mythe de Sisyphe",
+     "texte": "[[avant je scrollais H24]], maintenant je fais 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et le mythe de Sisyphe"
+    },
+    "T4": {
+     "en": [
+      "books do the opposite, they",
+      "train your brain to focus and",
+      "wait for the payoff"
+     ],
+     "fr": "un livre fait l'inverse, il apprend à ton cerveau à [[se concentrer]] et attendre [[la récompense]]",
+     "texte": "un livre fait l'inverse, il apprend à ton cerveau à [[se concentrer]] et attendre [[la récompense]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start lifting weights"
+     ],
+     "fr": "se mettre [[à la muscu]]",
+     "texte": "se mettre [[à la muscu]]"
+    },
+    "T2": {
+     "en": [
+      "you can actually see yourself getting better, a little",
+      "more weight every week"
+     ],
+     "fr": "tu [[vois vraiment tes progrès]], un peu plus de poids chaque semaine",
+     "texte": "tu [[vois vraiment tes progrès]], un peu plus de poids chaque semaine"
+    },
+    "T3": {
+     "en": [
+      "your brain gets",
+      "dopamine from real",
+      "progress"
+     ],
+     "fr": "ton cerveau tire sa dopamine de [[vrais progrès]]",
+     "texte": "ton cerveau tire sa dopamine de [[vrais progrès]]"
+    },
+    "T4": {
+     "en": [
+      "instead of from likes",
+      "and views that",
+      "disappear in a second"
+     ],
+     "fr": "pas de likes et de vues qui [[disparaissent en une seconde]]",
+     "texte": "pas de likes et de vues qui [[disparaissent en une seconde]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get sunlight first thing in the",
+      "morning"
+     ],
+     "fr": "prendre la lumière du jour [[dès le réveil]]",
+     "texte": "prendre la lumière du jour [[dès le réveil]]"
+    },
+    "T2": {
+     "en": [
+      "your brain is made to wake up with daylight, not",
+      "with a screen"
+     ],
+     "fr": "ton cerveau est [[fait pour se réveiller]] au soleil, pas devant un écran",
+     "texte": "ton cerveau est [[fait pour se réveiller]] au soleil, pas devant un écran"
+    },
+    "T3": {
+     "en": [
+      "go outside for 10",
+      "minutes before you",
+      "check your phone,",
+      "even if it's cloudy"
+     ],
+     "fr": "sors 10 minutes [[avant de regarder ton tel]], même s'il fait gris",
+     "texte": "sors 10 minutes [[avant de regarder ton tel]], même s'il fait gris"
+    },
+    "T4": {
+     "en": [
+      "you start the day with natural dopamine instead of",
+      "getting it from your feed"
+     ],
+     "fr": "tu commences la journée avec de la [[dopamine naturelle]] au lieu de la chercher dans ton feed",
+     "texte": "tu commences la journée avec de la [[dopamine naturelle]] au lieu de la chercher dans ton feed"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

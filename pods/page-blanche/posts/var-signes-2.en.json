@@ -1,0 +1,353 @@
+{
+ "post_id": "var-signes-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 signs that you've harmed",
+      "your brain from scrolling"
+     ],
+     "fr": "5 signes que le scroll t'a grillé le cerveau",
+     "texte": "5 signs your brain is officially addicted to the scroll"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience-backed sources at the end)"
+     ],
+     "fr": "(les sources en neurosciences sont à la fin)",
+     "texte": "(real studies at the end, i promise)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_03972f9c.jpg",
+      "boite": [
+       0,
+       1100,
+       2400,
+       1865
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you watch everything at",
+      "2x speed"
+     ],
+     "fr": "tu regardes tout [[en vitesse x2]]",
+     "texte": "you snap it all [[but remember less]]"
+    },
+    "T2": {
+     "en": [
+      "a 20-minute video becoming 10 feels efficient, but",
+      "you're teaching yourself that normal pacing is too",
+      "slow"
+     ],
+     "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
+     "texte": "museum, concert, sunset: your phone comes out first, and later [[the photo is all you've got]] of the moment"
+    },
+    "T3": {
+     "en": [
+      "eventually lectures,",
+      "reading, and even",
+      "conversations start",
+      "feeling painfully",
+      "under-stimulating"
+     ],
+     "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
+     "texte": "in one study, people remembered [[fewer of the objects they photographed]] than ones they just looked at"
+    },
+    "T4": {
+     "en": [
+      "are you really in a rush",
+      "to watch a tiktok?"
+     ],
+     "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
+     "texte": "take one photo, then [[put the phone away]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1053aed0.jpg",
+      "boite": [
+       0,
+       600,
+       1760,
+       1225
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you feel tired even during the",
+      "day"
+     ],
+     "fr": "t'es à plat [[même en pleine journée]]",
+     "texte": "you feel your phone [[buzz when it didn't]]"
+    },
+    "T2": {
+     "en": [
+      "you can sleep 8 hours and still",
+      "feel mentally exhausted if",
+      "your brain is getting",
+      "hammered with stimulation all",
+      "day"
+     ],
+     "fr": "tu peux dormir 8 heures et [[avoir quand même la tête en vrac]] si ton cerveau se fait [[bombarder toute la journée]]",
+     "texte": "you'd swear it just vibrated, you pull it out of your pocket and there's [[no notification at all]]. every single week"
+    },
+    "T3": {
+     "en": [
+      "constant switching, scrolling",
+      "and notifications create",
+      "attentional fatigue"
+     ],
+     "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
+     "texte": "in one study, [[89% of students]] had felt these phantom vibrations"
+    },
+    "T4": {
+     "en": [
+      "so even simple tasks start",
+      "feeling weirdly draining"
+     ],
+     "fr": "du coup, même les trucs simples te [[lessivent sans raison]]",
+     "texte": "your brain is [[always waiting for the next ping]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1d448ef2.jpg",
+      "boite": [
+       319,
+       0,
+       1410,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you want to stop scrolling but",
+      "can't"
+     ],
+     "fr": "tu veux décrocher [[mais t'y arrives pas]]",
+     "texte": "you forget anything [[you can look up]]"
+    },
+    "T2": {
+     "en": [
+      "if you keep opening tiktok",
+      "without even deciding to,",
+      "that's the problem"
+     ],
+     "fr": "si t'ouvres tiktok sans même l'avoir décidé, [[le problème est là]]",
+     "texte": "a date, a name, a number: why remember it when [[it's one search away]]"
+    },
+    "T3": {
+     "en": [
+      "endless feeds remove",
+      "natural stopping points, so",
+      "“5 minutes” turns into 45"
+     ],
+     "fr": "le fil est sans fin, rien ne t'arrête, du coup [[« 5 min » ça devient 45]]",
+     "texte": "in one study, people who thought the info was saved [[remembered less of it]]"
+    },
+    "T4": {
+     "en": [
+      "make scrolling harder, not",
+      "your self-control stronger"
+     ],
+     "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
+     "texte": "try to recall it [[before you reach for your phone]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_37b240ad.jpg",
+      "boite": [
+       0,
+       500,
+       1504,
+       1827
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "you unlock your phone [[without knowing why]]"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "you open it, scroll for 10 seconds, lock it, and [[a minute later you're back]], for no reason at all"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "researchers found a lot of phone use is [[quick checking habits]], not real decisions"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "i used to doomscroll, now i learn why the renaissance began in italy in [[5 min on the Sophia app]]"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "and next time, [[ask yourself why]] before you unlock"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you reach for your phone the",
+      "second nothing is happening"
+     ],
+     "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
+     "texte": "you scroll in bed and wake up [[feeling completely wrecked]]"
+    },
+    "T2": {
+     "en": [
+      "waiting 30 seconds,",
+      "standing in a queue, sitting",
+      "in a lift, you instantly need",
+      "input"
+     ],
+     "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
+     "texte": "one more video turns into midnight, then you [[can't fall asleep]] and the morning hits hard"
+    },
+    "T3": {
+     "en": [
+      "boredom is where your",
+      "brain gets a chance to",
+      "wander, reflect and",
+      "connect ideas"
+     ],
+     "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
+     "texte": "reading on a lit screen before bed delayed sleep and [[left people less alert next morning]]"
+    },
+    "T4": {
+     "en": [
+      "stop deleting every empty",
+      "moment"
+     ],
+     "fr": "[[arrête de remplir]] chaque temps mort",
+     "texte": "phone out of reach [[at bedtime]]"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[your brain will thank you]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00fb9dca.jpg",
+      "boite": [
+       0,
+       100,
+       1760,
+       2205
+      ]
+     }
+    }
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "sources"
+     ],
+     "fr": "sources",
+     "texte": "sources"
+    },
+    "T2": {
+     "en": [
+      "Nguyen et al. (2025)",
+      "“Feeds, feelings, and focus: A systematic review and meta-analysis",
+      "examining the cognitive and mental health correlates of short-form",
+      "video use”",
+      "https://doi.org/10.1037/bul0000498"
+     ],
+     "fr": "Nguyen et al. (2025)\n“Feeds, feelings, and focus: A systematic review and meta-analysis examining the cognitive and mental health correlates of short-form video use”\nhttps://doi.org/10.1037/bul0000498",
+     "texte": "Henkel (2014), Psychological Science\n“Point-and-shoot memories”\nhttps://doi.org/10.1177/0956797613504438\nDrouin, Kaiser & Miller (2012), Computers in Human Behavior\nhttps://doi.org/10.1016/j.chb.2012.03.013"
+    },
+    "T3": {
+     "en": [
+      "“The effect of short-form video addiction on users’ attention”",
+      "https://doi.org/10.1080/0144929X.2022.2151512"
+     ],
+     "fr": "Chen, Li, Guo & Wang (2023)\n“The effect of short-form video addiction on users’ attention”\nhttps://doi.org/10.1080/0144929X.2022.2151512",
+     "texte": "Sparrow, Liu & Wegner (2011), Science\nhttps://doi.org/10.1126/science.1207745"
+    },
+    "T4": {
+     "en": [
+      "Ebster et al. (2026)",
+      "“Taming the endless scroll? Short-form videos, digital routines and",
+      "https://doi.org/10.1007/s00787-026-03083-7"
+     ],
+     "fr": "Ebster et al. (2026)\n“Taming the endless scroll? Short-form videos, digital routines and neurocognitive outcomes in youth” https://doi.org/10.1007/s00787-026-03083-7",
+     "texte": "Oulasvirta, Rattenbury, Ma & Raita (2012), Personal and Ubiquitous Computing\n“Habits make smartphone use more pervasive”\nhttps://doi.org/10.1007/s00779-011-0412-2"
+    },
+    "T5": {
+     "en": [
+      "Stothart, Mitchum & Yehnert (2015)",
+      "“The attentional cost of receiving a cell phone notification”",
+      "https://doi.org/10.1037/xhp0000100"
+     ],
+     "fr": "Stothart, Mitchum & Yehnert (2015)\n“The attentional cost of receiving a cell phone notification”\nhttps://doi.org/10.1037/xhp0000100",
+     "texte": "Chang, Aeschbach, Duffy & Czeisler (2015), PNAS\nhttps://doi.org/10.1073/pnas.1418490112"
+    }
+   },
+   "images": {}
+  }
+ }
+}

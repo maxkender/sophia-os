@@ -11,7 +11,8 @@
   "tr": "Okulun sana öğretmediği 10/10 beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
-  "sr": "Veštine 10/10 koje te škola neće naučiti"
+  "sr": "Veštine 10/10 koje te škola neće naučiti",
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg"
  },
  "legendes": {
   "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -22,7 +23,8 @@
   "tr": "Okulun sana öğretmediği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine"
+  "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10-es készségek, amikre az iskola nem tanít meg #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
@@ -220,6 +222,28 @@
      },
      {
       "t": "NAUČITI",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK,",
+      "cap": 111
+     },
+     {
+      "t": "AMIKRE AZ ISKOLA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NEM TANÍT",
+      "cap": 150
+     },
+     {
+      "t": "MEG",
       "cap": 283,
       "couleur": "brun"
      }
@@ -434,6 +458,29 @@
      "duree": "4:30",
      "avatar": "https://yt3.ggpht.com/TgFcrFHcHeZqKrWoUQJBkwe94Mx32RS_LTsu0lEbVlKfumgw2csOcdrnQz2OcGrY7TMLqh3PIA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "ÍRJ",
+     [
+      {
+       "t": "JÓ ÖNÉLETRAJZOT",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ijF4VYwvJSc",
+     "titre": "Az önéletrajzok 5 végzetes hibája",
+     "chaine": "CV Factory - Karrierpercek Ágival",
+     "vues": "38 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "6:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lhCmXwogkR9CPJW9PWxKhpq2RT8N1MNRsqUUoFo5J_qwI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -644,6 +691,29 @@
      "duree": "7:07",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY1aNdZ1f69JR35wXAEAJsJaHCMQRJcB6NIStnXcCHlw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "KÉSZÍTS",
+     [
+      {
+       "t": "KÖLTSÉGVETÉST",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "47TlNIWafJI",
+     "titre": "Háztartási kiadások tervezése lépésről lépésre (papírtól az Excelig)",
+     "chaine": "Hétköznapi anya",
+     "vues": "1 E megtekintés",
+     "date": "10 hónappal ezelőtt",
+     "duree": "9:52",
+     "avatar": "https://yt3.ggpht.com/gVRKV6-lomveDKUzXhMOs78Omtbug8CORT2mtsehXB3KDGrVlrS0nLYTDbjcD14Mm-cvhniwQw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -837,6 +907,27 @@
       "pravi profesori."
      ]
     }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ",
+     [
+      {
+       "t": "IGAZÁN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
    }
   },
   {
@@ -1047,6 +1138,29 @@
      "duree": "3:31",
      "avatar": "https://yt3.ggpht.com/-E68F8tl3H22TyzHuukM4_cyu-2lPs0jhHFK0up4KmA-dBFqXmz0jM8m-l-9tRpsW9sI5v8G=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "MOSS",
+     [
+      {
+       "t": "OKOSAN",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jkGC3RWztjA",
+     "titre": "Tippek a hatékony mosáshoz | Mosás a mindennapokban",
+     "chaine": "Kívül Belül Boldogság",
+     "vues": "65 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "7:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k08srqVyXDRNsWCykvpwfXZbYVE7jwESK2qlHw71c4Dw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -1257,6 +1371,29 @@
      "duree": "10:07",
      "avatar": "https://yt3.ggpht.com/DYB78uYOJPT9SFzOnBlh40jfwsbyW04spG0qxPlP_lxhpMEGzU2IFGMg3P-kLw-UHISVJ-PiKYg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "KEZELD",
+     [
+      {
+       "t": "A KONFLIKTUST",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ruFOvfNCbVk",
+     "titre": "Oldjuk meg a munkahelyi konfliktusokat 4 lépésben! | C.S. Lazzar Podcast",
+     "chaine": "C.S. Lazzar",
+     "vues": "4,7 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "4:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKZCEIJTImuigyhv7Vq3kLLzuhujEP_noz_pRKy0qi6w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több hetes gyakorlás"
+    ]
    }
   },
   {
@@ -1467,6 +1604,29 @@
      "duree": "5:33",
      "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "HALLGASD MEG",
+     [
+      {
+       "t": "A MÁSIKAT",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3ekzmibWBjk",
+     "titre": "Értő figyelem",
+     "chaine": "Szabó Orsi",
+     "vues": "5,5 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "12:21",
+     "avatar": "https://yt3.ggpht.com/Y57jKNrkS0W6SC1uWjp3hAM8FS0BwkBS7lAZAYK4EXgOpfQ--foQnzqibsLLyAIpb0Ee2-pW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több napos gyakorlás"
+    ]
    }
   }
  ]

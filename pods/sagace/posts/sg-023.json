@@ -17,7 +17,8 @@
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování",
-  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja"
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja",
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni"
  },
  "legendes": {
   "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -28,7 +29,8 @@
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine"
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - m - m",
@@ -231,6 +233,28 @@
      },
      {
       "t": "SKROLOVANJA",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 138
+     },
+     {
+      "t": "AMIKET ÉRDEMES",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "GÖRGETÉS",
+      "cap": 149
+     },
+     {
+      "t": "HELYETT",
       "couleur": "brun",
       "cap": 188
      }
@@ -445,6 +469,29 @@
      "duree": "2:14",
      "avatar": "https://yt3.ggpht.com/KoArQPJ_j0aOmIGWcIHwPbGfQvQ5l5kBAXW4BfSECQVn0R7okTFQZRDwEoV4lTGfNw_PhSOWmg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "KÉSZÍTS",
+     [
+      {
+       "t": "SZÉP FOTÓKAT",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xsIm3mjw7oo",
+     "titre": "Hogyan fotózz telefonnal - mint egy profi - Lencse Mögött 1. rész",
+     "chaine": "Nánásiék",
+     "vues": "40 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "10:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfq5yoUfAPeh96AGgNhMy6yGlaVQJJdWcGp8KTrSVQfrg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -655,6 +702,29 @@
      "duree": "4:00",
      "avatar": "https://yt3.ggpht.com/3i4jf2E5gLZgjbUmSNzI9k5-ysve0OWRq07iZxju8yFJCKk8rDjkMJfLWufam3ICgU_8Z-ht=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "CSINÁLJ",
+     [
+      {
+       "t": "FEKVŐTÁMASZT",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "c7UnOa_3LuY",
+     "titre": "Tanácsok fekvőtámasz nyomáshoz kezdőknek",
+     "chaine": "Csabi Mester",
+     "vues": "7,6 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kXK5WeLX1EUEWfTRQRFEktBkPu1JlJD0E5Ud-J0Wq7Vg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több hetes gyakorlás"
+    ]
    }
   },
   {
@@ -848,6 +918,27 @@
       "umesto skrolovanja."
      ]
     }
+   },
+   "hu": {
+    "titre": [
+     "FEKÜDJ LE",
+     [
+      {
+       "t": "OKOSABBAN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
    }
   },
   {
@@ -1058,6 +1149,29 @@
      "duree": "5:45",
      "avatar": "https://yt3.ggpht.com/H9NlYiNskl2FQ3-VnrKjdgEsvEE4Fn6ICNTNP7U4vi3juxGCjD4cHMW2U12SJnN1U7nyK5Gjuw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "SÜSS",
+     [
+      {
+       "t": "PALACSINTÁT",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PNcl_UhDmXc",
+     "titre": "Édes palacsinta alaptészta recept | Nosalty",
+     "chaine": "Nosalty",
+     "vues": "537 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "1:03",
+     "avatar": "https://yt3.ggpht.com/aCM2OzrKY9tnGXJBSDpMpG_YoLpiRLSEnh7La10FkF90ds9SpObVKHwqwc8p-T2PMDHuqtxeQSU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -1268,6 +1382,29 @@
      "duree": "3:44",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCTo2OptHGpxKfCm31FcG8rB52wT03jIJPmQLPkbvqmA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "DEKÁZZ",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "LABDÁVAL"
+    ],
+    "video": {
+     "id": "V-V8Umo3bTg",
+     "titre": "Trickypedia - Hogyan dekázzunk?",
+     "chaine": "Freestyle FC",
+     "vues": "231 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/apdwpxiDBB8lpCodSDhHUYCxw1Z0vAX6edaQZ3fayIsUu0jQ4mNTkglD0OYYX62cBnMws4eLOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több napos gyakorlás"
+    ]
    }
   },
   {
@@ -1487,6 +1624,30 @@
      "duree": "2:50",
      "avatar": "https://yt3.ggpht.com/LXrw3n6TlHOAhExCkBDVa6zwISbMCl3WzTD89ewxMFAXHRT6DfDI18KpukGBavDhHZREmpPEgQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "ÉRD EL",
+     [
+      {
+       "t": "A LÁBUJJAD",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lcg9xFMfV_4",
+     "titre": "NYÚJTÁS KEZDŐKNEK!",
+     "chaine": "Kovács Ramóna",
+     "vues": "1,2 M megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "10:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQNQEatvYXL2ZMWwNaAF8VDTSu7GHTZVK6skbKP91A30s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "napi 10 perc",
+     "1 hónapig"
+    ]
    }
   }
  ]

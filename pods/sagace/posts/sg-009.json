@@ -10,7 +10,8 @@
   "tr": "Seni daha zeki yapan 10/10 beceriler",
   "ro": "Abilități 10/10 care te fac mai deștept",
   "cs": "Dovednosti 10/10, které tě udělají chytřejším",
-  "sr": "Veštine 10/10 koje te čine pametnijim"
+  "sr": "Veštine 10/10 koje te čine pametnijim",
+  "hu": "10/10 készségek, amelyektől okosabb leszel"
  },
  "legendes": {
   "fr": "Compétences 10/10 qui te rendent plus intelligent #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -21,7 +22,8 @@
   "tr": "Seni daha zeki yapan 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 care te fac mai deștept #invatapetiktok #dezvoltarepersonala #abilitati",
   "cs": "Dovednosti 10/10, které tě udělají chytřejším #učímesenatiktoku #osobnírozvoj #dovednosti",
-  "sr": "Veštine 10/10 koje te čine pametnijim #učinatiktoku #samorazvoj #veštine"
+  "sr": "Veštine 10/10 koje te čine pametnijim #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10 készségek, amelyektől okosabb leszel #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - rithu",
@@ -214,6 +216,28 @@
       "t": "PAMETNIJIM",
       "couleur": "brun",
       "cap": 230
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "AMELYEKTŐL",
+      "cap": 93
+     },
+     {
+      "t": "OKOSABB",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "LESZEL",
+      "cap": 150
      }
     ]
    }
@@ -426,6 +450,29 @@
     "sous": [
      "2 sata za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "JEGYEZZ MEG",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "BÁRMIT"
+    ],
+    "video": {
+     "id": "8OIJZiW7U18",
+     "titre": "Memória Palota 01. Bevezetés",
+     "chaine": "SanFranciscobol Jottem",
+     "vues": "26 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnGHodf1vSrp5_8prKdXijF8KrncPTb9xhbqqT6xdNafA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -636,6 +683,29 @@
     "sous": [
      "vežbanje nekoliko dana"
     ]
+   },
+   "hu": {
+    "titre": [
+     "GONDOLKODJ",
+     [
+      {
+       "t": "KRITIKUSAN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DR-TsIdsQxs",
+     "titre": "Kritikai Gondolkodás 1/1 Definíció",
+     "chaine": "kritikai gondolatok",
+     "vues": "12 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "15:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJz-06YcYGqiVheDCihBRVEqdkceODLnTIn8NycPBLNQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több napos gyakorlás"
+    ]
    }
   },
   {
@@ -828,6 +898,27 @@
     },
     "sous": [
      "5 min dnevno"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "LEGYÉL",
+     [
+      {
+       "t": "MŰVELT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -1039,6 +1130,29 @@
     "sous": [
      "1 sat za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "JEGYZETELJ",
+     [
+      {
+       "t": "JÓL",
+       "couleur": "#3f8f4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KcJZMwtxbbs",
+     "titre": "Hogyan jegyzetelj?",
+     "chaine": "Lantos Tanulási Stratégiák",
+     "vues": "10 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/RdoLob1EMcMjlbJCz3ZV_Ao8nqZpSh0KSrE6ZiYMeIhhgRQf-PAvkDf_rE88ysOelC61T-f8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -1249,6 +1363,29 @@
     "sous": [
      "30 min za učenje"
     ]
+   },
+   "hu": {
+    "titre": [
+     "OLDJ MEG",
+     [
+      {
+       "t": "EGY SUDOKUT",
+       "couleur": "#8e5cb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "heA34cw5nig",
+     "titre": "Sudoku magyar végigjátszás 1. rész - Hogy kezdjük el?",
+     "chaine": "Robin Komka (Robitron)",
+     "vues": "1,2 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "54:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEurv3d-q0ZtnbSom8uVH44AJFIcfuM8a-G31lp34EPp4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -1458,6 +1595,29 @@
     },
     "sous": [
      "nedelju dana za učenje"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MARADJ",
+     [
+      {
+       "t": "FÓKUSZBAN",
+       "couleur": "#d9a51c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0d5gTL7VIaI",
+     "titre": "7 trükk, hogy jobban tudj koncentrálni",
+     "chaine": "Tudástár Klub",
+     "vues": "46 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "11:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9O8l32wzNxCGROpzANlVY7ad0Py_c6yQkL70fkmsIjA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hét a tanuláshoz"
     ]
    }
   }

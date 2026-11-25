@@ -1,0 +1,769 @@
+{
+ "id": "mi-024",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7681333188714646814",
+  "vues": 367000,
+  "publie_le": "2026-09-03",
+  "accroche": "The secret / to / Memorizing / Anything"
+ },
+ "fond": "vert_mer",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "34aa22d6-3ca1-4774-bbd9-797785504071",
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7358342888574470945"
+ },
+ "notes": "Déclinaison G1 de mi-004 « The secret to Learning Faster » (ligne 1 de la boîte du 25/11, meilleur passage es-419 10,5 k vues, r 15) : titre et couverture du parent mot pour mot dans chaque langue, autres conseils, autres images, autre fond, autre CTA. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta C. Faits vérifiés : les débutants apprennent plus vite en étudiant des exemples résolus qu'en résolvant seuls des problèmes équivalents (Sweller et Cooper, Cognition and Instruction 1985) ; des révisions espacées de 56 jours plutôt que 14 donnaient un meilleur souvenir du vocabulaire cinq ans plus tard (Bahrick, Bahrick, Bahrick et Bahrick, Psychological Science 1993) ; produire soi-même un mot fait mieux retenir que le lire, l'effet de génération (Slamecka et Graf, Journal of Experimental Psychology: Human Learning and Memory 1978). 11 langues. Images : banque (golgi, epines, irm-activite), sans texte.",
+ "titre": {
+  "en": "The secret to Learning Faster",
+  "fr": "Le secret pour apprendre plus vite",
+  "es": "El secreto para aprender más rápido",
+  "es-419": "El secreto para aprender más rápido",
+  "it": "Il segreto per imparare più in fretta",
+  "tr": "Daha hızlı öğrenmenin sırrı",
+  "pt-BR": "O segredo para aprender mais rápido",
+  "sl": "Skrivnost hitrejšega učenja",
+  "hr": "Tajna bržeg učenja",
+  "de": "Das Geheimnis, um schneller zu lernen",
+  "hu": "A gyorsabb tanulás titka"
+ },
+ "legendes": {
+  "en": "learn it once, keep it for years #learning #studytips #brain #memory #psychology",
+  "fr": "apprendre une fois, garder des années #apprendre #méthodedetravail #cerveau #mémoire #psychologie",
+  "es": "aprenderlo una vez y conservarlo años #aprender #técnicasdeestudio #cerebro #memoria #psicología",
+  "es-419": "apréndelo una vez y quédatelo años #aprender #tipsdeestudio #cerebro #memoria #psicología",
+  "it": "imparalo una volta e tienilo per anni #imparare #metododistudio #cervello #memoria #psicologia",
+  "tr": "bir kez öğren, yıllarca tut #öğrenme #dersçalışma #beyin #hafıza #psikoloji",
+  "pt-BR": "aprenda uma vez e guarde por anos #aprender #dicasdeestudo #cerebro #memoria #psicologia",
+  "sl": "nauči se enkrat in obdrži leta #učenje #učnetehnike #možgani #spomin #psihologija",
+  "hr": "nauči jednom, zadrži godinama #učenje #tehnikeučenja #mozak #pamćenje #psihologija",
+  "de": "einmal lernen, jahrelang behalten #lernen #lerntipps #gehirn #gedächtnis #psychologie",
+  "hu": "tanuld meg egyszer, és tartsd meg évekig #tanulás #tanulásimódszerek #agy #memória #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/golgi.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "The secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "to",
+      "taille": "petit"
+     },
+     {
+      "t": "Learning",
+      "taille": "grand"
+     },
+     {
+      "t": "Faster",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Le secret",
+      "taille": "moyen"
+     },
+     {
+      "t": "pour",
+      "taille": "petit"
+     },
+     {
+      "t": "Apprendre",
+      "taille": "grand"
+     },
+     {
+      "t": "plus vite",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     },
+     {
+      "t": "más rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "El secreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     },
+     {
+      "t": "más rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Il segreto",
+      "taille": "moyen"
+     },
+     {
+      "t": "per",
+      "taille": "petit"
+     },
+     {
+      "t": "Imparare",
+      "taille": "grand"
+     },
+     {
+      "t": "più in fretta",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Daha hızlı",
+      "taille": "moyen"
+     },
+     {
+      "t": "öğrenmenin",
+      "taille": "grand"
+     },
+     {
+      "t": "Sırrı",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O segredo",
+      "taille": "moyen"
+     },
+     {
+      "t": "para",
+      "taille": "petit"
+     },
+     {
+      "t": "Aprender",
+      "taille": "grand"
+     },
+     {
+      "t": "mais rápido",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Skrivnost",
+      "taille": "grand"
+     },
+     {
+      "t": "hitrejšega",
+      "taille": "petit"
+     },
+     {
+      "t": "Učenja",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Tajna",
+      "taille": "grand"
+     },
+     {
+      "t": "bržeg",
+      "taille": "petit"
+     },
+     {
+      "t": "Učenja",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Das Geheimnis",
+      "taille": "moyen"
+     },
+     {
+      "t": "um",
+      "taille": "petit"
+     },
+     {
+      "t": "schneller",
+      "taille": "grand"
+     },
+     {
+      "t": "zu lernen",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "A gyorsabb",
+      "taille": "moyen"
+     },
+     {
+      "t": "tanulás",
+      "taille": "grand"
+     },
+     {
+      "t": "Titka",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 1
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Start With Worked Examples",
+    "blocs": [
+     {
+      "p": "When a subject is new, solving problems alone is slow. In classic experiments, beginners who studied fully worked examples learned faster than beginners who spent the same time solving the problems themselves."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Read a solved example, then cover the solution and try a similar one. Move to problems on your own once the steps feel familiar."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Commence par des exemples résolus",
+    "blocs": [
+     {
+      "p": "Quand un sujet est nouveau, résoudre seul des problèmes est lent. Dans des expériences classiques, des débutants qui étudiaient des exemples entièrement résolus apprenaient plus vite que ceux qui passaient le même temps à résoudre eux-mêmes les problèmes."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Lis un exemple résolu, puis cache la solution et essaie un exercice proche. Passe aux problèmes seul quand les étapes te semblent familières."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Empieza con ejemplos resueltos",
+    "blocs": [
+     {
+      "p": "Cuando un tema es nuevo, resolver problemas solo es lento. En experimentos clásicos, los principiantes que estudiaban ejemplos totalmente resueltos aprendían más rápido que los que dedicaban el mismo tiempo a resolver los problemas por su cuenta."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Lee un ejemplo resuelto, luego tapa la solución e intenta uno parecido. Pasa a resolver solo cuando los pasos te resulten familiares."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Empieza con ejemplos resueltos",
+    "blocs": [
+     {
+      "p": "Cuando un tema es nuevo, resolver problemas solo es lento. En experimentos clásicos, los principiantes que estudiaban ejemplos completamente resueltos aprendían más rápido que quienes usaban el mismo tiempo para resolver los problemas por su cuenta."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Lee un ejemplo resuelto, luego tapa la solución y prueba uno parecido. Pasa a resolver solo cuando los pasos ya te resulten familiares."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Comincia con esempi svolti",
+    "blocs": [
+     {
+      "p": "Quando un argomento è nuovo, risolvere problemi da soli è lento. In esperimenti classici, i principianti che studiavano esempi completamente svolti imparavano più in fretta di chi passava lo stesso tempo a risolvere i problemi da solo."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Leggi un esempio svolto, poi copri la soluzione e prova con uno simile. Passa ai problemi da solo quando i passaggi ti sembrano familiari."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Çözülmüş örneklerle başla",
+    "blocs": [
+     {
+      "p": "Bir konu yeniyken problemleri tek başına çözmek yavaştır. Klasik deneylerde, tamamen çözülmüş örnekleri inceleyen yeni başlayanlar, aynı süreyi problemleri kendi başına çözerek geçirenlerden daha hızlı öğrendi."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Çözülmüş bir örneği oku, sonra çözümü kapat ve benzerini dene. Adımlar tanıdık gelmeye başlayınca tek başına problemlere geç."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Comece por exemplos resolvidos",
+    "blocs": [
+     {
+      "p": "Quando um assunto é novo, resolver problemas sozinho é lento. Em experimentos clássicos, iniciantes que estudavam exemplos totalmente resolvidos aprendiam mais rápido do que os que usavam o mesmo tempo resolvendo os problemas por conta própria."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Leia um exemplo resolvido, depois cubra a solução e tente um parecido. Passe a resolver sozinho quando os passos parecerem familiares."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Začni z rešenimi primeri",
+    "blocs": [
+     {
+      "p": "Ko je snov nova, je samostojno reševanje nalog počasno. V klasičnih poskusih so se začetniki, ki so preučevali v celoti rešene primere, učili hitreje od tistih, ki so enak čas porabili za samostojno reševanje."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Preberi rešen primer, nato zakrij rešitev in poskusi s podobnim. K samostojnim nalogam preidi, ko se ti koraki zdijo znani."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Počni s riješenim primjerima",
+    "blocs": [
+     {
+      "p": "Kad je gradivo novo, samostalno rješavanje zadataka je sporo. U klasičnim pokusima početnici koji su proučavali potpuno riješene primjere učili su brže od onih koji su isto vrijeme proveli rješavajući zadatke sami."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Pročitaj riješen primjer, zatim pokrij rješenje i pokušaj sa sličnim. Na samostalne zadatke prijeđi kad ti koraci postanu poznati."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Fang mit Lösungsbeispielen an",
+    "blocs": [
+     {
+      "p": "Ist ein Thema neu, geht das selbstständige Lösen von Aufgaben langsam. In klassischen Experimenten lernten Anfänger, die vollständig gelöste Beispiele studierten, schneller als jene, die dieselbe Zeit mit eigenem Lösen verbrachten."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Lies ein gelöstes Beispiel, deck dann die Lösung ab und versuch ein ähnliches. Geh zu eigenen Aufgaben über, wenn dir die Schritte vertraut sind."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Kezdd kidolgozott példákkal",
+    "blocs": [
+     {
+      "p": "Ha új egy téma, lassú egyedül feladatokat megoldani. Klasszikus kísérletekben a teljesen kidolgozott példákat tanulmányozó kezdők gyorsabban tanultak, mint akik ugyanennyi időt önálló feladatmegoldással töltöttek."
+     },
+     {
+      "image": "images/epines.jpg"
+     },
+     {
+      "p": "Olvass el egy megoldott példát, aztán takard le a megoldást, és próbálj meg egy hasonlót. Akkor térj át önálló feladatokra, ha a lépések már ismerősek."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Space It Out For Years",
+    "blocs": [
+     {
+      "p": "In one long study, people learned foreign words with reviews spaced 14, 28 or 56 days apart. Five years later, the widest spacing gave the best memory, even though it felt slower at the time."
+     },
+     {
+      "p": "A short lesson every evening, like a training session, spreads learning out by design: a little each night, for months."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "My nightly rep is one lesson on Sophia before I sleep."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Espace sur des années",
+    "blocs": [
+     {
+      "p": "Dans une longue étude, des personnes ont appris des mots étrangers avec des révisions espacées de 14, 28 ou 56 jours. Cinq ans plus tard, l'espacement le plus large donnait le meilleur souvenir, même s'il semblait plus lent sur le moment."
+     },
+     {
+      "p": "Une courte leçon chaque soir, comme un entraînement, étale l'apprentissage par principe : un peu chaque soir, pendant des mois."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ma répétition du soir, c'est une leçon sur Sophia avant de dormir."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Espácialo durante años",
+    "blocs": [
+     {
+      "p": "En un estudio largo, varias personas aprendieron palabras extranjeras con repasos separados por 14, 28 o 56 días. Cinco años después, la separación más amplia daba el mejor recuerdo, aunque en su momento pareciera más lenta."
+     },
+     {
+      "p": "Una lección corta cada noche, como un entrenamiento, reparte el aprendizaje por diseño: un poco cada noche, durante meses."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Espácialo durante años",
+    "blocs": [
+     {
+      "p": "En un estudio largo, varias personas aprendieron palabras de otro idioma con repasos separados por 14, 28 o 56 días. Cinco años después, la separación más amplia dio el mejor recuerdo, aunque en el momento se sintiera más lenta."
+     },
+     {
+      "p": "Una lección corta cada noche, como un entrenamiento, reparte el aprendizaje desde el inicio: un poco cada noche, durante meses."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mi repetición de cada noche es una lección en Sophia antes de dormir."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Distanzia per anni",
+    "blocs": [
+     {
+      "p": "In un lungo studio, alcune persone hanno imparato parole straniere con ripassi distanziati di 14, 28 o 56 giorni. Cinque anni dopo, la distanza maggiore dava il ricordo migliore, anche se sul momento sembrava più lenta."
+     },
+     {
+      "p": "Una breve lezione ogni sera, come un allenamento, distribuisce l'apprendimento per scelta: un po' ogni sera, per mesi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "La mia ripetizione serale è una lezione su Sophia prima di dormire."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Yıllara yay",
+    "blocs": [
+     {
+      "p": "Uzun bir çalışmada insanlar yabancı kelimeleri 14, 28 ya da 56 gün arayla tekrar ederek öğrendi. Beş yıl sonra en geniş aralık en iyi hatırlamayı sağladı, o an daha yavaş gelse bile."
+     },
+     {
+      "p": "Her akşam kısa bir ders, bir antrenman gibi, öğrenmeyi en baştan zamana yayar: her gece biraz, aylarca."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Benim akşam tekrarım, uyumadan önce Sophia'da bir ders."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Espace ao longo de anos",
+    "blocs": [
+     {
+      "p": "Em um estudo longo, pessoas aprenderam palavras estrangeiras com revisões espaçadas de 14, 28 ou 56 dias. Cinco anos depois, o maior espaçamento deu a melhor lembrança, mesmo parecendo mais lento na hora."
+     },
+     {
+      "p": "Uma lição curta toda noite, como um treino, espalha o aprendizado de propósito: um pouco toda noite, por meses."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Minha repetição da noite é uma lição na Sophia antes de dormir."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Razporedi na leta",
+    "blocs": [
+     {
+      "p": "V dolgi raziskavi so se ljudje učili tujih besed s ponavljanji na 14, 28 ali 56 dni. Pet let pozneje je največji razmik dal najboljši spomin, čeprav se je takrat zdel počasnejši."
+     },
+     {
+      "p": "Kratka lekcija vsak večer, kot trening, učenje že po zasnovi razporedi: malo vsak večer, več mesecev."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moja večerna ponovitev je ena lekcija na Sophii pred spanjem."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Rasporedi na godine",
+    "blocs": [
+     {
+      "p": "U dugom istraživanju ljudi su učili strane riječi s ponavljanjima u razmacima od 14, 28 ili 56 dana. Pet godina kasnije najveći razmak dao je najbolje pamćenje, iako se tada činio sporijim."
+     },
+     {
+      "p": "Kratka lekcija svake večeri, kao trening, učenje raspoređuje već po zamisli: malo svake večeri, mjesecima."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Moje večernje ponavljanje je jedna lekcija na Sophiji prije spavanja."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Verteil es über Jahre",
+    "blocs": [
+     {
+      "p": "In einer langen Studie lernten Menschen Fremdwörter mit Wiederholungen im Abstand von 14, 28 oder 56 Tagen. Fünf Jahre später brachte der größte Abstand die beste Erinnerung, obwohl er sich damals langsamer anfühlte."
+     },
+     {
+      "p": "Eine kurze Lektion jeden Abend, wie ein Training, verteilt das Lernen von selbst: jeden Abend ein wenig, über Monate."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Meine Abendwiederholung ist eine Lektion auf Sophia vor dem Schlafen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Oszd el évekre",
+    "blocs": [
+     {
+      "p": "Egy hosszú vizsgálatban az emberek idegen szavakat tanultak 14, 28 vagy 56 napos ismétlési közökkel. Öt évvel később a leghosszabb köz adta a legjobb emlékezést, pedig akkor lassabbnak tűnt."
+     },
+     {
+      "p": "Minden este egy rövid lecke, mint egy edzés, eleve elosztja a tanulást: minden este egy kicsit, hónapokon át."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Az én esti ismétlésem egy lecke a Sophián lefekvés előtt."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Produce, Don't Just Read",
+    "blocs": [
+     {
+      "p": "Words people produce themselves are remembered better than words they simply read. Researchers call it the generation effect."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Before you read the answer, write your own. Before you turn the page, guess what comes next. Every small act of producing makes the idea stick faster."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Produis, ne te contente pas de lire",
+    "blocs": [
+     {
+      "p": "On retient mieux les mots qu'on produit soi-même que ceux qu'on se contente de lire. Les chercheurs appellent ça l'effet de génération."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Avant de lire la réponse, écris la tienne. Avant de tourner la page, devine la suite. Chaque petit effort de production fait tenir l'idée plus vite."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Produce, no te limites a leer",
+    "blocs": [
+     {
+      "p": "Las palabras que uno produce se recuerdan mejor que las que solo lee. Los investigadores lo llaman efecto de generación."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Antes de leer la respuesta, escribe la tuya. Antes de pasar la página, adivina lo que viene. Cada pequeño acto de producir hace que la idea se fije antes."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Produce, no solo leas",
+    "blocs": [
+     {
+      "p": "Las palabras que produces tú mismo se recuerdan mejor que las que solo lees. Los investigadores le llaman efecto de generación."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Antes de leer la respuesta, escribe la tuya. Antes de pasar la página, adivina lo que sigue. Cada pequeño esfuerzo por producir hace que la idea se quede más rápido."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Produci, non limitarti a leggere",
+    "blocs": [
+     {
+      "p": "Le parole che produciamo da soli si ricordano meglio di quelle che leggiamo soltanto. I ricercatori lo chiamano effetto di generazione."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Prima di leggere la risposta, scrivi la tua. Prima di girare pagina, indovina cosa viene dopo. Ogni piccolo atto di produzione fissa l'idea più in fretta."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Sadece okuma, üret",
+    "blocs": [
+     {
+      "p": "İnsanların kendi ürettiği kelimeler, sadece okudukları kelimelerden daha iyi hatırlanır. Araştırmacılar buna üretme etkisi diyor."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Cevabı okumadan önce kendininkini yaz. Sayfayı çevirmeden önce sonra ne geleceğini tahmin et. Her küçük üretme çabası fikrin daha hızlı yerleşmesini sağlar."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Produza, não só leia",
+    "blocs": [
+     {
+      "p": "As palavras que a gente mesmo produz são lembradas melhor do que as que só lemos. Os pesquisadores chamam isso de efeito de geração."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Antes de ler a resposta, escreva a sua. Antes de virar a página, adivinhe o que vem. Cada pequeno ato de produzir faz a ideia fixar mais rápido."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Ustvarjaj, ne le beri",
+    "blocs": [
+     {
+      "p": "Besede, ki jih ustvarimo sami, si zapomnimo bolje od tistih, ki jih le preberemo. Raziskovalci temu pravijo učinek generiranja."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Preden prebereš odgovor, napiši svojega. Preden obrneš stran, ugani, kaj sledi. Vsako majhno dejanje ustvarjanja zamisel hitreje utrdi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Stvaraj, ne samo čitaj",
+    "blocs": [
+     {
+      "p": "Riječi koje sami stvorimo pamtimo bolje od onih koje samo pročitamo. Istraživači to zovu učinkom generiranja."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Prije nego što pročitaš odgovor, napiši svoj. Prije nego što okreneš stranicu, pogodi što slijedi. Svaki mali čin stvaranja brže učvršćuje ideju."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Erzeugen statt nur lesen",
+    "blocs": [
+     {
+      "p": "Wörter, die man selbst erzeugt, behält man besser als Wörter, die man nur liest. Forschende nennen das den Generierungseffekt."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Bevor du die Antwort liest, schreib deine eigene. Bevor du umblätterst, rate, was kommt. Jede kleine eigene Leistung lässt die Idee schneller hängen bleiben."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Alkoss, ne csak olvass",
+    "blocs": [
+     {
+      "p": "Azokra a szavakra, amelyeket magunk hozunk létre, jobban emlékszünk, mint amelyeket csak elolvasunk. A kutatók ezt generálási hatásnak hívják."
+     },
+     {
+      "image": "images/irm-activite.jpg"
+     },
+     {
+      "p": "Mielőtt elolvasod a választ, írd le a sajátodat. Mielőtt lapozol, találd ki, mi jön. Minden kis alkotó erőfeszítés gyorsabban rögzíti a gondolatot."
+     }
+    ]
+   }
+  }
+ ]
+}

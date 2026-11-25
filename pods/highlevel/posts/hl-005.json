@@ -12,7 +12,9 @@
     "es-419": "Cómo hacer que sienta curiosidad por ti.",
     "it": "Come renderla curiosa di te.",
     "hu": "Hogyan legyen kíváncsi rád.",
-    "sr": "Kako da je zaintrigiraš."
+    "sr": "Kako da je zaintrigiraš.",
+    "pt-BR": "Como deixar ela curiosa sobre você.",
+    "es": "Cómo hacer que sienta curiosidad por ti."
   },
   "legendes": {
     "en": "#datingadvice #tipsformen #attraction ",
@@ -20,7 +22,9 @@
     "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
-    "sr": "#savetizamuškarce #veze #zavođenje "
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
   },
   "musique": {
     "titre": "original sound",
@@ -36,7 +40,7 @@
       "url": "https://www.metmuseum.org/art/collection/search/437394"
     }
   },
-  "notes": "Preuve : « HOW TO GIVE A GIRL BUTTERFLIES. » de @highlevelgame_ (1,4 M vues, 16/09), famille « HOW TO … » (« la rendre curieuse » listée dans l'AGENT.md), conseils titrés, sa musique de ce post. Conseils à nous. Carte Artura (4) : « Know one painting by heart. », Rembrandt, Aristotle with a Bust of Homer (The Met 437394) et le LOGO d'Artura ; cta B. Fait vérifié : acheté par le Met aux enchères en novembre 1961 pour 2,3 millions de dollars, le prix le plus élevé jamais payé pour un tableau à l'époque (fiche et histoire du Met). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11.",
+  "notes": "Preuve : « HOW TO GIVE A GIRL BUTTERFLIES. » de @highlevelgame_ (1,4 M vues, 16/09), famille « HOW TO … » (« la rendre curieuse » listée dans l'AGENT.md), conseils titrés, sa musique de ce post. Conseils à nous. Carte Artura (4) : « Know one painting by heart. », Rembrandt, Aristotle with a Bust of Homer (The Met 437394) et le LOGO d'Artura ; cta B. Fait vérifié : acheté par le Met aux enchères en novembre 1961 pour 2,3 millions de dollars, le prix le plus élevé jamais payé pour un tableau à l'époque (fiche et histoire du Met). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11. pt-BR et es (Espagne) ajoutés le 25/11 à la demande d'Adrien.",
   "slides": [
     {
       "type": "couverture",
@@ -57,6 +61,12 @@
       },
       "sr": {
         "titre": "KAKO DA JE\nZAINTRIGIRAŠ."
+      },
+      "pt-BR": {
+        "titre": "COMO DEIXAR\nELA CURIOSA\nSOBRE VOCÊ."
+      },
+      "es": {
+        "titre": "CÓMO HACER QUE\nSIENTA CURIOSIDAD\nPOR TI."
       }
     },
     {
@@ -102,6 +112,20 @@
           "Ne celu životnu priču. Daj joj jedno poglavlje.",
           "Neka ona traži sledeće."
         ]
+      },
+      "pt-BR": {
+        "titre": "Não conte tudo.",
+        "paragraphes": [
+          "Não a história da sua vida inteira. Dê um capítulo.",
+          "Deixe ela pedir o próximo."
+        ]
+      },
+      "es": {
+        "titre": "No le cuentes todo.",
+        "paragraphes": [
+          "No toda la historia de tu vida. Dale un capítulo.",
+          "Deja que te pida el siguiente."
+        ]
       }
     },
     {
@@ -146,6 +170,20 @@
         "paragraphes": [
           "„Ne znam, kako ti hoćeš” se zaboravlja.",
           "Izaberi stranu. Brani je sa osmehom."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Tenha opinião.",
+        "paragraphes": [
+          "“Sei lá, o que você quiser” é esquecível.",
+          "Escolha um lado. Defenda com um sorriso."
+        ]
+      },
+      "es": {
+        "titre": "Ten opiniones.",
+        "paragraphes": [
+          "“No sé, lo que tú quieras” se olvida.",
+          "Elige un lado. Defiéndelo con una sonrisa."
         ]
       }
     },
@@ -211,6 +249,26 @@
           "Artura mi daje jedno delo dnevno i njegovu priču.",
           "Deset minuta, i ti si najzanimljiviji muškarac u sobi."
         ]
+      },
+      "pt-BR": {
+        "titre": "Saiba um quadro de cor.",
+        "avant": [
+          "Em 1961, este Rembrandt foi vendido por 2,3 milhões de dólares, um recorde. Conte isso na frente dele."
+        ],
+        "apres": [
+          "O Artura me dá uma obra por dia e a história dela.",
+          "Dez minutos, e você é o homem mais interessante da sala."
+        ]
+      },
+      "es": {
+        "titre": "Conoce un cuadro de memoria.",
+        "avant": [
+          "En 1961, este Rembrandt se vendió en 2,3 millones de dólares, un récord en su época. Cuéntaselo frente a él."
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
       }
     },
     {
@@ -255,6 +313,20 @@
         "paragraphes": [
           "Isti bar, ista pitanja, iste šale: taj sastanak je već imala.",
           "Odvedi je negde gde nikad nije bila."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Seja um pouco imprevisível.",
+        "paragraphes": [
+          "Mesmo bar, mesmas perguntas, mesmas piadas: ela já teve esse encontro.",
+          "Leve ela a um lugar onde nunca foi."
+        ]
+      },
+      "es": {
+        "titre": "Sé un poco impredecible.",
+        "paragraphes": [
+          "Mismo bar, mismas preguntas, mismos chistes: esa cita ya la vivió.",
+          "Llévala a un lugar donde nunca haya ido."
         ]
       }
     },
@@ -301,6 +373,20 @@
           "Ne „Čime se baviš?”",
           "Nego „U čemu si neobično dobra?”"
         ]
+      },
+      "pt-BR": {
+        "titre": "Faça perguntas melhores.",
+        "paragraphes": [
+          "Não “E aí, o que você faz?”",
+          "Mas “Em que você é estranhamente boa?”"
+        ]
+      },
+      "es": {
+        "titre": "Haz mejores preguntas.",
+        "paragraphes": [
+          "No “¿Y a qué te dedicas?”",
+          "Sino “¿En qué eres extrañamente buena?”"
+        ]
       }
     },
     {
@@ -346,6 +432,20 @@
           "Radoznalost se zaslužuje, ne traži se.",
           "**Dečak se objašnjava.**\n**Muškarac ostavlja misteriju.**"
         ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Curiosidade se conquista, não se pede.",
+          "**O garoto se explica.**\n**O homem deixa mistério.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "La curiosidad se gana, no se pide.",
+          "**Un niño se explica.**\n**Un hombre deja misterio.**"
+        ]
       }
     },
     {
@@ -378,6 +478,16 @@
         "gras": "Zaprati",
         "milieu": " da ne propustiš",
         "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
       }
     }
   ]

@@ -12,7 +12,9 @@
     "es-419": "Qué decir cuando ella te pone a prueba.",
     "it": "Cosa dire quando lei ti mette alla prova.",
     "hu": "Mit mondj, ha próbára tesz.",
-    "sr": "Šta da kažeš kad te ona testira."
+    "sr": "Šta da kažeš kad te ona testira.",
+    "pt-BR": "O que dizer quando ela te testa.",
+    "es": "Qué decir cuando ella te pone a prueba."
   },
   "legendes": {
     "en": "#datingadvice #adviceformen #flirting ",
@@ -20,7 +22,9 @@
     "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
-    "sr": "#savetizamuškarce #veze #zavođenje "
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
   },
   "musique": {
     "titre": "M83 Solitude",
@@ -36,7 +40,7 @@
       "url": "https://www.metmuseum.org/art/collection/search/435809"
     }
   },
-  "notes": "Preuve : « DESTROY HER EGO WITH THESE WORDS. » de @highlevelgame_ (2,1 M vues, 04/10), son gabarit « She says: / You say: », sa musique (M83 Solitude). Répliques à nous, taquines sans jamais rabaisser (pas de « destroy her ego »). Carte Artura (4) : « Know how to talk about art. », Bruegel l'Ancien, The Harvesters (The Met 435809) et le LOGO d'Artura ; cta C. Fait (non cité sur la carte) : 1565, une des cinq toiles conservées de sa série des saisons (fiche du Met). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11.",
+  "notes": "Preuve : « DESTROY HER EGO WITH THESE WORDS. » de @highlevelgame_ (2,1 M vues, 04/10), son gabarit « She says: / You say: », sa musique (M83 Solitude). Répliques à nous, taquines sans jamais rabaisser (pas de « destroy her ego »). Carte Artura (4) : « Know how to talk about art. », Bruegel l'Ancien, The Harvesters (The Met 435809) et le LOGO d'Artura ; cta C. Fait (non cité sur la carte) : 1565, une des cinq toiles conservées de sa série des saisons (fiche du Met). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11. pt-BR et es (Espagne) ajoutés le 25/11 à la demande d'Adrien.",
   "slides": [
     {
       "type": "couverture",
@@ -57,6 +61,12 @@
       },
       "sr": {
         "titre": "ŠTA DA KAŽEŠ\nKAD TE ONA\nTESTIRA."
+      },
+      "pt-BR": {
+        "titre": "O QUE DIZER\nQUANDO ELA\nTE TESTA."
+      },
+      "es": {
+        "titre": "QUÉ DECIR\nCUANDO ELLA\nTE PONE A PRUEBA."
       }
     },
     {
@@ -102,6 +112,20 @@
           "**Ona kaže:**\n„Malo si štreber, a?”",
           "**Ti kažeš:**\n„Totalno. Pa ipak, još si tu.”"
         ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela te provoca.",
+        "paragraphes": [
+          "**Ela diz:**\n“Você é meio nerd, né?”",
+          "**Você diz:**\n“Total. E mesmo assim você está aqui.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando te vacila.",
+        "paragraphes": [
+          "**Ella dice:**\n“Eres un poco friki, ¿no?”",
+          "**Tú dices:**\n“Totalmente. Y aun así, aquí estás.”"
+        ]
       }
     },
     {
@@ -146,6 +170,20 @@
         "paragraphes": [
           "**Ona kaže:**\n„Baš sam zauzeta ove nedelje.”",
           "**Ti kažeš:**\n„Onda sledeće. Četvrtak u 8?”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela se faz de difícil.",
+        "paragraphes": [
+          "**Ela diz:**\n“Tô muito ocupada essa semana.”",
+          "**Você diz:**\n“Então semana que vem. Quinta, 20h?”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando se hace la difícil.",
+        "paragraphes": [
+          "**Ella dice:**\n“Estoy muy ocupada esta semana.”",
+          "**Tú dices:**\n“Entonces la próxima. ¿Jueves a las 8?”"
         ]
       }
     },
@@ -211,6 +249,26 @@
         "apres": [
           "Nisam znao ništa o umetnosti. Artura je to rešila, jedna slika dnevno."
         ]
+      },
+      "pt-BR": {
+        "titre": "Saiba falar de arte.",
+        "avant": [
+          "**Ela diz:** “E do que você gosta?”",
+          "**Você diz:** “Escolha um quadro. Te conto a história dele.”"
+        ],
+        "apres": [
+          "Eu não sabia nada de arte. O Artura resolveu isso, um quadro por dia."
+        ]
+      },
+      "es": {
+        "titre": "Aprende a hablar de arte.",
+        "avant": [
+          "**Ella dice:** “¿Y qué te gusta?”",
+          "**Tú dices:** “Elige un cuadro. Te cuento su historia.”"
+        ],
+        "apres": [
+          "No sabía nada de arte. Artura lo arregló, un cuadro al día."
+        ]
       }
     },
     {
@@ -255,6 +313,20 @@
         "paragraphes": [
           "**Ona kaže:**\n„Malo si uobražen.”",
           "**Ti kažeš:**\n„Siguran u sebe. Odlučićeš na večeri.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela te chama de convencido.",
+        "paragraphes": [
+          "**Ela diz:**\n“Você é meio convencido.”",
+          "**Você diz:**\n“Confiante. Você decide no jantar.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando te llama creído.",
+        "paragraphes": [
+          "**Ella dice:**\n“Eres un poco creído.”",
+          "**Tú dices:**\n“Seguro de mí. Lo decides en la cena.”"
         ]
       }
     },
@@ -301,6 +373,20 @@
           "**Ona kaže:**\n„Pogodi.”",
           "**Ti kažeš:**\n„Ne. Reci mi uživo.”"
         ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela testa sua paciência.",
+        "paragraphes": [
+          "**Ela diz:**\n“Adivinha.”",
+          "**Você diz:**\n“Não. Me conta pessoalmente.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando prueba tu paciencia.",
+        "paragraphes": [
+          "**Ella dice:**\n“Adivina.”",
+          "**Tú dices:**\n“No. Dímelo en persona.”"
+        ]
       }
     },
     {
@@ -346,6 +432,20 @@
           "Ne pokušava da pobedi. Proverava da li ostaješ smiren.",
           "**Dečak reaguje.**\n**Muškarac se smeši i vodi.**"
         ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Ela não quer ganhar. Quer ver se você fica calmo.",
+          "**O garoto reage.**\n**O homem sorri e conduz.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No intenta ganar. Quiere ver si mantienes la calma.",
+          "**Un niño reacciona.**\n**Un hombre sonríe y guía.**"
+        ]
       }
     },
     {
@@ -378,6 +478,16 @@
         "gras": "Zaprati",
         "milieu": " da ne propustiš",
         "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
       }
     }
   ]

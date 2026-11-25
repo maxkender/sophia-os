@@ -1,0 +1,430 @@
+{
+ "id": "at-020",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7698491321337597215",
+  "vues": 175700,
+  "publie_le": "2026-10-19",
+  "accroche": "beginner runner / do and don’ts"
+ },
+ "titre": {
+  "en": "running buddy do and don’ts",
+  "fr": "courir à deux : les do & don’ts",
+  "de": "laufen zu zweit: die do & don’ts",
+  "it": "correre in due: i do & don’ts",
+  "es-419": "correr en pareja: los do & don’ts",
+  "hu": "futás ketten: a do & don’ts",
+  "ro": "alergat în doi: do & don’ts",
+  "tr": "ikili koşu: do & don’ts",
+  "el": "τρέξιμο για δύο: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #runningbuddy #runningtips #girlswhorun #runwithfriends",
+  "fr": "#courseapied #adeux #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "La Mentira",
+  "url": "https://www.tiktok.com/music/la-mentira-6705056394258679809"
+ },
+ "notes": "Preuve : « beginner runner / do and don’ts » de @katrina.run (176 k vues, 19/10) ; même gabarit (objets), un sujet voisin (courir avec une amie). Aucun objet neuf ; couverture : coureuse-profil-2. Logo d'Atala au milieu des « Do » de la slide 2. Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-2.png",
+   "en": {
+    "titre": "running buddy\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "courir à deux :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "laufen zu zweit:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "correre in due:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "correr en pareja:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "futás ketten:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "alergat în doi:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "ikili koşu:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "τρέξιμο για δύο:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/telephone.png",
+    "atala",
+    "images/objets/chaussures.png"
+   ],
+   "dont": [
+    "images/objets/reveil.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "before",
+    "do": [
+     "a set time\nand place",
+     "a plan from an\napp like atala",
+     "a buddy at\nyour level"
+    ],
+    "dont": [
+     "cancelling\nlast minute",
+     "racing\neach other"
+    ]
+   },
+   "fr": {
+    "titre": "avant",
+    "do": [
+     "un rdv fixe",
+     "appli de coach\ncomme atala",
+     "une amie\nde ton niveau"
+    ],
+    "dont": [
+     "annuler\ntrop tard",
+     "faire\nla course"
+    ]
+   },
+   "de": {
+    "titre": "vorher",
+    "do": [
+     "feste zeit,\nfester ort",
+     "coach-app\nwie atala",
+     "partnerin auf\ndeinem level"
+    ],
+    "dont": [
+     "absagen in\nletzter minute",
+     "wettrennen"
+    ]
+   },
+   "it": {
+    "titre": "prima",
+    "do": [
+     "orario\ne posto fissi",
+     "app coach\ncome atala",
+     "un’amica\ndel tuo passo"
+    ],
+    "dont": [
+     "dare buca",
+     "fare\na gara"
+    ]
+   },
+   "es-419": {
+    "titre": "antes",
+    "do": [
+     "hora y lugar",
+     "app con coach\ncomo atala",
+     "una amiga\nde tu nivel"
+    ],
+    "dont": [
+     "cancelar\na última hora",
+     "competir\nentre ustedes"
+    ]
+   },
+   "hu": {
+    "titre": "előtte",
+    "do": [
+     "fix időpont\nés hely",
+     "edzős app,\nmint az atala",
+     "egy barátnő\na szintedről"
+    ],
+    "dont": [
+     "késői lemondás",
+     "versenyfutás"
+    ]
+   },
+   "ro": {
+    "titre": "înainte",
+    "do": [
+     "ora și locul",
+     "aplicație de\ncoach ca atala",
+     "o prietenă\nde nivelul tău"
+    ],
+    "dont": [
+     "anulat\npe ultima sută",
+     "întrecere\nîntre voi"
+    ]
+   },
+   "tr": {
+    "titre": "önce",
+    "do": [
+     "belli saat\nve yer",
+     "atala gibi\nkoç uygulaması",
+     "seviyene uygun\nbir arkadaş"
+    ],
+    "dont": [
+     "son anda\niptal etmek",
+     "yarışmak"
+    ]
+   },
+   "el": {
+    "titre": "πριν",
+    "do": [
+     "σταθερή ώρα\nκαι σημείο",
+     "εφαρμογή coach\nσαν το atala",
+     "φίλη στο\nεπίπεδό σου"
+    ],
+    "dont": [
+     "ακύρωση\nστο τσακ",
+     "κόντρες\nμεταξύ σας"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/gourde.png",
+    "images/objets/gilet.png"
+   ],
+   "dont": [
+    "images/objets/ecouteurs.png",
+    "images/objets/cone.png"
+   ],
+   "en": {
+    "titre": "the run",
+    "do": [
+     "a pace you can\ntalk at",
+     "water\nfor two",
+     "a hi-vis vest"
+    ],
+    "dont": [
+     "earbuds in",
+     "leaving her\nin the dust"
+    ]
+   },
+   "fr": {
+    "titre": "la sortie",
+    "do": [
+     "une allure\nde discussion",
+     "de l’eau\npour deux",
+     "du fluo"
+    ],
+    "dont": [
+     "les écouteurs",
+     "la lâcher\nen route"
+    ]
+   },
+   "de": {
+    "titre": "der lauf",
+    "do": [
+     "tempo, bei dem\nihr redet",
+     "wasser\nfür zwei",
+     "warnweste"
+    ],
+    "dont": [
+     "kopfhörer drin",
+     "sie abhängen"
+    ]
+   },
+   "it": {
+    "titre": "la corsa",
+    "do": [
+     "un ritmo\nda chiacchiere",
+     "acqua per due",
+     "il gilet fluo"
+    ],
+    "dont": [
+     "gli auricolari",
+     "lasciarla\nda sola"
+    ]
+   },
+   "es-419": {
+    "titre": "la salida",
+    "do": [
+     "un ritmo\npara platicar",
+     "agua\npara dos",
+     "chaleco flúor"
+    ],
+    "dont": [
+     "con audífonos",
+     "dejarla\nsola atrás"
+    ]
+   },
+   "hu": {
+    "titre": "a futás",
+    "do": [
+     "tempó, amiben\nlehet dumálni",
+     "víz kettőnek",
+     "neon mellény"
+    ],
+    "dont": [
+     "fülhallgatóval",
+     "otthagyni őt"
+    ]
+   },
+   "ro": {
+    "titre": "alergarea",
+    "do": [
+     "un ritm\nde povești",
+     "apă pentru doi",
+     "vestă fluo"
+    ],
+    "dont": [
+     "cu căștile",
+     "s-o lași\nîn urmă"
+    ]
+   },
+   "tr": {
+    "titre": "koşu",
+    "do": [
+     "sohbet temposu",
+     "iki kişilik su",
+     "fosforlu yelek"
+    ],
+    "dont": [
+     "kulaklıkla",
+     "onu bırakmak"
+    ]
+   },
+   "el": {
+    "titre": "η έξοδος",
+    "do": [
+     "ρυθμός που\nμιλάτε άνετα",
+     "νερό για δύο",
+     "γιλέκο φλούο"
+    ],
+    "dont": [
+     "με ακουστικά",
+     "την αφήνεις\nμόνη πίσω"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/the.png",
+    "images/objets/rouleau.png",
+    "images/objets/reveil.png"
+   ],
+   "dont": [
+    "images/objets/vin.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "after",
+    "do": [
+     "coffee for two",
+     "a foam roller",
+     "booking the\nnext run"
+    ],
+    "dont": [
+     "a glass\nof wine",
+     "leg day\nright after"
+    ]
+   },
+   "fr": {
+    "titre": "après",
+    "do": [
+     "un café\nà deux",
+     "ton rouleau",
+     "le prochain\nrdv calé"
+    ],
+    "dont": [
+     "un verre\nde vin",
+     "séance jambes\njuste après"
+    ]
+   },
+   "de": {
+    "titre": "danach",
+    "do": [
+     "zu zweit\neinen kaffee",
+     "faszienrolle",
+     "gleich den\nnächsten lauf"
+    ],
+    "dont": [
+     "ein glas wein",
+     "beintag\ndirekt danach"
+    ]
+   },
+   "it": {
+    "titre": "dopo",
+    "do": [
+     "caffè in due",
+     "un foam roller",
+     "il prossimo\ngiro fissato"
+    ],
+    "dont": [
+     "un bicchiere\ndi vino",
+     "gambe\nsubito dopo"
+    ]
+   },
+   "es-419": {
+    "titre": "después",
+    "do": [
+     "café para dos",
+     "un rodillo",
+     "la próxima\nya agendada"
+    ],
+    "dont": [
+     "una copa\nde vino",
+     "pierna\njusto después"
+    ]
+   },
+   "hu": {
+    "titre": "utána",
+    "do": [
+     "közös kávé",
+     "masszázshenger",
+     "a következő\nfutás kész"
+    ],
+    "dont": [
+     "egy pohár bor",
+     "lábnap\nrögtön utána"
+    ]
+   },
+   "ro": {
+    "titre": "după",
+    "do": [
+     "cafea în doi",
+     "rola de masaj",
+     "fixați\ntura viitoare"
+    ],
+    "dont": [
+     "un pahar\nde vin",
+     "picioare\nimediat după"
+    ]
+   },
+   "tr": {
+    "titre": "sonra",
+    "do": [
+     "birlikte kahve",
+     "köpük rulo",
+     "bir sonraki\nkoşu hazır"
+    ],
+    "dont": [
+     "şarap içmek",
+     "hemen ardından\nbacak günü"
+    ]
+   },
+   "el": {
+    "titre": "μετά",
+    "do": [
+     "καφές για δύο",
+     "ρολό μασάζ",
+     "κλεισμένη\nη επόμενη"
+    ],
+    "dont": [
+     "ποτήρι κρασί",
+     "πόδια\nαμέσως μετά"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,430 @@
+{
+ "id": "at-018",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "holiday season runs do and don’ts",
+  "fr": "pendant les fêtes : les do & don’ts",
+  "de": "an feiertagen: die do & don’ts",
+  "it": "durante le feste: i do & don’ts",
+  "es-419": "en las fiestas: los do & don’ts",
+  "hu": "ünnepek alatt: a do & don’ts",
+  "ro": "de sărbători: do & don’ts",
+  "tr": "tatil sezonu: do & don’ts",
+  "el": "στις γιορτές: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #holidayrunning #runningtips #girlswhorun #winterrunning",
+  "fr": "#courseapied #fetes #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Housewife",
+  "url": "https://www.tiktok.com/music/housewife-7697010651306838068"
+ },
+ "notes": "Preuve : « courir l’hiver : / les do & don’ts » de @hannah.run5 (279 k vues, 31/10) ; même gabarit, un sujet de saison voisin (garder la course pendant les fêtes). Aucun objet neuf ; couverture : coureuse-neige. Logo d'Atala au milieu des « Do » de la slide 2. Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-neige.png",
+   "en": {
+    "titre": "holiday season runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "pendant les fêtes :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "an feiertagen:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "durante le feste:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "en las fiestas:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "ünnepek alatt:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "de sărbători:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "tatil sezonu:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "στις γιορτές:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "atala",
+    "images/objets/reveil.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/sac-sport.png"
+   ],
+   "en": {
+    "titre": "the plan",
+    "do": [
+     "2–3 short runs\na week",
+     "a plan on an\napp like atala",
+     "an early run"
+    ],
+    "dont": [
+     "all or nothing",
+     "skipping\n3 weeks"
+    ]
+   },
+   "fr": {
+    "titre": "le plan",
+    "do": [
+     "2 à 3 sorties\npar semaine",
+     "appli de coach\ncomme atala",
+     "courir tôt"
+    ],
+    "dont": [
+     "tout ou rien",
+     "zapper\n3 semaines"
+    ]
+   },
+   "de": {
+    "titre": "der plan",
+    "do": [
+     "2–3 läufe\npro woche",
+     "coach-app\nwie atala",
+     "früh laufen"
+    ],
+    "dont": [
+     "alles\noder nichts",
+     "drei wochen\ngar nichts"
+    ]
+   },
+   "it": {
+    "titre": "il piano",
+    "do": [
+     "2–3 uscite\na settimana",
+     "app coach\ncome atala",
+     "correre presto"
+    ],
+    "dont": [
+     "tutto o niente",
+     "3 settimane\ndi stop"
+    ]
+   },
+   "es-419": {
+    "titre": "el plan",
+    "do": [
+     "2–3 salidas\npor semana",
+     "app con coach\ncomo atala",
+     "salir temprano"
+    ],
+    "dont": [
+     "todo o nada",
+     "3 semanas\nsin correr"
+    ]
+   },
+   "hu": {
+    "titre": "a terv",
+    "do": [
+     "heti 2–3\nrövid futás",
+     "edzős app,\nmint az atala",
+     "korai futás"
+    ],
+    "dont": [
+     "minden\nvagy semmi",
+     "3 hét szünet"
+    ]
+   },
+   "ro": {
+    "titre": "planul",
+    "do": [
+     "2–3 ieșiri\npe săptămână",
+     "aplicație de\ncoach ca atala",
+     "ieșire devreme"
+    ],
+    "dont": [
+     "tot sau nimic",
+     "pauză de\n3 săptămâni"
+    ]
+   },
+   "tr": {
+    "titre": "plan",
+    "do": [
+     "haftada 2–3\nkısa koşu",
+     "atala gibi\nkoç uygulaması",
+     "erken koşu"
+    ],
+    "dont": [
+     "ya hep ya hiç",
+     "3 hafta ara"
+    ]
+   },
+   "el": {
+    "titre": "το πλάνο",
+    "do": [
+     "2–3 έξοδοι\nτη βδομάδα",
+     "εφαρμογή coach\nσαν το atala",
+     "τρέξιμο νωρίς"
+    ],
+    "dont": [
+     "όλα ή τίποτα",
+     "3 βδομάδες\nχωρίς τρέξιμο"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/gourde.png",
+    "images/objets/montre.png",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/vin.png",
+    "images/objets/telephone.png"
+   ],
+   "en": {
+    "titre": "the big days",
+    "do": [
+     "water between\neach drink",
+     "a short\nshake-out run",
+     "real sleep"
+    ],
+    "dont": [
+     "a long run\nafter a party",
+     "guilt for\nmissed runs"
+    ]
+   },
+   "fr": {
+    "titre": "les jours J",
+    "do": [
+     "de l’eau entre\nles verres",
+     "un footing\nle lendemain",
+     "bien dormir"
+    ],
+    "dont": [
+     "courir long\naprès la fête",
+     "culpabiliser\nd’une pause"
+    ]
+   },
+   "de": {
+    "titre": "die festtage",
+    "do": [
+     "wasser zu\njedem drink",
+     "ein kurzer\nlockerer lauf",
+     "genug schlaf"
+    ],
+    "dont": [
+     "langer lauf\nnach der party",
+     "pausen bereuen"
+    ]
+   },
+   "it": {
+    "titre": "i giorni di festa",
+    "do": [
+     "acqua tra\ni brindisi",
+     "una corsetta\nil giorno dopo",
+     "dormire bene"
+    ],
+    "dont": [
+     "corsa lunga\ndopo la festa",
+     "sensi di colpa"
+    ]
+   },
+   "es-419": {
+    "titre": "los días de fiesta",
+    "do": [
+     "agua entre\ncada brindis",
+     "trote suave\nal otro día",
+     "dormir bien"
+    ],
+    "dont": [
+     "un fondo largo\ntras la fiesta",
+     "culpa por\nno correr"
+    ]
+   },
+   "hu": {
+    "titre": "az ünnepnapok",
+    "do": [
+     "víz minden\npohár között",
+     "rövid laza\nfutás másnap",
+     "jó alvás"
+    ],
+    "dont": [
+     "hosszú futás\nbuli után",
+     "bűntudat"
+    ]
+   },
+   "ro": {
+    "titre": "zilele mari",
+    "do": [
+     "apă\nîntre toasturi",
+     "jogging\na doua zi",
+     "somn bun"
+    ],
+    "dont": [
+     "alergare lungă\ndupă petrecere",
+     "vinovăție\npentru pauze"
+    ]
+   },
+   "tr": {
+    "titre": "kutlama günleri",
+    "do": [
+     "her kadehten\nsonra su",
+     "ertesi gün\nhafif koşu",
+     "iyi uyku"
+    ],
+    "dont": [
+     "parti sonrası\nuzun koşu",
+     "vicdan azabı"
+    ]
+   },
+   "el": {
+    "titre": "οι μέρες γιορτής",
+    "do": [
+     "νερό ανάμεσα\nστα ποτά",
+     "χαλαρό τρέξιμο\nτην επομένη",
+     "καλός ύπνος"
+    ],
+    "dont": [
+     "μεγάλη έξοδος\nμετά το πάρτι",
+     "τύψεις για\nτα κενά"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "images/objets/ecouteurs.png",
+    "images/objets/the.png"
+   ],
+   "dont": [
+    "images/objets/tenue.png",
+    "images/objets/boite-chaussures.png"
+   ],
+   "en": {
+    "titre": "with family",
+    "do": [
+     "a family walk",
+     "festive songs",
+     "a hot tea"
+    ],
+    "dont": [
+     "forgetting\nyour kit",
+     "new shoes\nfor a long run"
+    ]
+   },
+   "fr": {
+    "titre": "en famille",
+    "do": [
+     "une balade\nen famille",
+     "une playlist\nde noël",
+     "un thé chaud"
+    ],
+    "dont": [
+     "oublier\nta tenue",
+     "baskets neuves\nsur du long"
+    ]
+   },
+   "de": {
+    "titre": "mit familie",
+    "do": [
+     "spaziergang",
+     "playlist\nzu weihnachten",
+     "heißer tee"
+    ],
+    "dont": [
+     "kein laufzeug",
+     "neue schuhe\nim long run"
+    ]
+   },
+   "it": {
+    "titre": "in famiglia",
+    "do": [
+     "passeggiata\nin famiglia",
+     "una playlist\ndi natale",
+     "un tè caldo"
+    ],
+    "dont": [
+     "dimenticare\nil kit",
+     "scarpe nuove\nsul lungo"
+    ]
+   },
+   "es-419": {
+    "titre": "en familia",
+    "do": [
+     "paseo\nen familia",
+     "villancicos",
+     "un té caliente"
+    ],
+    "dont": [
+     "olvidar\ntu ropa",
+     "tenis nuevos\nen un fondo"
+    ]
+   },
+   "hu": {
+    "titre": "a családdal",
+    "do": [
+     "családi séta",
+     "ünnepi zenék",
+     "forró tea"
+    ],
+    "dont": [
+     "nincs szerelés",
+     "új cipő\nhosszú futáson"
+    ]
+   },
+   "ro": {
+    "titre": "în familie",
+    "do": [
+     "plimbare\nîn familie",
+     "colinde",
+     "ceai fierbinte"
+    ],
+    "dont": [
+     "echipament\nuitat acasă",
+     "pantofi noi\npe ture lungi"
+    ]
+   },
+   "tr": {
+    "titre": "aileyle",
+    "do": [
+     "aile yürüyüşü",
+     "noel şarkıları",
+     "sıcak çay"
+    ],
+    "dont": [
+     "kıyafetsiz\nyola çıkmak",
+     "uzun koşuda\nyeni ayakkabı"
+    ]
+   },
+   "el": {
+    "titre": "με την οικογένεια",
+    "do": [
+     "βόλτα\nμε τους δικούς",
+     "κάλαντα",
+     "ζεστό τσάι"
+    ],
+    "dont": [
+     "ξεχνάς\nτα ρούχα σου",
+     "νέα παπούτσια\nσε long run"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,270 @@
+{
+ "post_id": "var-matins-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "πώς να καταστρέψεις κάθε σου πρωινό, εγγυημένα"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(το κάνω κάθε μέρα, δυστυχώς)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_62ec5418.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "texte": "κάνε αναβολή [[6 φορές στη σειρά]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "texte": "κάθε 9 λεπτά ξανακοιμάσαι και το ξυπνητήρι σε ξανατραβάει έξω. σούπερ ξεκούραστο"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "texte": "μετά από μια ώρα σηκώνεσαι [[με πιο πολλή νύστα απ' ό,τι στο πρώτο ξυπνητήρι]] και έχεις 12 λεπτά"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "texte": "οδοντόβουρτσα στο ένα χέρι, παπούτσι στο άλλο, και βγαίνεις τρέχοντας. [[απόλυτο ζεν]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6b621671.jpg",
+      "boite": [
+       0,
+       150,
+       880,
+       906
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "κράτα [[τις κουρτίνες κλειστές]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "ούτε μια ακτίνα μέρας, μόνο το φως του κινητού. ο εγκέφαλος νομίζει ότι είναι 3 το πρωί"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "οπότε μένει σε λειτουργία ύπνου και εσύ τριγυρνάς στην κουζίνα σαν [[χαμένο ζόμπι]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "το φως είναι [[για τους πρωινούς τύπους]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4045e9b9.jpg",
+      "boite": [
+       0,
+       560,
+       1760,
+       1332
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "texte": "[[σκρόλαρε]] στο κρεβάτι"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "texte": "το ένα μάτι ανοιχτό, το άλλο κοιμάται: 40 λεπτά ζωές άλλων, ειδήσεις που αγχώνουν και [[47 ειδοποιήσεις]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "texte": "δεν έχεις πει ακόμα καλημέρα σε κανέναν και ο εγκέφαλός σου είναι [[ήδη υπερφορτωμένος]]. τέλειο ζέσταμα"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "texte": "και ό,τι κι αν γίνει, μην αλλάξεις ποτέ αυτό το σκρολ με ένα βιβλίο, ένα podcast ή ένα μάθημα 5 λεπτών [[στην εφαρμογή Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "texte": "χωρίς πρωινό, [[μόνο καφές]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "texte": "δύο εσπρέσο με άδειο στομάχι και τίποτα άλλο μέχρι το μεσημέρι"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "texte": "στις 10 τα χέρια τρέμουν λίγο και η συγκέντρωση [[έχει χαθεί]]"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "texte": "στις 11:40 τρως ένα πακέτο μπισκότα πάνω στο πληκτρολόγιο. [[σούπερ ισορροπία!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00ba245c.jpg",
+      "boite": [
+       49,
+       0,
+       2270,
+       1760
+      ]
+     }
+    }
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "texte": "κάνε λίστα με [[23 πράγματα]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "texte": "όλα ως το μεσημέρι. γυμναστήριο, mail, φόροι, τηλέφωνο στη γιαγιά"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "texte": "στις 11:58 έχεις τσεκάρει μόνο ένα: [[να γράψεις τη λίστα]]"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "texte": "μετά ενοχές όλο το απόγευμα και το βράδυ ξαναγράψ' την [[ακόμα πιο μεγάλη]]. τα λέμε αύριο!!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_015e2113.jpg",
+      "boite": [
+       0,
+       420,
+       1760,
+       1525
+      ]
+     }
+    }
+   }
+  }
+ }
+}

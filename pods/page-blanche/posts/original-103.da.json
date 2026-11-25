@@ -1,0 +1,293 @@
+{
+ "post_id": "original-103",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously disciplined"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra disciplinée",
+     "texte": "ord, der ikke findes [[på dansk]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(og hvorfor vi har brug for dem)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0777402d.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone first thing",
+      "in the morning"
+     ],
+     "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
+     "texte": "[[tsundoku]] (japansk): bøgerne, du køber og aldrig læser"
+    },
+    "T2": {
+     "en": [
+      "the first thing you see sets the tone, and right",
+      "now it’s notifications and other people’s lives"
+     ],
+     "fr": "ce que tu vois en premier conditionne ta journée, et là c'est [[des notifs et la vie des autres]]",
+     "texte": "den voksende bunke bøger, du sværger, du nok skal nå, [[der stadig venter på natbordet]]"
+    },
+    "T3": {
+     "en": [
+      "give yourself the",
+      "first 30 minutes",
+      "without your phone"
+     ],
+     "fr": "passe [[les 30 premières minutes]] sans ton tel",
+     "texte": "slang [[siden 1800-tallet]]: 'stable op' + 'læse'"
+    },
+    "T4": {
+     "en": [
+      "you start the day doing what you chose, instead of",
+      "reacting to whatever your phone throws at you"
+     ],
+     "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
+     "texte": "så din ulæste bunke er ikke en fiasko, den er [[et helt ord]] (og en ældgammel vane)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0576788d.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "saml på ord [[som souvenirs]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "hvert sprog har ord for [[følelser, dit eget springer over]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "hvert nyt ord er en ny måde at lægge mærke til ting på, og det har tit [[lidt historie]] med sig"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "dagens 5 min på [[Sophia-appen]]: hvorfor renæssancen opstod i italien. jeg tænker stadig over det"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching everything at 2x speed"
+     ],
+     "fr": "tout regarder [[en vitesse x2]]",
+     "texte": "[[saudade]] (portugisisk)"
+    },
+    "T2": {
+     "en": [
+      "youtube, podcasts, lectures, even voice notes from",
+      "your friends, everything gets sped up these days"
+     ],
+     "fr": "vidéos, podcasts, cours, même les vocaux de tes potes, aujourd'hui [[tout passe en accéléré]]",
+     "texte": "en dyb længsel efter nogen eller noget, du elsker, som er væk og [[måske aldrig kommer igen]]"
+    },
+    "T3": {
+     "en": [
+      "after a while,",
+      "anything at normal",
+      "speed starts to feel",
+      "painfully slow"
+     ],
+     "fr": "à force, tout ce qui passe à vitesse normale te paraît [[atrocement lent]]",
+     "texte": "det er trist og sødt på én gang: [[du savner noget]] og elsker det stadig"
+    },
+    "T4": {
+     "en": [
+      "so a real",
+      "conversation or a",
+      "book feels too",
+      "slow to focus on"
+     ],
+     "fr": "du coup une vraie discussion ou un livre, [[t'arrives plus à suivre]]",
+     "texte": "det er hjertet i fado, portugals [[mest kendte musik]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01c1c847.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build relationships with",
+      "people smarter than you"
+     ],
+     "fr": "entoure-toi de [[gens plus intelligents que toi]]",
+     "texte": "[[hiraeth]] (walisisk): hjemve med sorg i"
+    },
+    "T2": {
+     "en": [
+      "if you're always the",
+      "smartest person in the",
+      "room, you stop getting",
+      "better"
+     ],
+     "fr": "si t'es toujours la personne la plus calée de la pièce, tu [[progresses plus]]",
+     "texte": "en længsel efter et hjem, du [[ikke kan vende tilbage til]], eller som måske aldrig fandtes"
+    },
+    "T3": {
+     "en": [
+      "smart people make you",
+      "explain your ideas,",
+      "defend them, and see",
+      "where you're wrong"
+     ],
+     "fr": "les gens brillants te font [[expliquer tes idées]], les défendre et voir où tu te trompes",
+     "texte": "stedet, menneskerne, tiden: du savner [[en version af dit liv]], ikke bare en by"
+    },
+    "T4": {
+     "en": [
+      "and you slowly start",
+      "picking up how they think"
+     ],
+     "fr": "et petit à petit, tu prends [[leur façon de penser]]",
+     "texte": "alle vinduespladser [[kender den følelse]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_42b123bc.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take long walks",
+      "in the sun"
+     ],
+     "fr": "fais de longues balades [[au soleil]]",
+     "texte": "[[wabi-sabi]] (japansk)"
+    },
+    "T2": {
+     "en": [
+      "sunlight is proven to wake your brain up and help",
+      "you sleep better at night"
+     ],
+     "fr": "c'est [[prouvé]] : le soleil réveille ton cerveau et t'aide à [[mieux dormir]] le soir",
+     "texte": "at finde skønhed i det, der er [[ufuldkomment, ufærdigt eller falmende]]"
+    },
+    "T3": {
+     "en": [
+      "walking gets more",
+      "blood to your brain"
+     ],
+     "fr": "marcher, ça oxygène ton cerveau",
+     "texte": "en skæv skål, en slidt bog"
+    },
+    "T4": {
+     "en": [
+      "that's when your",
+      "mind wanders and",
+      "connects ideas"
+     ],
+     "fr": "c'est là que ton esprit divague et [[relie les idées]]",
+     "texte": "fejlene er [[en del af historien]]"
+    },
+    "T5": {
+     "en": [
+      "darwin, nietzsche and steve jobs all did their best",
+      "thinking on long walks"
+     ],
+     "fr": "darwin, nietzsche et steve jobs trouvaient leurs [[meilleures idées]] en marchant",
+     "texte": "kintsugi går længere: knuste skåle [[repareres med guld]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_c7df5058.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

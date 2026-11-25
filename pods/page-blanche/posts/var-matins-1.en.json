@@ -1,0 +1,270 @@
+{
+ "post_id": "var-matins-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "how to mess up every single morning, guaranteed"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(tested every single day)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0378c280.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "texte": "hit snooze [[six times]], every morning"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "texte": "every 9 minutes you drift back off, then get yanked out of it again. so restful"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "texte": "after an hour of that you finally get up, [[more tired than at the first alarm]], with 12 minutes left"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "texte": "toothbrush in one hand, shoe in the other, sprinting out the door. [[peak serenity]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6b621671.jpg",
+      "boite": [
+       0,
+       150,
+       880,
+       906
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "keep the [[curtains closed]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "no daylight, only the glow of your screen. your brain is convinced it's still 3am"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "so it stays in sleep mode, and you drift around the kitchen like a [[very confused zombie]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "light is for [[morning people]] anyway"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4045e9b9.jpg",
+      "boite": [
+       0,
+       560,
+       1760,
+       1332
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "texte": "[[scroll]] in bed first"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "texte": "one eye open, the other still asleep: 40 minutes of other people's lives, stressful news and [[47 notifications]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "texte": "you haven't said a word to anyone yet and your brain is [[already overloaded]]. great warm-up"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "texte": "and whatever you do, never swap that scroll for a book, a podcast or a 5 min lesson on [[the Sophia app]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "texte": "skip breakfast, [[coffee only]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "texte": "two espressos on an empty stomach and nothing else until noon"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "texte": "by 10am your hands shake a little and your focus is [[gone]]"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "texte": "at 11:40 you eat a whole pack of cookies over the keyboard. [[balanced diet!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00ba245c.jpg",
+      "boite": [
+       49,
+       0,
+       2270,
+       1760
+      ]
+     }
+    }
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "texte": "write a [[23-item]] to-do list"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "texte": "all due before noon, obviously. gym, emails, taxes, call grandma"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "texte": "at 11:58 you've ticked off exactly one: [[write the list]]"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "texte": "then feel guilty all afternoon and rewrite it tonight, [[even longer]]. see you tomorrow!!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_015e2113.jpg",
+      "boite": [
+       0,
+       420,
+       1760,
+       1525
+      ]
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,224 @@
+{
+ "post_id": "7711812169930657046",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to reset your",
+      "dopamine"
+     ],
+     "texte": "10/10 навика, за да рестартираш допамина си"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "texte": "(одобрено от невронауката)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_b45ccd0c.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take cold showers"
+     ],
+     "texte": "вземай [[студени душове]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but cold water raises",
+      "your dopamine for hours after you get out"
+     ],
+     "texte": "ЗНАМ, всички го казват, но студената вода вдига допамина ти [[с часове]] след това"
+    },
+    "T3": {
+     "en": [
+      "it's the opposite of",
+      "scrolling, the",
+      "discomfort comes",
+      "first and the reward",
+      "comes after"
+     ],
+     "texte": "обратното е на скролването, [[първо е неприятно]], а наградата идва после"
+    },
+    "T4": {
+     "en": [
+      "that's how you reset your dopamine, your brain gets",
+      "used to doing the hard thing first"
+     ],
+     "texte": "така [[рестартираш допамина]], мозъкът свиква [[първо да прави трудното]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop stacking your dopamine"
+     ],
+     "texte": "спри да [[трупаш допамин]]"
+    },
+    "T2": {
+     "en": [
+      "music at the gym, a snack while you study, a show",
+      "while you eat, your phone during everything"
+     ],
+     "texte": "музика във фитнеса, снакс докато учиш, сериал докато ядеш, телефонът [[покрай всичко]]"
+    },
+    "T3": {
+     "en": [
+      "when every activity",
+      "comes with a bonus",
+      "hit, the activity itself",
+      "starts feeling boring"
+     ],
+     "texte": "когато всяко занимание идва с бонус доза, самото занимание [[започва да е скучно]]"
+    },
+    "T4": {
+     "en": [
+      "do one thing on its own",
+      "and let it be enough,",
+      "that's how normal",
+      "things start feeling",
+      "good again"
+     ],
+     "texte": "прави едно нещо [[само по себе си]] и нека да стига, така нормалните неща [[пак носят кеф]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "texte": "чети книга [[всеки ден]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling gives you a tiny hit",
+      "of dopamine every few",
+      "seconds, so anything slower",
+      "feels boring"
+     ],
+     "texte": "скролването ти дава [[мъничка доза допамин]] на всеки няколко секунди, затова всичко по-бавно е скучно"
+    },
+    "T3": {
+     "en": [
+      "i used to scroll all day until i",
+      "found this which blocks my",
+      "apps until i read for 20",
+      "minutes"
+     ],
+     "texte": "[[скролвах по цял ден]], сега на телефона правя 5 мин в [[приложението Sophia]]. днес: защо Ренесансът тръгва от Италия"
+    },
+    "T4": {
+     "en": [
+      "books do the opposite, they",
+      "train your brain to focus and",
+      "wait for the payoff"
+     ],
+     "texte": "книгите правят обратното, учат мозъка да се [[фокусира]] и да чака [[наградата]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start lifting weights"
+     ],
+     "texte": "започни да [[вдигаш тежести]]"
+    },
+    "T2": {
+     "en": [
+      "you can actually see yourself getting better, a little",
+      "more weight every week"
+     ],
+     "texte": "реално [[виждаш напредъка си]], малко повече тежест всяка седмица"
+    },
+    "T3": {
+     "en": [
+      "your brain gets",
+      "dopamine from real",
+      "progress"
+     ],
+     "texte": "мозъкът ти взима допамин от [[истински напредък]]"
+    },
+    "T4": {
+     "en": [
+      "instead of from likes",
+      "and views that",
+      "disappear in a second"
+     ],
+     "texte": "а не от лайкове и гледания, които [[изчезват за секунда]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get sunlight first thing in the",
+      "morning"
+     ],
+     "texte": "излез на слънце [[веднага щом станеш]]"
+    },
+    "T2": {
+     "en": [
+      "your brain is made to wake up with daylight, not",
+      "with a screen"
+     ],
+     "texte": "мозъкът ти е [[създаден да се буди]] с дневна светлина, не с екран"
+    },
+    "T3": {
+     "en": [
+      "go outside for 10",
+      "minutes before you",
+      "check your phone,",
+      "even if it's cloudy"
+     ],
+     "texte": "излез за 10 минути [[преди да погледнеш телефона]], дори да е облачно"
+    },
+    "T4": {
+     "en": [
+      "you start the day with natural dopamine instead of",
+      "getting it from your feed"
+     ],
+     "texte": "започваш деня с [[естествен допамин]], вместо да го търсиш във фийда"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -14,6 +14,7 @@
   "scripts": {
     "typecheck": "tsc -p .",
     "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "pinterest": "NODE_USE_ENV_PROXY=1 node atelier/cli-pinterest.ts",
     "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
     "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
     "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",

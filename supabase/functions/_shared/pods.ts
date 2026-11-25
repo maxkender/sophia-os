@@ -324,6 +324,58 @@ export const BANQUE_PODZ = {
   legendeMax: 300,
 } as const;
 
+/**
+ * Les photos versées depuis Pinterest (`ajouter_photo`, demande d'Adrien du
+ * 25/11) : la liste blanche des labels par podz (slug du pod → slugs de
+ * labels), et les contrôles. Pas de 9:16 imposé : une largeur minimale, un JPEG
+ * sans métadonnées et une légende en anglais.
+ */
+export const PHOTOS_PODZ = {
+  labels: {
+    originaux_atala_built: ["male-run"],
+    originaux_atala_biomechanic: ["clean-girl-run", "classic-girl-run", "male-run"],
+  } as Record<string, readonly string[]>,
+  parJour: 200,
+  octetsMax: 6_000_000,
+  largeurMin: 720,
+  hauteurMin: 720,
+  legendeMax: 300,
+} as const;
+
+/** Une URL de pin ou d'image Pinterest (https, pinterest.* ou i.pinimg.com). */
+export function urlPinterest(url: string): boolean {
+  try {
+    const u = new URL(url);
+    return u.protocol === "https:" && (/(^|\.)pinterest\.[a-z.]+$/.test(u.hostname) || u.hostname === "i.pinimg.com");
+  } catch {
+    return false;
+  }
+}
+
+/** Contrôles d'une photo Pinterest avant la banque (vide = acceptée). */
+export function controlerPhotoBanque(octets: Uint8Array, legende: string, origineUrl: string): string[] {
+  const erreurs: string[] = [];
+  if (octets.length > PHOTOS_PODZ.octetsMax) {
+    erreurs.push(`image de ${(octets.length / 1_000_000).toFixed(1)} Mo (${PHOTOS_PODZ.octetsMax / 1_000_000} Mo au plus)`);
+  }
+  const restes = metadonneesJpeg(octets);
+  if (restes === null) return [...erreurs, "pas un JPEG"];
+  if (restes.length) erreurs.push(`métadonnées ${restes.join(", ")} : réencode l'image sans métadonnées (ni C2PA, ni XMP, ni EXIF)`);
+  const d = dimensionsJpeg(octets);
+  if (!d || !d.l || !d.h) erreurs.push("dimensions illisibles");
+  else {
+    if (d.l < PHOTOS_PODZ.largeurMin) erreurs.push(`${d.l} px de large (${PHOTOS_PODZ.largeurMin} au moins)`);
+    if (d.h < PHOTOS_PODZ.hauteurMin) erreurs.push(`${d.h} px de haut (${PHOTOS_PODZ.hauteurMin} au moins)`);
+  }
+  const l = legende.trim();
+  if (l.split(/\s+/).filter((m) => /[a-z]{3,}/i.test(m)).length < 3) {
+    erreurs.push("legende : décris la photo en anglais, en 3 mots au moins (elle sert à photos --cherche)");
+  }
+  if (l.length > PHOTOS_PODZ.legendeMax) erreurs.push(`legende de ${l.length} caractères (${PHOTOS_PODZ.legendeMax} au plus)`);
+  if (!urlPinterest(origineUrl)) erreurs.push("origine_url : l'URL https de la pin ou de l'image Pinterest d'origine");
+  return erreurs;
+}
+
 /** Largeur et hauteur d'un JPEG, lues dans son SOF sans décoder l'image (null si absent). */
 export function dimensionsJpeg(jpeg: Uint8Array): { l: number; h: number } | null {
   if (jpeg[0] !== 0xff || jpeg[1] !== 0xd8) return null;

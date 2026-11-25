@@ -1,0 +1,495 @@
+{
+ "id": "aw-012",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687189684820266273",
+  "vues": 4124,
+  "accroche": "Ces habitudes wellness niches qui te rendent 10x plus confiante"
+ },
+ "titre": {
+  "en": "niche wellness habits that make you 10x more confident",
+  "fr": "habitudes wellness de niche qui te rendent 10x plus confiante",
+  "de": "nischige wellness-habits, die dich 10x selbstbewusster machen",
+  "it": "abitudini wellness di nicchia che ti rendono 10x più sicura",
+  "hu": "niche wellness szokások, amiktől 10x magabiztosabb leszel",
+  "ro": "obiceiuri wellness de nișă care te fac de 10x mai încrezătoare",
+  "el": "niche wellness συνήθειες που σε κάνουν 10x πιο σίγουρη"
+ },
+ "legendes": {
+  "en": "quiet confidence era 🤍 #wellness #healthyhabits #thatgirl #selfcare #confidence",
+  "fr": "ère confiance tranquille 🤍 #wellness #healthyhabits #thatgirl #selfcare #confidence",
+  "de": "quiet-confidence-ära 🤍 #wellness #healthyhabits #thatgirl #selfcare #confidence",
+  "it": "era quiet confidence 🤍 #wellness #healthyhabits #thatgirl #selfcare #confidence",
+  "hu": "quiet confidence éra 🤍 #wellness #healthyhabits #thatgirl #selfcare #confidence",
+  "ro": "era quiet confidence 🤍 #wellness #healthyhabits #thatgirl #selfcare #confidence",
+  "el": "εποχή quiet confidence 🤍 #wellness #healthyhabits #thatgirl #selfcare #confidence"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « ces habitudes wellness niches qui te rendent 10x plus confiante » de @healthy_with_emma6 (4,1 k) et « ces habitudes niches qui te rendent 10x plus attirante » (4,2 k). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : la semaine complète ; « a running coach app like Atala » ; sans « AI »). Aucun chiffre ni étude citée : des habitudes, sans promesse. Photos : banque de l'OS ; Atala : 783d0288 (bord de lac au coucher du soleil, de dos).",
+ "banque": {
+  "images/banque/cf-couv-a.jpg": "5644cb3c-c4bc-48b0-9037-51e723e004e5",
+  "images/banque/cf-couv-b.jpg": "7509711e-ae48-4462-af71-e71ae1645c20",
+  "images/banque/cf-tenue.jpg": "9cd9ff73-a05d-48ea-8cff-ed2ff91db0a4",
+  "images/banque/cf-jardin.jpg": "59cd67d9-15f9-4601-b8d5-cda68a6bb93c",
+  "images/banque/cf-soin.jpg": "15c92420-390d-4996-9c5c-83c5e02b7313",
+  "images/banque/cf-course.jpg": "783d0288-5821-46f5-ba6f-11867b98bfd2",
+  "images/banque/cf-fenetre.jpg": "2848454e-29fc-4c71-81e8-45014983b784",
+  "images/banque/cf-musique.jpg": "7f584099-34a2-45bc-af19-61c14bfe5940"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/cf-couv-a.jpg",
+    "images/banque/cf-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "niche wellness habits that make you 10x more confident",
+    "note": "(that actually work)"
+   },
+   "fr": {
+    "titre": "habitudes wellness de niche qui te rendent 10x plus confiante",
+    "note": "(qui marchent vraiment)"
+   },
+   "de": {
+    "titre": "nischige wellness-habits, die dich 10x selbstbewusster machen",
+    "note": "(die echt wirken)"
+   },
+   "it": {
+    "titre": "abitudini wellness di nicchia che ti rendono 10x più sicura",
+    "note": "(funzionano davvero)"
+   },
+   "hu": {
+    "titre": "niche wellness szokások, amiktől 10x magabiztosabb leszel",
+    "note": "(tényleg működnek)"
+   },
+   "ro": {
+    "titre": "obiceiuri wellness de nișă care te fac de 10x mai încrezătoare",
+    "note": "(chiar funcționează)"
+   },
+   "el": {
+    "titre": "niche wellness συνήθειες που σε κάνουν 10x πιο σίγουρη",
+    "note": "(που όντως πιάνουν)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-tenue.jpg",
+   "en": {
+    "titre": "dress for _yourself_",
+    "intro": "even on days you're _not going anywhere_",
+    "paragraphes": [
+     "a real outfit changes how you _stand, walk and talk_",
+     "no pyjamas past 10am. _that's the rule_"
+    ],
+    "chute": "get dressed, _then_ get going"
+   },
+   "fr": {
+    "titre": "habille-toi _pour toi_",
+    "intro": "même les jours où tu _ne sors pas_",
+    "paragraphes": [
+     "une tenue change comment tu te tiens, _marches et parles_",
+     "pas de pyjama après 10h. _c'est la règle_"
+    ],
+    "chute": "habille-toi, _puis_ fonce"
+   },
+   "de": {
+    "titre": "zieh dich _für dich_ an",
+    "intro": "auch an tagen, an denen du _nirgends hingehst_",
+    "paragraphes": [
+     "ein echtes outfit ändert, wie du stehst, _gehst und redest_",
+     "kein pyjama nach 10 uhr. _das ist die regel_"
+    ],
+    "chute": "anziehen, _dann_ loslegen"
+   },
+   "it": {
+    "titre": "vestiti _per te_",
+    "intro": "anche nei giorni in cui _non esci_",
+    "paragraphes": [
+     "un vero outfit cambia come stai in piedi, _cammini e parli_",
+     "zero pigiama dopo le 10. _è la regola_"
+    ],
+    "chute": "vestiti, _poi_ parti"
+   },
+   "hu": {
+    "titre": "öltözz fel _magadnak_",
+    "intro": "akkor is, ha _nem mész sehova_",
+    "paragraphes": [
+     "egy igazi szettben máshogy állsz, _jársz és beszélsz_",
+     "10 után nincs pizsama. _ez a szabály_"
+    ],
+    "chute": "öltözz fel, _aztán_ indulj"
+   },
+   "ro": {
+    "titre": "îmbracă-te _pentru tine_",
+    "intro": "chiar și în zilele în care _nu ieși nicăieri_",
+    "paragraphes": [
+     "o ținută adevărată schimbă cum stai, _mergi și vorbești_",
+     "fără pijama după 10. _asta e regula_"
+    ],
+    "chute": "îmbracă-te, _apoi_ pornește"
+   },
+   "el": {
+    "titre": "ντύσου _για σένα_",
+    "intro": "ακόμα κι όταν _δεν πας πουθενά_",
+    "paragraphes": [
+     "ένα outfit αλλάζει πώς στέκεσαι, _περπατάς και μιλάς_",
+     "καμία πιτζάμα μετά τις 10. _κανόνας_"
+    ],
+    "chute": "ντύσου, _μετά_ ξεκίνα"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-jardin.jpg",
+   "en": {
+    "titre": "keep _small promises_ to yourself",
+    "intro": "confidence is trust, and trust is _built daily_",
+    "paragraphes": [
+     "say you'll do it, _then do it_. even something tiny",
+     "water the plants, read 5 pages, _make your bed_"
+    ],
+    "chute": "you become someone _you can count on_"
+   },
+   "fr": {
+    "titre": "tiens tes _mini promesses_ à toi-même",
+    "intro": "se faire confiance, ça _se construit chaque jour_",
+    "paragraphes": [
+     "dis-le, _puis fais-le_. même un truc minuscule",
+     "arrose les plantes, lis 5 pages, _fais ton lit_"
+    ],
+    "chute": "tu deviens quelqu'un _sur qui compter_"
+   },
+   "de": {
+    "titre": "_kleine versprechen_ an dich halten",
+    "intro": "selbstvertrauen ist vertrauen, das _wächst täglich_",
+    "paragraphes": [
+     "sag, du machst es, _dann mach es_. auch was winziges",
+     "pflanzen gießen, 5 seiten lesen, _bett machen_"
+    ],
+    "chute": "du wirst jemand, _auf den du zählst_"
+   },
+   "it": {
+    "titre": "mantieni _piccole promesse_ a te",
+    "intro": "la sicurezza è fiducia, e _si costruisce ogni giorno_",
+    "paragraphes": [
+     "di' che lo fai, _poi fallo_. anche una cosa minuscola",
+     "annaffia le piante, leggi 5 pagine, _rifai il letto_"
+    ],
+    "chute": "diventi qualcuno _su cui contare_"
+   },
+   "hu": {
+    "titre": "tartsd be _a kis ígéreteid_ magadnak",
+    "intro": "a magabiztosság bizalom, és a bizalom _naponta épül_",
+    "paragraphes": [
+     "mondd ki, _aztán csináld_. akár egy apróságot",
+     "locsolj virágot, olvass 5 oldalt, _ágyazz be_"
+    ],
+    "chute": "olyan leszel, _akire számíthatsz_"
+   },
+   "ro": {
+    "titre": "ține _micile promisiuni_ față de tine",
+    "intro": "încrederea în tine _se construiește zilnic_",
+    "paragraphes": [
+     "spune că o faci, _apoi fă-o_. chiar și ceva mărunt",
+     "udă plantele, citește 5 pagini, _fă-ți patul_"
+    ],
+    "chute": "devii cineva _pe care te poți baza_"
+   },
+   "el": {
+    "titre": "κράτα _τις μικρές σου υποσχέσεις_",
+    "intro": "αυτοπεποίθηση = εμπιστοσύνη, και _χτίζεται κάθε μέρα_",
+    "paragraphes": [
+     "πες ότι θα το κάνεις, _και κάνε το_. ακόμα και κάτι μικρό",
+     "πότισε φυτά, διάβασε 5 σελίδες, _στρώσε το κρεβάτι_"
+    ],
+    "chute": "γίνεσαι κάποια _που αξίζει εμπιστοσύνη_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-soin.jpg",
+   "en": {
+    "titre": "a slow _skincare night_",
+    "intro": "not for anyone else. _just for you_",
+    "paragraphes": [
+     "10 minutes where you take care of yourself _on purpose_",
+     "candle, music, _no phone_ on the sink"
+    ],
+    "chute": "treat yourself like _someone you love_"
+   },
+   "fr": {
+    "titre": "_soirée skincare_ lente",
+    "intro": "pas pour les autres. _juste pour toi_",
+    "paragraphes": [
+     "10 minutes où tu prends soin de toi _exprès_",
+     "bougie, musique, _zéro tél_ sur le lavabo"
+    ],
+    "chute": "traite-toi comme _quelqu'un que tu aimes_"
+   },
+   "de": {
+    "titre": "slow _skincare-abend_",
+    "intro": "nicht für andere. _nur für dich_",
+    "paragraphes": [
+     "10 minuten, in denen du dich _bewusst_ um dich kümmerst",
+     "kerze, musik, _kein handy_ am waschbecken"
+    ],
+    "chute": "behandle dich wie _deine liebste person_"
+   },
+   "it": {
+    "titre": "una _skincare night_ lenta",
+    "intro": "non per gli altri. _solo per te_",
+    "paragraphes": [
+     "10 minuti in cui ti prendi cura di te _apposta_",
+     "candela, musica, _zero telefono_ al lavabo"
+    ],
+    "chute": "trattati come _qualcuno che ami_"
+   },
+   "hu": {
+    "titre": "egy lassú _skincare este_",
+    "intro": "nem másnak. _csak neked_",
+    "paragraphes": [
+     "10 perc, amikor _szándékosan_ törődsz magaddal",
+     "gyertya, zene, _nincs telefon_ a mosdón"
+    ],
+    "chute": "bánj magaddal úgy, mint _akit szeretsz_"
+   },
+   "ro": {
+    "titre": "o _seară skincare_ lentă",
+    "intro": "nu pentru altcineva. _doar pentru tine_",
+    "paragraphes": [
+     "10 minute în care ai grijă de tine _intenționat_",
+     "lumânare, muzică, _fără telefon_ în baie"
+    ],
+    "chute": "tratează-te ca pe _cineva iubit_"
+   },
+   "el": {
+    "titre": "μια αργή _βραδιά skincare_",
+    "intro": "όχι για κανέναν άλλον. _μόνο για σένα_",
+    "paragraphes": [
+     "10 λεπτά που φροντίζεις τον εαυτό σου _σκόπιμα_",
+     "κερί, μουσική, _χωρίς κινητό_ στον νιπτήρα"
+    ],
+    "chute": "φέρσου στον εαυτό σου _με αγάπη_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/cf-course.jpg",
+   "en": {
+    "titre": "_run_ for yourself",
+    "intro": "finishing a run i planned makes me feel _unstoppable_",
+    "paragraphes": [
+     "i'd plan to run, then not know what to do, and _skip it_ every time",
+     "my tip: a running coach app like Atala lays out _your whole week_, so you just show up"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   },
+   "fr": {
+    "titre": "_cours_ pour toi",
+    "intro": "finir un run que j'ai prévu me rend _inarrêtable_",
+    "paragraphes": [
+     "je prévoyais un run, sans savoir quoi faire, donc _je zappais_ toujours",
+     "mon tip : une appli de coaching running comme Atala organise _toute ta semaine_, t'as qu'à y aller"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "_lauf_ für dich",
+    "intro": "einen geplanten lauf zu schaffen macht mich _unaufhaltsam_",
+    "paragraphes": [
+     "ich plante zu laufen, wusste dann nicht, was tun, und _ließ es_ jedes mal",
+     "mein tipp: eine lauf-coach-app wie Atala plant _deine ganze woche_, du schnürst nur die schuhe"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "_corri_ per te",
+    "intro": "finire una corsa programmata mi fa sentire _inarrestabile_",
+    "paragraphes": [
+     "pianificavo di correre, poi non sapevo cosa fare, e _saltavo_ ogni volta",
+     "il mio consiglio: un'app coach per la corsa come Atala organizza _l'intera settimana_, allacci e via"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "_fuss_ magadért",
+    "intro": "ha lefutom, amit terveztem, _megállíthatatlan_ vagyok",
+    "paragraphes": [
+     "terveztem futni, aztán nem tudtam, mit csináljak, és _kihagytam_ mindig",
+     "a tippem: egy futóedző app, mint az Atala, kirakja _az egész heted_, te csak befűzöd a cipőd"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "_aleargă_ pentru tine",
+    "intro": "să termin o alergare plănuită mă face să mă simt _de neoprit_",
+    "paragraphes": [
+     "plănuiam să alerg, apoi nu știam ce să fac și _săream peste_ de fiecare dată",
+     "sfatul meu: o aplicație de running coach ca Atala îți face _toată săptămâna_, tu doar te încalți"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "_τρέξε_ για σένα",
+    "intro": "όταν τελειώνω ένα τρέξιμο που σχεδίασα, νιώθω _ασταμάτητη_",
+    "paragraphes": [
+     "σχεδίαζα να τρέξω, μετά δεν ήξερα τι να κάνω, και _το παρατούσα_ κάθε φορά",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala στήνει _όλη σου τη βδομάδα_, εσύ δένεις κορδόνια"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-fenetre.jpg",
+   "en": {
+    "titre": "say no _without explaining_",
+    "intro": "\"no, i can't\" is _a full sentence_",
+    "paragraphes": [
+     "you don't owe anyone _a long excuse_",
+     "kind, short, _done_. then move on"
+    ],
+    "chute": "protect _your energy_"
+   },
+   "fr": {
+    "titre": "dis non _sans te justifier_",
+    "intro": "« non, je peux pas » _suffit_",
+    "paragraphes": [
+     "tu dois à personne _de longues excuses_",
+     "gentille, courte, _fini_. on avance"
+    ],
+    "chute": "protège _ton énergie_"
+   },
+   "de": {
+    "titre": "nein sagen _ohne erklärung_",
+    "intro": "„nein, geht nicht“ _reicht völlig_",
+    "paragraphes": [
+     "du schuldest keinem _lange ausreden_",
+     "nett, kurz, _fertig_. dann weiter"
+    ],
+    "chute": "schütz _deine energie_"
+   },
+   "it": {
+    "titre": "di' di no _senza spiegare_",
+    "intro": "\"no, non posso\" è _una frase completa_",
+    "paragraphes": [
+     "non devi a nessuno _una lunga scusa_",
+     "gentile, breve, _fatto_. e vai avanti"
+    ],
+    "chute": "proteggi _l'energia_"
+   },
+   "hu": {
+    "titre": "mondj nemet _indoklás nélkül_",
+    "intro": "„nem, nem megy” _egész mondat_",
+    "paragraphes": [
+     "senkinek nem tartozol _hosszú kifogással_",
+     "kedves, rövid, _kész_. és tovább"
+    ],
+    "chute": "védd _az energiádat_"
+   },
+   "ro": {
+    "titre": "spune nu _fără explicații_",
+    "intro": "„nu, nu pot” e _o propoziție completă_",
+    "paragraphes": [
+     "nu datorezi nimănui _o scuză lungă_",
+     "drăguț, scurt, _gata_. și mai departe"
+    ],
+    "chute": "protejează-ți _energia_"
+   },
+   "el": {
+    "titre": "πες όχι _χωρίς εξηγήσεις_",
+    "intro": "«όχι, δεν μπορώ» _αρκεί_",
+    "paragraphes": [
+     "δεν χρωστάς _μακριές δικαιολογίες_",
+     "ήπια, σύντομα, _τέλος_. και πάμε"
+    ],
+    "chute": "κράτα _την ενέργειά σου_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-musique.jpg",
+   "en": {
+    "titre": "walk with _your main character playlist_",
+    "intro": "headphones in, _shoulders back_",
+    "paragraphes": [
+     "the right song changes _how you walk_ into a room",
+     "one playlist only for _confident days_"
+    ],
+    "chute": "you're the main character, _act like it_"
+   },
+   "fr": {
+    "titre": "marche avec _ta playlist de main character_",
+    "intro": "écouteurs, _épaules en arrière_",
+    "paragraphes": [
+     "la bonne chanson change _ton entrée_ dans une pièce",
+     "une playlist pour _les jours confiants_"
+    ],
+    "chute": "t'es le main character, _agis comme tel_"
+   },
+   "de": {
+    "titre": "geh mit _deiner main-character-playlist_",
+    "intro": "kopfhörer rein, _schultern zurück_",
+    "paragraphes": [
+     "der richtige song ändert, _wie du_ einen raum betrittst",
+     "eine playlist nur für _selbstbewusste tage_"
+    ],
+    "chute": "du bist der main character, _benimm dich so_"
+   },
+   "it": {
+    "titre": "cammina con _la playlist da main character_",
+    "intro": "cuffie su, _spalle indietro_",
+    "paragraphes": [
+     "la canzone giusta cambia _come entri_ in una stanza",
+     "una playlist solo per _i giorni sicuri_"
+    ],
+    "chute": "sei la main character, _comportati da tale_"
+   },
+   "hu": {
+    "titre": "sétálj _a main character playlisteddel_",
+    "intro": "fülhallgató be, _vállak hátra_",
+    "paragraphes": [
+     "a jó dal megváltoztatja, _hogyan lépsz be_ egy szobába",
+     "egy playlist csak _a magabiztos napokra_"
+    ],
+    "chute": "te vagy a main character, _viselkedj úgy_"
+   },
+   "ro": {
+    "titre": "mergi cu _playlistul tău de main character_",
+    "intro": "căștile în urechi, _umerii înapoi_",
+    "paragraphes": [
+     "melodia potrivită schimbă _cum intri_ într-o cameră",
+     "un playlist doar pentru _zile încrezătoare_"
+    ],
+    "chute": "ești main character, _poartă-te ca atare_"
+   },
+   "el": {
+    "titre": "περπάτα με _το main character playlist σου_",
+    "intro": "ακουστικά μέσα, _ώμοι πίσω_",
+    "paragraphes": [
+     "το σωστό τραγούδι αλλάζει _πώς μπαίνεις_ σε ένα δωμάτιο",
+     "ένα playlist μόνο για _μέρες σιγουριάς_"
+    ],
+    "chute": "είσαι η main character, _φέρσου ανάλογα_"
+   }
+  }
+ ]
+}

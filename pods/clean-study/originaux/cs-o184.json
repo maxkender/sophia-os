@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o184",
+  "type_bleo": "full_test",
+  "titre": "how i memorize formulas so they don't disappear during the test #studytok #studytips #maths",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 25/11 : 3 full tests sur 11, plus 1 car la boîte n'a que 7 lignes utilisables). Accroche jamais faite chez nous. Accroches écrites : « how i memorize formulas so they don't disappear during the test » (retenue : une peur précise), « formula tricks » (écartée : vague), « learn every formula in one night » (écartée : bachotage). Gestes vrais : comprendre d'où vient la formule, une fiche avec les unités, l'écrire de mémoire chaque jour, l'utiliser dans un exercice, l'histoire de la personne qui l'a trouvée (slide Sophia, 5), la noter en haut de la copie dès le début. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "764ee8fd",
+      "texte_overlay": "how i memorize formulas so they\ndon't disappear during the test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1ff5acb8",
+      "texte_overlay": "first, i understand where it comes from.\na formula i get is a formula i keep.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c864aed5",
+      "texte_overlay": "one card per formula, with its units.\nunits catch half my mistakes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d5c727ce",
+      "texte_overlay": "every morning i write them from memory.\n2 minutes. then i check.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "16b19937",
+      "texte_overlay": "i learn the story behind it.\nwho found it, and why. weirdly, it sticks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i learn the story behind it\non a micro-learning app like the Sophia app.\nwho found it, and why. weirdly, it sticks."
+    },
+    {
+      "position": 6,
+      "media_id": "882b078c",
+      "texte_overlay": "i use each one in an exercise the same day.\nknowing it isn't enough, i need to use it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0e4f54d6",
+      "texte_overlay": "on the test, i write them all at the top first.\nbefore the stress arrives.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o195",
+  "type_bleo": "full_test",
+  "titre": "how i started reading more books during the school year #studytok #booktok #school",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [],
+  "notes": "Full test (BLEO), 5e du jour : la jauge est passée à 40 % après les dépôts. Accroche jamais faite chez nous (« reading more » absent des accroches). Accroches écrites : « how i started reading more books during the school year » (retenue : un vœu très partagé, un plan simple), « read 50 books a year » (écartée : chiffre qui intimide), « how to love reading » (écartée : vague). Gestes vrais : 10 pages avant de dormir, un livre toujours dans le sac, abandonner un livre qui ennuie, alterner court et long, découvrir de quoi parle un classique avant de le lire (slide Sophia, 5), noter une phrase par livre. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1393a92d",
+      "texte_overlay": "how i started reading more books\nduring the school year",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5f330f67",
+      "texte_overlay": "10 pages before bed. every night.\nthat's 12 books a year without trying.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ce964a3e",
+      "texte_overlay": "a book always lives in my bag.\nbus, waiting room, free period.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "7389109e",
+      "texte_overlay": "i quit books that bore me.\nlife's too short, the next one will be better.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8cd3f132",
+      "texte_overlay": "before a classic, i learn the story around it.\nwho wrote it, and why it mattered. then it hooks me.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "before a classic, i learn the story around it\non a micro-learning app like the Sophia app.\nwho wrote it, and why. then it hooks me."
+    },
+    {
+      "position": 6,
+      "media_id": "c0f27d12",
+      "texte_overlay": "i switch between short and long books.\nfinishing one keeps me going.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "eab89942",
+      "texte_overlay": "one sentence i loved, written down for each book.\nmy favourite notebook now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

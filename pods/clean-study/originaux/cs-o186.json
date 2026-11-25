@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o186",
+  "type_bleo": "full_test",
+  "titre": "how i prepare for an oral exam when i'm scared of speaking #studytok #studytips #exams",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« oral exam » absent des accroches du label ; cs-o175 parlait d'une présentation, ici d'un oral d'examen). Accroches écrites : « how i prepare for an oral exam when i'm scared of speaking » (retenue : une peur très partagée), « oral exam tips » (écartée : plate), « never be nervous again » (écartée : promesse absolue). Rien de médical. Gestes vrais : lister les questions possibles, répondre à voix haute en se chronométrant, s'enregistrer et se réécouter, des exemples en réserve (slide Sophia, 5), s'entraîner devant quelqu'un, une phrase d'ouverture apprise par cœur. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "e896d7cd",
+      "texte_overlay": "how i prepare for an oral exam\nwhen i'm scared of speaking",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d45eb28d",
+      "texte_overlay": "i list every question they could ask.\nusually 10 to 15.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ad4a2766",
+      "texte_overlay": "i answer each one out loud with a timer.\nnot in my head. out loud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "60742e64",
+      "texte_overlay": "i record myself and listen once.\ncringe, then fix.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8ab36cd8",
+      "texte_overlay": "i keep a few examples ready.\na date, a painting, a discovery: examiners love them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "i keep a few examples ready, from a micro-learning app\nlike the Sophia app. a date, a painting, a discovery:\nexaminers love them."
+    },
+    {
+      "position": 6,
+      "media_id": "775aa01f",
+      "texte_overlay": "i rehearse in front of someone. even my little brother counts.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "18bf7baf",
+      "texte_overlay": "my first sentence is learned by heart.\nonce it's out, the rest follows.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o190",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "fd571b5d-69b7-4e83-b0bd-84e402deca5d",
+  "titre": "what i do in the 10 minutes before a test starts #studytok #studytips #exams",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [
+    "fd571b5d-69b7-4e83-b0bd-84e402deca5d"
+  ],
+  "notes": "Déclinaison G1 de fd571b5d (notre cs-o145), ligne 3 de la boîte. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o145 (pas de nouveau chapitre, quiz sur sa page d'erreurs, s'éloigner du couloir, eau et respiration, nom tout de suite, lire tout le sujet) : vérifier son matériel, aller aux toilettes avant, relire ses 3 « à ne pas oublier », se répéter une phrase calme, s'asseoir loin de la porte, une pensée qui n'a rien à voir pour se détendre (slide Sophia, 6). Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5d99440a",
+      "texte_overlay": "what i do in the 10 minutes\nbefore a test starts",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5d03753e",
+      "texte_overlay": "i check my stuff: 2 pens, calculator, water.\nnothing to borrow mid-test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "91cfb342",
+      "texte_overlay": "bathroom before, not during.\ntiny thing, big difference.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a254621d",
+      "texte_overlay": "i reread my 3 \"don't forget\" points.\njust 3. on one small card.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7a35bca4",
+      "texte_overlay": "i pick a seat far from the door.\nless noise, fewer distractions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0e8cca18",
+      "texte_overlay": "one thought that has nothing to do with the test.\na fun fact, a painting. my shoulders drop.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "one thought that has nothing to do with the test.\na fun fact from a micro-learning app like the Sophia app.\nmy shoulders drop."
+    },
+    {
+      "position": 7,
+      "media_id": "190c196a",
+      "texte_overlay": "and one calm sentence in my head:\n\"i've prepared. i can do this.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

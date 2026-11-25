@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o328",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2c3bbd9e-947c-4119-b125-ca392e2f04f9",
+ "titre": "What a smart man keeps private #men #privacy #wisdom #discipline #mindset",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "2c3bbd9e-947c-4119-b125-ca392e2f04f9"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Déclinaison G2 de la ligne 3 de la boîte (parent 2c3bbd9e = notre am-o125 ; 2e déclinaison après am-o302). Promesse reformulée. Même format. Items neufs, ni de am-o125 ni de am-o302. reference_url de am-o125 (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "08c43d6f",
+   "texte_overlay": "What a smart man keeps private",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0426b121",
+   "texte_overlay": "1. His family's problems\n\nThey're solved inside.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "29bc5a9d",
+   "texte_overlay": "2. His weekend plans\n\nNot everything needs a story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8423fff4",
+   "texte_overlay": "3. His next career move\n\nUntil it's signed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "19689548",
+   "texte_overlay": "4. How much he reads\n\nKnowledge speaks for itself.",
+   "texte_sophia": "4. How much he learns\n\nI do it quietly\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6818bf11",
+   "texte_overlay": "5. His training numbers\n\nResults show anyway.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/6.jpg"
+  }
+ ]
+}

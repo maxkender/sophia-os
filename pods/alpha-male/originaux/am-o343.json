@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o343",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6613b883-41e2-464d-a00e-db5c66339c99",
+ "titre": "6 small habits that improve your life #habits #men #discipline #selfimprovement #routine",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [
+  "6613b883-41e2-464d-a00e-db5c66339c99"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Déclinaison G1 de la ligne 58 de la boîte (parent 6613b883, @relatableoutof10, langue source en). Accroche du parent mot pour mot. Format : « N. habitude » en une ligne. Items neufs, aucun du parent. reference_url du parent (1 à 7) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "37c81828",
+   "texte_overlay": "6 small habits that\nimprove your life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "13d9ddf6",
+   "texte_overlay": "1. Keep your keys in one place",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3f1d60a9",
+   "texte_overlay": "2. Never leave dishes overnight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1e85af09",
+   "texte_overlay": "3. Open the windows every morning",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "27fbff39",
+   "texte_overlay": "4. Phone on grayscale after 9",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7890308a",
+   "texte_overlay": "5. Text one friend a day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4904559b",
+   "texte_overlay": "6. Learn one new thing\nbefore bed",
+   "texte_sophia": "6. Learn one new thing before bed\nwith an app like the Sophia app",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617796269980781846/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o332",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "577bc5e0-d6de-4ebe-9aea-5d1f016b33ff",
+ "titre": "Before greatness, every man faces these 5 tests #men #greatness #tests #growth #mindset",
+ "musique_titre": "Elle Ta Tue Instrumental (Morena)",
+ "musique_url": "https://www.tiktok.com/music/elle-ta-tue-instrumental-morena-7430147882671508257",
+ "inspirations": [
+  "577bc5e0-d6de-4ebe-9aea-5d1f016b33ff"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Déclinaison G1 de la ligne 40 de la boîte (parent 577bc5e0, @selfsculpt_, langue source en). Accroche du parent mot pour mot. Format : « N. » + épreuve en une ligne. Rien sur les filles ni l'argent. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e30ef208",
+   "texte_overlay": "Before greatness, every man\nfaces these 5 tests:",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493660884061949206/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "81562512",
+   "texte_overlay": "1. Working hard for months\nwith no result",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493660884061949206/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5aa01caa",
+   "texte_overlay": "2. Being doubted by people\nhe loves",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493660884061949206/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8ce0a850",
+   "texte_overlay": "3. Being alone with his thoughts\nat 2 a.m.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493660884061949206/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "84271793",
+   "texte_overlay": "4. Realizing he doesn't know\nenough, and going to learn",
+   "texte_sophia": "4. Realizing he doesn't know enough,\nand learning daily on the Sophia app",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493660884061949206/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eaa01417",
+   "texte_overlay": "5. Choosing to keep going\nwhen quitting is easy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493660884061949206/6.jpg"
+  }
+ ]
+}

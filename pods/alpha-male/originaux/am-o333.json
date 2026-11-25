@@ -1,0 +1,69 @@
+{
+ "source_id": "am-o333",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "57c76f43-1109-46bc-acb2-c7469a44f995",
+ "titre": "15 lessons in 15 years to make oneself happier #life #lessons #happiness #men #wisdom",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "57c76f43-1109-46bc-acb2-c7469a44f995"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Déclinaison G1 de la ligne 41 de la boîte (parent 57c76f43, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. » + leçon ; 2 par slide pour tenir en 10 slides. Items neufs, aucun du parent. reference_url du parent (1 à 9) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fca0b81d",
+   "texte_overlay": "15 lessons in 15 years to make\noneself happier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "27cf589d",
+   "texte_overlay": "1. Sleep fixes more than you think.\n\n2. Morning light, every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6ebd5eb1",
+   "texte_overlay": "3. See friends in person.\n\n4. Fewer friends, deeper ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4f77d4d6",
+   "texte_overlay": "5. Cook more. Order less.\n\n6. Eat slowly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4d11d30a",
+   "texte_overlay": "7. Walk without headphones.\n\n8. Notice small things.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6843ec9f",
+   "texte_overlay": "9. Stay a beginner at something.\n\n10. Learn every day.",
+   "texte_sophia": "9. Stay a beginner at something.\n\n10. I learn daily\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2eb58ee8",
+   "texte_overlay": "11. Mute what makes you envious.\n\n12. Reply to old friends.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0551b33d",
+   "texte_overlay": "13. Visit your parents more.\n\n14. Ask them about their youth.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "aabb616a",
+   "texte_overlay": "15. Gratitude is a skill.\nPractice it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7620177331843288341/9.jpg"
+  }
+ ]
+}

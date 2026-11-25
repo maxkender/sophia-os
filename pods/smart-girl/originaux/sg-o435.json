@@ -1,63 +1,63 @@
 {
  "source_id": "sg-o435",
  "type_bleo": "declinaison",
- "parent_contenu_id": "2c6d1292-c12e-4d62-8755-c36a12b82584",
- "titre": "everyday phrases to upgrade instantly #eloquence #speakbetter #smartgirl #wellspoken #communication",
+ "parent_contenu_id": "b923c1e5-8538-4c57-8350-08ca16b1d34d",
+ "titre": "how to become disgustingly well spoken #wellspoken #eloquence #smartgirl #speakbetter #communication",
  "musique_titre": "som original",
  "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
  "inspirations": [
-  "905ac33d-906a-4223-9d93-29df2e258b6f"
+  "b923c1e5-8538-4c57-8350-08ca16b1d34d"
  ],
- "notes": "cta A. Déclinaison G2 de la ligne 3 de la boîte (parent 2c6d1292, langue source ro) : accroche reformulée (« everyday phrases to upgrade instantly »), dernière déclinaison de ce parent ; tournures dans l'esprit du parent. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "notes": "cta A. Déclinaison G1 de la ligne 66 de la boîte (parent b923c1e5, langue source hu) : accroche du parent mot pour mot. Conseils du parent (lire ce qui fait peur, une pause avant de répondre, plus de mots de remplissage, penser par trois, lire des poèmes à voix haute, apprendre des grands orateurs, baisser un peu la voix, avoir toujours un sujet intéressant). Sophia sur le dernier à la première personne (cta A). Remplace un dépôt refusé (quota de parent). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
  "slides": [
   {
    "position": 1,
    "media_id": "83cc7bdc",
-   "texte_overlay": "everyday phrases to\nupgrade instantly",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+   "texte_overlay": "how to become disgustingly\nwell spoken",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/1.jpg"
   },
   {
    "position": 2,
    "media_id": "42fa8ac8",
-   "texte_overlay": "\"i don't know\"\n\n→ \"let me find out\"",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+   "texte_overlay": "read things that scare you\n\nvocabulary sticks on its own.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/2.jpg"
   },
   {
    "position": 3,
    "media_id": "a289feac",
-   "texte_overlay": "\"no problem\"\n\n→ \"my pleasure\"",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+   "texte_overlay": "pause before you answer\n\ntwo seconds of silence\nsounds confident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/3.jpg"
   },
   {
    "position": 4,
    "media_id": "ff95c420",
-   "texte_overlay": "\"i think so\"\n\n→ \"i believe so\"",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+   "texte_overlay": "drop the filler words\n\n\"um\", \"like\", \"you know\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/4.jpg"
   },
   {
    "position": 5,
    "media_id": "80ffbba5",
-   "texte_overlay": "\"what?\"\n\n→ \"could you say that again?\"",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+   "texte_overlay": "think in threes\n\nthe brain loves the rule of three.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/5.jpg"
   },
   {
    "position": 6,
    "media_id": "26bf28c0",
-   "texte_overlay": "\"it's fine\"\n\n→ \"that works for me\"",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+   "texte_overlay": "read poetry out loud,\njust for yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/6.jpg"
   },
   {
    "position": 7,
    "media_id": "4e16bde8",
-   "texte_overlay": "and something worth saying\n\ni learn a little every morning.",
-   "texte_sophia": "and something worth saying\n\ni learn a little every morning on an app\nlike Sophia.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+   "texte_overlay": "always have an interesting topic\n\ni learn one every morning.",
+   "texte_sophia": "always have an interesting topic\n\ni learn one every morning on a\nmicro-learning app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/7.jpg"
   },
   {
    "position": 8,
    "media_id": "e0d2ca73",
    "texte_overlay": "save this",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/8.jpg"
   }
  ]
 }

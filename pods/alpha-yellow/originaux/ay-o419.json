@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o419",
+ "type_bleo": "full_test",
+ "titre": "How to recover from burnout without quitting your life #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to recover from burnout without quitting your life » (retenue), « Signs you're burnt out » (écartée : sans solution), « Burnout recovery plan » (écartée : jargon). Conseils généraux, consulter un professionnel si besoin.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "027c139f-7f9f-4fd6-858a-416022b542ae",
+   "texte_overlay": "How to recover from burnout\nwithout quitting your life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Admit it out loud. Tell your partner, a friend or your manager that you're running on empty. Hiding it only makes the hole deeper and the recovery longer.",
+   "media_id": "01b32568-a72c-40b2-938a-aea8b37a3b8b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Protect your sleep first. Fixed bedtime, no screens late, a dark room. Nothing heals a tired mind faster than a few weeks of real, regular sleep.",
+   "media_id": "0286465b-e9a0-4e38-a63a-b4d1ee70a688"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Cut what isn't essential. Extra projects, social obligations, side tasks. Keep the few things that truly matter and drop the rest for a while.",
+   "media_id": "02989fd9-017f-40b9-aa78-35bb555b789d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Move gently every day. A walk outside, an easy swim, light stretching. Calm movement lowers stress without draining the little energy you have left.",
+   "media_id": "036ab126-69fa-44f5-9dcc-7372725e20dc"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Fill your mind with something light. I do five minutes a day of history, art or science, and it gives my brain a rest from work and worries.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It gives my brain a rest from work and worries.",
+   "media_id": "04de3d82-2aa3-411f-9881-dbb6a6c439be"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Schedule real breaks in your day. Ten minutes away from the desk every two hours. Small pauses stop the tiredness from building up again.",
+   "media_id": "039e43f9-f581-423a-bbe1-4690130c7b75"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Talk to a professional if it lasts. A doctor or a therapist can help you recover faster. Asking for help is a smart move, not a weakness.",
+   "media_id": "07e51f5f-7e20-4ec3-90cc-1cb553fabfe0"
+  }
+ ]
+}

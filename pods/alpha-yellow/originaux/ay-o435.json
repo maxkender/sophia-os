@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o435",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "480417e1-2949-4cc7-8bb4-7b8e778c5131",
+ "titre": "6 moments a man realises he's not a kid anymore #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "480417e1-2949-4cc7-8bb4-7b8e778c5131"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 10 de la boîte (480417e1) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (déménager, payer l'addition, les potes se posent, perdre quelqu'un de son âge, le père qui demande conseil).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ab71ec00-bbad-40a8-961b-60368af37dcb",
+   "texte_overlay": "6 moments a man realises\nhe's not a kid anymore",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "1. Getting excited about a new kitchen knife. Not a game, not a gadget. A good pan or a sharp knife suddenly feels like a real treat.",
+   "media_id": "cb5597b2-8e05-4e25-846f-8bb48d43d8f4"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "2. Choosing sleep over a night out. You used to stay out until 4am. Now a quiet evening and eight hours of sleep feel like luxury.",
+   "media_id": "cb7c7682-7c7b-4b20-b73e-ae86991cde3c"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "3. Your first real responsibility at work. People now count on your decisions. Mistakes matter, and so does your word.",
+   "media_id": "cbe956f8-9218-4cf1-8c53-5bcc2cd6b26e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "4. Looking after a parent. A doctor's appointment, a lift to the hospital. The roles slowly start to reverse. It feels strange.",
+   "media_id": "cc0ab4f4-d668-4402-92f9-95b2324ff717"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "5. Choosing to learn for yourself. I do five minutes a day of history, art or science, and nobody makes me do it anymore. I just enjoy it.",
+   "texte_sophia": "5. I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Nobody makes me do it anymore. I just enjoy it.",
+   "media_id": "c874f021-7066-4616-acbb-1eabcb41e749"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "6. Being proud of a friend's quiet success. A promotion, a house, a baby. You're happy for him, not jealous. That's growth.",
+   "media_id": "cc14af9e-801c-4ab8-9e8a-ef0ece41e8c5"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Growing up isn't losing your fun. It's gaining things worth protecting. A home, people you love, health, a calm mind. Being a man means protecting them.",
+   "media_id": "cd1a8a35-53a4-4a76-a4d7-f84e7037d5d4"
+  }
+ ]
+}

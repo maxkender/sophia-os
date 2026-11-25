@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o433",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e53a9aec-cdea-4b51-b365-2194dfecd498",
+ "titre": "Les leçons de vie qu'on regrette d'avoir apprises trop tard #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "e53a9aec-cdea-4b51-b365-2194dfecd498"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 8 de la boîte (e53a9aec, notre ay-o327), 2e déclinaison après ay-o414, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots. Leçons neuves, aucune reprise d'ay-o327, o414 ni de 81b924e4. Ton bienveillant.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a51e22c4-73be-4d28-8d31-7b12e6110756",
+   "texte_overlay": "Les leçons de vie qu'on\nregrette d'avoir apprises trop tard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "On ne récupère jamais le temps perdu à attendre le bon moment. Le bon moment, c'est souvent maintenant, même si tout n'est pas parfait.",
+   "media_id": "c772646d-9902-414e-ab8e-764c27fec0a9"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Les gens se souviennent de ce que tu leur as fait ressentir. Pas de tes diplômes ni de ton salaire. Sois quelqu'un de bon à côtoyer.",
+   "media_id": "c78a2e77-3dc4-4d6d-8286-eb7dacbecef5"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "La plupart de tes peurs ne se réalisent jamais. Tu passes plus de temps à t'inquiéter qu'à vivre les problèmes eux-mêmes.",
+   "media_id": "c7be55a7-4b58-43dd-a154-1e97ba6deda1"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Ton corps finit par présenter l'addition. Les nuits courtes, la malbouffe, le manque de sport. Prends-en soin tant que c'est facile.",
+   "media_id": "c7c11259-be36-4f09-ac4a-cac179461d83"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Avant : je pensais qu'apprendre, c'était fini après l'école. Après : cinq minutes d'histoire, d'art ou de science par jour, et j'adore ça.",
+   "texte_sophia": "Avant : je pensais qu'apprendre, c'était fini après l'école. Après : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. J'adore ça.",
+   "media_id": "b6813cd9-881e-49b1-a2ce-cda4a7f44682"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Les excuses sincères réparent plus qu'on ne le croit. Dire « j'ai eu tort » sauve des amitiés et des familles. Ose le dire.",
+   "media_id": "c7d90355-099a-46f1-9753-51bbe626e3cf"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Le bonheur se construit dans les journées ordinaires. N'attends pas les grandes occasions pour profiter de ta vie.",
+   "media_id": "c8aa1e94-b64b-440a-88c6-92fcf3ec151f"
+  }
+ ]
+}

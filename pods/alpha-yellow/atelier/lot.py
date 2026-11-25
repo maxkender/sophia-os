@@ -44,7 +44,7 @@ SOPH_NON = ["edge of a swimming pool", "face", "portrait", "smiling", "looking a
             "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity", "monk", "yak", "lama", "joker", "prison", "bars", "jail", "mask", "bane", "shirtless", "walking"]
 
 # images vues sur un aperçu avec un visage reconnaissable : jamais sur la slide Sophia
-SOPH_EXCLUS = {"4d3a1468", "4f9f0624", "683dda1a", "99d2bcf3", "a04728e0", "a71f427e", "b71971e6", "c1b128f0", "fc7de629"}
+SOPH_EXCLUS = {"4d3a1468", "4f9f0624", "683dda1a", "99d2bcf3", "a04728e0", "a71f427e", "b71971e6", "c1b128f0", "d080a54e", "d9a6d9f7", "fc7de629"}
 
 CACHE = "donnees/cache/empreintes.json"
 

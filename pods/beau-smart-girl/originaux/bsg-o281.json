@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o281",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "38a33844-dc14-4daf-b0f3-109b657167f5",
+  "titre": "comment être bien dans sa vie avec seulement quelques amis #amitie #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "38a33844-dc14-4daf-b0f3-109b657167f5"
+  ],
+  "notes": "G2, déclinaison de 38a33844 (« how to be okay and deal with not having many friends », G1 gagnante, génération 1 en français ; meilleur passage en 621 vues, r 2,25), en français, 2e déclinaison (après bsg-o267). Accroche reformulée : « comment être bien dans sa vie avec seulement quelques amis ». cta C. Conseils neufs, ton doux. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f233817a",
+      "texte_overlay": "comment être bien dans sa vie\navec seulement quelques amis",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d944371c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d92cff31",
+      "texte_overlay": "1. arrêter de compter\n\nle nombre ne dit rien.\nla qualité dit tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "46f9a8bd",
+      "texte_overlay": "2. soigner celles qu'on a\n\nun message, un café, une lettre.\nles amitiés s'arrosent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "09e92e73",
+      "texte_overlay": "3. remplir ses journées de choses qu'on aime\n\nun livre, un cours, une balade.\non ne s'ennuie plus seule.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "19dbe357",
+      "texte_overlay": "4. être gentille avec soi\n\npeu d'amis ne veut pas dire\nqu'on a un problème.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "840caf9e",
+      "texte_overlay": "5. rester ouverte\n\nles plus belles amitiés\narrivent souvent sans prévenir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "6c25da58",
+      "texte_overlay": "tu n'es pas en retard.\ngarde-la pour un jour de doute.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

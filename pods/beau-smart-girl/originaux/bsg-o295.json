@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o295",
+  "type_bleo": "full_test",
+  "titre": "les compositeurs à écouter selon ton humeur #musiqueclassique #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Différent de bsg-o224 (compositrices pour étudier). Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Symphony_No._9_(Beethoven). Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5ececaff",
+      "texte_overlay": "les compositeurs à écouter\nselon ton humeur",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e026a678",
+      "texte_overlay": "1. quand tu es triste\n\nchopin.\nles nocturnes comprennent tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9b809712",
+      "texte_overlay": "2. quand tu dois te concentrer\n\nbach.\ndes notes qui rangent les idées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "bfaed2ff",
+      "texte_overlay": "3. quand tu as besoin de courage\n\nce matin, j'ai appris que beethoven était presque complètement sourd quand il a composé sa neuvième symphonie.\nje l'écoute avant chaque examen.",
+      "texte_sophia": "3. quand tu as besoin de courage\n\nce matin, l'appli Sophia m'a appris que beethoven était presque complètement sourd quand il a composé sa neuvième symphonie.\nje l'écoute avant chaque examen.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b307f16d",
+      "texte_overlay": "4. quand tu es amoureuse\n\ndebussy.\nclair de lune, évidemment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ad5efd02",
+      "texte_overlay": "5. quand tu veux danser\n\nstrauss.\nune valse dans la cuisine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e1774852",
+      "texte_overlay": "tu es de quelle humeur aujourd'hui ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+ "id": "aw-012",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7687189684820266273",
+  "vues": 4124,
+  "accroche": "Ces habitudes wellness niches qui te rendent 10x plus confiante"
+ },
+ "titre": {
+  "en": "niche wellness habits that make you 10x more confident"
+ },
+ "legendes": {
+  "en": "quiet confidence era 🤍 #wellness #healthyhabits #thatgirl #selfcare #confidence"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « ces habitudes wellness niches qui te rendent 10x plus confiante » de @healthy_with_emma6 (4,1 k) et « ces habitudes niches qui te rendent 10x plus attirante » (4,2 k). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : la semaine complète ; « a running coach app like Atala » ; sans « AI »). Aucun chiffre ni étude citée : des habitudes, sans promesse. Photos : banque de l'OS ; Atala : 783d0288 (bord de lac au coucher du soleil, de dos).",
+ "banque": {
+  "images/banque/cf-couv-a.jpg": "5644cb3c-c4bc-48b0-9037-51e723e004e5",
+  "images/banque/cf-couv-b.jpg": "7509711e-ae48-4462-af71-e71ae1645c20",
+  "images/banque/cf-tenue.jpg": "9cd9ff73-a05d-48ea-8cff-ed2ff91db0a4",
+  "images/banque/cf-jardin.jpg": "59cd67d9-15f9-4601-b8d5-cda68a6bb93c",
+  "images/banque/cf-soin.jpg": "15c92420-390d-4996-9c5c-83c5e02b7313",
+  "images/banque/cf-course.jpg": "783d0288-5821-46f5-ba6f-11867b98bfd2",
+  "images/banque/cf-fenetre.jpg": "2848454e-29fc-4c71-81e8-45014983b784",
+  "images/banque/cf-musique.jpg": "7f584099-34a2-45bc-af19-61c14bfe5940"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/cf-couv-a.jpg",
+    "images/banque/cf-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "niche wellness habits that make you 10x more confident",
+    "note": "(that actually work)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-tenue.jpg",
+   "en": {
+    "titre": "dress for _yourself_",
+    "intro": "even on days you're _not going anywhere_",
+    "paragraphes": [
+     "a real outfit changes how you _stand, walk and talk_",
+     "no pyjamas past 10am. _that's the rule_"
+    ],
+    "chute": "get dressed, _then_ get going"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-jardin.jpg",
+   "en": {
+    "titre": "keep _small promises_ to yourself",
+    "intro": "confidence is trust, and trust is _built daily_",
+    "paragraphes": [
+     "say you'll do it, _then do it_. even something tiny",
+     "water the plants, read 5 pages, _make your bed_"
+    ],
+    "chute": "you become someone _you can count on_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-soin.jpg",
+   "en": {
+    "titre": "a slow _skincare night_",
+    "intro": "not for anyone else. _just for you_",
+    "paragraphes": [
+     "10 minutes where you take care of yourself _on purpose_",
+     "candle, music, _no phone_ on the sink"
+    ],
+    "chute": "treat yourself like _someone you love_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/cf-course.jpg",
+   "en": {
+    "titre": "_run_ for yourself",
+    "intro": "finishing a run i planned makes me feel _unstoppable_",
+    "paragraphes": [
+     "i'd plan to run, then not know what to do, and _skip it_ every time",
+     "my tip: a running coach app like Atala lays out _your whole week_, so you just show up"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-fenetre.jpg",
+   "en": {
+    "titre": "say no _without explaining_",
+    "intro": "\"no, i can't\" is _a full sentence_",
+    "paragraphes": [
+     "you don't owe anyone _a long excuse_",
+     "kind, short, _done_. then move on"
+    ],
+    "chute": "protect _your energy_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/cf-musique.jpg",
+   "en": {
+    "titre": "walk with _your main character playlist_",
+    "intro": "headphones in, _shoulders back_",
+    "paragraphes": [
+     "the right song changes _how you walk_ into a room",
+     "one playlist only for _confident days_"
+    ],
+    "chute": "you're the main character, _act like it_"
+   }
+  }
+ ]
+}

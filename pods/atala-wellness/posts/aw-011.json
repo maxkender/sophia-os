@@ -1,0 +1,124 @@
+{
+ "id": "aw-011",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688293650597416225",
+  "vues": 167900,
+  "publie_le": "2026-09-22",
+  "accroche": "6 habitudes wellness qui font leur effet au bout d'une semaine"
+ },
+ "titre": {
+  "en": "6 wellness habits that give you more energy in a week"
+ },
+ "legendes": {
+  "en": "no more 3pm crash ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « N habitudes wellness en une semaine » de @healthy_with_emma6 (son post le plus vu, 167,9 k ; sa slide 2 est « 10 min de marche après chaque repas »), sujet : l'énergie. 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : un plan à ton niveau, même de zéro ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : courte marche après un repas et pic de glycémie plus bas qu'en restant assis (Buffey et al., Sports Medicine 2022, méta-analyse) ; sieste courte d'environ 10 minutes et vigilance améliorée sans somnolence au réveil (Brooks et Lack, Sleep 2006). Les autres slides n'avancent aucun chiffre. Photos : banque de l'OS ; Atala : 4b88f93a (allée dorée à contre-jour, de dos).",
+ "banque": {
+  "images/banque/en-couv-a.jpg": "3f314c86-f15d-4333-882d-53d37dab00f7",
+  "images/banque/en-couv-b.jpg": "3a3522b3-eb46-422b-a38c-8699da3fad48",
+  "images/banque/en-marche.jpg": "2799ba48-d10f-4bf6-ae21-62c476812ca6",
+  "images/banque/en-salade.jpg": "45da8c3e-9f25-4f6b-84a9-8fe065dce6e1",
+  "images/banque/en-sieste.jpg": "8ff46f2e-63f4-4eac-a16b-9d3cfbf89222",
+  "images/banque/en-course.jpg": "4b88f93a-47ba-4eed-a9c2-4ece5c47eb9b",
+  "images/banque/en-etirement.jpg": "44a0ef79-1fd7-49aa-95b4-974c559cafd3",
+  "images/banque/en-matcha.jpg": "a347c4a9-9d5f-436c-a4bb-271071477f57"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/en-couv-a.jpg",
+    "images/banque/en-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "6 wellness habits that give you more energy in a week",
+    "note": "(backed by science)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/en-marche.jpg",
+   "en": {
+    "titre": "walk _10 minutes_ after eating",
+    "intro": "the easiest habit on this list, _no gear_",
+    "paragraphes": [
+     "studies found that a short walk after a meal _lowers the sugar spike_ compared to sitting",
+     "after lunch, around the block, _phone in pocket_"
+    ],
+    "chute": "the 3pm crash _starts at 1pm_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/en-salade.jpg",
+   "en": {
+    "titre": "_colour_ on your plate at lunch",
+    "intro": "a heavy lunch makes _a heavy afternoon_",
+    "paragraphes": [
+     "veggies, protein, something fresh. _half the plate_ green",
+     "make it pretty and you'll _actually eat it_"
+    ],
+    "chute": "eat for _the afternoon you want_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/en-sieste.jpg",
+   "en": {
+    "titre": "a _10-minute_ nap, not an hour",
+    "intro": "long naps leave you _groggier_ than before",
+    "paragraphes": [
+     "a study found that a 10-minute nap _boosted alertness_ without the grogginess",
+     "alarm on, _lights off_, before 3pm"
+    ],
+    "chute": "short nap, _big difference_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/en-course.jpg",
+   "en": {
+    "titre": "start _running_, even slowly",
+    "intro": "nothing gives me energy _like a run_",
+    "paragraphes": [
+     "i thought i needed to be fit _to start running_, so i kept putting it off",
+     "my tip: a running coach app like Atala starts you _at your level_, even from zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/en-etirement.jpg",
+   "en": {
+    "titre": "_stretch_ between tasks",
+    "intro": "sitting for hours makes you _stiff and sleepy_",
+    "paragraphes": [
+     "stand up, roll your shoulders, _touch your toes_",
+     "every hour, _2 minutes_, that's it"
+    ],
+    "chute": "move a little, _wake up a lot_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/en-matcha.jpg",
+   "en": {
+    "titre": "matcha _instead of the third coffee_",
+    "intro": "the afternoon cup, _a little softer_",
+    "paragraphes": [
+     "a calmer kind of boost, and _a little ritual_ in your day",
+     "iced, oat milk, _pretty glass_"
+    ],
+    "chute": "the vibe _is the point_"
+   }
+  }
+ ]
+}

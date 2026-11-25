@@ -1,6 +1,6 @@
 // Le contrat affiché par Join (25/11) : le texte signé tel quel, et le résumé traduit pour l'affichage.
 
-/** Le texte complet signé (version join-v4) : le résumé anglais puis le texte (texteContratComplet de _shared/join.ts). */
+/** Le texte complet signé (version en cours) : le résumé anglais puis le texte (texteContratComplet de _shared/join.ts). */
 export function texteSigne(c: { resume: string[]; texte: string }): string {
   return `${c.resume.map((l) => `- ${l}`).join("\n")}\n\n${c.texte}`;
 }

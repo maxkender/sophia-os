@@ -1,0 +1,784 @@
+{
+ "id": "mi-026",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7678001221331930398",
+  "vues": 95300,
+  "publie_le": "2026-08-25",
+  "accroche": "What happens to your / brain / at / 200 IQ"
+ },
+ "fond": "gris_noir",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "825 hp",
+  "url": "https://www.tiktok.com/music/825-hp-6891746453606123521"
+ },
+ "notes": "Full test (boîte : les deux G1 du jour déposées, mi-024 et mi-025). Famille « What happens to your brain … » de @bdnf.milly (« What happens to your brain at 200 IQ », 95,3 k vues), fond gris texte noir. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta B. Faits vérifiés : chez la souris, l'espace entre les cellules du cerveau augmente d'environ 60 % pendant le sommeil et le nettoyage des déchets, dont la bêta-amyloïde, s'accélère (Xie et al., Science 2013) ; les neurones de l'hippocampe du rat rejouent pendant le sommeil les séquences de la journée (Wilson et McNaughton, Science 1994) ; après une nuit blanche, l'amygdale réagit environ 60 % plus fort aux images négatives (Yoo, Gujar, Hu, Jolesz et Walker, Current Biology 2007). 11 langues. Images : banque (tep, neurones-reseau, cerveau-brume), sans texte.",
+ "titre": {
+  "en": "What happens to your Brain when you Sleep",
+  "fr": "Ce qui arrive à ton cerveau quand tu dors",
+  "es": "Qué le pasa a tu cerebro cuando duermes",
+  "es-419": "Qué le pasa a tu cerebro cuando duermes",
+  "it": "Cosa succede al tuo cervello quando dormi",
+  "tr": "Uyurken beynine ne olur",
+  "pt-BR": "O que acontece com seu cérebro quando você dorme",
+  "sl": "Kaj se zgodi z možgani, ko spiš",
+  "hr": "Što se događa tvom mozgu kad spavaš",
+  "de": "Was mit deinem Gehirn passiert, wenn du schläfst",
+  "hu": "Mi történik az agyaddal, amikor alszol"
+ },
+ "legendes": {
+  "en": "sleep is not switching off #sleep #brain #memory #neuroscience #learning",
+  "fr": "dormir, ce n'est pas s'éteindre #sommeil #cerveau #mémoire #neurosciences #apprendre",
+  "es": "dormir no es apagarse #sueño #cerebro #memoria #neurociencia #aprender",
+  "es-419": "dormir no es apagarse #sueño #cerebro #memoria #neurociencia #aprender",
+  "it": "dormire non è spegnersi #sonno #cervello #memoria #neuroscienze #imparare",
+  "tr": "uyumak kapanmak değildir #uyku #beyin #hafıza #nörobilim #öğrenme",
+  "pt-BR": "dormir não é desligar #sono #cerebro #memoria #neurociencia #aprender",
+  "sl": "spanje ni izklop #spanje #možgani #spomin #nevroznanost #učenje",
+  "hr": "spavanje nije gašenje #san #mozak #pamćenje #neuroznanost #učenje",
+  "de": "schlafen heißt nicht abschalten #schlaf #gehirn #gedächtnis #neurowissenschaft #lernen",
+  "hu": "az alvás nem kikapcsolás #alvás #agy #memória #idegtudomány #tanulás"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/tep.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "What happens to your",
+      "taille": "petit"
+     },
+     {
+      "t": "Brain",
+      "taille": "grand"
+     },
+     {
+      "t": "when you",
+      "taille": "petit"
+     },
+     {
+      "t": "Sleep",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Ce qui arrive à ton",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerveau",
+      "taille": "grand"
+     },
+     {
+      "t": "quand tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Dors",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Qué le pasa a tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     },
+     {
+      "t": "cuando",
+      "taille": "petit"
+     },
+     {
+      "t": "Duermes",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Qué le pasa a tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cerebro",
+      "taille": "grand"
+     },
+     {
+      "t": "cuando",
+      "taille": "petit"
+     },
+     {
+      "t": "Duermes",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Cosa succede al tuo",
+      "taille": "petit"
+     },
+     {
+      "t": "Cervello",
+      "taille": "grand"
+     },
+     {
+      "t": "quando",
+      "taille": "petit"
+     },
+     {
+      "t": "Dormi",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Uyurken",
+      "taille": "moyen"
+     },
+     {
+      "t": "Beynine",
+      "taille": "grand"
+     },
+     {
+      "t": "ne",
+      "taille": "petit"
+     },
+     {
+      "t": "Olur?",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "O que acontece com seu",
+      "taille": "petit"
+     },
+     {
+      "t": "Cérebro",
+      "taille": "grand"
+     },
+     {
+      "t": "quando você",
+      "taille": "petit"
+     },
+     {
+      "t": "Dorme",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kaj se zgodi z",
+      "taille": "petit"
+     },
+     {
+      "t": "Možgani",
+      "taille": "grand"
+     },
+     {
+      "t": "ko",
+      "taille": "petit"
+     },
+     {
+      "t": "Spiš",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Što se događa tvom",
+      "taille": "petit"
+     },
+     {
+      "t": "Mozgu",
+      "taille": "grand"
+     },
+     {
+      "t": "kad",
+      "taille": "petit"
+     },
+     {
+      "t": "Spavaš",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Was mit deinem",
+      "taille": "petit"
+     },
+     {
+      "t": "Gehirn",
+      "taille": "grand"
+     },
+     {
+      "t": "passiert, wenn du",
+      "taille": "petit"
+     },
+     {
+      "t": "schläfst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Mi történik az",
+      "taille": "petit"
+     },
+     {
+      "t": "Agyaddal",
+      "taille": "grand"
+     },
+     {
+      "t": "amikor",
+      "taille": "petit"
+     },
+     {
+      "t": "Alszol",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "It Cleans Itself",
+    "blocs": [
+     {
+      "p": "In studies on mice, the space between brain cells grew by about 60% during sleep, and waste products, including the beta-amyloid linked to Alzheimer's disease, were cleared faster than during waking hours."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Sleep is not the brain switching off. It is maintenance work that cannot fully happen while you are awake."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Il se nettoie",
+    "blocs": [
+     {
+      "p": "Dans des études chez la souris, l'espace entre les cellules du cerveau augmentait d'environ 60 % pendant le sommeil, et les déchets, dont la bêta-amyloïde liée à la maladie d'Alzheimer, étaient évacués plus vite qu'à l'état d'éveil."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Dormir, ce n'est pas un cerveau qui s'éteint. C'est un travail d'entretien qui ne peut pas se faire complètement quand on est éveillé."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Se limpia",
+    "blocs": [
+     {
+      "p": "En estudios con ratones, el espacio entre las células del cerebro aumentó alrededor de un 60 % durante el sueño, y los desechos, incluida la beta-amiloide asociada al alzhéimer, se eliminaban más rápido que en vigilia."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Dormir no es que el cerebro se apague. Es un trabajo de mantenimiento que no puede hacerse del todo mientras estás despierto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Se limpia",
+    "blocs": [
+     {
+      "p": "En estudios con ratones, el espacio entre las células del cerebro aumentó cerca de un 60 % durante el sueño, y los desechos, incluida la beta-amiloide relacionada con el Alzheimer, se eliminaban más rápido que estando despiertos."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Dormir no es que el cerebro se apague. Es un trabajo de mantenimiento que no puede hacerse por completo mientras estás despierto."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Si ripulisce",
+    "blocs": [
+     {
+      "p": "In studi sui topi, lo spazio tra le cellule del cervello aumentava di circa il 60% durante il sonno, e le sostanze di scarto, compresa la beta-amiloide legata all'Alzheimer, venivano eliminate più in fretta che da svegli."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Dormire non è il cervello che si spegne. È un lavoro di manutenzione che non può avvenire del tutto mentre sei sveglio."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Kendini temizler",
+    "blocs": [
+     {
+      "p": "Fareler üzerindeki çalışmalarda, uyku sırasında beyin hücreleri arasındaki boşluk yaklaşık %60 büyüdü ve Alzheimer hastalığıyla ilişkilendirilen beta-amiloid dahil atıklar uyanıklığa göre daha hızlı temizlendi."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Uyku, beynin kapanması değildir. Uyanıkken tam olarak yapılamayan bir bakım işidir."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ele se limpa",
+    "blocs": [
+     {
+      "p": "Em estudos com camundongos, o espaço entre as células do cérebro aumentou cerca de 60% durante o sono, e os resíduos, incluindo a beta-amiloide ligada ao Alzheimer, foram eliminados mais rápido do que com o animal acordado."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Dormir não é o cérebro desligando. É um trabalho de manutenção que não consegue acontecer por completo enquanto você está acordado."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Očistijo se",
+    "blocs": [
+     {
+      "p": "V raziskavah na miših se je prostor med možganskimi celicami med spanjem povečal za približno 60 %, odpadne snovi, vključno z beta-amiloidom, povezanim z Alzheimerjevo boleznijo, pa so se odstranjevale hitreje kot v budnosti."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Spanje ni izklop možganov. Je vzdrževalno delo, ki se v budnosti ne more v celoti opraviti."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Čisti se",
+    "blocs": [
+     {
+      "p": "U istraživanjima na miševima prostor između moždanih stanica tijekom sna povećao se za oko 60 %, a otpadne tvari, uključujući beta-amiloid povezan s Alzheimerovom bolešću, uklanjale su se brže nego u budnom stanju."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "San nije gašenje mozga. To je posao održavanja koji se ne može u potpunosti obaviti dok si budan."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Es reinigt sich",
+    "blocs": [
+     {
+      "p": "In Studien an Mäusen vergrößerte sich der Raum zwischen den Gehirnzellen im Schlaf um etwa 60 %, und Abfallstoffe, darunter das mit Alzheimer verbundene Beta-Amyloid, wurden schneller abtransportiert als im Wachzustand."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Schlaf ist kein Abschalten des Gehirns. Er ist Wartungsarbeit, die im Wachzustand nicht vollständig stattfinden kann."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Megtisztítja magát",
+    "blocs": [
+     {
+      "p": "Egereken végzett vizsgálatokban alvás közben nagyjából 60%-kal nőtt az agysejtek közötti tér, és a salakanyagok, köztük az Alzheimer-kórral összefüggésbe hozott béta-amiloid, gyorsabban ürültek ki, mint ébrenlétben."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Az alvás nem az agy kikapcsolása. Karbantartó munka, amely ébren nem tud teljesen végbemenni."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "It Replays Your Day",
+    "blocs": [
+     {
+      "p": "Neurons in the hippocampus of sleeping rats fired again in the same order as during the maze they had run that day. Researchers believe this replay helps turn the day's experiences into lasting memories."
+     },
+     {
+      "p": "That is why what you learn in the evening matters: one short lesson before bed, like a training session, gives the night something to replay."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia makes this easy: one short lesson a night, on a different subject each time."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Il rejoue ta journée",
+    "blocs": [
+     {
+      "p": "Chez des rats endormis, les neurones de l'hippocampe s'activaient à nouveau dans le même ordre que pendant le labyrinthe parcouru dans la journée. Les chercheurs pensent que ce rejeu aide à transformer les expériences du jour en souvenirs durables."
+     },
+     {
+      "p": "C'est pour ça que ce que tu apprends le soir compte : une courte leçon avant de dormir, comme un entraînement, donne à la nuit quelque chose à rejouer."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia rend ça facile : une courte leçon par soir, sur un sujet différent à chaque fois."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Repasa tu día",
+    "blocs": [
+     {
+      "p": "En ratas dormidas, las neuronas del hipocampo volvían a activarse en el mismo orden que durante el laberinto recorrido ese día. Los investigadores creen que este repaso ayuda a convertir lo vivido en recuerdos duraderos."
+     },
+     {
+      "p": "Por eso importa lo que aprendes por la noche: una lección corta antes de dormir, como un entrenamiento, le da a la noche algo que repasar."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo pone fácil: una lección corta por noche, cada vez sobre un tema distinto."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Repasa tu día",
+    "blocs": [
+     {
+      "p": "En ratas dormidas, las neuronas del hipocampo se volvían a activar en el mismo orden que durante el laberinto que habían recorrido ese día. Los investigadores creen que este repaso ayuda a convertir lo vivido en recuerdos duraderos."
+     },
+     {
+      "p": "Por eso importa lo que aprendes en la noche: una lección corta antes de dormir, como un entrenamiento, le da a la noche algo que repasar."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo hace fácil: una lección corta cada noche, sobre un tema diferente cada vez."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Ripassa la tua giornata",
+    "blocs": [
+     {
+      "p": "Nei ratti addormentati, i neuroni dell'ippocampo si riattivavano nello stesso ordine del labirinto percorso durante il giorno. I ricercatori pensano che questo ripasso aiuti a trasformare le esperienze della giornata in ricordi duraturi."
+     },
+     {
+      "p": "Ecco perché conta ciò che impari la sera: una breve lezione prima di dormire, come un allenamento, dà alla notte qualcosa da ripassare."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia lo rende facile: una breve lezione a sera, ogni volta su un argomento diverso."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Gününü yeniden oynatır",
+    "blocs": [
+     {
+      "p": "Uyuyan sıçanlarda hipokampustaki nöronlar, gün içinde koştukları labirentteki sırayla yeniden ateşlendi. Araştırmacılar bu tekrarın, günün deneyimlerini kalıcı anılara dönüştürmeye yardım ettiğini düşünüyor."
+     },
+     {
+      "p": "Akşam öğrendiklerinin önemli olmasının nedeni bu: yatmadan önce kısa bir ders, bir antrenman gibi, geceye yeniden oynatacak bir şey verir."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia bunu kolaylaştırıyor: her gece kısa bir ders, her seferinde farklı bir konuda."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ele repassa o seu dia",
+    "blocs": [
+     {
+      "p": "Em ratos dormindo, os neurônios do hipocampo voltavam a disparar na mesma ordem do labirinto percorrido durante o dia. Os pesquisadores acreditam que esse repasse ajuda a transformar o que foi vivido em memórias duradouras."
+     },
+     {
+      "p": "Por isso o que você aprende à noite importa: uma lição curta antes de dormir, como um treino, dá à noite algo para repassar."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophia deixa isso fácil: uma lição curta por noite, cada vez sobre um assunto diferente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Znova predvajajo tvoj dan",
+    "blocs": [
+     {
+      "p": "Pri spečih podganah so se nevroni v hipokampusu znova sprožali v enakem zaporedju kot v labirintu, ki so ga čez dan pretekle. Raziskovalci menijo, da to predvajanje pomaga dnevne izkušnje spremeniti v trajne spomine."
+     },
+     {
+      "p": "Zato šteje, kar se naučiš zvečer: kratka lekcija pred spanjem, kot trening, da noči nekaj za predvajanje."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "S Sophio je to preprosto: ena kratka lekcija na večer, vsakič o drugi temi."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Ponovno prolazi kroz tvoj dan",
+    "blocs": [
+     {
+      "p": "Kod usnulih štakora neuroni u hipokampu ponovno su se aktivirali istim redom kao u labirintu koji su prošli tijekom dana. Istraživači smatraju da to ponavljanje pomaže pretvoriti dnevna iskustva u trajna sjećanja."
+     },
+     {
+      "p": "Zato je važno što učiš navečer: kratka lekcija prije spavanja, kao trening, daje noći nešto za ponavljanje."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Sophia to olakšava: jedna kratka lekcija svake večeri, svaki put o drugoj temi."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Es spielt deinen Tag nach",
+    "blocs": [
+     {
+      "p": "Bei schlafenden Ratten feuerten Neuronen im Hippocampus erneut in derselben Reihenfolge wie im Labyrinth, das sie tagsüber durchlaufen hatten. Forschende vermuten, dass dieses Nachspielen hilft, Erlebnisse in dauerhafte Erinnerungen zu verwandeln."
+     },
+     {
+      "p": "Darum zählt, was du abends lernst: Eine kurze Lektion vor dem Schlafen, wie ein Training, gibt der Nacht etwas zum Nachspielen."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Mit Sophia ist das einfach: eine kurze Lektion pro Abend, jedes Mal zu einem anderen Thema."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Újrajátssza a napodat",
+    "blocs": [
+     {
+      "p": "Alvó patkányoknál a hippokampusz neuronjai ugyanabban a sorrendben tüzeltek újra, mint a napközben bejárt útvesztőben. A kutatók szerint ez az újrajátszás segít tartós emlékké alakítani a nap élményeit."
+     },
+     {
+      "p": "Ezért számít, mit tanulsz este: egy rövid lecke lefekvés előtt, mint egy edzés, ad az éjszakának valamit, amit újrajátszhat."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "A Sophiával ez könnyű: esténként egy rövid lecke, mindig más témáról."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "It Steadies Your Emotions",
+    "blocs": [
+     {
+      "p": "After a night without sleep, the amygdala, a region that reacts to threats, responded about 60% more strongly to upsetting images, with weaker control from the prefrontal cortex."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "A tired brain reacts more and reflects less. A full night lets you face the next day with a steadier mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Il apaise tes émotions",
+    "blocs": [
+     {
+      "p": "Après une nuit blanche, l'amygdale, une région qui réagit aux menaces, répondait environ 60 % plus fort à des images pénibles, avec un contrôle plus faible du cortex préfrontal."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Un cerveau fatigué réagit plus et réfléchit moins. Une nuit complète te permet d'aborder le lendemain l'esprit plus stable."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Calma tus emociones",
+    "blocs": [
+     {
+      "p": "Tras una noche sin dormir, la amígdala, una región que reacciona a las amenazas, respondía alrededor de un 60 % más fuerte a imágenes desagradables, con menos control de la corteza prefrontal."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Un cerebro cansado reacciona más y reflexiona menos. Una noche completa te deja afrontar el día siguiente con la mente más estable."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Calma tus emociones",
+    "blocs": [
+     {
+      "p": "Después de una noche sin dormir, la amígdala, una región que reacciona a las amenazas, respondió cerca de un 60 % más fuerte a imágenes desagradables, con menos control de la corteza prefrontal."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Un cerebro cansado reacciona más y reflexiona menos. Una noche completa te deja enfrentar el día siguiente con la mente más estable."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Calma le tue emozioni",
+    "blocs": [
+     {
+      "p": "Dopo una notte in bianco, l'amigdala, una regione che reagisce alle minacce, rispondeva circa il 60% più forte a immagini spiacevoli, con un controllo più debole della corteccia prefrontale."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Un cervello stanco reagisce di più e riflette di meno. Una notte completa ti fa affrontare il giorno dopo con una mente più stabile."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Duygularını dengeler",
+    "blocs": [
+     {
+      "p": "Uykusuz bir geceden sonra, tehditlere tepki veren bir bölge olan amigdala, rahatsız edici görüntülere yaklaşık %60 daha güçlü tepki verdi ve prefrontal korteksin kontrolü zayıfladı."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Yorgun bir beyin daha çok tepki verir, daha az düşünür. Tam bir gece uykusu ertesi güne daha dengeli bir zihinle başlamanı sağlar."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Ele acalma suas emoções",
+    "blocs": [
+     {
+      "p": "Depois de uma noite sem dormir, a amígdala, uma região que reage a ameaças, respondeu cerca de 60% mais forte a imagens perturbadoras, com menos controle do córtex pré-frontal."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Um cérebro cansado reage mais e reflete menos. Uma noite completa deixa você encarar o dia seguinte com a mente mais estável."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Umirijo tvoja čustva",
+    "blocs": [
+     {
+      "p": "Po neprespani noči se je amigdala, predel, ki se odziva na grožnje, na neprijetne slike odzvala za približno 60 % močneje, nadzor predčelne skorje pa je bil šibkejši."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Utrujeni možgani se bolj odzivajo in manj razmišljajo. Cela noč spanca ti omogoči, da naslednji dan pričakaš z bolj stabilnim umom."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Smiruje tvoje emocije",
+    "blocs": [
+     {
+      "p": "Nakon neprospavane noći amigdala, područje koje reagira na prijetnje, na uznemirujuće je slike reagirala oko 60 % jače, uz slabiji nadzor prefrontalne kore."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Umoran mozak više reagira, a manje promišlja. Cijela noć sna omogućuje ti da sljedeći dan dočekaš stabilnijeg uma."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Es beruhigt deine Gefühle",
+    "blocs": [
+     {
+      "p": "Nach einer durchwachten Nacht reagierte die Amygdala, eine Region, die auf Bedrohungen anspricht, etwa 60 % stärker auf belastende Bilder, bei schwächerer Kontrolle durch den präfrontalen Cortex."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "Ein müdes Gehirn reagiert mehr und überlegt weniger. Eine volle Nacht lässt dich dem nächsten Tag mit ruhigerem Kopf begegnen."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Lecsillapítja az érzelmeidet",
+    "blocs": [
+     {
+      "p": "Egy átvirrasztott éjszaka után az amigdala, a fenyegetésekre reagáló agyterület, nagyjából 60%-kal erősebben reagált a felkavaró képekre, a prefrontális kéreg kontrollja pedig gyengébb volt."
+     },
+     {
+      "image": "images/cerveau-brume.jpg"
+     },
+     {
+      "p": "A fáradt agy többet reagál és kevesebbet mérlegel. Egy teljes éjszaka nyugodtabb fejjel enged szembenézni a következő nappal."
+     }
+    ]
+   }
+  }
+ ]
+}

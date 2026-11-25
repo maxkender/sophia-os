@@ -12,7 +12,7 @@
     "es-419": "Pinturas con las historias más oscuras",
     "it": "Quadri con le storie più oscure",
     "fr": "Les tableaux aux histoires les plus sombres",
-    "hu": "Festmények a legsötétebb történetekkel",
+    "hu": "A legsötétebb történetű festmények",
     "sr": "Slike sa najmračnijim pričama",
     "hr": "Slike s najmračnijim pričama",
     "lv": "Gleznas ar vistumšākajiem stāstiem",
@@ -89,7 +89,7 @@
         "titre": "Les tableaux aux histoires les plus sombres"
       },
       "hu": {
-        "titre": "Festmények a legsötétebb történetekkel"
+        "titre": "A legsötétebb történetű\nfestmények"
       },
       "sr": {
         "titre": "Slike sa najmračnijim pričama"

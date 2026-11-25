@@ -16,7 +16,9 @@
   "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed",
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
-  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování"
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování",
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja",
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni"
  },
  "legendes": {
   "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -26,13 +28,15 @@
   "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10 készségek, amiket görgetés helyett érdemes megtanulni #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - m - m",
   "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
  },
- "notes": "Déclinaison G1 de sg-002 (boîte du 20/11) : son titre et sa couverture mot pour mot dans les 8 langues, 5 autres compétences « au lieu de scroller » (belles photos au téléphone, pompes, crêpes, jongler avec un ballon, toucher ses pieds), d'autres vraies vidéos natives. Sophia en étape 4 sur 7 (cta C : « SE COUCHER / MOINS BÊTE », ce que j'ouvre au lieu de scroller).",
+ "notes": "Déclinaison G1 de sg-002 (boîte du 20/11) : son titre et sa couverture mot pour mot dans les 8 langues, 5 autres compétences « au lieu de scroller » (belles photos au téléphone, pompes, crêpes, jongler avec un ballon, toucher ses pieds), d'autres vraies vidéos natives. Sophia en étape 4 sur 7 (cta C : « SE COUCHER / MOINS BÊTE », ce que j'ouvre au lieu de scroller). Deck sr (rattrapage du 25/11) : « jongler avec un ballon » devient « ŽONGLIRATI SA 3 LOPTICE » (jongler avec 3 balles, DakiMC), faute de tuto serbe de jonglage au football.",
  "slides": [
   {
    "type": "couverture",
@@ -207,6 +211,50 @@
      },
      {
       "t": "SCROLLOVÁNÍ",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 138
+     },
+     {
+      "t": "KOJE TREBA NAUČITI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "UMESTO",
+      "cap": 149
+     },
+     {
+      "t": "SKROLOVANJA",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 138
+     },
+     {
+      "t": "AMIKET ÉRDEMES",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "GÖRGETÉS",
+      "cap": 149
+     },
+     {
+      "t": "HELYETT",
       "couleur": "brun",
       "cap": 188
      }
@@ -398,6 +446,52 @@
     "sous": [
      "30 minut na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "PRAVITI",
+     [
+      {
+       "t": "BOLJE FOTOGRAFIJE",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min za učenje"
+    ],
+    "video": {
+     "id": "xR_4NRY9CfE",
+     "titre": "Kako praviti bolje fotografije mobilnim telefonom | Jednostavni trikovi za sjajne fotke | TagMediaTV",
+     "chaine": "TAGMEDIATV",
+     "vues": "2 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/KoArQPJ_j0aOmIGWcIHwPbGfQvQ5l5kBAXW4BfSECQVn0R7okTFQZRDwEoV4lTGfNw_PhSOWmg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "KÉSZÍTS",
+     [
+      {
+       "t": "SZÉP FOTÓKAT",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xsIm3mjw7oo",
+     "titre": "Hogyan fotózz telefonnal - mint egy profi - Lencse Mögött 1. rész",
+     "chaine": "Nánásiék",
+     "vues": "40 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "10:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfq5yoUfAPeh96AGgNhMy6yGlaVQJJdWcGp8KTrSVQfrg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -585,6 +679,52 @@
     "sous": [
      "trénink několik týdnů"
     ]
+   },
+   "sr": {
+    "titre": [
+     "URADITI",
+     [
+      {
+       "t": "SAVRŠEN SKLEK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "sous": [
+     "Vežbanje nekoliko nedelja"
+    ],
+    "video": {
+     "id": "bfBts05uD7c",
+     "titre": "Kako da uradite prvi sklek?",
+     "chaine": "Back To The Basics",
+     "vues": "323 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/3i4jf2E5gLZgjbUmSNzI9k5-ysve0OWRq07iZxju8yFJCKk8rDjkMJfLWufam3ICgU_8Z-ht=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "CSINÁLJ",
+     [
+      {
+       "t": "FEKVŐTÁMASZT",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "c7UnOa_3LuY",
+     "titre": "Tanácsok fekvőtámasz nyomáshoz kezdőknek",
+     "chaine": "Csabi Mester",
+     "vues": "7,6 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kXK5WeLX1EUEWfTRQRFEktBkPu1JlJD0E5Ud-J0Wq7Vg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több hetes gyakorlás"
+    ]
    }
   },
   {
@@ -756,6 +896,48 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "ZASPATI",
+     [
+      {
+       "t": "PAMETNIJI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dnevno"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "FEKÜDJ LE",
+     [
+      {
+       "t": "OKOSABBAN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -944,6 +1126,52 @@
     "sous": [
      "20 minut na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "PALAČINKE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "sous": [
+     "20 min za učenje"
+    ],
+    "video": {
+     "id": "L2iPXjXi5aA",
+     "titre": "Kako se prave Palačinke - Recept",
+     "chaine": "Najbolji domaći recepti",
+     "vues": "2,3 mil. pregleda",
+     "date": "pre 6 godina",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/H9NlYiNskl2FQ3-VnrKjdgEsvEE4Fn6ICNTNP7U4vi3juxGCjD4cHMW2U12SJnN1U7nyK5Gjuw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "SÜSS",
+     [
+      {
+       "t": "PALACSINTÁT",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PNcl_UhDmXc",
+     "titre": "Édes palacsinta alaptészta recept | Nosalty",
+     "chaine": "Nosalty",
+     "vues": "537 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "1:03",
+     "avatar": "https://yt3.ggpht.com/aCM2OzrKY9tnGXJBSDpMpG_YoLpiRLSEnh7La10FkF90ds9SpObVKHwqwc8p-T2PMDHuqtxeQSU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -1130,6 +1358,52 @@
     },
     "sous": [
      "trénink několik dní"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "ŽONGLIRATI",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "SA 3 LOPTICE"
+    ],
+    "sous": [
+     "Vežbanje nekoliko dana"
+    ],
+    "video": {
+     "id": "0eTqPkeaTPI",
+     "titre": "Kako Žonglirati Sa 3 Loptice?",
+     "chaine": "DakiMC",
+     "vues": "68 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCTo2OptHGpxKfCm31FcG8rB52wT03jIJPmQLPkbvqmA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "DEKÁZZ",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "LABDÁVAL"
+    ],
+    "video": {
+     "id": "V-V8Umo3bTg",
+     "titre": "Trickypedia - Hogyan dekázzunk?",
+     "chaine": "Freestyle FC",
+     "vues": "231 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/apdwpxiDBB8lpCodSDhHUYCxw1Z0vAX6edaQZ3fayIsUu0jQ4mNTkglD0OYYX62cBnMws4eLOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több napos gyakorlás"
     ]
    }
   },
@@ -1325,6 +1599,54 @@
     "sous": [
      "10 minut denně",
      "po dobu 1 měsíce"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "DOTAĆI",
+     [
+      {
+       "t": "PRSTE NA NOGAMA",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "sous": [
+     "10 min dnevno",
+     "mesec dana"
+    ],
+    "video": {
+     "id": "KlFHsj5qVJY",
+     "titre": "Opuštanje i istezanje zadnje lože | PROGEIN 2017",
+     "chaine": "PROGEIN studio",
+     "vues": "40 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "2:50",
+     "avatar": "https://yt3.ggpht.com/LXrw3n6TlHOAhExCkBDVa6zwISbMCl3WzTD89ewxMFAXHRT6DfDI18KpukGBavDhHZREmpPEgQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "ÉRD EL",
+     [
+      {
+       "t": "A LÁBUJJAD",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lcg9xFMfV_4",
+     "titre": "NYÚJTÁS KEZDŐKNEK!",
+     "chaine": "Kovács Ramóna",
+     "vues": "1,2 M megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "10:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQNQEatvYXL2ZMWwNaAF8VDTSu7GHTZVK6skbKP91A30s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "napi 10 perc",
+     "1 hónapig"
     ]
    }
   }

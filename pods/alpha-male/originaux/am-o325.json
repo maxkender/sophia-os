@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o325",
+ "type_bleo": "full_test",
+ "titre": "Rules for a perfect day trip #men #daytrip #travel #adventure #weekend",
+ "musique_titre": "horizons",
+ "musique_url": "https://www.tiktok.com/music/horizons-7321516309459765250",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Full test du jour (8 sur 8, jauge : 8 sur 26). Accroche jamais faite chez nous : aucun « day trip » en accroche dans donnees/label.json. reference_url : post source de am-o034, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "10804d27",
+   "texte_overlay": "Rules for a perfect day trip",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "995bc607",
+   "texte_overlay": "1. Under two hours away",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bbfd8184",
+   "texte_overlay": "2. Leave at sunrise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8ec85cea",
+   "texte_overlay": "3. Eat where locals eat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "73cab562",
+   "texte_overlay": "4. One photo, then phone away",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b5d5e2d8",
+   "texte_overlay": "5. Find the highest viewpoint",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ac5976f8",
+   "texte_overlay": "6. Know the place's story\nbefore you go",
+   "texte_sophia": "6. Know the place's story\nbefore you go\n\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

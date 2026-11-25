@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o292",
+  "type_bleo": "full_test",
+  "titre": "les inventions qu'on doit à des femmes #histoire #sciences #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Inventions documentées (Mary Anderson, essuie-glace ; Hedy Lamarr, saut de fréquence ; Grace Hopper, compilateur ; Margaret Knight, sac en papier à fond plat). Fait daté vérifié le 3/11 sur https://en.wikipedia.org/wiki/Marie_Curie. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "666554b8",
+      "texte_overlay": "les inventions\nqu'on doit à des femmes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c1636caa",
+      "texte_overlay": "1. l'essuie-glace\n\nmary anderson, au début du xxe siècle.\nmerci pour chaque jour de pluie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "68932149",
+      "texte_overlay": "2. le saut de fréquence\n\nhedy lamarr, actrice et inventrice.\nune idée derrière nos technologies sans fil.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2b8a35aa",
+      "texte_overlay": "3. le compilateur\n\ngrace hopper\na rendu la programmation plus humaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "de189d04",
+      "texte_overlay": "4. le sac en papier à fond plat\n\nmargaret knight\ny a pensé avant tout le monde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "06b98d97",
+      "texte_overlay": "5. et la science tout court\n\nce matin, j'ai appris que marie curie a été la première personne à recevoir deux prix nobel.\nje l'ai racontée toute la journée.",
+      "texte_sophia": "5. et la science tout court\n\nce matin, l'appli Sophia m'a appris que marie curie a été la première personne à recevoir deux prix nobel.\nje l'ai racontée toute la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "50c3bdbb",
+      "texte_overlay": "laquelle tu ne connaissais pas ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

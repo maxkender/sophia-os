@@ -1,0 +1,129 @@
+{
+  "id": "ch-002",
+  "source": {
+    "url": "https://www.tiktok.com/@charl.focus/photo/7706258701463653664",
+    "vues": 246700,
+    "publie_le": "2026-11-09",
+    "accroche": "cómo dejar de PROCRASTINAR (de verdad)"
+  },
+  "titre": {
+    "es": "cómo entrenar tu memoria (de verdad)"
+  },
+  "legendes": {
+    "es": "#memoria #estudiar #concentracion #productividad #disciplina"
+  },
+  "musique": {
+    "titre": "original sound - ridgeclub",
+    "url": "https://www.tiktok.com/music/original-sound-7584564476481948428"
+  },
+  "notes": "Preuve : « cómo dejar de PROCRASTINAR (de verdad) » de @charl.focus (246,7 k vues, 09/11), même famille que « cómo arreglar tu DOPAMINA » (362,4 k) et « cómo dejar de ser INSEGURO » (115,9 k) ; même gabarit, sa musique (ridgeclub). Faits vérifiés : Ebbinghaus (1885, « Über das Gedächtnis ») : courbe de l'oubli, il ne lui restait qu'environ un tiers (34 % d'économie) au bout d'un jour, répliqué par Murre et Dros (2015, PLOS ONE) ; Roediger et Karpicke (2006, Psychological Science, Washington University in St. Louis) : une semaine après, 61 % retenu par le groupe qui s'interroge contre 40 % par celui qui relit ; Cepeda et al. (2006, Psychological Bulletin) : méta-analyse de 317 expériences, l'effet d'espacement ; Jenkins et Dallenbach (1924, Cornell) : on oublie moins après avoir dormi qu'après la même durée éveillé. Rien de médical. Slide Sophia (5) : « 4 · dale algo que recordar », le LOGO de Sophia en haut de la colonne, jamais une capture ; cta B (« por la noche, en vez de abrir tiktok, hago la lección del día en Sophia »). Images : 16 Seedream (IRM en fausses couleurs, silhouettes de dos, objets), aucune de ch-001, aucune de la banque ; fiches-main et calendrier-mur jetées (texte et chiffres ratés).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        { "image": "images/photos/irm-profil.jpg" },
+        { "image": "images/photos/silhouette-bibliotheque.jpg" },
+        { "image": "images/photos/cerveau-reseau.jpg" },
+        { "image": "images/photos/couloir-ombre.jpg" },
+        { "image": "images/photos/irm-coupes.jpg" },
+        { "image": "images/photos/brouillard-rue.jpg" }
+      ],
+      "es": {
+        "haut": "cómo entrenar tu",
+        "mot": "MEMORIA",
+        "note": "(de verdad)"
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        { "image": "images/photos/cahier-ferme.jpg" },
+        { "image": "images/photos/tableau-vide.jpg" }
+      ],
+      "es": {
+        "titre": "no es mala memoria.",
+        "paragraphes": [
+          "estudias algo, lo entiendes, y a los dos días no queda nada. y piensas que **tienes mala memoria**.",
+          "en 1885, **hermann ebbinghaus** se puso a medir cuánto olvidaba: al día siguiente ya había perdido **más de la mitad**. es lo normal.",
+          "tu cerebro **borra lo que no usas**. la buena noticia: se le puede decir qué guardar."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        { "image": "images/photos/pupitre-nuit.jpg" },
+        { "image": "images/photos/crayon-papier.jpg" }
+      ],
+      "es": {
+        "titre": "releer no sirve",
+        "paragraphes": [
+          "en un experimento en san luis (estados unidos), unos estudiantes **releían un texto** y otros **se preguntaban a sí mismos** qué recordaban.",
+          "una semana después, los que se habían preguntado recordaban **un 61%**. los que releían, un 40%.",
+          "cierra el libro y **intenta recordarlo**. cuesta más, y por eso funciona."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        { "image": "images/photos/train-fenetre.jpg" },
+        { "image": "images/photos/sablier.jpg" }
+      ],
+      "es": {
+        "titre": "poco y a menudo",
+        "paragraphes": [
+          "estudiar cinco horas la noche antes **parece eficaz**, pero se olvida rápido.",
+          "en 2006, unos investigadores revisaron **más de 300 experimentos**: repartir el repaso en **varios días** gana casi siempre.",
+          "mejor **10 minutos cada día** que una tarde entera una vez a la semana."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "photos": [
+        { "image": "images/photos/lampe-chevet-livre.jpg" }
+      ],
+      "es": {
+        "titre": "dale algo que recordar",
+        "paragraphes": [
+          "la memoria se entrena como un músculo: **un poco cada día**.",
+          "por la noche, en vez de abrir tiktok, hago **la lección del día en Sophia**: historia, filosofía, ciencia, geopolítica, literatura, economía.",
+          "10 minutos y **un quiz al final**, justo lo que pide el punto 2: **recordar, no releer**."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "mise": "bas",
+      "photos": [
+        { "image": "images/photos/lit-sombre.jpg" },
+        { "image": "images/photos/lune-fenetre.jpg" }
+      ],
+      "es": {
+        "titre": "duerme encima.",
+        "paragraphes": [
+          "en 1924, en la universidad de cornell, vieron que **se olvida menos** si te duermes después de aprender que si sigues despierto.",
+          "mientras duermes, tu cerebro **repasa y ordena** lo del día.",
+          "repasa algo corto antes de dormir y **no recortes horas de sueño** para estudiar más."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "photos": [
+        { "image": "images/photos/montagne-sentier.jpg" }
+      ],
+      "es": {
+        "titre": "tu memoria no es mala.",
+        "paragraphes": [
+          "solo guarda lo que **usas a menudo**.",
+          "pregúntate, repasa en días distintos y duerme: **lo demás lo hace ella**.",
+          "¿cuál vas a probar primero? comenta el número.",
+          "guárdalo para tu próximo examen y **empieza esta noche**."
+        ]
+      }
+    }
+  ]
+}

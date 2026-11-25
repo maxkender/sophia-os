@@ -12,6 +12,8 @@ export interface Envoi {
   whatsapp: string;
   ferme?: boolean;
   codes_test?: { email?: string; whatsapp?: string };
+  /** 25/11 : faux quand le code WhatsApp n'est pas demandé (code par email seulement). */
+  whatsapp_code?: boolean;
 }
 
 const ENTENDU = ["ad", "referral", "sophia_app", "other", "none"] as const;
@@ -76,7 +78,7 @@ export default function Candidature({ t, langue, pays, onEnvoye, onLegal, onCont
     }
     setEnvoi(true);
     const whatsapp = formatInternational(v.indicatif, v.tel);
-    const r = await appeler<{ jeton?: string; ferme?: boolean; codes_test?: Envoi["codes_test"]; fields?: string[] }>("candidater", {
+    const r = await appeler<{ jeton?: string; ferme?: boolean; codes_test?: Envoi["codes_test"]; whatsapp_code?: boolean; fields?: string[] }>("candidater", {
       prenom: v.prenom, nom: v.nom, email: v.email, whatsapp, pays: v.pays, majeur: majeur === true,
       deux_telephones: deux, entendu, parrain: entendu === "referral" ? v.parrain : "",
       accord_tarif: cases.tarif, engagement: cases.engagement, consentement: cases.consentement, whatsapp_optin: cases.whatsapp,
@@ -89,7 +91,7 @@ export default function Candidature({ t, langue, pays, onEnvoye, onLegal, onCont
       return;
     }
     garderJeton(r.jeton ?? null);
-    onEnvoye({ prenom: v.prenom, email: v.email, whatsapp, ferme: r.ferme, codes_test: r.codes_test });
+    onEnvoye({ prenom: v.prenom, email: v.email, whatsapp, ferme: r.ferme, codes_test: r.codes_test, whatsapp_code: r.whatsapp_code });
   }
 
   return (

@@ -1,0 +1,432 @@
+{
+ "id": "sm-020",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "Cute Circus",
+  "url": "https://www.tiktok.com/music/cute-circus-7015613917703440386"
+ },
+ "notes": "Full test du 25/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, dans la veine de sa légende « reprogram your brain » (210 k) : « apps that replaced my doomscrolling ». Aucune appli de blocage ni de temps d'écran (concurrentes de Sophia) : des applis à ouvrir à la place. Sophia en 2e carte (slide 3, cta B), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Nonogram.com et Sudoku.com (jeux de logique, sans langue), Finch (soin de soi). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20 et du 21/11). Musique : la sienne de ce post.",
+ "titre": {
+  "en": "apps that replaced my doomscrolling",
+  "fr": "les applis qui ont remplacé mon doomscrolling",
+  "es": "apps que sustituyeron mi doomscrolling",
+  "es-419": "apps que reemplazaron mi doomscrolling",
+  "it": "app che hanno sostituito il mio doomscrolling",
+  "tr": "doomscrolling'in yerini alan uygulamalar",
+  "pt-BR": "apps que substituíram meu doomscrolling",
+  "de": "apps, die mein doomscrolling ersetzt haben",
+  "sl": "aplikacije, ki so zamenjale moje doomscrollanje",
+  "hu": "appok, amik leváltották a doomscrollingot"
+ },
+ "legendes": {
+  "en": "my phone, but make it good for my brain 🧩🌷 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "mon téléphone, mais bon pour mon cerveau 🧩🌷 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "mi móvil, pero bueno para mi cerebro 🧩🌷 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "mi celular, pero bueno para mi cerebro 🧩🌷 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "il mio telefono, ma buono per il cervello 🧩🌷 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "telefonum, ama beynime iyi gelen hali 🧩🌷 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "meu celular, mas bom pro meu cérebro 🧩🌷 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "mein handy, aber gut fürs gehirn 🧩🌷 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "moj telefon, ampak dober za možgane 🧩🌷 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "a telefonom, csak jót tesz az agyamnak 🧩🌷 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 50,
+     "y": 160,
+     "l": 210,
+     "rotation": -15
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 830,
+     "y": 150,
+     "l": 170,
+     "rotation": 12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 230,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that\nreplaced my\ndoomscrolling",
+    "sous": "my brain\nthanks me"
+   },
+   "fr": {
+    "titre": "les applis qui\nont remplacé\nmon scroll",
+    "sous": "mon cerveau\nme remercie"
+   },
+   "es": {
+    "titre": "apps que\nsustituyeron\nmi scroll",
+    "sous": "mi cerebro\nme lo agradece"
+   },
+   "es-419": {
+    "titre": "apps que\nreemplazaron\nmi scroll",
+    "sous": "mi cerebro\nme lo agradece"
+   },
+   "it": {
+    "titre": "app che hanno\nsostituito il\nmio scroll",
+    "sous": "il mio cervello\nringrazia"
+   },
+   "tr": {
+    "titre": "kaydırmanın\nyerini alan\nuygulamalar",
+    "sous": "beynim bana\nteşekkür ediyor"
+   },
+   "pt-BR": {
+    "titre": "apps que\nsubstituíram\nmeu scroll",
+    "sous": "meu cérebro\nagradece"
+   },
+   "de": {
+    "titre": "apps statt\nendlosem\nscrollen",
+    "sous": "mein gehirn\ndankt mir"
+   },
+   "sl": {
+    "titre": "aplikacije\nnamesto\nskrolanja",
+    "sous": "možgani so\nmi hvaležni"
+   },
+   "hu": {
+    "titre": "appok a\ngörgetés\nhelyett",
+    "sous": "az agyam\nhálás érte"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/nonogram/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 60,
+     "y": 730,
+     "l": 260,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 780,
+     "y": 700,
+     "l": 260,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "when i reach for my phone, i solve a picture puzzle instead: number clues, a hidden image, and my brain actually wakes up."
+   },
+   "fr": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "quand je prends mon tél, je résous un casse-tête en image : des indices chiffrés, une image cachée, et mon cerveau se réveille."
+   },
+   "es": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "cuando cojo el móvil, resuelvo un puzle con dibujo: pistas numéricas, una imagen oculta, y mi cerebro se despierta."
+   },
+   "es-419": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "cuando agarro el celular, resuelvo un acertijo con dibujo: pistas numéricas, una imagen oculta, y mi cerebro se despierta."
+   },
+   "it": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "quando prendo il telefono risolvo un puzzle con disegno: indizi numerici, un'immagine nascosta, e il cervello si sveglia."
+   },
+   "tr": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "telefonu elime aldığımda resimli bir bulmaca çözüyorum: sayı ipuçları, gizli bir resim ve beynim uyanıyor."
+   },
+   "pt-BR": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "quando pego o celular, resolvo um quebra-cabeça com desenho: dicas numéricas, uma imagem escondida, e meu cérebro acorda."
+   },
+   "de": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "wenn ich zum handy greife, löse ich ein bilderrätsel: zahlenhinweise, ein verstecktes bild, und mein kopf wird wach."
+   },
+   "sl": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "ko primem telefon, rešim slikovno uganko: številski namigi, skrita slika in možgani se zbudijo."
+   },
+   "hu": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "ha a telefonom után nyúlok, képes rejtvényt fejtek: számokból kirajzolódik egy rejtett kép, és felébred az agyam."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bureau.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 800,
+     "y": 100,
+     "l": 230,
+     "rotation": 20
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "my new scroll, honestly!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "mon nouveau scroll, honnêtement !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mi nuevo scroll, sinceramente!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mi nuevo scroll, la neta!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "il mio nuovo scroll, giuro!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "yeni kaydırmam, cidden!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "meu novo scroll, sério!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "mein neues scrollen, ehrlich!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "moje novo skrolanje, res!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "az új görgetésem, komolyan!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/finch/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 70,
+     "y": 740,
+     "l": 210,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 810,
+     "y": 730,
+     "l": 200,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "a little pet that grows when you do small kind things for yourself. checking on it beats checking my feed."
+   },
+   "fr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un petit compagnon qui grandit quand tu prends soin de toi. aller le voir vaut mieux que mon fil d'actu."
+   },
+   "es": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece cuando haces cositas buenas por ti. mirarla es mejor que mirar mi feed."
+   },
+   "es-419": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "una mascota que crece cuando haces cositas buenas por ti. verla es mejor que ver mi feed."
+   },
+   "it": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "un animaletto che cresce quando fai piccole cose gentili per te. guardarlo è meglio del mio feed."
+   },
+   "tr": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kendine küçük iyilikler yaptıkça büyüyen bir dost. ona bakmak akışa bakmaktan iyi."
+   },
+   "pt-BR": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "um bichinho que cresce quando você faz coisinhas boas por você. ver ele é melhor que ver meu feed."
+   },
+   "de": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ein kleines haustier, das wächst, wenn du dir kleine gefallen tust. nach ihm zu schauen ist besser als mein feed."
+   },
+   "sl": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "ljubljenček, ki raste, ko narediš kaj lepega zase. pogledati njega je boljše kot moj feed."
+   },
+   "hu": {
+    "nom": "Finch",
+    "plateformes": "iOS, Android",
+    "texte": "kis kedvenc, ami nő, ha kedves vagy magadhoz. ránézni jobb, mint a hírfolyamra."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/sudoku/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 70,
+     "y": 730,
+     "l": 220,
+     "rotation": -12
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 800,
+     "y": 730,
+     "l": 220,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "one quick sudoku between study sessions. it's the break that leaves my head clearer, not foggier."
+   },
+   "fr": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "un sudoku rapide entre deux révisions. la pause qui me laisse la tête plus claire, pas plus embrouillée."
+   },
+   "es": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "un sudoku rápido entre sesiones de estudio. el descanso que me deja la cabeza más clara, no más nublada."
+   },
+   "es-419": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "un sudoku rápido entre sesiones de estudio. el descanso que me deja la cabeza más clara, no más nublada."
+   },
+   "it": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "un sudoku veloce tra una sessione di studio e l'altra. la pausa che mi lascia la testa più chiara."
+   },
+   "tr": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "dersler arasında hızlı bir sudoku. kafamı bulandırmayan, açan bir mola."
+   },
+   "pt-BR": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "um sudoku rápido entre as sessões de estudo. a pausa que deixa minha cabeça mais leve, não mais confusa."
+   },
+   "de": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "ein schnelles sudoku zwischen zwei lerneinheiten. die pause, nach der mein kopf klarer ist, nicht vernebelter."
+   },
+   "sl": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "hiter sudoku med učenjem. odmor, po katerem je glava bistrejša, ne bolj megleno."
+   },
+   "hu": {
+    "nom": "Sudoku.com",
+    "plateformes": "iOS, Android",
+    "texte": "egy gyors sudoku két tanulás között. a szünet, ami után tisztább a fejem, nem ködösebb."
+   }
+  }
+ ]
+}

@@ -1,0 +1,281 @@
+{
+ "id": "dr-061",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of nature lover hobbies",
+  "pt-BR": "Iceberg de hobbies de quem ama a natureza",
+  "hu": "A természetbarát hobbik jéghegye"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #nature #cottagecore #selfimprovement",
+  "pt-BR": "#iceberg #hobbies #natureza #autoconhecimento",
+  "hu": "#jéghegy #hobbi #természet #önfejlesztés"
+ },
+ "musique": {
+  "titre": "three tabs by chromas - thisischromas",
+  "url": "https://www.tiktok.com/music/original-sound-7370815708128496416"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « nature lover hobbies ». Sophia au 2e étage (icône). En, pt-BR, hu ; variantes 1, 2, 3.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "nature lover hobbies",
+    "variante": 1
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies da natureza",
+    "variante": 2
+   },
+   "hu": {
+    "haut": "A természetbarát",
+    "bas": "hobbik jéghegye",
+    "variante": 3
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "hiking",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "birdwatching",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "gardening",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "nature photography",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "fishing",
+       "image": "images/objets/canne-peche.png"
+      },
+      {
+       "t": "sketching outside",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "pressing flowers",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "fossil hunting",
+       "image": "images/objets/ammonite.png"
+      },
+      {
+       "t": "rock collecting",
+       "image": "images/objets/geode.png"
+      },
+      {
+       "t": "stargazing",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "growing roses",
+       "image": "images/objets/rose.png"
+      },
+      {
+       "t": "meteorite hunting",
+       "image": "images/objets/meteorite.png"
+      },
+      {
+       "t": "mushroom foraging",
+       "image": "images/objets/champignons.png"
+      }
+     ],
+     [
+      {
+       "t": "mapping your own trails",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "trilhas",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "observar pássaros",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "jardinagem",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "fotografar a natureza",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "pescar",
+       "image": "images/objets/canne-peche.png"
+      },
+      {
+       "t": "desenhar ao ar livre",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "prensar flores",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "caçar fósseis",
+       "image": "images/objets/ammonite.png"
+      },
+      {
+       "t": "colecionar pedras",
+       "image": "images/objets/geode.png"
+      },
+      {
+       "t": "ver estrelas",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "cultivar rosas",
+       "image": "images/objets/rose.png"
+      },
+      {
+       "t": "caçar meteoritos",
+       "image": "images/objets/meteorite.png"
+      },
+      {
+       "t": "colher cogumelos",
+       "image": "images/objets/champignons.png"
+      }
+     ],
+     [
+      {
+       "t": "mapear suas trilhas",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "hu": {
+    "etages": [
+     [
+      {
+       "t": "túrázás",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "madárlesés",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "kertészet",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "fotózás",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "napi sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "horgászat",
+       "image": "images/objets/canne-peche.png"
+      },
+      {
+       "t": "rajzolás kint",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "virágpréselés",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "kövületek",
+       "image": "images/objets/ammonite.png"
+      },
+      {
+       "t": "kőgyűjtés",
+       "image": "images/objets/geode.png"
+      },
+      {
+       "t": "csillagnézés",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "rózsakert",
+       "image": "images/objets/rose.png"
+      },
+      {
+       "t": "meteoritok",
+       "image": "images/objets/meteorite.png"
+      },
+      {
+       "t": "gombászás",
+       "image": "images/objets/champignons.png"
+      }
+     ],
+     [
+      {
+       "t": "saját túraútvonalak",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "nem értesz egyet?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

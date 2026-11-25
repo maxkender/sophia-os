@@ -26,7 +26,8 @@
   "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 30",
   "no": "10/10 ferdigheter å lære før du fyller 30",
   "et": "10/10 oskust, mida õppida enne 30",
-  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä"
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä",
+  "ro": "10/10 abilități de învățat înainte de 30 de ani"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #skills #learnontiktok #selfimprovement",
@@ -48,13 +49,14 @@
   "lt": "10/10 įgūdžių, kuriuos verta išmokti iki 30 #įgūdžiai #saviugda #mokymasis",
   "no": "10/10 ferdigheter å lære før du fyller 30 #ferdigheter #selvutvikling #læring",
   "et": "10/10 oskust, mida õppida enne 30 #oskused #eneseareng #õppimine",
-  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä #taidot #itsensäkehittäminen #oppiminen"
+  "fi": "10/10 taitoa, jotka kannattaa oppia ennen 30:tä #taidot #itsensäkehittäminen #oppiminen",
+  "ro": "10/10 abilități de învățat înainte de 30 de ani #abilități #dezvoltarepersonală #învățare"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
  },
- "notes": "Variante de l'accroche de fa-004 (« Before You Are 25 »), « 30 » au lieu de « 25 ». cta C (1re personne). Sophia à l'étape 3 « WHAT I DO INSTEAD OF SCROLLING ». Pas d'UnSwipe. Autres compétences (budget, prise de parole, massage cardiaque, gestion du temps), autres vidéos. en, de et pt (Portugal). 22/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, sv, tr, lt, no, et et fi (titre et couverture de fa-047, même famille) ; faute de vidéo native, la prise de parole devient le langage corporel en sl, et la gestion du temps devient « dire non » en nl, sv et no.",
+ "notes": "Variante de l'accroche de fa-004 (« Before You Are 25 »), « 30 » au lieu de « 25 ». cta C (1re personne). Sophia à l'étape 3 « WHAT I DO INSTEAD OF SCROLLING ». Pas d'UnSwipe. Autres compétences (budget, prise de parole, massage cardiaque, gestion du temps), autres vidéos. en, de et pt (Portugal). 22/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, sv, tr, lt, no, et et fi (titre et couverture de fa-047, même famille) ; faute de vidéo native, la prise de parole devient le langage corporel en sl, et la gestion du temps devient « dire non » en nl, sv et no. 25/11 : ajouté en ro.",
  "slides": [
   {
    "type": "couverture",
@@ -407,6 +409,23 @@
       }
      ]
     ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITĂȚI DE ÎNVĂȚAT",
+     [
+      {
+       "t": "ÎNAINTE DE 30",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -709,6 +728,21 @@
      "date": "2 vuotta sitten",
      "duree": "13.29",
      "avatar": "https://yt3.ggpht.com/A8dkj2bNg4uCzPQFCHPgP9U8biqJDIoM5U8_qmZtkFHz1DnBJoj29IzyI71pKK8ML39-_KZ9Jo4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "FĂ-ȚI UN",
+     "BUGET"
+    ],
+    "video": {
+     "id": "skjCJLLhz6A",
+     "titre": "Cum îmi planific bugetul lunar și de ce e important să faci și tu asta",
+     "chaine": "Cristian Florea",
+     "vues": "3,5 K de vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/cvjBQ4CJ_RDxwenu6Z7LMy1fF_j1IE3TwcERBGnZlnJMeqEqB56rmwQpsTCxe7qO8guIcysj=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -1013,6 +1047,21 @@
      "duree": "2.55",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_n6ODMF21M14HNDVHpr4h6AnbQW6_zVNn2nY6zFqmqT2Q=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "ro": {
+    "titre": [
+     "VORBEȘTE ÎN",
+     "PUBLIC"
+    ],
+    "video": {
+     "id": "unB0x68brp0",
+     "titre": "CUM SA VORBIM IN PUBLIC - DALE CARNEGIE - PUBLIC SPEAKING",
+     "chaine": "Razvan Militaru",
+     "vues": "60 K de vizionări",
+     "date": "acum 8 ani",
+     "duree": "6:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nV6dOnmPphiSixRz3ozCHWvF2liy0qjqK3jgBZ-3MHUQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1275,6 +1324,19 @@
      "texte": [
       "mitä avaan",
       "selaamisen sijaan."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "CEVA NOU",
+     "ÎN FIECARE ZI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
      ]
     }
    }
@@ -1575,6 +1637,21 @@
      "date": "9 vuotta sitten",
      "duree": "1.46",
      "avatar": "https://yt3.ggpht.com/UXDu62BAwwm7orDDpwJP9QELAmxfwOdg2DMjGdywlxxv2W2GPbyI2fYn9Xavjn6iZUFOFUhL=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     "RESUSCITAREA"
+    ],
+    "video": {
+     "id": "1pgHtU7Ktuc",
+     "titre": "Masuri de prim-ajutor in cazul stopului cardio-respirator",
+     "chaine": "D.S.U. - Departamentul pentru Situații de Urgență",
+     "vues": "314 K de vizionări",
+     "date": "acum 11 ani",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/OSNLgT2tGM24Gko0ekcbTXJk2VYtad8X2IsDUnjcmqnnu0AXuyQzkSJRHj8b6pUyfM1k2KR5=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -1878,6 +1955,21 @@
      "date": "7 vuotta sitten",
      "duree": "11.31",
      "avatar": "https://yt3.ggpht.com/XVu_rdLyCXaNExvnkcvQ5-7y9Zsg9BIXkUs-pxgqUd2rY1oOgsCcdxo7q6dQqBno02ORNJyUZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "GESTIONEAZĂ-ȚI",
+     "TIMPUL"
+    ],
+    "video": {
+     "id": "BBI0oCHr9C0",
+     "titre": "E168 - Cum ne planificăm timpul când nu mai avem timp de planificat",
+     "chaine": "MindArchitect",
+     "vues": "24 K de vizionări",
+     "date": "acum 3 ani",
+     "duree": "35:14",
+     "avatar": "https://yt3.ggpht.com/U5NV4hYAgYTy4EmUrykWKZmmC8MyWA1iHpL1sM63tnniUz6c5OjWmMI20gkWGU5vtcwFzH-7ZIM=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

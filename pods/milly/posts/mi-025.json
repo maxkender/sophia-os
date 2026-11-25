@@ -1,0 +1,777 @@
+{
+ "id": "mi-025",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7684514161577053471",
+  "vues": 310800,
+  "publie_le": "2026-09-24",
+  "accroche": "How to / Study / for 10+ / Hours"
+ },
+ "fond": "orange",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b2403c30-d095-4045-a421-ad55a79dd8ba",
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Déclinaison G1 de mi-001 « How to Train your Intelligence » (ligne 2 de la boîte du 25/11, passages es-419 6 k vues r 8,5 et tr 2,7 k r 4,6) : titre et couverture du parent mot pour mot dans chaque langue, autres conseils, autres images, autre fond, autre CTA. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Faits vérifiés : l'entraînement de la mémoire de travail améliore surtout les tâches entraînées, sans transfert durable à l'intelligence générale (Melby-Lervåg et Hulme, Developmental Psychology 2013) ; des adultes de 60 à 90 ans qui ont appris pendant trois mois des activités exigeantes (photo numérique, quilting) ont progressé en mémoire épisodique, pas ceux aux activités peu exigeantes (Park et al., Psychological Science 2014) ; chaque année d'études en plus fait gagner environ 1 à 5 points de QI (Ritchie et Tucker-Drob, Psychological Science 2018). 11 langues. Images : banque (cerveau-3d, dti, hippocampe), sans texte.",
+ "titre": {
+  "en": "How to Train your Intelligence",
+  "fr": "Comment entraîner ton intelligence",
+  "es": "Cómo entrenar tu inteligencia",
+  "es-419": "Cómo entrenar tu inteligencia",
+  "it": "Come allenare la tua intelligenza",
+  "tr": "Zekanı nasıl eğitirsin",
+  "pt-BR": "Como treinar sua inteligência",
+  "sl": "Kako trenirati svojo inteligenco",
+  "hr": "Kako trenirati svoju inteligenciju",
+  "de": "Wie du deine Intelligenz trainierst",
+  "hu": "Hogyan eddzd az intelligenciádat"
+ },
+ "legendes": {
+  "en": "train with real knowledge #intelligence #iq #learning #brain #neuroplasticity",
+  "fr": "entraîne-toi avec du vrai savoir #intelligence #QI #apprendre #cerveau #neuroplasticité",
+  "es": "entrena con conocimiento de verdad #inteligencia #CI #aprender #cerebro #neuroplasticidad",
+  "es-419": "entrena con conocimiento real #inteligencia #CI #aprender #cerebro #neuroplasticidad",
+  "it": "allenati con conoscenza vera #intelligenza #QI #imparare #cervello #neuroplasticità",
+  "tr": "gerçek bilgiyle çalış #zeka #IQ #öğrenme #beyin #nöroplastisite",
+  "pt-BR": "treine com conhecimento de verdade #inteligencia #QI #aprender #cerebro #neuroplasticidade",
+  "sl": "treniraj s pravim znanjem #inteligenca #IQ #učenje #možgani #nevroplastičnost",
+  "hr": "treniraj pravim znanjem #inteligencija #IQ #učenje #mozak #neuroplastičnost",
+  "de": "trainier mit echtem wissen #intelligenz #IQ #lernen #gehirn #neuroplastizität",
+  "hu": "eddz valódi tudással #intelligencia #IQ #tanulás #agy #neuroplaszticitás"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/cerveau-3d.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "How to",
+      "taille": "petit"
+     },
+     {
+      "t": "Train",
+      "taille": "grand"
+     },
+     {
+      "t": "your",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligence",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Comment",
+      "taille": "petit"
+     },
+     {
+      "t": "Entraîner",
+      "taille": "grand"
+     },
+     {
+      "t": "ton",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligence",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Entrenar",
+      "taille": "grand"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligencia",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Cómo",
+      "taille": "petit"
+     },
+     {
+      "t": "Entrenar",
+      "taille": "grand"
+     },
+     {
+      "t": "tu",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligencia",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Come",
+      "taille": "petit"
+     },
+     {
+      "t": "Allenare",
+      "taille": "grand"
+     },
+     {
+      "t": "la tua",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligenza",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Zekanı",
+      "taille": "grand"
+     },
+     {
+      "t": "nasıl",
+      "taille": "petit"
+     },
+     {
+      "t": "Eğitirsin",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Como",
+      "taille": "petit"
+     },
+     {
+      "t": "Treinar",
+      "taille": "grand"
+     },
+     {
+      "t": "sua",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligência",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "Trenirati",
+      "taille": "grand"
+     },
+     {
+      "t": "svojo",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligenco",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Kako",
+      "taille": "petit"
+     },
+     {
+      "t": "Trenirati",
+      "taille": "grand"
+     },
+     {
+      "t": "svoju",
+      "taille": "petit"
+     },
+     {
+      "t": "Inteligenciju",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Wie du deine",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligenz",
+      "taille": "grand"
+     },
+     {
+      "t": "trainierst",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Hogyan",
+      "taille": "petit"
+     },
+     {
+      "t": "Eddzd",
+      "taille": "grand"
+     },
+     {
+      "t": "az",
+      "taille": "petit"
+     },
+     {
+      "t": "Intelligenciádat",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Skip The Brain-Training Drills",
+    "blocs": [
+     {
+      "p": "Memory drills mostly make you better at memory drills. A large analysis of working-memory training found short-term gains on the trained tasks, but no lasting transfer to general intelligence."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "What does transfer is knowledge. Studies covering hundreds of thousands of people found that each extra year of education raised IQ by about one to five points."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Oublie les exercices de « brain training »",
+    "blocs": [
+     {
+      "p": "Les exercices de mémoire rendent surtout meilleur… aux exercices de mémoire. Une grande analyse de l'entraînement de la mémoire de travail a montré des progrès à court terme sur les tâches entraînées, mais aucun transfert durable vers l'intelligence générale."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Ce qui se transfère, c'est le savoir. Des études portant sur des centaines de milliers de personnes ont montré que chaque année d'études en plus faisait gagner environ un à cinq points de QI."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Olvida los ejercicios de entrenamiento cerebral",
+    "blocs": [
+     {
+      "p": "Los ejercicios de memoria te hacen mejor sobre todo… en ejercicios de memoria. Un gran análisis del entrenamiento de la memoria de trabajo encontró mejoras a corto plazo en las tareas entrenadas, pero ningún traspaso duradero a la inteligencia general."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Lo que sí se traslada es el conocimiento. Estudios con cientos de miles de personas encontraron que cada año extra de educación subía el CI entre uno y cinco puntos aproximadamente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Olvida los ejercicios de entrenamiento cerebral",
+    "blocs": [
+     {
+      "p": "Los ejercicios de memoria te hacen mejor sobre todo… en ejercicios de memoria. Un gran análisis del entrenamiento de la memoria de trabajo encontró mejoras a corto plazo en las tareas entrenadas, pero ninguna transferencia duradera a la inteligencia general."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Lo que sí se transfiere es el conocimiento. Estudios con cientos de miles de personas encontraron que cada año extra de educación subía el CI entre uno y cinco puntos, aproximadamente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Lascia perdere il brain training",
+    "blocs": [
+     {
+      "p": "Gli esercizi di memoria ti rendono più bravo soprattutto… negli esercizi di memoria. Un'ampia analisi sull'allenamento della memoria di lavoro ha trovato miglioramenti a breve termine nei compiti allenati, ma nessun trasferimento duraturo all'intelligenza generale."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Ciò che si trasferisce è la conoscenza. Studi su centinaia di migliaia di persone hanno rilevato che ogni anno di istruzione in più alzava il QI di circa uno-cinque punti."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Beyin antrenmanı alıştırmalarını bırak",
+    "blocs": [
+     {
+      "p": "Hafıza alıştırmaları seni en çok… hafıza alıştırmalarında iyi yapar. Çalışma belleği antrenmanı üzerine büyük bir analiz, çalışılan görevlerde kısa süreli kazanımlar buldu, ama genel zekâya kalıcı bir aktarım bulamadı."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Aktarılan şey bilgidir. Yüz binlerce kişiyi kapsayan çalışmalar, fazladan her eğitim yılının IQ'yu yaklaşık bir ila beş puan artırdığını buldu."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Esqueça os exercícios de treino cerebral",
+    "blocs": [
+     {
+      "p": "Exercícios de memória deixam você melhor principalmente… em exercícios de memória. Uma grande análise do treino da memória de trabalho encontrou ganhos de curto prazo nas tarefas treinadas, mas nenhuma transferência duradoura para a inteligência geral."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "O que se transfere é o conhecimento. Estudos com centenas de milhares de pessoas mostraram que cada ano a mais de estudo aumentava o QI em cerca de um a cinco pontos."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Pozabi na vaje za možgane",
+    "blocs": [
+     {
+      "p": "Vaje za spomin te izboljšajo predvsem… v vajah za spomin. Obsežna analiza treninga delovnega spomina je pokazala kratkoročen napredek pri treniranih nalogah, a nobenega trajnega prenosa na splošno inteligenco."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Kar se prenese, je znanje. Raziskave s sto tisoči ljudi so pokazale, da je vsako dodatno leto izobraževanja dvignilo IQ za približno enega do pet točk."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Zaboravi vježbe za mozak",
+    "blocs": [
+     {
+      "p": "Vježbe pamćenja čine te boljim ponajprije… u vježbama pamćenja. Velika analiza treninga radnog pamćenja pokazala je kratkoročan napredak u treniranim zadacima, ali nikakav trajan prijenos na opću inteligenciju."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Ono što se prenosi jest znanje. Istraživanja sa stotinama tisuća ljudi pokazala su da je svaka dodatna godina obrazovanja podigla IQ za otprilike jedan do pet bodova."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lass das Gehirnjogging weg",
+    "blocs": [
+     {
+      "p": "Gedächtnisübungen machen vor allem besser… in Gedächtnisübungen. Eine große Analyse zum Training des Arbeitsgedächtnisses fand kurzfristige Gewinne bei den trainierten Aufgaben, aber keinen dauerhaften Transfer auf die allgemeine Intelligenz."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Was sich überträgt, ist Wissen. Studien mit Hunderttausenden Menschen ergaben, dass jedes zusätzliche Bildungsjahr den IQ um etwa einen bis fünf Punkte erhöhte."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Hagyd az agytorna-feladatokat",
+    "blocs": [
+     {
+      "p": "A memóriagyakorlatok főleg… a memóriagyakorlatokban tesznek jobbá. A munkamemória-tréningek egy nagy elemzése rövid távú javulást talált a gyakorolt feladatokban, de tartós átvitelt az általános intelligenciára nem."
+     },
+     {
+      "image": "images/dti.jpg"
+     },
+     {
+      "p": "Ami átvihető, az a tudás. Több százezer embert felölelő vizsgálatok szerint minden további tanulással töltött év nagyjából egy-öt ponttal emelte az IQ-t."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Learn Something New Every Night",
+    "blocs": [
+     {
+      "p": "Intelligence is trained by real content: history, science, philosophy, psychology. Each new idea gives you more to reason with, and more to connect the next idea to."
+     },
+     {
+      "p": "Make it a nightly session, like going to the gym: one short lesson before bed, every night, for months."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends du neuf chaque soir",
+    "blocs": [
+     {
+      "p": "L'intelligence s'entraîne avec du vrai contenu : histoire, sciences, philosophie, psychologie. Chaque idée nouvelle te donne plus de matière pour raisonner, et plus de points d'attache pour la suivante."
+     },
+     {
+      "p": "Fais-en une séance du soir, comme à la salle de sport : une courte leçon avant de dormir, chaque soir, pendant des mois."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende algo nuevo cada noche",
+    "blocs": [
+     {
+      "p": "La inteligencia se entrena con contenido real: historia, ciencia, filosofía, psicología. Cada idea nueva te da más material para razonar y más puntos de enganche para la siguiente."
+     },
+     {
+      "p": "Conviértelo en una sesión nocturna, como ir al gimnasio: una lección corta antes de dormir, cada noche, durante meses."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aprende algo nuevo cada noche",
+    "blocs": [
+     {
+      "p": "La inteligencia se entrena con contenido real: historia, ciencia, filosofía, psicología. Cada idea nueva te da más material para razonar y más puntos de conexión para la siguiente."
+     },
+     {
+      "p": "Hazlo una sesión de cada noche, como ir al gym: una lección corta antes de dormir, todas las noches, durante meses."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Impara qualcosa ogni sera",
+    "blocs": [
+     {
+      "p": "L'intelligenza si allena con contenuti veri: storia, scienza, filosofia, psicologia. Ogni nuova idea ti dà più materiale per ragionare e più agganci per la successiva."
+     },
+     {
+      "p": "Rendila una sessione serale, come in palestra: una breve lezione prima di dormire, ogni sera, per mesi."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Her akşam yeni bir şey öğren",
+    "blocs": [
+     {
+      "p": "Zekâ gerçek içerikle çalıştırılır: tarih, bilim, felsefe, psikoloji. Her yeni fikir sana akıl yürütmek için daha fazla malzeme ve bir sonraki fikre bağlanmak için daha fazla nokta verir."
+     },
+     {
+      "p": "Bunu spor salonuna gider gibi bir akşam seansına çevir: aylarca, her gece yatmadan önce kısa bir ders."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda algo novo toda noite",
+    "blocs": [
+     {
+      "p": "A inteligência se treina com conteúdo de verdade: história, ciência, filosofia, psicologia. Cada ideia nova dá mais material para raciocinar e mais pontos de ligação para a próxima."
+     },
+     {
+      "p": "Transforme isso numa sessão da noite, como ir à academia: uma lição curta antes de dormir, toda noite, por meses."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Vsak večer se nauči kaj novega",
+    "blocs": [
+     {
+      "p": "Inteligenca se trenira s pravo vsebino: zgodovino, znanostjo, filozofijo, psihologijo. Vsaka nova zamisel ti da več gradiva za sklepanje in več oprijemališč za naslednjo."
+     },
+     {
+      "p": "Naj bo to večerni trening, kot v fitnesu: kratka lekcija pred spanjem, vsak večer, več mesecev."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Svake večeri nauči nešto novo",
+    "blocs": [
+     {
+      "p": "Inteligencija se trenira pravim sadržajem: poviješću, znanošću, filozofijom, psihologijom. Svaka nova ideja daje ti više građe za zaključivanje i više uporišta za sljedeću."
+     },
+     {
+      "p": "Neka to bude večernji trening, kao u teretani: kratka lekcija prije spavanja, svake večeri, mjesecima."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne jeden Abend etwas Neues",
+    "blocs": [
+     {
+      "p": "Intelligenz wird mit echtem Stoff trainiert: Geschichte, Wissenschaft, Philosophie, Psychologie. Jede neue Idee gibt dir mehr Material zum Denken und mehr Anknüpfungspunkte für die nächste."
+     },
+     {
+      "p": "Mach daraus eine Abendeinheit, wie im Fitnessstudio: eine kurze Lektion vor dem Schlafen, jeden Abend, über Monate."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanulj valami újat minden este",
+    "blocs": [
+     {
+      "p": "Az intelligenciát valódi tartalommal lehet edzeni: történelemmel, tudománnyal, filozófiával, pszichológiával. Minden új gondolat több anyagot ad a gondolkodáshoz és több kapaszkodót a következőhöz."
+     },
+     {
+      "p": "Legyen ebből esti edzés, mint a konditeremben: egy rövid lecke lefekvés előtt, minden este, hónapokon át."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Choose Hard New Skills",
+    "blocs": [
+     {
+      "p": "In one study, adults aged 60 to 90 spent three months learning demanding new skills such as digital photography. Their memory improved, while groups doing familiar, easy activities saw no such gain."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "The brain responds to challenge. Pick something you cannot do yet, practise it regularly, and stay a little out of your comfort zone."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Choisis des compétences difficiles",
+    "blocs": [
+     {
+      "p": "Dans une étude, des adultes de 60 à 90 ans ont passé trois mois à apprendre des compétences exigeantes, comme la photographie numérique. Leur mémoire s'est améliorée, alors que des groupes aux activités familières et faciles n'ont rien gagné de tel."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Le cerveau répond au défi. Choisis quelque chose que tu ne sais pas encore faire, pratique-le régulièrement, et reste un peu hors de ta zone de confort."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Elige habilidades difíciles",
+    "blocs": [
+     {
+      "p": "En un estudio, adultos de 60 a 90 años pasaron tres meses aprendiendo habilidades exigentes, como la fotografía digital. Su memoria mejoró, mientras que los grupos con actividades conocidas y fáciles no ganaron nada parecido."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "El cerebro responde al reto. Elige algo que todavía no sabes hacer, practícalo con regularidad y quédate un poco fuera de tu zona de confort."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Elige habilidades difíciles",
+    "blocs": [
+     {
+      "p": "En un estudio, adultos de 60 a 90 años pasaron tres meses aprendiendo habilidades exigentes, como la fotografía digital. Su memoria mejoró, mientras que los grupos con actividades conocidas y fáciles no tuvieron una mejora así."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "El cerebro responde al reto. Elige algo que todavía no sabes hacer, practícalo seguido y quédate un poco fuera de tu zona de confort."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Scegli abilità difficili",
+    "blocs": [
+     {
+      "p": "In uno studio, adulti tra i 60 e i 90 anni hanno passato tre mesi a imparare abilità impegnative, come la fotografia digitale. La loro memoria è migliorata, mentre i gruppi con attività familiari e facili non hanno avuto miglioramenti simili."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Il cervello risponde alla sfida. Scegli qualcosa che non sai ancora fare, esercitati con regolarità e resta un po' fuori dalla tua zona di comfort."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Zor yeni beceriler seç",
+    "blocs": [
+     {
+      "p": "Bir çalışmada 60 ile 90 yaş arası yetişkinler üç ay boyunca dijital fotoğrafçılık gibi zorlu yeni beceriler öğrendi. Hafızaları gelişti; tanıdık ve kolay etkinlikler yapan gruplarda ise böyle bir kazanım görülmedi."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Beyin zorluğa yanıt verir. Henüz yapamadığın bir şey seç, düzenli olarak çalış ve konfor alanının biraz dışında kal."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Escolha habilidades difíceis",
+    "blocs": [
+     {
+      "p": "Em um estudo, adultos de 60 a 90 anos passaram três meses aprendendo habilidades exigentes, como fotografia digital. A memória deles melhorou, enquanto grupos com atividades conhecidas e fáceis não tiveram ganho parecido."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "O cérebro responde ao desafio. Escolha algo que você ainda não sabe fazer, pratique com regularidade e fique um pouco fora da sua zona de conforto."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Izberi zahtevne nove veščine",
+    "blocs": [
+     {
+      "p": "V eni raziskavi so se odrasli med 60. in 90. letom tri mesece učili zahtevnih veščin, kot je digitalna fotografija. Spomin se jim je izboljšal, skupine z znanimi in lahkimi dejavnostmi pa takega napredka niso imele."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Možgani se odzivajo na izziv. Izberi nekaj, česar še ne znaš, to redno vadi in ostani malo zunaj cone udobja."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Biraj teške nove vještine",
+    "blocs": [
+     {
+      "p": "U jednom istraživanju odrasli od 60 do 90 godina tri su mjeseca učili zahtjevne vještine poput digitalne fotografije. Pamćenje im se poboljšalo, dok skupine s poznatim i lakim aktivnostima nisu imale takav napredak."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Mozak odgovara na izazov. Odaberi nešto što još ne znaš, redovito to vježbaj i ostani malo izvan zone komfora."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Wähl schwere neue Fähigkeiten",
+    "blocs": [
+     {
+      "p": "In einer Studie lernten Erwachsene zwischen 60 und 90 drei Monate lang anspruchsvolle Fähigkeiten wie digitale Fotografie. Ihr Gedächtnis verbesserte sich, während Gruppen mit vertrauten, leichten Tätigkeiten keinen solchen Zugewinn hatten."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Das Gehirn reagiert auf Herausforderung. Such dir etwas, das du noch nicht kannst, üb es regelmäßig und bleib ein wenig außerhalb deiner Komfortzone."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Válassz nehéz új készségeket",
+    "blocs": [
+     {
+      "p": "Egy vizsgálatban 60 és 90 év közötti felnőttek három hónapig tanultak megterhelő készségeket, például digitális fotózást. A memóriájuk javult, a megszokott, könnyű tevékenységeket végző csoportoknál viszont nem volt ilyen javulás."
+     },
+     {
+      "image": "images/hippocampe.jpg"
+     },
+     {
+      "p": "Az agy a kihívásra reagál. Válassz valamit, amit még nem tudsz, gyakorold rendszeresen, és maradj kicsit a komfortzónádon kívül."
+     }
+    ]
+   }
+  }
+ ]
+}

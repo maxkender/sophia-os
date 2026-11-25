@@ -95,32 +95,85 @@ export const MODELES_V2: ModeleV2[] = [
   },
 ];
 
+/**
+ * 25/11 (Max) : jamais les mots bot / IA / automatique, ni leurs équivalents dans les langues des modèles traduits
+ * (es, pt_BR, it, de, fr, pl, ro, hu, cs, el, tr). Regex Unicode : \b de JavaScript ne connaît que l'ASCII, les
+ * bornes de mot sont donc des lettres ou chiffres Unicode. Les sigles (AI, IA, KI…) sont lus en majuscules
+ * seulement : « ai » (italien, roumain, « j'ai ») n'est pas un mot interdit.
+ */
+const HORS_MOT = "(?<![\\p{L}\\p{N}])";
+const FIN_MOT = "(?![\\p{L}\\p{N}])";
+const INTERDITS: RegExp[] = [
+  // bot, robot et leurs formes (bots, boty, botok, botlar…), mais pas botón / botão (bouton).
+  new RegExp(`${HORS_MOT}(?:ro)?bot(?:s|y|a|u|ok|ot|lar|ler|ů|ów|em)?${FIN_MOT}`, "iu"),
+  new RegExp(`${HORS_MOT}(?:ρο)?μπ[οό]τ${FIN_MOT}|ρομπ[οό]τ`, "iu"),
+  // Les sigles de l'intelligence artificielle (AI, IA, KI, SI, MI, UI, YZ, ΤΝ), en majuscules.
+  new RegExp(`${HORS_MOT}(?:A\\.?I\\.?|I\\.?A\\.?|K\\.?I\\.?|SI|MI|UI|YZ|ΤΝ)${FIN_MOT}`, "u"),
+  // « intelligence artificielle » dans chaque langue.
+  new RegExp(`(?:artificial|künstlich\\p{L}*|sztuczn\\p{L}*|mesterséges|uměl\\p{L}*|τεχνητ\\p{L}*|yapay)\\s+(?:intel\\p{L}*|νοημοσ\\p{L}*|zek\\p{L}*)`, "iu"),
+  new RegExp(`intel\\p{L}*\\s+artific\\p{L}*`, "iu"),
+  // automatique : automatic, automatisch, automático, automazione, automação, automatyczny, otomatik, αυτόματα…
+  new RegExp(`${HORS_MOT}(?:autom[aá][tçz]|αυτ[οό]ματ|otomat)\\p{L}*`, "iu"),
+];
+
+/** Les mots interdits trouvés dans un texte (vide : rien à redire). */
+export function motsInterdits(texte: string): string[] {
+  const trouves: string[] = [];
+  for (const re of INTERDITS) {
+    const m = texte.match(re);
+    if (m) trouves.push(m[0]);
+  }
+  return trouves;
+}
+
+/** L'ordre des variables du corps ({{1}}, {{2}}…), tel qu'il apparaît. */
+export const ordreVariables = (corps: string) => [...corps.matchAll(/\{\{(\d+)\}\}/g)].map((x) => Number(x[1]));
+
 /** Les règles de Meta (et les nôtres) qu'un modèle doit respecter avant d'être soumis. */
 export function problemesModele(m: ModeleV2): string[] {
   const p: string[] = [];
   if (!/^[a-z0-9_]{1,512}$/.test(m.nom)) p.push("nom invalide");
+  if (!m.corps.trim()) p.push("corps vide");
   if (m.corps.length > 1024) p.push(`corps trop long (${m.corps.length})`);
-  const nums = [...m.corps.matchAll(/\{\{(\d+)\}\}/g)].map((x) => Number(x[1]));
+  const nums = ordreVariables(m.corps);
   const attendus = m.exemples.map((_, i) => i + 1);
   if ([...new Set(nums)].sort((a, b) => a - b).join() !== attendus.join()) p.push("variables pas dans l'ordre ou exemples manquants");
   if (m.variables.length !== m.exemples.length) p.push("variables et exemples ne correspondent pas");
   if (/^\s*\{\{/.test(m.corps) || /\{\{\d+\}\}\s*$/.test(m.corps)) p.push("commence ou finit par une variable");
   if (/\{\{\d+\}\}\s*\{\{\d+\}\}/.test(m.corps)) p.push("deux variables collées");
-  if (/\b(bot|AI|automat\w*)\b/i.test(m.corps)) p.push("mot interdit (bot / AI / automatique)");
+  const interdits = [m.corps, ...m.boutons.map((b) => b.texte)].flatMap(motsInterdits);
+  if (interdits.length) p.push(`mot interdit (bot / AI / automatique) : ${[...new Set(interdits)].join(", ")}`);
   if (m.boutons.length > 2) p.push("plus de 2 boutons lien");
   for (const b of m.boutons) {
-    if (b.texte.length > 25) p.push(`bouton trop long : ${b.texte}`);
+    if (!b.texte.trim()) p.push("bouton sans texte");
+    if (b.texte.length > 25) p.push(`bouton trop long (${b.texte.length}) : ${b.texte}`);
     if (!/^https:\/\//.test(b.url)) p.push(`lien invalide : ${b.url}`);
   }
   return p;
 }
 
-/** Le corps de la requête POST {waba}/message_templates. */
-export function requeteModele(m: ModeleV2, langue = "en") {
+/**
+ * 25/11 : une traduction d'un modèle anglais. Ses règles (problemesModele), plus : les mêmes {{n}} dans le même
+ * ordre et le même nombre de fois, les mêmes boutons et les mêmes liens, dans le même ordre.
+ */
+export function problemesTraduction(source: ModeleV2, t: ModeleV2): string[] {
+  const p = problemesModele(t);
+  if (t.nom !== source.nom) p.push("nom différent de l'anglais");
+  if (ordreVariables(t.corps).join() !== ordreVariables(source.corps).join()) p.push("variables {{n}} pas dans le même nombre ou le même ordre que l'anglais");
+  if (t.exemples.length !== source.exemples.length) p.push("exemples différents de l'anglais");
+  if (t.boutons.length !== source.boutons.length) p.push("boutons différents de l'anglais");
+  t.boutons.forEach((b, i) => {
+    if (source.boutons[i] && b.url !== source.boutons[i].url) p.push(`lien du bouton ${i + 1} changé`);
+  });
+  return p;
+}
+
+/** Le corps de la requête POST {waba}/message_templates (langue Meta, catégorie du modèle anglais). */
+export function requeteModele(m: ModeleV2, langue = "en", categorie = "UTILITY") {
   return {
     name: m.nom,
     language: langue,
-    category: "UTILITY",
+    category: categorie,
     components: [
       { type: "BODY", text: m.corps, ...(m.exemples.length ? { example: { body_text: [m.exemples] } } : {}) },
       ...(m.boutons.length ? [{ type: "BUTTONS", buttons: m.boutons.map((b) => ({ type: "URL", text: b.texte, url: b.url })) }] : []),

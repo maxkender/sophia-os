@@ -1,0 +1,276 @@
+{
+ "post_id": "var-livres-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "5 βιβλία που τα τελειώνεις σε [[ένα Σαββατοκύριακο]]"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(κι ας μη διαβάζεις ποτέ)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_14f9ce06.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "texte": "1. [[Λευκές νύχτες]], Ντοστογιέφσκι"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "texte": "τέσσερις νύχτες, δύο άγνωστοι σε μια γέφυρα"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "texte": "εκείνη περιμένει κάποιον άλλον, κι εσύ [[ελπίζεις για εκείνον σε κάθε σελίδα]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "texte": "γύρω στις 70 σελίδες, [[ο πιο σύντομος καημός που θα διαβάσεις]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00da4c5f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "2. [[Ο Αλχημιστής]], Πάολο Κοέλιο"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "ένας νεαρός βοσκός ονειρεύεται θησαυρό στις πυραμίδες, πουλά τα πρόβατα και φεύγει, και [[ο δρόμος τού μαθαίνει περισσότερα]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "μόλις 200 σελίδες, [[ένα διήμερο]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "τι αντικατέστησε το σκρολάρισμα: ένα βιβλίο στην τσάντα, μουσική στις βόλτες και [[η εφαρμογή Sophia]] όταν πιάνω πάλι το κινητό"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "το σημερινό 5λεπτο μάθημα: γιατί η Αναγέννηση γεννήθηκε στην Ιταλία"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "texte": "3. [[Το μαργαριτάρι]] (1947)"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "texte": "Στάινμπεκ. ένας φτωχός δύτης βρίσκει ένα τεράστιο μαργαριτάρι"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "texte": "ο γιατρός, οι έμποροι, όλη η πόλη το θέλουν, και το όνειρό του [[γίνεται σιγά σιγά εφιάλτης]]"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "texte": "κάτω από 100 σελίδες, γραμμένο σαν παλιός μύθος, τελειώνει σε ένα βράδυ"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "texte": "[[και τι τέλος, θεέ μου]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0014a691.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "4. [[Χριστουγεννιάτικη ιστορία]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "Ντίκενς. έναν τσιγκούνη γέρο τον επισκέπτονται τρία φαντάσματα σε μία νύχτα"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "παρελθόν, παρόν και μέλλον, και μέχρι το πρωί [[δεν είναι πια ο ίδιος άνθρωπος]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "περίπου 100 σελίδες, [[ιδανικό για Δεκέμβρη]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1df07ae0.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "5. [[Σιντάρτα]], Έσσε"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "γύρω στις 150 σελίδες, γραμμένο το 1922"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "ένας νέος φεύγει από το σπίτι για να βρει το νόημα της ζωής, δοκιμάζει πλούτο κι έρωτα και [[το βρίσκει σε ένα ποτάμι]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "απλές φράσεις, μικρά κεφάλαια και μια ηρεμία που μένει για μέρες. [[το ιδανικό τέλος για ένα Σαββατοκύριακο]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0a7a707d.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  }
+ }
+}

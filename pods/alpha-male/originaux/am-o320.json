@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o320",
+ "type_bleo": "full_test",
+ "titre": "Evening routine of disciplined men #men #evening #routine #discipline #sleep",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Full test du jour (3 sur 8, jauge : 8 sur 26). Accroche jamais faite chez nous : aucun « evening routine » dans donnees/label.json. reference_url : post source de am-o010, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3659434a",
+   "texte_overlay": "Evening routine of\ndisciplined men",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "50194d9d",
+   "texte_overlay": "1. Dinner before 8",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6b1f0184",
+   "texte_overlay": "2. A short walk after",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "54368f23",
+   "texte_overlay": "3. Tomorrow on paper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c516d828",
+   "texte_overlay": "4. Clothes ready for the morning",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0dd66924",
+   "texte_overlay": "5. Read or learn instead\nof scrolling",
+   "texte_sophia": "5. One lesson instead of scrolling.\nI use the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  }
+ ]
+}

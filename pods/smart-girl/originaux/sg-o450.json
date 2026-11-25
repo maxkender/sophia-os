@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o450",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e7b59c76-4edc-47d8-bbd7-ce17771d7e4e",
+ "titre": "8 habits that will make you insanely well read #booktok #reading #smartgirl #wellread #darkacademia",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "e7b59c76-4edc-47d8-bbd7-ce17771d7e4e"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 81 de la boîte (parent e7b59c76, langue source tr) : accroche du parent mot pour mot. Habitudes du parent (lire avant les réseaux, sortir de sa zone, des cours plutôt que des vidéos au hasard, repérer les références dans les films et musées) et neuves. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0fad9ddf",
+   "texte_overlay": "8 habits that will make you\ninsanely well read",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "78effbfb",
+   "texte_overlay": "1. read before social media\n\n10-20 pages every morning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2998a087",
+   "texte_overlay": "2. keep a reading notebook",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "25959de8",
+   "texte_overlay": "3. leave your comfort zone\n\nnot only books you agree with.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "26a683ea",
+   "texte_overlay": "4. lessons instead of random videos",
+   "texte_sophia": "4. lessons instead of random videos: i use\nan app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ef5d5333",
+   "texte_overlay": "5. reread your favourites",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "97add773",
+   "texte_overlay": "6. spot the references in films\nand museums",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e896d7cd",
+   "texte_overlay": "7. one classic a month\n8. talk about what you read",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/5.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "4bc68ead",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7677674588968389920/5.jpg"
+  }
+ ]
+}

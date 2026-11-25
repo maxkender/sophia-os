@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o335",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "59f1eea8-5e80-4131-a649-cee0d481c98b",
+ "titre": "6 harsh truths I wish I learned earlier #truth #life #men #lessons #growth",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7652148333531663135",
+ "inspirations": [
+  "59f1eea8-5e80-4131-a649-cee0d481c98b"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Déclinaison G1 de la ligne 43 de la boîte (parent 59f1eea8, @millyjhino, langue source en). Accroche du parent mot pour mot. Format : « N. vérité. » puis une ligne. Items neufs, aucun du parent. reference_url du parent (1, 3 à 7 ; slide 2 manquante) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "097bcf3f",
+   "texte_overlay": "6 harsh truths I wish\nI learned earlier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7521876342317600056/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8fc2c1fd",
+   "texte_overlay": "1. Talent without discipline\nis wasted.\n\n2. Nobody notices effort,\nonly results.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7521876342317600056/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a72ea235",
+   "texte_overlay": "3. Some friendships are seasonal.\n\nLet them end kindly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7521876342317600056/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "768ff40a",
+   "texte_overlay": "4. Your comfort zone\nis expensive.\n\nIt costs your potential.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7521876342317600056/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "df5bacc6",
+   "texte_overlay": "5. School ends at 22.\nLearning shouldn't.",
+   "texte_sophia": "5. School ends at 22.\nLearning shouldn't.\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7521876342317600056/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eb48d54a",
+   "texte_overlay": "6. Time is the only thing\nyou can't earn back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7521876342317600056/7.jpg"
+  }
+ ]
+}

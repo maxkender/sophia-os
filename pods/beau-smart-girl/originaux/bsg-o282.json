@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o282",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "9b06ff76-61dd-4687-b08f-98643a47b978",
+  "titre": "actual advice on how to glow the hell up (no bs, actual good advice, save them) #glowup #thatgirl",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "9b06ff76-61dd-4687-b08f-98643a47b978"
+  ],
+  "notes": "G1, déclinaison de 9b06ff76 (« actual advice on how to glow the hell up (no bs, actual good advice, save them) », génération 0 ; meilleur passage fr 4,4 k vues, r 3,8), en anglais. 1re déclinaison. cta A. Conseils neufs (rien du parent : ni « learn basic things about the world », ni « signature things », ni « tell a good story »). Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6e16a826",
+      "texte_overlay": "actual advice on how to glow the hell up\n(no bs, actual good advice, save them)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6d8e24ba",
+      "texte_overlay": "drink water before coffee.\n\nboring. works every single time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "60d31fc3",
+      "texte_overlay": "learn to say no without explaining.\n\n« i can't, but thank you » is a full sentence.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "cc810ff3",
+      "texte_overlay": "walk everywhere you can.\n\nyour mood, your skin, your head.\nall of it gets better.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2141d65b",
+      "texte_overlay": "read before bed, not your phone.\n\nyou'll sleep better\nand actually remember things.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5b5c288b",
+      "texte_overlay": "have something to talk about.\n\nbefore, i never knew what to say at dinners.\nnow i learn one new thing every morning. and i always have a story to share.",
+      "texte_sophia": "have something to talk about.\n\nbefore, i never knew what to say at dinners.\nnow i open the Sophia app every morning. and i always have a story to share.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e2cba05b",
+      "texte_overlay": "save this for later.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

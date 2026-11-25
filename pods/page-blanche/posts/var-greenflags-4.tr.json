@@ -1,0 +1,284 @@
+{
+ "post_id": "var-greenflags-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "10/10 traits méconnus des gens qui réussissent",
+     "texte": "zeki insanlar kimse bakmıyorken ne yapar"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(la science le dit)",
+     "alignement": "droite",
+     "texte": "(sessiz versiyon)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0287798e.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "[[boş anları değerlendirirler]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "fırın sırası, otobüs, dersten 5 dk önce"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "o dakikaları öldürmezler, sabah bilmedikleri [[bir şeyle doldururlar]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "eskiden durmadan scroll yapardım, şimdi rönesansın neden İtalya'da doğduğunu [[Sophia uygulamasında]] öğreniyorum"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use your non-dominant hand"
+     ],
+     "fr": "utilise ta [[main non dominante]]",
+     "texte": "[[her şeyi not alırlar]]"
+    },
+    "T2": {
+     "en": [
+      "brush your teeth, eat, or use your phone with your",
+      "other hand for a few minutes a day"
+     ],
+     "fr": "brosse-toi les dents, mange ou prends ton tel avec [[ton autre main]] quelques minutes par jour",
+     "texte": "duşta gelen bir fikir, kulağa çalınan bir kelime, gece 2'de bir soru: direkt notlara"
+    },
+    "T3": {
+     "en": [
+      "your brain is forced",
+      "to build new",
+      "connections instead",
+      "of running on",
+      "autopilot"
+     ],
+     "fr": "ton cerveau doit [[créer de nouvelles connexions]] au lieu de rester en [[pilote auto]]",
+     "texte": "kafaları [[fikir üretmek]] için, depolamak için değil"
+    },
+    "T4": {
+     "en": [
+      "it's the easiest way to train neuroplasticity without",
+      "changing anything else about your day"
+     ],
+     "fr": "le moyen le plus simple d'[[entraîner ta neuroplasticité]] sans rien changer d'autre à ta journée",
+     "texte": "ve aylar sonra o küçük notlar [[en iyi fikirlerine]] dönüşür"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_15a76c43.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "[[kaynağı kontrol ederler]]"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "çılgın bir istatistiği paylaşmadan önce makaleyi açıp [[sonuna kadar]] okurlar"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "bir başlık [[hikayenin tamamı değildir]]"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "çoğu zaman makale başlıktan çok daha sıradan bir şey söyler ve sonradan [[rezil olmaktansa]] bunu bilmeyi tercih ederler"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0868bc72.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "[[kendi kendilerine konuşurlar]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs à tout le monde te file [[un shot de dopamine]] avant d'avoir rien fait",
+     "texte": "duşta, yürürken, arabada bir şeyleri sesli anlatırlar, [[kimseye]]"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kiff de l'ambition]], les compliments, et tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "bir fikri sesli söyleyince [[nerede çöktüğünü]] hemen görürsün"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "dışarıdan garip görünür ama aslında fikirlerini lazım olmadan önce [[prova ediyorlar]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_000eaa0e.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming while doing everything"
+     ],
+     "fr": "consommer [[pendant tout ce que tu fais]]",
+     "texte": "[[herkese aynı davranırlar]]"
+    },
+    "T2": {
+     "en": [
+      "eating with youtube, walking with podcasts, working",
+      "with music, scrolling while watching netflix"
+     ],
+     "fr": "[[manger devant youtube]], marcher avec un podcast, bosser en [[musique]], scroller devant netflix",
+     "texte": "garson, temizlikçi, stajyer: [[patrona]] gösterdikleri saygının aynısı, kimse bakmıyorken bile"
+    },
+    "T3": {
+     "en": [
+      "you’re training your",
+      "brain to expect multiple",
+      "streams of input at once"
+     ],
+     "fr": "tu habitues ton cerveau à recevoir [[plusieurs flux d'infos]] à la fois",
+     "texte": "etraflarındaki herkesin [[onların bilmediği bir şey bildiğini]] bilirler"
+    },
+    "T4": {
+     "en": [
+      "eventually doing just",
+      "one thing starts to feel",
+      "painfully empty"
+     ],
+     "fr": "à force, faire une seule chose te paraît [[atrocement vide]]",
+     "texte": "ve böylece [[herkesten öğrenirler]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_37fd15d4.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

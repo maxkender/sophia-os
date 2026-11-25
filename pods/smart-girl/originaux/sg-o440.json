@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o440",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8099ae71-c8c4-458e-8acd-04679fa91f6a",
+ "titre": "how to be the guest everyone wants to invite back #dinnerparty #etiquette #smartgirl #hosting #elegance",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 9 de la boîte (parent 8099ae71, langue source es-419) : accroche du parent mot pour mot. Conseils du parent (5 à 10 minutes de retard, les fleurs déjà dans un vase, proposer son aide une fois, une bonne histoire, demander l'histoire d'un objet de la maison, partir pendant que tout le monde rit, un message le lendemain). Sophia en 4 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "561ed099",
+   "texte_overlay": "how to be the guest everyone\nwants to invite back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "873aaaaa",
+   "texte_overlay": "1. arrive 5-10 minutes late,\nnever early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d2eb3e53",
+   "texte_overlay": "2. bring flowers already\nin a vase",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ee10ca1c",
+   "texte_overlay": "3. offer to help once",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "11b69fcc",
+   "texte_overlay": "4. bring a good story",
+   "texte_sophia": "4. bring a good story: i find mine in\nfive minutes a day on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e568060a",
+   "texte_overlay": "5. ask about an object\nin their home",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1458cdbf",
+   "texte_overlay": "6. leave while everyone\nis still laughing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c79e72e4",
+   "texte_overlay": "7. a thank-you message\nthe next morning",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

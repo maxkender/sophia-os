@@ -12,11 +12,18 @@
  *        modele_ruul_setup soumet le modèle ruul_setup (Utility, anglais) s'il n'existe pas
  *        soumettre_modeles_v2  (23/11, Max) soumet à Meta les 5 modèles v2 (anglais) qui n'existent pas encore ;
  *                          ne change rien aux envois
+ *        soumettre_traductions (25/11, Max) traduit les modèles anglais APPROVED (sauf hello_world) en es, pt_BR, it,
+ *                          de, fr, pl, ro, hu, cs, el, tr et les soumet à Meta (même nom, même catégorie). Jamais deux
+ *                          fois : ce qui existe chez Meta (quel que soit le statut) est sauté. { langues?, modeles?,
+ *                          max? (50) } ; { simuler: true } : les textes traduits et leurs problèmes, rien n'est soumis.
+ *                          Chaque soumission est gardée dans whatsapp_modeles_soumissions (0860).
  *        test_modeles      envoie chaque modèle approuvé aux numéros autorisés (mode test)
  *        envoyer           { e164, texte } ou { e164, modele, langue, variables } (règles du mode test)
  *        relances          (cron horaire whatsapp-relances, 0839) les relances automatiques, en plus des emails ;
- *                          { simuler: true } : la liste seulement, rien ne part. Mode test : numéros autorisés seuls ;
- *                          live : seulement si le réglage whatsapp_relances.live est vrai.
+ *                          { simuler: true } : la liste seulement (comptes par modèle dans `par_modele`), rien ne
+ *                          part ; { simuler: true, comme_live: true } : comme si le mode était live. Mode test : numéros autorisés seuls ; live : seulement si whatsapp_relances.live est vrai.
+ *                          25/11 : modèles v2 (repli sur l'ancien tant que le v2 n'est pas APPROVED), dans la langue
+ *                          du posteur (celle de ses emails) si le modèle y est APPROVED, sinon en anglais.
  *
  * Les secrets ne sont jamais écrits dans la base ni dans les journaux.
  */
@@ -26,9 +33,15 @@ import {
   champsProfil, CORPS_RUUL_SETUP, e164, GRAPH, estStopWhatsApp, lireWebhook, type MessageRecu, modeLive, MODELES, numeroAutorise, signatureValide,
   type StatutRecu, texteFinWhatsApp,
 } from "../_shared/whatsapp.ts";
-import { envoyerWhatsApp, graph, lireModeWhatsApp, secretsWhatsApp, wabaId } from "../_shared/whatsapp_envoi.ts";
-import { deciderRelance, type FaitsRelance } from "../_shared/whatsapp_relances.ts";
-import { MODELES_V2, problemesModele, requeteModele } from "../_shared/whatsapp_modeles_v2.ts";
+import {
+  envoyerWhatsApp, graph, lireModeWhatsApp, modelesApprouves, modelesApprouvesLangues, secretsWhatsApp, wabaId,
+} from "../_shared/whatsapp_envoi.ts";
+import { deciderRelance, type FaitsRelance, paysRelance } from "../_shared/whatsapp_relances.ts";
+import { nicheOuNull } from "../_shared/niche_posteur.ts";
+import { MODELES_V2, type ModeleV2, problemesModele, requeteModele } from "../_shared/whatsapp_modeles_v2.ts";
+import {
+  aSoumettre, choisirLangueEnvoi, cleModeleLangue, LANGUES_MODELES, langueMeta, limiteMeta, modeleDepuisComposants, traduireModele,
+} from "../_shared/whatsapp_traductions.ts";
 
 type Db = ReturnType<typeof serviceClient>;
 declare const EdgeRuntime: { waitUntil(p: Promise<unknown>): void } | undefined;
@@ -50,15 +63,19 @@ Deno.serve(async (request) => {
       case "modeles_sync": return json(await modelesSync(db));
       case "modele_ruul_setup": return json(await modeleRuulSetup(db));
       case "soumettre_modeles_v2": return json(await soumettreModelesV2(db));
+      case "soumettre_traductions": return json(await soumettreTraductions(db, body));
       case "abonner": return json(await abonner(db));
       case "profil": return json(await profil(db, body));
       case "test_modeles": return json(await testModeles(db));
-      case "relances": return json(await relances(db, body.simuler === true));
+      case "relances": return json(await relances(db, body.simuler === true, body.simuler === true && body.comme_live === true));
       case "envoyer": {
         const numero = e164(String(body.e164 ?? ""));
         if (!numero) return json({ ok: false, error: "e164 invalide" }, 400);
         const r = typeof body.modele === "string"
-          ? await envoyerWhatsApp(db, { e164: numero, motif: "manuel", modele: { nom: body.modele, langue: String(body.langue ?? "en"), variables: Array.isArray(body.variables) ? body.variables.map(String) : [] } })
+          ? await envoyerWhatsApp(db, {
+            e164: numero, motif: "manuel", langueCible: typeof body.langue_cible === "string" ? body.langue_cible : null,
+            modele: { nom: body.modele, langue: String(body.langue ?? "en"), variables: Array.isArray(body.variables) ? body.variables.map(String) : [] },
+          })
           : await envoyerWhatsApp(db, { e164: numero, motif: "manuel", texte: String(body.texte ?? ""), demandeId: typeof body.demande_id === "string" ? body.demande_id : null });
         return json(r);
       }
@@ -379,9 +396,18 @@ async function etat(db: Db) {
 async function modelesSync(db: Db) {
   const waba = await wabaId(db);
   if (!waba) return { ok: false, error: "WHATSAPP_BUSINESS_ACCOUNT_ID absent" };
-  const r = await graph(`${waba}/message_templates?fields=name,language,status,category,id,components,rejected_reason&limit=200`);
-  if (!r.ok) return { ok: false, error: r.erreur };
-  const lignes = ((r.data?.data ?? []) as Record<string, unknown>[]).map((t) => ({
+  // 25/11 : par pages de 100 (curseur after), les traductions font passer le compte au-delà d'une page.
+  const lus: Record<string, unknown>[] = [];
+  let apres = "";
+  for (let page = 0; page < 30; page++) {
+    const r = await graph(`${waba}/message_templates?fields=name,language,status,category,id,components,rejected_reason&limit=100${apres ? `&after=${encodeURIComponent(apres)}` : ""}`);
+    if (!r.ok) return { ok: false, error: r.erreur };
+    lus.push(...((r.data?.data ?? []) as Record<string, unknown>[]));
+    const pages = r.data?.paging as { next?: string; cursors?: { after?: string } } | undefined;
+    if (!pages?.next || !pages.cursors?.after) break;
+    apres = pages.cursors.after;
+  }
+  const lignes = lus.map((t) => ({
     nom: String(t.name), langue: String(t.language), statut: String(t.status ?? ""), categorie: String(t.category ?? ""), meta_id: String(t.id ?? ""),
     composants: t.components ?? null, raison: t.rejected_reason && t.rejected_reason !== "NONE" ? String(t.rejected_reason) : null, maj_at: new Date().toISOString(),
   }));
@@ -426,6 +452,90 @@ async function soumettreModelesV2(db: Db) {
   return { ok: true, resultats };
 }
 
+/** N à la fois, dans l'ordre. */
+async function parLots<T, R>(liste: T[], n: number, f: (x: T) => Promise<R>): Promise<R[]> {
+  const sortie: R[] = [];
+  for (let i = 0; i < liste.length; i += n) sortie.push(...await Promise.all(liste.slice(i, i + n).map(f)));
+  return sortie;
+}
+
+/**
+ * 25/11 (Max) : les modèles anglais APPROVED (sauf hello_world, l'exemple de Meta) traduits dans les langues des
+ * posteurs et soumis à Meta (même nom, même catégorie que l'anglais). Rien n'est envoyé à personne.
+ * Meta limite les créations (~100 par heure et par compte) : `max` par appel (50 par défaut), arrêt à la première
+ * erreur de limite, et reprise sans doublon (ce qui existe chez Meta, quel que soit son statut, est sauté).
+ * `simuler` : les textes traduits et leurs problèmes, rien n'est soumis (les traductions sans problème sont gardées
+ * en cache : la vraie soumission les reprend telles quelles).
+ */
+async function soumettreTraductions(db: Db, b: Record<string, unknown>) {
+  const simuler = b.simuler === true;
+  const waba = await wabaId(db);
+  if (!waba) return { ok: false, error: "WHATSAPP_BUSINESS_ACCOUNT_ID absent" };
+  const sync = await modelesSync(db);
+  if (!sync.ok) return { ok: false, error: `modeles_sync : ${sync.error}` };
+  const existants = new Set((sync.modeles ?? []).map((m) => cleModeleLangue(m.nom, m.langue)));
+
+  const { data: lignes, error } = await db.from("whatsapp_modeles").select("nom, categorie, composants")
+    .eq("langue", "en").eq("statut", "APPROVED").neq("nom", "hello_world").order("nom");
+  if (error) return { ok: false, error: error.message };
+  const voulus = Array.isArray(b.modeles) ? new Set(b.modeles.map(String)) : null;
+  const sources = new Map<string, { modele: ModeleV2; categorie: string }>();
+  const ignores: { modele: string; raison: string }[] = [];
+  for (const l of (lignes ?? []) as { nom: string; categorie: string | null; composants: unknown }[]) {
+    if (voulus && !voulus.has(l.nom)) continue;
+    const { modele, probleme } = modeleDepuisComposants(l.nom, l.composants);
+    if (!modele) ignores.push({ modele: l.nom, raison: probleme ?? "?" });
+    else sources.set(l.nom, { modele, categorie: (l.categorie || "UTILITY").toUpperCase() });
+  }
+  const demandees = Array.isArray(b.langues) ? b.langues.map(String) : [...LANGUES_MODELES];
+  const langues = [...new Set(demandees.map(langueMeta).filter((l) => l !== "en"))];
+  const languesIgnorees = demandees.filter((l) => langueMeta(l) === "en");
+  const max = Number(b.max) > 0 ? Math.min(Math.floor(Number(b.max)), 200) : 50;
+  const noms = [...sources.keys()];
+  const aFaire = aSoumettre(noms, langues, existants, Number.MAX_SAFE_INTEGER).length;
+  const liste = aSoumettre(noms, langues, existants, max);
+
+  // 1. Les traductions (cache d'abord), 6 à la fois.
+  const traductions = await parLots(liste, 6, async (x) => ({ ...x, ...(await traduireModele(db, x.langue, sources.get(x.nom)!.modele)) }));
+  const vue = (t: (typeof traductions)[number]) => ({
+    modele: t.nom, langue: t.langue, categorie: sources.get(t.nom)!.categorie, depuis_cache: t.depuisCache,
+    corps: (t.modele ?? t.essai)?.corps ?? null, boutons: (t.modele ?? t.essai)?.boutons.map((x) => x.texte) ?? null,
+    problemes: t.problemes,
+  });
+  const base = {
+    ok: true, simulation: simuler, langues, langues_ignorees: languesIgnorees, modeles: noms, ignores,
+    deja_chez_meta: noms.length * langues.length - aFaire, a_faire_avant: aFaire,
+  };
+  if (simuler) return { ...base, traitees: traductions.length, resultats: traductions.map(vue) };
+
+  // 2. La soumission à Meta, 3 à la fois ; arrêt dès que Meta dit que la limite est atteinte.
+  let limite = false;
+  const resultats = await parLots(traductions, 3, async (t) => {
+    if (!t.modele) return { ...vue(t), soumis: false, erreur: "traduction refusée par les règles" };
+    if (limite) return { ...vue(t), soumis: false, erreur: "pas tenté : limite Meta atteinte (à relancer plus tard)" };
+    const categorie = sources.get(t.nom)!.categorie;
+    const requete = requeteModele(t.modele, t.langue, categorie);
+    const r = await graph(`${waba}/message_templates`, { method: "POST", body: requete });
+    if (limiteMeta(r.erreur)) limite = true;
+    await db.from("whatsapp_modeles_soumissions").insert({
+      nom: t.nom, langue: t.langue, categorie, requete, ok: r.ok, meta_id: r.data?.id ?? null,
+      statut: r.data?.status ?? null, erreur: r.erreur,
+    }).then(() => null, () => null);
+    return { ...vue(t), soumis: r.ok, statut: r.data?.status ?? null, erreur: r.erreur };
+  });
+  const apres = await modelesSync(db);
+  const existantsApres = apres.ok ? new Set((apres.modeles ?? []).map((m) => cleModeleLangue(m.nom, m.langue))) : existants;
+  return {
+    ...base,
+    soumises: resultats.filter((r) => r.soumis).length,
+    refusees_par_les_regles: resultats.filter((r) => !r.soumis && r.problemes.length).length,
+    erreurs_meta: resultats.filter((r) => !r.soumis && !r.problemes.length).length,
+    limite_atteinte: limite,
+    reste_a_soumettre: aSoumettre(noms, langues, existantsApres, Number.MAX_SAFE_INTEGER).length,
+    resultats,
+  };
+}
+
 /** Mode test : chaque modèle approuvé (anglais) part une fois vers chaque numéro autorisé, avec des valeurs d'exemple. */
 async function testModeles(db: Db) {
   const mode = await lireModeWhatsApp(db) as { mode?: string; numeros_autorises?: string[] };
@@ -457,36 +567,118 @@ async function testModeles(db: Db) {
 // ------------------------------------------------------------------------------------------------------------------
 
 /**
+ * 25/11 : la langue d'un posteur telle que l'OS la connaît, comme pour ses emails Ruul : email_langue_poster (pays de
+ * son compte actif, sinon de sa candidature) ; sans posteur, email_langue_pays du pays retenu (fiche, sinon
+ * indicatif). Une lecture par posteur ou par pays et par passage.
+ */
+function langueDuPosteur(db: Db) {
+  const parPosteur = new Map<string, string | null>();
+  const parPays = new Map<string, string | null>();
+  const texte = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : null);
+  return async (f: FaitsRelance): Promise<string | null> => {
+    if (f.poster_id) {
+      if (!parPosteur.has(f.poster_id)) {
+        const { data } = await db.rpc("email_langue_poster", { p_poster: f.poster_id });
+        parPosteur.set(f.poster_id, texte(data));
+      }
+      const l = parPosteur.get(f.poster_id);
+      if (l) return l;
+    }
+    const pays = paysRelance(f);
+    if (!pays) return null;
+    if (!parPays.has(pays)) {
+      const { data } = await db.rpc("email_langue_pays", { p_pays: pays });
+      parPays.set(pays, texte(data));
+    }
+    return parPays.get(pays) ?? null;
+  };
+}
+
+/** Complète les faits : le @ du 1er compte perso actif et la fin de son warm-up (lecture par paquets de 150). */
+async function completerComptes(db: Db, faits: FaitsRelance[]) {
+  const ids = [...new Set(faits.map((f) => f.poster_id).filter((x): x is string => !!x))];
+  const parPosteur = new Map<string, { handle: string | null; warmup_ends_at: string | null }>();
+  for (let i = 0; i < ids.length; i += 150) {
+    const { data, error } = await db.from("comptes").select("poster_id, handle_tiktok, warmup_ends_at, created_at")
+      .in("poster_id", ids.slice(i, i + 150)).eq("type_compte", "perso").eq("is_active", true)
+      .order("created_at", { ascending: true }).limit(1000);
+    if (error) throw new Error(`comptes : ${error.message}`);
+    for (const c of data ?? []) {
+      if (!parPosteur.has(c.poster_id as string)) {
+        parPosteur.set(c.poster_id as string, { handle: (c.handle_tiktok as string | null) ?? null, warmup_ends_at: c.warmup_ends_at as string | null });
+      }
+    }
+  }
+  const t = Date.now();
+  for (const f of faits) {
+    const c = f.poster_id ? parPosteur.get(f.poster_id) : undefined;
+    f.handle = c?.handle?.replace(/^@/, "") || null;
+    f.warmup_fini = !!c?.warmup_ends_at && Date.parse(c.warmup_ends_at) <= t;
+  }
+}
+
+/**
  * Chaque numéro connu : la relance due aujourd'hui (une seule), ses garde-fous, puis l'envoi du modèle. Le mode test
  * est vérifié deux fois : ici (un numéro non autorisé n'est même pas tenté) et dans envoyerWhatsApp.
  */
-async function relances(db: Db, simuler: boolean) {
+async function relances(db: Db, simuler: boolean, commeLive = false) {
   const mode = await lireModeWhatsApp(db);
   const { data: reglage } = await db.from("reglages").select("valeur").eq("cle", "whatsapp_relances").maybeSingle();
   // Deuxième verrou : en live, rien ne part aux posteurs tant que whatsapp_relances.live n'est pas vrai.
   const liveAutorise = (reglage?.valeur as { live?: unknown } | null)?.live === true;
-  if (modeLive(mode) && !liveAutorise) return { ok: true, envoyees: 0, raison: "live : réglage whatsapp_relances.live éteint" };
+  if (modeLive(mode) && !liveAutorise && !simuler) return { ok: true, envoyees: 0, raison: "live : réglage whatsapp_relances.live éteint" };
 
   const { data, error } = await db.rpc("whatsapp_relances_faits");
   if (error) return { ok: false, error: error.message };
-  const bilan = { ok: true, simulation: simuler, numeros: 0, dues: 0, envoyees: 0, refusees: 0, erreurs: 0, detail: [] as Record<string, unknown>[] };
+  const bilan = {
+    ok: true, simulation: simuler, comme_live: commeLive, numeros: 0, dues: 0, envoyees: 0, refusees: 0, erreurs: 0,
+    /** Par modèle : dues, refusées (et pourquoi), qui partiraient (simulation) ou parties. */
+    par_modele: {} as Record<string, { dues: number; partiraient: number; envoyees: number; refus: Record<string, number>; langues: Record<string, number> }>,
+    detail: [] as Record<string, unknown>[],
+  };
   const maintenant = new Date();
-  for (const f of (data ?? []) as FaitsRelance[]) {
+  const faits = (data ?? []) as FaitsRelance[];
+  await completerComptes(db, faits);
+  const approuves = await modelesApprouves(db);
+  // 25/11 : la langue du posteur (celle de ses emails) et les modèles APPROVED dans chaque langue.
+  const approuvesLangues = await modelesApprouvesLangues(db);
+  const langueDe = langueDuPosteur(db);
+  for (const f of faits) {
     bilan.numeros++;
-    const d = deciderRelance(f, { modeAutorise: numeroAutorise(mode, f.e164), maintenant });
+    const modeAutorise = commeLive || numeroAutorise(mode, f.e164);
+    let d = deciderRelance(f, { modeAutorise, maintenant, approuves });
     if (!d) continue;
+    if (d.type === "warmup_start" && !d.refus && d.modele?.nom === "warmup_start" && f.poster_id) {
+      // La niche du compte (null : texte générique « your topic »), lue seulement quand elle sert.
+      f.niche = await nicheOuNull(db, f.poster_id);
+      d = deciderRelance(f, { modeAutorise, maintenant, approuves }) ?? d;
+    }
     bilan.dues++;
-    const ligne: Record<string, unknown> = { poster_id: f.poster_id, site_id: f.site_id, type: d.type };
-    if (d.refus) {
+    const cle = d.modele?.nom ?? d.type;
+    const pm = bilan.par_modele[cle] ??= { dues: 0, partiraient: 0, envoyees: 0, refus: {}, langues: {} };
+    pm.dues++;
+    const ligne: Record<string, unknown> = { poster_id: f.poster_id, site_id: f.site_id, type: d.type, modele: d.modele?.nom ?? null };
+    if (d.refus || !d.modele) {
+      const raison = d.refus ?? "pas de modèle";
       bilan.refusees++;
-      bilan.detail.push({ ...ligne, refus: d.refus });
+      pm.refus[raison] = (pm.refus[raison] ?? 0) + 1;
+      bilan.detail.push({ ...ligne, refus: raison });
       continue;
     }
+    const modele = d.modele;
+    f.langue = await langueDe(f);
+    const langueCible = f.langue ?? null;
+    // La langue qui partira : celle du posteur si le modèle y est APPROVED, sinon l'anglais (revérifié à l'envoi).
+    const langue = choisirLangueEnvoi(modele.nom, langueCible, approuvesLangues);
+    pm.langues[langue] = (pm.langues[langue] ?? 0) + 1;
+    Object.assign(ligne, { langue_posteur: langueCible, langue });
     if (simuler) {
-      bilan.detail.push({ ...ligne, simule: true });
+      pm.partiraient++;
+      bilan.detail.push({ ...ligne, simule: true, variables: modele.variables });
       continue;
     }
-    const r = await envoyerWhatsApp(db, { e164: f.e164, posterId: f.poster_id, motif: d.motif, cle: d.cle, modele: d.modele });
+    const r = await envoyerWhatsApp(db, { e164: f.e164, posterId: f.poster_id, motif: d.motif, cle: d.cle, modele, langueCible });
+    if (r.ok) pm.envoyees++;
     if (r.ok) bilan.envoyees++;
     else bilan.erreurs++;
     bilan.detail.push({ ...ligne, statut: r.statut, erreur: r.erreur ?? null });

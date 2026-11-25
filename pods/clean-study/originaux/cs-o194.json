@@ -1,0 +1,52 @@
+{
+  "source_id": "cs-o194",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5a8fc76d-2b11-446f-a52b-fc24c28ba657",
+  "titre": "méthodes d'étude pour les étudiants qui visent un A+ #studytok #révisions #lycée",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "5a8fc76d-2b11-446f-a52b-fc24c28ba657"
+  ],
+  "notes": "Déclinaison G1 de 5a8fc76d (notre cs-o125), ligne 11 de la boîte, 2e déclinaison de la famille. Langue source du parent : français ; accroche du parent mot pour mot. Le texte de base est en français ; la slide Sophia aussi (le guichet n'impose pas l'anglais à texte_sophia ; l'OS sert l'anglais aux comptes anglais). Méthodes neuves, aucune du parent ni de cs-o125 : la méthode des 3 couleurs, les fiches question-réponse, la technique de la feuille blanche, le résumé en 5 phrases, la culture générale pour les exemples (slide Sophia, 5). Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "fe3e6c82",
+      "texte_overlay": "méthodes d'étude pour les\nétudiants qui visent un A+",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d5f9df78",
+      "texte_overlay": "LA FEUILLE BLANCHE\ncache ton cours et écris tout ce dont tu te souviens. puis compare. ce qui manque, c'est ce qu'il faut revoir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "fc8027dc",
+      "texte_overlay": "LES 3 COULEURS\nvert : je sais. orange : à peu près. rouge : pas du tout. tu révises le rouge d'abord.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "cdbde8b9",
+      "texte_overlay": "LES FICHES QUESTION-RÉPONSE\nla question devant, la réponse derrière. mélange-les à chaque fois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7ef729ec",
+      "texte_overlay": "LES EXEMPLES\nune copie avec des exemples précis se démarque toujours. collectionne-les : une œuvre, une date, une découverte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "LES EXEMPLES\nune copie avec des exemples précis se démarque toujours.\nje les collectionne sur une appli de micro-learning comme Sophia."
+    },
+    {
+      "position": 6,
+      "media_id": "c4942dec",
+      "texte_overlay": "LE RÉSUMÉ EN 5 PHRASES\nchaque chapitre en 5 phrases. si tu n'y arrives pas, tu n'as pas encore compris.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o432",
+ "type_bleo": "full_test",
+ "titre": "europe's most haunted castles #haunted #castle #history #smartgirl #darkacademia",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 9/9 (la jauge en demande 9 sur 28) : accroche jamais faite chez nous (« haunted » et « castle » absent des accroches de donnees/label.json). Accroches écrites : « europe's most haunted castles » (retenue : dark academia, légendes, hiver), « ghost stories » (écartée : vague), « castles to visit » (écartée : plate). Légendes présentées comme telles : Édimbourg (cachots, joueur de cornemuse), Bran (lié à la légende de Dracula), Brissac (la « Dame verte »), Tour de Londres (le fantôme d'Anne Boleyn), Glamis (Écosse), Leap Castle (Irlande). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e2af43ff",
+   "texte_overlay": "europe's most haunted castles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aeb851a1",
+   "texte_overlay": "edinburgh castle, scotland\n\nlegends of a lost piper\nin the tunnels below.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5548ca7a",
+   "texte_overlay": "bran castle, romania\n\nforever linked to\nthe legend of dracula.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4cfa46c6",
+   "texte_overlay": "château de brissac, france\n\nhome of the \"green lady\".",
+   "texte_sophia": "château de brissac, france\n\nhome of the \"green lady\". i read the\nlegend on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9d6589d9",
+   "texte_overlay": "the tower of london\n\nwhere anne boleyn is\nsaid to walk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4505ca0c",
+   "texte_overlay": "glamis castle, scotland\n\na castle full of\nsecret rooms and legends.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3414f230",
+   "texte_overlay": "leap castle, ireland\n\ncalled the most haunted\ncastle in ireland.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "19a9174e",
+   "texte_overlay": "would you spend a night?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,286 @@
+{
+ "id": "dr-060",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of math nerd hobbies",
+  "sv": "Isberget av matematiknördens hobbyer",
+  "nl": "IJsberg van hobby's van wiskundenerds"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #math #lockedin #selfimprovement",
+  "sv": "#isberg #hobbyer #matte #självutveckling",
+  "nl": "#ijsberg #hobbys #wiskunde #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "QUANTUM - PHNKR & dnvn & Phonk King",
+  "url": "https://www.tiktok.com/music/original-sound-7550638270103996417"
+ },
+ "notes": "Original sur son iceberg à 1,1 M, sujet « math nerd ». Sophia au 2e étage (icône). En, sv, nl ; variantes 4, 5, 6.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "math nerd hobbies",
+    "variante": 4
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "matematiknördens hobbyer",
+    "variante": 5
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "wiskundenerd-hobby's",
+    "variante": 6
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "sudoku",
+       "image": "images/objets/mots-croises.png"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "speedcubing",
+       "image": "images/objets/cube.png"
+      },
+      {
+       "t": "logic puzzles",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "mental math",
+       "image": "images/objets/crayon-surligneur.png"
+      },
+      {
+       "t": "probability",
+       "image": "images/objets/cartes.png"
+      },
+      {
+       "t": "coding",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "writing proofs",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "speed math",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "orbital math",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "memorizing pi",
+       "image": "images/objets/fiches.png"
+      }
+     ],
+     [
+      {
+       "t": "number theory",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "old geometry",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "greek math",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "unsolved problems",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "sudoku",
+       "image": "images/objets/mots-croises.png"
+      },
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "speedcubing",
+       "image": "images/objets/cube.png"
+      },
+      {
+       "t": "logiska pussel",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "huvudräkning",
+       "image": "images/objets/crayon-surligneur.png"
+      },
+      {
+       "t": "sannolikhet",
+       "image": "images/objets/cartes.png"
+      },
+      {
+       "t": "koda",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "skriva bevis",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "räkna snabbt",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "rymdmatte",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "lära sig pi",
+       "image": "images/objets/fiches.png"
+      }
+     ],
+     [
+      {
+       "t": "talteori",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "gammal geometri",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "grekisk matte",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "olösta problem",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "sudoku",
+       "image": "images/objets/mots-croises.png"
+      },
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "speedcubing",
+       "image": "images/objets/cube.png"
+      },
+      {
+       "t": "logische puzzels",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "hoofdrekenen",
+       "image": "images/objets/crayon-surligneur.png"
+      },
+      {
+       "t": "statistiek",
+       "image": "images/objets/cartes.png"
+      },
+      {
+       "t": "coderen",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "bewijzen schrijven",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "snel rekenen",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "planeetbanen",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "pi uit je hoofd",
+       "image": "images/objets/fiches.png"
+      }
+     ],
+     [
+      {
+       "t": "getaltheorie",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "oude meetkunde",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "griekse wiskunde",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "onopgeloste problemen",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ]
+}

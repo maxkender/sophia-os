@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o431",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b83b70e2-e668-438c-b7d1-73dccaa38b8e",
+ "titre": "What makes some guys stand apart in their 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "b83b70e2-e668-438c-b7d1-73dccaa38b8e"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 6 de la boîte (b83b70e2, notre ay-o349), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o349 ni de 9d0e60f6.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a29886fa-1cc2-4f53-8641-19675930c4b9",
+   "texte_overlay": "What makes some guys\nstand apart in their 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They take responsibility early. No blaming parents, bosses or luck. Owning your life at twenty-two puts you years ahead.",
+   "media_id": "c38b97d4-a8e8-4836-85d4-a8bc4b307cf7"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They learn to cook, clean and budget. Basic life skills give you freedom and make you someone people can rely on.",
+   "media_id": "c3fc8133-3d84-45c4-9bd2-b7ebcca009bd"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They keep in shape. Not for likes, for energy. A strong, healthy body makes every other goal easier. Train for life.",
+   "media_id": "c44f431e-3601-4321-9b03-7bf798428746"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They travel when they can. Even cheap trips. Seeing other places and cultures makes them more open and interesting.",
+   "media_id": "c5055303-cb90-43c0-bf97-59c98786fefb"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I spent my free time scrolling. After: five minutes a day of history, art or science, and I finally feel like I'm growing.",
+   "texte_sophia": "Before: I spent my free time scrolling. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I finally feel like I'm growing.",
+   "media_id": "2af2edb6-ca30-46ee-b586-d9dbb241b635"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "They choose friends who push them. Ambitious, honest, kind. Your circle in your 20s shapes the man you become. Choose well.",
+   "media_id": "c5592d3f-a3c7-4171-8a1b-d3f86a244339"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "They're patient with results. They know real success takes years and keep going while others give up. Time rewards them.",
+   "media_id": "c58607fb-3286-4aae-ad6d-689007cb7798"
+  }
+ ]
+}

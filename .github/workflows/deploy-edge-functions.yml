@@ -121,8 +121,11 @@ jobs:
         run: |
           set -euo pipefail
           # Sans secret, une fonction saine répond son propre 401
-          # (`{"error":"unauthorized"}` d'assertAuthorised, ou 403 d'assertRole).
-          # Une fonction qui ne démarre pas répond 500 / BOOT_ERROR : on échoue.
+          # (`{"error":"unauthorized"}` d'assertAuthorised, ou 403 d'assertRole) ; une fonction publique
+          # répond son propre 400 à un corps vide (ex. questionnaire : « invalid link »).
+          # Une fonction qui ne démarre pas répond 500 / BOOT_ERROR : on échoue, après avoir vérifié
+          # TOUTES les fonctions déployées (une seule en échec ne cache plus les suivantes).
+          echecs=""
           for f in ${{ steps.choix.outputs.liste }}; do
             code=$(curl -s -o /tmp/out -w '%{http_code}' -X POST \
               "https://$PROJECT_REF.supabase.co/functions/v1/$f" \
@@ -130,7 +133,8 @@ jobs:
             corps=$(head -c 200 /tmp/out)
             echo "$f → HTTP $code · $corps"
             case "$code" in
-              401|403) ;;
-              *) echo "::error::$f ne démarre pas correctement (HTTP $code)"; exit 1 ;;
+              400|401|403) ;;
+              *) echo "::error::$f ne démarre pas correctement (HTTP $code)"; echecs="$echecs $f" ;;
             esac
           done
+          if [ -n "$echecs" ]; then echo "::error::en échec :$echecs"; exit 1; fi

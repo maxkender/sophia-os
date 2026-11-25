@@ -22,7 +22,9 @@
   "pl": "5 umiejętności, których 99% ludzi nie ma",
   "ro": "5 abilități pe care 99% dintre oameni nu le au",
   "sv": "5 färdigheter som 99 % av alla saknar",
-  "tr": "İnsanların %99'unda olmayan 5 beceri"
+  "tr": "İnsanların %99'unda olmayan 5 beceri",
+  "fi": "5 taitoa, joita 99 % ihmisistä ei osaa",
+  "no": "5 ferdigheter 99 % av folk ikke har"
  },
  "legendes": {
   "en": "5 Skills 99% Of People Don’t Have #selfimprovement #learnontiktok #selfmastery",
@@ -40,13 +42,15 @@
   "pl": "5 umiejętności, których 99% ludzi nie ma #umiejętności #rozwójosobisty #nauka",
   "ro": "5 abilități pe care 99% dintre oameni nu le au #abilități #dezvoltarepersonală #învățare",
   "sv": "5 färdigheter som 99 % av alla saknar #färdigheter #självutveckling #lärande",
-  "tr": "İnsanların %99'unda olmayan 5 beceri #beceriler #kişiselgelişim #öğrenme"
+  "tr": "İnsanların %99'unda olmayan 5 beceri #beceriler #kişiselgelişim #öğrenme",
+  "fi": "5 taitoa, joita 99 % ihmisistä ei osaa #taidot #itsensäkehittäminen #oppiminen",
+  "no": "5 ferdigheter 99 % av folk ikke har #ferdigheter #selvutvikling #læring"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7513258213266279199"
  },
- "notes": "cta B (« 5 minutes a day to know a bit about everything. ») sur toutes les langues. Sophia en carte d'appli à l'étape 3 « KNOW A BIT ABOUT EVERYTHING », au milieu des 5 compétences (leur slide Fathomly de fin disparaît). Pas d'UnSwipe. Ses titres en bandeau ; quatre compétences à nous, une vraie vidéo par langue.",
+ "notes": "cta B (« 5 minutes a day to know a bit about everything. ») sur toutes les langues. Sophia en carte d'appli à l'étape 3 « KNOW A BIT ABOUT EVERYTHING », au milieu des 5 compétences (leur slide Fathomly de fin disparaît). Pas d'UnSwipe. Ses titres en bandeau ; quatre compétences à nous, une vraie vidéo par langue. 25/11 : ajouté en fi et no ; faute de vidéo native, le palais de mémoire devient le jonglage en fi, et la frappe sans regarder devient le Rubik's cube en no.",
  "slides": [
   {
    "type": "couverture",
@@ -241,6 +245,30 @@
      ],
      "İNSANLARIN %99'UNDA",
      "YOK"
+    ]
+   },
+   "fi": {
+    "lignes": [
+     [
+      {
+       "t": "5 TAITOA",
+       "bronze": true
+      }
+     ],
+     "JOITA 99 % IHMISISTÄ",
+     "EI OSAA"
+    ]
+   },
+   "no": {
+    "lignes": [
+     [
+      {
+       "t": "5 FERDIGHETER",
+       "bronze": true
+      }
+     ],
+     "99 % AV FOLK",
+     "IKKE HAR"
     ]
    }
   },
@@ -475,6 +503,34 @@
      "duree": "3:49",
      "avatar": "https://yt3.ggpht.com/e18eawTJglhdRd0A1N8pBfBmkSS7b6LaYFgLKbHiGDeVOoKx7qB1oXZmLXl_Yj51XGN4-nLhSQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fi": {
+    "titre": [
+     "OPI JONGLEERAAMAAN"
+    ],
+    "video": {
+     "id": "2RWqZYDM1gY",
+     "titre": "Näin opit: kolmen pallon jongleeraus",
+     "chaine": "Sirkus Magenta",
+     "vues": "10 t. katselukertaa",
+     "date": "6 vuotta sitten",
+     "duree": "2.40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mcepkoqxYbN05PPtSAfEl5mjEYVNpQoOp0-BQCTPowXFA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "BYGG ET MINNEPALASS"
+    ],
+    "video": {
+     "id": "xwbU_tMfrXM",
+     "titre": "Husketeknikk - Reiserute",
+     "chaine": "tvmarienlyst",
+     "vues": "852 avspillinger",
+     "date": "for 14 år siden",
+     "duree": "2:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mxn4yjlKhI3GCEu9UpfySM4-umzfEI1in9qpoaXksrIg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -708,6 +764,34 @@
      "duree": "12:20",
      "avatar": "https://yt3.ggpht.com/ifekyx6NyK6B0siwBwS0gLnh7JTgu7WY8980ljAwvtq8R5bjevtsc5pkWjsX7aDxot0_ebnO_A=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fi": {
+    "titre": [
+     "KIRJOITA KATSOMATTA"
+    ],
+    "video": {
+     "id": "oqsOQLTSd4c",
+     "titre": "Kymmensormijärjestelmän opettelu, viikko 1: perusrivi asdfjklö",
+     "chaine": "Riku Järvinen",
+     "vues": "23 t. katselukertaa",
+     "date": "13 vuotta sitten",
+     "duree": "3.21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9AOpzFOK_jJ531Gqw9XID-0cOGqCIJD8tF0FgKQ_izVyt=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LØS EN RUBIKS KUBE"
+    ],
+    "video": {
+     "id": "WQZAglyeMT4",
+     "titre": "Slik Løser Du En Rubik's Kube | Trinn 1 - Bli Kjent Med Kuben",
+     "chaine": "MasterCubeStore",
+     "vues": "61k avspillinger",
+     "date": "for 3 år siden",
+     "duree": "2:35",
+     "avatar": "https://yt3.ggpht.com/R5NNz0n3F9qHH_txvrRCN1ksBA8F7c1n2-gpvNgx2i1jC27msIXR9gHGjbUG0LZ5XQVE4sShjw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -908,6 +992,30 @@
      "texte": [
       "günde 5 dakika,",
       "her şeyden biraz bilmek için."
+     ]
+    }
+   },
+   "fi": {
+    "titre": [
+     "TIEDÄ VÄHÄN KAIKESTA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuuttia päivässä",
+      "tietääksesi vähän kaikesta."
+     ]
+    }
+   },
+   "no": {
+    "titre": [
+     "VIT LITT OM ALT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutter om dagen",
+      "for å kunne litt om alt."
      ]
     }
    }
@@ -1143,6 +1251,34 @@
      "duree": "8:58",
      "avatar": "https://yt3.ggpht.com/gSCyvKIg29AcMEcmVBZBlAfffmtjT3mSgYo3FV-cPjjDHWPHDHChEWDDVs_jj0DUuOe76myeC8o=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fi": {
+    "titre": [
+     "LASKE PÄÄSSÄ"
+    ],
+    "video": {
+     "id": "Un6bbCa4ssc",
+     "titre": "Päässälaskutekniikoita",
+     "chaine": "Yommat!",
+     "vues": "12 t. katselukertaa",
+     "date": "9 vuotta sitten",
+     "duree": "7.04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_llccKjcqAbfTHarL4sJaiiUH7-tbfFRSVXxRsB3VFhdw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "REGN I HODET"
+    ],
+    "video": {
+     "id": "At_JKhRbExA",
+     "titre": "Mattetriks: Slik ganger du store tall i hodet",
+     "chaine": "KreativeIdeer.no",
+     "vues": "1,7k avspillinger",
+     "date": "for 8 år siden",
+     "duree": "0:38",
+     "avatar": "https://yt3.ggpht.com/FnR9onBLmW7o-iXvUPYbH2lBVjyXyaWf6gRbDi3N-d-GouWEQMNrtBJNNS5Ztj4pXvPCkP_wow=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1375,6 +1511,34 @@
      "date": "4 yıl önce",
      "duree": "14:33",
      "avatar": "https://yt3.ggpht.com/4r7t6tRSCtfipLR_bpfHnJlQxmAZEhvpBP8AJvj4Cx4sSFkll5DHs8Gq3C83wQv-21n36AJoMd4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fi": {
+    "titre": [
+     "LUE KEHONKIELTÄ"
+    ],
+    "video": {
+     "id": "OatbGWeqcIY",
+     "titre": "Kehonkieli & Sanaton viestintä",
+     "chaine": "Kehonkieli & Sanaton viestintä",
+     "vues": "787 katselukertaa",
+     "date": "3 vuotta sitten",
+     "duree": "7.02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kedlxAby9tBfPJkXZ8EQhn6bmlgHTDhb0RGpWJWrn_Xk7rZowkOmPXdaOCOCTpsF7fXg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "no": {
+    "titre": [
+     "LES KROPPSSPRÅK"
+    ],
+    "video": {
+     "id": "iLW9QLsB1LU",
+     "titre": "SpeakLab TV: Vidar Hansen - Kunsten å lese kroppsspråk",
+     "chaine": "SpeakLab TV",
+     "vues": "5,5k avspillinger",
+     "date": "for 6 år siden",
+     "duree": "5:20",
+     "avatar": "https://yt3.ggpht.com/_3h2_i6elMEDerpTIuNRTAi60q8GUgPFv0Ry_iSRD06HR8c3sD0apttO7SgRwnaddL0OI8TJ1w=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

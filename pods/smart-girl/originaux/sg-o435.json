@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o435",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b923c1e5-8538-4c57-8350-08ca16b1d34d",
+ "titre": "how to become disgustingly well spoken #wellspoken #eloquence #smartgirl #speakbetter #communication",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "b923c1e5-8538-4c57-8350-08ca16b1d34d"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 66 de la boîte (parent b923c1e5, langue source hu) : accroche du parent mot pour mot. Conseils du parent (lire ce qui fait peur, une pause avant de répondre, plus de mots de remplissage, penser par trois, lire des poèmes à voix haute, apprendre des grands orateurs, baisser un peu la voix, avoir toujours un sujet intéressant). Sophia sur le dernier à la première personne (cta A). Remplace un dépôt refusé (quota de parent). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "83cc7bdc",
+   "texte_overlay": "how to become disgustingly\nwell spoken",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "42fa8ac8",
+   "texte_overlay": "read things that scare you\n\nvocabulary sticks on its own.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a289feac",
+   "texte_overlay": "pause before you answer\n\ntwo seconds of silence\nsounds confident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ff95c420",
+   "texte_overlay": "drop the filler words\n\n\"um\", \"like\", \"you know\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "80ffbba5",
+   "texte_overlay": "think in threes\n\nthe brain loves the rule of three.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "26bf28c0",
+   "texte_overlay": "read poetry out loud,\njust for yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4e16bde8",
+   "texte_overlay": "always have an interesting topic\n\ni learn one every morning.",
+   "texte_sophia": "always have an interesting topic\n\ni learn one every morning on a\nmicro-learning app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e0d2ca73",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7638209350288280853/8.jpg"
+  }
+ ]
+}

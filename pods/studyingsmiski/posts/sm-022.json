@@ -1,0 +1,432 @@
+{
+ "id": "sm-022",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "New Jeans",
+  "url": "https://www.tiktok.com/music/new-jeans-7251860325203593218"
+ },
+ "notes": "Full test du 25/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « apps for a cozy winter study season ». Sophia en 3e carte (cta A), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Study Time With Rain (pomodoro avec un petit fantôme, ambiance pluie), Endel (paysages sonores pour la concentration et le sommeil), Headspace (méditations guidées). Toutes sur l'App Store des 10 pays (lookup iTunes du 20 au 22/11) ; Study Time With Rain en iOS seul. Musique : la sienne de sa liste du 04/11 (70 k).",
+ "titre": {
+  "en": "apps for a cozy winter study season",
+  "fr": "les applis pour une saison de révisions cosy en hiver",
+  "es": "apps para estudiar en un invierno cozy",
+  "es-419": "apps para estudiar en un invierno cozy",
+  "it": "app per una stagione di studio invernale cozy",
+  "tr": "kış döneminde cozy ders çalışmak için uygulamalar",
+  "pt-BR": "apps pra uma temporada de estudos aconchegante no inverno",
+  "de": "apps für eine gemütliche lernzeit im winter",
+  "sl": "aplikacije za prijetno zimsko učenje",
+  "hu": "appok egy cozy téli tanulós szezonhoz"
+ },
+ "legendes": {
+  "en": "candles on, blanket on, lock in 🕯️❄️ #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "bougies, plaid, et on s'y met 🕯️❄️ #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "velas, mantita y a darle 🕯️❄️ #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "velas, cobija y a darle 🕯️❄️ #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "candele, coperta e si studia 🕯️❄️ #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "mumlar yandı, battaniye hazır, odaklanıyoruz 🕯️❄️ #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "velinha acesa, coberta e foco 🕯️❄️ #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "kerzen an, decke drauf, fokus 🕯️❄️ #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "sveče, odeja in zberemo se 🕯️❄️ #studytok #učenje #študij #faks #academicweapon",
+  "hu": "gyertya, pléd, és koncentrálunk 🕯️❄️ #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 50,
+     "y": 160,
+     "l": 200,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 810,
+     "y": 140,
+     "l": 210,
+     "rotation": 8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 40,
+     "y": 730,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 810,
+     "y": 740,
+     "l": 220,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps for a\ncozy winter\nstudy season",
+    "sous": "blanket era\nedition"
+   },
+   "fr": {
+    "titre": "les applis pour\nréviser cosy\nen hiver",
+    "sous": "spécial\nère du plaid"
+   },
+   "es": {
+    "titre": "apps para un\ninvierno de\nestudio cozy",
+    "sous": "edición\nmantita"
+   },
+   "es-419": {
+    "titre": "apps para un\ninvierno de\nestudio cozy",
+    "sous": "edición\ncobijita"
+   },
+   "it": {
+    "titre": "app per\nstudiare cozy\nin inverno",
+    "sous": "edizione\ncopertina"
+   },
+   "tr": {
+    "titre": "cozy bir kış\ndönemi için\nuygulamalar",
+    "sous": "battaniye\ndönemi"
+   },
+   "pt-BR": {
+    "titre": "apps pra\nestudar no\ninverno",
+    "sous": "edição\ncobertinha"
+   },
+   "de": {
+    "titre": "apps für\ngemütliches\nwinterlernen",
+    "sous": "kuscheldecken-\nedition"
+   },
+   "sl": {
+    "titre": "aplikacije\nza prijetno\nzimsko\nučenje",
+    "sous": "izdaja\nz odejo"
+   },
+   "hu": {
+    "titre": "appok a\ncozy téli\ntanuláshoz",
+    "sous": "plédes\nkiadás"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/study-time-rain/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 60,
+     "y": 730,
+     "l": 250,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 730,
+     "y": 720,
+     "l": 300,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "a little ghost studies next to you while it rains outside. pick a pomodoro, put on a song and watch your study stats grow."
+   },
+   "fr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un petit fantôme bosse à côté de toi pendant qu'il pleut dehors. tu choisis un pomodoro, une musique, et tes stats d'étude grimpent."
+   },
+   "es": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmita estudia a tu lado mientras llueve fuera. eliges un pomodoro, pones una canción y tus estadísticas crecen."
+   },
+   "es-419": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmita estudia a tu lado mientras llueve afuera. eliges un pomodoro, pones una canción y tus estadísticas crecen."
+   },
+   "it": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "un fantasmino studia accanto a te mentre fuori piove. scegli un pomodoro, metti una canzone e le statistiche crescono."
+   },
+   "tr": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "dışarıda yağmur yağarken küçük bir hayalet yanında çalışıyor. pomodoro seç, bir şarkı aç, istatistiklerin büyüsün."
+   },
+   "pt-BR": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "um fantasminha estuda do seu lado enquanto chove lá fora. escolhe um pomodoro, coloca uma música e vê suas estatísticas crescerem."
+   },
+   "de": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "ein kleiner geist lernt neben dir, während es draußen regnet. pomodoro wählen, song an, und deine lernstatistik wächst."
+   },
+   "sl": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "mali duhec se uči ob tebi, medtem ko zunaj dežuje. izbereš pomodoro, prižgeš pesem in statistika učenja raste."
+   },
+   "hu": {
+    "nom": "Study Time With Rain",
+    "plateformes": "iOS",
+    "texte": "egy kis szellem tanul melletted, miközben kint esik. válassz pomodorót, tegyél be egy dalt, és nőnek a statisztikáid."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/endel/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 50,
+     "y": 740,
+     "l": 270,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "soundscapes that adapt to you for focus, relaxing or sleep. my go-to when the days get dark at 4pm."
+   },
+   "fr": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "des ambiances sonores qui s'adaptent à toi pour te concentrer, te détendre ou dormir. mon refuge quand il fait nuit à 16 h."
+   },
+   "es": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisajes sonoros que se adaptan a ti para concentrarte, relajarte o dormir. lo que pongo cuando anochece a las 5."
+   },
+   "es-419": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisajes sonoros que se adaptan a ti para concentrarte, relajarte o dormir. lo que pongo cuando oscurece temprano."
+   },
+   "it": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paesaggi sonori che si adattano a te per concentrarti, rilassarti o dormire. il mio rifugio quando fa buio alle 17."
+   },
+   "tr": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "odak, rahatlama ya da uyku için sana uyum sağlayan ses manzaraları. hava erken karardığında ilk açtığım uygulama."
+   },
+   "pt-BR": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "paisagens sonoras que se adaptam a você pra focar, relaxar ou dormir. meu refúgio quando escurece cedo."
+   },
+   "de": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "klangwelten, die sich an dich anpassen, für fokus, entspannung oder schlaf. mein ritual, wenn es um 16 uhr dunkel wird."
+   },
+   "sl": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "zvočne kulise, ki se prilagodijo tebi, za zbranost, sprostitev ali spanje. moje zatočišče, ko se zmrači ob 16h."
+   },
+   "hu": {
+    "nom": "Endel",
+    "plateformes": "iOS, Android",
+    "texte": "hozzád igazodó hangtájak fókuszhoz, pihenéshez vagy alváshoz. ehhez nyúlok, amikor délután 4-kor besötétedik."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/cafe.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 850,
+     "y": 100,
+     "l": 160,
+     "rotation": 8
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks!",
+    "bulle": "with tea and a blanket, every evening!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment !",
+    "bulle": "avec un thé et un plaid, tous les soirs !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y luego un quiz para que se te quede de verdad!",
+    "bulle": "¡con un té y una mantita, cada noche!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, ¡y después un quiz para que de verdad se te quede!",
+    "bulle": "¡con un té y una cobija, cada noche!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero!",
+    "bulle": "con un tè e una coperta, ogni sera!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test!",
+    "bulle": "her akşam çay ve battaniyeyle!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "uma aula de 10 minutos por dia de história, filosofia ou ciências, e depois um quiz pra fixar de verdade!",
+    "bulle": "com um chá e uma coberta, toda noite!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "jeden tag 10 minuten geschichte, philosophie oder wissenschaft, dann ein quiz, damit es wirklich hängen bleibt!",
+    "bulle": "mit tee und decke, jeden abend!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan 10-minutna lekcija iz zgodovine, filozofije ali znanosti, nato pa kviz, da ti res ostane v glavi!",
+    "bulle": "ob čaju in odeji, vsak večer!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "napi 10 perc történelem, filozófia vagy tudomány, utána egy kvíz, hogy tényleg megmaradjon!",
+    "bulle": "teával és pléddel, minden este!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/headspace/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/plante.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "short guided meditations for the winter blues, from quick 3-minute resets to longer sessions before bed."
+   },
+   "fr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "de courtes méditations guidées contre le blues de l'hiver, de 3 minutes à des séances plus longues avant de dormir."
+   },
+   "es": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditaciones guiadas cortas para la tristeza de invierno, desde pausas de 3 minutos hasta sesiones antes de dormir."
+   },
+   "es-419": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditaciones guiadas cortas para la tristeza de invierno, desde pausas de 3 minutos hasta sesiones antes de dormir."
+   },
+   "it": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "brevi meditazioni guidate contro la malinconia invernale, da pause di 3 minuti a sessioni prima di dormire."
+   },
+   "tr": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "kış hüznü için kısa rehberli meditasyonlar, 3 dakikalık molalardan yatmadan önceki seanslara."
+   },
+   "pt-BR": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "meditações guiadas curtinhas pra tristeza do inverno, de pausas de 3 minutos a sessões antes de dormir."
+   },
+   "de": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "kurze geführte meditationen gegen den winterblues, von 3-minuten-pausen bis zu längeren sessions vorm schlafen."
+   },
+   "sl": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "kratke vodene meditacije proti zimski otožnosti, od 3-minutnih premorov do daljših seans pred spanjem."
+   },
+   "hu": {
+    "nom": "Headspace",
+    "plateformes": "iOS, Android",
+    "texte": "rövid vezetett meditációk a téli szomorúságra, 3 perces szünetektől a lefekvés előtti alkalmakig."
+   }
+  }
+ ]
+}

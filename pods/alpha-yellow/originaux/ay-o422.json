@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o422",
+ "type_bleo": "full_test",
+ "titre": "What to do when you've felt unmotivated for weeks #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « What to do when you've felt unmotivated for weeks » (retenue), « How to get motivated again » (écartée : proche d'ay-o routine sans motivation), « No motivation? Read this » (écartée : sans promesse).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3c240383-a4b7-4bd4-bc72-744b63087b87",
+   "texte_overlay": "What to do when you've felt\nunmotivated for weeks",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Stop waiting to feel motivated. Motivation usually comes after you start, not before. Begin with a task so small it feels almost silly.",
+   "media_id": "3834286e-38cb-44d5-a5c6-7ce12cc38c6e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Check the basics first. Sleep, food, sunlight, movement. Weeks of low energy often start with a body that isn't being looked after.",
+   "media_id": "3da782d8-be8a-4d0a-921e-0c3afd7d2015"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Change your environment. Work from a café, move your desk, clean your room. A new setting can wake up a tired mind.",
+   "media_id": "4610a5a9-351c-4b2e-bae4-6b92061cc051"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Find one thing to look forward to. A trip, a concert, a dinner with friends. Something on the horizon pulls you through flat weeks.",
+   "media_id": "47bf41da-4a06-4c1b-9358-fcddda552ed7"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: every day felt the same and empty. After: five minutes a day of history, art or science, and small sparks of curiosity came back.",
+   "texte_sophia": "Before: every day felt the same and empty. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small sparks of curiosity came back.",
+   "media_id": "6052cf3c-162f-47ef-a4e7-ae1aaa5d0424"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Spend time with energetic people. Motivation is contagious. A training partner or an ambitious friend can lift you more than any video.",
+   "media_id": "47e9ffe8-863b-4f8d-bc40-33a22596d86f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Talk to someone if it doesn't lift. Long periods without energy or joy deserve real attention. A doctor or therapist can really help.",
+   "media_id": "5246f6ad-2a41-4ba5-b100-7e792fae8520"
+  }
+ ]
+}

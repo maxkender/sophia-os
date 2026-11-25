@@ -19,6 +19,9 @@
  * sans codes, signature avec nom légal + email Ruul et date limite (dimanche minuit Paris → sinon lundi suivant),
  * contrat join-v2.
  *
+ * 25/11 (Max) : pas de code WhatsApp (join_mode.modele_code vide) : le code par email suffit. WhatsApp de bienvenue
+ * welcome_start (repli account_ready), clé welcome:<posteur> partagée avec les relances de l'OS.
+ *
  * 0847 (admin, 23/11) : actions `admin_*` réservées aux admins de l'OS (même Supabase Auth : email + mot de passe ;
  * is_admin() vérifié côté serveur à CHAQUE appel avec le JWT de l'admin, champ `admin_jwt`) : connexion,
  * rafraîchissement, liste, fiche, accepter / refuser, interrupteur « Acceptation automatique » (réglage
@@ -26,11 +29,32 @@
  * l'admin. ON : elle est acceptée seule. v4 : l'interrupteur ne décide QUE de l'acceptation ; tout candidat accepté
  * (admin ou automatique) est relié à l'OS juste après sa signature (relierOS), en live seulement : en test, la
  * création reste SIMULÉE. Contrat join-v4. Bienvenue après signature : lien « Set my password ».
+ *
+ * 0858 (25/11, Max : « ne passe pas encore sur ce système, mais bientôt ») :
+ *  - réglage `join_reel` : un drapeau par étape d'après la signature (compte_os, acces, ruul, rappels, whatsapp), tous
+ *    à false. Une étape n'est réelle que si son drapeau est true (join_mode et whatsapp_mode restent des garde-fous en
+ *    plus) ; sinon elle est simulée et journalisée (join_relances « simule » avec le détail, join_evenements « simule »).
+ *    Une candidature de test ne crée jamais de posteur (pas de « posteur TEST » pour un posteur payé par Ruul).
+ *  - après la signature : compte OS → Slack (le lien) → bienvenue → invitation Ruul (lien personnel de l'API Ruul,
+ *    sinon app.ruul.io/register ; Ruul n'envoie pas d'email : c'est Join qui l'envoie, une fois, notée comme l'email
+ *    « invite_a » du parcours Ruul de l'OS).
+ *  - la page personnelle est une checklist (contrat, Ruul READY, TikTok, warm-up, Slack, premier post) synchronisée
+ *    avec l'OS dans `moi` et dans le cron ; rappels J+1, J+3, vendredi avant le lundi, premier post (email toujours,
+ *    WhatsApp avec l'accord, mêmes clés et mêmes plafonds que les relances WhatsApp de l'OS). Join est alors la seule
+ *    voix de ces étapes pour les posteurs qu'il a créés (join_voix_posteurs, whatsapp_relances.ts, parcours_ruul.ts).
+ *  - décision : règles de l'OS + langue du pays gérée par l'OS (hub-posteurs « zones ») + aucun doublon (join_doublons).
+ *  - `relances` accepte (cron seulement) `maintenant`, `candidature_id`, `etat` : une horloge simulée, toujours en
+ *    simulation (rien ne part, rien n'est créé).
  */
 import { corsHeaders, estSecretCron, json, serviceClient } from "../_shared/supabase.ts";
 import { lienMotDePasse } from "../_shared/lien_mot_de_passe.ts";
-import { envoyerWhatsApp } from "../_shared/whatsapp_envoi.ts";
+import { envoyerWhatsApp, lireModeWhatsApp, modelesApprouves, numeroBloque } from "../_shared/whatsapp_envoi.ts";
+import { cleBienvenue, dateLocale, echeanceTexte, type FaitsRelance, modeleRelance } from "../_shared/whatsapp_relances.ts";
+import { heureLocale, heureOk, numeroAutorise, refusRelance } from "../_shared/whatsapp.ts";
 import { type EmailRuul, envoyerEmailSite, PIED_EN, rendreEmailRuul } from "../_shared/ruul.ts";
+import { lienFrais, lienRuul, lireReglageConnect } from "../_shared/ruul_connect.ts";
+import { boutonRuul, emailParcours } from "../_shared/parcours_ruul.ts";
+import { nicheOuNull } from "../_shared/niche_posteur.ts";
 import { langueTraduite, traduireChamps } from "../_shared/traduction_email.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
 import {
@@ -43,15 +67,34 @@ import {
   CONTRAT_TEXTE,
   CONTRAT_VERSION,
   cohorteASignature,
+  codesVerifies,
+  codeWhatsappActif,
   cohorteDe,
   dateLimiteSignature,
-  decider,
   deciderAvecReglage,
+  deciderJoin,
+  type EtatChecklist,
+  etatChecklist,
+  type EtatOS,
+  ETAPES_CHECKLIST,
+  EVENEMENT_ETAPE,
+  type JoinReel,
+  LIEN_INSCRIPTION_RUUL,
+  LIEN_SLACK,
+  LIEN_TIKTOK,
+  lireJoinReel,
+  raisonSimulation,
+  type RappelDu,
+  rappelsDus,
+  signatureVendrediDue,
+  texteRappel,
+  typeWhatsappRappel,
   decisionsAdminPossibles,
   emailAutorise,
   estEtapeJoin,
   etapeAdmin,
   etapeRelanceSignature,
+  ETAPES_APRES_SIGNATURE,
   etapesRestantes,
   etatCode,
   genererCode,
@@ -64,6 +107,7 @@ import {
   lireModeJoin,
   lundiLisible,
   MESSAGE_A_TRAITER,
+  minuitParis,
   type ModeJoin,
   nettoyerHandle,
   nettoyerSource,
@@ -76,6 +120,7 @@ import {
   TYPES_MESSAGE_JOIN,
   type TypeMessageJoin,
   validerCandidature,
+  VIDEO_GUIDE_URL,
 } from "../_shared/join.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -107,6 +152,8 @@ const SESSION_LONGUE_H = 24 * 30;
 const erreur = (message: string, status = 400) => json({ ok: false, error: message }, status);
 
 const JOIN_URL = () => Deno.env.get("JOIN_URL") ?? "https://join.vikstudios.com";
+/** Le lien d'arrêt des relances de l'OS (fonction ruul, ?stop=<ruul_jeton>) : la désinscription existante. */
+const URL_STOP_OS = "https://mbikecieskoobeizixig.supabase.co/functions/v1/ruul";
 
 function aujourdhuiParis(): string {
   return jourParis(new Date());
@@ -125,6 +172,22 @@ async function lireMode(db: Db): Promise<ModeJoin> {
 async function lireAuto(db: Db): Promise<boolean> {
   const { data } = await db.from("reglages").select("valeur").eq("cle", "join_auto_acceptation").maybeSingle();
   return lireAutoAcceptation(data?.valeur);
+}
+
+/** 0858 : les drapeaux `join_reel` (absent ou illisible : tout simulé). */
+async function lireReel(db: Db): Promise<JoinReel> {
+  const { data } = await db.from("reglages").select("valeur").eq("cle", "join_reel").maybeSingle();
+  return lireJoinReel(data?.valeur);
+}
+
+/**
+ * 0858 : les options d'un passage. `maintenant` : l'horloge (simulée : réservée au cron) ; `simuler` : rien ne part,
+ * rien n'est créé (journal « simule » seulement) ; `etat` : l'état de l'OS imposé (simulation d'un parcours).
+ */
+interface Options {
+  maintenant?: Date;
+  simuler?: boolean;
+  etat?: Partial<EtatChecklist> & { premier_post_at?: string | null };
 }
 
 async function evenement(db: Db, type: string, candidatureId: string | null, test: boolean, detail: Corps = {}) {
@@ -212,18 +275,42 @@ async function envoyerCodeWhatsapp(db: Db, mode: ModeJoin, c: Candidature, code:
   if (!mode.modele_code || !c.whatsapp_optin_at) return "simule";
   const r = await envoyerWhatsApp(db, {
     e164: c.whatsapp_e164, motif: "join_code", cle: `join_code:${c.id}:${code}`,
-    modele: { nom: mode.modele_code, langue: "en", variables: [code] },
+    modele: { nom: mode.modele_code, langue: "en", variables: [code] }, langueCible: c.langue,
   });
   return r.ok ? "envoye" : "bloque";
 }
 
-/** Un message au candidat (email, et WhatsApp si accord + modèle). En test : seulement vers les testeurs. */
+/** Le WhatsApp d'un message Join : un modèle, ses variables, et sa clé anti-doublon (défaut : join_<type>:<id>). */
+type WhatsAppJoin = { nom: string; variables: string[]; cle?: string; motif?: string };
+
+/** Le prénom des WhatsApp : le premier mot (comme les relances de l'OS). */
+const prenomWa = (c: Candidature) => (c.prenom ?? "").trim().split(/\s+/)[0] || "there";
+
+/**
+ * Un message au candidat (email, et WhatsApp si accord + modèle). En test : email seulement vers les testeurs ;
+ * WhatsApp seulement vers les numéros autorisés (whatsapp_mode), jamais vers un numéro qui a dit STOP ou dont le
+ * posteur est arrêté / sur la liste « ne plus contacter ».
+ */
 async function message(
   db: Db, mode: ModeJoin, c: Candidature, type: TypeMessageJoin,
-  v: Omit<Parameters<typeof texteMessage>[1], "prenom" | "lien"> & { lien?: string }, whatsapp: string | null,
+  v: Omit<Parameters<typeof texteMessage>[1], "prenom" | "lien"> & { lien?: string }, whatsapp: string | WhatsAppJoin | null,
+  o: { simuler?: string | null; whatsappSimule?: string | null; detail?: Corps } = {},
 ) {
   const lien = v.lien ?? JOIN_URL();
   const m = texteMessage(type, { ...v, prenom: c.prenom, lien });
+  const wa: WhatsAppJoin | null = whatsapp
+    ? typeof whatsapp === "string" ? { nom: whatsapp, variables: [prenomWa(c), lien] } : whatsapp
+    : null;
+  // 0858 : simulé (drapeau join_reel à false, horloge simulée) : rien ne part, ce qui serait parti est journalisé.
+  if (o.simuler) {
+    await journaliserRelance(db, c, type, "email", "simule", {
+      ...o.detail, raison: o.simuler, objet: m.objet, vers: emailAutorise(mode, c.email) || mode.mode === "live" ? "candidat" : "aucun (mode test : pas un testeur)",
+    });
+    if (wa && c.whatsapp_optin_at) {
+      await journaliserRelance(db, c, type, "whatsapp", "simule", { ...o.detail, raison: o.simuler, modele: wa.nom, cle: wa.cle ?? `join_${type}:${c.id}` });
+    }
+    return;
+  }
   if (emailAutorise(mode, c.email) || mode.mode === "live") {
     const { objet, html, texte } = await emailDansSaLangue(db, c, {
       objet: m.objet, corps: m.corps, bouton: m.bouton ? { texte: m.bouton, lien } : null, lienStop: JOIN_URL(), sansPied: true,
@@ -233,17 +320,28 @@ async function message(
   } else {
     await journaliserRelance(db, c, type, "email", "bloque");
   }
-  if (whatsapp && c.whatsapp_optin_at) {
+  if (wa && c.whatsapp_optin_at) {
+    if (o.whatsappSimule) {
+      await journaliserRelance(db, c, type, "whatsapp", "simule", { raison: o.whatsappSimule, modele: wa.nom, cle: wa.cle ?? `join_${type}:${c.id}` });
+      return;
+    }
+    if (await numeroBloque(db, c.whatsapp_e164, c.profile_id ?? null)) {
+      await journaliserRelance(db, c, type, "whatsapp", "bloque");
+      return;
+    }
     const r = await envoyerWhatsApp(db, {
-      e164: c.whatsapp_e164, motif: `join_${type}`, cle: `join_${type}:${c.id}`,
-      modele: { nom: whatsapp, langue: "en", variables: [c.prenom, lien] },
+      e164: c.whatsapp_e164, posterId: c.profile_id ?? null, motif: wa.motif ?? `join_${type}`, cle: wa.cle ?? `join_${type}:${c.id}`,
+      modele: { nom: wa.nom, langue: "en", variables: wa.variables }, langueCible: c.langue,
     });
     await journaliserRelance(db, c, type, "whatsapp", r.ok ? "envoye" : "bloque");
   }
 }
 
-async function journaliserRelance(db: Db, c: Candidature, etape: string, canal: string, statut: "simule" | "envoye" | "bloque") {
-  await db.from("join_relances").insert({ candidature_id: c.id, etape, canal, statut });
+async function journaliserRelance(
+  db: Db, c: Candidature, etape: string, canal: string, statut: "simule" | "envoye" | "bloque", detail: Corps | null = null,
+) {
+  const { error } = await db.from("join_relances").insert({ candidature_id: c.id, etape, canal, statut, ...(detail ? { detail } : {}) });
+  if (error) console.error("join_relances", etape, error.message);
 }
 
 /** La candidature à laquelle on se reconnecte : la plus récente non expirée de cette adresse. */
@@ -266,40 +364,40 @@ function limiteLisible(lundi: string): string {
 }
 
 /**
- * Après la signature, tout s'enchaîne seul : compte OS, Slack, Ruul, puis le message d'accès (email de bienvenue
- * + WhatsApp account_ready). Idempotent (journal join_relances) : le cron horaire reprend ce qui manque. EN TEST,
- * compte OS, Slack et Ruul sont SIMULÉS ; le message d'accès ne part qu'aux testeurs.
+ * Après la signature, tout s'enchaîne seul : compte OS, Slack (le lien), la bienvenue, puis l'invitation Ruul.
+ * Idempotent (journal join_relances) : le cron horaire reprend ce qui manque.
  *
- * v4 (23/11, Max) : en LIVE, tout candidat accepté — à la main dans /admin ou par l'acceptation automatique — est
- * relié à l'OS juste après sa signature, par UN seul chemin (relierOS). L'interrupteur « Acceptation automatique »
- * ne décide que de l'acceptation, jamais de la création OS.
+ * 0858 (25/11, Max) : chaque étape n'est réelle que si son drapeau `join_reel` est true (compte_os, acces, ruul) ;
+ * sinon elle est simulée et journalisée avec sa raison. Une étape simulée ne se rejoue pas quand le drapeau passe à
+ * true (seules les signatures suivantes en profitent). La création OS passe toujours par UN seul chemin (relierOS) ;
+ * une candidature de test n'en crée jamais (pas de « posteur TEST » pour un posteur Ruul).
  */
-async function enchainer(db: Db, mode: ModeJoin, c: Candidature, lundi: string) {
+async function enchainer(db: Db, mode: ModeJoin, reel: JoinReel, c: Candidature, lundi: string, o: Options = {}) {
   const faites = await etapesFaites(db, c.id);
-  const reel = mode.mode === "live" && !c.test;
   for (const e of etapesRestantes(faites)) {
-    if (e === "acces") {
-      await messageAcces(db, mode, c, lundi, reel);
-      continue;
-    }
-    if (!reel) {
-      // Test : jamais réel (compte OS, Slack, Ruul simulés).
-      await simuler(db, c, e === "compte_os" ? "creation_compte_os" : e === "slack" ? "invitation_slack" : "invitation_ruul");
-      await journaliserRelance(db, c, e, "systeme", "simule");
-      if (e === "slack") await majEtape(db, c.id, "slack", "simule", { auto_at: new Date().toISOString() });
-      continue;
-    }
     if (e === "compte_os") {
+      const raison = raisonSimulation("compte_os", reel, { test: c.test, simuler: o.simuler });
+      if (raison) {
+        await simuler(db, c, "creation_compte_os", { raison });
+        await journaliserRelance(db, c, e, "systeme", "simule", { raison });
+        continue;
+      }
       if (!(await relierOS(db, c, lundi))) return; // échec : le cron horaire réessaie (tout est idempotent)
       await journaliserRelance(db, c, e, "systeme", "envoye");
       continue;
     }
-    // Live, Slack et Ruul : rien à envoyer d'ici. Le lien Slack et le guide Ruul sont dans la bienvenue ; le posteur
-    // est relié à Slack par son email (slack_relier_regles) et à Ruul par son profil (canal_paie ruul, ruul_statut
-    // « a_ajouter », email Ruul) : l'invitation Ruul et les relances suivent le parcours Ruul de l'OS.
-    await evenement(db, "compte_os", c.id, c.test, { etape: e, relie_os: true });
-    await journaliserRelance(db, c, e, "systeme", "envoye");
-    if (e === "slack") await majEtape(db, c.id, "slack", "lien_envoye", { at: new Date().toISOString() });
+    if (e === "slack") {
+      // Rien n'est envoyé : le lien d'invitation (LIEN_SLACK) est sur la checklist et dans la bienvenue ; l'OS relie le
+      // posteur à Slack par son email (slack_relier_regles) et la checklist se coche quand il est relié.
+      await majEtape(db, c.id, "slack", "a_faire", { lien: true, at: new Date().toISOString() });
+      await journaliserRelance(db, c, e, "systeme", "envoye", { quoi: "lien Slack affiché (rien n'est envoyé)" });
+      continue;
+    }
+    if (e === "acces") {
+      await messageAcces(db, mode, reel, c, lundi, o);
+      continue;
+    }
+    await invitationRuul(db, mode, reel, c, lundi, o);
   }
 }
 
@@ -433,20 +531,35 @@ async function copierDansOS(db: Db, c: Candidature, lundi: string, ruulEmail: st
 
 /**
  * La bienvenue après la signature (email + WhatsApp account_ready) : accès au dashboard de l'OS par le lien
- * personnel « Set my password » (jamais de mot de passe), étapes, Slack, Ruul. En test (aucun compte créé) : le
- * texte le dit, et l'email ne part qu'aux testeurs. En live, la bienvenue du parcours Ruul de l'OS est notée comme
- * envoyée pour ce nouveau posteur (jamais deux bienvenues). Une fiche existante liée (même email) ne reçoit pas de
- * bienvenue : elle a déjà ses accès.
+ * personnel « Set my password » (jamais de mot de passe), étapes, Slack, Ruul. Sans fiche OS (compte simulé) : le
+ * texte le dit, et l'email ne part qu'aux testeurs en mode test. Quand Join l'envoie à une fiche qu'il a créée, la
+ * bienvenue du parcours Ruul de l'OS est notée comme envoyée (jamais deux bienvenues). Une fiche existante liée (même
+ * email) ne reçoit pas de bienvenue : elle a déjà ses accès.
+ *
+ * 0858 : réelle seulement si join_reel.acces ; sinon simulée (et la bienvenue de l'OS n'est PAS notée : si la fiche
+ * existe, c'est le parcours Ruul de l'OS qui l'envoie). Le WhatsApp suit en plus join_reel.whatsapp.
  */
-async function messageAcces(db: Db, mode: ModeJoin, c: Candidature, lundi: string, reel: boolean) {
-  if (reel && !(await creeParJoin(db, c))) {
-    await journaliserRelance(db, c, "acces", "email", "bloque");
+async function messageAcces(db: Db, mode: ModeJoin, reel: JoinReel, c: Candidature, lundi: string, o: Options = {}) {
+  const creee = c.profile_id ? await creeParJoin(db, c) : false;
+  if (c.profile_id && !creee) {
+    await journaliserRelance(db, c, "acces", "email", "bloque", { raison: "fiche existante liée : elle a déjà ses accès" });
     await evenement(db, "compte_os", c.id, c.test, { bienvenue: "non envoyée : fiche existante liée" });
     return;
   }
   const { data: sig } = await db.from("join_signatures").select("ruul_email").eq("candidature_id", c.id).limit(1).maybeSingle();
+  const raison = raisonSimulation("acces", reel, { test: c.test, simuler: o.simuler });
+  const ruulParEmail = !raisonSimulation("ruul", reel, { test: c.test, simuler: o.simuler, profil: creee });
+  const v = {
+    compteCree: false, login: c.email_os ?? null, handle: c.handle_tiktok, ruulEmail: sig?.ruul_email ?? null,
+    lundi: lundiLisible(lundi), limite: limiteLisible(lundi), ruulParEmail,
+  };
+  if (raison) {
+    await message(db, mode, c, "acces", v, await whatsappBienvenue(db, c, lundi, JOIN_URL()), { simuler: raison });
+    await simuler(db, c, "bienvenue", { raison });
+    return;
+  }
   let lien: string | undefined;
-  if (reel && c.profile_id) {
+  if (creee && c.profile_id) {
     const { data: jeton, error } = await db.rpc("mot_de_passe_lien_creer", { p_poster: c.profile_id, p_par: "join" });
     if (error || typeof jeton !== "string" || !jeton) {
       console.error("join acces : lien Set my password", error?.message ?? "non créé");
@@ -454,11 +567,10 @@ async function messageAcces(db: Db, mode: ModeJoin, c: Candidature, lundi: strin
     }
     lien = lienMotDePasse(LIEN_DASHBOARD_OS, jeton);
   }
-  await message(db, mode, c, "acces", {
-    lien, compteCree: !!lien, login: c.email_os ?? null, handle: c.handle_tiktok, ruulEmail: sig?.ruul_email ?? null,
-    lundi: lundiLisible(lundi), limite: limiteLisible(lundi),
-  }, "account_ready");
-  if (reel && c.profile_id) {
+  await message(db, mode, c, "acces", { ...v, lien, compteCree: !!lien }, await whatsappBienvenue(db, c, lundi, lien ?? JOIN_URL()), {
+    whatsappSimule: raisonSimulation("whatsapp", reel, { test: c.test, simuler: o.simuler }),
+  });
+  if (creee && c.profile_id) {
     const { error } = await db.from("ruul_parcours_envois").upsert(
       { poster_id: c.profile_id, cle: "bienvenue", type: "bienvenue", ok: true, canaux: ["join"], erreur: null, envoye_at: new Date().toISOString() },
       { onConflict: "poster_id,cle" },
@@ -467,27 +579,339 @@ async function messageAcces(db: Db, mode: ModeJoin, c: Candidature, lundi: strin
   }
 }
 
-/** Le cron horaire : relance des codes, relances et expiration du contrat, reprise de l'enchaînement. */
-async function relances(db: Db, mode: ModeJoin) {
-  const maintenant = new Date();
-  const depuis = new Date(maintenant.getTime() - 14 * 24 * HEURE).toISOString();
-  const { data } = await db.from("join_candidatures").select("*").gte("cree_at", depuis).is("expire_at", null).limit(500);
-  const bilan = { codes: 0, signature: 0, expirees: 0, enchainees: 0 };
-  for (const c of (data ?? []) as Candidature[]) {
-    const faites = await etapesFaites(db, c.id);
-    const { data: sig } = await db.from("join_signatures").select("id").eq("candidature_id", c.id).limit(1).maybeSingle();
-    if (sig) {
+/**
+ * 0858 : l'invitation Ruul, une fois. Ruul n'envoie pas d'email à l'appel POST /connect (rien dans l'API ni dans le
+ * code de l'OS ; Ruul a confirmé le 13/11 qu'un posteur s'inscrit lui-même sans attendre d'email) : c'est Join qui
+ * envoie le lien personnel d'onboarding (lienRuul : gardé 48 h, régénéré par l'API si ruul_api.connect_actif), sinon
+ * le guide et app.ruul.io/register. Le texte est celui de l'invitation du parcours Ruul de l'OS (« invite_a »), et
+ * l'envoi y est noté (profiles.ruul_email_a_at, ruul_parcours_envois « invite_a ») : l'OS ne renvoie jamais une
+ * seconde invitation. Réelle seulement si join_reel.ruul et une fiche créée par Join ; sinon simulée.
+ */
+async function invitationRuul(db: Db, mode: ModeJoin, reel: JoinReel, c: Candidature, lundi: string, o: Options = {}) {
+  const creee = c.profile_id ? await creeParJoin(db, c) : false;
+  if (c.profile_id && !creee) {
+    // Fiche existante liée : son invitation Ruul est celle de l'OS.
+    await journaliserRelance(db, c, "ruul", "systeme", "bloque", { raison: "fiche existante liée : invitation Ruul par l'OS" });
+    return;
+  }
+  const raison = raisonSimulation("ruul", reel, { test: c.test, simuler: o.simuler, profil: creee });
+  const { data: sig } = await db.from("join_signatures").select("ruul_email").eq("candidature_id", c.id).limit(1).maybeSingle();
+  if (raison) {
+    const reglage = await lireReglageConnect(db);
+    await journaliserRelance(db, c, "ruul", "email", "simule", {
+      raison, objet: "Create your Ruul account to get paid",
+      lien: reglage.connect_actif ? "lien personnel de l'API Ruul (POST /connect)" : `guide et ${LIEN_INSCRIPTION_RUUL}`,
+      ruul_email: sig?.ruul_email ?? null,
+    });
+    await majEtape(db, c.id, "ruul", "a_faire", { invitation: "simulee", at: new Date().toISOString() });
+    await simuler(db, c, "invitation_ruul", { raison });
+    return;
+  }
+  const pid = c.profile_id!;
+  const { data: p } = await db.from("profiles").select("prenom, ruul_email, ruul_onboarding, ruul_jeton, ruul_email_a_at").eq("id", pid).maybeSingle();
+  if (p?.ruul_onboarding === "READY") {
+    await majEtape(db, c.id, "ruul", "fait", { fait_at: new Date().toISOString(), source: "os" });
+    await journaliserRelance(db, c, "ruul", "systeme", "envoye", { quoi: "déjà READY chez Ruul : pas d'invitation" });
+    return;
+  }
+  const lien = await lienRuul(db, pid);
+  const ruulEmail = (p?.ruul_email as string | null) ?? sig?.ruul_email ?? null;
+  const e = emailParcours("invite_a", {
+    prenom: c.prenom, login: c.email_os ?? null, motDePasse: "", dashboard: LIEN_DASHBOARD_OS, handle: c.handle_tiktok, slack: LIEN_SLACK,
+    cohorte_lundi: lundi, ruul_email: ruulEmail, ruul_compte: null, ruul_lien: lien, ruul_onboarding: (p?.ruul_onboarding as string | null) ?? null,
+    abonnements: null,
+  }, LIEN_DASHBOARD_OS);
+  const lienStop = p?.ruul_jeton ? `${URL_STOP_OS}?stop=${p.ruul_jeton}` : JOIN_URL();
+  let statut: "envoye" | "bloque" = "bloque";
+  if (emailAutorise(mode, c.email) || mode.mode === "live") {
+    const r = await emailDansSaLangue(db, c, { objet: e.objet, corps: e.corps, bouton: boutonRuul({ ruul_lien: lien }), lienStop }, [ruulEmail].filter((x): x is string => !!x));
+    statut = (await envoyerEmailSite(c.email, r.objet, r.html, r.texte, lienStop, ["join", "join-ruul", mode.mode])).ok ? "envoye" : "bloque";
+  }
+  await journaliserRelance(db, c, "ruul", "email", statut, { objet: e.objet, lien: lien ? "personnel (API Ruul)" : "inscription" });
+  if (statut !== "envoye") return;
+  const maintenant = new Date().toISOString();
+  if (!p?.ruul_email_a_at) await db.from("profiles").update({ ruul_email_a_at: maintenant }).eq("id", pid).is("ruul_email_a_at", null);
+  const { error } = await db.from("ruul_parcours_envois").upsert(
+    { poster_id: pid, cle: "invite_a", type: "invite_a", ok: true, canaux: ["join"], erreur: null, envoye_at: maintenant },
+    { onConflict: "poster_id,cle" },
+  );
+  if (error) console.error("join ruul : ruul_parcours_envois", error.message);
+  await majEtape(db, c.id, "ruul", "a_faire", { invitation: "envoyee", lien_personnel: !!lien, at: maintenant });
+  await evenement(db, "ruul_invitation", c.id, c.test, { lien_personnel: !!lien });
+}
+
+/**
+ * 25/11 (Max) : le WhatsApp de bienvenue est welcome_start (prénom, lundi, échéance, @ du compte créé par l'OS,
+ * vidéo guide), repli sur account_ready (prénom, lien) s'il n'est pas APPROVED ou sans @. La clé welcome:<posteur>
+ * est celle des relances de l'OS : jamais deux bienvenues au même posteur.
+ */
+async function whatsappBienvenue(db: Db, c: Candidature, lundi: string, lien: string): Promise<WhatsAppJoin> {
+  const approuves = await modelesApprouves(db);
+  const handle = (c.handle_tiktok ?? "").replace(/^@/, "").trim();
+  const cle = c.profile_id ? cleBienvenue(c.profile_id) : `join_acces:${c.id}`;
+  if (handle && approuves.has("welcome_start")) {
+    return {
+      nom: "welcome_start", cle, motif: "relance:welcome_start",
+      variables: [prenomWa(c), lundiLisible(lundi), echeanceTexte(lundi), handle, VIDEO_GUIDE_URL],
+    };
+  }
+  return { nom: "account_ready", cle, motif: "relance:welcome_start", variables: [prenomWa(c), lien] };
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// 0858 : la checklist synchronisée avec l'OS, et ses rappels
+// ---------------------------------------------------------------------------------------------------------------
+
+type LigneEtape = { etape: string; statut: string; valeur: Record<string, unknown> | null };
+
+/** Ce que l'OS sait de ces posteurs (join_etat_os). En panne : rien (la checklist garde ce que Join sait). */
+async function etatsOS(db: Db, ids: string[]): Promise<Map<string, EtatOS>> {
+  const uniques = [...new Set(ids.filter(Boolean))];
+  if (!uniques.length) return new Map();
+  const { data, error } = await db.rpc("join_etat_os", { p_profiles: uniques });
+  if (error) {
+    console.error("join_etat_os", error.message);
+    return new Map();
+  }
+  return new Map(((data ?? []) as EtatOS[]).map((e) => [e.profile_id, e]));
+}
+
+/**
+ * Coche dans join_etapes ce qui est fait (contrat signé, ce que l'OS voit fait) et note l'événement du QG une fois.
+ * Jamais en simulation (l'état imposé ne s'écrit pas). Rend la checklist.
+ */
+async function synchroniser(
+  db: Db, c: Candidature, etapes: LigneEtape[], signee: boolean, os: EtatOS | null, o: Options = {},
+): Promise<EtatChecklist> {
+  const faites = { ...etatChecklist({ signee, etapes }, os), ...(o.etat ?? {}) } as EtatChecklist;
+  if (o.simuler) return faites;
+  for (const e of ETAPES_CHECKLIST) {
+    if (!faites[e]) continue;
+    const ligne = etapes.find((x) => x.etape === e);
+    if (ligne && (ligne.statut === "fait" || ligne.statut === "ok")) continue;
+    const valeur = { ...(ligne?.valeur ?? {}), fait_at: new Date().toISOString(), source: e === "contrat" ? "signature" : os ? "os" : "join" };
+    await majEtape(db, c.id, e, "fait", valeur);
+    etapes.push({ etape: e, statut: "fait", valeur });
+    const ev = EVENEMENT_ETAPE[e];
+    if (ev && !(e === "tiktok" && ligne?.statut === "ok")) await evenement(db, ev, c.id, c.test, { source: os ? "os" : "join" });
+  }
+  return faites;
+}
+
+/** Les WhatsApp déjà partis à ce numéro / ce posteur (aujourd'hui à Paris, 7 derniers jours) : les plafonds de l'OS. */
+async function envoisWhatsApp(db: Db, e164: string, posterId: string | null, maintenant: Date): Promise<{ jour: number; semaine: number }> {
+  const depuis = new Date(maintenant.getTime() - 7 * 24 * HEURE).toISOString();
+  const statuts = ["a_envoyer", "envoye", "livre", "lu"];
+  const [parNumero, parPosteur] = await Promise.all([
+    db.from("whatsapp_envois").select("id, cree_at").eq("e164", e164).in("statut", statuts).gte("cree_at", depuis).limit(200),
+    posterId
+      ? db.from("whatsapp_envois").select("id, cree_at").eq("poster_id", posterId).in("statut", statuts).gte("cree_at", depuis).limit(200)
+      : Promise.resolve({ data: [] as { id: string; cree_at: string }[] }),
+  ]);
+  const tous = new Map([...(parNumero.data ?? []), ...(parPosteur.data ?? [])].map((x) => [x.id as string, x.cree_at as string]));
+  const minuit = minuitParis(jourParis(maintenant)).getTime();
+  return { jour: [...tous.values()].filter((at) => Date.parse(at) >= minuit).length, semaine: tous.size };
+}
+
+/** Absence déclarée ou jour de panne aujourd'hui (les garde-fous des relances WhatsApp de l'OS). */
+async function absentOuPanne(db: Db, posterId: string | null, maintenant: Date): Promise<{ absent: boolean; panne: boolean }> {
+  if (!posterId) return { absent: false, panne: false };
+  const jour = jourParis(maintenant);
+  const [a, p] = await Promise.all([
+    db.from("absences_declarees").select("debut, fin, jours, retour_le").eq("poster_id", posterId).lte("debut", jour).limit(20),
+    db.from("jours_credites").select("jour").eq("poster_id", posterId).eq("jour", jour).limit(1),
+  ]);
+  const absent = (a.data ?? []).some((x) => {
+    const debut = String(x.debut);
+    const fin = x.fin ? String(x.fin) : new Date(Date.parse(`${debut}T12:00:00Z`) + (Math.max(Number(x.jours ?? 1), 1) - 1) * 24 * HEURE).toISOString().slice(0, 10);
+    const retour = x.retour_le ? new Date(Date.parse(`${x.retour_le}T12:00:00Z`) - 24 * HEURE).toISOString().slice(0, 10) : null;
+    return jour >= debut && jour <= (retour && retour < fin ? retour : fin);
+  });
+  return { absent, panne: (p.data ?? []).length > 0 };
+}
+
+/**
+ * 0858 : les rappels de la checklist d'un candidat signé (rappelsDus) : UN email par jour (toutes les étapes dues
+ * dedans), et un WhatsApp (accord donné) pour la première étape qui a un modèle. Réels seulement si join_reel.rappels
+ * (et join_reel.whatsapp pour le WhatsApp) ; sinon simulés (journal avec ce qui serait parti). Garde-fous : STOP et
+ * désinscription (relances_stop_at, ruul_candidatures.desinscrit_at), arrêt et « ne plus contacter », fiche
+ * désactivée, 9 h – 20 h (heure du pays) pour l'email, un email par jour partagé avec le parcours Ruul de l'OS ;
+ * WhatsApp : mêmes motifs et clés que les relances de l'OS, 1 par jour, 4 par semaine, 9 h – 21 h, numéro bloqué.
+ * Une fiche existante liée (pas créée par Join) n'a pas de rappels de Join : l'OS reste sa voix.
+ */
+async function rappelsCandidat(
+  db: Db, mode: ModeJoin, reel: JoinReel, c: Candidature, ctx: {
+    signeAt: string; lundi: string; faites: EtatChecklist; os: EtatOS | null; journal: { etape: string; canal: string; detail: Corps | null }[];
+    ruulEmail: string | null;
+  }, o: Options, bilan: { rappels: number },
+) {
+  const maintenant = o.maintenant ?? new Date();
+  if (c.profile_id && !(await creeParJoin(db, c))) return;
+  const os = ctx.os;
+  const dus = rappelsDus({
+    signeAt: ctx.signeAt, lundi: ctx.lundi, faites: ctx.faites, deja: ctx.journal.map((r) => r.etape), pays: c.pays,
+    premierPostAt: o.etat?.premier_post_at ?? os?.premier_post_at ?? null, postsPrevus: os ? os.posts_prevus !== false : true,
+    paieReportee: !!os?.paie_reportee, maintenant,
+  }).filter((d) => !(d.etape === "ruul" && os?.ruul_retire_at)); // passé sur Upwork : plus de Ruul
+  if (!dus.length) return;
+  const auj = dateLocale(c.pays, maintenant);
+  // STOP, désinscription, arrêt, fiche désactivée : noté « bloqué », jamais relancé.
+  const stop = os && (os.is_active === false || !!os.relances_stop_at || !!os.arrete || !!os.desinscrit)
+    ? "STOP, désinscription, arrêt ou fiche désactivée" : null;
+  if (stop) {
+    for (const d of dus) await journaliserRelance(db, c, d.cle, "email", "bloque", { raison: stop, jour: auj });
+    return;
+  }
+  // L'email part entre 9 h et 20 h (heure du pays) ; hors fenêtre, le passage suivant reprend.
+  const h = heureLocale(c.pays, maintenant);
+  if (h < 9 || h >= 20) return;
+  // Un email par jour : pas si Join a déjà envoyé un rappel aujourd'hui, ni si le parcours Ruul de l'OS a écrit.
+  const dejaJoin = ctx.journal.some((r) => r.etape.startsWith("rappel:") && r.canal === "email" && (r.detail as { jour?: string } | null)?.jour === auj);
+  if (dejaJoin || (!o.simuler && os?.email_jour)) return;
+
+  // Un candidat réel sans fiche OS (compte OS simulé) ne peut faire aucune étape : ses rappels restent simulés.
+  const raison = raisonSimulation("rappels", reel, { test: c.test, simuler: o.simuler }) ??
+    (!c.profile_id && !c.test ? "pas de fiche OS (compte OS simulé) : les étapes ne peuvent pas être faites" : null);
+  const lundiTxt = lundiLisible(ctx.lundi);
+  const m = texteRappel(dus, {
+    prenom: c.prenom, lundi: lundiTxt, limite: limiteLisible(ctx.lundi), avantDepart: auj < ctx.lundi,
+    handle: (os?.handle ?? c.handle_tiktok ?? "").replace(/^@/, "") || null, ruulEmail: os?.ruul_email ?? ctx.ruulEmail,
+  });
+  const detail = { jour: auj, objet: m.objet, etapes: dus.map((d) => d.etape), ...(o.maintenant ? { horloge: maintenant.toISOString() } : {}) };
+  let statutEmail: "simule" | "envoye" | "bloque";
+  if (raison) statutEmail = "simule";
+  else if (!(emailAutorise(mode, c.email) || mode.mode === "live")) statutEmail = "bloque";
+  else {
+    const lienStop = os?.ruul_jeton ? `${URL_STOP_OS}?stop=${os.ruul_jeton}` : JOIN_URL();
+    const r = await emailDansSaLangue(db, c, { objet: m.objet, corps: m.corps, bouton: { texte: m.bouton, lien: JOIN_URL() }, lienStop, sansPied: !os?.ruul_jeton },
+      [os?.handle, os?.ruul_email ?? ctx.ruulEmail].filter((x): x is string => !!x));
+    statutEmail = (await envoyerEmailSite(c.email, r.objet, r.html, r.texte, lienStop, ["join", "join-rappel", mode.mode])).ok ? "envoye" : "bloque";
+    // Noté dans le parcours Ruul de l'OS : sa règle « jamais 2 emails le même jour » le voit.
+    if (statutEmail === "envoye" && c.profile_id) {
+      await db.from("ruul_parcours_envois").upsert(
+        { poster_id: c.profile_id, cle: `join:${dus[0].cle}`, type: "join_rappel", ok: true, canaux: ["join"], erreur: null, envoye_at: new Date().toISOString() },
+        { onConflict: "poster_id,cle" },
+      );
+    }
+  }
+  for (const d of dus) {
+    await journaliserRelance(db, c, d.cle, "email", statutEmail, { ...detail, ...(raison ? { raison } : statutEmail === "bloque" ? { raison: "mode test : pas un testeur, ou envoi refusé" } : {}) });
+    ctx.journal.push({ etape: d.cle, canal: "email", detail });
+  }
+  bilan.rappels++;
+  await whatsappRappel(db, reel, c, dus, ctx, o, raison);
+}
+
+/** Le WhatsApp d'un jour de rappels : la première étape qui a un modèle (accord WhatsApp obligatoire). */
+async function whatsappRappel(
+  db: Db, reel: JoinReel, c: Candidature, dus: RappelDu[], ctx: { lundi: string; os: EtatOS | null }, o: Options, raisonRappels: string | null,
+) {
+  const d = dus.find((x) => typeWhatsappRappel(x));
+  if (!d || !c.whatsapp_optin_at) return;
+  const type = typeWhatsappRappel(d)!;
+  const maintenant = o.maintenant ?? new Date();
+  const pid = c.profile_id ?? null;
+  const niche = pid && type === "warmup_start" ? await nicheOuNull(db, pid) : null;
+  const faits = { prenom: c.prenom, cohorte_lundi: ctx.lundi, handle: ctx.os?.handle ?? c.handle_tiktok, niche } as unknown as FaitsRelance;
+  const modele = modeleRelance(type, faits, await modelesApprouves(db));
+  const jour = dateLocale(c.pays, maintenant);
+  // Les clés et motifs des relances WhatsApp de l'OS : un envoi le même jour par l'un ou l'autre n'est jamais doublé.
+  const cle = `relance:${type}:${pid ?? `join-${c.id}`}:${jour}`;
+  const [bloque, envois, gardes, modeWa] = await Promise.all([
+    numeroBloque(db, c.whatsapp_e164, pid), envoisWhatsApp(db, c.whatsapp_e164, pid, maintenant), absentOuPanne(db, pid, maintenant),
+    lireModeWhatsApp(db),
+  ]);
+  const refus = refusRelance({
+    modeAutorise: numeroAutorise(modeWa, c.whatsapp_e164), optin: true, optout: bloque, arrete: bloque || !!ctx.os?.arrete,
+    absent: gardes.absent, panne: gardes.panne, envoisJour: envois.jour, envoisSemaine: envois.semaine, heureOk: heureOk(c.pays, maintenant),
+  }) ?? (modele ? null : "modèle pas approuvé chez Meta");
+  const detail = { jour, type, modele: modele?.nom ?? null, cle, ...(o.maintenant ? { horloge: maintenant.toISOString() } : {}) };
+  const raison = raisonRappels ?? raisonSimulation("whatsapp", reel, { test: c.test, simuler: o.simuler });
+  if (raison) {
+    await journaliserRelance(db, c, d.cle, "whatsapp", "simule", { ...detail, raison, refus_si_reel: refus });
+    return;
+  }
+  if (refus || !modele) {
+    await journaliserRelance(db, c, d.cle, "whatsapp", "bloque", { ...detail, raison: refus });
+    return;
+  }
+  // La langue du candidat si le modèle y est APPROVED chez Meta (sinon l'anglais) ; le modèle reste décrit en anglais.
+  const r = await envoyerWhatsApp(db, { e164: c.whatsapp_e164, posterId: pid, motif: `relance:${type}`, cle, modele, langueCible: c.langue });
+  await journaliserRelance(db, c, d.cle, "whatsapp", r.ok ? "envoye" : "bloque", { ...detail, ...(r.ok ? {} : { raison: r.erreur ?? r.statut }) });
+}
+
+/**
+ * Le cron horaire : relance des codes, relances et expiration du contrat, reprise de l'enchaînement, puis (0858) la
+ * checklist synchronisée avec l'OS et ses rappels. `o` (cron seulement) : horloge simulée, une candidature, état
+ * imposé — toujours en simulation.
+ */
+async function relances(db: Db, mode: ModeJoin, o: Options & { candidatureId?: string } = {}) {
+  const maintenant = o.maintenant ?? new Date();
+  const reel = await lireReel(db);
+  // 0858 : 45 jours (les rappels du premier post et de Ruul courent après le lundi de départ).
+  const depuis = new Date(maintenant.getTime() - 45 * 24 * HEURE).toISOString();
+  // 25/11 : lecture par pages (PostgREST rend 1000 lignes au plus) : en live, avec les pubs, plus de 500
+  // candidatures en 14 jours ne doivent pas en laisser de côté. Les refusées et les « à traiter » sans relance à faire
+  // ne sont pas relues.
+  const toutes: Candidature[] = [];
+  for (let page = 0; page < 50; page++) {
+    let q = db.from("join_candidatures").select("*").is("expire_at", null).or("decision.is.null,decision.eq.auto");
+    q = o.candidatureId ? q.eq("id", o.candidatureId) : q.gte("cree_at", depuis);
+    const { data, error } = await q.order("cree_at", { ascending: true }).order("id", { ascending: true }).range(page * 500, page * 500 + 499);
+    if (error) throw new Error(`candidatures : ${error.message}`);
+    toutes.push(...((data ?? []) as Candidature[]));
+    if ((data ?? []).length < 500) break;
+  }
+  const bilan = { lues: toutes.length, codes: 0, signature: 0, expirees: 0, enchainees: 0, synchronisees: 0, rappels: 0, simulation: !!o.simuler };
+  // Une horloge simulée est notée dans le journal (le jour de la relance est le sien, pas celui de l'écriture).
+  const horloge: Corps = o.maintenant ? { horloge: maintenant.toISOString() } : {};
+  // Le journal et les signatures lus par paquets (pas deux requêtes par candidature).
+  const faitesPar = new Map<string, Set<string>>();
+  // Le jour (heure du pays) de chaque relance du contrat déjà faite : jamais deux relances du contrat le même jour.
+  const joursContrat = new Map<string, Set<string>>();
+  const signees = new Map<string, { signe_at: string; ruul_email: string | null }>();
+  // Seules les étapes qui comptent ici (PostgREST rend 1000 lignes au plus : 50 candidatures × ~10 lignes).
+  const utiles = ["code_rappel", "signature_j1", "signature_j3", "signature_vendredi", ...ETAPES_APRES_SIGNATURE];
+  for (let i = 0; i < toutes.length; i += 50) {
+    const ids = toutes.slice(i, i + 50).map((c) => c.id);
+    const [rel, sig] = await Promise.all([
+      db.from("join_relances").select("candidature_id, etape, at, detail").in("candidature_id", ids).in("etape", utiles).limit(1000),
+      db.from("join_signatures").select("candidature_id, signe_at, ruul_email").in("candidature_id", ids).limit(1000),
+    ]);
+    if (rel.error || sig.error) throw new Error(`journal : ${rel.error?.message ?? sig.error?.message}`);
+    const paysDe = new Map(toutes.slice(i, i + 50).map((c) => [c.id, c.pays]));
+    for (const r of rel.data ?? []) {
+      const k = r.candidature_id as string;
+      if (!faitesPar.has(k)) faitesPar.set(k, new Set());
+      faitesPar.get(k)!.add(r.etape as string);
+      if (String(r.etape).startsWith("signature_")) {
+        const quand = (r.detail as { horloge?: string } | null)?.horloge ?? (r.at as string);
+        if (!joursContrat.has(k)) joursContrat.set(k, new Set());
+        joursContrat.get(k)!.add(dateLocale(paysDe.get(k) ?? null, new Date(quand)));
+      }
+    }
+    for (const r of sig.data ?? []) {
+      signees.set(r.candidature_id as string, { signe_at: r.signe_at as string, ruul_email: (r.ruul_email as string | null) ?? null });
+    }
+  }
+  const signeesListe: Candidature[] = [];
+  for (const c of toutes) {
+    const faites = [...(faitesPar.get(c.id) ?? [])];
+    if (signees.has(c.id)) {
       if (etapesRestantes(faites).length) {
-        await enchainer(db, mode, c, cohorteASignature(c.cohorte, maintenant));
+        // Le lundi fixé à la signature (c.cohorte), jamais recalculé : un enchaînement repris un lundi ou plus tard
+        // (création OS en échec puis réessayée) ne doit pas décaler le départ d'une semaine.
+        await enchainer(db, mode, reel, c, c.cohorte ?? cohorteASignature(null, maintenant), o);
         bilan.enchainees++;
       }
+      signeesListe.push(c);
       continue;
     }
     if (!c.decision) {
-      const verifie = !!c.email_verifie_at && !!c.whatsapp_verifie_at;
+      const verifie = codesVerifies(c, mode);
       if (!c.manques?.some((m) => m.startsWith("pays fermé"))) {
         if (relanceCodeDue(c.cree_at, verifie, faites.includes("code_rappel"), maintenant)) {
-          await message(db, mode, c, "code_rappel", {}, null);
+          await message(db, mode, c, "code_rappel", {}, null, { simuler: o.simuler ? "simulation (horloge simulée)" : null, detail: horloge });
           bilan.codes++;
         }
       }
@@ -495,19 +919,102 @@ async function relances(db: Db, mode: ModeJoin) {
     }
     if (c.decision !== "auto" || !c.decision_at) continue;
     const etape = etapeRelanceSignature(c.decision_at, faites, maintenant);
-    if (!etape) continue;
+    const lundi = cohorteASignature(c.cohorte, maintenant);
     if (etape === "expirer") {
+      if (o.simuler) {
+        await journaliserRelance(db, c, "expiree", "systeme", "simule", { raison: "simulation (horloge simulée)", horloge: maintenant.toISOString() });
+        continue;
+      }
       await db.from("join_candidatures").update({ expire_at: maintenant.toISOString(), maj_at: maintenant.toISOString() }).eq("id", c.id);
       await evenement(db, "expiree", c.id, c.test);
       await message(db, mode, c, "expiree", {}, null);
       bilan.expirees++;
       continue;
     }
-    const lundi = cohorteASignature(c.cohorte, maintenant);
-    await message(db, mode, c, etape, { lundi: lundiLisible(lundi), limite: limiteLisible(lundi) }, "contract_to_sign");
-    bilan.signature++;
+    if (etape) {
+      await message(db, mode, c, etape, { lundi: lundiLisible(lundi), limite: limiteLisible(lundi) }, "contract_to_sign",
+        { simuler: o.simuler ? "simulation (horloge simulée)" : null, detail: horloge });
+      bilan.signature++;
+      continue;
+    }
+    // 0858 : le rappel du contrat du vendredi avant le lundi offert (derrière join_reel.rappels, sinon simulé).
+    const dejaAujourdhui = joursContrat.get(c.id)?.has(dateLocale(c.pays, maintenant)) ?? false;
+    if (signatureVendrediDue({ decisionAt: c.decision_at, lundi, faites, pays: c.pays, maintenant, dejaAujourdhui })) {
+      const h = heureLocale(c.pays, maintenant);
+      if (h >= 9 && h < 20) {
+        await message(db, mode, c, "signature_vendredi", { lundi: lundiLisible(lundi), limite: limiteLisible(lundi) }, "contract_to_sign", {
+          simuler: raisonSimulation("rappels", reel, { test: c.test, simuler: o.simuler }),
+          whatsappSimule: raisonSimulation("whatsapp", reel, { test: c.test, simuler: o.simuler }), detail: horloge,
+        });
+        bilan.signature++;
+      }
+    }
+  }
+
+  // 0858 : la checklist des signés (synchronisée avec l'OS) et ses rappels.
+  for (let i = 0; i < signeesListe.length; i += 20) {
+    const lot = signeesListe.slice(i, i + 20);
+    const ids = lot.map((c) => c.id);
+    const [et, rel, os] = await Promise.all([
+      db.from("join_etapes").select("candidature_id, etape, statut, valeur").in("candidature_id", ids).limit(1000),
+      db.from("join_relances").select("candidature_id, etape, canal, detail").in("candidature_id", ids).like("etape", "rappel:%").limit(1000),
+      etatsOS(db, lot.map((c) => c.profile_id ?? "").filter(Boolean)),
+    ]);
+    if (et.error || rel.error) throw new Error(`checklist : ${et.error?.message ?? rel.error?.message}`);
+    for (const c of lot) {
+      // L'enchaînement vient peut-être de relier la fiche : relue pour ce passage.
+      if (!c.profile_id) {
+        const { data } = await db.from("join_candidatures").select("profile_id, email_os, handle_tiktok").eq("id", c.id).maybeSingle();
+        if (data?.profile_id) Object.assign(c, data);
+      }
+      const etatOs = c.profile_id ? os.get(c.profile_id) ?? (await etatsOS(db, [c.profile_id])).get(c.profile_id) ?? null : null;
+      const etapes = (et.data ?? []).filter((x) => x.candidature_id === c.id) as LigneEtape[];
+      const sig = signees.get(c.id)!;
+      const faites = await synchroniser(db, c, etapes, true, etatOs, o);
+      bilan.synchronisees++;
+      const lundi = etatOs?.cohorte_lundi ?? c.cohorte ?? cohorteASignature(null, new Date(sig.signe_at));
+      const journal = (rel.data ?? []).filter((x) => x.candidature_id === c.id)
+        .map((x) => ({ etape: x.etape as string, canal: x.canal as string, detail: (x.detail as Corps | null) ?? null }));
+      await rappelsCandidat(db, mode, reel, c, { signeAt: sig.signe_at, lundi, faites, os: etatOs, journal, ruulEmail: sig.ruul_email }, o, bilan);
+    }
   }
   return bilan;
+}
+
+/**
+ * 0858 : la langue du pays est-elle gérée par l'OS ? La règle de hub-posteurs (action « zones », la même que le bouton
+ * « Accept all valid » du site) : `langue_os` = langue du pays connue et publiée par des comptes actifs de l'OS.
+ * null : l'OS n'a pas répondu (la candidature va à l'admin avec ce manque).
+ */
+async function langueGereeOS(pays: string): Promise<{ geree: boolean | null; code: string | null }> {
+  const url = Deno.env.get("SUPABASE_URL");
+  const secret = Deno.env.get("OS_HUB_SECRET");
+  if (!url || !secret) return { geree: null, code: null };
+  try {
+    const r = await fetch(`${url}/functions/v1/hub-posteurs`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-hub-secret": secret },
+      body: JSON.stringify({ action: "zones" }),
+      signal: AbortSignal.timeout(30_000),
+    });
+    const x = await r.json().catch(() => null) as { ok?: boolean; ouverts?: { pays_code: string; langue: string; langue_os: boolean }[] } | null;
+    if (!r.ok || !x?.ok || !Array.isArray(x.ouverts)) return { geree: null, code: null };
+    const o = x.ouverts.find((p) => p.pays_code === pays.toUpperCase());
+    return o ? { geree: o.langue_os === true, code: o.langue ?? null } : { geree: false, code: null };
+  } catch (e) {
+    console.error("join langue", e instanceof Error ? e.message : String(e));
+    return { geree: null, code: null };
+  }
+}
+
+/** 0858 : les doublons de la candidature (join_doublons), lisibles. En panne : un manque qui le dit. */
+async function doublonsDe(db: Db, id: string): Promise<string[]> {
+  const { data, error } = await db.rpc("join_doublons", { p_candidature: id });
+  if (error) {
+    console.error("join_doublons", error.message);
+    return ["doublons non vérifiés (base injoignable)"];
+  }
+  return Array.isArray(data) ? (data as string[]) : [];
 }
 
 async function paysOuverts(db: Db) {
@@ -533,10 +1040,12 @@ async function majEtape(db: Db, id: string, etape: string, statut: string, valeu
   if (error) throw new Error(`étape : ${error.message}`);
 }
 
-function vueCandidature(c: Candidature) {
+function vueCandidature(c: Candidature, mode: ModeJoin) {
   return {
     id: c.id, test: c.test, prenom: c.prenom, nom: c.nom, email: c.email, whatsapp: c.whatsapp_e164, pays: c.pays,
-    langue: c.langue, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at,
+    // 25/11 : sans code WhatsApp (join_mode.modele_code vide), le numéro n'a pas de code à vérifier.
+    langue: c.langue, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at || !codeWhatsappActif(mode),
+    whatsapp_code: codeWhatsappActif(mode),
     decision: c.decision, cohorte: c.cohorte, handle_tiktok: c.handle_tiktok, whatsapp_optin: !!c.whatsapp_optin_at,
     ferme: !!c.manques?.some((m) => m.startsWith("pays fermé")) && !c.decision,
   };
@@ -598,8 +1107,8 @@ async function jetonsAdmin(corps: Record<string, string>, grant: "password" | "r
 }
 
 /** La ligne de la liste de l'admin. */
-function ligneAdmin(c: Candidature & Record<string, unknown>, signee: boolean) {
-  const etape = etapeAdmin(c, signee);
+function ligneAdmin(c: Candidature & Record<string, unknown>, signee: boolean, mode: ModeJoin) {
+  const etape = etapeAdmin(c, signee, codeWhatsappActif(mode));
   const source = (c.source ?? {}) as Record<string, string>;
   return {
     id: c.id, test: c.test, prenom: c.prenom, nom: c.nom, email: c.email, pays: c.pays, cree_at: c.cree_at, maj_at: c.maj_at,
@@ -639,8 +1148,8 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
       const lignes = (data ?? []) as (Candidature & Record<string, unknown>)[];
       const signees = await signeesParmi(db, lignes.map((c) => c.id));
       return json({
-        ok: true, mode: mode.mode, auto_acceptation: await lireAuto(db),
-        candidatures: lignes.map((c) => ligneAdmin(c, signees.has(c.id))), lu_at: new Date().toISOString(),
+        ok: true, mode: mode.mode, auto_acceptation: await lireAuto(db), reel: await lireReel(db),
+        candidatures: lignes.map((c) => ligneAdmin(c, signees.has(c.id), mode)), lu_at: new Date().toISOString(),
       });
     }
 
@@ -650,7 +1159,7 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
       if (!c) return erreur("introuvable", 404);
       const [ev, rel, sig, et] = await Promise.all([
         db.from("join_evenements").select("type, at, detail").eq("candidature_id", id).order("at", { ascending: true }).limit(300),
-        db.from("join_relances").select("etape, canal, statut, at").eq("candidature_id", id).order("at", { ascending: true }).limit(300),
+        db.from("join_relances").select("etape, canal, statut, at, detail").eq("candidature_id", id).order("at", { ascending: true }).limit(300),
         db.from("join_signatures").select("version, signe_at, nom_legal, ruul_email, ip, sha256").eq("candidature_id", id)
           .limit(1).maybeSingle(),
         db.from("join_etapes").select("etape, statut, valeur, maj_at").eq("candidature_id", id).limit(20),
@@ -662,12 +1171,14 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
         const m = (TYPES_MESSAGE_JOIN as readonly string[]).includes(type) && r.canal !== "systeme"
           ? texteMessage(type, { prenom: cand.prenom, lien: JOIN_URL(), handle: cand.handle_tiktok, login: cand.email_os ?? null })
           : null;
-        return { ...r, objet: m?.objet ?? null, texte: m?.corps ?? null };
+        // 0858 : un rappel de la checklist ou une étape simulée : l'objet et la raison notés dans le détail.
+        const d = (r.detail ?? {}) as { objet?: string; raison?: string; modele?: string };
+        return { ...r, objet: m?.objet ?? d.objet ?? (d.modele ? `WhatsApp ${d.modele}` : null), texte: m?.corps ?? d.raison ?? null };
       });
       return json({
         ok: true, mode: mode.mode,
         candidature: {
-          ...ligneAdmin(cand, !!sig.data), whatsapp: cand.whatsapp_e164, langue: cand.langue, majeur: cand.majeur ?? null,
+          ...ligneAdmin(cand, !!sig.data, mode), whatsapp: cand.whatsapp_e164, langue: cand.langue, majeur: cand.majeur ?? null,
           age: cand.age, deux_telephones: cand.deux_telephones, reponses: cand.reponses, source_brute: cand.source ?? {},
           handle_tiktok: cand.handle_tiktok, expire_at: cand.expire_at, decision_at: cand.decision_at,
           decision_par: cand.decision_par ?? null, decision_note: cand.decision_note ?? null,
@@ -686,9 +1197,9 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
       if (!data) return erreur("introuvable", 404);
       const c = data as Candidature;
       const signees = await signeesParmi(db, [c.id]);
-      const possibles = decisionsAdminPossibles(etapeAdmin(c, signees.has(c.id)));
+      const possibles = decisionsAdminPossibles(etapeAdmin(c, signees.has(c.id), codeWhatsappActif(mode)));
       if (choix === "accepter" && !possibles.accepter) return erreur("acceptation impossible à cette étape", 409);
-      if (choix === "accepter" && !(c.email_verifie_at && c.whatsapp_verifie_at)) return erreur("codes pas encore vérifiés", 409);
+      if (choix === "accepter" && !codesVerifies(c, mode)) return erreur("codes pas encore vérifiés", 409);
       if (choix === "refuser" && !possibles.refuser) return erreur("refus impossible à cette étape", 409);
       const maintenant = new Date().toISOString();
       if (choix === "accepter") {
@@ -746,7 +1257,19 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
     case "relances": {
       // Le cron horaire (x-cron-secret) : jamais appelable par le site.
       if (!(await estSecretCron(request.headers.get("x-cron-secret")))) return erreur("unauthorized", 401);
-      return json({ ok: true, mode: mode.mode, ...(await relances(db, mode)) });
+      // 0858 (cron seulement) : une horloge simulée, une seule candidature, un état de l'OS imposé. Avec l'un d'eux,
+      // c'est toujours une simulation : rien ne part, rien n'est créé (journal « simule »).
+      const o: Options & { candidatureId?: string } = {};
+      if (typeof b.maintenant === "string" && !Number.isNaN(Date.parse(b.maintenant))) o.maintenant = new Date(b.maintenant);
+      if (typeof b.candidature_id === "string" && /^[0-9a-f-]{36}$/i.test(b.candidature_id)) o.candidatureId = b.candidature_id;
+      if (b.etat && typeof b.etat === "object") {
+        const e = b.etat as Record<string, unknown>;
+        o.etat = Object.fromEntries(Object.entries(e).filter(([k, v]) =>
+          ((ETAPES_CHECKLIST as readonly string[]).includes(k) && typeof v === "boolean") || (k === "premier_post_at" && (v === null || typeof v === "string"))
+        )) as Options["etat"];
+      }
+      o.simuler = b.simuler === true || !!o.maintenant || !!o.etat;
+      return json({ ok: true, mode: mode.mode, ...(await relances(db, mode, o)) });
     }
 
     case "visite": {
@@ -793,15 +1316,17 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       });
       // Pays fermé : la candidature est gardée (on écrit quand le pays ouvre), sans codes ni session.
       if (!ouvert) return json({ ok: true, ferme: true, mode: mode.mode });
+      // 25/11 (Max) : le code par email seulement, sauf si un modèle WhatsApp d'authentification est configuré.
+      const waActif = codeWhatsappActif(mode);
       const codeEmail = await creerCode(db, c.id, "email");
-      const codeWhatsapp = await creerCode(db, c.id, "whatsapp");
+      const codeWhatsapp = waActif ? await creerCode(db, c.id, "whatsapp") : null;
       const email = await envoyerCodeEmail(db, mode, c, codeEmail);
       await journaliserRelance(db, c, "code", "email", email);
-      await journaliserRelance(db, c, "code", "whatsapp", await envoyerCodeWhatsapp(db, mode, c, codeWhatsapp));
+      if (codeWhatsapp) await journaliserRelance(db, c, "code", "whatsapp", await envoyerCodeWhatsapp(db, mode, c, codeWhatsapp));
       const jeton = await ouvrirSession(db, c.id, SESSION_COURTE_H);
       return json({
-        ok: true, candidature_id: c.id, jeton, mode: mode.mode, email_envoye: email === "envoye",
-        ...(enTest ? { codes_test: { email: codeEmail, whatsapp: codeWhatsapp } } : {}),
+        ok: true, candidature_id: c.id, jeton, mode: mode.mode, email_envoye: email === "envoye", whatsapp_code: waActif,
+        ...(enTest ? { codes_test: { email: codeEmail, ...(codeWhatsapp ? { whatsapp: codeWhatsapp } : {}) } } : {}),
       });
     }
 
@@ -809,6 +1334,7 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       const c = await candidatureDeSession(db, request, b);
       if (!c) return erreur("session", 401);
       const canal = b.canal === "whatsapp" ? "whatsapp" : "email";
+      if (canal === "whatsapp" && !codeWhatsappActif(mode)) return erreur("whatsapp_code_off");
       const code = await creerCode(db, c.id, canal);
       const etat = canal === "email" ? await envoyerCodeEmail(db, mode, c, code) : await envoyerCodeWhatsapp(db, mode, c, code);
       await journaliserRelance(db, c, "code", canal, etat);
@@ -835,19 +1361,24 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
         await db.from("join_candidatures").update({ [col]: maintenant, maj_at: maintenant }).eq("id", c.id);
         if (canal === "email") c.email_verifie_at = maintenant;
         else c.whatsapp_verifie_at = maintenant;
-        if (c.email_verifie_at && c.whatsapp_verifie_at) await evenement(db, "verifiee", c.id, c.test);
+        if (codesVerifies(c, mode)) await evenement(db, "verifiee", c.id, c.test);
       }
-      return json({ ok: true, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at });
+      return json({ ok: true, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at || !codeWhatsappActif(mode) });
     }
 
     case "decision": {
       const c = await candidatureDeSession(db, request, b);
       if (!c) return erreur("session", 401);
-      if (!c.email_verifie_at || !c.whatsapp_verifie_at) return erreur("not_verified");
+      if (!codesVerifies(c, mode)) return erreur("not_verified");
       if (!c.decision) {
         const { pays } = await paysOuverts(db);
+        // 0858 : les règles de l'OS + la langue du pays gérée par l'OS + aucun doublon (email, téléphone, nom).
+        const [langue, doublons] = await Promise.all([langueGereeOS(c.pays), doublonsDe(db, c.id)]);
         // 0847 : l'interrupteur « Acceptation automatique » (OFF : même une candidature complète attend l'admin).
-        const d = deciderAvecReglage(decider(c, new Set(pays.map((p) => p.pays))), await lireAuto(db));
+        const d = deciderAvecReglage(
+          deciderJoin(c, new Set(pays.map((p) => p.pays)), codeWhatsappActif(mode), { langue, doublons }),
+          await lireAuto(db),
+        );
         const maintenant = new Date().toISOString();
         const cohorte = d.decision === "auto" ? cohorteDe(aujourdhuiParis()) : null;
         await db.from("join_candidatures").update({
@@ -896,13 +1427,14 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
         });
         if (error) return erreur("signature impossible", 500);
         await evenement(db, "signee", c.id, c.test, { version: CONTRAT_VERSION, lundi });
+        await majEtape(db, c.id, "contrat", "fait", { fait_at: new Date().toISOString(), source: "signature", version: CONTRAT_VERSION });
         const handle = handlePropose(c.prenom);
         await majEtape(db, c.id, "tiktok", "a_faire", { propose: handle });
         // Signé après la date limite : le départ glisse au lundi suivant.
         await db.from("join_candidatures").update({ handle_tiktok: handle, cohorte: lundi, maj_at: new Date().toISOString() }).eq("id", c.id);
         c.cohorte = lundi;
-        // Tout s'enchaîne seul (simulé en test) : compte OS → Slack → Ruul → message d'accès.
-        await enchainer(db, mode, c, lundi);
+        // Tout s'enchaîne seul : compte OS → Slack → bienvenue → invitation Ruul (chaque étape derrière son drapeau join_reel).
+        await enchainer(db, mode, await lireReel(db), c, lundi);
       } else {
         lundi = c.cohorte ?? lundi;
       }
@@ -948,17 +1480,40 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
     case "moi": {
       const c = await candidatureDeSession(db, request, b);
       if (!c) return erreur("session", 401);
-      const etapes = await etapesDe(db, c.id);
-      const { data: sig } = await db.from("join_signatures").select("signe_at, version").eq("candidature_id", c.id)
+      const etapes = (await etapesDe(db, c.id)) as LigneEtape[];
+      const { data: sig } = await db.from("join_signatures").select("signe_at, version, ruul_email").eq("candidature_id", c.id)
         .limit(1).maybeSingle();
-      const warmupFini = etapes.some((e) => e.etape === "warmup" && e.statut === "fait");
-      const premier = c.cohorte ? premierPost(c.cohorte, warmupFini, aujourdhuiParis()) : null;
+      // 0858 : la checklist, synchronisée avec l'OS (ce que l'OS voit fait se coche ici).
+      const os = c.profile_id ? (await etatsOS(db, [c.profile_id])).get(c.profile_id) ?? null : null;
+      const faites = sig ? await synchroniser(db, c, etapes, true, os) : etatChecklist({ signee: false, etapes }, os);
+      const warmupFini = faites.warmup || etapes.some((e) => e.etape === "warmup" && e.statut === "fait");
+      // Le lundi de départ : celui de l'OS quand la fiche existe (un report de l'OS le décale), sinon celui de Join.
+      const premier = os?.cohorte_lundi ?? (c.cohorte ? premierPost(c.cohorte, warmupFini, aujourdhuiParis()) : null);
       const lundiOffre = c.decision === "auto" && !sig ? cohorteASignature(c.cohorte) : null;
+      // Ruul : le lien personnel d'onboarding (API Ruul, gardé 48 h) ; sans lui, l'inscription app.ruul.io/register.
+      let lienRuulPerso: string | null = null;
+      if (sig && c.profile_id && !faites.ruul) {
+        const reel = await lireReel(db);
+        if (reel.ruul) lienRuulPerso = await lienRuul(db, c.profile_id);
+        else {
+          const reglage = await lireReglageConnect(db);
+          const { data: l } = await db.from("ruul_liens").select("url, cree_at, env").eq("poster_id", c.profile_id).maybeSingle();
+          if (lienFrais(l as { url: string; cree_at: string; env: string } | null, reglage.env)) lienRuulPerso = (l as { url: string }).url;
+        }
+      }
       return json({
-        ok: true, mode: mode.mode, candidature: vueCandidature(c), signature: sig ?? null, etapes,
-        expiree: !!c.expire_at,
+        ok: true, mode: mode.mode, candidature: vueCandidature(c, mode), signature: sig ? { signe_at: sig.signe_at, version: sig.version } : null,
+        etapes, expiree: !!c.expire_at,
         ...(lundiOffre ? { offre: { cohorte: lundiOffre, date_limite: new Date(dateLimiteSignature(lundiOffre).getTime() - 60_000).toISOString() } } : {}),
         premier_post: premier, premier_post_texte: premier ? `Your first post is on ${lundiLisible(premier)}` : null,
+        checklist: ETAPES_CHECKLIST.map((e) => ({ etape: e, fait: faites[e] })),
+        liens: {
+          dashboard: LIEN_DASHBOARD_OS, slack: LIEN_SLACK, tiktok: LIEN_TIKTOK, ruul: lienRuulPerso ?? LIEN_INSCRIPTION_RUUL,
+          ruul_personnel: !!lienRuulPerso,
+        },
+        handle: (os?.handle ?? c.handle_tiktok ?? "").replace(/^@/, "") || null,
+        ruul_email: os?.ruul_email ?? sig?.ruul_email ?? null,
+        compte_os: !!c.profile_id,
         profil_suggere: {
           nom: c.prenom,
           bio: "Daily slides that make you smarter ✨",

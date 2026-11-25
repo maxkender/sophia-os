@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o421",
+ "type_bleo": "full_test",
+ "titre": "What to do when a friend always cancels on you #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « What to do when a friend always cancels on you » (retenue), « Signs your friend doesn't value you » (écartée : négatif), « Flaky friends and how to handle them » (écartée : ton moqueur). Ton calme et respectueux.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "17c26571-b8bd-405a-9383-68c63a728d54",
+   "texte_overlay": "What to do when a friend\nalways cancels on you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Don't assume the worst straight away. Work, family or mental health can make people cancel. Ask kindly if everything is okay before you judge.",
+   "media_id": "275b4a45-0425-4658-b46e-5c794db772c7"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Say how it feels, once and calmly. \"I miss seeing you, and the last few plans fell through. Is it a busy period?\" Honest words often fix more than silence.",
+   "media_id": "281241b8-0655-4a7d-8df1-b398ff8eab52"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Make plans easier to keep. Shorter meetups, closer to their home, at times that suit them. Sometimes the plan is the problem, not the friendship.",
+   "media_id": "2d8dd47c-eb26-4154-bf5c-9bf55aa16605"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stop being the only one who invites. Give them space to come back to you. Their reaction tells you a lot about where the friendship really is.",
+   "media_id": "2f5cdf21-ac21-4980-980e-8b3f48228d7e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A full, interesting life makes cancelled plans hurt much less.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A full, interesting life makes cancelled plans hurt much less.",
+   "media_id": "4ce1f118-5ece-4229-9843-b5af74ce7aa3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Invest in the friends who show up. Time and energy are limited. Give more of them to the people who make the effort too.",
+   "media_id": "3344f821-5c6d-4539-b396-c33375febd8d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Let it change without drama. Some friendships become lighter over time. You can keep the good memories without forcing anything.",
+   "media_id": "35398191-e51c-4edb-8605-53cf381d598f"
+  }
+ ]
+}

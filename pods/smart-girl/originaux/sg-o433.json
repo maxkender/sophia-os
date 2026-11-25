@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o433",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4820e6c9-931a-4d98-894f-e0dc80b519ce",
+ "titre": "small habits that make people quietly respect you #respect #habits #smartgirl #selfimprovement #elegance",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent 4820e6c9, langue source en) : accroche reformulée (« small habits that make people quietly respect you »), idées du parent (retenir les détails, lire un peu chaque jour, micro-apprentissage, questions de relance, un peu de tout, expliquer simplement). Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dadaa033",
+   "texte_overlay": "small habits that make people\nquietly respect you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "11727c22",
+   "texte_overlay": "you remember the little things\nthey told you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "771b5111",
+   "texte_overlay": "you ask the second question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "64680774",
+   "texte_overlay": "you explain things simply",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0576788d",
+   "texte_overlay": "you read a little every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "46cf1295",
+   "texte_overlay": "you know a little about\na lot of things",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9fac8752",
+   "texte_overlay": "you learn instead of scrolling",
+   "texte_sophia": "you learn on an app like Sophia\ninstead of scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "15b61897",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

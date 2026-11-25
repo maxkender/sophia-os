@@ -489,7 +489,10 @@ async function envoyer(supabase: Supabase) {
   const { data: aInviter } = await supabase.rpc("ruul_slack_a_inviter");
   if ((aInviter ?? []).length) {
     const lien = await lienSlackInvitation(supabase);
+    // 25/11 : un posteur de Join dont Join fait les rappels : Slack est une étape de la checklist de Join.
+    const join = await voixJoin(supabase);
     for (const p of (aInviter ?? []) as { poster_id: string; prenom: string | null; email: string | null; langue: string | null }[]) {
+      if (join.has(p.poster_id)) continue;
       const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", p.poster_id).maybeSingle();
       if (!p.email || !pr?.ruul_jeton) continue;
       const base = `To get the posting tips, answers and updates from the team, please join our Slack workspace with this link: ${lien} (use the same email as your dashboard).`;
@@ -596,7 +599,11 @@ async function proposerUpwork7j(supabase: Supabase, simuler: boolean) {
 async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean) {
   const { data, error } = await supabase.rpc("ruul_kyc_relances_dues", { p_jour: null, p_forcer: forcer });
   if (error) throw error;
-  return await envoyerRelancesKyc(supabase, (data ?? []) as RelanceKyc[], simuler);
+  // 25/11 : un posteur de Join dont Join fait les rappels ne reçoit ici que l'identité refusée (inscription, pièce
+  // d'identité, banque : c'est l'étape « Ruul » de la checklist de Join).
+  const join = await voixJoin(supabase);
+  const dues = ((data ?? []) as RelanceKyc[]).filter((d) => !join.has(d.poster_id) || d.manque === "identite_refusee");
+  return await envoyerRelancesKyc(supabase, dues, simuler);
 }
 
 /**
@@ -1237,6 +1244,21 @@ async function reglageTexte(supabase: Supabase, cle: string): Promise<unknown> {
   return data?.valeur ?? null;
 }
 
+/**
+ * 25/11 (Max, « une seule voix ») : les posteurs créés par Join pour qui Join fait les rappels de sa checklist
+ * (join_voix_posteurs, 0858 : vide tant que join_reel.rappels est à false). Ici, ils ne reçoivent plus les rappels
+ * de ces étapes (parcours, relance Ruul d'une cohorte, relances KYC sauf identité refusée, invitation Slack). En
+ * panne de lecture : ensemble vide (rien ne change).
+ */
+async function voixJoin(supabase: Supabase): Promise<Set<string>> {
+  const { data, error } = await supabase.rpc("join_voix_posteurs");
+  if (error) {
+    console.error("join_voix_posteurs", error.message);
+    return new Set();
+  }
+  return new Set(((data ?? []) as unknown[]).map((x) => (typeof x === "string" ? x : (x as { join_voix_posteurs?: string })?.join_voix_posteurs ?? "")).filter(Boolean));
+}
+
 async function lienSlackInvitation(supabase: Supabase): Promise<string> {
   const v = await reglageTexte(supabase, "slack_lien_invitation");
   return typeof v === "string" && v ? v : "https://join.slack.com/t/sophia-system";
@@ -1324,6 +1346,8 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   // 17/11 (API Ruul) : le statut lu chez Ruul ; READY = payable, plus de relance Ruul.
   const { data: onbs } = await supabase.from("profiles").select("id, ruul_onboarding").eq("canal_paie", "ruul").not("ruul_onboarding", "is", null);
   const onboarding = new Map(((onbs ?? []) as { id: string; ruul_onboarding: string }[]).map((x) => [x.id, x.ruul_onboarding]));
+  // 25/11 : les posteurs de Join dont Join fait les rappels (ses étapes sont sautées ici).
+  const join = await voixJoin(supabase);
   const maintenant = new Date();
   const bilan: Record<string, unknown>[] = [];
   for (const e of (data ?? []) as EtatParcours[]) {
@@ -1331,7 +1355,7 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
     e.ruul_onboarding = onboarding.get(e.poster_id) ?? null;
     const id = identite.get(e.poster_id);
     if (id) { e.identite = id.identite; e.identite_refus = id.refus; }
-    const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis, v2 });
+    const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis, v2, voixJoin: join.has(e.poster_id) });
     if (!d) continue;
     if (retire.has(e.poster_id) && ["ruul", "carte_ruul", "invite_a", "invite_b", "samedi_ruul", "identite_refusee", "identite_fin"].includes(d.type)) continue;
     // Simulation : ce qui partirait maintenant, sans rien envoyer ni écrire.
@@ -1421,6 +1445,8 @@ async function relanceRuul(supabase: Supabase, body: { cohorte?: string; confirm
   if (error) throw error;
   const { data: exclus } = await supabase.from("profiles").select("id").eq("canal_paie", "ruul").eq("ruul_ne_pas_inviter", true);
   const deCote = new Set(((exclus ?? []) as { id: string }[]).map((x) => x.id));
+  // 25/11 : un posteur de Join dont Join fait les rappels n'est pas relancé ici (Join parle pour Ruul).
+  for (const id of await voixJoin(supabase)) deCote.add(id);
   const maintenant = new Date();
   const auj = partiesParis(maintenant, PARIS).date;
   const jourDe = (at: string) => partiesParis(new Date(at), PARIS).date;

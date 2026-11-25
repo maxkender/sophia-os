@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o428",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2dde5f14-9614-4951-b0c6-23b23a084bd1",
+ "titre": "How to make a strong entrance anywhere you go #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "2dde5f14-9614-4951-b0c6-23b23a084bd1"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 3 de la boîte (2dde5f14), 3e et dernière déclinaison après ay-o395 et ay-o410. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o395, o410, o362.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9d71e60f-471b-4b2b-82ed-7743eac69321",
+   "texte_overlay": "How to make a strong entrance\nanywhere you go",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Prepare before you arrive. Know who'll be there and one or two things to talk about. Preparation turns nerves into calm.",
+   "media_id": "c0fc196d-1145-4a24-a59c-2b33713dadaf"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Breathe slowly at the door. One deep breath before walking in lowers your heart rate and relaxes your face. Then walk in.",
+   "media_id": "c100c444-039c-4a75-8d90-5ba689900f16"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Greet people with their name. \"Hi Tom, good to see you.\" Names make people feel noticed straight away. Learn them and use them.",
+   "media_id": "c107a0d3-1a74-4038-a53c-a2f7d190315f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Bring good energy, not loud energy. A warm smile and an easy laugh are more welcoming than a big show. Warm beats loud.",
+   "media_id": "c15c32c6-0bce-40bf-b924-28f6aa81c253"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Having interesting things to say makes walking in feel easy.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Having interesting things to say makes walking in feel easy.",
+   "media_id": "f0ba5cc0-4512-40e7-8e2c-d526791ab365"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Find the host and thank them. It's polite, it anchors you, and it often leads to your first introductions. Start there.",
+   "media_id": "c1700796-1d95-4f93-9977-0b22e6531453"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stay curious once you're in. Ask questions, listen, introduce people. A strong entrance is followed by real attention.",
+   "media_id": "c1886701-919a-47de-90af-2a07b0cd2413"
+  }
+ ]
+}

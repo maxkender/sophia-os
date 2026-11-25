@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o342",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "37449e51-0125-469e-a2a0-0415d32c1b4f",
+ "titre": "ex-rh : ce que devenait vraiment ta candidature (je l'avoue) #recrutement #candidature #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 25/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G2 de la ligne #5 (parent 37449e51) : même promesse, autres mots, autres aveux. Inspirations reprises de rh-o157. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ef994503",
+   "texte_overlay": "ex-rh :\nce que devenait vraiment\nta candidature (je l'avoue)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "42cfffb6",
+   "texte_overlay": "on la lisait sur un téléphone\nentre deux réunions",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b70d8a79",
+   "texte_overlay": "on cherchait 3 mots de l'annonce\nsi on ne les voyait pas, on passait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0d01e06b",
+   "texte_overlay": "les photos floues ou en soirée\non les remarquait. pas en bien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9ce613cf",
+   "texte_overlay": "les mails sans objet\non les ouvrait en dernier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "da10f285",
+   "texte_overlay": "la ligne qui nous arrêtait\n« en ce moment, j'apprends… ». on adorait. moi j'aurais aimé lire « 5 minutes par jour »",
+   "texte_sophia": "la ligne qui nous arrêtait\n« en ce moment, j'apprends… ». on adorait. moi j'aurais aimé lire « 5 minutes par jour sur l'appli Sophia »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5cf59444",
+   "texte_overlay": "maintenant tu sais.\nrelis la tienne ce soir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e3e5ab88",
+   "texte_overlay": "laquelle t'as déjà faite ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

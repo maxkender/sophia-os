@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o430",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "90a9f265-c987-408c-b338-2e0933277aa3",
+ "titre": "Ce que l'école ne t'a jamais appris sur l'argent #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "90a9f265-c987-408c-b338-2e0933277aa3"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 5 de la boîte (90a9f265, notre ay-o329), 1re déclinaison, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots. Vérités neuves, aucune reprise d'ay-o329 ni de 868887ed. Conseils généraux, aucun produit cité.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a074e4f2-0ff8-4074-ae78-d9af90f0a066",
+   "texte_overlay": "Ce que l'école ne t'a jamais\nappris sur l'argent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672848309135920417/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Un budget n'est pas une prison. C'est une carte. Savoir où va ton argent te permet de dépenser sans culpabilité pour ce qui compte.",
+   "media_id": "c2a4315b-b9fb-4ac5-a0c8-3e47d5dae98b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "L'épargne de précaution passe avant tout. Trois mois de dépenses de côté, et un imprévu devient un simple contretemps.",
+   "media_id": "c2b07934-f635-4d7d-a42e-39f507738a98"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Le crédit coûte toujours plus cher que prévu. Un téléphone ou des vacances à crédit, c'est payer deux fois. Attends d'avoir l'argent.",
+   "media_id": "c2b2f8fd-ae6a-46de-bbbc-c89dfa877bbe"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Ton entourage influence tes dépenses. Les sorties chères, les marques, les voyages. Choisis tes dépenses, ne les subis pas.",
+   "media_id": "c2db5e12-47cd-46d9-a90b-01880dd66cb2"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bonus : apprendre ne coûte presque rien. Je fais cinq minutes d'histoire, d'art ou de science par jour, et c'est mon meilleur investissement.",
+   "texte_sophia": "Bonus : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. C'est mon meilleur investissement.",
+   "media_id": "1feb7aef-2cce-4fa7-9057-0b0d6a0361e2"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Négocie plus souvent. Ton salaire, ton loyer, tes abonnements. Demander poliment peut te faire gagner beaucoup. Essaie une fois par an.",
+   "media_id": "c36ad3f2-bc00-4db9-9d55-d9697fe206c3"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "L'argent est un outil, pas un but. Il sert à acheter du temps, du calme et de la liberté. Garde ça en tête à chaque dépense.",
+   "media_id": "c384a851-4614-4252-bdb2-2c5b176ba59f"
+  }
+ ]
+}

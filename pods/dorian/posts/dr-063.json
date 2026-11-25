@@ -1,0 +1,149 @@
+{
+ "id": "dr-063",
+ "format": "liste",
+ "titre": {
+  "en": "5 history coincidences that genuinely sound fake",
+  "hu": "5 történelmi egybeesés, ami tényleg kamunak hangzik",
+  "nl": "5 toevalligheden uit de geschiedenis die nep klinken"
+ },
+ "legendes": {
+  "en": "#history #facts #smarttok #lockedin",
+  "hu": "#történelem #érdekességek #tudás #tanulás",
+  "nl": "#geschiedenis #weetjes #kennis #leren"
+ },
+ "musique": {
+  "titre": "original sound - ale",
+  "url": "https://www.tiktok.com/music/original-sound-7644418890860202765"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : Adams et Jefferson, 4/7/1826 ; Robert Lincoln sauvé par Edwin Booth (Jersey City, v. 1864) ; Twain 1835 et 21/4/1910 (périhélie de Halley le 20/4) ; Parr et Ellison au cimetière de Saint-Symphorien (Mons) ; Yamaguchi (1916-2010), seul double survivant reconnu officiellement. Images Seedream. En, hu, nl ; une couverture par langue. Sophia en item 3 sur 6 (cta C), écran quiz traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 history coincidences that genuinely sound fake",
+    "image": "images/cerveau-13.jpg",
+    "legende": "(all true)"
+   },
+   "hu": {
+    "titre": "5 történelmi egybeesés, ami tényleg kamunak hangzik",
+    "image": "images/cerveau-15.jpg",
+    "legende": "(mind igaz)"
+   },
+   "nl": {
+    "titre": "5 toevalligheden uit de geschiedenis die nep klinken",
+    "image": "images/cerveau-17.jpg",
+    "legende": "(allemaal waar)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Same day, 50 years on",
+    "texte": "john adams and thomas jefferson both died on 4 july 1826, the 50th anniversary of the declaration of independence they had both signed",
+    "image": "images/deux-lettres.jpg"
+   },
+   "hu": {
+    "titre": "Ugyanaz a nap, 50 évvel később",
+    "texte": "john adams és thomas jefferson is 1826. július 4-én halt meg, a függetlenségi nyilatkozat 50. évfordulóján, amit mindketten aláírtak",
+    "image": "images/deux-lettres.jpg"
+   },
+   "nl": {
+    "titre": "Dezelfde dag, 50 jaar later",
+    "texte": "john adams en thomas jefferson stierven allebei op 4 juli 1826, precies 50 jaar na de verklaring van onafhankelijkheid die ze allebei tekenden",
+    "image": "images/deux-lettres.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The wrong Booth",
+    "texte": "lincoln's son robert once fell between a train and a platform. the man who pulled him out was edwin booth, brother of lincoln's future assassin",
+    "image": "images/quai-gare.jpg"
+   },
+   "hu": {
+    "titre": "A rossz Booth",
+    "texte": "lincoln fia, robert egyszer a vonat és a peron közé esett. edwin booth húzta ki, lincoln későbbi gyilkosának a bátyja",
+    "image": "images/quai-gare.jpg"
+   },
+   "nl": {
+    "titre": "De verkeerde Booth",
+    "texte": "lincolns zoon robert viel ooit tussen een trein en het perron. de man die hem eruit trok was edwin booth, de broer van lincolns latere moordenaar",
+    "image": "images/quai-gare.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. history is weirder than any show",
+    "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. a történelem furcsább, mint bármelyik sorozat",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. geschiedenis is vreemder dan elke serie",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Mark Twain and the comet",
+    "texte": "he was born in 1835 as halley's comet passed, and said he expected to \"go out with it\". he died in 1910, the day after it came closest to the sun again",
+    "image": "images/comete.jpg"
+   },
+   "hu": {
+    "titre": "Mark Twain és az üstökös",
+    "texte": "1835-ben született, amikor a halley-üstökös elhaladt, és azt mondta, vele együtt akar \"távozni\". 1910-ben halt meg, egy nappal azután, hogy az üstökös újra a legközelebb ért a naphoz",
+    "image": "images/comete.jpg"
+   },
+   "nl": {
+    "titre": "Mark Twain en de komeet",
+    "texte": "hij werd geboren in 1835 toen de komeet van halley langskwam, en zei dat hij \"ermee wilde vertrekken\". hij stierf in 1910, een dag nadat de komeet weer het dichtst bij de zon kwam",
+    "image": "images/comete.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "First and last",
+    "texte": "the first and the last british soldiers killed in world war i are buried a few metres apart in the same cemetery in belgium",
+    "image": "images/tombes-militaires.jpg"
+   },
+   "hu": {
+    "titre": "Az első és az utolsó",
+    "texte": "az első és az utolsó brit katona, aki az első világháborúban elesett, néhány méterre egymástól nyugszik ugyanabban a belgiumi temetőben",
+    "image": "images/tombes-militaires.jpg"
+   },
+   "nl": {
+    "titre": "De eerste en de laatste",
+    "texte": "de eerste en de laatste britse soldaten die in de eerste wereldoorlog sneuvelden, liggen een paar meter van elkaar op dezelfde begraafplaats in belgië",
+    "image": "images/tombes-militaires.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Twice",
+    "texte": "tsutomu yamaguchi was in hiroshima on a business trip on 6 august 1945, went home to nagasaki, and survived both. he lived to 93",
+    "image": "images/riviere-japon.jpg"
+   },
+   "hu": {
+    "titre": "Kétszer",
+    "texte": "jamagucsi cutomu üzleti úton volt hirosimában 1945. augusztus 6-án, hazament nagaszakiba, és mindkettőt túlélte. 93 évet élt",
+    "image": "images/riviere-japon.jpg"
+   },
+   "nl": {
+    "titre": "Twee keer",
+    "texte": "tsutomu yamaguchi was op 6 augustus 1945 voor zijn werk in hiroshima, ging terug naar nagasaki, en overleefde beide. hij werd 93",
+    "image": "images/riviere-japon.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

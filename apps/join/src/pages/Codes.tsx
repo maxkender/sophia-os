@@ -56,17 +56,19 @@ function LigneCode({ t, canal, codeTest, fait, onVerifie }: {
 
 export default function Codes({ t, envoi, onVerifie }: { t: T; envoi: Envoi; onVerifie: () => void }) {
   const [etat, setEtat] = useState({ email_verifie: false, whatsapp_verifie: false });
-  const tout = etat.email_verifie && etat.whatsapp_verifie;
+  // 25/11 (Max) : sans code WhatsApp (le serveur le dit), le code par email suffit.
+  const avecWhatsapp = envoi.whatsapp_code !== false;
+  const tout = etat.email_verifie && (etat.whatsapp_verifie || !avecWhatsapp);
   return (
     <main className="halo page">
       <div className="wrap etroite">
         <div className="section__head">
           <span className="label">{t("codes.label")}</span>
-          <h1 className="h2">{t("codes.title")}</h1>
-          <p className="lede">{t("codes.sub", { email: envoi.email, whatsapp: envoi.whatsapp })}</p>
+          <h1 className="h2">{t(avecWhatsapp ? "codes.title" : "codes.titleEmail")}</h1>
+          <p className="lede">{t(avecWhatsapp ? "codes.sub" : "codes.subEmail", { email: envoi.email, whatsapp: envoi.whatsapp })}</p>
         </div>
         <LigneCode t={t} canal="email" codeTest={envoi.codes_test?.email} fait={etat.email_verifie} onVerifie={setEtat} />
-        <LigneCode t={t} canal="whatsapp" codeTest={envoi.codes_test?.whatsapp} fait={etat.whatsapp_verifie} onVerifie={setEtat} />
+        {avecWhatsapp && <LigneCode t={t} canal="whatsapp" codeTest={envoi.codes_test?.whatsapp} fait={etat.whatsapp_verifie} onVerifie={setEtat} />}
         <div style={{ marginTop: 20 }}>
           <button type="button" className="btn btn--plein" disabled={!tout} onClick={onVerifie}>{t("codes.continue")}</button>
         </div>

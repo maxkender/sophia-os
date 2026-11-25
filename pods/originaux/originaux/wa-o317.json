@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o317",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6443cfee-01e3-4e10-ba7d-41de2e7ef5f5",
+ "titre": "subtle signs your mind is sharper than you realise #intelligence #psychology #signs #mindset #selfimprovement",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "f2859d4a-2767-473f-be8d-7dbbd477b759"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f2859d4a). déclinaison G2 de « quiet signs you re smarter than you think » (parent 6443cfee). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6df71ba5-96d4-4700-9a73-4984f72c6c1a",
+   "texte_overlay": "subtle signs your mind is\nsharper than you realise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b2e73006-1494-4543-96c2-79e333e7b1fb",
+   "texte_overlay": "you enjoy your own thoughts\n\nyou can spend hours alone without getting bored. a mind that keeps itself company usually has plenty of interesting things going on inside it all the time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fb21af4e-bbf0-42c7-b5bd-f0237c06cf5e",
+   "texte_overlay": "you change your mind\n\nwhen someone shows you good evidence, you update your view without a fight. being able to say i was wrong is one of the clearest signs of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6dae60c4-1b43-4551-a283-b43bb33978ad",
+   "texte_overlay": "you keep seeking new ideas\n\nyour mind always wants something new to learn, and you feed it on purpose. it's a small change with a surprisingly big effect. try it for one week and notice the difference.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/4.jpg",
+   "texte_sophia": "you keep seeking new ideas\n\nmy mind always wants something new. i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and even that small dose keeps a curious mind happy."
+  },
+  {
+   "position": 5,
+   "media_id": "58e2fb72-5815-4752-95d5-b55d80b76b77",
+   "texte_overlay": "you ask a lot of questions\n\nyou can't hear about something new without wondering how it works. constant questions are the quiet habit behind almost every brilliant mind. it honestly works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6f570310-929e-47a8-a434-8e10ce8e8665",
+   "texte_overlay": "you connect unrelated things\n\nyou link things that seem to have nothing in common: a song and a memory, a habit and a mood. spotting connections is a powerful kind of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/6.jpg"
+  }
+ ]
+}

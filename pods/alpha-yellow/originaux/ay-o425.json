@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o425",
+ "type_bleo": "full_test",
+ "titre": "How to learn any skill faster than most people #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to learn any skill faster than most people » (retenue), « Learning hacks that work » (écartée : vu partout), « Master any skill in 20 hours » (écartée : promesse irréaliste).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6aaf2756-55d9-4feb-b86a-0b4e63acdff7",
+   "texte_overlay": "How to learn any skill\nfaster than most people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Break the skill into small parts. Guitar is chords, rhythm and songs. Practising one piece at a time makes progress much faster.",
+   "media_id": "9d62070a-6f7c-4c0d-b29e-5a8620671897"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Practise a little every day. Twenty minutes daily beats three hours once a week. Your brain learns best through regular repetition.",
+   "media_id": "9ee94e6e-4d0c-4c5e-86a0-895cf343980f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Get feedback early. A teacher, a friend, a video of yourself. Fixing mistakes early stops bad habits from setting in.",
+   "media_id": "a148b3c8-7414-4d79-acb7-13b638751c68"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learn from the best. Watch people who are great at it and copy how they do it. Imitation is how every expert started.",
+   "media_id": "a1b3a161-8b01-46a4-bd8f-c1aa2e42c4dd"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Build the habit of learning itself. I do five minutes a day of history, art or science, and it trained my brain to pick up new things faster.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It trained my brain to pick up new things faster.",
+   "media_id": "c6233dc5-3e05-46a3-859f-a117d81a610a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Teach what you learn. Explaining a skill to someone else shows you what you really understand. Teach one friend this week and see how much clearer it becomes.",
+   "media_id": "a1fed335-8b80-4014-9a7a-0fbc2ba25bfe"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Accept being bad at first. Every beginner is clumsy. The men who learn fastest are the ones who don't mind looking silly.",
+   "media_id": "a7e00e60-3a01-4f31-84d1-973f54a9e5e6"
+  }
+ ]
+}

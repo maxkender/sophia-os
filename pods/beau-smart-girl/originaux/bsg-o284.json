@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o284",
+  "type_bleo": "full_test",
+  "titre": "les phrases que je me répète quand je doute de moi #confiance #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "Accroche réécrite après refus du guichet (theme_gagnant). full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "69356174",
+      "texte_overlay": "les phrases que je me répète\nquand je doute de moi",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "552d807b",
+      "texte_overlay": "1. personne ne te regarde autant que tu crois\n\ntout le monde pense à soi.\nc'est libérant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "8fe00607",
+      "texte_overlay": "2. « lire, ce n'est jamais du temps perdu »\n\nça ne coûte presque rien\net ça rapporte toute la vie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d4d61094",
+      "texte_overlay": "3. les amitiés changent\n\nce n'est pas grave.\ncertaines restent, d'autres arrivent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "35c65f22",
+      "texte_overlay": "4. on n'a pas besoin de tout savoir de son avenir\n\non a juste besoin du prochain pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "dbbf4242",
+      "texte_overlay": "5. la curiosité se travaille\n\navant, je pensais qu'on naissait cultivé ou pas.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'apprends un peu plus chaque jour.",
+      "texte_sophia": "5. la curiosité se travaille\n\navant, je pensais qu'on naissait cultivé ou pas.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'apprends un peu plus chaque jour.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e6aceeda",
+      "texte_overlay": "tu te répètes laquelle, toi ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

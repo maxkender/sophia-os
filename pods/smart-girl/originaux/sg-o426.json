@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o426",
+ "type_bleo": "full_test",
+ "titre": "the most beautiful palaces in europe #palace #travel #europe #smartgirl #history",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/9 (la jauge en demande 9 sur 28) : accroche jamais faite chez nous (« palace » absent des accroches de donnees/label.json). Accroches écrites : « the most beautiful palaces in europe » (retenue : rêve + histoire), « royal residences » (écartée : plate), « places to visit in europe » (écartée : banale). Faits vérifiés : Versailles (galerie des Glaces, 357 miroirs), Schönbrunn (1 441 pièces), Peterhof (le « Versailles russe » et ses fontaines), l'Alhambra (palais nasrides), Pena à Sintra (palais coloré), Topkapı (sultans ottomans). Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9da81664",
+   "texte_overlay": "the most beautiful palaces\nin europe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b0705280",
+   "texte_overlay": "versailles, france\n\nthe hall of mirrors:\n357 mirrors.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "89cfaee4",
+   "texte_overlay": "schönbrunn, vienna\n\nthe habsburgs' summer palace,\n1,441 rooms.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e4f18724",
+   "texte_overlay": "peterhof, russia\n\nthe \"russian versailles\"\nand its golden fountains.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "640e8ed3",
+   "texte_overlay": "the alhambra, granada\n\ncarved ceilings and\nmoorish courtyards.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "02213e75",
+   "texte_overlay": "pena palace, sintra\n\nyellow and red on a hilltop.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7dd791ab",
+   "texte_overlay": "topkapı, istanbul\n\nhome of the ottoman sultans.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3855e5d9",
+   "texte_overlay": "one palace a day, learned instead\nof scrolled past.",
+   "texte_sophia": "one palace a day, learned on an app like\nSophia instead of scrolled past.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

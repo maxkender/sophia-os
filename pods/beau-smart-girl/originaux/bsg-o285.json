@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o285",
+  "type_bleo": "full_test",
+  "titre": "comment je me fais une culture en astronomie sans télescope #astronomie #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Venus : un jour vénusien dure plus longtemps que son année. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "cc76d8b9",
+      "texte_overlay": "comment je me fais une culture\nen astronomie sans télescope",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a55d628e",
+      "texte_overlay": "1. je regarde la lune chaque soir\n\nses phases, sa couleur, son heure.\nun calendrier dans le ciel.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "46fc55b9",
+      "texte_overlay": "2. j'apprends une constellation par mois\n\norion, la grande ourse, cassiopée.\nle ciel devient familier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d1c2303e",
+      "texte_overlay": "3. je retiens un fait par planète\n\nce matin, j'ai appris que sur vénus, un jour dure plus longtemps qu'une année.\nj'ai regardé le ciel autrement.",
+      "texte_sophia": "3. je retiens un fait par planète\n\nce matin, l'appli Sophia m'a appris que sur vénus, un jour dure plus longtemps qu'une année.\nj'ai regardé le ciel autrement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d8224fc9",
+      "texte_overlay": "4. je sors loin des lumières\n\nune nuit à la campagne,\net la voie lactée apparaît.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "6127d18d",
+      "texte_overlay": "5. je lis les mythes des étoiles\n\nchaque constellation a son histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4f8e0ca1",
+      "texte_overlay": "tu sais reconnaître une constellation ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

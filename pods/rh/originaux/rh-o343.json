@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o343",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "471883d8-3a85-418a-b5d6-2e8161121f13",
+ "titre": "les petits mensonges d'entretien qui te grillent à coup sûr (et la version vraie qui passe), partie 2 #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 25/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G1 de la ligne #13 (parent 471883d8) : accroche du parent mot pour mot, autres exemples. Toujours la version vraie. Inspirations reprises de rh-o078. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e0fc3c91",
+   "texte_overlay": "les petits mensonges d'entretien\nqui te grillent à coup sûr\n(et la version vraie qui passe)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2490c329",
+   "texte_overlay": "« je n'ai jamais eu de conflit »\nils ne te croient pas.\nla version vraie : un désaccord, et comment tu l'as réglé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f75b45f1",
+   "texte_overlay": "« je suis passionnée par la compta »\nils te demandent pourquoi.\nla version vraie : ce qui te plaît vraiment dans le poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f5d40fad",
+   "texte_overlay": "« je suis toujours à jour sur l'actu »\nils te demandent la dernière.\nla version vraie : « je lis 5 minutes chaque matin, en ce moment c'est X »",
+   "texte_sophia": "« je suis toujours à jour sur l'actu »\nils te demandent la dernière.\nla version vraie : « je lis 5 minutes chaque matin ». utilise l'appli Sophia, et c'est vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b74c6b55",
+   "texte_overlay": "« j'ai quitté mon job pour évoluer »\nalors que t'as été licenciée.\nla version vraie : les faits, en une phrase, sans drame",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "15aad0d1",
+   "texte_overlay": "« je n'ai pas de défaut »\nla version vraie : un vrai, et ce que tu fais pour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fde55a1c",
+   "texte_overlay": "lequel t'as déjà dit ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

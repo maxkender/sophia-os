@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o437",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4e2929f0-ead0-4741-b441-0641760fe64f",
+ "titre": "how to undo brain rot in 30 days #brainrot #digitaldetox #smartgirl #focus #habits",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 5 de la boîte (parent 4e2929f0, langue source pt-BR) : accroche reformulée (« how to undo brain rot in 30 days »), conseils du parent (supprimer une appli une semaine, une heure sans écran par jour, un chapitre entier sans pause, faire quelque chose de ses mains, une longue conversation, remplacer le fil par un vrai apprentissage). Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e24650e1",
+   "texte_overlay": "how to undo brain rot\nin 30 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7514c8be",
+   "texte_overlay": "delete one app for a week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "da3a75ef",
+   "texte_overlay": "one screen-free hour a day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ddf82fe0",
+   "texte_overlay": "read a whole chapter\nwithout stopping",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d4c518f8",
+   "texte_overlay": "do something with your hands\n\ncook, knit, draw.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "47cbbc67",
+   "texte_overlay": "have one long conversation\nthis week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c5c3c040",
+   "texte_overlay": "swap the feed for real learning",
+   "texte_sophia": "swap the feed for real learning: i use a\nmicro-learning app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "73e6b03f",
+   "texte_overlay": "try it for 30 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

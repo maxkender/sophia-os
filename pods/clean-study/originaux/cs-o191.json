@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o191",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0804923e-e66b-4a71-88f1-a43b4e5163e0",
+  "titre": "how to survive having no friends at school (no bs, personal advice) #studytok #school #highschool",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "0804923e-e66b-4a71-88f1-a43b4e5163e0"
+  ],
+  "notes": "Déclinaison G1 de 0804923e, ligne 8 de la boîte, 3e et dernière déclinaison de la famille. Accroche du parent mot pour mot avec « 𐐪 𐑂 ». Ton bienveillant, rien de médical. Conseils neufs, aucun du parent, de cs-o162 ni de cs-o181 : manger avec un livre, faire du sport ou de la musique, être gentille avec les profs et le personnel, apprendre des choses passionnantes à partager (slide Sophia, 4), se rappeler que le lycée finit, parler à un adulte de confiance. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8455e491",
+      "texte_overlay": "𐐪 𐑂 how to survive having no friends\nat school\n(no bs, personal advice) 𐐪 𐑂",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "68645bff",
+      "texte_overlay": "1) lunch with a good book is not sad\nit's peaceful. and people ask what you're reading.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d746ec2f",
+      "texte_overlay": "2) sport, music, drama\nteams make friends without you having to try.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3832fd20",
+      "texte_overlay": "3) be the one with interesting stories\na fact about space, a weird bit of history. people come back for more.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg",
+      "texte_sophia": "3) be the one with interesting stories\ni learn mine on a micro-learning app like the Sophia app.\npeople come back for more."
+    },
+    {
+      "position": 5,
+      "media_id": "f6af9fd1",
+      "texte_overlay": "4) be kind to everyone, adults included\nteachers and staff can be great company.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2f537932",
+      "texte_overlay": "5) remember: school ends\nthe people you'll meet later are already out there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5e5110db",
+      "texte_overlay": "and if it feels heavy, talk to an adult you trust.\nyou don't have to carry it alone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

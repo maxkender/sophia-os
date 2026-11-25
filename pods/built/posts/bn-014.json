@@ -1,0 +1,343 @@
+{
+ "id": "bn-014",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7706497431722151175",
+  "vues": 101400,
+  "publie_le": "2026-11-10",
+  "accroche": "How To Become Extremely Attractive."
+ },
+ "titre": {
+  "en": "5 things that make a man look expensive",
+  "de": "5 dinge, die einen mann teuer aussehen lassen",
+  "es-419": "5 cosas que hacen ver caro a un hombre",
+  "it": "5 cose che fanno sembrare costoso un uomo",
+  "pl": "5 rzeczy, przez które facet wygląda drogo",
+  "tr": "bir erkeği pahalı gösteren 5 şey",
+  "hu": "5 dolog, amitől egy férfi drágának tűnik",
+  "el": "5 πράγματα που κάνουν έναν άντρα να δείχνει ακριβός",
+  "ro": "5 lucruri care fac un bărbat să pară scump",
+  "sr": "5 stvari zbog kojih muškarac izgleda skupo"
+ },
+ "legendes": {
+  "en": "it's in the details #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "de": "es liegt an den details #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "es-419": "está en los detalles #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "it": "è tutto nei dettagli #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "pl": "chodzi o szczegóły #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "tr": "her şey detaylarda #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "hu": "a részleteken múlik #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "el": "όλα είναι στις λεπτομέρειες #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "ro": "totul e în detalii #selfimprovement #mensstyle #tipsformen #running #attractive",
+  "sr": "sve je u detaljima #selfimprovement #mensstyle #tipsformen #running #attractive"
+ },
+ "musique": {
+  "titre": "Originalton",
+  "url": "https://www.tiktok.com/music/originalton-7204936507338001158"
+ },
+ "notes": "Full test (boîte vide). Famille « How To Become Extremely Attractive. » de @built.not.born61 (101.4 k vues, 2026-11-10), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : dfb645a3, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix NEUTRE (hook de 8 mots), argument « progresser : la semaine complète, footings faciles et séances plus dures ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-pluie.png": "dfb645a3-052b-4998-8a88-b67092f1b321"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-14.png",
+   "en": {
+    "titre": "5 THINGS THAT MAKE\nA MAN LOOK\nEXPENSIVE."
+   },
+   "de": {
+    "titre": "5 DINGE, DIE EINEN\nMANN TEUER\nAUSSEHEN LASSEN."
+   },
+   "es-419": {
+    "titre": "5 COSAS QUE HACEN\nVER CARO\nA UN HOMBRE."
+   },
+   "it": {
+    "titre": "5 COSE CHE FANNO\nSEMBRARE COSTOSO\nUN UOMO."
+   },
+   "pl": {
+    "titre": "5 RZECZY,\nPRZEZ KTÓRE FACET\nWYGLĄDA DROGO."
+   },
+   "tr": {
+    "titre": "BİR ERKEĞİ\nPAHALI GÖSTEREN\n5 ŞEY."
+   },
+   "hu": {
+    "titre": "5 DOLOG,\nAMITŐL EGY FÉRFI\nDRÁGÁNAK TŰNIK."
+   },
+   "el": {
+    "titre": "5 ΠΡΑΓΜΑΤΑ ΠΟΥ\nΚΑΝΟΥΝ ΕΝΑΝ ΑΝΤΡΑ\nΝΑ ΔΕΙΧΝΕΙ ΑΚΡΙΒΟΣ."
+   },
+   "ro": {
+    "titre": "5 LUCRURI\nCARE FAC UN BĂRBAT\nSĂ PARĂ SCUMP."
+   },
+   "sr": {
+    "titre": "5 STVARI\nZBOG KOJIH MUŠKARAC\nIZGLEDA SKUPO."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/baskets.png",
+   "mode": "objet",
+   "taille": 520,
+   "en": {
+    "titre": "1. Clean white sneakers",
+    "texte": "One pair, always spotless. Dirty shoes ruin a good outfit faster than anything."
+   },
+   "de": {
+    "titre": "1. Saubere weiße Sneaker",
+    "texte": "Ein Paar, immer makellos. Dreckige Schuhe ruinieren ein gutes Outfit schneller als alles andere."
+   },
+   "es-419": {
+    "titre": "1. Tenis blancos limpios",
+    "texte": "Un par, siempre impecable. Los zapatos sucios arruinan un buen outfit más rápido que nada."
+   },
+   "it": {
+    "titre": "1. Sneakers bianche pulite",
+    "texte": "Un paio, sempre perfetto. Le scarpe sporche rovinano un bel look più di ogni altra cosa."
+   },
+   "pl": {
+    "titre": "1. Czyste białe sneakersy",
+    "texte": "Jedna para, zawsze nieskazitelna. Brudne buty psują dobry outfit szybciej niż cokolwiek."
+   },
+   "tr": {
+    "titre": "1. Temiz beyaz spor ayakkabı",
+    "texte": "Bir çift, her zaman tertemiz. Kirli ayakkabı iyi bir kombini her şeyden hızlı bozar."
+   },
+   "hu": {
+    "titre": "1. Tiszta fehér sneaker",
+    "texte": "Egy pár, mindig hibátlanul. A koszos cipő mindennél gyorsabban tönkreteszi a szettet."
+   },
+   "el": {
+    "titre": "1. Καθαρά λευκά sneakers",
+    "texte": "Ένα ζευγάρι, πάντα πεντακάθαρο. Τα βρόμικα παπούτσια χαλάνε ένα καλό ντύσιμο πιο γρήγορα από όλα."
+   },
+   "ro": {
+    "titre": "1. Sneakersi albi curați",
+    "texte": "O pereche, mereu impecabilă. Pantofii murdari strică o ținută bună mai repede ca orice."
+   },
+   "sr": {
+    "titre": "1. Čiste bele patike",
+    "texte": "Jedan par, uvek besprekoran. Prljave cipele upropaste dobru kombinaciju brže od svega."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/ceinture.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "2. Match your leather",
+    "texte": "Belt and shoes in the same color. A small detail that looks put together."
+   },
+   "de": {
+    "titre": "2. Leder passend kombinieren",
+    "texte": "Gürtel und Schuhe in der gleichen Farbe. Ein kleines Detail, das stimmig wirkt."
+   },
+   "es-419": {
+    "titre": "2. Combina el cuero",
+    "texte": "Cinturón y zapatos del mismo color. Un detalle pequeño que se ve cuidado."
+   },
+   "it": {
+    "titre": "2. Abbina la pelle",
+    "texte": "Cintura e scarpe dello stesso colore. Un piccolo dettaglio che sembra curato."
+   },
+   "pl": {
+    "titre": "2. Dopasuj skórę",
+    "texte": "Pasek i buty w tym samym kolorze. Mały detal, który wygląda na przemyślany."
+   },
+   "tr": {
+    "titre": "2. Deriyi eşleştir",
+    "texte": "Kemer ve ayakkabı aynı renk. Derli toplu duran küçük bir detay."
+   },
+   "hu": {
+    "titre": "2. Passzoljon a bőr",
+    "texte": "Öv és cipő ugyanabban a színben. Apró részlet, ami összeszedettnek tűnik."
+   },
+   "el": {
+    "titre": "2. Ταίριαξε το δέρμα",
+    "texte": "Ζώνη και παπούτσια στο ίδιο χρώμα. Μια μικρή λεπτομέρεια που δείχνει προσεγμένη."
+   },
+   "ro": {
+    "titre": "2. Asortează pielea",
+    "texte": "Curea și pantofi în aceeași culoare. Un detaliu mic care arată îngrijit."
+   },
+   "sr": {
+    "titre": "2. Uskladi kožu",
+    "texte": "Kaiš i cipele iste boje. Mali detalj koji izgleda sređeno."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-pluie.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Get fit by running",
+    "texte": "Fit men look good in anything. Running coach apps like Atala plan your whole week, easy runs and harder days."
+   },
+   "de": {
+    "titre": "3. Werd fit durchs Laufen",
+    "texte": "Fitte Männer sehen in allem gut aus. Lauf-Apps mit Coach wie Atala planen deine ganze Woche, lockere Läufe und härtere Tage."
+   },
+   "es-419": {
+    "titre": "3. Ponte en forma corriendo",
+    "texte": "Un hombre en forma se ve bien con todo. Las apps de running con entrenador como Atala planean toda tu semana, trotes suaves y días más duros."
+   },
+   "it": {
+    "titre": "3. Rimettiti in forma correndo",
+    "texte": "Un uomo in forma sta bene con tutto. Le app con coach per la corsa come Atala pianificano tutta la tua settimana, corse leggere e giorni più duri."
+   },
+   "pl": {
+    "titre": "3. Złap formę biegając",
+    "texte": "Wysportowany facet wygląda dobrze we wszystkim. Aplikacje z trenerem biegania, takie jak Atala, planują cały twój tydzień, luźne biegi i mocniejsze dni."
+   },
+   "tr": {
+    "titre": "3. Koşarak forma gir",
+    "texte": "Fit erkekler her şeyle iyi görünür. Atala gibi koşu koçu uygulamaları bütün haftanı planlar, hafif koşular ve zor günler."
+   },
+   "hu": {
+    "titre": "3. Legyél fitt futással",
+    "texte": "A fitt férfiakon minden jól áll. Az olyan futóedzős appok, mint az Atala, megtervezik az egész heted, könnyű futásokkal és keményebb napokkal."
+   },
+   "el": {
+    "titre": "3. Γίνε fit με τρέξιμο",
+    "texte": "Οι fit άντρες δείχνουν καλά με όλα. Οι εφαρμογές προπονητή τρεξίματος όπως το Atala σχεδιάζουν όλη σου τη βδομάδα, χαλαρά τρεξίματα και πιο δύσκολες μέρες."
+   },
+   "ro": {
+    "titre": "3. Pune-te în formă alergând",
+    "texte": "Bărbații în formă arată bine în orice. Aplicațiile cu antrenor de alergare, ca Atala, îți planifică toată săptămâna, alergări ușoare și zile mai grele."
+   },
+   "sr": {
+    "titre": "3. Uđi u formu trčanjem",
+    "texte": "Muškarcima u formi sve stoji. Aplikacije sa trenerom za trčanje, kao što je Atala, planiraju ti celu nedelju, laka trčanja i teže dane."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/fer.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "4. Iron your shirts",
+    "texte": "A wrinkled shirt looks cheap, even if it isn't. Five minutes with an iron fixes it."
+   },
+   "de": {
+    "titre": "4. Bügel deine Hemden",
+    "texte": "Ein zerknittertes Hemd wirkt billig, auch wenn es das nicht ist. Fünf Minuten Bügeln reichen."
+   },
+   "es-419": {
+    "titre": "4. Plancha tus camisas",
+    "texte": "Una camisa arrugada se ve barata, aunque no lo sea. Cinco minutos con la plancha lo arreglan."
+   },
+   "it": {
+    "titre": "4. Stira le camicie",
+    "texte": "Una camicia stropicciata sembra economica, anche se non lo è. Cinque minuti di ferro e passa."
+   },
+   "pl": {
+    "titre": "4. Prasuj koszule",
+    "texte": "Pognieciona koszula wygląda tanio, nawet jeśli nie jest. Pięć minut z żelazkiem wystarczy."
+   },
+   "tr": {
+    "titre": "4. Gömleklerini ütüle",
+    "texte": "Kırışık gömlek ucuz görünür, öyle olmasa bile. Beş dakika ütü yeter."
+   },
+   "hu": {
+    "titre": "4. Vasald ki az ingeidet",
+    "texte": "A gyűrött ing olcsónak tűnik, akkor is, ha nem az. Öt perc vasalás megoldja."
+   },
+   "el": {
+    "titre": "4. Σιδέρωνε τα πουκάμισα",
+    "texte": "Ένα τσαλακωμένο πουκάμισο δείχνει φτηνό, ακόμα κι αν δεν είναι. Πέντε λεπτά σίδερο το φτιάχνουν."
+   },
+   "ro": {
+    "titre": "4. Calcă-ți cămășile",
+    "texte": "O cămașă șifonată pare ieftină, chiar dacă nu e. Cinci minute cu fierul o rezolvă."
+   },
+   "sr": {
+    "titre": "4. Peglaj košulje",
+    "texte": "Izgužvana košulja izgleda jeftino, čak i kad nije. Pet minuta peglanja je dovoljno."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/micro.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "5. Speak less, mean more",
+    "texte": "Short answers, no rushing. A calm voice sounds confident."
+   },
+   "de": {
+    "titre": "5. Sag weniger, mein es",
+    "texte": "Kurze Antworten, keine Hektik. Eine ruhige Stimme klingt selbstbewusst."
+   },
+   "es-419": {
+    "titre": "5. Habla menos, di más",
+    "texte": "Respuestas cortas, sin prisa. Una voz tranquila suena segura."
+   },
+   "it": {
+    "titre": "5. Parla meno, dì di più",
+    "texte": "Risposte brevi, nessuna fretta. Una voce calma suona sicura."
+   },
+   "pl": {
+    "titre": "5. Mów mniej, a konkretnie",
+    "texte": "Krótkie odpowiedzi, bez pośpiechu. Spokojny głos brzmi pewnie."
+   },
+   "tr": {
+    "titre": "5. Az konuş, öz konuş",
+    "texte": "Kısa cevaplar, acele yok. Sakin bir ses özgüvenli duyulur."
+   },
+   "hu": {
+    "titre": "5. Beszélj kevesebbet",
+    "texte": "Rövid válaszok, kapkodás nélkül. A nyugodt hang magabiztosnak hangzik."
+   },
+   "el": {
+    "titre": "5. Μίλα λιγότερο",
+    "texte": "Σύντομες απαντήσεις, χωρίς βιασύνη. Μια ήρεμη φωνή ακούγεται σίγουρη."
+   },
+   "ro": {
+    "titre": "5. Vorbește mai puțin",
+    "texte": "Răspunsuri scurte, fără grabă. O voce calmă sună sigur."
+   },
+   "sr": {
+    "titre": "5. Pričaj manje",
+    "texte": "Kratki odgovori, bez žurbe. Miran glas zvuči sigurno."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

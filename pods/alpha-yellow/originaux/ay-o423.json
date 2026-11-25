@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o423",
+ "type_bleo": "full_test",
+ "titre": "How to stop putting off the things that matter #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « How to stop putting off the things that matter » (retenue), « Procrastination cure for men » (écartée : promesse forte), « Why you keep procrastinating » (écartée : sans solution).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "40967f7f-e39f-4575-8e32-834fda28013c",
+   "texte_overlay": "How to stop putting off\nthe things that matter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Make the first step tiny. Not \"write the report\" but \"open the document and write one sentence.\" Starting is the hardest part.",
+   "media_id": "57dafc5d-e03a-4580-bfdd-0df2ebf2cdab"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Work for just ten minutes. Set a timer and promise yourself you can stop after. Most of the time, you'll keep going.",
+   "media_id": "5dcd3a71-8bcf-4d66-94f7-82c1bc414fe1"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Do the hardest thing first. Before email, before social media, before anything easy. The rest of the day feels lighter.",
+   "media_id": "63aba98d-e385-446c-b74c-895ef8b927c4"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Remove the distraction physically. Phone in another room, website blocked, desk cleared. Willpower is weaker than a good setup.",
+   "media_id": "65b08ab8-6a9b-478c-b76e-bd74527780b3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A small daily habit proves you can follow through on bigger ones.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A small daily habit proves you can follow through on bigger ones.",
+   "media_id": "7860f227-3cba-4f82-abf0-9ebf172a41ad"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Tell someone your deadline. A friend, a colleague, a partner. Being accountable to someone else makes it much harder to delay.",
+   "media_id": "6c279850-315e-4279-8dc5-c85630d72b7f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Forgive yourself for yesterday. Guilt about past delays only creates more delay. Start fresh with the next small step.",
+   "media_id": "70674c41-e259-40da-b66e-d98ceb6c2f84"
+  }
+ ]
+}

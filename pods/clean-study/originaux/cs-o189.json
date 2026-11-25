@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o189",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "85aa39af-c14b-45e7-ab55-0b3198829ff6",
+  "titre": "habits of the BEST student in class (the ones nobody sees) #studytok #studytips #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "85aa39af-c14b-45e7-ab55-0b3198829ff6"
+  ],
+  "notes": "Déclinaison G1 de 85aa39af (notre cs-o018), ligne 2 de la boîte. Accroche du parent mot pour mot. Habitudes neuves, aucune de cs-o018 (questions en marge, grille de notation, première moitié de la salle, test du soir, « qu'est-ce qui ferait un A », téléphone) : préparer le lendemain la veille, relire ses copies corrigées, demander des sujets d'entraînement, apprendre en dehors du programme (slide Sophia, 5), dormir à heure fixe, ne jamais se comparer aux autres. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c14308b8",
+      "texte_overlay": "habits of the BEST student in class\n(the ones nobody sees)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e16249c0",
+      "texte_overlay": "she prepares tomorrow tonight.\nbag, timetable, the first task.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "fdf96c27",
+      "texte_overlay": "she rereads her corrected tests.\nthe red pen is her free lesson.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "23dc1820",
+      "texte_overlay": "she asks for extra practice questions.\nteachers always have some.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "9bc7d814",
+      "texte_overlay": "she learns things that aren't on the program.\njust because they're interesting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg",
+      "texte_sophia": "she learns things that aren't on the program\non a micro-learning app like the Sophia app.\njust because they're interesting."
+    },
+    {
+      "position": 6,
+      "media_id": "84abfd04",
+      "texte_overlay": "same bedtime every school night.\nher memory works while she sleeps.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "31e154ab",
+      "texte_overlay": "she never compares her grades to anyone's.\nonly to her last one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

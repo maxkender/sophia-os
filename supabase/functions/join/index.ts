@@ -28,7 +28,7 @@
  * join_auto_acceptation, OFF par défaut, journalisé). OFF : une candidature qui remplit les conditions attend
  * l'admin. ON : elle est acceptée seule. v4 : l'interrupteur ne décide QUE de l'acceptation ; tout candidat accepté
  * (admin ou automatique) est relié à l'OS juste après sa signature (relierOS), en live seulement : en test, la
- * création reste SIMULÉE. Contrat join-v4. Bienvenue après signature : lien « Set my password ».
+ * création reste SIMULÉE. Contrat join-v5 (25/11 : 1re ligne du résumé alignée sur le site). Bienvenue après signature : lien « Set my password ».
  *
  * 0858 (25/11, Max : « ne passe pas encore sur ce système, mais bientôt ») :
  *  - réglage `join_reel` : un drapeau par étape d'après la signature (compte_os, acces, ruul, rappels, whatsapp), tous

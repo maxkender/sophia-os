@@ -826,9 +826,17 @@ export function lundiLisible(jour: string): string {
 // ---------------------------------------------------------------------------------------------------------------
 // Contrat. join-v3 : join-v2 + l'identité complète de la société en tête (23/11). join-v4 (23/11, Max) : join-v3 +
 // deux phrases, rien d'autre (vérifié par join_test.ts) : frais Ruul payés par la société, pas d'exclusivité.
+// join-v5 (25/11, Max) : join-v4 + la 1re ligne du résumé alignée sur le site (le posteur CRÉE le compte TikTok avec
+// le pseudo, la photo et la bio qu'on lui donne), rien d'autre (vérifié par join_test.ts).
 // ---------------------------------------------------------------------------------------------------------------
 
-export const CONTRAT_VERSION = "join-v4";
+export const CONTRAT_VERSION = "join-v5";
+
+/** join-v5 : la 1re ligne du résumé, avant (join-v4) et après. */
+export const CONTRAT_RESUME_V5 = {
+  avant: "You post 2 ready-made slideshows a day on a TikTok account we give you.",
+  apres: "You post 2 ready-made slideshows a day on a new TikTok account that you create with the username, photo and bio we give you.",
+} as const;
 
 /** Les deux phrases ajoutées en join-v4 (clause 4 « Payment », clause 2 « Independent status »). */
 export const CONTRAT_AJOUTS_V4 = { frais_ruul: "Ruul fees are paid by the Company.", exclusivite: "This agreement is not exclusive." } as const;
@@ -840,7 +848,7 @@ SIREN ${SOCIETE.siren} · SIRET ${SOCIETE.siret} · ${SOCIETE.rcs} · VAT ${SOCI
 President: ${SOCIETE.president} · Contact: ${SOCIETE.contact}`;
 
 export const CONTRAT_RESUME = [
-  "You post 2 ready-made slideshows a day on a TikTok account we give you.",
+  CONTRAT_RESUME_V5.apres,
   "You are an independent freelancer, not an employee.",
   "You pay your own taxes and social contributions.",
   "You are paid every Monday through Ruul for the week before. Our obligation ends when we pay Ruul; any problem with Ruul goes to Ruul support.",

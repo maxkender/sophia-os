@@ -7,6 +7,7 @@ import {
   langueEmailJoin,
   type CandidatureJoin,
   CONTRAT_AJOUTS_V4,
+  CONTRAT_RESUME_V5,
   CONTRAT_RESUME,
   CONTRAT_TEXTE,
   cohorteASignature,
@@ -201,19 +202,25 @@ Deno.test("premier post : lundi suivant, +7 si warm-up pas fini avant dimanche 2
   assertEquals(lundiLisible("2026-11-30"), "Monday 30 November");
 });
 
-Deno.test("contrat v4 = v3 + frais Ruul + non-exclusivité, le reste identique", async () => {
-  assert(CONTRAT_TEXTE.includes("join-v4"));
+Deno.test("contrat v5 = v4 + 1re ligne du résumé (compte TikTok créé par le posteur), le reste identique", async () => {
+  assert(CONTRAT_TEXTE.includes("join-v5"));
   assert(CONTRAT_TEXTE.includes("given at signature. Ruul fees are paid by the Company. The Company's payment obligation"));
   assert(CONTRAT_TEXTE.includes("uses their own devices. This agreement is not exclusive.\n"));
-  // Les deux phrases retirées et la version remise : exactement le texte join-v3 (empreinte du texte v3 publié).
-  const v3 = CONTRAT_TEXTE.replace(` ${CONTRAT_AJOUTS_V4.frais_ruul}`, "").replace(` ${CONTRAT_AJOUTS_V4.exclusivite}`, "")
+  assertEquals(CONTRAT_RESUME[0], CONTRAT_RESUME_V5.apres);
+  // join-v4 reconstitué (version remise, ancienne 1re ligne) : exactement les empreintes publiées de join-v4.
+  const v4Texte = CONTRAT_TEXTE.replace("(version join-v5)", "(version join-v4)");
+  const v4Resume = [CONTRAT_RESUME_V5.avant, ...CONTRAT_RESUME.slice(1)];
+  assertEquals(await sha256Hex(v4Texte), "aed5196c671b136d0faeb1733a2eda71c1da6f5a0e4a57b6340c0369e9c2afee");
+  assertEquals(await sha256Hex(JSON.stringify(v4Resume)), "0d649acca27b58fe95843a0482c1454cd88503ee946837fcb6c6b7f62bbbee98");
+  assertEquals(
+    await sha256Hex(`${v4Resume.map((l) => `- ${l}`).join("\n")}\n\n${v4Texte}`),
+    "890876acdbd36ef0d4587f6cf82ba3aab68571b6af895c3b6ba1852c30afbe96",
+  );
+  // Et join-v3 sous join-v4 (frais Ruul et non-exclusivité retirés).
+  const v3 = v4Texte.replace(` ${CONTRAT_AJOUTS_V4.frais_ruul}`, "").replace(` ${CONTRAT_AJOUTS_V4.exclusivite}`, "")
     .replace("(version join-v4)", "(version join-v3)");
   assertEquals(await sha256Hex(v3), "3b26b134a70966d251b8485e772c0c5d475493d2623ead6e72567b39d06bd8ff");
-  // Le résumé est inchangé.
-  assertEquals(await sha256Hex(JSON.stringify(CONTRAT_RESUME)), "0d649acca27b58fe95843a0482c1454cd88503ee946837fcb6c6b7f62bbbee98");
-  // 25/11 : le texte signé de join-v4 (résumé + texte) ne bouge pas ; seul l'affichage du site change (résumé traduit).
-  assertEquals(await sha256Hex(CONTRAT_TEXTE), "aed5196c671b136d0faeb1733a2eda71c1da6f5a0e4a57b6340c0369e9c2afee");
-  assertEquals(await sha256Hex(texteContratComplet()), "890876acdbd36ef0d4587f6cf82ba3aab68571b6af895c3b6ba1852c30afbe96");
+  assert(texteContratComplet().startsWith(`- ${CONTRAT_RESUME_V5.apres}\n`));
 });
 
 Deno.test("contrat : identité complète de la société en tête, plus de cases vides, clauses gardées", () => {

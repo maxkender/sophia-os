@@ -1,0 +1,616 @@
+{
+ "id": "pt-019",
+ "titre": {
+  "en": "signs you're becoming the interesting friend",
+  "fr": "signes que tu deviens l'amie intéressante",
+  "es": "señales de que te estás convirtiendo en la amiga interesante",
+  "es-419": "señales de que te estás volviendo la amiga interesante",
+  "it": "segnali che stai diventando l'amica interessante",
+  "tr": "ilginç arkadaş olmaya başladığının işaretleri",
+  "pt-BR": "sinais de que você está virando a amiga interessante",
+  "sl": "znaki, da postajaš zanimiva prijateljica",
+  "de": "zeichen, dass du die interessante freundin wirst",
+  "sk": "znaky, že sa z teba stáva tá zaujímavá kamarátka",
+  "sv": "tecken på att du håller på att bli den intressanta vännen"
+ },
+ "legendes": {
+  "en": "if three of these sound like you, it's working. send it to your interesting friend <3 #girlblogger #selfimprovement #learning #thatgirl #booktok",
+  "fr": "si trois de ces signes te ressemblent, ça marche. envoie-le à ton amie intéressante <3 #girlblogger #developpementpersonnel #apprendre #thatgirl #booktokfrance",
+  "es": "si tres de estas te suenan, está funcionando. mándaselo a tu amiga interesante <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktokespaña",
+  "es-419": "si tres de estas te suenan, está funcionando. mándaselo a tu amiga interesante <3 #girlblogger #desarrollopersonal #aprender #thatgirl #booktoklatam",
+  "it": "se tre di questi ti somigliano, sta funzionando. mandalo alla tua amica interessante <3 #girlblogger #crescitapersonale #imparare #thatgirl #booktokitalia",
+  "tr": "üçü sana benziyorsa işe yarıyor demektir. ilginç arkadaşına gönder <3 #girlblogger #kişiselgelişim #öğrenmek #thatgirl #booktoktürkiye",
+  "pt-BR": "se três desses parecem com você, está funcionando. manda pra sua amiga interessante <3 #girlblogger #autodesenvolvimento #aprender #thatgirl #booktokbrasil",
+  "sl": "če ti trije od teh ustrezajo, deluje. pošlji svoji zanimivi prijateljici <3 #girlblogger #osebnirazvoj #učenje #thatgirl #booktok",
+  "de": "wenn drei davon auf dich zutreffen, funktioniert es. schick es deiner interessanten freundin <3 #girlblogger #selbstverbesserung #lernen #thatgirl #booktokdeutschland",
+  "sk": "ak sa ťa týkajú tri z nich, funguje to. pošli to svojej zaujímavej kamarátke <3 #girlblogger #osobnyrozvoj #ucenie #thatgirl #booktok",
+  "sv": "om tre av dem stämmer på dig, så funkar det. skicka den till din intressanta vän <3 #girlblogger #självutveckling #lärande #thatgirl #booktoksverige"
+ },
+ "musique": {
+  "titre": "bleu de nuit",
+  "url": "https://www.tiktok.com/music/bleu-de-nuit-7617883902271457297"
+ },
+ "notes": "Full test (BLEO, 25/11) : accroche neuve chez nous (« signs you're becoming… »), au gabarit de son tube. Éléments à nous : une histoire pour chaque sujet, de meilleures questions, Sophia, des livres conseillés qu'on lit vraiment, remarquer ce que les autres ne voient pas. Slide Sophia (4) : « 3. you learn something every night », cta C. Photos neuves de la banque.",
+ "banque": {
+  "images/banque/couv-foret.jpg": "29efdfb0-6be3-4496-8b1b-30076ec6e615",
+  "images/banque/couv-mer-crepuscule.jpg": "4c3a15ee-ed10-488c-957f-c11f0937cf9a",
+  "images/banque/echecs-livres-table.jpg": "14165ea4-d0e2-4d85-9327-5c62f72a1093",
+  "images/banque/echecs-dentelle.jpg": "19b7a1e9-09ee-4e50-8e79-0fe44e44c896",
+  "images/banque/fleurs-ombre.jpg": "46335c3c-0f16-4be2-95f3-8d12a50989c6",
+  "images/banque/boule-fleurs.jpg": "75ca4560-8019-4ee1-892b-531f9ffe7aba",
+  "images/banque/vagues-soir.jpg": "36291e1b-3cf4-4891-be17-b14610b317b4",
+  "images/banque/etagere-bras.jpg": "236e9370-e81e-429d-a116-66c975a30baa",
+  "images/banque/rideau-lumiere.jpg": "2d72557c-c5dc-495e-a066-bdc136718ad1",
+  "images/banque/route-brume.jpg": "506ec175-4a16-49bf-9c81-3358c7d75e3f",
+  "images/banque/racines.jpg": "5c244246-b988-4fd5-9e6d-11a4b3a4d2fe"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-foret.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-mer-crepuscule.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "signs you're\nbecoming the\ninteresting friend"
+   },
+   "fr": {
+    "titre": "signes que tu\ndeviens l'amie\nintéressante"
+   },
+   "es": {
+    "titre": "señales de que te\nestás convirtiendo\nen la amiga\ninteresante"
+   },
+   "es-419": {
+    "titre": "señales de que te\nestás volviendo\nla amiga\ninteresante"
+   },
+   "it": {
+    "titre": "segnali che stai\ndiventando l'amica\ninteressante"
+   },
+   "tr": {
+    "titre": "ilginç arkadaş\nolmaya başladığının\nişaretleri"
+   },
+   "pt-BR": {
+    "titre": "sinais de que você\nestá virando a\namiga interessante"
+   },
+   "sl": {
+    "titre": "znaki, da postajaš\nzanimiva\nprijateljica"
+   },
+   "de": {
+    "titre": "zeichen, dass du\ndie interessante\nfreundin wirst"
+   },
+   "sk": {
+    "titre": "znaky, že sa z teba\nstáva tá zaujímavá\nkamarátka"
+   },
+   "sv": {
+    "titre": "tecken på att du\nhåller på att bli\nden intressanta\nvännen"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/echecs-livres-table.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/echecs-dentelle.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. you have a story for every topic",
+    "paragraphes": [
+     "Someone mentions bees, rome or the moon, and you have one small thing to add. not a lecture, just one good fact.",
+     "Conversations with you go somewhere, and people remember them"
+    ]
+   },
+   "fr": {
+    "titre": "1. tu as une histoire pour chaque sujet",
+    "paragraphes": [
+     "Quelqu'un parle des abeilles, de rome ou de la lune, et tu as une petite chose à ajouter. pas un exposé, juste un bon fait.",
+     "Les conversations avec toi mènent quelque part, et on s'en souvient"
+    ]
+   },
+   "es": {
+    "titre": "1. tienes una historia para cada tema",
+    "paragraphes": [
+     "Alguien menciona las abejas, roma o la luna, y tienes algo pequeño que añadir. no una clase, solo un buen dato.",
+     "Las conversaciones contigo van a algún sitio, y la gente las recuerda"
+    ]
+   },
+   "es-419": {
+    "titre": "1. tienes una historia para cada tema",
+    "paragraphes": [
+     "Alguien menciona las abejas, roma o la luna, y tienes algo pequeño que agregar. no una clase, solo un buen dato.",
+     "Las pláticas contigo llegan a algún lado, y la gente las recuerda"
+    ]
+   },
+   "it": {
+    "titre": "1. hai una storia per ogni argomento",
+    "paragraphes": [
+     "Qualcuno nomina le api, roma o la luna, e tu hai una piccola cosa da aggiungere. non una lezione, solo un bel fatto.",
+     "Le conversazioni con te portano da qualche parte, e la gente se le ricorda"
+    ]
+   },
+   "tr": {
+    "titre": "1. her konu için bir hikâyen var",
+    "paragraphes": [
+     "Biri arılardan, roma'dan ya da aydan bahsediyor, ve senin ekleyecek küçük bir şeyin var. ders değil, sadece güzel bir bilgi.",
+     "Seninle sohbetler bir yere varıyor, ve insanlar onları hatırlıyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. você tem história pra tudo",
+    "paragraphes": [
+     "Alguém fala de abelhas, de roma ou da lua, e você tem uma coisinha pra acrescentar. não uma aula, só um fato bom.",
+     "As conversas com você vão pra algum lugar, e as pessoas lembram delas"
+    ]
+   },
+   "sl": {
+    "titre": "1. imaš zgodbo za vsako temo",
+    "paragraphes": [
+     "Nekdo omeni čebele, rim ali luno, in ti imaš nekaj majhnega za dodati. ne predavanja, samo eno dobro dejstvo.",
+     "Pogovori s tabo nekam pripeljejo, in ljudje si jih zapomnijo"
+    ]
+   },
+   "de": {
+    "titre": "1. zu jedem thema eine geschichte",
+    "paragraphes": [
+     "Jemand erwähnt bienen, rom oder den mond, und du hast eine kleine sache beizutragen. kein vortrag, nur ein guter fakt.",
+     "Gespräche mit dir führen irgendwohin, und man erinnert sich an sie"
+    ]
+   },
+   "sk": {
+    "titre": "1. máš príbeh ku každej téme",
+    "paragraphes": [
+     "Niekto spomenie včely, rím alebo mesiac, a ty máš malú vec na doplnenie. nie prednášku, len jeden dobrý fakt.",
+     "Rozhovory s tebou niekam vedú, a ľudia si ich pamätajú"
+    ]
+   },
+   "sv": {
+    "titre": "1. du har en historia för varje ämne",
+    "paragraphes": [
+     "Någon nämner bin, rom eller månen, och du har en liten sak att lägga till. ingen föreläsning, bara ett bra faktum.",
+     "Samtal med dig leder någonstans, och folk minns dem"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/fleurs-ombre.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/boule-fleurs.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. you ask better questions",
+    "paragraphes": [
+     "Instead of 'how was your day', you ask what surprised them, or what they're reading right now.",
+     "People open up to you, and you learn something from everyone"
+    ]
+   },
+   "fr": {
+    "titre": "2. tu poses de meilleures questions",
+    "paragraphes": [
+     "Au lieu de « ta journée s'est bien passée ? », tu demandes ce qui l'a surprise, ou ce qu'elle lit en ce moment.",
+     "Les gens s'ouvrent à toi, et tu apprends quelque chose de chacun"
+    ]
+   },
+   "es": {
+    "titre": "2. haces mejores preguntas",
+    "paragraphes": [
+     "En vez de «¿qué tal tu día?», preguntas qué le sorprendió hoy, o qué está leyendo ahora.",
+     "La gente se abre contigo, y aprendes algo de todos"
+    ]
+   },
+   "es-419": {
+    "titre": "2. haces mejores preguntas",
+    "paragraphes": [
+     "En lugar de «¿cómo te fue?», preguntas qué le sorprendió hoy, o qué está leyendo ahorita.",
+     "La gente se abre contigo, y aprendes algo de todos"
+    ]
+   },
+   "it": {
+    "titre": "2. fai domande migliori",
+    "paragraphes": [
+     "Invece di «com'è andata la giornata?», chiedi cosa l'ha sorpresa, o cosa sta leggendo adesso.",
+     "Le persone si aprono con te, e impari qualcosa da tutti"
+    ]
+   },
+   "tr": {
+    "titre": "2. daha iyi sorular soruyorsun",
+    "paragraphes": [
+     "«günün nasıldı» yerine, onu neyin şaşırttığını ya da şu an ne okuduğunu soruyorsun.",
+     "İnsanlar sana açılıyor, ve herkesten bir şey öğreniyorsun"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. você faz perguntas melhores",
+    "paragraphes": [
+     "Em vez de «como foi seu dia?», você pergunta o que surpreendeu a pessoa, ou o que ela está lendo agora.",
+     "As pessoas se abrem com você, e você aprende algo com todo mundo"
+    ]
+   },
+   "sl": {
+    "titre": "2. postavljaš boljša vprašanja",
+    "paragraphes": [
+     "Namesto »kako je bil dan?« vprašaš, kaj jo je presenetilo, ali kaj trenutno bere.",
+     "Ljudje se ti odprejo, in od vsakogar se kaj naučiš"
+    ]
+   },
+   "de": {
+    "titre": "2. du stellst bessere fragen",
+    "paragraphes": [
+     "Statt »wie war dein tag?« fragst du, was sie heute überrascht hat, oder was sie gerade liest.",
+     "Menschen öffnen sich dir, und du lernst von allen etwas"
+    ]
+   },
+   "sk": {
+    "titre": "2. kladieš lepšie otázky",
+    "paragraphes": [
+     "Namiesto »aký bol deň?« sa pýtaš, čo ju prekvapilo, alebo čo práve číta.",
+     "Ľudia sa ti otvoria, a od každého sa niečo naučíš"
+    ]
+   },
+   "sv": {
+    "titre": "2. du ställer bättre frågor",
+    "paragraphes": [
+     "I stället för »hur var din dag?« frågar du vad som överraskade henne, eller vad hon läser just nu.",
+     "Folk öppnar sig för dig, och du lär dig något av alla"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/vagues-soir.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. you learn every night",
+    "paragraphes": [
+     "One lesson a day on Sophia, like why we dream, with a little quiz after. it's become my favourite ten minutes.",
+     "Every morning there's one new thing I'm dying to tell someone"
+    ]
+   },
+   "fr": {
+    "titre": "3. tu apprends chaque soir",
+    "paragraphes": [
+     "Une leçon par jour sur Sophia, genre pourquoi on rêve, avec un petit quiz après. ce sont devenues mes dix minutes préférées.",
+     "Chaque matin, j'ai un nouveau truc que je meurs d'envie de raconter"
+    ]
+   },
+   "es": {
+    "titre": "3. aprendes algo cada noche",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. son mis diez minutos favoritos.",
+     "Cada mañana tengo algo nuevo que me muero por contar"
+    ]
+   },
+   "es-419": {
+    "titre": "3. aprendes algo cada noche",
+    "paragraphes": [
+     "Una lección al día en Sophia, como por qué soñamos, con un pequeño quiz al final. son mis diez minutos favoritos.",
+     "Cada mañana tengo algo nuevo que me muero por contar"
+    ]
+   },
+   "it": {
+    "titre": "3. impari qualcosa ogni sera",
+    "paragraphes": [
+     "Una lezione al giorno su Sophia, tipo perché sogniamo, con un piccolo quiz alla fine. sono diventati i miei dieci minuti preferiti.",
+     "Ogni mattina ho una cosa nuova che muoio dalla voglia di raccontare"
+    ]
+   },
+   "tr": {
+    "titre": "3. her gece bir şey öğreniyorsun",
+    "paragraphes": [
+     "Her gün Sophia'da bir ders, mesela neden rüya görürüz, sonunda da küçük bir test. en sevdiğim on dakika oldu.",
+     "Her sabah birine anlatmak için can attığım yeni bir şey oluyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. você aprende algo toda noite",
+    "paragraphes": [
+     "Uma aula por dia no Sophia, tipo por que a gente sonha, com um quiz no final. virou meus dez minutos favoritos.",
+     "Toda manhã eu tenho uma coisa nova que estou louca pra contar"
+    ]
+   },
+   "sl": {
+    "titre": "3. vsak večer se kaj naučiš",
+    "paragraphes": [
+     "Ena lekcija na dan v aplikaciji Sophia, recimo zakaj sanjamo, na koncu pa kratek kviz. to je postalo mojih najljubših deset minut.",
+     "Vsako jutro imam nekaj novega, kar komaj čakam, da povem"
+    ]
+   },
+   "de": {
+    "titre": "3. du lernst jeden abend etwas",
+    "paragraphes": [
+     "Eine lektion am tag auf Sophia, zum beispiel warum wir träumen, mit einem kleinen quiz danach. das sind meine liebsten zehn minuten geworden.",
+     "Jeden morgen habe ich etwas neues, das ich unbedingt erzählen will"
+    ]
+   },
+   "sk": {
+    "titre": "3. každý večer sa niečo naučíš",
+    "paragraphes": [
+     "Jedna lekcia denne v aplikácii Sophia, napríklad prečo snívame, a na konci malý kvíz. stalo sa z toho mojich najobľúbenejších desať minút.",
+     "Každé ráno mám niečo nové, čo chcem niekomu hneď povedať"
+    ]
+   },
+   "sv": {
+    "titre": "3. du lär dig något varje kväll",
+    "paragraphes": [
+     "En lektion om dagen på Sophia, som varför vi drömmer, med ett litet quiz efteråt. det har blivit mina favoritminuter.",
+     "Varje morgon har jag något nytt jag längtar efter att berätta"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/etagere-bras.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/rideau-lumiere.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. your book tips get read",
+    "paragraphes": [
+     "You don't recommend ten books. you recommend one, for that person, and you explain why.",
+     "They come back to talk about it, and that's how the best friendships grow"
+    ]
+   },
+   "fr": {
+    "titre": "4. on lit vraiment tes conseils de livres",
+    "paragraphes": [
+     "Tu ne conseilles pas dix livres. tu en conseilles un, pour cette personne, et tu expliques pourquoi.",
+     "Elle revient en parler avec toi, et c'est comme ça que naissent les meilleures amitiés"
+    ]
+   },
+   "es": {
+    "titre": "4. tus libros sí se leen",
+    "paragraphes": [
+     "No recomiendas diez libros. recomiendas uno, para esa persona, y explicas por qué.",
+     "Vuelve para hablarlo contigo, y así nacen las mejores amistades"
+    ]
+   },
+   "es-419": {
+    "titre": "4. tus libros sí se leen",
+    "paragraphes": [
+     "No recomiendas diez libros. recomiendas uno, para esa persona, y le explicas por qué.",
+     "Regresa a platicarlo contigo, y así nacen las mejores amistades"
+    ]
+   },
+   "it": {
+    "titre": "4. i tuoi consigli di lettura vengono letti",
+    "paragraphes": [
+     "Non consigli dieci libri. ne consigli uno, per quella persona, e spieghi perché.",
+     "Torna a parlarne con te, ed è così che nascono le amicizie migliori"
+    ]
+   },
+   "tr": {
+    "titre": "4. önerdiğin kitaplar okunuyor",
+    "paragraphes": [
+     "On kitap önermiyorsun. o kişi için bir tane öneriyorsun, ve nedenini anlatıyorsun.",
+     "Seninle konuşmaya geri geliyor, ve en güzel arkadaşlıklar böyle büyüyor"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. suas indicações são lidas",
+    "paragraphes": [
+     "Você não indica dez livros. você indica um, pra aquela pessoa, e explica por quê.",
+     "Ela volta pra conversar sobre ele, e é assim que nascem as melhores amizades"
+    ]
+   },
+   "sl": {
+    "titre": "4. tvoja priporočila ljudje preberejo",
+    "paragraphes": [
+     "Ne priporočiš desetih knjig. priporočiš eno, za to osebo, in poveš zakaj.",
+     "Vrne se, da se o njej pogovorita, in tako rastejo najlepša prijateljstva"
+    ]
+   },
+   "de": {
+    "titre": "4. deine buchtipps werden gelesen",
+    "paragraphes": [
+     "Du empfiehlst keine zehn bücher. du empfiehlst eins, für genau diese person, und erklärst warum.",
+     "Sie kommt zurück, um darüber zu reden, und so wachsen die besten freundschaften"
+    ]
+   },
+   "sk": {
+    "titre": "4. tvoje tipy na knihy ľudia čítajú",
+    "paragraphes": [
+     "Neodporúčaš desať kníh. odporučíš jednu, pre toho človeka, a vysvetlíš prečo.",
+     "Vráti sa, aby ste sa o nej porozprávali, a tak rastú najlepšie priateľstvá"
+    ]
+   },
+   "sv": {
+    "titre": "4. dina boktips blir lästa",
+    "paragraphes": [
+     "Du tipsar inte om tio böcker. du tipsar om en, för just den personen, och förklarar varför.",
+     "Hon kommer tillbaka för att prata om den, och så växer de bästa vänskaperna"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/route-brume.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/racines.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. you notice what others walk past",
+    "paragraphes": [
+     "The date on an old door, a bird you can name, the shape of a tree's roots. you stop and look.",
+     "The world gets bigger every day, and so does what you have to say"
+    ]
+   },
+   "fr": {
+    "titre": "5. tu vois ce que les autres ratent",
+    "paragraphes": [
+     "La date sur une vieille porte, un oiseau que tu sais nommer, la forme des racines d'un arbre. tu t'arrêtes et tu regardes.",
+     "Le monde s'agrandit chaque jour, et ce que tu as à dire aussi"
+    ]
+   },
+   "es": {
+    "titre": "5. ves lo que otros pasan de largo",
+    "paragraphes": [
+     "La fecha de una puerta antigua, un pájaro que sabes nombrar, la forma de las raíces de un árbol. te paras y miras.",
+     "El mundo se hace más grande cada día, y lo que tienes que decir también"
+    ]
+   },
+   "es-419": {
+    "titre": "5. ves lo que otros no ven",
+    "paragraphes": [
+     "La fecha de una puerta antigua, un pájaro que sabes nombrar, la forma de las raíces de un árbol. te detienes y miras.",
+     "El mundo se hace más grande cada día, y lo que tienes que decir también"
+    ]
+   },
+   "it": {
+    "titre": "5. noti quello che gli altri non vedono",
+    "paragraphes": [
+     "La data su una vecchia porta, un uccello che sai riconoscere, la forma delle radici di un albero. ti fermi e guardi.",
+     "Il mondo diventa più grande ogni giorno, e anche quello che hai da dire"
+    ]
+   },
+   "tr": {
+    "titre": "5. gözden kaçanı görüyorsun",
+    "paragraphes": [
+     "Eski bir kapının üstündeki tarih, adını bildiğin bir kuş, bir ağacın köklerinin şekli. durup bakıyorsun.",
+     "Dünya her gün büyüyor, ve söyleyeceklerin de"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. você vê o que ninguém vê",
+    "paragraphes": [
+     "A data numa porta antiga, um pássaro que você sabe o nome, o formato das raízes de uma árvore. você para e olha.",
+     "O mundo fica maior todo dia, e o que você tem pra dizer também"
+    ]
+   },
+   "sl": {
+    "titre": "5. opaziš, kar drugi spregledajo",
+    "paragraphes": [
+     "Letnico na starih vratih, ptico, ki jo znaš poimenovati, obliko korenin drevesa. ustaviš se in pogledaš.",
+     "Svet je vsak dan večji, in tudi to, kar imaš povedati"
+    ]
+   },
+   "de": {
+    "titre": "5. du siehst, woran andere vorbeigehen",
+    "paragraphes": [
+     "Die jahreszahl an einer alten tür, ein vogel, den du benennen kannst, die form von baumwurzeln. du bleibst stehen und schaust.",
+     "Die welt wird jeden tag größer, und das, was du zu sagen hast, auch"
+    ]
+   },
+   "sk": {
+    "titre": "5. všimneš si, čo ostatní prehliadnu",
+    "paragraphes": [
+     "Letopočet na starých dverách, vtáka, ktorého vieš pomenovať, tvar koreňov stromu. zastavíš sa a pozeráš.",
+     "Svet je každý deň väčší, a aj to, čo máš povedať"
+    ]
+   },
+   "sv": {
+    "titre": "5. du ser det andra går förbi",
+    "paragraphes": [
+     "Årtalet på en gammal dörr, en fågel du kan namnet på, formen på ett träds rötter. du stannar och tittar.",
+     "Världen blir större varje dag, och det du har att säga också"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

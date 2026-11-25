@@ -58,6 +58,15 @@ function ecranInitial(): { ecran: Ecran; onb: number } {
   return { ecran: "arrivee", onb: 1 };
 }
 
+/** Un onglet ouvert par un lien du site (même origine) : ce n'est pas une nouvelle visite. */
+function ouvertDepuisLeSite(): boolean {
+  try {
+    return !!document.referrer && new URL(document.referrer).origin === location.origin;
+  } catch {
+    return false;
+  }
+}
+
 export default function App() {
   if (location.pathname.replace(/\/+$/, "") === "/admin") return <Admin />;
   return <Site />;
@@ -170,11 +179,12 @@ function Site() {
       setMode(r.mode);
       setPays(r.pays);
     });
-    // 25/11 : une visite par session (sessionStorage), jamais pour un candidat qui revient avec sa session.
+    // 25/11 : une visite par session (sessionStorage), jamais pour un candidat qui revient avec sa session, ni pour un
+    // onglet ouvert depuis le site lui-même (contrat, confidentialité, FAQ : nouvel onglet = nouvelle session).
     try {
       if (!sessionStorage.getItem("join_visite")) {
         sessionStorage.setItem("join_visite", "1");
-        if (!lireJeton()) {
+        if (!lireJeton() && !ouvertDepuisLeSite()) {
           const p = new URLSearchParams(location.search);
           appeler("visite", { langue: langueInitiale(), source: p.get("utm_source") ?? p.get("src") ?? (p.get("ref") ? "ref" : "") });
         }

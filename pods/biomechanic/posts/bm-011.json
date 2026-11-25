@@ -1,0 +1,465 @@
+{
+ "id": "bm-011",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7695383642104761622",
+  "vues": 93400,
+  "publie_le": "2026-10-11",
+  "accroche": "Sleep Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "evening tierlist for optimal health",
+  "it": "tierlist della sera per una salute ottimale",
+  "hu": "esti tierlist az optimális egészségért",
+  "sr": "večernja tierlista za optimalno zdravlje"
+ },
+ "legendes": {
+  "en": "your tomorrow starts tonight 🌙 #eveningroutine #health #biohacking #running #sleep",
+  "it": "il tuo domani inizia stasera 🌙 #routineserale #salute #benessere #corsa #sonno",
+  "hu": "a holnapod ma este kezdődik 🌙 #estirutin #egészség #biohacking #futás #alvás",
+  "sr": "tvoje sutra počinje večeras 🌙 #večernjarutina #zdravlje #biohacking #trčanje #san"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/ev-scroll.jpg": "13155a41-988e-4bbb-9383-a12997aa2a24",
+  "images/banque/ev-hiit.jpg": "c26ace5d-3872-4f56-8c13-2b9ed07253c8",
+  "images/banque/ev-cafe.jpg": "6a3edc02-7a5e-47ca-a257-70934690d768",
+  "images/banque/ev-diner.jpg": "4ee44fde-123a-4b7e-a800-2ed6762ebc78",
+  "images/banque/ev-tisane.jpg": "26d975bf-b74e-4dbc-89b5-65bbac420dfd",
+  "images/banque/ev-bougies.jpg": "4cdbc7fa-3337-4bb1-883a-c97ae42e3726",
+  "images/banque/ev-livre.jpg": "38d562a6-d390-4fe7-a295-e300e93a6606",
+  "images/banque/ev-marche.jpg": "0a110ba9-9ddb-42ca-a1e8-2a620987ff10",
+  "images/banque/ev-course.jpg": "a9a08b5b-aa80-45e5-b546-4a879e13ef58",
+  "images/banque/ev-coucher.jpg": "1e941665-338e-4b8d-a0ac-8babaf30eaa6"
+ },
+ "notes": "Full test du 25/11 : « Evening Tierlist For Optimal Health (Science based) », idée de l'AGENT.md, au format de ses tier lists de vie quotidienne (Morning 718 k, Sleep 93 k) ; source gardée pour mémoire. En, it, hu, sr (traduits à la main). Croquis neuf (soir.jpg, Seedream). Slide Atala (10) : le A tier « An Easy Evening Run », une silhouette qui court (banque) et le logo d'Atala ; la S tier finale reste le coucher régulier. Texte selon placement_atala : hook de 5 mots → NEUTRE, un seul argument : la séance du soir déjà prévue ; version « cta K' ». Faits : écrans et lumière le soir retardent l'endormissement (Chang et al., PNAS 2015) ; la lumière de la pièce le soir supprime la mélatonine (Gooley et al., JCEM 2011) ; caféine, demi-vie de plusieurs heures (Drake et al. 2013) ; effort intense dans l'heure avant le coucher, effort modéré non (Stutz et al., Sports Med 2019) ; marche après repas et glycémie (Buffey et al., Sports Med 2022) ; régularité du coucher. Aucun effet attribué à une plante. Rien de médical.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/soir.jpg",
+   "en": {
+    "lignes": [
+     "Evening Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist della Sera",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Esti Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Večernja Tierlista",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-scroll.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Scrolling Until Midnight",
+    "paragraphes": [
+     "Endless feeds and bright screens keep your brain switched on long after your body wants to rest.",
+     "You sleep later and lighter, and wake up tired."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Scrollare Fino a Mezzanotte",
+    "paragraphes": [
+     "Feed infiniti e schermi luminosi tengono il cervello acceso molto dopo che il corpo vuole riposare.",
+     "Dormi più tardi e più leggero, e domani inizi stanco."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Görgetés Éjfélig",
+    "paragraphes": [
+     "A végtelen hírfolyam és a világos képernyő ébren tartja az agyad, jóval azután is, hogy a tested pihenne.",
+     "Később és felületesebben alszol, és fáradtan indul a holnap."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Skrolovanje do Ponoći",
+    "paragraphes": [
+     "Beskrajni fidovi i svetli ekrani drže mozak uključenim dugo pošto telo želi da se odmori.",
+     "Zaspiš kasnije i pliće, a sutra počinješ umoran."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-hiit.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Hard Training At 10 PM",
+    "paragraphes": [
+     "An all-out session right before bed keeps your heart rate and temperature up when they should drop.",
+     "Train earlier, or keep late sessions truly easy."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Allenamento Duro alle 22",
+    "paragraphes": [
+     "Una seduta a tutta prima di dormire tiene alti battito e temperatura quando dovrebbero scendere.",
+     "Allenati prima, o tieni davvero facili le sedute tardive."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Kemény Edzés Este 10-kor",
+    "paragraphes": [
+     "Egy maximális edzés lefekvés előtt magasan tartja a pulzust és a testhőt, amikor csökkenniük kellene.",
+     "Eddz korábban, vagy legyenek a késői edzések tényleg könnyűek."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Težak Trening u 22h",
+    "paragraphes": [
+     "Trening punom snagom pred spavanje drži puls i telesnu temperaturu visoko kad bi trebalo da padaju.",
+     "Treniraj ranije, ili neka kasni treninzi budu zaista laki."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-cafe.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Coffee After Dinner",
+    "paragraphes": [
+     "Caffeine stays in your body for hours. An evening espresso is still working when you turn off the light.",
+     "Switch to something without caffeine after lunch."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Caffè Dopo Cena",
+    "paragraphes": [
+     "La caffeina resta nel corpo per ore. Un espresso serale lavora ancora quando spegni la luce.",
+     "Dopo pranzo passa a qualcosa senza caffeina."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Kávé Vacsora Után",
+    "paragraphes": [
+     "A koffein órákig a szervezetedben marad. Egy esti eszpresszó még akkor is hat, amikor lekapcsolod a villanyt.",
+     "Ebéd után válts valamire koffein nélkül."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Kafa Posle Večere",
+    "paragraphes": [
+     "Kofein ostaje u telu satima. Večernji espreso i dalje deluje kad ugasiš svetlo.",
+     "Posle ručka pređi na nešto bez kofeina."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-diner.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Dinner In The Dark",
+    "paragraphes": [
+     "Eating late and fast, in front of a screen, means a full stomach right when you lie down.",
+     "Eat a little earlier and slower. Your sleep wins."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Cena al Buio",
+    "paragraphes": [
+     "Mangiare tardi e in fretta, davanti a uno schermo, vuol dire stomaco pieno proprio quando ti sdrai.",
+     "Mangia un po' prima e più piano. Il sonno ringrazia."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Vacsora a Sötétben",
+    "paragraphes": [
+     "Későn és gyorsan enni, képernyő előtt, azt jelenti, hogy tele gyomorral fekszel le.",
+     "Egyél kicsit korábban és lassabban. Az alvásod meghálálja."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Večera u Mraku",
+    "paragraphes": [
+     "Jesti kasno i brzo, ispred ekrana, znači pun stomak baš kad legneš.",
+     "Jedi malo ranije i sporije. San će ti biti zahvalan."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-tisane.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "A Caffeine-Free Tea",
+    "paragraphes": [
+     "A warm drink without caffeine is an easy signal that the day is over, and it replaces the late coffee.",
+     "Nice ritual, but on its own it changes little."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Una Tisana Senza Caffeina",
+    "paragraphes": [
+     "Una bevanda calda senza caffeina è un segnale facile che la giornata è finita, e sostituisce il caffè tardivo.",
+     "Bel rituale, ma da solo cambia poco."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Koffeinmentes Tea",
+    "paragraphes": [
+     "Egy meleg, koffeinmentes ital egyszerű jel, hogy vége a napnak, és kiváltja a késői kávét.",
+     "Szép rituálé, de egymagában keveset változtat."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Čaj Bez Kofeina",
+    "paragraphes": [
+     "Topao napitak bez kofeina je lak signal da je dan gotov, i zamenjuje kasnu kafu.",
+     "Lep ritual, ali sam po sebi malo menja."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-bougies.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Candles And Dim Lights",
+    "paragraphes": [
+     "Bright light in the evening holds back melatonin, the hormone that makes you sleepy. Dim light lets it rise.",
+     "Easy and cosy. It only helps if the screens go off too."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Candele e Luci Basse",
+    "paragraphes": [
+     "La luce forte di sera frena la melatonina, l'ormone che fa venire sonno. Le luci basse la lasciano salire.",
+     "Facile e accogliente. Aiuta solo se spegni anche gli schermi."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Gyertyák és Tompa Fény",
+    "paragraphes": [
+     "Az esti erős fény visszafogja a melatonint, az álmosító hormont. A tompa fény hagyja emelkedni.",
+     "Könnyű és hangulatos. Csak akkor segít, ha a képernyők is kikapcsolnak."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Sveće i Prigušeno Svetlo",
+    "paragraphes": [
+     "Jako svetlo uveče koči melatonin, hormon koji te uspavljuje. Prigušeno svetlo ga pušta da raste.",
+     "Lako i prijatno. Pomaže samo ako se ugase i ekrani."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-livre.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Paper Book In Bed",
+    "paragraphes": [
+     "Reading on paper relaxes you without the bright light of a screen, so you fall asleep sooner.",
+     "It misses A tier: it can't undo a day without movement."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Un Libro di Carta a Letto",
+    "paragraphes": [
+     "Leggere su carta rilassa senza la luce forte di uno schermo, così ti addormenti prima.",
+     "Manca la A perché non compensa una giornata senza movimento."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Papírkönyv az Ágyban",
+    "paragraphes": [
+     "A papíron olvasás képernyőfény nélkül nyugtat meg, így hamarabb elalszol.",
+     "Azért nem A, mert nem pótolja a mozgás nélküli napot."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Knjiga od Papira u Krevetu",
+    "paragraphes": [
+     "Čitanje sa papira opušta bez jakog svetla ekrana, pa brže zaspiš.",
+     "Nije A jer ne nadoknađuje dan bez kretanja."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-marche.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "A Walk After Dinner",
+    "paragraphes": [
+     "A short walk after eating helps your body handle the sugar from your meal and clears your head.",
+     "Small, easy, and you sleep better for it."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Una Passeggiata Dopo Cena",
+    "paragraphes": [
+     "Una breve camminata dopo mangiato aiuta il corpo a gestire lo zucchero del pasto e libera la testa.",
+     "Piccola, facile, e dormi meglio."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Séta Vacsora Után",
+    "paragraphes": [
+     "Egy rövid séta evés után segít a testnek kezelni az étel cukrát, és kitisztítja a fejed.",
+     "Kicsi, könnyű, és jobban alszol tőle."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Šetnja Posle Večere",
+    "paragraphes": [
+     "Kratka šetnja posle jela pomaže telu da obradi šećer iz obroka i razbistri glavu.",
+     "Malo, lako, a bolje spavaš."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/ev-course.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "format": "carre",
+   "en": {
+    "tier": "A",
+    "nom": "An Easy Evening Run",
+    "paragraphes": [
+     "An easy run after work releases the day's stress and helps you sleep deeper, unless it's late and hard.",
+     "Deciding what to run when you're tired is the hard part. A running coach app like Atala already has tonight's run planned."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Una Corsa Facile la Sera",
+    "paragraphes": [
+     "Una corsa facile dopo il lavoro scarica lo stress e aiuta a dormire più profondo, se non è troppo tardi o troppo dura.",
+     "Decidere cosa correre da stanco è la parte difficile. Un'app con coach per la corsa come Atala ha già pronta la corsa di stasera."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Könnyű Esti Futás",
+    "paragraphes": [
+     "Egy könnyű futás munka után levezeti a nap stresszét, és mélyebb alvást segít, ha nem túl késő és nem túl kemény.",
+     "Fáradtan eldönteni, mit fuss, a nehéz rész. Egy futóedző appban, mint az Atala, a mai esti futás már készen vár."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Lagano Večernje Trčanje",
+    "paragraphes": [
+     "Lagano trčanje posle posla izbaci stres dana i pomaže dubljem snu, ako nije prekasno ni preteško.",
+     "Kad si umoran, teško je odlučiti šta da trčiš. Aplikacija sa trenerom za trčanje kao što je Atala već ima spremno večerašnje trčanje."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/ev-coucher.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "The Same Bedtime Every Night",
+    "paragraphes": [
+     "A fixed bedtime keeps your internal clock steady, so you fall asleep faster and wake up easier.",
+     "Everything else on this list works better with it."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Stessa Ora per Dormire",
+    "paragraphes": [
+     "Andare a letto alla stessa ora tiene stabile l'orologio interno: ti addormenti prima e ti svegli meglio.",
+     "Tutto il resto della lista funziona meglio con questo."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Mindig Ugyanakkor Feküdni",
+    "paragraphes": [
+     "Ha ugyanakkor fekszel le, stabil marad a belső órád: gyorsabban alszol el, és könnyebben kelsz.",
+     "Minden más ezen a listán jobban működik vele."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Isto Vreme za Spavanje",
+    "paragraphes": [
+     "Leganje u isto vreme drži unutrašnji sat stabilnim: brže zaspiš i lakše ustaneš.",
+     "Sve ostalo sa liste radi bolje uz to."
+    ]
+   }
+  }
+ ]
+}

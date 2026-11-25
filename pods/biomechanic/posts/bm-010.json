@@ -1,0 +1,465 @@
+{
+ "id": "bm-010",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@thebiomechanic/photo/7698426564106554646",
+  "vues": 717600,
+  "publie_le": "2026-10-19",
+  "accroche": "Morning Tierlist For Optimal Health (Science based)"
+ },
+ "titre": {
+  "en": "winter tierlist for optimal health",
+  "it": "tierlist dell'inverno per una salute ottimale",
+  "hu": "téli tierlist az optimális egészségért",
+  "sr": "zimska tierlista za optimalno zdravlje"
+ },
+ "legendes": {
+  "en": "how you spend the dark months matters ❄️ #winter #health #biohacking #running #wellness",
+  "it": "come passi i mesi bui conta ❄️ #inverno #salute #benessere #corsa #biohacking",
+  "hu": "számít, hogyan töltöd a sötét hónapokat ❄️ #tél #egészség #biohacking #futás #wellness",
+  "sr": "važno je kako provodiš mračne mesece ❄️ #zima #zdravlje #biohacking #trčanje #wellness"
+ },
+ "musique": {
+  "titre": "Becha (Sped Up)",
+  "url": "https://www.tiktok.com/music/Becha-Sped-Up-7680166793501575185"
+ },
+ "banque": {
+  "images/banque/hv-lit-noir.jpg": "0e57631f-53d9-4222-be11-64db58fa279d",
+  "images/banque/hv-nuit.jpg": "444c0c01-4a88-4398-8a94-1f05a099a296",
+  "images/banque/hv-the.jpg": "5162c159-4516-442e-bda4-8fc6932b584c",
+  "images/banque/hv-bougie.jpg": "1c3464cc-edcc-4271-988e-f99ffea6fce2",
+  "images/banque/hv-tapis.jpg": "d6a29c7d-eea8-4b9c-9ac8-94f02dc415c6",
+  "images/banque/hv-pluie.jpg": "4af34a09-85ae-444b-91b1-6cbe6339ae3a",
+  "images/banque/hv-couches.jpg": "6f72178e-5eca-433d-8ec2-661b2fe370b5",
+  "images/banque/hv-marche.jpg": "45449141-d6ce-4dea-b27e-3a37812434f3",
+  "images/banque/hv-neige.jpg": "8b71f358-4738-41c4-9afe-e0f4445f7e7a",
+  "images/banque/hv-aube.jpg": "7cef1fe2-e938-4ca2-98bf-aaf550c697fc"
+ },
+ "notes": "Full test du 25/11 : « Winter Tierlist For Optimal Health (Science based) », sujet de vie quotidienne au format de son tube « Morning Tierlist » (718 k) ; source gardée pour mémoire. En, it, hu, sr (traduits à la main). Croquis neuf (hiver.jpg, Seedream). Slide Atala (10) : le premier S tier « Easy Runs In The Cold », une coureuse dans la neige (banque) et le logo d'Atala. Texte selon placement_atala : hook de 5 mots → NEUTRE/TU, un seul argument : écrire au coach quand la semaine coince (verglas), il déplace les sorties ; version « cta J' ». Faits : l'obscurité du matin et la lumière comme synchroniseur de l'horloge circadienne ; la lumière du jour dehors, même l'hiver, dépasse de loin l'éclairage intérieur ; le froid atténue la sensation de soif (Kenefick et al., 2004) ; règle courante d'habillement pour courir par temps froid (s'habiller pour environ 10 °C de plus) ; courir à allure facile par temps froid est sans danger pour une personne en bonne santé bien couverte. Rien de médical.",
+ "slides": [
+  {
+   "type": "couverture",
+   "icone": "images/dessins/tete.png",
+   "dessin": "images/dessins/hiver.jpg",
+   "en": {
+    "lignes": [
+     "Winter Tierlist",
+     "For *Optimal* Health"
+    ],
+    "note": "(Science based)"
+   },
+   "it": {
+    "lignes": [
+     "Tierlist dell'Inverno",
+     "Salute *Ottimale*"
+    ],
+    "note": "(Basata sulla scienza)"
+   },
+   "hu": {
+    "lignes": [
+     "Téli Tierlist",
+     "*Optimális* Egészség"
+    ],
+    "note": "(Tudományosan megalapozva)"
+   },
+   "sr": {
+    "lignes": [
+     "Zimska Tierlista",
+     "*Optimalno* Zdravlje"
+    ],
+    "note": "(Naučno zasnovano)"
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-lit-noir.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "Staying In On Dark Mornings",
+    "paragraphes": [
+     "When it's still dark at 7, getting up feels impossible. Staying in bed only pushes your body clock later.",
+     "Get up at your usual time and switch on bright lights."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Restare a Letto al Buio",
+    "paragraphes": [
+     "Quando alle 7 è ancora buio, alzarsi sembra impossibile. Restare a letto sposta solo più tardi il tuo orologio interno.",
+     "Alzati alla solita ora e accendi subito luci forti."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Ágyban a Sötét Reggeleken",
+    "paragraphes": [
+     "Ha reggel 7-kor még sötét van, a felkelés lehetetlennek tűnik. Az ágyban maradás csak későbbre tolja a belső órádat.",
+     "Kelj a szokott időben, és rögtön kapcsolj erős fényt."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Krevet u Mračna Jutra",
+    "paragraphes": [
+     "Kad je u 7 još mrak, ustajanje deluje nemoguće. Ostajanje u krevetu samo pomera tvoj unutrašnji sat kasnije.",
+     "Ustani u uobičajeno vreme i odmah upali jako svetlo."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-nuit.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "F",
+    "nom": "A Week Without Daylight",
+    "paragraphes": [
+     "Out in the dark, back in the dark. Without daylight, your internal clock drifts and your energy drops.",
+     "Even 20 minutes outside at lunch beats any light indoors."
+    ]
+   },
+   "it": {
+    "tier": "F",
+    "nom": "Una Settimana Senza Luce",
+    "paragraphes": [
+     "Esci col buio, torni col buio. Senza luce del giorno l'orologio interno slitta e l'energia cala.",
+     "Anche 20 minuti fuori a pranzo battono qualsiasi luce in casa."
+    ]
+   },
+   "hu": {
+    "tier": "F",
+    "nom": "Egy Hét Napfény Nélkül",
+    "paragraphes": [
+     "Sötétben el, sötétben haza. Napfény nélkül elcsúszik a belső órád, és esik az energiád.",
+     "Már 20 perc kint ebédidőben is többet ér bármilyen benti fénynél."
+    ]
+   },
+   "sr": {
+    "tier": "F",
+    "nom": "Nedelja Bez Dnevnog Svetla",
+    "paragraphes": [
+     "Izlaziš po mraku, vraćaš se po mraku. Bez dnevnog svetla unutrašnji sat se pomera, a energija pada.",
+     "I 20 minuta napolju za vreme ručka je bolje od bilo kog svetla u kući."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-the.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "Forgetting To Drink",
+    "paragraphes": [
+     "Cold weather blunts your thirst, so most people drink less in winter without noticing.",
+     "Hot drinks count, but keep some water within reach."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Dimenticare di Bere",
+    "paragraphes": [
+     "Il freddo attenua la sete, così d'inverno quasi tutti bevono meno senza accorgersene.",
+     "Le bevande calde contano, ma tieni anche un bicchiere d'acqua a portata."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Elfelejtesz Inni",
+    "paragraphes": [
+     "A hideg tompítja a szomjúságot, így télen a legtöbben észrevétlenül kevesebbet isznak.",
+     "A meleg italok is számítanak, de legyen kéznél egy pohár víz is."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Zaboravljaš da Piješ",
+    "paragraphes": [
+     "Hladnoća slabi žeđ, pa zimi većina pije manje a da ne primeti.",
+     "Topli napici se računaju, ali drži i čašu vode nadohvat ruke."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-bougie.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "D",
+    "nom": "The Sofa Every Single Night",
+    "paragraphes": [
+     "Cosy evenings are great, but whole weeks on the sofa mean your body barely moves until spring.",
+     "Keep the cosy nights. Just not every one of them."
+    ]
+   },
+   "it": {
+    "tier": "D",
+    "nom": "Divano Tutte le Sere",
+    "paragraphes": [
+     "Le serate cosy sono belle, ma settimane intere sul divano vogliono dire muoversi appena fino a primavera.",
+     "Tieni le serate cosy. Solo non tutte."
+    ]
+   },
+   "hu": {
+    "tier": "D",
+    "nom": "Kanapé Minden Este",
+    "paragraphes": [
+     "A hangulatos esték jók, de hetekig a kanapén azt jelenti, hogy tavaszig alig mozogsz.",
+     "Maradjanak a hangulatos esték. Csak ne mind."
+    ]
+   },
+   "sr": {
+    "tier": "D",
+    "nom": "Kauč Svako Veče",
+    "paragraphes": [
+     "Ušuškane večeri su lepe, ali nedelje na kauču znače da se do proleća jedva krećeš.",
+     "Zadrži ušuškane večeri. Samo ne sve."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-tapis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "C",
+    "nom": "Treadmill All Winter",
+    "paragraphes": [
+     "Warm, dry and safe from ice. Perfect for keeping your runs going on the worst days.",
+     "But you miss the daylight you need most in winter."
+    ]
+   },
+   "it": {
+    "tier": "C",
+    "nom": "Tapis Tutto l'Inverno",
+    "paragraphes": [
+     "Caldo, asciutto e niente ghiaccio. Perfetto per non fermarti nei giorni peggiori.",
+     "Ma perdi la luce del giorno, quella che d'inverno ti serve di più."
+    ]
+   },
+   "hu": {
+    "tier": "C",
+    "nom": "Egész Télen Futópad",
+    "paragraphes": [
+     "Meleg, száraz, nincs jég. Tökéletes, hogy a legrosszabb napokon se álljon le a futás.",
+     "De kimarad a nappali fény, amire télen a legnagyobb szükséged van."
+    ]
+   },
+   "sr": {
+    "tier": "C",
+    "nom": "Traka Cele Zime",
+    "paragraphes": [
+     "Toplo, suvo i bez leda. Savršeno da ne staneš ni u najgorim danima.",
+     "Ali propuštaš dnevno svetlo koje ti zimi najviše treba."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-pluie.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Running In The Rain",
+    "paragraphes": [
+     "Rain looks worse from the window than it feels outside. Ten minutes in, you're warm.",
+     "Dry your shoes after. That's the only real cost."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Correre Sotto la Pioggia",
+    "paragraphes": [
+     "La pioggia sembra peggio dalla finestra che fuori. Dopo dieci minuti sei già caldo.",
+     "Asciuga le scarpe dopo. È l'unico vero costo."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Futás Esőben",
+    "paragraphes": [
+     "Az eső az ablakból rosszabbnak tűnik, mint kint. Tíz perc után már melegen vagy.",
+     "Utána szárítsd meg a cipőt. Ez az egyetlen igazi ár."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Trčanje po Kiši",
+    "paragraphes": [
+     "Kiša kroz prozor izgleda gore nego napolju. Posle deset minuta već ti je toplo.",
+     "Posle osuši patike. To je jedina prava cena."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-couches.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "B",
+    "nom": "Dressing In Layers",
+    "paragraphes": [
+     "Dress as if it were 10 degrees warmer. You start a bit cold and warm up after a few minutes.",
+     "Hat and gloves do the rest. Cold is no excuse."
+    ]
+   },
+   "it": {
+    "tier": "B",
+    "nom": "Vestirsi a Strati",
+    "paragraphes": [
+     "Vestiti come se ci fossero 10 gradi in più. Parti un po' infreddolito e ti scaldi in pochi minuti.",
+     "Cappello e guanti fanno il resto. Il freddo non è una scusa."
+    ]
+   },
+   "hu": {
+    "tier": "B",
+    "nom": "Rétegesen Öltözni",
+    "paragraphes": [
+     "Úgy öltözz, mintha 10 fokkal melegebb lenne. Kicsit fázva indulsz, és pár perc után átmelegszel.",
+     "A sapka és a kesztyű elintézi a többit. A hideg nem kifogás."
+    ]
+   },
+   "sr": {
+    "tier": "B",
+    "nom": "Oblačenje u Slojeve",
+    "paragraphes": [
+     "Obuci se kao da je 10 stepeni toplije. Kreneš malo prozebao i zagreješ se za par minuta.",
+     "Kapa i rukavice rade ostalo. Hladnoća nije izgovor."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-marche.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "A",
+    "nom": "A Lunchtime Walk",
+    "paragraphes": [
+     "Midday is when winter light is strongest. A short walk then gives you more daylight than a day indoors.",
+     "It only misses S tier because a run gives you the light and the cardio."
+    ]
+   },
+   "it": {
+    "tier": "A",
+    "nom": "Una Passeggiata a Pranzo",
+    "paragraphes": [
+     "A mezzogiorno la luce d'inverno è più forte. Una breve passeggiata ti dà più luce di un giorno in casa.",
+     "Manca la S solo perché una corsa ti dà luce e cardio insieme."
+    ]
+   },
+   "hu": {
+    "tier": "A",
+    "nom": "Séta Ebédidőben",
+    "paragraphes": [
+     "Délben a legerősebb a téli fény. Egy rövid séta ekkor több fényt ad, mint egy egész nap bent.",
+     "Csak azért nem S, mert egy futás a fényt és a kardiót is adja."
+    ]
+   },
+   "sr": {
+    "tier": "A",
+    "nom": "Šetnja za Vreme Ručka",
+    "paragraphes": [
+     "U podne je zimsko svetlo najjače. Kratka šetnja tada daje više svetla od celog dana u kući.",
+     "Nije S samo zato što ti trčanje daje i svetlo i kardio."
+    ]
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/hv-neige.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "format": "carre",
+   "en": {
+    "tier": "S",
+    "nom": "Easy Runs In The Cold",
+    "paragraphes": [
+     "Cold air is no reason to stop. An easy pace keeps you warm, and your aerobic base won't wait for spring.",
+     "Icy week? A running coach app like Atala lets you message the coach, and it moves your runs."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Corsa Facile al Freddo",
+    "paragraphes": [
+     "L'aria fredda non è un motivo per fermarsi. Un ritmo facile ti tiene caldo, e la base aerobica non aspetta la primavera.",
+     "Settimana di ghiaccio? Con un'app con coach per la corsa come Atala scrivi al coach e lui sposta le uscite."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Könnyű Futás a Hidegben",
+    "paragraphes": [
+     "A hideg levegő nem ok a megállásra. A könnyű tempó melegen tart, és az aerob alap nem vár tavaszig.",
+     "Jeges hét? Egy futóedző appban, mint az Atala, írsz az edzőnek, és ő áthelyezi a futásaidat."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Lagano Trčanje po Hladnoći",
+    "paragraphes": [
+     "Hladan vazduh nije razlog da staneš. Lagan tempo te greje, a aerobna baza ne čeka proleće.",
+     "Ledena nedelja? U aplikaciji sa trenerom za trčanje kao što je Atala napišeš treneru, i on pomeri tvoja trčanja."
+    ]
+   }
+  },
+  {
+   "type": "tier",
+   "photo": "images/banque/hv-aube.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "tier": "S",
+    "nom": "The Same Wake-Up Time",
+    "paragraphes": [
+     "Dark mornings tempt you to sleep in. A fixed wake-up time stops your clock drifting later all season.",
+     "Every other habit gets easier once this one holds."
+    ]
+   },
+   "it": {
+    "tier": "S",
+    "nom": "Stessa Ora di Sveglia",
+    "paragraphes": [
+     "Le mattine buie invitano a dormire di più. Una sveglia fissa evita che l'orologio slitti tutta la stagione.",
+     "Ogni altra abitudine diventa più facile quando questa regge."
+    ]
+   },
+   "hu": {
+    "tier": "S",
+    "nom": "Mindig Ugyanakkor Kelni",
+    "paragraphes": [
+     "A sötét reggelek csábítanak az alvásra. A fix ébredés megakadályozza, hogy a belső órád egész télen csússzon.",
+     "Minden más szokás könnyebb, ha ez megvan."
+    ]
+   },
+   "sr": {
+    "tier": "S",
+    "nom": "Buđenje u Isto Vreme",
+    "paragraphes": [
+     "Mračna jutra mame na duže spavanje. Stalno vreme buđenja ne da satu da klizi cele zime.",
+     "Svaka druga navika je lakša kad ova stoji."
+    ]
+   }
+  }
+ ]
+}

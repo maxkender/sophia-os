@@ -179,3 +179,25 @@ Deno.test("25/11 : la décision porte la langue du posteur ; le modèle et ses v
   assertEquals(d?.modele, { nom: "ruul_payment_setup", langue: "en", variables: ["Ana"] });
   assertEquals(deciderRelance({ ...f, langue: "  " }, { modeAutorise: true, maintenant: MARDI })?.langueCible, null);
 });
+
+Deno.test("25/11 une seule voix : un posteur créé par Join n'a pas les relances de la checklist de Join", () => {
+  const LUNDI = new Date("2026-11-30T09:00:00Z");
+  const join = (o: Partial<FaitsRelance>) => faits({ statut_site: "join_signed", ...o });
+  // warm-up pas lancé le jeudi avant le lundi
+  assertEquals(relancesDues(faits({ cohorte_lundi: "2026-11-30", warmup_started_at: null }), JEUDI), ["warmup_start"]);
+  assertEquals(relancesDues(join({ cohorte_lundi: "2026-11-30", warmup_started_at: null }), JEUDI), []);
+  // le lundi de début
+  const debut = { cohorte_lundi: "2026-11-30", prevus_a_date: 2, warmup_fini: true, handle: "ana.study" };
+  assertEquals(relancesDues(faits(debut), LUNDI), ["start_posting_today"]);
+  assertEquals(relancesDues(join(debut), LUNDI), []);
+  // Ruul pas READY 3 jours après le premier post
+  const ruul = { ruul_onboarding: "PENDING_KYC", ruul_ready_at: null, premier_post_at: "2026-11-22T10:00:00Z" };
+  assertEquals(relancesDues(faits(ruul), JEUDI), ["ruul_payment_setup"]);
+  assertEquals(relancesDues(join(ruul), JEUDI), []);
+  // no_posts_week : à Join tant qu'il n'a jamais posté, à l'OS ensuite
+  const semaine = { cohorte_lundi: "2026-11-23", prevus_a_date: 6, publies_semaine: 0 };
+  assertEquals(relancesDues(join(semaine), JEUDI), []);
+  assertEquals(relancesDues(join({ ...semaine, premier_post_at: "2026-11-23T10:00:00Z" }), JEUDI), ["no_posts_week"]);
+  // ce qui n'est pas la checklist ne change pas (jamais connecté)
+  assertEquals(relancesDues(join({ signe_at: "2026-11-23T10:00:00Z", premiere_connexion_at: null }), MARDI), ["account_ready"]);
+});

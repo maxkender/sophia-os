@@ -14,7 +14,8 @@
   "pt-BR": "5 jeitos nichados de deixar sua memória absurda",
   "tr": "hafızanı aşırı geliştirmenin 5 niş yolu",
   "sv": "5 nischade sätt att göra ditt minne sjukt bra",
-  "nl": "5 niche manieren voor een walgelijk goed geheugen"
+  "nl": "5 niche manieren voor een walgelijk goed geheugen",
+  "hu": "5 niche módszer, hogy durván jó legyen a memóriád"
  },
  "legendes": {
   "en": "#niche #memory #studytok #lockedin #selfimprovement",
@@ -23,7 +24,8 @@
   "pt-BR": "#estudos #memória #studytok #autodesenvolvimento",
   "tr": "#hafıza #ders #studytok #kişiselgelişim",
   "sv": "#minne #plugg #studytok #självutveckling",
-  "nl": "#geheugen #studeren #studytok #zelfontwikkeling"
+  "nl": "#geheugen #studeren #studytok #zelfontwikkeling",
+  "hu": "#memória #tanulás #studytok #önfejlesztés"
  },
  "musique": {
   "titre": "A Song of Ice and Fire - Ramin Djawadi",
@@ -67,6 +69,11 @@
     "titre": "5 niche manieren voor een walgelijk goed geheugen",
     "image": "images/cerveau-hippocampe.jpg",
     "legende": "(wetenschappelijk onderbouwd)"
+   },
+   "hu": {
+    "titre": "5 niche módszer, hogy durván jó legyen a memóriád",
+    "image": "images/cerveau-34.jpg",
+    "legende": "(tudományosan igazolt)"
    }
   },
   {
@@ -105,6 +112,11 @@
     "titre": "Het geheugenpaleis",
     "texte": "stel je een gebouw voor dat je goed kent en leg alles wat je wilt onthouden in een andere kamer. om het terug te halen loop je erdoorheen. de oude grieken hielden zo speeches zonder aantekeningen",
     "image": "images/eglise-interieur.jpg"
+   },
+   "hu": {
+    "titre": "Az emlékezetpalota",
+    "texte": "képzelj el egy épületet, amit jól ismersz, és minden megjegyzendő dolgot tegyél egy másik szobába. ha emlékezni akarsz, sétálj végig rajta. az ókori görögök így tartottak beszédet jegyzet nélkül",
+    "image": "images/eglise-interieur.jpg"
    }
   },
   {
@@ -142,6 +154,11 @@
    "nl": {
     "titre": "Gespreide herhaling",
     "texte": "herhaal vlak voordat je het zou vergeten: na 1 dag, 3 dagen, een week, een maand. ebbinghaus bracht de vergeetcurve in 1885 in kaart. stampen vecht ertegen, spreiden gebruikt hem",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "hu": {
+    "titre": "Időközönkénti ismétlés",
+    "texte": "közvetlenül a felejtés előtt ismételj: 1 nap, 3 nap, egy hét, egy hónap múlva. ebbinghaus 1885-ben feltérképezte a felejtési görbét. a magolás harcol ellene, az időközök kihasználják",
     "image": "images/femme-ecrivant.jpg"
    }
   },
@@ -182,6 +199,11 @@
     "titre": "Elke dag een les op Sophia",
     "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. 10 minuten, en de quiz zorgt dat het blijft hangen",
     "telephone": "quiz"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. 10 perc, és a kvíz miatt marad meg",
+    "telephone": "quiz"
    }
   },
   {
@@ -220,6 +242,11 @@
     "titre": "Overhoor jezelf",
     "texte": "sla het boek dicht en schrijf alles op wat je nog weet. het uit je hoofd ophalen werkt beter dan herlezen. psychologen noemen dat het testeffect",
     "image": "images/homme-billet.jpg"
+   },
+   "hu": {
+    "titre": "Kérdezd ki magad",
+    "texte": "csukd be a könyvet, és írj le mindent, amire emlékszel. a fejedből előhívni többet ér, mint újraolvasni. a pszichológusok ezt tesztelési hatásnak hívják",
+    "image": "images/homme-billet.jpg"
    }
   },
   {
@@ -257,6 +284,11 @@
    "nl": {
     "titre": "Slaap erover",
     "texte": "terwijl je slaapt, speelt je brein af wat je geleerd hebt en slaat het op in je langetermijngeheugen. leer 's avonds, slaap, herhaal 's ochtends",
+    "image": "images/lectrice-endormie.jpg"
+   },
+   "hu": {
+    "titre": "Aludj rá",
+    "texte": "alvás közben az agyad visszajátssza, amit tanultál, és elraktározza a hosszú távú memóriában. tanulj este, aludj, ismételj reggel",
     "image": "images/lectrice-endormie.jpg"
    }
   }

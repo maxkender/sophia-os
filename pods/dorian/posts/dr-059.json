@@ -1,0 +1,174 @@
+{
+ "id": "dr-059",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+  "vues": 1200000,
+  "publie_le": "2026-10-07",
+  "accroche": "8 coding projects that are genuinely f*cking difficult"
+ },
+ "titre": {
+  "en": "5 science ideas your brain refuses to accept",
+  "it": "5 idee scientifiche che il tuo cervello rifiuta",
+  "de": "5 wissenschaftliche ideen, die dein gehirn nicht akzeptiert"
+ },
+ "legendes": {
+  "en": "#niche #science #physics #smarttok",
+  "it": "#scienza #fisica #curiosità #cultura",
+  "de": "#wissenschaft #physik #wissen #lernen"
+ },
+ "musique": {
+  "titre": "original sound - Neopatrickharris",
+  "url": "https://www.tiktok.com/music/original-sound-7687733674313288461"
+ },
+ "notes": "Déclinaison G2 de dr-033 (meilleur passage it 16,5 k) : accroche reformulée (« your brain refuses to accept »), autres idées. Faits : double fente électron par électron (Tonomura 1989) ; Monty Hall (2/3, polémique de 1990) ; invariance de c ; chat de Schrödinger (1935, critique de l'interprétation de Copenhague) ; Banach-Tarski (1924, axiome du choix). Images Seedream. En, it, de ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 science ideas your brain refuses to accept",
+    "image": "images/cerveau-39.jpg",
+    "legende": "(still true)"
+   },
+   "it": {
+    "titre": "5 idee scientifiche che il tuo cervello rifiuta",
+    "image": "images/cerveau-40.jpg",
+    "legende": "(eppure è vero)"
+   },
+   "de": {
+    "titre": "5 wissenschaftliche ideen, die dein gehirn nicht akzeptiert",
+    "image": "images/cerveau-41.jpg",
+    "legende": "(trotzdem wahr)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The double-slit experiment",
+    "difficulte": "33/50",
+    "texte": "fire single electrons, one at a time, at two slits. they still build up a wave pattern, as if each one went through both",
+    "image": "images/double-fente.jpg"
+   },
+   "it": {
+    "titre": "L'esperimento della doppia fenditura",
+    "difficulte": "33/50",
+    "texte": "spara elettroni uno alla volta contro due fenditure. formano comunque una figura d'onda, come se ognuno passasse da entrambe",
+    "image": "images/double-fente.jpg"
+   },
+   "de": {
+    "titre": "Das Doppelspaltexperiment",
+    "difficulte": "33/50",
+    "texte": "schieß einzelne elektronen, eins nach dem anderen, auf zwei spalte. trotzdem entsteht ein wellenmuster, als ginge jedes durch beide",
+    "image": "images/double-fente.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Monty Hall problem",
+    "difficulte": "35/50",
+    "texte": "three doors, one prize. you pick one, the host opens an empty one. switching wins 2 times out of 3. even mathematicians argued about it",
+    "image": "images/trois-portes.jpg"
+   },
+   "it": {
+    "titre": "Il problema di Monty Hall",
+    "difficulte": "35/50",
+    "texte": "tre porte, un premio. ne scegli una, il conduttore ne apre una vuota. cambiare vince 2 volte su 3. persino i matematici ci hanno litigato",
+    "image": "images/trois-portes.jpg"
+   },
+   "de": {
+    "titre": "Das Ziegenproblem",
+    "difficulte": "35/50",
+    "texte": "drei türen, ein preis. du wählst eine, der moderator öffnet eine leere. wechseln gewinnt in 2 von 3 fällen. selbst mathematiker haben darüber gestritten",
+    "image": "images/trois-portes.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "difficulte": "4/50",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. science explained so it actually makes sense",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "difficulte": "4/50",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. la scienza spiegata in modo che abbia senso",
+    "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "difficulte": "4/50",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. wissenschaft so erklärt, dass sie sinn ergibt",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Light ignores your speed",
+    "difficulte": "40/50",
+    "texte": "run toward a beam of light or away from it: you'll always measure the same speed, about 300,000 km per second. time bends to make it work",
+    "image": "images/faisceau-lumiere.jpg"
+   },
+   "it": {
+    "titre": "La luce ignora la tua velocità",
+    "difficulte": "40/50",
+    "texte": "corri verso un raggio di luce o allontanati: misurerai sempre la stessa velocità, circa 300.000 km al secondo. è il tempo a piegarsi",
+    "image": "images/faisceau-lumiere.jpg"
+   },
+   "de": {
+    "titre": "Licht ignoriert dein Tempo",
+    "difficulte": "40/50",
+    "texte": "lauf auf einen lichtstrahl zu oder von ihm weg: du misst immer dieselbe geschwindigkeit, etwa 300.000 km pro sekunde. die zeit verbiegt sich dafür",
+    "image": "images/faisceau-lumiere.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Schrödinger's cat",
+    "difficulte": "44/50",
+    "texte": "in 1935 erwin schrödinger imagined a cat in a box that's both alive and dead until you look. he meant it to show how absurd quantum theory sounded",
+    "image": "images/boite-chat.jpg"
+   },
+   "it": {
+    "titre": "Il gatto di Schrödinger",
+    "difficulte": "44/50",
+    "texte": "nel 1935 erwin schrödinger immaginò un gatto in una scatola vivo e morto insieme finché non guardi. lo intendeva come una critica alla teoria quantistica",
+    "image": "images/boite-chat.jpg"
+   },
+   "de": {
+    "titre": "Schrödingers Katze",
+    "difficulte": "44/50",
+    "texte": "1935 stellte sich erwin schrödinger eine katze in einer kiste vor, die lebendig und tot zugleich ist, bis man hinschaut. er meinte es als kritik an der quantentheorie",
+    "image": "images/boite-chat.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Banach-Tarski",
+    "difficulte": "49/50",
+    "texte": "in 1924 two mathematicians proved you can cut a ball into a few pieces and reassemble them into two balls the same size. in pure math, not with real matter",
+    "image": "images/sphere-doree.jpg"
+   },
+   "it": {
+    "titre": "Banach-Tarski",
+    "difficulte": "49/50",
+    "texte": "nel 1924 due matematici dimostrarono che si può tagliare una sfera in pochi pezzi e ricomporli in due sfere uguali. in matematica pura, non con la materia vera",
+    "image": "images/sphere-doree.jpg"
+   },
+   "de": {
+    "titre": "Banach-Tarski",
+    "difficulte": "49/50",
+    "texte": "1924 bewiesen zwei mathematiker, dass man eine kugel in wenige teile zerlegen und daraus zwei gleich große kugeln bauen kann. in reiner mathematik, nicht mit echter materie",
+    "image": "images/sphere-doree.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "da477374-efbd-4d50-8e85-e50690d9371c"
+}

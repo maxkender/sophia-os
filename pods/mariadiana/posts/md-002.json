@@ -1,0 +1,324 @@
+{
+  "id": "md-002",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "titre": {
+    "en": "Paintings That Devour My Soul",
+    "fr": "Les tableaux qui me dévorent l'âme",
+    "es-419": "Pinturas que me devoran el alma",
+    "it": "Quadri che mi divorano l'anima",
+    "el": "Πίνακες που μου κατατρώνε την ψυχή",
+    "hu": "Festmények, amelyek felfalják a lelkem",
+    "sr": "Slike koje mi proždiru dušu",
+    "hr": "Slike koje mi proždiru dušu",
+    "lv": "Gleznas, kas aprij manu dvēseli",
+    "ro": "Tablouri care îmi devorează sufletul"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #velazquez #rembrandt #museum",
+    "fr": "#histoiredelart #peinture #velazquez #rembrandt #musée",
+    "es-419": "#historiadelarte #pintura #velazquez #rembrandt #museo",
+    "it": "#storiadellarte #pittura #velazquez #rembrandt #museo",
+    "el": "#ιστορίατέχνης #ζωγραφική #βελάσκεθ #ρέμπραντ #μουσείο",
+    "hu": "#művészettörténet #festészet #velazquez #rembrandt #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #velaskes #rembrant #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #velazquez #rembrandt #muzej",
+    "lv": "#mākslasvēsture #glezniecība #velaskess #rembrants #muzejs",
+    "ro": "#istoriaartei #pictura #velazquez #rembrandt #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/pareja.jpg": {
+      "musee": "The Met",
+      "id": "437869",
+      "titre": "Juan de Pareja (ca. 1608–1670)",
+      "artiste": "Velázquez (Diego Rodríguez de Silva y Velázquez)",
+      "date": "1650",
+      "url": "https://www.metmuseum.org/art/collection/search/437869"
+    },
+    "images/oeuvres/aristote.jpg": {
+      "musee": "The Met",
+      "id": "437394",
+      "titre": "Aristotle with a Bust of Homer",
+      "artiste": "Rembrandt (Rembrandt van Rijn)",
+      "date": "1653",
+      "url": "https://www.metmuseum.org/art/collection/search/437394"
+    },
+    "images/oeuvres/marche-chevaux.jpg": {
+      "musee": "The Met",
+      "id": "435702",
+      "titre": "The Horse Fair",
+      "artiste": "Rosa Bonheur",
+      "date": "1852–55",
+      "url": "https://www.metmuseum.org/art/collection/search/435702"
+    },
+    "images/oeuvres/deux-hommes-lune.jpg": {
+      "musee": "The Met",
+      "id": "438417",
+      "titre": "Two Men Contemplating the Moon",
+      "artiste": "Caspar David Friedrich",
+      "date": "ca. 1825–30",
+      "url": "https://www.metmuseum.org/art/collection/search/438417"
+    }
+  },
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Velázquez peint Juan de Pareja à Rome en 1650, l'expose au Panthéon (mot rapporté par Palomino : tout le reste paraissait peinture, celui-ci seul vérité), signe sa lettre d'affranchissement à Rome en novembre 1650 (effective en 1654). Aristote : 1653, pour Don Antonio Ruffo (Messine) ; acheté par le Met en 1961 pour 2,3 M$, record d'enchères pour un tableau. Marché aux chevaux : Bonheur dessine au marché du boulevard de l'Hôpital pendant environ un an et demi, en habits d'homme (elle avait une permission de travestissement de la préfecture) ; Salon de 1853 ; donné au Met par Cornelius Vanderbilt en 1887. Friedrich : plusieurs versions (Dresde 1819, Berlin, Met vers 1825-30) ; Beckett a dit à Ruby Cohn que le tableau (vu à Dresde en 1937) était la source d'En attendant Godot. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-foule-3.jpg",
+      "en": {
+        "titre": "Paintings That Devour My Soul"
+      },
+      "fr": {
+        "titre": "Les tableaux qui me dévorent l'âme"
+      },
+      "es-419": {
+        "titre": "Pinturas que me devoran el alma"
+      },
+      "it": {
+        "titre": "Quadri che mi divorano l'anima"
+      },
+      "el": {
+        "titre": "Πίνακες που μου κατατρώνε την ψυχή"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek felfalják a lelkem"
+      },
+      "sr": {
+        "titre": "Slike koje mi proždiru dušu"
+      },
+      "hr": {
+        "titre": "Slike koje mi proždiru dušu"
+      },
+      "lv": {
+        "titre": "Gleznas, kas aprij manu dvēseli"
+      },
+      "ro": {
+        "titre": "Tablouri care îmi devorează sufletul"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/pareja.jpg",
+      "en": {
+        "titre": "Juan de Pareja",
+        "texte": "was painted in Rome in 1650 by the man who owned him. Velázquez showed it at the Pantheon, and people said everything else looked like painting while this alone looked like truth. That same year he signed Pareja's freedom papers.",
+        "artiste": "Diego Velázquez"
+      },
+      "fr": {
+        "titre": "Juan de Pareja",
+        "texte": "a été peint à Rome en 1650 par l'homme qui le possédait. Velázquez l'a exposé au Panthéon, et l'on disait que tout le reste semblait de la peinture, celui-ci seul la vérité. La même année, il signait l'acte d'affranchissement de Pareja.",
+        "artiste": "Diego Velázquez"
+      },
+      "es-419": {
+        "titre": "Juan de Pareja",
+        "texte": "fue pintado en Roma en 1650 por el hombre que era su dueño. Velázquez lo expuso en el Panteón, y decían que todo lo demás parecía pintura y solo este, verdad. Ese mismo año firmó la carta de libertad de Pareja.",
+        "artiste": "Diego Velázquez"
+      },
+      "it": {
+        "titre": "Juan de Pareja",
+        "texte": "fu dipinto a Roma nel 1650 dall'uomo che ne era il padrone. Velázquez lo espose al Pantheon, e si disse che tutto il resto sembrava pittura, solo questo verità. Quello stesso anno firmò l'atto che rendeva libero Pareja.",
+        "artiste": "Diego Velázquez"
+      },
+      "el": {
+        "titre": "Χουάν ντε Παρέχα",
+        "texte": "ζωγραφίστηκε στη Ρώμη το 1650 από τον άνθρωπο στον οποίο ανήκε. Ο Βελάσκεθ τον εξέθεσε στο Πάνθεον και έλεγαν ότι όλα τα άλλα έμοιαζαν ζωγραφική, μόνο αυτός αλήθεια. Την ίδια χρονιά υπέγραψε τα χαρτιά της ελευθερίας του Παρέχα.",
+        "artiste": "Ντιέγκο Βελάσκεθ"
+      },
+      "hu": {
+        "titre": "Juan de Pareja",
+        "texte": "portréját 1650-ben Rómában festette meg az az ember, akinek a tulajdona volt. Velázquez a Pantheonban állította ki, és azt mondták, minden más csak festménynek tűnt, ez az egy viszont igazságnak. Ugyanabban az évben aláírta Pareja szabadságlevelét.",
+        "artiste": "Diego Velázquez"
+      },
+      "sr": {
+        "titre": "Huan de Pareha",
+        "texte": "je portret koji je 1650. u Rimu naslikao čovek kome je Pareha pripadao. Velaskes ga je izložio u Panteonu, a govorilo se da sve ostalo liči na slikarstvo, a samo ovo na istinu. Iste godine potpisao je Parehine papire o slobodi.",
+        "artiste": "Dijego Velaskes"
+      },
+      "hr": {
+        "titre": "Juan de Pareja",
+        "texte": "je portret koji je 1650. u Rimu naslikao čovjek kojemu je Pareja pripadao. Velázquez ga je izložio u Panteonu i govorilo se da sve ostalo izgleda kao slikarstvo, a samo ovo kao istina. Iste je godine potpisao Parejinu povelju o slobodi.",
+        "artiste": "Diego Velázquez"
+      },
+      "lv": {
+        "titre": "Huans de Pareha",
+        "texte": "ir portrets, ko 1650. gadā Romā uzgleznoja cilvēks, kuram Pareha piederēja. Velaskess to izstādīja Panteonā, un ļaudis teica, ka viss pārējais izskatās pēc glezniecības, bet tikai šis pēc patiesības. Tajā pašā gadā viņš parakstīja Parehas brīvlaišanas dokumentus.",
+        "artiste": "Djego Velaskess"
+      },
+      "ro": {
+        "titre": "Juan de Pareja",
+        "texte": "a fost pictat la Roma în 1650 de omul care îl avea în stăpânire. Velázquez l-a expus la Pantheon, iar lumea spunea că tot restul părea pictură, doar acesta adevăr. În același an, i-a semnat lui Pareja actele de eliberare.",
+        "artiste": "Diego Velázquez"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/aristote.jpg",
+      "en": {
+        "titre": "Aristotle with a Bust of Homer",
+        "texte": "is a philosopher resting his hand on the head of a poet who died centuries before him. Rembrandt painted it in 1653 for a Sicilian nobleman. In 1961 the Met paid $2.3 million for it, a record for any painting sold at auction.",
+        "artiste": "Rembrandt"
+      },
+      "fr": {
+        "titre": "Aristote contemplant le buste d'Homère",
+        "texte": "est un philosophe qui pose la main sur la tête d'un poète mort des siècles avant lui. Rembrandt l'a peint en 1653 pour un noble sicilien. En 1961, le Met l'a payé 2,3 millions de dollars, un record pour un tableau vendu aux enchères.",
+        "artiste": "Rembrandt"
+      },
+      "es-419": {
+        "titre": "Aristóteles con un busto de Homero",
+        "texte": "es un filósofo que apoya la mano en la cabeza de un poeta muerto siglos antes que él. Rembrandt lo pintó en 1653 para un noble siciliano. En 1961, el Met pagó 2,3 millones de dólares por él, un récord para una pintura vendida en subasta.",
+        "artiste": "Rembrandt"
+      },
+      "it": {
+        "titre": "Aristotele con il busto di Omero",
+        "texte": "è un filosofo che posa la mano sulla testa di un poeta morto secoli prima di lui. Rembrandt lo dipinse nel 1653 per un nobile siciliano. Nel 1961 il Met lo pagò 2,3 milioni di dollari, record per un dipinto venduto all'asta.",
+        "artiste": "Rembrandt"
+      },
+      "el": {
+        "titre": "Ο Αριστοτέλης με την προτομή του Ομήρου",
+        "texte": "είναι ένας φιλόσοφος που ακουμπά το χέρι στο κεφάλι ενός ποιητή που πέθανε αιώνες πριν από αυτόν. Ο Ρέμπραντ τον ζωγράφισε το 1653 για έναν Σικελό ευγενή. Το 1961 το Met πλήρωσε 2,3 εκατομμύρια δολάρια, ρεκόρ για πίνακα σε δημοπρασία.",
+        "artiste": "Ρέμπραντ"
+      },
+      "hu": {
+        "titre": "Arisztotelész Homérosz mellszobrával",
+        "texte": "egy filozófus, aki egy évszázadokkal előtte meghalt költő fejére teszi a kezét. Rembrandt 1653-ban festette egy szicíliai nemesnek. 1961-ben a Met 2,3 millió dollárt fizetett érte, ami rekord volt árverésen eladott festményért.",
+        "artiste": "Rembrandt"
+      },
+      "sr": {
+        "titre": "Aristotel sa Homerovom bistom",
+        "texte": "je filozof koji spušta ruku na glavu pesnika umrlog vekovima pre njega. Rembrant ju je naslikao 1653. za jednog sicilijanskog plemića. Met ju je 1961. platio 2,3 miliona dolara, rekord za sliku prodatu na aukciji.",
+        "artiste": "Rembrant"
+      },
+      "hr": {
+        "titre": "Aristotel s Homerovim poprsjem",
+        "texte": "je filozof koji polaže ruku na glavu pjesnika umrlog stoljećima prije njega. Rembrandt ju je naslikao 1653. za jednog sicilijanskog plemića. Met ju je 1961. platio 2,3 milijuna dolara, rekord za sliku prodanu na dražbi.",
+        "artiste": "Rembrandt"
+      },
+      "lv": {
+        "titre": "Aristotelis ar Homēra krūšutēlu",
+        "texte": "ir filozofs, kurš uzliek roku uz galvas dzejniekam, kas miris gadsimtiem pirms viņa. Rembrants to uzgleznoja 1653. gadā kādam Sicīlijas muižniekam. 1961. gadā Met par to samaksāja 2,3 miljonus dolāru, kas bija rekords izsolē pārdotai gleznai.",
+        "artiste": "Rembrants"
+      },
+      "ro": {
+        "titre": "Aristotel cu bustul lui Homer",
+        "texte": "este un filozof care își sprijină mâna pe capul unui poet mort cu secole înaintea lui. Rembrandt l-a pictat în 1653 pentru un nobil sicilian. În 1961, Met a plătit pe el 2,3 milioane de dolari, un record pentru un tablou vândut la licitație.",
+        "artiste": "Rembrandt"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/marche-chevaux.jpg",
+      "en": {
+        "titre": "The Horse Fair",
+        "texte": "took Rosa Bonheur a year and a half of sketching at the Paris horse market, dressed in men's clothes so no one would bother her. It made her famous at the 1853 Salon. I only noticed the dust rising under the hooves because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Rosa Bonheur"
+      },
+      "fr": {
+        "titre": "Le Marché aux chevaux",
+        "texte": "a coûté à Rosa Bonheur un an et demi de croquis au marché aux chevaux de Paris, en habits d'homme pour qu'on la laisse tranquille. Il l'a rendue célèbre au Salon de 1853. Je n'ai remarqué la poussière qui monte sous les sabots que grâce à Artura, qui zoome sur les détails qu'on ne voit pas.",
+        "artiste": "Rosa Bonheur"
+      },
+      "es-419": {
+        "titre": "La feria de caballos",
+        "texte": "le costó a Rosa Bonheur un año y medio de bocetos en el mercado de caballos de París, vestida de hombre para que nadie la molestara. La hizo famosa en el Salón de 1853. Solo noté el polvo que se levanta bajo los cascos gracias a Artura, que hace zoom en los detalles que se te escapan.",
+        "artiste": "Rosa Bonheur"
+      },
+      "it": {
+        "titre": "Il mercato dei cavalli",
+        "texte": "costò a Rosa Bonheur un anno e mezzo di schizzi al mercato dei cavalli di Parigi, vestita da uomo perché nessuno la disturbasse. La rese famosa al Salon del 1853. Ho notato la polvere che si alza sotto gli zoccoli solo grazie ad Artura, che zooma sui dettagli che ti sfuggirebbero.",
+        "artiste": "Rosa Bonheur"
+      },
+      "el": {
+        "titre": "Η αγορά αλόγων",
+        "texte": "κόστισε στη Ρόζα Μπονέρ ενάμιση χρόνο σκίτσων στην αγορά αλόγων του Παρισιού, ντυμένη με αντρικά ρούχα για να μην την ενοχλεί κανείς. Την έκανε διάσημη στο Σαλόν του 1853. Πρόσεξα τη σκόνη κάτω από τις οπλές μόνο χάρη στο Artura, που κάνει ζουμ στις λεπτομέρειες που θα σου ξέφευγαν.",
+        "artiste": "Ρόζα Μπονέρ"
+      },
+      "hu": {
+        "titre": "A lóvásár",
+        "texte": "másfél évnyi vázlatolásba került Rosa Bonheurnek a párizsi lópiacon, férfiruhában, hogy senki ne zavarja. Az 1853-as Szalonon ez tette híressé. A paták alól felszálló port csak az Artura appnak köszönhetően vettem észre, ami ráközelít a részletekre, amiket amúgy nem látnál.",
+        "artiste": "Rosa Bonheur"
+      },
+      "sr": {
+        "titre": "Sajam konja",
+        "texte": "je Rozu Bonér koštao godinu i po skiciranja na pariskoj pijaci konja, u muškoj odeći da je niko ne bi uznemiravao. Proslavio ju je na Salonu 1853. Prašinu ispod kopita primetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi inače propustio.",
+        "artiste": "Roza Bonér"
+      },
+      "hr": {
+        "titre": "Sajam konja",
+        "texte": "je Rosu Bonheur stajao godinu i pol skiciranja na pariškom sajmu konja, u muškoj odjeći da joj nitko ne bi smetao. Proslavio ju je na Salonu 1853. Prašinu ispod kopita primijetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi inače propustio.",
+        "artiste": "Rosa Bonheur"
+      },
+      "lv": {
+        "titre": "Zirgu tirgus",
+        "texte": "Rozai Bonērai prasīja pusotru gadu skicēšanas Parīzes zirgu tirgū, vīrieša drēbēs, lai neviens viņu netraucētu. 1853. gada Salonā tas viņu padarīja slavenu. Putekļus zem nagiem es pamanīju tikai pateicoties lietotnei Artura, kas pietuvina detaļas, kuras citādi paslīdētu garām.",
+        "artiste": "Roza Bonēra"
+      },
+      "ro": {
+        "titre": "Târgul de cai",
+        "texte": "a costat-o pe Rosa Bonheur un an și jumătate de schițe la târgul de cai din Paris, îmbrăcată în haine bărbătești ca să n-o deranjeze nimeni. A făcut-o celebră la Salonul din 1853. Am observat praful de sub copite doar datorită aplicației Artura, care face zoom pe detaliile pe care le-ai rata.",
+        "artiste": "Rosa Bonheur"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/deux-hommes-lune.jpg",
+      "en": {
+        "titre": "Two Men Contemplating the Moon",
+        "texte": "is two friends standing in silence under a dead oak, watching a thin moon rise. Friedrich painted several versions of this scene. Samuel Beckett said one of them was the source of Waiting for Godot.",
+        "artiste": "Caspar David Friedrich"
+      },
+      "fr": {
+        "titre": "Deux hommes contemplant la lune",
+        "texte": "montre deux amis silencieux sous un chêne mort, qui regardent se lever un fin croissant de lune. Friedrich a peint plusieurs versions de cette scène. Samuel Beckett a dit que l'une d'elles était à l'origine d'« En attendant Godot ».",
+        "artiste": "Caspar David Friedrich"
+      },
+      "es-419": {
+        "titre": "Dos hombres contemplando la luna",
+        "texte": "son dos amigos en silencio bajo un roble muerto, mirando salir una luna delgada. Friedrich pintó varias versiones de esta escena. Samuel Beckett dijo que una de ellas fue el origen de «Esperando a Godot».",
+        "artiste": "Caspar David Friedrich"
+      },
+      "it": {
+        "titre": "Due uomini che contemplano la luna",
+        "texte": "sono due amici in silenzio sotto una quercia morta, mentre guardano sorgere una luna sottile. Friedrich dipinse diverse versioni di questa scena. Samuel Beckett disse che una di esse fu all'origine di «Aspettando Godot».",
+        "artiste": "Caspar David Friedrich"
+      },
+      "el": {
+        "titre": "Δύο άντρες ατενίζουν τη σελήνη",
+        "texte": "είναι δύο φίλοι σιωπηλοί κάτω από μια νεκρή βελανιδιά, που κοιτάζουν ένα λεπτό φεγγάρι να ανατέλλει. Ο Φρίντριχ ζωγράφισε πολλές εκδοχές της σκηνής. Ο Σάμιουελ Μπέκετ είπε ότι μία από αυτές ήταν η πηγή του «Περιμένοντας τον Γκοντό».",
+        "artiste": "Κάσπαρ Ντάβιντ Φρίντριχ"
+      },
+      "hu": {
+        "titre": "Két férfi a holdat szemléli",
+        "texte": "két barát, akik némán állnak egy elhalt tölgy alatt, és a vékony hold felkeltét nézik. Friedrich több változatot is festett erről a jelenetről. Samuel Beckett szerint az egyik volt a „Godot-ra várva” forrása.",
+        "artiste": "Caspar David Friedrich"
+      },
+      "sr": {
+        "titre": "Dvojica muškaraca posmatraju mesec",
+        "texte": "su dva prijatelja koji ćutke stoje pod mrtvim hrastom i gledaju kako izlazi tanak mesec. Fridrih je naslikao nekoliko verzija ove scene. Semjuel Beket je rekao da je jedna od njih bila izvor drame „Čekajući Godoa”.",
+        "artiste": "Kaspar David Fridrih"
+      },
+      "hr": {
+        "titre": "Dva muškarca promatraju mjesec",
+        "texte": "su dva prijatelja koji šutke stoje pod mrtvim hrastom i gledaju kako izlazi tanki mjesec. Friedrich je naslikao nekoliko verzija ovog prizora. Samuel Beckett rekao je da je jedna od njih bila izvor drame „U očekivanju Godota”.",
+        "artiste": "Caspar David Friedrich"
+      },
+      "lv": {
+        "titre": "Divi vīri vēro mēnesi",
+        "texte": "ir divi draugi, kas klusējot stāv zem nokaltuša ozola un vēro, kā lec šaurs mēness sirpis. Frīdrihs uzgleznoja vairākas šīs ainas versijas. Semjuels Bekets sacīja, ka viena no tām bija lugas „Gaidot Godo” avots.",
+        "artiste": "Kaspars Dāvids Frīdrihs"
+      },
+      "ro": {
+        "titre": "Doi bărbați contemplând luna",
+        "texte": "sunt doi prieteni care stau în tăcere sub un stejar mort și privesc cum răsare o lună subțire. Friedrich a pictat mai multe versiuni ale acestei scene. Samuel Beckett a spus că una dintre ele a stat la originea piesei „Așteptându-l pe Godot”.",
+        "artiste": "Caspar David Friedrich"
+      }
+    }
+  ]
+}

@@ -12,7 +12,7 @@ export const APPLICATION = { slug: "artura", id: "00000000-0000-4000-8000-000000
  * Déclarée à l'OS à chaque `npm run boite` (0654) : une langue ajoutée ici
  * s'OUVRE pour le label (0781) ; ne l'ajoute qu'une fois prête (pods/ROUTINE.md §5.6).
  */
-export const LANGUES = ["en"] as const;
+export const LANGUES = ["en", "el", "es-419", "it", "fr", "hu", "sr", "hr", "lv", "ro"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

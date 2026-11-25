@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o319",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "017e8149-705a-4f4d-abba-55c728b81a7b",
+ "titre": "hobbies that will make you disgustingly disciplined #discipline #hobbies #habits #selfimprovement #mindset",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "ee1099e0-b008-42ad-93f9-70b66176ba1e"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ee1099e0). déclinaison G1 de « hobbies that will make you disgustingly disciplined » (parent 017e8149). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8e389fb8-e09c-4be7-8924-1858a8003479",
+   "texte_overlay": "hobbies that will make you\ndisgustingly disciplined",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "42b85f37-871a-4e37-a0f6-31198e711cd3",
+   "texte_overlay": "cold showers\n\nend every shower with thirty seconds of cold water. choosing discomfort on purpose every morning trains your brain to stop negotiating with itself. it honestly works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1fb0fe91-c34e-486e-8182-4a2a5689120f",
+   "texte_overlay": "silent hours\n\npick one hour a day with no talking, no music and no phone. sitting with your own thoughts teaches focus in a way no planner or gadget ever could. it sounds simple, but very few people actually do it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f65c2f5a-efe4-4730-b6cf-a9019d61998e",
+   "texte_overlay": "daily micro learning\n\nspend 5 minutes learning a new topic every single morning, without skipping a single day. protecting one tiny streak teaches you to keep promises to yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/4.jpg",
+   "texte_sophia": "daily micro learning\n\ni spend 5 minutes every morning on one lesson in the Sophia app, a planet or a myth. never breaking that small streak made me disciplined in everything else too."
+  },
+  {
+   "position": 5,
+   "media_id": "b26053e4-beb8-4f78-8191-11fb3ac12226",
+   "texte_overlay": "reverse meals\n\neat dinner food for breakfast and breakfast food for dinner once a week. breaking small routines trains your brain to question its own autopilot. over time, it quietly changes how you feel every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a7dc86c7-44b1-42b2-b4b6-93159752a7ad",
+   "texte_overlay": "backwards walking\n\nwalk backwards for a few minutes somewhere safe. when everything feels unfamiliar, your brain is forced to stay completely present and focused. the more you practise it, the more natural it becomes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656796309910834454/6.jpg"
+  }
+ ]
+}

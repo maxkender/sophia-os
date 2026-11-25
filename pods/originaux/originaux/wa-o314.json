@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o314",
+ "type_bleo": "full_test",
+ "titre": "underrated skills that make life so much easier #skills #lifeskills #selfimprovement #growth #learning",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "5b39aa5e-5308-40f5-8693-18773c10278f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5b39aa5e). full test BLEO : accroche jamais faite (format « underrated skills that make life so much X »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c3b515da-23b3-4839-8635-26499ffaacf1",
+   "texte_overlay": "underrated skills that\nmake life so much easier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "edc0e9cc-8c20-4d1e-90f7-2ac91e7e3834",
+   "texte_overlay": "saying no kindly\n\nlearning to say no without guilt protects your time and energy. a short, warm no is one of the most freeing skills you'll ever practise. it sounds simple, but very few people actually do it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "aceffb79-dae4-4e3b-8545-7776d0c11ad8",
+   "texte_overlay": "cooking simple meals\n\na handful of easy, healthy recipes saves money, time and stress every week. people who can cook simply always seem calm and capable. over time, it quietly changes how you feel every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "482ce3ef-0a0d-4b5f-8843-2e0392a8562a",
+   "texte_overlay": "learning a little every day\n\nthe habit of learning something small daily makes every other skill easier to pick up. the more you practise it, the more natural it becomes. it's a small change with a surprisingly big effect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/4.jpg",
+   "texte_sophia": "learning a little every day\n\ni made learning a tiny daily habit. i spend 5 minutes a day on one lesson in the Sophia app, history or science, and every new skill now feels so much easier to learn."
+  },
+  {
+   "position": 5,
+   "media_id": "66891a9c-0771-4442-87aa-434ab2297bb5",
+   "texte_overlay": "writing clear messages\n\nsay what you need in a few clear sentences. clear writing saves endless back and forth, and people quietly trust those who communicate well. try it for one week and notice the difference.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b06bb693-e614-409a-9153-d0d797a28373",
+   "texte_overlay": "managing your money\n\ntrack where your money goes for just one month. knowing your numbers removes a huge amount of hidden stress and gives you real control. most people never think about it, which is exactly why it works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/6.jpg"
+  }
+ ]
+}

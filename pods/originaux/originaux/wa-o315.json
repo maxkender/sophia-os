@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o315",
+ "type_bleo": "full_test",
+ "titre": "winter habits that keep your mood from sinking #winter #mood #mentalhealth #selfcare #habits",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "3bd02f3a-f092-4cb5-b051-5035c3f9f16a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3bd02f3a). full test BLEO : accroche jamais faite (format « winter habits that keep your X from Y »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aeb27119-1c60-40e4-9482-3dd51d15ebb6",
+   "texte_overlay": "winter habits that keep\nyour mood from sinking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "16ab7400-38a7-43be-9e54-924e7ab4cf12",
+   "texte_overlay": "morning light\n\nget outside within an hour of waking, even when it's grey. morning daylight sets your body clock and lifts your mood more than you'd expect. it sounds simple, but very few people actually do it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fed3a726-60d7-4f2f-b3dc-aebdc70832bb",
+   "texte_overlay": "moving every day\n\ntake a brisk walk or do ten minutes of stretching daily. movement warms you up and releases the feel good chemicals that winter quietly steals. over time, it quietly changes how you feel every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0ede51d6-87a6-49b8-be93-08c44dc99dba",
+   "texte_overlay": "cosy evening rituals\n\nmake your evenings something to look forward to: warm tea, soft light, a good book. small comforts make the dark months feel gentle instead of heavy. it honestly works.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "52069689-35e1-4113-84ea-a194a80c883e",
+   "texte_overlay": "learning by the fire\n\ndark evenings are perfect for learning something beautiful, a constellation, a myth or a painting. it's a small change with a surprisingly big effect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/5.jpg",
+   "texte_sophia": "learning by the fire\n\ndark evenings are perfect for curiosity. the Sophia app turns it into one short lesson a day, a myth or a constellation, and 5 minutes makes winter nights feel cosy."
+  },
+  {
+   "position": 6,
+   "media_id": "c3603317-1b74-4107-b945-ea70946f37f9",
+   "texte_overlay": "seeing people\n\nplan one meet up a week, even a short coffee. winter makes it easy to hide away, but real connection is one of the best protections for your mood. try it for one week and notice the difference.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667530920295009558/6.jpg"
+  }
+ ]
+}

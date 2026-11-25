@@ -12,7 +12,9 @@
     "es-419": "Cómo escribirle como un hombre, no como un niño.",
     "it": "Come scriverle da uomo, non da ragazzino.",
     "hu": "Így írj neki: mint egy férfi, ne mint egy kisfiú.",
-    "sr": "Kako da joj pišeš kao muškarac, a ne kao dečak."
+    "sr": "Kako da joj pišeš kao muškarac, a ne kao dečak.",
+    "pt-BR": "Como mandar mensagem como homem, não como garoto.",
+    "es": "Cómo escribirle como un hombre, no como un niño."
   },
   "legendes": {
     "en": "#textingadvice #datingtips #tipsformen ",
@@ -20,7 +22,9 @@
     "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
-    "sr": "#savetizamuškarce #veze #zavođenje "
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
   },
   "musique": {
     "titre": "M83 Solitude",
@@ -36,7 +40,7 @@
       "url": "https://www.metmuseum.org/art/collection/search/436535"
     }
   },
-  "notes": "Preuve : « HOW TO TEXT LIKE A MAN NOT A BOY. » de @highlevelgame_ (3,8 M vues, 20/09), son gabarit « Instead of: / Say: », sa musique (M83 Solitude). Demande du chef des podz (mise en route du 25/11). Répliques à nous. Carte Artura (4) : « Text her about art. », Van Gogh, Wheat Field with Cypresses (The Met 436535) et le LOGO d'Artura ; cta B. Fait vérifié : peint en 1889 à Saint-Rémy, le ciel aux nuages en volutes (fiche du Met). Traduit en el, es-419, it, hu, sr (sr en latin, comme le podz 24), à la demande d'Adrien du 25/11.",
+  "notes": "Preuve : « HOW TO TEXT LIKE A MAN NOT A BOY. » de @highlevelgame_ (3,8 M vues, 20/09), son gabarit « Instead of: / Say: », sa musique (M83 Solitude). Demande du chef des podz (mise en route du 25/11). Répliques à nous. Carte Artura (4) : « Text her about art. », Van Gogh, Wheat Field with Cypresses (The Met 436535) et le LOGO d'Artura ; cta B. Fait vérifié : peint en 1889 à Saint-Rémy, le ciel aux nuages en volutes (fiche du Met). Traduit en el, es-419, it, hu, sr (sr en latin, comme le podz 24), à la demande d'Adrien du 25/11. pt-BR et es (Espagne) ajoutés le 25/11 à la demande d'Adrien.",
   "slides": [
     {
       "type": "couverture",
@@ -57,6 +61,12 @@
       },
       "sr": {
         "titre": "KAKO DA JOJ PIŠEŠ\nKAO MUŠKARAC,\nA NE KAO DEČAK."
+      },
+      "pt-BR": {
+        "titre": "COMO MANDAR\nMENSAGEM COMO\nHOMEM, NÃO\nCOMO GAROTO."
+      },
+      "es": {
+        "titre": "CÓMO ESCRIBIRLE\nCOMO UN HOMBRE,\nNO COMO UN NIÑO."
       }
     },
     {
@@ -102,6 +112,20 @@
           "**Umesto:**\n„Ej?? Jesi li videla poruku?”",
           "**Napiši:**\nNišta. Odgovori kad vidiš njenu, kao muškarac koji ima svoj život."
         ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela demora para responder.",
+        "paragraphes": [
+          "**Em vez de:**\n“Oi?? Viu minha mensagem?”",
+          "**Mande:**\nNada. Responda quando vir a dela, como um homem com vida própria."
+        ]
+      },
+      "es": {
+        "titre": "Cuando tarda horas en responder.",
+        "paragraphes": [
+          "**En vez de:**\n“¿¿Hola?? ¿Viste mi mensaje?”",
+          "**Dile:**\nNada. Responde cuando veas el suyo, como un hombre con vida propia."
+        ]
       }
     },
     {
@@ -146,6 +170,20 @@
         "paragraphes": [
           "**Umesto:**\n„Trebalo bi da se vidimo nekad.”",
           "**Napiši:**\n„Kafa u subotu u 11. Znam dobro mesto.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Quando for chamar para sair.",
+        "paragraphes": [
+          "**Em vez de:**\n“A gente devia se ver qualquer dia.”",
+          "**Mande:**\n“Café no sábado, às 11. Conheço um lugar bom.”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando la invitas a salir.",
+        "paragraphes": [
+          "**En vez de:**\n“Deberíamos vernos algún día.”",
+          "**Dile:**\n“Café el sábado a las 11. Conozco un buen lugar.”"
         ]
       }
     },
@@ -217,6 +255,28 @@
           "Artura mi daje jedno delo dnevno i njegovu priču.",
           "Deset minuta, i ti si najzanimljiviji muškarac u sobi."
         ]
+      },
+      "pt-BR": {
+        "titre": "Fale de arte com ela.",
+        "avant": [
+          "**Em vez de:** “oq tá fazendo?”",
+          "**Mande:** “Vi um Van Gogh com um céu que se mexe. Você ia amar.”"
+        ],
+        "apres": [
+          "O Artura me dá uma obra por dia e a história dela.",
+          "Dez minutos, e você é o homem mais interessante da sala."
+        ]
+      },
+      "es": {
+        "titre": "Háblale de arte.",
+        "avant": [
+          "**En vez de:** “¿qué haces?”",
+          "**Dile:** “Vi un Van Gogh con un cielo que se mueve. Te encantaría.”"
+        ],
+        "apres": [
+          "Artura me da una obra al día y su historia.",
+          "Diez minutos, y eres el hombre más interesante del lugar."
+        ]
       }
     },
     {
@@ -261,6 +321,20 @@
         "paragraphes": [
           "**Umesto:**\n„Je l' ti bilo lepo? Budi iskrena haha”",
           "**Napiši:**\n„Večeras je bilo lako. Ponovimo.”"
+        ]
+      },
+      "pt-BR": {
+        "titre": "Depois de um ótimo encontro.",
+        "paragraphes": [
+          "**Em vez de:**\n“Gostou? Fala a verdade kkk”",
+          "**Mande:**\n“Hoje foi leve. Vamos repetir.”"
+        ]
+      },
+      "es": {
+        "titre": "Después de una gran cita.",
+        "paragraphes": [
+          "**En vez de:**\n“¿Te lo pasaste bien? Sé sincera jaja”",
+          "**Dile:**\n“Hoy ha sido fácil contigo. Repitámoslo.”"
         ]
       }
     },
@@ -307,6 +381,20 @@
           "**Umesto:**\n„Dobro, kako hoćeš.”",
           "**Napiši:**\n„Čujem te. Mogu li da te pozovem večeras?”"
         ]
+      },
+      "pt-BR": {
+        "titre": "Quando ela está chateada com você.",
+        "paragraphes": [
+          "**Em vez de:**\n“Tá, que seja.”",
+          "**Mande:**\n“Te entendo. Posso te ligar hoje à noite?”"
+        ]
+      },
+      "es": {
+        "titre": "Cuando está molesta contigo.",
+        "paragraphes": [
+          "**En vez de:**\n“Como quieras.”",
+          "**Dile:**\n“Te escucho. ¿Te llamo esta noche?”"
+        ]
       }
     },
     {
@@ -352,6 +440,20 @@
           "Poruka nije razgovor. Ona je poziv na razgovor.",
           "**Dečak piše zbog pažnje.**\n**Muškarac piše da je vidi.**"
         ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Mensagem não é a conversa. É o convite para ela.",
+          "**O garoto escreve por atenção.**\n**O homem escreve para vê-la.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "Un mensaje no es la conversación. Es la invitación a tenerla.",
+          "**Un niño escribe por atención.**\n**Un hombre escribe para verla.**"
+        ]
       }
     },
     {
@@ -384,6 +486,16 @@
         "gras": "Zaprati",
         "milieu": " da ne propustiš",
         "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
       }
     }
   ]

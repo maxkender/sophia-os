@@ -12,7 +12,9 @@
     "es-419": "Cómo darle mariposas en la primera cita.",
     "it": "Come farle sentire le farfalle al primo appuntamento.",
     "hu": "Hogyan legyenek pillangók a hasában az első randin.",
-    "sr": "Kako da oseti leptiriće na prvom sastanku."
+    "sr": "Kako da oseti leptiriće na prvom sastanku.",
+    "pt-BR": "Como dar frio na barriga no primeiro encontro.",
+    "es": "Cómo darle mariposas en la primera cita."
   },
   "legendes": {
     "en": "#datingadvice #tipsformen #firstdate #attraction ",
@@ -20,7 +22,9 @@
     "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
-    "sr": "#savetizamuškarce #veze #zavođenje "
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
   },
   "musique": {
     "titre": "M83 Solitude",
@@ -36,7 +40,7 @@
       "url": "https://www.metmuseum.org/art/collection/search/437881"
     }
   },
-  "notes": "Preuve : « HOW TO GIVE A GIRL BUTTERFLIES. » de @highlevelgame_ (1,4 M vues, 16/09), même famille que « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M et 3,7 M) ; même gabarit (papier blanc cassé, serif bordeaux, couverture en capitales, un conseil par carte avec son titre en gras, « The rule underneath all of it », « Follow so you don't miss … » et la flèche), sa musique de « HOW TO TEXT LIKE A MAN » (M83 Solitude). Conseils à nous. Carte Artura (4), demandée par Adrien (« knows to talk about art ») : « Know how to talk about art. », un vrai tableau du domaine public (Vermeer, Young Woman with a Water Pitcher, The Met 437881) et le LOGO d'Artura, jamais une capture ; cta A (« I learn one painting a day on Artura »). Fait vérifié : on attribue à Vermeer environ 35 tableaux (moins de 40). Pas de @ ni de nom de compte en pied de slide (le sien : @HighLevelGame_). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11.",
+  "notes": "Preuve : « HOW TO GIVE A GIRL BUTTERFLIES. » de @highlevelgame_ (1,4 M vues, 16/09), même famille que « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M et 3,7 M) ; même gabarit (papier blanc cassé, serif bordeaux, couverture en capitales, un conseil par carte avec son titre en gras, « The rule underneath all of it », « Follow so you don't miss … » et la flèche), sa musique de « HOW TO TEXT LIKE A MAN » (M83 Solitude). Conseils à nous. Carte Artura (4), demandée par Adrien (« knows to talk about art ») : « Know how to talk about art. », un vrai tableau du domaine public (Vermeer, Young Woman with a Water Pitcher, The Met 437881) et le LOGO d'Artura, jamais une capture ; cta A (« I learn one painting a day on Artura »). Fait vérifié : on attribue à Vermeer environ 35 tableaux (moins de 40). Pas de @ ni de nom de compte en pied de slide (le sien : @HighLevelGame_). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11. pt-BR et es (Espagne) ajoutés le 25/11 à la demande d'Adrien.",
   "slides": [
     {
       "type": "couverture",
@@ -57,6 +61,12 @@
       },
       "sr": {
         "titre": "KAKO DA OSETI\nLEPTIRIĆE\nNA PRVOM SASTANKU."
+      },
+      "pt-BR": {
+        "titre": "COMO DAR\nFRIO NA BARRIGA\nNO PRIMEIRO\nENCONTRO."
+      },
+      "es": {
+        "titre": "CÓMO DARLE\nMARIPOSAS EN\nLA PRIMERA CITA."
       }
     },
     {
@@ -108,6 +118,22 @@
           "Reci: „Znam jedno mesto. Četvrtak, u 19h.”",
           "Plan je privlačan. Pitanje je domaći zadatak."
         ]
+      },
+      "pt-BR": {
+        "titre": "Escolha você o lugar.",
+        "paragraphes": [
+          "Não pergunte:\n“Aonde você quer ir?”",
+          "Diga: “Conheço um lugar. Quinta, 19h.”",
+          "Um plano atrai. Uma pergunta é lição de casa."
+        ]
+      },
+      "es": {
+        "titre": "Elige tú el lugar.",
+        "paragraphes": [
+          "No preguntes:\n“¿A dónde quieres ir?”",
+          "Dile: “Conozco un lugar. Jueves, a las 7.”",
+          "Un plan atrae. Una pregunta es tarea."
+        ]
       }
     },
     {
@@ -158,6 +184,22 @@
           "Ne njeno telo. Nešto što je ona izabrala.",
           "„Taj prsten kao da ima priču.”",
           "Pa je pusti da je ispriča."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Repare em um detalhe.",
+        "paragraphes": [
+          "Não no corpo dela. Em algo que ela escolheu.",
+          "“Esse anel parece ter uma história.”",
+          "Depois deixe ela contar."
+        ]
+      },
+      "es": {
+        "titre": "Fíjate en un detalle.",
+        "paragraphes": [
+          "No en su cuerpo. En algo que ella eligió.",
+          "“Ese anillo parece tener una historia.”",
+          "Y deja que te la cuente."
         ]
       }
     },
@@ -217,6 +259,24 @@
         "apres": [
           "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
         ]
+      },
+      "pt-BR": {
+        "titre": "Saiba falar de arte.",
+        "avant": [
+          "Leve ela a um museu. Pare diante de um quadro e conte a história dele."
+        ],
+        "apres": [
+          "Aprendo um quadro por dia no Artura, então sempre tenho uma história pronta."
+        ]
+      },
+      "es": {
+        "titre": "Aprende a hablar de arte.",
+        "avant": [
+          "Llévala a un museo. Detente frente a un cuadro y cuéntale su historia."
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
       }
     },
     {
@@ -261,6 +321,20 @@
         "paragraphes": [
           "Nije dovoljno da bude okrenut naopako. Ostavi ga u džepu celo veče.",
           "Primetiće. Svaka žena primeti."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Guarde o celular.",
+        "paragraphes": [
+          "Virado para baixo não basta. Deixe no bolso a noite toda.",
+          "Ela vai perceber. Toda mulher percebe."
+        ]
+      },
+      "es": {
+        "titre": "Guarda el móvil.",
+        "paragraphes": [
+          "Boca abajo no basta. Déjalo en el bolsillo toda la noche.",
+          "Lo va a notar. Todas lo notan."
         ]
       }
     },
@@ -307,6 +381,20 @@
           "Idi dok je još lepo.",
           "Napiši joj sat kasnije:\n„I dalje mislim na onaj smeh.”"
         ]
+      },
+      "pt-BR": {
+        "titre": "Termine você o encontro.",
+        "paragraphes": [
+          "Vá embora enquanto ainda está bom.",
+          "Mande uma mensagem uma hora depois:\n“Ainda pensando naquela risada.”"
+        ]
+      },
+      "es": {
+        "titre": "Termina tú la cita.",
+        "paragraphes": [
+          "Vete mientras todo va bien.",
+          "Escríbele una hora después:\n“Sigo pensando en esa risa.”"
+        ]
       }
     },
     {
@@ -352,6 +440,20 @@
           "Ne pokušavaj da je impresioniraš. Neka se oseti viđeno.",
           "**Dečak glumi.**\n**Muškarac obraća pažnju.**"
         ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "Não tente impressionar. Faça ela se sentir vista.",
+          "**Um garoto se exibe.**\n**Um homem presta atenção.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No intentes impresionarla. Haz que se sienta vista.",
+          "**Un niño actúa.**\n**Un hombre presta atención.**"
+        ]
       }
     },
     {
@@ -384,6 +486,16 @@
         "gras": "Zaprati",
         "milieu": " da ne propustiš",
         "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
       }
     }
   ]

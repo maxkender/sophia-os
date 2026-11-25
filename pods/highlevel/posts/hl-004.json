@@ -12,7 +12,9 @@
     "es-419": "Cómo ser el hombre en quien no deja de pensar.",
     "it": "Come essere l'uomo a cui non smette di pensare.",
     "hu": "Hogyan legyél az a férfi, akire folyton gondol.",
-    "sr": "Kako da budeš muškarac na koga ne prestaje da misli."
+    "sr": "Kako da budeš muškarac na koga ne prestaje da misli.",
+    "pt-BR": "Como ser o homem em quem ela não para de pensar.",
+    "es": "Cómo ser el hombre en quien no deja de pensar."
   },
   "legendes": {
     "en": "#datingadvice #tipsformen #selfgrowth ",
@@ -20,7 +22,9 @@
     "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
     "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
     "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
-    "sr": "#savetizamuškarce #veze #zavođenje "
+    "sr": "#savetizamuškarce #veze #zavođenje ",
+    "pt-BR": "#dicasdeencontro #dicasparahomens #conquista ",
+    "es": "#consejosdecitas #consejosparahombres #ligar "
   },
   "musique": {
     "titre": "Les (Instrumental Slowed)",
@@ -36,7 +40,7 @@
       "url": "https://www.metmuseum.org/art/collection/search/438817"
     }
   },
-  "notes": "Preuve : sa famille « HOW TO … » (« HOW TO TEXT LIKE A MAN NOT A BOY », 3,7 M vues, 10/09 ; accroche « HOW TO BE THE MAN SHE CAN'T STOP THINKING ABOUT. » listée dans l'AGENT.md), conseils titrés, sa musique de ce post (Les, Instrumental Slowed). Conseils à nous. Carte Artura (4) : « Take her to a museum. », Degas, The Dance Class (The Met 438817) et le LOGO d'Artura ; cta A. Fait vérifié : l'homme au bâton est le maître de ballet Jules Perrot (fiche du Met). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11.",
+  "notes": "Preuve : sa famille « HOW TO … » (« HOW TO TEXT LIKE A MAN NOT A BOY », 3,7 M vues, 10/09 ; accroche « HOW TO BE THE MAN SHE CAN'T STOP THINKING ABOUT. » listée dans l'AGENT.md), conseils titrés, sa musique de ce post (Les, Instrumental Slowed). Conseils à nous. Carte Artura (4) : « Take her to a museum. », Degas, The Dance Class (The Met 438817) et le LOGO d'Artura ; cta A. Fait vérifié : l'homme au bâton est le maître de ballet Jules Perrot (fiche du Met). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11. pt-BR et es (Espagne) ajoutés le 25/11 à la demande d'Adrien.",
   "slides": [
     {
       "type": "couverture",
@@ -57,6 +61,12 @@
       },
       "sr": {
         "titre": "KAKO DA BUDEŠ\nMUŠKARAC NA KOGA\nNE PRESTAJE\nDA MISLI."
+      },
+      "pt-BR": {
+        "titre": "COMO SER\nO HOMEM EM QUEM\nELA NÃO PARA\nDE PENSAR."
+      },
+      "es": {
+        "titre": "CÓMO SER\nEL HOMBRE EN QUIEN\nNO DEJA DE PENSAR."
       }
     },
     {
@@ -102,6 +112,20 @@
           "Jednom je pomenula sestrin ispit. Pitaj kako je prošao.",
           "Sitni detalji su dokaz da slušaš."
         ]
+      },
+      "pt-BR": {
+        "titre": "Lembre o que ela te contou.",
+        "paragraphes": [
+          "Ela falou uma vez da prova da irmã. Pergunte como foi.",
+          "Detalhes pequenos provam que você escuta."
+        ]
+      },
+      "es": {
+        "titre": "Recuerda lo que te contó.",
+        "paragraphes": [
+          "Mencionó una vez el examen de su hermana. Pregúntale cómo le fue.",
+          "Los pequeños detalles prueban que escuchas."
+        ]
       }
     },
     {
@@ -146,6 +170,20 @@
         "paragraphes": [
           "Teretana, prijatelji, projekti, planovi.",
           "Ne gradi nedelju oko nje. Pozovi je u nju."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Tenha uma vida que ela queira.",
+        "paragraphes": [
+          "Academia, amigos, projetos, planos.",
+          "Não monte sua semana em volta dela. Convide ela para fazer parte."
+        ]
+      },
+      "es": {
+        "titre": "Ten una vida a la que quiera unirse.",
+        "paragraphes": [
+          "Gimnasio, amigos, proyectos, planes.",
+          "No montes tu semana alrededor de ella. Invítala a formar parte."
         ]
       }
     },
@@ -205,6 +243,24 @@
         "apres": [
           "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
         ]
+      },
+      "pt-BR": {
+        "titre": "Leve ela a um museu.",
+        "avant": [
+          "Pare diante das bailarinas de Degas. Conte que o velho de bengala era um mestre de balé de verdade."
+        ],
+        "apres": [
+          "Aprendo um quadro por dia no Artura, então sempre tenho uma história pronta."
+        ]
+      },
+      "es": {
+        "titre": "Llévala a un museo.",
+        "avant": [
+          "Detente frente a las bailarinas de Degas. Cuéntale que el anciano del bastón era un maestro de ballet real."
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
       }
     },
     {
@@ -249,6 +305,20 @@
         "paragraphes": [
           "Spor konobar, bezobrazan vozač, dug red.",
           "Ona gleda kako se snalaziš."
+        ]
+      },
+      "pt-BR": {
+        "titre": "Fique calmo quando os outros não.",
+        "paragraphes": [
+          "Garçom lento, motorista grosso, fila longa.",
+          "Ela está vendo como você lida com isso."
+        ]
+      },
+      "es": {
+        "titre": "Mantén la calma cuando otros no.",
+        "paragraphes": [
+          "Camarero lento, conductor grosero, cola larga.",
+          "Ella está viendo cómo lo manejas."
         ]
       }
     },
@@ -295,6 +365,20 @@
           "Ne govori joj sve prvog dana.",
           "Muškarca sa pričama pitaju za njih."
         ]
+      },
+      "pt-BR": {
+        "titre": "Deixe ela querendo mais.",
+        "paragraphes": [
+          "Não conte tudo no primeiro dia.",
+          "Homem com histórias é chamado para contá-las."
+        ]
+      },
+      "es": {
+        "titre": "Déjala con ganas de más.",
+        "paragraphes": [
+          "No le cuentes todo el primer día.",
+          "Al hombre con historias se las piden."
+        ]
       }
     },
     {
@@ -340,6 +424,20 @@
           "Pažnja bledi. Prisustvo ostaje.",
           "**Dečak je juri.**\n**Muškarac joj nedostaje.**"
         ]
+      },
+      "pt-BR": {
+        "titre": "A regra por trás de tudo",
+        "paragraphes": [
+          "A atenção passa. A presença fica.",
+          "**O garoto corre atrás.**\n**O homem faz falta.**"
+        ]
+      },
+      "es": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "La atención se apaga. La presencia queda.",
+          "**Un niño la persigue.**\n**Un hombre se hace extrañar.**"
+        ]
       }
     },
     {
@@ -372,6 +470,16 @@
         "gras": "Zaprati",
         "milieu": " da ne propustiš",
         "suite": "šta sledi."
+      },
+      "pt-BR": {
+        "gras": "Me siga",
+        "milieu": " para não perder",
+        "suite": "o que vem por aí."
+      },
+      "es": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
       }
     }
   ]

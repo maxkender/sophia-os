@@ -9,11 +9,11 @@ export const COMPTES_SOURCE = ["highlevelgame_"] as const;
 export const APPLICATION = { slug: "artura", id: "00000000-0000-4000-8000-000000000005", nom: "Artura" } as const;
 /**
  * Les langues livrées : l'anglais (celle du compte modèle) depuis le 24/11 ; el, es-419, it,
- * hu, sr (en latin) ouvertes le 25/11 à la demande d'Adrien.
+ * hu, sr (en latin), pt-BR, es (Espagne) ouvertes le 25/11 à la demande d'Adrien.
  * Déclarée à l'OS à chaque `npm run boite` (0654) : une langue ajoutée ici
  * s'OUVRE pour le label (0781) ; ne l'ajoute qu'une fois prête (pods/ROUTINE.md §5.6).
  */
-export const LANGUES = ["en", "el", "es-419", "it", "hu", "sr"] as const;
+export const LANGUES = ["en", "el", "es-419", "it", "hu", "sr", "pt-BR", "es"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

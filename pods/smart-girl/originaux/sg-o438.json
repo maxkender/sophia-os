@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o438",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4030def8-c8a7-4ec8-bbe5-3e06bf6b9411",
+ "titre": "how victorian women flirted with a hand fan #victorian #history #regencycore #smartgirl #bridgerton",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 7 de la boîte (parent 4030def8, langue source pt-BR) : accroche du parent (notre sg-o280) mot pour mot. Signaux neufs face au parent, tels que les guides du XIXe siècle les décrivent (éventail sur le cœur, passé sur la joue, tenu dans la main gauche, laissé tomber, ouvert et fermé, porté à l'oreille). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c63ee026",
+   "texte_overlay": "how victorian women flirted\nwith a hand fan",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4b9d1290",
+   "texte_overlay": "fan over the heart\n\n\"you have won my love.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "19f38900",
+   "texte_overlay": "drawn across the cheek\n\n\"i love you.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "68ca00fe",
+   "texte_overlay": "held in the left hand\n\n\"come and talk to me.\"",
+   "texte_sophia": "held in the left hand\n\n\"come and talk to me.\" i read this in a\nlesson on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3adc1bd5",
+   "texte_overlay": "dropped on the floor\n\n\"we will be friends.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "abaf5a9f",
+   "texte_overlay": "opened and shut\n\n\"you are cruel.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d4e6b59d",
+   "texte_overlay": "held to the ear\n\n\"don't betray our secret.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f364dffa",
+   "texte_overlay": "bridgerton makes sense now",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o448",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d692b04a-334d-4ab4-82ea-58d324e6e9b3",
+ "titre": "how to stop wasting your own life #mindset #selfimprovement #smartgirl #life #motivation",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "d692b04a-334d-4ab4-82ea-58d324e6e9b3"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 73 de la boîte (parent d692b04a, langue source en) : accroche du parent mot pour mot. Idées du parent (arrêter de garder les choses comme des décorations, transformer ses enregistrements en plans, ne pas confondre inspirée et surstimulée, arrêter de croire qu'on n'a pas le temps d'apprendre) et neuves. Sophia comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1cc2e9ad",
+   "texte_overlay": "how to stop wasting\nyour own life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7640614733074271510/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b1086c44",
+   "texte_overlay": "stop saving things like\nthey're decorations",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7640614733074271510/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c37280eb",
+   "texte_overlay": "turn your saves into plans\n\none recipe, one place, one book.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7640614733074271510/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f013c19f",
+   "texte_overlay": "stop confusing \"inspired\"\nwith \"overstimulated\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7640614733074271510/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "02ef9f78",
+   "texte_overlay": "call the people you miss",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7640614733074271510/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d4c26d1f",
+   "texte_overlay": "go somewhere new this month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7640614733074271510/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bf443248",
+   "texte_overlay": "stop saying you have no time\nto learn: five minutes is enough",
+   "texte_sophia": "stop saying you have no time to learn:\nfive minutes on an app like Sophia is enough",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7640614733074271510/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "798dab90",
+   "texte_overlay": "start today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7640614733074271510/4.jpg"
+  }
+ ]
+}

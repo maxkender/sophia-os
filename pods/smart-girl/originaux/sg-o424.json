@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o424",
+ "type_bleo": "full_test",
+ "titre": "the surprising history of lipstick #lipstick #beautyhistory #history #smartgirl #redlips",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/9 (la jauge en demande 9 sur 28) : accroche jamais faite chez nous (« lipstick » absent des accroches de donnees/label.json). Accroches écrites : « the surprising history of lipstick » (retenue : beauté + histoire), « red lipstick history » (écartée : étroite), « makeup facts » (écartée : plate). Faits vérifiés : pierres pilées en Mésopotamie, la légende du carmin de Cléopâtre, Élisabeth Ire et ses lèvres rouges, les suffragettes de 1912 au rouge à lèvres, le tube métallique de 1915, le rouge comme symbole de moral pendant la Seconde Guerre mondiale. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a1a5d040",
+   "texte_overlay": "the surprising history\nof lipstick",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d00d26a6",
+   "texte_overlay": "mesopotamia\n\nwomen crushed precious stones\nto colour their lips.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cb1241ed",
+   "texte_overlay": "ancient egypt\n\nlegend says cleopatra used\ncrushed beetles for her red.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f70129db",
+   "texte_overlay": "elizabeth i\n\na white face and bright red lips.",
+   "texte_sophia": "elizabeth i\n\na white face and bright red lips. i read\nthis on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ef9d2633",
+   "texte_overlay": "1912\n\nsuffragettes marched in\nred lipstick.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "822c0c03",
+   "texte_overlay": "1915\n\nthe first metal lipstick tube.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "40df34eb",
+   "texte_overlay": "the 1940s\n\nred lips became a symbol\nof courage in wartime.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "eabc69f5",
+   "texte_overlay": "what's your shade?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

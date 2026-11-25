@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o425",
+ "type_bleo": "full_test",
+ "titre": "women scientists who changed the world #womeninscience #history #science #smartgirl #inspiration",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 2/9 (la jauge en demande 9 sur 28) : accroche jamais faite chez nous (« scientist » absent des accroches de donnees/label.json). Accroches écrites : « women scientists who changed the world » (retenue : inspiration + savoir), « famous women in science » (écartée : plate), « women history forgot » (écartée : déjà faite chez nous). Faits vérifiés : Marie Curie (seule personne Nobel dans deux sciences), Rosalind Franklin (la photo 51 de l'ADN), Ada Lovelace (premier algorithme publié, 1843), Hedy Lamarr (saut de fréquence breveté en 1942), Katherine Johnson (calculs du vol de John Glenn, 1962), Lise Meitner (fission nucléaire, élément meitnérium). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3489994f",
+   "texte_overlay": "women scientists who\nchanged the world",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "76e86976",
+   "texte_overlay": "marie curie\n\nthe only person with nobel prizes\nin two different sciences.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f6b85606",
+   "texte_overlay": "rosalind franklin\n\nher \"photo 51\" revealed\nthe shape of dna.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "972c5f31",
+   "texte_overlay": "ada lovelace\n\nwrote the first published\nalgorithm, in 1843.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "346cee0e",
+   "texte_overlay": "hedy lamarr\n\nfilm star and inventor of a technology\nbehind wi-fi and bluetooth.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0cc4cdaf",
+   "texte_overlay": "katherine johnson\n\nher maths sent john glenn\ninto orbit in 1962.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bf11b211",
+   "texte_overlay": "lise meitner\n\nexplained nuclear fission. an element\nbears her name. i learn about one\nwoman like her every week.",
+   "texte_sophia": "lise meitner\n\nexplained nuclear fission. i learn about\none woman like her every week on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5b138788",
+   "texte_overlay": "which one inspires you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

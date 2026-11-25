@@ -7,10 +7,28 @@
     "accroche": "Paintings That Devour My Soul"
   },
   "titre": {
-    "en": "Paintings That Feel Like Heartbreak"
+    "en": "Paintings That Feel Like Heartbreak",
+    "fr": "Des tableaux qui me brisent le cœur",
+    "es-419": "Pinturas que me rompen el corazón",
+    "it": "Quadri che mi spezzano il cuore",
+    "el": "Πίνακες που μου ραγίζουν την καρδιά",
+    "hu": "Festmények, amelyektől megszakad a szívem",
+    "sr": "Slike koje mi slamaju srce",
+    "hr": "Slike koje mi slamaju srce",
+    "lv": "Gleznas, kas man salauž sirdi",
+    "ro": "Picturi care îmi frâng inima"
   },
   "legendes": {
-    "en": "#arthistory #painting #goya #jacqueslouisdavid #museum"
+    "en": "#arthistory #painting #goya #jacqueslouisdavid #museum",
+    "fr": "#histoiredelart #peinture #art #goya #jacqueslouisdavid #musée",
+    "es-419": "#historiadelarte #pintura #arte #goya #jacqueslouisdavid #museo",
+    "it": "#storiadellarte #pittura #arte #goya #jacqueslouisdavid #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #τέχνη #γκόγια #μουσείο",
+    "hu": "#művészettörténet #festészet #művészet #goya #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #umetnost #goja #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #umjetnost #goya #muzej",
+    "lv": "#mākslasvēsture #glezniecība #māksla #goija #muzejs",
+    "ro": "#istoriaartei #pictura #arta #goya #muzeu"
   },
   "musique": {
     "titre": "la petite fille de la mer",
@@ -57,6 +75,33 @@
       "image": "images/photos/musee-pluie.jpg",
       "en": {
         "titre": "Paintings That Feel Like Heartbreak"
+      },
+      "fr": {
+        "titre": "Des tableaux qui me brisent le cœur"
+      },
+      "es-419": {
+        "titre": "Pinturas que me rompen el corazón"
+      },
+      "it": {
+        "titre": "Quadri che mi spezzano il cuore"
+      },
+      "el": {
+        "titre": "Πίνακες που μου ραγίζουν την καρδιά"
+      },
+      "hu": {
+        "titre": "Festmények, amelyektől megszakad a szívem"
+      },
+      "sr": {
+        "titre": "Slike koje mi slamaju srce"
+      },
+      "hr": {
+        "titre": "Slike koje mi slamaju srce"
+      },
+      "lv": {
+        "titre": "Gleznas, kas man salauž sirdi"
+      },
+      "ro": {
+        "titre": "Picturi care îmi frâng inima"
       }
     },
     {
@@ -65,6 +110,51 @@
       "en": {
         "titre": "Joan of Arc",
         "texte": "hears her voices in her parents' garden, while three saints float half-transparent behind her. Bastien-Lepage, who came from Lorraine like Joan, painted it in 1879. Her left hand reaches out and seems to dissolve into the leaves.",
+        "artiste": "Jules Bastien-Lepage"
+      },
+      "fr": {
+        "titre": "Jeanne d'Arc",
+        "texte": "entend ses voix dans le jardin de ses parents, tandis que trois saints flottent, à demi transparents, derrière elle. Bastien-Lepage, lorrain comme elle, l'a peinte en 1879. Sa main gauche se tend et semble se dissoudre dans les feuilles.",
+        "artiste": "Jules Bastien-Lepage"
+      },
+      "es-419": {
+        "titre": "Juana de Arco",
+        "texte": "escucha sus voces en el jardín de sus padres, mientras tres santos flotan medio transparentes detrás de ella. Bastien-Lepage, que era de Lorena como Juana, la pintó en 1879. Su mano izquierda se extiende y parece disolverse entre las hojas.",
+        "artiste": "Jules Bastien-Lepage"
+      },
+      "it": {
+        "titre": "Giovanna d'Arco",
+        "texte": "sente le sue voci nel giardino dei genitori, mentre tre santi fluttuano semitrasparenti dietro di lei. Bastien-Lepage, lorenese come Giovanna, la dipinse nel 1879. La sua mano sinistra si protende e sembra dissolversi tra le foglie.",
+        "artiste": "Jules Bastien-Lepage"
+      },
+      "el": {
+        "titre": "Ζαν ντ' Αρκ",
+        "texte": "ακούει τις φωνές της στον κήπο των γονιών της, ενώ τρεις άγιοι αιωρούνται μισοδιάφανοι πίσω της. Ο Μπαστιέν-Λεπάζ, που καταγόταν από τη Λωρραίνη όπως κι εκείνη, τη ζωγράφισε το 1879. Το αριστερό της χέρι απλώνεται και μοιάζει να διαλύεται μέσα στα φύλλα.",
+        "artiste": "Ζιλ Μπαστιέν-Λεπάζ"
+      },
+      "hu": {
+        "titre": "Jeanne d'Arc",
+        "texte": "a szülei kertjében hallja meg a hangokat, miközben három szent lebeg mögötte félig áttetszően. Bastien-Lepage, aki hozzá hasonlóan Lotaringiából származott, 1879-ben festette meg. Bal keze előrenyúl, és mintha feloldódna a levelek között.",
+        "artiste": "Jules Bastien-Lepage"
+      },
+      "sr": {
+        "titre": "Jovanka Orleanka",
+        "texte": "čuje svoje glasove u vrtu svojih roditelja, dok tri sveca lebde poluprovidni iza nje. Bastijen-Lepaž, koji je kao i ona bio iz Lorene, naslikao ju je 1879. Njena leva ruka se pruža i kao da se rastapa u lišću.",
+        "artiste": "Žil Bastijen-Lepaž"
+      },
+      "hr": {
+        "titre": "Ivana Orleanska",
+        "texte": "čuje svoje glasove u vrtu svojih roditelja, dok iza nje lebde tri sveca, napola prozirna. Bastien-Lepage, koji je poput nje bio iz Lorene, naslikao ju je 1879. Njezina lijeva ruka pruža se i kao da se rastapa u lišću.",
+        "artiste": "Jules Bastien-Lepage"
+      },
+      "lv": {
+        "titre": "Žanna d'Arka",
+        "texte": "dzird savas balsis vecāku dārzā, kamēr aiz viņas puscaurspīdīgi lidinās trīs svētie. Bastjēns-Lepāžs, kurš tāpat kā viņa bija no Lotringas, to uzgleznoja 1879. gadā. Viņas kreisā roka sniedzas uz priekšu un šķiet izšķīstam lapās.",
+        "artiste": "Žils Bastjēns-Lepāžs"
+      },
+      "ro": {
+        "titre": "Ioana d'Arc",
+        "texte": "își aude vocile în grădina părinților, în timp ce trei sfinți plutesc pe jumătate transparenți în spatele ei. Bastien-Lepage, care era din Lorena ca și ea, a pictat-o în 1879. Mâna ei stângă se întinde și pare să se dizolve printre frunze.",
         "artiste": "Jules Bastien-Lepage"
       }
     },
@@ -75,6 +165,51 @@
         "titre": "Manuel Osorio",
         "texte": "was about four when Goya painted him in red, with a magpie on a string and three cats staring at the bird. The magpie holds Goya's own calling card in its beak. Manuel died in 1792, at the age of eight.",
         "artiste": "Francisco Goya"
+      },
+      "fr": {
+        "titre": "Manuel Osorio",
+        "texte": "avait environ quatre ans quand Goya l'a peint en rouge, avec une pie au bout d'une ficelle et trois chats qui fixent l'oiseau. La pie tient dans son bec la carte de visite de Goya. Manuel est mort en 1792, à huit ans.",
+        "artiste": "Francisco de Goya"
+      },
+      "es-419": {
+        "titre": "Manuel Osorio",
+        "texte": "tenía unos cuatro años cuando Goya lo pintó de rojo, con una urraca atada a un hilo y tres gatos que miran fijamente al pájaro. La urraca lleva en el pico la tarjeta de visita del propio Goya. Manuel murió en 1792, a los ocho años.",
+        "artiste": "Francisco de Goya"
+      },
+      "it": {
+        "titre": "Manuel Osorio",
+        "texte": "aveva circa quattro anni quando Goya lo dipinse in rosso, con una gazza legata a un filo e tre gatti che fissano l'uccello. La gazza tiene nel becco il biglietto da visita di Goya. Manuel morì nel 1792, a otto anni.",
+        "artiste": "Francisco Goya"
+      },
+      "el": {
+        "titre": "Μανουέλ Οσόριο",
+        "texte": "ήταν περίπου τεσσάρων ετών όταν ο Γκόγια τον ζωγράφισε στα κόκκινα, με μια κίσσα δεμένη σε σπάγκο και τρεις γάτες να την κοιτάζουν επίμονα. Η κίσσα κρατά στο ράμφος της την κάρτα του ίδιου του Γκόγια. Ο Μανουέλ πέθανε το 1792, οκτώ ετών.",
+        "artiste": "Φρανθίσκο Γκόγια"
+      },
+      "hu": {
+        "titre": "Manuel Osorio",
+        "texte": "nagyjából négyéves volt, amikor Goya pirosban megfestette, egy madzagon tartott szarkával és három macskával, amelyek a madarat bámulják. A szarka a csőrében Goya saját névjegykártyáját tartja. Manuel 1792-ben halt meg, nyolcévesen.",
+        "artiste": "Francisco Goya"
+      },
+      "sr": {
+        "titre": "Manuel Osorio",
+        "texte": "imao je oko četiri godine kada ga je Goja naslikao u crvenom, sa svrakom na kanapu i tri mačke koje netremice gledaju pticu. Svraka u kljunu drži Gojinu vizitkartu. Manuel je umro 1792, sa osam godina.",
+        "artiste": "Francisko Goja"
+      },
+      "hr": {
+        "titre": "Manuel Osorio",
+        "texte": "imao je oko četiri godine kad ga je Goya naslikao u crvenom, sa svrakom na uzici i tri mačke koje netremice gledaju pticu. Svraka u kljunu drži Goyinu posjetnicu. Manuel je umro 1792., s osam godina.",
+        "artiste": "Francisco Goya"
+      },
+      "lv": {
+        "titre": "Manuels Osorio",
+        "texte": "bija ap četriem gadiem, kad Goija viņu uzgleznoja sarkanā, ar žagatu auklā un trim kaķiem, kas cieši raugās putnā. Žagata knābī tur paša Goijas vizītkarti. Manuels nomira 1792. gadā astoņu gadu vecumā.",
+        "artiste": "Fransisko Goija"
+      },
+      "ro": {
+        "titre": "Manuel Osorio",
+        "texte": "avea în jur de patru ani când Goya l-a pictat în roșu, cu o coțofană legată de o sfoară și trei pisici care se uită fix la pasăre. Coțofana ține în cioc cartea de vizită a lui Goya. Manuel a murit în 1792, la opt ani.",
+        "artiste": "Francisco Goya"
       }
     },
     {
@@ -84,6 +219,51 @@
         "titre": "Lavoisier and His Wife",
         "texte": "shows the father of modern chemistry with Marie-Anne, who had studied with David and drew the plates for his books. Six years later, Lavoisier was guillotined. I learned to see that she, not him, is the center of the painting on Artura, one artwork a day with its story.",
         "artiste": "Jacques-Louis David"
+      },
+      "fr": {
+        "titre": "Lavoisier et sa femme",
+        "texte": "montre le père de la chimie moderne avec Marie-Anne, élève de David, qui dessinait les planches de ses livres. Six ans plus tard, Lavoisier était guillotiné. J'ai appris à voir que c'est elle, pas lui, le centre du tableau sur Artura, une œuvre par jour avec son histoire.",
+        "artiste": "Jacques-Louis David"
+      },
+      "es-419": {
+        "titre": "Lavoisier y su esposa",
+        "texte": "muestra al padre de la química moderna con Marie-Anne, que había estudiado con David y dibujó las láminas de sus libros. Seis años después, Lavoisier fue guillotinado. Aprendí a ver que ella, y no él, es el centro del cuadro en Artura, una obra al día con su historia.",
+        "artiste": "Jacques-Louis David"
+      },
+      "it": {
+        "titre": "Lavoisier e sua moglie",
+        "texte": "mostra il padre della chimica moderna con Marie-Anne, allieva di David, che disegnò le tavole dei suoi libri. Sei anni dopo, Lavoisier fu ghigliottinato. Ho imparato a vedere che è lei, non lui, il centro del quadro su Artura, un'opera al giorno con la sua storia.",
+        "artiste": "Jacques-Louis David"
+      },
+      "el": {
+        "titre": "Ο Λαβουαζιέ και η σύζυγός του",
+        "texte": "δείχνει τον πατέρα της σύγχρονης χημείας με τη Μαρί-Αν, μαθήτρια του Νταβίντ, που σχεδίαζε τις εικόνες των βιβλίων του. Έξι χρόνια αργότερα, ο Λαβουαζιέ πέθανε στη γκιλοτίνα. Έμαθα να βλέπω ότι εκείνη, όχι εκείνος, είναι το κέντρο του πίνακα στο Artura, ένα έργο τη μέρα με την ιστορία του.",
+        "artiste": "Ζακ-Λουί Νταβίντ"
+      },
+      "hu": {
+        "titre": "Lavoisier és felesége",
+        "texte": "a modern kémia atyját mutatja Marie-Anne-nal, aki Davidnél tanult, és ő rajzolta könyvei ábráit. Hat évvel később Lavoisier-t guillotine-nal kivégezték. Az Artura appban, ahol minden nap egy műalkotás vár a történetével, tanultam meg látni, hogy nem ő, hanem a felesége a kép középpontja.",
+        "artiste": "Jacques-Louis David"
+      },
+      "sr": {
+        "titre": "Lavoazje i njegova žena",
+        "texte": "prikazuje oca moderne hemije sa Mari-An, koja je učila kod Davida i crtala table za njegove knjige. Šest godina kasnije, Lavoazje je giljotiniran. Naučila sam da vidim da je ona, a ne on, središte slike u aplikaciji Artura, jedno delo dnevno sa svojom pričom.",
+        "artiste": "Žak-Luj David"
+      },
+      "hr": {
+        "titre": "Lavoisier i njegova žena",
+        "texte": "prikazuje oca moderne kemije s Marie-Anne, koja je učila kod Davida i crtala ilustracije za njegove knjige. Šest godina poslije Lavoisier je giljotiniran. Naučila sam vidjeti da je ona, a ne on, središte slike u aplikaciji Artura, jedno djelo dnevno s njegovom pričom.",
+        "artiste": "Jacques-Louis David"
+      },
+      "lv": {
+        "titre": "Lavuazjē un viņa sieva",
+        "texte": "attēlo modernās ķīmijas tēvu kopā ar Marī Annu, kura bija mācījusies pie Davīda un zīmēja ilustrācijas viņa grāmatām. Sešus gadus vēlāk Lavuazjē tika giljotinēts. Lietotnē Artura, kur katru dienu ir viens mākslas darbs ar savu stāstu, es iemācījos redzēt, ka gleznas centrs ir viņa, nevis viņš.",
+        "artiste": "Žaks Luijs Davīds"
+      },
+      "ro": {
+        "titre": "Lavoisier și soția sa",
+        "texte": "îl arată pe părintele chimiei moderne alături de Marie-Anne, care studiase cu David și desena planșele cărților lui. Șase ani mai târziu, Lavoisier a fost ghilotinat. Am învățat să văd că ea, nu el, e centrul tabloului pe Artura, o operă de artă pe zi, cu povestea ei.",
+        "artiste": "Jacques-Louis David"
       }
     },
     {
@@ -92,6 +272,51 @@
       "en": {
         "titre": "Isle of the Dead",
         "texte": "was painted in 1880 for a widow, Marie Berna, who asked Böcklin to add a coffin and the white figure standing in the boat. He painted five versions of it. Rachmaninoff later turned it into music.",
+        "artiste": "Arnold Böcklin"
+      },
+      "fr": {
+        "titre": "L'Île des morts",
+        "texte": "a été peinte en 1880 pour une veuve, Marie Berna, qui a demandé à Böcklin d'ajouter un cercueil et la silhouette blanche debout dans la barque. Il en a peint cinq versions. Rachmaninov en a ensuite fait une musique.",
+        "artiste": "Arnold Böcklin"
+      },
+      "es-419": {
+        "titre": "La isla de los muertos",
+        "texte": "fue pintada en 1880 para una viuda, Marie Berna, que le pidió a Böcklin añadir un ataúd y la figura blanca de pie en la barca. Pintó cinco versiones. Más tarde, Rajmáninov la convirtió en música.",
+        "artiste": "Arnold Böcklin"
+      },
+      "it": {
+        "titre": "L'isola dei morti",
+        "texte": "fu dipinta nel 1880 per una vedova, Marie Berna, che chiese a Böcklin di aggiungere una bara e la figura bianca in piedi sulla barca. Ne dipinse cinque versioni. Rachmaninov in seguito la trasformò in musica.",
+        "artiste": "Arnold Böcklin"
+      },
+      "el": {
+        "titre": "Το νησί των νεκρών",
+        "texte": "ζωγραφίστηκε το 1880 για μια χήρα, τη Μαρί Μπέρνα, που ζήτησε από τον Μπέκλιν να προσθέσει ένα φέρετρο και τη λευκή μορφή όρθια στη βάρκα. Ζωγράφισε πέντε εκδοχές του. Αργότερα ο Ραχμάνινοφ το έκανε μουσική.",
+        "artiste": "Άρνολντ Μπέκλιν"
+      },
+      "hu": {
+        "titre": "A holtak szigete",
+        "texte": "1880-ban készült egy özvegy, Marie Berna számára, aki arra kérte Böcklint, hogy fessen rá egy koporsót és a csónakban álló fehér alakot. Öt változatot festett belőle. Később Rahmanyinov zenét írt hozzá.",
+        "artiste": "Arnold Böcklin"
+      },
+      "sr": {
+        "titre": "Ostrvo mrtvih",
+        "texte": "naslikano je 1880. za jednu udovicu, Mari Bernu, koja je zamolila Beklina da doda kovčeg i belu figuru koja stoji u čamcu. Naslikao je pet verzija. Rahmanjinov je kasnije od njega napravio muziku.",
+        "artiste": "Arnold Beklin"
+      },
+      "hr": {
+        "titre": "Otok mrtvih",
+        "texte": "naslikan je 1880. za jednu udovicu, Marie Bernu, koja je zamolila Böcklina da doda lijes i bijeli lik koji stoji u čamcu. Naslikao je pet verzija. Rahmanjinov ga je kasnije pretočio u glazbu.",
+        "artiste": "Arnold Böcklin"
+      },
+      "lv": {
+        "titre": "Mirušo sala",
+        "texte": "tika uzgleznota 1880. gadā kādai atraitnei, Marī Bernai, kura lūdza Beklinu pievienot zārku un balto figūru, kas stāv laivā. Viņš uzgleznoja piecas versijas. Vēlāk Rahmaņinovs to pārvērta mūzikā.",
+        "artiste": "Arnolds Beklins"
+      },
+      "ro": {
+        "titre": "Insula morților",
+        "texte": "a fost pictată în 1880 pentru o văduvă, Marie Berna, care i-a cerut lui Böcklin să adauge un sicriu și silueta albă care stă în picioare în barcă. A pictat cinci versiuni. Mai târziu, Rahmaninov a transformat-o în muzică.",
         "artiste": "Arnold Böcklin"
       }
     }

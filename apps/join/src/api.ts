@@ -58,6 +58,8 @@ export interface Moi {
     whatsapp: string;
     email_verifie: boolean;
     whatsapp_verifie: boolean;
+    /** 25/11 : faux quand le code WhatsApp n'est pas demandé (code par email seulement). */
+    whatsapp_code?: boolean;
     decision: "auto" | "a_traiter" | "refusee" | null;
     handle_tiktok: string | null;
     ferme?: boolean;

@@ -64,6 +64,8 @@
   "codes.label": "2. lépés / 3",
   "codes.title": "Erősítsd meg az e-mailed és a WhatsAppod",
   "codes.sub": "6 jegyű kódot küldtünk ide: {email} és ide: {whatsapp}.",
+  "codes.titleEmail": "Nézd meg az e-mailjeidet",
+  "codes.subEmail": "Küldtünk egy 6 jegyű kódot ide: {email}.",
   "codes.email": "Email-kód",
   "codes.whatsapp": "WhatsApp-kód",
   "codes.verify": "Ellenőrzés",
@@ -248,8 +250,8 @@
   "onb.1.body": "Mobilalkalmazásokat fejlesztő stúdió vagyunk. Olyanokat keresünk, akik segítenek megismertetni az alkalmazásainkat a TikTokon, otthonról, napi néhány percben.",
   "onb.2.title": "A munka röviden",
   "onb.2.body": "Minden nap posztolsz 2 TikTok slideshow-t: néhány fotót szöveggel, amit az emberek végiglapoznak.\nMindent előkészítünk neked: a fotókat, a szöveget, a leírást és a zenét. Neked csak össze kell raknod őket a TikTok appban, és posztolni.\nNapi kb. 10 perc. Nem kell kamera, nem kell az arcod, nem kell tapasztalat.",
-  "onb.3.title": "A TikTok-fiókod",
-  "onb.3.body": "Adunk egy új TikTok-fiókot, amit létre kell hoznod: a nevét, a profilképét és a bióját.\nA telefonodon hozod létre, pontosan ezekkel az adatokkal. Ez a fiók csak erre a munkára való, nem a saját fiókod.",
+  "onb.3.title": "Új TikTok-fiókot hozol létre",
+  "onb.3.body": "Ehhez a munkához egy teljesen új TikTok-fiókot kell létrehoznod: nem a személyes fiókodat.\nMindent megadunk hozzá: a pontos felhasználónevet, a megjelenített nevet, a profilképet és a bemutatkozást.\nCsak létrehozod a fiókot a telefonodon pontosan ezekkel az adatokkal. 5 percet vesz igénybe, a lépéseket pedig a felületeden elmagyarázzuk.",
   "onb.4.title": "A bemelegítés (néhány nap)",
   "onb.4.body": "Az első posztod előtt bemelegíted a fiókot: használd a TikTokot úgy, mint bárki más. Görgess, lájkolj videókat, és kövess néhány fiókot a témádban.\nÍgy a TikTok látja, hogy egy valódi ember áll a fiók mögött, és a posztjaidat látni fogják. A bemelegítés alatt nem posztolsz semmit.",
   "onb.5.title": "A napi rutinod",
@@ -257,7 +259,7 @@
   "onb.6.title": "A fizetésed",
   "onb.6.body": "Minden héten fix összeget kapsz, az országodtól függően.\nMinden hétfőn megkapod az előző heti fizetésedet a Ruulon keresztül, ami egy fizetési platform szabadúszóknak. A Ruul díjait a Vik Studios fizeti, így a teljes összeget megkapod.",
   "onb.7.title": "Mi következik",
-  "onb.7.body": "1. Töltsd ki a rövid űrlapot (2 perc) az e-mail-címeddel és a WhatsApp-számoddal.\n2. Erősítsd meg az e-mail-címedet és a WhatsApp-számodat a kódokkal, amiket küldünk.\n3. Ha elfogadunk, olvasd el és írd alá online a szerződést.\n4. Megkapod a belépési adataidat a felületedhez, ahol minden lépést elmagyarázunk.\n5. Állítsd be a Ruul-fiókodat a felületeden lévő linkről (személyi igazolvány és bankadatok, kb. 10 perc). Így kapod meg a fizetésedet.\n6. Egy hétfői napon kezdesz posztolni.\nA szerződést és a GYIK-et bármikor elolvashatod.",
+  "onb.7.body": "1. Töltsd ki a rövid űrlapot (2 perc) az e-mail-címeddel és a WhatsApp-számoddal.\n2. Erősítsd meg az e-mail-címedet és a WhatsApp-számodat a kódokkal, amiket küldünk.\n3. Ha elfogadunk, olvasd el és írd alá online a szerződést.\n4. Megkapod a belépési adataidat a felületedhez, ahol megtalálod a TikTok-fiókod adatait, és minden lépést elmagyarázunk.\n5. Állítsd be a Ruul-fiókodat a felületeden lévő linkről (személyi igazolvány és bankadatok, kb. 10 perc). Így kapod meg a fizetésedet.\n6. Egy hétfői napon kezdesz posztolni.\nA szerződést és a GYIK-et bármikor elolvashatod.",
   "onb.8.title": "Készen állsz?",
   "onb.8.body": "Ha ez jól hangzik, jelentkezz most. Napi néhány perc, és egy jó kis plusz jövedelem.\nCsak akkor jelentkezz, ha minden nap posztolni szeretnél: minden fióknak készítünk tartalmat."
 }

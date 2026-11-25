@@ -64,6 +64,8 @@
   "codes.label": "Steg 2 av 3",
   "codes.title": "Kolla din e-post och WhatsApp",
   "codes.sub": "Vi har skickat en 6-siffrig kod till {email} och till {whatsapp}.",
+  "codes.titleEmail": "Kolla din e-post",
+  "codes.subEmail": "Vi har skickat en 6-siffrig kod till {email}.",
   "codes.email": "Kod från e-post",
   "codes.whatsapp": "Kod från WhatsApp",
   "codes.verify": "Bekräfta",
@@ -248,8 +250,8 @@
   "onb.1.body": "Vi är en studio som utvecklar mobilappar. Vi söker personer som vill hjälpa oss att sprida våra appar på TikTok, hemifrån, några minuter om dagen.",
   "onb.2.title": "Jobbet, enkelt förklarat",
   "onb.2.body": "Varje dag lägger du upp 2 slideshows på TikTok: några bilder med text som man sveper igenom.\nVi förbereder allt åt dig: bilderna, texten, bildtexten och musiken. Du sätter bara ihop dem i TikTok-appen och publicerar.\nUngefär 10 minuter om dagen. Ingen kamera, inget ansikte, ingen erfarenhet behövs.",
-  "onb.3.title": "Ditt TikTok-konto",
-  "onb.3.body": "Vi ger dig ett nytt TikTok-konto att skapa: dess namn, bild och bio.\nDu skapar det på din mobil med exakt de uppgifterna. Kontot är bara för det här jobbet, inte ditt privata konto.",
+  "onb.3.title": "Du skapar ett nytt TikTok-konto",
+  "onb.3.body": "För det här jobbet behöver du skapa ett helt nytt TikTok-konto: inte ditt personliga.\nVi ger dig allt till det: det exakta användarnamnet, visningsnamnet, profilbilden och bion.\nDu skapar bara kontot i telefonen med exakt de uppgifterna. Det tar 5 minuter, och stegen förklaras på din instrumentpanel.",
   "onb.4.title": "Uppvärmningen (några dagar)",
   "onb.4.body": "Innan ditt första inlägg värmer du upp kontot: använd TikTok som vem som helst. Scrolla, gilla videor och följ några konton inom ditt ämne.\nDå ser TikTok att det finns en riktig person bakom kontot, och dina inlägg syns. Under uppvärmningen lägger du inte upp något.",
   "onb.5.title": "Din dagliga rutin",
@@ -257,7 +259,7 @@
   "onb.6.title": "Din ersättning",
   "onb.6.body": "Du tjänar ett fast belopp varje vecka, beroende på ditt land.\nDu får betalt varje måndag för veckan innan, via Ruul, en betalningsplattform för frilansare. Vik Studios betalar Ruuls avgifter, så du får hela beloppet.",
   "onb.7.title": "Vad som händer sedan",
-  "onb.7.body": "1. Fyll i det korta formuläret (2 minuter) med din e-post och ditt WhatsApp-nummer.\n2. Bekräfta din e-post och ditt WhatsApp-nummer med koderna vi skickar.\n3. När du är antagen läser du och skriver under avtalet online.\n4. Du får inloggningen till din instrumentpanel, där varje steg förklaras.\n5. Ställ in ditt Ruul-konto via länken i din instrumentpanel (id-handling och bankuppgifter, ungefär 10 minuter). Det är så du får betalt.\n6. Du börjar lägga upp inlägg en måndag.\nDu kan läsa avtalet och vanliga frågor när som helst.",
+  "onb.7.body": "1. Fyll i det korta formuläret (2 minuter) med din e-post och ditt WhatsApp-nummer.\n2. Bekräfta din e-post och ditt WhatsApp-nummer med koderna vi skickar.\n3. När du är antagen läser du och skriver under avtalet online.\n4. Du får inloggningen till din instrumentpanel, där du hittar uppgifterna om ditt TikTok-konto och där varje steg förklaras.\n5. Ställ in ditt Ruul-konto via länken i din instrumentpanel (id-handling och bankuppgifter, ungefär 10 minuter). Det är så du får betalt.\n6. Du börjar lägga upp inlägg en måndag.\nDu kan läsa avtalet och vanliga frågor när som helst.",
   "onb.8.title": "Redo?",
   "onb.8.body": "Om det här låter bra, ansök nu. Det är några minuter om dagen och en fin extrainkomst.\nAnsök bara om du tänker lägga upp inlägg varje dag: vi förbereder innehåll för varje konto."
 }

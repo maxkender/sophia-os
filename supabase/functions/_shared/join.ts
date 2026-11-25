@@ -195,14 +195,32 @@ export interface CandidatureJoin {
   deux_telephones: boolean | null;
   reponses: Record<string, string | null | undefined>;
   whatsapp_verifie_at: string | null;
+  /** Le numéro donné (E.164) : il suffit quand le code WhatsApp n'est pas demandé (codeWhatsappActif). */
+  whatsapp_e164?: string | null;
 }
 
-export function versCandidatureRuul(c: CandidatureJoin): CandidatureRuul {
+/**
+ * 25/11 (Max) : pas de code de vérification par WhatsApp. Le code WhatsApp n'est demandé que si un modèle
+ * d'authentification est configuré (join_mode.modele_code) ; sinon le code reçu par email suffit.
+ */
+export function codeWhatsappActif(mode: Pick<ModeJoin, "modele_code">): boolean {
+  return !!mode.modele_code;
+}
+
+/** Les codes demandés sont vérifiés : l'email toujours, le WhatsApp seulement s'il est demandé. */
+export function codesVerifies(
+  c: { email_verifie_at: string | null; whatsapp_verifie_at: string | null },
+  mode: Pick<ModeJoin, "modele_code">,
+): boolean {
+  return !!c.email_verifie_at && (!codeWhatsappActif(mode) || !!c.whatsapp_verifie_at);
+}
+
+export function versCandidatureRuul(c: CandidatureJoin, whatsappExige = true): CandidatureRuul {
   return {
     adulte: c.majeur === true ? true : c.age == null ? (c.majeur === false ? false : null) : c.age >= 18,
     pays: c.pays || null,
     deux_telephones: c.deux_telephones,
-    a_telephone: !!c.whatsapp_verifie_at,
+    a_telephone: !!c.whatsapp_verifie_at || (!whatsappExige && !!c.whatsapp_e164),
     nom: `${c.prenom ?? ""} ${c.nom ?? ""}`.trim() || null,
     email: c.email || null,
     reponses: c.reponses ?? {},
@@ -213,8 +231,10 @@ export function versCandidatureRuul(c: CandidatureJoin): CandidatureRuul {
 export const MESSAGE_A_TRAITER = "We'll get back to you within 48h";
 
 /** Les règles de l'OS : rien ne manque → acceptée automatiquement, sinon à traiter (réponse sous 48 h). */
-export function decider(c: CandidatureJoin, paysOuverts: Set<string>): { decision: "auto" | "a_traiter"; manques: string[] } {
-  const manques = manquesCandidature(versCandidatureRuul(c), paysOuverts);
+export function decider(
+  c: CandidatureJoin, paysOuverts: Set<string>, whatsappExige = true,
+): { decision: "auto" | "a_traiter"; manques: string[] } {
+  const manques = manquesCandidature(versCandidatureRuul(c, whatsappExige), paysOuverts);
   return { decision: manques.length ? "a_traiter" : "auto", manques };
 }
 
@@ -252,6 +272,7 @@ export function etapeAdmin(
     expire_at?: string | null;
   },
   signee: boolean,
+  whatsappExige = true,
 ): EtapeAdmin {
   if (signee) return "signee";
   if (c.expire_at) return "expiree";
@@ -259,7 +280,7 @@ export function etapeAdmin(
   if (c.decision === "auto") return "acceptee";
   if (c.decision === "a_traiter") return "a_traiter";
   if (c.manques?.some((m) => m.startsWith("pays fermé"))) return "ferme";
-  if (c.email_verifie_at && c.whatsapp_verifie_at) return "verifiee";
+  if (c.email_verifie_at && (c.whatsapp_verifie_at || !whatsappExige)) return "verifiee";
   return "codes";
 }
 
@@ -464,7 +485,7 @@ export function texteMessage(
     case "code_rappel":
       return {
         objet: "Finish your application",
-        corps: `${salut}\n\nYour application is almost done: you just need to confirm your email and WhatsApp number. Log in with your email and we'll send you a new code.`,
+        corps: `${salut}\n\nYour application is almost done: you just need to confirm your email with the code we sent you. Log in with your email and we'll send you a new code.`,
         bouton: "Finish my application",
       };
     case "signature_j1":

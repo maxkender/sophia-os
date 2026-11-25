@@ -64,6 +64,8 @@
   "codes.label": "Step 2 of 3",
   "codes.title": "Check your email and WhatsApp",
   "codes.sub": "We sent a 6-digit code to {email} and to {whatsapp}.",
+  "codes.titleEmail": "Check your email",
+  "codes.subEmail": "We sent a 6-digit code to {email}.",
   "codes.email": "Email code",
   "codes.whatsapp": "WhatsApp code",
   "codes.verify": "Verify",
@@ -248,8 +250,8 @@
   "onb.1.body": "We're a studio that builds mobile apps. We're looking for people to help us share our apps on TikTok, from home, a few minutes a day.",
   "onb.2.title": "The job, simply",
   "onb.2.body": "Every day, you post 2 TikTok slideshows: a few photos with text that people swipe through.\nWe prepare everything for you: the photos, the text, the caption and the music. You just put them together in the TikTok app and post.\nAbout 10 minutes a day. No camera, no face, no experience needed.",
-  "onb.3.title": "Your TikTok account",
-  "onb.3.body": "We give you a new TikTok account to create: its name, photo and bio.\nYou create it on your phone with exactly those details. This account is only for this job, not your personal one.",
+  "onb.3.title": "You create a new TikTok account",
+  "onb.3.body": "You need to create a brand-new TikTok account for this job: not your personal one.\nWe give you everything for it: the exact username, the display name, the profile photo and the bio.\nYou just create the account on your phone with exactly these details. It takes 5 minutes, and the steps are explained on your dashboard.",
   "onb.4.title": "The warm-up (a few days)",
   "onb.4.body": "Before your first post, you warm up the account: use TikTok like anyone would. Scroll, like videos and follow a few accounts on your topic.\nThis shows TikTok that a real person is behind the account, so your posts get seen. During the warm-up, you don't post anything.",
   "onb.5.title": "Your daily routine",
@@ -257,7 +259,7 @@
   "onb.6.title": "Your pay",
   "onb.6.body": "You earn a fixed amount every week, depending on your country.\nYou're paid every Monday for the week before, through Ruul, a payment platform for freelancers. Vik Studios pays the Ruul fees, so you receive the full amount.",
   "onb.7.title": "What happens next",
-  "onb.7.body": "1. Fill in the short form (2 minutes), with your email and WhatsApp number.\n2. Confirm your email and WhatsApp number with the codes we send you.\n3. Once accepted, read and sign the contract online.\n4. You receive your login to your dashboard, where every step is explained.\n5. Set up your Ruul account from the link on your dashboard (ID and bank details, about 10 minutes). That's how you get paid.\n6. You start posting on a Monday.\nYou can read the contract and the FAQ at any time.",
+  "onb.7.body": "1. Fill in the short form (2 minutes), with your email and WhatsApp number.\n2. Confirm your email and WhatsApp number with the codes we send you.\n3. Once accepted, read and sign the contract online.\n4. You receive your login to your dashboard, where you'll find your TikTok account details and every step explained.\n5. Set up your Ruul account from the link on your dashboard (ID and bank details, about 10 minutes). That's how you get paid.\n6. You start posting on a Monday.\nYou can read the contract and the FAQ at any time.",
   "onb.8.title": "Ready?",
   "onb.8.body": "If this sounds good to you, apply now. It's a few minutes a day and a nice extra income.\nPlease only apply if you plan to post every day: we prepare content for every account."
 }

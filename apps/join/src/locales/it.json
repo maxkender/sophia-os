@@ -64,6 +64,8 @@
   "codes.label": "Passo 2 di 3",
   "codes.title": "Verifica email e WhatsApp",
   "codes.sub": "Abbiamo inviato un codice di 6 cifre a {email} e al {whatsapp}.",
+  "codes.titleEmail": "Controlla la tua email",
+  "codes.subEmail": "Ti abbiamo inviato un codice di 6 cifre a {email}.",
   "codes.email": "Codice email",
   "codes.whatsapp": "Codice WhatsApp",
   "codes.verify": "Verifica",
@@ -248,8 +250,8 @@
   "onb.1.body": "Siamo uno studio che crea app per smartphone. Cerchiamo persone che ci aiutino a far conoscere le nostre app su TikTok, da casa, qualche minuto al giorno.",
   "onb.2.title": "Il lavoro, in breve",
   "onb.2.body": "Ogni giorno pubblichi 2 slideshow su TikTok: qualche foto con del testo, da scorrere.\nPrepariamo tutto noi: le foto, il testo, la didascalia e la musica. Tu devi solo metterli insieme nell'app TikTok e pubblicare.\nCirca 10 minuti al giorno. Niente videocamera, niente volto, nessuna esperienza richiesta.",
-  "onb.3.title": "Il tuo account TikTok",
-  "onb.3.body": "Ti diamo un nuovo account TikTok da creare: nome, foto e bio.\nLo crei sul tuo telefono con esattamente questi dati. Questo account serve solo per questo lavoro, non è il tuo account personale.",
+  "onb.3.title": "Crei un nuovo account TikTok",
+  "onb.3.body": "Per questo lavoro devi creare un account TikTok completamente nuovo: non quello personale.\nTi diamo tutto il necessario: il nome utente esatto, il nome visualizzato, la foto profilo e la bio.\nDevi solo creare l'account sul telefono con esattamente questi dati. Ci vogliono 5 minuti, e i passaggi sono spiegati nella tua dashboard.",
   "onb.4.title": "Il riscaldamento (qualche giorno)",
   "onb.4.body": "Prima del tuo primo post, scaldi l'account: usa TikTok come farebbe chiunque. Scorri, metti mi piace ai video e segui qualche account sul tuo tema.\nCosì TikTok capisce che dietro l'account c'è una persona vera, e i tuoi post vengono visti. Durante il riscaldamento non pubblichi niente.",
   "onb.5.title": "La tua routine quotidiana",
@@ -257,7 +259,7 @@
   "onb.6.title": "Il tuo compenso",
   "onb.6.body": "Guadagni un importo fisso ogni settimana, in base al tuo paese.\nVieni pagato ogni lunedì per la settimana precedente, tramite Ruul, una piattaforma di pagamento per freelance. Vik Studios paga le commissioni di Ruul, quindi ricevi l'importo intero.",
   "onb.7.title": "Cosa succede dopo",
-  "onb.7.body": "1. Compila il breve modulo (2 minuti), con la tua email e il tuo numero WhatsApp.\n2. Conferma la tua email e il tuo numero WhatsApp con i codici che ti inviamo.\n3. Una volta accettato, leggi e firma il contratto online.\n4. Ricevi l'accesso alla tua dashboard, dove ogni passaggio è spiegato.\n5. Configura il tuo account Ruul dal link nella tua dashboard (documento d'identità e dati bancari, circa 10 minuti). È così che vieni pagato.\n6. Inizi a pubblicare di lunedì.\nPuoi leggere il contratto e le FAQ in qualsiasi momento.",
+  "onb.7.body": "1. Compila il breve modulo (2 minuti), con la tua email e il tuo numero WhatsApp.\n2. Conferma la tua email e il tuo numero WhatsApp con i codici che ti inviamo.\n3. Una volta accettato, leggi e firma il contratto online.\n4. Ricevi l'accesso alla tua dashboard, dove trovi i dati del tuo account TikTok e ogni passaggio spiegato.\n5. Configura il tuo account Ruul dal link nella tua dashboard (documento d'identità e dati bancari, circa 10 minuti). È così che vieni pagato.\n6. Inizi a pubblicare di lunedì.\nPuoi leggere il contratto e le FAQ in qualsiasi momento.",
   "onb.8.title": "Pronto?",
   "onb.8.body": "Se ti va bene, candidati ora. Sono pochi minuti al giorno e un bel guadagno extra.\nCandidati solo se pensi di pubblicare ogni giorno: prepariamo contenuti per ogni account."
 }

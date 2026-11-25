@@ -107,6 +107,28 @@ export async function envoyerWhatsApp(db: Db, o: EnvoiWhatsApp): Promise<{ ok: b
   return { ok: true, id, wamid, statut: "envoye" };
 }
 
+/** Les modèles APPROVED chez Meta (anglais), lus dans whatsapp_modeles (tenu à jour par l'action modeles_sync). */
+export async function modelesApprouves(db: Db): Promise<Set<string>> {
+  const { data } = await db.from("whatsapp_modeles").select("nom").eq("langue", "en").eq("statut", "APPROVED").limit(500);
+  return new Set((data ?? []).map((m: { nom: string }) => m.nom));
+}
+
+/**
+ * Ce numéro ne doit plus rien recevoir : accord retiré (STOP), ou son posteur est sur la liste « ne plus contacter »
+ * ou arrêté. Pour les envois hors relances (Join), qui ne passent pas par whatsapp_relances_faits.
+ */
+export async function numeroBloque(db: Db, numero: string, posterId?: string | null): Promise<boolean> {
+  const { data: ct } = await db.from("posteur_contacts").select("poster_id, whatsapp_optout_at").eq("whatsapp_e164", numero).limit(20);
+  if ((ct ?? []).some((x) => !!x.whatsapp_optout_at)) return true;
+  const ids = [...new Set([posterId, ...(ct ?? []).map((x) => x.poster_id as string | null)].filter((x): x is string => !!x))];
+  if (!ids.length) return false;
+  const [n, a] = await Promise.all([
+    db.from("ne_plus_contacter").select("poster_id").in("poster_id", ids).is("leve_at", null).limit(1),
+    db.from("arrets").select("poster_id").in("poster_id", ids).is("annule_at", null).limit(1),
+  ]);
+  return !!(n.data?.length || a.data?.length);
+}
+
 /** Le numéro WhatsApp d'un posteur (s'il en a un) et son accord. */
 export async function contactWhatsApp(db: Db, posterId: string): Promise<{ e164: string | null; optin: boolean; optout: boolean }> {
   const { data } = await db.from("posteur_contacts").select("whatsapp_e164, whatsapp_optin_at, whatsapp_optout_at").eq("poster_id", posterId).maybeSingle();

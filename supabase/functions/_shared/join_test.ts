@@ -2,6 +2,8 @@ import { langueTraduite } from "./traduction_email.ts";
 import { assert, assertEquals, assertMatch } from "jsr:@std/assert@1";
 
 import {
+  codesVerifies,
+  codeWhatsappActif,
   langueEmailJoin,
   type CandidatureJoin,
   CONTRAT_AJOUTS_V4,
@@ -312,4 +314,17 @@ Deno.test("join : les emails partent dans la langue du candidat, nouvelles langu
     assert(langueTraduite(langueEmailJoin(l)), l);
   }
   assert(!langueTraduite(langueEmailJoin("en")));
+});
+
+Deno.test("25/11 : sans modèle de code WhatsApp, le code par email suffit", () => {
+  const sans = lireModeJoin({ mode: "live" });
+  const avec = lireModeJoin({ mode: "live", modele_code: "join_code" });
+  const c = { email_verifie_at: "x", whatsapp_verifie_at: null };
+  assertEquals(codeWhatsappActif(sans), false);
+  assertEquals(codesVerifies(c, sans), true);
+  assertEquals(codesVerifies(c, avec), false);
+  assertEquals(codesVerifies({ ...c, email_verifie_at: null }, sans), false);
+  const base = { decision: null, manques: [], expire_at: null, ...c };
+  assertEquals(etapeAdmin(base, false, false), "verifiee");
+  assertEquals(etapeAdmin(base, false, true), "codes");
 });

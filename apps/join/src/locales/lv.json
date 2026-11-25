@@ -64,6 +64,8 @@
   "codes.label": "2. solis no 3",
   "codes.title": "Pārbaudi savu e-pastu un WhatsApp",
   "codes.sub": "Mēs nosūtījām 6 ciparu kodu uz {email} un uz {whatsapp}.",
+  "codes.titleEmail": "Pārbaudi savu e-pastu",
+  "codes.subEmail": "Mēs nosūtījām 6 ciparu kodu uz {email}.",
   "codes.email": "E-pasta kods",
   "codes.whatsapp": "WhatsApp kods",
   "codes.verify": "Apstiprināt",
@@ -248,8 +250,8 @@
   "onb.1.body": "Mēs esam studija, kas veido mobilās lietotnes. Meklējam cilvēkus, kas palīdzētu mums popularizēt mūsu lietotnes TikTok, no mājām, dažas minūtes dienā.",
   "onb.2.title": "Darbs, vienkārši",
   "onb.2.body": "Katru dienu tu publicē 2 TikTok slaidrādes: dažus foto ar tekstu, kurus cilvēki pāršķir.\nMēs visu tev sagatavojam: foto, tekstu, aprakstu un mūziku. Tev tikai jāsaliek tie kopā TikTok lietotnē un jāpublicē.\nApmēram 10 minūtes dienā. Bez kameras, bez sejas rādīšanas, bez pieredzes.",
-  "onb.3.title": "Tavs TikTok konts",
-  "onb.3.body": "Mēs tev iedodam jaunu TikTok kontu, kas jāizveido: tā vārdu, attēlu un bio.\nTu to izveido savā telefonā tieši ar šiem datiem. Šis konts ir tikai šim darbam, nevis tavs personīgais konts.",
+  "onb.3.title": "Tu izveido jaunu TikTok kontu",
+  "onb.3.body": "Šim darbam tev jāizveido pavisam jauns TikTok konts: nevis tavs personīgais.\nMēs tev iedodam visu nepieciešamo: precīzu lietotājvārdu, attēlojamo vārdu, profila foto un bio.\nTu vienkārši izveido kontu savā telefonā tieši ar šiem datiem. Tas aizņem 5 minūtes, un soļi ir izskaidroti tavā panelī.",
   "onb.4.title": "Iesildīšana (dažas dienas)",
   "onb.4.body": "Pirms pirmā ieraksta tu iesildi kontu: lieto TikTok tāpat kā jebkurš cits. Ritini, liec patīk video un seko dažiem kontiem par savu tēmu.\nTā TikTok redz, ka aiz konta ir īsts cilvēks, un tavi ieraksti tiek parādīti. Iesildīšanas laikā tu neko nepublicē.",
   "onb.5.title": "Tava ikdienas rutīna",
@@ -257,7 +259,7 @@
   "onb.6.title": "Tava samaksa",
   "onb.6.body": "Katru nedēļu tu nopelni fiksētu summu atkarībā no savas valsts.\nTev maksā katru pirmdienu par iepriekšējo nedēļu caur Ruul — maksājumu platformu ārštata darbiniekiem. Vik Studios sedz Ruul komisijas, tāpēc tu saņem visu summu.",
   "onb.7.title": "Kas notiks tālāk",
-  "onb.7.body": "1. Aizpildi īso veidlapu (2 minūtes) ar savu e-pastu un WhatsApp numuru.\n2. Apstiprini savu e-pastu un WhatsApp numuru ar kodiem, ko mēs tev nosūtīsim.\n3. Kad būsi pieņemts, izlasi un paraksti līgumu tiešsaistē.\n4. Tu saņem pieejas datus savam panelim, kur katrs solis ir izskaidrots.\n5. Iestati savu Ruul kontu, izmantojot saiti savā panelī (personu apliecinošs dokuments un bankas dati, apmēram 10 minūtes). Tā tu saņem samaksu.\n6. Tu sāc publicēt pirmdienā.\nLīgumu un BUJ vari izlasīt jebkurā laikā.",
+  "onb.7.body": "1. Aizpildi īso veidlapu (2 minūtes) ar savu e-pastu un WhatsApp numuru.\n2. Apstiprini savu e-pastu un WhatsApp numuru ar kodiem, ko mēs tev nosūtīsim.\n3. Kad būsi pieņemts, izlasi un paraksti līgumu tiešsaistē.\n4. Tu saņem pieejas datus savam panelim, kur atradīsi sava TikTok konta datus un katra soļa skaidrojumu.\n5. Iestati savu Ruul kontu, izmantojot saiti savā panelī (personu apliecinošs dokuments un bankas dati, apmēram 10 minūtes). Tā tu saņem samaksu.\n6. Tu sāc publicēt pirmdienā.\nLīgumu un BUJ vari izlasīt jebkurā laikā.",
   "onb.8.title": "Gatavs?",
   "onb.8.body": "Ja tas tev izklausās labi, piesakies tagad. Tās ir dažas minūtes dienā un jauki papildu ienākumi.\nPiesakies tikai tad, ja plāno publicēt katru dienu: mēs sagatavojam saturu katram kontam."
 }

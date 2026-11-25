@@ -12,7 +12,11 @@
   "hu": "10/10 szokás, amit kezdj el, ha adhd-s vagy",
   "it": "10/10 abitudini da iniziare se hai l'adhd",
   "sr": "10/10 navika koje treba da počneš ako imaš adhd",
-  "es-419": "10/10 hábitos para empezar si tienes tdah"
+  "es-419": "10/10 hábitos para empezar si tienes tdah",
+  "el": "10/10 συνήθειες για να ξεκινήσεις αν έχεις ΔΕΠΥ",
+  "bg": "10/10 навика, които да започнеш, ако имаш адхд",
+  "de": "10/10 gewohnheiten, die du mit adhs anfangen solltest",
+  "pt-BR": "10/10 hábitos para começar se você tem tdah"
  },
  "legendes": {
   "en": "#adhd #focus #brain #selfimprovement #lockedin",
@@ -20,7 +24,11 @@
   "hu": "#adhd #fókusz #agy #önfejlesztés #lockedin",
   "it": "#adhd #concentrazione #cervello #crescitapersonale #lockedin",
   "sr": "#adhd #fokus #mozak #samorazvoj #lockedin",
-  "es-419": "#tdah #enfoque #cerebro #crecimientopersonal #lockedin"
+  "es-419": "#tdah #enfoque #cerebro #crecimientopersonal #lockedin",
+  "el": "#δεπυ #συγκέντρωση #εγκέφαλος #αυτοβελτίωση #lockedin",
+  "bg": "#адхд #фокус #мозък #навици #самоусъвършенстване",
+  "de": "#adhs #fokus #gehirn #gewohnheiten #selbstverbesserung",
+  "pt-BR": "#tdah #foco #cerebro #habitos #autodesenvolvimento"
  },
  "musique": {
   "titre": "original sound",
@@ -58,6 +66,22 @@
    "es-419": {
     "titre": "10/10 hábitos para empezar\nsi tienes tdah",
     "note": "(respaldado por la neurociencia)"
+   },
+   "el": {
+    "titre": "10/10 συνήθειες για να\nξεκινήσεις αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "bg": {
+    "titre": "10/10 навика, които да\nзапочнеш, ако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 gewohnheiten, die du\nmit adhs anfangen solltest",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hábitos para começar\nse você tem tdah",
+    "note": "(baseado em neurociência)"
    }
   },
   {
@@ -100,7 +124,7 @@
    },
    "sr": {
     "nom": "telefon u drugoj sobi",
-    "accroche": "_ne možeš da skroluješ_ ono do čega _ne dosežeš_",
+    "accroche": "_ne možeš da skroluješ_ ono što _nije tu_",
     "colonne": [
      "mozak grabi najlakšu nagradu na vidiku, pa kad skloniš telefon, _pravi zadatak_ postaje najlakši"
     ],
@@ -113,6 +137,38 @@
      "tu cerebro agarra la recompensa más fácil a la vista, así que guardar el celular hace que la _tarea real_ sea la más fácil"
     ],
     "chute": "empieza con una hora, cada noche"
+   },
+   "el": {
+    "nom": "κινητό σε άλλο δωμάτιο",
+    "accroche": "_δεν σκρολάρεις_ ό,τι _δεν φτάνεις_",
+    "colonne": [
+     "ο εγκέφαλος αρπάζει την πιο εύκολη ανταμοιβή που βλέπει, οπότε αν βάλεις το κινητό μακριά, η _πραγματική δουλειά_ γίνεται η πιο εύκολη"
+    ],
+    "chute": "ξεκίνα με μία ώρα, κάθε βράδυ"
+   },
+   "bg": {
+    "nom": "телефонът в друга стая",
+    "accroche": "_не скролваш_ това, което _не стигаш_",
+    "colonne": [
+     "мозъкът ти грабва най-лесната награда наоколо, затова прибраният телефон прави _истинската задача_ най-лесна"
+    ],
+    "chute": "започни с един час, всяка вечер"
+   },
+   "de": {
+    "nom": "handy in einen anderen raum",
+    "accroche": "was du _nicht erreichst_, kannst du _nicht scrollen_",
+    "colonne": [
+     "dein gehirn greift zur leichtesten belohnung in sichtweite, also macht das weggelegte handy die _echte aufgabe_ zur leichtesten"
+    ],
+    "chute": "fang mit einer stunde an, jeden abend"
+   },
+   "pt-BR": {
+    "nom": "celular em outro cômodo",
+    "accroche": "você _não rola_ o que _não alcança_",
+    "colonne": [
+     "seu cérebro pega a recompensa mais fácil à vista, então guardar o celular faz da _tarefa real_ a mais fácil"
+    ],
+    "chute": "comece com uma hora, toda noite"
    }
   },
   {
@@ -174,6 +230,42 @@
      "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
     ],
     "chute": "15 minutos bastan, tenis junto a la puerta"
+   },
+   "el": {
+    "nom": "τρέξιμο πριν το κινητό",
+    "accroche": "ο εγκέφαλος _ξυπνάει_ πριν το _feed_",
+    "colonne": [
+     "ένα σύντομο τρέξιμο με το ξύπνημα καίει την ανήσυχη ενέργεια και κάνει το υπόλοιπο πρωί _πιο εύκολο_ να ξεκινήσει",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "φτάνουν 15 λεπτά, παπούτσια δίπλα στην πόρτα"
+   },
+   "bg": {
+    "nom": "бягане преди телефона",
+    "accroche": "мозъкът ти _се събужда_ преди _фийда_",
+    "colonne": [
+     "кратко бягане рано сутрин изгаря неспокойната енергия и прави останалата част от сутринта _по-лесна_",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "15 минути стигат, маратонките до вратата"
+   },
+   "de": {
+    "nom": "ein lauf vor dem handy",
+    "accroche": "dein gehirn _wacht auf_ vor deinem _feed_",
+    "colonne": [
+     "ein kurzer lauf direkt am morgen baut unruhige energie ab und macht den rest des morgens _leichter_",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "15 minuten reichen, schuhe an die tür"
+   },
+   "pt-BR": {
+    "nom": "correr antes do celular",
+    "accroche": "seu cérebro _acorda_ antes do seu _feed_",
+    "colonne": [
+     "uma corrida curta logo cedo queima a energia inquieta e deixa o resto da manhã mais _fácil_ de começar",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "15 minutos bastam, tênis perto da porta"
    }
   },
   {
@@ -229,6 +321,38 @@
      "diez minutos se sienten lo bastante cortos para empezar, y un escritorio despejado son menos cosas _jalando_ tu atención"
     ],
     "chute": "pon el timer, para cuando suene"
+   },
+   "el": {
+    "nom": "10 λεπτά τακτοποίηση",
+    "accroche": "ένα χρονόμετρο κάνει την _ακαταστασία_ _παιχνίδι_",
+    "colonne": [
+     "δέκα λεπτά μοιάζουν αρκετά λίγα για να ξεκινήσεις, και ένα καθαρό γραφείο σημαίνει λιγότερα πράγματα που _τραβάνε_ την προσοχή σου"
+    ],
+    "chute": "βάλε χρονόμετρο, σταμάτα όταν χτυπήσει"
+   },
+   "bg": {
+    "nom": "10 минути подреждане",
+    "accroche": "таймерът превръща _хаоса_ в _игра_",
+    "colonne": [
+     "десет минути звучат достатъчно кратко, за да започнеш, а чистото бюро значи по-малко неща, които _дърпат_ вниманието ти"
+    ],
+    "chute": "пусни таймера, спри, когато звънне"
+   },
+   "de": {
+    "nom": "10 minuten aufräumen",
+    "accroche": "ein timer macht aus _chaos_ ein _spiel_",
+    "colonne": [
+     "zehn minuten fühlen sich kurz genug an, um anzufangen, und ein freier schreibtisch heißt weniger dinge, die an deiner aufmerksamkeit _ziehen_"
+    ],
+    "chute": "timer stellen, aufhören, wenn er klingelt"
+   },
+   "pt-BR": {
+    "nom": "arrumar por 10 minutos",
+    "accroche": "um timer transforma _bagunça_ em _jogo_",
+    "colonne": [
+     "dez minutos parece curto o bastante pra começar, e uma mesa limpa significa menos coisas _puxando_ sua atenção"
+    ],
+    "chute": "ligue o timer, pare quando tocar"
    }
   },
   {
@@ -290,6 +414,42 @@
      "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
     ],
     "chute": "luego suelta el celular y duerme"
+   },
+   "el": {
+    "nom": "ένας πίνακας πριν τον ύπνο",
+    "accroche": "άλλαξε _ένα βίντεο_ με _μια ιστορία_",
+    "colonne": [
+     "ένας μόνο πίνακας με την ιστορία του είναι κάθε βράδυ καινούργιος, ήρεμος, και τελειώνει σε λίγα λεπτά",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "μετά άφησε το κινητό και κοιμήσου"
+   },
+   "bg": {
+    "nom": "една картина преди сън",
+    "accroche": "смени _едно видео_ с _една история_",
+    "colonne": [
+     "една картина с историята си е нова всяка вечер, спокойна и свършва за няколко минути",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "после остави телефона и заспивай"
+   },
+   "de": {
+    "nom": "ein gemälde vor dem schlafen",
+    "accroche": "tausch _ein video_ gegen _eine geschichte_",
+    "colonne": [
+     "ein einzelnes bild mit seiner geschichte ist jeden abend neu, ruhig und in ein paar minuten vorbei",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "dann handy weg und schlafen"
+   },
+   "pt-BR": {
+    "nom": "uma pintura antes de dormir",
+    "accroche": "troque _um vídeo_ por _uma história_",
+    "colonne": [
+     "uma única pintura com sua história é nova toda noite, calma e acaba em poucos minutos",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "depois largue o celular e durma"
    }
   },
   {
@@ -345,6 +505,38 @@
      "escribirlo te lo saca de la cabeza, y tachar una línea le da a tu cerebro una pequeña _recompensa_"
     ],
     "chute": "deja la libreta abierta en la mesa"
+   },
+   "el": {
+    "nom": "λίστα σε χαρτί",
+    "accroche": "τρία πράγματα, _σε χαρτί_, _σβησμένα_",
+    "colonne": [
+     "όταν το γράφεις, βγαίνει από το κεφάλι σου, και όταν σβήνεις μια γραμμή, ο εγκέφαλος παίρνει μια μικρή _ανταμοιβή_"
+    ],
+    "chute": "άφησε το τετράδιο ανοιχτό στο τραπέζι"
+   },
+   "bg": {
+    "nom": "списък със задачи на хартия",
+    "accroche": "три неща, _на хартия_, _зачеркнати_",
+    "colonne": [
+     "като го запишеш, излиза от главата ти, а зачеркването дава на мозъка ти малка _награда_"
+    ],
+    "chute": "дръж тетрадката отворена на масата"
+   },
+   "de": {
+    "nom": "eine to-do-liste auf papier",
+    "accroche": "drei dinge, _auf papier_, _abgehakt_",
+    "colonne": [
+     "aufschreiben holt es aus deinem kopf, und abhaken gibt deinem gehirn eine kleine _belohnung_"
+    ],
+    "chute": "lass das notizbuch offen auf dem tisch"
+   },
+   "pt-BR": {
+    "nom": "lista de tarefas no papel",
+    "accroche": "três coisas, _no papel_, _riscadas_",
+    "colonne": [
+     "escrever tira da sua cabeça, e riscar uma linha dá ao seu cérebro uma pequena _recompensa_"
+    ],
+    "chute": "deixe o caderno aberto na mesa"
    }
   }
  ]

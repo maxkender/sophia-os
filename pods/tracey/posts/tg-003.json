@@ -12,7 +12,11 @@
   "hu": "10/10 különleges hobbi, ami tényleg működik, ha adhd-s vagy",
   "it": "10/10 hobby di nicchia che funzionano davvero se hai l'adhd",
   "sr": "10/10 neobičnih hobija koji stvarno pomažu ako imaš adhd",
-  "es-419": "10/10 hobbies de nicho que sí funcionan si tienes tdah"
+  "es-419": "10/10 hobbies de nicho que sí funcionan si tienes tdah",
+  "el": "10/10 ιδιαίτερα χόμπι που πραγματικά δουλεύουν αν έχεις ΔΕΠΥ",
+  "bg": "10/10 нишови хобита, които наистина работят, ако имаш адхд",
+  "de": "10/10 nischen-hobbys, die wirklich funktionieren, wenn du adhs hast",
+  "pt-BR": "10/10 hobbies de nicho que realmente funcionam se você tem tdah"
  },
  "legendes": {
   "en": "#adhd #hobbies #focus #brain #niche",
@@ -20,7 +24,11 @@
   "hu": "#adhd #hobbi #fókusz #agy #különleges",
   "it": "#adhd #hobby #concentrazione #cervello #nicchia",
   "sr": "#adhd #hobi #fokus #mozak #neobično",
-  "es-419": "#tdah #hobbies #enfoque #cerebro #nicho"
+  "es-419": "#tdah #hobbies #enfoque #cerebro #nicho",
+  "el": "#δεπυ #χόμπι #συγκέντρωση #εγκέφαλος #niche",
+  "bg": "#адхд #хобита #фокус #мозък #нишово",
+  "de": "#adhs #hobbys #fokus #gehirn #nische",
+  "pt-BR": "#tdah #hobbies #foco #cerebro #nicho"
  },
  "musique": {
   "titre": "original sound",
@@ -40,7 +48,7 @@
     "note": "(neuroscience backed)"
    },
    "fr": {
-    "titre": "10/10 loisirs de niche qui marchent\nvraiment quand on a un tdah",
+    "titre": "10/10 loisirs de niche qui\nmarchent vraiment avec un tdah",
     "note": "(selon les neurosciences)"
    },
    "hu": {
@@ -48,7 +56,7 @@
     "note": "(idegtudományi alapon)"
    },
    "it": {
-    "titre": "10/10 hobby di nicchia che funzionano\ndavvero se hai l'adhd",
+    "titre": "10/10 hobby di nicchia che\nfunzionano davvero se hai l'adhd",
     "note": "(basato sulle neuroscienze)"
    },
    "sr": {
@@ -58,6 +66,22 @@
    "es-419": {
     "titre": "10/10 hobbies de nicho que sí\nfuncionan si tienes tdah",
     "note": "(respaldado por la neurociencia)"
+   },
+   "el": {
+    "titre": "10/10 ιδιαίτερα χόμπι που\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "bg": {
+    "titre": "10/10 нишови хобита, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 nischen-hobbys, die\nbei adhs wirklich funktionieren",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies de nicho que\nfuncionam de verdade com tdah",
+    "note": "(baseado em neurociência)"
    }
   },
   {
@@ -113,6 +137,38 @@
      "cada paso es pequeño y con las manos, así un cerebro disperso siempre sabe _qué sigue_"
     ],
     "chute": "con una aguja, hilo y papel de impresora basta"
+   },
+   "el": {
+    "nom": "βιβλιοδεσία",
+    "accroche": "διπλώνεις, ράβεις και κολλάς ένα _αληθινό βιβλίο_",
+    "colonne": [
+     "κάθε βήμα είναι μικρό και γίνεται με τα χέρια, οπότε ένα σκόρπιο μυαλό ξέρει πάντα _τι ακολουθεί_"
+    ],
+    "chute": "φτάνουν μια βελόνα, κλωστή και χαρτί εκτυπωτή"
+   },
+   "bg": {
+    "nom": "книговезство",
+    "accroche": "сгъваш, шиеш и лепиш _истинска книга_",
+    "colonne": [
+     "всяка стъпка е малка и се прави на ръка, така че разсеяният мозък винаги знае _какво следва_"
+    ],
+    "chute": "игла, конец и хартия за принтер стигат"
+   },
+   "de": {
+    "nom": "buchbinden",
+    "accroche": "du faltest, nähst und klebst ein _echtes buch_",
+    "colonne": [
+     "jeder schritt ist klein und mit den händen gemacht, so weiß ein zerstreuter kopf immer, _was als nächstes_ kommt"
+    ],
+    "chute": "nadel, faden und druckerpapier reichen"
+   },
+   "pt-BR": {
+    "nom": "encadernação",
+    "accroche": "você dobra, costura e cola um _livro de verdade_",
+    "colonne": [
+     "cada etapa é pequena e feita à mão, então um cérebro disperso sempre sabe _o que vem depois_"
+    ],
+    "chute": "agulha, linha e papel sulfite já bastam"
    }
   },
   {
@@ -134,7 +190,7 @@
     "nom": "un tableau par semaine",
     "accroche": "le _même tableau_, sept jours de suite",
     "colonne": [
-     "tu remarques un nouveau visage, une nouvelle couleur, un nouveau détail chaque jour, et un cerveau en manque de nouveauté la trouve dans _une seule image_",
+     "un visage, une couleur, un détail de plus chaque jour : un cerveau qui a besoin de nouveauté la trouve dans _une seule image_",
      "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
     ],
     "chute": "garde-en un qui te plaît et regarde-le encore demain"
@@ -144,7 +200,7 @@
     "accroche": "_ugyanaz a kép_, hét napon át",
     "colonne": [
      "minden nap új arcot, új színt, új részletet veszel észre, és az újdonságra éhes agy _egy képből_ megkapja",
-     "_pro tip_: az arturát használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
     ],
     "chute": "ments el egyet, ami tetszik, és nézd meg holnap is"
    },
@@ -162,7 +218,7 @@
     "accroche": "_ista slika_, sedam dana zaredom",
     "colonne": [
      "svaki dan primetiš novo lice, novu boju, novi detalj, i mozak gladan novog dobije ga iz _jedne slike_",
-     "_pro tip_: koristim arturu, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
     ],
     "chute": "sačuvaj jednu koja ti se sviđa i pogledaj je sutra"
    },
@@ -174,6 +230,42 @@
      "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
     ],
     "chute": "guarda una que te guste y mírala otra vez mañana"
+   },
+   "el": {
+    "nom": "ένας πίνακας την εβδομάδα",
+    "accroche": "ο _ίδιος πίνακας_, επτά μέρες στη σειρά",
+    "colonne": [
+     "κάθε μέρα προσέχεις ένα νέο πρόσωπο, ένα νέο χρώμα, μια νέα λεπτομέρεια, και ένα μυαλό που διψάει για κάτι νέο το βρίσκει σε _μία εικόνα_",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "κράτα έναν που σου αρέσει και ξανακοίτα τον αύριο"
+   },
+   "bg": {
+    "nom": "една картина на седмица",
+    "accroche": "_същата картина_, седем дни подред",
+    "colonne": [
+     "всеки ден забелязваш ново лице, нов цвят, нов детайл, а мозък, който жадува за новост, го получава от _една картина_",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "запази си една и я погледни пак утре"
+   },
+   "de": {
+    "nom": "ein gemälde pro woche",
+    "accroche": "das _gleiche bild_, sieben tage lang",
+    "colonne": [
+     "du entdeckst jeden tag ein neues gesicht, eine neue farbe, ein neues detail, und ein gehirn, das neues liebt, bekommt es aus _einem bild_",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "speicher dir eins und schau es morgen wieder an"
+   },
+   "pt-BR": {
+    "nom": "uma pintura por semana",
+    "accroche": "a _mesma pintura_, sete dias seguidos",
+    "colonne": [
+     "você nota um rosto novo, uma cor nova, um detalhe novo todo dia, e um cérebro que ama novidade encontra isso numa _só imagem_",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "salve uma que você goste e olhe de novo amanhã"
    }
   },
   {
@@ -229,6 +321,38 @@
      "recorrer los árboles con la vista mantiene tus ojos ocupados, y cada ave nueva que ves es una pequeña _victoria_ para tu cerebro"
     ],
     "chute": "unos binoculares baratos y el parque más cercano"
+   },
+   "el": {
+    "nom": "παρατήρηση πουλιών",
+    "accroche": "_κυνηγάς_ κάτι που _κινείται_",
+    "colonne": [
+     "το να σαρώνεις τα δέντρα κρατάει τα μάτια σου απασχολημένα, και κάθε νέο πουλί που εντοπίζεις είναι μια μικρή _νίκη_ για τον εγκέφαλο"
+    ],
+    "chute": "ένα φτηνό κιάλι και το πιο κοντινό πάρκο"
+   },
+   "bg": {
+    "nom": "наблюдение на птици",
+    "accroche": "_дебнеш_ нещо, което _се движи_",
+    "colonne": [
+     "оглеждането на дърветата държи очите ти заети, а всяка нова птица е малка _победа_ за мозъка ти"
+    ],
+    "chute": "евтин бинокъл и най-близкият парк"
+   },
+   "de": {
+    "nom": "vögel beobachten",
+    "accroche": "du _jagst_ etwas, das sich _bewegt_",
+    "colonne": [
+     "das absuchen der bäume hält deine augen beschäftigt, und jeder neue vogel ist ein kleiner _erfolg_ für dein gehirn"
+    ],
+    "chute": "ein günstiges fernglas und der nächste park"
+   },
+   "pt-BR": {
+    "nom": "observar pássaros",
+    "accroche": "você está _caçando_ algo que se _mexe_",
+    "colonne": [
+     "vasculhar as árvores mantém seus olhos ocupados, e cada pássaro novo que você vê é uma pequena _vitória_ pro cérebro"
+    ],
+    "chute": "um binóculo barato e o parque mais perto"
    }
   },
   {
@@ -260,7 +384,7 @@
     "accroche": "végzel, _mielőtt_ a nap _elterelhetne_",
     "colonne": [
      "üresek az utcák, lágy a fény, és a korai futás helyet ad a nyugtalan test _energiájának_",
-     "_pro tip_: az atalát használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
     ],
     "chute": "este készítsd ki a cipődet"
    },
@@ -278,7 +402,7 @@
     "accroche": "završiš _pre_ nego što te dan _omete_",
     "colonne": [
      "ulice su prazne, svetlo je meko, a rano trčanje daje nemirnom telu gde da potroši _energiju_",
-     "_pro tip_: koristim atalu, ai trenera za trčanje koji mi planira nedelju prema cilju"
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
     ],
     "chute": "ostavi patike spremne veče ranije"
    },
@@ -290,6 +414,42 @@
      "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
     ],
     "chute": "deja tus tenis listos la noche anterior"
+   },
+   "el": {
+    "nom": "τρέξιμο με την ανατολή",
+    "accroche": "τελειώνεις _πριν_ η μέρα σε _αποσπάσει_",
+    "colonne": [
+     "οι δρόμοι είναι άδειοι, το φως απαλό, και ένα πρωινό τρέξιμο δίνει σε ένα ανήσυχο σώμα κάπου να βάλει την _ενέργεια_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "άφησε τα παπούτσια σου έτοιμα από το βράδυ"
+   },
+   "bg": {
+    "nom": "бягане по изгрев",
+    "accroche": "приключваш, _преди_ денят да те _разсее_",
+    "colonne": [
+     "улиците са празни, светлината е мека, а ранното бягане дава на неспокойното тяло къде да вложи _енергията_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "приготви си маратонките от вечерта"
+   },
+   "de": {
+    "nom": "laufen bei sonnenaufgang",
+    "accroche": "fertig, _bevor_ der tag dich _ablenken_ kann",
+    "colonne": [
+     "die straßen sind leer, das licht ist weich, und ein früher lauf gibt einem unruhigen körper ein ventil für seine _energie_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "leg dir die schuhe am abend vorher raus"
+   },
+   "pt-BR": {
+    "nom": "correr ao nascer do sol",
+    "accroche": "você termina _antes_ que o dia te _distraia_",
+    "colonne": [
+     "as ruas estão vazias, a luz é suave, e uma corrida cedo dá a um corpo inquieto onde gastar a _energia_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "deixe o tênis separado na noite anterior"
    }
   },
   {
@@ -345,6 +505,38 @@
      "respiras, apuntas y sueltas, y ves al instante dónde cayó, así tu enfoque recibe _respuesta inmediata_"
     ],
     "chute": "casi todos los clubes te prestan un arco en las primeras clases"
+   },
+   "el": {
+    "nom": "τοξοβολία",
+    "accroche": "ένας στόχος, ένα βέλος, _τίποτα άλλο_",
+    "colonne": [
+     "ανασαίνεις, σημαδεύεις, αφήνεις, και βλέπεις αμέσως πού κατέληξε, οπότε η συγκέντρωσή σου παίρνει _άμεση ανταπόκριση_"
+    ],
+    "chute": "οι περισσότεροι σύλλογοι σου δανείζουν τόξο στα πρώτα μαθήματα"
+   },
+   "bg": {
+    "nom": "стрелба с лък",
+    "accroche": "една мишена, една стрела, _нищо друго_",
+    "colonne": [
+     "дишаш, прицелваш се, пускаш и веднага виждаш къде е попаднала, така фокусът ти получава _мигновена обратна връзка_"
+    ],
+    "chute": "повечето клубове ти дават лък за първите уроци"
+   },
+   "de": {
+    "nom": "bogenschießen",
+    "accroche": "ein ziel, ein pfeil, _sonst nichts_",
+    "colonne": [
+     "du atmest, zielst, lässt los und siehst sofort, wo er gelandet ist, so bekommt dein fokus _sofort feedback_"
+    ],
+    "chute": "die meisten vereine leihen dir für die ersten stunden einen bogen"
+   },
+   "pt-BR": {
+    "nom": "tiro com arco",
+    "accroche": "um alvo, uma flecha, _mais nada_",
+    "colonne": [
+     "você respira, mira e solta, e vê na hora onde acertou, então seu foco tem _retorno imediato_"
+    ],
+    "chute": "a maioria dos clubes empresta o arco nas primeiras aulas"
    }
   }
  ]

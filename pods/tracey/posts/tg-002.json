@@ -12,7 +12,11 @@
   "hu": "10/10 hobbi, ami tényleg működik, ha adhd-s vagy",
   "it": "10/10 hobby che funzionano davvero se hai l'adhd",
   "sr": "10/10 hobija koji stvarno pomažu ako imaš adhd",
-  "es-419": "10/10 hobbies que sí funcionan si tienes tdah"
+  "es-419": "10/10 hobbies que sí funcionan si tienes tdah",
+  "el": "10/10 χόμπι που πραγματικά δουλεύουν αν έχεις ΔΕΠΥ",
+  "bg": "10/10 хобита, които наистина работят, ако имаш адхд",
+  "de": "10/10 hobbys, die wirklich funktionieren, wenn du adhs hast",
+  "pt-BR": "10/10 hobbies que realmente funcionam se você tem tdah"
  },
  "legendes": {
   "en": "#adhd #hobbies #focus #brain #selfimprovement",
@@ -20,7 +24,11 @@
   "hu": "#adhd #hobbi #fókusz #agy #önfejlesztés",
   "it": "#adhd #hobby #concentrazione #cervello #crescitapersonale",
   "sr": "#adhd #hobi #fokus #mozak #samorazvoj",
-  "es-419": "#tdah #hobbies #enfoque #cerebro #crecimientopersonal"
+  "es-419": "#tdah #hobbies #enfoque #cerebro #crecimientopersonal",
+  "el": "#δεπυ #χόμπι #συγκέντρωση #εγκέφαλος #αυτοβελτίωση",
+  "bg": "#адхд #хобита #фокус #мозък #самоусъвършенстване",
+  "de": "#adhs #hobbys #fokus #gehirn #selbstverbesserung",
+  "pt-BR": "#tdah #hobbies #foco #cerebro #autodesenvolvimento"
  },
  "musique": {
   "titre": "original sound",
@@ -40,7 +48,7 @@
     "note": "(neuroscience backed)"
    },
    "fr": {
-    "titre": "10/10 loisirs qui marchent vraiment\nquand on a un tdah",
+    "titre": "10/10 loisirs qui marchent\nvraiment quand on a un tdah",
     "note": "(selon les neurosciences)"
    },
    "hu": {
@@ -48,7 +56,7 @@
     "note": "(idegtudományi alapon)"
    },
    "it": {
-    "titre": "10/10 hobby che funzionano davvero\nse hai l'adhd",
+    "titre": "10/10 hobby che funzionano\ndavvero se hai l'adhd",
     "note": "(basato sulle neuroscienze)"
    },
    "sr": {
@@ -58,6 +66,22 @@
    "es-419": {
     "titre": "10/10 hobbies que sí funcionan\nsi tienes tdah",
     "note": "(respaldado por la neurociencia)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι που πραγματικά\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "bg": {
+    "titre": "10/10 хобита, които наистина\nработят, ако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys, die wirklich\nfunktionieren, wenn du adhs hast",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies que realmente\nfuncionam se você tem tdah",
+    "note": "(baseado em neurociência)"
    }
   },
   {
@@ -113,6 +137,38 @@
      "una ruta dura unos minutos, te caes, lo intentas otra vez, así un cerebro que se aburre rápido siempre tiene un _nuevo intento_"
     ],
     "chute": "casi todos los gimnasios rentan zapatillas y dan una clase de inicio"
+   },
+   "el": {
+    "nom": "bouldering",
+    "accroche": "κάθε τοίχος είναι _γρίφος_ για _όλο το σώμα_",
+    "colonne": [
+     "μια διαδρομή κρατάει λίγα λεπτά, πέφτεις, ξαναπροσπαθείς, οπότε ένα μυαλό που βαριέται γρήγορα έχει πάντα _νέα προσπάθεια_"
+    ],
+    "chute": "οι περισσότερες αίθουσες νοικιάζουν παπούτσια και κάνουν εισαγωγικό μάθημα"
+   },
+   "bg": {
+    "nom": "болдъринг",
+    "accroche": "всяка стена е _пъзел_ за _цялото тяло_",
+    "colonne": [
+     "един маршрут отнема няколко минути, падаш, опитваш пак, така че мозък, който бързо се отегчава, винаги има _следващ опит_"
+    ],
+    "chute": "повечето зали дават обувки под наем и имат въвеждащ час"
+   },
+   "de": {
+    "nom": "bouldern",
+    "accroche": "jede wand ist ein _rätsel_ für den _ganzen körper_",
+    "colonne": [
+     "eine route dauert ein paar minuten, du fällst, du versuchst es nochmal, so hat ein schnell gelangweiltes gehirn immer einen _nächsten versuch_"
+    ],
+    "chute": "die meisten hallen verleihen schuhe und bieten einen schnupperkurs"
+   },
+   "pt-BR": {
+    "nom": "escalada boulder",
+    "accroche": "cada parede é um _quebra-cabeça_ pro _corpo inteiro_",
+    "colonne": [
+     "uma via leva poucos minutos, você cai, tenta de novo, então um cérebro que enjoa rápido sempre tem uma _próxima tentativa_"
+    ],
+    "chute": "a maioria dos ginásios aluga sapatilha e tem aula de introdução"
    }
   },
   {
@@ -131,7 +187,7 @@
     "chute": "pick one room, one hour, then leave"
    },
    "fr": {
-    "nom": "aller seul·e au musée",
+    "nom": "aller au musée tout seul",
     "accroche": "personne à suivre, alors tu _regardes vraiment_",
     "colonne": [
      "saute les salles qui ne t'intéressent pas et reste devant un tableau jusqu'à y trouver quelque chose de nouveau",
@@ -174,6 +230,42 @@
      "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
     ],
     "chute": "una sala, una hora, y te vas"
+   },
+   "el": {
+    "nom": "μουσείο μόνη σου",
+    "accroche": "κανείς να μην ακολουθείς, οπότε _κοιτάζεις αληθινά_",
+    "colonne": [
+     "προσπέρνα τις αίθουσες που δεν σε ενδιαφέρουν και στάσου μπροστά σε έναν πίνακα μέχρι να βρεις κάτι καινούργιο",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "μία αίθουσα, μία ώρα, και φεύγεις"
+   },
+   "bg": {
+    "nom": "музей без компания",
+    "accroche": "никой не те бърза, затова _наистина гледаш_",
+    "colonne": [
+     "прескочи залите, които не те вълнуват, и застани пред една картина, докато не откриеш нещо ново в нея",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "една зала, един час, после си тръгни"
+   },
+   "de": {
+    "nom": "allein ins museum",
+    "accroche": "niemand hetzt dich, also _schaust du wirklich_",
+    "colonne": [
+     "überspring die räume, die dich nicht interessieren, und bleib vor einem bild stehen, bis du etwas neues darin findest",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "ein raum, eine stunde, dann geh"
+   },
+   "pt-BR": {
+    "nom": "ir a um museu sem companhia",
+    "accroche": "ninguém pra acompanhar, então você _olha de verdade_",
+    "colonne": [
+     "pule as salas que não te interessam e fique diante de uma pintura até achar algo novo nela",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "escolha uma sala, uma hora, e vá embora"
    }
   },
   {
@@ -226,6 +318,38 @@
      "tus manos están llenas de barro así que el celular no puede ganar, y el torno te da _respuesta inmediata_ en cada movimiento"
     ],
     "chute": "busca una clase de torno de una noche cerca de ti"
+   },
+   "el": {
+    "nom": "κεραμική",
+    "accroche": "ο πηλός πέφτει τη _στιγμή_ που _αφαιρείσαι_",
+    "colonne": [
+     "τα χέρια σου είναι γεμάτα πηλό οπότε το κινητό δεν κερδίζει, και ο τροχός σου δίνει _άμεση ανταπόκριση_ σε κάθε κίνηση"
+    ],
+    "chute": "ψάξε ένα βραδινό μάθημα τροχού κοντά σου"
+   },
+   "bg": {
+    "nom": "керамика",
+    "accroche": "глината се срутва _в секундата_, в която _се отнесеш_",
+    "colonne": [
+     "ръцете ти са в глина, така че телефонът не печели, а колелото ти дава _мигновена обратна връзка_ за всяко движение"
+    ],
+    "chute": "потърси вечерен урок на грънчарско колело наблизо"
+   },
+   "de": {
+    "nom": "töpfern",
+    "accroche": "der ton kippt, _sobald_ du _abschweifst_",
+    "colonne": [
+     "deine hände sind voller ton, also gewinnt das handy nicht, und die scheibe gibt dir _sofort feedback_ bei jeder bewegung"
+    ],
+    "chute": "such dir einen töpferabend in deiner nähe"
+   },
+   "pt-BR": {
+    "nom": "cerâmica",
+    "accroche": "o barro desaba no _segundo_ em que você se _distrai_",
+    "colonne": [
+     "suas mãos estão cheias de barro, então o celular não ganha, e o torno te dá _retorno imediato_ a cada movimento"
+    ],
+    "chute": "procure uma aula de torno de uma noite perto de você"
    }
   },
   {
@@ -247,7 +371,7 @@
     "nom": "le trail",
     "accroche": "un nouveau sol _à chaque pas_, impossible de _décrocher_",
     "colonne": [
-     "racines, cailloux et côtes donnent sans cesse quelque chose de nouveau à lire à ton cerveau, et une date de course lui donne un _vrai objectif_",
+     "racines, cailloux, côtes : ton cerveau a toujours du neuf à lire, et une date de course lui donne un _vrai objectif_",
      "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
     ],
     "chute": "commence sur un chemin plat dans un parc, marche dans les côtes"
@@ -287,6 +411,42 @@
      "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
     ],
     "chute": "empieza en un sendero plano del parque, camina las subidas"
+   },
+   "el": {
+    "nom": "ορεινό τρέξιμο",
+    "accroche": "νέο έδαφος _σε κάθε βήμα_, _δεν αφαιρείσαι_",
+    "colonne": [
+     "ρίζες, πέτρες και ανηφόρες δίνουν συνέχεια κάτι νέο στο μυαλό σου, και η ημερομηνία ενός αγώνα του δίνει _πραγματικό στόχο_",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "ξεκίνα από ένα επίπεδο μονοπάτι, περπάτα τις ανηφόρες"
+   },
+   "bg": {
+    "nom": "трейл бягане",
+    "accroche": "нов терен _на всяка крачка_, няма _изключване_",
+    "colonne": [
+     "корени, камъни и хълмове постоянно дават на мозъка ти нещо ново за четене, а дата на състезание му дава _истинска цел_",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "започни с равна пътека в парка, нагорнищата ги ходи"
+   },
+   "de": {
+    "nom": "trailrunning",
+    "accroche": "neuer boden _bei jedem schritt_, kein _abschalten_",
+    "colonne": [
+     "wurzeln, steine und hügel geben deinem gehirn ständig etwas neues zu lesen, und ein wettkampftermin gibt ihm ein _echtes ziel_",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "starte auf einem flachen parkweg, geh die hügel hoch"
+   },
+   "pt-BR": {
+    "nom": "trail running",
+    "accroche": "terreno novo _a cada passo_, você _não desliga_",
+    "colonne": [
+     "raízes, pedras e subidas dão ao seu cérebro sempre algo novo pra ler, e a data de uma prova dá uma _meta real_",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "comece numa trilha plana de parque, suba caminhando"
    }
   },
   {
@@ -339,6 +499,38 @@
      "mantener cuatro extremidades en un mismo ritmo no deja espacio para pensamientos sueltos, y escuchas al instante cuando vas _fuera de tiempo_"
     ],
     "chute": "con un pad de práctica y un metrónomo basta"
+   },
+   "el": {
+    "nom": "μαθαίνω ντραμς",
+    "accroche": "χρησιμοποιείς _και τα δύο χέρια_ και _τα πόδια_",
+    "colonne": [
+     "τέσσερα άκρα στον ίδιο ρυθμό δεν αφήνουν χώρο για σκέψεις που ξεφεύγουν, και ακούς αμέσως όταν είσαι _εκτός_"
+    ],
+    "chute": "φτάνουν ένα pad εξάσκησης και ένας μετρονόμος"
+   },
+   "bg": {
+    "nom": "уроци по барабани",
+    "accroche": "_двете ръце_ и _двата крака_ наведнъж",
+    "colonne": [
+     "четири крайника в един ритъм не оставят място за разсеяна мисъл, а веднага чуваш, когато _излезеш от такт_"
+    ],
+    "chute": "тренировъчен пад и метроном са достатъчни"
+   },
+   "de": {
+    "nom": "schlagzeug lernen",
+    "accroche": "_beide hände_ und _beide füße_ gleichzeitig",
+    "colonne": [
+     "vier gliedmaßen auf einem beat lassen keinen platz für abschweifende gedanken, und du hörst sofort, wenn du _daneben liegst_"
+    ],
+    "chute": "ein übungspad und ein metronom reichen"
+   },
+   "pt-BR": {
+    "nom": "aprender bateria",
+    "accroche": "você usa _as duas mãos_ e _os dois pés_ juntos",
+    "colonne": [
+     "manter quatro membros no mesmo ritmo não deixa espaço pra pensamento solto, e você ouve na hora quando _sai do tempo_"
+    ],
+    "chute": "um pad de estudo e um metrônomo já bastam"
    }
   }
  ]

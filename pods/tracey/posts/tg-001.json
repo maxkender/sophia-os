@@ -12,7 +12,11 @@
   "hu": "10/10 hobbi, ami tényleg működik, ha adhd-s vagy",
   "it": "10/10 hobby che funzionano davvero se hai l'adhd",
   "sr": "10/10 hobija koji stvarno pomažu ako imaš adhd",
-  "es-419": "10/10 hobbies que sí funcionan si tienes tdah"
+  "es-419": "10/10 hobbies que sí funcionan si tienes tdah",
+  "el": "10/10 χόμπι που πραγματικά δουλεύουν αν έχεις ΔΕΠΥ",
+  "bg": "10/10 хобита, които наистина работят, ако имаш адхд",
+  "de": "10/10 hobbys, die wirklich funktionieren, wenn du adhs hast",
+  "pt-BR": "10/10 hobbies que realmente funcionam se você tem tdah"
  },
  "legendes": {
   "en": "#adhd #hobbies #focus #brain #selfimprovement",
@@ -20,7 +24,11 @@
   "hu": "#adhd #hobbi #fókusz #agy #önfejlesztés",
   "it": "#adhd #hobby #concentrazione #cervello #crescitapersonale",
   "sr": "#adhd #hobi #fokus #mozak #samorazvoj",
-  "es-419": "#tdah #hobbies #enfoque #cerebro #crecimientopersonal"
+  "es-419": "#tdah #hobbies #enfoque #cerebro #crecimientopersonal",
+  "el": "#δεπυ #χόμπι #συγκέντρωση #εγκέφαλος #αυτοβελτίωση",
+  "bg": "#адхд #хобита #фокус #мозък #самоусъвършенстване",
+  "de": "#adhs #hobbys #fokus #gehirn #selbstverbesserung",
+  "pt-BR": "#tdah #hobbies #foco #cerebro #autodesenvolvimento"
  },
  "musique": {
   "titre": "original sound",
@@ -40,7 +48,7 @@
     "note": "(neuroscience backed)"
    },
    "fr": {
-    "titre": "10/10 loisirs qui marchent vraiment\nquand on a un tdah",
+    "titre": "10/10 loisirs qui marchent\nvraiment quand on a un tdah",
     "note": "(selon les neurosciences)"
    },
    "hu": {
@@ -48,7 +56,7 @@
     "note": "(idegtudományi alapon)"
    },
    "it": {
-    "titre": "10/10 hobby che funzionano davvero\nse hai l'adhd",
+    "titre": "10/10 hobby che funzionano\ndavvero se hai l'adhd",
     "note": "(basato sulle neuroscienze)"
    },
    "sr": {
@@ -58,6 +66,22 @@
    "es-419": {
     "titre": "10/10 hobbies que sí funcionan\nsi tienes tdah",
     "note": "(respaldado por la neurociencia)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι που πραγματικά\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "bg": {
+    "titre": "10/10 хобита, които наистина\nработят, ако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys, die wirklich\nfunktionieren, wenn du adhs hast",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies que realmente\nfuncionam se você tem tdah",
+    "note": "(baseado em neurociência)"
    }
   },
   {
@@ -110,6 +134,38 @@
      "los peloteos rápidos se llevan toda tu atención, y un cerebro inquieto se enfoca cuando la respuesta es _inmediata_"
     ],
     "chute": "casi todos los clubes tienen noche de principiantes y te prestan la raqueta"
+   },
+   "el": {
+    "nom": "πινγκ πονγκ",
+    "accroche": "ένα μπαλάκι έρχεται _κάθε δευτερόλεπτο_",
+    "colonne": [
+     "τα γρήγορα ράλι θέλουν όλη σου την προσοχή, και ένα ανήσυχο μυαλό κλειδώνει όταν η ανταπόκριση είναι _άμεση_"
+    ],
+    "chute": "οι περισσότεροι σύλλογοι έχουν βραδιά αρχαρίων και σου δανείζουν ρακέτα"
+   },
+   "bg": {
+    "nom": "тенис на маса",
+    "accroche": "топката идва към теб _всяка секунда_",
+    "colonne": [
+     "бързите разигравания искат цялото ти внимание, а неспокойният мозък се фокусира, когато обратната връзка е _мигновена_"
+    ],
+    "chute": "повечето клубове имат вечер за начинаещи и ти дават хилка"
+   },
+   "de": {
+    "nom": "tischtennis",
+    "accroche": "der ball kommt _jede sekunde_",
+    "colonne": [
+     "schnelle ballwechsel brauchen deine ganze aufmerksamkeit, und ein unruhiges gehirn ist voll da, wenn das feedback _sofort_ kommt"
+    ],
+    "chute": "die meisten vereine haben einen anfängerabend und leihen dir einen schläger"
+   },
+   "pt-BR": {
+    "nom": "tênis de mesa",
+    "accroche": "a bola vem até você _a cada segundo_",
+    "colonne": [
+     "ralis rápidos exigem toda a sua atenção pra seguir a bola, e um cérebro agitado se concentra quando o retorno é _instantâneo_"
+    ],
+    "chute": "a maioria dos clubes tem noite de iniciantes e empresta a raquete"
    }
   },
   {
@@ -141,7 +197,7 @@
     "accroche": "az egyetlen hobbi, amit _ma este_ elkezdhetsz",
     "colonne": [
      "a kitartó kardió levezeti a nyugtalan energiát, egy első 5 km pedig _célvonalat_ ad neki",
-     "_pro tip_: az atalát használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
     ],
     "chute": "20 perc, hetente 3-szor, minden képernyő előtt"
    },
@@ -159,7 +215,7 @@
     "accroche": "jedini hobi koji možeš da počneš _večeras_",
     "colonne": [
      "ujednačen kardio daje nemirnom mozgu gde da istroši energiju, a prvih 5 km mu daje _ciljnu liniju_",
-     "_pro tip_: koristim atalu, ai trenera za trčanje koji mi planira nedelju prema cilju"
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
     ],
     "chute": "20 minuta, 3 puta nedeljno, pre bilo kog ekrana"
    },
@@ -171,6 +227,42 @@
      "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
     ],
     "chute": "20 minutos, 3 veces por semana, antes de cualquier pantalla"
+   },
+   "el": {
+    "nom": "τρέξιμο",
+    "accroche": "το μόνο χόμπι που ξεκινάς _απόψε_ χωρίς εξοπλισμό",
+    "colonne": [
+     "το καρδιο δίνει στο ανήσυχο μυαλό διέξοδο, και τα πρώτα 5 χλμ του δίνουν _τερματισμό_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "20 λεπτά, 3 φορές την εβδομάδα, πριν από κάθε οθόνη"
+   },
+   "bg": {
+    "nom": "бягане",
+    "accroche": "хобито, което можеш да _започнеш довечера_",
+    "colonne": [
+     "редовното кардио дава на неспокойния мозък къде да вложи енергията, а цел като първите 5 км му дава _финална линия_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "20 минути, 3 пъти седмично, преди всеки екран"
+   },
+   "de": {
+    "nom": "laufen",
+    "accroche": "starte _heute abend_, ganz ohne ausrüstung",
+    "colonne": [
+     "regelmäßiges cardio gibt einem unruhigen gehirn ein ventil für die energie, und ein ziel wie die ersten 5 km gibt ihm eine _ziellinie_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "20 minuten, 3-mal pro woche, vor jedem bildschirm"
+   },
+   "pt-BR": {
+    "nom": "corrida",
+    "accroche": "o único hobby que dá pra _começar hoje_ sem nada",
+    "colonne": [
+     "cardio constante dá a um cérebro inquieto onde gastar energia, e uma meta como os primeiros 5 km dá uma _linha de chegada_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "20 minutos, 3 vezes por semana, antes de qualquer tela"
    }
   },
   {
@@ -223,6 +315,38 @@
      "amasar es lento y físico, y la masa te dice cuándo está lista, así una mente que divaga siempre tiene un _siguiente paso claro_"
     ],
     "chute": "un pan el domingo, son 4 ingredientes"
+   },
+   "el": {
+    "nom": "ψήσιμο ψωμιού",
+    "accroche": "τα χέρια σου είναι πιασμένα, το _κινητό μένει κάτω_",
+    "colonne": [
+     "το ζύμωμα είναι αργό και σωματικό, και η ζύμη σου λέει πότε είναι έτοιμη, οπότε ένα μυαλό που περιπλανιέται έχει πάντα ένα _ξεκάθαρο επόμενο βήμα_"
+    ],
+    "chute": "ένα καρβέλι την κυριακή, 4 υλικά"
+   },
+   "bg": {
+    "nom": "печене на хляб",
+    "accroche": "ръцете ти са заети, телефонът _остава настрана_",
+    "colonne": [
+     "месенето е бавно и физическо, а тестото ти казва кога е готово, така че разсеяният ум винаги има _ясна следваща стъпка_"
+    ],
+    "chute": "един хляб в неделя, само 4 съставки"
+   },
+   "de": {
+    "nom": "brot backen",
+    "accroche": "volle hände, also _bleibt das handy_ liegen",
+    "colonne": [
+     "kneten ist langsam und körperlich, und der teig zeigt dir, wann er fertig ist, so hat ein abschweifender kopf immer einen _klaren nächsten schritt_"
+    ],
+    "chute": "ein brot am sonntag, nur 4 zutaten"
+   },
+   "pt-BR": {
+    "nom": "fazer pão",
+    "accroche": "suas mãos estão ocupadas, o _celular fica longe_",
+    "colonne": [
+     "sovar é lento e físico, e a massa te diz quando está pronta, então uma mente dispersa sempre tem um _próximo passo claro_"
+    ],
+    "chute": "um pão no domingo, são 4 ingredientes"
    }
   },
   {
@@ -254,7 +378,7 @@
     "accroche": "egy festmény, _tíz perc_, és elkezded _látni_",
     "colonne": [
      "egy fal tele képekkel unalmas, de egy kép a történetével rejtvény: ki ez, miért ez a fény, mi van elrejtve",
-     "_pro tip_: az arturát használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
     ],
     "chute": "aztán nézz meg egyet múzeumban, és számold, mit veszel észre"
    },
@@ -272,7 +396,7 @@
     "accroche": "jedna slika, _deset minuta_, i počinješ da _vidiš_",
     "colonne": [
      "zid pun slika je dosadan, ali jedna slika sa pričom je zagonetka: ko je to, zašto to svetlo, šta je skriveno",
-     "_pro tip_: koristim arturu, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
     ],
     "chute": "onda idi da vidiš jednu u muzeju i broj šta primetiš"
    },
@@ -284,6 +408,42 @@
      "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
     ],
     "chute": "luego ve a ver uno a un museo y cuenta lo que notas"
+   },
+   "el": {
+    "nom": "μαθαίνω να κοιτάζω τέχνη",
+    "accroche": "ένας πίνακας, _δέκα λεπτά_, και αρχίζεις να τον _βλέπεις_",
+    "colonne": [
+     "ένας τοίχος με πίνακες κουράζει, αλλά ένας πίνακας με ιστορία είναι γρίφος: ποιος, γιατί, τι κρύβει",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "μετά πήγαινε να δεις έναν σε μουσείο και μέτρα τι προσέχεις"
+   },
+   "bg": {
+    "nom": "да гледаш изкуство",
+    "accroche": "една картина, _десет минути_ и започваш да _виждаш_",
+    "colonne": [
+     "стена с картини е скучна, но една картина с история е загадка: кой, защо, какво е скрито",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "после иди да видиш една в музей и брой какво забелязваш"
+   },
+   "de": {
+    "nom": "kunst sehen lernen",
+    "accroche": "ein gemälde, _zehn minuten_, und du _siehst es_",
+    "colonne": [
+     "eine wand voller bilder ist langweilig, aber ein bild mit geschichte ist ein rätsel: wer, warum dieses licht, was ist versteckt",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "dann schau dir eins im museum an und zähl, was dir auffällt"
+   },
+   "pt-BR": {
+    "nom": "aprender a olhar arte",
+    "accroche": "uma pintura, _dez minutos_, e você começa a _enxergar_",
+    "colonne": [
+     "uma parede de quadros é chata, mas uma pintura com história é um quebra-cabeça: quem, por que essa luz, o que está escondido",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "depois vá ver uma num museu e conte o que você nota"
    }
   },
   {
@@ -336,6 +496,38 @@
      "escuchas a todos y cantas tu línea al mismo tiempo, es enfoque con todo un salón _manteniéndote en ritmo_"
     ],
     "chute": "casi ningún coro comunitario hace audiciones"
+   },
+   "el": {
+    "nom": "τραγούδι σε χορωδία",
+    "accroche": "η φωνή σου μπαίνει _στον χρόνο_, οπότε _δεν ξεφεύγεις_",
+    "colonne": [
+     "ακούς όλους και τραγουδάς τη δική σου γραμμή ταυτόχρονα, είναι συγκέντρωση με μια ολόκληρη αίθουσα να σε _κρατάει στον ρυθμό_"
+    ],
+    "chute": "οι περισσότερες ερασιτεχνικές χορωδίες δεν κάνουν οντισιόν"
+   },
+   "bg": {
+    "nom": "пеене в хор",
+    "accroche": "партията ти влиза _в такт_, няма как да _се отнесеш_",
+    "colonne": [
+     "слушаш всички и пееш своя глас едновременно, това е фокус с цяла зала, която те _държи буден_"
+    ],
+    "chute": "повечето любителски хорове нямат прослушване"
+   },
+   "de": {
+    "nom": "im chor singen",
+    "accroche": "dein einsatz kommt _im takt_, kein _abschweifen_",
+    "colonne": [
+     "du hörst allen zu und singst gleichzeitig deine stimme, fokus mit einem ganzen raum, der dich _bei der sache hält_"
+    ],
+    "chute": "die meisten laienchöre machen kein vorsingen"
+   },
+   "pt-BR": {
+    "nom": "cantar num coral",
+    "accroche": "sua parte entra _no tempo_, você _não se perde_",
+    "colonne": [
+     "você escuta todo mundo e canta sua linha ao mesmo tempo, é foco com uma sala inteira _te mantendo atento_"
+    ],
+    "chute": "a maioria dos corais comunitários não faz teste"
    }
   }
  ]

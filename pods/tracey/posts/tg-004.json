@@ -12,7 +12,11 @@
   "hu": "10/10 sport, ami tényleg működik, ha adhd-s vagy",
   "it": "10/10 sport che funzionano davvero se hai l'adhd",
   "sr": "10/10 sportova koji stvarno pomažu ako imaš adhd",
-  "es-419": "10/10 deportes que sí funcionan si tienes tdah"
+  "es-419": "10/10 deportes que sí funcionan si tienes tdah",
+  "el": "10/10 αθλήματα που πραγματικά δουλεύουν αν έχεις ΔΕΠΥ",
+  "bg": "10/10 спорта, които наистина работят, ако имаш адхд",
+  "de": "10/10 sportarten, die wirklich funktionieren, wenn du adhs hast",
+  "pt-BR": "10/10 esportes que realmente funcionam se você tem tdah"
  },
  "legendes": {
   "en": "#adhd #sports #focus #brain #selfimprovement",
@@ -20,7 +24,11 @@
   "hu": "#adhd #sport #fókusz #agy #önfejlesztés",
   "it": "#adhd #sport #concentrazione #cervello #crescitapersonale",
   "sr": "#adhd #sport #fokus #mozak #samorazvoj",
-  "es-419": "#tdah #deportes #enfoque #cerebro #crecimientopersonal"
+  "es-419": "#tdah #deportes #enfoque #cerebro #crecimientopersonal",
+  "el": "#δεπυ #αθλητισμός #συγκέντρωση #εγκέφαλος #αυτοβελτίωση",
+  "bg": "#адхд #спорт #фокус #мозък #самоусъвършенстване",
+  "de": "#adhs #sport #fokus #gehirn #selbstverbesserung",
+  "pt-BR": "#tdah #esportes #foco #cerebro #autodesenvolvimento"
  },
  "musique": {
   "titre": "original sound",
@@ -40,7 +48,7 @@
     "note": "(neuroscience backed)"
    },
    "fr": {
-    "titre": "10/10 sports qui marchent vraiment\nquand on a un tdah",
+    "titre": "10/10 sports qui marchent\nvraiment quand on a un tdah",
     "note": "(selon les neurosciences)"
    },
    "hu": {
@@ -48,7 +56,7 @@
     "note": "(idegtudományi alapon)"
    },
    "it": {
-    "titre": "10/10 sport che funzionano davvero\nse hai l'adhd",
+    "titre": "10/10 sport che funzionano\ndavvero se hai l'adhd",
     "note": "(basato sulle neuroscienze)"
    },
    "sr": {
@@ -58,6 +66,22 @@
    "es-419": {
     "titre": "10/10 deportes que sí funcionan\nsi tienes tdah",
     "note": "(respaldado por la neurociencia)"
+   },
+   "el": {
+    "titre": "10/10 αθλήματα που πραγματικά\nδουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "bg": {
+    "titre": "10/10 спорта, които наистина\nработят, ако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 sportarten, die wirklich\nfunktionieren, wenn du adhs hast",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "pt-BR": {
+    "titre": "10/10 esportes que realmente\nfuncionam se você tem tdah",
+    "note": "(baseado em neurociência)"
    }
   },
   {
@@ -113,6 +137,38 @@
      "las combinaciones son cortas y ruidosas, y pegarle al costal quema la energía que un cerebro inquieto _acumula_"
     ],
     "chute": "casi todos los gimnasios tienen clase de principiantes y prestan guantes"
+   },
+   "el": {
+    "nom": "πυγμαχία",
+    "accroche": "_δεν μπορείς να σκεφτείς_ όταν _χτυπάς_",
+    "colonne": [
+     "οι συνδυασμοί είναι σύντομοι και δυνατοί, και το σάκο καίει την ανήσυχη ενέργεια που _μαζεύει_ ένα πολυάσχολο μυαλό"
+    ],
+    "chute": "οι περισσότερες σχολές έχουν τμήμα αρχαρίων και δανείζουν γάντια"
+   },
+   "bg": {
+    "nom": "бокс",
+    "accroche": "_не можеш да мислиш_, докато _удряш_",
+    "colonne": [
+     "комбинациите са кратки и шумни, а ударите по чувала изгарят неспокойната енергия, която мозъкът _трупа_"
+    ],
+    "chute": "повечето зали имат група за начинаещи с ръкавици на заем"
+   },
+   "de": {
+    "nom": "boxen",
+    "accroche": "du _kannst nicht denken_, während du _schlägst_",
+    "colonne": [
+     "kombinationen sind kurz und laut, und der sandsack baut die unruhige energie ab, die ein volles gehirn _aufstaut_"
+    ],
+    "chute": "die meisten gyms haben einen anfängerkurs mit leihhandschuhen"
+   },
+   "pt-BR": {
+    "nom": "boxe",
+    "accroche": "você _não consegue pensar_ enquanto _soca_",
+    "colonne": [
+     "as combinações são curtas e barulhentas, e bater no saco queima a energia inquieta que um cérebro agitado _acumula_"
+    ],
+    "chute": "a maioria das academias tem aula de iniciante com luvas emprestadas"
    }
   },
   {
@@ -174,6 +230,42 @@
      "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
     ],
     "chute": "empieza con 1 minuto corriendo y 1 minuto caminando"
+   },
+   "el": {
+    "nom": "τρέξιμο",
+    "accroche": "ένας _ξεκάθαρος στόχος_ και μια _νέα διαδρομή_ κάθε εβδομάδα",
+    "colonne": [
+     "το καρδιο ηρεμεί το ανήσυχο σώμα, και μια ημερομηνία αγώνα δίνει στο μυαλό _τερματισμό_",
+     "_μικρό tip_: το atala χτίζει τα τρεξίματά μου γύρω από τον στόχο μου και τα προσαρμόζει κάθε εβδομάδα"
+    ],
+    "chute": "ξεκίνα με 1 λεπτό τρέξιμο, 1 λεπτό περπάτημα"
+   },
+   "bg": {
+    "nom": "бягане",
+    "accroche": "_ясна цел_ и _нов маршрут_ всяка седмица",
+    "colonne": [
+     "редовното кардио успокоява неспокойното тяло, а тренировката за дата дава на разсеяния ум _финална линия_",
+     "_съвет_: atala нагласява бяганията ми около целта ми и ги променя всяка седмица"
+    ],
+    "chute": "започни с 1 минута бягане, 1 минута ходене"
+   },
+   "de": {
+    "nom": "laufen",
+    "accroche": "ein _klares ziel_ und jede woche eine _neue route_",
+    "colonne": [
+     "regelmäßiges cardio beruhigt einen unruhigen körper, und das training für einen termin gibt einem abschweifenden kopf eine _ziellinie_",
+     "_pro tipp_: atala baut meine läufe um mein ziel herum und passt sie jede woche an"
+    ],
+    "chute": "starte mit 1 minute laufen, 1 minute gehen"
+   },
+   "pt-BR": {
+    "nom": "corrida",
+    "accroche": "uma _meta clara_ e uma _rota nova_ toda semana",
+    "colonne": [
+     "cardio constante acalma um corpo inquieto, e treinar pra uma data dá a uma mente dispersa uma _linha de chegada_",
+     "_dica_: o atala monta minhas corridas em torno do meu objetivo e ajusta toda semana"
+    ],
+    "chute": "comece com 1 minuto correndo, 1 minuto andando"
    }
   },
   {
@@ -229,6 +321,38 @@
      "cada jugada te pide reaccionar en un segundo, y jugar en equipo hace difícil _desconectarte_"
     ],
     "chute": "busca una reta de principiantes en una playa o parque cerca"
+   },
+   "el": {
+    "nom": "μπιτς βόλεϊ",
+    "accroche": "η μπάλα έρχεται _πάντα_ _προς εσένα_",
+    "colonne": [
+     "κάθε φάση σε θέλει να αντιδράσεις σε ένα δευτερόλεπτο, και το παιχνίδι με ομάδα κάνει δύσκολο να _αφαιρεθείς_"
+    ],
+    "chute": "ψάξε ένα ανοιχτό παιχνίδι αρχαρίων σε παραλία ή πάρκο"
+   },
+   "bg": {
+    "nom": "плажен волейбол",
+    "accroche": "топката _винаги_ идва _към теб_",
+    "colonne": [
+     "всяко разиграване иска реакция за секунда, а играта в отбор прави трудно да _се изключиш_"
+    ],
+    "chute": "потърси игра за начинаещи на близкия плаж или парк"
+   },
+   "de": {
+    "nom": "beachvolleyball",
+    "accroche": "der ball kommt _immer_ zu _dir_",
+    "colonne": [
+     "jeder ballwechsel verlangt eine reaktion in einer sekunde, und im team ist es schwer, _abzuschalten_"
+    ],
+    "chute": "such ein anfängertreffen an einem strand oder park in der nähe"
+   },
+   "pt-BR": {
+    "nom": "vôlei de praia",
+    "accroche": "a bola está _sempre_ vindo _pra você_",
+    "colonne": [
+     "cada rali exige reação em um segundo, e jogar em equipe torna difícil _se desligar_"
+    ],
+    "chute": "procure um jogo aberto pra iniciantes numa praia ou parque"
    }
   },
   {
@@ -290,6 +414,42 @@
      "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
     ],
     "chute": "elige una sala y detente en cada estatua"
+   },
+   "el": {
+    "nom": "αργή βόλτα σε μουσείο",
+    "accroche": "η μέρα ξεκούρασής σου, _χωρίς_ _οθόνη_",
+    "colonne": [
+     "η βόλτα σε μια πινακοθήκη κρατάει τα πόδια σε κίνηση ενώ τα μάτια βρίσκουν κάτι νέο κάθε λίγα βήματα",
+     "_μικρό tip_: το artura μου δίνει έναν πίνακα τη μέρα και την ιστορία του, σε λίγα λεπτά"
+    ],
+    "chute": "διάλεξε μια αίθουσα και σταμάτα σε κάθε άγαλμα"
+   },
+   "bg": {
+    "nom": "бавна разходка в музея",
+    "accroche": "почивният ти ден, _без екран_",
+    "colonne": [
+     "разходката из галерия държи краката ти в движение, а очите ти получават нещо ново на всеки няколко крачки",
+     "_съвет_: artura ми дава по една картина на ден и историята зад нея, за няколко минути"
+    ],
+    "chute": "избери една зала и спирай пред всяка статуя"
+   },
+   "de": {
+    "nom": "ein langsamer museumsgang",
+    "accroche": "dein ruhetag, _ohne bildschirm_",
+    "colonne": [
+     "durch eine galerie zu gehen hält deine beine in bewegung, während deine augen alle paar schritte etwas neues bekommen",
+     "_pro tipp_: artura zeigt mir jeden tag ein gemälde und die geschichte dahinter, in ein paar minuten"
+    ],
+    "chute": "wähl einen saal und bleib bei jeder statue stehen"
+   },
+   "pt-BR": {
+    "nom": "um passeio lento no museu",
+    "accroche": "seu dia de descanso, _sem tela_",
+    "colonne": [
+     "andar por uma galeria mantém as pernas em movimento enquanto seus olhos ganham algo novo a cada poucos passos",
+     "_dica_: o artura me dá uma pintura por dia e a história por trás dela, em poucos minutos"
+    ],
+    "chute": "escolha uma ala e pare em cada estátua"
    }
   },
   {
@@ -345,6 +505,38 @@
      "cada truco toma cien intentos, y cada pequeña victoria hace que un cerebro que se aburre rápido _regrese_"
     ],
     "chute": "un estacionamiento vacío y una patineta barata para empezar"
+   },
+   "el": {
+    "nom": "σκέιτμπορντ",
+    "accroche": "πέφτεις, σηκώνεσαι, το _πετυχαίνεις_",
+    "colonne": [
+     "κάθε κόλπο θέλει εκατό προσπάθειες, και κάθε μικρή νίκη κάνει ένα μυαλό που βαριέται γρήγορα να _ξαναγυρνάει_"
+    ],
+    "chute": "ένα άδειο πάρκινγκ και μια φτηνή σανίδα για αρχή"
+   },
+   "bg": {
+    "nom": "скейтборд",
+    "accroche": "падаш, ставаш, _правиш трика_",
+    "colonne": [
+     "всеки трик иска сто опита, а всяка малка победа кара мозък, който бързо се отегчава, _да се връща_"
+    ],
+    "chute": "празен паркинг и евтин борд за начало"
+   },
+   "de": {
+    "nom": "skateboarden",
+    "accroche": "du fällst, stehst auf und _stehst den trick_",
+    "colonne": [
+     "jeder trick braucht hundert versuche, und jeder kleine erfolg bringt ein schnell gelangweiltes gehirn _immer wieder zurück_"
+    ],
+    "chute": "ein leerer parkplatz und ein günstiges board zum start"
+   },
+   "pt-BR": {
+    "nom": "skate",
+    "accroche": "você cai, levanta e _acerta a manobra_",
+    "colonne": [
+     "cada manobra leva cem tentativas, e cada pequena vitória faz um cérebro que enjoa rápido _voltar sempre_"
+    ],
+    "chute": "um estacionamento vazio e um skate barato pra começar"
    }
   }
  ]

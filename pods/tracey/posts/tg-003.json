@@ -1,0 +1,111 @@
+{
+ "id": "tg-003",
+ "source": {
+  "url": "https://www.tiktok.com/@traceygreen589/photo/7710706163360255263",
+  "vues": 532100,
+  "publie_le": "2026-11-21",
+  "accroche": "10/10 niche hobbies that actually work if you have adhd"
+ },
+ "titre": {
+  "en": "10/10 niche hobbies that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #niche"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Preuve : « 10/10 niche hobbies that actually work if you have adhd » de @traceygreen589 (532,1 k vues, 21/11), même gabarit. Slide 3 « one painting a week » : logo d'Artura sur un grand tableau de musée vu par des silhouettes (banque, 1053aed0), cta A. Slide 5 « running at sunrise » : logo d'Atala sur une coureuse de dos (banque, 1ce9dee9), cta A. Reliure, ornithologie et tir à l'arc en Seedream.",
+ "banque": {
+  "images/banque/grand-tableau.jpg": "1053aed0-74d2-4875-91e3-062942b21709",
+  "images/banque/course-soleil.jpg": "1ce9dee9-28dc-4b60-824b-24d0592a7f61"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 niche hobbies that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/reliure.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "bookbinding",
+    "accroche": "you fold, stitch and glue a _real book_",
+    "colonne": [
+     "every step is small and done with your hands, so a scattered brain always knows _what comes next_"
+    ],
+    "chute": "a needle, thread and printer paper are enough"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/grand-tableau.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "one painting a week",
+    "accroche": "the _same painting_, seven days in a row",
+    "colonne": [
+     "you notice a new face, a new color, a new detail every day, and a brain that craves novelty gets it from _one picture_",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "save one you like and look again tomorrow"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/oiseaux.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "birdwatching",
+    "accroche": "you're _hunting_ for something that _moves_",
+    "colonne": [
+     "scanning the trees keeps your eyes busy, and every new bird you spot is a small _win_ for your brain"
+    ],
+    "chute": "a cheap pair of binoculars and the nearest park"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course-soleil.jpg",
+   "cadrage": {
+    "y": 0.3
+   },
+   "en": {
+    "nom": "running at sunrise",
+    "accroche": "you're done _before_ the day can _distract you_",
+    "colonne": [
+     "the streets are empty, the light is soft, and an early run gives a restless body somewhere to put its _energy_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "lay your shoes out the night before"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/tir-arc.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "archery",
+    "accroche": "one target, one arrow, _nothing else_",
+    "colonne": [
+     "you breathe, aim and release, and you see right away where it landed, so your focus gets _instant feedback_"
+    ],
+    "chute": "most clubs lend you a bow for the first lessons"
+   }
+  }
+ ]
+}

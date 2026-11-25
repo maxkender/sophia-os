@@ -1,0 +1,111 @@
+{
+ "id": "tg-005",
+ "source": {
+  "url": "https://www.tiktok.com/@traceygreen589/photo/7710596831276993823",
+  "vues": 142100,
+  "publie_le": "2026-11-21",
+  "accroche": "10/10 hobbies for adhd brains that aren't the gym"
+ },
+ "titre": {
+  "en": "10/10 hobbies for adhd brains that aren't the gym"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #20s #focus #brain"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Preuve : « 10/10 hobbies for adhd brains that aren't the gym » de @traceygreen589 (142,1 k vues, 21/11), même gabarit. Slide 3 « learning to look at art » : logo d'Artura sur une galerie sombre avec trois tableaux (banque, 03059ce2), cta A. Slide 5 « running on the beach » : logo d'Atala sur une coureuse de dos au coucher du soleil (banque, 3845bb15), cta A. Salsa, kayak et jardinage en Seedream.",
+ "banque": {
+  "images/banque/galerie.jpg": "03059ce2-fdd8-4e1f-b9ff-981d791c2523",
+  "images/banque/course-plage.jpg": "3845bb15-0a9f-453e-91d2-00974ff1c3c5"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies for adhd brains\nthat aren't the gym",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/salsa.jpg",
+   "cadrage": {
+    "y": 0.3
+   },
+   "en": {
+    "nom": "salsa classes",
+    "accroche": "the music tells you _exactly_ when to _move_",
+    "colonne": [
+     "you count the beat, follow a partner and learn a new step every class, so there's no room to _drift off_"
+    ],
+    "chute": "most studios have a free first class"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/galerie.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "one painting is a _puzzle_, not a _wall_",
+    "colonne": [
+     "who is this, why that light, what's hidden in the corner: a curious brain locks in when there's a _story_ to find",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "then go see one in real life and count what you notice"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/kayak.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "kayaking",
+    "accroche": "the river _keeps moving_, so you _do too_",
+    "colonne": [
+     "every stroke steers you, the water changes all the time, and you can't check your phone with a _paddle_ in your hands"
+    ],
+    "chute": "rent one for an hour at the nearest lake"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course-plage.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "nom": "running on the beach",
+    "accroche": "soft sand, a _sunset_ and _no gym mirrors_",
+    "colonne": [
+     "running outside gives a restless brain open space, and a goal like a first 5k gives it a _reason_ to come back",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "go at golden hour and run on the wet sand"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/jardin.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "gardening",
+    "accroche": "something new _grows_ every _single day_",
+    "colonne": [
+     "watering, planting and checking the leaves are small daily tasks, and the results show up _fast_ enough to stay hooked"
+    ],
+    "chute": "start with herbs on a windowsill"
+   }
+  }
+ ]
+}

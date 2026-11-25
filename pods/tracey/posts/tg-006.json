@@ -1,0 +1,111 @@
+{
+ "id": "tg-006",
+ "source": {
+  "url": "https://www.tiktok.com/@traceygreen589/photo/7707617897899642143",
+  "vues": 166200,
+  "publie_le": "2026-11-13",
+  "accroche": "10/10 habits to start if you have adhd"
+ },
+ "titre": {
+  "en": "10/10 habits to start if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #focus #brain #selfimprovement #lockedin"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Preuve : « 10/10 habits to start if you have adhd » de @traceygreen589 (166,2 k vues, 13/11), même gabarit (une habitude par slide). Slide 3 « a run before your phone » : logo d'Atala sur une coureuse au loin dans un parc (banque, 1a7d7c63), cta B. Slide 5 « one painting before bed » : logo d'Artura sur une salle de musée claire (banque, 626fedeb), cta B. Téléphone, rangement et liste en Seedream.",
+ "banque": {
+  "images/banque/course-parc.jpg": "1a7d7c63-385c-411b-825c-f914dfd61bb8",
+  "images/banque/salle-claire.jpg": "626fedeb-1e3c-44b2-8f79-d0aa8a6a5652"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 habits to start\nif you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/telephone.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "phone in another room",
+    "accroche": "you _can't scroll_ what you _can't reach_",
+    "colonne": [
+     "your brain grabs the easiest reward in sight, so putting the phone away makes the _real task_ the easiest one"
+    ],
+    "chute": "start with one hour, every evening"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course-parc.jpg",
+   "cadrage": {
+    "y": 0.7
+   },
+   "en": {
+    "nom": "a run before your phone",
+    "accroche": "your brain _wakes up_ before your _feed_ does",
+    "colonne": [
+     "a short run first thing burns off the restless energy and makes the rest of the morning _easier_ to start",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "15 minutes is enough, shoes by the door"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/rangement.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a 10 minute tidy",
+    "accroche": "a timer turns a _mess_ into a _game_",
+    "colonne": [
+     "ten minutes feels short enough to start, and a clear desk means fewer things _pulling_ at your attention"
+    ],
+    "chute": "set the timer, stop when it rings"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/salle-claire.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "one painting before bed",
+    "accroche": "swap _one video_ for _one story_",
+    "colonne": [
+     "a single painting with its story is new every night, calm, and over in a few minutes",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "then put the phone down and sleep"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/liste.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a paper to-do list",
+    "accroche": "three things, _on paper_, _crossed off_",
+    "colonne": [
+     "writing it down gets it out of your head, and crossing a line off gives your brain a small _reward_"
+    ],
+    "chute": "keep the notebook open on the table"
+   }
+  }
+ ]
+}

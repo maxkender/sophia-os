@@ -1,0 +1,111 @@
+{
+ "id": "tg-004",
+ "source": {
+  "url": "https://www.tiktok.com/@traceygreen589/photo/7709561873267543327",
+  "vues": 169200,
+  "publie_le": "2026-11-18",
+  "accroche": "10/10 sports that actually work if you have adhd"
+ },
+ "titre": {
+  "en": "10/10 sports that actually work if you have adhd"
+ },
+ "legendes": {
+  "en": "#adhd #sports #focus #brain #selfimprovement"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Preuve : « 10/10 sports that actually work if you have adhd » de @traceygreen589 (169,2 k vues, 18/11), même gabarit. Slide 3 « running » : logo d'Atala sur une coureuse de dos en ville (banque, 9e587647), cta B. Slide 5 « a slow museum walk » (le jour de repos) : logo d'Artura sur une galerie de sculptures (banque, 9e64a088), cta B. Boxe, beach-volley et skate en Seedream.",
+ "banque": {
+  "images/banque/course-rue.jpg": "9e587647-8360-46df-a22c-65b9ecce7f19",
+  "images/banque/sculptures.jpg": "9e64a088-5b72-4ea3-9318-30f7ce4b1c9b"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 sports that actually\nwork if you have adhd",
+    "note": "(neuroscience backed)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/boxe.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "boxing",
+    "accroche": "you _can't think_ while you _punch_",
+    "colonne": [
+     "combinations are short and loud, and hitting the bag burns off the restless energy a busy brain _builds up_"
+    ],
+    "chute": "most gyms run a beginner class with gloves to borrow"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/course-rue.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "a _clear goal_ and a _new route_ every week",
+    "colonne": [
+     "steady cardio calms a restless body, and training for a date gives a wandering mind a _finish line_",
+     "_pro tip_: atala builds my runs around my goal and adjusts them every week"
+    ],
+    "chute": "start with 1 minute running, 1 minute walking"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/volley.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "beach volleyball",
+    "accroche": "the ball is _always_ coming _your way_",
+    "colonne": [
+     "every rally needs you to react in a second, and playing with a team makes it hard to _zone out_"
+    ],
+    "chute": "look for a beginner drop-in at a local beach or park"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/sculptures.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "nom": "a slow museum walk",
+    "accroche": "your rest day, _without_ a _screen_",
+    "colonne": [
+     "walking a gallery keeps your legs moving while your eyes get something new every few steps",
+     "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
+    ],
+    "chute": "pick one hall and stop at every statue"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/skate.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "skateboarding",
+    "accroche": "you fall, you get up, you _land it_",
+    "colonne": [
+     "each trick takes a hundred tries, and every small win keeps a brain that bores fast _coming back_"
+    ],
+    "chute": "an empty parking lot and a cheap board to start"
+   }
+  }
+ ]
+}

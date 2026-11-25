@@ -1,0 +1,432 @@
+{
+ "id": "sm-021",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "doodle - Slowed",
+  "url": "https://www.tiktok.com/music/doodle-slowed-7397023128725833744"
+ },
+ "notes": "Full test du 25/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle) : « apps i use every single day as a student ». Sophia en 3e carte (cta C), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Goodnotes (notes manuscrites), Todoist (tâches et calendrier), Calm (respiration, méditations, histoires pour dormir). Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20 au 22/11). Musique : la sienne de son tube (678 k).",
+ "titre": {
+  "en": "apps i use every single day as a student",
+  "fr": "les applis que j'utilise tous les jours en tant qu'étudiante",
+  "es": "apps que uso todos los días como estudiante",
+  "es-419": "apps que uso todos los días como estudiante",
+  "it": "app che uso ogni singolo giorno da studentessa",
+  "tr": "öğrenci olarak her gün kullandığım uygulamalar",
+  "pt-BR": "apps que eu uso todo santo dia na facul",
+  "de": "apps, die ich als studentin jeden tag nutze",
+  "sl": "aplikacije, ki jih kot študentka uporabljam vsak dan",
+  "hu": "appok, amiket egyetemistaként minden nap használok"
+ },
+ "legendes": {
+  "en": "the 4 apps that never leave my home screen 📱🍵 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "les 4 applis qui ne quittent jamais mon écran d'accueil 📱🍵 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "las 4 apps que nunca salen de mi pantalla de inicio 📱🍵 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "las 4 apps que nunca salen de mi pantalla de inicio 📱🍵 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "le 4 app che non lasciano mai la mia home 📱🍵 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "ana ekranımdan hiç ayrılmayan 4 uygulama 📱🍵 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "os 4 apps que nunca saem da minha tela inicial 📱🍵 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "die 4 apps, die nie von meinem homescreen verschwinden 📱🍵 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "4 aplikacije, ki nikoli ne zapustijo začetnega zaslona 📱🍵 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "a 4 app, ami sosem tűnik el a kezdőképernyőmről 📱🍵 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 30,
+     "y": 160,
+     "l": 230,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 820,
+     "y": 130,
+     "l": 190,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 830,
+     "y": 760,
+     "l": 180,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps i use\nevery single\nday",
+    "sous": "student\nedition"
+   },
+   "fr": {
+    "titre": "les applis que\nj'utilise tous\nles jours",
+    "sous": "version\nétudiante"
+   },
+   "es": {
+    "titre": "apps que uso\ntodos los\ndías",
+    "sous": "edición\nestudiante"
+   },
+   "es-419": {
+    "titre": "apps que uso\ntodos los\ndías",
+    "sous": "edición\nestudiante"
+   },
+   "it": {
+    "titre": "app che uso\nogni singolo\ngiorno",
+    "sous": "versione\nstudentessa"
+   },
+   "tr": {
+    "titre": "her gün\nkullandığım\nuygulamalar",
+    "sous": "öğrenci\nversiyonu"
+   },
+   "pt-BR": {
+    "titre": "apps que eu\nuso todo\nsanto dia",
+    "sous": "versão\nestudante"
+   },
+   "de": {
+    "titre": "apps, die ich\njeden tag\nnutze",
+    "sous": "studentinnen-\nedition"
+   },
+   "sl": {
+    "titre": "aplikacije, ki\njih uporabljam\nvsak dan",
+    "sous": "študentska\nizdaja"
+   },
+   "hu": {
+    "titre": "appok, amiket\nminden nap\nhasználok",
+    "sous": "egyetemista\nkiadás"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/goodnotes/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/tablette.png",
+     "x": 740,
+     "y": 670,
+     "l": 300,
+     "rotation": -8
+    }
+   ],
+   "en": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "every lecture goes straight into a handwritten notebook on my tablet. by exam time my notes are already organized."
+   },
+   "fr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "chaque cours va direct dans un carnet écrit à la main sur ma tablette. le jour de l'exam, mes notes sont déjà rangées."
+   },
+   "es": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada clase va directa a un cuaderno escrito a mano en mi tablet. en época de exámenes, mis apuntes ya están ordenados."
+   },
+   "es-419": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada clase va directo a un cuaderno escrito a mano en mi tablet. en época de exámenes, mis apuntes ya están ordenados."
+   },
+   "it": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "ogni lezione finisce dritta in un quaderno scritto a mano sul tablet. in sessione i miei appunti sono già in ordine."
+   },
+   "tr": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "her ders doğrudan tabletimdeki el yazısı deftere gidiyor. sınav zamanı notlarım zaten düzenli."
+   },
+   "pt-BR": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "cada aula vai direto pra um caderno escrito à mão no tablet. na época de prova, minhas anotações já estão organizadas."
+   },
+   "de": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "jede vorlesung landet in einem handgeschriebenen heft auf dem tablet. vor der prüfung ist alles sortiert."
+   },
+   "sl": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "vsako predavanje gre naravnost v ročno napisan zvezek na tablici. v izpitnem obdobju so zapiski že urejeni."
+   },
+   "hu": {
+    "nom": "Goodnotes",
+    "plateformes": "iOS, Android",
+    "texte": "minden óra egyenesen egy kézzel írt füzetbe kerül a tabletemen. vizsgára a jegyzeteim már rendben vannak."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/todoist/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 60,
+     "y": 740,
+     "l": 250,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "each morning i check today's tasks, each night i tick them off. it's the only to-do list i've ever kept."
+   },
+   "fr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "chaque matin je regarde mes tâches du jour, chaque soir je les coche. la seule to-do list que j'ai jamais tenue."
+   },
+   "es": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "cada mañana miro las tareas del día y cada noche las tacho. la única lista de tareas que he mantenido."
+   },
+   "es-419": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "cada mañana veo los pendientes del día y cada noche los tacho. la única lista de pendientes que he mantenido."
+   },
+   "it": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "ogni mattina guardo i compiti del giorno, ogni sera li spunto. l'unica to-do list che abbia mai tenuto."
+   },
+   "tr": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "her sabah günün görevlerine bakıyorum, her akşam işaretliyorum. tuttuğum tek yapılacaklar listesi."
+   },
+   "pt-BR": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "toda manhã eu vejo as tarefas do dia, toda noite eu risco. a única lista de tarefas que eu já mantive."
+   },
+   "de": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "morgens schaue ich die aufgaben des tages an, abends hake ich sie ab. die einzige to-do-liste, die ich je durchgehalten habe."
+   },
+   "sl": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "vsako jutro pogledam današnja opravila, vsak večer jih odkljukam. edini seznam opravil, ki sem ga kdaj vzdržala."
+   },
+   "hu": {
+    "nom": "Todoist",
+    "plateformes": "iOS, Android",
+    "texte": "reggelente megnézem a napi feladatokat, este kipipálom őket. az egyetlen teendőlista, amit valaha megtartottam."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/washi.png",
+     "x": 830,
+     "y": 110,
+     "l": 200,
+     "rotation": 12
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "10 minutes with breakfast, every day!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "10 minutes au petit-déj, tous les jours !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡10 minutos con el desayuno, cada día!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡10 minutos con el desayuno, cada día!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "10 minuti a colazione, ogni giorno!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "her gün kahvaltıda 10 dakika!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "10 minutos no café da manhã, todo dia!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "10 minuten zum frühstück, jeden tag!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "10 minut ob zajtrku, vsak dan!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "10 perc a reggeli mellett, minden nap!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/calm/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "a few minutes of breathing before bed, or a sleep story when my brain won't stop. it keeps my sleep on track."
+   },
+   "fr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "quelques minutes de respiration avant de dormir, ou une histoire quand mon cerveau ne s'arrête pas. ça garde mon sommeil au top."
+   },
+   "es": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "unos minutos de respiración antes de dormir, o una historia cuando mi cabeza no para. así duermo bien."
+   },
+   "es-419": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "unos minutos de respiración antes de dormir, o una historia cuando mi cabeza no para. así duermo bien."
+   },
+   "it": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "qualche minuto di respirazione prima di dormire, o una storia quando la testa non si ferma. così dormo bene."
+   },
+   "tr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "yatmadan önce birkaç dakika nefes, kafam durmazsa bir uyku hikayesi. uykum böyle düzende kalıyor."
+   },
+   "pt-BR": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "uns minutinhos de respiração antes de dormir, ou uma história quando minha cabeça não para. assim eu durmo bem."
+   },
+   "de": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "ein paar minuten atmen vorm schlafen, oder eine einschlafgeschichte, wenn mein kopf nicht stoppt. so bleibt mein schlaf gut."
+   },
+   "sl": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "nekaj minut dihanja pred spanjem ali zgodba, ko se glava ne ustavi. tako dobro spim."
+   },
+   "hu": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "pár perc légzés lefekvés előtt, vagy egy esti mese, ha nem áll le a fejem. így jól alszom."
+   }
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o336",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5e1cc0fd-aacb-4362-b928-f4ad3701c9e2",
+ "titre": "5 things that made me 10x more productive #productivity #men #focus #discipline #habits",
+ "musique_titre": "why i do em like that (feat. billie essco)",
+ "musique_url": "https://www.tiktok.com/music/why-i-do-em-like-that-feat-billie-essco-7010274430282631169",
+ "inspirations": [
+  "5e1cc0fd-aacb-4362-b928-f4ad3701c9e2"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Déclinaison G1 de la ligne 47 de la boîte (parent 5e1cc0fd, @selfsculpt_, langue source en). Accroche du parent mot pour mot. Format : « N. chose » puis une ligne, en minuscules. Items neufs, aucun du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e58b6a1",
+   "texte_overlay": "5 things that made me\n10x more productive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7494439000661576982/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9c9abb2a",
+   "texte_overlay": "1. one tab at a time\n\nmulti-tasking is a lie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7494439000661576982/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "104e3a59",
+   "texte_overlay": "2. the same playlist for deep work\n\nmy brain knows it's time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7494439000661576982/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8a1b695e",
+   "texte_overlay": "3. a \"not now\" list\n\nideas wait there, not in my head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7494439000661576982/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "418863d9",
+   "texte_overlay": "4. a walk at lunch\n\nthe afternoon gets sharper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7494439000661576982/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "69ffb901",
+   "texte_overlay": "5. learning in small doses\n\nfive minutes, every day.",
+   "texte_sophia": "5. learning in small doses\n\ni use the Sophia app,\nfive minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7494439000661576982/6.jpg"
+  }
+ ]
+}

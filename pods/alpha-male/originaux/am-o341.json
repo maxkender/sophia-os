@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o341",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "60b67399-d7b4-49e5-9193-047bbac8ccd1",
+ "titre": "How you become dangerously lucky #luck #men #opportunity #growth #mindset",
+ "musique_titre": "Expansion",
+ "musique_url": "https://www.tiktok.com/music/expansion-7383085187666184209",
+ "inspirations": [
+  "60b67399-d7b4-49e5-9193-047bbac8ccd1"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Déclinaison G1 de la ligne 53 de la boîte (parent 60b67399, @learnngrow, langue source en). Accroche du parent mot pour mot. Format : consigne en titre puis une ligne, en minuscules. Items neufs, aucun du parent. reference_url du parent (1 à 5) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2e0a256d",
+   "texte_overlay": "how you become\ndangerously lucky",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663714532023340301/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dcc6f3a7",
+   "texte_overlay": "help people without keeping score\n\nfavors come back in strange ways.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663714532023340301/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b1202cc3",
+   "texte_overlay": "share what you're working on\n\nopportunities find visible people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663714532023340301/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d0a986c6",
+   "texte_overlay": "know a little about everything\n\nluck favors the curious.",
+   "texte_sophia": "know a little about everything\n\nuse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663714532023340301/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c0390a77",
+   "texte_overlay": "keep showing up\n\nluck is a numbers game.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663714532023340301/5.jpg"
+  }
+ ]
+}

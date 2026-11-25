@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o334",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "69977b35-5672-4958-835f-34153abad5ba",
+ "titre": "Comment te réinventer en 30 jours #reinvention #hommes #discipline #mindset #developpementpersonnel",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "69977b35-5672-4958-835f-34153abad5ba"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Réécrit après refus accroche_voisine (ligne 42). Déclinaison G1 de la ligne 60 de la boîte (parent 69977b35, @infinitydream7, langue source fr : écrit en français). Accroche du parent mot pour mot. Format du parent : un domaine par slide et trois puces. Puces neuves, aucune du parent. reference_url du parent (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "09099e8e",
+   "texte_overlay": "Comment te réinventer\nen 30 jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596439077503749398/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3bdf47f7",
+   "texte_overlay": "Ton identité :\n\n• Décide qui tu deviens\n• Agis comme lui dès aujourd'hui\n• Change une chose visible",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596439077503749398/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5ae40fd4",
+   "texte_overlay": "Ta routine :\n\n• Même heure de lever\n• Sport trois fois par semaine\n• Une tâche difficile avant midi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596439077503749398/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "71d79271",
+   "texte_overlay": "Ton entourage :\n\n• Vois les gens qui te tirent vers le haut\n• Appelle un ami chaque semaine\n• Rejoins un groupe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596439077503749398/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b75859d0",
+   "texte_overlay": "Ton esprit :\n\n• Apprends un peu chaque jour\n• Lis dix pages\n• Note une idée par soir",
+   "texte_sophia": "Ton esprit :\n\n• Une leçon par jour sur l'appli Sophia\n• Lis dix pages\n• Note une idée par soir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596439077503749398/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "26681b42",
+   "texte_overlay": "Ton bilan :\n\n• Chaque dimanche, relis ta semaine\n• Garde ce qui marche\n• Coupe le reste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596439077503749398/6.jpg"
+  }
+ ]
+}

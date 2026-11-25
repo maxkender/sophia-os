@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o330",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cb558758-0469-4b64-8000-63256e7baace",
+ "titre": "What growing up without a father teaches a man #men #father #family #strength #resilience",
+ "musique_titre": "sonido original",
+ "musique_url": "https://www.tiktok.com/music/sonido-original-7607213209031887638",
+ "inspirations": [
+  "cb558758-0469-4b64-8000-63256e7baace"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 25/11. Déclinaison G2 de la ligne 5 de la boîte (parent cb558758 = notre am-o187 ; 2e déclinaison après am-o304). Promesse reformulée. Même format, écrit avec respect. Items neufs, ni de am-o187 ni de am-o304. reference_url de am-o187 (1 à 7, 9) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c86a5284",
+   "texte_overlay": "What growing up without a father\nteaches a man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "05208d94",
+   "texte_overlay": "1. Independence.\n\nHe never waited for help.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "054a97a6",
+   "texte_overlay": "2. Respect for mothers.\n\nHe saw the double shifts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "610753c9",
+   "texte_overlay": "3. Emotional depth.\n\nHe had to understand\nhis own feelings.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9ecfce15",
+   "texte_overlay": "4. Self-education.\n\nEvery lesson, he went\nand found himself.",
+   "texte_sophia": "4. Self-education.\n\nHe learns every day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6be7676d",
+   "texte_overlay": "5. Brotherhood.\n\nHe chose his family.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "25f712ee",
+   "texte_overlay": "6. Purpose.\n\nHe'll be the father\nhe never had.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "md-006",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "titre": {
+    "en": "Paintings That Haunt Me"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #klimt #elgreco #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/tolede.jpg": {
+      "musee": "The Met",
+      "id": "436575",
+      "titre": "View of Toledo",
+      "artiste": "El Greco (Domenikos Theotokopoulos)",
+      "date": "ca. 1599–1600",
+      "url": "https://www.metmuseum.org/art/collection/search/436575"
+    },
+    "images/oeuvres/hammershoi-lune.jpg": {
+      "musee": "The Met",
+      "id": "441933",
+      "titre": "Moonlight, Strandgade 30",
+      "artiste": "Vilhelm Hammershøi",
+      "date": "1900–1906",
+      "url": "https://www.metmuseum.org/art/collection/search/441933"
+    },
+    "images/oeuvres/serena-lederer.jpg": {
+      "musee": "The Met",
+      "id": "436820",
+      "titre": "Serena Pulitzer Lederer (1867–1943)",
+      "artiste": "Gustav Klimt",
+      "date": "1899",
+      "url": "https://www.metmuseum.org/art/collection/search/436820"
+    },
+    "images/oeuvres/moissonneurs.jpg": {
+      "musee": "The Met",
+      "id": "435809",
+      "titre": "The Harvesters",
+      "artiste": "Pieter Bruegel the Elder",
+      "date": "1565",
+      "url": "https://www.metmuseum.org/art/collection/search/435809"
+    }
+  },
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Vue de Tolède : un des deux seuls paysages d'El Greco conservés (avec Vue et plan de Tolède) ; né en Crète, à Tolède de 1577 à sa mort en 1614. Hammershøi : appartement du Strandgade 30 (1898-1909), peint une soixantaine de fois, souvent Ida de dos. Serena Lederer (1867-1943) : les Lederer, grands mécènes de Klimt ; collection saisie par les nazis ; incendie du château d'Immendorf en mai 1945 ; acheté par le Met en 1980. Les Moissonneurs : 1565, série des saisons pour Niclaes Jongelinck (Anvers), six tableaux, cinq conservés ; l'homme endormi sous le poirier. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-couloir.jpg",
+      "en": {
+        "titre": "Paintings That Haunt Me"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/tolede.jpg",
+      "en": {
+        "titre": "View of Toledo",
+        "texte": "is one of only two landscapes El Greco left behind. Born on Crete, he lived in Toledo for nearly forty years and painted the city under a green, stormy sky. It feels less like a view than a premonition.",
+        "artiste": "El Greco"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/hammershoi-lune.jpg",
+      "en": {
+        "titre": "Moonlight, Strandgade 30",
+        "texte": "is an empty room in Hammershøi's own apartment in Copenhagen. He painted these rooms dozens of times, often with his wife Ida turned away from us. Here even she is gone, and only the moonlight crosses the floor.",
+        "artiste": "Vilhelm Hammershøi"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/serena-lederer.jpg",
+      "en": {
+        "titre": "Serena Lederer",
+        "texte": "was one of Klimt's greatest patrons. The Nazis seized her family's collection, and many of their Klimts burned in a castle in 1945; her portrait survived. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Gustav Klimt"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/moissonneurs.jpg",
+      "en": {
+        "titre": "The Harvesters",
+        "texte": "is one of six paintings of the seasons that Bruegel made for an Antwerp merchant in 1565. Only five survive. In the late summer heat, one man sleeps under a pear tree while the others eat in the shade.",
+        "artiste": "Pieter Bruegel the Elder"
+      }
+    }
+  ]
+}

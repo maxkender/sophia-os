@@ -1,0 +1,99 @@
+{
+  "id": "md-002",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "titre": {
+    "en": "Paintings That Devour My Soul"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #velazquez #rembrandt #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/pareja.jpg": {
+      "musee": "The Met",
+      "id": "437869",
+      "titre": "Juan de Pareja (ca. 1608–1670)",
+      "artiste": "Velázquez (Diego Rodríguez de Silva y Velázquez)",
+      "date": "1650",
+      "url": "https://www.metmuseum.org/art/collection/search/437869"
+    },
+    "images/oeuvres/aristote.jpg": {
+      "musee": "The Met",
+      "id": "437394",
+      "titre": "Aristotle with a Bust of Homer",
+      "artiste": "Rembrandt (Rembrandt van Rijn)",
+      "date": "1653",
+      "url": "https://www.metmuseum.org/art/collection/search/437394"
+    },
+    "images/oeuvres/marche-chevaux.jpg": {
+      "musee": "The Met",
+      "id": "435702",
+      "titre": "The Horse Fair",
+      "artiste": "Rosa Bonheur",
+      "date": "1852–55",
+      "url": "https://www.metmuseum.org/art/collection/search/435702"
+    },
+    "images/oeuvres/deux-hommes-lune.jpg": {
+      "musee": "The Met",
+      "id": "438417",
+      "titre": "Two Men Contemplating the Moon",
+      "artiste": "Caspar David Friedrich",
+      "date": "ca. 1825–30",
+      "url": "https://www.metmuseum.org/art/collection/search/438417"
+    }
+  },
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Velázquez peint Juan de Pareja à Rome en 1650, l'expose au Panthéon (mot rapporté par Palomino : tout le reste paraissait peinture, celui-ci seul vérité), signe sa lettre d'affranchissement à Rome en novembre 1650 (effective en 1654). Aristote : 1653, pour Don Antonio Ruffo (Messine) ; acheté par le Met en 1961 pour 2,3 M$, record d'enchères pour un tableau. Marché aux chevaux : Bonheur dessine au marché du boulevard de l'Hôpital pendant environ un an et demi, en habits d'homme (elle avait une permission de travestissement de la préfecture) ; Salon de 1853 ; donné au Met par Cornelius Vanderbilt en 1887. Friedrich : plusieurs versions (Dresde 1819, Berlin, Met vers 1825-30) ; Beckett a dit à Ruby Cohn que le tableau (vu à Dresde en 1937) était la source d'En attendant Godot. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-foule-2.jpg",
+      "en": {
+        "titre": "Paintings That Devour My Soul"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/pareja.jpg",
+      "en": {
+        "titre": "Juan de Pareja",
+        "texte": "was painted in Rome in 1650 by the man who owned him. Velázquez showed it at the Pantheon, and people said everything else looked like painting while this alone looked like truth. That same year he signed Pareja's freedom papers.",
+        "artiste": "Diego Velázquez"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/aristote.jpg",
+      "en": {
+        "titre": "Aristotle with a Bust of Homer",
+        "texte": "is a philosopher resting his hand on the head of a poet who died centuries before him. Rembrandt painted it in 1653 for a Sicilian nobleman. In 1961 the Met paid $2.3 million for it, a record for any painting sold at auction.",
+        "artiste": "Rembrandt"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/marche-chevaux.jpg",
+      "en": {
+        "titre": "The Horse Fair",
+        "texte": "took Rosa Bonheur a year and a half of sketching at the Paris horse market, dressed in men's clothes so no one would bother her. It made her famous at the 1853 Salon. I only noticed the dust rising under the hooves because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Rosa Bonheur"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/deux-hommes-lune.jpg",
+      "en": {
+        "titre": "Two Men Contemplating the Moon",
+        "texte": "is two friends standing in silence under a dead oak, watching a thin moon rise. Friedrich painted several versions of this scene. Samuel Beckett said one of them was the source of Waiting for Godot.",
+        "artiste": "Caspar David Friedrich"
+      }
+    }
+  ]
+}

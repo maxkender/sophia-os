@@ -1,0 +1,99 @@
+{
+  "id": "md-005",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "titre": {
+    "en": "Paintings With The Darkest Stories"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #caravaggio #delacroix #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/reniement-pierre.jpg": {
+      "musee": "The Met",
+      "id": "437986",
+      "titre": "The Denial of Saint Peter",
+      "artiste": "Caravaggio (Michelangelo Merisi)",
+      "date": "1610",
+      "url": "https://www.metmuseum.org/art/collection/search/437986"
+    },
+    "images/oeuvres/madeleine.jpg": {
+      "musee": "The Met",
+      "id": "436839",
+      "titre": "The Penitent Magdalen",
+      "artiste": "Georges de La Tour",
+      "date": "ca. 1640",
+      "url": "https://www.metmuseum.org/art/collection/search/436839"
+    },
+    "images/oeuvres/salome.jpg": {
+      "musee": "The Met",
+      "id": "437384",
+      "titre": "Salome",
+      "artiste": "Henri Regnault",
+      "date": "1870",
+      "url": "https://www.metmuseum.org/art/collection/search/437384"
+    },
+    "images/oeuvres/christ-tempete.jpg": {
+      "musee": "The Met",
+      "id": "436176",
+      "titre": "Christ Asleep during the Tempest",
+      "artiste": "Eugène Delacroix",
+      "date": "ca. 1853",
+      "url": "https://www.metmuseum.org/art/collection/search/436176"
+    }
+  },
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Le Reniement de saint Pierre : 1610, une des dernières œuvres ; Caravage mort en juillet 1610, en fuite depuis le meurtre de Ranuccio Tomassoni à Rome (1606). La Madeleine à la veilleuse (« aux deux flammes ») : main sur le crâne, bijoux posés, la flamme reflétée dans le miroir. Salomé : Salon de 1870 ; Regnault tué à Buzenval le 19 janvier 1871, à 27 ans ; couteau et plat vide sur les genoux. Delacroix : sujet peint plusieurs fois dans les années 1850 (Marc 4, 35-41). Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-bougie.jpg",
+      "en": {
+        "titre": "Paintings With The Darkest Stories"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/reniement-pierre.jpg",
+      "en": {
+        "titre": "The Denial of Saint Peter",
+        "texte": "is one of the last paintings Caravaggio made before he died in 1610, still on the run for killing a man in Rome. A soldier and a servant point at Peter, who swears he never knew Jesus. Only their faces escape the dark.",
+        "artiste": "Caravaggio"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/madeleine.jpg",
+      "en": {
+        "titre": "The Penitent Magdalen",
+        "texte": "is Mary Magdalen on the night she gives up her old life. Her jewels lie on the table and her hand rests on a skull. I only noticed the candle burning a second time in the mirror because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Georges de La Tour"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/salome.jpg",
+      "en": {
+        "titre": "Salome",
+        "texte": "made Henri Regnault the star of the 1870 Salon. She smiles, a knife and an empty platter on her lap, waiting for the head of John the Baptist. Less than a year later, Regnault was killed in the war, at 27.",
+        "artiste": "Henri Regnault"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/christ-tempete.jpg",
+      "en": {
+        "titre": "Christ Asleep during the Tempest",
+        "texte": "shows the apostles fighting the waves while Jesus sleeps in the middle of the boat. Delacroix painted this storm again and again in his last years. Only one figure on board is calm.",
+        "artiste": "Eugène Delacroix"
+      }
+    }
+  ]
+}

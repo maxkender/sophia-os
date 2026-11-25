@@ -1,0 +1,99 @@
+{
+  "id": "md-004",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "titre": {
+    "en": "Paintings That Feel Like Heartbreak"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #goya #jacqueslouisdavid #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/jeanne-arc.jpg": {
+      "musee": "The Met",
+      "id": "435621",
+      "titre": "Joan of Arc",
+      "artiste": "Jules Bastien-Lepage",
+      "date": "1879",
+      "url": "https://www.metmuseum.org/art/collection/search/435621"
+    },
+    "images/oeuvres/manuel-osorio.jpg": {
+      "musee": "The Met",
+      "id": "436545",
+      "titre": "Manuel Osorio Manrique de Zuñiga (1784–1792)",
+      "artiste": "Goya (Francisco de Goya y Lucientes)",
+      "date": "1787–88",
+      "url": "https://www.metmuseum.org/art/collection/search/436545"
+    },
+    "images/oeuvres/lavoisier.jpg": {
+      "musee": "The Met",
+      "id": "436106",
+      "titre": "Antoine Laurent Lavoisier (1743–1794) and Marie Anne Lavoisier (Marie Anne Pierrette Paulze, 1758–1836)",
+      "artiste": "Jacques Louis David",
+      "date": "1788",
+      "url": "https://www.metmuseum.org/art/collection/search/436106"
+    },
+    "images/oeuvres/ile-des-morts.jpg": {
+      "musee": "The Met",
+      "id": "435683",
+      "titre": "Island of the Dead",
+      "artiste": "Arnold Böcklin",
+      "date": "1880",
+      "url": "https://www.metmuseum.org/art/collection/search/435683"
+    }
+  },
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit, même famille d'accroche, même musique. Œuvres à nous, toutes du domaine public au Met (Open Access, CC0) ; cadres retirés au recadrage quand la photo du Met en montrait un. Faits vérifiés : Jeanne d'Arc : 1879, Salon de 1880 ; jardin de ses parents à Domrémy, saints Michel, Marguerite et Catherine en transparence ; Bastien-Lepage né à Damvillers (Meuse, Lorraine). Manuel Osorio Manrique de Zúñiga (1784-1792), peint en 1787-88 ; la pie tient la carte de visite de Goya ; trois chats, une cage de pinsons. Lavoisier : 1788 ; Marie-Anne Paulze élève de David, auteure des planches du Traité élémentaire de chimie (1789) ; Lavoisier guillotiné le 8 mai 1794. Île des morts : version du Met (1880) peinte pour Marie Berna, veuve, à sa demande avec le cercueil et la figure blanche ; cinq versions ; poème symphonique de Rachmaninov (1909). Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule ou des visiteurs de dos, le tableau n'est qu'une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-pluie.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like Heartbreak"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/jeanne-arc.jpg",
+      "en": {
+        "titre": "Joan of Arc",
+        "texte": "hears her voices in her parents' garden, while three saints float half-transparent behind her. Bastien-Lepage, who came from Lorraine like Joan, painted it in 1879. Her left hand reaches out and seems to dissolve into the leaves.",
+        "artiste": "Jules Bastien-Lepage"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/manuel-osorio.jpg",
+      "en": {
+        "titre": "Manuel Osorio",
+        "texte": "was about four when Goya painted him in red, with a magpie on a string and three cats staring at the bird. The magpie holds Goya's own calling card in its beak. Manuel died in 1792, at the age of eight.",
+        "artiste": "Francisco Goya"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/lavoisier.jpg",
+      "en": {
+        "titre": "Lavoisier and His Wife",
+        "texte": "shows the father of modern chemistry with Marie-Anne, who had studied with David and drew the plates for his books. Six years later, Lavoisier was guillotined. I learned to see that she, not him, is the center of the painting on Artura, one artwork a day with its story.",
+        "artiste": "Jacques-Louis David"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/ile-des-morts.jpg",
+      "en": {
+        "titre": "Isle of the Dead",
+        "texte": "was painted in 1880 for a widow, Marie Berna, who asked Böcklin to add a coffin and the white figure standing in the boat. He painted five versions of it. Rachmaninoff later turned it into music.",
+        "artiste": "Arnold Böcklin"
+      }
+    }
+  ]
+}

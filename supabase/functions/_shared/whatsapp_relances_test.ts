@@ -170,3 +170,12 @@ Deno.test("pied des emails : rien ne change tant que le réglage est éteint", (
   assertEquals(banniereActive(true), true);
   assertEquals(banniereActive({ actif: true }), true);
 });
+
+Deno.test("25/11 : la décision porte la langue du posteur ; le modèle et ses variables restent ceux de l'anglais", () => {
+  const f = faits({ premier_post_at: "2026-11-20T10:00:00Z", ruul_onboarding: "PENDING_KYC", ruul_ready_at: null });
+  assertEquals(deciderRelance(f, { modeAutorise: true, maintenant: MARDI })?.langueCible, null);
+  const d = deciderRelance({ ...f, langue: "pt-BR" }, { modeAutorise: true, maintenant: MARDI });
+  assertEquals(d?.langueCible, "pt-BR");
+  assertEquals(d?.modele, { nom: "ruul_payment_setup", langue: "en", variables: ["Ana"] });
+  assertEquals(deciderRelance({ ...f, langue: "  " }, { modeAutorise: true, maintenant: MARDI })?.langueCible, null);
+});

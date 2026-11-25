@@ -16,7 +16,12 @@
  *   no_posts_week        le jeudi : 0 post, ou moins de la moitié des posts prévus depuis lundi (repli : no_posts_this_week)
  *
  * Garde-fous : refusRelance (accord, arrêt et « ne plus contacter », absence, panne, 1/jour, 4/semaine, 9 h – 21 h,
- * mode test). Les modèles n'existent qu'en anglais : tout part en anglais.
+ * mode test).
+ *
+ * 25/11 (Max) : la langue. Le modèle (v2 ou repli) est choisi sur l'anglais, comme avant ; la décision porte la
+ * langue du posteur (langueCible : celle de ses emails, email_langue_poster) et l'envoi prend la version du modèle
+ * dans cette langue si elle est APPROVED chez Meta, sinon l'anglais (envoyerWhatsApp). Les variables ne changent
+ * pas : les dates restent en anglais.
  */
 import { heureOk as heureOkPays, fuseauDuPays, paysDuNumero, refusRelance } from "./whatsapp.ts";
 import { DASHBOARD_V2 } from "./whatsapp_modeles_v2.ts";
@@ -92,6 +97,11 @@ export interface FaitsRelance {
   warmup_fini?: boolean | null;
   /** Ajouté par la fonction whatsapp pour warmup_start : la niche du compte (null : générique). */
   niche?: string | null;
+  /**
+   * 25/11 : ajouté par la fonction whatsapp pour une relance qui part : la langue du posteur telle que l'OS la
+   * connaît (celle de ses emails : email_langue_poster, sinon email_langue_pays du pays retenu). null : anglais.
+   */
+  langue?: string | null;
 }
 
 const JOUR = 24 * 3600_000;
@@ -217,6 +227,8 @@ export interface DecisionRelance {
   motif: string;
   refus: string | null;
   modele: { nom: string; langue: string; variables: string[] } | null;
+  /** 25/11 : la langue du posteur (code de l'OS), donnée à envoyerWhatsApp ; null : anglais. */
+  langueCible: string | null;
 }
 
 /** La clé anti-doublon de la bienvenue, partagée avec Join : jamais deux bienvenues WhatsApp au même posteur. */
@@ -252,6 +264,7 @@ export function deciderRelance(
     motif: `relance:${type}`,
     refus,
     modele,
+    langueCible: f.langue?.trim() || null,
   };
 }
 

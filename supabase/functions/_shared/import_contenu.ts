@@ -1872,6 +1872,11 @@ async function executerPasImport(
               ? `→ tentatives épuisées (${r.tentatives}/${MAX_TENTATIVES_NETTOYAGE}) — repli brut au prochain passage`
               : `→ retry prévu (${r.tentatives}/${MAX_TENTATIVES_NETTOYAGE})`,
           );
+          // 25/11 : un essai raté a consommé un des 4 essais de la slide : ce n'est pas un passage stérile.
+          // Sinon les passages stériles du diaporama (8 au plus, `MAX_ECHECS_CONTENU`) s'épuisaient AVANT les
+          // essais de ses slides (3 slides × 3 essais), et le diaporama n'était plus jamais repris : ni fini, ni
+          // écarté (@jawpotential, 24/11). Les essais de chaque slide sont bornés : la fin (5a) arrive toujours.
+          if (r.tentatives > 0) progres = true;
         }
       }
 

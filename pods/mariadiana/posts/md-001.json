@@ -1,0 +1,69 @@
+{
+  "id": "md-001",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "titre": {
+    "en": "Paintings That Devour My Soul"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #vangogh #sargent #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/madame-x.jpg": { "musee": "The Met", "id": "12127", "titre": "Madame X (Virginie Amélie Avegno Gautreau)", "artiste": "John Singer Sargent", "date": "1883–84", "url": "https://www.metmuseum.org/art/collection/search/12127" },
+    "images/oeuvres/pygmalion.jpg": { "musee": "The Met", "id": "436483", "titre": "Pygmalion and Galatea", "artiste": "Jean-Léon Gérôme", "date": "ca. 1890", "url": "https://www.metmuseum.org/art/collection/search/436483" },
+    "images/oeuvres/cypres.jpg": { "musee": "The Met", "id": "436535", "titre": "Wheat Field with Cypresses", "artiste": "Vincent van Gogh", "date": "1889", "url": "https://www.metmuseum.org/art/collection/search/436535" },
+    "images/oeuvres/socrate.jpg": { "musee": "The Met", "id": "436105", "titre": "The Death of Socrates", "artiste": "Jacques Louis David", "date": "1787", "url": "https://www.metmuseum.org/art/collection/search/436105" }
+  },
+  "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit (couverture sombre, une foule de dos au musée devant un tableau éclairé, le titre blanc ; puis un tableau par slide sur fond blanc cassé, le titre de l'œuvre, le tableau à gauche, un paragraphe qui continue le titre, l'artiste dessous), même accroche, même musique. Œuvres à nous (les siennes : The Kiss, Water Lilies, The Accolade, Starry Night Over the Rhône), toutes du domaine public au Met (Open Access, CC0). Faits vérifiés : Madame X, Salon de 1884, la bretelle tombée repeinte après le scandale, vendue au Met en 1916, Sargent à Londres en 1886 ; Pygmalion et Galatée d'après Ovide, le haut du corps déjà chair, les jambes encore marbre ; Wheat Field with Cypresses peint à l'été 1889 pendant le séjour à l'asile de Saint-Rémy, lettre à Théo du 25 juin 1889 (« beautiful as an Egyptian obelisk ») ; La Mort de Socrate, 1787, la ciguë. Slide Artura (4) : la version `cta A` (« on Artura, one artwork a day with its story »), son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule de dos, le tableau du fond n'est qu'une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-foule.jpg",
+      "en": { "titre": "Paintings That Devour My Soul" }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/madame-x.jpg",
+      "en": {
+        "titre": "Madame X",
+        "texte": "was supposed to make Sargent famous and nearly ended his career in Paris. At the 1884 Salon, her pale skin, black gown and the strap slipping off her shoulder caused a scandal. He repainted the strap, kept the portrait for over thirty years and moved to London.",
+        "artiste": "John Singer Sargent"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/pygmalion.jpg",
+      "en": {
+        "titre": "Pygmalion and Galatea",
+        "texte": "is the story of a sculptor who falls in love with the woman he carved. Gérôme paints the exact second the goddess answers his prayer: her back is already warm flesh while her legs are still white marble. Art and life touch for one kiss.",
+        "artiste": "Jean-Léon Gérôme"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/cypres.jpg",
+      "en": {
+        "titre": "Wheat Field with Cypresses",
+        "texte": "was painted in the summer of 1889, while Van Gogh was staying at the asylum in Saint-Rémy. He wrote to his brother that cypresses were as beautiful as an Egyptian obelisk. I learned to see how every cloud and branch moves in the same swirl on Artura, one artwork a day with its story.",
+        "artiste": "Vincent van Gogh"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/socrate.jpg",
+      "en": {
+        "titre": "The Death of Socrates",
+        "texte": "shows a man choosing his ideas over his life. Sentenced to death in Athens, Socrates keeps teaching as he reaches for the cup of hemlock, while his friends fall apart around him. David painted it in 1787, two years before the French Revolution.",
+        "artiste": "Jacques-Louis David"
+      }
+    }
+  ]
+}

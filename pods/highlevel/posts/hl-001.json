@@ -7,23 +7,57 @@
     "accroche": "HOW TO GIVE A GIRL BUTTERFLIES."
   },
   "titre": {
-    "en": "How to give her butterflies on a first date."
+    "en": "How to give her butterflies on a first date.",
+    "el": "Πώς να νιώσει πεταλουδίτσες στο πρώτο ραντεβού.",
+    "es-419": "Cómo darle mariposas en la primera cita.",
+    "it": "Come farle sentire le farfalle al primo appuntamento.",
+    "hu": "Hogyan legyenek pillangók a hasában az első randin.",
+    "sr": "Kako da oseti leptiriće na prvom sastanku."
   },
   "legendes": {
-    "en": "#datingadvice #tipsformen #firstdate #attraction "
+    "en": "#datingadvice #tipsformen #firstdate #attraction ",
+    "el": "#συμβουλές #σχέσεις #ραντεβού #άντρες ",
+    "es-419": "#consejosdecitas #consejosparahombres #atraccion ",
+    "it": "#consiglidiappuntamento #consigliperuomini #attrazione ",
+    "hu": "#randitippek #tanácsokférfiaknak #vonzalom ",
+    "sr": "#savetizamuškarce #veze #zavođenje "
   },
   "musique": {
     "titre": "M83 Solitude",
     "url": "https://www.tiktok.com/music/M83-Solitude-7116098620134394625"
   },
   "oeuvres": {
-    "images/oeuvres/vermeer-cruche.jpg": { "musee": "The Met", "id": "437881", "titre": "Young Woman with a Water Pitcher", "artiste": "Johannes Vermeer", "date": "ca. 1662", "url": "https://www.metmuseum.org/art/collection/search/437881" }
+    "images/oeuvres/vermeer-cruche.jpg": {
+      "musee": "The Met",
+      "id": "437881",
+      "titre": "Young Woman with a Water Pitcher",
+      "artiste": "Johannes Vermeer",
+      "date": "ca. 1662",
+      "url": "https://www.metmuseum.org/art/collection/search/437881"
+    }
   },
-  "notes": "Preuve : « HOW TO GIVE A GIRL BUTTERFLIES. » de @highlevelgame_ (1,4 M vues, 16/09), même famille que « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M et 3,7 M) ; même gabarit (papier blanc cassé, serif bordeaux, couverture en capitales, un conseil par carte avec son titre en gras, « The rule underneath all of it », « Follow so you don't miss … » et la flèche), sa musique de « HOW TO TEXT LIKE A MAN » (M83 Solitude). Conseils à nous. Carte Artura (4), demandée par Adrien (« knows to talk about art ») : « Know how to talk about art. », un vrai tableau du domaine public (Vermeer, Young Woman with a Water Pitcher, The Met 437881) et le LOGO d'Artura, jamais une capture ; cta A (« I learn one painting a day on Artura »). Fait vérifié : on attribue à Vermeer environ 35 tableaux (moins de 40). Pas de @ ni de nom de compte en pied de slide (le sien : @HighLevelGame_).",
+  "notes": "Preuve : « HOW TO GIVE A GIRL BUTTERFLIES. » de @highlevelgame_ (1,4 M vues, 16/09), même famille que « HOW TO TEXT LIKE A MAN NOT A BOY. » (3,8 M et 3,7 M) ; même gabarit (papier blanc cassé, serif bordeaux, couverture en capitales, un conseil par carte avec son titre en gras, « The rule underneath all of it », « Follow so you don't miss … » et la flèche), sa musique de « HOW TO TEXT LIKE A MAN » (M83 Solitude). Conseils à nous. Carte Artura (4), demandée par Adrien (« knows to talk about art ») : « Know how to talk about art. », un vrai tableau du domaine public (Vermeer, Young Woman with a Water Pitcher, The Met 437881) et le LOGO d'Artura, jamais une capture ; cta A (« I learn one painting a day on Artura »). Fait vérifié : on attribue à Vermeer environ 35 tableaux (moins de 40). Pas de @ ni de nom de compte en pied de slide (le sien : @HighLevelGame_). Traduit en el, es-419, it, hu, sr (latin) à la demande d'Adrien du 25/11.",
   "slides": [
     {
       "type": "couverture",
-      "en": { "titre": "HOW TO GIVE HER\nBUTTERFLIES ON\nA FIRST DATE." }
+      "en": {
+        "titre": "HOW TO GIVE HER\nBUTTERFLIES ON\nA FIRST DATE."
+      },
+      "el": {
+        "titre": "ΠΩΣ ΝΑ ΝΙΩΣΕΙ\nΠΕΤΑΛΟΥΔΙΤΣΕΣ\nΣΤΟ ΠΡΩΤΟ\nΡΑΝΤΕΒΟΥ."
+      },
+      "es-419": {
+        "titre": "CÓMO DARLE\nMARIPOSAS EN\nLA PRIMERA CITA."
+      },
+      "it": {
+        "titre": "COME FARLE\nSENTIRE LE FARFALLE\nAL PRIMO\nAPPUNTAMENTO."
+      },
+      "hu": {
+        "titre": "HOGYAN LEGYENEK\nPILLANGÓK A HASÁBAN\nAZ ELSŐ RANDIN."
+      },
+      "sr": {
+        "titre": "KAKO DA OSETI\nLEPTIRIĆE\nNA PRVOM SASTANKU."
+      }
     },
     {
       "type": "conseil",
@@ -33,6 +67,46 @@
           "Don't ask:\n“Where do you want to go?”",
           "Say: “I know a place.\nThursday, 7pm.”",
           "A plan is attractive.\nA question is homework."
+        ]
+      },
+      "el": {
+        "titre": "Διάλεξε εσύ το μέρος.",
+        "paragraphes": [
+          "Μη ρωτάς:\n«Πού θες να πάμε;»",
+          "Πες: «Ξέρω ένα μέρος. Πέμπτη, στις 7.»",
+          "Ένα σχέδιο είναι ελκυστικό. Μια ερώτηση είναι αγγαρεία."
+        ]
+      },
+      "es-419": {
+        "titre": "Elige tú el lugar.",
+        "paragraphes": [
+          "No preguntes:\n“¿A dónde quieres ir?”",
+          "Dile: “Conozco un lugar. Jueves, 7 pm.”",
+          "Un plan atrae. Una pregunta es tarea."
+        ]
+      },
+      "it": {
+        "titre": "Scegli tu il posto.",
+        "paragraphes": [
+          "Non chiedere:\n“Dove vuoi andare?”",
+          "Di': “Conosco un posto. Giovedì, alle 19.”",
+          "Un piano attrae. Una domanda è un compito a casa."
+        ]
+      },
+      "hu": {
+        "titre": "Te válaszd ki a helyet.",
+        "paragraphes": [
+          "Ne kérdezd:\n„Hová szeretnél menni?”",
+          "Mondd: „Tudok egy helyet. Csütörtök, este 7.”",
+          "A terv vonzó. A kérdés házi feladat."
+        ]
+      },
+      "sr": {
+        "titre": "Sam izaberi mesto.",
+        "paragraphes": [
+          "Ne pitaj:\n„Gde bi htela da idemo?”",
+          "Reci: „Znam jedno mesto. Četvrtak, u 19h.”",
+          "Plan je privlačan. Pitanje je domaći zadatak."
         ]
       }
     },
@@ -44,6 +118,46 @@
           "Not her body. Something she chose.",
           "“That ring looks like it has a story.”",
           "Then let her tell it."
+        ]
+      },
+      "el": {
+        "titre": "Πρόσεξε μια λεπτομέρεια.",
+        "paragraphes": [
+          "Όχι το σώμα της. Κάτι που διάλεξε εκείνη.",
+          "«Αυτό το δαχτυλίδι μοιάζει να έχει ιστορία.»",
+          "Και άφησέ τη να την πει."
+        ]
+      },
+      "es-419": {
+        "titre": "Fíjate en un detalle.",
+        "paragraphes": [
+          "No en su cuerpo. En algo que ella eligió.",
+          "“Ese anillo parece tener una historia.”",
+          "Y deja que te la cuente."
+        ]
+      },
+      "it": {
+        "titre": "Nota un dettaglio.",
+        "paragraphes": [
+          "Non il suo corpo. Qualcosa che ha scelto lei.",
+          "“Quell'anello sembra avere una storia.”",
+          "Poi lascia che te la racconti."
+        ]
+      },
+      "hu": {
+        "titre": "Vegyél észre egy részletet.",
+        "paragraphes": [
+          "Ne a testét. Valamit, amit ő választott.",
+          "„Annak a gyűrűnek biztos története van.”",
+          "Aztán hagyd, hogy elmesélje."
+        ]
+      },
+      "sr": {
+        "titre": "Primeti jedan detalj.",
+        "paragraphes": [
+          "Ne njeno telo. Nešto što je ona izabrala.",
+          "„Taj prsten kao da ima priču.”",
+          "Pa je pusti da je ispriča."
         ]
       }
     },
@@ -58,6 +172,51 @@
         "apres": [
           "I learn one painting a day on Artura,\nso I always have a story ready."
         ]
+      },
+      "el": {
+        "titre": "Μάθε να μιλάς για τέχνη.",
+        "avant": [
+          "Πήγαινέ τη σε ένα μουσείο. Σταμάτα μπροστά σε έναν πίνακα και πες της την ιστορία του."
+        ],
+        "apres": [
+          "Μαθαίνω έναν πίνακα τη μέρα στο Artura, οπότε έχω πάντα μια ιστορία έτοιμη."
+        ]
+      },
+      "es-419": {
+        "titre": "Aprende a hablar de arte.",
+        "avant": [
+          "Llévala a un museo. Detente frente a un cuadro y cuéntale su historia."
+        ],
+        "apres": [
+          "Aprendo un cuadro al día en Artura, así que siempre tengo una historia lista."
+        ]
+      },
+      "it": {
+        "titre": "Sappi parlare d'arte.",
+        "avant": [
+          "Portala in un museo. Fermati davanti a un quadro e raccontale la sua storia."
+        ],
+        "apres": [
+          "Imparo un quadro al giorno su Artura, così ho sempre una storia pronta."
+        ]
+      },
+      "hu": {
+        "titre": "Tudj beszélni a művészetről.",
+        "avant": [
+          "Vidd el egy múzeumba. Állj meg egy festmény előtt, és meséld el a történetét."
+        ],
+        "apres": [
+          "Naponta egy festményt tanulok az Artura appban, így mindig van egy kész történetem."
+        ]
+      },
+      "sr": {
+        "titre": "Znaj da pričaš o umetnosti.",
+        "avant": [
+          "Odvedi je u muzej. Zastani ispred jedne slike i ispričaj joj njenu priču."
+        ],
+        "apres": [
+          "Učim jednu sliku dnevno u aplikaciji Artura, pa uvek imam spremnu priču."
+        ]
       }
     },
     {
@@ -67,6 +226,41 @@
         "paragraphes": [
           "Face down is not enough.\nLeave it in your pocket all night.",
           "She'll notice. Every woman does."
+        ]
+      },
+      "el": {
+        "titre": "Άφησε το κινητό.",
+        "paragraphes": [
+          "Δεν φτάνει να είναι ανάποδα. Άφησέ το στην τσέπη όλο το βράδυ.",
+          "Θα το προσέξει. Κάθε γυναίκα το προσέχει."
+        ]
+      },
+      "es-419": {
+        "titre": "Guarda el celular.",
+        "paragraphes": [
+          "Boca abajo no basta. Déjalo en el bolsillo toda la noche.",
+          "Lo va a notar. Todas lo notan."
+        ]
+      },
+      "it": {
+        "titre": "Metti via il telefono.",
+        "paragraphes": [
+          "A faccia in giù non basta. Lascialo in tasca tutta la sera.",
+          "Se ne accorgerà. Ogni donna se ne accorge."
+        ]
+      },
+      "hu": {
+        "titre": "Tedd el a telefonod.",
+        "paragraphes": [
+          "Nem elég lefordítani. Hagyd a zsebedben egész este.",
+          "Észre fogja venni. Minden nő észreveszi."
+        ]
+      },
+      "sr": {
+        "titre": "Skloni telefon.",
+        "paragraphes": [
+          "Nije dovoljno da bude okrenut naopako. Ostavi ga u džepu celo veče.",
+          "Primetiće. Svaka žena primeti."
         ]
       }
     },
@@ -78,6 +272,41 @@
           "Leave while it's still good.",
           "Text her an hour later:\n“Still thinking about that laugh.”"
         ]
+      },
+      "el": {
+        "titre": "Τελείωσέ το πρώτος.",
+        "paragraphes": [
+          "Φύγε όσο είναι ακόμα ωραία.",
+          "Στείλε της μία ώρα μετά:\n«Ακόμα σκέφτομαι εκείνο το γέλιο.»"
+        ]
+      },
+      "es-419": {
+        "titre": "Termina tú la cita.",
+        "paragraphes": [
+          "Vete mientras todo va bien.",
+          "Escríbele una hora después:\n“Sigo pensando en esa risa.”"
+        ]
+      },
+      "it": {
+        "titre": "Chiudi tu la serata.",
+        "paragraphes": [
+          "Vai via finché è ancora bello.",
+          "Scrivile un'ora dopo:\n“Sto ancora pensando a quella risata.”"
+        ]
+      },
+      "hu": {
+        "titre": "Te zárd le az estét.",
+        "paragraphes": [
+          "Menj el, amíg még jó.",
+          "Írj neki egy órával később:\n„Még mindig azon a nevetésen jár az eszem.”"
+        ]
+      },
+      "sr": {
+        "titre": "Ti završi veče.",
+        "paragraphes": [
+          "Idi dok je još lepo.",
+          "Napiši joj sat kasnije:\n„I dalje mislim na onaj smeh.”"
+        ]
       }
     },
     {
@@ -88,11 +317,74 @@
           "Don't try to impress her.\nMake her feel seen.",
           "**A boy performs.**\n**A man pays attention.**"
         ]
+      },
+      "el": {
+        "titre": "Ο κανόνας πίσω από όλα",
+        "paragraphes": [
+          "Μην προσπαθείς να την εντυπωσιάσεις. Κάνε τη να νιώσει ότι τη βλέπεις.",
+          "**Το αγόρι κάνει σόου.**\n**Ο άντρας προσέχει.**"
+        ]
+      },
+      "es-419": {
+        "titre": "La regla detrás de todo",
+        "paragraphes": [
+          "No intentes impresionarla. Haz que se sienta vista.",
+          "**Un niño actúa.**\n**Un hombre presta atención.**"
+        ]
+      },
+      "it": {
+        "titre": "La regola dietro a tutto",
+        "paragraphes": [
+          "Non cercare di impressionarla. Falla sentire vista.",
+          "**Un ragazzino si esibisce.**\n**Un uomo presta attenzione.**"
+        ]
+      },
+      "hu": {
+        "titre": "A szabály mindezek mögött",
+        "paragraphes": [
+          "Ne lenyűgözni akard. Érezze, hogy látod.",
+          "**A kisfiú szerepel.**\n**A férfi figyel.**"
+        ]
+      },
+      "sr": {
+        "titre": "Pravilo iza svega",
+        "paragraphes": [
+          "Ne pokušavaj da je impresioniraš. Neka se oseti viđeno.",
+          "**Dečak glumi.**\n**Muškarac obraća pažnju.**"
+        ]
       }
     },
     {
       "type": "suivre",
-      "en": { "gras": "Follow", "suite": "what's next." }
+      "en": {
+        "gras": "Follow",
+        "suite": "what's next."
+      },
+      "el": {
+        "gras": "Ακολούθησε",
+        "milieu": " για να μη χάσεις",
+        "suite": "τι έρχεται μετά."
+      },
+      "es-419": {
+        "gras": "Sígueme",
+        "milieu": " para no perderte",
+        "suite": "lo que viene."
+      },
+      "it": {
+        "gras": "Seguimi",
+        "milieu": " per non perderti",
+        "suite": "il prossimo."
+      },
+      "hu": {
+        "gras": "Kövess,",
+        "milieu": " hogy ne maradj le",
+        "suite": "a következőről."
+      },
+      "sr": {
+        "gras": "Zaprati",
+        "milieu": " da ne propustiš",
+        "suite": "šta sledi."
+      }
     }
   ]
 }

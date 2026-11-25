@@ -41,7 +41,8 @@ export type TexteCouverture = { titre: string };
 export type TexteConseil = { titre?: string; paragraphes: string[] };
 /** La carte Artura : le titre, les paragraphes avant le tableau, ceux d'après (la phrase Artura). */
 export type TexteArtura = { titre: string; avant: string[]; apres: string[] };
-export type TexteSuivre = { gras: string; suite: string };
+/** La fin : `gras` (« Follow »), `milieu` (« so you don't miss », l'anglais par défaut), `suite` (« what's next. »). */
+export type TexteSuivre = { gras: string; milieu?: string; suite: string };
 
 export type Source = { musee: string; id: string; titre: string; artiste: string; date: string; url: string };
 
@@ -77,7 +78,7 @@ const sansGras = (t: string) => t.replace(/\*\*/g, "").replace(/\n/g, " ");
 export function textesSlide(s: Slide, langue: string): string {
   const c = contenu<Record<string, unknown>>(s, langue);
   if (s.type === "couverture") return sansGras((c as TexteCouverture).titre);
-  if (s.type === "suivre") return `${(c as TexteSuivre).gras} ${(c as TexteSuivre).suite}`;
+  if (s.type === "suivre") return `${(c as TexteSuivre).gras}${(c as TexteSuivre).milieu ?? " so you don't miss"} ${(c as TexteSuivre).suite}`;
   if (s.type === "artura") {
     const t = c as TexteArtura;
     return sansGras([t.titre, ...t.avant, ...t.apres].join(" "));
@@ -264,6 +265,7 @@ function conseil(ctx: Ctx, c: TexteConseil) {
   let y = Math.round(660 - h / 2 + TEXTE.taille * 0.72);
   if (c.titre) {
     ctx.font = `${TEXTE.titre}px "${POLICE.gras}"`;
+    if (ctx.measureText(c.titre).width > L - 2 * TEXTE.x) throw new Error(`« ${c.titre} » : titre trop long pour une ligne`);
     ctx.fillText(c.titre, TEXTE.x, y);
     y += TEXTE.pas * 2;
   }
@@ -286,6 +288,7 @@ async function artura(ctx: Ctx, s: Slide, c: TexteArtura) {
   if (h > 1000) throw new Error(`« ${c.titre} » : trop haut (${Math.round(h)} px, 1000 au plus) : raccourcis le texte`);
   let y = Math.round(660 - h / 2 + TEXTE.taille * 0.72);
   ctx.font = `${TEXTE.titre}px "${POLICE.gras}"`;
+  if (ctx.measureText(c.titre).width > L - 2 * TEXTE.x) throw new Error(`« ${c.titre} » : titre trop long pour une ligne`);
   ctx.fillText(c.titre, TEXTE.x, y);
   y += TEXTE.pas * 2;
   y = ecrireParagraphes(ctx, c.avant, y);
@@ -305,7 +308,7 @@ async function artura(ctx: Ctx, s: Slide, c: TexteArtura) {
 /** Ses mesures : « **Follow** so you don't miss / what's next. » centré, la première ligne de 711 px,
  * lignes de base à 645 et 717, la flèche dessous à droite. */
 function suivre(ctx: Ctx, c: TexteSuivre) {
-  const l1: Morceau[] = [{ t: c.gras, gras: true }, { t: " so you don't miss", gras: false }];
+  const l1: Morceau[] = [{ t: c.gras, gras: true }, { t: c.milieu ?? " so you don't miss", gras: false }];
   const l2: Morceau[] = [{ t: c.suite, gras: false }];
   const taille = Math.round((46 * 711) / largeurLigne(ctx, l1, 46));
   const w1 = largeurLigne(ctx, l1, taille);

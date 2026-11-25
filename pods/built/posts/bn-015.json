@@ -1,0 +1,343 @@
+{
+ "id": "bn-015",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7707980369747823880",
+  "vues": 494600,
+  "publie_le": "2026-11-14",
+  "accroche": "GLOW UP HACKS FOR MEN."
+ },
+ "titre": {
+  "en": "the ultimate glow up checklist for men",
+  "de": "die ultimative glow-up-checkliste für männer",
+  "es-419": "el checklist de glow up definitivo para hombres",
+  "it": "la checklist glow up definitiva per uomini",
+  "pl": "najlepsza lista glow up dla facetów",
+  "tr": "erkekler için en iyi glow up kontrol listesi",
+  "hu": "a végső glow up lista férfiaknak",
+  "el": "η απόλυτη λίστα glow up για άντρες",
+  "ro": "lista supremă de glow up pentru bărbați",
+  "sr": "najbolja glow up lista za muškarce"
+ },
+ "legendes": {
+  "en": "save this and start today #glowup #selfimprovement #tipsformen #running #menshealth",
+  "de": "speicher das und fang heute an #glowup #selfimprovement #tipsformen #running #menshealth",
+  "es-419": "guárdalo y empieza hoy #glowup #selfimprovement #tipsformen #running #menshealth",
+  "it": "salvalo e inizia oggi #glowup #selfimprovement #tipsformen #running #menshealth",
+  "pl": "zapisz i zacznij dziś #glowup #selfimprovement #tipsformen #running #menshealth",
+  "tr": "kaydet ve bugün başla #glowup #selfimprovement #tipsformen #running #menshealth",
+  "hu": "mentsd el és kezdd ma #glowup #selfimprovement #tipsformen #running #menshealth",
+  "el": "κράτα το και ξεκίνα σήμερα #glowup #selfimprovement #tipsformen #running #menshealth",
+  "ro": "salvează și începe azi #glowup #selfimprovement #tipsformen #running #menshealth",
+  "sr": "sačuvaj i počni danas #glowup #selfimprovement #tipsformen #running #menshealth"
+ },
+ "musique": {
+  "titre": "FUNDO DE VIDEO",
+  "url": "https://www.tiktok.com/music/fundo-de-video-7517337106206656513"
+ },
+ "notes": "Full test (boîte vide). Famille « GLOW UP HACKS FOR MEN. » de @built.not.born61 (494.6 k vues, 2026-11-14), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : f2d52765, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix TU (hook de 7 mots), argument « débute : un plan à son niveau, même de zéro ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-capuche.png": "f2d52765-261e-4e20-83fa-3b6b910db625"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-15.png",
+   "en": {
+    "titre": "THE ULTIMATE\nGLOW UP CHECKLIST\nFOR MEN."
+   },
+   "de": {
+    "titre": "DIE ULTIMATIVE\nGLOW-UP-CHECKLISTE\nFÜR MÄNNER."
+   },
+   "es-419": {
+    "titre": "EL CHECKLIST\nDE GLOW UP DEFINITIVO\nPARA HOMBRES."
+   },
+   "it": {
+    "titre": "LA CHECKLIST\nGLOW UP DEFINITIVA\nPER UOMINI."
+   },
+   "pl": {
+    "titre": "NAJLEPSZA\nLISTA GLOW UP\nDLA FACETÓW."
+   },
+   "tr": {
+    "titre": "ERKEKLER İÇİN\nEN İYİ GLOW UP\nKONTROL LİSTESİ."
+   },
+   "hu": {
+    "titre": "A VÉGSŐ\nGLOW UP LISTA\nFÉRFIAKNAK."
+   },
+   "el": {
+    "titre": "Η ΑΠΟΛΥΤΗ\nΛΙΣΤΑ GLOW UP\nΓΙΑ ΑΝΤΡΕΣ."
+   },
+   "ro": {
+    "titre": "LISTA SUPREMĂ\nDE GLOW UP\nPENTRU BĂRBAȚI."
+   },
+   "sr": {
+    "titre": "NAJBOLJA\nGLOW UP LISTA\nZA MUŠKARCE."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/canette.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "1. Swap soda for water",
+    "texte": "Water or sparkling water instead of sugary drinks. Your energy stays steady all day."
+   },
+   "de": {
+    "titre": "1. Wasser statt Limo",
+    "texte": "Wasser oder Sprudel statt süßer Getränke. Deine Energie bleibt den ganzen Tag stabil."
+   },
+   "es-419": {
+    "titre": "1. Cambia el refresco por agua",
+    "texte": "Agua o agua mineral en vez de bebidas con azúcar. Tu energía se mantiene estable todo el día."
+   },
+   "it": {
+    "titre": "1. Acqua al posto delle bibite",
+    "texte": "Acqua o acqua frizzante invece delle bevande zuccherate. L'energia resta stabile tutto il giorno."
+   },
+   "pl": {
+    "titre": "1. Woda zamiast słodzonych napojów",
+    "texte": "Woda albo woda gazowana zamiast napojów z cukrem. Energia trzyma się równo cały dzień."
+   },
+   "tr": {
+    "titre": "1. Gazoz yerine su",
+    "texte": "Şekerli içecekler yerine su ya da maden suyu. Enerjin gün boyu dengede kalır."
+   },
+   "hu": {
+    "titre": "1. Üdítő helyett víz",
+    "texte": "Víz vagy szódavíz a cukros italok helyett. Az energiád egész nap egyenletes marad."
+   },
+   "el": {
+    "titre": "1. Νερό αντί για αναψυκτικά",
+    "texte": "Νερό ή ανθρακούχο αντί για ζαχαρούχα ποτά. Η ενέργειά σου μένει σταθερή όλη μέρα."
+   },
+   "ro": {
+    "titre": "1. Apă în loc de suc",
+    "texte": "Apă plată sau minerală în loc de băuturi cu zahăr. Energia rămâne stabilă toată ziua."
+   },
+   "sr": {
+    "titre": "1. Voda umesto sokova",
+    "texte": "Voda ili kisela voda umesto zaslađenih pića. Energija ti ostaje stabilna ceo dan."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/nettoyant.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "2. Wash your face at night",
+    "texte": "Dirt and sweat build up all day. A simple cleanser before bed keeps your skin clear."
+   },
+   "de": {
+    "titre": "2. Abends Gesicht waschen",
+    "texte": "Schmutz und Schweiß sammeln sich den ganzen Tag. Ein milder Reiniger vor dem Schlafen hält die Haut rein."
+   },
+   "es-419": {
+    "titre": "2. Lávate la cara en la noche",
+    "texte": "La mugre y el sudor se acumulan todo el día. Un limpiador simple antes de dormir mantiene tu piel limpia."
+   },
+   "it": {
+    "titre": "2. Lavati il viso la sera",
+    "texte": "Sporco e sudore si accumulano tutto il giorno. Un detergente semplice prima di dormire tiene la pelle pulita."
+   },
+   "pl": {
+    "titre": "2. Myj twarz wieczorem",
+    "texte": "Brud i pot zbierają się cały dzień. Prosty żel przed snem utrzymuje skórę w czystości."
+   },
+   "tr": {
+    "titre": "2. Yüzünü akşam yıka",
+    "texte": "Kir ve ter gün boyu birikir. Yatmadan önce basit bir temizleyici cildini temiz tutar."
+   },
+   "hu": {
+    "titre": "2. Este mosd meg az arcod",
+    "texte": "A kosz és az izzadság egész nap gyűlik. Egy egyszerű arclemosó lefekvés előtt tisztán tartja a bőröd."
+   },
+   "el": {
+    "titre": "2. Πλύνε το πρόσωπο το βράδυ",
+    "texte": "Βρωμιά και ιδρώτας μαζεύονται όλη μέρα. Ένα απλό καθαριστικό πριν τον ύπνο κρατά το δέρμα καθαρό."
+   },
+   "ro": {
+    "titre": "2. Spală-te pe față seara",
+    "texte": "Murdăria și transpirația se adună toată ziua. Un gel simplu înainte de culcare îți ține pielea curată."
+   },
+   "sr": {
+    "titre": "2. Umij lice uveče",
+    "texte": "Prljavština i znoj se skupljaju ceo dan. Običan gel pre spavanja drži kožu čistom."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-capuche.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Start running",
+    "texte": "No gym, no equipment, just shoes. A running coach app like Atala gives you a plan for your level, even from zero."
+   },
+   "de": {
+    "titre": "3. Fang an zu laufen",
+    "texte": "Kein Gym, keine Geräte, nur Schuhe. Eine Lauf-App mit Coach wie Atala gibt dir einen Plan für dein Level, auch bei null."
+   },
+   "es-419": {
+    "titre": "3. Empieza a correr",
+    "texte": "Sin gym, sin equipo, solo tenis. Una app de running con entrenador como Atala te da un plan a tu nivel, aunque empieces de cero."
+   },
+   "it": {
+    "titre": "3. Inizia a correre",
+    "texte": "Niente palestra, niente attrezzi, solo scarpe. Un'app con coach per la corsa come Atala ti dà un piano al tuo livello, anche da zero."
+   },
+   "pl": {
+    "titre": "3. Zacznij biegać",
+    "texte": "Bez siłowni, bez sprzętu, tylko buty. Aplikacja z trenerem biegania, taka jak Atala, da ci plan na twój poziom, nawet od zera."
+   },
+   "tr": {
+    "titre": "3. Koşmaya başla",
+    "texte": "Spor salonu yok, ekipman yok, sadece ayakkabı. Atala gibi bir koşu koçu uygulaması sana sıfırdan bile olsa seviyene göre plan verir."
+   },
+   "hu": {
+    "titre": "3. Kezdj el futni",
+    "texte": "Nincs edzőterem, nincs eszköz, csak cipő. Egy futóedzős app, mint az Atala, a szintedhez ad tervet, akár nulláról is."
+   },
+   "el": {
+    "titre": "3. Ξεκίνα τρέξιμο",
+    "texte": "Χωρίς γυμναστήριο, χωρίς εξοπλισμό, μόνο παπούτσια. Μια εφαρμογή προπονητή τρεξίματος όπως το Atala σου δίνει πλάνο για το επίπεδό σου, ακόμα κι από το μηδέν."
+   },
+   "ro": {
+    "titre": "3. Începe să alergi",
+    "texte": "Fără sală, fără echipament, doar pantofi. O aplicație cu antrenor de alergare, ca Atala, îți dă un plan pe nivelul tău, chiar de la zero."
+   },
+   "sr": {
+    "titre": "3. Počni da trčiš",
+    "texte": "Bez teretane, bez opreme, samo patike. Aplikacija sa trenerom za trčanje, kao što je Atala, daje ti plan za tvoj nivo, čak i od nule."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/reveil.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "4. Sleep before midnight",
+    "texte": "Same bedtime every night. You wake up with more energy and a fresher face."
+   },
+   "de": {
+    "titre": "4. Schlaf vor Mitternacht",
+    "texte": "Jeden Abend zur gleichen Zeit ins Bett. Du wachst mit mehr Energie und frischerem Gesicht auf."
+   },
+   "es-419": {
+    "titre": "4. Duerme antes de medianoche",
+    "texte": "Misma hora de dormir cada noche. Despiertas con más energía y la cara más fresca."
+   },
+   "it": {
+    "titre": "4. Dormi prima di mezzanotte",
+    "texte": "Stessa ora per andare a letto ogni sera. Ti svegli con più energia e il viso più fresco."
+   },
+   "pl": {
+    "titre": "4. Śpij przed północą",
+    "texte": "Ta sama pora snu co wieczór. Budzisz się z większą energią i świeższą twarzą."
+   },
+   "tr": {
+    "titre": "4. Gece yarısından önce uyu",
+    "texte": "Her gece aynı saatte yat. Daha enerjik ve daha taze bir yüzle uyanırsın."
+   },
+   "hu": {
+    "titre": "4. Aludj éjfél előtt",
+    "texte": "Minden este ugyanakkor feküdj le. Több energiával és frissebb arccal ébredsz."
+   },
+   "el": {
+    "titre": "4. Κοιμήσου πριν τα μεσάνυχτα",
+    "texte": "Ίδια ώρα ύπνου κάθε βράδυ. Ξυπνάς με περισσότερη ενέργεια και πιο φρέσκο πρόσωπο."
+   },
+   "ro": {
+    "titre": "4. Dormi înainte de miezul nopții",
+    "texte": "Aceeași oră de culcare în fiecare seară. Te trezești cu mai multă energie și fața mai proaspătă."
+   },
+   "sr": {
+    "titre": "4. Spavaj pre ponoći",
+    "texte": "Isto vreme za spavanje svako veče. Budiš se sa više energije i svežijim licem."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/cintre.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Wear your real size",
+    "texte": "Clothes that fit beat expensive clothes. Check the shoulders and the length."
+   },
+   "de": {
+    "titre": "5. Trag deine echte Größe",
+    "texte": "Kleidung, die passt, schlägt teure Kleidung. Achte auf Schultern und Länge."
+   },
+   "es-419": {
+    "titre": "5. Usa tu talla real",
+    "texte": "La ropa que te queda le gana a la ropa cara. Fíjate en los hombros y el largo."
+   },
+   "it": {
+    "titre": "5. Porta la tua vera taglia",
+    "texte": "I vestiti della tua taglia battono quelli costosi. Guarda spalle e lunghezza."
+   },
+   "pl": {
+    "titre": "5. Noś swój prawdziwy rozmiar",
+    "texte": "Dopasowane ubrania wygrywają z drogimi. Sprawdź ramiona i długość."
+   },
+   "tr": {
+    "titre": "5. Gerçek bedenini giy",
+    "texte": "Üstüne oturan kıyafet pahalı kıyafeti yener. Omuzlara ve boya bak."
+   },
+   "hu": {
+    "titre": "5. Hordd a valódi méreted",
+    "texte": "A jól álló ruha legyőzi a drágát. Figyelj a vállra és a hosszra."
+   },
+   "el": {
+    "titre": "5. Φόρα το σωστό νούμερο",
+    "texte": "Τα ρούχα που σου κάθονται κερδίζουν τα ακριβά. Κοίτα τους ώμους και το μήκος."
+   },
+   "ro": {
+    "titre": "5. Poartă mărimea ta reală",
+    "texte": "Hainele care îți vin bine bat hainele scumpe. Uită-te la umeri și la lungime."
+   },
+   "sr": {
+    "titre": "5. Nosi svoju pravu veličinu",
+    "texte": "Odeća koja ti stoji pobeđuje skupu odeću. Gledaj ramena i dužinu."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-2.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

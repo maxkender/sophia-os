@@ -1,0 +1,343 @@
+{
+ "id": "bn-016",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@built.not.born61/photo/7708629737287044359",
+  "vues": 67500,
+  "publie_le": "2026-11-16",
+  "accroche": "6 RULES FOR MEN."
+ },
+ "titre": {
+  "en": "5 rules i wish i knew at 20",
+  "de": "5 regeln, die ich mit 20 gern gekannt hätte",
+  "es-419": "5 reglas que me hubiera gustado saber a los 20",
+  "it": "5 regole che avrei voluto sapere a 20 anni",
+  "pl": "5 zasad, które chciałbym znać, mając 20 lat",
+  "tr": "20 yaşında bilmek istediğim 5 kural",
+  "hu": "5 szabály, amit bárcsak 20 évesen tudtam volna",
+  "el": "5 κανόνες που θα ήθελα να ξέρω στα 20",
+  "ro": "5 reguli pe care aș fi vrut să le știu la 20",
+  "sr": "5 pravila koja bih voleo da sam znao sa 20"
+ },
+ "legendes": {
+  "en": "learn them before 25 #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "de": "lern sie vor 25 #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "es-419": "apréndelas antes de los 25 #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "it": "imparale prima dei 25 #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "pl": "naucz się ich przed 25 #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "tr": "25'ten önce öğren #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "hu": "tanuld meg 25 előtt #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "el": "μάθ' τους πριν τα 25 #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "ro": "învață-le înainte de 25 #selfimprovement #lifeadvice #tipsformen #running #discipline",
+  "sr": "nauči ih pre 25 #selfimprovement #lifeadvice #tipsformen #running #discipline"
+ },
+ "musique": {
+  "titre": "Keep On Winning",
+  "url": "https://www.tiktok.com/music/keep-on-winning-7686584884982269978"
+ },
+ "notes": "Full test (boîte vide). Famille « 6 RULES FOR MEN. » de @built.not.born61 (67.5 k vues, 2026-11-16), même gabarit. Slide Atala (conseil 3) : un homme qui court détouré (banque male_run : ed4a80d2, aucune marque lisible, pas celui de la veille) et le logo d'Atala. placement_atala : voix NEUTRE (hook de 8 mots), argument « il lâche : la semaine de sorties est déjà prévue ». En 10 langues, traduites à la main. Images : Seedream détourées par BiRefNet, en noir et blanc.",
+ "banque": {
+  "images/detoures/coureur-dos.png": "ed4a80d2-e48e-451b-b4ea-66cc7c130b6f"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/detoures/couverture-16.png",
+   "en": {
+    "titre": "5 RULES I WISH\nI KNEW AT 20."
+   },
+   "de": {
+    "titre": "5 REGELN,\nDIE ICH MIT 20\nGERN GEKANNT HÄTTE."
+   },
+   "es-419": {
+    "titre": "5 REGLAS QUE\nME HUBIERA GUSTADO\nSABER A LOS 20."
+   },
+   "it": {
+    "titre": "5 REGOLE\nCHE AVREI VOLUTO\nSAPERE A 20 ANNI."
+   },
+   "pl": {
+    "titre": "5 ZASAD,\nKTÓRE CHCIAŁBYM ZNAĆ,\nMAJĄC 20 LAT."
+   },
+   "tr": {
+    "titre": "20 YAŞINDA\nBİLMEK İSTEDİĞİM\n5 KURAL."
+   },
+   "hu": {
+    "titre": "5 SZABÁLY,\nAMIT BÁRCSAK\n20 ÉVESEN TUDTAM VOLNA."
+   },
+   "el": {
+    "titre": "5 ΚΑΝΟΝΕΣ\nΠΟΥ ΘΑ ΗΘΕΛΑ\nΝΑ ΞΕΡΩ ΣΤΑ 20."
+   },
+   "ro": {
+    "titre": "5 REGULI\nPE CARE AȘ FI VRUT\nSĂ LE ȘTIU LA 20."
+   },
+   "sr": {
+    "titre": "5 PRAVILA\nKOJA BIH VOLEO\nDA SAM ZNAO SA 20."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/echecs.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "1. Choose your circle",
+    "texte": "Spend time with people who push you. You become like the people around you."
+   },
+   "de": {
+    "titre": "1. Wähl dein Umfeld",
+    "texte": "Verbring Zeit mit Leuten, die dich pushen. Du wirst wie die Menschen um dich herum."
+   },
+   "es-419": {
+    "titre": "1. Elige tu círculo",
+    "texte": "Pasa tiempo con gente que te empuje. Te vuelves como la gente que te rodea."
+   },
+   "it": {
+    "titre": "1. Scegli chi frequenti",
+    "texte": "Passa il tempo con chi ti spinge. Diventi come le persone che hai intorno."
+   },
+   "pl": {
+    "titre": "1. Wybierz swoje otoczenie",
+    "texte": "Spędzaj czas z ludźmi, którzy cię motywują. Stajesz się jak ludzie wokół ciebie."
+   },
+   "tr": {
+    "titre": "1. Çevreni seç",
+    "texte": "Seni ileri iten insanlarla vakit geçir. Etrafındaki insanlara benzersin."
+   },
+   "hu": {
+    "titre": "1. Válaszd meg a köröd",
+    "texte": "Olyanokkal tölts időt, akik előre visznek. Olyan leszel, mint a körülötted lévők."
+   },
+   "el": {
+    "titre": "1. Διάλεξε τον κύκλο σου",
+    "texte": "Κάνε παρέα με ανθρώπους που σε σπρώχνουν μπροστά. Γίνεσαι σαν τους ανθρώπους γύρω σου."
+   },
+   "ro": {
+    "titre": "1. Alege-ți anturajul",
+    "texte": "Petrece timp cu oameni care te împing înainte. Devii ca oamenii din jurul tău."
+   },
+   "sr": {
+    "titre": "1. Biraj društvo",
+    "texte": "Provodi vreme sa ljudima koji te guraju napred. Postaješ kao ljudi oko tebe."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/portefeuille.png",
+   "mode": "objet",
+   "taille": 420,
+   "en": {
+    "titre": "2. Save first, spend after",
+    "texte": "Put money aside the day you get paid. Spend what's left, not the other way around."
+   },
+   "de": {
+    "titre": "2. Erst sparen, dann ausgeben",
+    "texte": "Leg am Zahltag Geld zur Seite. Gib aus, was übrig bleibt, nicht umgekehrt."
+   },
+   "es-419": {
+    "titre": "2. Primero ahorra, luego gasta",
+    "texte": "Separa dinero el día que cobras. Gasta lo que sobre, no al revés."
+   },
+   "it": {
+    "titre": "2. Prima risparmia, poi spendi",
+    "texte": "Metti via dei soldi il giorno dello stipendio. Spendi quello che resta, non il contrario."
+   },
+   "pl": {
+    "titre": "2. Najpierw oszczędzaj",
+    "texte": "Odkładaj pieniądze w dniu wypłaty. Wydawaj to, co zostanie, nie odwrotnie."
+   },
+   "tr": {
+    "titre": "2. Önce biriktir, sonra harca",
+    "texte": "Maaş günü parayı kenara koy. Kalanı harca, tersini değil."
+   },
+   "hu": {
+    "titre": "2. Előbb spórolj, aztán költs",
+    "texte": "Fizetésnapon tegyél félre pénzt. Azt költsd el, ami marad, ne fordítva."
+   },
+   "el": {
+    "titre": "2. Πρώτα αποταμίευση",
+    "texte": "Βάλε λεφτά στην άκρη τη μέρα που πληρώνεσαι. Ξόδεψε ό,τι μένει, όχι το αντίθετο."
+   },
+   "ro": {
+    "titre": "2. Întâi economisești",
+    "texte": "Pune bani deoparte în ziua de salariu. Cheltuie ce rămâne, nu invers."
+   },
+   "sr": {
+    "titre": "2. Prvo štedi, pa troši",
+    "texte": "Odvoji novac na dan plate. Troši ono što ostane, a ne obrnuto."
+   }
+  },
+  {
+   "type": "conseil",
+   "atala": true,
+   "image": "images/detoures/coureur-dos.png",
+   "mode": "objet",
+   "taille": 560,
+   "en": {
+    "titre": "3. Build a running habit",
+    "texte": "Habits beat motivation every time. Running coach apps like Atala have your week of runs planned, you only lace up."
+   },
+   "de": {
+    "titre": "3. Mach Laufen zur Gewohnheit",
+    "texte": "Gewohnheiten schlagen Motivation, jedes Mal. Lauf-Apps mit Coach wie Atala haben deine Laufwoche geplant, du ziehst nur die Schuhe an."
+   },
+   "es-419": {
+    "titre": "3. Haz de correr un hábito",
+    "texte": "Los hábitos le ganan a la motivación siempre. Las apps de running con entrenador como Atala tienen tu semana de carreras planeada, tú solo te amarras los tenis."
+   },
+   "it": {
+    "titre": "3. Fai della corsa un'abitudine",
+    "texte": "Le abitudini battono la motivazione, sempre. Le app con coach per la corsa come Atala hanno la tua settimana di corse già pianificata, tu allacci solo le scarpe."
+   },
+   "pl": {
+    "titre": "3. Zrób z biegania nawyk",
+    "texte": "Nawyki zawsze wygrywają z motywacją. Aplikacje z trenerem biegania, takie jak Atala, mają zaplanowany twój tydzień biegów, ty tylko wiążesz buty."
+   },
+   "tr": {
+    "titre": "3. Koşuyu alışkanlık yap",
+    "texte": "Alışkanlık her zaman motivasyonu yener. Atala gibi koşu koçu uygulamaları koşu haftanı planlar, sen sadece bağcıklarını bağlarsın."
+   },
+   "hu": {
+    "titre": "3. Legyen szokás a futás",
+    "texte": "A szokás mindig legyőzi a motivációt. Az olyan futóedzős appok, mint az Atala, megtervezik a futóheted, neked csak be kell kötnöd a cipőt."
+   },
+   "el": {
+    "titre": "3. Κάνε το τρέξιμο συνήθεια",
+    "texte": "Η συνήθεια νικάει πάντα το κίνητρο. Οι εφαρμογές προπονητή τρεξίματος όπως το Atala έχουν έτοιμη τη βδομάδα σου, εσύ απλώς δένεις τα κορδόνια."
+   },
+   "ro": {
+    "titre": "3. Fă din alergare un obicei",
+    "texte": "Obiceiul bate motivația, mereu. Aplicațiile cu antrenor de alergare, ca Atala, au săptămâna de alergări planificată, tu doar îți legi șireturile."
+   },
+   "sr": {
+    "titre": "3. Neka trčanje bude navika",
+    "texte": "Navika uvek pobeđuje motivaciju. Aplikacije sa trenerom za trčanje, kao što je Atala, imaju isplaniranu tvoju nedelju trčanja, ti samo vežeš patike."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/cle.png",
+   "mode": "objet",
+   "taille": 400,
+   "en": {
+    "titre": "4. Protect your time",
+    "texte": "Say no to what doesn't matter. Time is the one thing you can't earn back."
+   },
+   "de": {
+    "titre": "4. Schütz deine Zeit",
+    "texte": "Sag Nein zu dem, was nicht zählt. Zeit ist das Einzige, das du nicht zurückverdienen kannst."
+   },
+   "es-419": {
+    "titre": "4. Protege tu tiempo",
+    "texte": "Di que no a lo que no importa. El tiempo es lo único que no puedes recuperar."
+   },
+   "it": {
+    "titre": "4. Proteggi il tuo tempo",
+    "texte": "Di' no a ciò che non conta. Il tempo è l'unica cosa che non puoi riguadagnare."
+   },
+   "pl": {
+    "titre": "4. Chroń swój czas",
+    "texte": "Mów nie temu, co nieważne. Czas to jedyna rzecz, której nie odzyskasz."
+   },
+   "tr": {
+    "titre": "4. Zamanını koru",
+    "texte": "Önemsiz olana hayır de. Zaman geri kazanamayacağın tek şeydir."
+   },
+   "hu": {
+    "titre": "4. Védd az idődet",
+    "texte": "Mondj nemet arra, ami nem számít. Az idő az egyetlen, amit nem kereshetsz vissza."
+   },
+   "el": {
+    "titre": "4. Προστάτεψε τον χρόνο σου",
+    "texte": "Πες όχι σε ό,τι δεν μετράει. Ο χρόνος είναι το μόνο που δεν ξανακερδίζεις."
+   },
+   "ro": {
+    "titre": "4. Protejează-ți timpul",
+    "texte": "Spune nu la ce nu contează. Timpul e singurul lucru pe care nu-l mai câștigi înapoi."
+   },
+   "sr": {
+    "titre": "4. Čuvaj svoje vreme",
+    "texte": "Reci ne onome što nije bitno. Vreme je jedino što ne možeš da zaradiš nazad."
+   }
+  },
+  {
+   "type": "conseil",
+   "image": "images/detoures/haltere.png",
+   "mode": "objet",
+   "taille": 440,
+   "en": {
+    "titre": "5. Build your health early",
+    "texte": "Train, sleep and eat well now. Your body at 40 is built in your 20s."
+   },
+   "de": {
+    "titre": "5. Bau früh an deiner Gesundheit",
+    "texte": "Trainier, schlaf und iss jetzt gut. Dein Körper mit 40 entsteht in deinen 20ern."
+   },
+   "es-419": {
+    "titre": "5. Cuida tu salud desde ya",
+    "texte": "Entrena, duerme y come bien ahora. Tu cuerpo a los 40 se construye en tus 20."
+   },
+   "it": {
+    "titre": "5. Costruisci la salute presto",
+    "texte": "Allenati, dormi e mangia bene adesso. Il tuo corpo a 40 anni si costruisce a 20."
+   },
+   "pl": {
+    "titre": "5. Dbaj o zdrowie wcześnie",
+    "texte": "Trenuj, śpij i jedz dobrze już teraz. Twoje ciało po 40 buduje się po 20."
+   },
+   "tr": {
+    "titre": "5. Sağlığını erken kur",
+    "texte": "Şimdi antrenman yap, uyu ve iyi beslen. 40 yaşındaki vücudun 20'lerinde kurulur."
+   },
+   "hu": {
+    "titre": "5. Építsd korán az egészséged",
+    "texte": "Eddz, aludj és egyél jól most. A 40 éves tested a húszas éveidben épül."
+   },
+   "el": {
+    "titre": "5. Χτίσε νωρίς την υγεία σου",
+    "texte": "Προπονήσου, κοιμήσου και φάε καλά τώρα. Το σώμα σου στα 40 χτίζεται στα 20."
+   },
+   "ro": {
+    "titre": "5. Construiește-ți sănătatea",
+    "texte": "Antrenează-te, dormi și mănâncă bine acum. Corpul tău la 40 se construiește la 20."
+   },
+   "sr": {
+    "titre": "5. Gradi zdravlje rano",
+    "texte": "Treniraj, spavaj i jedi dobro sada. Tvoje telo sa 40 gradi se u tvojim 20-im."
+   }
+  },
+  {
+   "type": "fin",
+   "image": "images/detoures/fin-4.png",
+   "en": {
+    "texte": "Follow for more"
+   },
+   "de": {
+    "texte": "Folge für mehr"
+   },
+   "es-419": {
+    "texte": "Sígueme para más"
+   },
+   "it": {
+    "texte": "Seguimi per altri consigli"
+   },
+   "pl": {
+    "texte": "Obserwuj po więcej"
+   },
+   "tr": {
+    "texte": "Daha fazlası için takip et"
+   },
+   "hu": {
+    "texte": "Kövess a többiért"
+   },
+   "el": {
+    "texte": "Ακολούθησε για άλλα"
+   },
+   "ro": {
+    "texte": "Urmărește pentru mai mult"
+   },
+   "sr": {
+    "texte": "Zaprati za još"
+   }
+  }
+ ]
+}

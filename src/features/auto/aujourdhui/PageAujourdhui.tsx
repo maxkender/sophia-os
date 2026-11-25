@@ -18,6 +18,7 @@ const LIBELLE_CATEGORIE: Record<string, string> = {
   paie: "Paie", paiement: "Paiement", bonus: "Bonus", doublement: "Doublement", arret: "Arrêt", contenu: "Contenu",
   email: "Emails", technique: "Technique", ticket: "Tickets", posting: "Posts", lien_post: "Liens de posts", tiktok: "TikTok",
   warmup: "Warm-up", ruul: "Ruul", login: "Connexion", bug: "Bug", parrainage: "Parrainage", statut: "Statut", autre: "Autres",
+  recrutement: "Recrutement",
 };
 
 const TEXTE_TON: Record<Ton, string> = { rouge: "text-red-600 dark:text-red-400", orange: "text-amber-700 dark:text-amber-400", gris: "text-muted-foreground" };

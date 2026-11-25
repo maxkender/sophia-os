@@ -10,12 +10,22 @@
  "titre": {
   "en": "5 languages that take years to sound fluent in",
   "pt-BR": "5 idiomas que levam anos pra soar fluente",
-  "sv": "5 språk som tar flera år att låta flytande på"
+  "sv": "5 språk som tar flera år att låta flytande på",
+  "de": "5 sprachen, für die du jahre brauchst, um flüssig zu klingen",
+  "hu": "5 nyelv, amin évekig tart folyékonyan megszólalni",
+  "it": "5 lingue che richiedono anni per sembrare fluenti",
+  "nl": "5 talen waarin je pas na jaren vloeiend klinkt",
+  "tr": "akıcı konuşmak yıllar süren 5 dil"
  },
  "legendes": {
   "en": "#niche #languagelearning #polyglot #lockedin",
   "pt-BR": "#idiomas #aprender #poliglota #nicho",
-  "sv": "#språkinlärning #språk #polyglott #lärande"
+  "sv": "#språkinlärning #språk #polyglott #lärande",
+  "de": "#sprachenlernen #sprachen #polyglott #lernen",
+  "hu": "#nyelvtanulás #nyelvek #poliglott #tanulás",
+  "it": "#lingue #imparare #poliglotta #nicchia",
+  "nl": "#talenleren #talen #polyglot #leren",
+  "tr": "#dilöğrenmek #yabancıdil #poliglot #niş"
  },
  "musique": {
   "titre": "Room Full of Strangers - Danny Bluestone",
@@ -39,6 +49,31 @@
     "titre": "5 språk som tar flera år att låta flytande på",
     "image": "images/cerveau-05.jpg",
     "legende": "(tålamod krävs)"
+   },
+   "de": {
+    "titre": "5 sprachen, für die du jahre brauchst, um flüssig zu klingen",
+    "image": "images/cerveau-04.jpg",
+    "legende": "(geduld nötig)"
+   },
+   "hu": {
+    "titre": "5 nyelv, amin évekig tart folyékonyan megszólalni",
+    "image": "images/cerveau-06.jpg",
+    "legende": "(türelem kell)"
+   },
+   "it": {
+    "titre": "5 lingue che richiedono anni per sembrare fluenti",
+    "image": "images/cerveau-08.jpg",
+    "legende": "(serve pazienza)"
+   },
+   "nl": {
+    "titre": "5 talen waarin je pas na jaren vloeiend klinkt",
+    "image": "images/cerveau-10.jpg",
+    "legende": "(geduld vereist)"
+   },
+   "tr": {
+    "titre": "akıcı konuşmak yıllar süren 5 dil",
+    "image": "images/cerveau-12.jpg",
+    "legende": "(sabır gerekir)"
    }
   },
   {
@@ -60,6 +95,36 @@
     "difficulte": "31/50",
     "texte": "14 kasus och tre längder på vokaler och konsonanter: kort, lång och extra lång. skillnaden kan ändra betydelsen",
     "image": "images/tallinn.jpg"
+   },
+   "de": {
+    "titre": "Estnisch",
+    "difficulte": "31/50",
+    "texte": "14 fälle und drei längen bei vokalen und konsonanten: kurz, lang und überlang. der unterschied kann die bedeutung ändern",
+    "image": "images/tallinn.jpg"
+   },
+   "hu": {
+    "titre": "Észt",
+    "difficulte": "31/50",
+    "texte": "14 eset és háromféle hosszúságú magán- és mássalhangzó: rövid, hosszú és extra hosszú. a különbség megváltoztathatja a jelentést. a magyar távoli rokona",
+    "image": "images/tallinn.jpg"
+   },
+   "it": {
+    "titre": "Estone",
+    "difficulte": "31/50",
+    "texte": "14 casi e tre lunghezze di vocali e consonanti: breve, lunga e lunghissima. la differenza può cambiare il significato",
+    "image": "images/tallinn.jpg"
+   },
+   "nl": {
+    "titre": "Ests",
+    "difficulte": "31/50",
+    "texte": "14 naamvallen en drie lengtes van klinkers en medeklinkers: kort, lang en extra lang. het verschil kan de betekenis veranderen",
+    "image": "images/tallinn.jpg"
+   },
+   "tr": {
+    "titre": "Estonca",
+    "difficulte": "31/50",
+    "texte": "14 hâl ve ünlülerle ünsüzlerde üç uzunluk: kısa, uzun ve çok uzun. fark anlamı değiştirebilir",
+    "image": "images/tallinn.jpg"
    }
   },
   {
@@ -80,6 +145,36 @@
     "titre": "Baskiska",
     "difficulte": "36/50",
     "texte": "ett isolatspråk: det är inte släkt med något annat känt språk. det talades i pyrenéerna innan latinet kom",
+    "image": "images/pays-basque.jpg"
+   },
+   "de": {
+    "titre": "Baskisch",
+    "difficulte": "36/50",
+    "texte": "eine isolierte sprache: mit keiner anderen bekannten sprache verwandt. sie wurde in den pyrenäen gesprochen, bevor das latein kam",
+    "image": "images/pays-basque.jpg"
+   },
+   "hu": {
+    "titre": "Baszk",
+    "difficulte": "36/50",
+    "texte": "izolált nyelv: semmilyen ismert nyelvvel nem rokon. már a pireneusokban beszélték, mielőtt a latin megérkezett",
+    "image": "images/pays-basque.jpg"
+   },
+   "it": {
+    "titre": "Basco",
+    "difficulte": "36/50",
+    "texte": "una lingua isolata: non è imparentata con nessun'altra lingua conosciuta. si parlava nei pirenei prima che arrivasse il latino",
+    "image": "images/pays-basque.jpg"
+   },
+   "nl": {
+    "titre": "Baskisch",
+    "difficulte": "36/50",
+    "texte": "een isolaat: het is niet verwant aan een andere bekende taal. het werd in de pyreneeën gesproken voordat het latijn kwam",
+    "image": "images/pays-basque.jpg"
+   },
+   "tr": {
+    "titre": "Baskça",
+    "difficulte": "36/50",
+    "texte": "yalıtılmış bir dil: bilinen hiçbir dille akraba değil. latince gelmeden önce pireneler'de konuşuluyordu",
     "image": "images/pays-basque.jpg"
    }
   },
@@ -103,6 +198,36 @@
     "difficulte": "4/50",
     "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. flyt i allt annat, en dag i taget",
     "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. fließend in allem anderen, einen tag nach dem anderen",
+    "telephone": "accueil"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "difficulte": "4/50",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. folyékonyság minden másban, napról napra",
+    "telephone": "accueil"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. fluente nel resto, un giorno alla volta",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "difficulte": "4/50",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. vloeiend in al het andere, dag voor dag",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "difficulte": "4/50",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. geri kalan her şeyde akıcılık, gün gün",
+    "telephone": "accueil"
    }
   },
   {
@@ -123,6 +248,36 @@
     "titre": "Georgiska",
     "difficulte": "40/50",
     "texte": "eget alfabet och enorma konsonantkluster: \"gvprtskvni\" betyder \"du skalar oss\". åtta konsonanter i rad",
+    "image": "images/georgie.jpg"
+   },
+   "de": {
+    "titre": "Georgisch",
+    "difficulte": "40/50",
+    "texte": "ein eigenes alphabet und riesige konsonantenhaufen: \"gvprtskvni\" heißt \"du schälst uns\". acht konsonanten hintereinander",
+    "image": "images/georgie.jpg"
+   },
+   "hu": {
+    "titre": "Grúz",
+    "difficulte": "40/50",
+    "texte": "saját ábécé és óriási mássalhangzó-torlódások: a \"gvprtskvni\" azt jelenti: \"meghámozol minket\". nyolc mássalhangzó egymás után",
+    "image": "images/georgie.jpg"
+   },
+   "it": {
+    "titre": "Georgiano",
+    "difficulte": "40/50",
+    "texte": "un alfabeto tutto suo ed enormi gruppi di consonanti: \"gvprtskvni\" significa \"ci sbucci\". otto consonanti di fila",
+    "image": "images/georgie.jpg"
+   },
+   "nl": {
+    "titre": "Georgisch",
+    "difficulte": "40/50",
+    "texte": "een eigen alfabet en enorme medeklinkerclusters: \"gvprtskvni\" betekent \"jij pelt ons\". acht medeklinkers achter elkaar",
+    "image": "images/georgie.jpg"
+   },
+   "tr": {
+    "titre": "Gürcüce",
+    "difficulte": "40/50",
+    "texte": "kendine ait bir alfabe ve dev ünsüz kümeleri: \"gvprtskvni\" \"bizi soyuyorsun\" demek. art arda sekiz ünsüz",
     "image": "images/georgie.jpg"
    }
   },
@@ -145,6 +300,36 @@
     "difficulte": "43/50",
     "texte": "fem toner och 44 konsonantbokstäver, och orden skrivs utan mellanslag",
     "image": "images/temple-thai.jpg"
+   },
+   "de": {
+    "titre": "Thailändisch",
+    "difficulte": "43/50",
+    "texte": "fünf töne und 44 konsonantenbuchstaben, und die wörter werden ohne leerzeichen dazwischen geschrieben",
+    "image": "images/temple-thai.jpg"
+   },
+   "hu": {
+    "titre": "Thai",
+    "difficulte": "43/50",
+    "texte": "öt hang és 44 mássalhangzó-betű, a szavakat pedig szóköz nélkül írják egymás után",
+    "image": "images/temple-thai.jpg"
+   },
+   "it": {
+    "titre": "Thailandese",
+    "difficulte": "43/50",
+    "texte": "cinque toni e 44 lettere consonanti, e le parole si scrivono senza spazi tra loro",
+    "image": "images/temple-thai.jpg"
+   },
+   "nl": {
+    "titre": "Thai",
+    "difficulte": "43/50",
+    "texte": "vijf tonen en 44 medeklinkerletters, en woorden worden zonder spaties ertussen geschreven",
+    "image": "images/temple-thai.jpg"
+   },
+   "tr": {
+    "titre": "Tayca",
+    "difficulte": "43/50",
+    "texte": "beş ton ve 44 ünsüz harf, kelimeler de aralarında boşluk olmadan yazılıyor",
+    "image": "images/temple-thai.jpg"
    }
   },
   {
@@ -165,6 +350,36 @@
     "titre": "Mongoliska",
     "difficulte": "45/50",
     "texte": "skrivs i dag med kyrilliska, men den traditionella skriften går lodrätt, uppifrån och ner, och håller på att återinföras",
+    "image": "images/steppe.jpg"
+   },
+   "de": {
+    "titre": "Mongolisch",
+    "difficulte": "45/50",
+    "texte": "heute in kyrillisch geschrieben, aber die traditionelle schrift läuft senkrecht von oben nach unten und wird gerade wieder eingeführt",
+    "image": "images/steppe.jpg"
+   },
+   "hu": {
+    "titre": "Mongol",
+    "difficulte": "45/50",
+    "texte": "ma cirill betűkkel írják, de a hagyományos írás függőlegesen, fentről lefelé fut, és most hozzák vissza",
+    "image": "images/steppe.jpg"
+   },
+   "it": {
+    "titre": "Mongolo",
+    "difficulte": "45/50",
+    "texte": "oggi si scrive in cirillico, ma la scrittura tradizionale va in verticale, dall'alto in basso, e la stanno reintroducendo",
+    "image": "images/steppe.jpg"
+   },
+   "nl": {
+    "titre": "Mongools",
+    "difficulte": "45/50",
+    "texte": "tegenwoordig in het cyrillisch geschreven, maar het traditionele schrift loopt verticaal, van boven naar beneden, en komt terug",
+    "image": "images/steppe.jpg"
+   },
+   "tr": {
+    "titre": "Moğolca",
+    "difficulte": "45/50",
+    "texte": "bugün kiril alfabesiyle yazılıyor, ama geleneksel yazı yukarıdan aşağıya dikey akıyor ve geri getiriliyor",
     "image": "images/steppe.jpg"
    }
   }

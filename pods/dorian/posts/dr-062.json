@@ -1,0 +1,136 @@
+{
+ "id": "dr-062",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7693311352689118485",
+  "vues": 293200,
+  "publie_le": "2026-10-05",
+  "accroche": "5 niche habits of superintelligent people"
+ },
+ "titre": {
+  "en": "5 niche habits of people who learn insanely fast",
+  "pt-BR": "5 hábitos nichados de quem aprende absurdamente rápido",
+  "sv": "5 nischade vanor hos folk som lär sig sjukt snabbt"
+ },
+ "legendes": {
+  "en": "#niche #studytok #learning #lockedin",
+  "pt-BR": "#estudos #aprender #studytok #autodesenvolvimento",
+  "sv": "#plugg #lärande #studytok #självutveckling"
+ },
+ "musique": {
+  "titre": "original sound - KRIS",
+  "url": "https://www.tiktok.com/music/original-sound-7697351034850560771"
+ },
+ "notes": "Original sur sa liste « 5 niche habits of superintelligent people » (293 k), sujet apprentissage. Faits : Rohrer et Taylor 2007 (pratique mélangée, 63 % contre 20 %) ; effet protégé (Nestojko et al. 2014) ; Bönstrup et al. 2019 (repos éveillé) ; Mueller et Oppenheimer 2014. Images de la banque. En, pt-BR, sv ; une couverture par langue. Sophia en item 3 sur 5 (cta A), écran « cours » traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche habits of people who learn insanely fast",
+    "image": "images/cerveau-42.jpg",
+    "legende": "(science backed)"
+   },
+   "pt-BR": {
+    "titre": "5 hábitos nichados de quem aprende absurdamente rápido",
+    "image": "images/cerveau-43.jpg",
+    "legende": "(com base na ciência)"
+   },
+   "sv": {
+    "titre": "5 nischade vanor hos folk som lär sig sjukt snabbt",
+    "image": "images/cerveau-44.jpg",
+    "legende": "(vetenskapligt belagt)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "They mix subjects",
+    "texte": "instead of 20 problems of the same kind, they mix types. a 2007 study found mixed practice nearly tripled test scores a week later",
+    "image": "images/objets/fiches.png"
+   },
+   "pt-BR": {
+    "titre": "Misturam os assuntos",
+    "texte": "em vez de 20 exercícios do mesmo tipo, misturam tipos. um estudo de 2007 mostrou que treinar misturado quase triplicou a nota numa prova uma semana depois",
+    "image": "images/objets/fiches.png"
+   },
+   "sv": {
+    "titre": "De blandar ämnen",
+    "texte": "i stället för 20 uppgifter av samma sort blandar de typer. en studie från 2007 visade att blandad träning nästan tredubblade resultatet på ett prov en vecka senare",
+    "image": "images/objets/fiches.png"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "They teach it",
+    "texte": "students who learn something in order to teach it remember it better. psychologists call it the protégé effect",
+    "image": "images/homere-dictant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Ensinam pra alguém",
+    "texte": "alunos que estudam algo pra ensinar lembram melhor. os psicólogos chamam isso de efeito protégé",
+    "image": "images/homere-dictant.jpg"
+   },
+   "sv": {
+    "titre": "De lär ut det",
+    "texte": "elever som lär sig något för att lära ut det minns det bättre. psykologer kallar det protégé-effekten",
+    "image": "images/homere-dictant.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. short, every day: that's how fast learners do it",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. curto e todo dia: é assim que quem aprende rápido faz",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. kort, varje dag: så gör de som lär sig snabbt",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "They rest in silence",
+    "texte": "a 2019 study found the brain replays a new skill during short breaks. 10 seconds of doing nothing between tries helps more than you'd think",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "pt-BR": {
+    "titre": "Descansam em silêncio",
+    "texte": "um estudo de 2019 mostrou que o cérebro repassa uma habilidade nova durante pausas curtas. 10 segundos sem fazer nada entre tentativas ajudam mais do que parece",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "sv": {
+    "titre": "De vilar i tystnad",
+    "texte": "en studie från 2019 visade att hjärnan spelar upp en ny färdighet under korta pauser. 10 sekunder utan att göra något mellan försöken hjälper mer än man tror",
+    "image": "images/lectrice-corot.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "They take notes by hand",
+    "texte": "in a 2014 study, students who took notes on laptops copied word for word. those who wrote by hand had to summarize, and understood more",
+    "image": "images/objets/plume.png"
+   },
+   "pt-BR": {
+    "titre": "Anotam à mão",
+    "texte": "num estudo de 2014, quem anotava no notebook copiava palavra por palavra. quem escrevia à mão precisava resumir, e entendia mais",
+    "image": "images/objets/plume.png"
+   },
+   "sv": {
+    "titre": "De antecknar för hand",
+    "texte": "i en studie från 2014 skrev studenter med laptop av ord för ord. de som skrev för hand var tvungna att sammanfatta, och förstod mer",
+    "image": "images/objets/plume.png"
+   }
+  }
+ ]
+}

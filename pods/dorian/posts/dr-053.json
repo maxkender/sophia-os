@@ -4,12 +4,22 @@
  "titre": {
   "en": "5 philosophy ideas that genuinely rewire your brain",
   "it": "5 idee filosofiche che ti ricablano il cervello",
-  "tr": "beynini yeniden kuran 5 felsefi fikir"
+  "tr": "beynini yeniden kuran 5 felsefi fikir",
+  "de": "5 philosophische ideen, die dein gehirn neu verdrahten",
+  "hu": "5 filozófiai gondolat, ami átírja az agyad",
+  "nl": "5 filosofische ideeën die je brein herbedraden",
+  "pt-BR": "5 ideias da filosofia que reprogramam seu cérebro",
+  "sv": "5 filosofiska idéer som programmerar om din hjärna"
  },
  "legendes": {
   "en": "#philosophy #niche #smarttok #lockedin",
   "it": "#filosofia #pensiero #cultura #imparare",
-  "tr": "#felsefe #düşünce #bilgi #öğrenmek"
+  "tr": "#felsefe #düşünce #bilgi #öğrenmek",
+  "de": "#philosophie #denken #wissen #lernen",
+  "hu": "#filozófia #gondolkodás #tudás #tanulás",
+  "nl": "#filosofie #denken #kennis #leren",
+  "pt-BR": "#filosofia #pensamento #conhecimento #aprender",
+  "sv": "#filosofi #tänkande #kunskap #lärande"
  },
  "musique": {
   "titre": "оригинальный звук - butazer",
@@ -33,6 +43,31 @@
     "titre": "beynini yeniden kuran 5 felsefi fikir",
     "image": "images/cerveau-35.jpg",
     "legende": "(ikinci bölüm)"
+   },
+   "de": {
+    "titre": "5 philosophische ideen, die dein gehirn neu verdrahten",
+    "image": "images/cerveau-24.jpg",
+    "legende": "(teil zwei)"
+   },
+   "hu": {
+    "titre": "5 filozófiai gondolat, ami átírja az agyad",
+    "image": "images/cerveau-26.jpg",
+    "legende": "(második rész)"
+   },
+   "nl": {
+    "titre": "5 filosofische ideeën die je brein herbedraden",
+    "image": "images/cerveau-28.jpg",
+    "legende": "(deel twee)"
+   },
+   "pt-BR": {
+    "titre": "5 ideias da filosofia que reprogramam seu cérebro",
+    "image": "images/cerveau-30.jpg",
+    "legende": "(parte dois)"
+   },
+   "sv": {
+    "titre": "5 filosofiska idéer som programmerar om din hjärna",
+    "image": "images/cerveau-32.jpg",
+    "legende": "(del två)"
    }
   },
   {
@@ -51,6 +86,31 @@
     "titre": "Platon'un mağarası",
     "texte": "duvardaki gölgelerden başka bir şey görmemiş tutsaklar gölgeleri gerçek sanır. ya sen de gölgelere bakıyorsan?",
     "image": "images/caverne.jpg"
+   },
+   "de": {
+    "titre": "Platons Höhle",
+    "texte": "gefangene, die immer nur schatten an einer wand gesehen haben, halten die schatten für die wirklichkeit. was, wenn du auch auf schatten schaust?",
+    "image": "images/caverne.jpg"
+   },
+   "hu": {
+    "titre": "Platón barlangja",
+    "texte": "a rabok, akik csak árnyakat láttak a falon, azt hiszik, az árnyak a valóság. mi van, ha te is árnyakat nézel?",
+    "image": "images/caverne.jpg"
+   },
+   "nl": {
+    "titre": "De grot van Plato",
+    "texte": "gevangenen die alleen schaduwen op een muur hebben gezien, denken dat de schaduwen de werkelijkheid zijn. wat als jij ook naar schaduwen kijkt?",
+    "image": "images/caverne.jpg"
+   },
+   "pt-BR": {
+    "titre": "A caverna de Platão",
+    "texte": "prisioneiros que só viram sombras numa parede acham que as sombras são a realidade. e se você também estiver olhando pra sombras?",
+    "image": "images/caverne.jpg"
+   },
+   "sv": {
+    "titre": "Platons grotta",
+    "texte": "fångar som bara har sett skuggor på en vägg tror att skuggorna är verkligheten. tänk om du också tittar på skuggor?",
+    "image": "images/caverne.jpg"
    }
   },
   {
@@ -68,6 +128,31 @@
    "tr": {
     "titre": "Tümevarım sorunu",
     "texte": "david hume: güneşin her gün doğduğunu görmek yarın da doğacağını kanıtlamaz. avrupalılar bütün kuğuların beyaz olduğundan emindi, ta ki avustralya'da siyah kuğular bulunana dek",
+    "image": "images/cygne-noir.jpg"
+   },
+   "de": {
+    "titre": "Das Induktionsproblem",
+    "texte": "david hume: dass die sonne jeden tag aufgeht, beweist nicht, dass sie morgen aufgeht. europäer waren sicher, alle schwäne seien weiß, bis man in australien schwarze fand",
+    "image": "images/cygne-noir.jpg"
+   },
+   "hu": {
+    "titre": "Az indukció problémája",
+    "texte": "david hume: abból, hogy a nap minden nap felkel, nem következik, hogy holnap is fel fog. az európaiak biztosak voltak benne, hogy minden hattyú fehér, amíg ausztráliában fekete hattyúkat nem találtak",
+    "image": "images/cygne-noir.jpg"
+   },
+   "nl": {
+    "titre": "Het inductieprobleem",
+    "texte": "david hume: dat de zon elke dag opkomt, bewijst niet dat ze morgen opkomt. europeanen waren zeker dat alle zwanen wit waren, tot er in australië zwarte werden gevonden",
+    "image": "images/cygne-noir.jpg"
+   },
+   "pt-BR": {
+    "titre": "O problema da indução",
+    "texte": "david hume: ver o sol nascer todo dia não prova que ele vai nascer amanhã. os europeus tinham certeza de que todo cisne era branco, até acharem cisnes negros na austrália",
+    "image": "images/cygne-noir.jpg"
+   },
+   "sv": {
+    "titre": "Induktionsproblemet",
+    "texte": "david hume: att solen gått upp varje dag bevisar inte att den går upp i morgon. européer var säkra på att alla svanar var vita, tills man hittade svarta svanar i australien",
     "image": "images/cygne-noir.jpg"
    }
   },
@@ -88,6 +173,31 @@
     "titre": "Sophia'da günde bir ders",
     "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. 800 sayfalık kitaplar olmadan felsefe",
     "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. philosophie ohne 800-seiten-bücher",
+    "telephone": "cours"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "texte": "10 perc, egy igazi professzor által írt lecke, aztán egy kvíz, hogy megmaradjon. filozófia 800 oldalas könyvek nélkül",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. filosofie zonder boeken van 800 pagina's",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. filosofia sem os livros de 800 páginas",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. filosofi utan 800-sidorsböckerna",
+    "telephone": "cours"
    }
   },
   {
@@ -106,6 +216,31 @@
     "titre": "Varoluş özden önce gelir",
     "texte": "jean-paul sartre: doğduğunda kimse sana bir amaç vermez. önce var olursun, sonra seçimlerinle kim olduğuna dönüşürsün",
     "image": "images/philosophe-manet.jpg"
+   },
+   "de": {
+    "titre": "Die Existenz geht der Essenz voraus",
+    "texte": "jean-paul sartre: niemand gibt dir bei der geburt einen sinn. erst existierst du, dann wirst du durch deine entscheidungen, wer du bist",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "hu": {
+    "titre": "A létezés megelőzi a lényeget",
+    "texte": "jean-paul sartre: születéskor senki sem ad neked célt. előbb létezel, aztán a döntéseiddel leszel azzá, aki vagy",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "nl": {
+    "titre": "Het bestaan gaat vooraf aan de essentie",
+    "texte": "jean-paul sartre: niemand geeft je bij je geboorte een doel. eerst besta je, daarna word je wie je bent door wat je kiest",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "pt-BR": {
+    "titre": "A existência precede a essência",
+    "texte": "jean-paul sartre: ninguém te entrega um propósito ao nascer. primeiro você existe, depois vira quem é pelas suas escolhas",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "sv": {
+    "titre": "Existensen föregår essensen",
+    "texte": "jean-paul sartre: ingen ger dig ett syfte när du föds. först finns du, sen blir du den du är genom det du väljer",
+    "image": "images/philosophe-manet.jpg"
    }
   },
   {
@@ -123,6 +258,31 @@
    "tr": {
     "titre": "Mutlu Sisifos",
     "texte": "sisifos kayasını sonsuza dek tepeye iter. albert camus denemesini şöyle bitirir: \"sisifos'u mutlu hayal etmek gerekir\"",
+    "image": "images/sisyphe.jpg"
+   },
+   "de": {
+    "titre": "Der glückliche Sisyphos",
+    "texte": "sisyphos rollt seinen stein für immer den berg hinauf. albert camus beendet seinen essay mit: \"wir müssen uns sisyphos als glücklichen menschen vorstellen\"",
+    "image": "images/sisyphe.jpg"
+   },
+   "hu": {
+    "titre": "A boldog Sziszüphosz",
+    "texte": "sziszüphosz örökké görgeti fel a sziklát a hegyre. albert camus így zárja az esszéjét: \"boldognak kell elképzelnünk sziszüphoszt\"",
+    "image": "images/sisyphe.jpg"
+   },
+   "nl": {
+    "titre": "De gelukkige Sisyphus",
+    "texte": "sisyphus duwt zijn rotsblok eeuwig de berg op. albert camus eindigt zijn essay met: \"we moeten ons sisyphus gelukkig voorstellen\"",
+    "image": "images/sisyphe.jpg"
+   },
+   "pt-BR": {
+    "titre": "Sísifo feliz",
+    "texte": "sísifo empurra a pedra morro acima pra sempre. albert camus termina o ensaio com: \"é preciso imaginar sísifo feliz\"",
+    "image": "images/sisyphe.jpg"
+   },
+   "sv": {
+    "titre": "Den lycklige Sisyfos",
+    "texte": "sisyfos rullar sin sten uppför berget för evigt. albert camus avslutar sin essä med: \"man måste föreställa sig sisyfos lycklig\"",
     "image": "images/sisyphe.jpg"
    }
   }

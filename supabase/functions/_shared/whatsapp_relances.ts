@@ -196,8 +196,19 @@ export function relancesDues(f: FaitsRelance, maintenant = new Date()): TypeRela
     dues.add("no_posts_week");
   }
 
+  // 25/11 (Max, « une seule voix ») : un posteur créé par Join (statut_site « join_signed ») reçoit les rappels des
+  // étapes de la checklist de Join par Join (warm-up, Ruul, premier post, mêmes motifs et mêmes clés) : l'OS ne les
+  // envoie plus. no_posts_week reste à l'OS une fois le premier post publié (la régularité n'est plus la checklist).
+  if (f.statut_site === "join_signed") {
+    for (const t of TYPES_VOIX_JOIN_WA) dues.delete(t);
+    if (!f.premier_post_at) dues.delete("no_posts_week");
+  }
+
   return ORDRE_RELANCES.filter((x) => dues.has(x));
 }
+
+/** 25/11 : les relances WhatsApp dont Join est la voix pour ses posteurs (statut_site « join_signed »). */
+export const TYPES_VOIX_JOIN_WA: readonly TypeRelance[] = ["warmup_start", "ruul_payment_setup", "start_posting_today"];
 
 /** Le modèle à envoyer (v2, ou son repli s'il n'est pas APPROVED) et ses variables ; null : aucun modèle utilisable. */
 export function modeleRelance(

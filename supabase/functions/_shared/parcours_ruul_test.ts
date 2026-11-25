@@ -232,3 +232,24 @@ Deno.test("21/11 : les frais Ruul payés par Vik Studios et le délai de 1 à 2 
   assertStringIncludes(blocRuul({ ruul_email: "a@b.c", ruul_lien: "https://x" }, null), FRAIS_RUUL);
   assertStringIncludes(FRAIS_RUUL, "1 to 2 business days");
 });
+
+Deno.test("25/11 une seule voix : un posteur dont Join fait les rappels n'a plus les étapes de la checklist ici", () => {
+  const voix = { bienvenue: false, v2: true, voixJoin: true };
+  // Invitation Ruul (A) puis TikTok : sautées ; il ne reste rien ce jour-là.
+  const invite = base({ ruul_compte: "invited", premiere_connexion_at: "2026-11-11T09:00:00Z" });
+  assertEquals(prochainEnvoi(invite, jeudi, voix), null);
+  // Relance Ruul : sautée, donc jamais de carte non plus.
+  const ruul = { premiere_connexion_at: "2026-11-01T10:00:00Z", tiktok_existe: true, warmup_started_at: "2026-11-01T11:00:00Z", abonnements: 5, slack_user_id: "U", ruul_email_a_at: "2026-11-09T10:00:00Z" };
+  assertEquals(prochainEnvoi(base(ruul), jeudi, { bienvenue: false })?.cle, "ruul_1");
+  assertEquals(prochainEnvoi(base(ruul), jeudi, voix), null);
+  // « you start tomorrow » : sauté ; le report du lundi (changement de date) reste à l'OS.
+  const pret = { premiere_connexion_at: "2026-11-12T10:00:00Z", tiktok_existe: true, warmup_started_at: "2026-11-12T11:00:00Z", abonnements: 5, slack_user_id: "U", ruul_statut: "pret" };
+  assertEquals(prochainEnvoi(base(pret), new Date("2026-11-15T19:30:00Z"), voix), null);
+  assertEquals(prochainEnvoi(base({ premiere_connexion_at: "2026-11-12T10:00:00Z" }), new Date("2026-11-16T05:00:00Z"), voix)?.type, "report");
+  // Ce qui n'est pas la checklist reste : jamais connecté, bienvenue (si Join ne l'a pas notée), désactivation.
+  assertEquals(prochainEnvoi(base(), jeudi, voix)?.type, "jamais_connecte");
+  assertEquals(prochainEnvoi(base(), jeudi, { ...voix, bienvenue: true, bienvenueDepuis: "2026-11-10T00:00:00Z" })?.type, "bienvenue");
+  assertEquals(prochainEnvoi(base({ cohorte_lundi: null, cree_at: "2026-10-18T08:00:00Z" }), jeudi, voix)?.type, "desactivation");
+  // Sans voixJoin : rien ne change.
+  assertEquals(prochainEnvoi(invite, jeudi, { bienvenue: false, v2: true })?.type, "invite_a");
+});

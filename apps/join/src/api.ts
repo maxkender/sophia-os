@@ -71,6 +71,12 @@ export interface Moi {
   premier_post: string | null;
   profil_suggere: { nom: string; bio: string; photo: string };
   ruul_visible: boolean;
+  /** 0858 : la checklist (cochée quand l'OS voit l'étape faite) et les liens de ses boutons. */
+  checklist?: { etape: "contrat" | "ruul" | "tiktok" | "warmup" | "slack" | "premier_post"; fait: boolean }[];
+  liens?: { dashboard: string; slack: string; tiktok: string; ruul: string; ruul_personnel: boolean };
+  handle?: string | null;
+  ruul_email?: string | null;
+  compte_os?: boolean;
 }
 
 // Provenance (?ref=, utm_*, fbclid) : gardée 30 jours dans le navigateur, envoyée avec la candidature.

@@ -50,6 +50,9 @@ const NOM_ETAPE = Object.fromEntries(ETAPES.map((e) => [e.cle, e.nom])) as Recor
 
 const STATUT: Record<string, string> = { envoye: "envoyé", bloque: "bloqué (test : pas un testeur)", simule: "simulé" };
 
+/** 0858 : les drapeaux de join_reel, dans l'ordre de l'enchaînement. */
+const NOM_REEL: Record<string, string> = { compte_os: "compte OS", acces: "bienvenue", ruul: "invitation Ruul", rappels: "rappels", whatsapp: "WhatsApp" };
+
 const dateHeure = (iso: string) =>
   new Date(iso).toLocaleString("fr-FR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
 
@@ -204,6 +207,7 @@ export default function Admin() {
   const [lignes, setLignes] = useState<Ligne[]>([]);
   const [mode, setMode] = useState("");
   const [auto, setAuto] = useState(false);
+  const [reel, setReel] = useState<Record<string, boolean> | null>(null);
   const [luAt, setLuAt] = useState("");
   const [erreur, setErreur] = useState("");
   const [filtreEtape, setFiltreEtape] = useState("");
@@ -211,7 +215,7 @@ export default function Admin() {
   const [choisi, setChoisi] = useState<string | null>(null);
 
   const charger = useCallback(async () => {
-    const r = await appelerAdmin<{ mode: string; auto_acceptation: boolean; candidatures: Ligne[]; lu_at: string }>("admin_liste");
+    const r = await appelerAdmin<{ mode: string; auto_acceptation: boolean; reel?: Record<string, boolean>; candidatures: Ligne[]; lu_at: string }>("admin_liste");
     if (!r.ok) {
       if (r.error === "forbidden") setConnecte(false);
       else setErreur(r.error === "network" ? "Pas de connexion." : r.error ?? "erreur");
@@ -221,6 +225,7 @@ export default function Admin() {
     setLignes(r.candidatures);
     setMode(r.mode);
     setAuto(r.auto_acceptation);
+    setReel(r.reel ?? null);
     setLuAt(r.lu_at);
   }, []);
 
@@ -262,6 +267,10 @@ export default function Admin() {
           <div>
             <h1 className="h3">Candidatures Join {mode && <span className={`adm__badge ${mode === "test" ? "adm__badge--test" : "adm__badge--signee"}`}>{mode === "test" ? "mode test" : "live"}</span>}</h1>
             <p className="discret">{lignes.length} candidatures · relu à {luAt ? dateHeure(luAt) : "…"} (toutes les 15 s)</p>
+            {reel && (
+              // 0858 : les étapes d'après la signature, réelles seulement si leur drapeau join_reel est à true (lecture seule).
+              <p className="discret">Après la signature (join_reel) : {Object.entries(NOM_REEL).map(([k, nom]) => `${nom} ${reel[k] ? "réel" : "simulé"}`).join(" · ")}</p>
+            )}
           </div>
           <div className="adm__actions">
             <label className="adm__interrupteur">

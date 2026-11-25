@@ -1,0 +1,1796 @@
+{
+ "id": "sg-042",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 pour voyager seul sans galérer",
+  "en": "10/10 skills to get by anywhere in the world",
+  "de": "10/10-Skills, damit du überall auf der Welt klarkommst",
+  "it": "Abilità 10/10 per cavartela ovunque nel mondo",
+  "pt-BR": "Habilidades 10/10 para se virar em qualquer lugar do mundo",
+  "tr": "Dünyanın her yerinde işine yarayacak 10/10 beceriler",
+  "ro": "Abilități 10/10 ca să te descurci oriunde în lume",
+  "cs": "Dovednosti 10/10, se kterými se neztratíš nikde na světě",
+  "hu": "10/10 készségek, hogy a világ bármely pontján boldogulj",
+  "el": "Δεξιότητες 10/10 για να τα βγάζεις πέρα παντού στον κόσμο",
+  "sr": "Veštine 10/10 da se snađeš bilo gde u svetu"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 pour voyager seul sans galérer #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to get by anywhere in the world #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, damit du überall auf der Welt klarkommst #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 per cavartela ovunque nel mondo #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para se virar em qualquer lugar do mundo #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Dünyanın her yerinde işine yarayacak 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 ca să te descurci oriunde în lume #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, se kterými se neztratíš nikde na světě #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "hu": "10/10 készségek, hogy a világ bármely pontján boldogulj #tanuljtiktokon #önfejlesztés #készségek",
+  "el": "Δεξιότητες 10/10 για να τα βγάζεις πέρα παντού στον κόσμο #μάθεστοtiktok #αυτοβελτίωση #δεξιότητες",
+  "sr": "Veštine 10/10 da se snađeš bilo gde u svetu #učinatiktoku #samorazvoj #veštine"
+ },
+ "musique": {
+  "titre": "original sound - Notmaster",
+  "url": "https://www.tiktok.com/music/original-sound-7229869367767485227"
+ },
+ "notes": "Full test du 25/11, « Compétences 10/10 pour te débrouiller partout dans le monde », en 11 langues. 5 compétences de voyageur : trouver un vol pas cher, prendre l'avion seul, monter une tente, utiliser une boussole, faire son sac de rando (pickpockets, jet lag et paiement à l'étranger écartés faute de vidéos natives en ro, cs, hu, el ou sr). Vraies vidéos natives par langue, titre natif. Sophia en étape 4 sur 7, cta A, « VOYAGER / CULTIVÉ ». Accroche fr changée le 25/11 (« … pour te débrouiller partout dans le monde » refusée, theme_gagnant « … qui impressionnent tout le monde ») : « … pour voyager seul sans galérer ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "POUR VOYAGER SEUL",
+      "cap": 100
+     },
+     {
+      "t": "SANS",
+      "cap": 120
+     },
+     {
+      "t": "GALÉRER",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "TO GET BY",
+      "cap": 120
+     },
+     {
+      "t": "ANYWHERE IN",
+      "cap": 120
+     },
+     {
+      "t": "THE WORLD",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "DAMIT DU ÜBERALL",
+      "cap": 100
+     },
+     {
+      "t": "AUF DER WELT",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "KLARKOMMST",
+      "cap": 130
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "PER CAVARTELA",
+      "cap": 120
+     },
+     {
+      "t": "OVUNQUE NEL",
+      "cap": 120
+     },
+     {
+      "t": "MONDO",
+      "couleur": "brun",
+      "cap": 250
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA SE VIRAR EM",
+      "cap": 100
+     },
+     {
+      "t": "QUALQUER LUGAR",
+      "cap": 120
+     },
+     {
+      "t": "DO MUNDO",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "DÜNYANIN",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "HER YERİNDE",
+      "cap": 130
+     },
+     {
+      "t": "İŞİNE YARAYACAK",
+      "cap": 110
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "CA SĂ TE DESCURCI",
+      "cap": 100
+     },
+     {
+      "t": "ORIUNDE ÎN",
+      "cap": 120
+     },
+     {
+      "t": "LUME",
+      "couleur": "brun",
+      "cap": 250
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "SE KTERÝMI",
+      "cap": 120
+     },
+     {
+      "t": "SE NEZTRATÍŠ",
+      "cap": 120
+     },
+     {
+      "t": "NIKDE NA SVĚTĚ",
+      "couleur": "brun",
+      "cap": 200
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "HOGY A VILÁG",
+      "cap": 120
+     },
+     {
+      "t": "BÁRMELY PONTJÁN",
+      "cap": 110
+     },
+     {
+      "t": "BOLDOGULJ",
+      "couleur": "brun",
+      "cap": 220
+     }
+    ]
+   },
+   "el": {
+    "lignes": [
+     {
+      "t": "ΔΕΞΙΟΤΗΤΕΣ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "ΓΙΑ ΝΑ ΤΑ ΒΓΑΖΕΙΣ",
+      "cap": 100
+     },
+     {
+      "t": "ΠΕΡΑ ΠΑΝΤΟΥ",
+      "cap": 120
+     },
+     {
+      "t": "ΣΤΟΝ ΚΟΣΜΟ",
+      "couleur": "brun",
+      "cap": 220
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "DA SE SNAĐEŠ",
+      "cap": 120
+     },
+     {
+      "t": "BILO GDE",
+      "cap": 130
+     },
+     {
+      "t": "U SVETU",
+      "couleur": "brun",
+      "cap": 240
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "TROUVER UN VOL",
+     [
+      {
+       "t": "PAS CHER",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2cDd0sZB4j0",
+     "titre": "10 ASTUCES POUR PAYER MOINS CHER TES BILLETS D'AVION",
+     "chaine": "Theo Belnou",
+     "vues": "132 k vues",
+     "date": "il y a 7 ans",
+     "duree": "9:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_li5wi_aC8qZqg8sHNlaGYoaxWsaAIGVmAKTd5wtSwXp4Sl=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FIND",
+     [
+      {
+       "t": "CHEAP FLIGHTS",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6HxyXcUlXSw",
+     "titre": "How to BOOK CHEAP FLIGHTS (Tricks that ACTUALLY work)",
+     "chaine": "Project Untethered",
+     "vues": "785K views",
+     "date": "3 years ago",
+     "duree": "9:39",
+     "avatar": "https://yt3.ggpht.com/t4RqJfvVZDnaBDufKOsTI7Ki7oVlwd8VWz0pABP6iZb8xbewG0KQQCIkICL6P0nC3Qo_6Qz-Bw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GÜNSTIGE",
+     [
+      {
+       "t": "FLÜGE FINDEN",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WB79dxFfU3g",
+     "titre": "Wie du GÜNSTIG FLÜGE findest! (Tipps, die wirklich funktionieren)",
+     "chaine": "BetterBeyond",
+     "vues": "21.611 Aufrufe",
+     "date": "vor 8 Monaten",
+     "duree": "12:24",
+     "avatar": "https://yt3.ggpht.com/JESNcDerQmHK9W2j1x-YFroMVTF7a2Gfe7J00_Zn5VHSewsro32q_B0DpWXx_1Wmrw4WLquo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "TROVARE",
+     [
+      {
+       "t": "VOLI LOW COST",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tBaQjSuHVQE",
+     "titre": "10 metodi per trovare voli economici, spiegati in 6 minuti",
+     "chaine": "Tricky Travels",
+     "vues": "73K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "7:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_li7MawwBm8gF9LD1uPsT-woODhawUwngurT21TRRAdfS87=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ACHAR PASSAGEM",
+     [
+      {
+       "t": "BARATA",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "j9of1cnj008",
+     "titre": "Como Encontrar Passagens Aéreas Mais Baratas: O Método que Eu Uso",
+     "chaine": "Canal Quero Viajar",
+     "vues": "5,4 mil visualizações",
+     "date": "há 3 meses",
+     "duree": "6:51",
+     "avatar": "https://yt3.ggpht.com/D2Bdoq-dSpdp6NJPnkXsxkiGOfFKzArvsx5n2BZoXIfrZb_yd_fIi72dqSbMtWUa0InIS0Ql4g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "UCUZ",
+     [
+      {
+       "t": "UÇAK BİLETİ BULMAK",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EwdFVhUgFqU",
+     "titre": "Nasıl ucuz uçak biletleri buluyorum ?",
+     "chaine": "Gökhan Gökdeniz",
+     "vues": "31 B görüntüleme",
+     "date": "6 ay önce",
+     "duree": "20:08",
+     "avatar": "https://yt3.ggpht.com/SFIsrJE9RViPohyFyWjOGqEUjapIoVm-tW-RIbn2ggpIHoBaj3y3cIuMbHFjv6I-wBHa7yFJS-g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ GĂSEȘTI",
+     [
+      {
+       "t": "ZBORURI IEFTINE",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HZ9EX0VBaAM",
+     "titre": "Zboruri la 10 euro? Cum gasesti bilete de avion ieftine (3 metode) ✈",
+     "chaine": "Aventurescu",
+     "vues": "21 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/tn0MtDuczAgDi5DV-kqCT2WAJKdRAGxne9DbCvneyuHz_LR9WdJIal41jiMKzcCiI4SX3QRsHn0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAJÍT",
+     [
+      {
+       "t": "LEVNOU LETENKU",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BH9Zul5A6Nw",
+     "titre": "JAK HLEDAT LEVNÉ LETENKY | Co znamená FARE FINDER",
+     "chaine": "Jindřich Brychta",
+     "vues": "18 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "4:27",
+     "avatar": "https://yt3.ggpht.com/Kz8ZDFCq9QM_PByzSDuvNrbMG-2TooutJVKBkGnrE007_On7AZkOmlKj-DJrtrcicWw9F2hv=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "OLCSÓ",
+     [
+      {
+       "t": "REPÜLŐJEGYET TALÁLNI",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ijOkpxrNHyU",
+     "titre": "Hogy találd meg a legolcsóbb repülőjegyet",
+     "chaine": "Gazdaságos utazó",
+     "vues": "56 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "12:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mcHzui-Erj0lhGDglu4yEKfIilPDoZIZ5QUxK_uUGT4A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΒΡΙΣΚΕΙΣ",
+     [
+      {
+       "t": "ΦΘΗΝΑ ΕΙΣΙΤΗΡΙΑ",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZUnKWXqWwfw",
+     "titre": "Πως βρίσκω ΠΑΝΤΑ τα φθηνότερα αεροπορικά εισιτήρια!✈️",
+     "chaine": "Los Angie",
+     "vues": "13 χιλ. προβολές",
+     "date": "πριν από 2 έτη",
+     "duree": "11:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mlCxuHi87oWo_ZTDXXuf6BmA_3bdeKz3qVp51b_QhkOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "NAĆI",
+     [
+      {
+       "t": "JEFTINU AVIO KARTU",
+       "couleur": "#2b78c9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "guAvmdx4xU8",
+     "titre": "Šta treba da znate pre nego što kupite avio kartu online?",
+     "chaine": "Dva ranca beg iz kanca",
+     "vues": "6 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/flj7gkJ2iBsUuF3FhCa1VxhvozCHh-QFHBIT4lJGRCLjSUZIv6fH5DkVwssMTvSKxoTyYSul=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "PRENDRE",
+       "couleur": "#f0a020"
+      }
+     ],
+     "L'AVION SEUL"
+    ],
+    "video": {
+     "id": "rRkB-cPelF8",
+     "titre": "Comment prendre l'avion pour la 1ere fois en 5 étapes faciles.",
+     "chaine": "Travel Mindset / Esprit Voyageur",
+     "vues": "88 k vues",
+     "date": "il y a 3 ans",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/ykXu_C2jMfUDNxV4V9LvfkvjNxuJCMwsimuB0qE5hTa2NHFYGxNF0KFXfDSmoxXm9VuLvq7QlQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "FLY",
+       "couleur": "#f0a020"
+      }
+     ],
+     "ALONE"
+    ],
+    "video": {
+     "id": "TCy_vbiZi2U",
+     "titre": "How To Navigate Your First Time Through An Airport",
+     "chaine": "Build Your Moxie",
+     "vues": "802K views",
+     "date": "2 years ago",
+     "duree": "13:00",
+     "avatar": "https://yt3.ggpht.com/bRNEzeDrs8BI-feYvNwS_es4sV4N-hTArxw1tgtu5h2IY00IOlILalqRo4lwQOCsPfyX42DdLz0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ALLEIN",
+       "couleur": "#f0a020"
+      }
+     ],
+     "FLIEGEN"
+    ],
+    "video": {
+     "id": "k-pjMYjIsZs",
+     "titre": "Das erste Mal fliegen | Tipps für Passagiere (2026)",
+     "chaine": "Dennis Besseler",
+     "vues": "148.587 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "4:58",
+     "avatar": "https://yt3.ggpht.com/lJWve8FAHN6mSa-3Fp2dhIWW0x_SHezHOYQBcWC9IAPmEouW-xIhjVyeyPVj9fZS0_tlRQf1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "PRENDERE",
+       "couleur": "#f0a020"
+      }
+     ],
+     "L'AEREO DA SOLO"
+    ],
+    "video": {
+     "id": "YCPeIo3EFuM",
+     "titre": "Prima volta che VOLI? Ecco TUTTE le ISTRUZIONI (VALIDO 2025)",
+     "chaine": "ViaggioVero",
+     "vues": "237K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "12:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lFfDEfx4k69arwox2Bvsfbqmbtu3LDCg_yEego7dE9mQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "ANDAR",
+       "couleur": "#f0a020"
+      }
+     ],
+     "DE AVIÃO SOZINHO"
+    ],
+    "video": {
+     "id": "vU-VZvcqL6w",
+     "titre": "PRIMEIRA VIAGEM DE AVIÃO: PASSO A PASSO E DICAS PARA O SEU PRIMEIRO VOO EM 2024",
+     "chaine": "Fabi Cassol | Minha Praia Viajar",
+     "vues": "831 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "12:49",
+     "avatar": "https://yt3.ggpht.com/KVxqx0V0ydxBOQYKRMmjVuNyifqY5C673gi5L32JIY7ySs_DCAt1OonwKtQG7946-VhWWBJcAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "TEK BAŞINA",
+       "couleur": "#f0a020"
+      }
+     ],
+     "UÇAĞA BİNMEK"
+    ],
+    "video": {
+     "id": "nnCkon5Lh5Y",
+     "titre": "UÇAĞA NASIL BİNİLİR? ( İLK KEZ UÇAĞA BİNMEK , ONLİNE CHECK İN , KOLTUK SEÇİMİ , UCUZ BİLET )",
+     "chaine": "YAFES",
+     "vues": "915 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "6:50",
+     "avatar": "https://yt3.ggpht.com/qR6bJXmWpdpP64hBz75fQ5Bce-6bypdxNbrLmECNs5WSsw25TvxBdcDSVu2i77aqVpoX_tGTL3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ZBORI",
+       "couleur": "#f0a020"
+      }
+     ],
+     "SINGUR CU AVIONUL"
+    ],
+    "video": {
+     "id": "16UlSh4S15s",
+     "titre": "Primul zbor cu avionul! Ce trebuie să faci în aeroportul Otopeni pas cu pas?",
+     "chaine": "Ion's Vlog - Ionut Pavelescu",
+     "vues": "217 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/2bXsCxu2yuMTCDL0toPZDb1Ct0uIKOrKWBNbwdHlCu9wt13j4G6AUExC6CtUF6p3hTfWi-Q1qFs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "LETĚT",
+       "couleur": "#f0a020"
+      }
+     ],
+     "LETADLEM SÁM"
+    ],
+    "video": {
+     "id": "A_g0_pOZHaU",
+     "titre": "Jak cestovat letadlem - Krok za krokem",
+     "chaine": "Jan Dančák",
+     "vues": "57 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/_PiQtHVWPH5H0pUBHwt8lVANJg-MDhl37PXs5-OQztAAEtWy-EsOdq2ZuMpjsmAw-ByEO3cn4Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "EGYEDÜL",
+       "couleur": "#f0a020"
+      }
+     ],
+     "REPÜLNI"
+    ],
+    "video": {
+     "id": "tgbOgK29Mbs",
+     "titre": "Hogyan készülj az első repülésre? Mire figyelj? Mit vigyél magaddal?",
+     "chaine": "Gábor utazásai",
+     "vues": "38 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "10:17",
+     "avatar": "https://yt3.ggpht.com/FoCG2znjAWDcvnmmrZAvaGKtjjD0S2fWGkA7df0B6ke4D2lP_JECxD-BBpfC3IWT8pR0iFWfWFI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΝΑ ΠΕΤΑΣ",
+       "couleur": "#f0a020"
+      }
+     ],
+     "ΜΟΝΟΣ ΣΟΥ"
+    ],
+    "video": {
+     "id": "3miCvUlhpyA",
+     "titre": "Πρώτη φορά αεροδρόμιο !",
+     "chaine": "Magik Bean Travels",
+     "vues": "66 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/JgoXpsMGHHlN51Vr0dGigVJCdqAr-756Cr7HLtM3gLYxeMic39f99gF5NLUEpI2-GqhUNWTUuZI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "LETETI",
+       "couleur": "#f0a020"
+      }
+     ],
+     "AVIONOM SAM"
+    ],
+    "video": {
+     "id": "WjBLudmjFUU",
+     "titre": "Prvi let avionom | od pakovanja do sletanja",
+     "chaine": "Miljana Marković",
+     "vues": "22 hilj. pregleda",
+     "date": "pre 2 godine",
+     "duree": "12:31",
+     "avatar": "https://yt3.ggpht.com/b7PTJgi7VpD4FX_V9kG0yubWLyTWpOkA6ENgXsal_9uowc_Bc89QEOWDUJ1ayVYIRULI83hB0w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "VOYAGER",
+     [
+      {
+       "t": "CULTIVÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TRAVEL",
+     [
+      {
+       "t": "SMARTER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "KLÜGER",
+     [
+      {
+       "t": "REISEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "VIAGGIARE",
+     [
+      {
+       "t": "DA PERSONA COLTA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "VIAJAR",
+     [
+      {
+       "t": "COM CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KÜLTÜRLÜ BİR",
+     [
+      {
+       "t": "GEZGİN OLMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CĂLĂTOREȘTI",
+     [
+      {
+       "t": "CULTIVAT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "CESTOVAT",
+     [
+      {
+       "t": "S ROZHLEDEM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "MŰVELTEN",
+     [
+      {
+       "t": "UTAZNI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "rövid leckék, valódi",
+      "tanárok tollából."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΤΑΞΙΔΕΥΕΙΣ",
+     [
+      {
+       "t": "ΜΕ ΓΝΩΣΕΙΣ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "σύντομα μαθήματα",
+      "από αληθινούς καθηγητές."
+     ]
+    },
+    "sous": [
+     "5 λεπτά τη μέρα"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "PUTOVATI",
+     [
+      {
+       "t": "SA ZNANJEM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    },
+    "sous": [
+     "5 min dnevno"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "MONTER",
+     [
+      {
+       "t": "UNE TENTE",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TgrhLtW7edo",
+     "titre": "Comment monter votre tente en camping - Sépaq",
+     "chaine": "Réseau Sépaq",
+     "vues": "51 k vues",
+     "date": "il y a 12 ans",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcVEU1RbW0RaGOW0XWR0ZLq3Ajo3u69ymNeDI8OTC8ahI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PITCH",
+     [
+      {
+       "t": "A TENT",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Pf2hmFeUsbY",
+     "titre": "Step - By - Step | How To Set Up a Tent",
+     "chaine": "NC State Parks",
+     "vues": "1.2M views",
+     "date": "8 years ago",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/7_gb4NYpsayBoXOXJFuqEiAk8DReEOrS37BFarOSyRq98kScD6whKy9Pdvp6E7rmjZvyB_UL=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN ZELT",
+     [
+      {
+       "t": "AUFBAUEN",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GrCrmBz6fBA",
+     "titre": "Zelten für Anfänger (Planung, Aufbau, Lagerfeuer, Kochen)",
+     "chaine": "Little Campfires",
+     "vues": "285.682 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "9:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l_WgPCujhsqK031tmosZhAN1dnBIWiSEiMBVZqAwsFwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "MONTARE",
+     [
+      {
+       "t": "UNA TENDA",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_cISdy8yr6o",
+     "titre": "Come montare una tenda da campeggio per principianti",
+     "chaine": "The Bear Essentials",
+     "vues": "67K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/zn1BVrUMfnPwfw9Ykw31BCtKNlk8NbG98U4VWSBhkX7kYEwbtKGGtX-kD8BTxuZSDdIMIIRWvco=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "MONTAR",
+     [
+      {
+       "t": "UMA BARRACA",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2pGy1R7vNdk",
+     "titre": "Como montar uma Barraca de CAMPING.passo a passo.",
+     "chaine": "janiel",
+     "vues": "98 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "8:04",
+     "avatar": "https://yt3.ggpht.com/y8GQEwyuEl9dR6zmGdaE0CYAZbncbaKr99As9JtQlfcKGqCNxIgEwEc0FtUHhs39jquFXTZC=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ÇADIR",
+     [
+      {
+       "t": "KURMAK",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ePlNjMJYJUE",
+     "titre": "4 Dakikada Çadır Nasıl Kurulur ?",
+     "chaine": "Hayatta Kalma Sanatı",
+     "vues": "72 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/wGH3FyqXwsgezkU8gh3EndCN0Nc2SO9h0th10RvEQHb4dhiTWvR7AGK6SZtuyrbBxfIpB3U7kAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ MONTEZI",
+     [
+      {
+       "t": "UN CORT",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qsLJ4Q_ewPo",
+     "titre": "Montare Cort ARPENAZ FRESH&BLACK MH100 QUECHUA 3 PERSOANE",
+     "chaine": "Decathlon Romania",
+     "vues": "14 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "1:24",
+     "avatar": "https://yt3.ggpht.com/vF16O5xV8xQC4wWtqfbpGMzx__5qoIXYZgqaxaKj2eoJj4L4_sOWgT_BXDKJC07sTfJxa6Ak=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "POSTAVIT",
+     [
+      {
+       "t": "STAN",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w5eQcREPiJE",
+     "titre": "Jak postavit stan?⛺",
+     "chaine": "DOFE Czech Republic",
+     "vues": "19 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "3:52",
+     "avatar": "https://yt3.ggpht.com/rT1jmFxzd1E8lxH3oKghmM5S-X1q9uaROgFOM7NbwgHuSolv7wcwB2z5ZEnwEwvjPmoVOwS5R3s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "SÁTRAT",
+     [
+      {
+       "t": "ÁLLÍTANI",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P--SW7XeLq0",
+     "titre": "Hogyan állítsd fel a sátrat? - gyorstalpaló",
+     "chaine": "Marcello On Tour M.O.T.",
+     "vues": "36 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "14:28",
+     "avatar": "https://yt3.ggpht.com/IRWLbbmA0WN3xtmIBLUYYNJCvx-xOOi0KevxVoe3yNhK6r0mf5JBpfg6esv5i1yaKF3SzT2jhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΣΤΗΝΕΙΣ",
+     [
+      {
+       "t": "ΣΚΗΝΗ",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yyC0jgoWaL4",
+     "titre": "ΟΡΓΑΝΩΜΕΝΟ ΚΑΜΠΙΝΓΚ VS ΕΛΕΥΘΕΡΟ - ΠΩΣ ΝΑ ΣΤΗΣΕΙΣ ΜΙΑ ΣΚΗΝΗ | Get Ready to learn",
+     "chaine": "Get Ready Tactical System",
+     "vues": "48 χιλ. προβολές",
+     "date": "πριν από 7 έτη",
+     "duree": "12:34",
+     "avatar": "https://yt3.ggpht.com/72cd2vqAGQsYwCSxUdWYZt7cAMLkB7rWNwhDu8-m0I2jRzty1QWOBenkANI4rlZIW9phi1ZDSw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POSTAVITI",
+     [
+      {
+       "t": "ŠATOR",
+       "couleur": "#3f8f3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Tknob1rXjso",
+     "titre": "Kako se postavlja šator",
+     "chaine": "Uzduž i popreko (uzduzipopreko)",
+     "vues": "24 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ni5MP_3CotTBT3AXYJOQ2bhS1ElsukAlvo61Bhs9aq3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "UTILISER",
+       "couleur": "#c8382d"
+      }
+     ],
+     "UNE BOUSSOLE"
+    ],
+    "video": {
+     "id": "YJW5Yukgkl8",
+     "titre": "[Tuto] Comment se servir d'une Boussole?",
+     "chaine": "EPS Académia",
+     "vues": "183 k vues",
+     "date": "il y a 5 ans",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/M58xJbsdQkRp_-bo1I5ECoyUqimbJ3U-rzvkhglIttpTu6TWlmGFFeD9Jtzh0D2kuOhxpwOVMg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "USE",
+       "couleur": "#c8382d"
+      }
+     ],
+     "A COMPASS"
+    ],
+    "video": {
+     "id": "0cF0ovA3FtY",
+     "titre": "How to Use a Compass || REI",
+     "chaine": "REI",
+     "vues": "3.5M views",
+     "date": "9 years ago",
+     "duree": "7:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lUHsFlWaQfLNKhYHZLgGcKJi5KSUr85H6SVO7smUbsrng=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "EINEN KOMPASS",
+       "couleur": "#c8382d"
+      }
+     ],
+     "BENUTZEN"
+    ],
+    "video": {
+     "id": "e_cgxWXLpDw",
+     "titre": "Kompass für Anfänger: In 4 einfachen Schritten 80% verstehen",
+     "chaine": "Pascal Grüger",
+     "vues": "41.910 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/EMumd1ak1mwvXa2edbgdhsSsUhR-lPM1b185d-ErAd-pJSniWE74F6UvyNR7on0fPySDTvOnAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "USARE",
+       "couleur": "#c8382d"
+      }
+     ],
+     "LA BUSSOLA"
+    ],
+    "video": {
+     "id": "NVACke-ZH28",
+     "titre": "La Bussola E' Più Semplice Di Quanto Pensi",
+     "chaine": "Orientamento in Montagna",
+     "vues": "267K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "14:53",
+     "avatar": "https://yt3.ggpht.com/g4OIEVQXV5xAVD1zThZa368NSKW5DCR8zVta1qRzw3b8nEFhBZGR-Avz351zTBVt85siEI871A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "USAR",
+       "couleur": "#c8382d"
+      }
+     ],
+     "UMA BÚSSOLA"
+    ],
+    "video": {
+     "id": "-_AnddB3JHc",
+     "titre": "Como usar bússola passo a passo - Na Prática Ep. 3",
+     "chaine": "Canal Outdoors - Nilo Moreira",
+     "vues": "98 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "11:18",
+     "avatar": "https://yt3.ggpht.com/h10g6iGHYk70pGWkNIPgtdacUeqruEqSy7nwqGYNwHqTQUM0naI0IrjVL1IFdLqK3O7ekUPI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PUSULA",
+       "couleur": "#c8382d"
+      }
+     ],
+     "KULLANMAK"
+    ],
+    "video": {
+     "id": "zdivLnTO8ZI",
+     "titre": "Pusula ile Yön Bulma",
+     "chaine": "LAW of Nature Sports",
+     "vues": "94 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "1:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nj26uwx1BF1up5b5OccHZDP-GVBiZdYtJMT6PMUoQrQV8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ FOLOSEȘTI",
+       "couleur": "#c8382d"
+      }
+     ],
+     "BUSOLA"
+    ],
+    "video": {
+     "id": "FZ0U202wV6E",
+     "titre": "CUM CITIM O BUSOLĂ?",
+     "chaine": "Broadheader",
+     "vues": "8,8 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mxKfHXd6GDY_Zlz7rWKAR6vCaJj6qNS1BqkMjYlWYFWg0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "POUŽÍVAT",
+       "couleur": "#c8382d"
+      }
+     ],
+     "BUZOLU"
+    ],
+    "video": {
+     "id": "QvFdxobz9s8",
+     "titre": "Nastavení azimutu pomocí buzoly",
+     "chaine": "Sporticus",
+     "vues": "30 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "3:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k8c4CPq-l3i9LRrzvwqqF_xPw6DFLyFHwfYJDq1Kj_sw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     [
+      {
+       "t": "IRÁNYTŰT",
+       "couleur": "#c8382d"
+      }
+     ],
+     "HASZNÁLNI"
+    ],
+    "video": {
+     "id": "Qaxp2MTGcSY",
+     "titre": "Tájékozódás (5.) ötödik rész, a tájoló (iránytű) használata",
+     "chaine": "Cserkészkedjünk",
+     "vues": "17 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "6:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lg1Ckx_yNT6d713G6ESK__tVWmE3seE8yEOXjEHFTJDw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     [
+      {
+       "t": "ΝΑ ΧΡΗΣΙΜΟΠΟΙΕΙΣ",
+       "couleur": "#c8382d"
+      }
+     ],
+     "ΠΥΞΙΔΑ"
+    ],
+    "video": {
+     "id": "nmgZ17US7Nc",
+     "titre": "ΠΛΟΗΓΗΣΗ - ΠΡΟΣΑΝΑΤΟΛΙΣΜΟΣ. Παρουσιαση της πυξιδας και προσανατολισμος του χαρτη.",
+     "chaine": "Αντισθένης (Παναγιώτης) Παυλίδης",
+     "vues": "38 χιλ. προβολές",
+     "date": "πριν από 9 έτη",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/CyFd7tRTY4V-PjUcCjN243u8vzx6du1KgJgKGN2zPy97ecSclYfvduv4OXbBmkUN5lI8xCdI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ώρα για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "KORISTITI",
+       "couleur": "#c8382d"
+      }
+     ],
+     "KOMPAS"
+    ],
+    "video": {
+     "id": "YN-iakTXIAc",
+     "titre": "Orijentacija, 1. deo - kompas i pravac kretanja (azimut)",
+     "chaine": "Kosta Marinkovic - Bushcraft",
+     "vues": "27 hilj. pregleda",
+     "date": "pre 3 godine",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/cX6JP4168NJVyt9CcFWmuxfLwIH0AnCszmVumx9a0V3PLzttiZE8nAH0F6jo9s3370Ve9NE2y04=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 sat za učenje"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE SON",
+     [
+      {
+       "t": "SAC DE RANDO",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "McdU8pOo1es",
+     "titre": "COMMENT BIEN RANGER SON SAC DE RANDONNÉE ? Rangement parfait pour vos treks !",
+     "chaine": "Trek Attitude",
+     "vues": "113 k vues",
+     "date": "il y a 2 ans",
+     "duree": "9:44",
+     "avatar": "https://yt3.ggpht.com/BuTxYT4CiXtdyIaMNm9MfJLbnsrHcnlW81PNToXlgEyH59SxA_T0d0JWjZsmhI8jYsSTT4pyLfQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PACK",
+     [
+      {
+       "t": "A BACKPACK",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ruQdDdLB420",
+     "titre": "How to Pack Your Backpack the Right Way | Outside",
+     "chaine": "Outside",
+     "vues": "606K views",
+     "date": "7 years ago",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mALTuftMnWUZ1Dekk7NMyAvOm-Os_E4BO73IISlXFBkWk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEN RUCKSACK",
+     [
+      {
+       "t": "RICHTIG PACKEN",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5hO28cAJvs8",
+     "titre": "So packst du deinen Rucksack richtig! | Bergzeit",
+     "chaine": "Bergzeit",
+     "vues": "31.098 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIQ_RqkKak9yJVrtoGhEWtVshNo3pv3W5g4eOinZjrng=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PREPARARE",
+     [
+      {
+       "t": "LO ZAINO",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "n_XVVp2v7Is",
+     "titre": "Come riempire e regolare lo zaino da trekking: scopri il peso ideale",
+     "chaine": "Il cammino del cretino",
+     "vues": "31K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "8:48",
+     "avatar": "https://yt3.ggpht.com/w3WgqML143_1i8IWkTeUrqBWO08f_8kAFslaI-jOAVHwQ504s8808ugdXCKb9VPBsyfZn8ocd-E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ARRUMAR",
+     [
+      {
+       "t": "A MOCHILA",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rLds_7V0tg0",
+     "titre": "Como organizar sua mochila cargueira?",
+     "chaine": "NTK Brasil | Camping & Outdoor",
+     "vues": "19 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "2:42",
+     "avatar": "https://yt3.ggpht.com/ZSvBRIXeJiG2CdxN1BZqkkXP7Av1B6XehLhL7b4XV0XqvVWTurgitk-QvZ2XSmgUICx_blZh8Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SIRT ÇANTASI",
+     [
+      {
+       "t": "HAZIRLAMAK",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RS8JfZEC_X0",
+     "titre": "Kamp Çantası NASIL Yerleştirilir? l TAKTİKLER /8",
+     "chaine": "Rehberin Dünyası",
+     "vues": "19 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "9:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kDxNsoORym0ks5WrETmZXYYH7fhdH2YDN4u_VQLuCHBI4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI FACI",
+     [
+      {
+       "t": "RUCSACUL",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3MoanuL_ZD0",
+     "titre": "#LearnHowToMountain Ep. 04 - Cum îți alegi și cum porți corect rucsacul",
+     "chaine": "Costin Miu",
+     "vues": "29 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "5:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ly7umpHjxlggx7kduFD_vH57R5ZPMvHsiubRFr1UhUc3o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SBALIT",
+     [
+      {
+       "t": "SI BATOH",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G88nnsG0feA",
+     "titre": "Jak si efektivně sbalit batoh na trek?",
+     "chaine": "NA STEJNÉ CESTĚ",
+     "vues": "9 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/xaJx4fFzdVsFyLfLGV8k5W0DtAJN2RNIt1rZdPYwzvaiAOCgN9ha5Cjj6gzO-etZsuSdGDrO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min na naučení"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HÁTIZSÁKOT",
+     [
+      {
+       "t": "PAKOLNI",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w5quGaChFmE",
+     "titre": "Hogyan pakolj a hátizsákodba? Ezeket az elveket kell ismerned",
+     "chaine": "Transylvanian Hiker",
+     "vues": "5 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "9:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_matKK0FW38nZNHWldjYiH5eEkFRAVW9xSo5l-grTAGhg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 perc a tanuláshoz"
+    ]
+   },
+   "el": {
+    "titre": [
+     "ΝΑ ΦΤΙΑΧΝΕΙΣ",
+     [
+      {
+       "t": "ΤΟ ΣΑΚΙΔΙΟ",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PQlSQNAPxtM",
+     "titre": "ΤΙ ΝΑ ΠΑΡΩ ΜΑΖΙ ΜΟΥ ΣΤΟ ΒΟΥΝΟ?| ΑΝΑΛΥΤΙΚΟΣ ΟΔΗΓΟΣ HIKING |",
+     "chaine": "Chris n Mountains",
+     "vues": "11 χιλ. προβολές",
+     "date": "πριν από 2 έτη",
+     "duree": "8:24",
+     "avatar": "https://yt3.ggpht.com/sb0rFwVXBG_BeCAbxHoWrrwNDi81xbLOig9Sdl2kxd0-V74TaYIj5GIFg9sOYxs6zJXochlkqw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 λεπτά για να μάθεις"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SPAKOVATI",
+     [
+      {
+       "t": "RANAC",
+       "couleur": "#1f8a8a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Hnd3isyB7TE",
+     "titre": "Pravilno Pakovanje Ranca - Planinarenje, Hiking, Putovanje",
+     "chaine": "Outdoor Tested",
+     "vues": "5,6 hilj. pregleda",
+     "date": "pre 1 godinu",
+     "duree": "9:44",
+     "avatar": "https://yt3.ggpht.com/riysloCpsr1fuhJxbVPIXN85g8LMYInPpsW-dcCtSc4ZXBDfjpR5SNf50b1KpAK-8bzHleqC=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min za učenje"
+    ]
+   }
+  }
+ ]
+}

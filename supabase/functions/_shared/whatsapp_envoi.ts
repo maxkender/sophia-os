@@ -6,6 +6,7 @@
 import { messageErreur, type serviceClient } from "./supabase.ts";
 import { corpsModele, corpsTexte, coutEstime, e164, fenetreOuverte, GRAPH, numeroAutorise, paysDuNumero } from "./whatsapp.ts";
 import { avecPiedWhatsApp, banniereActive } from "./whatsapp_relances.ts";
+import { choisirLangueEnvoi, cleModeleLangue, langueMeta } from "./whatsapp_traductions.ts";
 
 type Db = ReturnType<typeof serviceClient>;
 
@@ -56,16 +57,37 @@ export interface EnvoiWhatsApp {
   cle?: string | null;
   demandeId?: string | null;
   modele?: { nom: string; langue: string; variables: string[] } | null;
+  /**
+   * 25/11 (Max) : la langue du posteur ou du candidat (code de l'OS ou de Join : fr, de, pt, pt-BR, es-419…). Avec un
+   * modèle : sa version dans cette langue si elle est APPROVED chez Meta, sinon l'anglais (la langue réellement
+   * utilisée est notée dans whatsapp_envois.langue). Absente : modele.langue tel quel, comme avant.
+   */
+  langueCible?: string | null;
   texte?: string | null;
+}
+
+/**
+ * La langue d'envoi d'un modèle pour cette langue cible (code OS ou Join) : la langue Meta du posteur si le modèle
+ * y est APPROVED (whatsapp_modeles, tenu à jour par modeles_sync), sinon « en ».
+ */
+export async function langueModeleEnvoi(db: Db, nom: string, langueCible: string | null | undefined): Promise<string> {
+  const l = langueMeta(langueCible);
+  if (l === "en") return "en";
+  const { data } = await db.from("whatsapp_modeles").select("statut").eq("nom", nom).eq("langue", l).maybeSingle();
+  return choisirLangueEnvoi(nom, l, new Set(data?.statut === "APPROVED" ? [cleModeleLangue(nom, l)] : []));
 }
 
 /**
  * Un envoi WhatsApp. En mode test, seuls les numéros autorisés reçoivent (les autres : « bloque », rien ne part).
  * Un texte libre n'est possible que dans la fenêtre de 24 h (dernier message reçu du numéro).
  */
-export async function envoyerWhatsApp(db: Db, o: EnvoiWhatsApp): Promise<{ ok: boolean; id?: string; wamid?: string; statut: string; erreur?: string }> {
-  const numero = e164(o.e164);
+export async function envoyerWhatsApp(db: Db, envoi: EnvoiWhatsApp): Promise<{ ok: boolean; id?: string; wamid?: string; statut: string; erreur?: string }> {
+  const numero = e164(envoi.e164);
   if (!numero) return { ok: false, statut: "bloque", erreur: "numéro invalide" };
+  // 25/11 : la langue du posteur si le modèle y est APPROVED, sinon l'anglais.
+  const o: EnvoiWhatsApp = envoi.modele && envoi.langueCible
+    ? { ...envoi, modele: { ...envoi.modele, langue: await langueModeleEnvoi(db, envoi.modele.nom, envoi.langueCible) } }
+    : envoi;
   const type = o.modele ? "modele" : "texte";
   const mode = await lireModeWhatsApp(db);
   const test = (mode as { mode?: string })?.mode !== "live";
@@ -111,6 +133,12 @@ export async function envoyerWhatsApp(db: Db, o: EnvoiWhatsApp): Promise<{ ok: b
 export async function modelesApprouves(db: Db): Promise<Set<string>> {
   const { data } = await db.from("whatsapp_modeles").select("nom").eq("langue", "en").eq("statut", "APPROVED").limit(500);
   return new Set((data ?? []).map((m: { nom: string }) => m.nom));
+}
+
+/** 25/11 : les modèles APPROVED dans toutes les langues, en clés « nom:langue » (cleModeleLangue). */
+export async function modelesApprouvesLangues(db: Db): Promise<Set<string>> {
+  const { data } = await db.from("whatsapp_modeles").select("nom, langue").eq("statut", "APPROVED").limit(2000);
+  return new Set((data ?? []).map((m: { nom: string; langue: string }) => cleModeleLangue(m.nom, m.langue)));
 }
 
 /**

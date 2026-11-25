@@ -8,10 +8,22 @@
   "accroche": "6 habitudes wellness qui font leur effet au bout d'une semaine"
  },
  "titre": {
-  "en": "6 wellness habits that give you more energy in a week"
+  "en": "6 wellness habits that give you more energy in a week",
+  "fr": "6 habitudes wellness pour plus d'énergie en une semaine",
+  "de": "6 wellness-habits für mehr energie in einer woche",
+  "it": "6 abitudini wellness per avere più energia in una settimana",
+  "hu": "6 wellness szokás, amitől egy hét alatt több energiád lesz",
+  "ro": "6 obiceiuri wellness: mai multă energie într-o săptămână",
+  "el": "6 wellness συνήθειες για περισσότερη ενέργεια σε μια βδομάδα"
  },
  "legendes": {
-  "en": "no more 3pm crash ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy"
+  "en": "no more 3pm crash ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy",
+  "fr": "fini le crash de 15h ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy",
+  "de": "kein 15-uhr-tief mehr ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy",
+  "it": "addio crollo delle 15 ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy",
+  "hu": "nincs több 15 órás mélypont ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy",
+  "ro": "gata cu căderea de la 15 ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy",
+  "el": "τέλος η πτώση στις 3 ⚡ #wellness #healthyhabits #thatgirl #selfcare #energy"
  },
  "musique": {
   "titre": "save a prayer",
@@ -38,6 +50,30 @@
    "en": {
     "titre": "6 wellness habits that give you more energy in a week",
     "note": "(backed by science)"
+   },
+   "fr": {
+    "titre": "6 habitudes wellness pour plus d'énergie en une semaine",
+    "note": "(selon la science)"
+   },
+   "de": {
+    "titre": "6 wellness-habits für mehr energie in einer woche",
+    "note": "(laut wissenschaft)"
+   },
+   "it": {
+    "titre": "6 abitudini wellness per avere più energia in una settimana",
+    "note": "(lo dice la scienza)"
+   },
+   "hu": {
+    "titre": "6 wellness szokás, amitől egy hét alatt több energiád lesz",
+    "note": "(a tudomány szerint)"
+   },
+   "ro": {
+    "titre": "6 obiceiuri wellness: mai multă energie într-o săptămână",
+    "note": "(dovedite științific)"
+   },
+   "el": {
+    "titre": "6 wellness συνήθειες για περισσότερη ενέργεια σε μια βδομάδα",
+    "note": "(το λέει η επιστήμη)"
    }
   },
   {
@@ -51,6 +87,60 @@
      "after lunch, around the block, _phone in pocket_"
     ],
     "chute": "the 3pm crash _starts at 1pm_"
+   },
+   "fr": {
+    "titre": "marche _10 minutes_ après manger",
+    "intro": "l'habitude la plus simple ici, _zéro matos_",
+    "paragraphes": [
+     "selon des études, une petite marche après manger _réduit le pic de sucre_ vs rester assise",
+     "après le déj, un tour du quartier, _tél en poche_"
+    ],
+    "chute": "le crash de 15h _démarre à 13h_"
+   },
+   "de": {
+    "titre": "_10 minuten_ gehen nach dem essen",
+    "intro": "das einfachste habit hier, _null equipment_",
+    "paragraphes": [
+     "studien: ein kurzer spaziergang nach dem essen _senkt den zuckerpeak_ im vergleich zum sitzen",
+     "nach dem mittag, um den block, _handy in der tasche_"
+    ],
+    "chute": "das 15-uhr-tief _startet um 13_"
+   },
+   "it": {
+    "titre": "cammina _10 minuti_ dopo mangiato",
+    "intro": "l'abitudine più facile, _zero attrezzi_",
+    "paragraphes": [
+     "studi: una breve camminata dopo il pasto _abbassa il picco di zuccheri_ rispetto a stare seduta",
+     "dopo pranzo, giro dell'isolato, _telefono in tasca_"
+    ],
+    "chute": "il calo delle 15 _parte alle 13_"
+   },
+   "hu": {
+    "titre": "_10 percet_ sétálj evés után",
+    "intro": "a legkönnyebb szokás, _semmi felszerelés_",
+    "paragraphes": [
+     "kutatások szerint egy rövid séta étkezés után _csökkenti a cukorcsúcsot_ az üléshez képest",
+     "ebéd után, egy kör a háztömb körül, _telefon a zsebben_"
+    ],
+    "chute": "a 15 órás zuhanás _13-kor indul_"
+   },
+   "ro": {
+    "titre": "mergi _10 minute_ după masă",
+    "intro": "cel mai ușor obicei de aici, _fără echipament_",
+    "paragraphes": [
+     "studiile arată că o plimbare scurtă după masă _reduce vârful de zahăr_ față de stat jos",
+     "după prânz, un tur al blocului, _telefonul în buzunar_"
+    ],
+    "chute": "căderea de la 15 _începe la 13_"
+   },
+   "el": {
+    "titre": "περπάτα _10 λεπτά_ μετά το φαγητό",
+    "intro": "η πιο εύκολη συνήθεια εδώ, _χωρίς εξοπλισμό_",
+    "paragraphes": [
+     "έρευνες: μια σύντομη βόλτα μετά το γεύμα _μειώνει την αιχμή σακχάρου_ σε σχέση με το κάθισμα",
+     "μετά το φαγητό, γύρο στο τετράγωνο, _κινητό στην τσέπη_"
+    ],
+    "chute": "η πτώση των 3 _ξεκινά στη 1_"
    }
   },
   {
@@ -64,6 +154,60 @@
      "make it pretty and you'll _actually eat it_"
     ],
     "chute": "eat for _the afternoon you want_"
+   },
+   "fr": {
+    "titre": "_couleur_ dans ton assiette du midi",
+    "intro": "un déj lourd, _un aprèm lourd_",
+    "paragraphes": [
+     "légumes, protéines, du frais. _moitié de l'assiette_ verte",
+     "fais-la jolie et tu vas _vraiment la manger_"
+    ],
+    "chute": "mange pour _l'aprèm que tu veux_"
+   },
+   "de": {
+    "titre": "_farbe_ auf dem teller mittags",
+    "intro": "schweres mittagessen, _schwerer nachmittag_",
+    "paragraphes": [
+     "gemüse, protein, was frisches. _der halbe teller_ grün",
+     "mach's hübsch, dann _isst du's auch_"
+    ],
+    "chute": "iss für _deinen traum-nachmittag_"
+   },
+   "it": {
+    "titre": "_colore_ nel piatto a pranzo",
+    "intro": "pranzo pesante, _pomeriggio pesante_",
+    "paragraphes": [
+     "verdure, proteine, qualcosa di fresco. _metà piatto_ verde",
+     "rendilo bello e _lo mangi davvero_"
+    ],
+    "chute": "mangia per _il pomeriggio che vuoi_"
+   },
+   "hu": {
+    "titre": "_szín_ az ebédtányéron",
+    "intro": "nehéz ebéd, _nehéz délután_",
+    "paragraphes": [
+     "zöldség, fehérje, valami friss. _a tányér fele_ zöld",
+     "legyen szép, és _tényleg megeszed_"
+    ],
+    "chute": "egyél _a vágyott délutánodért_"
+   },
+   "ro": {
+    "titre": "_culoare_ în farfurie la prânz",
+    "intro": "un prânz greu face _o după-amiază grea_",
+    "paragraphes": [
+     "legume, proteine, ceva proaspăt. _jumătate din farfurie_ verde",
+     "fă-o frumoasă și _chiar o mănânci_"
+    ],
+    "chute": "mănâncă pentru _după-amiaza dorită_"
+   },
+   "el": {
+    "titre": "_χρώμα_ στο πιάτο το μεσημέρι",
+    "intro": "βαρύ μεσημεριανό, _βαρύ απόγευμα_",
+    "paragraphes": [
+     "λαχανικά, πρωτεΐνη, κάτι φρέσκο. _το μισό πιάτο_ πράσινο",
+     "κάν' το όμορφο και _θα το φας όντως_"
+    ],
+    "chute": "φάε για _το απόγευμα που θες_"
    }
   },
   {
@@ -77,6 +221,60 @@
      "alarm on, _lights off_, before 3pm"
     ],
     "chute": "short nap, _big difference_"
+   },
+   "fr": {
+    "titre": "sieste de _10 minutes_, pas 1h",
+    "intro": "une longue sieste te rend _plus vaseuse_",
+    "paragraphes": [
+     "selon une étude, 10 minutes de sieste _boostent la vigilance_ sans l'effet vaseux",
+     "alarme, _lumière off_, avant 15h"
+    ],
+    "chute": "sieste courte, _gros effet_"
+   },
+   "de": {
+    "titre": "_10 minuten_ nap, keine stunde",
+    "intro": "lange naps machen dich _matschiger_ als vorher",
+    "paragraphes": [
+     "eine studie: ein 10-minuten-nap _steigerte die wachheit_ ohne das matschige gefühl",
+     "wecker an, _licht aus_, vor 15 uhr"
+    ],
+    "chute": "kurzer nap, _große wirkung_"
+   },
+   "it": {
+    "titre": "pisolino _10 minuti_, non un'ora",
+    "intro": "i pisolini lunghi ti _rintronano_ di più",
+    "paragraphes": [
+     "uno studio: un pisolino di 10 minuti _aumentava la vigilanza_ senza intontimento",
+     "sveglia, _luci spente_, prima delle 15"
+    ],
+    "chute": "pisolino corto, _effetto top_"
+   },
+   "hu": {
+    "titre": "_10 perces_ szunyó, nem egy óra",
+    "intro": "a hosszú alvástól _kábább_ leszel, mint előtte",
+    "paragraphes": [
+     "egy kutatás szerint a 10 perces szunyó _javította az éberséget_ kábaság nélkül",
+     "ébresztő be, _fény le_, 15 óra előtt"
+    ],
+    "chute": "rövid szunyó, _nagy különbség_"
+   },
+   "ro": {
+    "titre": "somn de _10 minute_, nu o oră",
+    "intro": "somnul lung te lasă _mai amețită_ ca înainte",
+    "paragraphes": [
+     "un studiu: un pui de somn de 10 minute _a crescut vigilența_ fără amețeală",
+     "alarmă, _lumina stinsă_, înainte de 15"
+    ],
+    "chute": "somn scurt, _diferență mare_"
+   },
+   "el": {
+    "titre": "υπνάκος _10 λεπτών_, όχι μιας ώρας",
+    "intro": "ο μεγάλος υπνάκος σε κάνει _πιο ζαλισμένη_",
+    "paragraphes": [
+     "μια έρευνα: υπνάκος 10 λεπτών _ανέβασε την εγρήγορση_ χωρίς ζάλη",
+     "ξυπνητήρι, _φώτα σβηστά_, πριν τις 3"
+    ],
+    "chute": "λίγος ύπνος, _μεγάλη διαφορά_"
    }
   },
   {
@@ -92,6 +290,72 @@
     "appli": "Atala : AI Running Coach",
     "sous": "Reach your running goals",
     "legende": "the app:"
+   },
+   "fr": {
+    "titre": "commence _à courir_, doucement",
+    "intro": "rien ne me booste _comme un run_",
+    "paragraphes": [
+     "je pensais devoir être en forme _pour commencer à courir_, alors je repoussais",
+     "mon tip : une appli de coaching running comme Atala part _de ton niveau_, même de zéro"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "_lauf los_, auch langsam",
+    "intro": "nichts gibt mir energie _wie ein lauf_",
+    "paragraphes": [
+     "ich dachte, ich muss fit sein, _um loszulaufen_, also schob ich's ewig auf",
+     "mein tipp: eine lauf-coach-app wie Atala holt dich _bei deinem level_ ab, sogar bei null"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "inizia _a correre_, anche piano",
+    "intro": "niente mi dà energia _come una corsa_",
+    "paragraphes": [
+     "pensavo di dover essere in forma _per iniziare a correre_, così rimandavo sempre",
+     "il mio consiglio: un'app coach per la corsa come Atala parte _dal tuo livello_, pure da zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "kezdj el _futni_, akár lassan",
+    "intro": "semmi sem tölt fel _jobban egy futásnál_",
+    "paragraphes": [
+     "azt hittem, fittnek kell lennem, _hogy elkezdjek futni_, így mindig halogattam",
+     "a tippem: egy futóedző app, mint az Atala, _a szintedről_ indít, akár nulláról is"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "_aleargă_, chiar și încet",
+    "intro": "nimic nu-mi dă energie _ca o alergare_",
+    "paragraphes": [
+     "credeam că trebuie să fiu în formă _ca să încep să alerg_, așa că tot amânam",
+     "sfatul meu: o aplicație de running coach ca Atala pornește _de la nivelul tău_, și de la zero"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "ξεκίνα _να τρέχεις_, έστω αργά",
+    "intro": "τίποτα δεν με γεμίζει _όσο ένα τρέξιμο_",
+    "paragraphes": [
+     "νόμιζα ότι έπρεπε να είμαι fit _για να ξεκινήσω τρέξιμο_, οπότε το ανέβαλλα",
+     "το tip μου: μια εφαρμογή προπονητή όπως η Atala ξεκινά _από το επίπεδό σου_, κι από το μηδέν"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
    }
   },
   {
@@ -105,6 +369,60 @@
      "every hour, _2 minutes_, that's it"
     ],
     "chute": "move a little, _wake up a lot_"
+   },
+   "fr": {
+    "titre": "_étire-toi_ entre 2 tâches",
+    "intro": "rester assise des heures te rend _raide et molle_",
+    "paragraphes": [
+     "lève-toi, roule des épaules, _touche tes orteils_",
+     "chaque heure, _2 minutes_, c'est tout"
+    ],
+    "chute": "bouge un peu, _réveil total_"
+   },
+   "de": {
+    "titre": "_dehn dich_ zwischendurch",
+    "intro": "stundenlang sitzen macht dich _steif und müde_",
+    "paragraphes": [
+     "steh auf, kreis die schultern, _berühr deine zehen_",
+     "jede stunde, _2 minuten_, mehr nicht"
+    ],
+    "chute": "kurz bewegen, _hellwach werden_"
+   },
+   "it": {
+    "titre": "_stretching_ tra i task",
+    "intro": "stare seduta per ore ti rende _rigida e assonnata_",
+    "paragraphes": [
+     "alzati, ruota le spalle, _tocca le punte_",
+     "ogni ora, _2 minuti_, fine"
+    ],
+    "chute": "muoviti un po', _svegliati tanto_"
+   },
+   "hu": {
+    "titre": "_nyújts_ feladatok közt",
+    "intro": "az órákig ülés _merevvé és álmossá_ tesz",
+    "paragraphes": [
+     "állj fel, körözz a válladdal, _érintsd meg a lábujjad_",
+     "óránként _2 perc_, ennyi"
+    ],
+    "chute": "mozogj kicsit, _ébredj fel_"
+   },
+   "ro": {
+    "titre": "_stretch_ între task-uri",
+    "intro": "statul ore întregi te face _țeapănă și somnoroasă_",
+    "paragraphes": [
+     "ridică-te, rotește umerii, _atinge-ți degetele_",
+     "la fiecare oră, _2 minute_, atât"
+    ],
+    "chute": "mișcă-te puțin, _trezește-te mult_"
+   },
+   "el": {
+    "titre": "_διατάσεις_ στα breaks",
+    "intro": "ώρες καθιστή σε κάνουν _πιασμένη και νυσταγμένη_",
+    "paragraphes": [
+     "σήκω, κάνε κύκλους με τους ώμους, _άγγιξε τα δάχτυλα_",
+     "κάθε ώρα, _2 λεπτά_, τόσο απλά"
+    ],
+    "chute": "λίγη κίνηση, _πολύ ξύπνημα_"
    }
   },
   {
@@ -118,6 +436,60 @@
      "iced, oat milk, _pretty glass_"
     ],
     "chute": "the vibe _is the point_"
+   },
+   "fr": {
+    "titre": "matcha _au lieu du troisième café_",
+    "intro": "la tasse de l'aprèm, _en plus doux_",
+    "paragraphes": [
+     "un boost plus calme, et _un petit rituel_ dans ta journée",
+     "glacé, lait d'avoine, _joli verre_"
+    ],
+    "chute": "tout est _dans la vibe_"
+   },
+   "de": {
+    "titre": "matcha _statt dem dritten kaffee_",
+    "intro": "die nachmittagstasse, _etwas sanfter_",
+    "paragraphes": [
+     "ein ruhigerer boost und _ein kleines ritual_ im tag",
+     "iced, hafermilch, _hübsches glas_"
+    ],
+    "chute": "der vibe _ist alles_"
+   },
+   "it": {
+    "titre": "matcha _al posto del terzo caffè_",
+    "intro": "la tazza del pomeriggio, _più soft_",
+    "paragraphes": [
+     "una carica più calma, e _un piccolo rituale_ nella giornata",
+     "iced, avena, _bel bicchiere_"
+    ],
+    "chute": "il punto _è la vibe_"
+   },
+   "hu": {
+    "titre": "matcha _a harmadik kávé helyett_",
+    "intro": "a délutáni csésze, _kicsit lágyabban_",
+    "paragraphes": [
+     "nyugodtabb lendület, és _egy kis rituálé_ a napodban",
+     "jeges, zabtejes, _szép pohárban_"
+    ],
+    "chute": "a vibe _a lényeg_"
+   },
+   "ro": {
+    "titre": "matcha _în loc de a treia cafea_",
+    "intro": "cana de după-amiază, _puțin mai blândă_",
+    "paragraphes": [
+     "un boost mai calm și _un mic ritual_ în ziua ta",
+     "iced, ovăz, _pahar drăguț_"
+    ],
+    "chute": "vibe-ul _e ideea_"
+   },
+   "el": {
+    "titre": "matcha _αντί για τον τρίτο καφέ_",
+    "intro": "η απογευματινή κούπα, _λίγο πιο απαλή_",
+    "paragraphes": [
+     "πιο ήρεμη ενέργεια και _μια μικρή τελετουργία_ στη μέρα σου",
+     "iced, γάλα βρώμης, _ωραίο ποτήρι_"
+    ],
+    "chute": "η vibe _είναι το θέμα_"
    }
   }
  ]

@@ -1,0 +1,430 @@
+{
+ "id": "at-019",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7703693124438117663",
+  "vues": 55500,
+  "publie_le": "2026-11-02",
+  "accroche": "fall runs / do and don’ts"
+ },
+ "titre": {
+  "en": "windy runs do and don’ts",
+  "fr": "jours de vent : les do & don’ts",
+  "de": "laufen bei wind: die do & don’ts",
+  "it": "corsa col vento: i do & don’ts",
+  "es-419": "correr con viento: los do & don’ts",
+  "hu": "futás szélben: a do & don’ts",
+  "ro": "alergat pe vânt: do & don’ts",
+  "tr": "rüzgârlı koşu: do & don’ts",
+  "el": "τρέξιμο με αέρα: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #windyrun #runningtips #girlswhorun #fallrunning",
+  "fr": "#courseapied #vent #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Dracula (with JENNIE)",
+  "url": "https://www.tiktok.com/music/dracula-with-jennie-7603221525400455169"
+ },
+ "notes": "Preuve : « fall runs / do and don’ts » de @katrina.run (56 k vues, 02/11) ; même gabarit (objets), un sujet de saison voisin (le vent). Aucun objet neuf ; couverture : coureuse-pluie. Logo d'Atala au milieu des « Do » de la slide 2. Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-pluie.png",
+   "en": {
+    "titre": "windy runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "jours de vent :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "laufen bei wind:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "corsa col vento:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "correr con viento:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "futás szélben:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "alergat pe vânt:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "rüzgârlı koşu:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "τρέξιμο με αέρα:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/coupe-vent.png",
+    "atala",
+    "images/objets/bonnet.png"
+   ],
+   "dont": [
+    "images/objets/casquette.png",
+    "images/objets/doudoune.png"
+   ],
+   "en": {
+    "titre": "before you go",
+    "do": [
+     "a windbreaker",
+     "a coach app\nlike atala",
+     "a beanie"
+    ],
+    "dont": [
+     "a loose cap",
+     "a heavy coat"
+    ]
+   },
+   "fr": {
+    "titre": "avant de sortir",
+    "do": [
+     "un coupe-vent",
+     "appli coach\ncomme atala",
+     "un bonnet"
+    ],
+    "dont": [
+     "une casquette",
+     "une doudoune"
+    ]
+   },
+   "de": {
+    "titre": "vor dem lauf",
+    "do": [
+     "windjacke",
+     "coach-app\nwie atala",
+     "eine mütze"
+    ],
+    "dont": [
+     "lockere kappe",
+     "daunenjacke"
+    ]
+   },
+   "it": {
+    "titre": "prima di uscire",
+    "do": [
+     "un antivento",
+     "app coach\ncome atala",
+     "un berretto"
+    ],
+    "dont": [
+     "un cappellino",
+     "il piumino"
+    ]
+   },
+   "es-419": {
+    "titre": "antes de salir",
+    "do": [
+     "rompevientos",
+     "app con coach\ncomo atala",
+     "un gorro"
+    ],
+    "dont": [
+     "gorra floja",
+     "abrigo grueso"
+    ]
+   },
+   "hu": {
+    "titre": "indulás előtt",
+    "do": [
+     "széldzseki",
+     "edzős app,\nmint az atala",
+     "egy sapka"
+    ],
+    "dont": [
+     "lötyögő sapka",
+     "pehelykabát"
+    ]
+   },
+   "ro": {
+    "titre": "înainte să ieși",
+    "do": [
+     "o geacă\nde vânt",
+     "aplicație de\ncoach ca atala",
+     "o căciulă"
+    ],
+    "dont": [
+     "șapcă largă",
+     "geacă groasă"
+    ]
+   },
+   "tr": {
+    "titre": "çıkmadan önce",
+    "do": [
+     "rüzgârlık",
+     "atala gibi\nkoç uygulaması",
+     "bir bere"
+    ],
+    "dont": [
+     "bol şapka",
+     "kalın mont"
+    ]
+   },
+   "el": {
+    "titre": "πριν βγεις",
+    "do": [
+     "αντιανεμικό",
+     "εφαρμογή coach\nσαν το atala",
+     "ένας σκούφος"
+    ],
+    "dont": [
+     "φαρδύ καπέλο",
+     "χοντρό μπουφάν"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "images/objets/lunettes.png",
+    "images/objets/chaussures.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/ecouteurs.png"
+   ],
+   "en": {
+    "titre": "out there",
+    "do": [
+     "start into\nthe wind",
+     "sunglasses",
+     "short strides"
+    ],
+    "dont": [
+     "chasing\nyour pace",
+     "music\ntoo loud"
+    ]
+   },
+   "fr": {
+    "titre": "dehors",
+    "do": [
+     "vent de face\nà l’aller",
+     "des lunettes",
+     "petits pas"
+    ],
+    "dont": [
+     "ton allure\nà tout prix",
+     "musique\ntrop forte"
+    ]
+   },
+   "de": {
+    "titre": "draußen",
+    "do": [
+     "hinweg gegen\nden wind",
+     "sonnenbrille",
+     "kurze schritte"
+    ],
+    "dont": [
+     "tempo um\njeden preis",
+     "musik zu laut"
+    ]
+   },
+   "it": {
+    "titre": "fuori",
+    "do": [
+     "parti contro\nil vento",
+     "occhiali\nda sole",
+     "passi corti"
+    ],
+    "dont": [
+     "il ritmo\na ogni costo",
+     "musica\ntroppo alta"
+    ]
+   },
+   "es-419": {
+    "titre": "afuera",
+    "do": [
+     "ida contra\nel viento",
+     "lentes de sol",
+     "pasos cortos"
+    ],
+    "dont": [
+     "tu ritmo\na toda costa",
+     "música\nmuy fuerte"
+    ]
+   },
+   "hu": {
+    "titre": "kint",
+    "do": [
+     "oda szembeszél",
+     "napszemüveg",
+     "rövid lépések"
+    ],
+    "dont": [
+     "tempó\nbármi áron",
+     "hangos zene"
+    ]
+   },
+   "ro": {
+    "titre": "afară",
+    "do": [
+     "dus cu vântul\ndin față",
+     "ochelari\nde soare",
+     "pași mici"
+    ],
+    "dont": [
+     "ritmul\ncu orice preț",
+     "muzică\nprea tare"
+    ]
+   },
+   "tr": {
+    "titre": "dışarıda",
+    "do": [
+     "gidişte\nrüzgâra karşı",
+     "güneş gözlüğü",
+     "kısa adımlar"
+    ],
+    "dont": [
+     "ne pahasına\nolursa tempo",
+     "yüksek müzik"
+    ]
+   },
+   "el": {
+    "titre": "έξω",
+    "do": [
+     "πρώτα κόντρα\nστον αέρα",
+     "γυαλιά ηλίου",
+     "μικρά βήματα"
+    ],
+    "dont": [
+     "ρυθμός με\nκάθε κόστος",
+     "μουσική\nστη διαπασών"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/the.png",
+    "images/objets/verre-eau.png",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/pommeau.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "back home",
+    "do": [
+     "a hot tea",
+     "a big glass\nof water",
+     "dry clothes\nright away"
+    ],
+    "dont": [
+     "a cold shower",
+     "a glass\nof wine"
+    ]
+   },
+   "fr": {
+    "titre": "en rentrant",
+    "do": [
+     "un thé chaud",
+     "un grand\nverre d’eau",
+     "vite, au sec"
+    ],
+    "dont": [
+     "l’eau froide",
+     "un verre\nde vin"
+    ]
+   },
+   "de": {
+    "titre": "zu hause",
+    "do": [
+     "heißer tee",
+     "ein großes\nglas wasser",
+     "gleich was\ntrockenes an"
+    ],
+    "dont": [
+     "kalt duschen",
+     "ein glas wein"
+    ]
+   },
+   "it": {
+    "titre": "a casa",
+    "do": [
+     "un tè caldo",
+     "tanta acqua",
+     "abiti asciutti"
+    ],
+    "dont": [
+     "doccia fredda",
+     "un bicchiere\ndi vino"
+    ]
+   },
+   "es-419": {
+    "titre": "en casa",
+    "do": [
+     "un té caliente",
+     "un vaso\ngrande de agua",
+     "ropa seca\nde inmediato"
+    ],
+    "dont": [
+     "ducha fría",
+     "una copa\nde vino"
+    ]
+   },
+   "hu": {
+    "titre": "otthon",
+    "do": [
+     "forró tea",
+     "egy nagy\npohár víz",
+     "azonnal\nszáraz ruha"
+    ],
+    "dont": [
+     "hideg zuhany",
+     "egy pohár bor"
+    ]
+   },
+   "ro": {
+    "titre": "acasă",
+    "do": [
+     "ceai fierbinte",
+     "un pahar\nmare cu apă",
+     "imediat\nhaine uscate"
+    ],
+    "dont": [
+     "duș rece",
+     "un pahar\nde vin"
+    ]
+   },
+   "tr": {
+    "titre": "eve dönünce",
+    "do": [
+     "sıcak çay",
+     "büyük bir\nbardak su",
+     "hemen\nkuru kıyafet"
+    ],
+    "dont": [
+     "soğuk duş",
+     "şarap içmek"
+    ]
+   },
+   "el": {
+    "titre": "στο σπίτι",
+    "do": [
+     "ζεστό τσάι",
+     "ένα μεγάλο\nποτήρι νερό",
+     "αμέσως\nστεγνά ρούχα"
+    ],
+    "dont": [
+     "κρύο ντους",
+     "ποτήρι κρασί"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o428",
+ "type_bleo": "full_test",
+ "titre": "what pompeii tells us about everyday roman life #pompeii #history #italy #smartgirl #ancientrome",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 5/9 (la jauge en demande 9 sur 28) : accroche jamais faite chez nous (« pompeii » absent des accroches de donnees/label.json). Accroches écrites : « what pompeii tells us about everyday roman life » (retenue : histoire vivante, curiosité), « pompeii facts » (écartée : plate), « the last day of pompeii » (écartée : dramatique). Faits vérifiés : éruption de 79 apr. J.-C., pains carbonisés dans les fours, comptoirs de restauration rapide (thermopolia), graffitis sur les murs, mosaïque « cave canem », moulages en plâtre de Giuseppe Fiorelli (1863). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "63cbf89a",
+   "texte_overlay": "what pompeii tells us about\neveryday roman life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "57f27934",
+   "texte_overlay": "79 ad\n\nvesuvius froze a whole city\nin a single day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2211cfd7",
+   "texte_overlay": "bread still in the ovens\n\nloaves carbonised\nin the bakeries.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "036b841e",
+   "texte_overlay": "fast food\n\nstreet counters served\nhot meals: \"thermopolia\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "35e8997d",
+   "texte_overlay": "graffiti\n\nlove notes, jokes and insults\non the walls.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3b135005",
+   "texte_overlay": "\"cave canem\"\n\n\"beware of the dog\",\nin a floor mosaic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9b66c623",
+   "texte_overlay": "the casts\n\nin 1863, fiorelli filled the empty\nspaces with plaster. i learned this\nin a five-minute lesson.",
+   "texte_sophia": "the casts\n\nin 1863, fiorelli filled the empty spaces\nwith plaster. i learned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9b939ae1",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

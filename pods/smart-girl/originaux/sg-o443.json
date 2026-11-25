@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o443",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a017f023-d25e-4d9f-ae17-6957a2cdd995",
+ "titre": "6 hobbies that make you smarter without trying too hard #hobbies #smarter #smartgirl #learning #brain",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "a017f023-d25e-4d9f-ae17-6957a2cdd995"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 57 de la boîte (parent a017f023, langue source en) : accroche du parent mot pour mot. Hobbies du parent (sudoku, un instrument, micro-apprentissage, jeux de société, non-fiction, puzzles). Sophia en 3 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1cde7d1b",
+   "texte_overlay": "6 hobbies that make you smarter\nwithout trying too hard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692556221890448670/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "54729198",
+   "texte_overlay": "1. sudoku\n\nlogic and patterns.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692556221890448670/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "12abadb2",
+   "texte_overlay": "2. a musical instrument\n\nmemory, focus, coordination.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692556221890448670/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5264308b",
+   "texte_overlay": "3. daily micro-learning",
+   "texte_sophia": "3. daily micro-learning\n\ni read short lessons on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692556221890448670/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "291384aa",
+   "texte_overlay": "4. board games\n\nplanning ahead.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692556221890448670/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a11c3965",
+   "texte_overlay": "5. non-fiction\n\nwhatever you're curious about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692556221890448670/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "757452b7",
+   "texte_overlay": "6. jigsaw puzzles\n\nslow attention.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692556221890448670/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d4ce5886",
+   "texte_overlay": "which one are you starting?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692556221890448670/7.jpg"
+  }
+ ]
+}

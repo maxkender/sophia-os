@@ -66,7 +66,9 @@ def choisir(rx, sophia):
     raise SystemExit(f'aucune image sûre pour {rx}')
 for sid, (typ, par, insp, titre, son, cta, notes, slides) in T.P.items():
     if par and par.startswith('L'): par = boite[int(par[1:]) - 1]['parent_contenu_id']
-    c = label[insp]; vid = c['source_url'].rstrip('/').split('/')[-1]; n = len(c['slides'])
+    c = label.get(insp) or {}
+    if not c.get('source_url'): c = label['905ac33d']  # nos propres posts n'ont pas de source TikTok
+    vid = c['source_url'].rstrip('/').split('/')[-1]; n = len(c['slides'])
     rx = T.THEMES.get(sid, T.DEFAUT) if hasattr(T, 'THEMES') else T.DEFAUT
     o = {'source_id': sid, 'type_bleo': typ}
     if par: o['parent_contenu_id'] = par

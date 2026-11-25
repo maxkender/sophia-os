@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o429",
+ "type_bleo": "full_test",
+ "titre": "6 elegant ways to wear a silk scarf #silkscarf #style #oldmoney #smartgirl #frenchstyle",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 6/9 (la jauge en demande 9 sur 28) : accroche jamais faite chez nous (« scarf » absent des accroches de donnees/label.json). Accroches écrites : « 6 elegant ways to wear a silk scarf » (retenue : style concret), « scarf styling » (écartée : sèche), « french girl accessories » (écartée : consommation). Façons classiques (au cou, en bandeau, autour d'une queue de cheval, sur l'anse d'un sac, en ceinture, en foulard années 1950). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "953e2b4b",
+   "texte_overlay": "6 elegant ways to wear\na silk scarf",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5513915e",
+   "texte_overlay": "1. a small knot at the neck",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0d39f695",
+   "texte_overlay": "2. as a headband",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "17e77f11",
+   "texte_overlay": "3. tied around a ponytail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "96ee3a56",
+   "texte_overlay": "a little history\n\nthe 1950s headscarf made famous\nby the stars of the riviera.",
+   "texte_sophia": "a little history: the 1950s riviera\nheadscarf. i learned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "72bbd39c",
+   "texte_overlay": "4. on the handle of your bag",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "64bafc91",
+   "texte_overlay": "5. as a belt",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b1876348",
+   "texte_overlay": "6. over the hair, knotted\nunder the chin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "45c660e2",
+   "texte_overlay": "which one is your favourite?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/9.jpg"
+  }
+ ]
+}

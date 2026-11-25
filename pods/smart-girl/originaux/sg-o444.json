@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o444",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a61654e4-1cdc-40e2-9b21-9c635dbee419",
+ "titre": "words to expand your vocabulary #vocabulary #words #smartgirl #english #wordoftheday",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "a61654e4-1cdc-40e2-9b21-9c635dbee419"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 59 de la boîte (parent a61654e4, langue source de) : accroche du parent mot pour mot. Mots du parent en anglais (zeal, impeccable, reverie, meticulous) et erudite à la place de « culture générale », avec un exemple. Sophia au milieu comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2b47b985",
+   "texte_overlay": "words to expand\nyour vocabulary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595944361033043222/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d841d2b4",
+   "texte_overlay": "zeal\n\njoyful eagerness.\n\nshe took on the project\nwith zeal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595944361033043222/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d8721c66",
+   "texte_overlay": "impeccable\n\nflawless, perfect.\n\nhis manners were impeccable.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595944361033043222/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d63f8083",
+   "texte_overlay": "reverie\n\na dreamy, wandering state.\n\nshe was lost in reverie.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595944361033043222/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ca166864",
+   "texte_overlay": "erudite\n\ndeeply learned.",
+   "texte_sophia": "erudite\n\ndeeply learned: she uses an app like\nSophia every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595944361033043222/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "41bf2d0a",
+   "texte_overlay": "meticulous\n\nextremely careful and precise.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595944361033043222/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fdf9f340",
+   "texte_overlay": "follow for more\ndaily words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595944361033043222/7.jpg"
+  }
+ ]
+}

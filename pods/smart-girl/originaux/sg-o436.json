@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o436",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "481aa129-359f-4cd1-9bd7-d5b742586a7f",
+ "titre": "mind-blowing science ideas everyone should know #science #smartgirl #physics #psychology #learning",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 4 de la boîte (parent 481aa129, langue source fr) : accroche reformulée (« mind-blowing science ideas everyone should know »), dernière déclinaison de ce parent ; concepts du parent. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e7b8065",
+   "texte_overlay": "mind-blowing science ideas\neveryone should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7aad483b",
+   "texte_overlay": "relativity\n\ntime runs differently\ndepending on how you move.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "baeee429",
+   "texte_overlay": "epigenetics\n\nyour life can switch\ngenes on and off.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "71a5c71a",
+   "texte_overlay": "the observer effect\n\nlooking can change\nwhat you look at.",
+   "texte_sophia": "the observer effect\n\nlooking can change what you look at.\ni learned it on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2964a5c8",
+   "texte_overlay": "entropy\n\neverything drifts\ntowards disorder.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "dd1e140c",
+   "texte_overlay": "the mere-exposure effect\n\nwe love what we see often.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b89c8ecc",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  }
+ ]
+}

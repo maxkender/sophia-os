@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o449",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d6fd903d-ba8d-438e-984f-69d9b0c17927",
+ "titre": "habits i wish i started in january to glow up (that i'm starting now) #glowup #habits #smartgirl #2026 #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "d6fd903d-ba8d-438e-984f-69d9b0c17927"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 74 de la boîte (parent d6fd903d, langue source en) : accroche du parent mot pour mot. Habitudes du parent (dormir avant 23 h, une heure sans téléphone le soir, de l'eau tiède au réveil, la culture générale chaque jour, une routine tenue) et neuves. Sophia à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "87c2659f",
+   "texte_overlay": "habits i wish i started in\njanuary to glow up\n(that i'm starting now)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658983708518534420/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dc6ce21b",
+   "texte_overlay": "sleeping before 11pm",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658983708518534420/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9a3a616a",
+   "texte_overlay": "no phone an hour before bed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658983708518534420/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d444f4a6",
+   "texte_overlay": "warm water before anything else",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658983708518534420/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a744cd44",
+   "texte_overlay": "one routine, done consistently",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658983708518534420/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1efebf91",
+   "texte_overlay": "a walk every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658983708518534420/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8b89f87c",
+   "texte_overlay": "building my general knowledge\n\nfive minutes every morning.",
+   "texte_sophia": "building my general knowledge\n\nfive minutes every morning on the\nSophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658983708518534420/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e20f13dd",
+   "texte_overlay": "it's not too late",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658983708518534420/4.jpg"
+  }
+ ]
+}

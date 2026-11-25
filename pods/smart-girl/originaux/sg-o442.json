@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o442",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9cf11e6c-b1a0-408d-9098-b4f829359bf7",
+ "titre": "5 tips to become extremely intelligent #intelligence #learning #smartgirl #selfimprovement #brain",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "9cf11e6c-b1a0-408d-9098-b4f829359bf7"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 56 de la boîte (parent 9cf11e6c, langue source en) : accroche du parent mot pour mot. Conseils du parent (apprendre quelque chose de difficile chaque jour, une petite routine, lire hors de sa zone, protéger la santé de son cerveau) et un neuf (expliquer ce qu'on apprend). Sophia à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "247505bd",
+   "texte_overlay": "5 tips to become\nextremely intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689389836511218967/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4e1dae5e",
+   "texte_overlay": "1. learn something difficult\nevery day\n\na language, maths, code.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689389836511218967/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4cf7352d",
+   "texte_overlay": "2. read beyond your comfort zone\n\npsychology, science, history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689389836511218967/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ab5c1665",
+   "texte_overlay": "3. protect your brain\n\nsleep, movement, daylight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689389836511218967/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f08b91af",
+   "texte_overlay": "4. explain what you learn\nto someone else",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689389836511218967/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "77ca1002",
+   "texte_overlay": "5. build a small daily routine\n\ni read short courses every morning.",
+   "texte_sophia": "5. build a small daily routine\n\ni read short courses every morning on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689389836511218967/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "101b4c58",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689389836511218967/5.jpg"
+  }
+ ]
+}

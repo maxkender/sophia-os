@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o439",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "649b07a7-4832-4a7c-afb3-75a2163c6bd0",
+ "titre": "old fashioned card games every elegant woman should know #cardgames #janeausten #cosy #smartgirl #hobbies",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 8 de la boîte (parent 649b07a7, langue source el) : accroche du parent (notre sg-o303) mot pour mot. Jeux neufs face au parent (bésigue, cribbage, belote, écarté, speculation dans Mansfield Park, mahjong). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "826134f3",
+   "texte_overlay": "old fashioned card games every\nelegant woman should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c947dba",
+   "texte_overlay": "bezique\n\nqueen victoria's favourite.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0422bf78",
+   "texte_overlay": "cribbage\n\nplayed with a pegboard\nsince the 1600s.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5ea0d7bd",
+   "texte_overlay": "belote\n\nfrance's café classic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cb7efcf0",
+   "texte_overlay": "écarté\n\nthe 19th-century salon game.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6812e55f",
+   "texte_overlay": "speculation\n\nthe game played in\nmansfield park.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c800b84e",
+   "texte_overlay": "mahjong\n\ntiles, not cards, but just as\nelegant. i learned the rules\nin a morning lesson.",
+   "texte_sophia": "mahjong\n\ntiles, not cards, but just as elegant. i\nlearned the story on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7b01163d",
+   "texte_overlay": "which one would you play?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

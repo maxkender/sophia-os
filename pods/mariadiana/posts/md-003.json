@@ -7,10 +7,28 @@
     "accroche": "Paintings That Devour My Soul"
   },
   "titre": {
-    "en": "Paintings That Live In My Head"
+    "en": "Paintings That Live In My Head",
+    "fr": "Les tableaux qui vivent dans ma tête",
+    "es-419": "Pinturas que viven en mi cabeza",
+    "it": "Quadri che vivono nella mia testa",
+    "el": "Πίνακες που ζουν στο μυαλό μου",
+    "hu": "Festmények, amik a fejemben élnek",
+    "sr": "Slike koje žive u mojoj glavi",
+    "hr": "Slike koje žive u mojoj glavi",
+    "lv": "Gleznas, kas dzīvo manā galvā",
+    "ro": "Tablouri care trăiesc în mintea mea"
   },
   "legendes": {
-    "en": "#arthistory #painting #vermeer #georgesdelatour #museum"
+    "en": "#arthistory #painting #vermeer #georgesdelatour #museum",
+    "fr": "#histoiredelart #peinture #vermeer #georgesdelatour #musee",
+    "es-419": "#historiadelarte #pintura #vermeer #georgesdelatour #museo",
+    "it": "#storiadellarte #pittura #vermeer #georgesdelatour #museo",
+    "el": "#ιστορίατέχνης #ζωγραφική #vermeer #georgesdelatour #μουσείο",
+    "hu": "#művészettörténet #festészet #vermeer #georgesdelatour #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #vermeer #georgesdelatour #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #vermeer #georgesdelatour #muzej",
+    "lv": "#mākslasvēsture #glezniecība #vermeer #georgesdelatour #muzejs",
+    "ro": "#istoriaartei #pictura #vermeer #georgesdelatour #muzeu"
   },
   "musique": {
     "titre": "la petite fille de la mer",
@@ -57,6 +75,33 @@
       "image": "images/photos/musee-banc.jpg",
       "en": {
         "titre": "Paintings That Live In My Head"
+      },
+      "fr": {
+        "titre": "Les tableaux qui vivent dans ma tête"
+      },
+      "es-419": {
+        "titre": "Pinturas que viven en mi cabeza"
+      },
+      "it": {
+        "titre": "Quadri che vivono nella mia testa"
+      },
+      "el": {
+        "titre": "Πίνακες που ζουν στο μυαλό μου"
+      },
+      "hu": {
+        "titre": "Festmények, amik a fejemben élnek"
+      },
+      "sr": {
+        "titre": "Slike koje žive u mojoj glavi"
+      },
+      "hr": {
+        "titre": "Slike koje žive u mojoj glavi"
+      },
+      "lv": {
+        "titre": "Gleznas, kas dzīvo manā galvā"
+      },
+      "ro": {
+        "titre": "Tablouri care trăiesc în mintea mea"
       }
     },
     {
@@ -65,6 +110,51 @@
       "en": {
         "titre": "The Fortune-Teller",
         "texte": "looks like a simple scene until you watch the hands. While an old woman reads a young man's fortune, the girls around him cut the medal from his chain and slip a hand into his pocket. Its sale to the Met in 1960 caused an uproar in France.",
+        "artiste": "Georges de La Tour"
+      },
+      "fr": {
+        "titre": "La Diseuse de bonne aventure",
+        "texte": "a l'air d'une scène banale, jusqu'à ce qu'on regarde les mains. Pendant qu'une vieille femme lit l'avenir d'un jeune homme, les filles autour de lui coupent la médaille de sa chaîne et glissent une main dans sa poche. Sa vente au Met en 1960 a fait scandale en France.",
+        "artiste": "Georges de La Tour"
+      },
+      "es-419": {
+        "titre": "La buenaventura",
+        "texte": "parece una escena sencilla hasta que miras las manos. Mientras una anciana le lee la suerte a un joven, las chicas a su alrededor le cortan la medalla de la cadena y le meten la mano en el bolsillo. Su venta al Met en 1960 causó un escándalo en Francia.",
+        "artiste": "Georges de La Tour"
+      },
+      "it": {
+        "titre": "La buona ventura",
+        "texte": "sembra una scena semplice, finché non guardi le mani. Mentre una vecchia legge il futuro a un giovane, le ragazze intorno a lui gli tagliano la medaglia dalla catena e gli infilano una mano in tasca. La sua vendita al Met nel 1960 fece scandalo in Francia.",
+        "artiste": "Georges de La Tour"
+      },
+      "el": {
+        "titre": "Η μάντισσα",
+        "texte": "μοιάζει με απλή σκηνή, μέχρι να κοιτάξεις τα χέρια. Ενώ μια γριά λέει τη μοίρα ενός νεαρού, τα κορίτσια γύρω του κόβουν το μετάλλιο από την αλυσίδα του και βάζουν χέρι στην τσέπη του. Η πώλησή του στο Met το 1960 προκάλεσε σάλο στη Γαλλία.",
+        "artiste": "Ζωρζ ντε Λα Τουρ"
+      },
+      "hu": {
+        "titre": "A jósnő",
+        "texte": "egyszerű jelenetnek tűnik, amíg meg nem nézed a kezeket. Miközben egy öregasszony jósol egy fiatalembernek, a körülötte álló lányok levágják az érmét a láncáról, és a zsebébe nyúlnak. Amikor 1960-ban a Methez került, botrányt kavart Franciaországban.",
+        "artiste": "Georges de La Tour"
+      },
+      "sr": {
+        "titre": "Gatara",
+        "texte": "deluje kao obična scena dok ne pogledaš ruke. Dok starica gata mladiću, devojke oko njega seku medaljon s njegovog lanca i zavlače mu ruku u džep. Njena prodaja Metu 1960. izazvala je skandal u Francuskoj.",
+        "artiste": "Žorž de La Tur"
+      },
+      "hr": {
+        "titre": "Gatara",
+        "texte": "izgleda kao obična scena dok ne pogledaš ruke. Dok starica gata mladiću, djevojke oko njega režu medaljon s njegova lanca i zavlače mu ruku u džep. Njezina prodaja Metu 1960. izazvala je skandal u Francuskoj.",
+        "artiste": "Georges de La Tour"
+      },
+      "lv": {
+        "titre": "Zīlniece",
+        "texte": "šķiet vienkārša aina, līdz paskaties uz rokām. Kamēr veca sieviete zīlē jaunam vīrietim, meitenes ap viņu nogriež medaļu no viņa ķēdes un iebāž roku viņa kabatā. Tās pārdošana Metropolitēna muzejam 1960. gadā Francijā izraisīja skandālu.",
+        "artiste": "Žoržs de Latūrs"
+      },
+      "ro": {
+        "titre": "Ghicitoarea",
+        "texte": "pare o scenă simplă, până când te uiți la mâini. În timp ce o bătrână îi ghicește viitorul unui tânăr, fetele din jurul lui îi taie medalia de pe lanț și îi strecoară o mână în buzunar. Vânzarea lui către Met, în 1960, a provocat un scandal în Franța.",
         "artiste": "Georges de La Tour"
       }
     },
@@ -75,6 +165,51 @@
         "titre": "A Maid Asleep",
         "texte": "was listed in a 1696 sale as 'a drunken, sleeping maid at a table'. X-rays show Vermeer first painted a man in the doorway and a dog, then erased them both. Artura gives me one painting a day and the story behind it; this one stayed with me.",
         "artiste": "Johannes Vermeer"
+      },
+      "fr": {
+        "titre": "Jeune Femme endormie",
+        "texte": "était décrite en 1696, lors d'une vente, comme « une servante ivre endormie à une table ». Les radiographies montrent que Vermeer avait d'abord peint un homme dans l'embrasure et un chien, puis les a effacés. Artura me donne un tableau par jour et l'histoire derrière ; celui-ci m'est resté.",
+        "artiste": "Johannes Vermeer"
+      },
+      "es-419": {
+        "titre": "Muchacha dormida",
+        "texte": "aparecía en una subasta de 1696 como «una criada borracha dormida en una mesa». Las radiografías muestran que Vermeer pintó primero a un hombre en la puerta y a un perro, y luego borró a los dos. Artura me da una pintura al día y la historia detrás; esta se quedó conmigo.",
+        "artiste": "Johannes Vermeer"
+      },
+      "it": {
+        "titre": "Fanciulla addormentata",
+        "texte": "compariva in un'asta del 1696 come «una serva ubriaca addormentata a un tavolo». Le radiografie mostrano che Vermeer aveva dipinto un uomo sulla porta e un cane, poi li ha cancellati entrambi. Artura mi dà un quadro al giorno e la storia che c'è dietro; questo mi è rimasto dentro.",
+        "artiste": "Johannes Vermeer"
+      },
+      "el": {
+        "titre": "Κοιμισμένη υπηρέτρια",
+        "texte": "καταγράφηκε σε μια δημοπρασία του 1696 ως «μια μεθυσμένη υπηρέτρια που κοιμάται σε ένα τραπέζι». Οι ακτινογραφίες δείχνουν ότι ο Βερμέερ είχε ζωγραφίσει έναν άντρα στην πόρτα κι έναν σκύλο, και μετά τους έσβησε. Η Artura μού δίνει έναν πίνακα τη μέρα και την ιστορία του· αυτός μου έμεινε.",
+        "artiste": "Γιοχάνες Βερμέερ"
+      },
+      "hu": {
+        "titre": "Alvó szolgáló",
+        "texte": "egy 1696-os árverésen így szerepelt: „részeg, alvó szolgáló egy asztalnál”. A röntgenfelvételek szerint Vermeer először egy férfit festett az ajtóba és egy kutyát, aztán mindkettőt eltüntette. Az Artura app minden nap ad egy festményt és a mögötte lévő történetet; ez bennem maradt.",
+        "artiste": "Johannes Vermeer"
+      },
+      "sr": {
+        "titre": "Usnula sluškinja",
+        "texte": "je na aukciji 1696. opisana kao „pijana sluškinja koja spava za stolom”. Rendgenski snimci pokazuju da je Vermer prvo naslikao muškarca na vratima i psa, a zatim ih obojicu izbrisao. Aplikacija Artura mi svaki dan daje jednu sliku i priču iza nje; ova mi je ostala u glavi.",
+        "artiste": "Johanes Vermer"
+      },
+      "hr": {
+        "titre": "Usnula sluškinja",
+        "texte": "je na dražbi 1696. opisana kao „pijana sluškinja koja spava za stolom”. Rendgenske snimke pokazuju da je Vermeer najprije naslikao muškarca na vratima i psa, a onda ih obojicu izbrisao. Aplikacija Artura svaki mi dan daje jednu sliku i priču iza nje; ova mi je ostala.",
+        "artiste": "Johannes Vermeer"
+      },
+      "lv": {
+        "titre": "Aizmigusī kalpone",
+        "texte": "1696. gada izsolē bija aprakstīta kā „piedzērusies kalpone, kas guļ pie galda”. Rentgenuzņēmumi rāda, ka Vermērs sākumā uzgleznoja vīrieti durvīs un suni, bet pēc tam abus izdzēsa. Lietotne Artura man katru dienu dod vienu gleznu un stāstu aiz tās; šī palika ar mani.",
+        "artiste": "Johanness Vermērs"
+      },
+      "ro": {
+        "titre": "Servitoare adormită",
+        "texte": "apărea la o licitație din 1696 drept „o servitoare beată, adormită la o masă”. Radiografiile arată că Vermeer pictase întâi un bărbat în ușă și un câine, apoi i-a șters pe amândoi. Artura îmi dă câte un tablou pe zi și povestea din spatele lui; acesta mi-a rămas în minte.",
+        "artiste": "Johannes Vermeer"
       }
     },
     {
@@ -84,6 +219,51 @@
         "titre": "Self-Portrait with Two Pupils",
         "texte": "was Labille-Guiard's answer to an Academy that allowed only four women at a time. She painted herself at work beside two of her students for the 1785 Salon. One of them, Marie-Marguerite Carreaux de Rosemond, died three years later, at 23.",
         "artiste": "Adélaïde Labille-Guiard"
+      },
+      "fr": {
+        "titre": "Autoportrait avec deux élèves",
+        "texte": "était la réponse de Labille-Guiard à une Académie qui n'admettait que quatre femmes à la fois. Elle s'est peinte au travail, entre deux de ses élèves, pour le Salon de 1785. L'une d'elles, Marie-Marguerite Carreaux de Rosemond, est morte trois ans plus tard, à 23 ans.",
+        "artiste": "Adélaïde Labille-Guiard"
+      },
+      "es-419": {
+        "titre": "Autorretrato con dos alumnas",
+        "texte": "fue la respuesta de Labille-Guiard a una Academia que solo admitía a cuatro mujeres a la vez. Se pintó trabajando junto a dos de sus alumnas para el Salón de 1785. Una de ellas, Marie-Marguerite Carreaux de Rosemond, murió tres años después, a los 23.",
+        "artiste": "Adélaïde Labille-Guiard"
+      },
+      "it": {
+        "titre": "Autoritratto con due allieve",
+        "texte": "era la risposta di Labille-Guiard a un'Accademia che ammetteva solo quattro donne alla volta. Si è dipinta al lavoro accanto a due sue allieve per il Salon del 1785. Una di loro, Marie-Marguerite Carreaux de Rosemond, morì tre anni dopo, a 23 anni.",
+        "artiste": "Adélaïde Labille-Guiard"
+      },
+      "el": {
+        "titre": "Αυτοπροσωπογραφία με δύο μαθήτριες",
+        "texte": "ήταν η απάντηση της Λαμπίγ-Γκιάρ σε μια Ακαδημία που δεχόταν μόνο τέσσερις γυναίκες κάθε φορά. Ζωγράφισε τον εαυτό της να δουλεύει δίπλα σε δύο μαθήτριές της για το Σαλόν του 1785. Η μία, η Μαρί-Μαργκερίτ Καρό ντε Ροζμόν, πέθανε τρία χρόνια μετά, στα 23.",
+        "artiste": "Αντελαΐντ Λαμπίγ-Γκιάρ"
+      },
+      "hu": {
+        "titre": "Önarckép két tanítvánnyal",
+        "texte": "Labille-Guiard válasza volt egy Akadémiának, amely egyszerre csak négy nőt fogadott be. Munka közben festette meg magát két tanítványa mellett az 1785-ös Szalonra. Egyikük, Marie-Marguerite Carreaux de Rosemond, három évvel később meghalt, 23 évesen.",
+        "artiste": "Adélaïde Labille-Guiard"
+      },
+      "sr": {
+        "titre": "Autoportret sa dve učenice",
+        "texte": "bio je odgovor Labij-Gijar Akademiji koja je primala samo četiri žene istovremeno. Naslikala je sebe na poslu pored dve svoje učenice za Salon 1785. Jedna od njih, Mari-Margerit Karo de Rozmon, umrla je tri godine kasnije, sa 23 godine.",
+        "artiste": "Adelaid Labij-Gijar"
+      },
+      "hr": {
+        "titre": "Autoportret s dvije učenice",
+        "texte": "bio je odgovor Labille-Guiard Akademiji koja je primala samo četiri žene istodobno. Naslikala je sebe na poslu pokraj dviju svojih učenica za Salon 1785. Jedna od njih, Marie-Marguerite Carreaux de Rosemond, umrla je tri godine poslije, s 23 godine.",
+        "artiste": "Adélaïde Labille-Guiard"
+      },
+      "lv": {
+        "titre": "Pašportrets ar divām audzēknēm",
+        "texte": "bija Labijas-Gijāras atbilde Akadēmijai, kas vienlaikus uzņēma tikai četras sievietes. Viņa uzgleznoja sevi darbā starp divām savām audzēknēm 1785. gada Salonam. Viena no tām, Marija Margarita Karo de Rozmona, nomira trīs gadus vēlāk, 23 gadu vecumā.",
+        "artiste": "Adelaīda Labija-Gijāra"
+      },
+      "ro": {
+        "titre": "Autoportret cu două eleve",
+        "texte": "a fost răspunsul lui Labille-Guiard pentru o Academie care primea doar patru femei odată. S-a pictat la lucru alături de două dintre elevele ei, pentru Salonul din 1785. Una dintre ele, Marie-Marguerite Carreaux de Rosemond, a murit trei ani mai târziu, la 23 de ani.",
+        "artiste": "Adélaïde Labille-Guiard"
       }
     },
     {
@@ -92,6 +272,51 @@
       "en": {
         "titre": "Madame Grand",
         "texte": "was painted in 1783, the year Vigée Le Brun and her rival Labille-Guiard entered the Academy on the same day. The sitter, born in India, had already caused a divorce scandal in Calcutta. She later married Talleyrand, Napoleon's foreign minister.",
+        "artiste": "Élisabeth Vigée Le Brun"
+      },
+      "fr": {
+        "titre": "Madame Grand",
+        "texte": "a été peinte en 1783, l'année où Vigée Le Brun et sa rivale Labille-Guiard sont entrées à l'Académie le même jour. Le modèle, née en Inde, avait déjà provoqué un scandale de divorce à Calcutta. Elle a ensuite épousé Talleyrand, le ministre des Affaires étrangères de Napoléon.",
+        "artiste": "Élisabeth Vigée Le Brun"
+      },
+      "es-419": {
+        "titre": "Madame Grand",
+        "texte": "fue pintada en 1783, el año en que Vigée Le Brun y su rival Labille-Guiard entraron a la Academia el mismo día. La modelo, nacida en la India, ya había causado un escándalo de divorcio en Calcuta. Después se casó con Talleyrand, ministro de Relaciones Exteriores de Napoleón.",
+        "artiste": "Élisabeth Vigée Le Brun"
+      },
+      "it": {
+        "titre": "Madame Grand",
+        "texte": "fu dipinta nel 1783, l'anno in cui Vigée Le Brun e la sua rivale Labille-Guiard entrarono nell'Accademia lo stesso giorno. La modella, nata in India, aveva già causato uno scandalo di divorzio a Calcutta. Poi sposò Talleyrand, ministro degli Esteri di Napoleone.",
+        "artiste": "Élisabeth Vigée Le Brun"
+      },
+      "el": {
+        "titre": "Μαντάμ Γκραν",
+        "texte": "ζωγραφίστηκε το 1783, τη χρονιά που η Βιζέ Λεμπρέν και η αντίπαλός της Λαμπίγ-Γκιάρ μπήκαν στην Ακαδημία την ίδια μέρα. Το μοντέλο, γεννημένο στην Ινδία, είχε ήδη προκαλέσει σκάνδαλο διαζυγίου στην Καλκούτα. Αργότερα παντρεύτηκε τον Ταλεϊράνδο, υπουργό Εξωτερικών του Ναπολέοντα.",
+        "artiste": "Ελιζαμπέτ Βιζέ Λεμπρέν"
+      },
+      "hu": {
+        "titre": "Madame Grand",
+        "texte": "1783-ban készült, abban az évben, amikor Vigée Le Brun és riválisa, Labille-Guiard ugyanazon a napon lett az Akadémia tagja. A modell Indiában született, és már Kalkuttában válási botrányt okozott. Később Talleyrandhoz, Napóleon külügyminiszteréhez ment feleségül.",
+        "artiste": "Élisabeth Vigée Le Brun"
+      },
+      "sr": {
+        "titre": "Madam Gran",
+        "texte": "naslikana je 1783, godine kada su Viže Lebren i njena rivalka Labij-Gijar istog dana primljene u Akademiju. Model, rođena u Indiji, već je izazvala skandal razvoda u Kalkuti. Kasnije se udala za Taljerana, Napoleonovog ministra spoljnih poslova.",
+        "artiste": "Elizabet Viže Lebren"
+      },
+      "hr": {
+        "titre": "Madame Grand",
+        "texte": "naslikana je 1783., godine kad su Vigée Le Brun i njezina suparnica Labille-Guiard istoga dana primljene u Akademiju. Model, rođena u Indiji, već je izazvala skandal razvoda u Kalkuti. Poslije se udala za Talleyranda, Napoleonova ministra vanjskih poslova.",
+        "artiste": "Élisabeth Vigée Le Brun"
+      },
+      "lv": {
+        "titre": "Madame Grand",
+        "texte": "tika uzgleznota 1783. gadā, kad Viže-Lebrēna un viņas sāncense Labija-Gijāra vienā dienā tika uzņemtas Akadēmijā. Modele, dzimusi Indijā, jau bija izraisījusi šķiršanās skandālu Kalkutā. Vēlāk viņa apprecējās ar Taleirānu, Napoleona ārlietu ministru.",
+        "artiste": "Elizabete Viže-Lebrēna"
+      },
+      "ro": {
+        "titre": "Madame Grand",
+        "texte": "a fost pictată în 1783, anul în care Vigée Le Brun și rivala ei Labille-Guiard au intrat în Academie în aceeași zi. Modelul, născută în India, provocase deja un scandal de divorț la Calcutta. Mai târziu s-a căsătorit cu Talleyrand, ministrul de externe al lui Napoleon.",
         "artiste": "Élisabeth Vigée Le Brun"
       }
     }

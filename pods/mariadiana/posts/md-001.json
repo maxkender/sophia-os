@@ -7,27 +7,102 @@
     "accroche": "Paintings That Devour My Soul"
   },
   "titre": {
-    "en": "Paintings That Devour My Soul"
+    "en": "Paintings That Devour My Soul",
+    "fr": "Tableaux qui me dévorent l'âme",
+    "es-419": "Pinturas que me devoran el alma",
+    "it": "Quadri che mi divorano l'anima",
+    "el": "Πίνακες που μου καταβροχθίζουν την ψυχή",
+    "hu": "Festmények, amelyek felfalják a lelkem",
+    "sr": "Slike koje mi proždiru dušu",
+    "hr": "Slike koje mi proždiru dušu",
+    "lv": "Gleznas, kas aprij manu dvēseli",
+    "ro": "Tablouri care îmi devorează sufletul"
   },
   "legendes": {
-    "en": "#arthistory #painting #vangogh #sargent #museum"
+    "en": "#arthistory #painting #vangogh #sargent #museum",
+    "fr": "#histoiredelart #peinture #vangogh #sargent #musee",
+    "es-419": "#historiadelarte #pintura #vangogh #sargent #museo",
+    "it": "#storiadellarte #pittura #vangogh #sargent #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #vangogh #sargent #μουσείο",
+    "hu": "#művészettörténet #festmény #vangogh #sargent #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #vangogh #sargent #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #vangogh #sargent #muzej",
+    "lv": "#mākslasvēsture #glezniecība #vangogh #sargent #muzejs",
+    "ro": "#istoriaartei #pictura #vangogh #sargent #muzeu"
   },
   "musique": {
     "titre": "la petite fille de la mer",
     "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
   },
   "oeuvres": {
-    "images/oeuvres/madame-x.jpg": { "musee": "The Met", "id": "12127", "titre": "Madame X (Virginie Amélie Avegno Gautreau)", "artiste": "John Singer Sargent", "date": "1883–84", "url": "https://www.metmuseum.org/art/collection/search/12127" },
-    "images/oeuvres/pygmalion.jpg": { "musee": "The Met", "id": "436483", "titre": "Pygmalion and Galatea", "artiste": "Jean-Léon Gérôme", "date": "ca. 1890", "url": "https://www.metmuseum.org/art/collection/search/436483" },
-    "images/oeuvres/cypres.jpg": { "musee": "The Met", "id": "436535", "titre": "Wheat Field with Cypresses", "artiste": "Vincent van Gogh", "date": "1889", "url": "https://www.metmuseum.org/art/collection/search/436535" },
-    "images/oeuvres/socrate.jpg": { "musee": "The Met", "id": "436105", "titre": "The Death of Socrates", "artiste": "Jacques Louis David", "date": "1787", "url": "https://www.metmuseum.org/art/collection/search/436105" }
+    "images/oeuvres/madame-x.jpg": {
+      "musee": "The Met",
+      "id": "12127",
+      "titre": "Madame X (Virginie Amélie Avegno Gautreau)",
+      "artiste": "John Singer Sargent",
+      "date": "1883–84",
+      "url": "https://www.metmuseum.org/art/collection/search/12127"
+    },
+    "images/oeuvres/pygmalion.jpg": {
+      "musee": "The Met",
+      "id": "436483",
+      "titre": "Pygmalion and Galatea",
+      "artiste": "Jean-Léon Gérôme",
+      "date": "ca. 1890",
+      "url": "https://www.metmuseum.org/art/collection/search/436483"
+    },
+    "images/oeuvres/cypres.jpg": {
+      "musee": "The Met",
+      "id": "436535",
+      "titre": "Wheat Field with Cypresses",
+      "artiste": "Vincent van Gogh",
+      "date": "1889",
+      "url": "https://www.metmuseum.org/art/collection/search/436535"
+    },
+    "images/oeuvres/socrate.jpg": {
+      "musee": "The Met",
+      "id": "436105",
+      "titre": "The Death of Socrates",
+      "artiste": "Jacques Louis David",
+      "date": "1787",
+      "url": "https://www.metmuseum.org/art/collection/search/436105"
+    }
   },
   "notes": "Preuve : « Paintings That Devour My Soul » de @mariadianatudor (36,9 k vues, 1 087 enregistrements, 29/10), son seul post : même gabarit (couverture sombre, une foule de dos au musée devant un tableau éclairé, le titre blanc ; puis un tableau par slide sur fond blanc cassé, le titre de l'œuvre, le tableau à gauche, un paragraphe qui continue le titre, l'artiste dessous), même accroche, même musique. Œuvres à nous (les siennes : The Kiss, Water Lilies, The Accolade, Starry Night Over the Rhône), toutes du domaine public au Met (Open Access, CC0). Faits vérifiés : Madame X, Salon de 1884, la bretelle tombée repeinte après le scandale, vendue au Met en 1916, Sargent à Londres en 1886 ; Pygmalion et Galatée d'après Ovide, le haut du corps déjà chair, les jambes encore marbre ; Wheat Field with Cypresses peint à l'été 1889 pendant le séjour à l'asile de Saint-Rémy, lettre à Théo du 25 juin 1889 (« beautiful as an Egyptian obelisk ») ; La Mort de Socrate, 1787, la ciguë. Slide Artura (4) : la version `cta A` (« on Artura, one artwork a day with its story »), son logo sous le paragraphe, jamais une capture. Couverture : Seedream (une foule de dos, le tableau du fond n'est qu'une tache de lumière).",
   "slides": [
     {
       "type": "couverture",
       "image": "images/photos/musee-foule.jpg",
-      "en": { "titre": "Paintings That Devour My Soul" }
+      "en": {
+        "titre": "Paintings That Devour My Soul"
+      },
+      "fr": {
+        "titre": "Tableaux qui me dévorent l'âme"
+      },
+      "es-419": {
+        "titre": "Pinturas que me devoran el alma"
+      },
+      "it": {
+        "titre": "Quadri che mi divorano l'anima"
+      },
+      "el": {
+        "titre": "Πίνακες που μου καταβροχθίζουν την ψυχή"
+      },
+      "hu": {
+        "titre": "Festmények, amelyek felfalják a lelkem"
+      },
+      "sr": {
+        "titre": "Slike koje mi proždiru dušu"
+      },
+      "hr": {
+        "titre": "Slike koje mi proždiru dušu"
+      },
+      "lv": {
+        "titre": "Gleznas, kas aprij manu dvēseli"
+      },
+      "ro": {
+        "titre": "Tablouri care îmi devorează sufletul"
+      }
     },
     {
       "type": "oeuvre",
@@ -35,6 +110,51 @@
       "en": {
         "titre": "Madame X",
         "texte": "was supposed to make Sargent famous and nearly ended his career in Paris. At the 1884 Salon, her pale skin, black gown and the strap slipping off her shoulder caused a scandal. He repainted the strap, kept the portrait for over thirty years and moved to London.",
+        "artiste": "John Singer Sargent"
+      },
+      "fr": {
+        "titre": "Madame X",
+        "texte": "devait rendre Sargent célèbre et a failli briser sa carrière à Paris. Au Salon de 1884, sa peau pâle, sa robe noire et la bretelle glissant de son épaule ont fait scandale. Il a repeint la bretelle, gardé le portrait plus de trente ans et s'est installé à Londres.",
+        "artiste": "John Singer Sargent"
+      },
+      "es-419": {
+        "titre": "Madame X",
+        "texte": "iba a hacer famoso a Sargent y casi acaba con su carrera en París. En el Salón de 1884, su piel pálida, su vestido negro y el tirante cayéndole del hombro causaron un escándalo. Él repintó el tirante, guardó el retrato más de treinta años y se mudó a Londres.",
+        "artiste": "John Singer Sargent"
+      },
+      "it": {
+        "titre": "Madame X",
+        "texte": "doveva rendere famoso Sargent e quasi gli distrusse la carriera a Parigi. Al Salon del 1884, la pelle pallida, l'abito nero e la spallina che le scivolava dalla spalla fecero scandalo. Lui ridipinse la spallina, tenne il ritratto per oltre trent'anni e si trasferì a Londra.",
+        "artiste": "John Singer Sargent"
+      },
+      "el": {
+        "titre": "Madame X",
+        "texte": "θα έκανε διάσημο τον Σάρτζεντ και παραλίγο να καταστρέψει την καριέρα του στο Παρίσι. Στο Σαλόν του 1884, το χλωμό δέρμα, το μαύρο φόρεμα και η τιράντα που γλιστρούσε από τον ώμο προκάλεσαν σκάνδαλο. Ξαναζωγράφισε την τιράντα, κράτησε το πορτρέτο πάνω από τριάντα χρόνια και μετακόμισε στο Λονδίνο.",
+        "artiste": "Τζον Σίνγκερ Σάρτζεντ"
+      },
+      "hu": {
+        "titre": "Madame X",
+        "texte": "híressé kellett volna tegye Sargentet, de majdnem tönkretette a pályáját Párizsban. Az 1884-es Szalonon sápadt bőre, fekete ruhája és a válláról lecsúszó pánt botrányt kavart. Sargent átfestette a pántot, több mint harminc évig magánál tartotta a képet, és Londonba költözött.",
+        "artiste": "John Singer Sargent"
+      },
+      "sr": {
+        "titre": "Madam X",
+        "texte": "je trebalo da proslavi Sardženta, a skoro mu je uništila karijeru u Parizu. Na Salonu 1884. njena bleda koža, crna haljina i bretela koja joj klizi s ramena izazvali su skandal. Preslikao je bretelu, čuvao portret više od trideset godina i preselio se u London.",
+        "artiste": "Džon Singer Sardžent"
+      },
+      "hr": {
+        "titre": "Madame X",
+        "texte": "trebala je proslaviti Sargenta, a gotovo mu je uništila karijeru u Parizu. Na Salonu 1884. njezina blijeda koža, crna haljina i naramenica koja joj klizi s ramena izazvali su skandal. Preslikao je naramenicu, čuvao portret više od trideset godina i preselio se u London.",
+        "artiste": "John Singer Sargent"
+      },
+      "lv": {
+        "titre": "Madame X",
+        "texte": "vajadzēja padarīt Sārdžentu slavenu, bet tā gandrīz izpostīja viņa karjeru Parīzē. 1884. gada Salonā viņas bālā āda, melnā kleita un no pleca noslīdējusī lence izraisīja skandālu. Viņš lenci pārgleznoja, glabāja portretu vairāk nekā trīsdesmit gadus un pārcēlās uz Londonu.",
+        "artiste": "Džons Singers Sārdžents"
+      },
+      "ro": {
+        "titre": "Madame X",
+        "texte": "trebuia să-l facă celebru pe Sargent și aproape i-a distrus cariera la Paris. La Salonul din 1884, pielea ei palidă, rochia neagră și bretea care îi alunecă de pe umăr au stârnit un scandal. A repictat bretea, a păstrat portretul peste treizeci de ani și s-a mutat la Londra.",
         "artiste": "John Singer Sargent"
       }
     },
@@ -45,6 +165,51 @@
         "titre": "Pygmalion and Galatea",
         "texte": "is the story of a sculptor who falls in love with the woman he carved. Gérôme paints the exact second the goddess answers his prayer: her back is already warm flesh while her legs are still white marble. Art and life touch for one kiss.",
         "artiste": "Jean-Léon Gérôme"
+      },
+      "fr": {
+        "titre": "Pygmalion et Galatée",
+        "texte": "raconte un sculpteur qui tombe amoureux de la femme qu'il a sculptée. Gérôme peint la seconde exacte où la déesse exauce sa prière : son dos est déjà chair tiède, ses jambes encore marbre blanc. L'art et la vie se touchent le temps d'un baiser.",
+        "artiste": "Jean-Léon Gérôme"
+      },
+      "es-419": {
+        "titre": "Pigmalión y Galatea",
+        "texte": "es la historia de un escultor que se enamora de la mujer que talló. Gérôme pinta el segundo exacto en que la diosa responde a su plegaria: su espalda ya es carne tibia y sus piernas siguen siendo mármol blanco. El arte y la vida se tocan en un beso.",
+        "artiste": "Jean-Léon Gérôme"
+      },
+      "it": {
+        "titre": "Pigmalione e Galatea",
+        "texte": "è la storia di uno scultore che si innamora della donna che ha scolpito. Gérôme dipinge l'istante esatto in cui la dea esaudisce la sua preghiera: la schiena è già carne calda, le gambe ancora marmo bianco. Arte e vita si toccano in un bacio.",
+        "artiste": "Jean-Léon Gérôme"
+      },
+      "el": {
+        "titre": "Πυγμαλίων και Γαλάτεια",
+        "texte": "είναι η ιστορία ενός γλύπτη που ερωτεύεται τη γυναίκα που σμίλεψε. Ο Ζερόμ ζωγραφίζει το ακριβές δευτερόλεπτο που η θεά εισακούει την προσευχή του: η πλάτη της είναι ήδη ζεστή σάρκα, τα πόδια της ακόμη λευκό μάρμαρο. Τέχνη και ζωή αγγίζονται σε ένα φιλί.",
+        "artiste": "Ζαν-Λεόν Ζερόμ"
+      },
+      "hu": {
+        "titre": "Pügmalión és Galateia",
+        "texte": "egy szobrász története, aki beleszeret a nőbe, akit kifaragott. Gérôme azt a pillanatot festi meg, amikor az istennő meghallgatja az imáját: a nő háta már meleg hús, a lába még fehér márvány. Művészet és élet egy csókra összeér.",
+        "artiste": "Jean-Léon Gérôme"
+      },
+      "sr": {
+        "titre": "Pigmalion i Galateja",
+        "texte": "je priča o vajaru koji se zaljubi u ženu koju je isklesao. Žerom slika tačan trenutak kada boginja usliši njegovu molitvu: njena leđa su već topla put, a noge još beli mermer. Umetnost i život se dodiruju u jednom poljupcu.",
+        "artiste": "Žan-Leon Žerom"
+      },
+      "hr": {
+        "titre": "Pigmalion i Galateja",
+        "texte": "priča je o kiparu koji se zaljubi u ženu koju je isklesao. Gérôme slika točan trenutak kad božica usliši njegovu molitvu: leđa su joj već topla put, a noge još bijeli mramor. Umjetnost i život dodiruju se u jednom poljupcu.",
+        "artiste": "Jean-Léon Gérôme"
+      },
+      "lv": {
+        "titre": "Pigmalions un Galateja",
+        "texte": "ir stāsts par tēlnieku, kurš iemīlas paša izkaltā sievietē. Žeroms glezno precīzi to brīdi, kad dieviete uzklausa viņa lūgšanu: viņas mugura jau ir silta miesa, bet kājas vēl balts marmors. Māksla un dzīve saskaras vienā skūpstā.",
+        "artiste": "Žans Leons Žeroms"
+      },
+      "ro": {
+        "titre": "Pygmalion și Galateea",
+        "texte": "este povestea unui sculptor care se îndrăgostește de femeia pe care a sculptat-o. Gérôme pictează clipa exactă în care zeița îi ascultă ruga: spatele ei e deja carne caldă, iar picioarele încă marmură albă. Arta și viața se ating într-un sărut.",
+        "artiste": "Jean-Léon Gérôme"
       }
     },
     {
@@ -54,6 +219,51 @@
         "titre": "Wheat Field with Cypresses",
         "texte": "was painted in the summer of 1889, while Van Gogh was staying at the asylum in Saint-Rémy. He wrote to his brother that cypresses were as beautiful as an Egyptian obelisk. I learned to see how every cloud and branch moves in the same swirl on Artura, one artwork a day with its story.",
         "artiste": "Vincent van Gogh"
+      },
+      "fr": {
+        "titre": "Champ de blé avec cyprès",
+        "texte": "a été peint à l'été 1889, quand Van Gogh séjournait à l'asile de Saint-Rémy. Il écrivait à son frère que les cyprès étaient beaux comme un obélisque égyptien. J'ai appris à voir chaque nuage et chaque branche tourner dans le même tourbillon sur Artura, une œuvre par jour et son histoire.",
+        "artiste": "Vincent van Gogh"
+      },
+      "es-419": {
+        "titre": "Campo de trigo con cipreses",
+        "texte": "fue pintado en el verano de 1889, cuando Van Gogh estaba en el asilo de Saint-Rémy. Le escribió a su hermano que los cipreses eran bellos como un obelisco egipcio. Aprendí a ver cómo cada nube y cada rama giran en el mismo remolino en Artura, una obra al día con su historia.",
+        "artiste": "Vincent van Gogh"
+      },
+      "it": {
+        "titre": "Campo di grano con cipressi",
+        "texte": "fu dipinto nell'estate del 1889, mentre Van Gogh era ricoverato nel manicomio di Saint-Rémy. Scrisse al fratello che i cipressi erano belli come un obelisco egizio. Ho imparato a vedere come ogni nuvola e ogni ramo si muovono nello stesso vortice su Artura, un'opera al giorno con la sua storia.",
+        "artiste": "Vincent van Gogh"
+      },
+      "el": {
+        "titre": "Σιταροχώραφο με κυπαρίσσια",
+        "texte": "ζωγραφίστηκε το καλοκαίρι του 1889, όταν ο Βαν Γκογκ έμενε στο άσυλο του Σεν-Ρεμί. Έγραφε στον αδελφό του ότι τα κυπαρίσσια ήταν όμορφα σαν αιγυπτιακός οβελίσκος. Έμαθα να βλέπω πώς κάθε σύννεφο και κάθε κλαδί κινούνται στην ίδια δίνη στο Artura, ένα έργο τη μέρα με την ιστορία του.",
+        "artiste": "Βίνσεντ βαν Γκογκ"
+      },
+      "hu": {
+        "titre": "Búzamező ciprusokkal",
+        "texte": "1889 nyarán készült, amikor Van Gogh a saint-rémyi elmegyógyintézetben élt. Azt írta öccsének, hogy a ciprusok olyan szépek, mint egy egyiptomi obeliszk. Az Artura appban tanultam meg látni, hogyan mozog minden felhő és ág ugyanabban az örvényben: minden nap egy műalkotás a történetével.",
+        "artiste": "Vincent van Gogh"
+      },
+      "sr": {
+        "titre": "Žitno polje sa čempresima",
+        "texte": "naslikano je u leto 1889, dok je Van Gog boravio u azilu u Sen Remiju. Pisao je bratu da su čempresi lepi kao egipatski obelisk. Naučila sam da vidim kako se svaki oblak i svaka grana kreću u istom vrtlogu u aplikaciji Artura, jedno delo dnevno sa svojom pričom.",
+        "artiste": "Vinsent van Gog"
+      },
+      "hr": {
+        "titre": "Pšenično polje s čempresima",
+        "texte": "naslikano je u ljeto 1889., dok je Van Gogh boravio u umobolnici u Saint-Rémyju. Pisao je bratu da su čempresi lijepi poput egipatskog obeliska. Naučila sam vidjeti kako se svaki oblak i svaka grana kreću u istom vrtlogu u aplikaciji Artura, jedno djelo dnevno s njegovom pričom.",
+        "artiste": "Vincent van Gogh"
+      },
+      "lv": {
+        "titre": "Kviešu lauks ar cipresēm",
+        "texte": "gleznots 1889. gada vasarā, kad Van Gogs uzturējās Senremī patversmē. Viņš rakstīja brālim, ka cipreses ir skaistas kā ēģiptiešu obelisks. Lietotnē Artura iemācījos redzēt, kā katrs mākonis un zars kustas vienā virpulī: katru dienu viens mākslas darbs ar savu stāstu.",
+        "artiste": "Vinsents van Gogs"
+      },
+      "ro": {
+        "titre": "Lan de grâu cu chiparoși",
+        "texte": "a fost pictat în vara lui 1889, când Van Gogh stătea la azilul din Saint-Rémy. Îi scria fratelui său că chiparoșii sunt frumoși ca un obelisc egiptean. Am învățat să văd cum fiecare nor și fiecare ramură se mișcă în același vârtej pe Artura, o operă pe zi cu povestea ei.",
+        "artiste": "Vincent van Gogh"
       }
     },
     {
@@ -62,6 +272,51 @@
       "en": {
         "titre": "The Death of Socrates",
         "texte": "shows a man choosing his ideas over his life. Sentenced to death in Athens, Socrates keeps teaching as he reaches for the cup of hemlock, while his friends fall apart around him. David painted it in 1787, two years before the French Revolution.",
+        "artiste": "Jacques-Louis David"
+      },
+      "fr": {
+        "titre": "La Mort de Socrate",
+        "texte": "montre un homme qui choisit ses idées plutôt que sa vie. Condamné à mort à Athènes, Socrate enseigne encore en tendant la main vers la ciguë, tandis que ses amis s'effondrent autour de lui. David l'a peint en 1787, deux ans avant la Révolution.",
+        "artiste": "Jacques-Louis David"
+      },
+      "es-419": {
+        "titre": "La muerte de Sócrates",
+        "texte": "muestra a un hombre que elige sus ideas por encima de su vida. Condenado a muerte en Atenas, Sócrates sigue enseñando mientras toma la copa de cicuta y sus amigos se derrumban a su alrededor. David la pintó en 1787, dos años antes de la Revolución francesa.",
+        "artiste": "Jacques-Louis David"
+      },
+      "it": {
+        "titre": "La morte di Socrate",
+        "texte": "mostra un uomo che sceglie le sue idee invece della vita. Condannato a morte ad Atene, Socrate continua a insegnare mentre prende la coppa di cicuta, e intorno a lui gli amici crollano. David lo dipinse nel 1787, due anni prima della Rivoluzione francese.",
+        "artiste": "Jacques-Louis David"
+      },
+      "el": {
+        "titre": "Ο θάνατος του Σωκράτη",
+        "texte": "δείχνει έναν άνθρωπο που διαλέγει τις ιδέες του αντί για τη ζωή του. Καταδικασμένος σε θάνατο στην Αθήνα, ο Σωκράτης συνεχίζει να διδάσκει καθώς πιάνει το κώνειο, ενώ οι φίλοι του καταρρέουν γύρω του. Ο Νταβίντ τον ζωγράφισε το 1787, δύο χρόνια πριν από τη Γαλλική Επανάσταση.",
+        "artiste": "Ζακ-Λουί Νταβίντ"
+      },
+      "hu": {
+        "titre": "Szókratész halála",
+        "texte": "egy embert mutat, aki az eszméit választja az élete helyett. Athénban halálra ítélve Szókratész még akkor is tanít, amikor a bürökpohár felé nyúl, barátai pedig összeomlanak körülötte. David 1787-ben festette, két évvel a francia forradalom előtt.",
+        "artiste": "Jacques-Louis David"
+      },
+      "sr": {
+        "titre": "Sokratova smrt",
+        "texte": "prikazuje čoveka koji bira svoje ideje umesto života. Osuđen na smrt u Atini, Sokrat i dalje podučava dok poseže za čašom kukute, a prijatelji se oko njega raspadaju. David ju je naslikao 1787, dve godine pre Francuske revolucije.",
+        "artiste": "Žak-Luj David"
+      },
+      "hr": {
+        "titre": "Sokratova smrt",
+        "texte": "prikazuje čovjeka koji bira svoje ideje umjesto života. Osuđen na smrt u Ateni, Sokrat i dalje poučava dok poseže za čašom kukute, a prijatelji se oko njega slamaju. David ju je naslikao 1787., dvije godine prije Francuske revolucije.",
+        "artiste": "Jacques-Louis David"
+      },
+      "lv": {
+        "titre": "Sokrata nāve",
+        "texte": "rāda cilvēku, kurš savas idejas izvēlas dzīvības vietā. Atēnās notiesāts uz nāvi, Sokrats turpina mācīt, sniedzoties pēc indes kausa, kamēr draugi ap viņu sabrūk. Davids to gleznoja 1787. gadā, divus gadus pirms Francijas revolūcijas.",
+        "artiste": "Žaks Luijs Davids"
+      },
+      "ro": {
+        "titre": "Moartea lui Socrate",
+        "texte": "arată un om care își alege ideile în locul vieții. Condamnat la moarte în Atena, Socrate continuă să predea în timp ce întinde mâna după cupa cu cucută, iar prietenii lui se prăbușesc în jur. David l-a pictat în 1787, cu doi ani înainte de Revoluția franceză.",
         "artiste": "Jacques-Louis David"
       }
     }

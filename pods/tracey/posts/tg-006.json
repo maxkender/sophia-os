@@ -7,10 +7,20 @@
   "accroche": "10/10 habits to start if you have adhd"
  },
  "titre": {
-  "en": "10/10 habits to start if you have adhd"
+  "en": "10/10 habits to start if you have adhd",
+  "fr": "10/10 habitudes à prendre quand on a un tdah",
+  "hu": "10/10 szokás, amit kezdj el, ha adhd-s vagy",
+  "it": "10/10 abitudini da iniziare se hai l'adhd",
+  "sr": "10/10 navika koje treba da počneš ako imaš adhd",
+  "es-419": "10/10 hábitos para empezar si tienes tdah"
  },
  "legendes": {
-  "en": "#adhd #focus #brain #selfimprovement #lockedin"
+  "en": "#adhd #focus #brain #selfimprovement #lockedin",
+  "fr": "#tdah #concentration #cerveau #developpementpersonnel #lockedin",
+  "hu": "#adhd #fókusz #agy #önfejlesztés #lockedin",
+  "it": "#adhd #concentrazione #cervello #crescitapersonale #lockedin",
+  "sr": "#adhd #fokus #mozak #samorazvoj #lockedin",
+  "es-419": "#tdah #enfoque #cerebro #crecimientopersonal #lockedin"
  },
  "musique": {
   "titre": "original sound",
@@ -28,6 +38,26 @@
    "en": {
     "titre": "10/10 habits to start\nif you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "fr": {
+    "titre": "10/10 habitudes à prendre\nquand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 szokás, amit kezdj el,\nha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 abitudini da iniziare\nse hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "sr": {
+    "titre": "10/10 navika koje treba da\npočneš ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   },
+   "es-419": {
+    "titre": "10/10 hábitos para empezar\nsi tienes tdah",
+    "note": "(respaldado por la neurociencia)"
    }
   },
   {
@@ -43,6 +73,46 @@
      "your brain grabs the easiest reward in sight, so putting the phone away makes the _real task_ the easiest one"
     ],
     "chute": "start with one hour, every evening"
+   },
+   "fr": {
+    "nom": "le téléphone dans une autre pièce",
+    "accroche": "tu _ne scrolles pas_ ce que tu _n'atteins pas_",
+    "colonne": [
+     "ton cerveau attrape la récompense la plus facile à portée de vue, alors ranger le téléphone fait de la _vraie tâche_ la plus facile"
+    ],
+    "chute": "commence par une heure, chaque soir"
+   },
+   "hu": {
+    "nom": "telefon a másik szobában",
+    "accroche": "_nem görgethetsz_, amit _nem érsz el_",
+    "colonne": [
+     "az agyad a legkönnyebb jutalmat kapja el, ezért ha elteszed a telefont, a _valódi feladat_ lesz a legkönnyebb"
+    ],
+    "chute": "kezdd egy órával, minden este"
+   },
+   "it": {
+    "nom": "il telefono in un'altra stanza",
+    "accroche": "_non scrolli_ quello che _non raggiungi_",
+    "colonne": [
+     "il cervello afferra la ricompensa più facile in vista, quindi mettere via il telefono rende il _vero compito_ quello più facile"
+    ],
+    "chute": "inizia con un'ora, ogni sera"
+   },
+   "sr": {
+    "nom": "telefon u drugoj sobi",
+    "accroche": "_ne možeš da skroluješ_ ono do čega _ne dosežeš_",
+    "colonne": [
+     "mozak grabi najlakšu nagradu na vidiku, pa kad skloniš telefon, _pravi zadatak_ postaje najlakši"
+    ],
+    "chute": "počni sa jednim satom, svako veče"
+   },
+   "es-419": {
+    "nom": "el celular en otro cuarto",
+    "accroche": "_no puedes scrollear_ lo que _no alcanzas_",
+    "colonne": [
+     "tu cerebro agarra la recompensa más fácil a la vista, así que guardar el celular hace que la _tarea real_ sea la más fácil"
+    ],
+    "chute": "empieza con una hora, cada noche"
    }
   },
   {
@@ -59,6 +129,51 @@
      "_pro tip_: atala builds my runs around my goal and adjusts them every week"
     ],
     "chute": "15 minutes is enough, shoes by the door"
+   },
+   "fr": {
+    "nom": "courir avant le téléphone",
+    "accroche": "ton cerveau _se réveille_ avant ton _fil d'actu_",
+    "colonne": [
+     "une petite course dès le matin brûle l'énergie en trop et rend le reste de la matinée _plus facile_ à lancer",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "15 minutes suffisent, chaussures près de la porte"
+   },
+   "hu": {
+    "nom": "futás a telefon előtt",
+    "accroche": "az agyad _előbb ébred_, mint a _feeded_",
+    "colonne": [
+     "egy rövid reggeli futás levezeti a nyugtalan energiát, és _könnyebb_ elkezdeni a délelőttöt",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "15 perc elég, a cipő az ajtónál"
+   },
+   "it": {
+    "nom": "una corsa prima del telefono",
+    "accroche": "il cervello _si sveglia_ prima del _feed_",
+    "colonne": [
+     "una corsetta appena alzata brucia l'energia in eccesso e rende il resto della mattina _più facile_ da iniziare",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "bastano 15 minuti, scarpe vicino alla porta"
+   },
+   "sr": {
+    "nom": "trčanje pre telefona",
+    "accroche": "mozak ti se _probudi_ pre _fida_",
+    "colonne": [
+     "kratko trčanje odmah ujutru sagori nemirnu energiju i ostatak jutra je _lakše_ početi",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "15 minuta je dovoljno, patike kod vrata"
+   },
+   "es-419": {
+    "nom": "correr antes del celular",
+    "accroche": "tu cerebro _despierta_ antes que tu _feed_",
+    "colonne": [
+     "una carrera corta temprano quema la energía de más y hace que el resto de la mañana sea _más fácil_ de empezar",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "15 minutos bastan, tenis junto a la puerta"
    }
   },
   {
@@ -74,6 +189,46 @@
      "ten minutes feels short enough to start, and a clear desk means fewer things _pulling_ at your attention"
     ],
     "chute": "set the timer, stop when it rings"
+   },
+   "fr": {
+    "nom": "10 minutes de rangement",
+    "accroche": "un minuteur transforme le _bazar_ en _jeu_",
+    "colonne": [
+     "dix minutes, c'est assez court pour commencer, et un bureau dégagé, c'est moins de choses qui _tirent_ sur ton attention"
+    ],
+    "chute": "lance le minuteur, arrête quand il sonne"
+   },
+   "hu": {
+    "nom": "10 perces rendrakás",
+    "accroche": "az időzítő a _rendetlenségből_ _játékot_ csinál",
+    "colonne": [
+     "tíz perc elég rövid ahhoz, hogy elkezdd, és a tiszta asztalon kevesebb dolog _húzza_ el a figyelmed"
+    ],
+    "chute": "állítsd be az időzítőt, és hagyd abba, ha csörög"
+   },
+   "it": {
+    "nom": "10 minuti di riordino",
+    "accroche": "un timer trasforma il _disordine_ in un _gioco_",
+    "colonne": [
+     "dieci minuti sembrano abbastanza pochi per iniziare, e una scrivania libera vuol dire meno cose che ti _tirano_ l'attenzione"
+    ],
+    "chute": "avvia il timer, fermati quando suona"
+   },
+   "sr": {
+    "nom": "10 minuta sređivanja",
+    "accroche": "tajmer pretvara _nered_ u _igru_",
+    "colonne": [
+     "deset minuta je dovoljno kratko da počneš, a čist sto znači manje stvari koje ti _vuku_ pažnju"
+    ],
+    "chute": "navij tajmer, stani kad zazvoni"
+   },
+   "es-419": {
+    "nom": "10 minutos de orden",
+    "accroche": "un timer convierte el _desorden_ en un _juego_",
+    "colonne": [
+     "diez minutos se sienten lo bastante cortos para empezar, y un escritorio despejado son menos cosas _jalando_ tu atención"
+    ],
+    "chute": "pon el timer, para cuando suene"
    }
   },
   {
@@ -90,6 +245,51 @@
      "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
     ],
     "chute": "then put the phone down and sleep"
+   },
+   "fr": {
+    "nom": "un tableau avant de dormir",
+    "accroche": "remplace _une vidéo_ par _une histoire_",
+    "colonne": [
+     "un seul tableau avec son histoire, c'est nouveau chaque soir, calme, et fini en quelques minutes",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "puis pose le téléphone et dors"
+   },
+   "hu": {
+    "nom": "egy festmény lefekvés előtt",
+    "accroche": "cserélj _egy videót_ _egy történetre_",
+    "colonne": [
+     "egyetlen festmény a történetével minden este új, nyugodt, és pár perc alatt megvan",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte álló történetet, pár perc alatt"
+    ],
+    "chute": "aztán tedd le a telefont, és aludj"
+   },
+   "it": {
+    "nom": "un dipinto prima di dormire",
+    "accroche": "cambia _un video_ con _una storia_",
+    "colonne": [
+     "un solo dipinto con la sua storia è nuovo ogni sera, calmo, e finisce in pochi minuti",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "poi metti giù il telefono e dormi"
+   },
+   "sr": {
+    "nom": "jedna slika pre spavanja",
+    "accroche": "zameni _jedan video_ za _jednu priču_",
+    "colonne": [
+     "jedna slika sa svojom pričom je svako veče nova, mirna, i gotova za par minuta",
+     "_pro tip_: artura mi svaki dan da jednu sliku i priču iza nje, za par minuta"
+    ],
+    "chute": "onda spusti telefon i spavaj"
+   },
+   "es-419": {
+    "nom": "una pintura antes de dormir",
+    "accroche": "cambia _un video_ por _una historia_",
+    "colonne": [
+     "una sola pintura con su historia es nueva cada noche, tranquila, y se acaba en pocos minutos",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "luego suelta el celular y duerme"
    }
   },
   {
@@ -105,6 +305,46 @@
      "writing it down gets it out of your head, and crossing a line off gives your brain a small _reward_"
     ],
     "chute": "keep the notebook open on the table"
+   },
+   "fr": {
+    "nom": "une to-do list papier",
+    "accroche": "trois choses, _sur papier_, _barrées_",
+    "colonne": [
+     "l'écrire te le sort de la tête, et barrer une ligne donne à ton cerveau une petite _récompense_"
+    ],
+    "chute": "laisse le carnet ouvert sur la table"
+   },
+   "hu": {
+    "nom": "papír teendőlista",
+    "accroche": "három dolog, _papíron_, _kihúzva_",
+    "colonne": [
+     "ha leírod, kikerül a fejedből, és minden kihúzott sor egy kis _jutalom_ az agyadnak"
+    ],
+    "chute": "hagyd nyitva a füzetet az asztalon"
+   },
+   "it": {
+    "nom": "una to-do list di carta",
+    "accroche": "tre cose, _su carta_, _cancellate_",
+    "colonne": [
+     "scriverlo te lo toglie dalla testa, e cancellare una riga dà al cervello una piccola _ricompensa_"
+    ],
+    "chute": "lascia il quaderno aperto sul tavolo"
+   },
+   "sr": {
+    "nom": "lista obaveza na papiru",
+    "accroche": "tri stvari, _na papiru_, _precrtane_",
+    "colonne": [
+     "kad zapišeš, izbaciš iz glave, a svaka precrtana stavka je mala _nagrada_ za mozak"
+    ],
+    "chute": "drži svesku otvorenu na stolu"
+   },
+   "es-419": {
+    "nom": "una lista en papel",
+    "accroche": "tres cosas, _en papel_, _tachadas_",
+    "colonne": [
+     "escribirlo te lo saca de la cabeza, y tachar una línea le da a tu cerebro una pequeña _recompensa_"
+    ],
+    "chute": "deja la libreta abierta en la mesa"
    }
   }
  ]

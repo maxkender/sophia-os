@@ -7,10 +7,20 @@
   "accroche": "10/10 sports that actually work if you have adhd"
  },
  "titre": {
-  "en": "10/10 sports that actually work if you have adhd"
+  "en": "10/10 sports that actually work if you have adhd",
+  "fr": "10/10 sports qui marchent vraiment quand on a un tdah",
+  "hu": "10/10 sport, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 sport che funzionano davvero se hai l'adhd",
+  "sr": "10/10 sportova koji stvarno pomažu ako imaš adhd",
+  "es-419": "10/10 deportes que sí funcionan si tienes tdah"
  },
  "legendes": {
-  "en": "#adhd #sports #focus #brain #selfimprovement"
+  "en": "#adhd #sports #focus #brain #selfimprovement",
+  "fr": "#tdah #sport #concentration #cerveau #developpementpersonnel",
+  "hu": "#adhd #sport #fókusz #agy #önfejlesztés",
+  "it": "#adhd #sport #concentrazione #cervello #crescitapersonale",
+  "sr": "#adhd #sport #fokus #mozak #samorazvoj",
+  "es-419": "#tdah #deportes #enfoque #cerebro #crecimientopersonal"
  },
  "musique": {
   "titre": "original sound",
@@ -28,6 +38,26 @@
    "en": {
     "titre": "10/10 sports that actually\nwork if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "fr": {
+    "titre": "10/10 sports qui marchent vraiment\nquand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 sport, ami tényleg\nműködik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 sport che funzionano davvero\nse hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "sr": {
+    "titre": "10/10 sportova koji stvarno\npomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   },
+   "es-419": {
+    "titre": "10/10 deportes que sí funcionan\nsi tienes tdah",
+    "note": "(respaldado por la neurociencia)"
    }
   },
   {
@@ -43,6 +73,46 @@
      "combinations are short and loud, and hitting the bag burns off the restless energy a busy brain _builds up_"
     ],
     "chute": "most gyms run a beginner class with gloves to borrow"
+   },
+   "fr": {
+    "nom": "la boxe",
+    "accroche": "tu _ne peux pas penser_ quand tu _frappes_",
+    "colonne": [
+     "les enchaînements sont courts et bruyants, et taper dans le sac brûle l'énergie qu'un cerveau agité _accumule_"
+    ],
+    "chute": "la plupart des salles ont un cours débutant et prêtent des gants"
+   },
+   "hu": {
+    "nom": "boksz",
+    "accroche": "_nem tudsz gondolkodni_, amíg _ütsz_",
+    "colonne": [
+     "a kombinációk rövidek és hangosak, a zsák püfölése pedig levezeti a nyugtalan agy _felgyűlt_ energiáját"
+    ],
+    "chute": "a legtöbb teremben van kezdő óra kölcsönkesztyűvel"
+   },
+   "it": {
+    "nom": "la boxe",
+    "accroche": "_non riesci a pensare_ mentre _colpisci_",
+    "colonne": [
+     "le combinazioni sono brevi e rumorose, e colpire il sacco brucia l'energia che un cervello iperattivo _accumula_"
+    ],
+    "chute": "quasi tutte le palestre hanno un corso base con guantoni in prestito"
+   },
+   "sr": {
+    "nom": "boks",
+    "accroche": "_ne možeš da misliš_ dok _udaraš_",
+    "colonne": [
+     "kombinacije su kratke i glasne, a udaranje vreće sagoreva nemirnu energiju koju mozak _nakupi_"
+    ],
+    "chute": "većina sala ima čas za početnike i rukavice na pozajmicu"
+   },
+   "es-419": {
+    "nom": "box",
+    "accroche": "_no puedes pensar_ mientras _golpeas_",
+    "colonne": [
+     "las combinaciones son cortas y ruidosas, y pegarle al costal quema la energía que un cerebro inquieto _acumula_"
+    ],
+    "chute": "casi todos los gimnasios tienen clase de principiantes y prestan guantes"
    }
   },
   {
@@ -59,6 +129,51 @@
      "_pro tip_: atala builds my runs around my goal and adjusts them every week"
     ],
     "chute": "start with 1 minute running, 1 minute walking"
+   },
+   "fr": {
+    "nom": "la course à pied",
+    "accroche": "un _objectif clair_ et un _nouveau parcours_ chaque semaine",
+    "colonne": [
+     "le cardio calme un corps agité, et s'entraîner pour une date donne à un esprit qui vagabonde une _ligne d'arrivée_",
+     "_petite astuce_: atala construit mes sorties autour de mon objectif et les ajuste chaque semaine"
+    ],
+    "chute": "commence par 1 minute de course, 1 minute de marche"
+   },
+   "hu": {
+    "nom": "futás",
+    "accroche": "_világos cél_ és minden héten _új útvonal_",
+    "colonne": [
+     "a kitartó kardió megnyugtatja a nyugtalan testet, egy dátumra edzeni pedig _célvonalat_ ad a kalandozó elmének",
+     "_pro tip_: az atala a célomhoz igazítja a futásaimat, és minden héten finomít rajtuk"
+    ],
+    "chute": "kezdd 1 perc futással, 1 perc sétával"
+   },
+   "it": {
+    "nom": "la corsa",
+    "accroche": "un _obiettivo chiaro_ e un _percorso nuovo_ ogni settimana",
+    "colonne": [
+     "il cardio calma un corpo irrequieto, e allenarsi per una data dà a una mente che vaga un _traguardo_",
+     "_piccolo consiglio_: atala costruisce le mie corse intorno al mio obiettivo e le adatta ogni settimana"
+    ],
+    "chute": "inizia con 1 minuto di corsa e 1 minuto di camminata"
+   },
+   "sr": {
+    "nom": "trčanje",
+    "accroche": "_jasan cilj_ i _nova ruta_ svake nedelje",
+    "colonne": [
+     "ujednačen kardio smiruje nemirno telo, a trening za neki datum daje lutajućem umu _ciljnu liniju_",
+     "_pro tip_: atala pravi moja trčanja prema mom cilju i prilagođava ih svake nedelje"
+    ],
+    "chute": "počni sa 1 minutom trčanja, 1 minutom hoda"
+   },
+   "es-419": {
+    "nom": "correr",
+    "accroche": "una _meta clara_ y una _ruta nueva_ cada semana",
+    "colonne": [
+     "el cardio calma un cuerpo inquieto, y entrenar para una fecha le da a una mente que divaga una _meta final_",
+     "_tip extra_: atala arma mis carreras según mi meta y las ajusta cada semana"
+    ],
+    "chute": "empieza con 1 minuto corriendo y 1 minuto caminando"
    }
   },
   {
@@ -74,6 +189,46 @@
      "every rally needs you to react in a second, and playing with a team makes it hard to _zone out_"
     ],
     "chute": "look for a beginner drop-in at a local beach or park"
+   },
+   "fr": {
+    "nom": "le beach-volley",
+    "accroche": "le ballon arrive _toujours_ vers _toi_",
+    "colonne": [
+     "chaque échange te demande de réagir en une seconde, et jouer en équipe rend difficile de _décrocher_"
+    ],
+    "chute": "cherche une séance débutants sur une plage ou dans un parc près de chez toi"
+   },
+   "hu": {
+    "nom": "strandröplabda",
+    "accroche": "a labda _mindig feléd_ jön",
+    "colonne": [
+     "minden labdamenetben egy másodperc alatt kell reagálni, csapatban pedig nehéz _kikapcsolni_"
+    ],
+    "chute": "keress kezdő játékot a közeli strandon vagy parkban"
+   },
+   "it": {
+    "nom": "il beach volley",
+    "accroche": "la palla viene _sempre_ _verso di te_",
+    "colonne": [
+     "ogni scambio ti chiede di reagire in un secondo, e giocare in squadra rende difficile _staccare_"
+    ],
+    "chute": "cerca un allenamento per principianti in spiaggia o al parco"
+   },
+   "sr": {
+    "nom": "odbojka na pesku",
+    "accroche": "lopta ti _uvek dolazi_",
+    "colonne": [
+     "svaka razmena traži reakciju u sekundi, a igra u timu otežava da _isključiš_"
+    ],
+    "chute": "potraži termin za početnike na plaži ili u parku"
+   },
+   "es-419": {
+    "nom": "voleibol de playa",
+    "accroche": "la pelota _siempre_ viene _hacia ti_",
+    "colonne": [
+     "cada jugada te pide reaccionar en un segundo, y jugar en equipo hace difícil _desconectarte_"
+    ],
+    "chute": "busca una reta de principiantes en una playa o parque cerca"
    }
   },
   {
@@ -90,6 +245,51 @@
      "_pro tip_: artura gives me one painting a day and the story behind it, in a few minutes"
     ],
     "chute": "pick one hall and stop at every statue"
+   },
+   "fr": {
+    "nom": "une balade lente au musée",
+    "accroche": "ton jour de repos, _sans_ _écran_",
+    "colonne": [
+     "marcher dans une galerie fait bouger tes jambes pendant que tes yeux découvrent quelque chose de nouveau tous les trois pas",
+     "_petite astuce_: artura me donne un tableau par jour et son histoire, en quelques minutes"
+    ],
+    "chute": "choisis une salle et arrête-toi devant chaque statue"
+   },
+   "hu": {
+    "nom": "lassú séta a múzeumban",
+    "accroche": "a pihenőnapod, _képernyő nélkül_",
+    "colonne": [
+     "egy galéria bejárása mozgásban tartja a lábad, a szemed pedig pár lépésenként új dolgot kap",
+     "_pro tip_: az artura minden nap ad egy festményt és a mögötte álló történetet, pár perc alatt"
+    ],
+    "chute": "válassz egy termet, és állj meg minden szobornál"
+   },
+   "it": {
+    "nom": "una passeggiata lenta al museo",
+    "accroche": "il tuo giorno di riposo, _senza_ _schermi_",
+    "colonne": [
+     "camminare in una galleria tiene in movimento le gambe mentre gli occhi trovano qualcosa di nuovo ogni pochi passi",
+     "_piccolo consiglio_: artura mi dà un dipinto al giorno e la sua storia, in pochi minuti"
+    ],
+    "chute": "scegli una sala e fermati davanti a ogni statua"
+   },
+   "sr": {
+    "nom": "spora šetnja muzejom",
+    "accroche": "tvoj dan odmora, _bez ekrana_",
+    "colonne": [
+     "šetnja galerijom drži noge u pokretu, a oči na svakih par koraka dobiju nešto novo",
+     "_pro tip_: artura mi svaki dan da jednu sliku i priču iza nje, za par minuta"
+    ],
+    "chute": "izaberi jednu salu i stani kod svake statue"
+   },
+   "es-419": {
+    "nom": "un paseo lento por el museo",
+    "accroche": "tu día de descanso, _sin_ _pantallas_",
+    "colonne": [
+     "recorrer una galería mantiene tus piernas en movimiento mientras tus ojos encuentran algo nuevo cada pocos pasos",
+     "_tip extra_: artura me da una pintura al día y la historia detrás, en pocos minutos"
+    ],
+    "chute": "elige una sala y detente en cada estatua"
    }
   },
   {
@@ -105,6 +305,46 @@
      "each trick takes a hundred tries, and every small win keeps a brain that bores fast _coming back_"
     ],
     "chute": "an empty parking lot and a cheap board to start"
+   },
+   "fr": {
+    "nom": "le skate",
+    "accroche": "tu tombes, tu te relèves, tu le _replaques_",
+    "colonne": [
+     "chaque figure demande cent essais, et chaque petite victoire fait _revenir_ un cerveau qui s'ennuie vite"
+    ],
+    "chute": "un parking vide et une planche pas chère pour commencer"
+   },
+   "hu": {
+    "nom": "gördeszka",
+    "accroche": "elesel, felállsz, és _sikerül_",
+    "colonne": [
+     "minden trükk száz próbálkozás, és minden kis győzelem _visszahozza_ a gyorsan unatkozó agyat"
+    ],
+    "chute": "egy üres parkoló és egy olcsó deszka elég kezdésnek"
+   },
+   "it": {
+    "nom": "lo skateboard",
+    "accroche": "cadi, ti rialzi, lo _chiudi_",
+    "colonne": [
+     "ogni trick richiede cento tentativi, e ogni piccola vittoria fa _tornare_ un cervello che si annoia in fretta"
+    ],
+    "chute": "un parcheggio vuoto e una tavola economica per iniziare"
+   },
+   "sr": {
+    "nom": "skejtbord",
+    "accroche": "padneš, ustaneš, i _uspeš_",
+    "colonne": [
+     "svaki trik traži sto pokušaja, a svaka mala pobeda tera mozak koji se brzo dosađuje da se _vraća_"
+    ],
+    "chute": "prazan parking i jeftina daska za početak"
+   },
+   "es-419": {
+    "nom": "andar en patineta",
+    "accroche": "te caes, te levantas, y lo _logras_",
+    "colonne": [
+     "cada truco toma cien intentos, y cada pequeña victoria hace que un cerebro que se aburre rápido _regrese_"
+    ],
+    "chute": "un estacionamiento vacío y una patineta barata para empezar"
    }
   }
  ]

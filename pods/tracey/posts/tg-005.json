@@ -7,10 +7,20 @@
   "accroche": "10/10 hobbies for adhd brains that aren't the gym"
  },
  "titre": {
-  "en": "10/10 hobbies for adhd brains that aren't the gym"
+  "en": "10/10 hobbies for adhd brains that aren't the gym",
+  "fr": "10/10 loisirs pour cerveaux tdah qui ne sont pas la salle de sport",
+  "hu": "10/10 hobbi adhd-s agyaknak, ami nem a konditerem",
+  "it": "10/10 hobby per cervelli adhd che non sono la palestra",
+  "sr": "10/10 hobija za adhd mozak koji nisu teretana",
+  "es-419": "10/10 hobbies para cerebros con tdah que no son el gym"
  },
  "legendes": {
-  "en": "#adhd #hobbies #20s #focus #brain"
+  "en": "#adhd #hobbies #20s #focus #brain",
+  "fr": "#tdah #loisirs #20ans #concentration #cerveau",
+  "hu": "#adhd #hobbi #húszasok #fókusz #agy",
+  "it": "#adhd #hobby #ventenni #concentrazione #cervello",
+  "sr": "#adhd #hobi #dvadesete #fokus #mozak",
+  "es-419": "#tdah #hobbies #veintes #enfoque #cerebro"
  },
  "musique": {
   "titre": "original sound",
@@ -28,6 +38,26 @@
    "en": {
     "titre": "10/10 hobbies for adhd brains\nthat aren't the gym",
     "note": "(neuroscience backed)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs pour cerveaux tdah\nqui ne sont pas la salle de sport",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi adhd-s agyaknak,\nami nem a konditerem",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby per cervelli adhd\nche non sono la palestra",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "sr": {
+    "titre": "10/10 hobija za adhd mozak\nkoji nisu teretana",
+    "note": "(potvrđeno neuronaukom)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para cerebros con tdah\nque no son el gym",
+    "note": "(respaldado por la neurociencia)"
    }
   },
   {
@@ -43,6 +73,46 @@
      "you count the beat, follow a partner and learn a new step every class, so there's no room to _drift off_"
     ],
     "chute": "most studios have a free first class"
+   },
+   "fr": {
+    "nom": "des cours de salsa",
+    "accroche": "la musique te dit _exactement_ quand _bouger_",
+    "colonne": [
+     "tu comptes les temps, tu suis un·e partenaire et tu apprends un pas à chaque cours, donc aucune place pour _décrocher_"
+    ],
+    "chute": "la plupart des écoles offrent le premier cours"
+   },
+   "hu": {
+    "nom": "salsaórák",
+    "accroche": "a zene _pontosan_ megmondja, mikor _lépj_",
+    "colonne": [
+     "számolod az ütemet, követed a partnered, és minden órán új lépést tanulsz, így nincs idő _elkalandozni_"
+    ],
+    "chute": "a legtöbb stúdióban ingyenes az első óra"
+   },
+   "it": {
+    "nom": "lezioni di salsa",
+    "accroche": "la musica ti dice _esattamente_ quando _muoverti_",
+    "colonne": [
+     "conti il tempo, segui chi balla con te e impari un passo nuovo a ogni lezione, quindi non c'è spazio per _distrarsi_"
+    ],
+    "chute": "quasi tutte le scuole offrono la prima lezione gratis"
+   },
+   "sr": {
+    "nom": "časovi salse",
+    "accroche": "muzika ti kaže _tačno_ kad da se _pomeriš_",
+    "colonne": [
+     "brojiš takt, pratiš partnera i na svakom času učiš novi korak, pa nema mesta da _odlutaš_"
+    ],
+    "chute": "većina studija ima besplatan prvi čas"
+   },
+   "es-419": {
+    "nom": "clases de salsa",
+    "accroche": "la música te dice _exactamente_ cuándo _moverte_",
+    "colonne": [
+     "cuentas el ritmo, sigues a tu pareja y aprendes un paso nuevo cada clase, así no hay espacio para _dispersarte_"
+    ],
+    "chute": "casi todas las academias tienen la primera clase gratis"
    }
   },
   {
@@ -59,6 +129,51 @@
      "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
     ],
     "chute": "then go see one in real life and count what you notice"
+   },
+   "fr": {
+    "nom": "apprendre à regarder l'art",
+    "accroche": "un tableau est une _énigme_, pas un _mur_",
+    "colonne": [
+     "qui est-ce, pourquoi cette lumière, qu'est-ce qui se cache dans le coin : un cerveau curieux se concentre quand il y a une _histoire_ à trouver",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "puis va en voir un en vrai et compte ce que tu remarques"
+   },
+   "hu": {
+    "nom": "megtanulni nézni a művészetet",
+    "accroche": "egy festmény _rejtvény_, nem _fal_",
+    "colonne": [
+     "ki ez, miért ez a fény, mi rejtőzik a sarokban: a kíváncsi agy bekapcsol, ha van egy _történet_, amit meg kell találni",
+     "_pro tip_: az arturát használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "aztán nézz meg egyet élőben, és számold, mit veszel észre"
+   },
+   "it": {
+    "nom": "imparare a guardare l'arte",
+    "accroche": "un dipinto è un _enigma_, non un _muro_",
+    "colonne": [
+     "chi è, perché quella luce, cosa si nasconde nell'angolo: un cervello curioso si concentra quando c'è una _storia_ da trovare",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "poi vai a vederne uno dal vivo e conta cosa noti"
+   },
+   "sr": {
+    "nom": "učiti da gledaš umetnost",
+    "accroche": "jedna slika je _zagonetka_, ne _zid_",
+    "colonne": [
+     "ko je ovo, zašto to svetlo, šta je skriveno u uglu: radoznao mozak se uključi kad ima _priču_ da otkrije",
+     "_pro tip_: koristim arturu, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "onda idi da vidiš jednu uživo i broj šta primetiš"
+   },
+   "es-419": {
+    "nom": "aprender a mirar arte",
+    "accroche": "una pintura es un _acertijo_, no una _pared_",
+    "colonne": [
+     "quién es, por qué esa luz, qué se esconde en la esquina: un cerebro curioso se enfoca cuando hay una _historia_ que encontrar",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "luego ve a ver una en persona y cuenta lo que notas"
    }
   },
   {
@@ -74,6 +189,46 @@
      "every stroke steers you, the water changes all the time, and you can't check your phone with a _paddle_ in your hands"
     ],
     "chute": "rent one for an hour at the nearest lake"
+   },
+   "fr": {
+    "nom": "le kayak",
+    "accroche": "la rivière _bouge sans cesse_, alors _toi aussi_",
+    "colonne": [
+     "chaque coup de pagaie te dirige, l'eau change tout le temps, et impossible de regarder ton téléphone avec une _pagaie_ dans les mains"
+    ],
+    "chute": "loue-en un pour une heure sur le lac le plus proche"
+   },
+   "hu": {
+    "nom": "kajakozás",
+    "accroche": "a folyó _folyton mozog_, így te _is_",
+    "colonne": [
+     "minden csapás irányít, a víz folyton változik, és nem nézheted a telefonod, ha _evező_ van a kezedben"
+    ],
+    "chute": "bérelj egyet egy órára a legközelebbi tavon"
+   },
+   "it": {
+    "nom": "il kayak",
+    "accroche": "il fiume _non si ferma_, e _nemmeno tu_",
+    "colonne": [
+     "ogni pagaiata ti guida, l'acqua cambia di continuo, e non puoi guardare il telefono con una _pagaia_ in mano"
+    ],
+    "chute": "noleggiane uno per un'ora al lago più vicino"
+   },
+   "sr": {
+    "nom": "kajak",
+    "accroche": "reka se _stalno kreće_, pa i _ti_",
+    "colonne": [
+     "svaki zaveslaj te usmerava, voda se stalno menja, i ne možeš da gledaš telefon sa _veslom_ u rukama"
+    ],
+    "chute": "iznajmi jedan na sat na najbližem jezeru"
+   },
+   "es-419": {
+    "nom": "kayak",
+    "accroche": "el río _no se detiene_, y _tú tampoco_",
+    "colonne": [
+     "cada remada te dirige, el agua cambia todo el tiempo, y no puedes ver el celular con un _remo_ en las manos"
+    ],
+    "chute": "renta uno por una hora en el lago más cercano"
    }
   },
   {
@@ -90,6 +245,51 @@
      "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
     ],
     "chute": "go at golden hour and run on the wet sand"
+   },
+   "fr": {
+    "nom": "courir sur la plage",
+    "accroche": "du sable, un _coucher de soleil_ et _zéro miroir_",
+    "colonne": [
+     "courir dehors donne de l'espace à un cerveau agité, et un objectif comme un premier 5 km lui donne une _raison_ de revenir",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "vas-y à l'heure dorée et cours sur le sable mouillé"
+   },
+   "hu": {
+    "nom": "futás a tengerparton",
+    "accroche": "puha homok, _naplemente_ és _nincs edzőtermi tükör_",
+    "colonne": [
+     "a szabadban futás teret ad a nyugtalan agynak, egy első 5 km pedig _okot_ ad, hogy visszajöjjön",
+     "_pro tip_: az atalát használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "menj aranyórában, és fuss a nedves homokon"
+   },
+   "it": {
+    "nom": "correre in spiaggia",
+    "accroche": "sabbia, un _tramonto_ e _zero specchi_",
+    "colonne": [
+     "correre all'aperto dà spazio a un cervello irrequieto, e un obiettivo come i primi 5 km gli dà un _motivo_ per tornare",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "vai all'ora d'oro e corri sulla sabbia bagnata"
+   },
+   "sr": {
+    "nom": "trčanje po plaži",
+    "accroche": "mekan pesak, _zalazak sunca_ i _bez ogledala_",
+    "colonne": [
+     "trčanje napolju daje nemirnom mozgu prostor, a cilj poput prvih 5 km daje mu _razlog_ da se vrati",
+     "_pro tip_: koristim atalu, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "idi u zlatni sat i trči po mokrom pesku"
+   },
+   "es-419": {
+    "nom": "correr en la playa",
+    "accroche": "arena, un _atardecer_ y _cero espejos_",
+    "colonne": [
+     "correr al aire libre le da espacio a un cerebro inquieto, y una meta como tus primeros 5 km le da una _razón_ para volver",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "ve a la hora dorada y corre en la arena mojada"
    }
   },
   {
@@ -105,6 +305,46 @@
      "watering, planting and checking the leaves are small daily tasks, and the results show up _fast_ enough to stay hooked"
     ],
     "chute": "start with herbs on a windowsill"
+   },
+   "fr": {
+    "nom": "le jardinage",
+    "accroche": "quelque chose de nouveau _pousse_ _chaque jour_",
+    "colonne": [
+     "arroser, planter, vérifier les feuilles : ce sont de petites tâches quotidiennes, et les résultats arrivent assez _vite_ pour rester accroché"
+    ],
+    "chute": "commence par des herbes sur le rebord de la fenêtre"
+   },
+   "hu": {
+    "nom": "kertészkedés",
+    "accroche": "_minden egyes nap_ nő valami új",
+    "colonne": [
+     "öntözés, ültetés, a levelek ellenőrzése: kis napi feladatok, és az eredmény elég _gyorsan_ jön ahhoz, hogy rákapj"
+    ],
+    "chute": "kezdd fűszernövényekkel az ablakpárkányon"
+   },
+   "it": {
+    "nom": "il giardinaggio",
+    "accroche": "qualcosa di nuovo _cresce_ _ogni giorno_",
+    "colonne": [
+     "annaffiare, piantare e controllare le foglie sono piccoli compiti quotidiani, e i risultati arrivano abbastanza _in fretta_ da restare presi"
+    ],
+    "chute": "inizia con delle erbe aromatiche sul davanzale"
+   },
+   "sr": {
+    "nom": "baštovanstvo",
+    "accroche": "nešto novo raste _svakog dana_",
+    "colonne": [
+     "zalivanje, sadnja i provera listova su mali dnevni zadaci, a rezultati stižu dovoljno _brzo_ da se navučeš"
+    ],
+    "chute": "počni sa začinskim biljem na prozoru"
+   },
+   "es-419": {
+    "nom": "jardinería",
+    "accroche": "algo nuevo _crece_ _cada día_",
+    "colonne": [
+     "regar, plantar y revisar las hojas son pequeñas tareas diarias, y los resultados se ven lo bastante _rápido_ para engancharte"
+    ],
+    "chute": "empieza con hierbas en la ventana"
    }
   }
  ]

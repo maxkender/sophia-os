@@ -7,10 +7,20 @@
   "accroche": "10/10 hobbies that actually work if you have adhd"
  },
  "titre": {
-  "en": "10/10 hobbies that actually work if you have adhd"
+  "en": "10/10 hobbies that actually work if you have adhd",
+  "fr": "10/10 loisirs qui marchent vraiment quand on a un tdah",
+  "hu": "10/10 hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby che funzionano davvero se hai l'adhd",
+  "sr": "10/10 hobija koji stvarno pomažu ako imaš adhd",
+  "es-419": "10/10 hobbies que sí funcionan si tienes tdah"
  },
  "legendes": {
-  "en": "#adhd #hobbies #focus #brain #selfimprovement"
+  "en": "#adhd #hobbies #focus #brain #selfimprovement",
+  "fr": "#tdah #loisirs #concentration #cerveau #developpementpersonnel",
+  "hu": "#adhd #hobbi #fókusz #agy #önfejlesztés",
+  "it": "#adhd #hobby #concentrazione #cervello #crescitapersonale",
+  "sr": "#adhd #hobi #fokus #mozak #samorazvoj",
+  "es-419": "#tdah #hobbies #enfoque #cerebro #crecimientopersonal"
  },
  "musique": {
   "titre": "original sound",
@@ -28,6 +38,26 @@
    "en": {
     "titre": "10/10 hobbies that actually\nwork if you have adhd",
     "note": "(neuroscience backed)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs qui marchent vraiment\nquand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi, ami tényleg\nműködik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby che funzionano davvero\nse hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "sr": {
+    "titre": "10/10 hobija koji stvarno\npomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies que sí funcionan\nsi tienes tdah",
+    "note": "(respaldado por la neurociencia)"
    }
   },
   {
@@ -40,6 +70,46 @@
      "fast rallies need all of your attention to track the ball, and a busy brain locks in when the feedback is _instant_"
     ],
     "chute": "most clubs run a beginner night and lend you a paddle"
+   },
+   "fr": {
+    "nom": "tennis de table",
+    "accroche": "une balle arrive _chaque seconde_",
+    "colonne": [
+     "les échanges rapides prennent toute ton attention, et un cerveau agité se concentre quand le retour est _immédiat_"
+    ],
+    "chute": "la plupart des clubs ont une soirée débutants et te prêtent une raquette"
+   },
+   "hu": {
+    "nom": "asztalitenisz",
+    "accroche": "a labda _minden másodpercben_ jön",
+    "colonne": [
+     "a gyors labdamenetekhez minden figyelmed kell, és a nyugtalan agy akkor kapcsol be, ha a visszajelzés _azonnali_"
+    ],
+    "chute": "a legtöbb klubban van kezdő este, ütőt is adnak"
+   },
+   "it": {
+    "nom": "ping pong",
+    "accroche": "una pallina ti arriva _ogni secondo_",
+    "colonne": [
+     "gli scambi veloci prendono tutta la tua attenzione, e un cervello iperattivo si concentra quando il riscontro è _immediato_"
+    ],
+    "chute": "quasi tutti i club fanno una serata per principianti e ti prestano la racchetta"
+   },
+   "sr": {
+    "nom": "stoni tenis",
+    "accroche": "loptica ti dolazi _svake sekunde_",
+    "colonne": [
+     "brze razmene traže svu tvoju pažnju, a nemiran mozak se uključi kad je povratna informacija _trenutna_"
+    ],
+    "chute": "većina klubova ima veče za početnike i daje reket"
+   },
+   "es-419": {
+    "nom": "ping pong",
+    "accroche": "te llega una pelota _cada segundo_",
+    "colonne": [
+     "los peloteos rápidos se llevan toda tu atención, y un cerebro inquieto se enfoca cuando la respuesta es _inmediata_"
+    ],
+    "chute": "casi todos los clubes tienen noche de principiantes y te prestan la raqueta"
    }
   },
   {
@@ -56,6 +126,51 @@
      "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
     ],
     "chute": "20 minutes, 3 times a week, before anything with a screen"
+   },
+   "fr": {
+    "nom": "la course à pied",
+    "accroche": "le seul loisir à _commencer ce soir_ sans matériel",
+    "colonne": [
+     "le cardio donne à un cerveau agité un endroit où mettre son énergie, et un objectif comme un premier 5 km lui donne une _ligne d'arrivée_",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "20 minutes, 3 fois par semaine, avant tout écran"
+   },
+   "hu": {
+    "nom": "futás",
+    "accroche": "az egyetlen hobbi, amit _ma este_ elkezdhetsz",
+    "colonne": [
+     "a kitartó kardió levezeti a nyugtalan energiát, egy első 5 km pedig _célvonalat_ ad neki",
+     "_pro tip_: az atalát használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "20 perc, hetente 3-szor, minden képernyő előtt"
+   },
+   "it": {
+    "nom": "la corsa",
+    "accroche": "l'unico hobby che puoi _iniziare stasera_ senza attrezzatura",
+    "colonne": [
+     "il cardio dà a un cervello irrequieto un posto dove mettere l'energia, e un obiettivo come i primi 5 km gli dà un _traguardo_",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "20 minuti, 3 volte a settimana, prima di qualsiasi schermo"
+   },
+   "sr": {
+    "nom": "trčanje",
+    "accroche": "jedini hobi koji možeš da počneš _večeras_",
+    "colonne": [
+     "ujednačen kardio daje nemirnom mozgu gde da istroši energiju, a prvih 5 km mu daje _ciljnu liniju_",
+     "_pro tip_: koristim atalu, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "20 minuta, 3 puta nedeljno, pre bilo kog ekrana"
+   },
+   "es-419": {
+    "nom": "correr",
+    "accroche": "el único hobby que puedes _empezar hoy_ sin equipo",
+    "colonne": [
+     "el cardio le da a un cerebro inquieto dónde poner la energía, y una meta como tus primeros 5 km le da una _meta final_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "20 minutos, 3 veces por semana, antes de cualquier pantalla"
    }
   },
   {
@@ -68,6 +183,46 @@
      "kneading is slow and physical, and the dough tells you when it's ready, so a wandering mind always has a _clear next step_"
     ],
     "chute": "one loaf on sunday, it's 4 ingredients"
+   },
+   "fr": {
+    "nom": "faire son pain",
+    "accroche": "tes mains sont prises, ton _téléphone reste posé_",
+    "colonne": [
+     "pétrir, c'est lent et physique, et la pâte te dit quand elle est prête, alors un esprit qui vagabonde a toujours une _prochaine étape claire_"
+    ],
+    "chute": "un pain le dimanche, 4 ingrédients"
+   },
+   "hu": {
+    "nom": "kenyérsütés",
+    "accroche": "a kezed foglalt, így a _telefon lent marad_",
+    "colonne": [
+     "a dagasztás lassú és fizikai, a tészta megmutatja, mikor kész, így a kalandozó agynak mindig van _következő lépése_"
+    ],
+    "chute": "vasárnap egy vekni, csak 4 hozzávaló"
+   },
+   "it": {
+    "nom": "fare il pane",
+    "accroche": "le mani sono occupate, il _telefono resta giù_",
+    "colonne": [
+     "impastare è lento e fisico, e l'impasto ti dice quando è pronto, così una mente che vaga ha sempre un _prossimo passo chiaro_"
+    ],
+    "chute": "una pagnotta la domenica, 4 ingredienti"
+   },
+   "sr": {
+    "nom": "pečenje hleba",
+    "accroche": "ruke su ti zauzete, pa _telefon miruje_",
+    "colonne": [
+     "mešenje je sporo i fizičko, testo ti kaže kad je spremno, pa rasejan um uvek ima _jasan sledeći korak_"
+    ],
+    "chute": "jedan hleb nedeljom, samo 4 sastojka"
+   },
+   "es-419": {
+    "nom": "hacer pan",
+    "accroche": "tus manos están ocupadas, tu _celular se queda_ abajo",
+    "colonne": [
+     "amasar es lento y físico, y la masa te dice cuándo está lista, así una mente que divaga siempre tiene un _siguiente paso claro_"
+    ],
+    "chute": "un pan el domingo, son 4 ingredientes"
    }
   },
   {
@@ -84,6 +239,51 @@
      "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
     ],
     "chute": "then go see one in a museum and count what you notice"
+   },
+   "fr": {
+    "nom": "apprendre à regarder l'art",
+    "accroche": "un tableau, _dix minutes_, et tu commences à _voir_",
+    "colonne": [
+     "un mur de tableaux, c'est ennuyeux, mais un tableau avec son histoire, c'est une énigme : qui, pourquoi cette lumière, qu'est-ce qui est caché",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "puis va en voir un au musée et compte ce que tu remarques"
+   },
+   "hu": {
+    "nom": "megtanulni nézni a művészetet",
+    "accroche": "egy festmény, _tíz perc_, és elkezded _látni_",
+    "colonne": [
+     "egy fal tele képekkel unalmas, de egy kép a történetével rejtvény: ki ez, miért ez a fény, mi van elrejtve",
+     "_pro tip_: az arturát használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "aztán nézz meg egyet múzeumban, és számold, mit veszel észre"
+   },
+   "it": {
+    "nom": "imparare a guardare l'arte",
+    "accroche": "un dipinto, _dieci minuti_, e inizi a _vederlo_",
+    "colonne": [
+     "una parete di quadri è noiosa, ma un quadro con la sua storia è un enigma: chi, perché quella luce, cosa c'è di nascosto",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "poi vai a vederne uno in un museo e conta cosa noti"
+   },
+   "sr": {
+    "nom": "učiti da gledaš umetnost",
+    "accroche": "jedna slika, _deset minuta_, i počinješ da _vidiš_",
+    "colonne": [
+     "zid pun slika je dosadan, ali jedna slika sa pričom je zagonetka: ko je to, zašto to svetlo, šta je skriveno",
+     "_pro tip_: koristim arturu, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "onda idi da vidiš jednu u muzeju i broj šta primetiš"
+   },
+   "es-419": {
+    "nom": "aprender a mirar arte",
+    "accroche": "una pintura, _diez minutos_, y empiezas a _verla_",
+    "colonne": [
+     "una pared llena de cuadros aburre, pero un cuadro con su historia es un acertijo: quién, por qué esa luz, qué está escondido",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "luego ve a ver uno a un museo y cuenta lo que notas"
    }
   },
   {
@@ -96,6 +296,46 @@
      "you listen to everyone and sing your own line at the same time, it's focus with a whole room _keeping you honest_"
     ],
     "chute": "most community choirs don't audition"
+   },
+   "fr": {
+    "nom": "chanter dans une chorale",
+    "accroche": "ta voix entre _sur le temps_, tu _ne peux pas décrocher_",
+    "colonne": [
+     "tu écoutes tout le monde et tu chantes ta ligne en même temps, c'est de la concentration avec toute une salle qui te _garde dans le rythme_"
+    ],
+    "chute": "la plupart des chorales amateurs ne font pas d'audition"
+   },
+   "hu": {
+    "nom": "kórusban énekelni",
+    "accroche": "a szólamod _ütemre_ jön, nem tudsz _elkalandozni_",
+    "colonne": [
+     "mindenkire figyelsz, közben a saját szólamodat énekled, ez fókusz egy egész terem _segítségével_"
+    ],
+    "chute": "a legtöbb amatőr kórusba meghallgatás nélkül mehetsz"
+   },
+   "it": {
+    "nom": "cantare in un coro",
+    "accroche": "la tua parte entra _a tempo_, quindi _non puoi distrarti_",
+    "colonne": [
+     "ascolti tutti e canti la tua linea nello stesso momento, è concentrazione con un'intera sala che ti _tiene in riga_"
+    ],
+    "chute": "quasi tutti i cori amatoriali non fanno audizioni"
+   },
+   "sr": {
+    "nom": "pevanje u horu",
+    "accroche": "tvoj glas ulazi _u taktu_, pa _ne lutaš_",
+    "colonne": [
+     "slušaš sve i pevaš svoju deonicu u isto vreme, to je fokus uz celu prostoriju koja te _drži pažljivim_"
+    ],
+    "chute": "većina amaterskih horova nema audiciju"
+   },
+   "es-419": {
+    "nom": "cantar en un coro",
+    "accroche": "tu parte entra _a tiempo_, así que _no te dispersas_",
+    "colonne": [
+     "escuchas a todos y cantas tu línea al mismo tiempo, es enfoque con todo un salón _manteniéndote en ritmo_"
+    ],
+    "chute": "casi ningún coro comunitario hace audiciones"
    }
   }
  ]

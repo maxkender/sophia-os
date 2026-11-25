@@ -64,6 +64,8 @@
   "codes.label": "2 žingsnis iš 3",
   "codes.title": "Patikrink savo el. paštą ir WhatsApp",
   "codes.sub": "Išsiuntėme 6 skaitmenų kodą į {email} ir į {whatsapp}.",
+  "codes.titleEmail": "Patikrink savo el. paštą",
+  "codes.subEmail": "Išsiuntėme 6 skaitmenų kodą adresu {email}.",
   "codes.email": "El. pašto kodas",
   "codes.whatsapp": "WhatsApp kodas",
   "codes.verify": "Patvirtinti",
@@ -248,8 +250,8 @@
   "onb.1.body": "Esame studija, kurianti mobiliąsias programėles. Ieškome žmonių, kurie padėtų mums išpopuliarinti mūsų programėles TikTok, iš namų, kelias minutes per dieną.",
   "onb.2.title": "Darbas paprastai",
   "onb.2.body": "Kasdien paskelbi 2 TikTok skaidrių peržiūras: kelias nuotraukas su tekstu, kurias žmonės perbraukia.\nViską tau paruošiame: nuotraukas, tekstą, aprašymą ir muziką. Tau tereikia jas sudėti TikTok programėlėje ir paskelbti.\nApie 10 minučių per dieną. Be kameros, be veido, be patirties.",
-  "onb.3.title": "Tavo TikTok paskyra",
-  "onb.3.body": "Duodame tau naują TikTok paskyrą, kurią reikia susikurti: jos vardą, nuotrauką ir bio.\nJą susikuri savo telefone būtent su šiais duomenimis. Ši paskyra skirta tik šiam darbui, ne tavo asmeninė.",
+  "onb.3.title": "Susikuri naują TikTok paskyrą",
+  "onb.3.body": "Šiam darbui turi susikurti visiškai naują TikTok paskyrą: ne savo asmeninę.\nMes duodame viską, ko jai reikia: tikslų vartotojo vardą, rodomą vardą, profilio nuotrauką ir aprašymą.\nTu tiesiog susikuri paskyrą telefone su būtent šiais duomenimis. Tai užtrunka 5 minutes, o žingsniai paaiškinti tavo skydelyje.",
   "onb.4.title": "Apšilimas (kelios dienos)",
   "onb.4.body": "Prieš pirmąjį įrašą apšildai paskyrą: naudok TikTok kaip ir visi. Slink, spausk „patinka“ vaizdo įrašams ir sek kelias paskyras savo tema.\nTaip TikTok mato, kad už paskyros yra tikras žmogus, ir tavo įrašai rodomi. Apšilimo metu nieko neskelbi.",
   "onb.5.title": "Tavo kasdienė rutina",
@@ -257,7 +259,7 @@
   "onb.6.title": "Tavo atlygis",
   "onb.6.body": "Kiekvieną savaitę uždirbi fiksuotą sumą, priklausančią nuo tavo šalies.\nTau mokama kiekvieną pirmadienį už praėjusią savaitę per Ruul – mokėjimų platformą laisvai samdomiems darbuotojams. Ruul mokesčius sumoka Vik Studios, todėl gauni visą sumą.",
   "onb.7.title": "Kas bus toliau",
-  "onb.7.body": "1. Užpildyk trumpą formą (2 minutės) su savo el. paštu ir WhatsApp numeriu.\n2. Patvirtink el. paštą ir WhatsApp numerį kodais, kuriuos tau atsiųsime.\n3. Kai būsi priimtas, perskaityk ir pasirašyk sutartį internetu.\n4. Gauni prisijungimą prie savo skydelio, kuriame paaiškintas kiekvienas žingsnis.\n5. Nusistatyk Ruul paskyrą per nuorodą savo skydelyje (asmens dokumentas ir banko duomenys, apie 10 minučių). Taip gauni atlygį.\n6. Pradedi skelbti pirmadienį.\nSutartį ir DUK gali perskaityti bet kada.",
+  "onb.7.body": "1. Užpildyk trumpą formą (2 minutės) su savo el. paštu ir WhatsApp numeriu.\n2. Patvirtink el. paštą ir WhatsApp numerį kodais, kuriuos tau atsiųsime.\n3. Kai būsi priimtas, perskaityk ir pasirašyk sutartį internetu.\n4. Gauni prisijungimą prie savo skydelio, kuriame rasi savo TikTok paskyros duomenis ir kiekvieno žingsnio paaiškinimą.\n5. Nusistatyk Ruul paskyrą per nuorodą savo skydelyje (asmens dokumentas ir banko duomenys, apie 10 minučių). Taip gauni atlygį.\n6. Pradedi skelbti pirmadienį.\nSutartį ir DUK gali perskaityti bet kada.",
   "onb.8.title": "Pasiruošęs?",
   "onb.8.body": "Jei tau tai tinka, teik paraišką dabar. Tai kelios minutės per dieną ir malonios papildomos pajamos.\nTeik paraišką tik jei ketini skelbti kasdien: kiekvienai paskyrai ruošiame turinį."
 }

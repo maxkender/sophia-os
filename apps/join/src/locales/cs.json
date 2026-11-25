@@ -64,6 +64,8 @@
   "codes.label": "Krok 2 ze 3",
   "codes.title": "Ověř e-mail a WhatsApp",
   "codes.sub": "Poslali jsme šestimístný kód na {email} a na {whatsapp}.",
+  "codes.titleEmail": "Zkontroluj svůj e-mail",
+  "codes.subEmail": "Poslali jsme šestimístný kód na {email}.",
   "codes.email": "Kód z e-mailu",
   "codes.whatsapp": "Kód z WhatsAppu",
   "codes.verify": "Ověřit",
@@ -248,8 +250,8 @@
   "onb.1.body": "Jsme studio, které vyvíjí mobilní aplikace. Hledáme lidi, kteří nám pomůžou šířit naše aplikace na TikToku, z domova, pár minut denně.",
   "onb.2.title": "Práce v kostce",
   "onb.2.body": "Každý den zveřejníš 2 slideshow na TikToku: pár fotek s textem, kterými se listuje.\nVšechno ti připravíme: fotky, text, popisek i hudbu. Ty je jen poskládáš v aplikaci TikTok a zveřejníš.\nAsi 10 minut denně. Bez kamery, bez ukazování obličeje, bez zkušeností.",
-  "onb.3.title": "Tvůj účet na TikToku",
-  "onb.3.body": "Dáme ti nový účet na TikToku, který si založíš: jeho jméno, fotku a bio.\nZaložíš ho ve svém telefonu přesně s těmito údaji. Tento účet je jen pro tuto práci, ne tvůj osobní.",
+  "onb.3.title": "Založíš si nový účet na TikToku",
+  "onb.3.body": "Pro tuhle práci si musíš založit úplně nový účet na TikToku: ne svůj osobní.\nDáme ti k němu všechno: přesné uživatelské jméno, zobrazované jméno, profilovou fotku a bio.\nÚčet si jen založíš v telefonu přesně s těmito údaji. Zabere to 5 minut a kroky jsou vysvětlené ve tvém přehledu.",
   "onb.4.title": "Zahřívání (pár dní)",
   "onb.4.body": "Před prvním příspěvkem účet zahřeješ: používej TikTok jako kdokoli jiný. Scrolluj, lajkuj videa a sleduj pár účtů ze svého tématu.\nTím TikTok pozná, že za účtem je skutečný člověk, a tvoje příspěvky se budou zobrazovat. Během zahřívání nic nezveřejňuješ.",
   "onb.5.title": "Tvoje denní rutina",
@@ -257,7 +259,7 @@
   "onb.6.title": "Tvoje odměna",
   "onb.6.body": "Každý týden vyděláš pevnou částku podle své země.\nPlatba chodí každé pondělí za předchozí týden přes Ruul, platební platformu pro freelancery. Poplatky Ruul platí Vik Studios, takže dostaneš celou částku.",
   "onb.7.title": "Co bude dál",
-  "onb.7.body": "1. Vyplň krátký formulář (2 minuty) se svým e-mailem a číslem na WhatsApp.\n2. Potvrď e-mail a číslo na WhatsApp kódy, které ti pošleme.\n3. Po přijetí si online přečti a podepiš smlouvu.\n4. Dostaneš přihlašovací údaje do svého přehledu, kde je každý krok vysvětlený.\n5. Nastav si účet Ruul přes odkaz ve svém přehledu (doklad totožnosti a bankovní údaje, asi 10 minut). Tak dostáváš zaplaceno.\n6. Začneš zveřejňovat v pondělí.\nSmlouvu a FAQ si můžeš kdykoli přečíst.",
+  "onb.7.body": "1. Vyplň krátký formulář (2 minuty) se svým e-mailem a číslem na WhatsApp.\n2. Potvrď e-mail a číslo na WhatsApp kódy, které ti pošleme.\n3. Po přijetí si online přečti a podepiš smlouvu.\n4. Dostaneš přihlašovací údaje do svého přehledu, kde najdeš údaje ke svému účtu na TikToku a vysvětlení každého kroku.\n5. Nastav si účet Ruul přes odkaz ve svém přehledu (doklad totožnosti a bankovní údaje, asi 10 minut). Tak dostáváš zaplaceno.\n6. Začneš zveřejňovat v pondělí.\nSmlouvu a FAQ si můžeš kdykoli přečíst.",
   "onb.8.title": "Připraven?",
   "onb.8.body": "Jestli ti to sedí, přihlas se teď. Je to pár minut denně a pěkný přivýdělek.\nPřihlas se, jen pokud chceš zveřejňovat každý den: pro každý účet připravujeme obsah."
 }

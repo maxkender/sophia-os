@@ -64,6 +64,8 @@
   "codes.label": "Korak 2 od 3",
   "codes.title": "Potvrdi mejl i WhatsApp",
   "codes.sub": "Poslali smo šestocifreni kod na {email} i na {whatsapp}.",
+  "codes.titleEmail": "Proveri svoj e-mail",
+  "codes.subEmail": "Poslali smo šestocifreni kod na {email}.",
   "codes.email": "Kod iz imejla",
   "codes.whatsapp": "Kod sa WhatsAppa",
   "codes.verify": "Potvrdi",
@@ -248,8 +250,8 @@
   "onb.1.body": "Mi smo studio koji pravi mobilne aplikacije. Tražimo ljude koji će nam pomoći da predstavimo naše aplikacije na TikToku, od kuće, nekoliko minuta dnevno.",
   "onb.2.title": "Posao, jednostavno",
   "onb.2.body": "Svakog dana objaviš 2 TikTok slajdšoua: nekoliko fotografija sa tekstom koje se listaju prstom.\nSve pripremamo za tebe: fotografije, tekst, opis i muziku. Ti ih samo složiš u aplikaciji TikTok i objaviš.\nOko 10 minuta dnevno. Bez kamere, bez pokazivanja lica, bez iskustva.",
-  "onb.3.title": "Tvoj TikTok nalog",
-  "onb.3.body": "Dajemo ti novi TikTok nalog koji treba da napraviš: njegovo ime, fotografiju i bio.\nPraviš ga na svom telefonu sa tačno tim podacima. Taj nalog je samo za ovaj posao, nije tvoj lični.",
+  "onb.3.title": "Praviš novi TikTok nalog",
+  "onb.3.body": "Za ovaj posao treba da napraviš potpuno novi TikTok nalog: ne svoj lični.\nDajemo ti sve za njega: tačno korisničko ime, ime za prikaz, profilnu fotografiju i opis.\nSamo napraviš nalog na telefonu sa tačno tim podacima. Traje 5 minuta, a koraci su objašnjeni na tvojoj kontrolnoj tabli.",
   "onb.4.title": "Zagrevanje (nekoliko dana)",
   "onb.4.body": "Pre prve objave zagrevaš nalog: koristi TikTok kao i svi ostali. Skroluj, lajkuj videe i prati nekoliko naloga na svoju temu.\nTako TikTok vidi da iza naloga stoji prava osoba, pa se tvoje objave vide. Tokom zagrevanja ništa ne objavljuješ.",
   "onb.5.title": "Tvoja dnevna rutina",
@@ -257,7 +259,7 @@
   "onb.6.title": "Tvoja zarada",
   "onb.6.body": "Svake nedelje zarađuješ fiksni iznos, u zavisnosti od tvoje zemlje.\nPlaćen si svakog ponedeljka za prethodnu nedelju, preko Ruula, platforme za plaćanje frilensera. Vik Studios plaća naknade Ruula, pa dobijaš ceo iznos.",
   "onb.7.title": "Šta sledi",
-  "onb.7.body": "1. Popuni kratak formular (2 minuta), sa svojim mejlom i WhatsApp brojem.\n2. Potvrdi mejl i WhatsApp broj kodovima koje ti pošaljemo.\n3. Kad budeš prihvaćen, pročitaj i potpiši ugovor onlajn.\n4. Dobijaš podatke za prijavu na svoju kontrolnu tablu, gde je svaki korak objašnjen.\n5. Podesi svoj Ruul nalog preko linka na kontrolnoj tabli (lična karta i bankovni podaci, oko 10 minuta). Tako dobijaš isplatu.\n6. Počinješ da objavljuješ u ponedeljak.\nUgovor i česta pitanja možeš da pročitaš u bilo kom trenutku.",
+  "onb.7.body": "1. Popuni kratak formular (2 minuta), sa svojim mejlom i WhatsApp brojem.\n2. Potvrdi mejl i WhatsApp broj kodovima koje ti pošaljemo.\n3. Kad budeš prihvaćen, pročitaj i potpiši ugovor onlajn.\n4. Dobijaš podatke za prijavu na svoju kontrolnu tablu, gde ćeš naći podatke svog TikTok naloga i objašnjenje svakog koraka.\n5. Podesi svoj Ruul nalog preko linka na kontrolnoj tabli (lična karta i bankovni podaci, oko 10 minuta). Tako dobijaš isplatu.\n6. Počinješ da objavljuješ u ponedeljak.\nUgovor i česta pitanja možeš da pročitaš u bilo kom trenutku.",
   "onb.8.title": "Spreman?",
   "onb.8.body": "Ako ti ovo odgovara, prijavi se sada. To je nekoliko minuta dnevno i lepa dodatna zarada.\nPrijavi se samo ako planiraš da objavljuješ svaki dan: pripremamo sadržaj za svaki nalog."
 }

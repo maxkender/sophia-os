@@ -83,7 +83,7 @@ function Site() {
     setMoi(r);
     if (!orienter) return;
     const c = r.candidature;
-    setEnvoi((e) => e ?? { prenom: c.prenom, email: c.email, whatsapp: c.whatsapp });
+    setEnvoi((e) => e ?? { prenom: c.prenom, email: c.email, whatsapp: c.whatsapp, whatsapp_code: c.whatsapp_code });
     if (r.signature) aller("dashboard");
     else if (r.expiree) aller("expiree");
     else if (c.ferme) aller("ferme");

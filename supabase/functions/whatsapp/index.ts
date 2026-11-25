@@ -15,8 +15,9 @@
  *        test_modeles      envoie chaque modèle approuvé aux numéros autorisés (mode test)
  *        envoyer           { e164, texte } ou { e164, modele, langue, variables } (règles du mode test)
  *        relances          (cron horaire whatsapp-relances, 0839) les relances automatiques, en plus des emails ;
- *                          { simuler: true } : la liste seulement, rien ne part. Mode test : numéros autorisés seuls ;
- *                          live : seulement si le réglage whatsapp_relances.live est vrai.
+ *                          { simuler: true } : la liste seulement (comptes par modèle dans `par_modele`), rien ne
+ *                          part ; { simuler: true, comme_live: true } : comme si le mode était live. Mode test : numéros autorisés seuls ; live : seulement si whatsapp_relances.live est vrai.
+ *                          25/11 : modèles v2 (repli sur l'ancien tant que le v2 n'est pas APPROVED).
  *
  * Les secrets ne sont jamais écrits dans la base ni dans les journaux.
  */
@@ -26,8 +27,9 @@ import {
   champsProfil, CORPS_RUUL_SETUP, e164, GRAPH, estStopWhatsApp, lireWebhook, type MessageRecu, modeLive, MODELES, numeroAutorise, signatureValide,
   type StatutRecu, texteFinWhatsApp,
 } from "../_shared/whatsapp.ts";
-import { envoyerWhatsApp, graph, lireModeWhatsApp, secretsWhatsApp, wabaId } from "../_shared/whatsapp_envoi.ts";
+import { envoyerWhatsApp, graph, lireModeWhatsApp, modelesApprouves, secretsWhatsApp, wabaId } from "../_shared/whatsapp_envoi.ts";
 import { deciderRelance, type FaitsRelance } from "../_shared/whatsapp_relances.ts";
+import { nicheOuNull } from "../_shared/niche_posteur.ts";
 import { MODELES_V2, problemesModele, requeteModele } from "../_shared/whatsapp_modeles_v2.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -53,7 +55,7 @@ Deno.serve(async (request) => {
       case "abonner": return json(await abonner(db));
       case "profil": return json(await profil(db, body));
       case "test_modeles": return json(await testModeles(db));
-      case "relances": return json(await relances(db, body.simuler === true));
+      case "relances": return json(await relances(db, body.simuler === true, body.simuler === true && body.comme_live === true));
       case "envoyer": {
         const numero = e164(String(body.e164 ?? ""));
         if (!numero) return json({ ok: false, error: "e164 invalide" }, 400);
@@ -456,37 +458,81 @@ async function testModeles(db: Db) {
 // Relances automatiques (0839), en plus des emails
 // ------------------------------------------------------------------------------------------------------------------
 
+/** Complète les faits : le @ du 1er compte perso actif et la fin de son warm-up (lecture par paquets de 150). */
+async function completerComptes(db: Db, faits: FaitsRelance[]) {
+  const ids = [...new Set(faits.map((f) => f.poster_id).filter((x): x is string => !!x))];
+  const parPosteur = new Map<string, { handle: string | null; warmup_ends_at: string | null }>();
+  for (let i = 0; i < ids.length; i += 150) {
+    const { data, error } = await db.from("comptes").select("poster_id, handle_tiktok, warmup_ends_at, created_at")
+      .in("poster_id", ids.slice(i, i + 150)).eq("type_compte", "perso").eq("is_active", true)
+      .order("created_at", { ascending: true }).limit(1000);
+    if (error) throw new Error(`comptes : ${error.message}`);
+    for (const c of data ?? []) {
+      if (!parPosteur.has(c.poster_id as string)) {
+        parPosteur.set(c.poster_id as string, { handle: (c.handle_tiktok as string | null) ?? null, warmup_ends_at: c.warmup_ends_at as string | null });
+      }
+    }
+  }
+  const t = Date.now();
+  for (const f of faits) {
+    const c = f.poster_id ? parPosteur.get(f.poster_id) : undefined;
+    f.handle = c?.handle?.replace(/^@/, "") || null;
+    f.warmup_fini = !!c?.warmup_ends_at && Date.parse(c.warmup_ends_at) <= t;
+  }
+}
+
 /**
  * Chaque numéro connu : la relance due aujourd'hui (une seule), ses garde-fous, puis l'envoi du modèle. Le mode test
  * est vérifié deux fois : ici (un numéro non autorisé n'est même pas tenté) et dans envoyerWhatsApp.
  */
-async function relances(db: Db, simuler: boolean) {
+async function relances(db: Db, simuler: boolean, commeLive = false) {
   const mode = await lireModeWhatsApp(db);
   const { data: reglage } = await db.from("reglages").select("valeur").eq("cle", "whatsapp_relances").maybeSingle();
   // Deuxième verrou : en live, rien ne part aux posteurs tant que whatsapp_relances.live n'est pas vrai.
   const liveAutorise = (reglage?.valeur as { live?: unknown } | null)?.live === true;
-  if (modeLive(mode) && !liveAutorise) return { ok: true, envoyees: 0, raison: "live : réglage whatsapp_relances.live éteint" };
+  if (modeLive(mode) && !liveAutorise && !simuler) return { ok: true, envoyees: 0, raison: "live : réglage whatsapp_relances.live éteint" };
 
   const { data, error } = await db.rpc("whatsapp_relances_faits");
   if (error) return { ok: false, error: error.message };
-  const bilan = { ok: true, simulation: simuler, numeros: 0, dues: 0, envoyees: 0, refusees: 0, erreurs: 0, detail: [] as Record<string, unknown>[] };
+  const bilan = {
+    ok: true, simulation: simuler, comme_live: commeLive, numeros: 0, dues: 0, envoyees: 0, refusees: 0, erreurs: 0,
+    /** Par modèle : dues, refusées (et pourquoi), qui partiraient (simulation) ou parties. */
+    par_modele: {} as Record<string, { dues: number; partiraient: number; envoyees: number; refus: Record<string, number> }>,
+    detail: [] as Record<string, unknown>[],
+  };
   const maintenant = new Date();
-  for (const f of (data ?? []) as FaitsRelance[]) {
+  const faits = (data ?? []) as FaitsRelance[];
+  await completerComptes(db, faits);
+  const approuves = await modelesApprouves(db);
+  for (const f of faits) {
     bilan.numeros++;
-    const d = deciderRelance(f, { modeAutorise: numeroAutorise(mode, f.e164), maintenant });
+    const modeAutorise = commeLive || numeroAutorise(mode, f.e164);
+    let d = deciderRelance(f, { modeAutorise, maintenant, approuves });
     if (!d) continue;
+    if (d.type === "warmup_start" && !d.refus && d.modele?.nom === "warmup_start" && f.poster_id) {
+      // La niche du compte (null : texte générique « your topic »), lue seulement quand elle sert.
+      f.niche = await nicheOuNull(db, f.poster_id);
+      d = deciderRelance(f, { modeAutorise, maintenant, approuves }) ?? d;
+    }
     bilan.dues++;
-    const ligne: Record<string, unknown> = { poster_id: f.poster_id, site_id: f.site_id, type: d.type };
-    if (d.refus) {
+    const cle = d.modele?.nom ?? d.type;
+    const pm = bilan.par_modele[cle] ??= { dues: 0, partiraient: 0, envoyees: 0, refus: {} };
+    pm.dues++;
+    const ligne: Record<string, unknown> = { poster_id: f.poster_id, site_id: f.site_id, type: d.type, modele: d.modele?.nom ?? null };
+    if (d.refus || !d.modele) {
+      const raison = d.refus ?? "pas de modèle";
       bilan.refusees++;
-      bilan.detail.push({ ...ligne, refus: d.refus });
+      pm.refus[raison] = (pm.refus[raison] ?? 0) + 1;
+      bilan.detail.push({ ...ligne, refus: raison });
       continue;
     }
     if (simuler) {
-      bilan.detail.push({ ...ligne, simule: true });
+      pm.partiraient++;
+      bilan.detail.push({ ...ligne, simule: true, variables: d.modele.variables });
       continue;
     }
     const r = await envoyerWhatsApp(db, { e164: f.e164, posterId: f.poster_id, motif: d.motif, cle: d.cle, modele: d.modele });
+    if (r.ok) pm.envoyees++;
     if (r.ok) bilan.envoyees++;
     else bilan.erreurs++;
     bilan.detail.push({ ...ligne, statut: r.statut, erreur: r.erreur ?? null });

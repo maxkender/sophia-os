@@ -19,6 +19,9 @@
  * sans codes, signature avec nom légal + email Ruul et date limite (dimanche minuit Paris → sinon lundi suivant),
  * contrat join-v2.
  *
+ * 25/11 (Max) : pas de code WhatsApp (join_mode.modele_code vide) : le code par email suffit. WhatsApp de bienvenue
+ * welcome_start (repli account_ready), clé welcome:<posteur> partagée avec les relances de l'OS.
+ *
  * 0847 (admin, 23/11) : actions `admin_*` réservées aux admins de l'OS (même Supabase Auth : email + mot de passe ;
  * is_admin() vérifié côté serveur à CHAQUE appel avec le JWT de l'admin, champ `admin_jwt`) : connexion,
  * rafraîchissement, liste, fiche, accepter / refuser, interrupteur « Acceptation automatique » (réglage
@@ -29,7 +32,8 @@
  */
 import { corsHeaders, estSecretCron, json, serviceClient } from "../_shared/supabase.ts";
 import { lienMotDePasse } from "../_shared/lien_mot_de_passe.ts";
-import { envoyerWhatsApp } from "../_shared/whatsapp_envoi.ts";
+import { envoyerWhatsApp, modelesApprouves, numeroBloque } from "../_shared/whatsapp_envoi.ts";
+import { cleBienvenue, echeanceTexte } from "../_shared/whatsapp_relances.ts";
 import { type EmailRuul, envoyerEmailSite, PIED_EN, rendreEmailRuul } from "../_shared/ruul.ts";
 import { langueTraduite, traduireChamps } from "../_shared/traduction_email.ts";
 import { lireProfilTiktok } from "../_shared/profil_tiktok.ts";
@@ -43,6 +47,8 @@ import {
   CONTRAT_TEXTE,
   CONTRAT_VERSION,
   cohorteASignature,
+  codesVerifies,
+  codeWhatsappActif,
   cohorteDe,
   dateLimiteSignature,
   decider,
@@ -52,6 +58,7 @@ import {
   estEtapeJoin,
   etapeAdmin,
   etapeRelanceSignature,
+  ETAPES_APRES_SIGNATURE,
   etapesRestantes,
   etatCode,
   genererCode,
@@ -76,6 +83,7 @@ import {
   TYPES_MESSAGE_JOIN,
   type TypeMessageJoin,
   validerCandidature,
+  VIDEO_GUIDE_URL,
 } from "../_shared/join.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -217,10 +225,20 @@ async function envoyerCodeWhatsapp(db: Db, mode: ModeJoin, c: Candidature, code:
   return r.ok ? "envoye" : "bloque";
 }
 
-/** Un message au candidat (email, et WhatsApp si accord + modèle). En test : seulement vers les testeurs. */
+/** Le WhatsApp d'un message Join : un modèle, ses variables, et sa clé anti-doublon (défaut : join_<type>:<id>). */
+type WhatsAppJoin = { nom: string; variables: string[]; cle?: string; motif?: string };
+
+/** Le prénom des WhatsApp : le premier mot (comme les relances de l'OS). */
+const prenomWa = (c: Candidature) => (c.prenom ?? "").trim().split(/\s+/)[0] || "there";
+
+/**
+ * Un message au candidat (email, et WhatsApp si accord + modèle). En test : email seulement vers les testeurs ;
+ * WhatsApp seulement vers les numéros autorisés (whatsapp_mode), jamais vers un numéro qui a dit STOP ou dont le
+ * posteur est arrêté / sur la liste « ne plus contacter ».
+ */
 async function message(
   db: Db, mode: ModeJoin, c: Candidature, type: TypeMessageJoin,
-  v: Omit<Parameters<typeof texteMessage>[1], "prenom" | "lien"> & { lien?: string }, whatsapp: string | null,
+  v: Omit<Parameters<typeof texteMessage>[1], "prenom" | "lien"> & { lien?: string }, whatsapp: string | WhatsAppJoin | null,
 ) {
   const lien = v.lien ?? JOIN_URL();
   const m = texteMessage(type, { ...v, prenom: c.prenom, lien });
@@ -234,9 +252,14 @@ async function message(
     await journaliserRelance(db, c, type, "email", "bloque");
   }
   if (whatsapp && c.whatsapp_optin_at) {
+    const wa: WhatsAppJoin = typeof whatsapp === "string" ? { nom: whatsapp, variables: [prenomWa(c), lien] } : whatsapp;
+    if (await numeroBloque(db, c.whatsapp_e164, c.profile_id ?? null)) {
+      await journaliserRelance(db, c, type, "whatsapp", "bloque");
+      return;
+    }
     const r = await envoyerWhatsApp(db, {
-      e164: c.whatsapp_e164, motif: `join_${type}`, cle: `join_${type}:${c.id}`,
-      modele: { nom: whatsapp, langue: "en", variables: [c.prenom, lien] },
+      e164: c.whatsapp_e164, posterId: c.profile_id ?? null, motif: wa.motif ?? `join_${type}`, cle: wa.cle ?? `join_${type}:${c.id}`,
+      modele: { nom: wa.nom, langue: "en", variables: wa.variables },
     });
     await journaliserRelance(db, c, type, "whatsapp", r.ok ? "envoye" : "bloque");
   }
@@ -457,7 +480,7 @@ async function messageAcces(db: Db, mode: ModeJoin, c: Candidature, lundi: strin
   await message(db, mode, c, "acces", {
     lien, compteCree: !!lien, login: c.email_os ?? null, handle: c.handle_tiktok, ruulEmail: sig?.ruul_email ?? null,
     lundi: lundiLisible(lundi), limite: limiteLisible(lundi),
-  }, "account_ready");
+  }, await whatsappBienvenue(db, c, lundi, lien ?? JOIN_URL()));
   if (reel && c.profile_id) {
     const { error } = await db.from("ruul_parcours_envois").upsert(
       { poster_id: c.profile_id, cle: "bienvenue", type: "bienvenue", ok: true, canaux: ["join"], erreur: null, envoye_at: new Date().toISOString() },
@@ -467,24 +490,73 @@ async function messageAcces(db: Db, mode: ModeJoin, c: Candidature, lundi: strin
   }
 }
 
+/**
+ * 25/11 (Max) : le WhatsApp de bienvenue est welcome_start (prénom, lundi, échéance, @ du compte créé par l'OS,
+ * vidéo guide), repli sur account_ready (prénom, lien) s'il n'est pas APPROVED ou sans @. La clé welcome:<posteur>
+ * est celle des relances de l'OS : jamais deux bienvenues au même posteur.
+ */
+async function whatsappBienvenue(db: Db, c: Candidature, lundi: string, lien: string): Promise<WhatsAppJoin> {
+  const approuves = await modelesApprouves(db);
+  const handle = (c.handle_tiktok ?? "").replace(/^@/, "").trim();
+  const cle = c.profile_id ? cleBienvenue(c.profile_id) : `join_acces:${c.id}`;
+  if (handle && approuves.has("welcome_start")) {
+    return {
+      nom: "welcome_start", cle, motif: "relance:welcome_start",
+      variables: [prenomWa(c), lundiLisible(lundi), echeanceTexte(lundi), handle, VIDEO_GUIDE_URL],
+    };
+  }
+  return { nom: "account_ready", cle, motif: "relance:welcome_start", variables: [prenomWa(c), lien] };
+}
+
 /** Le cron horaire : relance des codes, relances et expiration du contrat, reprise de l'enchaînement. */
 async function relances(db: Db, mode: ModeJoin) {
   const maintenant = new Date();
   const depuis = new Date(maintenant.getTime() - 14 * 24 * HEURE).toISOString();
-  const { data } = await db.from("join_candidatures").select("*").gte("cree_at", depuis).is("expire_at", null).limit(500);
-  const bilan = { codes: 0, signature: 0, expirees: 0, enchainees: 0 };
-  for (const c of (data ?? []) as Candidature[]) {
-    const faites = await etapesFaites(db, c.id);
-    const { data: sig } = await db.from("join_signatures").select("id").eq("candidature_id", c.id).limit(1).maybeSingle();
-    if (sig) {
+  // 25/11 : lecture par pages (PostgREST rend 1000 lignes au plus) : en live, avec les pubs, plus de 500
+  // candidatures en 14 jours ne doivent pas en laisser de côté. Les refusées et les « à traiter » sans relance à faire
+  // ne sont pas relues.
+  const toutes: Candidature[] = [];
+  for (let page = 0; page < 50; page++) {
+    const { data, error } = await db.from("join_candidatures").select("*").gte("cree_at", depuis).is("expire_at", null)
+      .or("decision.is.null,decision.eq.auto").order("cree_at", { ascending: true }).order("id", { ascending: true })
+      .range(page * 500, page * 500 + 499);
+    if (error) throw new Error(`candidatures : ${error.message}`);
+    toutes.push(...((data ?? []) as Candidature[]));
+    if ((data ?? []).length < 500) break;
+  }
+  const bilan = { lues: toutes.length, codes: 0, signature: 0, expirees: 0, enchainees: 0 };
+  // Le journal et les signatures lus par paquets (pas deux requêtes par candidature).
+  const faitesPar = new Map<string, Set<string>>();
+  const signees = new Set<string>();
+  // Seules les étapes qui comptent ici (PostgREST rend 1000 lignes au plus : 50 candidatures × ~10 lignes).
+  const utiles = ["code_rappel", "signature_j1", "signature_j3", ...ETAPES_APRES_SIGNATURE];
+  for (let i = 0; i < toutes.length; i += 50) {
+    const ids = toutes.slice(i, i + 50).map((c) => c.id);
+    const [rel, sig] = await Promise.all([
+      db.from("join_relances").select("candidature_id, etape").in("candidature_id", ids).in("etape", utiles).limit(1000),
+      db.from("join_signatures").select("candidature_id").in("candidature_id", ids).limit(1000),
+    ]);
+    if (rel.error || sig.error) throw new Error(`journal : ${rel.error?.message ?? sig.error?.message}`);
+    for (const r of rel.data ?? []) {
+      const k = r.candidature_id as string;
+      if (!faitesPar.has(k)) faitesPar.set(k, new Set());
+      faitesPar.get(k)!.add(r.etape as string);
+    }
+    for (const r of sig.data ?? []) signees.add(r.candidature_id as string);
+  }
+  for (const c of toutes) {
+    const faites = [...(faitesPar.get(c.id) ?? [])];
+    if (signees.has(c.id)) {
       if (etapesRestantes(faites).length) {
-        await enchainer(db, mode, c, cohorteASignature(c.cohorte, maintenant));
+        // Le lundi fixé à la signature (c.cohorte), jamais recalculé : un enchaînement repris un lundi ou plus tard
+        // (création OS en échec puis réessayée) ne doit pas décaler le départ d'une semaine.
+        await enchainer(db, mode, c, c.cohorte ?? cohorteASignature(null, maintenant));
         bilan.enchainees++;
       }
       continue;
     }
     if (!c.decision) {
-      const verifie = !!c.email_verifie_at && !!c.whatsapp_verifie_at;
+      const verifie = codesVerifies(c, mode);
       if (!c.manques?.some((m) => m.startsWith("pays fermé"))) {
         if (relanceCodeDue(c.cree_at, verifie, faites.includes("code_rappel"), maintenant)) {
           await message(db, mode, c, "code_rappel", {}, null);
@@ -533,10 +605,12 @@ async function majEtape(db: Db, id: string, etape: string, statut: string, valeu
   if (error) throw new Error(`étape : ${error.message}`);
 }
 
-function vueCandidature(c: Candidature) {
+function vueCandidature(c: Candidature, mode: ModeJoin) {
   return {
     id: c.id, test: c.test, prenom: c.prenom, nom: c.nom, email: c.email, whatsapp: c.whatsapp_e164, pays: c.pays,
-    langue: c.langue, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at,
+    // 25/11 : sans code WhatsApp (join_mode.modele_code vide), le numéro n'a pas de code à vérifier.
+    langue: c.langue, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at || !codeWhatsappActif(mode),
+    whatsapp_code: codeWhatsappActif(mode),
     decision: c.decision, cohorte: c.cohorte, handle_tiktok: c.handle_tiktok, whatsapp_optin: !!c.whatsapp_optin_at,
     ferme: !!c.manques?.some((m) => m.startsWith("pays fermé")) && !c.decision,
   };
@@ -598,8 +672,8 @@ async function jetonsAdmin(corps: Record<string, string>, grant: "password" | "r
 }
 
 /** La ligne de la liste de l'admin. */
-function ligneAdmin(c: Candidature & Record<string, unknown>, signee: boolean) {
-  const etape = etapeAdmin(c, signee);
+function ligneAdmin(c: Candidature & Record<string, unknown>, signee: boolean, mode: ModeJoin) {
+  const etape = etapeAdmin(c, signee, codeWhatsappActif(mode));
   const source = (c.source ?? {}) as Record<string, string>;
   return {
     id: c.id, test: c.test, prenom: c.prenom, nom: c.nom, email: c.email, pays: c.pays, cree_at: c.cree_at, maj_at: c.maj_at,
@@ -640,7 +714,7 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
       const signees = await signeesParmi(db, lignes.map((c) => c.id));
       return json({
         ok: true, mode: mode.mode, auto_acceptation: await lireAuto(db),
-        candidatures: lignes.map((c) => ligneAdmin(c, signees.has(c.id))), lu_at: new Date().toISOString(),
+        candidatures: lignes.map((c) => ligneAdmin(c, signees.has(c.id), mode)), lu_at: new Date().toISOString(),
       });
     }
 
@@ -667,7 +741,7 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
       return json({
         ok: true, mode: mode.mode,
         candidature: {
-          ...ligneAdmin(cand, !!sig.data), whatsapp: cand.whatsapp_e164, langue: cand.langue, majeur: cand.majeur ?? null,
+          ...ligneAdmin(cand, !!sig.data, mode), whatsapp: cand.whatsapp_e164, langue: cand.langue, majeur: cand.majeur ?? null,
           age: cand.age, deux_telephones: cand.deux_telephones, reponses: cand.reponses, source_brute: cand.source ?? {},
           handle_tiktok: cand.handle_tiktok, expire_at: cand.expire_at, decision_at: cand.decision_at,
           decision_par: cand.decision_par ?? null, decision_note: cand.decision_note ?? null,
@@ -686,9 +760,9 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
       if (!data) return erreur("introuvable", 404);
       const c = data as Candidature;
       const signees = await signeesParmi(db, [c.id]);
-      const possibles = decisionsAdminPossibles(etapeAdmin(c, signees.has(c.id)));
+      const possibles = decisionsAdminPossibles(etapeAdmin(c, signees.has(c.id), codeWhatsappActif(mode)));
       if (choix === "accepter" && !possibles.accepter) return erreur("acceptation impossible à cette étape", 409);
-      if (choix === "accepter" && !(c.email_verifie_at && c.whatsapp_verifie_at)) return erreur("codes pas encore vérifiés", 409);
+      if (choix === "accepter" && !codesVerifies(c, mode)) return erreur("codes pas encore vérifiés", 409);
       if (choix === "refuser" && !possibles.refuser) return erreur("refus impossible à cette étape", 409);
       const maintenant = new Date().toISOString();
       if (choix === "accepter") {
@@ -793,15 +867,17 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       });
       // Pays fermé : la candidature est gardée (on écrit quand le pays ouvre), sans codes ni session.
       if (!ouvert) return json({ ok: true, ferme: true, mode: mode.mode });
+      // 25/11 (Max) : le code par email seulement, sauf si un modèle WhatsApp d'authentification est configuré.
+      const waActif = codeWhatsappActif(mode);
       const codeEmail = await creerCode(db, c.id, "email");
-      const codeWhatsapp = await creerCode(db, c.id, "whatsapp");
+      const codeWhatsapp = waActif ? await creerCode(db, c.id, "whatsapp") : null;
       const email = await envoyerCodeEmail(db, mode, c, codeEmail);
       await journaliserRelance(db, c, "code", "email", email);
-      await journaliserRelance(db, c, "code", "whatsapp", await envoyerCodeWhatsapp(db, mode, c, codeWhatsapp));
+      if (codeWhatsapp) await journaliserRelance(db, c, "code", "whatsapp", await envoyerCodeWhatsapp(db, mode, c, codeWhatsapp));
       const jeton = await ouvrirSession(db, c.id, SESSION_COURTE_H);
       return json({
-        ok: true, candidature_id: c.id, jeton, mode: mode.mode, email_envoye: email === "envoye",
-        ...(enTest ? { codes_test: { email: codeEmail, whatsapp: codeWhatsapp } } : {}),
+        ok: true, candidature_id: c.id, jeton, mode: mode.mode, email_envoye: email === "envoye", whatsapp_code: waActif,
+        ...(enTest ? { codes_test: { email: codeEmail, ...(codeWhatsapp ? { whatsapp: codeWhatsapp } : {}) } } : {}),
       });
     }
 
@@ -809,6 +885,7 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       const c = await candidatureDeSession(db, request, b);
       if (!c) return erreur("session", 401);
       const canal = b.canal === "whatsapp" ? "whatsapp" : "email";
+      if (canal === "whatsapp" && !codeWhatsappActif(mode)) return erreur("whatsapp_code_off");
       const code = await creerCode(db, c.id, canal);
       const etat = canal === "email" ? await envoyerCodeEmail(db, mode, c, code) : await envoyerCodeWhatsapp(db, mode, c, code);
       await journaliserRelance(db, c, "code", canal, etat);
@@ -835,19 +912,19 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
         await db.from("join_candidatures").update({ [col]: maintenant, maj_at: maintenant }).eq("id", c.id);
         if (canal === "email") c.email_verifie_at = maintenant;
         else c.whatsapp_verifie_at = maintenant;
-        if (c.email_verifie_at && c.whatsapp_verifie_at) await evenement(db, "verifiee", c.id, c.test);
+        if (codesVerifies(c, mode)) await evenement(db, "verifiee", c.id, c.test);
       }
-      return json({ ok: true, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at });
+      return json({ ok: true, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at || !codeWhatsappActif(mode) });
     }
 
     case "decision": {
       const c = await candidatureDeSession(db, request, b);
       if (!c) return erreur("session", 401);
-      if (!c.email_verifie_at || !c.whatsapp_verifie_at) return erreur("not_verified");
+      if (!codesVerifies(c, mode)) return erreur("not_verified");
       if (!c.decision) {
         const { pays } = await paysOuverts(db);
         // 0847 : l'interrupteur « Acceptation automatique » (OFF : même une candidature complète attend l'admin).
-        const d = deciderAvecReglage(decider(c, new Set(pays.map((p) => p.pays))), await lireAuto(db));
+        const d = deciderAvecReglage(decider(c, new Set(pays.map((p) => p.pays)), codeWhatsappActif(mode)), await lireAuto(db));
         const maintenant = new Date().toISOString();
         const cohorte = d.decision === "auto" ? cohorteDe(aujourdhuiParis()) : null;
         await db.from("join_candidatures").update({
@@ -955,7 +1032,7 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       const premier = c.cohorte ? premierPost(c.cohorte, warmupFini, aujourdhuiParis()) : null;
       const lundiOffre = c.decision === "auto" && !sig ? cohorteASignature(c.cohorte) : null;
       return json({
-        ok: true, mode: mode.mode, candidature: vueCandidature(c), signature: sig ?? null, etapes,
+        ok: true, mode: mode.mode, candidature: vueCandidature(c, mode), signature: sig ?? null, etapes,
         expiree: !!c.expire_at,
         ...(lundiOffre ? { offre: { cohorte: lundiOffre, date_limite: new Date(dateLimiteSignature(lundiOffre).getTime() - 60_000).toISOString() } } : {}),
         premier_post: premier, premier_post_texte: premier ? `Your first post is on ${lundiLisible(premier)}` : null,

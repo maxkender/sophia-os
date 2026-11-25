@@ -1,9 +1,10 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
-  avecPiedWhatsApp, banniereActive, dateLocale, deciderRelance, type FaitsRelance, jourSemaineLocal, joursEntre, PHRASE_WHATSAPP_EMAIL,
-  relancesDues,
+  avecPiedWhatsApp, banniereActive, dateLocale, deciderRelance, echeanceTexte, type FaitsRelance, jourSemaineLocal, joursEntre,
+  NICHE_GENERIQUE, PHRASE_WHATSAPP_EMAIL, relancesDues, VIDEO_GUIDE_WA,
 } from "./whatsapp_relances.ts";
+import { VIDEO_GUIDE_URL } from "./join.ts";
 
 // Jeudi 26/11/2026, 13 h à Paris.
 const JEUDI = new Date("2026-11-26T12:00:00Z");
@@ -60,7 +61,7 @@ Deno.test("jamais connecté 24 h après la signature : une fois", () => {
 
 Deno.test("warm-up pas lancé le jeudi avant la cohorte", () => {
   const f = faits({ cohorte_lundi: "2026-11-30", warmup_started_at: null });
-  assertEquals(relancesDues(f, JEUDI), ["warmup_reminder"]);
+  assertEquals(relancesDues(f, JEUDI), ["warmup_start"]);
   assertEquals(relancesDues(f, MARDI), []);
   assertEquals(relancesDues({ ...f, cohorte_lundi: "2026-12-07" }, JEUDI), []);
   assertEquals(relancesDues({ ...f, warmup_started_at: "2026-11-25T10:00:00Z" }, JEUDI), []);
@@ -68,8 +69,8 @@ Deno.test("warm-up pas lancé le jeudi avant la cohorte", () => {
 
 Deno.test("nudge du jeudi : 0 post ou moins de la moitié", () => {
   const f = faits({ cohorte_lundi: "2026-11-23", prevus_a_date: 8, publies_semaine: 0 });
-  assertEquals(relancesDues(f, JEUDI), ["no_posts_this_week"]);
-  assertEquals(relancesDues({ ...f, publies_semaine: 3 }, JEUDI), ["no_posts_this_week"]);
+  assertEquals(relancesDues(f, JEUDI), ["no_posts_week"]);
+  assertEquals(relancesDues({ ...f, publies_semaine: 3 }, JEUDI), ["no_posts_week"]);
   assertEquals(relancesDues({ ...f, publies_semaine: 4 }, JEUDI), []);
   assertEquals(relancesDues({ ...f, prevus_a_date: 0 }, JEUDI), []);
   assertEquals(relancesDues(f, MARDI), []);
@@ -78,11 +79,17 @@ Deno.test("nudge du jeudi : 0 post ou moins de la moitié", () => {
 
 Deno.test("Ruul pas READY 3 jours après le premier post", () => {
   const f = faits({ premier_post_at: "2026-11-20T10:00:00Z", ruul_onboarding: "PENDING_KYC", ruul_ready_at: null });
-  assertEquals(relancesDues(f, MARDI), ["ruul_setup"]);
+  assertEquals(relancesDues(f, MARDI), ["ruul_payment_setup"]);
   assertEquals(relancesDues({ ...f, premier_post_at: "2026-11-23T10:00:00Z" }, MARDI), []);
   assertEquals(relancesDues({ ...f, canal_paie: "upwork" }, MARDI), []);
   assertEquals(relancesDues({ ...f, deja: ["relance:ruul_setup"] }, MARDI), []);
-  assertEquals(deciderRelance(f, { modeAutorise: true, maintenant: MARDI })?.modele.variables[1], "https://sophia-marketing-orga.vercel.app/ruul");
+  assertEquals(deciderRelance(f, { modeAutorise: true, maintenant: MARDI })?.modele, { nom: "ruul_payment_setup", langue: "en", variables: ["Ana"] });
+  assertEquals(relancesDues({ ...f, deja: ["relance:ruul_payment_setup"] }, MARDI), []);
+  // Repli sur l'ancien modèle s'il n'est pas approuvé.
+  assertEquals(
+    deciderRelance(f, { modeAutorise: true, maintenant: MARDI, approuves: new Set(["ruul_setup"]) })?.modele?.variables[1],
+    "https://sophia-marketing-orga.vercel.app/ruul",
+  );
 });
 
 Deno.test("une seule relance par jour, dans l'ordre de priorité", () => {
@@ -90,8 +97,8 @@ Deno.test("une seule relance par jour, dans l'ordre de priorité", () => {
     cohorte_lundi: "2026-11-23", prevus_a_date: 4, publies_semaine: 0,
     premier_post_at: "2026-11-20T10:00:00Z", ruul_onboarding: "PENDING_KYC", ruul_ready_at: null,
   });
-  assertEquals(relancesDues(f, JEUDI), ["ruul_setup", "no_posts_this_week"]);
-  assertEquals(deciderRelance(f, { modeAutorise: true, maintenant: JEUDI })?.type, "ruul_setup");
+  assertEquals(relancesDues(f, JEUDI), ["ruul_payment_setup", "no_posts_week"]);
+  assertEquals(deciderRelance(f, { modeAutorise: true, maintenant: JEUDI })?.type, "ruul_payment_setup");
 });
 
 Deno.test("garde-fous", () => {
@@ -111,6 +118,47 @@ Deno.test("garde-fous", () => {
   assertEquals(refus({}, true, new Date("2026-11-24T21:00:00Z")), "hors 9 h – 21 h (heure du posteur)");
   // Pays inconnu de la fiche : l'indicatif du numéro (+381 → Belgrade).
   assert(deciderRelance({ ...f, pays: null, e164: "+381641234567" }, { modeAutorise: true, maintenant: MARDI }));
+});
+
+Deno.test("la vidéo guide est la même que celle de Join", () => assertEquals(VIDEO_GUIDE_WA, VIDEO_GUIDE_URL));
+
+Deno.test("warm-up : la niche, ou un texte générique", () => {
+  const f = faits({ cohorte_lundi: "2026-11-30", warmup_started_at: null });
+  const d = deciderRelance(f, { modeAutorise: true, maintenant: JEUDI });
+  assertEquals(d?.modele?.variables, ["Ana", "Monday 30 November", NICHE_GENERIQUE, "Sunday 29 November at midnight (Paris time)"]);
+  assertEquals(deciderRelance({ ...f, niche: "studying" }, { modeAutorise: true, maintenant: JEUDI })?.modele?.variables[2], "studying");
+  assertEquals(
+    deciderRelance(f, { modeAutorise: true, maintenant: JEUDI, approuves: new Set(["warmup_reminder"]) })?.modele?.nom, "warmup_reminder",
+  );
+  assertEquals(relancesDues({ ...f, deja: ["relance:warmup_reminder"] }, JEUDI), []);
+  assertEquals(echeanceTexte("2026-11-30"), "Sunday 29 November at midnight (Paris time)");
+});
+
+Deno.test("bienvenue hors Join : une fois, avant le lundi, jamais pour Join", () => {
+  const f = faits({ cohorte_lundi: "2026-11-30", warmup_started_at: null, handle: "ana.study" });
+  const d = deciderRelance(f, { modeAutorise: true, maintenant: MARDI });
+  assertEquals(d?.type, "welcome_start");
+  assertEquals(d?.cle, "welcome:p1");
+  assertEquals(d?.modele?.variables, ["Ana", "Monday 30 November", "Sunday 29 November at midnight (Paris time)", "ana.study", VIDEO_GUIDE_WA]);
+  assertEquals(relancesDues({ ...f, statut_site: "join_signed" }, MARDI), []);
+  assertEquals(relancesDues({ ...f, deja: ["relance:welcome_start"] }, MARDI), []);
+  assertEquals(relancesDues({ ...f, handle: null }, MARDI), []);
+  assertEquals(relancesDues({ ...f, cohorte_lundi: "2026-11-23" }, MARDI), []);
+  assertEquals(deciderRelance(f, { modeAutorise: true, maintenant: MARDI, approuves: new Set(["account_ready"]) })?.modele?.nom, "account_ready");
+});
+
+Deno.test("le lundi de début : prêt, des posts du jour, une fois", () => {
+  const LUNDI = new Date("2026-11-30T09:00:00Z");
+  const f = faits({ cohorte_lundi: "2026-11-30", prevus_a_date: 2, warmup_fini: true, handle: "ana.study" });
+  assertEquals(relancesDues(f, LUNDI), ["start_posting_today"]);
+  assertEquals(deciderRelance(f, { modeAutorise: true, maintenant: LUNDI })?.modele?.variables, ["Ana", VIDEO_GUIDE_WA]);
+  assertEquals(relancesDues({ ...f, warmup_fini: false }, LUNDI), []);
+  assertEquals(relancesDues({ ...f, prevus_a_date: 0 }, LUNDI), []);
+  assertEquals(relancesDues({ ...f, premier_post_at: "2026-11-30T08:00:00Z" }, LUNDI), []);
+  assertEquals(relancesDues({ ...f, deja: ["relance:start_posting_today"] }, LUNDI), []);
+  assertEquals(relancesDues(f, MARDI), []);
+  // Pas approuvé et pas de repli : refusé, rien ne part.
+  assertEquals(deciderRelance(f, { modeAutorise: true, maintenant: LUNDI, approuves: new Set() })?.refus, "modèle pas approuvé chez Meta");
 });
 
 Deno.test("pied des emails : rien ne change tant que le réglage est éteint", () => {

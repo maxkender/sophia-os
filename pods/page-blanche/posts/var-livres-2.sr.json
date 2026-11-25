@@ -1,0 +1,265 @@
+{
+ "post_id": "var-livres-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously intelligent"
+     ],
+     "texte": "5 knjiga da zavoliš čitanje, čak i ako [[nikad ne završiš roman]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "alignement": "droite",
+     "texte": "(kratke su, obećavam)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_5d0e4b50.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "1. [[Starac i more]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "stari ribar, 84 dana bez ulova, a onda [[ogromna riba]] koja ne odustaje"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "to je jedna duga borba na moru, i [[navijaš za njega]] do poslednje strane"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "Hemingvej, 120 strana, [[jedna lenja nedelja]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01545f6a.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "texte": "2. [[Svila]], Bariko"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "texte": "šezdesetih godina 19. veka francuski trgovac svilenim bubama putuje čak do Japana, i jedan pogled mu promeni život"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "texte": "poglavlja su sićušna, neka [[jedva jedna strana]]"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "texte": "čita se kao pesma, tiho i čudno, i [[završiš je za jedno veče]] a da ni ne primetiš"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_16ca446f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "3. [[Životinjska farma]], Orvel"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "životinje oteraju farmera da bi bile slobodne i jednake, onda svinje preuzmu vlast i [[pravila počnu da se menjaju noću]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "oko 100 strana, [[jedna noć]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "a uveče kad ipak uzmem telefon, odradim lekciju od 5 min u [[aplikaciji Sophia]] umesto da skrolujem"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "večeras: zašto je renesansa nastala u Italiji. mama je sve čula od mene"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "4. [[Mali princ]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "Sent-Egziperi, manje od 100 strana"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "pilot zaglavljen u pustinji upozna dečaka sa sićušne planete, koji [[postavlja najbolja pitanja]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "misliš da je knjiga za decu, a onda te pogodi jedna rečenica i shvatiš da [[nikad nije bila za decu]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_03470211.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "texte": "5. [[Smrt Ivana Iljiča]], Tolstoj"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "texte": "sudija koji je sve radio kako treba počne da se pita da li je [[ikad zaista živeo]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "texte": "manje od 100 strana, a [[udara baš jako]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_153677ff.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

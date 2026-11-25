@@ -6349,6 +6349,59 @@
    },
    "statut": "rendu_fr",
    "notes": "cta A"
+  },
+  {
+   "post_id": "var-ruin20s-7",
+   "url": "https://www.tiktok.com/@amayareading/video/7688807102764092705?variante=var-ruin20s-4?variante=var-ruin20s-7",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#vingtaine #20s #ironie",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7688807102764092705_1",
+    "2": "7688807102764092705_6",
+    "3": "7688807102764092705_3",
+    "4": "7688807102764092705_5",
+    "5": "7691336990419209505_2",
+    "6": "7688807102764092705_4"
+   },
+   "notes": "declinaison G2 de var-ruin20s-4, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "4b5567c0-1141-4fff-abff-f24c312dedc1"
+  },
+  {
+   "post_id": "original-103",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#words #languages #learning",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7691007701127564576_1",
+    "2": "7699939278847085857_4",
+    "3": "7699523873712164128_4",
+    "4": "7703982934369324320_2",
+    "5": "7707332670765813025_5",
+    "6": "7707332670765813025_3"
+   },
+   "notes": "full test BLEO, cta B",
+   "type_bleo": "full_test"
   }
  ]
 }

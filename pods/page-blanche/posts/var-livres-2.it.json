@@ -1,0 +1,265 @@
+{
+ "post_id": "var-livres-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously intelligent"
+     ],
+     "texte": "5 libri per amare leggere, anche se [[non hai mai finito un romanzo]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "alignement": "droite",
+     "texte": "(brevi, promesso)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_06e4eb95.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "1. [[Il vecchio e il mare]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "un vecchio pescatore, 84 giorni senza prendere niente, poi [[un pesce gigante]] che non molla"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "è una lunga lotta in mare aperto, e [[fai il tifo per lui]] fino all'ultima pagina"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "Hemingway, 120 pagine, [[una domenica pigra]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01545f6a.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "texte": "2. [[Seta]], Baricco"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "texte": "intorno al 1860, un mercante francese di bachi da seta arriva fino in Giappone, e uno sguardo gli cambia la vita"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "texte": "i capitoli sono minuscoli, alcuni [[lunghi appena una pagina]]"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "texte": "si legge come una canzone, quieta e strana, e [[lo finisci in una sera]] senza accorgertene"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_16ca446f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "3. [[La fattoria degli animali]], Orwell"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "gli animali cacciano il fattore per essere liberi e uguali, poi i maiali prendono il potere e [[le regole cambiano di notte]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "circa 100 pagine, [[una notte]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "e le sere in cui prendo comunque il telefono, faccio una lezione di 5 min [[sull'app Sophia]] invece dei reel"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "stasera: perché la porpora era il colore dei re. ho raccontato tutto a mia mamma"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "4. [[Il Piccolo Principe]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "Saint-Exupéry, meno di 100 pagine"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "un pilota bloccato nel deserto incontra un bambino arrivato da un pianeta minuscolo, che [[fa le domande migliori]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "pensi che sia un libro per bambini, poi una frase ti colpisce e capisci che [[non è mai stato per bambini]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_03470211.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "texte": "5. [[La morte di Ivan Il'ič]], Tolstoj"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "texte": "un giudice che ha fatto tutto per bene inizia a chiedersi se [[ha mai vissuto davvero]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "texte": "meno di 100 pagine, e [[colpisce fortissimo]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_153677ff.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

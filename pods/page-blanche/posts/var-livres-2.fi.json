@@ -1,0 +1,265 @@
+{
+ "post_id": "var-livres-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously intelligent"
+     ],
+     "texte": "5 kirjaa, joilla rakastut lukemiseen, vaikka [[et ole ikinä lukenut romaania loppuun]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "alignement": "droite",
+     "texte": "(lyhyitä, lupaan)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1d38757d.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "1. [[Vanhus ja meri]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "vanha kalastaja, 84 päivää ilman saalista, sitten [[jättimäinen kala]], joka ei luovuta"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "se on yksi pitkä taistelu merellä, ja [[jännität hänen puolestaan]] viimeiselle sivulle asti"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "Hemingway, 120 sivua, [[yksi laiska sunnuntai]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01545f6a.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "texte": "2. [[Silkki]], Baricco"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "texte": "1860-luvulla ranskalainen silkkiäistoukkien kauppias matkustaa Japaniin asti, ja yksi katse muuttaa hänen elämänsä"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "texte": "luvut ovat pikkuruisia, osa [[tuskin sivun mittaisia]]"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "texte": "se on kuin laulu, hiljainen ja outo, ja [[luet sen yhdessä illassa]] huomaamattasi"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_16ca446f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "3. [[Eläinten vallankumous]], Orwell"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "eläimet ajavat isännän pois ollakseen vapaita ja tasa-arvoisia, sitten siat ottavat vallan ja [[säännöt alkavat muuttua öisin]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "noin 100 sivua, [[yksi yö]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "ja iltoina, kun tartun puhelimeen kuitenkin, teen 5 min oppitunnin [[Sophia-sovelluksessa]] reelsien sijaan"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "tänä iltana: miksi renessanssi syntyi Italiassa. kerroin kaiken äidille"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "4. [[Pikku prinssi]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "Saint-Exupéry, alle 100 sivua"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "aavikolle jumiin jäänyt lentäjä tapaa pienen pojan pikkuruiselta planeetalta, ja poika [[kysyy parhaat kysymykset]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "luulet sitä lastenkirjaksi, sitten yksi lause osuu ja tajuat, että [[se ei ollut ikinä lapsille]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_03470211.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "texte": "5. [[Ivan Iljitšin kuolema]], Tolstoi"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "texte": "tuomari, joka teki kaiken oikein, alkaa miettiä, [[onko hän oikeasti elänyt]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "texte": "alle 100 sivua, ja [[osuu tosi kovaa]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_153677ff.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

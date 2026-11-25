@@ -1,0 +1,265 @@
+{
+ "post_id": "var-livres-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously intelligent"
+     ],
+     "texte": "5 книги, с които да обикнеш четенето, дори ако [[никога не стигаш до края на роман]]"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "alignement": "droite",
+     "texte": "(кратки са, обещавам)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_143a6b86.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "1. [[Старецът и морето]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "стар рибар, 84 дни без улов, а после [[огромна риба]], която не се предава"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "това е една дълга битка в морето и [[стискаш палци за него]] до последната страница"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "Хемингуей, 120 страници, [[една мързелива неделя]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_01545f6a.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play and study chess"
+     ],
+     "texte": "2. [[Коприна]], Барико"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to calculate ahead, recognise",
+      "patterns, and constantly ask “what am I missing?”"
+     ],
+     "texte": "през 60-те години на XIX век френски търговец на копринени буби пътува чак до Япония и един поглед променя живота му"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "texte": "главите са мънички, някои [[едва една страница]]"
+    },
+    "T4": {
+     "en": [
+      "science proves that",
+      "even 20–30 minutes a",
+      "day gives your brain",
+      "deliberate problem-",
+      "solving practice"
+     ],
+     "texte": "чете се като песен, тиха и странна, и [[я завършваш за една вечер]], без да усетиш"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_16ca446f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "3. [[Фермата на животните]], Оруел"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "животните прогонват фермера, за да са свободни и равни, после прасетата взимат властта и [[правилата започват да се менят нощем]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "около 100 страници, [[една нощ]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "а вечерите, когато все пак хвана телефона, правя 5-минутен урок в [[приложението Sophia]] вместо reels"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "тази вечер: защо Ренесансът се ражда в Италия. разказах всичко на мама"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "4. [[Малкият принц]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "Сент-Екзюпери, под 100 страници"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "пилот, закъсал в пустинята, среща малко момче от мъничка планета, което [[задава най-добрите въпроси]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "мислиш, че е детска книга, после едно изречение те удря и разбираш, че [[никога не е била за деца]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_03470211.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "texte": "5. [[Смъртта на Иван Илич]], Толстой"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "texte": "съдия, който е направил всичко както трябва, започва да се пита дали [[някога е живял истински]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "texte": "под 100 страници и [[удря много силно]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_153677ff.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  }
+ }
+}

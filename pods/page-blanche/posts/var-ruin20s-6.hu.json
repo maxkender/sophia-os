@@ -22,12 +22,12 @@
    "images": {
     "I1": {
      "remplacer": {
-      "source": "sources/os_0872490a.jpg",
+      "source": "sources/os_0028f0a3.jpg",
       "boite": [
        0,
-       500,
-       1760,
-       1600
+       100,
+       944,
+       858
       ]
      }
     }

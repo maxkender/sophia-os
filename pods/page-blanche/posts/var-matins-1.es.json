@@ -1,0 +1,270 @@
+{
+ "post_id": "var-matins-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "cómo arruinar todas tus mañanas, garantizado"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(probado a diario, qué pena)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1515cd22.jpg",
+      "boite": [
+       0,
+       500,
+       880,
+       654
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend more time without stimulation"
+     ],
+     "texte": "pospón la alarma [[6 veces seguidas]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every walk,",
+      "meal, and spare minute",
+      "with content and music"
+     ],
+     "texte": "cada 9 min te vuelves a dormir y la alarma te arranca del sueño. superrelajante"
+    },
+    "T3": {
+     "en": [
+      "quiet gives your brain",
+      "room to replay",
+      "information, connect",
+      "ideas, and form its own",
+      "thoughts"
+     ],
+     "texte": "al cabo de una hora te levantas [[con más sueño que en la primera alarma]] y te quedan 12 min"
+    },
+    "T4": {
+     "en": [
+      "constant short-form content is making your brain rot",
+      "and ruining your attention span!!"
+     ],
+     "texte": "cepillo de dientes en una mano, zapato en la otra, y sales corriendo por la puerta. [[paz absoluta]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6b621671.jpg",
+      "boite": [
+       0,
+       150,
+       880,
+       906
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "deja [[las cortinas cerradas]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "ni un rayo de sol, solo la luz del móvil. tu cerebro cree que son las 3 de la mañana"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "así que sigue en modo reposo y tú vagas por la cocina como [[un zombi perdido]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "la luz es [[para la gente mañanera]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4045e9b9.jpg",
+      "boite": [
+       0,
+       560,
+       1760,
+       1332
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "texte": "[[scrollea]] en la cama"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "texte": "un ojo abierto y el otro dormido: 40 min de vidas ajenas, noticias que estresan y [[47 notificaciones]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "texte": "todavía no has saludado a nadie y tu cerebro ya está [[a tope de saturación]]. qué buen calentamiento"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "texte": "y sobre todo, nunca cambies ese scroll por un libro, un pódcast o 5 min de lección en [[la app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "texte": "nada de desayuno, [[solo café]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "texte": "dos expresos con el estómago vacío y nada más hasta mediodía"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "texte": "a las 10 tiemblan un poco las manos y la concentración [[se esfumó]]"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "texte": "a las 11:40 te comes un paquete de galletas sobre el teclado. [[¡¡qué equilibrio!!]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00ba245c.jpg",
+      "boite": [
+       49,
+       0,
+       2270,
+       1760
+      ]
+     }
+    }
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "challenge your own biases"
+     ],
+     "texte": "haz una lista de [[23 tareas]]"
+    },
+    "T2": {
+     "en": [
+      "your brain loves evidence that proves what you",
+      "already believe"
+     ],
+     "texte": "todo antes de mediodía. gym, mails, impuestos, llamar a la abuela"
+    },
+    "T3": {
+     "en": [
+      "actively look for the",
+      "strongest argument",
+      "against your opinion"
+     ],
+     "texte": "a las 11:58 has tachado exactamente una: [[escribir la lista]]"
+    },
+    "T4": {
+     "en": [
+      "getting smarter",
+      "means getting better",
+      "at noticing when your",
+      "own thinking is wrong"
+     ],
+     "texte": "luego culpa toda la tarde y reescríbela por la noche, [[aún más larga]]. ¡¡hasta mañana!!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_015e2113.jpg",
+      "boite": [
+       0,
+       420,
+       1760,
+       1525
+      ]
+     }
+    }
+   }
+  }
+ }
+}

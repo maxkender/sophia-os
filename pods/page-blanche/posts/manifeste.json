@@ -6402,6 +6402,60 @@
    },
    "notes": "full test BLEO, cta B",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-grandv-2",
+   "url": "https://www.tiktok.com/@amayareading/video/7685071416466607382?variante=var-grandv-1?variante=var-grandv-2",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #concentration #neuroscience",
+   "musique": {
+    "titre": "som original - strange",
+    "auteur": "strange",
+    "original": true,
+    "id": "7650637490231708437",
+    "url_tiktok": "https://www.tiktok.com/music/x-7650637490231708437"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685071416466607382_1",
+    "2": "7685071416466607382_3",
+    "3": "7685071416466607382_2",
+    "4": "7685071416466607382_4",
+    "5": "7685071416466607382_5",
+    "6": "7685071416466607382_6"
+   },
+   "notes": "declinaison G2 de var-grandv-1, cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "1e5c88ed-02be-4362-91ff-a5f47d042204"
+  },
+  {
+   "post_id": "var-hobbies-4",
+   "url": "https://www.tiktok.com/@amayareading/video/7704751322830064929?variante=var-hobbies-1?variante=var-hobbies-4",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#hobbies #hiver #cerveau",
+   "musique": {
+    "titre": "hold the line",
+    "auteur": "drifting.",
+    "original": false,
+    "id": "7694570671943534599",
+    "url_tiktok": "https://www.tiktok.com/music/x-7694570671943534599"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7704751322830064929_1",
+    "2": "7691007701127564576_5",
+    "3": "7697728269335924001_6",
+    "4": "7691007701127564576_6",
+    "5": "7697728269335924001_2",
+    "6": "7698667830635400470_4"
+   },
+   "notes": "declinaison G2 de var-hobbies-1, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "369d60f6-a3c4-4d20-8ab7-7768ffd83bb9"
   }
  ]
 }

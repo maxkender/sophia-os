@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o337",
+ "type_bleo": "full_test",
+ "titre": "les trucs que je ne dis jamais à un collègue à la pause café #travail #collegues #carriere #bureau #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 25/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (la pause café). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d352b2e0",
+   "texte_overlay": "les trucs que je ne dis jamais\nà un collègue\nà la pause café",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "516b176e",
+   "texte_overlay": "mon salaire\nça finit toujours par tourner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "75e31fab",
+   "texte_overlay": "ce que je pense du manager\nmême si on rit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7638b468",
+   "texte_overlay": "que je cherche ailleurs\nmême à la collègue préférée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5c452c26",
+   "texte_overlay": "un ragot sur quelqu'un d'absent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d9a0b07",
+   "texte_overlay": "à la place, je parle d'autre chose\nmes 3 sujets : un film, un voyage, ce que j'ai appris en 5 minutes le matin",
+   "texte_sophia": "à la place, je parle d'autre chose\nmes 3 sujets : un film, un voyage, ce que j'ai appris en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6e98b022",
+   "texte_overlay": "et toi, tu parles de quoi à la pause ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

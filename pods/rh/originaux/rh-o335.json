@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o335",
+ "type_bleo": "full_test",
+ "titre": "les 5 choses que je fais pour ne pas craquer pendant un rush au travail #travail #stress #organisation #santementale #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 25/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (tenir pendant un rush). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ac5a9eb5",
+   "texte_overlay": "les 5 choses que je fais\npour ne pas craquer\npendant un rush au travail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "73cb4993",
+   "texte_overlay": "je liste tout\net je barre ce qui peut attendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6a6f79c5",
+   "texte_overlay": "je préviens les gens\n« je suis en rush jusqu'à jeudi, je réponds le soir »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "617ad328",
+   "texte_overlay": "je mange à midi\nvraiment, loin de l'écran",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "508b3246",
+   "texte_overlay": "je dors\nles heures de nuit ne rendent pas plus efficace",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eed00746",
+   "texte_overlay": "je garde 5 minutes pour moi\nmes 3 trucs : marcher, respirer, apprendre un truc qui n'a rien à voir",
+   "texte_sophia": "je garde 5 minutes pour moi\nmes 3 trucs : marcher, respirer, apprendre un truc sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4c2c30db",
+   "texte_overlay": "t'es en rush en ce moment ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

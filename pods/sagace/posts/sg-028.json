@@ -16,7 +16,9 @@
   "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed",
   "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler",
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll",
-  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování"
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování",
+  "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja",
+  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz"
  },
  "legendes": {
   "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -26,13 +28,15 @@
   "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "10 veština 10/10 koje možeš da naučiš umesto skrolovanja #učinatiktoku #samorazvoj #veštine",
+  "hu": "10/10 készségek, amiket görgetés helyett megtanulhatsz #tanuljtiktokon #önfejlesztés #készségek"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
   "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
  },
- "notes": "Déclinaison G1 de sg-004 (21/11) : titre, légende et couverture de sg-004 mot pour mot ; 5 autres compétences (faire un paquet cadeau, chanter juste, cirer ses chaussures, se tenir à table, cuire des pâtes), d'autres vraies vidéos natives ; Sophia en étape 4, cta C « CONNAÎTRE / L'HISTOIRE ».",
+ "notes": "Déclinaison G1 de sg-004 (21/11) : titre, légende et couverture de sg-004 mot pour mot ; 5 autres compétences (faire un paquet cadeau, chanter juste, cirer ses chaussures, se tenir à table, cuire des pâtes), d'autres vraies vidéos natives ; Sophia en étape 4, cta C « CONNAÎTRE / L'HISTOIRE ». Deck sr (rattrapage du 25/11) : « cirer ses chaussures » devient « OČISTITI SVOJE CIPELE » (nettoyer ses chaussures, Praktična žena), faute de tuto serbe du cirage ; les pâtes sont des « makarone » (GIO KUHINJA).",
  "slides": [
   {
    "type": "couverture",
@@ -209,6 +213,50 @@
       "t": "SCROLLOVÁNÍ",
       "cap": 152,
       "couleur": "#f7b955"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 110
+     },
+     {
+      "t": "KOJE MOŽEŠ DA NAUČIŠ",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "UMESTO",
+      "cap": 118
+     },
+     {
+      "t": "SKROLOVANJA",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "KÉSZSÉGEK",
+      "cap": 110
+     },
+     {
+      "t": "AMIKET MEGTANULHATSZ",
+      "couleur": "#f7b955",
+      "cap": 139
+     },
+     {
+      "t": "GÖRGETÉS",
+      "cap": 118
+     },
+     {
+      "t": "HELYETT",
+      "couleur": "#f7b955",
+      "cap": 152
      }
     ]
    }
@@ -398,6 +446,52 @@
     "sous": [
      "10 min na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "UMOTATI",
+     [
+      {
+       "t": "POKLON",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "sous": [
+     "10 min za učenje"
+    ],
+    "video": {
+     "id": "a1e8NczikZM",
+     "titre": "Kako da samo u nekoliko poteza spakujete veliki poklon - How to wrap a big gift",
+     "chaine": "Telegraf.rs TV",
+     "vues": "17 hilj. pregleda",
+     "date": "pre 10 godina",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4ASe8WFK0H4pdolP3gaMC-OiPSASEoxFwes61_gPpzg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "CSOMAGOLJ",
+     [
+      {
+       "t": "AJÁNDÉKOT",
+       "couleur": "#c8302f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8uEgsMAL52U",
+     "titre": "Karácsonyi ajándék csomagolás segítség",
+     "chaine": "SegitunkFozni.hu",
+     "vues": "144 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ku67YtW6F9mBn_ra5PYsa1JNgfsTOtvqaAy6fiOKeeow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -585,6 +679,52 @@
     "sous": [
      "trénink několik dní"
     ]
+   },
+   "sr": {
+    "titre": [
+     "PEVATI",
+     [
+      {
+       "t": "ČISTO",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "sous": [
+     "Vežbanje nekoliko dana"
+    ],
+    "video": {
+     "id": "Kt0P6Wp7XNE",
+     "titre": "Tutorijal pevanja - Kako pevati bolje za par minuta",
+     "chaine": "Katarina Kovacevic",
+     "vues": "134 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcFkDbEj6v_rIndeUteLeQ_DEtrKgxvUwVcjfMYdYNnzQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "ÉNEKELJ",
+     [
+      {
+       "t": "TISZTÁN",
+       "couleur": "#8a4fc4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2PrK5UY-KsY",
+     "titre": "3 Titok Hogy Jobban Énekelj Mint Valaha. 1 rész",
+     "chaine": "Tied a Hangod",
+     "vues": "23 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/Or0fRmtH2_RpAkTCYwmv9e-bhRWKE7TXEIUOkaIBaFjnjXBVPjF-B5ejID9OtuYj0PMFGN8rpg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "több napos gyakorlás"
+    ]
    }
   },
   {
@@ -756,6 +896,48 @@
     },
     "sous": [
      "5 min denně"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "POZNAVATI",
+     [
+      {
+       "t": "ISTORIJU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dnevno"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "ISMERD",
+     [
+      {
+       "t": "A TÖRTÉNELMET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
     ]
    }
   },
@@ -944,6 +1126,52 @@
     "sous": [
      "15 min na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "OČISTITI",
+     [
+      {
+       "t": "SVOJE CIPELE",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "sous": [
+     "15 min za učenje"
+    ],
+    "video": {
+     "id": "gavm5y0Xx9o",
+     "titre": "Praktična žena - Kako da očistimo cipele?",
+     "chaine": "Prakticna zena",
+     "vues": "6 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "5:39",
+     "avatar": "https://yt3.ggpht.com/-E68F8tl3H22TyzHuukM4_cyu-2lPs0jhHFK0up4KmA-dBFqXmz0jM8m-l-9tRpsW9sI5v8G=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "TISZTÍTSD",
+     [
+      {
+       "t": "A CIPŐDET",
+       "couleur": "#7a4a2a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cAQHOKmBh_s",
+     "titre": "Cipőtisztítás és gondozás",
+     "chaine": "Lukács László - Az élet iskolája",
+     "vues": "7,3 E megtekintés",
+     "date": "14 évvel ezelőtt",
+     "duree": "6:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOV3azcvK54Nuh5CP8thsh0arUTzgv8NLYfBBIqqyB3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 perc a tanuláshoz"
+    ]
    }
   },
   {
@@ -1131,6 +1359,52 @@
     "sous": [
      "1 hodina na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "PONAŠATI SE",
+     [
+      {
+       "t": "ZA STOLOM",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "sous": [
+     "1 sat za učenje"
+    ],
+    "video": {
+     "id": "ZIKLXD1qG-I",
+     "titre": "Bonton u restoranu",
+     "chaine": "Nataša Ilić",
+     "vues": "87 hilj. pregleda",
+     "date": "pre 11 godina",
+     "duree": "5:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ndSdVxsNWIJ10zBDthxUaYhrDnYXb3x3UJmG0HNqx3eQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "VISELKEDJ",
+     [
+      {
+       "t": "AZ ASZTALNÁL",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "974lJPczgy4",
+     "titre": "AZ ASZTALI ETIKETT 10 ALAPSZABÁLYA- amit mindenkinek illene tudni! | Polgár Tünde",
+     "chaine": "Polgár Tünde",
+     "vues": "15 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "22:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXrBMjThTBBdpElaqxZ8TB3jp_2qM_7C7qOgZKliKphg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra a tanuláshoz"
+    ]
    }
   },
   {
@@ -1317,6 +1591,52 @@
     },
     "sous": [
      "30 min na naučení"
+    ]
+   },
+   "sr": {
+    "titre": [
+     "SKUVATI",
+     [
+      {
+       "t": "SAVRŠENE MAKARONE",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min za učenje"
+    ],
+    "video": {
+     "id": "ojIViNgwXlY",
+     "titre": "KAKO Napraviti SAVRŠENE Makarone | SLANI OBROK #1 | OBROK za 20 Minuta |",
+     "chaine": "GIO KUHINJA",
+     "vues": "105 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kaqnFSmnlhfU7MNNftybIVml6RZis1-DmIaiNbIUE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "FŐZZ",
+     [
+      {
+       "t": "TÖKÉLETES TÉSZTÁT",
+       "couleur": "#e3a52b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1PzoCHdnHI4",
+     "titre": "A tésztafőzés alapjai",
+     "chaine": "benkonyhaja",
+     "vues": "76 E megtekintés",
+     "date": "14 évvel ezelőtt",
+     "duree": "1:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_qCrNOv-doQOYhOuutvon5H-Ln9ErjsR0x1RYUV8W0g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc a tanuláshoz"
     ]
    }
   }

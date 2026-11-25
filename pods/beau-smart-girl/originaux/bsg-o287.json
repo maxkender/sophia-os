@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o287",
+  "type_bleo": "full_test",
+  "titre": "les choses à faire seule à paris quand on aime la culture #paris #culture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Différent de bsg-o255 (anecdotes de balade) : sorties seule. Aucun fait daté. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8a0d9e28",
+      "texte_overlay": "les choses à faire seule à paris\nquand on aime la culture",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "61d34a46",
+      "texte_overlay": "1. un musée en nocturne\n\nmoins de monde,\nune lumière différente.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6aa43a7d",
+      "texte_overlay": "2. un concert dans une église\n\nla musique sous les voûtes.\nun frisson garanti.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9b62ecb2",
+      "texte_overlay": "3. un après-midi en bibliothèque\n\nle silence, les vieux livres,\nles grandes tables.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "142dfa85",
+      "texte_overlay": "4. une séance de cinéma de patrimoine\n\nun classique sur grand écran.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e362b48c",
+      "texte_overlay": "5. une balade qui raconte une histoire\n\navant, je marchais sans rien voir.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque quartier me parle.",
+      "texte_sophia": "5. une balade qui raconte une histoire\n\navant, je marchais sans rien voir.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque quartier me parle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a46455f7",
+      "texte_overlay": "tu ferais laquelle en premier ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

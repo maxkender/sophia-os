@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o294",
+  "type_bleo": "full_test",
+  "titre": "les mots savants à placer dans une conversation sans avoir l'air prétentieuse #vocabulaire #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Mots courants du registre soutenu, définitions usuelles, aucun fait daté. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ca58b10e",
+      "texte_overlay": "les mots savants à placer\ndans une conversation\nsans avoir l'air prétentieuse",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6c7a94b1",
+      "texte_overlay": "1. sérendipité\n\ntrouver quelque chose de beau\nsans l'avoir cherché.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4d070833",
+      "texte_overlay": "2. procrastiner\n\nremettre à demain.\non le fait tous, autant bien le nommer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c13a1323",
+      "texte_overlay": "3. éphémère\n\nce qui ne dure qu'un temps.\nun coucher de soleil, une fleur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d78d6c97",
+      "texte_overlay": "4. idiosyncrasie\n\nla petite manie\nqui rend quelqu'un unique.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ca78d160",
+      "texte_overlay": "5. on en apprend un par jour\n\navant, je ne savais jamais comment le dire.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai toujours le mot juste.",
+      "texte_sophia": "5. on en apprend un par jour\n\navant, je ne savais jamais comment le dire.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai toujours le mot juste.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "bbfb2ec2",
+      "texte_overlay": "tu connaissais lequel ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

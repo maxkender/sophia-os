@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o291",
+  "type_bleo": "full_test",
+  "titre": "pourquoi les classiques ne sont pas ce que tu crois #lecture #classiques #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "Accroche réécrite après refus du guichet (accroche_existante). full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Récit « je », aucun fait daté. Routine du 25/11 sur BLEO (par_jour passé à 17 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 12 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 14 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14 et 15 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "938a5378",
+      "texte_overlay": "pourquoi les classiques\nne sont pas ce que tu crois",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c1f4d425",
+      "texte_overlay": "1. ils ne sont pas ennuyeux\n\nc'est la façon dont on nous les a présentés\nqui l'était.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3ebca1e6",
+      "texte_overlay": "2. les gens n'ont pas changé\n\nl'amour, la jalousie, l'ambition.\ntout y est déjà.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "95354a23",
+      "texte_overlay": "3. mon vocabulaire a explosé\n\nsans jamais ouvrir un dictionnaire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6d6bf143",
+      "texte_overlay": "4. je comprends enfin les références\n\nfilms, séries, chansons.\ntout cite les classiques.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4f59ebf2",
+      "texte_overlay": "5. j'ai voulu connaître l'époque\n\navant, je lisais sans rien savoir du contexte.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque roman prend tout son sens.",
+      "texte_sophia": "5. j'ai voulu connaître l'époque\n\navant, je lisais sans rien savoir du contexte.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque roman prend tout son sens.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c486e43b",
+      "texte_overlay": "tu commencerais par lequel ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -10,7 +10,8 @@
   "pt-BR": "Habilidades 10/10 que a escola não te ensina",
   "tr": "Okulun sana öğretmediği 10/10 beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață",
-  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí"
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí",
+  "sr": "Veštine 10/10 koje te škola neće naučiti"
  },
  "legendes": {
   "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -20,13 +21,14 @@
   "pt-BR": "Habilidades 10/10 que a escola não te ensina #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Okulun sana öğretmediği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "Veštine 10/10 koje te škola neće naučiti #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
   "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
  },
- "notes": "Déclinaison G1 de sg-008 (22/11) : titre, légende, couverture et musique de sg-008 mot pour mot ; 5 autres compétences que l'école n'apprend pas (écrire un CV, faire son budget, laver son linge, gérer un conflit, écouter vraiment), d'autres vraies vidéos natives ; Sophia en étape 4, cta A « APPRENDRE / POUR DE VRAI ».",
+ "notes": "Déclinaison G1 de sg-008 (22/11) : titre, légende, couverture et musique de sg-008 mot pour mot ; 5 autres compétences que l'école n'apprend pas (écrire un CV, faire son budget, laver son linge, gérer un conflit, écouter vraiment), d'autres vraies vidéos natives ; Sophia en étape 4, cta A « APPRENDRE / POUR DE VRAI ». Deck sr ajouté le 25/11 (rattrapage).",
  "slides": [
   {
    "type": "couverture",
@@ -197,6 +199,28 @@
      {
       "t": "NENAUČÍ",
       "cap": 220,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 111
+     },
+     {
+      "t": "KOJE TE ŠKOLA",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "NEĆE",
+      "cap": 120
+     },
+     {
+      "t": "NAUČITI",
+      "cap": 283,
       "couleur": "brun"
      }
     ]
@@ -387,6 +411,29 @@
     "sous": [
      "1 hodina na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "NAPISATI",
+     [
+      {
+       "t": "DOBAR CV",
+       "couleur": "#2f6fb5"
+      }
+     ]
+    ],
+    "sous": [
+     "1 sat za učenje"
+    ],
+    "video": {
+     "id": "FyYOpcGFa-E",
+     "titre": "Kako napisati CV i prilagoditi ga poziciji na koju konkurišemo - Saveti za pronalaženje posla 2019",
+     "chaine": "Poslovi Infostud",
+     "vues": "68 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "4:30",
+     "avatar": "https://yt3.ggpht.com/TgFcrFHcHeZqKrWoUQJBkwe94Mx32RS_LTsu0lEbVlKfumgw2csOcdrnQz2OcGrY7TMLqh3PIA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -574,6 +621,29 @@
     "sous": [
      "1 hodina na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "BUDŽET",
+       "couleur": "#3a9d5d"
+      }
+     ]
+    ],
+    "sous": [
+     "1 sat za učenje"
+    ],
+    "video": {
+     "id": "-TBJgTN-I1o",
+     "titre": "Osnove Budžeta | Budžetiranje za početnike | Kako napraviti kućni budžet?",
+     "chaine": "Lične Finansije",
+     "vues": "8 hilj. pregleda",
+     "date": "pre 5 godina",
+     "duree": "7:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kY1aNdZ1f69JR35wXAEAJsJaHCMQRJcB6NIStnXcCHlw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -746,6 +816,27 @@
     "sous": [
      "5 min denně"
     ]
+   },
+   "sr": {
+    "titre": [
+     "UČITI",
+     [
+      {
+       "t": "NAISTINU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dnevno"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kratke lekcije koje pišu",
+      "pravi profesori."
+     ]
+    }
    }
   },
   {
@@ -933,6 +1024,29 @@
     "sous": [
      "30 min na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "PRATI",
+     [
+      {
+       "t": "VEŠ",
+       "couleur": "#2a9d8f"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min za učenje"
+    ],
+    "video": {
+     "id": "Fc9riTYI7Zg",
+     "titre": "Praktična žena - Kako prati šareni veš",
+     "chaine": "Prakticna zena",
+     "vues": "14 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/-E68F8tl3H22TyzHuukM4_cyu-2lPs0jhHFK0up4KmA-dBFqXmz0jM8m-l-9tRpsW9sI5v8G=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1120,6 +1234,29 @@
     "sous": [
      "trénink několik týdnů"
     ]
+   },
+   "sr": {
+    "titre": [
+     "REŠITI",
+     [
+      {
+       "t": "KONFLIKT",
+       "couleur": "#e07b39"
+      }
+     ]
+    ],
+    "sous": [
+     "Vežbanje nekoliko nedelja"
+    ],
+    "video": {
+     "id": "qsg-W9lNVvU",
+     "titre": "6 saveta za rešavanje konflikata - Slavica Squire",
+     "chaine": "Slavica Squire",
+     "vues": "66 hilj. pregleda",
+     "date": "pre 4 godine",
+     "duree": "10:07",
+     "avatar": "https://yt3.ggpht.com/DYB78uYOJPT9SFzOnBlh40jfwsbyW04spG0qxPlP_lxhpMEGzU2IFGMg3P-kLw-UHISVJ-PiKYg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1307,6 +1444,29 @@
     "sous": [
      "trénink několik dní"
     ]
+   },
+   "sr": {
+    "titre": [
+     "SLUŠATI",
+     [
+      {
+       "t": "ZAISTA",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "sous": [
+     "Vežbanje nekoliko dana"
+    ],
+    "video": {
+     "id": "vHz9XhyJFLI",
+     "titre": "Slušanje kao najvažniji aspekt komunikacije - aktivno slušanje",
+     "chaine": "Boris Teodosijević",
+     "vues": "12 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "5:33",
+     "avatar": "https://yt3.ggpht.com/ai0iqA8A5K8p6K9miRSy2pdFQZEHeCDsPY96078M7RcDrQ2QoiTpLuSGPRfLPXVa1bNWOL6Z=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

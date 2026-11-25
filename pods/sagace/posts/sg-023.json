@@ -16,7 +16,8 @@
   "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed",
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
-  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování"
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování",
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja"
  },
  "legendes": {
   "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
@@ -26,13 +27,14 @@
   "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
   "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
   "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
-  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti",
+  "sr": "10 veština 10/10 koje treba naučiti umesto skrolovanja #učinatiktoku #samorazvoj #veštine"
  },
  "musique": {
   "titre": "original sound - m - m",
   "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
  },
- "notes": "Déclinaison G1 de sg-002 (boîte du 20/11) : son titre et sa couverture mot pour mot dans les 8 langues, 5 autres compétences « au lieu de scroller » (belles photos au téléphone, pompes, crêpes, jongler avec un ballon, toucher ses pieds), d'autres vraies vidéos natives. Sophia en étape 4 sur 7 (cta C : « SE COUCHER / MOINS BÊTE », ce que j'ouvre au lieu de scroller).",
+ "notes": "Déclinaison G1 de sg-002 (boîte du 20/11) : son titre et sa couverture mot pour mot dans les 8 langues, 5 autres compétences « au lieu de scroller » (belles photos au téléphone, pompes, crêpes, jongler avec un ballon, toucher ses pieds), d'autres vraies vidéos natives. Sophia en étape 4 sur 7 (cta C : « SE COUCHER / MOINS BÊTE », ce que j'ouvre au lieu de scroller). Deck sr (rattrapage du 25/11) : « jongler avec un ballon » devient « ŽONGLIRATI SA 3 LOPTICE » (jongler avec 3 balles, DakiMC), faute de tuto serbe de jonglage au football.",
  "slides": [
   {
    "type": "couverture",
@@ -207,6 +209,28 @@
      },
      {
       "t": "SCROLLOVÁNÍ",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "sr": {
+    "lignes": [
+     {
+      "t": "VEŠTINE",
+      "cap": 138
+     },
+     {
+      "t": "KOJE TREBA NAUČITI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "UMESTO",
+      "cap": 149
+     },
+     {
+      "t": "SKROLOVANJA",
       "couleur": "brun",
       "cap": 188
      }
@@ -398,6 +422,29 @@
     "sous": [
      "30 minut na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "PRAVITI",
+     [
+      {
+       "t": "BOLJE FOTOGRAFIJE",
+       "couleur": "#2f7fb8"
+      }
+     ]
+    ],
+    "sous": [
+     "30 min za učenje"
+    ],
+    "video": {
+     "id": "xR_4NRY9CfE",
+     "titre": "Kako praviti bolje fotografije mobilnim telefonom | Jednostavni trikovi za sjajne fotke | TagMediaTV",
+     "chaine": "TAGMEDIATV",
+     "vues": "2 hilj. pregleda",
+     "date": "pre 8 godina",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/KoArQPJ_j0aOmIGWcIHwPbGfQvQ5l5kBAXW4BfSECQVn0R7okTFQZRDwEoV4lTGfNw_PhSOWmg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -585,6 +632,29 @@
     "sous": [
      "trénink několik týdnů"
     ]
+   },
+   "sr": {
+    "titre": [
+     "URADITI",
+     [
+      {
+       "t": "SAVRŠEN SKLEK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "sous": [
+     "Vežbanje nekoliko nedelja"
+    ],
+    "video": {
+     "id": "bfBts05uD7c",
+     "titre": "Kako da uradite prvi sklek?",
+     "chaine": "Back To The Basics",
+     "vues": "323 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/3i4jf2E5gLZgjbUmSNzI9k5-ysve0OWRq07iZxju8yFJCKk8rDjkMJfLWufam3ICgU_8Z-ht=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -757,6 +827,27 @@
     "sous": [
      "5 min denně"
     ]
+   },
+   "sr": {
+    "titre": [
+     "ZASPATI",
+     [
+      {
+       "t": "PAMETNIJI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "sous": [
+     "5 min dnevno"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ovo otvaram",
+      "umesto skrolovanja."
+     ]
+    }
    }
   },
   {
@@ -944,6 +1035,29 @@
     "sous": [
      "20 minut na naučení"
     ]
+   },
+   "sr": {
+    "titre": [
+     "NAPRAVITI",
+     [
+      {
+       "t": "PALAČINKE",
+       "couleur": "#d9a441"
+      }
+     ]
+    ],
+    "sous": [
+     "20 min za učenje"
+    ],
+    "video": {
+     "id": "L2iPXjXi5aA",
+     "titre": "Kako se prave Palačinke - Recept",
+     "chaine": "Najbolji domaći recepti",
+     "vues": "2,3 mil. pregleda",
+     "date": "pre 6 godina",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/H9NlYiNskl2FQ3-VnrKjdgEsvEE4Fn6ICNTNP7U4vi3juxGCjD4cHMW2U12SJnN1U7nyK5Gjuw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1131,6 +1245,29 @@
     "sous": [
      "trénink několik dní"
     ]
+   },
+   "sr": {
+    "titre": [
+     [
+      {
+       "t": "ŽONGLIRATI",
+       "couleur": "#3c8d3a"
+      }
+     ],
+     "SA 3 LOPTICE"
+    ],
+    "sous": [
+     "Vežbanje nekoliko dana"
+    ],
+    "video": {
+     "id": "0eTqPkeaTPI",
+     "titre": "Kako Žonglirati Sa 3 Loptice?",
+     "chaine": "DakiMC",
+     "vues": "68 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCTo2OptHGpxKfCm31FcG8rB52wT03jIJPmQLPkbvqmA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1326,6 +1463,30 @@
      "10 minut denně",
      "po dobu 1 měsíce"
     ]
+   },
+   "sr": {
+    "titre": [
+     "DOTAĆI",
+     [
+      {
+       "t": "PRSTE NA NOGAMA",
+       "couleur": "#8a5bb5"
+      }
+     ]
+    ],
+    "sous": [
+     "10 min dnevno",
+     "mesec dana"
+    ],
+    "video": {
+     "id": "KlFHsj5qVJY",
+     "titre": "Opuštanje i istezanje zadnje lože | PROGEIN 2017",
+     "chaine": "PROGEIN studio",
+     "vues": "40 hilj. pregleda",
+     "date": "pre 9 godina",
+     "duree": "2:50",
+     "avatar": "https://yt3.ggpht.com/LXrw3n6TlHOAhExCkBDVa6zwISbMCl3WzTD89ewxMFAXHRT6DfDI18KpukGBavDhHZREmpPEgQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

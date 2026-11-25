@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o344",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a9823111-d7e3-45c0-86aa-ca19df3cbbf4",
+ "titre": "ex-rh : les 4 moments où un entretien se joue (et ce n'est pas pendant les questions), partie 2 #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 25/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne #14 (parent a9823111) : accroche du parent mot pour mot, autres moments. Inspirations reprises de rh-o223. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cff6f9d8",
+   "texte_overlay": "ex-rh : les 4 moments\noù un entretien se joue\n(et ce n'est pas pendant les questions)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "389f6d65",
+   "texte_overlay": "1. le mail de confirmation\nune réponse rapide et polie, on la remarque",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "23052a99",
+   "texte_overlay": "2. la salle d'attente\nton téléphone dans la poche, pas à la main",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0effc6ab",
+   "texte_overlay": "3. le café qu'on te propose\n« volontiers, merci » et un petit mot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "34cf1df0",
+   "texte_overlay": "4. le petit silence de fin\nles candidates qui avaient un sujet à elles. mes 3 préférés : un voyage, un livre, ce qu'elles apprenaient 5 minutes par jour",
+   "texte_sophia": "4. le petit silence de fin\nles candidates qui avaient un sujet à elles. mes 3 préférés : un voyage, un livre, ce qu'elles apprenaient 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "56fc0988",
+   "texte_overlay": "le reste compte aussi.\nmais ces 4 moments, on en parle après",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1adf2053",
+   "texte_overlay": "lequel tu soignes déjà ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

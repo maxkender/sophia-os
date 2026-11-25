@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o339",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6d0dafdb-db0c-40ff-8181-e357839f905b",
+ "titre": "ce que je dis maintenant en réunion pour qu'on m'écoute #travail #reunion #confiance #carriere #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 25/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #1 (parent 6d0dafdb), 2e : même promesse, autres mots, phrases différentes de rh-o265 et rh-o327. Inspirations reprises de rh-o265. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cc4e9969",
+   "texte_overlay": "ce que je dis maintenant\nen réunion\npour qu'on m'écoute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7311bc55",
+   "texte_overlay": "« j'ai 2 points, ça prend 1 minute »\nannoncer le temps, ça calme tout le monde",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "700cd796",
+   "texte_overlay": "« je reformule pour être sûre »\net je résume ce qui a été dit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "74be0b98",
+   "texte_overlay": "« je propose qu'on décide aujourd'hui »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "830a64c1",
+   "texte_overlay": "« je ne suis pas d'accord sur un point »\nun seul, avec une raison",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "dbdd307c",
+   "texte_overlay": "« j'ai un exemple »\nun truc appris ailleurs, raconté en 30 secondes",
+   "texte_sophia": "« j'ai un exemple »\nun truc appris ailleurs, raconté en 30 secondes. utilise l'appli Sophia 5 minutes par jour, t'en auras toujours un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2ce0ba07",
+   "texte_overlay": "laquelle tu testes à ta prochaine réunion ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  }
+ ]
+}

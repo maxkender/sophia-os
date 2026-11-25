@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o341",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "47c0e02a-286a-438c-9ff2-673ddaf397f9",
+ "titre": "comment poser tes limites en télétravail sans te mettre ton équipe à dos #teletravail #travail #limites #santementale #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 25/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G2 de la ligne #3 (parent 47c0e02a) : même promesse, autres mots, autres phrases. Inspirations reprises de rh-o182. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e64c015a",
+   "texte_overlay": "comment poser tes limites\nen télétravail\nsans te mettre ton équipe à dos",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ecdc7d4f",
+   "texte_overlay": "un statut clair\n« concentration jusqu'à 11h, je réponds après »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e17d3e55",
+   "texte_overlay": "un horaire de fin affiché\net tu t'y tiens",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b75b12c6",
+   "texte_overlay": "« je peux t'appeler 5 minutes plutôt que 20 messages ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "83e3ecc4",
+   "texte_overlay": "un point écrit le vendredi\nce que t'as fait. plus personne ne doute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1fe950b2",
+   "texte_overlay": "une vraie pause\nmes 3 trucs : sortir, manger, 5 minutes pour apprendre autre chose",
+   "texte_sophia": "une vraie pause\nmes 3 trucs : sortir, manger, 5 minutes sur l'appli Sophia pour apprendre autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "486add33",
+   "texte_overlay": "laquelle t'as déjà posée ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o334",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai appris en changeant de métier à 28 ans #reconversion #carriere #travail #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 25/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (reconversion à 28 ans). Récit inventé, aucune vraie entreprise. Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f117020c",
+   "texte_overlay": "ce que j'ai appris\nen changeant de métier\nà 28 ans",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "52b43067",
+   "texte_overlay": "personne ne te trouve trop vieille\nsauf toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "721fcc3d",
+   "texte_overlay": "ton ancien métier te sert\nplus que tu ne le crois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "53e10c81",
+   "texte_overlay": "tu repars un peu en bas de l'échelle\net tu remontes vite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5eb1d171",
+   "texte_overlay": "parle à 5 personnes du métier avant de te lancer\nun café chacune",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "062cf685",
+   "texte_overlay": "apprends avant de démissionner\nmoi, c'était 5 minutes chaque matin, pendant 6 mois",
+   "texte_sophia": "apprends avant de démissionner\nmoi, c'était 5 minutes chaque matin sur l'appli Sophia, pendant 6 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6809de87",
+   "texte_overlay": "tu changerais de métier, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

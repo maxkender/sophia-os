@@ -1,0 +1,196 @@
+{
+  "id": "rt-002",
+  "source": {
+    "url": "https://www.tiktok.com/@raretheory_/photo/7707988177188965652",
+    "vues": 652500,
+    "publie_le": "2026-11-14",
+    "accroche": "topic to research when u're bored pt.2"
+  },
+  "titre": {
+    "en": "topics to research when u're bored pt.2"
+  },
+  "legendes": {
+    "en": "as promised, pt.2.\n\nthis time it's the stuff that breaks ur brain a little: lost cities, paradoxes nobody has fully solved, physics that sounds fake, and books everyone quotes but nobody has read.\n\nu don't need to understand all of it tonight. pick one, read about it for 20 minutes, and see where it takes u.\n\nsave this so u have something better to do than scroll.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/bureau-lampe.jpg": "9955d119-ab6f-49c0-8823-b2a897dd6577",
+    "images/banque/lectrice-dos.jpg": "1f9ba059-682c-4c01-8b11-2b80d87b8199"
+  },
+  "notes": "Preuve : « topic to research when u're bored pt.2 » de @raretheory_ (652,5 k vues, 104 k enregistrements, 14/11), sa partie 1 (151,1 k, 11/11) ; suite de rt-001 (sa fin annonçait la pt.2). Même gabarit et même musique (original sound - starxedittt). Catégories neuves, aucune reprise de rt-001 ni des siennes : Ancient Worlds, Famous Paradoxes, Physics That Breaks Your Brain, Numbers & Math Mysteries, Books Everyone References, Strange Places on Earth ; sujets réels, vérifiés, aucun sujet violent, médical ou politique. Slide Sophia (5, « 04 — the 10-minute lesson ») : son LOGO à la place de la petite photo, jamais une capture ; cta B. Photos : banques de Sophia, un bureau à la lampe (9955d119) et une fille de dos qui lit (1f9ba059), sans visage, sans marque ni texte lisible, autres que celles de rt-001.",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/bureau-lampe.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        },
+        {
+          "image": "images/banque/lectrice-dos.jpg",
+          "cadrage": {
+            "y": 0.35
+          }
+        }
+      ],
+      "en": {
+        "titre": "topics to research\nwhen u're bored pt.2",
+        "sous_titre": "one rabbit hole at a time"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Ancient Worlds",
+        "sujets": [
+          "The Library of Alexandria",
+          "Göbekli Tepe",
+          "Mesopotamia",
+          "The Indus Valley Civilization",
+          "The Minoans of Crete",
+          "The Silk Road",
+          "The Antikythera Mechanism",
+          "The Terracotta Army",
+          "Angkor Wat",
+          "Machu Picchu",
+          "Petra",
+          "Great Zimbabwe",
+          "Easter Island's Moai",
+          "Carthage"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Famous Paradoxes",
+        "sujets": [
+          "Zeno's Paradoxes",
+          "The Liar Paradox",
+          "Russell's Paradox",
+          "The Sorites Paradox",
+          "The Grandfather Paradox",
+          "The Bootstrap Paradox",
+          "The Twin Paradox",
+          "Hilbert's Grand Hotel",
+          "The Birthday Paradox",
+          "The Monty Hall Problem",
+          "Newcomb's Paradox",
+          "The Raven Paradox",
+          "Olbers' Paradox",
+          "The Paradox of Choice"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Physics That Breaks Your Brain",
+        "sujets": [
+          "Quantum Entanglement",
+          "Schrödinger's Cat",
+          "The Double-Slit Experiment",
+          "The Uncertainty Principle",
+          "Entropy",
+          "The Speed of Light",
+          "Wormholes",
+          "String Theory",
+          "The Multiverse",
+          "Antimatter",
+          "Quantum Tunneling",
+          "Superconductivity",
+          "Absolute Zero",
+          "The Higgs Boson"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "the 10-minute lesson",
+        "paragraphes": [
+          "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
+          "it's written by actual professors and there's a little quiz after, so i actually remember it. then i pick one topic from this list and keep going."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Numbers & Math Mysteries",
+        "sujets": [
+          "Zero",
+          "Pi",
+          "The Golden Ratio",
+          "The Fibonacci Sequence",
+          "Prime Numbers",
+          "Different Sizes of Infinity",
+          "Euler's Identity",
+          "Fermat's Last Theorem",
+          "The Riemann Hypothesis",
+          "The Collatz Conjecture",
+          "Fractals",
+          "Game Theory",
+          "The Prisoner's Dilemma",
+          "Gödel's Incompleteness Theorems"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Books Everyone References",
+        "sujets": [
+          "Don Quixote",
+          "The Divine Comedy",
+          "Hamlet",
+          "Pride and Prejudice",
+          "Frankenstein",
+          "Jane Eyre",
+          "Wuthering Heights",
+          "Moby-Dick",
+          "Les Misérables",
+          "The Picture of Dorian Gray",
+          "The Great Gatsby",
+          "Brave New World",
+          "The Little Prince",
+          "One Hundred Years of Solitude"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Strange Places on Earth",
+        "sujets": [
+          "The Mariana Trench",
+          "The Darvaza Gas Crater",
+          "Lake Natron",
+          "The Richat Structure",
+          "Socotra Island",
+          "Salar de Uyuni",
+          "The Danakil Depression",
+          "Pamukkale",
+          "The Great Blue Hole",
+          "The Giant's Causeway",
+          "Mount Roraima",
+          "Lake Baikal",
+          "Antelope Canyon",
+          "Bioluminescent Bays"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this for the next time u're bored. pick one topic, give it 20 minutes, and see how far the rabbit hole goes.",
+        "gras": "OR.. u'll be bored again tomorrow."
+      }
+    }
+  ]
+}

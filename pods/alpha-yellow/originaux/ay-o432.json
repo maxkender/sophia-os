@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o432",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e4d18681-6747-43ef-8fda-427f855a0529",
+ "titre": "How to sound brilliant in any conversation #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "e4d18681-6747-43ef-8fda-427f855a0529"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 7 de la boîte (e4d18681), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent ni des déclinaisons de cf0a0c60 (ay-o293, o308, o325).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a418ba1f-2fa0-4908-8171-eb3fad1ad68c",
+   "texte_overlay": "How to sound brilliant\nin any conversation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Ask one question that goes deeper. \"Why do you think that happens?\" Curious questions make you look thoughtful and keep people talking.",
+   "media_id": "c5b682e1-2f95-48d5-b0c8-6ebc82058cef"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Connect the topic to something bigger. A story about a startup becomes a point about history, psychology or economics. Links sound smart.",
+   "media_id": "c5c1dcdf-ce7b-4432-b1fc-084d5dda51be"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Use numbers carefully. \"About half of people...\" A few precise facts make your points far more convincing. Don't overdo it.",
+   "media_id": "c5f15fa1-4f54-45c3-a98d-e53c85052388"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Tell a short story instead of an opinion. Stories are easier to remember and sound wiser than general statements.",
+   "media_id": "c654fd93-de89-4ab3-bafd-17000ab9663e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Small daily facts become stories you can share in any conversation.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small daily facts become stories you can share in any conversation.",
+   "media_id": "86353bae-53bc-43f9-a35b-c7bbbcb60a1d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Change your mind openly when you hear a good point. It shows confidence and real intelligence. \"Good point, I hadn't thought of that.\" Few words show a confident mind.",
+   "media_id": "c659f1ee-70b6-41be-bda9-e2921df99894"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stop talking before you lose people. A short, clear point is more brilliant than a long speech. Leave people wanting to hear more.",
+   "media_id": "c6b91fbe-529b-48ae-987e-15a4dfbeedf2"
+  }
+ ]
+}

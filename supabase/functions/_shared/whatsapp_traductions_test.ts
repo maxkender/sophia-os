@@ -2,7 +2,7 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import { MODELES_V2, requeteModele } from "./whatsapp_modeles_v2.ts";
 import {
-  aSoumettre, choisirLangueEnvoi, cleModeleLangue, LANGUES_MODELES, langueMeta, limiteMeta, modeleDepuisComposants, traduireModele,
+  aSoumettre, categorieImposeeParMeta, choisirLangueEnvoi, cleModeleLangue, LANGUES_MODELES, langueMeta, limiteMeta, modeleDepuisComposants, traduireModele,
   valeursProtegees,
 } from "./whatsapp_traductions.ts";
 
@@ -148,4 +148,14 @@ Deno.test("la limite de Meta arrête la soumission", () => {
   assert(limiteMeta("100 Message template creation rate limit reached"));
   assert(!limiteMeta("100 Invalid parameter"));
   assert(!limiteMeta(null));
+});
+
+Deno.test("catégorie imposée par Meta (2388026) : celle que Meta associe déjà au modèle", () => {
+  const fr = "100/2388026 Invalid parameter — Catégorie de modèle non concordante : La catégorie UTILITY ne correspond pas à celle qui est déjà associée à ce modèle, MARKETING.";
+  assertEquals(categorieImposeeParMeta(fr, "UTILITY"), "MARKETING");
+  const en = "100/2388026 Invalid parameter — Template category mismatch : The category MARKETING doesn't match the one already associated with this template, UTILITY.";
+  assertEquals(categorieImposeeParMeta(en, "MARKETING"), "UTILITY");
+  assertEquals(categorieImposeeParMeta("100 Invalid parameter", "UTILITY"), null);
+  assertEquals(categorieImposeeParMeta("100/2388023 Invalid parameter — Language is being deleted", "UTILITY"), null);
+  assertEquals(categorieImposeeParMeta(null, "UTILITY"), null);
 });

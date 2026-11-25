@@ -16,7 +16,8 @@
  *                          de, fr, pl, ro, hu, cs, el, tr et les soumet à Meta (même nom, même catégorie). Jamais deux
  *                          fois : ce qui existe chez Meta (quel que soit le statut) est sauté. { langues?, modeles?,
  *                          max? (50) } ; { simuler: true } : les textes traduits et leurs problèmes, rien n'est soumis.
- *                          Chaque soumission est gardée dans whatsapp_modeles_soumissions (0860).
+ *                          Chaque soumission est gardée dans whatsapp_modeles_soumissions (0860). 25/11 : si Meta
+ *                          associe déjà une autre catégorie au modèle (2388026), un nouvel essai dans celle-là.
  *        test_modeles      envoie chaque modèle approuvé aux numéros autorisés (mode test)
  *        envoyer           { e164, texte } ou { e164, modele, langue, variables } (règles du mode test)
  *        relances          (cron horaire whatsapp-relances, 0839) les relances automatiques, en plus des emails ;
@@ -40,7 +41,8 @@ import { deciderRelance, type FaitsRelance, paysRelance } from "../_shared/whats
 import { nicheOuNull } from "../_shared/niche_posteur.ts";
 import { MODELES_V2, type ModeleV2, problemesModele, requeteModele } from "../_shared/whatsapp_modeles_v2.ts";
 import {
-  aSoumettre, choisirLangueEnvoi, cleModeleLangue, LANGUES_MODELES, langueMeta, limiteMeta, modeleDepuisComposants, traduireModele,
+  aSoumettre, categorieImposeeParMeta, choisirLangueEnvoi, cleModeleLangue, LANGUES_MODELES, langueMeta, limiteMeta, modeleDepuisComposants,
+  traduireModele,
 } from "../_shared/whatsapp_traductions.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -513,15 +515,26 @@ async function soumettreTraductions(db: Db, b: Record<string, unknown>) {
   const resultats = await parLots(traductions, 3, async (t) => {
     if (!t.modele) return { ...vue(t), soumis: false, erreur: "traduction refusée par les règles" };
     if (limite) return { ...vue(t), soumis: false, erreur: "pas tenté : limite Meta atteinte (à relancer plus tard)" };
-    const categorie = sources.get(t.nom)!.categorie;
-    const requete = requeteModele(t.modele, t.langue, categorie);
-    const r = await graph(`${waba}/message_templates`, { method: "POST", body: requete });
-    if (limiteMeta(r.erreur)) limite = true;
-    await db.from("whatsapp_modeles_soumissions").insert({
-      nom: t.nom, langue: t.langue, categorie, requete, ok: r.ok, meta_id: r.data?.id ?? null,
-      statut: r.data?.status ?? null, erreur: r.erreur,
-    }).then(() => null, () => null);
-    return { ...vue(t), soumis: r.ok, statut: r.data?.status ?? null, erreur: r.erreur };
+    const soumettre = async (categorie: string) => {
+      const requete = requeteModele(t.modele!, t.langue, categorie);
+      const r = await graph(`${waba}/message_templates`, { method: "POST", body: requete });
+      if (limiteMeta(r.erreur)) limite = true;
+      await db.from("whatsapp_modeles_soumissions").insert({
+        nom: t.nom, langue: t.langue, categorie, requete, ok: r.ok, meta_id: r.data?.id ?? null,
+        statut: r.data?.status ?? null, erreur: r.erreur,
+      }).then(() => null, () => null);
+      return r;
+    };
+    let categorie = sources.get(t.nom)!.categorie;
+    let r = await soumettre(categorie);
+    // 25/11 : Meta associe déjà une autre catégorie à ce modèle (il a reclassé d'autres langues) : une langue de
+    // plus doit avoir la même ; un seul nouvel essai, avec la catégorie que Meta nomme.
+    const imposee = !r.ok && !limite ? categorieImposeeParMeta(r.erreur, categorie) : null;
+    if (imposee) {
+      categorie = imposee;
+      r = await soumettre(categorie);
+    }
+    return { ...vue(t), categorie, soumis: r.ok, statut: r.data?.status ?? null, erreur: r.erreur };
   });
   const apres = await modelesSync(db);
   const existantsApres = apres.ok ? new Set((apres.modeles ?? []).map((m) => cleModeleLangue(m.nom, m.langue))) : existants;

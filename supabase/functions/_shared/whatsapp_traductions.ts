@@ -208,3 +208,18 @@ export function limiteMeta(erreur: string | null | undefined): boolean {
   if (!erreur) return false;
   return /^(4|17|32|613|80007|80008)\b/.test(erreur.trim()) || /rate limit|limit (?:reached|exceeded)|too many|reached the (?:maximum|limit)/i.test(erreur);
 }
+
+const CATEGORIES_META = ["MARKETING", "UTILITY", "AUTHENTICATION"] as const;
+
+/**
+ * 25/11 : Meta refuse une langue d'un modèle dont la catégorie ne correspond pas à celle qu'il associe déjà au modèle
+ * (sous-code 2388026, « Template category mismatch » : Meta a reclassé d'autres langues, p. ex. en MARKETING). La
+ * catégorie attendue est la dernière nommée dans l'explication de Meta (graph() la renvoie avec le sous-code) ; null
+ * si l'erreur est autre ou si elle ne nomme pas une autre catégorie que celle soumise.
+ */
+export function categorieImposeeParMeta(erreur: string | null | undefined, soumise: string): string | null {
+  if (!erreur || !/^100\/2388026\b/.test(erreur.trim())) return null;
+  const nommees = [...erreur.toUpperCase().matchAll(/\b(MARKETING|UTILITY|AUTHENTICATION)\b/g)].map((m) => m[1]);
+  const attendue = nommees.reverse().find((c) => c !== soumise.toUpperCase());
+  return attendue && (CATEGORIES_META as readonly string[]).includes(attendue) ? attendue : null;
+}

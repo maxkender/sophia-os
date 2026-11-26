@@ -175,6 +175,8 @@
   "form.readContract": "Prieš teikdamas paraišką perskaityk visą sutartį",
   "dec.refusedTitle": "Ačiū",
   "dec.refused": "Šiuo metu negalime tau pasiūlyti vietos. Ačiū už susidomėjimą.",
+  "stop.title": "Tavo registracija sustabdyta",
+  "stop.body": "Tavo prieiga uždaryta ir daugiau priminimų tau nebesiųsime. Ačiū už susidomėjimą.",
   "legal.notice.title": "Teisinė informacija",
   "legal.notice.publisher": "Leidėjas",
   "legal.notice.company": "Vik Studios SAS (prekės pavadinimas: Vik Studios), Prancūzijos supaprastinta akcinė bendrovė (SAS), kurios įstatinis kapitalas – 2 €.",

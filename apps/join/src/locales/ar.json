@@ -175,6 +175,8 @@
   "form.readContract": "اقرأ الاتفاقية كاملة قبل التقديم",
   "dec.refusedTitle": "شكرًا، {name}",
   "dec.refused": "لا يمكننا أن نعرض عليك مكانًا في الوقت الحالي. شكرًا لاهتمامك.",
+  "stop.title": "تم إيقاف تسجيلك",
+  "stop.body": "أُغلق وصولك ولن تتلقى منا أي تذكيرات بعد الآن. شكرًا لاهتمامك.",
   "legal.notice.title": "إشعار قانوني",
   "legal.notice.publisher": "الناشر",
   "legal.notice.company": "Vik Studios SAS (الاسم التجاري: Vik Studios)، شركة مساهمة مبسّطة فرنسية (SAS) برأس مال قدره 2 €.",

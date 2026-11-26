@@ -65,6 +65,8 @@ export interface Moi {
     ferme?: boolean;
   };
   expiree?: boolean;
+  /** 26/11 : l'OS a arrêté ce posteur (fiche désactivée ou arrêt) : la page affiche « inscription arrêtée ». */
+  arretee?: boolean;
   offre?: { cohorte: string; date_limite: string };
   signature: { signe_at: string } | null;
   etapes: Etape[];

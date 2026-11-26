@@ -42,7 +42,10 @@ import { filtrerPoolParApplication } from "../_shared/labels_repli.ts";
 import { choisirLabel, labelsFermesConnus } from "../_shared/choix_label_equilibre.ts";
 import {
   type ApplicationCandidate,
+  candidatsAllumes,
   classerApplications,
+  type EtatApplication,
+  gelOuvert,
   lireCibleApplications,
   type MarcheApplications,
   partsPourApplication,
@@ -1421,6 +1424,30 @@ async function statsChoixApplication(
 }
 
 /**
+ * 26/11 : l'état des applications (allumée, gel ouvert), pour sauter une application gelée ou coupée
+ * (`candidatsAllumes`). Une lecture ratée lève : l'appelant rend alors l'application par défaut.
+ */
+async function etatsApplications(supabase: Supabase): Promise<EtatApplication[]> {
+  const [apps, gels] = await Promise.all([
+    supabase.from("applications").select("id, actif"),
+    // Un journal court (un gel par lancement gelé) : lu en entier, le tri des gels ouverts se fait ici.
+    supabase.from("applications_gels").select("application_id, debut, fin"),
+  ]);
+  if (apps.error) throw new Error(`applications : ${apps.error.message}`);
+  if (gels.error) throw new Error(`applications_gels : ${gels.error.message}`);
+  const gelees = new Set(
+    ((gels.data ?? []) as { application_id: string; debut: string | null; fin: string | null }[])
+      .filter((g) => gelOuvert(g, new Date()))
+      .map((g) => g.application_id),
+  );
+  return ((apps.data ?? []) as { id: string; actif: boolean | null }[]).map((a) => ({
+    id: a.id,
+    actif: a.actif === true,
+    gelee: gelees.has(a.id),
+  }));
+}
+
+/**
  * La File de cette application a-t-elle une entrée utilisable pour ce marché ?
  *
  * LECTURE SEULE, et c'est tout l'intérêt : `popLabelFile` consomme, lui. On ne
@@ -1486,10 +1513,15 @@ async function choisirApplicationPourCompte(
   try {
     if (!(await choixApplicationAutoActif(supabase))) return rien;
 
-    const candidats = await statsChoixApplication(supabase, {
-      langue: args.langue,
-      pays: args.pays,
-    });
+    // 26/11 (Max) : jamais une application gelée ou coupée (même définition que le contrôle du lundi, 0859) :
+    // ses parts vont aux autres applications du marché, et elle reprend les siennes dès qu'elle est rallumée.
+    const candidats = candidatsAllumes(
+      await statsChoixApplication(supabase, {
+        langue: args.langue,
+        pays: args.pays,
+      }),
+      await etatsApplications(supabase),
+    );
     if (candidats.length === 0) return rien;
 
     const cible = lireCibleApplications(

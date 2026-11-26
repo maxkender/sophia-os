@@ -1,0 +1,325 @@
+{
+  "id": "md-010",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings By Women History Tried To Forget",
+    "fr": "Peintres femmes que l'histoire a oubliées",
+    "it": "Pittrici che la storia voleva dimenticare",
+    "es-419": "Pintoras que la historia quiso olvidar",
+    "el": "Γυναίκες ζωγράφοι που ξέχασε η ιστορία",
+    "hu": "Festőnők, akiket elfelejtett a történelem",
+    "sr": "Slikarke koje je istorija htela da zaboravi",
+    "hr": "Slikarice koje je povijest htjela zaboraviti",
+    "lv": "Gleznotājas, kuras vēsture gribēja aizmirst",
+    "ro": "Pictorițe pe care istoria a vrut să le uite"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #womenartists #berthemorisot #museum",
+    "fr": "#histoiredelart #peinture #femmesartistes #berthemorisot #musée",
+    "it": "#storiadellarte #pittura #donneartiste #berthemorisot #museo",
+    "es-419": "#historiadelarte #pintura #mujeresartistas #berthemorisot #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #γυναίκεςκαλλιτέχνιδες #berthemorisot #μουσείο",
+    "hu": "#művészettörténet #festészet #nőiművészek #berthemorisot #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #umetnice #berthemorisot #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #umjetnice #berthemorisot #muzej",
+    "lv": "#mākslasvēsture #glezniecība #sievietesmākslinieces #berthemorisot #muzejs",
+    "ro": "#istoriaartei #pictură #femeiartiste #berthemorisot #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/esther-artemisia.jpg": {
+      "musee": "The Met",
+      "id": "436453",
+      "titre": "Esther before Ahasuerus",
+      "artiste": "Artemisia Gentileschi",
+      "date": "1620s",
+      "url": "https://www.metmuseum.org/art/collection/search/436453"
+    },
+    "images/oeuvres/villers-charlotte.jpg": {
+      "musee": "The Met",
+      "id": "437903",
+      "titre": "Marie Joséphine Charlotte du Val d'Ognes (1786–1868)",
+      "artiste": "Marie Denise Villers",
+      "date": "1801",
+      "url": "https://www.metmuseum.org/art/collection/search/437903"
+    },
+    "images/oeuvres/vallayer-coster.jpg": {
+      "musee": "The Met",
+      "id": "437864",
+      "titre": "Vase of Flowers and Conch Shell",
+      "artiste": "Anne Vallayer-Coster",
+      "date": "1780",
+      "url": "https://www.metmuseum.org/art/collection/search/437864"
+    },
+    "images/oeuvres/morisot-tricot.jpg": {
+      "musee": "The Met",
+      "id": "437159",
+      "titre": "Young Woman Knitting",
+      "artiste": "Berthe Morisot",
+      "date": "ca. 1883",
+      "url": "https://www.metmuseum.org/art/collection/search/437159"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Artemisia Gentileschi, Esther devant Assuérus (années 1620) ; admise à l'Accademia delle Arti del Disegno de Florence en 1616, première femme. Villers, Marie Joséphine Charlotte du Val d'Ognes (1801) : legs Isaac D. Fletcher 1917, attribué à David ; doute de Charles Sterling (1951) ; attribution à Marie-Denise Villers par Margaret Oppenheimer (1996) ; la vitre fêlée en haut à gauche. Vallayer-Coster : reçue à l'Académie royale en 1770 (née en 1744), protégée de Marie-Antoinette ; tableau daté 1780. Morisot : sept des huit expositions impressionnistes (absente en 1879) ; acte de décès « sans profession » (1895). Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-portraits.jpg",
+      "en": {
+        "titre": "Paintings By Women History Tried To Forget"
+      },
+      "fr": {
+        "titre": "Peintres femmes que l'histoire a oubliées"
+      },
+      "it": {
+        "titre": "Pittrici che la storia voleva dimenticare"
+      },
+      "es-419": {
+        "titre": "Pintoras que la historia quiso olvidar"
+      },
+      "el": {
+        "titre": "Γυναίκες ζωγράφοι που ξέχασε η ιστορία"
+      },
+      "hu": {
+        "titre": "Festőnők, akiket elfelejtett a történelem"
+      },
+      "sr": {
+        "titre": "Slikarke koje je istorija htela da zaboravi"
+      },
+      "hr": {
+        "titre": "Slikarice koje je povijest htjela zaboraviti"
+      },
+      "lv": {
+        "titre": "Gleznotājas, kuras vēsture gribēja aizmirst"
+      },
+      "ro": {
+        "titre": "Pictorițe pe care istoria a vrut să le uite"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/esther-artemisia.jpg",
+      "en": {
+        "titre": "Esther before Ahasuerus",
+        "texte": "shows the queen fainting before the king she has come to beg for her people's lives. Artemisia Gentileschi painted it in the 1620s. In 1616 she had become the first woman admitted to Florence's Academy of Drawing.",
+        "artiste": "Artemisia Gentileschi"
+      },
+      "fr": {
+        "titre": "Esther devant Assuérus",
+        "texte": "montre la reine qui s'évanouit devant le roi qu'elle est venue supplier d'épargner son peuple. Artemisia Gentileschi l'a peint dans les années 1620. En 1616, elle était devenue la première femme admise à l'Académie du dessin de Florence.",
+        "artiste": "Artemisia Gentileschi"
+      },
+      "it": {
+        "titre": "Ester davanti ad Assuero",
+        "texte": "mostra la regina che sviene davanti al re a cui è venuta a chiedere di salvare il suo popolo. Artemisia Gentileschi lo dipinse negli anni Venti del Seicento. Nel 1616 era diventata la prima donna ammessa all'Accademia delle Arti del Disegno di Firenze.",
+        "artiste": "Artemisia Gentileschi"
+      },
+      "es-419": {
+        "titre": "Ester ante Asuero",
+        "texte": "muestra a la reina desmayándose ante el rey al que vino a suplicar por la vida de su pueblo. Artemisia Gentileschi la pintó en la década de 1620. En 1616 se había convertido en la primera mujer admitida en la Academia de Dibujo de Florencia.",
+        "artiste": "Artemisia Gentileschi"
+      },
+      "el": {
+        "titre": "Η Εσθήρ ενώπιον του Ασσουήρου",
+        "texte": "δείχνει τη βασίλισσα να λιποθυμά μπροστά στον βασιλιά που ήρθε να ικετεύσει για τη ζωή του λαού της. Η Αρτεμισία Τζεντιλέσκι τον ζωγράφισε τη δεκαετία του 1620. Το 1616 είχε γίνει η πρώτη γυναίκα που έγινε δεκτή στην Ακαδημία Σχεδίου της Φλωρεντίας.",
+        "artiste": "Αρτεμισία Τζεντιλέσκι"
+      },
+      "hu": {
+        "titre": "Eszter Ahasvérus előtt",
+        "texte": "a királynőt mutatja, aki elájul a király előtt, akihez népe életéért jött könyörögni. Artemisia Gentileschi az 1620-as években festette. 1616-ban ő lett az első nő, akit felvettek a firenzei Rajzakadémiára.",
+        "artiste": "Artemisia Gentileschi"
+      },
+      "sr": {
+        "titre": "Jestira pred Asvirom",
+        "texte": "prikazuje kraljicu koja se onesvešćuje pred kraljem kog je došla da moli za život svog naroda. Artemizija Đentileski ju je naslikala dvadesetih godina 17. veka. Godine 1616. postala je prva žena primljena u firentinsku Akademiju crteža.",
+        "artiste": "Artemizija Đentileski"
+      },
+      "hr": {
+        "titre": "Estera pred Ahasverom",
+        "texte": "prikazuje kraljicu koja se onesvješćuje pred kraljem kojeg je došla moliti za život svojega naroda. Artemisia Gentileschi naslikala ju je dvadesetih godina 17. stoljeća. Godine 1616. postala je prva žena primljena u firentinsku Akademiju crtanja.",
+        "artiste": "Artemisia Gentileschi"
+      },
+      "lv": {
+        "titre": "Estere Ahasvera priekšā",
+        "texte": "rāda karalieni, kas paģībst karaļa priekšā, pie kura atnākusi lūgt par savas tautas dzīvību. Artemīzija Džentileski to gleznoja 17. gadsimta divdesmitajos gados. 1616. gadā viņa kļuva par pirmo sievieti, ko uzņēma Florences Zīmēšanas akadēmijā.",
+        "artiste": "Artemīzija Džentileski"
+      },
+      "ro": {
+        "titre": "Estera în fața lui Ahașveroș",
+        "texte": "o arată pe regină leșinând în fața regelui pe care venise să-l roage pentru viața poporului ei. Artemisia Gentileschi l-a pictat în anii 1620. În 1616 devenise prima femeie primită în Academia de Desen din Florența.",
+        "artiste": "Artemisia Gentileschi"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/villers-charlotte.jpg",
+      "en": {
+        "titre": "Charlotte du Val d'Ognes",
+        "texte": "was believed to be by Jacques-Louis David when it entered the Met in 1917. Only in 1996 did a historian name the real artist: Marie-Denise Villers. I learned to see the cracked windowpane behind her on Artura, one artwork a day with its story.",
+        "artiste": "Marie-Denise Villers"
+      },
+      "fr": {
+        "titre": "Charlotte du Val d'Ognes",
+        "texte": "passait pour une œuvre de Jacques-Louis David quand il est entré au Met en 1917. Ce n'est qu'en 1996 qu'une historienne a nommé la vraie artiste, Marie-Denise Villers. J'ai appris à voir la vitre fêlée derrière elle sur Artura, une œuvre par jour avec son histoire.",
+        "artiste": "Marie-Denise Villers"
+      },
+      "it": {
+        "titre": "Charlotte du Val d'Ognes",
+        "texte": "era creduto un'opera di Jacques-Louis David quando entrò al Met nel 1917. Solo nel 1996 una storica dell'arte ha dato un nome alla vera autrice: Marie-Denise Villers. Ho imparato a vedere il vetro incrinato dietro di lei su Artura, un'opera al giorno con la sua storia.",
+        "artiste": "Marie-Denise Villers"
+      },
+      "es-419": {
+        "titre": "Charlotte du Val d'Ognes",
+        "texte": "se creyó obra de Jacques-Louis David cuando llegó al Met en 1917. Recién en 1996 una historiadora nombró a la verdadera autora: Marie-Denise Villers. Aprendí a ver el vidrio roto de la ventana detrás de ella en Artura, una obra al día con su historia.",
+        "artiste": "Marie-Denise Villers"
+      },
+      "el": {
+        "titre": "Σαρλότ ντι Βαλ ντ'Ονιέ",
+        "texte": "θεωρούνταν έργο του Ζακ-Λουί Νταβίντ όταν μπήκε στο Met το 1917. Μόλις το 1996 μια ιστορικός ονόμασε την πραγματική δημιουργό: τη Μαρί-Ντενίζ Βιλέρ. Έμαθα να βλέπω το ραγισμένο τζάμι πίσω της στην Artura, ένα έργο τη μέρα με την ιστορία του.",
+        "artiste": "Μαρί-Ντενίζ Βιλέρ"
+      },
+      "hu": {
+        "titre": "Charlotte du Val d'Ognes",
+        "texte": "portréját Jacques-Louis David művének hitték, amikor 1917-ben a Methez került. Csak 1996-ban nevezte meg egy történész a valódi alkotót: Marie-Denise Villers-t. Az Artura appban tanultam meg észrevenni mögötte a megrepedt ablaküveget, minden nap egy műalkotás a történetével.",
+        "artiste": "Marie-Denise Villers"
+      },
+      "sr": {
+        "titre": "Šarlot di Val d'Onj",
+        "texte": "smatrala se delom Žak-Luja Davida kada je 1917. stigla u Met. Tek 1996. jedna istoričarka je imenovala pravu autorku: Mari-Deniz Viler. Naučila sam da primetim napuklo okno iza nje zahvaljujući aplikaciji Artura, jedno delo dnevno sa svojom pričom.",
+        "artiste": "Mari-Deniz Viler"
+      },
+      "hr": {
+        "titre": "Charlotte du Val d'Ognes",
+        "texte": "smatrala se djelom Jacques-Louisa Davida kad je 1917. stigla u Met. Tek je 1996. jedna povjesničarka imenovala pravu autoricu: Marie-Denise Villers. Naučila sam primijetiti napuklo okno iza nje zahvaljujući aplikaciji Artura, jedno djelo dnevno sa svojom pričom.",
+        "artiste": "Marie-Denise Villers"
+      },
+      "lv": {
+        "titre": "Šarlote di Vala d'Oņa",
+        "texte": "tika uzskatīta par Žaka Luija Davida darbu, kad 1917. gadā nonāca Met. Tikai 1996. gadā kāda vēsturniece nosauca īsto autori: Marī Denīzu Vilēru. Lietotnē Artura iemācījos pamanīt ieplaisājušo loga rūti aiz viņas, katru dienu viens mākslas darbs ar savu stāstu.",
+        "artiste": "Marī Denīza Vilēra"
+      },
+      "ro": {
+        "titre": "Charlotte du Val d'Ognes",
+        "texte": "era considerat o operă a lui Jacques-Louis David când a intrat la Met, în 1917. Abia în 1996 o istorică a numit adevărata autoare: Marie-Denise Villers. Am învățat să văd geamul crăpat din spatele ei pe Artura, câte o operă pe zi, cu povestea ei.",
+        "artiste": "Marie-Denise Villers"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/vallayer-coster.jpg",
+      "en": {
+        "titre": "Vase of Flowers and Conch Shell",
+        "texte": "was painted by Anne Vallayer-Coster, who joined the Royal Academy in 1770, at 26, as a painter of still lifes. Her flowers were so admired that Marie Antoinette became her patron. She painted this one in 1780.",
+        "artiste": "Anne Vallayer-Coster"
+      },
+      "fr": {
+        "titre": "Vase de fleurs et coquillage",
+        "texte": "est d'Anne Vallayer-Coster, reçue à l'Académie royale en 1770, à 26 ans, comme peintre de natures mortes. Ses fleurs étaient si admirées que Marie-Antoinette devint sa protectrice. Elle a peint celui-ci en 1780.",
+        "artiste": "Anne Vallayer-Coster"
+      },
+      "it": {
+        "titre": "Vaso di fiori e conchiglia",
+        "texte": "è di Anne Vallayer-Coster, entrata all'Accademia reale nel 1770, a 26 anni, come pittrice di nature morte. I suoi fiori erano così ammirati che Maria Antonietta divenne sua protettrice. Questo lo dipinse nel 1780.",
+        "artiste": "Anne Vallayer-Coster"
+      },
+      "es-419": {
+        "titre": "Jarrón de flores y caracola",
+        "texte": "es de Anne Vallayer-Coster, que entró a la Real Academia en 1770, a los 26 años, como pintora de naturalezas muertas. Sus flores eran tan admiradas que María Antonieta se volvió su protectora. Pintó esta en 1780.",
+        "artiste": "Anne Vallayer-Coster"
+      },
+      "el": {
+        "titre": "Βάζο με λουλούδια και κοχύλι",
+        "texte": "είναι της Αν Βαλαγιέ-Κοστέρ, που έγινε δεκτή στη Βασιλική Ακαδημία το 1770, στα 26 της, ως ζωγράφος νεκρών φύσεων. Τα λουλούδια της τα θαύμαζαν τόσο που η Μαρία Αντουανέτα έγινε προστάτιδά της. Αυτό το ζωγράφισε το 1780.",
+        "artiste": "Αν Βαλαγιέ-Κοστέρ"
+      },
+      "hu": {
+        "titre": "Virágváza és kagyló",
+        "texte": "Anne Vallayer-Coster műve, akit 1770-ben, 26 évesen vettek fel a Királyi Akadémiára csendéletfestőként. Virágait annyira csodálták, hogy Marie Antoinette lett a pártfogója. Ezt 1780-ban festette.",
+        "artiste": "Anne Vallayer-Coster"
+      },
+      "sr": {
+        "titre": "Vaza sa cvećem i školjkom",
+        "texte": "delo je En Valaje-Koster, primljene u Kraljevsku akademiju 1770, sa 26 godina, kao slikarke mrtve prirode. Njeno cveće toliko su voleli da joj je Marija Antoaneta postala zaštitnica. Ovu je naslikala 1780.",
+        "artiste": "En Valaje-Koster"
+      },
+      "hr": {
+        "titre": "Vaza s cvijećem i školjkom",
+        "texte": "djelo je Anne Vallayer-Coster, primljene u Kraljevsku akademiju 1770., s 26 godina, kao slikarice mrtve prirode. Njezino su cvijeće toliko voljeli da joj je Marija Antoaneta postala zaštitnica. Ovu je naslikala 1780.",
+        "artiste": "Anne Vallayer-Coster"
+      },
+      "lv": {
+        "titre": "Ziedu vāze un gliemežvāks",
+        "texte": "ir Annas Valajē-Kosteres darbs, kuru 1770. gadā, 26 gadu vecumā, uzņēma Karaliskajā akadēmijā kā klusās dabas gleznotāju. Viņas ziedus tā apbrīnoja, ka Marija Antuanete kļuva par viņas patronesi. Šo viņa gleznoja 1780. gadā.",
+        "artiste": "Anna Valajē-Kostere"
+      },
+      "ro": {
+        "titre": "Vază cu flori și scoică",
+        "texte": "e pictat de Anne Vallayer-Coster, primită în Academia Regală în 1770, la 26 de ani, ca pictoriță de naturi statice. Florile ei erau atât de admirate încât Maria Antoaneta i-a devenit protectoare. Pe acesta l-a pictat în 1780.",
+        "artiste": "Anne Vallayer-Coster"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/morisot-tricot.jpg",
+      "en": {
+        "titre": "Young Woman Knitting",
+        "texte": "was painted by Berthe Morisot, who showed in seven of the eight Impressionist exhibitions. Her brushstrokes are so loose the woman almost melts into the garden. On her death certificate, her profession was listed as none.",
+        "artiste": "Berthe Morisot"
+      },
+      "fr": {
+        "titre": "Jeune femme tricotant",
+        "texte": "est de Berthe Morisot, présente à sept des huit expositions impressionnistes. Sa touche est si libre que la jeune femme se fond presque dans le jardin. Sur son acte de décès, on a écrit « sans profession ».",
+        "artiste": "Berthe Morisot"
+      },
+      "it": {
+        "titre": "Giovane donna che lavora a maglia",
+        "texte": "è di Berthe Morisot, che espose in sette delle otto mostre impressioniste. Le pennellate sono così libere che la donna quasi si scioglie nel giardino. Sul suo certificato di morte, alla voce professione, scrissero: «nessuna».",
+        "artiste": "Berthe Morisot"
+      },
+      "es-419": {
+        "titre": "Joven tejiendo",
+        "texte": "es de Berthe Morisot, que expuso en siete de las ocho exposiciones impresionistas. Sus pinceladas son tan sueltas que la mujer casi se disuelve en el jardín. En su acta de defunción, en profesión pusieron: «ninguna».",
+        "artiste": "Berthe Morisot"
+      },
+      "el": {
+        "titre": "Νεαρή γυναίκα που πλέκει",
+        "texte": "είναι της Μπερτ Μοριζό, που εξέθεσε σε επτά από τις οκτώ εκθέσεις των ιμπρεσιονιστών. Οι πινελιές της είναι τόσο ελεύθερες που η γυναίκα σχεδόν λιώνει μέσα στον κήπο. Στο πιστοποιητικό θανάτου της, στο επάγγελμα έγραψαν «κανένα».",
+        "artiste": "Μπερτ Μοριζό"
+      },
+      "hu": {
+        "titre": "Kötögető fiatal nő",
+        "texte": "Berthe Morisot műve, aki a nyolc impresszionista kiállításból hétben szerepelt. Ecsetvonásai olyan lazák, hogy a nő szinte beleolvad a kertbe. A halotti anyakönyvi kivonatán a foglalkozás rovatba azt írták: „nincs”.",
+        "artiste": "Berthe Morisot"
+      },
+      "sr": {
+        "titre": "Mlada žena koja plete",
+        "texte": "delo je Berte Morizo, koja je izlagala na sedam od osam impresionističkih izložbi. Potezi su toliko slobodni da se žena gotovo topi u vrtu. U njenoj umrlici, pod zanimanje je upisano „nema”.",
+        "artiste": "Berta Morizo"
+      },
+      "hr": {
+        "titre": "Mlada žena koja plete",
+        "texte": "djelo je Berthe Morisot, koja je izlagala na sedam od osam impresionističkih izložbi. Potezi su toliko slobodni da se žena gotovo rastapa u vrtu. U njezinu smrtnom listu, pod zanimanje je upisano „nema”.",
+        "artiste": "Berthe Morisot"
+      },
+      "lv": {
+        "titre": "Jauna sieviete adot",
+        "texte": "ir Bertas Morizo darbs, kura piedalījās septiņās no astoņām impresionistu izstādēm. Otas triepieni ir tik brīvi, ka sieviete gandrīz izkūst dārzā. Viņas miršanas apliecībā ailē „profesija” ierakstīja „nav”.",
+        "artiste": "Berta Morizo"
+      },
+      "ro": {
+        "titre": "Tânără tricotând",
+        "texte": "e pictat de Berthe Morisot, care a expus la șapte din cele opt expoziții impresioniste. Tușele sunt atât de libere încât femeia aproape se topește în grădină. Pe certificatul ei de deces, la profesie au scris „fără”.",
+        "artiste": "Berthe Morisot"
+      }
+    }
+  ]
+}

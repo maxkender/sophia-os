@@ -1,0 +1,325 @@
+{
+  "id": "md-008",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like Falling In Love",
+    "fr": "Des tableaux comme un coup de foudre",
+    "es-419": "Pinturas que se sienten como enamorarse",
+    "it": "Quadri che sembrano un colpo di fulmine",
+    "el": "Πίνακες σαν κεραυνοβόλος έρωτας",
+    "hu": "Festmények, mint az első szerelem",
+    "sr": "Slike kao ljubav na prvi pogled",
+    "hr": "Slike kao ljubav na prvi pogled",
+    "lv": "Gleznas kā mīlestība no pirmā acu skatiena",
+    "ro": "Tablouri ca o dragoste la prima vedere"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #manet #courbet #museum",
+    "fr": "#histoiredelart #peinture #manet #courbet #musée",
+    "es-419": "#historiadelarte #pintura #manet #courbet #museo",
+    "it": "#storiadellarte #pittura #manet #courbet #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #manet #courbet #μουσείο",
+    "hu": "#művészettörténet #festészet #manet #courbet #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #mane #kurbe #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #manet #courbet #muzej",
+    "lv": "#mākslasvēsture #glezniecība #manet #courbet #muzejs",
+    "ro": "#istoriaartei #pictura #manet #courbet #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/mezzetin.jpg": {
+      "musee": "The Met",
+      "id": "437926",
+      "titre": "Mezzetin",
+      "artiste": "Antoine Watteau",
+      "date": "ca. 1718–20",
+      "url": "https://www.metmuseum.org/art/collection/search/437926"
+    },
+    "images/oeuvres/en-bateau.jpg": {
+      "musee": "The Met",
+      "id": "436947",
+      "titre": "Boating",
+      "artiste": "Edouard Manet",
+      "date": "1874",
+      "url": "https://www.metmuseum.org/art/collection/search/436947"
+    },
+    "images/oeuvres/jo-irlandaise.jpg": {
+      "musee": "The Met",
+      "id": "436001",
+      "titre": "Jo, La Belle Irlandaise",
+      "artiste": "Gustave Courbet",
+      "date": "1865–66",
+      "url": "https://www.metmuseum.org/art/collection/search/436001"
+    },
+    "images/oeuvres/lettre-amour.jpg": {
+      "musee": "The Met",
+      "id": "436322",
+      "titre": "The Love Letter",
+      "artiste": "Jean Honoré Fragonard",
+      "date": "early 1770s",
+      "url": "https://www.metmuseum.org/art/collection/search/436322"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Mezzetin (vers 1718-20) : le valet amoureux de la commedia dell'arte chante ; derrière lui une statue de femme de dos ; Watteau mort de tuberculose en 1721 à 36 ans. En bateau (1874) : été à Argenteuil auprès de Monet ; le modèle masculin est Rodolphe Leenhoff, beau-frère de Manet (notice du Met) ; cadrage coupé inspiré des estampes japonaises ; Salon de 1879. Jo, la belle Irlandaise : Joanna Hiffernan, modèle et compagne de Whistler ; peinte à Trouville en 1865 ; quatre versions (Met, Stockholm, Kansas City, coll. privée). La Lettre d'amour (début des années 1770) : la lettre porte « Cuvillier » ; peut-être Marie-Émilie Boucher, mariée à Charles-Étienne-Gabriel Cuvillier en 1773 (notice du Met) ; Fragonard élève de Boucher. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-couple.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like Falling In Love"
+      },
+      "fr": {
+        "titre": "Des tableaux comme un coup de foudre"
+      },
+      "es-419": {
+        "titre": "Pinturas que se sienten como enamorarse"
+      },
+      "it": {
+        "titre": "Quadri che sembrano un colpo di fulmine"
+      },
+      "el": {
+        "titre": "Πίνακες σαν κεραυνοβόλος έρωτας"
+      },
+      "hu": {
+        "titre": "Festmények, mint az első szerelem"
+      },
+      "sr": {
+        "titre": "Slike kao ljubav na prvi pogled"
+      },
+      "hr": {
+        "titre": "Slike kao ljubav na prvi pogled"
+      },
+      "lv": {
+        "titre": "Gleznas kā mīlestība no pirmā acu skatiena"
+      },
+      "ro": {
+        "titre": "Tablouri ca o dragoste la prima vedere"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/mezzetin.jpg",
+      "en": {
+        "titre": "Mezzetin",
+        "texte": "sings his heart out to a woman we never see. Behind him, a stone statue of a woman turns her back, as if she had already said no. Watteau painted it a few years before he died of tuberculosis, at 36.",
+        "artiste": "Antoine Watteau"
+      },
+      "fr": {
+        "titre": "Mezzetin",
+        "texte": "chante à en perdre le souffle pour une femme qu'on ne voit jamais. Derrière lui, une statue de femme lui tourne le dos, comme si elle avait déjà dit non. Watteau l'a peint quelques années avant de mourir de la tuberculose, à 36 ans.",
+        "artiste": "Antoine Watteau"
+      },
+      "es-419": {
+        "titre": "Mezzetin",
+        "texte": "le canta con todo el corazón a una mujer que nunca vemos. Detrás de él, una estatua de piedra de una mujer le da la espalda, como si ya le hubiera dicho que no. Watteau lo pintó pocos años antes de morir de tuberculosis, a los 36.",
+        "artiste": "Antoine Watteau"
+      },
+      "it": {
+        "titre": "Mezzettino",
+        "texte": "canta con tutto il cuore per una donna che non vediamo mai. Dietro di lui, una statua di pietra di donna gli volta le spalle, come se avesse già detto di no. Watteau lo dipinse pochi anni prima di morire di tubercolosi, a 36 anni.",
+        "artiste": "Antoine Watteau"
+      },
+      "el": {
+        "titre": "Μετζετέν",
+        "texte": "τραγουδά με όλη του την καρδιά σε μια γυναίκα που δεν βλέπουμε ποτέ. Πίσω του, ένα πέτρινο άγαλμα γυναίκας του γυρίζει την πλάτη, σαν να του έχει ήδη πει όχι. Ο Βατό τον ζωγράφισε λίγα χρόνια πριν πεθάνει από φυματίωση, στα 36 του.",
+        "artiste": "Αντουάν Βατό"
+      },
+      "hu": {
+        "titre": "Mezzetin",
+        "texte": "teljes szívéből énekel egy nőnek, akit sosem látunk. Mögötte egy nő kőszobra hátat fordít neki, mintha már nemet mondott volna. Watteau néhány évvel azelőtt festette, hogy 36 évesen meghalt tüdővészben.",
+        "artiste": "Antoine Watteau"
+      },
+      "sr": {
+        "titre": "Mecetin",
+        "texte": "peva iz sveg srca ženi koju nikad ne vidimo. Iza njega, kamena statua žene okreće mu leđa, kao da mu je već rekla ne. Vato ga je naslikao nekoliko godina pre nego što je umro od tuberkuloze, sa 36 godina.",
+        "artiste": "Antoan Vato"
+      },
+      "hr": {
+        "titre": "Mezzetin",
+        "texte": "pjeva iz sveg srca ženi koju nikad ne vidimo. Iza njega kameni kip žene okreće mu leđa, kao da mu je već rekla ne. Watteau ga je naslikao nekoliko godina prije nego što je umro od tuberkuloze, u 36. godini.",
+        "artiste": "Antoine Watteau"
+      },
+      "lv": {
+        "titre": "Mezzetin",
+        "texte": "no visas sirds dzied sievietei, kuru mēs nekad neredzam. Aiz viņa akmens sievietes statuja pagriež muguru, it kā jau būtu atteikusi. Vato to uzgleznoja dažus gadus pirms nāves no tuberkulozes 36 gadu vecumā.",
+        "artiste": "Antuāns Vato"
+      },
+      "ro": {
+        "titre": "Mezzetin",
+        "texte": "cântă din tot sufletul pentru o femeie pe care n-o vedem niciodată. În spatele lui, statuia de piatră a unei femei îi întoarce spatele, de parcă i-ar fi spus deja nu. Watteau l-a pictat cu câțiva ani înainte să moară de tuberculoză, la 36 de ani.",
+        "artiste": "Antoine Watteau"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/en-bateau.jpg",
+      "en": {
+        "titre": "Boating",
+        "texte": "was painted in the summer of 1874 at Argenteuil, where Manet was working beside Monet. The man at the tiller is his brother-in-law, Rodolphe Leenhoff. I only noticed that the boat is cut off at the edge like a snapshot because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Édouard Manet"
+      },
+      "fr": {
+        "titre": "En bateau",
+        "texte": "a été peint à l'été 1874 à Argenteuil, où Manet travaillait aux côtés de Monet. L'homme à la barre est son beau-frère, Rodolphe Leenhoff. C'est grâce à Artura, qui zoome sur les détails qu'on raterait, que j'ai remarqué la barque coupée au bord, comme un instantané.",
+        "artiste": "Édouard Manet"
+      },
+      "es-419": {
+        "titre": "En barca",
+        "texte": "fue pintado en el verano de 1874 en Argenteuil, donde Manet trabajaba junto a Monet. El hombre del timón es su cuñado, Rodolphe Leenhoff. Solo noté que la barca está cortada en el borde, como una instantánea, gracias a Artura, que hace zoom en los detalles que se te escaparían.",
+        "artiste": "Édouard Manet"
+      },
+      "it": {
+        "titre": "In barca",
+        "texte": "fu dipinto nell'estate del 1874 ad Argenteuil, dove Manet lavorava accanto a Monet. L'uomo al timone è suo cognato, Rodolphe Leenhoff. Ho notato che la barca è tagliata sul bordo, come un'istantanea, solo grazie ad Artura, che zooma sui dettagli che ti sfuggirebbero.",
+        "artiste": "Édouard Manet"
+      },
+      "el": {
+        "titre": "Βαρκάδα",
+        "texte": "ζωγραφίστηκε το καλοκαίρι του 1874 στην Αρζαντέιγ, όπου ο Μανέ δούλευε δίπλα στον Μονέ. Ο άντρας στο τιμόνι είναι ο κουνιάδος του, Ροντόλφ Λένχοφ. Πρόσεξα ότι η βάρκα κόβεται στην άκρη σαν στιγμιότυπο μόνο χάρη στην Artura, που κάνει ζουμ στις λεπτομέρειες που θα σου ξέφευγαν.",
+        "artiste": "Εντουάρ Μανέ"
+      },
+      "hu": {
+        "titre": "Csónakázás",
+        "texte": "1874 nyarán készült Argenteuil-ben, ahol Manet Monet mellett dolgozott. A kormánynál ülő férfi a sógora, Rodolphe Leenhoff. Csak az Artura app miatt vettem észre, hogy a csónakot elvágja a kép széle, mint egy pillanatfelvételt: ráközelít a részletekre, amelyek elkerülnék a figyelmedet.",
+        "artiste": "Édouard Manet"
+      },
+      "sr": {
+        "titre": "Vožnja čamcem",
+        "texte": "naslikana je u leto 1874. u Aržanteju, gde je Mane radio uz Monea. Čovek za kormilom je njegov šurak, Rodolf Lenhof. Tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi propustio, primetila sam da je čamac odsečen na ivici, kao snimak.",
+        "artiste": "Edvar Mane"
+      },
+      "hr": {
+        "titre": "Vožnja čamcem",
+        "texte": "naslikana je u ljeto 1874. u Argenteuilu, gdje je Manet radio uz Moneta. Čovjek za kormilom njegov je šogor, Rodolphe Leenhoff. Tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi propustio, primijetila sam da je čamac odrezan na rubu, kao snimak.",
+        "artiste": "Édouard Manet"
+      },
+      "lv": {
+        "titre": "Laivā",
+        "texte": "tapusi 1874. gada vasarā Aržantejā, kur Manē strādāja blakus Monē. Vīrietis pie stūres ir viņa svainis Rodolfs Lēnhofs. Tikai pateicoties lietotnei Artura, kas pietuvina detaļas, kuras tu palaistu garām, pamanīju, ka laiva pie malas ir nogriezta kā momentuzņēmumā.",
+        "artiste": "Eduārs Manē"
+      },
+      "ro": {
+        "titre": "Plimbare cu barca",
+        "texte": "a fost pictat în vara lui 1874 la Argenteuil, unde Manet lucra alături de Monet. Bărbatul de la cârmă este cumnatul său, Rodolphe Leenhoff. Am observat că barca e tăiată la margine, ca un instantaneu, doar datorită aplicației Artura, care face zoom pe detaliile pe care le-ai rata.",
+        "artiste": "Édouard Manet"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/jo-irlandaise.jpg",
+      "en": {
+        "titre": "Jo, the Beautiful Irishwoman",
+        "texte": "is Joanna Hiffernan, the Irish model and companion of Courbet's friend Whistler. Courbet painted her at Trouville in 1865, gazing at herself in a mirror as she holds her red hair. He made four versions of it.",
+        "artiste": "Gustave Courbet"
+      },
+      "fr": {
+        "titre": "Jo, la belle Irlandaise",
+        "texte": "est Joanna Hiffernan, le modèle irlandais et la compagne de Whistler, l'ami de Courbet. Courbet l'a peinte à Trouville en 1865, se regardant dans un miroir en tenant ses cheveux roux. Il en a fait quatre versions.",
+        "artiste": "Gustave Courbet"
+      },
+      "es-419": {
+        "titre": "Jo, la bella irlandesa",
+        "texte": "es Joanna Hiffernan, la modelo irlandesa y compañera de Whistler, amigo de Courbet. Courbet la pintó en Trouville en 1865, mirándose en un espejo mientras sostiene su cabello rojo. Hizo cuatro versiones.",
+        "artiste": "Gustave Courbet"
+      },
+      "it": {
+        "titre": "Jo, la bella irlandese",
+        "texte": "è Joanna Hiffernan, la modella irlandese e compagna di Whistler, amico di Courbet. Courbet la dipinse a Trouville nel 1865, mentre si guarda allo specchio tenendo i capelli rossi. Ne fece quattro versioni.",
+        "artiste": "Gustave Courbet"
+      },
+      "el": {
+        "titre": "Τζο, η όμορφη Ιρλανδή",
+        "texte": "είναι η Τζοάνα Χίφερναν, το ιρλανδικό μοντέλο και σύντροφος του Γουίσλερ, φίλου του Κουρμπέ. Ο Κουρμπέ τη ζωγράφισε στο Τρουβίλ το 1865, να κοιτάζεται στον καθρέφτη κρατώντας τα κόκκινα μαλλιά της. Έκανε τέσσερις εκδοχές του.",
+        "artiste": "Γκυστάβ Κουρμπέ"
+      },
+      "hu": {
+        "titre": "Jo, a szép ír nő",
+        "texte": "nem más, mint Joanna Hiffernan, ír modell, Courbet barátjának, Whistlernek a társa. Courbet 1865-ben Trouville-ban festette meg, ahogy tükörben nézi magát, és vörös haját fogja. Négy változatot készített róla.",
+        "artiste": "Gustave Courbet"
+      },
+      "sr": {
+        "titre": "Džo, lepa Irkinja",
+        "texte": "je Džoana Hifernan, irski model i partnerka Kurbeovog prijatelja Vislera. Kurbe ju je naslikao u Truvilu 1865. godine, kako se ogleda u ogledalu držeći svoju riđu kosu. Napravio je četiri verzije.",
+        "artiste": "Gistav Kurbe"
+      },
+      "hr": {
+        "titre": "Jo, lijepa Irkinja",
+        "texte": "je Joanna Hiffernan, irski model i družica Courbetova prijatelja Whistlera. Courbet ju je naslikao u Trouvilleu 1865., kako se gleda u zrcalo držeći svoju riđu kosu. Napravio je četiri verzije.",
+        "artiste": "Gustave Courbet"
+      },
+      "lv": {
+        "titre": "Džo, skaistā īriete",
+        "texte": "ir Džoanna Hifernana, īru modele un Kurbē drauga Vistlera dzīvesbiedre. Kurbē viņu uzgleznoja Truvilā 1865. gadā, kamēr viņa skatās spogulī, turot savus sarkanos matus. Viņš radīja četras versijas.",
+        "artiste": "Gustavs Kurbē"
+      },
+      "ro": {
+        "titre": "Jo, frumoasa irlandeză",
+        "texte": "este Joanna Hiffernan, modelul irlandez și partenera lui Whistler, prietenul lui Courbet. Courbet a pictat-o la Trouville în 1865, privindu-se în oglindă și ținându-și părul roșcat. A făcut patru versiuni.",
+        "artiste": "Gustave Courbet"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/lettre-amour.jpg",
+      "en": {
+        "titre": "The Love Letter",
+        "texte": "turns to us as if we had caught her reading. The name on the letter, Cuvillier, has led historians to think she may be Boucher's daughter, who married a man of that name in 1773. Fragonard had been Boucher's pupil.",
+        "artiste": "Jean-Honoré Fragonard"
+      },
+      "fr": {
+        "titre": "La Lettre d'amour",
+        "texte": "montre une jeune femme qui se tourne vers nous comme si on l'avait surprise en train de lire. Le nom sur la lettre, Cuvillier, laisse penser qu'elle pourrait être la fille de Boucher, mariée à un homme de ce nom en 1773. Fragonard avait été l'élève de Boucher.",
+        "artiste": "Jean-Honoré Fragonard"
+      },
+      "es-419": {
+        "titre": "La carta de amor",
+        "texte": "muestra a una joven que se vuelve hacia nosotros como si la hubiéramos sorprendido leyendo. El nombre en la carta, Cuvillier, hace pensar a los historiadores que podría ser la hija de Boucher, que se casó con un hombre de ese apellido en 1773. Fragonard había sido alumno de Boucher.",
+        "artiste": "Jean-Honoré Fragonard"
+      },
+      "it": {
+        "titre": "La lettera d'amore",
+        "texte": "mostra una giovane donna che si volta verso di noi come se l'avessimo sorpresa a leggere. Il nome sulla lettera, Cuvillier, fa pensare agli storici che possa essere la figlia di Boucher, che sposò un uomo con quel cognome nel 1773. Fragonard era stato allievo di Boucher.",
+        "artiste": "Jean-Honoré Fragonard"
+      },
+      "el": {
+        "titre": "Το ερωτικό γράμμα",
+        "texte": "δείχνει μια νεαρή γυναίκα που γυρίζει προς εμάς σαν να την πιάσαμε να διαβάζει. Το όνομα στο γράμμα, «Cuvillier», κάνει τους ιστορικούς να πιστεύουν ότι ίσως είναι η κόρη του Μπουσέ, που παντρεύτηκε έναν άντρα με αυτό το όνομα το 1773. Ο Φραγκονάρ υπήρξε μαθητής του Μπουσέ.",
+        "artiste": "Ζαν-Ονορέ Φραγκονάρ"
+      },
+      "hu": {
+        "titre": "A szerelmes levél",
+        "texte": "egy fiatal nőt mutat, aki felénk fordul, mintha rajtakaptuk volna olvasás közben. A levélen álló név, „Cuvillier” alapján a történészek úgy vélik, Boucher lánya lehet, aki 1773-ban egy ilyen nevű férfihoz ment feleségül. Fragonard Boucher tanítványa volt.",
+        "artiste": "Jean-Honoré Fragonard"
+      },
+      "sr": {
+        "titre": "Ljubavno pismo",
+        "texte": "prikazuje mladu ženu koja se okreće ka nama kao da smo je zatekli dok čita. Ime na pismu, „Cuvillier”, navodi istoričare da misle da je to možda Bušeova ćerka, koja se 1773. udala za čoveka tog prezimena. Fragonar je bio Bušeov učenik.",
+        "artiste": "Žan-Onore Fragonar"
+      },
+      "hr": {
+        "titre": "Ljubavno pismo",
+        "texte": "prikazuje mladu ženu koja se okreće prema nama kao da smo je zatekli dok čita. Ime na pismu, „Cuvillier”, navodi povjesničare na misao da je možda riječ o Boucherovoj kćeri, koja se 1773. udala za muškarca tog prezimena. Fragonard je bio Boucherov učenik.",
+        "artiste": "Jean-Honoré Fragonard"
+      },
+      "lv": {
+        "titre": "Mīlestības vēstule",
+        "texte": "attēlo jaunu sievieti, kas pagriežas pret mums, it kā mēs būtu viņu pārsteiguši lasām. Vārds uz vēstules, „Cuvillier”, liek vēsturniekiem domāt, ka tā varētu būt Bušē meita, kura 1773. gadā apprecējās ar vīrieti ar šo uzvārdu. Fragonārs bija Bušē skolnieks.",
+        "artiste": "Žans Onorē Fragonārs"
+      },
+      "ro": {
+        "titre": "Scrisoarea de dragoste",
+        "texte": "arată o tânără care se întoarce spre noi de parcă am fi surprins-o citind. Numele de pe scrisoare, „Cuvillier”, îi face pe istorici să creadă că ar putea fi fiica lui Boucher, care s-a căsătorit în 1773 cu un bărbat cu acest nume. Fragonard fusese elevul lui Boucher.",
+        "artiste": "Jean-Honoré Fragonard"
+      }
+    }
+  ]
+}

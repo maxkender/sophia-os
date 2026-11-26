@@ -1,0 +1,325 @@
+{
+  "id": "md-007",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings With Secrets Hidden In Plain Sight",
+    "fr": "Des tableaux aux secrets cachés sous nos yeux",
+    "es-419": "Pinturas con secretos escondidos a simple vista",
+    "it": "Quadri con segreti nascosti in bella vista",
+    "el": "Πίνακες με μυστικά κρυμμένα σε κοινή θέα",
+    "hu": "Festmények rejtett titkokkal",
+    "sr": "Slike sa skrivenim tajnama",
+    "hr": "Slike sa skrivenim tajnama",
+    "lv": "Gleznas ar noslēpumiem acu priekšā",
+    "ro": "Tablouri cu secrete ascunse la vedere"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #vermeer #caravaggio #museum",
+    "fr": "#histoiredelart #peinture #vermeer #caravage #musee",
+    "es-419": "#historiadelarte #pintura #vermeer #caravaggio #museo",
+    "it": "#storiadellarte #pittura #vermeer #caravaggio #museo",
+    "el": "#ιστορίατέχνης #ζωγραφική #vermeer #caravaggio #μουσείο",
+    "hu": "#művészettörténet #festészet #vermeer #caravaggio #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #vermeer #karavađo #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #vermeer #caravaggio #muzej",
+    "lv": "#mākslasvēsture #glezniecība #vermeer #caravaggio #muzejs",
+    "ro": "#istoriaartei #pictura #vermeer #caravaggio #muzeu"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/orfevre.jpg": {
+      "musee": "The Met",
+      "id": "459052",
+      "titre": "A Goldsmith in his Shop",
+      "artiste": "Petrus Christus",
+      "date": "1449",
+      "url": "https://www.metmuseum.org/art/collection/search/459052"
+    },
+    "images/oeuvres/bronzino-jeune-homme.jpg": {
+      "musee": "The Met",
+      "id": "435802",
+      "titre": "Portrait of a Young Man",
+      "artiste": "Bronzino (Agnolo di Cosimo di Mariano)",
+      "date": "1530s",
+      "url": "https://www.metmuseum.org/art/collection/search/435802"
+    },
+    "images/oeuvres/allegorie-foi.jpg": {
+      "musee": "The Met",
+      "id": "437877",
+      "titre": "Allegory of the Catholic Faith",
+      "artiste": "Johannes Vermeer",
+      "date": "ca. 1670–72",
+      "url": "https://www.metmuseum.org/art/collection/search/437877"
+    },
+    "images/oeuvres/musiciens.jpg": {
+      "musee": "The Met",
+      "id": "435844",
+      "titre": "The Musicians",
+      "artiste": "Caravaggio (Michelangelo Merisi)",
+      "date": "1597",
+      "url": "https://www.metmuseum.org/art/collection/search/435844"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Un orfèvre dans sa boutique (Petrus Christus) : signé et daté 1449 ; le miroir convexe du comptoir montre la rue et deux hommes, l'un avec un faucon (notice du Met, coll. Lehman). Bronzino, Portrait d'un jeune homme, années 1530, Florence : masques grotesques sculptés sur le pied de table et l'accoudoir ; modèle non identifié. Vermeer, Allégorie de la foi catholique (vers 1670-72) : iconographie tirée de l'Iconologia de Cesare Ripa (trad. néerlandaise 1644) : pomme croquée, serpent écrasé par la pierre angulaire, globe sous le pied ; la sphère de verre suspendue reflète la pièce ; Vermeer catholique converti à son mariage. Caravage, Les Musiciens (vers 1597), pour le cardinal Francesco Maria del Monte ; l'enfant ailé aux raisins = Cupidon ; le jeune homme au cornet souvent vu comme un autoportrait. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-loupe.jpg",
+      "en": {
+        "titre": "Paintings With Secrets Hidden In Plain Sight"
+      },
+      "fr": {
+        "titre": "Des tableaux aux secrets cachés sous nos yeux"
+      },
+      "es-419": {
+        "titre": "Pinturas con secretos escondidos a simple vista"
+      },
+      "it": {
+        "titre": "Quadri con segreti nascosti in bella vista"
+      },
+      "el": {
+        "titre": "Πίνακες με μυστικά κρυμμένα σε κοινή θέα"
+      },
+      "hu": {
+        "titre": "Festmények rejtett titkokkal"
+      },
+      "sr": {
+        "titre": "Slike sa skrivenim tajnama"
+      },
+      "hr": {
+        "titre": "Slike sa skrivenim tajnama"
+      },
+      "lv": {
+        "titre": "Gleznas ar noslēpumiem acu priekšā"
+      },
+      "ro": {
+        "titre": "Tablouri cu secrete ascunse la vedere"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/orfevre.jpg",
+      "en": {
+        "titre": "A Goldsmith in His Shop",
+        "texte": "looks like a couple choosing a wedding ring. But the round mirror on the counter shows the street outside, where two men are standing, one with a falcon on his wrist. Petrus Christus signed and dated it in 1449.",
+        "artiste": "Petrus Christus"
+      },
+      "fr": {
+        "titre": "Un orfèvre dans sa boutique",
+        "texte": "semble montrer un couple qui choisit une alliance. Mais le miroir rond posé sur le comptoir montre la rue, où deux hommes attendent, l'un avec un faucon au poing. Petrus Christus l'a signé et daté en 1449.",
+        "artiste": "Petrus Christus"
+      },
+      "es-419": {
+        "titre": "Un orfebre en su taller",
+        "texte": "parece una pareja eligiendo un anillo de bodas. Pero el espejo redondo del mostrador refleja la calle, donde hay dos hombres de pie, uno con un halcón en la muñeca. Petrus Christus la firmó y fechó en 1449.",
+        "artiste": "Petrus Christus"
+      },
+      "it": {
+        "titre": "Un orafo nella sua bottega",
+        "texte": "sembra una coppia che sceglie un anello nuziale. Ma lo specchio rotondo sul bancone riflette la strada, dove ci sono due uomini in piedi, uno con un falco sul polso. Petrus Christus lo firmò e datò nel 1449.",
+        "artiste": "Petrus Christus"
+      },
+      "el": {
+        "titre": "Ένας χρυσοχόος στο εργαστήριό του",
+        "texte": "μοιάζει με ένα ζευγάρι που διαλέγει βέρα. Όμως ο στρογγυλός καθρέφτης στον πάγκο δείχνει τον δρόμο έξω, όπου στέκονται δύο άντρες, ο ένας με ένα γεράκι στον καρπό. Ο Πέτρους Κρίστους τον υπέγραψε και τον χρονολόγησε το 1449.",
+        "artiste": "Πέτρους Κρίστους"
+      },
+      "hu": {
+        "titre": "Ötvös a műhelyében",
+        "texte": "első ránézésre egy jegyespár, akik jegygyűrűt választanak. Csakhogy a pulton álló kerek tükör az utcát mutatja, ahol két férfi áll, egyikük csuklóján sólyom. Petrus Christus 1449-ben szignálta és datálta.",
+        "artiste": "Petrus Christus"
+      },
+      "sr": {
+        "titre": "Zlatar u svojoj radionici",
+        "texte": "izgleda kao par koji bira venčani prsten. Ali okruglo ogledalo na pultu pokazuje ulicu napolju, gde stoje dvojica muškaraca, jedan sa sokolom na zglobu. Petrus Kristus ju je potpisao i datirao 1449.",
+        "artiste": "Petrus Kristus"
+      },
+      "hr": {
+        "titre": "Zlatar u svojoj radionici",
+        "texte": "izgleda kao par koji bira vjenčani prsten. No okruglo zrcalo na pultu pokazuje ulicu vani, gdje stoje dvojica muškaraca, jedan sa sokolom na zapešću. Petrus Christus potpisao ju je i datirao 1449.",
+        "artiste": "Petrus Christus"
+      },
+      "lv": {
+        "titre": "Zeltkalis savā darbnīcā",
+        "texte": "šķiet, rāda pāri, kas izvēlas laulības gredzenu. Taču apaļais spogulis uz letes atspoguļo ielu, kur stāv divi vīri, vienam uz plaukstas locītavas ir piekūns. Petrus Kristuss to parakstīja un datēja 1449. gadā.",
+        "artiste": "Petrus Kristuss"
+      },
+      "ro": {
+        "titre": "Un aurar în atelierul său",
+        "texte": "pare un cuplu care își alege verigheta. Dar oglinda rotundă de pe tejghea arată strada de afară, unde stau doi bărbați, unul cu un șoim pe încheietură. Petrus Christus l-a semnat și datat în 1449.",
+        "artiste": "Petrus Christus"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/bronzino-jeune-homme.jpg",
+      "en": {
+        "titre": "Portrait of a Young Man",
+        "texte": "hides faces where you least expect them: the table leg and the arm of the chair are carved into grotesque masks. Nobody knows who the young man was. Bronzino painted him in Florence in the 1530s.",
+        "artiste": "Bronzino"
+      },
+      "fr": {
+        "titre": "Portrait d'un jeune homme",
+        "texte": "cache des visages là où on ne les attend pas : le pied de la table et l'accoudoir du fauteuil sont sculptés en masques grotesques. Personne ne sait qui était ce jeune homme. Bronzino l'a peint à Florence dans les années 1530.",
+        "artiste": "Bronzino"
+      },
+      "es-419": {
+        "titre": "Retrato de un joven",
+        "texte": "esconde rostros donde menos te lo esperas: la pata de la mesa y el brazo de la silla están tallados como máscaras grotescas. Nadie sabe quién era el joven. Bronzino lo pintó en Florencia en la década de 1530.",
+        "artiste": "Bronzino"
+      },
+      "it": {
+        "titre": "Ritratto di giovane uomo",
+        "texte": "nasconde volti dove meno te li aspetti: la gamba del tavolo e il bracciolo della sedia sono scolpiti a forma di maschere grottesche. Nessuno sa chi fosse il giovane. Bronzino lo dipinse a Firenze negli anni Trenta del Cinquecento.",
+        "artiste": "Bronzino"
+      },
+      "el": {
+        "titre": "Πορτρέτο νεαρού άνδρα",
+        "texte": "κρύβει πρόσωπα εκεί που δεν τα περιμένεις: το πόδι του τραπεζιού και το μπράτσο της καρέκλας είναι σκαλισμένα σε γκροτέσκες μάσκες. Κανείς δεν ξέρει ποιος ήταν ο νεαρός. Ο Μπροντζίνο τον ζωγράφισε στη Φλωρεντία τη δεκαετία του 1530.",
+        "artiste": "Μπροντζίνο"
+      },
+      "hu": {
+        "titre": "Egy fiatalember portréja",
+        "texte": "arcokat rejt ott, ahol a legkevésbé várnád: az asztal lába és a szék karfája groteszk maszkokká van faragva. Senki sem tudja, ki volt a fiatalember. Bronzino Firenzében festette az 1530-as években.",
+        "artiste": "Bronzino"
+      },
+      "sr": {
+        "titre": "Portret mladića",
+        "texte": "krije lica tamo gde ih najmanje očekuješ: noga stola i naslon stolice izrezbareni su u groteskne maske. Niko ne zna ko je bio taj mladić. Bronzino ga je naslikao u Firenci tridesetih godina 16. veka.",
+        "artiste": "Bronzino"
+      },
+      "hr": {
+        "titre": "Portret mladića",
+        "texte": "skriva lica ondje gdje ih najmanje očekuješ: noga stola i naslon stolca izrezbareni su u groteskne maske. Nitko ne zna tko je bio taj mladić. Bronzino ga je naslikao u Firenci tridesetih godina 16. stoljeća.",
+        "artiste": "Bronzino"
+      },
+      "lv": {
+        "titre": "Jauna vīrieša portrets",
+        "texte": "slēpj sejas tur, kur tās vismazāk gaidi: galda kāja un krēsla roku balsts ir izgriezti kā groteskas maskas. Neviens nezina, kas bija šis jaunietis. Bronzino viņu gleznoja Florencē 16. gadsimta 30. gados.",
+        "artiste": "Bronzino"
+      },
+      "ro": {
+        "titre": "Portretul unui tânăr",
+        "texte": "ascunde chipuri acolo unde nu te aștepți: piciorul mesei și brațul scaunului sunt sculptate în măști grotești. Nimeni nu știe cine era tânărul. Bronzino l-a pictat la Florența, în anii 1530.",
+        "artiste": "Bronzino"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/allegorie-foi.jpg",
+      "en": {
+        "titre": "Allegory of the Catholic Faith",
+        "texte": "is packed with symbols Vermeer took from Cesare Ripa's book of emblems: a bitten apple, a snake crushed by a stone, the globe under her foot. I learned to see the whole room reflected in the glass ball above her on Artura, one artwork a day with its story.",
+        "artiste": "Johannes Vermeer"
+      },
+      "fr": {
+        "titre": "Allégorie de la foi catholique",
+        "texte": "est remplie de symboles que Vermeer a pris dans le livre d'emblèmes de Cesare Ripa : une pomme croquée, un serpent écrasé par une pierre, le globe sous son pied. J'ai appris à voir toute la pièce reflétée dans la boule de verre au-dessus d'elle sur Artura, une œuvre par jour avec son histoire.",
+        "artiste": "Johannes Vermeer"
+      },
+      "es-419": {
+        "titre": "Alegoría de la fe católica",
+        "texte": "está llena de símbolos que Vermeer tomó del libro de emblemas de Cesare Ripa: una manzana mordida, una serpiente aplastada por una piedra, el globo bajo su pie. Aprendí a ver toda la habitación reflejada en la esfera de vidrio sobre ella en Artura, una obra al día con su historia.",
+        "artiste": "Johannes Vermeer"
+      },
+      "it": {
+        "titre": "Allegoria della fede cattolica",
+        "texte": "è piena di simboli che Vermeer prese dal libro di emblemi di Cesare Ripa: una mela morsa, un serpente schiacciato da una pietra, il globo sotto il suo piede. Ho imparato a vedere tutta la stanza riflessa nella sfera di vetro sopra di lei su Artura, un'opera al giorno con la sua storia.",
+        "artiste": "Johannes Vermeer"
+      },
+      "el": {
+        "titre": "Αλληγορία της καθολικής πίστης",
+        "texte": "είναι γεμάτη σύμβολα που ο Βερμέερ πήρε από το βιβλίο εμβλημάτων του Τσέζαρε Ρίπα: ένα δαγκωμένο μήλο, ένα φίδι λιωμένο κάτω από μια πέτρα, την υδρόγειο κάτω από το πόδι της. Έμαθα να βλέπω όλο το δωμάτιο να καθρεφτίζεται στη γυάλινη σφαίρα πάνω της στο Artura, ένα έργο τη μέρα με την ιστορία του.",
+        "artiste": "Γιοχάνες Βερμέερ"
+      },
+      "hu": {
+        "titre": "A katolikus hit allegóriája",
+        "texte": "tele van szimbólumokkal, amelyeket Vermeer Cesare Ripa emblémáskönyvéből vett: egy megharapott alma, egy kővel szétzúzott kígyó, a földgömb a lába alatt. Az Artura appban tanultam meg észrevenni, hogy a fölötte lógó üveggömbben az egész szoba tükröződik: minden nap egy műalkotás a történetével.",
+        "artiste": "Johannes Vermeer"
+      },
+      "sr": {
+        "titre": "Alegorija katoličke vere",
+        "texte": "je puna simbola koje je Vermer preuzeo iz knjige amblema Čezarea Ripe: zagrizena jabuka, zmija zgnječena kamenom, globus pod njenom nogom. U aplikaciji Artura naučila sam da vidim celu sobu kako se ogleda u staklenoj kugli iznad nje, jedno delo dnevno sa njegovom pričom.",
+        "artiste": "Johanes Vermer"
+      },
+      "hr": {
+        "titre": "Alegorija katoličke vjere",
+        "texte": "puna je simbola koje je Vermeer preuzeo iz knjige amblema Cesarea Ripe: zagrizena jabuka, zmija zgnječena kamenom, globus pod njezinom nogom. U aplikaciji Artura naučila sam vidjeti cijelu sobu kako se zrcali u staklenoj kugli iznad nje, jedno djelo dnevno s njegovom pričom.",
+        "artiste": "Johannes Vermeer"
+      },
+      "lv": {
+        "titre": "Katoliskās ticības alegorija",
+        "texte": "ir pilna ar simboliem, ko Vermērs aizguva no Čezāres Ripas emblēmu grāmatas: iekosts ābols, akmens saspiesta čūska, globuss zem viņas kājas. Lietotnē Artura iemācījos saskatīt visu istabu, kas atspoguļojas stikla lodē virs viņas: viens mākslas darbs dienā ar savu stāstu.",
+        "artiste": "Johanness Vermērs"
+      },
+      "ro": {
+        "titre": "Alegoria credinței catolice",
+        "texte": "e plină de simboluri pe care Vermeer le-a luat din cartea de embleme a lui Cesare Ripa: un măr mușcat, un șarpe strivit de o piatră, globul de sub piciorul ei. Am învățat să văd toată camera oglindită în sfera de sticlă de deasupra ei pe Artura, o operă pe zi cu povestea ei.",
+        "artiste": "Johannes Vermeer"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/musiciens.jpg",
+      "en": {
+        "titre": "The Musicians",
+        "texte": "has a stranger in the band: the boy with the grapes on the left has wings, so he is Cupid. The young man behind, looking straight at us, is often thought to be Caravaggio himself. He painted it around 1597 for Cardinal del Monte.",
+        "artiste": "Caravaggio"
+      },
+      "fr": {
+        "titre": "Les Musiciens",
+        "texte": "cache un intrus dans le groupe : l'enfant aux raisins, à gauche, a des ailes, c'est Cupidon. Le jeune homme du fond, qui nous regarde droit dans les yeux, serait le Caravage lui-même. Il l'a peint vers 1597 pour le cardinal del Monte.",
+        "artiste": "Le Caravage"
+      },
+      "es-419": {
+        "titre": "Los músicos",
+        "texte": "tiene un extraño en la banda: el niño de las uvas, a la izquierda, tiene alas, así que es Cupido. El joven del fondo, que nos mira de frente, suele considerarse el propio Caravaggio. La pintó hacia 1597 para el cardenal del Monte.",
+        "artiste": "Caravaggio"
+      },
+      "it": {
+        "titre": "I musici",
+        "texte": "ha un intruso nel gruppo: il bambino con l'uva, a sinistra, ha le ali, quindi è Cupido. Il giovane dietro, che ci guarda dritto negli occhi, è spesso ritenuto lo stesso Caravaggio. Lo dipinse intorno al 1597 per il cardinale del Monte.",
+        "artiste": "Caravaggio"
+      },
+      "el": {
+        "titre": "Οι μουσικοί",
+        "texte": "έχουν έναν ξένο στην παρέα: το αγόρι με τα σταφύλια, αριστερά, έχει φτερά, άρα είναι ο Έρωτας. Ο νεαρός πίσω, που μας κοιτάζει κατάματα, θεωρείται συχνά ο ίδιος ο Καραβάτζο. Τον ζωγράφισε γύρω στο 1597 για τον καρδινάλιο ντελ Μόντε.",
+        "artiste": "Καραβάτζο"
+      },
+      "hu": {
+        "titre": "A zenészek",
+        "texte": "között van egy idegen: a bal oldali, szőlőt tartó fiúnak szárnya van, tehát ő Ámor. A hátul álló fiatalembert, aki egyenesen ránk néz, gyakran magának Caravaggiónak tartják. 1597 körül festette del Monte bíboros számára.",
+        "artiste": "Caravaggio"
+      },
+      "sr": {
+        "titre": "Muzičari",
+        "texte": "imaju uljeza u društvu: dečak sa grožđem levo ima krila, dakle to je Kupidon. Mladić u pozadini, koji nas gleda pravo u oči, često se smatra samim Karavađom. Naslikao ju je oko 1597. za kardinala del Montea.",
+        "artiste": "Karavađo"
+      },
+      "hr": {
+        "titre": "Glazbenici",
+        "texte": "imaju uljeza u društvu: dječak s grožđem lijevo ima krila, dakle to je Kupid. Mladić u pozadini, koji nas gleda ravno u oči, često se smatra samim Caravaggiom. Naslikao ju je oko 1597. za kardinala del Montea.",
+        "artiste": "Caravaggio"
+      },
+      "lv": {
+        "titre": "Mūziķi",
+        "texte": "slēpj svešinieku: zēnam ar vīnogām pa kreisi ir spārni, tātad tas ir Kupidons. Jaunekli fonā, kurš skatās mums tieši acīs, bieži uzskata par pašu Karavadžo. Viņš to gleznoja ap 1597. gadu kardinālam del Monte.",
+        "artiste": "Karavadžo"
+      },
+      "ro": {
+        "titre": "Muzicienii",
+        "texte": "au un intrus în trupă: băiatul cu struguri din stânga are aripi, deci e Cupidon. Tânărul din spate, care ne privește drept în ochi, e adesea considerat chiar Caravaggio. L-a pictat în jurul anului 1597 pentru cardinalul del Monte.",
+        "artiste": "Caravaggio"
+      }
+    }
+  ]
+}

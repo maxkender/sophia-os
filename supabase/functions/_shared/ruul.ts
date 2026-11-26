@@ -75,6 +75,11 @@ export interface EmailRuul {
   pied?: Partial<PiedEmail>;
   /** Le texte dit déjà où trouver Help (décidé sur le texte anglais, avant la traduction). */
   aideDansTexte?: boolean;
+  /**
+   * 26/11 (Join) : le bouton après ce nombre de paragraphes (la bienvenue le met sous le bloc de connexion, en haut) ;
+   * absent : à la fin, comme avant. La traduction garde le nombre de paragraphes (traductionValide).
+   */
+  boutonApres?: number;
 }
 
 /** 20/11 : le pied de chaque email aux posteurs, en anglais (traduit avec le reste quand le posteur n'est pas anglophone). */
@@ -109,18 +114,26 @@ export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
   const pied = { ...PIED_EN, ...(e.pied ?? {}) };
   const help = e.sansPied || e.aideDansTexte || aideDejaDite(e.corps) ? null : pied.help;
   const arret = e.sansPied ? null : (e.arret ?? lienArret(e.lienStop));
+  // Le bouton : à la fin (par défaut), ou après `boutonApres` paragraphes.
+  const apres = e.boutonApres !== undefined && e.boutonApres >= 0 && e.boutonApres < paragraphes.length ? e.boutonApres : paragraphes.length;
+  const ligneHtml = (p: string) => `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(p).replace(/\n/g, "<br>")}</td></tr>`;
+  const boutonHtml = e.bouton
+    ? `<tr><td style="padding:8px 0 20px"><a href="${echapper(e.bouton.lien)}" style="display:inline-block;background:#18181b;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:8px">${echapper(e.bouton.texte)}</a></td></tr>`
+    : "";
   const html = `<!doctype html><html lang="${echapper(e.langue ?? "en")}"${/^(ar|he)\b/.test(e.langue ?? "") ? ' dir="rtl"' : ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${echapper(e.objet)}</title></head>
 <body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px;padding:28px 24px">
 <tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">${echapper(e.titre ?? "Vik Studios")}</td></tr>
-${paragraphes.map((p) => `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(p).replace(/\n/g, "<br>")}</td></tr>`).join("\n")}
-${e.bouton ? `<tr><td style="padding:8px 0 20px"><a href="${echapper(e.bouton.lien)}" style="display:inline-block;background:#18181b;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:8px">${echapper(e.bouton.texte)}</a></td></tr>` : ""}
+${paragraphes.slice(0, apres).map(ligneHtml).join("\n")}
+${boutonHtml}
+${paragraphes.slice(apres).map(ligneHtml).join("\n")}
 ${help ? `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(help)}</td></tr>` : ""}
 <tr><td style="font-size:15px;line-height:1.4">${echapper(pied.equipe)}</td></tr>
 ${arret ? `<tr><td style="font-size:12px;line-height:1.5;color:#a1a1aa;padding-top:24px;border-top:1px solid #e4e4e7"><a href="${echapper(arret)}" style="color:#a1a1aa">${echapper(pied.arret)}</a></td></tr>` : ""}
 </table></td></tr></table></body></html>`;
-  const texte = [...paragraphes, ...(e.bouton ? [`${e.bouton.texte}: ${e.bouton.lien}`] : []), ...(help ? [help] : []), pied.equipe,
+  const texte = [...paragraphes.slice(0, apres), ...(e.bouton ? [`${e.bouton.texte}: ${e.bouton.lien}`] : []), ...paragraphes.slice(apres),
+    ...(help ? [help] : []), pied.equipe,
     ...(arret ? [`${pied.arret}: ${arret}`] : [])].join("\n\n");
   return { html, texte };
 }

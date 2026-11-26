@@ -83,6 +83,7 @@ import {
   type EtatChecklist,
   etatChecklist,
   type EtatOS,
+  etapesRuul,
   ETAPES_CHECKLIST,
   EVENEMENT_ETAPE,
   type JoinReel,
@@ -122,6 +123,7 @@ import {
   type CompteOS,
   type ProfilTiktokOS,
   profilTiktokOS,
+  premierePaie,
   premierPost,
   relanceCodeDue,
   sha256Hex,
@@ -161,6 +163,8 @@ const HEURE = 3_600_000;
 declare const EdgeRuntime: { waitUntil(p: Promise<unknown>): void } | undefined;
 const SESSION_COURTE_H = 24;
 const SESSION_LONGUE_H = 24 * 30;
+/** 26/11 : les liens « Set my password » que la page Join peut créer en 24 h (bienvenue comprise), par posteur. */
+const LIENS_MDP_JOUR = 6;
 
 const erreur = (message: string, status = 400) => json({ ok: false, error: message }, status);
 
@@ -330,6 +334,8 @@ async function message(
   if (emailAutorise(mode, c.email) || mode.mode === "live") {
     const { objet, html, texte } = await emailDansSaLangue(db, c, {
       objet: m.objet, corps: m.corps, bouton: m.bouton ? { texte: m.bouton, lien } : null, lienStop: JOIN_URL(), sansPied: true,
+      // 26/11 : la bienvenue met son bouton « Set my password » juste sous le bloc de connexion.
+      ...(m.boutonApres !== undefined ? { boutonApres: m.boutonApres } : {}),
     }, [v.login, v.handle, v.ruulEmail].filter((x): x is string => !!x));
     const r = await envoyerEmailSite(c.email, objet, html, texte, JOIN_URL(), ["join", `join-${type}`, mode.mode]);
     await journaliserRelance(db, c, type, "email", r.ok ? "envoye" : "bloque");
@@ -800,6 +806,8 @@ async function rappelsCandidat(
     prenom: c.prenom, lundi: lundiTxt, limite: limiteLisible(ctx.lundi), avantDepart: auj < ctx.lundi,
     // 26/11 : le @ du compte de l'OS seulement (jamais une proposition de Join).
     handle: (os?.handle ?? "").replace(/^@/, "") || null, ruulEmail: os?.ruul_email ?? ctx.ruulEmail,
+    // 26/11 : l'identifiant de l'OS dans le rappel « se connecter au dashboard ».
+    login: c.email_os ?? null,
   });
   const detail = { jour: auj, objet: m.objet, etapes: dus.map((d) => d.etape), ...(o.maintenant ? { horloge: maintenant.toISOString() } : {}) };
   let statutEmail: "simule" | "envoye" | "bloque";
@@ -1564,7 +1572,43 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
         compte_os: !!c.profile_id,
         profil_suggere: profil,
         ruul_visible: c.ruul_visible,
+        // 26/11 (Max) : les infos de connexion au dashboard de l'OS, en clair (jamais de mot de passe : il n'y en a pas).
+        // `lien_mot_de_passe` : le bouton « Set my password » peut être demandé (action mot_de_passe) : fiche créée par
+        // Join, active, jamais connectée.
+        connexion: {
+          dashboard: LIEN_DASHBOARD_OS,
+          login: c.profile_id ? c.email_os ?? null : null,
+          lien_mot_de_passe: !!sig && !faites.dashboard && !!c.profile_id && os?.is_active !== false && await creeParJoin(db, c),
+        },
+        // 26/11 : les sous-étapes Ruul, les mêmes que le bloc « Get paid » du dashboard de l'OS (ruul_etapes).
+        ruul_etapes: c.profile_id && os ? etapesRuul(os) : null,
+        premiere_paie: premier ? premierePaie(premier) : null,
       });
+    }
+
+    case "mot_de_passe": {
+      // 26/11 (Max) : le bouton « Choisir mon mot de passe » de la page Join : le lien personnel « Set my password » de
+      // l'OS (le même que la bienvenue : mot_de_passe_lien_creer, par « join »). L'OS ne garde que l'empreinte du jeton
+      // (un lien déjà envoyé ne peut pas être relu) ; chaque lien sert une fois, vaut 14 jours, et en créer un n'annule
+      // pas les autres. Donc : un lien neuf au clic, seulement pour une fiche créée par Join, active, jamais connectée
+      // (après la première connexion, le dashboard a ses propres outils), au plus LIENS_MDP_JOUR par 24 h.
+      const c = await candidatureDeSession(db, request, b);
+      if (!c) return erreur("session", 401);
+      const { data: sig } = await db.from("join_signatures").select("id").eq("candidature_id", c.id).limit(1).maybeSingle();
+      if (!sig || !c.profile_id || !(await creeParJoin(db, c))) return erreur("not_ready", 409);
+      const os = (await etatsOS(db, [c.profile_id])).get(c.profile_id) ?? null;
+      if (!os || os.is_active === false) return erreur("not_ready", 409);
+      if (os.premiere_connexion_at) return json({ ok: false, error: "already_connected" }, 409);
+      const { count } = await db.from("mot_de_passe_liens").select("id", { count: "exact", head: true })
+        .eq("poster_id", c.profile_id).eq("par", "join").gte("cree_at", new Date(Date.now() - 24 * HEURE).toISOString());
+      if ((count ?? 0) >= LIENS_MDP_JOUR) return erreur("too_many", 429);
+      const { data: jeton, error } = await db.rpc("mot_de_passe_lien_creer", { p_poster: c.profile_id, p_par: "join" });
+      if (error || typeof jeton !== "string" || !jeton) {
+        console.error("join mot_de_passe", error?.message ?? "non créé");
+        return erreur("erreur interne", 500);
+      }
+      await journaliserRelance(db, c, "mot_de_passe", "systeme", "envoye", { quoi: "lien « Set my password » ouvert depuis la page Join" });
+      return json({ ok: true, url: lienMotDePasse(LIEN_DASHBOARD_OS, jeton) });
     }
 
     case "etape": {

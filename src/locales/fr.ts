@@ -28,6 +28,8 @@ export const fr = {
       ruulPretTitre: "Your Ruul account is ready ✅",
       ruulPretTexte: "You'll be paid every Monday.",
       ruulSetupTitre: "Set up Ruul — required to get paid (5 min)",
+      // 26/11 (Max) : avant la première semaine payable (lundi de départ + 7 jours).
+      ruulSetupTitrePlusTard: "Set up Ruul — you can do it later, before your first pay (5 min)",
       ruulSetupBouton: "Open my Ruul setup",
       ruulPasBesoin: "You don't need Ruul to start posting — it's only to get paid.",
       ruulSetupErreur: "We couldn't open your Ruul setup. Please try again in a minute.",
@@ -9833,12 +9835,14 @@ export const fr = {
       quandTitre: "Quand tu es payé·e",
       quand: "Chaque lundi, nous te payons la semaine de posts qui vient de se terminer (lundi → dimanche). Ruul verse ensuite l'argent sur ton compte bancaire, en général sous 1 jour ouvré. Ton montant par semaine est dans ton email d'acceptation.",
       premier: "Ton premier paiement : {{paiement}}, pour ta première semaine de posts ({{lundi}} → {{dimanche}}).",
-      compteTitre: "Ton compte Ruul (une fois, avant ton premier lundi)",
+      compteTitre: "Ton compte Ruul (une fois — tu peux le faire plus tard, avant ta première paie)",
       compteIntro: "Ruul est gratuit pour toi. Sans compte Ruul complet, nous ne pouvons pas te payer.",
-      etape1: "Dans les 24 heures, tu reçois un email d'invitation de Ruul. Crée ton compte DEPUIS cet email, avec l'adresse de ta candidature.",
-      etape1Email: "Dans les 24 heures, tu reçois un email d'invitation de Ruul. Crée ton compte DEPUIS cet email, avec cette adresse : {{email}}.",
+      // 26/11 (Max) : plus d'invitation de Ruul : le lien personnel (API Ruul), par email et sur le dashboard ; l'OS voit
+      // seul quand le compte est prêt (plus de « It's done »).
+      etape1: "Ouvre ton lien Ruul personnel : nous te l'envoyons par email, et il est aussi sur ton dashboard (« Open my Ruul setup »). Crée ton compte avec l'adresse de ta candidature.",
+      etape1Email: "Ouvre ton lien Ruul personnel : nous te l'envoyons par email, et il est aussi sur ton dashboard (« Open my Ruul setup »). Crée ton compte avec cette adresse : {{email}}.",
       etape2: "Vérifie ton identité (pièce d'identité et selfie, environ 10 minutes).",
-      etape3: "Ajoute ton compte bancaire, puis clique sur It's done dans ton dashboard.",
+      etape3: "Ajoute ton compte bancaire. Nous voyons de notre côté quand ton compte est prêt : rien d'autre à cliquer.",
       memeEmailTitre: "Même adresse email.",
       memeEmail: "Si tu crées ton compte Ruul avec une autre adresse email, nous ne pouvons pas te payer.",
       creerCompte: "Créer mon compte Ruul",

@@ -9,6 +9,11 @@ import { jourMois, limiteAvantLundi, limiteLocale, type T } from "../i18n";
 // lien « Set my password »). L'étape TikTok donne tout le profil à créer : nom d'utilisateur, nom, photo, bio.
 // 26/11 (Max : « les infos sont sur l'OS ») : ce profil est SEULEMENT celui du compte créé par l'OS (le même que sur
 // le dashboard). Tant qu'il n'existe pas, une phrase le dit et renvoie au dashboard : jamais de valeur inventée.
+// 26/11 (Max, après son test) : l'ordre est contrat → se connecter au dashboard → TikTok → warm-up → Slack → premier
+// post → Ruul en DERNIER, avec un encadré rouge « tu peux le faire plus tard, avant ta première paie » et les mêmes
+// sous-étapes que le bloc Ruul du dashboard de l'OS (compte créé → identité vérifiée → banque ajoutée → prêt). L'étape
+// « se connecter » montre en clair l'adresse du dashboard, l'identifiant de l'OS et un bouton « Choose my password »
+// (le lien personnel « Set my password » ; jamais de mot de passe). En haut : « regarde tes emails et ton WhatsApp ».
 
 /** Les liens par défaut (une API plus ancienne ne les renvoie pas). */
 const LIENS_DEFAUT = {
@@ -31,15 +36,87 @@ function Copier({ t, texte }: { t: T; texte: string }) {
   );
 }
 
-function Etape({ titre, fait, note, children }: { titre: string; fait: boolean; note?: string; children?: ReactNode }) {
+function Etape({ titre, fait, note, apresFait, children }: {
+  titre: string; fait: boolean; note?: string; apresFait?: ReactNode; children?: ReactNode;
+}) {
   return (
     <li className={`etape ${fait ? "faite" : ""}`}>
       <div className="etape__tete">
         <span className="coche" aria-hidden="true">{fait ? "✓" : ""}</span>
         <h3 className="h3">{titre}</h3>
       </div>
-      {fait ? note && <p className="discret">{note}</p> : <div className="etape__corps">{children}</div>}
+      {fait
+        ? (note || apresFait) && (
+          <div className="etape__corps">
+            {note && <p className="discret">{note}</p>}
+            {apresFait}
+          </div>
+        )
+        : <div className="etape__corps">{children}</div>}
     </li>
+  );
+}
+
+/** Aujourd'hui à Paris (AAAA-MM-JJ) : la paie suit le calendrier de Paris. */
+function aujourdhuiParis(): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+}
+
+/**
+ * « Choose my password » : demande le lien personnel « Set my password » (créé au clic : l'OS n'en garde que
+ * l'empreinte) et l'ouvre dans un nouvel onglet. L'onglet s'ouvre tout de suite (sinon le téléphone le bloque), puis
+ * reçoit le lien ; en cas d'échec, il se ferme et un message renvoie à l'email de bienvenue.
+ */
+function ChoisirMotDePasse({ t }: { t: T }) {
+  const [enCours, setEnCours] = useState(false);
+  const [echec, setEchec] = useState(false);
+  async function ouvrir() {
+    setEnCours(true);
+    setEchec(false);
+    const onglet = window.open("", "_blank");
+    const r = await appeler<{ url?: string }>("mot_de_passe");
+    setEnCours(false);
+    if (r.ok && typeof r.url === "string" && r.url.startsWith("https://")) {
+      if (onglet) {
+        onglet.opener = null;
+        onglet.location.href = r.url;
+      } else window.location.href = r.url;
+      return;
+    }
+    onglet?.close();
+    setEchec(true);
+  }
+  return (
+    <>
+      <button type="button" className="btn btn--sm btn--plein" disabled={enCours} onClick={() => void ouvrir()}>
+        {t("chk.connexion.choose")}
+      </button>
+      {echec && <p className="erreur" role="alert">{t("chk.connexion.linkError")}</p>}
+    </>
+  );
+}
+
+/** Les sous-étapes Ruul, les mêmes que le bloc Ruul du dashboard de l'OS (lues dans l'OS). */
+function SousEtapesRuul({ t, e }: { t: T; e: NonNullable<Moi["ruul_etapes"]> }) {
+  const attente = !e.identite && !!e.kyc && !["NOT_STARTED", "APPROVED", "REJECTED", "DECLINED"].includes(e.kyc.toUpperCase());
+  const lignes: { cle: string; fait: boolean; texte: string; attente?: boolean }[] = [
+    { cle: "inscrit", fait: e.inscrit, texte: t("chk.ruul.s.inscrit") },
+    { cle: "identite", fait: e.identite, texte: attente ? t("chk.ruul.s.identiteAttente") : t("chk.ruul.s.identite"), attente },
+    { cle: "banque", fait: e.banque, texte: t("chk.ruul.s.banque") },
+    { cle: "pret", fait: e.pret, texte: t("chk.ruul.s.pret") },
+  ];
+  return (
+    <div className="sous-etapes">
+      <p className="discret">{t("chk.ruul.steps")}</p>
+      <ol>
+        {lignes.map((l) => (
+          <li key={l.cle} className={l.fait ? "fait" : l.attente ? "attente" : ""} data-etape={l.cle}>
+            <span aria-hidden="true">{l.fait ? "✓" : l.attente ? "…" : ""}</span>
+            {l.texte}
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }
 
@@ -109,10 +186,15 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
 
   const st = statut("tiktok");
   const lundi = moi.premier_post;
+  const connexion = moi.connexion ?? { dashboard: liens.dashboard, login: null, lien_mot_de_passe: false };
+  // 26/11 : Ruul peut attendre tant que la première paie (lundi de départ + 7 jours) n'est pas arrivée.
+  const plusTard = !moi.premiere_paie || aujourdhuiParis() < moi.premiere_paie;
   return (
     <main className="halo page">
       <div className="wrap etroite" style={{ display: "grid", gap: 16 }}>
       <span className="label">{t("dash.hello", { name: moi.candidature.prenom })}</span>
+      {/* 26/11 (Max : « dis bien regardez vos mails aussi ») */}
+      <p className="regarde-mails" role="note"><span aria-hidden="true">✉️</span>{t("dash.mail")}</p>
       {lundi && (
         <div className="annonce">
           <strong>{t("dash.firstPost", { date: jourMois(lundi, langue) })}</strong>
@@ -127,9 +209,26 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
         <Etape titre={t("chk.contrat.title")} fait={fait("contrat") || !!moi.signature}
           note={moi.signature ? t("chk.contrat.done", { date: jourMois(moi.signature.signe_at.slice(0, 10), langue) }) : undefined} />
 
-        <Etape titre={t("chk.ruul.title")} fait={fait("ruul")}>
-          <p>{t("chk.ruul.body", { email: moi.ruul_email ?? moi.candidature.email })}</p>
-          <Lien href={liens.ruul}>{liens.ruul_personnel ? t("chk.ruul.open") : t("chk.ruul.create")}</Lien>
+        <Etape titre={t("chk.connexion.title")} fait={fait("dashboard")} note={t("chk.connexion.done")}
+          apresFait={<Lien href={connexion.dashboard}>{t("chk.dashboard")}</Lien>}>
+          <p>{t("chk.connexion.body")}</p>
+          <dl className="profil connexion">
+            <div className="profil__ligne">
+              <dt>{t("chk.connexion.address")}</dt>
+              <dd><a href={connexion.dashboard} target="_blank" rel="noopener noreferrer">{connexion.dashboard.replace(/^https:\/\//, "")}</a></dd>
+            </div>
+            {connexion.login && <LigneProfil t={t} libelle={t("chk.connexion.login")} valeur={connexion.login} copier={connexion.login} />}
+            {connexion.login && (
+              <div className="profil__ligne">
+                <dt>{t("chk.connexion.password")}</dt>
+                <dd><span>{t("chk.connexion.noPassword")}</span></dd>
+              </div>
+            )}
+          </dl>
+          {connexion.lien_mot_de_passe
+            ? <ChoisirMotDePasse t={t} />
+            : <p className="discret">{connexion.login ? t("chk.dashboard.login") : t("chk.connexion.notReady")}</p>}
+          <Lien href={connexion.dashboard} discret>{t("chk.dashboard")}</Lien>
         </Etape>
 
         <Etape titre={t("step.tiktok.title")} fait={fait("tiktok")} note={handle ? `@${handle}` : undefined}>
@@ -170,7 +269,6 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
 
         <Etape titre={t("chk.warmup.title")} fait={fait("warmup")}>
           <p>{t("chk.warmup.body")}</p>
-          <p className="discret">{t("chk.dashboard.login")}</p>
           <Lien href={liens.dashboard}>{t("chk.dashboard")}</Lien>
         </Etape>
 
@@ -182,6 +280,18 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
         <Etape titre={t("chk.post.title")} fait={fait("premier_post")}>
           <p>{t("chk.post.body", { date: lundi ? jourMois(lundi, langue) : "—" })}</p>
           <Lien href={liens.dashboard}>{t("chk.dashboard")}</Lien>
+        </Etape>
+
+        {/* 26/11 (Max) : Ruul en dernier, « plus tard, avant ta première paie », en rouge. */}
+        <Etape titre={t("chk.ruul.title")} fait={fait("ruul")} note={t("chk.ruul.done")}
+          apresFait={moi.ruul_etapes ? <SousEtapesRuul t={t} e={moi.ruul_etapes} /> : undefined}>
+          <div className="alerte-rouge" role="note">
+            <p>{plusTard ? t("chk.ruul.later") : t("chk.ruul.required")}</p>
+            {plusTard && moi.premiere_paie && <p><strong>{t("chk.ruul.firstPay", { date: jourMois(moi.premiere_paie, langue) })}</strong></p>}
+          </div>
+          {moi.ruul_etapes && <SousEtapesRuul t={t} e={moi.ruul_etapes} />}
+          <p>{t("chk.ruul.body", { email: moi.ruul_email ?? moi.candidature.email })}</p>
+          <Lien href={liens.ruul}>{liens.ruul_personnel ? t("chk.ruul.open") : t("chk.ruul.create")}</Lien>
         </Etape>
       </ol>
       </div>

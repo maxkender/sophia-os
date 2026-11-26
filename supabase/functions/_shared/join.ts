@@ -576,12 +576,26 @@ export function raisonSimulation(
 // La checklist de la page personnelle (join_etapes) et ses rappels
 // ---------------------------------------------------------------------------------------------------------------
 
-export const ETAPES_CHECKLIST = ["contrat", "ruul", "tiktok", "warmup", "slack", "premier_post"] as const;
+/**
+ * 26/11 (Max, après son test : « le plus important c'est de se connecter, set up tout, puis paiements ») : l'ordre de
+ * la checklist. Se connecter au dashboard de l'OS vient juste après le contrat ; Ruul passe en DERNIER (à faire avant
+ * la première paie, pas avant de commencer).
+ */
+export const ETAPES_CHECKLIST = ["contrat", "dashboard", "tiktok", "warmup", "slack", "premier_post", "ruul"] as const;
 export type EtapeChecklist = (typeof ETAPES_CHECKLIST)[number];
 export type EtatChecklist = Record<EtapeChecklist, boolean>;
 export type EtapeRappel = Exclude<EtapeChecklist, "contrat">;
 
-/** Une ligne de join_etat_os (0858) : ce que l'OS sait du posteur. */
+/** Les sous-étapes Ruul, les mêmes que le bloc « Get paid » du dashboard de l'OS (ruul_etapes, 0799). */
+export interface EtapesRuul {
+  inscrit: boolean;
+  identite: boolean;
+  banque: boolean;
+  pret: boolean;
+  kyc: string | null;
+}
+
+/** Une ligne de join_etat_os (0858, 0864) : ce que l'OS sait du posteur. */
 export interface EtatOS {
   profile_id: string;
   is_active: boolean | null;
@@ -603,28 +617,66 @@ export interface EtatOS {
   desinscrit: boolean | null;
   paie_reportee: boolean | null;
   email_jour: boolean | null;
+  /** 0864 : les statuts Ruul lus par l'API (les mêmes que le dashboard de l'OS), et ses sous-étapes (ruul_etapes). */
+  ruul_statut_api?: string | null;
+  ruul_kyc?: string | null;
+  ruul_banque?: boolean | null;
+  ruul_etapes?: Partial<EtapesRuul> | null;
 }
 
 /**
- * La checklist : une étape est faite quand l'OS la voit faite (Ruul READY, compte TikTok vu / déclaré / warm-up lancé,
- * warm-up lancé, Slack relié, premier post publié), ou quand Join l'a déjà notée faite (« ok » de la vérification du
- * @ TikTok, « fait »). Une étape cochée le reste.
+ * Les sous-étapes Ruul : celles de l'OS (ruul_etapes, la même fonction que le bloc « Get paid » de son dashboard) ;
+ * sans elles (ancienne base), la même règle sur les colonnes : inscrit = statut API autre que NOT_REGISTERED,
+ * identité = KYC APPROVED, banque ajoutée, prêt = READY.
+ */
+export function etapesRuul(os: EtatOS | null): EtapesRuul {
+  const e = os?.ruul_etapes ?? null;
+  const statut = String(os?.ruul_statut_api ?? "NOT_REGISTERED").toUpperCase();
+  const pret = e?.pret ?? (os?.ruul_onboarding === "READY");
+  return {
+    inscrit: (e?.inscrit ?? statut !== "NOT_REGISTERED") || !!pret,
+    identite: (e?.identite ?? String(os?.ruul_kyc ?? "").toUpperCase() === "APPROVED") || !!pret,
+    banque: (e?.banque ?? os?.ruul_banque === true) || !!pret,
+    pret: !!pret || !!os?.ruul_ready_at,
+    kyc: e?.kyc ?? os?.ruul_kyc ?? null,
+  };
+}
+
+/** L'identité est envoyée à Ruul et en cours de vérification (ni approuvée, ni à commencer). */
+export function identiteEnAttente(e: EtapesRuul): boolean {
+  return !e.identite && !!e.kyc && !["NOT_STARTED", "APPROVED", "REJECTED", "DECLINED"].includes(e.kyc.toUpperCase());
+}
+
+/**
+ * La première paie : le lundi qui suit la première semaine (lundi de départ + 7 jours). Avant ce jour, Ruul peut
+ * attendre (« tu peux le faire plus tard, avant ta première paie »).
+ */
+export function premierePaie(lundi: string): string {
+  return ajouterJours(lundi, 7);
+}
+
+/**
+ * La checklist : une étape est faite quand l'OS la voit faite (première connexion au dashboard, Ruul READY, compte
+ * TikTok vu / déclaré / warm-up lancé, warm-up lancé, Slack relié, premier post publié), ou quand Join l'a déjà notée
+ * faite (« ok » de la vérification du @ TikTok, « fait »). Une étape cochée le reste.
  */
 export function etatChecklist(j: { signee: boolean; etapes: { etape: string; statut: string }[] }, os: EtatOS | null): EtatChecklist {
   const notee = (e: string) => j.etapes.some((x) => x.etape === e && (x.statut === "fait" || x.statut === "ok"));
   return {
     contrat: j.signee,
-    ruul: notee("ruul") || (!!os && (os.ruul_onboarding === "READY" || !!os.ruul_ready_at)),
+    // 26/11 : la première connexion vue par l'OS (profiles.premiere_connexion_at, sinon auth.users.last_sign_in_at).
+    dashboard: notee("dashboard") || !!os?.premiere_connexion_at,
     tiktok: notee("tiktok") || os?.tiktok === true || !!os?.warmup_started_at,
     warmup: notee("warmup") || !!os?.warmup_started_at,
     slack: notee("slack") || os?.slack === true,
     premier_post: notee("premier_post") || !!os?.premier_post_at,
+    ruul: notee("ruul") || (!!os && (os.ruul_onboarding === "READY" || !!os.ruul_ready_at)),
   };
 }
 
 /** L'événement du QG noté quand une étape se coche (une fois). */
 export const EVENEMENT_ETAPE: Partial<Record<EtapeChecklist, string>> = {
-  ruul: "ruul_ready", tiktok: "tiktok_ok", warmup: "warmup", slack: "slack", premier_post: "premier_post",
+  dashboard: "dashboard", ruul: "ruul_ready", tiktok: "tiktok_ok", warmup: "warmup", slack: "slack", premier_post: "premier_post",
 };
 
 /** Un rappel dû : `cle` = la ligne de join_relances (`rappel:<étape>:<rang>`), jamais deux fois. */
@@ -637,16 +689,20 @@ export interface RappelDu {
 /** Les rappels Ruul du jeudi après le lundi de départ (Ruul pas READY), au plus. */
 export const RUUL_JEUDIS_MAX = 4;
 
-/** L'ordre des étapes dans un rappel (l'objet de l'email est celui de la première). */
-export const PRIORITE_RAPPELS: readonly EtapeRappel[] = ["premier_post", "tiktok", "warmup", "ruul", "slack"];
+/** L'ordre des étapes dans un rappel (l'objet de l'email est celui de la première). 26/11 : se connecter d'abord. */
+export const PRIORITE_RAPPELS: readonly EtapeRappel[] = ["dashboard", "premier_post", "tiktok", "warmup", "slack", "ruul"];
+
+/** 26/11 (Max) : les étapes rappelées avant le lundi de départ (J+1, J+3, vendredi). Ruul n'en fait plus partie. */
+export const ETAPES_AVANT_DEPART = ["dashboard", "tiktok", "warmup", "slack"] as const;
 
 /**
  * Les rappels dus maintenant pour les étapes pas faites (25/11, Max). Jours du calendrier dans le fuseau du pays.
- *  - Ruul, TikTok, warm-up, Slack : J+1 puis J+3 après la signature (J+1 manquée : J+3 seulement ; rien après J+6),
- *    puis le vendredi (ou samedi, dimanche) avant le lundi de départ — une fois par lundi (un départ reporté par
- *    l'OS en redonne un).
- *  - Ruul, après le départ : le jeudi (4 au plus), sauf paie reportée (l'OS en parle déjà, rappel_reportes) ; et
- *    3 jours après le premier post (le WhatsApp ruul_payment_setup de l'OS).
+ *  - Dashboard (se connecter), TikTok, warm-up, Slack : J+1 puis J+3 après la signature (J+1 manquée : J+3 seulement ;
+ *    rien après J+6), puis le vendredi (ou samedi, dimanche) avant le lundi de départ — une fois par lundi (un départ
+ *    reporté par l'OS en redonne un).
+ *  - 26/11 (Max : « vous pouvez configurer la plateforme de paiements plus tard ») : Ruul n'est JAMAIS rappelé avant
+ *    le lundi de départ. Après le départ seulement : le jeudi (4 au plus), sauf paie reportée (l'OS en parle déjà,
+ *    rappel_reportes) ; et 3 jours après le premier post (le WhatsApp ruul_payment_setup de l'OS).
  *  - Premier post (warm-up lancé, posts prévus) : le lundi de départ, J+1, J+3 (3 semaines au plus).
  *  - 26/11 (Max) : le rappel du vendredi saute un jour où un rappel est déjà parti la veille (`joursRappels` : les jours,
  *    dans le fuseau du pays, des rappels déjà faits) : jamais 3 rappels de suite (jeudi J+1, vendredi, samedi J+3) pour
@@ -674,7 +730,7 @@ export function rappelsDus(o: {
     const cle = `rappel:${etape}:${rang}`;
     if (!o.deja.includes(cle) && !dus.some((d) => d.cle === cle)) dus.push({ etape, rang, cle });
   };
-  for (const e of ["tiktok", "warmup", "ruul", "slack"] as const) {
+  for (const e of ETAPES_AVANT_DEPART) {
     if (o.faites[e]) continue;
     if (j >= 1 && j < 3) ajouter(e, "j1");
     else if (j >= 3 && j < 7) ajouter(e, "j3");
@@ -699,9 +755,11 @@ export function rappelsDus(o: {
 
 /**
  * Le modèle WhatsApp d'un rappel (les relances de l'OS : mêmes motifs « relance:<type> », mêmes clés), ou null
- * (Slack, premier post à J+1 : email seulement).
+ * (Slack, premier post à J+1 : email seulement). 26/11 : se connecter au dashboard → account_ready (le lien du
+ * dashboard ; même motif que la relance « jamais connecté » de l'OS, jamais doublée le même jour).
  */
 export function typeWhatsappRappel(d: RappelDu): TypeRelance | null {
+  if (d.etape === "dashboard") return "account_ready";
   if (d.etape === "premier_post") return d.rang.startsWith("lundi:") ? "start_posting_today" : d.rang.startsWith("j3:") ? "no_posts_week" : null;
   if (d.etape === "tiktok" || d.etape === "warmup") return "warmup_start";
   if (d.etape === "ruul") return "ruul_payment_setup";
@@ -714,11 +772,16 @@ export function typeWhatsappRappel(d: RappelDu): TypeRelance | null {
  */
 export function texteRappel(
   dus: readonly RappelDu[],
-  v: { prenom: string; lundi: string; limite: string; avantDepart: boolean; handle?: string | null; ruulEmail?: string | null },
+  v: {
+    prenom: string; lundi: string; limite: string; avantDepart: boolean; handle?: string | null; ruulEmail?: string | null;
+    /** 26/11 : l'identifiant de l'OS (join_candidatures.email_os), pour l'étape « se connecter ». */
+    login?: string | null;
+  },
 ): { objet: string; corps: string; bouton: string } {
   const etapes = PRIORITE_RAPPELS.filter((e) => dus.some((d) => d.etape === e));
   const debut = dus.some((d) => d.etape === "premier_post" && d.rang.startsWith("lundi:"));
   const OBJETS: Record<EtapeRappel, string> = {
+    dashboard: "Next step: log in to your dashboard",
     premier_post: debut ? "You start posting today" : "Your first post is waiting",
     tiktok: "Next step: create your TikTok account",
     warmup: "Next step: start your TikTok warm-up",
@@ -726,6 +789,9 @@ export function texteRappel(
     slack: "Join our Slack",
   };
   const LIGNES: Record<EtapeRappel, string> = {
+    // 26/11 (Max : « dis bien regardez vos mails aussi ») : les accès sont dans l'email et le WhatsApp de bienvenue ;
+    // l'identifiant et le bouton « Set my password » sont aussi sur la checklist.
+    dashboard: `Log in to your dashboard (${LIEN_DASHBOARD_OS})${v.login ? ` with your login ${v.login}` : ""}. Your access arrived by email and WhatsApp (check your spam too): click « Set my password », choose your password, then log in. Your login and the « Set my password » button are also on your checklist.`,
     premier_post: debut
       ? `You start posting today: your 2 slideshows are ready on your dashboard (${LIEN_DASHBOARD_OS}). Post them on TikTok, then paste the link of each post on your dashboard.`
       : `We haven't seen your first post yet. Your 2 slideshows a day are ready on your dashboard (${LIEN_DASHBOARD_OS}): post them on TikTok, then paste the link of each post on your dashboard. You're paid for every post you publish.`,
@@ -796,7 +862,7 @@ export function texteMessage(
     /** acces (25/11) : l'invitation Ruul part dans un email à part (join_reel.ruul) : une ligne courte à la place du guide. */
     ruulParEmail?: boolean;
   },
-): { objet: string; corps: string; bouton: string | null } {
+): { objet: string; corps: string; bouton: string | null; boutonApres?: number } {
   const salut = `Hi ${v.prenom},`;
   switch (type) {
     case "code_rappel":
@@ -834,38 +900,48 @@ export function texteMessage(
     case "acces": {
       // 23/11 : la bienvenue après la signature, inspirée de emailParcours("bienvenue") : accès au dashboard par le
       // lien « Set my password » (jamais de mot de passe), les étapes, Slack et Ruul.
-      const lienMdp = v.compteCree
-        ? `- Set my password: ${v.lien} (personal link, valid 14 days: you choose your own password)`
-        : "- Set my password: your personal link arrives as soon as your account is created";
+      // 26/11 (Max : « pourquoi tu mets pas les infos de connexion ici et dans le mail ? ») : le bloc de connexion TOUT
+      // EN HAUT, juste après « Welcome » (identifiant, lien « Set my password » en clair, et le bouton juste dessous :
+      // `boutonApres`), puis « regarde tes emails et ton WhatsApp » ; ensuite seulement les étapes, Slack, la vidéo, et
+      // Ruul en dernier : « plus tard, avant ta première paie », comme sur la page Join.
+      const mdp = v.compteCree
+        ? `- Your password: choose it here → ${v.lien} (your personal « Set my password » link, valid 14 days)`
+        : "- Your password: you choose it with your personal « Set my password » link, which arrives as soon as your account is created";
+      const ruul = v.ruulParEmail
+        ? `Ruul (our payment platform) — you can set it up later, before your first pay: it's not required to start. The most important now is to log in to your dashboard and get everything ready (TikTok, warm-up, Slack). Your personal Ruul link arrives in a separate email${v.ruulEmail ? ` (create your account with ${v.ruulEmail})` : ""}, and it's on your checklist: ${JOIN_URL_PUBLIC}`
+        : `Ruul (our payment platform) — you can set it up later, before your first pay: it's not required to start. The most important now is to log in to your dashboard and get everything ready (TikTok, warm-up, Slack).\n\n${guideRuul(v.ruulEmail ?? null, null)}`;
       return {
         objet: "Welcome to Vik Studios — your access and next steps",
         corps: [
           salut,
-          "Welcome to Vik Studios! Your job: post 2 slideshows a day on TikTok. Everything you post is ready for you on your dashboard.",
-          `You start on ${v.lundi ?? "Monday"}.`,
-          `Watch our short video guide: ${VIDEO_GUIDE_URL}`,
+          "Welcome to Vik Studios!",
           [
-            "Your access:",
+            "Your access to your dashboard:",
+            `- Your login: ${v.login ?? "shown on the « Set my password » page"}`,
+            mdp,
             `- Dashboard: ${LIEN_DASHBOARD_OS}`,
-            `- Login: ${v.login ?? "(see the « Set my password » page)"}`,
-            lienMdp,
+          ].join("\n"),
+          "Check your emails (and your spam folder) and WhatsApp: your access, your Ruul link and your reminders arrive there.",
+          `Your job: post 2 slideshows a day on TikTok. Everything you post is ready for you on your dashboard. You start on ${v.lundi ?? "Monday"}.`,
+          `Before ${v.limite ?? "Sunday midnight (Paris time)"}:\n1. Set your password and log in to your dashboard.\n2. ${
+            v.handle
+              ? "Create your TikTok account with the exact name below, and the name, photo and bio shown on your dashboard."
+              : "Create your TikTok account with the username, name, photo and bio shown on your dashboard."
+          }\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
+          [
             // 26/11 : le @ seulement s'il vient de l'OS (jamais un pseudo inventé par Join).
             v.handle
               ? `- Your TikTok account, with this exact name: @${v.handle}`
               : "- Your TikTok account: your TikTok details are on your dashboard",
             `- Our Slack (sign up with your personal email and your full name): ${LIEN_SLACK}`,
           ].join("\n"),
-          `Before ${v.limite ?? "Sunday midnight (Paris time)"}:\n1. Set your password and log in to your dashboard.\n2. ${
-            v.handle
-              ? "Create your TikTok account with the exact name above, and the name, photo and bio shown on your dashboard."
-              : "Create your TikTok account with the username, name, photo and bio shown on your dashboard."
-          }\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
+          `Watch our short video guide: ${VIDEO_GUIDE_URL}`,
           PHRASE_QUESTION_OS,
-          v.ruulParEmail
-            ? `Set up Ruul — required to get paid: your personal Ruul link arrives in a separate email${v.ruulEmail ? ` (create your account with ${v.ruulEmail})` : ""}, and it's on your checklist: ${JOIN_URL_PUBLIC}`
-            : guideRuul(v.ruulEmail ?? null, v.limite ?? null),
+          ruul,
         ].join("\n\n"),
         bouton: v.compteCree ? "Set my password" : "Open my dashboard",
+        // Le bouton juste sous le bloc de connexion (3 paragraphes avant lui : bonjour, bienvenue, connexion).
+        boutonApres: 3,
       };
     }
   }

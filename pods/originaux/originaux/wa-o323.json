@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o323",
+ "type_bleo": "full_test",
+ "titre": "signs you're an old soul in a young body #oldsoul #personality #psychology #introvert #signs",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "5b39aa5e-5308-40f5-8693-18773c10278f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5b39aa5e). full test BLEO : accroche jamais faite (format « signs you're an X in a young body »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "78a962ba-ebd5-4c3f-95b7-d3356a374715",
+   "texte_overlay": "signs you're an old soul\nin a young body",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c54c2bbc-9c52-4130-b4a4-a32a03eb2d00",
+   "texte_overlay": "you love quiet evenings\n\na calm night in with a book, tea and an old film sounds far better than a loud party. you've always felt most like yourself when the world slows down around you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c5c42ccf-88c5-4d98-9c73-54feb9f9b392",
+   "texte_overlay": "old things fascinate you\n\nold letters, vintage records and forgotten history pull you in. you feel strangely at home with things that have a story behind them and have survived a long time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "30ad8604-6186-4860-8a75-8c2e7f192359",
+   "texte_overlay": "you never stop learning\n\nold souls are endlessly curious, and they learn something new about the world every single day: an ancient myth, a forgotten empire, a distant star. curiosity has always felt like home to them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/4.jpg",
+   "texte_sophia": "you never stop learning\n\ni've always felt like an old soul. i spend 5 minutes a day on one lesson in the Sophia app, ancient history or a forgotten myth, and it feels like home every single time."
+  },
+  {
+   "position": 5,
+   "media_id": "fb946ec1-4e75-4800-bf60-a2e949ca4cfa",
+   "texte_overlay": "you prefer deep talks\n\nsmall talk drains you, but a conversation about life, meaning or the stars can keep you up all night. you'd rather have one real friend than twenty casual acquaintances.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2b8e73cc-ed64-49e0-b2d7-98c5ac164760",
+   "texte_overlay": "you notice what others miss\n\nyou see the beauty in an old building, a sunset or a kind gesture that everyone else walks past. noticing small things has always felt natural to you, never like effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/6.jpg"
+  }
+ ]
+}

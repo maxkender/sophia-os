@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o322",
+ "type_bleo": "full_test",
+ "titre": "how to romanticise your ordinary life #romanticizeyourlife #slowliving #selfcare #happiness #mindset",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "9d63e1c9-e7d4-481e-b65f-e6045adbfa5a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9d63e1c9). full test BLEO : accroche jamais faite (format « how to romanticise your X life »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "91c6a6bc-54e0-489e-9c7b-80b84b28e253",
+   "texte_overlay": "how to romanticise\nyour ordinary life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7a01ad83-b4c8-42ba-a031-d79936e30ac0",
+   "texte_overlay": "make the mornings slow\n\ndrink your first coffee from your favourite cup, sitting by a window, with no phone. a slow, beautiful start turns even a busy weekday into something you look forward to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d2b2d497-f034-4977-b9bc-0fd0da70bf88",
+   "texte_overlay": "dress for no reason\n\nwear the nice jacket, the good perfume, the earrings you save for special days. treating an ordinary tuesday as an occasion quietly changes how the whole day feels.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d8bb0300-8b26-4734-a4e7-e9d4ecc90450",
+   "texte_overlay": "learn something lovely daily\n\nfeed your mind one beautiful thing every day: a constellation, a myth, a famous painting. ordinary days feel richer when your head is full of lovely things to think about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/4.jpg",
+   "texte_sophia": "learn something lovely daily\n\ni used to rush through grey days. now i spend 5 minutes a day on one lesson in the Sophia app, a painting or a myth, and even ordinary mornings hold a small moment of wonder."
+  },
+  {
+   "position": 5,
+   "media_id": "ca39018e-1b60-49f4-8dba-d2ee9f0e8ec7",
+   "texte_overlay": "notice the small scenes\n\nwatch the light on the buildings, the dog waiting outside the bakery, the steam rising from your tea. life feels like a film the moment you start really paying attention to it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "12f14bea-a9ee-4b79-82cd-0d2b438aba64",
+   "texte_overlay": "make chores a ritual\n\nlight a candle while you cook, play your favourite album while you clean. turning boring tasks into small rituals makes the most ordinary evening feel soft and special.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/6.jpg"
+  }
+ ]
+}

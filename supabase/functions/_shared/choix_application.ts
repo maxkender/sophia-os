@@ -187,3 +187,44 @@ export function choisirApplication(
 export function partsPourApplication(slug: string, slugSophia: string): Record<string, number> | null {
   return slug === slugSophia ? null : { [slug]: 100 };
 }
+
+/** L'état d'une application au moment de choisir : allumée (`applications.actif`) et gel ouvert (0793). */
+export interface EtatApplication {
+  id: string;
+  actif: boolean;
+  /** Un gel ouvert dans `applications_gels` (début passé, sans fin ou fin à venir). */
+  gelee: boolean;
+}
+
+/** Un gel (ligne de `applications_gels`) est-il ouvert à cet instant : commencé, sans fin ou fin à venir ? */
+export function gelOuvert(g: { debut: string | null; fin: string | null }, maintenant: Date): boolean {
+  const t = maintenant.getTime();
+  const debut = g.debut ? Date.parse(g.debut) : NaN;
+  if (!Number.isFinite(debut) || debut > t) return false;
+  return !g.fin || Date.parse(g.fin) > t;
+}
+
+/**
+ * 26/11 (Max) : les candidats d'un nouveau compte, sans les applications GELÉES (gel ouvert, 0793 : Atala depuis le
+ * 20/11) ni COUPÉES sans gel (`actif = false`). C'est la définition du contrôle du lundi (0859,
+ * `controle_lundi_compte`) : un compte n'y est servi que si l'une de ses applications est allumée. Sans ce filtre,
+ * une application en préparation (0770 : inactive, avec des labels) ou gelée prenait des recrues tant que la cible lui
+ * donnait une part, et ces comptes attendaient sans aucun post.
+ *
+ * On filtre AVANT de lire la cible : `lireCibleApplications` renormalise alors les parts sur les applications
+ * restantes (celles d'une application sautée vont aux autres, au prorata), et la répartition normale revient seule
+ * quand l'application est rallumée. Le réglage `repartition_applications` n'est jamais touché.
+ *
+ * Une application absente de `etats` (illisible, inconnue) est sautée elle aussi : on ne donne pas un compte à une
+ * application dont on ne sait pas si elle publie.
+ */
+export function candidatsAllumes<T extends { application_id: string }>(
+  candidats: readonly T[],
+  etats: readonly EtatApplication[],
+): T[] {
+  const parId = new Map(etats.map((e) => [e.id, e]));
+  return candidats.filter((c) => {
+    const e = parId.get(c.application_id);
+    return !!e && e.actif && !e.gelee;
+  });
+}

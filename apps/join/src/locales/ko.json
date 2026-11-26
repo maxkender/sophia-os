@@ -175,6 +175,8 @@
   "form.readContract": "지원 전에 계약서 전문을 읽어 보세요",
   "dec.refusedTitle": "{name}님, 감사합니다",
   "dec.refused": "지금은 자리를 제안드리기 어려워요. 관심 가져 주셔서 감사합니다.",
+  "stop.title": "등록이 중단되었어요",
+  "stop.body": "접근이 종료되어 더 이상 알림을 보내 드리지 않아요. 관심 가져 주셔서 감사합니다.",
   "legal.notice.title": "법적 고지",
   "legal.notice.publisher": "발행인",
   "legal.notice.company": "Vik Studios SAS(상호: Vik Studios), 자본금 2유로의 프랑스 간이주식회사(SAS).",

@@ -175,6 +175,8 @@
   "form.readContract": "Læs hele aftalen, før du ansøger",
   "dec.refusedTitle": "Tak, {name}",
   "dec.refused": "Vi kan ikke tilbyde dig en plads lige nu. Tak for din interesse.",
+  "stop.title": "Din tilmelding er stoppet",
+  "stop.body": "Din adgang er lukket, og du får ikke flere påmindelser fra os. Tak for din interesse.",
   "legal.notice.title": "Juridiske oplysninger",
   "legal.notice.publisher": "Udgiver",
   "legal.notice.company": "Vik Studios SAS (handelsnavn: Vik Studios), et fransk forenklet aktieselskab (SAS) med en aktiekapital på 2 €.",

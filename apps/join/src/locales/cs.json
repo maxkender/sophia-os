@@ -175,6 +175,8 @@
   "form.readContract": "Přečti si celou smlouvu, než se přihlásíš",
   "dec.refusedTitle": "Děkujeme",
   "dec.refused": "Zatím ti nemůžeme nabídnout místo. Děkujeme za tvůj zájem.",
+  "stop.title": "Tvoje registrace byla ukončena",
+  "stop.body": "Tvůj přístup byl uzavřen a už ti nebudeme posílat žádné připomínky. Děkujeme za tvůj zájem.",
   "legal.notice.title": "Právní informace",
   "legal.notice.publisher": "Provozovatel",
   "legal.notice.company": "Vik Studios SAS (obchodní název: Vik Studios), francouzská zjednodušená akciová společnost (SAS) se základním kapitálem 2 €.",

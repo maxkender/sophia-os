@@ -175,6 +175,8 @@
   "form.readContract": "Olvasd el a teljes szerződést, mielőtt jelentkezel",
   "dec.refusedTitle": "Köszönjük, {name}",
   "dec.refused": "Jelenleg nem tudunk helyet ajánlani neked. Köszönjük az érdeklődésedet.",
+  "stop.title": "A regisztrációdat leállítottuk",
+  "stop.body": "A hozzáférésedet lezártuk, és több emlékeztetőt nem küldünk neked. Köszönjük az érdeklődésedet.",
   "legal.notice.title": "Jogi nyilatkozat",
   "legal.notice.publisher": "Üzemeltető",
   "legal.notice.company": "Vik Studios SAS (kereskedelmi név: Vik Studios), francia egyszerűsített részvénytársaság (SAS), 2 € alaptőkével.",

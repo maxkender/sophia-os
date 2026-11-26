@@ -602,6 +602,7 @@ export const en = {
             couverture: {
               ligne: "{{n}} shown out of {{N}} active posters ({{M}} accounts)",
               absents: "Not in the list ({{n}})",
+              enSetup: "{{n}} poster(s) still setting up, not ready (upcoming cohort: recruits tab, not counted).",
               sansCompte: "{{n}} active poster(s) with no active account (not counted; recruits card).",
               raisons: { ruul: "RUUL cohort (excluded)", pas_perso: "no active personal account", sans_compte: "no active account", inconnue: "missing from the list: to check" },
             },

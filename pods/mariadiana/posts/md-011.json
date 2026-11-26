@@ -8,10 +8,28 @@
   },
   "type_bleo": "full_test",
   "titre": {
-    "en": "Paintings That Feel Like A Fever Dream"
+    "en": "Paintings That Feel Like A Fever Dream",
+    "fr": "Des tableaux comme un rêve fiévreux",
+    "es-419": "Pinturas que parecen un sueño febril",
+    "it": "Quadri che sembrano un sogno febbrile",
+    "el": "Πίνακες σαν πυρετώδες όνειρο",
+    "hu": "Festmények, mint egy lázálom",
+    "sr": "Slike koje deluju kao grozničav san",
+    "hr": "Slike koje djeluju kao grozničav san",
+    "lv": "Gleznas, kas šķiet kā drudža sapnis",
+    "ro": "Picturi care par un vis febril"
   },
   "legendes": {
-    "en": "#arthistory #painting #odilonredon #surreal #museum"
+    "en": "#arthistory #painting #odilonredon #surreal #museum",
+    "fr": "#histoiredelart #peinture #odilonredon #surréalisme #musée",
+    "es-419": "#historiadelarte #pintura #odilonredon #surrealismo #museo",
+    "it": "#storiadellarte #pittura #odilonredon #surreale #museo",
+    "el": "#ιστορίατηςτέχνης #ζωγραφική #odilonredon #σουρεαλισμός #μουσείο",
+    "hu": "#művészettörténet #festészet #odilonredon #szürreális #múzeum",
+    "sr": "#istorijaumetnosti #slikarstvo #odilonredon #nadrealno #muzej",
+    "hr": "#povijestumjetnosti #slikarstvo #odilonredon #nadrealno #muzej",
+    "lv": "#mākslasvēsture #glezniecība #odilonredon #sirreāli #muzejs",
+    "ro": "#istoriaartei #pictura #odilonredon #suprarealism #muzeu"
   },
   "musique": {
     "titre": "la petite fille de la mer",
@@ -58,6 +76,33 @@
       "image": "images/photos/musee-reve.jpg",
       "en": {
         "titre": "Paintings That Feel Like A Fever Dream"
+      },
+      "fr": {
+        "titre": "Des tableaux comme un rêve fiévreux"
+      },
+      "es-419": {
+        "titre": "Pinturas que parecen un sueño febril"
+      },
+      "it": {
+        "titre": "Quadri che sembrano un sogno febbrile"
+      },
+      "el": {
+        "titre": "Πίνακες σαν πυρετώδες όνειρο"
+      },
+      "hu": {
+        "titre": "Festmények, mint egy lázálom"
+      },
+      "sr": {
+        "titre": "Slike koje deluju kao grozničav san"
+      },
+      "hr": {
+        "titre": "Slike koje djeluju kao grozničav san"
+      },
+      "lv": {
+        "titre": "Gleznas, kas šķiet kā drudža sapnis"
+      },
+      "ro": {
+        "titre": "Picturi care par un vis febril"
       }
     },
     {
@@ -66,6 +111,51 @@
       "en": {
         "titre": "The Temptation of Saint Anthony",
         "texte": "is a saint trying to pray while the world burns around him: towns on fire, strange towers, creatures crawling out of the ground. Herri met de Bles worked in the wake of Bosch, and hid a little owl in many of his paintings, like a signature.",
+        "artiste": "Herri met de Bles"
+      },
+      "fr": {
+        "titre": "La Tentation de saint Antoine",
+        "texte": "est un saint qui tente de prier pendant que le monde brûle autour de lui : villes en flammes, tours étranges, créatures qui sortent de terre. Herri met de Bles travaillait dans le sillage de Bosch et cachait une petite chouette dans beaucoup de ses tableaux, comme une signature.",
+        "artiste": "Herri met de Bles"
+      },
+      "es-419": {
+        "titre": "Las tentaciones de san Antonio",
+        "texte": "es un santo que intenta rezar mientras el mundo arde a su alrededor: pueblos en llamas, torres extrañas, criaturas que salen de la tierra. Herri met de Bles trabajó a la sombra de Bosco y escondía un pequeño búho en muchos de sus cuadros, como una firma.",
+        "artiste": "Herri met de Bles"
+      },
+      "it": {
+        "titre": "Le tentazioni di sant'Antonio",
+        "texte": "è un santo che cerca di pregare mentre il mondo brucia intorno a lui: città in fiamme, torri strane, creature che strisciano fuori dalla terra. Herri met de Bles lavorava sulla scia di Bosch e nascondeva una piccola civetta in molti dei suoi quadri, come una firma.",
+        "artiste": "Herri met de Bles"
+      },
+      "el": {
+        "titre": "Ο πειρασμός του Αγίου Αντωνίου",
+        "texte": "είναι ένας άγιος που προσπαθεί να προσευχηθεί ενώ ο κόσμος καίγεται γύρω του: πόλεις στις φλόγες, παράξενοι πύργοι, πλάσματα που βγαίνουν από τη γη. Ο Χέρι μετ ντε Μπλες δούλευε στα χνάρια του Μπος και έκρυβε μια μικρή κουκουβάγια σε πολλούς πίνακές του, σαν υπογραφή.",
+        "artiste": "Χέρι μετ ντε Μπλες"
+      },
+      "hu": {
+        "titre": "Szent Antal megkísértése",
+        "texte": "egy szent, aki imádkozni próbál, miközben körülötte lángol a világ: égő városok, furcsa tornyok, a földből előmászó lények. Herri met de Bles Bosch nyomdokain haladt, és sok képébe egy kis baglyot rejtett, mintha az lett volna az aláírása.",
+        "artiste": "Herri met de Bles"
+      },
+      "sr": {
+        "titre": "Iskušenje svetog Antonija",
+        "texte": "je svetac koji pokušava da se moli dok svet gori oko njega: gradovi u plamenu, čudne kule, stvorenja koja izmile iz zemlje. Heri met de Bles je radio na tragu Boša i u mnoge svoje slike skrivao malu sovu, kao potpis.",
+        "artiste": "Heri met de Bles"
+      },
+      "hr": {
+        "titre": "Kušnja svetog Antuna",
+        "texte": "je svetac koji se pokušava moliti dok svijet gori oko njega: gradovi u plamenu, čudne kule, stvorenja koja izmilju iz zemlje. Herri met de Bles radio je na tragu Boscha i u mnoge svoje slike skrivao malu sovu, kao potpis.",
+        "artiste": "Herri met de Bles"
+      },
+      "lv": {
+        "titre": "Svētā Antonija kārdināšana",
+        "texte": "ir svētais, kurš mēģina lūgties, kamēr pasaule ap viņu deg: liesmās pilsētas, dīvaini torņi, radības, kas līst ārā no zemes. Herri met de Bless strādāja Boša pēdās un daudzās gleznās paslēpa mazu pūci, gluži kā parakstu.",
+        "artiste": "Herri met de Bless"
+      },
+      "ro": {
+        "titre": "Ispitirea Sfântului Anton",
+        "texte": "este un sfânt care încearcă să se roage în timp ce lumea arde în jurul lui: orașe în flăcări, turnuri ciudate, creaturi care ies din pământ. Herri met de Bles a lucrat pe urmele lui Bosch și ascundea o bufniță mică în multe dintre tablourile sale, ca pe o semnătură.",
         "artiste": "Herri met de Bles"
       }
     },
@@ -76,6 +166,51 @@
         "titre": "The Meditation on the Passion",
         "texte": "sets the dead Christ on a broken throne between two old hermits, Job and Saint Jerome, in a rocky landscape full of animals. Carpaccio painted it in Venice around 1490. It still feels like a dream no one has fully explained.",
         "artiste": "Vittore Carpaccio"
+      },
+      "fr": {
+        "titre": "La Méditation sur la Passion",
+        "texte": "installe le Christ mort sur un trône brisé entre deux vieux ermites, Job et saint Jérôme, dans un paysage rocheux plein d'animaux. Carpaccio l'a peinte à Venise vers 1490. On dirait encore un rêve que personne n'a jamais vraiment expliqué.",
+        "artiste": "Vittore Carpaccio"
+      },
+      "es-419": {
+        "titre": "La meditación sobre la Pasión",
+        "texte": "sienta a Cristo muerto en un trono roto entre dos viejos ermitaños, Job y san Jerónimo, en un paisaje rocoso lleno de animales. Carpaccio la pintó en Venecia hacia 1490. Todavía parece un sueño que nadie ha explicado del todo.",
+        "artiste": "Vittore Carpaccio"
+      },
+      "it": {
+        "titre": "La meditazione sulla Passione",
+        "texte": "mette il Cristo morto su un trono in rovina tra due vecchi eremiti, Giobbe e san Girolamo, in un paesaggio roccioso pieno di animali. Carpaccio la dipinse a Venezia intorno al 1490. Sembra ancora un sogno che nessuno ha mai spiegato del tutto.",
+        "artiste": "Vittore Carpaccio"
+      },
+      "el": {
+        "titre": "Ο στοχασμός πάνω στα Πάθη",
+        "texte": "βάζει τον νεκρό Χριστό σε έναν σπασμένο θρόνο ανάμεσα σε δύο γέρους ερημίτες, τον Ιώβ και τον Άγιο Ιερώνυμο, σε ένα βραχώδες τοπίο γεμάτο ζώα. Ο Καρπάτσιο τον ζωγράφισε στη Βενετία γύρω στο 1490. Μοιάζει ακόμα με όνειρο που κανείς δεν έχει εξηγήσει πλήρως.",
+        "artiste": "Βιτόρε Καρπάτσιο"
+      },
+      "hu": {
+        "titre": "Elmélkedés a passióról",
+        "texte": "a halott Krisztust egy törött trónra ülteti két öreg remete, Jób és Szent Jeromos közé, egy állatokkal teli, sziklás tájban. Carpaccio Velencében festette 1490 körül. Még ma is olyan, mint egy álom, amit senki sem fejtett meg igazán.",
+        "artiste": "Vittore Carpaccio"
+      },
+      "sr": {
+        "titre": "Meditacija o Hristovim mukama",
+        "texte": "stavlja mrtvog Hrista na slomljeni presto između dva stara pustinjaka, Jova i svetog Jeronima, u stenovit pejzaž pun životinja. Karpačo ju je naslikao u Veneciji oko 1490. I dalje deluje kao san koji niko nije do kraja objasnio.",
+        "artiste": "Vitore Karpačo"
+      },
+      "hr": {
+        "titre": "Meditacija o Muci",
+        "texte": "stavlja mrtvog Krista na slomljeno prijestolje između dvojice starih pustinjaka, Joba i svetog Jeronima, u stjenovit krajolik pun životinja. Carpaccio ju je naslikao u Veneciji oko 1490. I dalje djeluje kao san koji nitko nije do kraja objasnio.",
+        "artiste": "Vittore Carpaccio"
+      },
+      "lv": {
+        "titre": "Pārdomas par Kristus ciešanām",
+        "texte": "nosēdina mirušo Kristu uz salauzta troņa starp diviem veciem vientuļniekiem, Ījabu un svēto Hieronīmu, klinšainā ainavā, kas pilna ar dzīvniekiem. Karpačo to gleznoja Venēcijā ap 1490. gadu. Tā joprojām šķiet kā sapnis, ko neviens nav līdz galam izskaidrojis.",
+        "artiste": "Vitore Karpačo"
+      },
+      "ro": {
+        "titre": "Meditație asupra Patimilor",
+        "texte": "îl așază pe Hristos mort pe un tron sfărâmat, între doi pustnici bătrâni, Iov și Sfântul Ieronim, într-un peisaj stâncos plin de animale. Carpaccio a pictat-o la Veneția, în jurul anului 1490. Încă pare un vis pe care nimeni nu l-a explicat pe deplin.",
+        "artiste": "Vittore Carpaccio"
       }
     },
     {
@@ -85,6 +220,51 @@
         "titre": "The Penitence of Saint Jerome",
         "texte": "shows the saint kneeling among rocks that look like they grew in a dream. Dürer called Patinir the good landscape painter. I only noticed the tiny camels behind the rocks because of Artura, which zooms into the details you'd miss.",
         "artiste": "Joachim Patinir"
+      },
+      "fr": {
+        "titre": "La Pénitence de saint Jérôme",
+        "texte": "montre le saint à genoux parmi des rochers qui semblent avoir poussé dans un rêve. Dürer appelait Patinir « le bon peintre de paysages ». Je n'ai remarqué les minuscules chameaux derrière les rochers que grâce à Artura, qui zoome sur les détails qu'on raterait.",
+        "artiste": "Joachim Patinir"
+      },
+      "es-419": {
+        "titre": "La penitencia de san Jerónimo",
+        "texte": "muestra al santo de rodillas entre rocas que parecen haber crecido en un sueño. Durero llamaba a Patinir «el buen pintor de paisajes». Solo noté los camellos diminutos detrás de las rocas gracias a Artura, que hace zoom en los detalles que se te escaparían.",
+        "artiste": "Joachim Patinir"
+      },
+      "it": {
+        "titre": "La penitenza di san Girolamo",
+        "texte": "mostra il santo inginocchiato tra rocce che sembrano cresciute in un sogno. Dürer chiamava Patinir «il buon pittore di paesaggi». Ho notato i minuscoli cammelli dietro le rocce solo grazie ad Artura, che zooma sui dettagli che ti sfuggirebbero.",
+        "artiste": "Joachim Patinir"
+      },
+      "el": {
+        "titre": "Η μετάνοια του Αγίου Ιερωνύμου",
+        "texte": "δείχνει τον άγιο γονατιστό ανάμεσα σε βράχους που μοιάζουν να φύτρωσαν σε όνειρο. Ο Ντύρερ αποκαλούσε τον Πατινίρ «τον καλό τοπιογράφο». Πρόσεξα τις μικροσκοπικές καμήλες πίσω από τους βράχους μόνο χάρη στην Artura, που κάνει ζουμ στις λεπτομέρειες που θα σου ξέφευγαν.",
+        "artiste": "Γιοαχίμ Πατινίρ"
+      },
+      "hu": {
+        "titre": "Szent Jeromos vezeklése",
+        "texte": "a térdelő szentet mutatja olyan sziklák között, mintha egy álomban nőttek volna. Dürer „a jó tájképfestőnek” nevezte Patinirt. Az apró tevéket a sziklák mögött csak az Artura app miatt vettem észre, ami ráközelít a részletekre, amiket amúgy elszalasztanál.",
+        "artiste": "Joachim Patinir"
+      },
+      "sr": {
+        "titre": "Pokajanje svetog Jeronima",
+        "texte": "prikazuje sveca kako kleči među stenama koje kao da su izrasle u snu. Direr je Patinira zvao „dobrim pejzažistom”. Sitne kamile iza stena primetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi inače propustio.",
+        "artiste": "Joakim Patinir"
+      },
+      "hr": {
+        "titre": "Pokora svetog Jeronima",
+        "texte": "prikazuje sveca kako kleči među stijenama koje kao da su izrasle u snu. Dürer je Patinira zvao „dobrim slikarom krajolika”. Sitne deve iza stijena primijetila sam tek zahvaljujući aplikaciji Artura, koja zumira detalje koje bi inače propustio.",
+        "artiste": "Joachim Patinir"
+      },
+      "lv": {
+        "titre": "Svētā Hieronīma grēknožēla",
+        "texte": "rāda svēto, kas ceļos starp klintīm, kuras šķiet izaugušas sapnī. Dīrers sauca Patiniru par „labo ainavu gleznotāju”. Sīkos kamieļus aiz klintīm pamanīju tikai lietotnes Artura dēļ, kas pietuvina detaļas, kuras citādi palaistu garām.",
+        "artiste": "Joahims Patinirs"
+      },
+      "ro": {
+        "titre": "Pocăința Sfântului Ieronim",
+        "texte": "îl arată pe sfânt îngenuncheat printre stânci care par să fi crescut într-un vis. Dürer îl numea pe Patinir „bunul pictor de peisaje”. Am observat cămilele minuscule din spatele stâncilor doar datorită aplicației Artura, care face zoom pe detaliile pe care le-ai rata.",
+        "artiste": "Joachim Patinir"
       }
     },
     {
@@ -93,6 +273,51 @@
       "en": {
         "titre": "The Chariot of Apollo",
         "texte": "is the sun god's chariot drifting through a sky of pink and blue. Redon spent the first half of his career drawing almost only in black, his noirs. Then, past fifty, color exploded.",
+        "artiste": "Odilon Redon"
+      },
+      "fr": {
+        "titre": "Le Char d'Apollon",
+        "texte": "est le char du dieu du soleil qui dérive dans un ciel rose et bleu. Redon a passé la première moitié de sa carrière à dessiner presque uniquement en noir, ses « noirs ». Puis, passé cinquante ans, la couleur a explosé.",
+        "artiste": "Odilon Redon"
+      },
+      "es-419": {
+        "titre": "El carro de Apolo",
+        "texte": "es el carro del dios del sol flotando en un cielo rosa y azul. Redon pasó la primera mitad de su carrera dibujando casi solo en negro, sus «negros». Luego, pasados los cincuenta, el color explotó.",
+        "artiste": "Odilon Redon"
+      },
+      "it": {
+        "titre": "Il carro di Apollo",
+        "texte": "è il carro del dio del sole che vaga in un cielo rosa e azzurro. Redon passò la prima metà della sua carriera a disegnare quasi solo in nero, i suoi «neri». Poi, passati i cinquant'anni, il colore esplose.",
+        "artiste": "Odilon Redon"
+      },
+      "el": {
+        "titre": "Το άρμα του Απόλλωνα",
+        "texte": "είναι το άρμα του θεού του ήλιου που περιπλανιέται σε έναν ροζ και γαλάζιο ουρανό. Ο Ρεντόν πέρασε το πρώτο μισό της καριέρας του σχεδιάζοντας σχεδόν μόνο σε μαύρο, τα «μαύρα» του. Ύστερα, μετά τα πενήντα, το χρώμα εξερράγη.",
+        "artiste": "Οντιλόν Ρεντόν"
+      },
+      "hu": {
+        "titre": "Apollón szekere",
+        "texte": "a napisten szekere, amely rózsaszín és kék égen sodródik. Redon pályája első felében szinte csak feketével rajzolt, ezek voltak a „feketéi”. Aztán ötven fölött berobbant a szín.",
+        "artiste": "Odilon Redon"
+      },
+      "sr": {
+        "titre": "Apolonova kočija",
+        "texte": "je kočija boga sunca koja lebdi kroz ružičasto i plavo nebo. Redon je prvu polovinu karijere crtao gotovo samo crnom bojom, svoje „crne”. A onda, posle pedesete, boja je eksplodirala.",
+        "artiste": "Odilon Redon"
+      },
+      "hr": {
+        "titre": "Apolonova kočija",
+        "texte": "je kočija boga sunca koja lebdi kroz ružičasto i plavo nebo. Redon je prvu polovicu karijere crtao gotovo samo crnom bojom, svoje „crne”. A onda, nakon pedesete, boja je eksplodirala.",
+        "artiste": "Odilon Redon"
+      },
+      "lv": {
+        "titre": "Apollona rati",
+        "texte": "ir saules dieva rati, kas slīd pa rozā un zilām debesīm. Redons pirmo karjeras pusi zīmēja gandrīz tikai melnā krāsā, savus „melnos”. Tad, pēc piecdesmit, krāsa eksplodēja.",
+        "artiste": "Odilons Redons"
+      },
+      "ro": {
+        "titre": "Carul lui Apollo",
+        "texte": "este carul zeului soarelui plutind pe un cer roz și albastru. Redon și-a petrecut prima jumătate a carierei desenând aproape numai în negru, „negrurile” sale. Apoi, după cincizeci de ani, culoarea a explodat.",
         "artiste": "Odilon Redon"
       }
     }

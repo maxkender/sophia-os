@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o315",
+  "type_bleo": "full_test",
+  "titre": "ce que les gens vraiment cultivés ne font jamais #culture #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Napoleon : taille dans la moyenne de son époque. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "44de8112",
+      "texte_overlay": "ce que les gens vraiment cultivés\nne font jamais",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9abf0808",
+      "texte_overlay": "1. faire sentir aux autres qu'ils ne savent pas\n\nils expliquent avec douceur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1d37d2d3",
+      "texte_overlay": "2. couper la parole pour corriger\n\nils attendent le bon moment.\nou ils laissent passer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8411c554",
+      "texte_overlay": "3. dire « tout le monde sait ça »\n\npersonne ne sait tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1ae8dfb5",
+      "texte_overlay": "4. croire tout ce qu'on répète\n\nce matin, j'ai appris que napoléon n'était pas petit, mais de taille moyenne pour son époque.\nje vérifie avant de répéter.",
+      "texte_sophia": "4. croire tout ce qu'on répète\n\nce matin, l'appli Sophia m'a appris que napoléon n'était pas petit, mais de taille moyenne pour son époque.\nje vérifie avant de répéter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "84199708",
+      "texte_overlay": "5. arrêter d'apprendre\n\nplus on sait,\nplus on veut savoir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "922035a1",
+      "texte_overlay": "tu en connais un ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o311",
+  "type_bleo": "full_test",
+  "titre": "les leçons de vie que j'ai trouvées dans des romans #livres #lecture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta A. Romans célèbres, leçons générales, sans date. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "769f2f9c",
+      "texte_overlay": "les leçons de vie\nque j'ai trouvées dans des romans",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "19512eff",
+      "texte_overlay": "1. orgueil et préjugés\n\nla première impression\nest rarement la bonne.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "42e1cd9d",
+      "texte_overlay": "2. le petit prince\n\non ne voit bien qu'avec le cœur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c84c3317",
+      "texte_overlay": "3. gatsby le magnifique\n\non ne rachète pas le passé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d73a1907",
+      "texte_overlay": "4. les misérables\n\nun geste de bonté\npeut changer une vie entière.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "812e6593",
+      "texte_overlay": "5. et dans tous les autres\n\navant, je lisais juste pour l'histoire.\nmaintenant, j'apprends un truc sur le monde chaque matin. et je cherche ce que chaque livre m'apprend.",
+      "texte_sophia": "5. et dans tous les autres\n\navant, je lisais juste pour l'histoire.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je cherche ce que chaque livre m'apprend.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d76a91cb",
+      "texte_overlay": "c'est quoi ta leçon préférée ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

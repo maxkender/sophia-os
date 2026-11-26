@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o304",
+  "type_bleo": "full_test",
+  "titre": "mes petits rituels d'automne de fille qui aime apprendre #automne #routine #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Symphony_No._1_(Mozart) : écrite à 8 ans. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d592289b",
+      "texte_overlay": "mes petits rituels d'automne\nde fille qui aime apprendre",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d027e1b1",
+      "texte_overlay": "1. un roman qui fait peur\n\nun plaid, une bougie,\nun classique gothique.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "91f660b0",
+      "texte_overlay": "2. une balade dans les feuilles\n\net un podcast d'histoire\ndans les oreilles.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c90c0194",
+      "texte_overlay": "3. un concert le dimanche\n\nce matin, j'ai appris que mozart a écrit sa première symphonie à 8 ans.\nj'ai écouté la suite tout l'après-midi.",
+      "texte_sophia": "3. un concert le dimanche\n\nce matin, l'appli Sophia m'a appris que mozart a écrit sa première symphonie à 8 ans.\nj'ai écouté la suite tout l'après-midi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d6bc9154",
+      "texte_overlay": "4. une recette de saison\n\npotiron, châtaignes, pommes.\net l'histoire du plat en cuisinant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "93e5f6ea",
+      "texte_overlay": "5. un carnet neuf\n\npour noter tout ce que j'apprends\njusqu'à l'hiver.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "aed86b7c",
+      "texte_overlay": "c'est quoi ton rituel d'automne ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

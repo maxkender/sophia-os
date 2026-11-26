@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o312",
+  "type_bleo": "full_test",
+  "titre": "comment je me fais une culture en histoire de la mode #mode #histoire #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, sans thème gagnant connu du label. cta B. Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/Roman_Holiday : Hepburn, Oscar de la meilleure actrice. Routine du 26/11 sur BLEO (par_jour passé à 18 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ni sur une appli concurrente ; son en rotation). Jauge : 5 full tests et 13 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent, donc 3 déclinaisons et 15 full tests. Lignes sautées : 4 et 6 (accroches de plus de 120 caractères), 5 (accroche exigée bancale « how to destroy yourself »), 7 (« tinas ai »), 8 (« neurosciences »), 9 (« je notes »), 10 (« ge things »), 11, 14, 15 et 16 (« backed by science »), 12 (« enterimarnt »), 13 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ce20604a",
+      "texte_overlay": "comment je me fais une culture\nen histoire de la mode",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c93ee6c8",
+      "texte_overlay": "1. je regarde les tableaux pour les robes\n\nchaque siècle a sa silhouette.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "739aa3cf",
+      "texte_overlay": "2. je visite les expositions de mode\n\nles musées en font de plus en plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "81d005ce",
+      "texte_overlay": "3. je revois les vieux films\n\nce matin, j'ai appris qu'audrey hepburn a gagné l'oscar pour vacances romaines.\net ses tenues aussi sont restées.",
+      "texte_sophia": "3. je revois les vieux films\n\nce matin, l'appli Sophia m'a appris qu'audrey hepburn a gagné l'oscar pour vacances romaines.\net ses tenues aussi sont restées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d4a4171a",
+      "texte_overlay": "4. je cherche l'histoire d'une pièce\n\nle trench, la marinière, la petite robe noire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7389da8e",
+      "texte_overlay": "5. je chine en friperie\n\net je devine l'époque\nde chaque vêtement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "77ed84d6",
+      "texte_overlay": "c'est quoi ta pièce préférée ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

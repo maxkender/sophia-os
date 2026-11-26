@@ -1,0 +1,431 @@
+{
+ "id": "at-021",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "race day bag do and don’ts",
+  "fr": "ton sac du jour J : les do & don’ts",
+  "de": "wettkampftasche: die do & don’ts",
+  "it": "la borsa gara: i do & don’ts",
+  "es-419": "maleta de carrera: los do & don’ts",
+  "hu": "versenytáska: a do & don’ts",
+  "ro": "geanta de cursă: do & don’ts",
+  "tr": "yarış çantası: do & don’ts",
+  "el": "τσάντα αγώνα: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #raceday #runningtips #girlswhorun #racetraining",
+  "fr": "#courseapied #jourj #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (@hannah.run5, 279 k), style `objets`. Aucun objet neuf ; couverture : coureuse-matin. Logo d'Atala au milieu des « Do » de la slide 2. Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-matin.png",
+   "en": {
+    "titre": "race day bag\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "ton sac du jour J :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "wettkampftasche:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "la borsa gara:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "maleta de carrera:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "versenytáska:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "geanta de cursă:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "yarış çantası:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "τσάντα αγώνα:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/sac-sport.png",
+    "atala",
+    "images/objets/epingles.png"
+   ],
+   "dont": [
+    "images/objets/boite-chaussures.png",
+    "images/objets/tshirt-coton.png"
+   ],
+   "en": {
+    "titre": "the night before",
+    "do": [
+     "bag packed\nat night",
+     "a plan from an\napp like atala",
+     "bib and pins"
+    ],
+    "dont": [
+     "new shoes",
+     "a cotton tee"
+    ]
+   },
+   "fr": {
+    "titre": "la veille",
+    "do": [
+     "sac prêt\nla veille",
+     "appli de coach\ncomme atala",
+     "dossard\net épingles"
+    ],
+    "dont": [
+     "baskets neuves",
+     "un t-shirt\nen coton"
+    ]
+   },
+   "de": {
+    "titre": "am vorabend",
+    "do": [
+     "tasche\nabends fertig",
+     "coach-app\nwie atala",
+     "startnummer\nund nadeln"
+    ],
+    "dont": [
+     "neue schuhe",
+     "baumwollshirt"
+    ]
+   },
+   "it": {
+    "titre": "la sera prima",
+    "do": [
+     "borsa pronta\nla sera",
+     "app coach\ncome atala",
+     "pettorale\ne spille"
+    ],
+    "dont": [
+     "scarpe nuove",
+     "una maglia\nin cotone"
+    ]
+   },
+   "es-419": {
+    "titre": "la noche antes",
+    "do": [
+     "maleta lista\nla noche antes",
+     "app con coach\ncomo atala",
+     "número\ny seguritos"
+    ],
+    "dont": [
+     "tenis nuevos",
+     "una playera\nde algodón"
+    ]
+   },
+   "hu": {
+    "titre": "előző este",
+    "do": [
+     "táska már\neste kész",
+     "edzős app,\nmint az atala",
+     "rajtszám\nés tűk"
+    ],
+    "dont": [
+     "új cipő",
+     "pamutpóló"
+    ]
+   },
+   "ro": {
+    "titre": "seara dinainte",
+    "do": [
+     "geanta gata\nde aseară",
+     "aplicație de\ncoach ca atala",
+     "număr\nși ace"
+    ],
+    "dont": [
+     "pantofi noi",
+     "tricou\nde bumbac"
+    ]
+   },
+   "tr": {
+    "titre": "önceki akşam",
+    "do": [
+     "akşamdan\nhazır çanta",
+     "atala gibi\nkoç uygulaması",
+     "numara\nve iğneler"
+    ],
+    "dont": [
+     "yeni ayakkabı",
+     "pamuklu tişört"
+    ]
+   },
+   "el": {
+    "titre": "το βράδυ πριν",
+    "do": [
+     "έτοιμη τσάντα\nαπό το βράδυ",
+     "εφαρμογή coach\nσαν το atala",
+     "νούμερο\nκαι παραμάνες"
+    ],
+    "dont": [
+     "νέα παπούτσια",
+     "μπλούζα\nαπό βαμβάκι"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/gel.png",
+    "images/objets/gourde.png",
+    "images/objets/serviette.png"
+   ],
+   "dont": [
+    "images/objets/doudoune.png",
+    "images/objets/cafes.png"
+   ],
+   "en": {
+    "titre": "in the bag",
+    "do": [
+     "the gel\nyou know",
+     "a water bottle",
+     "a small towel"
+    ],
+    "dont": [
+     "a heavy coat",
+     "lots of coffee"
+    ]
+   },
+   "fr": {
+    "titre": "dans le sac",
+    "do": [
+     "le gel\ndéjà testé",
+     "ta gourde",
+     "une serviette"
+    ],
+    "dont": [
+     "une doudoune",
+     "trop de café"
+    ]
+   },
+   "de": {
+    "titre": "in der tasche",
+    "do": [
+     "das gel, das\ndu kennst",
+     "trinkflasche",
+     "ein handtuch"
+    ],
+    "dont": [
+     "dicke jacke",
+     "zu viel kaffee"
+    ]
+   },
+   "it": {
+    "titre": "nella borsa",
+    "do": [
+     "il gel\nche conosci",
+     "la borraccia",
+     "un asciugamano"
+    ],
+    "dont": [
+     "il piumino",
+     "troppo caffè"
+    ]
+   },
+   "es-419": {
+    "titre": "en la maleta",
+    "do": [
+     "el gel\nya probado",
+     "una botella\nde agua",
+     "una toalla"
+    ],
+    "dont": [
+     "abrigo grueso",
+     "mucho café"
+    ]
+   },
+   "hu": {
+    "titre": "a táskában",
+    "do": [
+     "a bevált gél",
+     "kulacs",
+     "kis törölköző"
+    ],
+    "dont": [
+     "vastag kabát",
+     "túl sok kávé"
+    ]
+   },
+   "ro": {
+    "titre": "în geantă",
+    "do": [
+     "gelul\npe care-l știi",
+     "un bidon\ncu apă",
+     "un prosop mic"
+    ],
+    "dont": [
+     "geacă groasă",
+     "exces de cafea"
+    ]
+   },
+   "tr": {
+    "titre": "çantada",
+    "do": [
+     "denediğin jel",
+     "su matarası",
+     "küçük havlu"
+    ],
+    "dont": [
+     "kalın mont",
+     "fazla kahve"
+    ]
+   },
+   "el": {
+    "titre": "στην τσάντα",
+    "do": [
+     "το τζελ\nπου ξέρεις",
+     "παγούρι",
+     "μικρή πετσέτα"
+    ],
+    "dont": [
+     "χοντρό μπουφάν",
+     "πολύς καφές"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/tenue.png",
+    "images/objets/banane.png",
+    "images/objets/the.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "after the finish",
+    "do": [
+     "dry clothes\nright away",
+     "a banana",
+     "a hot tea"
+    ],
+    "dont": [
+     "checking your\nsplits all day",
+     "gym the\nnext day"
+    ]
+   },
+   "fr": {
+    "titre": "après l’arrivée",
+    "do": [
+     "vite, au sec",
+     "une banane",
+     "un thé chaud"
+    ],
+    "dont": [
+     "revoir ton\nchrono 50 fois",
+     "la salle\nle lendemain"
+    ]
+   },
+   "de": {
+    "titre": "nach dem ziel",
+    "do": [
+     "gleich was\ntrockenes an",
+     "eine banane",
+     "heißer tee"
+    ],
+    "dont": [
+     "ständig\nzeiten checken",
+     "gym am\nnächsten tag"
+    ]
+   },
+   "it": {
+    "titre": "dopo l’arrivo",
+    "do": [
+     "abiti asciutti",
+     "una banana",
+     "un tè caldo"
+    ],
+    "dont": [
+     "i tempi\nogni minuto",
+     "palestra\nil giorno dopo"
+    ]
+   },
+   "es-419": {
+    "titre": "después de la meta",
+    "do": [
+     "ropa seca\nde inmediato",
+     "un plátano",
+     "un té caliente"
+    ],
+    "dont": [
+     "checar tiempos\ntodo el día",
+     "gym\nal otro día"
+    ]
+   },
+   "hu": {
+    "titre": "célba érés után",
+    "do": [
+     "azonnal\nszáraz ruha",
+     "egy banán",
+     "forró tea"
+    ],
+    "dont": [
+     "időt nézni\negész nap",
+     "másnapi edzés"
+    ]
+   },
+   "ro": {
+    "titre": "după sosire",
+    "do": [
+     "imediat\nhaine uscate",
+     "o banană",
+     "ceai fierbinte"
+    ],
+    "dont": [
+     "timpii\ntoată ziua",
+     "sală\na doua zi"
+    ]
+   },
+   "tr": {
+    "titre": "bitişten sonra",
+    "do": [
+     "hemen\nkuru kıyafet",
+     "bir muz",
+     "sıcak çay"
+    ],
+    "dont": [
+     "bütün gün\nsüreye bakmak",
+     "ertesi gün\nspor salonu"
+    ]
+   },
+   "el": {
+    "titre": "μετά τον αγώνα",
+    "do": [
+     "αμέσως\nστεγνά ρούχα",
+     "μια μπανάνα",
+     "ζεστό τσάι"
+    ],
+    "dont": [
+     "χρόνοι\nόλη μέρα",
+     "γυμναστήριο\nτην επομένη"
+    ]
+   }
+  }
+ ]
+}

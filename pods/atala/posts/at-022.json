@@ -1,0 +1,431 @@
+{
+ "id": "at-022",
+ "style": "objets",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@hannah.run5/photo/7702850679013952800",
+  "vues": 278500,
+  "publie_le": "2026-10-31",
+  "accroche": "courir l’hiver : / les do & don’ts"
+ },
+ "titre": {
+  "en": "faster 5k do and don’ts",
+  "fr": "5 km plus vite : les do & don’ts",
+  "de": "schneller 5k: die do & don’ts",
+  "it": "5 km più veloce: i do & don’ts",
+  "es-419": "5 km más rápido: los do & don’ts",
+  "hu": "gyorsabb 5 km: a do & don’ts",
+  "ro": "5 km mai rapid: do & don’ts",
+  "tr": "daha hızlı 5k: do & don’ts",
+  "el": "πιο γρήγορα 5k: τα do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #5k #runningtips #girlswhorun #faster",
+  "fr": "#courseapied #5km #running #conseil #girlswhorun",
+  "de": "#laufen #running #lauftipps #girlswhorun #läuferin",
+  "it": "#corsa #running #consiglirunning #girlswhorun #correre",
+  "es-419": "#correr #running #tipsderunning #girlswhorun #runner",
+  "hu": "#futás #running #futótippek #girlswhorun #futóedzés",
+  "ro": "#alergare #running #sfaturi #girlswhorun #alergat",
+  "tr": "#koşu #running #koşuipuçları #girlswhorun #koşucu",
+  "el": "#τρέξιμο #running #runningtips #girlswhorun #τρέχω"
+ },
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Full test (accroche jamais faite chez nous), au format de leur tube (@hannah.run5, 279 k), style `objets`. Aucun objet neuf ; couverture : coureuse-hiver. Logo d'Atala au milieu des « Do » de la slide 2 (progresser : des semaines construites pour l'objectif). Légende du logo selon placement_atala (vignettes très courtes : voix NEUTRE, Atala toujours avec le mot pour « appli », jamais « AI »). Aucune page d'appli. Livré dans les 9 langues du label.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-hiver.png",
+   "en": {
+    "titre": "faster 5k\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "5 km plus vite :\nles do & don’ts"
+   },
+   "de": {
+    "titre": "schneller 5k:\ndie do & don’ts"
+   },
+   "it": {
+    "titre": "5 km più veloce:\ni do & don’ts"
+   },
+   "es-419": {
+    "titre": "5 km más rápido:\nlos do & don’ts"
+   },
+   "hu": {
+    "titre": "gyorsabb 5 km:\na do & don’ts"
+   },
+   "ro": {
+    "titre": "5 km mai rapid:\ndo & don’ts"
+   },
+   "tr": {
+    "titre": "daha hızlı 5k:\ndo & don’ts"
+   },
+   "el": {
+    "titre": "πιο γρήγορα 5k:\nτα do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "atala",
+    "images/objets/cone.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/sac-sport.png"
+   ],
+   "en": {
+    "titre": "your week",
+    "do": [
+     "most runs easy",
+     "a plan on an\napp like atala",
+     "intervals\nonce a week"
+    ],
+    "dont": [
+     "every run\nat full speed",
+     "skipping\nrest days"
+    ]
+   },
+   "fr": {
+    "titre": "ta semaine",
+    "do": [
+     "surtout\ndu facile",
+     "appli de coach\ncomme atala",
+     "une séance\nde fractionné"
+    ],
+    "dont": [
+     "chaque sortie\nà fond",
+     "zapper\nle repos"
+    ]
+   },
+   "de": {
+    "titre": "deine woche",
+    "do": [
+     "meist\nlocker laufen",
+     "coach-app\nwie atala",
+     "1x intervalle"
+    ],
+    "dont": [
+     "immer vollgas",
+     "ohne ruhetag"
+    ]
+   },
+   "it": {
+    "titre": "la tua settimana",
+    "do": [
+     "corse facili\nquasi sempre",
+     "app coach\ncome atala",
+     "una seduta\ndi ripetute"
+    ],
+    "dont": [
+     "ogni uscita\na tutta",
+     "saltare\nil riposo"
+    ]
+   },
+   "es-419": {
+    "titre": "tu semana",
+    "do": [
+     "salidas suaves\ncasi siempre",
+     "app con coach\ncomo atala",
+     "una sesión\nde series"
+    ],
+    "dont": [
+     "cada salida\na tope",
+     "saltarte\nel descanso"
+    ]
+   },
+   "hu": {
+    "titre": "a heted",
+    "do": [
+     "főleg\nkönnyű futás",
+     "edzős app,\nmint az atala",
+     "résztáv edzés"
+    ],
+    "dont": [
+     "minden futás\nmax tempó",
+     "nincs pihenő"
+    ]
+   },
+   "ro": {
+    "titre": "săptămâna ta",
+    "do": [
+     "ușor,\naproape mereu",
+     "aplicație de\ncoach ca atala",
+     "o sesiune\nde intervale"
+    ],
+    "dont": [
+     "fiecare ieșire\nla maxim",
+     "fără zile\nde pauză"
+    ]
+   },
+   "tr": {
+    "titre": "haftan",
+    "do": [
+     "koşuların\nçoğu rahat",
+     "atala gibi\nkoç uygulaması",
+     "interval günü"
+    ],
+    "dont": [
+     "her koşu\nson hız",
+     "dinlenme\ngünü yok"
+    ]
+   },
+   "el": {
+    "titre": "η εβδομάδα σου",
+    "do": [
+     "χαλαρά\nσχεδόν πάντα",
+     "εφαρμογή coach\nσαν το atala",
+     "ένα interval\nτην εβδομάδα"
+    ],
+    "dont": [
+     "κάθε έξοδος\nστο φουλ",
+     "χωρίς ρεπό"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "images/objets/banane.png",
+    "images/objets/montre.png"
+   ],
+   "dont": [
+    "images/objets/boite-chaussures.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "race day",
+    "do": [
+     "10 min\nof warm-up",
+     "a banana",
+     "an even pace"
+    ],
+    "dont": [
+     "new shoes",
+     "sprinting\nthe first km"
+    ]
+   },
+   "fr": {
+    "titre": "le jour J",
+    "do": [
+     "échauffe-toi\n10 min",
+     "une banane",
+     "rythme stable"
+    ],
+    "dont": [
+     "baskets neuves",
+     "sprinter\nle 1er km"
+    ]
+   },
+   "de": {
+    "titre": "renntag",
+    "do": [
+     "einlaufen,\n10 minuten",
+     "eine banane",
+     "tempo halten"
+    ],
+    "dont": [
+     "neue schuhe",
+     "sprint auf\ndem ersten km"
+    ]
+   },
+   "it": {
+    "titre": "il giorno gara",
+    "do": [
+     "scalda\n10 minuti",
+     "una banana",
+     "ritmo costante"
+    ],
+    "dont": [
+     "scarpe nuove",
+     "sprint\nal primo km"
+    ]
+   },
+   "es-419": {
+    "titre": "día de carrera",
+    "do": [
+     "calienta\n10 minutos",
+     "un plátano",
+     "ritmo parejo"
+    ],
+    "dont": [
+     "tenis nuevos",
+     "sprint en\nel primer km"
+    ]
+   },
+   "hu": {
+    "titre": "versenynap",
+    "do": [
+     "bemelegítés\n10 percig",
+     "egy banán",
+     "állandó tempó"
+    ],
+    "dont": [
+     "új cipő",
+     "sprint\naz első km-en"
+    ]
+   },
+   "ro": {
+    "titre": "ziua cursei",
+    "do": [
+     "10 min\nde încălzire",
+     "o banană",
+     "ritm constant"
+    ],
+    "dont": [
+     "pantofi noi",
+     "sprint\npe primul km"
+    ]
+   },
+   "tr": {
+    "titre": "yarış günü",
+    "do": [
+     "10 dakika\nhafif ısınma",
+     "bir muz",
+     "sabit tempo"
+    ],
+    "dont": [
+     "yeni ayakkabı",
+     "ilk km depar"
+    ]
+   },
+   "el": {
+    "titre": "μέρα αγώνα",
+    "do": [
+     "ζέσταμα\n10 λεπτών",
+     "μια μπανάνα",
+     "ίδιος ρυθμός"
+    ],
+    "dont": [
+     "νέα παπούτσια",
+     "σπριντ\nστο 1ο χλμ"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/rouleau.png",
+    "images/objets/verre-eau.png",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/halteres.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "after",
+    "do": [
+     "a foam roller",
+     "a big glass\nof water",
+     "an early night"
+    ],
+    "dont": [
+     "heavy squats",
+     "a glass\nof wine"
+    ]
+   },
+   "fr": {
+    "titre": "après",
+    "do": [
+     "ton rouleau",
+     "un grand\nverre d’eau",
+     "au lit tôt"
+    ],
+    "dont": [
+     "squats lourds",
+     "un verre\nde vin"
+    ]
+   },
+   "de": {
+    "titre": "danach",
+    "do": [
+     "faszienrolle",
+     "ein großes\nglas wasser",
+     "früh ins bett"
+    ],
+    "dont": [
+     "schwere squats",
+     "ein glas wein"
+    ]
+   },
+   "it": {
+    "titre": "dopo",
+    "do": [
+     "un foam roller",
+     "tanta acqua",
+     "a letto presto"
+    ],
+    "dont": [
+     "squat pesanti",
+     "un bicchiere\ndi vino"
+    ]
+   },
+   "es-419": {
+    "titre": "después",
+    "do": [
+     "un rodillo",
+     "un vaso\ngrande de agua",
+     "temprano\na la cama"
+    ],
+    "dont": [
+     "mucha pierna\nen el gym",
+     "una copa\nde vino"
+    ]
+   },
+   "hu": {
+    "titre": "utána",
+    "do": [
+     "masszázshenger",
+     "egy nagy\npohár víz",
+     "korán ágyba"
+    ],
+    "dont": [
+     "nehéz guggolás",
+     "egy pohár bor"
+    ]
+   },
+   "ro": {
+    "titre": "după",
+    "do": [
+     "rola de masaj",
+     "un pahar\nmare cu apă",
+     "somn devreme"
+    ],
+    "dont": [
+     "genuflexiuni",
+     "un pahar\nde vin"
+    ]
+   },
+   "tr": {
+    "titre": "sonra",
+    "do": [
+     "köpük rulo",
+     "büyük bir\nbardak su",
+     "erken uyku"
+    ],
+    "dont": [
+     "ağır squat",
+     "şarap içmek"
+    ]
+   },
+   "el": {
+    "titre": "μετά",
+    "do": [
+     "ρολό μασάζ",
+     "ένα μεγάλο\nποτήρι νερό",
+     "νωρίς ύπνος"
+    ],
+    "dont": [
+     "βαριά squats",
+     "ποτήρι κρασί"
+    ]
+   }
+  }
+ ]
+}

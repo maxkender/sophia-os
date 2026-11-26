@@ -1,0 +1,124 @@
+{
+ "id": "aw-013",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7698680855316745505",
+  "vues": 12300,
+  "publie_le": "2026-10-20",
+  "accroche": "6 habitudes wellness qui font leurs effets au bout d'une semaine (validées par la science)"
+ },
+ "titre": {
+  "en": "6 wellness habits that make you calmer in just one week"
+ },
+ "legendes": {
+  "en": "your nervous system will thank you 🤍 #wellness #healthyhabits #thatgirl #selfcare #calm"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « N habitudes wellness en une semaine » de @healthy_with_emma6 (12,3 k ; 167,9 k pour son post le plus vu de la même famille), sujet : le calme. 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : écrire à son coach quand ça coince ; « a running coach app like Atala » ; sans « AI »). Fait vérifié : des « awe walks » chaque semaine et plus d'émotions positives au quotidien (Sturm et al., Emotion 2020). Les autres slides n'avancent aucun chiffre ni étude. Photos : banque de l'OS ; Atala : 688dd1a8 (plage au ciel rose, de dos).",
+ "banque": {
+  "images/banque/ca-couv-a.jpg": "2308c27e-ffe7-4e76-a590-a1beac02b5e4",
+  "images/banque/ca-couv-b.jpg": "0ed82f6f-974d-450a-9db8-c870e5475f75",
+  "images/banque/ca-coucher.jpg": "1b99e198-e562-4815-a1be-68c7fb36dbc6",
+  "images/banque/ca-lecture.jpg": "2211cfd7-a900-44e0-a2e8-f83c15555d3b",
+  "images/banque/ca-jardin.jpg": "181a79e7-c18a-43f9-ba18-9066285e1dbf",
+  "images/banque/ca-course.jpg": "688dd1a8-29fe-455c-81a1-d82779a0a62b",
+  "images/banque/ca-danse.jpg": "18d50da0-d6f4-4a73-937e-efcaa824db22",
+  "images/banque/ca-lit.jpg": "0c13264f-145e-42eb-b623-609a12e9c739"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/ca-couv-a.jpg",
+    "images/banque/ca-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "6 wellness habits that make you calmer in just one week",
+    "note": "(backed by science)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-coucher.jpg",
+   "en": {
+    "titre": "watch _the sunset_",
+    "intro": "even 5 minutes, _phone in your pocket_",
+    "paragraphes": [
+     "a study found that people who took weekly walks to notice the beauty around them felt _more joy_ in their days",
+     "sky, sea, a pretty street. _just look_"
+    ],
+    "chute": "small view, _big calm_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-lecture.jpg",
+   "en": {
+    "titre": "read _outside_",
+    "intro": "a book, fresh air, _nothing else_",
+    "paragraphes": [
+     "no notifications, no rush. your brain finally _slows down_",
+     "10 pages on a bench, _a wall, the grass_"
+    ],
+    "chute": "calm looks like _this_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-jardin.jpg",
+   "en": {
+    "titre": "a slow walk _with no destination_",
+    "intro": "not for steps. _just to wander_",
+    "paragraphes": [
+     "no podcast, no music, just _your thoughts_ and the trees",
+     "15 minutes, _any green place_"
+    ],
+    "chute": "get lost _a little_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/ca-course.jpg",
+   "en": {
+    "titre": "run _when your head is too full_",
+    "intro": "running is where my thoughts _finally go quiet_",
+    "paragraphes": [
+     "some weeks were too much and i'd just _give up_ on running completely",
+     "my tip: with a running coach app like Atala, you can _message your coach_ when a week gets hard"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-danse.jpg",
+   "en": {
+    "titre": "dance _alone_ in your room",
+    "intro": "one song, _door closed_, no one watching",
+    "paragraphes": [
+     "shake off the day, _literally_",
+     "your favorite song, _full volume_"
+    ],
+    "chute": "silly is _good for you_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-lit.jpg",
+   "en": {
+    "titre": "go to bed _30 minutes earlier_",
+    "intro": "a calm evening starts _before you're tired_",
+    "paragraphes": [
+     "book, candle, soft sheets. _no scrolling_ in bed",
+     "alarm for bedtime, _not just for mornings_"
+    ],
+    "chute": "calm nights, _calm days_"
+   }
+  }
+ ]
+}

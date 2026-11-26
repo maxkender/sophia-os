@@ -1,0 +1,131 @@
+{
+ "id": "aw-014",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7688296303582858529",
+  "vues": 3492,
+  "accroche": "les petites habitudes plus efficaces qu'une séance de sport (wellness edition)"
+ },
+ "titre": {
+  "en": "small habits that do more than a gym session (wellness edition)"
+ },
+ "legendes": {
+  "en": "no gym membership needed 🤍 #wellness #healthyhabits #thatgirl #selfcare #movement"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « les petites habitudes plus efficaces qu'une séance de sport (wellness edition) » de @healthy_with_emma6 (3,5 k). 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : augmenter petit à petit, prévention par la méthode ; « a running coach app like Atala » ; sans « AI »). Faits vérifiés : de courtes séances de montée d'escaliers et meilleure condition cardio chez de jeunes adultes inactifs (Jenkins et al., Applied Physiology, Nutrition, and Metabolism 2019) ; plus de pas par jour liés à une meilleure santé à long terme (Paluch et al., The Lancet Public Health 2022, méta-analyse). Le titre reprend son accroche ; aucune slide ne prétend remplacer le sport. Photos : banque de l'OS ; Atala : 3037bd2e (plage au coucher du soleil, de dos).",
+ "banque": {
+  "images/banque/sg-couv-a.jpg": "61eda726-84c0-41e7-a62d-bb2c12a7f446",
+  "images/banque/sg-couv-b.jpg": "4554efd5-894b-4327-98bb-394a6d3eccb3",
+  "images/banque/sg-escalier.jpg": "0664f7fa-aaa7-43fd-b570-6e33f1457fde",
+  "images/banque/sg-pas.jpg": "3e11837b-cc7e-4a05-8283-d6d0b8d8451a",
+  "images/banque/sg-danse.jpg": "398cd6f9-3c73-4619-9364-04f18a274759",
+  "images/banque/sg-course.jpg": "3037bd2e-f6f8-4176-ad78-dac8a6af1932",
+  "images/banque/sg-baskets.jpg": "1e40f356-3e62-44b4-9c47-55c7345c3b18",
+  "images/banque/sg-appel.jpg": "5d952348-6d55-4a35-a247-a8ed53837b13"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/sg-couv-a.jpg",
+    "images/banque/sg-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "small habits that do more than a gym session (wellness edition)",
+    "note": "(no gym needed)"
+   },
+   "cadrage": [
+    {
+     "y": 0.5
+    },
+    {
+     "y": 1
+    }
+   ]
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sg-escalier.jpg",
+   "en": {
+    "titre": "_always_ take the stairs",
+    "intro": "the elevator is _the enemy_",
+    "paragraphes": [
+     "a study found that short bursts of stair climbing _improved fitness_ in young adults",
+     "every staircase is _a mini workout_"
+    ],
+    "chute": "stairs > _elevator_, always"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sg-pas.jpg",
+   "en": {
+    "titre": "walk _more_ every day",
+    "intro": "not a workout. _just steps_",
+    "paragraphes": [
+     "a big analysis found that more daily steps were linked to _better long-term health_",
+     "get off one stop early, _take the long way_"
+    ],
+    "chute": "every step _counts_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sg-danse.jpg",
+   "en": {
+    "titre": "dance while _you cook_",
+    "intro": "one song, _full volume_, in the kitchen",
+    "paragraphes": [
+     "you move, you laugh, and your mood _changes instantly_",
+     "bonus points if _someone joins_"
+    ],
+    "chute": "dinner with _a soundtrack_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/sg-course.jpg",
+   "en": {
+    "titre": "run _a little_ every week",
+    "intro": "running gave me more than _any gym membership_",
+    "paragraphes": [
+     "i used to run too much too soon and _always had to stop_",
+     "my tip: a running coach app like Atala builds your weeks up _little by little_, so you keep going"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sg-baskets.jpg",
+   "en": {
+    "titre": "shoes _by the door_",
+    "intro": "the night before, _ready to go_",
+    "paragraphes": [
+     "when your shoes are waiting, going out takes _zero willpower_",
+     "shoes, headphones, _jacket on the hook_"
+    ],
+    "chute": "make it _easy_ to move"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/sg-appel.jpg",
+   "en": {
+    "titre": "walk _while you're on the phone_",
+    "intro": "a call with your mom? _go outside_",
+    "paragraphes": [
+     "20 minutes of talking = _20 minutes of walking_",
+     "beach, park, _around the block_"
+    ],
+    "chute": "move without _even trying_"
+   }
+  }
+ ]
+}

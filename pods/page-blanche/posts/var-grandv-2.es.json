@@ -1,0 +1,297 @@
+{
+ "post_id": "var-grandv-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things that are rapidly",
+      "destroying your ability to focus"
+     ],
+     "fr": "10/10 trucs qui flinguent ta concentration à vitesse grand V",
+     "texte": "10/10 cosas que destrozan tu concentración sin que te des cuenta"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(la ciencia lo confirma)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_013fa660.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/os_52d0c733.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming everything at 2x speed"
+     ],
+     "fr": "tout mettre [[en vitesse x2]]",
+     "texte": "dormir [[6 horas por noche, no más]]"
+    },
+    "T2": {
+     "en": [
+      "when every podcast, video",
+      "and voice note is sped up,",
+      "normal-speed information",
+      "starts feeling painfully slow"
+     ],
+     "fr": "quand tes podcasts, vidéos et vocaux sont tous accélérés, le rythme normal te paraît [[atrocement lent]]",
+     "texte": "crees que no pasa nada, pero en 2 semanas tu atención está como tras [[una noche sin dormir]]"
+    },
+    "T3": {
+     "en": [
+      "you're training yourself to",
+      "need constant density"
+     ],
+     "fr": "ton cerveau s'habitue à [[en vouloir toujours plus]]",
+     "texte": "y lo peor es que [[ya ni lo notas]]"
+    },
+    "T4": {
+     "en": [
+      "instead, actually sit with an",
+      "idea for more than 10",
+      "seconds"
+     ],
+     "fr": "à la place, pose-toi sur une idée plus de 10 secondes",
+     "texte": "apunta a 7-9 horas y [[acuéstate a la misma hora]] cada noche"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_7669e95b.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to something",
+      "constantly"
+     ],
+     "fr": "écouter un truc [[non-stop]]",
+     "texte": "dejar [[todas las notis activadas]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, YouTube in the background,",
+      "your brain is almost never doing just one",
+      "thing"
+     ],
+     "fr": "musique, podcasts, YouTube en fond : ton cerveau [[fait presque jamais une seule chose]]",
+     "texte": "cada vibración te saca de lo que haces, y a tu cerebro le cuesta [[volver a concentrarse]]"
+    },
+    "T3": {
+     "en": [
+      "especially with",
+      "lyrics, part of",
+      "your attention is",
+      "still processing",
+      "language"
+     ],
+     "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots",
+     "texte": "en un estudio, [[solo recibir una notificación]] sin leerla bastaba para desconcentrar"
+    },
+    "T4": {
+     "en": [
+      "silence feels boring because you've stopped",
+      "practicing it"
+     ],
+     "fr": "le silence te paraît chiant parce que t'en as [[perdu l'habitude]]",
+     "texte": "apaga todo menos las llamadas cuando [[de verdad tengas que trabajar]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_508d9796.jpg",
+      "boite": [
+       0,
+       1052,
+       1760,
+       1017
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "googling every random thought",
+      "you have"
+     ],
+     "fr": "googler [[la moindre pensée]] qui te vient",
+     "texte": "trabajar en [[un escritorio hecho un caos]]"
+    },
+    "T2": {
+     "en": [
+      "you don't need to solve every curiosity the second it",
+      "appears"
+     ],
+     "fr": "pas besoin de régler chaque curiosité à la seconde où elle débarque",
+     "texte": "cada cosa que ves en tu mesa te roba un poquito de tu atención"
+    },
+    "T3": {
+     "en": [
+      "one search becomes five",
+      "tabs, then Reddit, then",
+      "somehow 20 minutes",
+      "disappeared"
+     ],
+     "fr": "une recherche, puis cinq onglets, puis Reddit, et [[20 minutes se sont envolées]]",
+     "texte": "neurocientíficos lo demostraron: el desorden a tu alrededor [[agota tu cerebro]] en silencio"
+    },
+    "T4": {
+     "en": [
+      "write the thought down",
+      "and finish what you were",
+      "doing first"
+     ],
+     "fr": "note ton idée et [[finis d'abord ce que t'étais en train de faire]]",
+     "texte": "antes de empezar, [[ordena 2 min]] y deja solo lo esencial"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_68c29ec8.jpg",
+      "boite": [
+       0,
+       0,
+       2496,
+       1664
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "[[no aprender]] nada nuevo"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even",
+      "realising, then lose hours of",
+      "your day to it. that is frying",
+      "your attention span"
+     ],
+     "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et t'y perds des heures. ça te grille la concentration",
+     "texte": "la curiosidad pone tu cerebro en modo concentración y le ayuda a recordar mejor. sin ella, [[todo te parece soso]]"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower to",
+      "stop, but i use a thing that",
+      "blocks tiktok until i read a",
+      "book for 20 minutes"
+     ],
+     "fr": "tu peux compter sur ta volonté pour arrêter, moi j'ai remplacé mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "mis 5 min de hoy en [[la app Sophia]]: por qué el cielo es azul. mi cerebro se despertó al instante"
+    },
+    "T4": {
+     "en": [
+      "don't become illiterate!!"
+     ],
+     "fr": "deviens pas inculte !!",
+     "texte": "¡¡alimenta tu curiosidad!!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "procrastinating all day"
+     ],
+     "fr": "procrastiner [[toute la journée]]",
+     "texte": "guardarlo todo [[en la cabeza]]"
+    },
+    "T2": {
+     "en": [
+      "every time you tell",
+      "yourself you'll do then",
+      "dont, you lose trust in",
+      "yourself"
+     ],
+     "fr": "chaque fois que tu te dis « je le fais » et que non, tu [[perds confiance en toi]]",
+     "texte": "tus preocupaciones y pendientes dan vueltas y [[se comen tu memoria de trabajo]]"
+    },
+    "T3": {
+     "en": [
+      "when you think about",
+      "doing something, do it",
+      "instantly"
+     ],
+     "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
+     "texte": "apúntalos antes de ponerte, [[tu cerebro respira]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_161ebd66.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  }
+ }
+}

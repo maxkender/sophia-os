@@ -1,0 +1,301 @@
+{
+ "post_id": "var-concentration-2",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "les habitudes niches qui tuent ta concentration",
+     "texte": "les habitudes niches qui tuent ta concentration"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(on en parle pas)",
+     "alignement": "droite",
+     "texte": "(on en parle pas)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_9e2a76ab.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "bosser [[depuis ton lit]]",
+     "texte": "bosser [[depuis ton lit]]"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "l'ordi sur les genoux, la couette, l'oreiller dans le dos. c'est cosy, mais pour ton cerveau, [[lit = repos]]",
+     "texte": "l'ordi sur les genoux, la couette, l'oreiller dans le dos. c'est cosy, mais pour ton cerveau, [[lit = repos]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "du coup, dès que tu t'y poses, [[ta concentration fond]]",
+     "texte": "du coup, dès que tu t'y poses, [[ta concentration fond]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "et ça marche dans les deux sens : à force d'y bosser, [[tu dors moins bien]]. ton lit, c'est pour dormir",
+     "texte": "et ça marche dans les deux sens : à force d'y bosser, [[tu dors moins bien]]. ton lit, c'est pour dormir"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_04cfe1cc.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "fr": "réviser [[fenêtre fermée]] des heures",
+     "texte": "réviser [[fenêtre fermée]] des heures"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "fr": "porte et fenêtre fermées, l'air devient lourd et t'as la tête dans le coton sans savoir pourquoi",
+     "texte": "porte et fenêtre fermées, l'air devient lourd et t'as la tête dans le coton sans savoir pourquoi"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "fr": "une étude d'harvard l'a montré : air confiné = [[cerveau au ralenti]]",
+     "texte": "une étude d'harvard l'a montré : air confiné = [[cerveau au ralenti]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "fr": "ouvre la fenêtre [[10 min toutes les heures]], ta tête s'éclaircit",
+     "texte": "ouvre la fenêtre [[10 min toutes les heures]], ta tête s'éclaircit"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_6e8628e4.jpg",
+      "boite": [
+       0,
+       0,
+       1504,
+       2784
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "fr": "remplir [[la moindre attente]] avec ton tel",
+     "texte": "remplir [[la moindre attente]] avec ton tel"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "fr": "la queue, le bus, le micro-ondes, l'ascenseur, hop, tel sorti",
+     "texte": "la queue, le bus, le micro-ondes, l'ascenseur, hop, tel sorti"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "fr": "ton cerveau a [[jamais une minute de vide]] pour souffler",
+     "texte": "ton cerveau a [[jamais une minute de vide]] pour souffler"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "fr": "alors dès que le boulot ralentit, il [[cherche autre chose]] par réflexe, à chaque fois",
+     "texte": "alors dès que le boulot ralentit, il [[cherche autre chose]] par réflexe, à chaque fois"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "fr": "avant je scrollais H24, maintenant j'apprends un truc en 5 min sur [[l'appli Sophia]]",
+     "texte": "avant je scrollais H24, maintenant j'apprends un truc en 5 min sur [[l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "fr": "un [[petit-déj ultra sucré]] avant les cours",
+     "texte": "un [[petit-déj ultra sucré]] avant les cours"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "fr": "céréales, viennoiseries, café sucré. t'as un boost pendant une heure, puis ta glycémie chute et [[ta concentration avec]]",
+     "texte": "céréales, viennoiseries, café sucré. t'as un boost pendant une heure, puis ta glycémie chute et [[ta concentration avec]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "fr": "le coup de mou de 10 h, c'est pas de la flemme, [[c'est le crash]]",
+     "texte": "le coup de mou de 10 h, c'est pas de la flemme, [[c'est le crash]]"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "fr": "ajoute des protéines : œufs, yaourt, flocons d'avoine. [[tu tiens jusqu'au déj]]",
+     "texte": "ajoute des protéines : œufs, yaourt, flocons d'avoine. [[tu tiens jusqu'au déj]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07cf7fda.jpg",
+      "boite": [
+       0,
+       0,
+       2048,
+       2048
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "fr": "tes fiches [[en 5 couleurs]]",
+     "texte": "tes fiches [[en 5 couleurs]]"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "fr": "cinq surligneurs, des titres parfaits, une page recopiée parce qu'un mot était moche",
+     "texte": "cinq surligneurs, des titres parfaits, une page recopiée parce qu'un mot était moche"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "fr": "tes mains s'activent pendant que [[ton cerveau décroche]]",
+     "texte": "tes mains s'activent pendant que [[ton cerveau décroche]]"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "fr": "écris moche, puis [[interroge-toi]] sans tes notes",
+     "texte": "écris moche, puis [[interroge-toi]] sans tes notes"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_008c05fe.jpg",
+      "boite": [
+       0,
+       880,
+       1504,
+       1904
+      ]
+     }
+    }
+   }
+  }
+ }
+}

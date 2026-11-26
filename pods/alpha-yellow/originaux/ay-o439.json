@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o439",
+ "type_bleo": "full_test",
+ "titre": "Why every man should go camping alone once #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "twin tribes monolith Dexter Morgan Super Slow",
+ "musique_url": "https://www.tiktok.com/music/twin-tribes-monolith-dexter-morgan-super-7401614052290169605",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Why every man should go camping alone once » (retenue), « Solo camping for beginners » (écartée : technique), « The trip that changed me » (écartée : vague). Évite « do alone at least once » de la ligne 14 le même jour.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3c7793bd-fd60-4f9e-9f60-7013d5d3532a",
+   "texte_overlay": "Why every man should\ngo camping alone once",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "You learn to rely on yourself. Pitching the tent, cooking, finding water. Every small task done alone builds real confidence.",
+   "media_id": "4f250a04-7915-47b7-b784-ffb751739ad1"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You hear your own thoughts again. No phone signal, no notifications. After a day, your mind slows down and gets clearer.",
+   "media_id": "5a932965-6662-4cb0-b5f5-bd2615c6a989"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You notice nature properly. Birds at dawn, stars at night, the sound of wind. Things you never notice in the city.",
+   "media_id": "5bb4f827-dc8e-4116-959f-d820732dd082"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "You get comfortable with discomfort. A cold night or a little rain teaches you that you can handle more than you think.",
+   "media_id": "6c848b77-1467-4370-ba1e-c5bbb2611dfd"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: silence made me restless. After: five minutes a day of history, art or science, and quiet time feels like a gift now.",
+   "texte_sophia": "Before: silence made me restless. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Quiet time feels like a gift now.",
+   "media_id": "df5ab240-78f0-471d-9f9c-c12b55261726"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You come back grateful. A hot shower, a soft bed, a good meal. Simple comforts feel amazing after a night outside.",
+   "media_id": "6ed67e30-9a36-41e3-ac89-ef64e6c4700f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Start small and safe. A campsite near home, good weather, someone who knows your plan. Adventure doesn't need to be risky.",
+   "media_id": "752cb8a8-5312-4eae-b2a4-a03aed714e41"
+  }
+ ]
+}

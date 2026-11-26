@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o449",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e4d18681-6747-43ef-8fda-427f855a0529",
+ "titre": "Small habits that make people think you're smart #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "e4d18681-6747-43ef-8fda-427f855a0529"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 6 de la boîte (e4d18681), 2e déclinaison après ay-o432. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o432, o293, o308, o325.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "afe98251-668d-44a9-9890-668ae68eafa2",
+   "texte_overlay": "Small habits that make\npeople think you're smart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Pause before you answer. Two seconds of thought makes your reply sound considered instead of rushed. Silence is fine.",
+   "media_id": "da75c23a-1d3d-4074-8fb5-97795e0cc544"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Use simple words for complex ideas. Explaining clearly is a sign of deep understanding. Big words often hide confusion.",
+   "media_id": "db0ea209-5ab8-45eb-921a-788ad4d0e79f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Ask follow-up questions. \"And what happened next?\" Curiosity shows an active mind and keeps people talking. Be curious.",
+   "media_id": "db12a692-557f-47d5-9055-58ef96e36d76"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Admit what you don't know. \"I'm not sure, but I'd love to learn.\" Honesty makes everything else you say more credible.",
+   "media_id": "db20a1fc-95bb-4f41-aa9f-01d4c5565d48"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your knowledge daily. I do five minutes a day of history, art or science, and I always have a fact or story to add.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have a fact or story to add.",
+   "media_id": "f89e7378-5abc-43fd-bb12-5e59860a220c"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Read real books, not just headlines. Deep reading gives you context that makes your opinions stronger. Read daily.",
+   "media_id": "db214c95-c768-4c3d-91b6-94637576d24a"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Listen more than you talk. Smart people collect ideas from others before sharing their own. Listen first, then speak with something real to add.",
+   "media_id": "dbf14709-4179-405b-a383-02e2cb861077"
+  }
+ ]
+}

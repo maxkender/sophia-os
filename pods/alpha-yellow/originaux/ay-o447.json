@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o447",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "90a9f265-c987-408c-b338-2e0933277aa3",
+ "titre": "Les leçons sur l'argent qu'on apprend trop tard #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "90a9f265-c987-408c-b338-2e0933277aa3"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 4 de la boîte (90a9f265, notre ay-o329), 2e déclinaison après ay-o430, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots. Leçons neuves, aucune reprise d'ay-o329, o430 ni de 868887ed. Conseils généraux, aucun produit cité.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "afbd912f-f376-4f8a-ab1a-0f609d004f0f",
+   "texte_overlay": "Les leçons sur l'argent\nqu'on apprend trop tard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672848309135920417/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Commencer tôt change tout. Même 50 euros par mois dès 20 ans font une vraie différence à 40 ans. Le temps travaille pour toi.",
+   "media_id": "d5bc8813-3b92-4652-b740-a3c2cc0065f8"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Les achats pour impressionner coûtent deux fois. Une fois en argent, une fois en stress. Achète pour toi, pas pour les autres.",
+   "media_id": "d5c3f4f6-7fb7-4da4-8224-453773f9df51"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Un revenu en plus vaut mieux qu'une dépense en moins. Une compétence, un petit projet, des heures en plus. Augmente tes entrées aussi.",
+   "media_id": "d5ed8f47-ef09-4fde-a43c-06baef7d1abc"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Les dettes de consommation sont un piège. Rembourse-les en priorité avant de penser à investir. C'est la base de tout le reste.",
+   "media_id": "d605a13a-1dd8-4612-95b4-99e9be0167a7"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Avant : je dépensais pour me changer les idées. Après : cinq minutes d'histoire, d'art ou de science par jour, et ça ne me coûte presque rien.",
+   "texte_sophia": "Avant : je dépensais pour me changer les idées. Après : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Ça ne me coûte presque rien.",
+   "media_id": "f3e1f4cb-ddd2-4914-a48f-53c8785210f0"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Parle d'argent avec ceux qui en savent plus. Les erreurs des autres sont les leçons les moins chères. Demande-leur conseil.",
+   "media_id": "d652acab-b65e-47df-a77d-bcb6bc6935bf"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "L'argent sert à vivre mieux, pas à se comparer. Fixe tes propres objectifs et ignore ceux des autres. Ta vie, tes règles.",
+   "media_id": "d66dd42e-5570-450c-8270-46d84fb2ae2f"
+  }
+ ]
+}

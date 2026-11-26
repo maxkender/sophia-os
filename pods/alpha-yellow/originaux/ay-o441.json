@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o441",
+ "type_bleo": "full_test",
+ "titre": "Small habits that keep your home clean without effort #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Small habits that keep your home clean without effort » (retenue), « Cleaning tips for lazy men » (écartée : ton moqueur), « The 10-minute reset » (écartée : trop étroit).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4714de4b-6066-434f-9a8b-a0b15c348842",
+   "texte_overlay": "Small habits that keep\nyour home clean without effort",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Never leave a room empty-handed. Take a cup to the kitchen, a jacket to the hook. Tiny trips stop clutter from piling up.",
+   "media_id": "af54fb74-f832-4f29-ab77-b8ffb56845cf"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Wash dishes right after eating. Five minutes now saves thirty later. A clean kitchen makes the whole home feel calmer.",
+   "media_id": "b791e980-aed5-4da5-bc4d-c13717f2b082"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Make your bed every morning. The biggest surface in your bedroom done in a minute. The room instantly looks tidy.",
+   "media_id": "c7fe6a22-5fe2-456c-8855-971634158a37"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Do a ten-minute reset every evening. Music on, put everything back where it belongs. Waking up to a tidy home feels great.",
+   "media_id": "ca2164e5-8fcb-4d8d-9ad2-ceace6740ab3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: chores felt endless and boring. After: five minutes a day of history, art or science, and I listen to new ideas while I tidy.",
+   "texte_sophia": "Before: chores felt endless and boring. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I now learn while I tidy.",
+   "media_id": "8025402e-6737-4d66-8128-74190dbaf6dc"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Have a home for everything. Keys, chargers, documents. When everything has a place, tidying takes no thought. Start with keys.",
+   "media_id": "caf72484-5725-456f-b4ec-2a7ac4f4c4dd"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Own less. Fewer things means less to clean, store and lose. A simple home is the easiest home to keep clean. Less is easier.",
+   "media_id": "cc8e4763-5f06-49e7-8818-5b34b5f0409a"
+  }
+ ]
+}

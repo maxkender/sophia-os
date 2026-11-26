@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o452",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ccef152b-ddf2-4a0b-8b25-2fa2bbc31f2d",
+ "titre": "things that scream international student pt.1 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "ccef152b-ddf2-4a0b-8b25-2fa2bbc31f2d"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 11 de la boîte (ccef152b, @celonstudio) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (chaussures, écouteurs filaires, lunettes, sneakers, chemises en lin, casquettes). Format adapté : une habitude d'étudiant à l'étranger par slide, aucune marque citée. Les lignes 9 et 10 (« things i find… ») sont sautées, accroches voisines de la ligne 8 le même jour. La ligne 13 est sautée, voisine de la ligne 12..",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b12fdb73-a4fd-4619-8ad4-1df2603089f1",
+   "texte_overlay": "things that scream\ninternational student\npt.1",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Calling home on weekends with a time difference. Sunday morning for you, Sunday evening for them. Every international student knows that schedule.",
+   "media_id": "de75bc21-22a3-4cb9-a619-f18cb5796fca"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "A suitcase that never fully gets unpacked. Half your life lives in it, ready for the next trip home or the next weekend away.",
+   "media_id": "e03619a9-60a8-4a8d-b991-64b46c85d7d2"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Speaking three languages in one sentence. Your friends from everywhere end up mixing words until you invent your own language.",
+   "media_id": "e06208e3-10d0-4e6d-abd8-67477b18e373"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Cooking your mother's recipes from memory. They never taste exactly the same, but they make a small flat feel like home.",
+   "media_id": "e1193ab8-89ba-4410-82a6-4582d555d23d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learning about every country your friends come from. I do five minutes a day of history, art or science, and it makes those friendships deeper.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It makes those friendships deeper.",
+   "media_id": "3089a52f-d6c9-4fbf-b083-7d5e2bfbfad8"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Cheap flights booked at 2am. Always checking prices, always planning the next adventure on a student budget. Always.",
+   "media_id": "e1751ff4-c7d5-4ab0-8cb4-38540ab7313a"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Friends who become family. When you're far from home, the people around you become your support system for life.",
+   "media_id": "e1aaca4f-6427-4360-b2c4-7582fe171511"
+  }
+ ]
+}

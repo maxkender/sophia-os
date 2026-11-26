@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o440",
+ "type_bleo": "full_test",
+ "titre": "Why every man should have a mentor #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Why every man should have a mentor » (retenue), « How to find a mentor » (écartée : plus étroit), « The advice that changed my career » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "424fe5fa-e763-4212-953c-f66cf2a4d3e2",
+   "texte_overlay": "Why every man should\nhave a mentor",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A mentor shows you shortcuts. They've already made the mistakes you're about to make. One honest conversation can save you years.",
+   "media_id": "7b38101d-0640-410f-9c0a-dc2031b4402f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "A mentor sees what you can't. Your blind spots, your strengths, your habits. An outside view helps you grow faster.",
+   "media_id": "9ca91595-3711-4c53-9f7c-7200c5e6073e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A mentor opens doors. Introductions, recommendations, opportunities. People trust the people their mentors trust.",
+   "media_id": "9dbd2f77-f66e-4895-b253-d7eae2ee42df"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Finding one is simpler than you think. Ask someone you admire for a coffee and come with good questions. Most people are happy to help.",
+   "media_id": "a2116a25-35d9-4b24-9fba-d83a66787aa1"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learn from great minds every day too. I do five minutes a day of history, art or science, and history is full of mentors.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. History is full of mentors.",
+   "media_id": "f5b3ba74-85cf-4234-a994-5877f577e464"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Make it easy for them. Be on time, be prepared, follow their advice and tell them what happened. Mentors love seeing progress.",
+   "media_id": "a3d4da97-9051-4c5d-92ca-85a614ea677e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Become a mentor later. Help someone younger. Passing on what you learned is one of the most meaningful things a man can do.",
+   "media_id": "abecf1cf-2697-465d-9f46-52f131d625e6"
+  }
+ ]
+}

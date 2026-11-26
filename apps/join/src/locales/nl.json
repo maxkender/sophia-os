@@ -196,6 +196,8 @@
   "form.readContract": "Lees het volledige contract voordat je solliciteert",
   "dec.refusedTitle": "Bedankt, {name}",
   "dec.refused": "We kunnen je op dit moment geen plek aanbieden. Bedankt voor je interesse.",
+  "stop.title": "Je inschrijving is stopgezet",
+  "stop.body": "Je toegang is gesloten en je krijgt geen herinneringen meer van ons. Bedankt voor je interesse.",
   "legal.notice.title": "Juridische informatie",
   "legal.notice.publisher": "Uitgever",
   "legal.notice.company": "Vik Studios SAS (handelsnaam: Vik Studios), een Franse vereenvoudigde naamloze vennootschap (SAS) met een maatschappelijk kapitaal van € 2.",

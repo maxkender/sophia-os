@@ -196,6 +196,8 @@
   "form.readContract": "Loe enne kandideerimist kogu leping läbi",
   "dec.refusedTitle": "Aitäh, {name}",
   "dec.refused": "Praegu ei saa me sulle kohta pakkuda. Aitäh huvi eest.",
+  "stop.title": "Sinu registreerimine on peatatud",
+  "stop.body": "Sinu ligipääs on suletud ja sa ei saa meilt enam meeldetuletusi. Aitäh huvi eest.",
   "legal.notice.title": "Õiguslik teave",
   "legal.notice.publisher": "Väljaandja",
   "legal.notice.company": "Vik Studios SAS (ärinimi: Vik Studios), Prantsuse lihtsustatud aktsiaselts (SAS) aktsiakapitaliga 2 €.",

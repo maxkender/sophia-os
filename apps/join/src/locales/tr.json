@@ -196,6 +196,8 @@
   "form.readContract": "Başvurmadan önce sözleşmenin tamamını oku",
   "dec.refusedTitle": "Teşekkürler, {name}",
   "dec.refused": "Şu an sana bir yer sunamıyoruz. İlgin için teşekkürler.",
+  "stop.title": "Kaydın durduruldu",
+  "stop.body": "Erişimin kapatıldı ve artık sana hatırlatma göndermeyeceğiz. İlgin için teşekkürler.",
   "legal.notice.title": "Yasal bilgiler",
   "legal.notice.publisher": "Yayıncı",
   "legal.notice.company": "Vik Studios SAS (ticari adı: Vik Studios), 2 € sermayeli, Fransız hukukuna tabi basitleştirilmiş anonim şirket (SAS).",

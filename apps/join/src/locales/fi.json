@@ -196,6 +196,8 @@
   "form.readContract": "Lue koko sopimus ennen kuin haet",
   "dec.refusedTitle": "Kiitos, {name}",
   "dec.refused": "Emme voi tarjota sinulle paikkaa tällä hetkellä. Kiitos kiinnostuksestasi.",
+  "stop.title": "Rekisteröitymisesi on keskeytetty",
+  "stop.body": "Pääsysi on suljettu, etkä saa meiltä enää muistutuksia. Kiitos kiinnostuksestasi.",
   "legal.notice.title": "Oikeudelliset tiedot",
   "legal.notice.publisher": "Julkaisija",
   "legal.notice.company": "Vik Studios SAS (toiminimi: Vik Studios), ranskalainen yksinkertaistettu osakeyhtiö (SAS), osakepääoma 2 €.",

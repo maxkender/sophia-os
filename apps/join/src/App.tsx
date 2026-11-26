@@ -21,7 +21,7 @@ import { marquerPresentationVue, NB_ECRANS, presentationVue } from "./presentati
 
 type Ecran =
   | "arrivee" | "candidature" | "ferme" | "codes" | "decision" | "contrat" | "dashboard" | "connexion" | "legal" | "privacy"
-  | "expiree" | "refusee" | "modele" | "faq" | "presentation";
+  | "expiree" | "refusee" | "arretee" | "modele" | "faq" | "presentation";
 
 /** Les pages publiques qui ont leur propre adresse (liens partageables) ; /admin est à part. */
 const CHEMINS: Partial<Record<Ecran, string>> = { modele: "/contract", legal: "/legal", privacy: "/privacy", faq: "/faq" };
@@ -33,7 +33,7 @@ const CHEMINS: Partial<Record<Ecran, string>> = { modele: "/contract", legal: "/
 type EtatHistorique = { ecran: Ecran; onb?: number };
 
 /** Les écrans du parcours d'un candidat connecté : jamais restaurés tels quels (la session décide, via `moi`). */
-const ECRANS_SESSION: readonly Ecran[] = ["codes", "decision", "contrat", "dashboard", "expiree", "refusee", "ferme"];
+const ECRANS_SESSION: readonly Ecran[] = ["codes", "decision", "contrat", "dashboard", "expiree", "refusee", "arretee", "ferme"];
 
 function ecranDuChemin(): Ecran | null {
   const p = location.pathname.replace(/\/+$/, "") || "/";
@@ -131,7 +131,8 @@ function Site() {
     setEnvoi((e) => e ?? { prenom: c.prenom, email: c.email, whatsapp: c.whatsapp, whatsapp_code: c.whatsapp_code });
     // Les étapes du parcours remplacent l'entrée courante : « retour » ne ramène jamais sur un écran périmé.
     const vers = (e: Ecran) => aller(e, { remplacer: true });
-    if (r.signature) vers("dashboard");
+    // 26/11 (Max) : un posteur que l'OS a arrêté (set-up pas fini en 14 jours, Kill, arrêt) voit un état clair, plus la checklist.
+    if (r.signature) vers(r.arretee ? "arretee" : "dashboard");
     else if (r.expiree) vers("expiree");
     else if (c.ferme) vers("ferme");
     else if (c.decision === "refusee") vers("refusee");
@@ -265,6 +266,7 @@ function Site() {
       {ecran === "refusee" && (
         <Etat titre={t("dec.refusedTitle", { name: envoi?.prenom ?? moi?.candidature.prenom ?? "" })} texte={t("dec.refused")} />
       )}
+      {ecran === "arretee" && <Etat titre={t("stop.title")} texte={t("stop.body")} />}
       {ecran === "ferme" && <Etat titre={t("form.closedTitle", { name: envoi?.prenom ?? moi?.candidature.prenom ?? "" })} texte={t("form.closed")} />}
       {ecran === "expiree" && (
         <Etat titre={t("dec.expiredTitle")} texte={t("dec.expired")} action={{ texte: t("dec.applyAgain"), onClick: () => {

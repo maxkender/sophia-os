@@ -196,6 +196,8 @@
   "form.readContract": "Lies den vollständigen Vertrag, bevor du dich bewirbst",
   "dec.refusedTitle": "Danke, {name}",
   "dec.refused": "Wir können dir im Moment keinen Platz anbieten. Danke für dein Interesse.",
+  "stop.title": "Deine Anmeldung wurde beendet",
+  "stop.body": "Dein Zugang wurde geschlossen und du bekommst keine Erinnerungen mehr von uns. Danke für dein Interesse.",
   "legal.notice.title": "Impressum",
   "legal.notice.publisher": "Herausgeber",
   "legal.notice.company": "Vik Studios SAS (Handelsname: Vik Studios), eine vereinfachte Aktiengesellschaft (SAS) nach französischem Recht mit einem Stammkapital von 2 €.",

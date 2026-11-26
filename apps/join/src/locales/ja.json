@@ -196,6 +196,8 @@
   "form.readContract": "応募前に契約書の全文をお読みください",
   "dec.refusedTitle": "{name}さん、ありがとうございます",
   "dec.refused": "現時点では募集枠をご用意できません。ご関心をお寄せいただき、ありがとうございました。",
+  "stop.title": "登録は停止されました",
+  "stop.body": "アクセスは終了し、今後リマインダーをお送りすることはありません。ご関心をお寄せいただき、ありがとうございました。",
   "legal.notice.title": "法的情報",
   "legal.notice.publisher": "発行者",
   "legal.notice.company": "Vik Studios SAS（商号：Vik Studios）、資本金2ユーロのフランスの簡易株式会社（SAS）。",

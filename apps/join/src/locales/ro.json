@@ -196,6 +196,8 @@
   "form.readContract": "Citește contractul complet înainte să aplici",
   "dec.refusedTitle": "Mulțumim, {name}",
   "dec.refused": "Momentan nu îți putem oferi un loc. Mulțumim pentru interes.",
+  "stop.title": "Înscrierea ta a fost oprită",
+  "stop.body": "Accesul tău a fost închis și nu vei mai primi mementouri de la noi. Mulțumim pentru interes.",
   "legal.notice.title": "Informații legale",
   "legal.notice.publisher": "Editor",
   "legal.notice.company": "Vik Studios SAS (denumire comercială: Vik Studios), societate pe acțiuni simplificată (SAS) de drept francez, cu un capital social de 2 €.",

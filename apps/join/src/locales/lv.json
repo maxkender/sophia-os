@@ -196,6 +196,8 @@
   "form.readContract": "Pirms piesakies, izlasi visu līgumu",
   "dec.refusedTitle": "Paldies",
   "dec.refused": "Pagaidām nevaram tev piedāvāt vietu. Paldies par interesi.",
+  "stop.title": "Tava reģistrācija ir apturēta",
+  "stop.body": "Tava piekļuve ir slēgta, un mēs tev vairs nesūtīsim atgādinājumus. Paldies par interesi.",
   "legal.notice.title": "Juridiskā informācija",
   "legal.notice.publisher": "Izdevējs",
   "legal.notice.company": "Vik Studios SAS (komercnosaukums: Vik Studios), Francijas vienkāršota akciju sabiedrība (SAS) ar pamatkapitālu 2 €.",

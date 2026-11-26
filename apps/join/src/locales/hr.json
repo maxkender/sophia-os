@@ -196,6 +196,8 @@
   "form.readContract": "Pročitaj cijeli ugovor prije prijave",
   "dec.refusedTitle": "Hvala ti",
   "dec.refused": "Trenutačno ti ne možemo ponuditi mjesto. Hvala na interesu.",
+  "stop.title": "Tvoja prijava je zaustavljena",
+  "stop.body": "Tvoj pristup je zatvoren i više ti nećemo slati podsjetnike. Hvala na interesu.",
   "legal.notice.title": "Pravne informacije",
   "legal.notice.publisher": "Izdavač",
   "legal.notice.company": "Vik Studios SAS (trgovačko ime: Vik Studios), francusko pojednostavljeno dioničko društvo (SAS) s temeljnim kapitalom od 2 €.",

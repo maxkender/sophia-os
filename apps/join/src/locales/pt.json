@@ -196,6 +196,8 @@
   "form.readContract": "Leia o contrato completo antes de se candidatar",
   "dec.refusedTitle": "Obrigado, {name}",
   "dec.refused": "No momento, não podemos oferecer uma vaga a você. Obrigado pelo seu interesse.",
+  "stop.title": "Sua inscrição foi encerrada",
+  "stop.body": "Seu acesso foi encerrado e você não receberá mais lembretes nossos. Obrigado pelo seu interesse.",
   "legal.notice.title": "Aviso legal",
   "legal.notice.publisher": "Editor",
   "legal.notice.company": "Vik Studios SAS (nome comercial: Vik Studios), sociedade por ações simplificada (SAS) de direito francês, com capital social de 2 €.",

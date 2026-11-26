@@ -196,6 +196,8 @@
   "form.readContract": "קראו את ההסכם המלא לפני שאתם מגישים מועמדות",
   "dec.refusedTitle": "תודה, {name}",
   "dec.refused": "כרגע איננו יכולים להציע לכם מקום. תודה על ההתעניינות.",
+  "stop.title": "ההרשמה שלכם הופסקה",
+  "stop.body": "הגישה שלכם נסגרה ולא תקבלו מאיתנו יותר תזכורות. תודה על ההתעניינות.",
   "legal.notice.title": "מידע משפטי",
   "legal.notice.publisher": "המפרסם",
   "legal.notice.company": "Vik Studios SAS (שם מסחרי: Vik Studios), חברת מניות פשוטה צרפתית (SAS) בהון מניות של 2 €.",

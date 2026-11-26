@@ -604,6 +604,7 @@ export const fr = {
             couverture: {
               ligne: "{{n}} montrés sur {{N}} posteurs actifs ({{M}} comptes)",
               absents: "Pas dans la liste ({{n}})",
+              enSetup: "{{n}} posteur(s) en set-up, pas prêt(s) (cohorte à venir : onglet des recrues, pas comptés).",
               sansCompte: "{{n}} posteur(s) actif(s) sans compte actif (pas comptés ; carte des recrues).",
               raisons: { ruul: "Cohorte RUUL (exclue)", pas_perso: "pas de compte perso actif", sans_compte: "pas de compte actif", inconnue: "absent de la liste : à vérifier" },
             },

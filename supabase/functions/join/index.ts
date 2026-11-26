@@ -1567,6 +1567,9 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       return json({
         ok: true, mode: mode.mode, candidature: vueCandidature(c, mode), signature: sig ? { signe_at: sig.signe_at, version: sig.version } : null,
         etapes, expiree: !!c.expire_at,
+        // 26/11 (Max) : l'OS a arrêté ce posteur (set-up pas fini en 14 jours, Kill, arrêt) : la page le dit, plus de
+        // checklist ; ses rappels sont déjà bloqués (rappelsCandidat).
+        arretee: !!os && (os.is_active === false || !!os.arrete),
         ...(lundiOffre ? { offre: { cohorte: lundiOffre, date_limite: new Date(dateLimiteSignature(lundiOffre).getTime() - 60_000).toISOString() } } : {}),
         premier_post: premier, premier_post_texte: premier ? `Your first post is on ${lundiLisible(premier)}` : null,
         checklist: ETAPES_CHECKLIST.map((e) => ({ etape: e, fait: faites[e] })),

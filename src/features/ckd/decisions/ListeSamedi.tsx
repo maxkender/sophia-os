@@ -26,6 +26,7 @@ import { marquerRituelFait } from "./rituelsFaits";
 import { lireEtatsHandle } from "./handlesEtat";
 import {
   calculerCouverture,
+  posteursEnSetup,
   type LigneSimulation,
   lireCouverture,
   lireForces,
@@ -387,7 +388,9 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const posteursMontres = React.useMemo(() => new Set(liste.map((c) => c.poster_id)), [liste]);
   // 0469 : la conversation Upwork de chaque posteur (liste, toujours montrés).
   const conv = useConversations([...liste.map((c) => c.poster_id), ...[...(forces.data?.keys() ?? [])]]);
-  const cover = couverture.data ? calculerCouverture(couverture.data, posteursMontres) : null;
+  // 26/11 (Max) : les posteurs en set-up (cohorte à venir) ne comptent pas comme posteurs actifs.
+  const enSetup = React.useMemo(() => posteursEnSetup(liste, lundi), [liste, lundi]);
+  const cover = couverture.data ? calculerCouverture(couverture.data, posteursMontres, enSetup) : null;
   const jours = liste[0]?.jours.map((j) => j.jour) ?? [];
   const nbCol = jours.length + 9;
   const compteurs = {

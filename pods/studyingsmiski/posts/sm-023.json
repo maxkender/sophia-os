@@ -1,0 +1,432 @@
+{
+ "id": "sm-023",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "on & on",
+  "url": "https://www.tiktok.com/music/on-on-7122836057481021441"
+ },
+ "notes": "Full test du 26/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, papier vert, stickers, bulle) : « apps that make me feel smarter every day ». Sophia en 2e carte (slide 3, cta C), ni première ni dernière. Autres applis douces et sans langue, lues sur leur fiche App Store : 2048 (Ketchapp), Flow Free, Nonogram.com. Toutes sur l'App Store des 10 pays et sur Android (lookup iTunes du 20/11). Musique : la sienne de « smart girls don't gatekeep » (268 k).",
+ "titre": {
+  "en": "apps that make me feel smarter every day",
+  "fr": "les applis qui me rendent plus maligne chaque jour",
+  "es": "apps que me hacen sentir más lista cada día",
+  "es-419": "apps que me hacen sentir más lista cada día",
+  "it": "app che mi fanno sentire più intelligente ogni giorno",
+  "tr": "her gün kendimi daha zeki hissettiren uygulamalar",
+  "pt-BR": "apps que me deixam mais inteligente todo dia",
+  "de": "apps, mit denen ich mich jeden tag schlauer fühle",
+  "sl": "aplikacije, s katerimi se vsak dan počutim pametnejša",
+  "hu": "appok, amiktől minden nap okosabbnak érzem magam"
+ },
+ "legendes": {
+  "en": "tiny brain workouts, big difference 🧠🍵 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "des mini-séances de sport pour le cerveau 🧠🍵 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "mini entrenos para el cerebro, gran diferencia 🧠🍵 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "mini entrenamientos para el cerebro, gran diferencia 🧠🍵 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "mini allenamenti per il cervello, grande differenza 🧠🍵 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "minik beyin antrenmanları, büyük fark 🧠🍵 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "mini treinos pro cérebro, grande diferença 🧠🍵 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "kleine workouts fürs gehirn, großer unterschied 🧠🍵 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "mali treningi za možgane, velika razlika 🧠🍵 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "kis agyedzések, nagy különbség 🧠🍵 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/vert.jpg",
+   "titre_largeur": 480,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/puzzle.png",
+     "x": 50,
+     "y": 160,
+     "l": 210,
+     "rotation": -15
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 830,
+     "y": 130,
+     "l": 180,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 30,
+     "y": 720,
+     "l": 290,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/oiseau.png",
+     "x": 830,
+     "y": 760,
+     "l": 180,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps that\nmake me feel\nsmarter",
+    "sous": "brain workout\nedition"
+   },
+   "fr": {
+    "titre": "les applis\nqui me rendent\nplus maligne",
+    "sous": "spécial\nmuscu du cerveau"
+   },
+   "es": {
+    "titre": "apps que me\nhacen más lista\ncada día",
+    "sous": "edición\ngym mental"
+   },
+   "es-419": {
+    "titre": "apps que me\nhacen más lista\ncada día",
+    "sous": "edición\ngym mental"
+   },
+   "it": {
+    "titre": "app che mi\nrendono più\nsveglia",
+    "sous": "edizione\npalestra mentale"
+   },
+   "tr": {
+    "titre": "beni daha\nzeki yapan\nuygulamalar",
+    "sous": "beyin\nantrenmanı"
+   },
+   "pt-BR": {
+    "titre": "apps que me\ndeixam mais\nesperta",
+    "sous": "edição\nacademia mental"
+   },
+   "de": {
+    "titre": "apps, die\nmich schlauer\nmachen",
+    "sous": "gehirnjogging-\nedition"
+   },
+   "sl": {
+    "titre": "aplikacije, ki\nme delajo\npametnejšo",
+    "sous": "izdaja\nmožganski trening"
+   },
+   "hu": {
+    "titre": "appok,\namiktől\nokosabb\nvagyok",
+    "sous": "agytorna\nkiadás"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/2048/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 50,
+     "y": 720,
+     "l": 260,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/dango.png",
+     "x": 820,
+     "y": 720,
+     "l": 190,
+     "rotation": 10
+    }
+   ],
+   "en": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "merge the tiles and plan two moves ahead to reach 2048. five minutes of this and my brain is fully awake."
+   },
+   "fr": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "fusionne les tuiles et prévois deux coups d'avance pour atteindre 2048. cinq minutes et mon cerveau est bien réveillé."
+   },
+   "es": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "junta las fichas y planea dos jugadas por adelantado para llegar a 2048. cinco minutos y mi cerebro está despierto."
+   },
+   "es-419": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "junta las fichas y planea dos jugadas adelante para llegar a 2048. cinco minutos y mi cerebro está despierto."
+   },
+   "it": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "unisci le tessere e pianifica due mosse in anticipo per arrivare a 2048. cinque minuti e il cervello è sveglio."
+   },
+   "tr": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "karoları birleştir ve 2048'e ulaşmak için iki hamle önceden planla. beş dakikada beynim tamamen uyanıyor."
+   },
+   "pt-BR": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "junta as peças e planeja duas jogadas à frente pra chegar no 2048. cinco minutos e meu cérebro acorda de vez."
+   },
+   "de": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "kacheln verbinden und zwei züge vorausdenken, um 2048 zu erreichen. fünf minuten und mein kopf ist hellwach."
+   },
+   "sl": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "združuj ploščice in načrtuj dve potezi vnaprej, da prideš do 2048. pet minut in možgani so budni."
+   },
+   "hu": {
+    "nom": "2048",
+    "plateformes": "iOS, Android",
+    "texte": "egyesítsd a lapokat, és tervezz két lépéssel előre, hogy elérd a 2048-at. öt perc, és teljesen felébred az agyam."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/vert.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/fiches.png",
+     "x": 800,
+     "y": 110,
+     "l": 230,
+     "rotation": 14
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks!",
+    "bulle": "smarter in 10 minutes, every day!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir !",
+    "bulle": "plus maligne en 10 minutes, chaque jour !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡más lista en 10 minutos, cada día!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, ¡con un quiz cortito después para que se te quede!",
+    "bulle": "¡más lista en 10 minutos, cada día!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta!",
+    "bulle": "più sveglia in 10 minuti, ogni giorno!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test!",
+    "bulle": "her gün 10 dakikada daha zeki!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "você aprende uma coisa nova por dia, tipo por que a gente sonha, com um quiz rapidinho depois pra fixar!",
+    "bulle": "mais esperta em 10 minutos, todo dia!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "du lernst jeden tag etwas neues, zum beispiel warum wir träumen, mit einem kleinen quiz danach, damit es hängen bleibt!",
+    "bulle": "jeden tag in 10 minuten schlauer!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "vsak dan se naučiš nekaj novega, na primer zakaj sanjamo, potem pa kratek kviz, da ti ostane v glavi!",
+    "bulle": "pametnejša v 10 minutah, vsak dan!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "minden nap tanulsz valami újat, például hogy miért álmodunk, utána egy kis kvíz, hogy megmaradjon!",
+    "bulle": "okosabb 10 perc alatt, minden nap!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/flow-free/icone.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/carnet.png",
+     "x": 70,
+     "y": 760,
+     "l": 200,
+     "rotation": -10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 220,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "connect the colors without crossing any pipes and fill the whole board. calm, satisfying and great for logic."
+   },
+   "fr": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "relie les couleurs sans croiser les tuyaux et remplis tout le plateau. calme, satisfaisant et top pour la logique."
+   },
+   "es": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "une los colores sin cruzar tuberías y llena todo el tablero. tranquilo, satisfactorio y genial para la lógica."
+   },
+   "es-419": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "une los colores sin cruzar tubos y llena todo el tablero. tranquilo, satisfactorio y genial para la lógica."
+   },
+   "it": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "collega i colori senza incrociare i tubi e riempi tutto il tabellone. calmo, soddisfacente e ottimo per la logica."
+   },
+   "tr": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "renkleri boruları kesiştirmeden birleştir ve tüm tahtayı doldur. sakin, tatmin edici ve mantık için harika."
+   },
+   "pt-BR": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "liga as cores sem cruzar os canos e preenche o tabuleiro todo. calmo, satisfatório e ótimo pra lógica."
+   },
+   "de": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "verbinde gleiche farben, ohne dass sich rohre kreuzen, und füll das ganze feld. ruhig, befriedigend und gut für logik."
+   },
+   "sl": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "poveži barve, ne da bi se cevi križale, in zapolni celo ploščo. mirno, zadovoljujoče in odlično za logiko."
+   },
+   "hu": {
+    "nom": "Flow Free",
+    "plateformes": "iOS, Android",
+    "texte": "kösd össze a színeket úgy, hogy a csövek ne keresztezzék egymást, és töltsd ki a táblát. nyugtató és jó a logikának."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/vert.jpg",
+   "icone": "images/applis/nonogram/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/crayon.png",
+     "x": 60,
+     "y": 770,
+     "l": 290,
+     "rotation": -20
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 800,
+     "y": 730,
+     "l": 220,
+     "rotation": 4
+    }
+   ],
+   "en": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "number clues on the side, a hidden picture in the grid. the perfect puzzle with my morning coffee."
+   },
+   "fr": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "des indices chiffrés sur le côté, une image cachée dans la grille. le casse-tête parfait avec mon café du matin."
+   },
+   "es": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "pistas numéricas al lado y una imagen oculta en la cuadrícula. el puzle perfecto con el café de la mañana."
+   },
+   "es-419": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "pistas numéricas al lado y una imagen oculta en la cuadrícula. el acertijo perfecto con el café de la mañana."
+   },
+   "it": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "indizi numerici di lato, un'immagine nascosta nella griglia. il puzzle perfetto con il caffè del mattino."
+   },
+   "tr": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "kenarda sayı ipuçları, tabloda gizli bir resim. sabah kahvesiyle mükemmel bulmaca."
+   },
+   "pt-BR": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "dicas numéricas do lado, uma imagem escondida na grade. o quebra-cabeça perfeito com o café da manhã."
+   },
+   "de": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "zahlenhinweise am rand, ein verstecktes bild im raster. das perfekte rätsel zum morgenkaffee."
+   },
+   "sl": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "številski namigi ob strani, skrita slika v mreži. popolna uganka ob jutranji kavi."
+   },
+   "hu": {
+    "nom": "Nonogram.com",
+    "plateformes": "iOS, Android",
+    "texte": "számok az oldalán, rejtett kép a rácsban. a tökéletes rejtvény a reggeli kávéhoz."
+   }
+  }
+ ]
+}

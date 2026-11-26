@@ -1,0 +1,432 @@
+{
+ "id": "sm-026",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "Juna",
+  "url": "https://www.tiktok.com/music/juna-7359782220351440912"
+ },
+ "notes": "Full test du 26/11 (pods/ROUTINE.md §5.4) : accroche jamais faite chez nous, au format de ses listes d'applis (cartes en timbre, son ciel, stickers, bulle) : « apps that make late-night study sessions easier ». Sophia en 2e carte (slide 3, cta B), ni première ni dernière. Autres applis douces, lues sur leur fiche App Store : Pomocat (pomodoro avec un chat et du bruit blanc), Tide (sons de nature, minuteur, méditation), Calm (respiration, histoires pour dormir). Toutes sur l'App Store des 10 pays (lookup iTunes du 20 au 22/11) ; Pomocat en iOS seul. Musique : la sienne de « the formula to ace every class » (311 k).",
+ "titre": {
+  "en": "apps that make late-night study sessions easier",
+  "fr": "les applis qui rendent les révisions de nuit plus faciles",
+  "es": "apps que hacen más fácil estudiar de noche",
+  "es-419": "apps que hacen más fácil estudiar de noche",
+  "it": "app che rendono più facile studiare di notte",
+  "tr": "gece ders çalışmayı kolaylaştıran uygulamalar",
+  "pt-BR": "apps que deixam estudar de madrugada mais fácil",
+  "de": "apps, die lernen bis spät in die nacht leichter machen",
+  "sl": "aplikacije, ki olajšajo nočno učenje",
+  "hu": "appok, amik megkönnyítik az éjszakai tanulást"
+ },
+ "legendes": {
+  "en": "for the 11pm study girlies 🌙📚 #studytok #studytips #academicweapon #studentlife #college",
+  "fr": "pour les filles qui révisent à 23 h 🌙📚 #studytok #etudiante #conseilsetudes #fac #academicweapon",
+  "es": "para las que estudian a las 11 de la noche 🌙📚 #studytok #estudiar #universidad #consejosdeestudio #academicweapon",
+  "es-419": "para las que estudian a las 11 de la noche 🌙📚 #studytok #estudiar #universidad #tipsdeestudio #academicweapon",
+  "it": "per chi studia alle 23 🌙📚 #studytok #studiare #università #consiglistudio #academicweapon",
+  "tr": "saat 23'te ders çalışan kızlara 🌙📚 #studytok #derscalis #üniversite #öğrenci #academicweapon",
+  "pt-BR": "pras meninas que estudam às 23h 🌙📚 #studytok #estudos #faculdade #dicasdeestudo #academicweapon",
+  "de": "für alle, die um 23 uhr noch lernen 🌙📚 #studytok #lernen #studium #lerntipps #academicweapon",
+  "sl": "za punce, ki se učijo ob 23h 🌙📚 #studytok #učenje #študij #faks #academicweapon",
+  "hu": "az este 11-kor tanuló lányoknak 🌙📚 #studytok #tanulás #egyetem #tanulásitippek #academicweapon"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "fond": "images/fonds/ciel.jpg",
+   "titre_largeur": 470,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 50,
+     "y": 160,
+     "l": 200,
+     "rotation": -8
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/ecouteurs.png",
+     "x": 790,
+     "y": 100,
+     "l": 230,
+     "rotation": 10
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-casque.png",
+     "x": 40,
+     "y": 740,
+     "l": 240,
+     "rotation": -5
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 800,
+     "y": 720,
+     "l": 230,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "titre": "apps for\nlate-night\nstudying",
+    "sous": "for the 11pm\nstudy girlies"
+   },
+   "fr": {
+    "titre": "les applis pour\nréviser la\nnuit",
+    "sous": "pour les filles\nde 23 h"
+   },
+   "es": {
+    "titre": "apps para\nestudiar de\nnoche",
+    "sous": "para las que\nestudian tarde"
+   },
+   "es-419": {
+    "titre": "apps para\nestudiar de\nnoche",
+    "sous": "para las que\nestudian tarde"
+   },
+   "it": {
+    "titre": "app per\nstudiare di\nnotte",
+    "sous": "per chi studia\nalle 23"
+   },
+   "tr": {
+    "titre": "gece ders\nçalışmak için\nuygulamalar",
+    "sous": "saat 23\nkızlarına"
+   },
+   "pt-BR": {
+    "titre": "apps pra\nestudar de\nmadrugada",
+    "sous": "pras meninas\ndas 23h"
+   },
+   "de": {
+    "titre": "apps fürs\nlernen bis\nspät nachts",
+    "sous": "für die\n23-uhr-lernerinnen"
+   },
+   "sl": {
+    "titre": "aplikacije\nza nočno\nučenje",
+    "sous": "za punce,\nki se učijo ob 23h"
+   },
+   "hu": {
+    "titre": "appok az\néjszakai\ntanuláshoz",
+    "sous": "az este 11-es\ntanulóknak"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/pomocat/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/tasse.png",
+     "x": 60,
+     "y": 730,
+     "l": 250,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/chat.png",
+     "x": 790,
+     "y": 710,
+     "l": 230,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "a sleepy cat keeps you company through every pomodoro, with soft white noise. late nights feel way less lonely."
+   },
+   "fr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un chat tout endormi te tient compagnie pendant chaque pomodoro, avec un bruit blanc tout doux. les soirées tardives paraissent moins seules."
+   },
+   "es": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gato dormilón te acompaña en cada pomodoro, con un ruido blanco suave. las noches largas se sienten menos solitarias."
+   },
+   "es-419": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gato dormilón te acompaña en cada pomodoro, con un ruido blanco suave. las desveladas se sienten menos solitarias."
+   },
+   "it": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "un gatto assonnato ti fa compagnia a ogni pomodoro, con un rumore bianco leggero. le notti lunghe sembrano meno solitarie."
+   },
+   "tr": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "her pomodoroda uykulu bir kedi sana eşlik ediyor, arkada yumuşak beyaz gürültü. geç saatler daha az yalnız geçiyor."
+   },
+   "pt-BR": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "um gatinho sonolento te faz companhia em cada pomodoro, com um ruído branco suave. as madrugadas ficam menos solitárias."
+   },
+   "de": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "eine verschlafene katze begleitet dich durch jeden pomodoro, mit sanftem white noise. späte abende fühlen sich weniger einsam an."
+   },
+   "sl": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "zaspana mačka ti dela družbo pri vsakem pomodoru, z nežnim belim šumom. pozni večeri so manj osamljeni."
+   },
+   "hu": {
+    "nom": "Pomocat",
+    "plateformes": "iOS",
+    "texte": "egy álmos cica tart veled minden pomodoro alatt, halk fehér zajjal. a késő esték kevésbé magányosak."
+   }
+  },
+  {
+   "type": "appli",
+   "sophia": true,
+   "fond": "images/fonds/ciel.jpg",
+   "max_lignes": 5,
+   "elements": [
+    {
+     "type": "polaroid",
+     "image": "images/photos/bibliotheque.jpg",
+     "x": 35,
+     "y": 695,
+     "l": 400,
+     "h": 315,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/matcha.png",
+     "x": 860,
+     "y": 90,
+     "l": 160,
+     "rotation": 10
+    },
+    {
+     "type": "bulle",
+     "x": 465,
+     "y": 700,
+     "l": 440,
+     "h": 250,
+     "queue": {
+      "x": 415,
+      "y": 850
+     }
+    }
+   ],
+   "en": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "short lessons written by actual professors, so you learn something new every day in 10 minutes!",
+    "bulle": "my last 10 minutes before bed!"
+   },
+   "fr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes !",
+    "bulle": "mes 10 dernières minutes avant de dormir !"
+   },
+   "es": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mis últimos 10 minutos antes de dormir!"
+   },
+   "es-419": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lecciones cortas escritas por profesores de verdad, ¡para aprender algo nuevo cada día en 10 minutos!",
+    "bulle": "¡mis últimos 10 minutos antes de dormir!"
+   },
+   "it": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti!",
+    "bulle": "i miei ultimi 10 minuti prima di dormire!"
+   },
+   "tr": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için!",
+    "bulle": "yatmadan önceki son 10 dakikam!"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "aulas curtas escritas por professores de verdade, pra aprender algo novo todo dia em 10 minutos!",
+    "bulle": "meus últimos 10 minutos antes de dormir!"
+   },
+   "de": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kurze lektionen von echten profs, damit du jeden tag in 10 minuten etwas neues lernst!",
+    "bulle": "meine letzten 10 minuten vorm schlafen!"
+   },
+   "sl": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "kratke lekcije, ki jih pišejo pravi profesorji, da se vsak dan v 10 minutah naučiš nekaj novega!",
+    "bulle": "mojih zadnjih 10 minut pred spanjem!"
+   },
+   "hu": {
+    "nom": "Sophia",
+    "plateformes": "iOS",
+    "texte": "rövid leckék, amiket igazi tanárok írnak, hogy minden nap 10 perc alatt tanulj valami újat!",
+    "bulle": "az utolsó 10 percem lefekvés előtt!"
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/tide/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/nuage-son.png",
+     "x": 40,
+     "y": 730,
+     "l": 300,
+     "rotation": -4
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-1.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 6
+    }
+   ],
+   "en": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "rain and crackling fire sounds with a study timer, so my room turns into the coziest library at midnight."
+   },
+   "fr": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "des sons de pluie et de feu de cheminée avec un minuteur d'étude : ma chambre devient la bibliothèque la plus cosy à minuit."
+   },
+   "es": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sonidos de lluvia y chimenea con un temporizador: mi cuarto se convierte en la biblioteca más cozy a medianoche."
+   },
+   "es-419": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sonidos de lluvia y chimenea con un temporizador: mi cuarto se vuelve la biblioteca más cozy a medianoche."
+   },
+   "it": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "suoni di pioggia e di camino con un timer: a mezzanotte la mia stanza diventa la biblioteca più cozy."
+   },
+   "tr": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "yağmur ve şömine sesleriyle ders zamanlayıcısı: gece yarısı odam en cozy kütüphaneye dönüşüyor."
+   },
+   "pt-BR": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "sons de chuva e de lareira com um timer: à meia-noite meu quarto vira a biblioteca mais aconchegante."
+   },
+   "de": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "regen- und kaminfeuergeräusche mit lerntimer: um mitternacht wird mein zimmer zur gemütlichsten bibliothek."
+   },
+   "sl": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "zvoki dežja in prasketanja ognja s časovnikom: ob polnoči moja soba postane najprijetnejša knjižnica."
+   },
+   "hu": {
+    "nom": "Tide",
+    "plateformes": "iOS, Android",
+    "texte": "eső- és kandallóhangok tanulási időzítővel: éjfélkor a szobám a legcozybb könyvtár lesz."
+   }
+  },
+  {
+   "type": "appli",
+   "fond": "images/fonds/ciel.jpg",
+   "icone": "images/applis/calm/icone.jpg",
+   "max_lignes": 6,
+   "elements": [
+    {
+     "type": "sticker",
+     "image": "images/stickers/bougie.png",
+     "x": 70,
+     "y": 740,
+     "l": 200,
+     "rotation": -6
+    },
+    {
+     "type": "sticker",
+     "image": "images/stickers/grenouille-2.png",
+     "x": 790,
+     "y": 710,
+     "l": 250,
+     "rotation": 5
+    }
+   ],
+   "en": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "breathing exercises and sleep stories for when i finally close the laptop, so i actually fall asleep."
+   },
+   "fr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "exercices de respiration et histoires pour dormir quand je ferme enfin l'ordi, pour vraiment m'endormir."
+   },
+   "es": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "ejercicios de respiración e historias para dormir para cuando por fin cierro el portátil y quiero dormirme."
+   },
+   "es-419": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "ejercicios de respiración e historias para dormir para cuando por fin cierro la laptop y quiero dormirme."
+   },
+   "it": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "esercizi di respirazione e storie per dormire quando finalmente chiudo il portatile, così mi addormento davvero."
+   },
+   "tr": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "sonunda laptopu kapattığımda nefes egzersizleri ve uyku hikayeleri, böylece gerçekten uyuyabiliyorum."
+   },
+   "pt-BR": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "exercícios de respiração e histórias pra dormir quando eu finalmente fecho o notebook, pra conseguir pegar no sono."
+   },
+   "de": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "atemübungen und einschlafgeschichten, wenn ich endlich den laptop zuklappe, damit ich wirklich einschlafe."
+   },
+   "sl": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "dihalne vaje in zgodbe za lahko noč, ko končno zaprem prenosnik, da res zaspim."
+   },
+   "hu": {
+    "nom": "Calm",
+    "plateformes": "iOS, Android",
+    "texte": "légzőgyakorlatok és esti mesék, amikor végre lecsukom a laptopot, hogy tényleg elaludjak."
+   }
+  }
+ ]
+}

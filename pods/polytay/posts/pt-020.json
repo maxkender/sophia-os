@@ -1,0 +1,617 @@
+{
+ "id": "pt-020",
+ "titre": {
+  "en": "small hobbies that make you impossible to bore",
+  "fr": "petits hobbies pour ne plus jamais t'ennuyer",
+  "es": "pequeños hobbies para no aburrirte nunca",
+  "es-419": "pequeños hobbies para que nunca te aburras",
+  "it": "piccoli hobby per non annoiarti mai più",
+  "tr": "asla sıkılmamanı sağlayan küçük hobiler",
+  "pt-BR": "hobbies pequenos pra você nunca mais ficar entediada",
+  "sl": "majhni hobiji, zaradi katerih ti ni nikoli dolgčas",
+  "de": "kleine hobbys, mit denen dir nie langweilig wird",
+  "sk": "malé hobby, vďaka ktorým sa nikdy nenudíš",
+  "sv": "små hobbys som gör att du aldrig blir uttråkad"
+ },
+ "legendes": {
+  "en": "the small ones are the ones you actually keep. save one for this weekend <3 #girlblogger #selfimprovement #hobbies #learning #booktok",
+  "fr": "les petits, ce sont ceux qu'on garde vraiment. enregistre-en un pour ce week-end <3 #girlblogger #developpementpersonnel #hobbies #apprendre #booktokfrance",
+  "es": "los pequeños son los que de verdad mantienes. guarda uno para este finde <3 #girlblogger #desarrollopersonal #hobbies #aprender #booktokespaña",
+  "es-419": "los pequeños son los que de verdad sostienes. guarda uno para este fin de semana <3 #girlblogger #desarrollopersonal #hobbies #aprender #booktoklatam",
+  "it": "quelli piccoli sono quelli che porti avanti davvero. salvane uno per questo weekend <3 #girlblogger #crescitapersonale #hobby #imparare #booktokitalia",
+  "tr": "küçükler gerçekten bırakmadıklarındır. bu hafta sonu için birini kaydet <3 #girlblogger #kişiselgelişim #hobiler #öğrenmek #booktoktürkiye",
+  "pt-BR": "os pequenos são os que você mantém de verdade. salva um pra esse fim de semana <3 #girlblogger #autodesenvolvimento #hobbies #aprender #booktokbrasil",
+  "sl": "majhni so tisti, ki jih res obdržiš. shrani enega za ta vikend <3 #girlblogger #osebnirazvoj #hobiji #učenje #booktok",
+  "de": "die kleinen sind die, die man wirklich behält. speicher dir eins fürs wochenende <3 #girlblogger #selbstverbesserung #hobbys #lernen #booktokdeutschland",
+  "sk": "tie malé sú tie, ktoré si naozaj udržíš. ulož si jedno na tento víkend <3 #girlblogger #osobnyrozvoj #hobby #ucenie #booktok",
+  "sv": "de små är de man faktiskt håller fast vid. spara en till helgen <3 #girlblogger #självutveckling #hobbys #lärande #booktoksverige"
+ },
+ "musique": {
+  "titre": "Float in a Waking Dream",
+  "url": "https://www.tiktok.com/music/Float-in-a-Waking-Dream-7699850974151755812"
+ },
+ "notes": "Déclinaison G1 (BLEO, 26/11) de pt-002 « small hobbies that make you impossible to bore » (famille gagnante : en 3,1 k vues r 3,98 ; it 2,2 k ; fr 1,5 k), titre du parent mot pour mot. Tout le reste change : autres éléments (les nuages, dessiner des façades, Sophia, une carte postale par musée, le nom des fleurs : les tulipes sont arrivées aux Pays-Bas depuis l'Empire ottoman, fait connu), autres photos (neuves), cta B (pt-002 avait cta B : reformulé, « before bed » au lieu de « with my tea »).",
+ "banque": {
+  "images/banque/couv-arcade-fresque.jpg": "b3ea0713-e82e-48b2-943f-3d9822c26544",
+  "images/banque/couv-pivoines.jpg": "038e8184-c824-49a5-8ca7-fe116478f61b",
+  "images/banque/nuages-roses-lune.jpg": "23ded414-54dd-47a6-9fdc-f7c18ff1d050",
+  "images/banque/ciel-nuit-nuages.jpg": "50bed849-6bf8-4c02-b0e7-e56b0c8c5e9a",
+  "images/banque/facade-ornee.jpg": "33a536b6-0415-4908-be0b-6b48812a307c",
+  "images/banque/couloir-arches.jpg": "eacd57cf-0d03-43d4-a4cc-159e22ff3037",
+  "images/banque/dome-crepuscule.jpg": "a3f37034-7e19-4953-8333-63548a90084c",
+  "images/banque/galerie-ombres.jpg": "26052f73-9031-4e18-b96a-aafb200650c6",
+  "images/banque/galerie-verriere.jpg": "626fedeb-1e3c-44b2-8f79-d0aa8a6a5652",
+  "images/banque/lys-roses.jpg": "20298198-f19c-4491-971d-efd175e053f9",
+  "images/banque/roses-blanches-fenetre.jpg": "51ae7216-8a75-4c3d-9711-0c2b6b1c0af9"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    {
+     "image": "images/banque/couv-arcade-fresque.jpg",
+     "x": 560,
+     "y": 94,
+     "l": 520,
+     "h": 800
+    },
+    {
+     "image": "images/banque/couv-pivoines.jpg",
+     "x": 0,
+     "y": 850,
+     "l": 660,
+     "h": 560
+    }
+   ],
+   "titre": {
+    "cx": 282,
+    "base": 560
+   },
+   "en": {
+    "titre": "small hobbies that\nmake you impossible\nto bore"
+   },
+   "fr": {
+    "titre": "petits hobbies pour\nne plus jamais\nt'ennuyer"
+   },
+   "es": {
+    "titre": "pequeños hobbies\npara no aburrirte\nnunca"
+   },
+   "es-419": {
+    "titre": "pequeños hobbies\npara que nunca\nte aburras"
+   },
+   "it": {
+    "titre": "piccoli hobby per\nnon annoiarti\nmai più"
+   },
+   "tr": {
+    "titre": "asla sıkılmamanı\nsağlayan\nküçük hobiler"
+   },
+   "pt-BR": {
+    "titre": "hobbies pequenos\npra você nunca\nmais ficar entediada"
+   },
+   "sl": {
+    "titre": "majhni hobiji,\nzaradi katerih ti\nni nikoli dolgčas"
+   },
+   "de": {
+    "titre": "kleine hobbys,\nmit denen dir nie\nlangweilig wird"
+   },
+   "sk": {
+    "titre": "malé hobby, vďaka\nktorým sa nikdy\nnenudíš"
+   },
+   "sv": {
+    "titre": "små hobbys som gör\natt du aldrig\nblir uttråkad"
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/nuages-roses-lune.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/ciel-nuit-nuages.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "1. naming the clouds",
+    "paragraphes": [
+     "Learn the ten main cloud types: cumulus, cirrus, stratus and the rest. look up every time you're outside and name one.",
+     "The sky turns into something you can read, and you'll start predicting the rain"
+    ]
+   },
+   "fr": {
+    "titre": "1. nommer les nuages",
+    "paragraphes": [
+     "Apprends les dix grands types de nuages : cumulus, cirrus, stratus et les autres. lève les yeux à chaque sortie et nomme-en un.",
+     "Le ciel devient quelque chose que tu sais lire, et tu commences à prévoir la pluie"
+    ]
+   },
+   "es": {
+    "titre": "1. ponerle nombre a las nubes",
+    "paragraphes": [
+     "Aprende los diez tipos principales de nubes: cúmulos, cirros, estratos y los demás. mira arriba cada vez que salgas y nombra una.",
+     "El cielo se convierte en algo que sabes leer, y empiezas a adivinar la lluvia"
+    ]
+   },
+   "es-419": {
+    "titre": "1. ponerle nombre a las nubes",
+    "paragraphes": [
+     "Aprende los diez tipos principales de nubes: cúmulos, cirros, estratos y los demás. mira hacia arriba cada vez que salgas y nombra una.",
+     "El cielo se vuelve algo que sabes leer, y empiezas a adivinar la lluvia"
+    ]
+   },
+   "it": {
+    "titre": "1. dare un nome alle nuvole",
+    "paragraphes": [
+     "Impara i dieci tipi principali di nuvole: cumuli, cirri, strati e gli altri. ogni volta che esci, alza gli occhi e nominane una.",
+     "Il cielo diventa qualcosa che sai leggere, e inizi a prevedere la pioggia"
+    ]
+   },
+   "tr": {
+    "titre": "1. bulutlara isim vermek",
+    "paragraphes": [
+     "On temel bulut türünü öğren: kümülüs, sirrüs, stratus ve diğerleri. her dışarı çıktığında yukarı bak ve birinin adını söyle.",
+     "Gökyüzü okuyabildiğin bir şeye dönüşür, ve yağmuru tahmin etmeye başlarsın"
+    ]
+   },
+   "pt-BR": {
+    "titre": "1. dar nome às nuvens",
+    "paragraphes": [
+     "Aprende os dez principais tipos de nuvem: cúmulo, cirro, estrato e os outros. toda vez que sair, olha pra cima e nomeia uma.",
+     "O céu vira algo que você sabe ler, e você começa a prever a chuva"
+    ]
+   },
+   "sl": {
+    "titre": "1. poimenovati oblake",
+    "paragraphes": [
+     "Nauči se deset glavnih vrst oblakov: kumulus, cirus, stratus in ostale. vsakič, ko greš ven, poglej gor in poimenuj enega.",
+     "Nebo postane nekaj, kar znaš brati, in začneš napovedovati dež"
+    ]
+   },
+   "de": {
+    "titre": "1. wolken benennen",
+    "paragraphes": [
+     "Lern die zehn wichtigsten wolkenarten: cumulus, cirrus, stratus und die anderen. schau bei jedem spaziergang hoch und benenne eine.",
+     "Der himmel wird etwas, das du lesen kannst, und du siehst den regen kommen"
+    ]
+   },
+   "sk": {
+    "titre": "1. pomenovať oblaky",
+    "paragraphes": [
+     "Nauč sa desať hlavných druhov oblakov: kopovité, rasovité, vrstevnaté a ďalšie. vždy, keď ideš von, pozri hore a jeden pomenuj.",
+     "Obloha sa stane niečím, čo vieš čítať, a začneš predpovedať dážď"
+    ]
+   },
+   "sv": {
+    "titre": "1. att ge molnen namn",
+    "paragraphes": [
+     "Lär dig de tio huvudtyperna av moln: cumulus, cirrus, stratus och de andra. titta upp varje gång du är ute och namnge ett.",
+     "Himlen blir något du kan läsa, och du börjar förutse regnet"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/facade-ornee.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/couloir-arches.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "2. sketching old buildings",
+    "paragraphes": [
+     "Sit in front of one old building with a small notebook and draw just the windows. then look up when it was built.",
+     "You start noticing styles everywhere, gothic, baroque, art deco, and your city becomes a museum"
+    ]
+   },
+   "fr": {
+    "titre": "2. dessiner de vieux bâtiments",
+    "paragraphes": [
+     "Assieds-toi devant un vieux bâtiment avec un petit carnet et dessine seulement les fenêtres. puis cherche quand il a été construit.",
+     "Tu repères les styles partout, gothique, baroque, art déco, et ta ville devient un musée"
+    ]
+   },
+   "es": {
+    "titre": "2. dibujar edificios antiguos",
+    "paragraphes": [
+     "Siéntate frente a un edificio antiguo con una libreta pequeña y dibuja solo las ventanas. luego busca cuándo se construyó.",
+     "Empiezas a ver estilos por todas partes, gótico, barroco, art déco, y tu ciudad se vuelve un museo"
+    ]
+   },
+   "es-419": {
+    "titre": "2. dibujar edificios antiguos",
+    "paragraphes": [
+     "Siéntate frente a un edificio antiguo con un cuaderno chiquito y dibuja solo las ventanas. después busca cuándo se construyó.",
+     "Empiezas a ver estilos en todos lados, gótico, barroco, art déco, y tu ciudad se vuelve un museo"
+    ]
+   },
+   "it": {
+    "titre": "2. disegnare palazzi antichi",
+    "paragraphes": [
+     "Siediti davanti a un palazzo antico con un piccolo quaderno e disegna solo le finestre. poi cerca quando è stato costruito.",
+     "Inizi a riconoscere gli stili ovunque, gotico, barocco, art déco, e la tua città diventa un museo"
+    ]
+   },
+   "tr": {
+    "titre": "2. eski binaları çizmek",
+    "paragraphes": [
+     "Küçük bir defterle eski bir binanın karşısına otur ve sadece pencerelerini çiz. sonra ne zaman yapıldığına bak.",
+     "Her yerde gotik, barok, art deco gibi tarzları fark etmeye başlarsın, ve şehrin bir müzeye dönüşür"
+    ]
+   },
+   "pt-BR": {
+    "titre": "2. desenhar prédios antigos",
+    "paragraphes": [
+     "Senta na frente de um prédio antigo com um caderninho e desenha só as janelas. depois pesquisa quando ele foi construído.",
+     "Você começa a reparar nos estilos em todo lugar, gótico, barroco, art déco, e sua cidade vira um museu"
+    ]
+   },
+   "sl": {
+    "titre": "2. risanje starih stavb",
+    "paragraphes": [
+     "Z majhnim zvezkom se usedi pred staro stavbo in nariši samo okna. potem poišči, kdaj je bila zgrajena.",
+     "Sloge začneš opažati povsod, gotiko, barok, art deco, in tvoje mesto postane muzej"
+    ]
+   },
+   "de": {
+    "titre": "2. alte gebäude zeichnen",
+    "paragraphes": [
+     "Setz dich mit einem kleinen heft vor ein altes gebäude und zeichne nur die fenster. dann schau nach, wann es gebaut wurde.",
+     "Du erkennst überall stile, gotik, barock, art déco, und deine stadt wird zum museum"
+    ]
+   },
+   "sk": {
+    "titre": "2. kreslenie starých budov",
+    "paragraphes": [
+     "Sadni si s malým zošitom pred starú budovu a nakresli len okná. potom zisti, kedy ju postavili.",
+     "Začneš všade rozoznávať štýly, gotiku, barok, art deco, a tvoje mesto sa stane múzeom"
+    ]
+   },
+   "sv": {
+    "titre": "2. att teckna gamla byggnader",
+    "paragraphes": [
+     "Sätt dig framför en gammal byggnad med ett litet block och teckna bara fönstren. ta sedan reda på när den byggdes.",
+     "Du börjar se stilar överallt, gotik, barock, art déco, och din stad blir ett museum"
+    ]
+   }
+  },
+  {
+   "type": "sophia",
+   "photos": [
+    {
+     "image": "images/banque/dome-crepuscule.jpg",
+     "format": "paysage"
+    }
+   ],
+   "en": {
+    "titre": "3. one lesson before bed",
+    "paragraphes": [
+     "Sophia gives me one lesson a day, written by actual professors. history, philosophy, science, and a little quiz after.",
+     "Ten minutes in bed, and I wake up with something new to think about"
+    ]
+   },
+   "fr": {
+    "titre": "3. une leçon avant de dormir",
+    "paragraphes": [
+     "Sophia me donne une leçon par jour, écrite par de vrais profs. histoire, philosophie, sciences, et un petit quiz après.",
+     "Dix minutes au lit, et je me réveille avec quelque chose de nouveau en tête"
+    ]
+   },
+   "es": {
+    "titre": "3. una lección antes de dormir",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, ciencia, y un pequeño quiz al final.",
+     "Diez minutos en la cama, y me despierto con algo nuevo en la cabeza"
+    ]
+   },
+   "es-419": {
+    "titre": "3. una lección antes de dormir",
+    "paragraphes": [
+     "Sophia me da una lección al día, escrita por profesores de verdad. historia, filosofía, ciencia, y un pequeño quiz al final.",
+     "Diez minutos en la cama, y despierto con algo nuevo en la cabeza"
+    ]
+   },
+   "it": {
+    "titre": "3. una lezione prima di dormire",
+    "paragraphes": [
+     "Sophia mi dà una lezione al giorno, scritta da veri professori. storia, filosofia, scienze, e un piccolo quiz alla fine.",
+     "Dieci minuti a letto, e mi sveglio con qualcosa di nuovo in testa"
+    ]
+   },
+   "tr": {
+    "titre": "3. uyumadan önce bir ders",
+    "paragraphes": [
+     "Sophia bana her gün gerçek profesörlerin yazdığı bir ders veriyor. tarih, felsefe, bilim, sonunda da küçük bir test.",
+     "Yatakta on dakika, ve aklımda yeni bir şeyle uyanıyorum"
+    ]
+   },
+   "pt-BR": {
+    "titre": "3. uma aula antes de dormir",
+    "paragraphes": [
+     "O Sophia me dá uma aula por dia, escrita por professores de verdade. história, filosofia, ciência, e um quiz no final.",
+     "Dez minutos na cama, e eu acordo com algo novo na cabeça"
+    ]
+   },
+   "sl": {
+    "titre": "3. lekcija pred spanjem",
+    "paragraphes": [
+     "Sophia mi vsak dan da eno lekcijo, ki so jo napisali pravi profesorji. zgodovina, filozofija, znanost, na koncu pa kratek kviz.",
+     "Deset minut v postelji, in zbudim se z nečim novim v glavi"
+    ]
+   },
+   "de": {
+    "titre": "3. eine lektion vor dem schlafen",
+    "paragraphes": [
+     "Sophia gibt mir jeden tag eine lektion, geschrieben von echten professoren. geschichte, philosophie, wissenschaft, und ein kleines quiz danach.",
+     "Zehn minuten im bett, und ich wache mit etwas neuem im kopf auf"
+    ]
+   },
+   "sk": {
+    "titre": "3. lekcia pred spaním",
+    "paragraphes": [
+     "Sophia mi každý deň dá jednu lekciu, ktorú napísali skutoční profesori. dejiny, filozofia, veda a na konci malý kvíz.",
+     "Desať minút v posteli a zobúdzam sa s niečím novým v hlave"
+    ]
+   },
+   "sv": {
+    "titre": "3. en lektion innan jag somnar",
+    "paragraphes": [
+     "Sophia ger mig en lektion om dagen, skriven av riktiga professorer. historia, filosofi, naturvetenskap, och ett litet quiz efteråt.",
+     "Tio minuter i sängen, och jag vaknar med något nytt i huvudet"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/galerie-ombres.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/galerie-verriere.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "4. a postcard from every museum",
+    "paragraphes": [
+     "In every museum, buy the postcard of the painting you liked most. on the back, write one thing you learned about it.",
+     "After a year you have a little museum of your own, with all the stories on the back"
+    ]
+   },
+   "fr": {
+    "titre": "4. une carte postale par musée",
+    "paragraphes": [
+     "Dans chaque musée, achète la carte postale du tableau que tu as préféré. au dos, note une chose que tu as apprise sur lui.",
+     "Au bout d'un an, tu as ton propre petit musée, avec toutes les histoires au dos"
+    ]
+   },
+   "es": {
+    "titre": "4. una postal de cada museo",
+    "paragraphes": [
+     "En cada museo, compra la postal del cuadro que más te gustó. por detrás, escribe una cosa que aprendiste sobre él.",
+     "En un año tienes tu propio pequeño museo, con todas las historias por detrás"
+    ]
+   },
+   "es-419": {
+    "titre": "4. una postal de cada museo",
+    "paragraphes": [
+     "En cada museo, compra la postal de la pintura que más te gustó. atrás, escribe una cosa que aprendiste sobre ella.",
+     "En un año tienes tu propio pequeño museo, con todas las historias atrás"
+    ]
+   },
+   "it": {
+    "titre": "4. una cartolina da ogni museo",
+    "paragraphes": [
+     "In ogni museo, compra la cartolina del quadro che ti è piaciuto di più. sul retro, scrivi una cosa che hai imparato.",
+     "Dopo un anno hai un piccolo museo tutto tuo, con tutte le storie sul retro"
+    ]
+   },
+   "tr": {
+    "titre": "4. her müzeden bir kartpostal",
+    "paragraphes": [
+     "Her müzede en sevdiğin tablonun kartpostalını al. arkasına onunla ilgili öğrendiğin bir şeyi yaz.",
+     "Bir yıl sonra arkasında bütün hikâyeleriyle kendi küçük müzen olur"
+    ]
+   },
+   "pt-BR": {
+    "titre": "4. um cartão-postal de cada museu",
+    "paragraphes": [
+     "Em cada museu, compra o postal do quadro que você mais gostou. atrás, escreve uma coisa que você aprendeu sobre ele.",
+     "Em um ano você tem seu próprio museuzinho, com todas as histórias no verso"
+    ]
+   },
+   "sl": {
+    "titre": "4. razglednica iz vsakega muzeja",
+    "paragraphes": [
+     "V vsakem muzeju kupi razglednico slike, ki ti je bila najbolj všeč. na hrbtno stran zapiši eno stvar, ki si se jo naučila.",
+     "Po enem letu imaš svoj mali muzej, z vsemi zgodbami na hrbtni strani"
+    ]
+   },
+   "de": {
+    "titre": "4. eine postkarte aus jedem museum",
+    "paragraphes": [
+     "Kauf in jedem museum die postkarte von dem bild, das dir am besten gefallen hat. schreib hinten eine sache drauf, die du darüber gelernt hast.",
+     "Nach einem jahr hast du dein eigenes kleines museum, mit allen geschichten auf der rückseite"
+    ]
+   },
+   "sk": {
+    "titre": "4. pohľadnica z každého múzea",
+    "paragraphes": [
+     "V každom múzeu si kúp pohľadnicu obrazu, ktorý sa ti páčil najviac. na zadnú stranu napíš jednu vec, ktorú si sa o ňom dozvedela.",
+     "Po roku máš vlastné malé múzeum, so všetkými príbehmi na zadnej strane"
+    ]
+   },
+   "sv": {
+    "titre": "4. ett vykort från varje museum",
+    "paragraphes": [
+     "Köp vykortet med den tavla du gillade mest på varje museum. skriv på baksidan en sak du lärde dig om den.",
+     "Efter ett år har du ett eget litet museum, med alla historier på baksidan"
+    ]
+   }
+  },
+  {
+   "type": "element",
+   "photos": [
+    {
+     "image": "images/banque/lys-roses.jpg",
+     "format": "paysage"
+    },
+    {
+     "image": "images/banque/roses-blanches-fenetre.jpg",
+     "format": "portrait"
+    }
+   ],
+   "en": {
+    "titre": "5. learning the names of flowers",
+    "paragraphes": [
+     "Every time you buy flowers, learn their names and where they come from. tulips reached the netherlands from the ottoman empire.",
+     "Every bouquet comes with a story, and every walk past a garden too"
+    ]
+   },
+   "fr": {
+    "titre": "5. apprendre le nom des fleurs",
+    "paragraphes": [
+     "Chaque fois que tu achètes des fleurs, apprends leur nom et d'où elles viennent. les tulipes sont arrivées aux pays-bas depuis l'empire ottoman.",
+     "Chaque bouquet arrive avec une histoire, et chaque balade devant un jardin aussi"
+    ]
+   },
+   "es": {
+    "titre": "5. aprender el nombre de las flores",
+    "paragraphes": [
+     "Cada vez que compres flores, aprende cómo se llaman y de dónde vienen. los tulipanes llegaron a los países bajos desde el imperio otomano.",
+     "Cada ramo viene con una historia, y cada paseo junto a un jardín también"
+    ]
+   },
+   "es-419": {
+    "titre": "5. aprender el nombre de las flores",
+    "paragraphes": [
+     "Cada vez que compres flores, aprende cómo se llaman y de dónde vienen. los tulipanes llegaron a los países bajos desde el imperio otomano.",
+     "Cada ramo viene con una historia, y cada caminata junto a un jardín también"
+    ]
+   },
+   "it": {
+    "titre": "5. imparare i nomi dei fiori",
+    "paragraphes": [
+     "Ogni volta che compri dei fiori, impara come si chiamano e da dove vengono. i tulipani arrivarono nei paesi bassi dall'impero ottomano.",
+     "Ogni mazzo arriva con una storia, e ogni passeggiata accanto a un giardino anche"
+    ]
+   },
+   "tr": {
+    "titre": "5. çiçeklerin adlarını öğrenmek",
+    "paragraphes": [
+     "Her çiçek aldığında adlarını ve nereden geldiklerini öğren. laleler hollanda'ya osmanlı imparatorluğu'ndan gitti.",
+     "Her buket bir hikâyeyle gelir, ve bir bahçenin önünden her geçiş de"
+    ]
+   },
+   "pt-BR": {
+    "titre": "5. aprender o nome das flores",
+    "paragraphes": [
+     "Toda vez que comprar flores, aprende o nome delas e de onde vêm. as tulipas chegaram à holanda vindas do império otomano.",
+     "Cada buquê vem com uma história, e cada passeio na frente de um jardim também"
+    ]
+   },
+   "sl": {
+    "titre": "5. učenje imen rož",
+    "paragraphes": [
+     "Vsakič, ko kupiš rože, se nauči njihova imena in od kod prihajajo. tulipani so na nizozemsko prišli iz osmanskega cesarstva.",
+     "Vsak šopek pride z zgodbo, in vsak sprehod mimo vrta tudi"
+    ]
+   },
+   "de": {
+    "titre": "5. die namen der blumen",
+    "paragraphes": [
+     "Lern jedes mal, wenn du blumen kaufst, wie sie heißen und woher sie kommen. tulpen kamen aus dem osmanischen reich in die niederlande.",
+     "Jeder strauß bringt eine geschichte mit, und jeder spaziergang an einem garten vorbei auch"
+    ]
+   },
+   "sk": {
+    "titre": "5. učiť sa mená kvetov",
+    "paragraphes": [
+     "Vždy, keď kúpiš kvety, nauč sa, ako sa volajú a odkiaľ pochádzajú. tulipány prišli do holandska z osmanskej ríše.",
+     "Každá kytica príde s príbehom, aj každá prechádzka okolo záhrady"
+    ]
+   },
+   "sv": {
+    "titre": "5. att lära sig blommornas namn",
+    "paragraphes": [
+     "Varje gång du köper blommor, lär dig vad de heter och var de kommer ifrån. tulpanerna kom till nederländerna från osmanska riket.",
+     "Varje bukett kommer med en historia, och varje promenad förbi en trädgård också"
+    ]
+   }
+  },
+  {
+   "type": "fin",
+   "en": {},
+   "fr": {
+    "lignes": [
+     "merci d'avoir regardé",
+     "enregistre & abonne-toi"
+    ]
+   },
+   "es": {
+    "lignes": [
+     "gracias por ver",
+     "guarda y sígueme"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     "gracias por ver",
+     "guárdalo y sígueme"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "grazie per aver guardato",
+     "salva e seguimi"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "izlediğin için teşekkürler",
+     "kaydet & takip et"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "obrigada por assistir",
+     "salva e me segue"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     "hvala za ogled",
+     "shrani in sledi"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "danke fürs anschauen",
+     "speichern & folgen"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     "ďakujem za pozretie",
+     "ulož si & sleduj"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     "tack för att du tittade",
+     "spara & följ"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5439b40b-9c1d-43db-8656-4c68a43c1923"
+}

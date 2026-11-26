@@ -148,10 +148,10 @@
      "remplacer": {
       "source": "sources/os_9caea8fa.jpg",
       "boite": [
-       0,
-       0,
-       1664,
-       2496
+       640,
+       150,
+       1024,
+       560
       ]
      }
     }

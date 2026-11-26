@@ -6577,6 +6577,32 @@
    },
    "notes": "full test BLEO, cta B",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-104",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#art #paintings #history",
+   "musique": {
+    "titre": "The beginning by Flawed Mangoes slowed",
+    "auteur": "⠀",
+    "original": true,
+    "id": "7318739514535889697",
+    "url_tiktok": "https://www.tiktok.com/music/x-7318739514535889697"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696836327026724128_1",
+    "2": "7685340052989398275_6",
+    "3": "7698667830635400470_5",
+    "4": "7694340359056313632_4",
+    "5": "7699523873712164128_3",
+    "6": "7696836327026724128_2"
+   },
+   "notes": "full test BLEO, cta A",
+   "type_bleo": "full_test"
   }
  ]
 }

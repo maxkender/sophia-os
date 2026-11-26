@@ -24,7 +24,8 @@
   "sv": "5 färdigheter som 99 % av alla saknar",
   "tr": "İnsanların %99'unda olmayan 5 beceri",
   "fi": "5 taitoa, joita 99 % ihmisistä ei osaa",
-  "no": "5 ferdigheter 99 % av folk ikke har"
+  "no": "5 ferdigheter 99 % av folk ikke har",
+  "sr": "5 veština koje 99 % ljudi nema"
  },
  "legendes": {
   "en": "5 Skills 99% Of People Don’t Have #selfimprovement #learnontiktok #selfmastery",
@@ -44,13 +45,14 @@
   "sv": "5 färdigheter som 99 % av alla saknar #färdigheter #självutveckling #lärande",
   "tr": "İnsanların %99'unda olmayan 5 beceri #beceriler #kişiselgelişim #öğrenme",
   "fi": "5 taitoa, joita 99 % ihmisistä ei osaa #taidot #itsensäkehittäminen #oppiminen",
-  "no": "5 ferdigheter 99 % av folk ikke har #ferdigheter #selvutvikling #læring"
+  "no": "5 ferdigheter 99 % av folk ikke har #ferdigheter #selvutvikling #læring",
+  "sr": "5 veština koje 99 % ljudi nema #veštine #ličnirazvoj #učenje"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7513258213266279199"
  },
- "notes": "cta B (« 5 minutes a day to know a bit about everything. ») sur toutes les langues. Sophia en carte d'appli à l'étape 3 « KNOW A BIT ABOUT EVERYTHING », au milieu des 5 compétences (leur slide Fathomly de fin disparaît). Pas d'UnSwipe. Ses titres en bandeau ; quatre compétences à nous, une vraie vidéo par langue. 25/11 : ajouté en fi et no ; faute de vidéo native, le palais de mémoire devient le jonglage en fi, et la frappe sans regarder devient le Rubik's cube en no.",
+ "notes": "cta B (« 5 minutes a day to know a bit about everything. ») sur toutes les langues. Sophia en carte d'appli à l'étape 3 « KNOW A BIT ABOUT EVERYTHING », au milieu des 5 compétences (leur slide Fathomly de fin disparaît). Pas d'UnSwipe. Ses titres en bandeau ; quatre compétences à nous, une vraie vidéo par langue. 25/11 : ajouté en fi et no ; faute de vidéo native, le palais de mémoire devient le jonglage en fi, et la frappe sans regarder devient le Rubik's cube en no. 26/11 : ajouté en sr ; faute de vidéo native, le palais de mémoire devient le jonglage.",
  "slides": [
   {
    "type": "couverture",
@@ -269,6 +271,18 @@
      ],
      "99 % AV FOLK",
      "IKKE HAR"
+    ]
+   },
+   "sr": {
+    "lignes": [
+     [
+      {
+       "t": "5 VEŠTINA",
+       "bronze": true
+      }
+     ],
+     "KOJE 99 % LJUDI",
+     "NEMA"
     ]
    }
   },
@@ -531,6 +545,20 @@
      "duree": "2:23",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mxn4yjlKhI3GCEu9UpfySM4-umzfEI1in9qpoaXksrIg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "NAUČI DA ŽONGLIRAŠ"
+    ],
+    "video": {
+     "id": "0eTqPkeaTPI",
+     "titre": "Kako Žonglirati Sa 3 Loptice?",
+     "chaine": "DakiMC",
+     "vues": "68 hilj. pregleda",
+     "date": "pre 7 godina",
+     "duree": "3.44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCTo2OptHGpxKfCm31FcG8rB52wT03jIJPmQLPkbvqmA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -792,6 +820,20 @@
      "duree": "2:35",
      "avatar": "https://yt3.ggpht.com/R5NNz0n3F9qHH_txvrRCN1ksBA8F7c1n2-gpvNgx2i1jC27msIXR9gHGjbUG0LZ5XQVE4sShjw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "KUCAJ BEZ GLEDANJA"
+    ],
+    "video": {
+     "id": "VcvJAG68x-M",
+     "titre": "Kako kucati po tastaturi BEZ GLEDANJA \"Slepo kucanje\"",
+     "chaine": "DULE",
+     "vues": "40 hilj. pregleda",
+     "date": "pre 13 godina",
+     "duree": "1.50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjMzD3ozMiTp0kVrWk2SkPm1R0nl1nPM_cwHlkj5Z9FXo=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1016,6 +1058,18 @@
      "texte": [
       "5 minutter om dagen",
       "for å kunne litt om alt."
+     ]
+    }
+   },
+   "sr": {
+    "titre": [
+     "ZNAJ PONEŠTO O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuta dnevno",
+      "da znaš ponešto o svemu."
      ]
     }
    }
@@ -1279,6 +1333,20 @@
      "duree": "0:38",
      "avatar": "https://yt3.ggpht.com/FnR9onBLmW7o-iXvUPYbH2lBVjyXyaWf6gRbDi3N-d-GouWEQMNrtBJNNS5Ztj4pXvPCkP_wow=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "sr": {
+    "titre": [
+     "RAČUNAJ NAPAMET"
+    ],
+    "video": {
+     "id": "zSuDGzlD57s",
+     "titre": "Množenje uz pomoć magičnih prstića (brojevi 6, 7, 8 i 9)",
+     "chaine": "Matemagičar",
+     "vues": "32 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "0.57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kAsjW8dWy4Qwf_T2ynTWnlP2HK32YSBQtrhtNhp4pv6g=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -1539,6 +1607,20 @@
      "date": "for 6 år siden",
      "duree": "5:20",
      "avatar": "https://yt3.ggpht.com/_3h2_i6elMEDerpTIuNRTAi60q8GUgPFv0Ry_iSRD06HR8c3sD0apttO7SgRwnaddL0OI8TJ1w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sr": {
+    "titre": [
+     "ČITAJ GOVOR TELA"
+    ],
+    "video": {
+     "id": "g9AAP5aPaTg",
+     "titre": "6 PRAVACA OČIJU I NJIHOVO ZNAČENJE // TAJNE GOVORA TELA",
+     "chaine": "Stojan Novakovic - Govor tela",
+     "vues": "22 hilj. pregleda",
+     "date": "pre 6 godina",
+     "duree": "7.17",
+     "avatar": "https://yt3.ggpht.com/6fWfk89-O5dxeFHQ1_Pzr-_7HK9SEph41lPZIzTEEZFdAzuAft0SOXrX0tjHL-F8jP4sE4scwg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

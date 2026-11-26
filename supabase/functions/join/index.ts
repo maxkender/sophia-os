@@ -43,13 +43,20 @@
  *    WhatsApp avec l'accord, mêmes clés et mêmes plafonds que les relances WhatsApp de l'OS). Join est alors la seule
  *    voix de ces étapes pour les posteurs qu'il a créés (join_voix_posteurs, whatsapp_relances.ts, parcours_ruul.ts).
  *  - décision : règles de l'OS + langue du pays gérée par l'OS (hub-posteurs « zones ») + aucun doublon (join_doublons).
+ *    26/11 (0863) : un même nom n'est qu'une alerte (join_candidatures.alertes) : il ne bloque plus l'acceptation.
  *  - `relances` accepte (cron seulement) `maintenant`, `candidature_id`, `etat` : une horloge simulée, toujours en
  *    simulation (rien ne part, rien n'est créé).
+ *
+ * 26/11 (Max : « les infos sont sur l'OS ») : Join n'invente plus de profil TikTok. Le pseudo, le nom affiché, la bio et
+ * la photo sont SEULEMENT ceux du compte créé par l'OS (profilOS) : page perso (`moi`), emails, rappels et WhatsApp ne
+ * citent un @ que s'il vient de l'OS ; « Je l'ai créé » vérifie le @ de l'OS (sans lui : « not_ready »).
+ * Bienvenue d'une fiche créée par Join avec un lien « Set my password » : 2 WhatsApp, account_ready avec ce lien
+ * (clé join_acces_lien:<candidature>), puis welcome_start (clé welcome:<posteur>) s'il y a un @ de l'OS.
  */
 import { corsHeaders, estSecretCron, json, serviceClient } from "../_shared/supabase.ts";
 import { lienMotDePasse } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerWhatsApp, lireModeWhatsApp, modelesApprouves, numeroBloque } from "../_shared/whatsapp_envoi.ts";
-import { cleBienvenue, dateLocale, echeanceTexte, type FaitsRelance, modeleRelance } from "../_shared/whatsapp_relances.ts";
+import { dateLocale, type FaitsRelance, modeleRelance } from "../_shared/whatsapp_relances.ts";
 import { heureLocale, heureOk, numeroAutorise, refusRelance } from "../_shared/whatsapp.ts";
 import { type EmailRuul, envoyerEmailSite, PIED_EN, rendreEmailRuul } from "../_shared/ruul.ts";
 import { lienFrais, lienRuul, lireReglageConnect } from "../_shared/ruul_connect.ts";
@@ -99,7 +106,6 @@ import {
   etatCode,
   genererCode,
   genererJeton,
-  handlePropose,
   jourParis,
   langueEmailJoin,
   LIEN_DASHBOARD_OS,
@@ -112,6 +118,10 @@ import {
   nettoyerHandle,
   nettoyerSource,
   paysEtPaie,
+  PROFIL_TIKTOK_VIDE,
+  type CompteOS,
+  type ProfilTiktokOS,
+  profilTiktokOS,
   premierPost,
   relanceCodeDue,
   sha256Hex,
@@ -120,7 +130,8 @@ import {
   TYPES_MESSAGE_JOIN,
   type TypeMessageJoin,
   validerCandidature,
-  VIDEO_GUIDE_URL,
+  type WhatsAppJoin,
+  whatsappsBienvenue,
 } from "../_shared/join.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -282,34 +293,36 @@ async function envoyerCodeWhatsapp(db: Db, mode: ModeJoin, c: Candidature, code:
   return r.ok ? "envoye" : "bloque";
 }
 
-/** Le WhatsApp d'un message Join : un modèle, ses variables, et sa clé anti-doublon (défaut : join_<type>:<id>). */
-type WhatsAppJoin = { nom: string; variables: string[]; cle?: string; motif?: string };
-
 /** Le prénom des WhatsApp : le premier mot (comme les relances de l'OS). */
 const prenomWa = (c: Candidature) => (c.prenom ?? "").trim().split(/\s+/)[0] || "there";
 
 /**
  * Un message au candidat (email, et WhatsApp si accord + modèle). En test : email seulement vers les testeurs ;
  * WhatsApp seulement vers les numéros autorisés (whatsapp_mode), jamais vers un numéro qui a dit STOP ou dont le
- * posteur est arrêté / sur la liste « ne plus contacter ».
+ * posteur est arrêté / sur la liste « ne plus contacter ». 26/11 : plusieurs WhatsApp possibles (la bienvenue : le lien
+ * « Set my password » puis welcome_start), envoyés dans l'ordre, chacun journalisé (modèle et clé).
  */
 async function message(
   db: Db, mode: ModeJoin, c: Candidature, type: TypeMessageJoin,
-  v: Omit<Parameters<typeof texteMessage>[1], "prenom" | "lien"> & { lien?: string }, whatsapp: string | WhatsAppJoin | null,
+  v: Omit<Parameters<typeof texteMessage>[1], "prenom" | "lien"> & { lien?: string },
+  whatsapp: string | WhatsAppJoin | WhatsAppJoin[] | null,
   o: { simuler?: string | null; whatsappSimule?: string | null; detail?: Corps } = {},
 ) {
   const lien = v.lien ?? JOIN_URL();
   const m = texteMessage(type, { ...v, prenom: c.prenom, lien });
-  const wa: WhatsAppJoin | null = whatsapp
-    ? typeof whatsapp === "string" ? { nom: whatsapp, variables: [prenomWa(c), lien] } : whatsapp
-    : null;
+  const was: WhatsAppJoin[] = !whatsapp
+    ? []
+    : typeof whatsapp === "string" ? [{ nom: whatsapp, variables: [prenomWa(c), lien] }] : Array.isArray(whatsapp) ? whatsapp : [whatsapp];
+  const cleDe = (wa: WhatsAppJoin) => wa.cle ?? `join_${type}:${c.id}`;
   // 0858 : simulé (drapeau join_reel à false, horloge simulée) : rien ne part, ce qui serait parti est journalisé.
   if (o.simuler) {
     await journaliserRelance(db, c, type, "email", "simule", {
       ...o.detail, raison: o.simuler, objet: m.objet, vers: emailAutorise(mode, c.email) || mode.mode === "live" ? "candidat" : "aucun (mode test : pas un testeur)",
     });
-    if (wa && c.whatsapp_optin_at) {
-      await journaliserRelance(db, c, type, "whatsapp", "simule", { ...o.detail, raison: o.simuler, modele: wa.nom, cle: wa.cle ?? `join_${type}:${c.id}` });
+    if (c.whatsapp_optin_at) {
+      for (const wa of was) {
+        await journaliserRelance(db, c, type, "whatsapp", "simule", { ...o.detail, raison: o.simuler, modele: wa.nom, cle: cleDe(wa) });
+      }
     }
     return;
   }
@@ -322,20 +335,27 @@ async function message(
   } else {
     await journaliserRelance(db, c, type, "email", "bloque");
   }
-  if (wa && c.whatsapp_optin_at) {
-    if (o.whatsappSimule) {
-      await journaliserRelance(db, c, type, "whatsapp", "simule", { raison: o.whatsappSimule, modele: wa.nom, cle: wa.cle ?? `join_${type}:${c.id}` });
-      return;
+  if (!was.length || !c.whatsapp_optin_at) return;
+  if (o.whatsappSimule) {
+    for (const wa of was) {
+      await journaliserRelance(db, c, type, "whatsapp", "simule", { raison: o.whatsappSimule, modele: wa.nom, cle: cleDe(wa) });
     }
-    if (await numeroBloque(db, c.whatsapp_e164, c.profile_id ?? null)) {
-      await journaliserRelance(db, c, type, "whatsapp", "bloque");
-      return;
+    return;
+  }
+  if (await numeroBloque(db, c.whatsapp_e164, c.profile_id ?? null)) {
+    for (const wa of was) {
+      await journaliserRelance(db, c, type, "whatsapp", "bloque", { raison: "STOP, arrêt ou « ne plus contacter »", modele: wa.nom, cle: cleDe(wa) });
     }
+    return;
+  }
+  for (const wa of was) {
     const r = await envoyerWhatsApp(db, {
-      e164: c.whatsapp_e164, posterId: c.profile_id ?? null, motif: wa.motif ?? `join_${type}`, cle: wa.cle ?? `join_${type}:${c.id}`,
+      e164: c.whatsapp_e164, posterId: c.profile_id ?? null, motif: wa.motif ?? `join_${type}`, cle: cleDe(wa),
       modele: { nom: wa.nom, langue: "en", variables: wa.variables }, langueCible: c.langue,
     });
-    await journaliserRelance(db, c, type, "whatsapp", r.ok ? "envoye" : "bloque");
+    await journaliserRelance(db, c, type, "whatsapp", r.ok ? "envoye" : "bloque", {
+      modele: wa.nom, cle: cleDe(wa), ...(r.ok ? {} : { raison: r.erreur ?? r.statut }),
+    });
   }
 }
 
@@ -451,10 +471,14 @@ async function relierOS(db: Db, c: Candidature, lundi: string): Promise<boolean>
   const { data: sig } = await db.from("join_signatures").select("ruul_email, signe_at").eq("candidature_id", c.id).limit(1).maybeSingle();
   const existant = await posteurExistant(db, [c.email, sig?.ruul_email ?? ""]);
   if (existant) {
-    await db.from("join_candidatures").update({ profile_id: existant.id, email_os: existant.email, maj_at: new Date().toISOString() })
-      .eq("id", c.id);
+    // 26/11 : le @ est celui du compte de l'OS de cette fiche (ou rien).
+    const { handle } = await profilOS(db, existant.id);
+    await db.from("join_candidatures").update({
+      profile_id: existant.id, email_os: existant.email, handle_tiktok: handle, maj_at: new Date().toISOString(),
+    }).eq("id", c.id);
     c.profile_id = existant.id;
     c.email_os = existant.email;
+    c.handle_tiktok = handle;
     await evenement(db, "compte_os", c.id, c.test, { ok: true, lie: true, profile_id: existant.id });
     return true;
   }
@@ -490,17 +514,15 @@ async function creerCompteOS(db: Db, c: Candidature, lundi: string, ruulEmail: s
       await evenement(db, "compte_os", c.id, c.test, { ok: false, erreur: String(x?.error ?? `HTTP ${r.status}`).slice(0, 300) });
       return false;
     }
-    // Le handle TikTok est celui du compte créé par l'OS (il remplace la proposition de Join).
-    const { data: compte } = await db.from("comptes").select("handle_tiktok").eq("poster_id", x.profile_id).eq("is_active", true)
-      .order("created_at", { ascending: true }).limit(1).maybeSingle();
-    const handle = (compte?.handle_tiktok as string | null) ?? c.handle_tiktok;
+    // 26/11 : le handle TikTok est SEULEMENT celui du compte créé par l'OS (Join n'en propose plus).
+    const { handle } = await profilOS(db, x.profile_id);
     await db.from("join_candidatures").update({
       profile_id: x.profile_id, email_os: x.email_os ?? null, handle_tiktok: handle, maj_at: new Date().toISOString(),
     }).eq("id", c.id);
     c.profile_id = x.profile_id;
     c.email_os = x.email_os ?? null;
     c.handle_tiktok = handle;
-    if (compte?.handle_tiktok) await majEtape(db, c.id, "tiktok", "a_faire", { propose: handle });
+    if (handle) await majEtape(db, c.id, "tiktok", "a_faire", { handle_os: handle });
     await evenement(db, "compte_os", c.id, c.test, { ok: true, cree: true, profile_id: x.profile_id });
     return true;
   } catch (e) {
@@ -552,12 +574,14 @@ async function messageAcces(db: Db, mode: ModeJoin, reel: JoinReel, c: Candidatu
   const { data: sig } = await db.from("join_signatures").select("ruul_email").eq("candidature_id", c.id).limit(1).maybeSingle();
   const raison = raisonSimulation("acces", reel, { test: c.test, simuler: o.simuler });
   const ruulParEmail = !raisonSimulation("ruul", reel, { test: c.test, simuler: o.simuler, profil: creee });
+  // 26/11 : le @ seulement s'il vient du compte de l'OS (sinon : « your TikTok details are on your dashboard »).
+  const { handle } = await profilOS(db, c.profile_id);
   const v = {
-    compteCree: false, login: c.email_os ?? null, handle: c.handle_tiktok, ruulEmail: sig?.ruul_email ?? null,
+    compteCree: false, login: c.email_os ?? null, handle, ruulEmail: sig?.ruul_email ?? null,
     lundi: lundiLisible(lundi), limite: limiteLisible(lundi), ruulParEmail,
   };
   if (raison) {
-    await message(db, mode, c, "acces", v, await whatsappBienvenue(db, c, lundi, JOIN_URL()), { simuler: raison });
+    await message(db, mode, c, "acces", v, await whatsappsBienvenueDe(db, c, lundi, { lien: JOIN_URL(), handle, lienPersonnel: false }), { simuler: raison });
     await simuler(db, c, "bienvenue", { raison });
     return;
   }
@@ -570,7 +594,8 @@ async function messageAcces(db: Db, mode: ModeJoin, reel: JoinReel, c: Candidatu
     }
     lien = lienMotDePasse(LIEN_DASHBOARD_OS, jeton);
   }
-  await message(db, mode, c, "acces", { ...v, lien, compteCree: !!lien }, await whatsappBienvenue(db, c, lundi, lien ?? JOIN_URL()), {
+  await message(db, mode, c, "acces", { ...v, lien, compteCree: !!lien },
+    await whatsappsBienvenueDe(db, c, lundi, { lien: lien ?? JOIN_URL(), handle, lienPersonnel: !!lien }), {
     whatsappSimule: raisonSimulation("whatsapp", reel, { test: c.test, simuler: o.simuler }),
   });
   if (creee && c.profile_id) {
@@ -620,7 +645,7 @@ async function invitationRuul(db: Db, mode: ModeJoin, reel: JoinReel, c: Candida
   const lien = await lienRuul(db, pid);
   const ruulEmail = (p?.ruul_email as string | null) ?? sig?.ruul_email ?? null;
   const e = emailParcours("invite_a", {
-    prenom: c.prenom, login: c.email_os ?? null, motDePasse: "", dashboard: LIEN_DASHBOARD_OS, handle: c.handle_tiktok, slack: LIEN_SLACK,
+    prenom: c.prenom, login: c.email_os ?? null, motDePasse: "", dashboard: LIEN_DASHBOARD_OS, handle: (await profilOS(db, pid)).handle, slack: LIEN_SLACK,
     cohorte_lundi: lundi, ruul_email: ruulEmail, ruul_compte: null, ruul_lien: lien, ruul_onboarding: (p?.ruul_onboarding as string | null) ?? null,
     abonnements: null,
   }, LIEN_DASHBOARD_OS);
@@ -643,22 +668,13 @@ async function invitationRuul(db: Db, mode: ModeJoin, reel: JoinReel, c: Candida
   await evenement(db, "ruul_invitation", c.id, c.test, { lien_personnel: !!lien });
 }
 
-/**
- * 25/11 (Max) : le WhatsApp de bienvenue est welcome_start (prénom, lundi, échéance, @ du compte créé par l'OS,
- * vidéo guide), repli sur account_ready (prénom, lien) s'il n'est pas APPROVED ou sans @. La clé welcome:<posteur>
- * est celle des relances de l'OS : jamais deux bienvenues au même posteur.
- */
-async function whatsappBienvenue(db: Db, c: Candidature, lundi: string, lien: string): Promise<WhatsAppJoin> {
-  const approuves = await modelesApprouves(db);
-  const handle = (c.handle_tiktok ?? "").replace(/^@/, "").trim();
-  const cle = c.profile_id ? cleBienvenue(c.profile_id) : `join_acces:${c.id}`;
-  if (handle && approuves.has("welcome_start")) {
-    return {
-      nom: "welcome_start", cle, motif: "relance:welcome_start",
-      variables: [prenomWa(c), lundiLisible(lundi), echeanceTexte(lundi), handle, VIDEO_GUIDE_URL],
-    };
-  }
-  return { nom: "account_ready", cle, motif: "relance:welcome_start", variables: [prenomWa(c), lien] };
+/** La bienvenue WhatsApp (whatsappsBienvenue, join.ts) avec les modèles APPROVED chez Meta. */
+async function whatsappsBienvenueDe(
+  db: Db, c: Candidature, lundi: string, o: { lien: string; handle: string | null; lienPersonnel: boolean },
+): Promise<WhatsAppJoin[]> {
+  return whatsappsBienvenue({
+    candidatureId: c.id, profileId: c.profile_id ?? null, prenom: prenomWa(c), lundi, ...o, approuves: await modelesApprouves(db),
+  });
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -755,6 +771,9 @@ async function rappelsCandidat(
     signeAt: ctx.signeAt, lundi: ctx.lundi, faites: ctx.faites, deja: ctx.journal.map((r) => r.etape), pays: c.pays,
     premierPostAt: o.etat?.premier_post_at ?? os?.premier_post_at ?? null, postsPrevus: os ? os.posts_prevus !== false : true,
     paieReportee: !!os?.paie_reportee, maintenant,
+    // 26/11 : les jours des rappels déjà faits (le vendredi saute après un rappel la veille).
+    joursRappels: ctx.journal.filter((r) => r.etape.startsWith("rappel:") && r.canal === "email")
+      .map((r) => String((r.detail as { jour?: string } | null)?.jour ?? "")).filter(Boolean),
   }).filter((d) => !(d.etape === "ruul" && os?.ruul_retire_at)); // passé sur Upwork : plus de Ruul
   if (!dus.length) return;
   const auj = dateLocale(c.pays, maintenant);
@@ -778,7 +797,8 @@ async function rappelsCandidat(
   const lundiTxt = lundiLisible(ctx.lundi);
   const m = texteRappel(dus, {
     prenom: c.prenom, lundi: lundiTxt, limite: limiteLisible(ctx.lundi), avantDepart: auj < ctx.lundi,
-    handle: (os?.handle ?? c.handle_tiktok ?? "").replace(/^@/, "") || null, ruulEmail: os?.ruul_email ?? ctx.ruulEmail,
+    // 26/11 : le @ du compte de l'OS seulement (jamais une proposition de Join).
+    handle: (os?.handle ?? "").replace(/^@/, "") || null, ruulEmail: os?.ruul_email ?? ctx.ruulEmail,
   });
   const detail = { jour: auj, objet: m.objet, etapes: dus.map((d) => d.etape), ...(o.maintenant ? { horloge: maintenant.toISOString() } : {}) };
   let statutEmail: "simule" | "envoye" | "bloque";
@@ -815,7 +835,7 @@ async function whatsappRappel(
   const maintenant = o.maintenant ?? new Date();
   const pid = c.profile_id ?? null;
   const niche = pid && type === "warmup_start" ? await nicheOuNull(db, pid) : null;
-  const faits = { prenom: c.prenom, cohorte_lundi: ctx.lundi, handle: ctx.os?.handle ?? c.handle_tiktok, niche } as unknown as FaitsRelance;
+  const faits = { prenom: c.prenom, cohorte_lundi: ctx.lundi, handle: ctx.os?.handle ?? null, niche } as unknown as FaitsRelance;
   const modele = modeleRelance(type, faits, await modelesApprouves(db));
   const jour = dateLocale(c.pays, maintenant);
   // Les clés et motifs des relances WhatsApp de l'OS : un envoi le même jour par l'un ou l'autre n'est jamais doublé.
@@ -1043,13 +1063,26 @@ async function majEtape(db: Db, id: string, etape: string, statut: string, valeu
   if (error) throw new Error(`étape : ${error.message}`);
 }
 
+/**
+ * 26/11 : le profil TikTok préparé par l'OS pour ce posteur (pseudo, nom affiché, bio, photo : le compte perso actif le
+ * plus ancien, comme join_etat_os et le dashboard de l'OS). Sans fiche OS ou sans compte : tout est null (pret: false).
+ */
+async function profilOS(db: Db, profileId: string | null | undefined): Promise<ProfilTiktokOS> {
+  if (!profileId) return { ...PROFIL_TIKTOK_VIDE };
+  const { data, error } = await db.from("comptes").select("handle_tiktok, persona_nom, persona_bio, avatar_url, type_compte, created_at")
+    .eq("poster_id", profileId).eq("is_active", true).order("created_at", { ascending: true }).limit(20);
+  if (error) console.error("join comptes", error.message);
+  return profilTiktokOS((data ?? []) as CompteOS[]);
+}
+
 function vueCandidature(c: Candidature, mode: ModeJoin) {
   return {
     id: c.id, test: c.test, prenom: c.prenom, nom: c.nom, email: c.email, whatsapp: c.whatsapp_e164, pays: c.pays,
     // 25/11 : sans code WhatsApp (join_mode.modele_code vide), le numéro n'a pas de code à vérifier.
     langue: c.langue, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at || !codeWhatsappActif(mode),
     whatsapp_code: codeWhatsappActif(mode),
-    decision: c.decision, cohorte: c.cohorte, handle_tiktok: c.handle_tiktok, whatsapp_optin: !!c.whatsapp_optin_at,
+    // 26/11 : le @ n'existe qu'une fois relié à l'OS (jamais un pseudo inventé par Join).
+    decision: c.decision, cohorte: c.cohorte, handle_tiktok: c.profile_id ? c.handle_tiktok : null, whatsapp_optin: !!c.whatsapp_optin_at,
     ferme: !!c.manques?.some((m) => m.startsWith("pays fermé")) && !c.decision,
   };
 }
@@ -1117,6 +1150,8 @@ function ligneAdmin(c: Candidature & Record<string, unknown>, signee: boolean, m
     id: c.id, test: c.test, prenom: c.prenom, nom: c.nom, email: c.email, pays: c.pays, cree_at: c.cree_at, maj_at: c.maj_at,
     etape, email_verifie: !!c.email_verifie_at, whatsapp_verifie: !!c.whatsapp_verifie_at, decision: c.decision,
     eligible: c.decision === "a_traiter" ? !(c.manques ?? []).length : null, manques: c.manques ?? [],
+    // 26/11 (0863) : les alertes (même nom…) : vues par l'admin, jamais bloquantes.
+    alertes: (c.alertes as string[] | null | undefined) ?? [],
     cohorte: c.cohorte, whatsapp_optin: !!c.whatsapp_optin_at, entendu: c.entendu ?? null, parrain: c.parrain ?? null,
     source: source.ref ? `ref:${source.ref}` : source.utm_source ?? (c.entendu as string | null) ?? null,
     ...decisionsAdminPossibles(etape),
@@ -1168,11 +1203,13 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
         db.from("join_etapes").select("etape, statut, valeur, maj_at").eq("candidature_id", id).limit(20),
       ]);
       const cand = c as Candidature & Record<string, unknown>;
+      // 26/11 : le @ du compte de l'OS seulement (une ancienne proposition de Join n'est plus montrée).
+      const handleOS = (await profilOS(db, cand.profile_id)).handle;
       // Les messages envoyés : le journal des envois, avec l'objet et le texte du message de ce type (anglais).
       const messages = (rel.data ?? []).map((r) => {
         const type = r.etape as TypeMessageJoin;
         const m = (TYPES_MESSAGE_JOIN as readonly string[]).includes(type) && r.canal !== "systeme"
-          ? texteMessage(type, { prenom: cand.prenom, lien: JOIN_URL(), handle: cand.handle_tiktok, login: cand.email_os ?? null })
+          ? texteMessage(type, { prenom: cand.prenom, lien: JOIN_URL(), handle: handleOS, login: cand.email_os ?? null })
           : null;
         // 0858 : un rappel de la checklist ou une étape simulée : l'objet et la raison notés dans le détail.
         const d = (r.detail ?? {}) as { objet?: string; raison?: string; modele?: string };
@@ -1183,7 +1220,7 @@ async function traiterAdmin(db: Db, b: Corps, mode: ModeJoin, action: string): P
         candidature: {
           ...ligneAdmin(cand, !!sig.data, mode), whatsapp: cand.whatsapp_e164, langue: cand.langue, majeur: cand.majeur ?? null,
           age: cand.age, deux_telephones: cand.deux_telephones, reponses: cand.reponses, source_brute: cand.source ?? {},
-          handle_tiktok: cand.handle_tiktok, expire_at: cand.expire_at, decision_at: cand.decision_at,
+          handle_tiktok: handleOS, expire_at: cand.expire_at, decision_at: cand.decision_at,
           decision_par: cand.decision_par ?? null, decision_note: cand.decision_note ?? null,
           profile_id: cand.profile_id ?? null, email_os: cand.email_os ?? null,
         },
@@ -1375,19 +1412,20 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       if (!codesVerifies(c, mode)) return erreur("not_verified");
       if (!c.decision) {
         const { pays } = await paysOuverts(db);
-        // 0858 : les règles de l'OS + la langue du pays gérée par l'OS + aucun doublon (email, téléphone, nom).
+        // 0858 : les règles de l'OS + la langue du pays gérée par l'OS + aucun doublon (email, téléphone).
+        // 26/11 (0863) : un même nom n'est qu'une alerte pour l'admin (`alertes`), il ne bloque pas.
         const [langue, doublons] = await Promise.all([langueGereeOS(c.pays), doublonsDe(db, c.id)]);
+        const regles = deciderJoin(c, new Set(pays.map((p) => p.pays)), codeWhatsappActif(mode), { langue, doublons });
         // 0847 : l'interrupteur « Acceptation automatique » (OFF : même une candidature complète attend l'admin).
-        const d = deciderAvecReglage(
-          deciderJoin(c, new Set(pays.map((p) => p.pays)), codeWhatsappActif(mode), { langue, doublons }),
-          await lireAuto(db),
-        );
+        const d = deciderAvecReglage(regles, await lireAuto(db));
         const maintenant = new Date().toISOString();
         const cohorte = d.decision === "auto" ? cohorteDe(aujourdhuiParis()) : null;
         await db.from("join_candidatures").update({
-          decision: d.decision, decision_at: maintenant, manques: d.manques, cohorte, maj_at: maintenant,
+          decision: d.decision, decision_at: maintenant, manques: d.manques, alertes: regles.alertes, cohorte, maj_at: maintenant,
         }).eq("id", c.id);
-        await evenement(db, d.decision === "auto" ? "acceptee" : "a_traiter", c.id, c.test, { manques: d.manques, eligible: d.eligible });
+        await evenement(db, d.decision === "auto" ? "acceptee" : "a_traiter", c.id, c.test, {
+          manques: d.manques, eligible: d.eligible, ...(regles.alertes.length ? { alertes: regles.alertes } : {}),
+        });
         c.decision = d.decision;
         c.cohorte = cohorte;
       }
@@ -1431,10 +1469,9 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
         if (error) return erreur("signature impossible", 500);
         await evenement(db, "signee", c.id, c.test, { version: CONTRAT_VERSION, lundi });
         await majEtape(db, c.id, "contrat", "fait", { fait_at: new Date().toISOString(), source: "signature", version: CONTRAT_VERSION });
-        const handle = handlePropose(c.prenom);
-        await majEtape(db, c.id, "tiktok", "a_faire", { propose: handle });
+        // 26/11 (Max) : aucun pseudo proposé par Join : le @ (et tout le profil TikTok) vient du compte créé par l'OS.
         // Signé après la date limite : le départ glisse au lundi suivant.
-        await db.from("join_candidatures").update({ handle_tiktok: handle, cohorte: lundi, maj_at: new Date().toISOString() }).eq("id", c.id);
+        await db.from("join_candidatures").update({ cohorte: lundi, maj_at: new Date().toISOString() }).eq("id", c.id);
         c.cohorte = lundi;
         // Tout s'enchaîne seul : compte OS → Slack → bienvenue → invitation Ruul (chaque étape derrière son drapeau join_reel).
         // 25/11 : en arrière-plan, la réponse part dès la signature enregistrée (5-6 s d'attente avant). Sans
@@ -1497,12 +1534,9 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       // Le lundi de départ : celui de l'OS quand la fiche existe (un report de l'OS le décale), sinon celui de Join.
       const premier = os?.cohorte_lundi ?? (c.cohorte ? premierPost(c.cohorte, warmupFini, aujourdhuiParis()) : null);
       const lundiOffre = c.decision === "auto" && !sig ? cohorteASignature(c.cohorte) : null;
-      // 25/11 (test persona) : le profil TikTok à créer, le même que celui du dashboard de l'OS quand le compte y existe
-      // (nom, bio et photo du persona) ; sinon le nom du candidat et une bio par défaut.
-      const { data: compteOS } = c.profile_id
-        ? await db.from("comptes").select("persona_nom, persona_bio, avatar_url").eq("poster_id", c.profile_id).eq("is_active", true)
-          .order("created_at", { ascending: true }).limit(1).maybeSingle()
-        : { data: null };
+      // 26/11 (Max : « les infos sont sur l'OS ») : le profil TikTok à créer est SEULEMENT celui du compte de l'OS (le
+      // même que sur son dashboard : pseudo, nom affiché, bio, photo). Pas encore de compte : tout null, pret: false.
+      const profil = await profilOS(db, c.profile_id);
       // Ruul : le lien personnel d'onboarding (API Ruul, gardé 48 h) ; sans lui, l'inscription app.ruul.io/register.
       let lienRuulPerso: string | null = null;
       if (sig && c.profile_id && !faites.ruul) {
@@ -1524,15 +1558,10 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
           dashboard: LIEN_DASHBOARD_OS, slack: LIEN_SLACK, tiktok: LIEN_TIKTOK, ruul: lienRuulPerso ?? LIEN_INSCRIPTION_RUUL,
           ruul_personnel: !!lienRuulPerso,
         },
-        handle: (os?.handle ?? c.handle_tiktok ?? "").replace(/^@/, "") || null,
+        handle: profil.handle,
         ruul_email: os?.ruul_email ?? sig?.ruul_email ?? null,
         compte_os: !!c.profile_id,
-        profil_suggere: {
-          nom: (compteOS?.persona_nom as string | null) || c.prenom,
-          bio: (compteOS?.persona_bio as string | null) || "Daily slides that make you smarter ✨",
-          photo: "A calm aesthetic picture (no logo, no text).",
-          photo_url: (compteOS?.avatar_url as string | null) ?? null,
-        },
+        profil_suggere: profil,
         ruul_visible: c.ruul_visible,
       });
     }
@@ -1545,9 +1574,10 @@ async function traiter(request: Request, db: Db, b: Corps): Promise<Response> {
       const valeur = (b.valeur && typeof b.valeur === "object" ? b.valeur : {}) as Corps;
 
       if (etape === "tiktok") {
-        // « I created it » (handle proposé) ou le vrai handle saisi : vérification en lecture seule.
-        const handle = nettoyerHandle(String(valeur.handle ?? c.handle_tiktok ?? ""));
-        if (!handle) return erreur("handle invalide");
+        // « Je l'ai créé » : vérification en lecture seule du @ du compte de l'OS (26/11 : jamais un @ saisi ni proposé
+        // par Join). Sans compte de l'OS : pas encore prêt.
+        const handle = nettoyerHandle((await profilOS(db, c.profile_id)).handle ?? "");
+        if (!handle) return json({ ok: false, error: "not_ready" }, 409);
         const profil = await lireProfilTiktok(handle);
         const statut = profil.existe === true ? "ok" : profil.existe === false ? "introuvable" : "illisible";
         await majEtape(db, c.id, "tiktok", statut, { handle, verifie_at: new Date().toISOString(), erreur: profil.erreur });

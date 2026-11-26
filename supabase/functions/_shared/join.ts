@@ -8,7 +8,7 @@
 import { type CandidatureRuul, lundiSuivant, manquesCandidature } from "./ruul.ts";
 import { guideRuul, LIEN_RUUL, PHRASE_QUESTION_OS } from "./parcours_ruul.ts";
 import { DASHBOARD_V2, SLACK_V2 } from "./whatsapp_modeles_v2.ts";
-import { dateLocale, joursEntre, jourSemaineLocal, type TypeRelance } from "./whatsapp_relances.ts";
+import { cleBienvenue, dateLocale, echeanceTexte, joursEntre, jourSemaineLocal, type TypeRelance } from "./whatsapp_relances.ts";
 
 /** 23/11 (Max) : l'identité légale de la société, affichée sur le site, en tête du contrat et dans les mentions légales. */
 export const SOCIETE = {
@@ -251,21 +251,42 @@ export function decider(
 }
 
 /**
+ * 26/11 (Max, 0863) : un nom identique n'est qu'une ALERTE (« alerte : même nom… » de join_doublons ; aussi l'ancien
+ * libellé « doublon : même nom… ») : visible par l'admin, elle ne bloque pas l'acceptation automatique. Un email ou un
+ * téléphone déjà connu (« doublon : … ») reste un vrai manque.
+ */
+export function separerDoublons(liste: readonly string[]): { manques: string[]; alertes: string[] } {
+  const manques: string[] = [];
+  const alertes: string[] = [];
+  for (const brut of liste) {
+    const d = String(brut ?? "").trim();
+    if (!d) continue;
+    const alerte = /^alerte\b/i.test(d) || /même nom/i.test(d);
+    const x = alerte ? d.replace(/^doublon\s*:/i, "alerte :") : d;
+    const cible = alerte ? alertes : manques;
+    if (!cible.includes(x)) cible.push(x);
+  }
+  return { manques, alertes };
+}
+
+/**
  * 25/11 (Max) : la décision de Join = les règles de l'OS (decider : 18 ans ou plus, pays ouvert, 2 téléphones,
  * réponses) + la langue du pays gérée par l'OS (`langue_os` de hub-posteurs « zones » : langue connue et publiée par
- * des comptes actifs ; null = l'OS n'a pas répondu) + aucun doublon (join_doublons : email, téléphone, nom). Tout ce
+ * des comptes actifs ; null = l'OS n'a pas répondu) + aucun doublon (join_doublons : email, téléphone). Tout ce
  * qui manque est écrit en clair dans `manques` (liste de l'admin, page Aujourd'hui de l'OS).
+ * 26/11 (0863) : un même nom est une alerte (`alertes`), jamais un manque.
  */
 export function deciderJoin(
   c: CandidatureJoin, paysOuverts: Set<string>, whatsappExige: boolean,
   extra: { langue: { geree: boolean | null; code: string | null }; doublons: string[] },
-): { decision: "auto" | "a_traiter"; manques: string[] } {
+): { decision: "auto" | "a_traiter"; manques: string[]; alertes: string[] } {
   const manques = [...decider(c, paysOuverts, whatsappExige).manques];
   const paysKo = manques.some((m) => m.startsWith("pays fermé") || m === "pays inconnu");
   if (!paysKo && extra.langue.geree === false) manques.push(`langue non gérée par l'OS (${extra.langue.code ?? "?"})`);
   if (!paysKo && extra.langue.geree === null) manques.push("langue non vérifiée (OS injoignable)");
-  for (const d of extra.doublons) if (d && !manques.includes(d)) manques.push(d);
-  return { decision: manques.length ? "a_traiter" : "auto", manques };
+  const { manques: doublons, alertes } = separerDoublons(extra.doublons);
+  for (const d of doublons) if (!manques.includes(d)) manques.push(d);
+  return { decision: manques.length ? "a_traiter" : "auto", manques, alertes };
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -388,15 +409,41 @@ export function etatCode(
 // Handle TikTok et date du premier post
 // ---------------------------------------------------------------------------------------------------------------
 
-const MOTS = ["daily", "reads", "notes", "facts", "learns", "mind", "slides", "smart", "vibes", "study"];
+/** Une ligne de `comptes` : le compte TikTok créé par l'OS et son persona (pseudo, nom affiché, bio, photo). */
+export interface CompteOS {
+  handle_tiktok: string | null;
+  persona_nom: string | null;
+  persona_bio: string | null;
+  avatar_url: string | null;
+  type_compte?: string | null;
+  created_at?: string | null;
+}
 
-/** Un handle proposé : prénom (sans accents, minuscules) + un mot + 3 chiffres. `alea` dans [0, 1). */
-export function handlePropose(prenom: string, alea: () => number = Math.random): string {
-  const base = prenom.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 12) ||
-    "creator";
-  const mot = MOTS[Math.floor(alea() * MOTS.length) % MOTS.length];
-  const n = String(Math.floor(alea() * 1000) % 1000).padStart(3, "0");
-  return `${base}.${mot}${n}`;
+/** Le profil TikTok à créer, tel que l'OS l'a préparé. `pret` : un compte de l'OS avec son pseudo existe. */
+export interface ProfilTiktokOS {
+  pret: boolean;
+  handle: string | null;
+  nom: string | null;
+  bio: string | null;
+  photo_url: string | null;
+}
+
+export const PROFIL_TIKTOK_VIDE: ProfilTiktokOS = { pret: false, handle: null, nom: null, bio: null, photo_url: null };
+
+/**
+ * 26/11 (Max : « les infos sont sur l'OS ») : le profil TikTok vient SEULEMENT du compte créé par l'OS (le même que
+ * sur le dashboard de l'OS et que join_etat_os : le compte perso actif, le plus ancien). Join n'invente jamais de
+ * pseudo, de nom, de bio ni de photo : sans compte de l'OS (ou sans pseudo), tout est null et `pret` est faux.
+ */
+export function profilTiktokOS(comptes: readonly CompteOS[] | null | undefined): ProfilTiktokOS {
+  const texte = (x: string | null | undefined) => String(x ?? "").trim() || null;
+  const perso = (c: CompteOS) => (c.type_compte ?? "perso") === "perso";
+  const c = [...(comptes ?? [])].sort((a, b) =>
+    Number(perso(b)) - Number(perso(a)) || String(a.created_at ?? "").localeCompare(String(b.created_at ?? ""))
+  )[0];
+  const handle = texte(c?.handle_tiktok)?.replace(/^@+/, "") || null;
+  if (!c || !handle) return { ...PROFIL_TIKTOK_VIDE };
+  return { pret: true, handle, nom: texte(c.persona_nom), bio: texte(c.persona_bio), photo_url: texte(c.avatar_url) };
 }
 
 /** Un handle saisi : « @ » retiré, minuscules ; 2 à 24 caractères (lettres, chiffres, point, tiret bas). */
@@ -601,6 +648,9 @@ export const PRIORITE_RAPPELS: readonly EtapeRappel[] = ["premier_post", "tiktok
  *  - Ruul, après le départ : le jeudi (4 au plus), sauf paie reportée (l'OS en parle déjà, rappel_reportes) ; et
  *    3 jours après le premier post (le WhatsApp ruul_payment_setup de l'OS).
  *  - Premier post (warm-up lancé, posts prévus) : le lundi de départ, J+1, J+3 (3 semaines au plus).
+ *  - 26/11 (Max) : le rappel du vendredi saute un jour où un rappel est déjà parti la veille (`joursRappels` : les jours,
+ *    dans le fuseau du pays, des rappels déjà faits) : jamais 3 rappels de suite (jeudi J+1, vendredi, samedi J+3) pour
+ *    une signature du mercredi. Il reste dû le lendemain (samedi, dimanche), dans le même email qu'un autre rappel.
  */
 export function rappelsDus(o: {
   signeAt: string;
@@ -611,11 +661,14 @@ export function rappelsDus(o: {
   premierPostAt?: string | null;
   postsPrevus?: boolean;
   paieReportee?: boolean;
+  /** Les jours (AAAA-MM-JJ, fuseau du pays) où un rappel de la checklist est déjà parti. */
+  joursRappels?: readonly string[];
   maintenant: Date;
 }): RappelDu[] {
   const auj = dateLocale(o.pays, o.maintenant);
   const j = joursEntre(dateLocale(o.pays, new Date(o.signeAt)), auj);
   const avantLundi = joursEntre(auj, o.lundi);
+  const rappelHier = (o.joursRappels ?? []).includes(ajouterJours(auj, -1));
   const dus: RappelDu[] = [];
   const ajouter = (etape: EtapeRappel, rang: string) => {
     const cle = `rappel:${etape}:${rang}`;
@@ -625,7 +678,7 @@ export function rappelsDus(o: {
     if (o.faites[e]) continue;
     if (j >= 1 && j < 3) ajouter(e, "j1");
     else if (j >= 3 && j < 7) ajouter(e, "j3");
-    if (j >= 1 && avantLundi >= 1 && avantLundi <= 3) ajouter(e, `vendredi:${o.lundi}`);
+    if (j >= 1 && avantLundi >= 1 && avantLundi <= 3 && !rappelHier) ajouter(e, `vendredi:${o.lundi}`);
   }
   if (!o.faites.ruul && avantLundi <= 0) {
     const jeudis = o.deja.filter((x) => x.startsWith("rappel:ruul:jeudi:")).length;
@@ -676,7 +729,10 @@ export function texteRappel(
     premier_post: debut
       ? `You start posting today: your 2 slideshows are ready on your dashboard (${LIEN_DASHBOARD_OS}). Post them on TikTok, then paste the link of each post on your dashboard.`
       : `We haven't seen your first post yet. Your 2 slideshows a day are ready on your dashboard (${LIEN_DASHBOARD_OS}): post them on TikTok, then paste the link of each post on your dashboard. You're paid for every post you publish.`,
-    tiktok: `Create your new TikTok account${v.handle ? ` with this exact username: @${v.handle}` : ""}, with the photo and bio shown on your checklist.`,
+    // 26/11 : le @ seulement s'il vient de l'OS ; sinon, les infos du compte sont sur le dashboard.
+    tiktok: v.handle
+      ? `Create your new TikTok account with this exact username: @${v.handle}, and the name, photo and bio shown on your dashboard (${LIEN_DASHBOARD_OS}).`
+      : `Create your new TikTok account: your TikTok details (username, name, photo and bio) are on your dashboard (${LIEN_DASHBOARD_OS}).`,
     warmup: `Log in to your dashboard (${LIEN_DASHBOARD_OS}), click « Start warmup », follow at least 5 accounts and use TikTok normally a few minutes a day.`,
     ruul: `Set up Ruul to get paid (about 10 minutes): create your account${v.ruulEmail ? ` with ${v.ruulEmail}` : ""}, then add your ID and bank details. Your personal Ruul link is on your checklist.`,
     slack: `Join our Slack with your personal email and your full name: ${LIEN_SLACK}`,
@@ -729,7 +785,10 @@ export function texteMessage(
     lien: string;
     lundi?: string;
     limite?: string;
-    /** acces : le login de l'OS, le handle TikTok, l'email Ruul ; `compteCree` = un vrai lien « Set my password ». */
+    /**
+     * acces : le login de l'OS, le handle TikTok (celui du compte de l'OS seulement, sinon null), l'email Ruul ;
+     * `compteCree` = un vrai lien « Set my password ».
+     */
     login?: string | null;
     handle?: string | null;
     ruulEmail?: string | null;
@@ -790,10 +849,17 @@ export function texteMessage(
             `- Dashboard: ${LIEN_DASHBOARD_OS}`,
             `- Login: ${v.login ?? "(see the « Set my password » page)"}`,
             lienMdp,
-            ...(v.handle ? [`- Your TikTok account, with this exact name: @${v.handle}`] : []),
+            // 26/11 : le @ seulement s'il vient de l'OS (jamais un pseudo inventé par Join).
+            v.handle
+              ? `- Your TikTok account, with this exact name: @${v.handle}`
+              : "- Your TikTok account: your TikTok details are on your dashboard",
             `- Our Slack (sign up with your personal email and your full name): ${LIEN_SLACK}`,
           ].join("\n"),
-          `Before ${v.limite ?? "Sunday midnight (Paris time)"}:\n1. Set your password and log in to your dashboard.\n2. Create your TikTok account with the exact name above.\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
+          `Before ${v.limite ?? "Sunday midnight (Paris time)"}:\n1. Set your password and log in to your dashboard.\n2. ${
+            v.handle
+              ? "Create your TikTok account with the exact name above, and the name, photo and bio shown on your dashboard."
+              : "Create your TikTok account with the username, name, photo and bio shown on your dashboard."
+          }\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
           PHRASE_QUESTION_OS,
           v.ruulParEmail
             ? `Set up Ruul — required to get paid: your personal Ruul link arrives in a separate email${v.ruulEmail ? ` (create your account with ${v.ruulEmail})` : ""}, and it's on your checklist: ${JOIN_URL_PUBLIC}`
@@ -803,6 +869,52 @@ export function texteMessage(
       };
     }
   }
+}
+
+/** Un WhatsApp de Join : un modèle, ses variables, sa clé anti-doublon et son motif. */
+export interface WhatsAppJoin {
+  nom: string;
+  variables: string[];
+  cle?: string;
+  motif?: string;
+}
+
+/**
+ * Les WhatsApp de la bienvenue après la signature, dans l'ordre d'envoi.
+ *  - 25/11 : welcome_start (prénom, lundi, échéance, @ du compte de l'OS, vidéo guide), repli sur account_ready (prénom,
+ *    lien) s'il n'est pas APPROVED ou sans @ ; clé welcome:<posteur> (celle des relances de l'OS : jamais deux
+ *    bienvenues), join_acces:<candidature> sans fiche OS.
+ *  - 26/11 (Max) : `handle` est SEULEMENT le @ du compte de l'OS (jamais une proposition de Join). Avec un lien
+ *    personnel « Set my password » (`lienPersonnel` : fiche OS réelle créée par Join), le lien de connexion part aussi
+ *    par WhatsApp : account_ready avec ce lien (clé join_acces_lien:<candidature>), PUIS welcome_start (clé
+ *    welcome:<posteur>) seulement s'il y a un @ de l'OS et que welcome_start est APPROVED. Sans ce lien : comme avant.
+ */
+export function whatsappsBienvenue(o: {
+  candidatureId: string;
+  profileId: string | null;
+  prenom: string;
+  lundi: string;
+  lien: string;
+  handle: string | null;
+  lienPersonnel: boolean;
+  approuves: ReadonlySet<string>;
+}): WhatsAppJoin[] {
+  const prenom = (o.prenom ?? "").trim().split(/\s+/)[0] || "there";
+  const handle = (o.handle ?? "").replace(/^@+/, "").trim();
+  const cle = o.profileId ? cleBienvenue(o.profileId) : `join_acces:${o.candidatureId}`;
+  const bienvenue: WhatsAppJoin | null = handle && o.approuves.has("welcome_start")
+    ? {
+      nom: "welcome_start", cle, motif: "relance:welcome_start",
+      variables: [prenom, lundiLisible(o.lundi), echeanceTexte(o.lundi), handle, VIDEO_GUIDE_URL],
+    }
+    : null;
+  if (o.lienPersonnel && o.profileId) {
+    return [
+      { nom: "account_ready", cle: `join_acces_lien:${o.candidatureId}`, motif: "join_acces", variables: [prenom, o.lien] },
+      ...(bienvenue ? [bienvenue] : []),
+    ];
+  }
+  return [bienvenue ?? { nom: "account_ready", cle, motif: "relance:welcome_start", variables: [prenom, o.lien] }];
 }
 
 /**

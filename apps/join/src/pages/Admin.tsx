@@ -21,6 +21,8 @@ interface Ligne {
   whatsapp_verifie: boolean;
   eligible: boolean | null;
   manques: string[];
+  /** 26/11 : ce que l'admin doit voir sans que la candidature attende (même nom qu'une autre candidature…). */
+  alertes?: string[];
   cohorte: string | null;
   whatsapp_optin: boolean;
   source: string | null;
@@ -134,6 +136,7 @@ function FicheCandidat({ id, onFermer, onDecide }: { id: string; onFermer: () =>
       <p><span className={`adm__badge adm__badge--${c.etape}`}>{NOM_ETAPE[c.etape]}</span>
         {c.etape === "a_traiter" && <span className="discret"> {c.eligible ? "· remplit les conditions" : `· manque : ${c.manques.join(", ")}`}</span>}
       </p>
+      {(c.alertes ?? []).length > 0 && <p className="discret">⚠ Alertes (ne bloquent pas) : {(c.alertes ?? []).join(", ")}</p>}
       <dl className="adm__dl">
         <dt>Email</dt><dd>{c.email} {c.email_verifie ? "✓" : "·"}</dd>
         <dt>WhatsApp</dt><dd>{String(c.whatsapp ?? "")} {c.whatsapp_verifie ? "✓" : "·"} · messages : {c.whatsapp_optin ? "oui" : "non"}</dd>

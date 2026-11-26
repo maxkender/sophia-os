@@ -7,6 +7,8 @@ import { jourMois, limiteAvantLundi, limiteLocale, type T } from "../i18n";
 // étape a une consigne courte et un bouton, et se coche seule quand l'OS la voit faite (synchronisée par `moi`).
 // Les mots (test persona) : la page Join est « ta page », l'OS est « ton dashboard » (ses accès arrivent par email,
 // lien « Set my password »). L'étape TikTok donne tout le profil à créer : nom d'utilisateur, nom, photo, bio.
+// 26/11 (Max : « les infos sont sur l'OS ») : ce profil est SEULEMENT celui du compte créé par l'OS (le même que sur
+// le dashboard). Tant qu'il n'existe pas, une phrase le dit et renvoie au dashboard : jamais de valeur inventée.
 
 /** Les liens par défaut (une API plus ancienne ne les renvoie pas). */
 const LIENS_DEFAUT = {
@@ -47,11 +49,34 @@ function LigneProfil({ t, libelle, valeur, copier }: { t: T; libelle: string; va
     <div className="profil__ligne">
       <dt>{libelle}</dt>
       <dd>
-        {copier ? <code>{valeur}</code> : <span>{valeur}</span>}
+        {/* La bio de l'OS peut tenir sur plusieurs lignes : affichée telle quelle (comme sur le dashboard). */}
+        {copier ? <code style={{ whiteSpace: "pre-wrap" }}>{valeur}</code> : <span>{valeur}</span>}
         {copier && <Copier t={t} texte={copier} />}
       </dd>
     </div>
   );
+}
+
+/** « Télécharger » la photo de profil (fichier enregistré ; sinon la photo s'ouvre dans un nouvel onglet). */
+function Telecharger({ t, url, nom }: { t: T; url: string; nom: string }) {
+  async function telecharger() {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(String(r.status));
+      const blob = await r.blob();
+      const lien = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = lien;
+      a.download = `${nom}.${(blob.type.split("/")[1] ?? "").replace("jpeg", "jpg").replace(/[^a-z0-9]/g, "") || "jpg"}`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(lien), 10_000);
+    } catch {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  }
+  return <button type="button" className="btn btn--xs btn--ghost" onClick={() => void telecharger()}>{t("chk.tiktok.download")}</button>;
 }
 
 /** Un bouton qui ouvre un lien (Ruul, TikTok, dashboard, Slack) dans un nouvel onglet. */
@@ -64,23 +89,25 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
   const statut = (e: string) => ligne(e)?.statut ?? "a_faire";
   const fait = (e: string) => moi.checklist?.find((x) => x.etape === e)?.fait ?? (statut(e) === "fait" || statut(e) === "ok");
   const liens = moi.liens ?? LIENS_DEFAUT;
-  const handle = moi.handle ?? String(ligne("tiktok")?.valeur?.handle ?? moi.candidature.handle_tiktok ?? "");
-  const [saisie, setSaisie] = useState("");
+  // Le profil TikTok préparé par l'OS (pseudo, nom affiché, photo, bio) ; rien tant que le compte n'est pas prêt.
+  const profil = moi.profil_suggere;
+  const pret = !!profil?.pret && !!profil.handle;
+  const handle = pret ? profil.handle ?? "" : "";
   const [enCours, setEnCours] = useState(false);
   const [msg, setMsg] = useState("");
   const test = moi.mode === "test";
 
-  async function verifierTiktok(h: string) {
+  // « Je l'ai créé » : le serveur vérifie sur TikTok le pseudo du compte de l'OS (jamais un pseudo saisi ici).
+  async function verifierTiktok() {
     setEnCours(true);
     setMsg("");
-    const r = await appeler("etape", { etape: "tiktok", valeur: { handle: h } });
+    const r = await appeler("etape", { etape: "tiktok" });
     setEnCours(false);
     if (!r.ok) setMsg(t("err.generic"));
     onMaj();
   }
 
   const st = statut("tiktok");
-  const profil = moi.profil_suggere;
   const lundi = moi.premier_post;
   return (
     <main className="halo page">
@@ -106,38 +133,39 @@ export default function Dashboard({ t, langue, moi, onMaj }: { t: T; langue: str
         </Etape>
 
         <Etape titre={t("step.tiktok.title")} fait={fait("tiktok")} note={handle ? `@${handle}` : undefined}>
-          <p>{t("step.tiktok.body")}</p>
-          <dl className="profil">
-            {handle && <LigneProfil t={t} libelle={t("chk.tiktok.username")} valeur={`@${handle}`} copier={handle} />}
-            {profil?.nom && <LigneProfil t={t} libelle={t("step.profil.name")} valeur={profil.nom} copier={profil.nom} />}
-            {profil?.photo_url ? (
-              <div className="profil__ligne">
-                <dt>{t("step.profil.photo")}</dt>
-                <dd>
-                  <a href={profil.photo_url} target="_blank" rel="noopener noreferrer"><img className="profil__photo" src={profil.photo_url} alt="" /></a>
-                  <span>{t("chk.tiktok.photoTap")}</span>
-                </dd>
-              </div>
-            ) : <LigneProfil t={t} libelle={t("step.profil.photo")} valeur={t("chk.tiktok.photoTip")} />}
-            {profil?.bio && <LigneProfil t={t} libelle={t("step.profil.bio")} valeur={profil.bio} copier={profil.bio} />}
-          </dl>
-          {st === "introuvable" && <p className="erreur">{t("step.tiktok.notFound", { handle })}</p>}
-          {st === "illisible" && <p className="erreur">{t("step.tiktok.unreadable")}</p>}
-          <div className="rangee" style={{ width: "100%" }}>
-            <Lien href={liens.tiktok} discret>{t("chk.tiktok.open")}</Lien>
-            {st === "introuvable" ? (
-              <>
-                <input value={saisie} placeholder="@username" onChange={(e) => setSaisie(e.target.value)} />
-                <button type="button" className="btn btn--sm btn--ghost" disabled={enCours || !saisie} onClick={() => verifierTiktok(saisie)}>
-                  {enCours ? t("step.tiktok.checking") : t("step.tiktok.check")}
+          {pret && profil ? (
+            <>
+              <p>{t("step.tiktok.body")}</p>
+              <dl className="profil">
+                <LigneProfil t={t} libelle={t("chk.tiktok.username")} valeur={`@${handle}`} copier={handle} />
+                {profil.nom && <LigneProfil t={t} libelle={t("step.profil.name")} valeur={profil.nom} copier={profil.nom} />}
+                {profil.photo_url && (
+                  <div className="profil__ligne">
+                    <dt>{t("step.profil.photo")}</dt>
+                    <dd>
+                      <a href={profil.photo_url} target="_blank" rel="noopener noreferrer"><img className="profil__photo" src={profil.photo_url} alt="" /></a>
+                      <Telecharger t={t} url={profil.photo_url} nom={`tiktok-${handle}`} />
+                    </dd>
+                  </div>
+                )}
+                {profil.bio && <LigneProfil t={t} libelle={t("step.profil.bio")} valeur={profil.bio} copier={profil.bio} />}
+              </dl>
+              <p className="discret">{t("chk.tiktok.same")}</p>
+              {st === "introuvable" && <p className="erreur">{t("chk.tiktok.notFound", { handle })}</p>}
+              {st === "illisible" && <p className="erreur">{t("step.tiktok.unreadable")}</p>}
+              <div className="rangee" style={{ width: "100%" }}>
+                <Lien href={liens.tiktok} discret>{t("chk.tiktok.open")}</Lien>
+                <button type="button" className="btn btn--sm" disabled={enCours} onClick={() => void verifierTiktok()}>
+                  {enCours ? t("step.tiktok.checking") : t("step.tiktok.created")}
                 </button>
-              </>
-            ) : (
-              <button type="button" className="btn btn--sm" disabled={enCours || !handle} onClick={() => verifierTiktok(handle)}>
-                {enCours ? t("step.tiktok.checking") : t("step.tiktok.created")}
-              </button>
-            )}
-          </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <p>{t("chk.tiktok.notReady")}</p>
+              <Lien href={liens.dashboard}>{t("chk.dashboard")}</Lien>
+            </>
+          )}
         </Etape>
 
         <Etape titre={t("chk.warmup.title")} fait={fait("warmup")}>

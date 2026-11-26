@@ -114,7 +114,7 @@
       "attentional fatigue"
      ],
      "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
-     "texte": "в изследване 10 минути пасивно гледане на фийда [[разваляха настроението]] до вечерта"
+     "texte": "в изследване 10 минути пасивен фийд [[разваляха настроението]] до вечерта"
     },
     "T4": {
      "en": [
@@ -231,7 +231,7 @@
      "remplacer": {
       "source": "sources/os_18966a5f.jpg",
       "boite": [
-       500,
+       300,
        0,
        1444,
        1760

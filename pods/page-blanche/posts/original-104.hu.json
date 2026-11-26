@@ -1,0 +1,316 @@
+{
+ "post_id": "original-104",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "híres festmények és a [[furcsa történetek]] mögöttük"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(ezt nem írják ki a falra)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_a254621d.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "napóleon átkel az alpokon"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "ágaskodó ló, lobogó köpeny: [[semmi sem volt igaz]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "1800-ban valójában [[egy öszvéren]] kelt át a havas hágón, helyi vezetővel"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "[[nem volt hajlandó modellt ülni]], így david fia állt be egy létrán"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_07184dfe.jpg",
+      "boite": [
+       0,
+       0,
+       1888,
+       2208
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "[[pompeji]] utolsó napja, 1833"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "karl brjullov [[nagyjából hat évig]] festette ezt az óriási, 6,5 méteres vásznat"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "látod a férfit, akinek festékesláda van a fején? [[ő maga brjullov]]"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "magát is odafestette, [[menekülés közben]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_3b375395.jpg",
+      "boite": [
+       80,
+       650,
+       1600,
+       1150
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "a sztorik a [[legjobb részek]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "egy festmény tízszer jobb, [[ha ismered a hátterét]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "ki ült modellt, ki fizette, miért lett botrány, ettől [[állsz meg előtte]]"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "régen minden este [[órákig görgettem]]"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "most, ha már úgyis a telefonon vagyok, csinálok [[egy 5 perces leckét a Sophia appban]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "a szabadság vezeti a népet"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "franciaország 1831-ben megvette, aztán [[évekig elrejtette]] a közönség elől"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "a kormány félt, hogy [[újabb felkelést szít]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "csak [[1874-ben]] került végleg a louvre-ba, 44 évvel azután, hogy elkészült"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_c79404cc.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       1830
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take walks in silence"
+     ],
+     "fr": "fais des balades [[en silence]]",
+     "texte": "a hanyatlás kori rómaiak"
+    },
+    "T2": {
+     "en": [
+      "if you instantly put music on every time you go for a walk,",
+      "you're never giving your brain time to think for itself"
+     ],
+     "fr": "si tu mets de la musique [[dès que tu sors marcher]], tu laisses jamais à ton cerveau [[le temps de penser tout seul]]",
+     "texte": "thomas couture [[három évig]] festette ezt az óriási római dorbézolást, és ez lett az 1847-es párizsi szalon nagy durranása"
+    },
+    "T3": {
+     "en": [
+      "you keep drowning out",
+      "your own thoughts with",
+      "someone else's voice,"
+     ],
+     "fr": "tu couvres [[tes propres pensées]] avec la voix de quelqu'un d'autre,",
+     "texte": "valójában [[a saját kora gazdagjait]] figurázta ki vele,"
+    },
+    "T4": {
+     "en": [
+      "leaving no room to",
+      "process your emotions,",
+      "reflect on your life, or",
+      "come up with new ideas"
+     ],
+     "fr": "plus de place pour digérer [[tes émotions]], penser à [[ta vie]] ou avoir des idées",
+     "texte": "a leghíresebb tanítványa, édouard manet pedig később [[minden szabályt felrúgott]], amit tőle tanult"
+    },
+    "T5": {
+     "en": [
+      "let yourself be bored. your mind needs space to think"
+     ],
+     "fr": "ennuie-toi un peu. [[ton cerveau a besoin d'air]]",
+     "texte": "minden festménynek [[van egy sztorija]], csak kérdezni kell"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_b10fe621.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       1300
+      ]
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,496 @@
+{
+ "id": "aw-013",
+ "type_bleo": "full_test",
+ "source": {
+  "url": "https://www.tiktok.com/@healthy_with_emma6/video/7698680855316745505",
+  "vues": 12300,
+  "publie_le": "2026-10-20",
+  "accroche": "6 habitudes wellness qui font leurs effets au bout d'une semaine (validées par la science)"
+ },
+ "titre": {
+  "en": "6 wellness habits that make you calmer in just one week",
+  "fr": "6 habitudes wellness pour être plus calme en une semaine",
+  "de": "6 wellness-habits für mehr ruhe in nur einer woche",
+  "it": "6 abitudini wellness per essere più calma in una settimana",
+  "hu": "6 wellness szokás, amitől egy hét alatt nyugodtabb leszel",
+  "ro": "6 obiceiuri wellness: mai multă liniște într-o săptămână",
+  "el": "6 wellness συνήθειες για περισσότερη ηρεμία σε μια βδομάδα"
+ },
+ "legendes": {
+  "en": "your nervous system will thank you 🤍 #wellness #healthyhabits #thatgirl #selfcare #calm",
+  "fr": "ton système nerveux te dira merci 🤍 #wellness #healthyhabits #thatgirl #selfcare #calm",
+  "de": "dein nervensystem wird dir danken 🤍 #wellness #healthyhabits #thatgirl #selfcare #calm",
+  "it": "il tuo sistema nervoso ti ringrazierà 🤍 #wellness #healthyhabits #thatgirl #selfcare #calm",
+  "hu": "az idegrendszered hálás lesz 🤍 #wellness #healthyhabits #thatgirl #selfcare #calm",
+  "ro": "sistemul tău nervos îți va mulțumi 🤍 #wellness #healthyhabits #thatgirl #selfcare #calm",
+  "el": "το νευρικό σου σύστημα θα σε ευχαριστήσει 🤍 #wellness #healthyhabits #thatgirl #selfcare #calm"
+ },
+ "musique": {
+  "titre": "save a prayer",
+  "url": "https://www.tiktok.com/music/save-a-prayer-7676605388539693838"
+ },
+ "notes": "Full test (boîte vide). Famille « N habitudes wellness en une semaine » de @healthy_with_emma6 (12,3 k ; 167,9 k pour son post le plus vu de la même famille), sujet : le calme. 7 slides, Atala en 5e, texte selon placement_atala (un seul argument : écrire à son coach quand ça coince ; « a running coach app like Atala » ; sans « AI »). Fait vérifié : des « awe walks » chaque semaine et plus d'émotions positives au quotidien (Sturm et al., Emotion 2020). Les autres slides n'avancent aucun chiffre ni étude. Photos : banque de l'OS ; Atala : 688dd1a8 (plage au ciel rose, de dos).",
+ "banque": {
+  "images/banque/ca-couv-a.jpg": "2308c27e-ffe7-4e76-a590-a1beac02b5e4",
+  "images/banque/ca-couv-b.jpg": "0ed82f6f-974d-450a-9db8-c870e5475f75",
+  "images/banque/ca-coucher.jpg": "1b99e198-e562-4815-a1be-68c7fb36dbc6",
+  "images/banque/ca-lecture.jpg": "2211cfd7-a900-44e0-a2e8-f83c15555d3b",
+  "images/banque/ca-jardin.jpg": "181a79e7-c18a-43f9-ba18-9066285e1dbf",
+  "images/banque/ca-course.jpg": "688dd1a8-29fe-455c-81a1-d82779a0a62b",
+  "images/banque/ca-danse.jpg": "18d50da0-d6f4-4a73-937e-efcaa824db22",
+  "images/banque/ca-lit.jpg": "0c13264f-145e-42eb-b623-609a12e9c739"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photos": [
+    "images/banque/ca-couv-a.jpg",
+    "images/banque/ca-couv-b.jpg"
+   ],
+   "en": {
+    "titre": "6 wellness habits that make you calmer in just one week",
+    "note": "(backed by science)"
+   },
+   "fr": {
+    "titre": "6 habitudes wellness pour être plus calme en une semaine",
+    "note": "(selon la science)"
+   },
+   "de": {
+    "titre": "6 wellness-habits für mehr ruhe in nur einer woche",
+    "note": "(laut wissenschaft)"
+   },
+   "it": {
+    "titre": "6 abitudini wellness per essere più calma in una settimana",
+    "note": "(lo dice la scienza)"
+   },
+   "hu": {
+    "titre": "6 wellness szokás, amitől egy hét alatt nyugodtabb leszel",
+    "note": "(a tudomány szerint)"
+   },
+   "ro": {
+    "titre": "6 obiceiuri wellness: mai multă liniște într-o săptămână",
+    "note": "(dovedite științific)"
+   },
+   "el": {
+    "titre": "6 wellness συνήθειες για περισσότερη ηρεμία σε μια βδομάδα",
+    "note": "(το λέει η επιστήμη)"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-coucher.jpg",
+   "en": {
+    "titre": "watch _the sunset_",
+    "intro": "even 5 minutes, _phone in your pocket_",
+    "paragraphes": [
+     "a study found that people who took weekly walks to notice the beauty around them felt _more joy_ in their days",
+     "sky, sea, a pretty street. _just look_"
+    ],
+    "chute": "small view, _big calm_"
+   },
+   "fr": {
+    "titre": "regarde _le sunset_",
+    "intro": "même 5 minutes, _tél dans la poche_",
+    "paragraphes": [
+     "selon une étude, ceux qui marchaient chaque semaine en remarquant la beauté autour d'eux avaient _plus de joie_",
+     "ciel, mer, une jolie rue. _regarde juste_"
+    ],
+    "chute": "petite vue, _grand calme_"
+   },
+   "de": {
+    "titre": "_sunset_ gucken",
+    "intro": "schon 5 minuten, _handy in der tasche_",
+    "paragraphes": [
+     "eine studie: wer wöchentlich spazieren ging und auf die schönheit ringsum achtete, spürte _mehr freude_ im alltag",
+     "himmel, meer, hübsche straße. _nur schauen_"
+    ],
+    "chute": "kurzer blick, _viel ruhe_"
+   },
+   "it": {
+    "titre": "guarda _il tramonto_",
+    "intro": "anche 5 minuti, _telefono in tasca_",
+    "paragraphes": [
+     "uno studio: chi faceva passeggiate settimanali notando la bellezza intorno provava _più gioia_ nelle giornate",
+     "cielo, mare, una bella via. _solo guardare_"
+    ],
+    "chute": "mini vista, _maxi calma_"
+   },
+   "hu": {
+    "titre": "nézd _a naplementét_",
+    "intro": "akár 5 percre, _telefon a zsebben_",
+    "paragraphes": [
+     "egy kutatás szerint akik hetente sétáltak, és figyelték maguk körül a szépséget, _több örömet_ éreztek a napjaikban",
+     "ég, tenger, egy szép utca. _csak nézd_"
+    ],
+    "chute": "kis látvány, _nagy béke_"
+   },
+   "ro": {
+    "titre": "privește _apusul_",
+    "intro": "chiar și 5 minute, _telefonul în buzunar_",
+    "paragraphes": [
+     "un studiu: cei care se plimbau săptămânal observând frumusețea din jur simțeau _mai multă bucurie_ în zilele lor",
+     "cer, mare, o stradă faină. _doar privește_"
+    ],
+    "chute": "o privire, _mult calm_"
+   },
+   "el": {
+    "titre": "κοίτα _το δειλινό_",
+    "intro": "έστω 5 λεπτά, _κινητό στην τσέπη_",
+    "paragraphes": [
+     "μια έρευνα: όσοι έκαναν βόλτες κάθε εβδομάδα προσέχοντας την ομορφιά γύρω τους ένιωθαν _περισσότερη χαρά_",
+     "ουρανός, θάλασσα, ωραίο στενό. _απλά κοίτα_"
+    ],
+    "chute": "λίγη θέα, _πολλή ηρεμία_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-lecture.jpg",
+   "en": {
+    "titre": "read _outside_",
+    "intro": "a book, fresh air, _nothing else_",
+    "paragraphes": [
+     "no notifications, no rush. your brain finally _slows down_",
+     "10 pages on a bench, _a wall, the grass_"
+    ],
+    "chute": "calm looks like _this_"
+   },
+   "fr": {
+    "titre": "lis _dehors_",
+    "intro": "un livre, l'air frais, _rien d'autre_",
+    "paragraphes": [
+     "pas de notifs, pas de rush. ton cerveau _ralentit enfin_",
+     "10 pages sur un banc, un muret, _sur l'herbe_"
+    ],
+    "chute": "le calme, _c'est ça_"
+   },
+   "de": {
+    "titre": "lies _draußen_",
+    "intro": "ein buch, frische luft, _mehr nicht_",
+    "paragraphes": [
+     "keine notifs, kein stress. dein kopf _fährt endlich runter_",
+     "10 seiten auf einer bank, _mauer oder wiese_"
+    ],
+    "chute": "so sieht _ruhe aus_"
+   },
+   "it": {
+    "titre": "leggi _fuori_",
+    "intro": "un libro, aria fresca, _nient'altro_",
+    "paragraphes": [
+     "zero notifiche, zero fretta. il cervello _finalmente rallenta_",
+     "10 pagine su una panchina, _muretto o prato_"
+    ],
+    "chute": "la calma è _così_"
+   },
+   "hu": {
+    "titre": "olvass _kint_",
+    "intro": "egy könyv, friss levegő, _semmi más_",
+    "paragraphes": [
+     "nincs értesítés, nincs rohanás. az agyad _végre lelassul_",
+     "10 oldal egy padon, _falon vagy a fűben_"
+    ],
+    "chute": "így néz ki _a nyugalom_"
+   },
+   "ro": {
+    "titre": "citește _afară_",
+    "intro": "o carte, aer curat, _nimic altceva_",
+    "paragraphes": [
+     "fără notificări, fără grabă. creierul _încetinește în sfârșit_",
+     "10 pagini pe o bancă, _pe zid sau în iarbă_"
+    ],
+    "chute": "calmul arată _așa_"
+   },
+   "el": {
+    "titre": "διάβασε _έξω_",
+    "intro": "βιβλίο, φρέσκος αέρας, _τίποτα άλλο_",
+    "paragraphes": [
+     "χωρίς ειδοποιήσεις, χωρίς βιασύνη. το μυαλό _επιτέλους ηρεμεί_",
+     "10 σελίδες σε ένα παγκάκι, _τοιχάκι ή γρασίδι_"
+    ],
+    "chute": "έτσι μοιάζει _η ηρεμία_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-jardin.jpg",
+   "en": {
+    "titre": "a slow walk _with no destination_",
+    "intro": "not for steps. _just to wander_",
+    "paragraphes": [
+     "no podcast, no music, just _your thoughts_ and the trees",
+     "15 minutes, _any green place_"
+    ],
+    "chute": "get lost _a little_"
+   },
+   "fr": {
+    "titre": "une balade lente _sans destination_",
+    "intro": "pas pour les pas. _juste flâner_",
+    "paragraphes": [
+     "ni podcast ni musique, juste _tes pensées_ et les arbres",
+     "15 minutes, _un coin de verdure_"
+    ],
+    "chute": "perds-toi _un peu_"
+   },
+   "de": {
+    "titre": "ein langsamer spaziergang _ohne ziel_",
+    "intro": "nicht für steps. _nur schlendern_",
+    "paragraphes": [
+     "kein podcast, keine musik, nur _deine gedanken_ und die bäume",
+     "15 minuten, _irgendwo im grünen_"
+    ],
+    "chute": "verlauf dich _etwas_"
+   },
+   "it": {
+    "titre": "una camminata lenta _senza meta_",
+    "intro": "non per i passi. _solo per vagare_",
+    "paragraphes": [
+     "zero podcast, zero musica, solo _i tuoi pensieri_ e gli alberi",
+     "15 minuti, _ovunque nel verde_"
+    ],
+    "chute": "perditi _un po'_"
+   },
+   "hu": {
+    "titre": "lassú séta _úti cél nélkül_",
+    "intro": "nem a lépésekért. _csak kóborolni_",
+    "paragraphes": [
+     "se podcast, se zene, csak _a gondolataid_ és a fák",
+     "15 perc, _bármilyen zöld helyen_"
+    ],
+    "chute": "veszj el _kicsit_"
+   },
+   "ro": {
+    "titre": "o plimbare lentă _fără destinație_",
+    "intro": "nu pentru pași. _doar hoinăreală_",
+    "paragraphes": [
+     "fără podcast, fără muzică, doar _gândurile tale_ și copacii",
+     "15 minute, _orice loc verde_"
+    ],
+    "chute": "pierde-te _puțin_"
+   },
+   "el": {
+    "titre": "αργή βόλτα _χωρίς προορισμό_",
+    "intro": "όχι για βήματα. _απλώς να γυρνάς_",
+    "paragraphes": [
+     "ούτε podcast ούτε μουσική, μόνο _οι σκέψεις σου_ και τα δέντρα",
+     "15 λεπτά, _σε όποιο πράσινο_"
+    ],
+    "chute": "χάσου _λιγάκι_"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/ca-course.jpg",
+   "en": {
+    "titre": "run _when your head is too full_",
+    "intro": "running is where my thoughts _finally go quiet_",
+    "paragraphes": [
+     "some weeks were too much and i'd just _give up_ on running completely",
+     "my tip: with a running coach app like Atala, you can _message your coach_ when a week gets hard"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "the app:"
+   },
+   "fr": {
+    "titre": "cours _quand ta tête déborde_",
+    "intro": "c'est en courant que mes pensées _se taisent enfin_",
+    "paragraphes": [
+     "certaines semaines, c'était trop et je _lâchais_ complètement la course",
+     "mon tip : avec une appli de coaching running comme Atala, tu peux _écrire à ton coach_ si la semaine coince"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'appli :"
+   },
+   "de": {
+    "titre": "lauf, _wenn dein kopf zu voll ist_",
+    "intro": "beim laufen werden meine gedanken _endlich still_",
+    "paragraphes": [
+     "manche wochen waren zu viel und ich hab das laufen _komplett aufgegeben_",
+     "mein tipp: mit einer lauf-coach-app wie Atala kannst du _deinem coach schreiben_, wenn eine woche hart wird"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "die app:"
+   },
+   "it": {
+    "titre": "corri _quando hai la testa piena_",
+    "intro": "è correndo che i miei pensieri _finalmente tacciono_",
+    "paragraphes": [
+     "certe settimane erano troppo e _mollavo_ del tutto la corsa",
+     "il mio consiglio: con un'app coach per la corsa come Atala puoi _scrivere al coach_ se la settimana pesa"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "l'app:"
+   },
+   "hu": {
+    "titre": "fuss, _ha túl tele a fejed_",
+    "intro": "futás közben a gondolataim _végre elcsendesednek_",
+    "paragraphes": [
+     "néhány hét túl sok volt, és egyszerűen _feladtam_ teljesen a futást",
+     "a tippem: egy futóedző appban, mint az Atala, _írhatsz az edződnek_, ha nehéz egy hét"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "az app:"
+   },
+   "ro": {
+    "titre": "aleargă _când ai capul prea plin_",
+    "intro": "când alerg, gândurile mele _tac în sfârșit_",
+    "paragraphes": [
+     "unele săptămâni erau prea mult și pur și simplu _renunțam_ complet la alergat",
+     "sfatul meu: cu o aplicație de running coach ca Atala, poți _să-i scrii coach-ului_ când săptămâna e grea"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "aplicația:"
+   },
+   "el": {
+    "titre": "τρέξε _όταν το μυαλό σου ξεχειλίζει_",
+    "intro": "όταν τρέχω, οι σκέψεις μου _επιτέλους ησυχάζουν_",
+    "paragraphes": [
+     "κάποιες εβδομάδες ήταν πολλές και απλά _παρατούσα_ εντελώς το τρέξιμο",
+     "το tip μου: με μια εφαρμογή προπονητή όπως η Atala, _γράφεις στον coach σου_ όταν η βδομάδα ζορίζει"
+    ],
+    "appli": "Atala : AI Running Coach",
+    "sous": "Reach your running goals",
+    "legende": "η εφαρμογή:"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-danse.jpg",
+   "en": {
+    "titre": "dance _alone_ in your room",
+    "intro": "one song, _door closed_, no one watching",
+    "paragraphes": [
+     "shake off the day, _literally_",
+     "your favorite song, _full volume_"
+    ],
+    "chute": "silly is _good for you_"
+   },
+   "fr": {
+    "titre": "danse _seule_ dans ta chambre",
+    "intro": "un son, _porte fermée_, personne ne regarde",
+    "paragraphes": [
+     "secoue ta journée, _littéralement_",
+     "ta chanson préférée, _à fond_"
+    ],
+    "chute": "être bête _fait du bien_"
+   },
+   "de": {
+    "titre": "tanz _allein_ im zimmer",
+    "intro": "ein song, _tür zu_, keiner schaut zu",
+    "paragraphes": [
+     "den tag abschütteln, _wörtlich_",
+     "dein lieblingssong, _voll aufgedreht_"
+    ],
+    "chute": "albern sein _tut dir gut_"
+   },
+   "it": {
+    "titre": "balla _da sola_ in camera",
+    "intro": "una canzone, _porta chiusa_, nessuno guarda",
+    "paragraphes": [
+     "scrollati la giornata, _sul serio_",
+     "il tuo pezzo preferito, _a palla_"
+    ],
+    "chute": "fare la scema _ti fa bene_"
+   },
+   "hu": {
+    "titre": "táncolj _egyedül_ a szobádban",
+    "intro": "egy dal, _csukott ajtó_, senki sem néz",
+    "paragraphes": [
+     "rázd le a napot, _szó szerint_",
+     "a kedvenc dalod, _teljes hangerőn_"
+    ],
+    "chute": "a bolondozás _jót tesz_"
+   },
+   "ro": {
+    "titre": "dansează _singură_ în cameră",
+    "intro": "o melodie, _ușa închisă_, nimeni nu se uită",
+    "paragraphes": [
+     "scutură-ți ziua, _la propriu_",
+     "melodia ta preferată, _la maxim_"
+    ],
+    "chute": "nebunia _îți face bine_"
+   },
+   "el": {
+    "titre": "χόρεψε _μόνη_ στο δωμάτιό σου",
+    "intro": "ένα τραγούδι, _κλειστή πόρτα_, χωρίς κοινό",
+    "paragraphes": [
+     "τίναξε τη μέρα, _κυριολεκτικά_",
+     "το αγαπημένο σου κομμάτι, _στο τέρμα_"
+    ],
+    "chute": "η τρέλα _σου κάνει καλό_"
+   }
+  },
+  {
+   "type": "habitude",
+   "photo": "images/banque/ca-lit.jpg",
+   "en": {
+    "titre": "go to bed _30 minutes earlier_",
+    "intro": "a calm evening starts _before you're tired_",
+    "paragraphes": [
+     "book, candle, soft sheets. _no scrolling_ in bed",
+     "alarm for bedtime, _not just for mornings_"
+    ],
+    "chute": "calm nights, _calm days_"
+   },
+   "fr": {
+    "titre": "couche-toi _30 minutes plus tôt_",
+    "intro": "une soirée calme commence _avant d'être fatiguée_",
+    "paragraphes": [
+     "livre, bougie, draps doux. _zéro scroll_ au lit",
+     "une alarme pour te coucher, _pas que le matin_"
+    ],
+    "chute": "nuit calme, _journée calme_"
+   },
+   "de": {
+    "titre": "geh _30 minuten früher_ ins bett",
+    "intro": "ein ruhiger abend beginnt, _bevor du müde bist_",
+    "paragraphes": [
+     "buch, kerze, weiche laken. _kein scrollen_ im bett",
+     "wecker fürs zubettgehen, _nicht nur morgens_"
+    ],
+    "chute": "ruhige nacht, _ruhiger tag_"
+   },
+   "it": {
+    "titre": "vai a letto _30 minuti prima_",
+    "intro": "una serata calma inizia _prima di essere stanca_",
+    "paragraphes": [
+     "libro, candela, lenzuola soft. _zero scroll_ a letto",
+     "sveglia per la nanna, _non solo al mattino_"
+    ],
+    "chute": "notti calme, _giorni calmi_"
+   },
+   "hu": {
+    "titre": "feküdj le _30 perccel korábban_",
+    "intro": "a nyugodt este _a fáradtság előtt_ kezdődik",
+    "paragraphes": [
+     "könyv, gyertya, puha lepedő. _nincs görgetés_ ágyban",
+     "ébresztő lefekvéshez is, _nem csak reggelre_"
+    ],
+    "chute": "nyugis éj, _nyugis nap_"
+   },
+   "ro": {
+    "titre": "culcă-te _cu 30 min mai devreme_",
+    "intro": "o seară calmă începe _înainte să fii obosită_",
+    "paragraphes": [
+     "carte, lumânare, cearșafuri moi. _fără scroll_ în pat",
+     "alarmă pentru culcare, _nu doar dimineața_"
+    ],
+    "chute": "nopți calme, _zile calme_"
+   },
+   "el": {
+    "titre": "πέσε για ύπνο _30 λεπτά νωρίτερα_",
+    "intro": "ένα ήρεμο βράδυ ξεκινά _πριν κουραστείς_",
+    "paragraphes": [
+     "βιβλίο, κερί, μαλακά σεντόνια. _όχι scroll_ στο κρεβάτι",
+     "ξυπνητήρι για τον ύπνο, _όχι μόνο το πρωί_"
+    ],
+    "chute": "ήσυχη νύχτα, _ήρεμη μέρα_"
+   }
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o359",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "54627980-ce39-4026-a376-abaf75810e26",
+ "titre": "A man's code that never changes #men #code #honor #discipline #character",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "54627980-ce39-4026-a376-abaf75810e26"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Déclinaison G2 de la ligne 8 de la boîte (parent 54627980 = notre am-o152 ; 3e déclinaison après am-o303 et am-o329). Promesse reformulée. Format : « N. règle » + deux lignes. Items neufs, ni de am-o152 ni de am-o303 et am-o329. reference_url de am-o152 (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "44f4a79d",
+   "texte_overlay": "A man's code that\nnever changes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7488443464938556727/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2e27e9f3",
+   "texte_overlay": "1. Pay for your mistakes\n\nIn money, time or apology.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7488443464938556727/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "05661402",
+   "texte_overlay": "2. Call home on Sundays",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7488443464938556727/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "669a69a7",
+   "texte_overlay": "3. Stand up when it's\nnot popular",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7488443464938556727/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "042911e7",
+   "texte_overlay": "4. Fix before you replace",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7488443464938556727/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7e0f818d",
+   "texte_overlay": "5. Celebrate other men's wins",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7488443464938556727/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "29395a43",
+   "texte_overlay": "6. Grow every year\n\nNew skills, new ideas.",
+   "texte_sophia": "6. Grow every year\n\nI learn every day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7488443464938556727/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "39761180",
+   "texte_overlay": "7. Die with a good name",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7488443464938556727/8.jpg"
+  }
+ ]
+}

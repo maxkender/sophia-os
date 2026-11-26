@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o366",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e12c2f4a-f8ab-42d0-87ed-ca6194f98689",
+ "titre": "5 psykologiske facts der giver dig en social fordel #psykologi #socialt #mænd #selvtillid #fakta",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "e12c2f4a-f8ab-42d0-87ed-ca6194f98689"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Déclinaison G1 de la ligne 17 de la boîte (parent e12c2f4a, @fremrag, langue source da : écrit en danois, ROUTINE §4.3). Accroche du parent mot pour mot. Format : « N. » + fact, puis « vi ses igen ». Faits honnêtes, pas de slide « tag », pas de compte à rebours. Items neufs, aucun du parent. reference_url du parent (1, 4 à 9, 11) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ccf0aa4",
+   "texte_overlay": "5 psykologiske facts der giver\ndig en social fordel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675786956877417750/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4cb3dfc2",
+   "texte_overlay": "1.\nfolk husker dig bedre, når\ndu siger deres navn.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675786956877417750/4.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7d43b60f",
+   "texte_overlay": "2.\nden, der lytter mest,\nvirker klogest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675786956877417750/5.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "05a1929f",
+   "texte_overlay": "3.\nen lille fejl gør dig\nmere sympatisk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675786956877417750/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "66fc5ea2",
+   "texte_overlay": "4.\nfolk lytter mere til den,\nder ved noget. lær lidt hver dag.",
+   "texte_sophia": "4.\nfolk lytter mere til den, der ved noget.\nen app med almen viden\nsom Sophia hjælper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675786956877417750/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "531d57ce",
+   "texte_overlay": "5.\net ægte smil smitter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675786956877417750/8.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "71137e82",
+   "texte_overlay": "vi ses igen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7675786956877417750/11.jpg"
+  }
+ ]
+}

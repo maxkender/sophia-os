@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o357",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2c3bbd9e-947c-4119-b125-ca392e2f04f9",
+ "titre": "Things you should never post online #men #privacy #discipline #wisdom #socialmedia",
+ "musique_titre": "even the sky doesn't answer",
+ "musique_url": "https://www.tiktok.com/music/even-the-sky-doesn-t-answer-7395531748757293072",
+ "inspirations": [
+  "2c3bbd9e-947c-4119-b125-ca392e2f04f9"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Déclinaison G2 de la ligne 6 de la boîte (parent 2c3bbd9e = notre am-o125 ; 3e déclinaison après am-o302 et am-o328). Promesse reformulée. Format : « N. chose » + une ligne. Items neufs, ni de am-o125 ni de am-o302 et am-o328. reference_url de am-o125 (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "30eefed8",
+   "texte_overlay": "Things you should never\npost online",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0cf4cdb7",
+   "texte_overlay": "1. Where you are, live\n\nPost it after.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "be9da643",
+   "texte_overlay": "2. Your house from the outside",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "91c57d53",
+   "texte_overlay": "3. Complaints about your job",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5f6f12f6",
+   "texte_overlay": "4. Opinions on things you\nhaven't studied\n\nLearn first, speak later.",
+   "texte_sophia": "4. Opinions on things you\nhaven't studied\n\nLearn first on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c39c9446",
+   "texte_overlay": "5. Anything written at 2 a.m.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/6.jpg"
+  }
+ ]
+}

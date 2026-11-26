@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o348",
+ "type_bleo": "full_test",
+ "titre": "Job interview rules every young man should know #men #career #interview #job #confidence",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Full test du jour (5 sur 8, jauge : 8 sur 26). Accroche jamais faite chez nous : « interview » seulement dans des items dans donnees/label.json. reference_url : post source de am-o002, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "10e9343c",
+   "texte_overlay": "Job interview rules every\nyoung man should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04b5d427",
+   "texte_overlay": "1. Arrive ten minutes early.\nNot thirty.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2698dfab",
+   "texte_overlay": "2. Firm handshake, eye contact",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a5927ed8",
+   "texte_overlay": "3. Know the company's story\n\nHistory, products, competitors.",
+   "texte_sophia": "3. Know the company's story\n\nI read up on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "606dfe6c",
+   "texte_overlay": "4. Bring two questions",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6e45af29",
+   "texte_overlay": "5. Thank-you email\nthe same day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6af3d327",
+   "texte_overlay": "6. Whatever happens,\nyou practiced",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

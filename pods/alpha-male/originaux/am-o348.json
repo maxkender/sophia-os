@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o348",
+ "type_bleo": "full_test",
+ "titre": "How to learn a new language as a grown man #men #languages #learning #travel #selfimprovement",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Full test du jour (5 sur 8, jauge : 8 sur 26). Réécrit après refus accroche_existante (job interview). Réécrit une 2e fois après refus theme_gagnant (premier job). Accroche jamais faite chez nous : « language » seulement dans des items dans donnees/label.json. reference_url : post source de am-o002, vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "10e9343c",
+   "texte_overlay": "How to learn a new language\nas a grown man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04b5d427",
+   "texte_overlay": "1. Pick a reason, not just a language\n\nA trip, a person, a job.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2698dfab",
+   "texte_overlay": "2. Fifteen minutes a day.\nEvery day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8fe63517",
+   "texte_overlay": "3. Learn the culture behind it\n\nWords make sense with context.",
+   "texte_sophia": "3. Learn the culture behind it\n\nI read up on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "606dfe6c",
+   "texte_overlay": "4. Label things in your home",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6e45af29",
+   "texte_overlay": "5. Speak badly, out loud, early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6af3d327",
+   "texte_overlay": "6. Watch one show you love,\nin that language",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641333764613885192/7.jpg"
+  }
+ ]
+}

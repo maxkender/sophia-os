@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o354",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ca9742ec-d6b2-4450-a390-46b1b73311fe",
+ "titre": "Things a man should have figured out by 30 #men #30s #adulting #essentials #selfimprovement",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "ca9742ec-d6b2-4450-a390-46b1b73311fe"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Déclinaison G2 de la ligne 3 de la boîte (parent ca9742ec = notre am-o164 ; 3e déclinaison après am-o301 et am-o327). Promesse reformulée. Format : « N. chose » + une ligne. Items neufs, ni de am-o164 ni de am-o301 et am-o327. reference_url de am-o164 (1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d1a94aec",
+   "texte_overlay": "Things a man should have\nfigured out by 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5a4968a7",
+   "texte_overlay": "1. Three meals he cooks well",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "04d24cfe",
+   "texte_overlay": "2. A weekly routine that works",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d2152a44",
+   "texte_overlay": "3. How to keep learning\nwithout school",
+   "texte_sophia": "3. How to keep learning\nwithout school:\nthe Sophia app, daily",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d4f2403d",
+   "texte_overlay": "4. Basic repairs at home",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f710c12c",
+   "texte_overlay": "5. Who his real friends are",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  }
+ ]
+}

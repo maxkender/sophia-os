@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o353",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f709685a-2d0d-4d89-87fa-cc3819fab0ce",
+ "titre": "Odd little routines that change your life fast #routine #men #lifehacks #discipline #selfimprovement",
+ "musique_titre": "i dont like sand",
+ "musique_url": "https://www.tiktok.com/music/i-dont-like-sand-7504007316666993430",
+ "inspirations": [
+  "f709685a-2d0d-4d89-87fa-cc3819fab0ce"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 26/11. Déclinaison G2 de la ligne 2 de la boîte (parent f709685a = notre am-o214 ; 2e déclinaison après am-o326). Promesse reformulée. Format : « N. routine » + une ligne. Items neufs, ni de am-o214 ni de am-o326. reference_url de am-o214 (1 à 8) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune déjà livrée par le podz, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "29ee3289",
+   "texte_overlay": "Odd little routines that change\nyour life fast",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3f23ebbb",
+   "texte_overlay": "1. Fill a water bottle at night\n\nDrink it before coffee.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "aa6130ea",
+   "texte_overlay": "2. Take the long way home\n\nTen extra minutes of thinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a29ab2d1",
+   "texte_overlay": "3. Write tomorrow's first task\nbefore bed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "30c8b509",
+   "texte_overlay": "4. Charge your phone\nin the kitchen",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a9627e20",
+   "texte_overlay": "5. One fact before breakfast\n\nStart the day curious.",
+   "texte_sophia": "5. One fact before breakfast\n\nI read it on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2ce674fb",
+   "texte_overlay": "6. Stand up the moment\nthe alarm rings",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "13fee3b0",
+   "texte_overlay": "7. Look out the window\nfor one minute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7574927634266623239/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o474",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fca2bad1-9f14-4748-95ec-66b24f88d8d0",
+ "titre": "niche ways to make your life 10x better #slowliving #selfimprovement #smartgirl #happiness #habits",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 83 de la boîte (parent fca2bad1, langue source tr) : accroche du parent mot pour mot ; idées neuves face à sg-o386 (une bougie au dîner même seule, la meilleure vaisselle un mardi, une chanson pour chaque saison, un musée gratuit par mois, une lettre papier, un mot nouveau par jour). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "eedaf478",
+   "texte_overlay": "niche ways to make your\nlife 10x better",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9353d10a",
+   "texte_overlay": "light a candle at dinner,\neven alone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5335400e",
+   "texte_overlay": "use the good plates\non a tuesday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9955d119",
+   "texte_overlay": "learn one curious thing a day",
+   "texte_sophia": "learn one curious thing a day on an app\nlike Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "15160f77",
+   "texte_overlay": "a song for every season",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "98f73c28",
+   "texte_overlay": "one museum a month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dcb7e6d2",
+   "texte_overlay": "send a paper letter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5016f30f",
+   "texte_overlay": "try one and report back <3",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

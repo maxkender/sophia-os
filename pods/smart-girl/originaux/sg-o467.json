@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o467",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a657ff06-e205-433f-bdbb-1474b7f9998b",
+ "titre": "\"how are you so well spoken for your age?\" #wellspoken #eloquence #smartgirl #speakbetter #confidence",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "a657ff06-e205-433f-bdbb-1474b7f9998b"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 58 de la boîte (parent a657ff06, langue source en) : accroche du parent mot pour mot. Conseils du parent (plus de mots de remplissage, les manières des gens qui parlent bien, des sujets variés chaque jour, maîtriser la pause) et neufs. Sophia à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a374194d",
+   "texte_overlay": "\"how are you so well spoken\nfor your age?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "efd69407",
+   "texte_overlay": "drop the filler words\n\n\"like\" and \"um\" between\nevery word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0200f7c6",
+   "texte_overlay": "learn the body language\nof good speakers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d45eb28d",
+   "texte_overlay": "master the pause\n\nit gives you time to think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "af05bf98",
+   "texte_overlay": "read out loud",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "36728927",
+   "texte_overlay": "learn about different topics daily\n\ni do five minutes every morning.",
+   "texte_sophia": "learn about different topics daily\n\ni use a micro-learning app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7eb8b3d9",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  }
+ ]
+}

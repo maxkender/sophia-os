@@ -1,0 +1,62 @@
+{
+  "source_id": "sg-o457",
+  "type_bleo": "full_test",
+  "titre": "the surprising stories behind classic toys #toys #history #nostalgia #smartgirl #didyouknow",
+  "musique_titre": "original sound - stevelacyoffline",
+  "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+  "inspirations": [
+    "577cae13-0359-486e-ac83-6c2d0d347df6"
+  ],
+  "notes": "cta C. Full test 6/8 (la jauge en demande 8 sur 29) : accroche jamais faite chez nous (« toys » absent des accroches de donnees/label.json). Accroches écrites : « the surprising stories behind classic toys » (retenue : nostalgie + anecdotes), « toy history » (écartée : sèche), « childhood facts » (écartée : vague). Faits vérifiés : l'ours en peluche nommé d'après Theodore Roosevelt (1902), Barbie nommée d'après Barbara Handler (1959), LEGO du danois « leg godt », « joue bien » (1932), le Rubik's Cube inventé par le professeur d'architecture Ernő Rubik (1974), le Slinky né d'un ressort tombé (1943), la Play-Doh d'abord nettoyant à papier peint. Sophia à la fin comme rituel (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "a256dddd",
+      "texte_overlay": "the surprising stories behind\nclassic toys",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "81b6760f",
+      "texte_overlay": "the teddy bear\n\nnamed after president theodore\n\"teddy\" roosevelt, in 1902.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "8d34cd76",
+      "texte_overlay": "lego\n\nfrom the danish \"leg godt\":\n\"play well\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ebfdff28",
+      "texte_overlay": "barbie\n\nnamed after barbara,\nthe creator's daughter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4fd45fcd",
+      "texte_overlay": "the rubik's cube\n\ninvented in 1974 by an\narchitecture professor.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "fffbbb65",
+      "texte_overlay": "the slinky\n\nan engineer dropped a spring\nand watched it walk.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "86054824",
+      "texte_overlay": "play-doh\n\nfirst sold as a\nwallpaper cleaner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "65354c3a",
+      "texte_overlay": "one surprising story a day instead\nof an hour of scrolling.",
+      "texte_sophia": "one surprising story a day on an app like\nSophia instead of an hour of scrolling.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+    }
+  ]
+}

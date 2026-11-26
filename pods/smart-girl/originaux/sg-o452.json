@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o452",
+ "type_bleo": "full_test",
+ "titre": "clever women behind things you use every day #womeninhistory #history #didyouknow #smartgirl #inspiration",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/8 (la jauge en demande 8 sur 29) : accroche jamais faite chez nous (« clever women behind » absent des accroches de donnees/label.json). Accroches écrites : « clever women behind things you use every day » (retenue : surprise + inspiration), « things invented by women » (écartée : trop proche du « invented for men » qui a gagné), « women inventors » (écartée : plate). Faits vérifiés : lave-vaisselle (Josephine Cochrane, 1886), essuie-glace (Mary Anderson, brevet de 1903), filtre à café (Melitta Bentz, 1908), Kevlar (Stephanie Kwolek, 1965), le jeu qui a inspiré Monopoly (Lizzie Magie, 1904), la machine à sacs en papier à fond plat (Margaret Knight, 1871). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8979d62a",
+   "texte_overlay": "clever women behind things\nyou use every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "907048f0",
+   "texte_overlay": "the dishwasher\n\njosephine cochrane, 1886.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e6bb7d91",
+   "texte_overlay": "the windscreen wiper\n\nmary anderson, 1903.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0a900463",
+   "texte_overlay": "the coffee filter\n\nmelitta bentz, 1908, with\nher son's blotting paper.",
+   "texte_sophia": "the coffee filter\n\nmelitta bentz, 1908. i read her story\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "20497171",
+   "texte_overlay": "kevlar\n\nstephanie kwolek, 1965.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2f5af63c",
+   "texte_overlay": "the game behind monopoly\n\nlizzie magie, 1904.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c144da3b",
+   "texte_overlay": "the flat-bottomed paper bag\n\nmargaret knight, 1871.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5549c5ad",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

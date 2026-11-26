@@ -1,0 +1,62 @@
+{
+  "source_id": "sg-o458",
+  "type_bleo": "full_test",
+  "titre": "the most beautiful clocks in history #clocks #history #travel #smartgirl #architecture",
+  "musique_titre": "music to watch boys to x i wanna be yours mashup",
+  "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+  "inspirations": [
+    "905ac33d-906a-4223-9d93-29df2e258b6f"
+  ],
+  "notes": "cta B. Full test 7/8 (la jauge en demande 8 sur 29) : accroche jamais faite chez nous (« clocks » absent des accroches de donnees/label.json). Accroches écrites : « the most beautiful clocks in history » (retenue : patrimoine, voyage), « famous clocks » (écartée : plate), « how we measured time » (écartée : trop proche des « time rules » gagnantes). Faits vérifiés : horloge astronomique de Prague (1410, la plus ancienne encore en marche), Zytglogge de Berne (horloge de 1530), Big Ben (la cloche, 1859), horloge astronomique de Strasbourg (version actuelle de 1843), horloge de la cathédrale de Wells (vers 1390), l'horloge du musée d'Orsay (ancienne gare). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "23c95675",
+      "texte_overlay": "the most beautiful clocks\nin history",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a0b988b6",
+      "texte_overlay": "prague's astronomical clock\n\nsince 1410: the oldest one\nstill working.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9b017ddf",
+      "texte_overlay": "the zytglogge, bern\n\na medieval tower with\nits clock since 1530.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b1e0de51",
+      "texte_overlay": "big ben, london\n\nthe name of the bell,\nnot the tower.",
+      "texte_sophia": "big ben, london\n\nthe name of the bell, not the tower. i\nlearned it on an app like Sophia.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "57ec26ad",
+      "texte_overlay": "strasbourg cathedral\n\nan astronomical clock that\nshows the planets.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2572b40c",
+      "texte_overlay": "wells cathedral, england\n\na clock from around 1390.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f3a2e18e",
+      "texte_overlay": "musée d'orsay, paris\n\nthe giant clock of\nan old railway station.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "75bc77a8",
+      "texte_overlay": "which one would you visit?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+    }
+  ]
+}

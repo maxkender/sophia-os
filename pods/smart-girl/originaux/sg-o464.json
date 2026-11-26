@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o464",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4e2929f0-ead0-4741-b441-0641760fe64f",
+ "titre": "a 30-day brain reset that actually works #brainrot #digitaldetox #smartgirl #focus #reset",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 6 de la boîte (parent 4e2929f0, langue source pt-BR) : accroche reformulée (« a 30-day brain reset that actually works »), différente de sg-o437 ; idées du parent. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5176e26f",
+   "texte_overlay": "a 30-day brain reset that\nactually works",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "da10719e",
+   "texte_overlay": "week 1: one app deleted",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "98ca27ed",
+   "texte_overlay": "week 2: one screen-free\nhour a day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "98e17854",
+   "texte_overlay": "week 3: one whole chapter\nwithout stopping",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "039f892a",
+   "texte_overlay": "week 4: one long conversation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3f44d608",
+   "texte_overlay": "every day: something with\nyour hands",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fe9729c1",
+   "texte_overlay": "and the feed swapped for real\nlearning\n\nfive minutes every morning.",
+   "texte_sophia": "and the feed swapped for real learning\n\nfive minutes every morning on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "781b83c7",
+   "texte_overlay": "start tomorrow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

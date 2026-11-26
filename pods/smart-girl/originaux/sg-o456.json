@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o456",
+ "type_bleo": "full_test",
+ "titre": "the first women who did it before anyone else #womeninhistory #history #inspiration #smartgirl #firsts",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 5/8 (la jauge en demande 8 sur 29) : accroche jamais faite chez nous (« first women » absent des accroches de donnees/label.json). Accroches écrites : « the first women who did it before anyone else » (retenue : inspiration), « famous female firsts » (écartée : sèche), « women who made history » (écartée : déjà proche). Faits vérifiés : Elizabeth Blackwell (premier diplôme de médecine pour une femme aux États-Unis, 1849), Marie Curie (première femme Nobel, 1903), Amelia Earhart (première femme seule au-dessus de l'Atlantique, 1932), Valentina Terechkova (première femme dans l'espace, 1963), Kathrine Switzer (première femme inscrite au marathon de Boston, 1967), Junko Tabei (première femme au sommet de l'Everest, 1975). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "631a36d4",
+   "texte_overlay": "the first women who did it\nbefore anyone else",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "86eb6d39",
+   "texte_overlay": "1849\n\nelizabeth blackwell: the first woman\nto earn a medical degree in the us.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1770aaa7",
+   "texte_overlay": "1903\n\nmarie curie: the first woman\nto win a nobel prize.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7cdf7ac8",
+   "texte_overlay": "1932\n\namelia earhart flies solo\nacross the atlantic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1393a92d",
+   "texte_overlay": "1963\n\nvalentina tereshkova:\nthe first woman in space.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "532b1b10",
+   "texte_overlay": "1967\n\nkathrine switzer runs the boston\nmarathon as an official entrant.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5b40acaa",
+   "texte_overlay": "1975\n\njunko tabei reaches the top of everest.\ni read one story like this every day.",
+   "texte_sophia": "1975\n\njunko tabei reaches the top of everest. i\nread one story like this a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3fc2711e",
+   "texte_overlay": "which one inspires you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+  "source_id": "sg-o469",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "bb44754a-c5c5-4153-a381-253effc5484b",
+  "titre": "6 things a high-status woman never does in conversation #conversation #elegance #smartgirl #socialskills #highvaluewoman",
+  "musique_titre": "original sound - stevelacyoffline",
+  "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+  "inspirations": [
+    "905ac33d-906a-4223-9d93-29df2e258b6f"
+  ],
+  "notes": "cta B. Déclinaison G1 de la ligne 63 de la boîte (parent bb44754a, langue source en) : accroche du parent mot pour mot. Les six règles du parent (ne jamais prétendre avoir lu le livre, ne jamais corriger devant les autres, ne jamais ramener l'histoire à soi, toujours présenter les gens, pas de grands mots pour impressionner, jamais « je suis nulle en histoire »). Sophia en 6 comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "468adcc7",
+      "texte_overlay": "6 things a high-status woman\nnever does in conversation",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e99d486f",
+      "texte_overlay": "1. she never pretends\nto have read the book",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ebe32929",
+      "texte_overlay": "2. she never corrects someone\nin front of others",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "fd625fcd",
+      "texte_overlay": "3. she never turns your story\ninto her own",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7749ae0d",
+      "texte_overlay": "4. she never forgets to\nintroduce people",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "625a7934",
+      "texte_overlay": "5. she never uses big words\nto impress",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "544fbd82",
+      "texte_overlay": "6. she never says \"i'm bad\nat history\"\n\nshe says \"i haven't learned it yet.\"",
+      "texte_sophia": "6. she never says \"i'm bad at history\"\n\nshe learns it, five minutes a day on an\napp like Sophia.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "25c01326",
+      "texte_overlay": "which one do you already do?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o352",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cb56cda3-d43d-4443-9320-4dbe5ea2ed2b",
+ "titre": "ce que j'ai dit à ma manager, et ce que ça voulait vraiment dire #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G2 de la ligne #4 (parent cb56cda3), 2e : même promesse, autres mots. Rien d'inventé, seulement des tournures. Inspirations reprises de rh-o209. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2e1d22e8",
+   "texte_overlay": "ce que j'ai dit à ma manager,\net ce que ça voulait\nvraiment dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6ac64d87",
+   "texte_overlay": "« je regarde ça cet après-midi »\n= je n'ai pas encore ouvert le fichier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1670b510",
+   "texte_overlay": "« bonne remarque, je l'intègre »\n= je ne suis pas d'accord, mais elle a raison sur un point",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f1bc2754",
+   "texte_overlay": "« je me forme sur le sujet »\n= depuis hier soir. 5 minutes, mais je tiens",
+   "texte_sophia": "« je me forme sur le sujet »\n= depuis hier soir. 5 minutes sur l'appli Sophia, mais je tiens",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e0172a3a",
+   "texte_overlay": "« je peux te demander un avis ? »\n= je suis bloquée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "29194e70",
+   "texte_overlay": "« c'est faisable, si on décale X »\n= non, pas en plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "edec7607",
+   "texte_overlay": "ta traduction à toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

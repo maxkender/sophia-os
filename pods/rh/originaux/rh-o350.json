@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o350",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "321ba8f6-59d6-4855-8e90-35f7a3c7d72f",
+ "titre": "ce que le recruteur cherche vraiment avec « une qualité, un défaut » #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G2 de la ligne #2 (parent 321ba8f6, notre rh-o252) : même promesse, autres mots, autre angle. Inspirations reprises de rh-o252. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ed99daa",
+   "texte_overlay": "ce que le recruteur\ncherche vraiment avec\n« une qualité, un défaut »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "95a429ad",
+   "texte_overlay": "il ne veut pas le mot parfait\nil veut voir si tu te connais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b04194f9",
+   "texte_overlay": "ta qualité, il la veut prouvée\n« la semaine dernière, j'ai… »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "413b2a05",
+   "texte_overlay": "ton défaut, il le veut vrai\net pas bloquant pour le poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ce508a91",
+   "texte_overlay": "ce qu'il retient\nce que tu fais pour t'améliorer. moi : je disais que j'apprenais 5 minutes par jour",
+   "texte_sophia": "ce qu'il retient\nce que tu fais pour t'améliorer. moi : je disais que j'apprenais 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6a8ff156",
+   "texte_overlay": "ce qu'il oublie tout de suite\n« perfectionniste »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "390b8824",
+   "texte_overlay": "ton défaut, c'est quoi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  }
+ ]
+}

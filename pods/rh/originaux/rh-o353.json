@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o353",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "47c0e02a-286a-438c-9ff2-673ddaf397f9",
+ "titre": "télétravail : les phrases qui protègent ton temps (sans froisser personne) #teletravail #travail #limites #santementale #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #5 (parent 47c0e02a), 2e : même promesse, autres mots, phrases différentes de rh-o182 et rh-o341. Inspirations reprises de rh-o182. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f26e376d",
+   "texte_overlay": "télétravail :\nles phrases qui protègent ton temps\n(sans froisser personne)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ab7dc9b",
+   "texte_overlay": "« je bloque 9h-11h pour avancer, je suis joignable après »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1a952b44",
+   "texte_overlay": "« un message suffit, pas besoin de visio »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e85ce599",
+   "texte_overlay": "« je finis à 18h, on voit ça demain matin »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "76dbdaee",
+   "texte_overlay": "« je fais un point écrit vendredi, tu auras tout »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "283a4b9d",
+   "texte_overlay": "« je prends ma pause à 15h »\nma pause à moi : 5 minutes pour apprendre un truc",
+   "texte_sophia": "« je prends ma pause à 15h »\nma pause à moi : utilise l'appli Sophia 5 minutes, ça change de l'écran de boulot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b2b5b067",
+   "texte_overlay": "laquelle tu vas oser ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  }
+ ]
+}

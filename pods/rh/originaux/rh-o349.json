@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o349",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1b9efcc9-1a0f-4c6d-842c-f75a9993168b",
+ "titre": "j'ai refusé une promotion, et c'est la meilleure décision de ma carrière #travail #promotion #carriere #emploi #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #1 (parent 1b9efcc9, notre rh-o309) : même promesse, autres mots, autre histoire (inventée, aucune vraie entreprise). Inspirations reprises de rh-o309. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b6ed3f3f",
+   "texte_overlay": "j'ai refusé une promotion,\net c'est la meilleure décision\nde ma carrière",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9d9d0a3d",
+   "texte_overlay": "le poste : cheffe d'équipe\nle prix : plus de temps pour ce que j'aimais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7cd24ee0",
+   "texte_overlay": "j'aimais mon métier\npas l'idée de le regarder faire par d'autres",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8e73cbcd",
+   "texte_overlay": "j'ai demandé une autre évolution\nexperte, avec un salaire revu",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9ec88e8e",
+   "texte_overlay": "on m'a dit oui, 6 mois plus tard\nparce que j'avais montré ce que je valais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8d307d82",
+   "texte_overlay": "pendant ces 6 mois, j'ai appris\nun peu chaque jour, sur mon sujet",
+   "texte_sophia": "pendant ces 6 mois, j'ai appris\nun peu chaque jour, sur mon sujet. utilise l'appli Sophia 5 minutes, ça s'additionne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "900e7372",
+   "texte_overlay": "monter n'est pas la seule direction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7c0fc4ad",
+   "texte_overlay": "tu dirais oui ou non ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

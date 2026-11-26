@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o355",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6f40ca82-d1c0-48aa-9881-ae71ff69b16c",
+ "titre": "les erreurs qui ont fait durer mon chômage (et ce que j'ai changé) #chomage #rechercheemploi #emploi #candidature #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G2 de la ligne #8 (parent 6f40ca82) : même promesse, autres mots, erreurs différentes. Sujet traité en général. Inspirations reprises de rh-o133. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d18fd799",
+   "texte_overlay": "les erreurs\nqui ont fait durer mon chômage\n(et ce que j'ai changé)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "854f2c04",
+   "texte_overlay": "j'attendais l'offre parfaite\nmaintenant je postule à 80 % d'accord",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "830c8e48",
+   "texte_overlay": "je ne disais à personne que je cherchais\nmaintenant je le dis à tout le monde",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "28827c81",
+   "texte_overlay": "je n'avais pas d'horaires\nmaintenant : 9h-12h recherche, l'après-midi pour moi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1dc6f8bb",
+   "texte_overlay": "je ne préparais pas mes entretiens\nmaintenant : 3 histoires vraies, écrites",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b39912ea",
+   "texte_overlay": "je laissais mes compétences rouiller\nmaintenant : 5 minutes par jour à apprendre",
+   "texte_sophia": "je laissais mes compétences rouiller\nmaintenant : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5303bd1f",
+   "texte_overlay": "t'es pas seule.\nchange une chose cette semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  }
+ ]
+}

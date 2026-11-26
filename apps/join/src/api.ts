@@ -69,8 +69,11 @@ export interface Moi {
   signature: { signe_at: string } | null;
   etapes: Etape[];
   premier_post: string | null;
-  /** Le profil TikTok à créer (25/11 : celui du compte de l'OS quand il existe, photo comprise). */
-  profil_suggere: { nom: string; bio: string; photo: string; photo_url?: string | null };
+  /**
+   * Le profil TikTok à créer : SEULEMENT celui du compte créé par l'OS (26/11), le même que sur le dashboard. `pret`
+   * faux (pas encore de compte de l'OS) : toutes les valeurs sont null.
+   */
+  profil_suggere?: { pret?: boolean; handle?: string | null; nom: string | null; bio: string | null; photo_url?: string | null };
   ruul_visible: boolean;
   /** 0858 : la checklist (cochée quand l'OS voit l'étape faite) et les liens de ses boutons. */
   checklist?: { etape: "contrat" | "ruul" | "tiktok" | "warmup" | "slack" | "premier_post"; fait: boolean }[];

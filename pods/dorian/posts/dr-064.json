@@ -1,0 +1,174 @@
+{
+ "id": "dr-064",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+  "vues": 1200000,
+  "publie_le": "2026-10-07",
+  "accroche": "8 coding projects that are genuinely f*cking difficult"
+ },
+ "titre": {
+  "en": "5 science facts that genuinely break your brain",
+  "hu": "5 tudományos tény, amitől szétesik az agyad",
+  "it": "5 fatti scientifici che ti mandano in tilt il cervello"
+ },
+ "legendes": {
+  "en": "#science #physics #math #smarttok",
+  "hu": "#tudomány #fizika #matek #tudás",
+  "it": "#scienza #fisica #matematica #curiosità"
+ },
+ "musique": {
+  "titre": "original sound - 432pa.hp",
+  "url": "https://www.tiktok.com/music/original-sound-7603872322981874462"
+ },
+ "notes": "Déclinaison G2 de dr-033 (2/3) : accroche reformulée (« break your brain »), autres faits. Faits : nombre de Shannon (≈10^120 parties) contre ≈10^80 atomes ; paradoxe des anniversaires (23 → 50,7 %, 70 → 99,9 %) ; 0,999… = 1 ; noyau ≈ 1/100 000 du diamètre de l'atome (bille dans un stade) ; effet tunnel nécessaire à la fusion proton-proton dans le Soleil. Images Seedream. En, hu, it ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 science facts that genuinely break your brain",
+    "image": "images/cerveau-03.jpg",
+    "legende": "(look them up)"
+   },
+   "hu": {
+    "titre": "5 tudományos tény, amitől szétesik az agyad",
+    "image": "images/cerveau-05.jpg",
+    "legende": "(nézz utána)"
+   },
+   "it": {
+    "titre": "5 fatti scientifici che ti mandano in tilt il cervello",
+    "image": "images/cerveau-07.jpg",
+    "legende": "(cercali)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "More chess games than atoms",
+    "difficulte": "26/50",
+    "texte": "there are more possible chess games than atoms in the observable universe. claude shannon estimated a 1 followed by 120 zeros, against roughly a 1 followed by 80 zeros for atoms",
+    "image": "images/echecs-nuit.jpg"
+   },
+   "hu": {
+    "titre": "Több sakkjátszma, mint atom",
+    "difficulte": "26/50",
+    "texte": "több lehetséges sakkjátszma van, mint atom a megfigyelhető univerzumban. claude shannon egy 1-est és utána 120 nullát becsült, az atomok száma nagyjából egy 1-es és 80 nulla",
+    "image": "images/echecs-nuit.jpg"
+   },
+   "it": {
+    "titre": "Più partite che atomi",
+    "difficulte": "26/50",
+    "texte": "ci sono più partite di scacchi possibili che atomi nell'universo osservabile. claude shannon stimò un 1 seguito da 120 zeri, contro circa un 1 seguito da 80 zeri di atomi",
+    "image": "images/echecs-nuit.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The birthday paradox",
+    "difficulte": "30/50",
+    "texte": "put 23 people in a room and there's a better than 50% chance two of them share a birthday. with 70 people it's 99.9%",
+    "image": "images/gateau-bougies.jpg"
+   },
+   "hu": {
+    "titre": "A születésnap-paradoxon",
+    "difficulte": "30/50",
+    "texte": "ha 23 ember van egy szobában, több mint 50% az esélye, hogy kettőnek ugyanazon a napon van a születésnapja. 70 embernél 99,9%",
+    "image": "images/gateau-bougies.jpg"
+   },
+   "it": {
+    "titre": "Il paradosso del compleanno",
+    "difficulte": "30/50",
+    "texte": "metti 23 persone in una stanza e c'è più del 50% di probabilità che due compiano gli anni lo stesso giorno. con 70 persone è il 99,9%",
+    "image": "images/gateau-bougies.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "difficulte": "4/50",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. science explained so it finally clicks",
+    "telephone": "accueil"
+   },
+   "hu": {
+    "titre": "Napi egy lecke a Sophián",
+    "difficulte": "4/50",
+    "texte": "amit görgetés helyett megnyitok: egy lecke, egy kvíz, kész. tudomány úgy elmagyarázva, hogy végre leessen",
+    "telephone": "accueil"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "difficulte": "4/50",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. la scienza spiegata finalmente in modo chiaro",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "0.999… = 1",
+    "difficulte": "36/50",
+    "texte": "0.999… with nines forever is exactly equal to 1. not almost: equal. between two different numbers there's always a third one. here there isn't",
+    "image": "images/escalier-spirale.jpg"
+   },
+   "hu": {
+    "titre": "0,999… = 1",
+    "difficulte": "36/50",
+    "texte": "a végtelen sok kilencessel folytatódó 0,999… pontosan 1. nem majdnem: pontosan. két különböző szám között mindig van egy harmadik. itt nincs",
+    "image": "images/escalier-spirale.jpg"
+   },
+   "it": {
+    "titre": "0,999… = 1",
+    "difficulte": "36/50",
+    "texte": "0,999… con infiniti nove è esattamente uguale a 1. non quasi: uguale. tra due numeri diversi ce n'è sempre un terzo. qui non c'è",
+    "image": "images/escalier-spirale.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Atoms are almost empty",
+    "difficulte": "40/50",
+    "texte": "if an atom were the size of a stadium, its nucleus would be a marble on the centre spot. the rest is almost entirely empty space",
+    "image": "images/stade-nuit.jpg"
+   },
+   "hu": {
+    "titre": "Az atom szinte üres",
+    "difficulte": "40/50",
+    "texte": "ha egy atom akkora lenne, mint egy stadion, a magja egy golyó lenne a középkezdő ponton. a többi szinte teljesen üres tér",
+    "image": "images/stade-nuit.jpg"
+   },
+   "it": {
+    "titre": "Gli atomi sono quasi vuoti",
+    "difficulte": "40/50",
+    "texte": "se un atomo fosse grande come uno stadio, il nucleo sarebbe una biglia sul dischetto del centrocampo. il resto è quasi tutto spazio vuoto",
+    "image": "images/stade-nuit.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Quantum tunnelling",
+    "difficulte": "46/50",
+    "texte": "particles sometimes pass through barriers they shouldn't be able to cross. the sun relies on it: without tunnelling, its core would be too cold for fusion",
+    "image": "images/soleil-surface.jpg"
+   },
+   "hu": {
+    "titre": "Az alagúteffektus",
+    "difficulte": "46/50",
+    "texte": "a részecskék néha átjutnak olyan akadályokon, amiken nem kellene. a nap rá van utalva: alagúteffektus nélkül a magja túl hideg lenne a fúzióhoz",
+    "image": "images/soleil-surface.jpg"
+   },
+   "it": {
+    "titre": "L'effetto tunnel",
+    "difficulte": "46/50",
+    "texte": "a volte le particelle attraversano barriere che non dovrebbero superare. il sole ne ha bisogno: senza effetto tunnel il suo nucleo sarebbe troppo freddo per la fusione",
+    "image": "images/soleil-surface.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "da477374-efbd-4d50-8e85-e50690d9371c"
+}

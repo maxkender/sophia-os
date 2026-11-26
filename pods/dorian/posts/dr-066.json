@@ -1,0 +1,150 @@
+{
+ "id": "dr-066",
+ "format": "liste",
+ "titre": {
+  "en": "5 ancient inventions that genuinely still work today",
+  "tr": "bugün hâlâ işleyen 5 antik icat",
+  "nl": "5 oude uitvindingen die vandaag nog werken"
+ },
+ "legendes": {
+  "en": "#history #engineering #ancient #smarttok",
+  "tr": "#tarih #mühendislik #antik #bilgi",
+  "nl": "#geschiedenis #techniek #oudheid #weetjes"
+ },
+ "musique": {
+  "titre": "original sound - splexedits",
+  "url": "https://www.tiktok.com/music/original-sound-7670769300528958239"
+ },
+ "notes": "Déclinaison G1 de dr-037 : titre du parent mot pour mot, autres inventions. Faits : vis d'Archimède (IIIe s. av. J.-C., stations de pompage et petites centrales) ; badgirs de Yazd ; Grand Canal (Ve s. av. J.-C., ≈1 800 km, patrimoine mondial, toujours navigué en partie) ; chadouf (tombes égyptiennes, encore utilisé localement) ; pont de Zhaozhou (v. 605, plus ancien pont à arc ouvert). Images Seedream. En, tr, nl ; une couverture par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 ancient inventions that genuinely still work today",
+    "image": "images/cerveau-15.jpg",
+    "legende": "(still in use)"
+   },
+   "tr": {
+    "titre": "bugün hâlâ işleyen 5 antik icat",
+    "image": "images/cerveau-17.jpg",
+    "legende": "(hâlâ kullanılıyor)"
+   },
+   "nl": {
+    "titre": "5 oude uitvindingen die vandaag nog werken",
+    "image": "images/cerveau-19.jpg",
+    "legende": "(nog in gebruik)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Archimedes screw",
+    "texte": "described more than 2,000 years ago, and still lifting water today in dutch polders, sewage plants and even some small hydropower stations",
+    "image": "images/vis-pompage.jpg"
+   },
+   "tr": {
+    "titre": "Arşimet burgusu",
+    "texte": "2.000 yıldan uzun önce tarif edildi ve bugün hâlâ hollanda'daki polderlerde, atık su tesislerinde, hatta bazı küçük hidroelektrik santrallerinde su kaldırıyor",
+    "image": "images/vis-pompage.jpg"
+   },
+   "nl": {
+    "titre": "De schroef van Archimedes",
+    "texte": "meer dan 2.000 jaar geleden beschreven, en hij pompt nog steeds water op in nederlandse polders, rioolzuiveringen en zelfs kleine waterkrachtcentrales",
+    "image": "images/vis-pompage.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Windcatchers",
+    "texte": "the towers of yazd in iran catch the breeze and push it down into the house, sometimes over a pool of water. natural air conditioning, no electricity",
+    "image": "images/tours-vent.jpg"
+   },
+   "tr": {
+    "titre": "Rüzgâr kuleleri",
+    "texte": "iran'daki yezd'in kuleleri esintiyi yakalayıp eve indiriyor, bazen bir su havuzunun üstünden geçirerek. elektriksiz, doğal klima",
+    "image": "images/tours-vent.jpg"
+   },
+   "nl": {
+    "titre": "Windvangers",
+    "texte": "de torens van yazd in iran vangen de wind en duwen die het huis in, soms over een waterbassin. natuurlijke airco, zonder stroom",
+    "image": "images/tours-vent.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. history and engineering, explained properly",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "ekranı kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. tarih ve mühendislik, düzgünce anlatılmış",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. geschiedenis en techniek, goed uitgelegd",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Grand Canal",
+    "texte": "china's grand canal, begun in the 5th century bc, runs about 1,800 km from beijing to hangzhou. barges still carry cargo on parts of it",
+    "image": "images/grand-canal.jpg"
+   },
+   "tr": {
+    "titre": "Büyük Kanal",
+    "texte": "çin'in büyük kanalı mö 5. yüzyılda başladı ve pekin'den hangzhou'ya yaklaşık 1.800 km uzanıyor. bazı kısımlarında hâlâ yük mavnaları gidiyor",
+    "image": "images/grand-canal.jpg"
+   },
+   "nl": {
+    "titre": "Het Grote Kanaal",
+    "texte": "het grote kanaal van china, begonnen in de 5e eeuw v.chr., loopt zo'n 1.800 km van peking naar hangzhou. op delen ervan varen nog altijd vrachtschepen",
+    "image": "images/grand-canal.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The shaduf",
+    "texte": "a pole, a bucket and a counterweight. drawn in egyptian tombs from about 4,000 years ago, and still used in some villages along the nile",
+    "image": "images/shadouf.jpg"
+   },
+   "tr": {
+    "titre": "Şaduf",
+    "texte": "bir sırık, bir kova ve bir karşı ağırlık. yaklaşık 4.000 yıl önceki mısır mezarlarında çizilmiş, nil kıyısındaki bazı köylerde hâlâ kullanılıyor",
+    "image": "images/shadouf.jpg"
+   },
+   "nl": {
+    "titre": "De shadoef",
+    "texte": "een paal, een emmer en een contragewicht. getekend in egyptische graven van zo'n 4.000 jaar geleden, en in sommige dorpen langs de nijl nog in gebruik",
+    "image": "images/shadouf.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Zhaozhou bridge",
+    "texte": "built around 605 and still standing after 1,400 years of floods, wars and earthquakes. small side arches let floodwater through and make it lighter",
+    "image": "images/pont-pierre.jpg"
+   },
+   "tr": {
+    "titre": "Zhaozhou köprüsü",
+    "texte": "605 civarında yapıldı ve 1.400 yıldır sellere, savaşlara ve depremlere rağmen ayakta. yandaki küçük kemerler sel suyunu geçiriyor ve köprüyü hafifletiyor",
+    "image": "images/pont-pierre.jpg"
+   },
+   "nl": {
+    "titre": "De Zhaozhou-brug",
+    "texte": "gebouwd rond 605 en na 1.400 jaar overstromingen, oorlogen en aardbevingen nog altijd overeind. kleine zijbogen laten water door en maken de brug lichter",
+    "image": "images/pont-pierre.jpg"
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9496a514-cd80-4900-ba66-bf0d540ae612"
+}

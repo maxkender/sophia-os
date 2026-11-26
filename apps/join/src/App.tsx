@@ -83,7 +83,8 @@ function Site() {
   const depart = useRef(ecranInitial()).current;
   const [ecran, setEcran] = useState<Ecran>(depart.ecran);
   const [onb, setOnb] = useState(depart.onb);
-  const [mode, setMode] = useState("test");
+  // 26/11 : pas de bandeau « mode test » tant que le mode n'est pas lu (avant : affiché par défaut, même en live).
+  const [mode, setMode] = useState("");
   const [pays, setPays] = useState<PaysPaie[]>([]);
   const [envoi, setEnvoi] = useState<Envoi | null>(null);
   const [moi, setMoi] = useState<Moi | null>(null);

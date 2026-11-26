@@ -1,0 +1,167 @@
+{
+  "id": "rt-003",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "rabbit holes worth falling into"
+  },
+  "legendes": {
+    "en": "some nights u don't need another video, u need one good rabbit hole.\n\nunsolved mysteries, the deep ocean, the history of music, nature being weird, and empires most of us never learned about in school.\n\npick the one that sounds the strangest and give it an hour.\n\nsave this for the next time ur bored.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/rayons-eclaires.jpg": "f12f02f9-795b-4555-b421-0529fef342ab",
+    "images/banque/mains-the.jpg": "11b8c61f-c202-40e5-9697-0b6fef32c8c2"
+  },
+  "notes": "Full test, sans post source : famille d'accroche de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit et même musique. Catégories neuves (aucune de rt-001/rt-002) ; sujets réels, vérifiés, rien de violent, médical ou politique. Slide Sophia (4, « 03 — where i start ») : son LOGO, jamais une capture ; cta C. Photos : rayons éclairés d'une bibliothèque (f12f02f9, silhouettes lointaines sans visage) et mains qui écrivent près d'un thé (11b8c61f).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/rayons-eclaires.jpg",
+          "cadrage": {
+            "y": 0.3
+          }
+        },
+        {
+          "image": "images/banque/mains-the.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "rabbit holes worth\nfalling into",
+        "sous_titre": "for the nights u can't sleep"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Unsolved Mysteries",
+        "sujets": [
+          "The Voynich Manuscript",
+          "The Wow! Signal",
+          "The Tunguska Event",
+          "Linear A",
+          "The Phaistos Disc",
+          "The Nazca Lines",
+          "Stonehenge",
+          "The Mary Celeste",
+          "The Dancing Plague of 1518",
+          "The Lost Colony of Roanoke",
+          "The Oak Island Money Pit",
+          "Kryptos",
+          "The Baghdad Battery",
+          "The Taos Hum"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "The Deep Ocean",
+        "sujets": [
+          "The Midnight Zone",
+          "Hydrothermal Vents",
+          "Marine Snow",
+          "The Giant Squid",
+          "Anglerfish",
+          "Octopus Intelligence",
+          "Whale Songs",
+          "The Bloop",
+          "Mid-Ocean Ridges",
+          "Thermohaline Circulation",
+          "Coral Reefs",
+          "Seagrass Meadows",
+          "The Immortal Jellyfish"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "where i start",
+        "paragraphes": [
+          "Sophia gives me one lesson a day, written by actual professors, with a little quiz after. history, philosophy, science, geopolitics, literature, economics.",
+          "it takes about 10 minutes, and most nights that one lesson is enough to send me down one of these rabbit holes."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "The History of Music",
+        "sujets": [
+          "Gregorian Chant",
+          "Baroque Music",
+          "Bach's Fugues",
+          "Mozart's Requiem",
+          "Beethoven's Ninth Symphony",
+          "The Birth of Opera",
+          "The Blues",
+          "The Birth of Jazz",
+          "Motown",
+          "The Birth of Hip-Hop",
+          "Synthesizers",
+          "The Circle of Fifths",
+          "Perfect Pitch",
+          "The Phonograph"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Nature Is Weird",
+        "sujets": [
+          "Tardigrades",
+          "Axolotls",
+          "Slime Molds",
+          "Mycelium Networks",
+          "Crow Intelligence",
+          "The Waggle Dance of Bees",
+          "Monarch Butterfly Migration",
+          "Cuttlefish Camouflage",
+          "Naked Mole-Rats",
+          "The Platypus",
+          "Pando",
+          "How Birds Navigate",
+          "Convergent Evolution",
+          "Fireflies"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Empires & Dynasties",
+        "sujets": [
+          "Mansa Musa's Mali Empire",
+          "The Kingdom of Aksum",
+          "Achaemenid Persia",
+          "The Royal Road",
+          "The Han Dynasty",
+          "The Tang Dynasty",
+          "The Inca Road System",
+          "The Venetian Republic",
+          "The Hanseatic League",
+          "The Holy Roman Empire",
+          "The Ottoman Empire",
+          "The Mughal Empire",
+          "Edo Japan"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this for tonight. pick the one that sounds the weirdest, put ur phone on the other side of the room and give it an hour.",
+        "gras": "OR.. u'll spend that hour scrolling again."
+      }
+    }
+  ]
+}

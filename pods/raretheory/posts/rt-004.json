@@ -1,0 +1,190 @@
+{
+  "id": "rt-004",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "topics that make u sound smart in any conversation"
+  },
+  "legendes": {
+    "en": "u don't need to know everything. u just need to actually understand a few things well.\n\ncognitive biases, how money moves, the laws people quote at work, experiments that changed science, the philosophers everyone name-drops, and how the world is put together.\n\nlearn one properly and u'll hear it everywhere.\n\nsave this before ur next long conversation.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/salle-lecture.jpg": "99987c7e-faec-4401-8815-fd13da5f1223",
+    "images/banque/carnet-tapis.jpg": "457296c1-21da-4061-a2c8-1c09aa7a8cf7"
+  },
+  "notes": "Full test, sans post source : famille d'accroche de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit et même musique. Catégories neuves ; sujets réels, vérifiés ; géopolitique historique seulement (rien de récent ni de partisan). Slide Sophia (5, « 04 — one lesson a night ») : son LOGO, jamais une capture ; cta A. Photos : salle de lecture (99987c7e, cadrée en haut : fenêtres et lustres, personne) et carnet avec un thé sur un tapis (457296c1, écriture illisible).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/salle-lecture.jpg",
+          "cadrage": {
+            "y": 0.15
+          }
+        },
+        {
+          "image": "images/banque/carnet-tapis.jpg",
+          "cadrage": {
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "topics that make u\nsound smart in any\nconversation"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Cognitive Biases",
+        "sujets": [
+          "Confirmation Bias",
+          "The Dunning-Kruger Effect",
+          "The Sunk Cost Fallacy",
+          "The Spotlight Effect",
+          "Anchoring",
+          "The Halo Effect",
+          "The Bystander Effect",
+          "Survivorship Bias",
+          "The Barnum Effect",
+          "Loss Aversion",
+          "The Mere-Exposure Effect",
+          "The Frequency Illusion",
+          "Hindsight Bias",
+          "The Pygmalion Effect"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Economics in Real Life",
+        "sujets": [
+          "Opportunity Cost",
+          "Supply and Demand",
+          "Inflation",
+          "Compound Interest",
+          "Comparative Advantage",
+          "The Invisible Hand",
+          "The Tragedy of the Commons",
+          "Network Effects",
+          "Goodhart's Law",
+          "Tulip Mania",
+          "The Great Depression",
+          "Behavioral Economics",
+          "The Paradox of Thrift",
+          "Keynes vs Hayek"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Laws & Principles",
+        "sujets": [
+          "Murphy's Law",
+          "Parkinson's Law",
+          "The Pareto Principle",
+          "Hanlon's Razor",
+          "Moore's Law",
+          "Sturgeon's Law",
+          "Hofstadter's Law",
+          "The Peter Principle",
+          "Brandolini's Law",
+          "The Lindy Effect",
+          "Metcalfe's Law",
+          "Benford's Law",
+          "Chesterton's Fence",
+          "Cunningham's Law"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "one lesson a night",
+        "paragraphes": [
+          "i don't research all of this from scratch. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
+          "they're written by actual professors and there's a little quiz after, so i can actually explain things instead of just dropping names."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Experiments That Changed Science",
+        "sujets": [
+          "Eratosthenes Measuring the Earth",
+          "Galileo's Falling Objects",
+          "Newton's Prism",
+          "Foucault's Pendulum",
+          "Mendel's Pea Plants",
+          "Darwin's Finches",
+          "The Michelson-Morley Experiment",
+          "Rutherford's Gold Foil",
+          "Millikan's Oil Drop",
+          "The Cavendish Experiment",
+          "Pasteur's Swan-Neck Flasks",
+          "Pavlov's Dogs",
+          "The Marshmallow Test",
+          "The Asch Conformity Experiment"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Philosophers Worth Knowing",
+        "sujets": [
+          "Socrates",
+          "Plato",
+          "Aristotle",
+          "Confucius",
+          "Laozi",
+          "Marcus Aurelius",
+          "Descartes",
+          "Spinoza",
+          "David Hume",
+          "Immanuel Kant",
+          "Kierkegaard",
+          "Nietzsche",
+          "Simone de Beauvoir",
+          "Hannah Arendt"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Geopolitics 101",
+        "sujets": [
+          "The Peace of Westphalia",
+          "Sovereignty",
+          "Soft Power",
+          "The Gold Standard",
+          "The Bretton Woods System",
+          "The Marshall Plan",
+          "The United Nations",
+          "The Cold War",
+          "The Fall of the Berlin Wall",
+          "The European Union",
+          "The Suez Canal",
+          "The Panama Canal",
+          "Maritime Chokepoints",
+          "Globalization"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this before ur next dinner, date or group project. learn one topic properly, then bring it up like it's nothing.",
+        "gras": "OR.. keep nodding like u know."
+      }
+    }
+  ]
+}

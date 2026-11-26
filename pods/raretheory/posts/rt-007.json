@@ -1,0 +1,164 @@
+{
+  "id": "rt-007",
+  "source": {
+    "url": "https://www.tiktok.com/@raretheory_/photo/7688171277311282452",
+    "vues": 96000,
+    "publie_le": "2026-09-22",
+    "accroche": "life lesson that i wish i knew at 16"
+  },
+  "titre": {
+    "en": "things i wish i knew at 16"
+  },
+  "legendes": {
+    "en": "things i wish someone had told me at 16.\n\nnot because 16 was bad, but because i thought i had to figure everything out right away.\n\nturns out most things get clearer once u stop rushing them.\n\nsave this for the version of u that's still figuring it out.\n\n#selfimprovement #lifelessons #teenagers #growingup #personaldevelopment"
+  },
+  "musique": {
+    "titre": "Nothing's Gonna Hurt You Baby - Cigarettes After Sex",
+    "url": "https://www.tiktok.com/music/Nothings-Gonna-Hurt-You-Baby-6693848358324275969"
+  },
+  "banque": {
+    "images/banque/chambre-soir.jpg": "14c09f72-6bde-4c68-8fb5-3e7a3abd5cc8",
+    "images/banque/vitre-fleurs.jpg": "2a4838df-5dd9-42a6-9802-50cc8fc9bb57",
+    "images/banque/rideau.jpg": "2d72557c-c5dc-495e-a066-bdc136718ad1",
+    "images/banque/ciel.jpg": "5c68a899-481b-481e-a439-0836e74f061b",
+    "images/banque/carnet-bougie.jpg": "1a1f603c-0e07-468b-bbbb-368eddebf7e3",
+    "images/banque/ponton.jpg": "fd6899e2-6796-4fa2-a2c3-a648256e230e",
+    "images/banque/livre-ouvert.jpg": "22aa3bfd-133e-4462-9a7f-c1f1a12a0ffb"
+  },
+  "notes": "Preuve : « life lesson that i wish i knew at 16 » de @raretheory_ (96 k vues, 8 % d'enregistrements, 22/09) et sa partie 2 (17,8 k) : même gabarit (« 01 — … », une petite photo à droite, des paragraphes justifiés), même musique (Nothing's Gonna Hurt You Baby). Leçons et textes à nous. Slide Sophia (5, « 04 — keep learning after class ») : son LOGO, jamais une capture ; cta A. Photos : banques de Sophia, sans visage, sans marque ni texte lisible (couverture : salon le soir 14c09f72, vitre et fleurs 2a4838df ; points : rideau 2d72557c, ciel 5c68a899, mains, livre et boisson 22aa3bfd, carnet et bougie 1a1f603c, ponton le soir fd6899e2).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/chambre-soir.jpg",
+          "cadrage": {
+            "y": 0.45
+          }
+        },
+        {
+          "image": "images/banque/vitre-fleurs.jpg",
+          "cadrage": {
+            "y": 0.6
+          }
+        }
+      ],
+      "en": {
+        "titre": "things i wish i knew\nat 16",
+        "sous_titre": "the short version"
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/rideau.jpg",
+          "cadrage": {
+            "x": 0.55,
+            "y": 0.5
+          }
+        }
+      ],
+      "en": {
+        "titre": "u don't need a plan yet",
+        "paragraphes": [
+          "everyone asks what u want to do with ur life. almost nobody at 16 actually knows, and the ones who say they do usually change their minds.",
+          "pick the next interesting thing, not the forever thing."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/ciel.jpg",
+          "cadrage": {
+            "x": 0.5,
+            "y": 0.4
+          }
+        }
+      ],
+      "en": {
+        "titre": "friends can be seasonal",
+        "paragraphes": [
+          "some people are in ur life for a chapter, not the whole book. that doesn't make the friendship fake.",
+          "u can be grateful for someone and still let them drift away."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/livre-ouvert.jpg",
+          "cadrage": {
+            "x": 0.4,
+            "y": 0.6
+          }
+        }
+      ],
+      "en": {
+        "titre": "alone isn't lonely",
+        "paragraphes": [
+          "i used to panic about a free weekend with no plans. now i protect them.",
+          "learning to enjoy ur own company means u never have to stay somewhere just to avoid being by urself."
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "keep learning after class",
+        "paragraphes": [
+          "school made learning feel like a chore. it isn't. every night i do one short lesson on Sophia: history, philosophy, science, geopolitics, literature, economics.",
+          "written by actual professors, with a little quiz after. 10 minutes, and i go to sleep knowing one more thing about the world."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/carnet-bougie.jpg",
+          "cadrage": {
+            "x": 0.45,
+            "y": 0.55
+          }
+        }
+      ],
+      "en": {
+        "titre": "stop comparing",
+        "paragraphes": [
+          "there will always be someone prettier, smarter or further ahead online. that's just how the internet works.",
+          "the only fair comparison is u, a year ago."
+        ]
+      }
+    },
+    {
+      "type": "point",
+      "photos": [
+        {
+          "image": "images/banque/ponton.jpg",
+          "cadrage": {
+            "x": 0.5,
+            "y": 0.55
+          }
+        }
+      ],
+      "en": {
+        "titre": "let urself be bored",
+        "paragraphes": [
+          "every time i was bored i grabbed my phone. i never let my brain wander long enough to come up with anything.",
+          "some of my best ideas came on walks with nothing in my ears."
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "if i could sit next to my 16-year-old self, i'd say: slow down, get curious, and stop asking everyone else who u should be.",
+        "gras": "OR.. u'll keep learning it the hard way."
+      }
+    }
+  ]
+}

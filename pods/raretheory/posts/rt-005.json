@@ -1,0 +1,168 @@
+{
+  "id": "rt-005",
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "things to learn about when u're bored"
+  },
+  "legendes": {
+    "en": "being bored is honestly the best time to learn something random.\n\nwhere ur food came from, how secret codes were cracked, why the sky does what it does, how the stuff in ur room works, and the strange history of colors.\n\npick one and fall into it for a bit.\n\nsave this for ur next boring afternoon.\n\n#whattolearnwhenbored #selfimprovement #learning #curiosity #studytok"
+  },
+  "musique": {
+    "titre": "original sound - starxedittt",
+    "url": "https://www.tiktok.com/music/original-sound-7661656522539223815"
+  },
+  "banque": {
+    "images/banque/bibliotheque-fenetre.jpg": "fd625fcd-2d7b-414b-b6eb-be8f070eb6c4",
+    "images/banque/main-carnet.jpg": "04454a82-1527-4b47-a7f3-2b6476689df7"
+  },
+  "notes": "Full test, sans post source : famille d'accroche de @raretheory_ (« topic to research when u're bored », 652,5 k et 151,1 k), même gabarit et même musique. Catégories neuves ; sujets réels, vérifiés, rien de violent, médical ou politique. Slide Sophia (4, « 03 — the 10-minute lesson ») : son LOGO, jamais une capture ; cta B. Photos : rayonnages et grande fenêtre de bibliothèque (fd625fcd, personne au loin sans visage) et main qui écrit dans un carnet sur un lit (04454a82).",
+  "slides": [
+    {
+      "type": "couverture",
+      "photos": [
+        {
+          "image": "images/banque/bibliotheque-fenetre.jpg",
+          "cadrage": {
+            "y": 0.4
+          }
+        },
+        {
+          "image": "images/banque/main-carnet.jpg",
+          "cadrage": {
+            "y": 0.55
+          }
+        }
+      ],
+      "en": {
+        "titre": "things to learn about\nwhen u're bored",
+        "sous_titre": "instead of doomscrolling"
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Food Science & History",
+        "sujets": [
+          "The Spice Trade",
+          "The Columbian Exchange",
+          "The History of Chocolate",
+          "How Coffee Spread",
+          "The Japanese Tea Ceremony",
+          "Fermentation",
+          "Sourdough Starters",
+          "The Maillard Reaction",
+          "Umami",
+          "The History of Salt",
+          "Cheese Making",
+          "The Origins of Pasta",
+          "Why Onions Make You Cry",
+          "Molecular Gastronomy"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Codes & Ciphers",
+        "sujets": [
+          "The Caesar Cipher",
+          "The Vigenère Cipher",
+          "Frequency Analysis",
+          "Morse Code",
+          "Semaphore",
+          "Steganography",
+          "The Enigma Machine",
+          "Bletchley Park",
+          "Alan Turing",
+          "The Navajo Code Talkers",
+          "The Zimmermann Telegram",
+          "Public-Key Cryptography",
+          "Hash Functions"
+        ]
+      }
+    },
+    {
+      "type": "sophia",
+      "en": {
+        "titre": "the 10-minute lesson",
+        "paragraphes": [
+          "before i go down a rabbit hole, i do the 10-minute lesson on Sophia. one short lesson a day: history, philosophy, science, geopolitics, literature, economics.",
+          "each one is written by actual professors and ends with a little quiz, so it actually stays in my head after."
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "Weather & the Sky",
+        "sujets": [
+          "Why the Sky Is Blue",
+          "How Rainbows Form",
+          "Auroras",
+          "Lightning",
+          "Ball Lightning",
+          "Halos & Sun Dogs",
+          "Cloud Types",
+          "How Snowflakes Form",
+          "Fog",
+          "The Jet Stream",
+          "The Coriolis Effect",
+          "El Niño",
+          "Monsoons",
+          "How Tornadoes Form"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "How Everyday Things Work",
+        "sujets": [
+          "Airplane Lift",
+          "Microwave Ovens",
+          "Batteries",
+          "Touchscreens",
+          "Noise Cancelling",
+          "Barcodes",
+          "Wi-Fi",
+          "Solar Panels",
+          "3D Printing",
+          "Elevators",
+          "Zippers",
+          "Mirrors",
+          "Quartz Clocks",
+          "Locks & Keys"
+        ]
+      }
+    },
+    {
+      "type": "categorie",
+      "en": {
+        "titre": "The History of Colors",
+        "sujets": [
+          "Ochre",
+          "Tyrian Purple",
+          "Indigo Dye",
+          "Cochineal Red",
+          "Lapis Lazuli",
+          "Ultramarine",
+          "Prussian Blue",
+          "Scheele's Green",
+          "Mauveine",
+          "Yves Klein Blue",
+          "Vantablack",
+          "Why Blue Is Rare in Nature",
+          "Color Theory",
+          "Synesthesia"
+        ]
+      }
+    },
+    {
+      "type": "fin",
+      "en": {
+        "texte": "save this for ur next boring afternoon. pick one topic, learn it well enough to explain it to a friend, then pick the next one.",
+        "gras": "OR.. u'll be bored again tomorrow."
+      }
+    }
+  ]
+}

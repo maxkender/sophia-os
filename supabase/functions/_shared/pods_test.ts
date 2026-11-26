@@ -9,6 +9,7 @@ import {
   BANQUE_PODZ,
   CHEMIN_POD,
   controlerImageBanque,
+  controlerPhotoBanque,
   contenusLivresHorsApplication,
   contenusLivresHorsLangue,
   deckLivre,
@@ -25,6 +26,7 @@ import {
   metadonneesJpeg,
   NOTE_TIER_POD,
   ouvrirApplicationsOriginal,
+  PHOTOS_PODZ,
   pertinenceOriginalApplication,
   LEGENDE_A_ECARTER,
   LEGENDE_A_ECARTER_PERSONNES,
@@ -83,6 +85,24 @@ Deno.test("controlerImageBanque : JPEG vertical sans métadonnées, légende en 
   const lourd = new Uint8Array(BANQUE_PODZ.octetsMax + 1);
   lourd.set(jpeg(1080, 1920));
   assertEquals(controlerImageBanque(lourd, legende)[0], `image de 4.0 Mo (${BANQUE_PODZ.octetsMax / 1_000_000} Mo au plus)`);
+});
+
+Deno.test("controlerPhotoBanque : photo Pinterest, sans 9:16 imposé, URL d'origine Pinterest", () => {
+  const sof = (l: number, h: number) => [0xff, 0xc0, 0, 17, 8, h >> 8, h & 255, l >> 8, l & 255, 3, ...new Array(9).fill(0)];
+  const jpeg = (l: number, h: number, ...segs: number[][]) =>
+    new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 0, 6, 0, 0, 0, 0, ...segs.flat(), ...sof(l, h), 0xff, 0xda, 0, 2]);
+  const legende = "a man running on a wet mountain road in the fog";
+  const pin = "https://www.pinterest.com/pin/123/";
+  assertEquals(controlerPhotoBanque(jpeg(1080, 1350), legende, pin), []);
+  assertEquals(controlerPhotoBanque(jpeg(1080, 1080), legende, "https://i.pinimg.com/originals/d9/40/49/x.jpg"), []);
+  assertEquals(controlerPhotoBanque(jpeg(600, 900), legende, pin), [`600 px de large (${PHOTOS_PODZ.largeurMin} au moins)`]);
+  assertEquals(controlerPhotoBanque(jpeg(1080, 1350, [0xff, 0xe1, 0, 4, 0, 0]), legende, pin), [
+    "métadonnées 0xe1 : réencode l'image sans métadonnées (ni C2PA, ni XMP, ni EXIF)",
+  ]);
+  assertEquals(controlerPhotoBanque(jpeg(1080, 1350), legende, "https://example.com/x.jpg"), [
+    "origine_url : l'URL https de la pin ou de l'image Pinterest d'origine",
+  ]);
+  assertEquals(PHOTOS_PODZ.labels.originaux_atala_built, ["male-run"]);
 });
 
 Deno.test("verifierDepot : langue source, slide de l'app, positions uniques", () => {

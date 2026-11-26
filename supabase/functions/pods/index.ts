@@ -63,6 +63,10 @@
  *       reconnaissable ni texte restant (pod 10 : son label n'a pas de banque
  *       à lui). Sans personne entière, sauf `personnes: true` (podz 20 : des
  *       filles, sans visage mis en avant).
+ *   { action: "ajouter_photo", pod, label, jpeg_base64, legende, origine_url }
+ *       — agent : verse une photo Pinterest (regardée et retenue) dans la
+ *       banque d'un label de sa liste blanche (`PHOTOS_PODZ.labels`), source
+ *       « pinterest », URL de la pin gardée (doublon refusé).
  *   { action: "top_posts", pod, compte?, limite? }   — agent : nos posts
  *       publiés (avec la slide Sophia) les plus vus, avec leur texte, leurs
  *       images et les slides TikTok d'origine du contenu (modèles de mise en page).
@@ -112,6 +116,8 @@ import {
   BANQUE_PODZ,
   CHEMIN_POD,
   controlerImageBanque,
+  controlerPhotoBanque,
+  PHOTOS_PODZ,
   decksApplicationsDepuisBase,
   ecarterApplicationLivraison,
   fusionnerDecksApps,
@@ -215,6 +221,7 @@ Deno.serve(async (request) => {
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
     if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
     if (body?.action === "ajouter_image") return await ajouterImageBanque(request, supabase, body);
+    if (body?.action === "ajouter_photo") return await ajouterPhotoBanque(request, supabase, body);
     if (body?.action === "photos") return await photosDeLaBanque(request, supabase, body);
     if (body?.action === "top_posts") return await topPosts(request, supabase, body);
     if (body?.action === "auto_valider" || body?.action === "ouvrir_applications_originaux") {
@@ -233,7 +240,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId, tierForce)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | boite | label | images | ajouter_image | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | boite | label | images | ajouter_image | ajouter_photo | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -2104,6 +2111,90 @@ async function ajouterImageBanque(request: Request, supabase: Supabase, body: Re
     throw new Error(`média ${chemin} : ${messageErreur(mErr)}`);
   }
   const { error: lienErr } = await supabase.from("media_labels").insert({ media_id: media.id, label_id: pod.label_id });
+  if (lienErr) {
+    await supabase.from("media_library").delete().eq("id", media.id);
+    await supabase.storage.from(BUCKET).remove([chemin]);
+    throw new Error(`banque du label : ${messageErreur(lienErr)}`);
+  }
+  return json({ ok: true, id: media.id, url });
+}
+
+/**
+ * Verse une photo prise sur Pinterest dans la banque d'un label (demande
+ * d'Adrien du 25/11 : la banque male_run n'avait plus de coureur neuf ; le
+ * podz 24 y verse aussi ses filles qui courent). Le podz l'a regardée et
+ * retenue : pas de marque visible, pas de texte ni de filigrane, pas de
+ * personne connue, nette. Le label doit être dans la liste blanche du podz
+ * (`PHOTOS_PODZ.labels`).
+ *
+ * Rangée sous `propre/pinterest/<pod>/`, source « pinterest », URL d'origine
+ * dans `origine_url` (une même pin n'entre qu'une fois), rattachée au label
+ * choisi, sans application : `photosDeLaBanque` la propose à tous les podz qui
+ * cherchent dans ce label. Au plus `PHOTOS_PODZ.parJour` photos par podz sur 24 h.
+ *
+ *   { action: "ajouter_photo", pod, label, jpeg_base64, legende, origine_url } → { id, url }
+ */
+async function ajouterPhotoBanque(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  const slugLabel = String(body.label ?? "");
+  const permis = PHOTOS_PODZ.labels[pod.slug] ?? [];
+  if (!permis.includes(slugLabel)) {
+    return json({ ok: false, code: "label_interdit", error: `label « ${slugLabel} » : ce podz verse seulement dans ${permis.join(", ") || "aucun label"}` }, 403);
+  }
+  const { data: label, error: lErr } = await supabase.from("labels").select("id").eq("slug", slugLabel).maybeSingle();
+  if (lErr) throw new Error(`label ${slugLabel} : ${messageErreur(lErr)}`);
+  if (!label) return json({ ok: false, error: `label inconnu : ${slugLabel}` }, 400);
+
+  let octets: Uint8Array;
+  try {
+    octets = Uint8Array.from(atob(String(body.jpeg_base64 ?? "")), (c) => c.charCodeAt(0));
+  } catch {
+    return json({ ok: false, error: "jpeg_base64 invalide" }, 400);
+  }
+  const legende = String(body.legende ?? "").trim();
+  const origine = String(body.origine_url ?? "").trim();
+  const erreurs = controlerPhotoBanque(octets, legende, origine);
+  if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+
+  const { data: deja } = await supabase.from("media_library").select("id").eq("origine_url", origine).maybeSingle();
+  if (deja) return json({ ok: false, code: "doublon", error: `déjà dans la banque (${(deja as { id: string }).id})` }, 409);
+
+  const prefixe = `propre/pinterest/${pod.slug}/`;
+  const { count, error: errCompte } = await supabase
+    .from("media_library")
+    .select("id", { count: "exact", head: true })
+    .like("storage_path", `${prefixe}%`)
+    .gte("created_at", new Date(Date.now() - 86_400_000).toISOString());
+  if (errCompte) throw new Error(`photos du jour : ${messageErreur(errCompte)}`);
+  if ((count ?? 0) >= PHOTOS_PODZ.parJour) {
+    return json({ ok: false, code: "quota_photos", error: `quota_photos : ${PHOTOS_PODZ.parJour} photos versées en 24 h au plus` }, 429);
+  }
+
+  const chemin = `${prefixe}${crypto.randomUUID()}.jpg`;
+  const { error: upErr } = await supabase.storage.from(BUCKET).upload(chemin, octets, { contentType: "image/jpeg", upsert: false });
+  if (upErr) throw new Error(`stockage ${chemin} : ${messageErreur(upErr)}`);
+  const url = supabase.storage.from(BUCKET).getPublicUrl(chemin).data.publicUrl as string;
+  const { data: media, error: mErr } = await supabase
+    .from("media_library")
+    .insert({
+      storage_path: chemin,
+      url,
+      source: "pinterest",
+      origine_url: origine,
+      texte_restant: false,
+      caption: legende,
+      caption_statut: "ok",
+      caption_modele: "podz",
+      caption_le: new Date().toISOString(),
+    })
+    .select("id")
+    .single();
+  if (mErr || !media) {
+    await supabase.storage.from(BUCKET).remove([chemin]);
+    throw new Error(`média ${chemin} : ${messageErreur(mErr)}`);
+  }
+  const { error: lienErr } = await supabase.from("media_labels").insert({ media_id: media.id, label_id: (label as { id: string }).id });
   if (lienErr) {
     await supabase.from("media_library").delete().eq("id", media.id);
     await supabase.storage.from(BUCKET).remove([chemin]);

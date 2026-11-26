@@ -1,0 +1,538 @@
+{
+ "id": "tg-007",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies that cost nothing if you have adhd",
+  "bg": "10/10 хобита, които не струват нищо, ако имаш адхд",
+  "de": "10/10 hobbys, die nichts kosten, wenn du adhs hast",
+  "el": "10/10 χόμπι που δεν κοστίζουν τίποτα αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies que no cuestan nada si tienes tdah",
+  "fr": "10/10 loisirs qui ne coûtent rien quand on a un tdah",
+  "hu": "10/10 ingyenes hobbi, ha adhd-s vagy",
+  "it": "10/10 hobby che non costano nulla se hai l'adhd",
+  "pt-BR": "10/10 hobbies que não custam nada se você tem tdah",
+  "sr": "10/10 besplatnih hobija ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #focus #brain #budget",
+  "bg": "#адхд #хобита #фокус #мозък #бюджет",
+  "de": "#adhs #hobbys #fokus #gehirn #sparen",
+  "el": "#δεπυ #χόμπι #συγκέντρωση #εγκέφαλος #δωρεάν",
+  "es-419": "#tdah #hobbies #enfoque #cerebro #gratis",
+  "fr": "#tdah #loisirs #concentration #cerveau #petitbudget",
+  "hu": "#adhd #hobbi #fókusz #agy #ingyen",
+  "it": "#adhd #hobby #concentrazione #cervello #gratis",
+  "pt-BR": "#tdah #hobbies #foco #cerebro #economia",
+  "sr": "#adhd #hobi #fokus #mozak #besplatno"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies that cost nothing if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (09fe9c5b), slide Artura sur un tableau ou un musée de la banque (316730b2), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-route.jpg": "09fe9c5b-0ca8-49cd-bba9-84d898553afb",
+  "images/banque/a-lune.jpg": "316730b2-c3b9-4e4d-b047-b02a2e6a024f"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies that cost nothing\nif you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита, които не струват\nнищо, ако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys, die nichts\nkosten, wenn du adhs hast",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι που δεν κοστίζουν\nτίποτα αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies que no cuestan\nnada si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs qui ne coûtent\nrien quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 ingyenes hobbi,\nha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby che non costano\nnulla se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies que não custam\nnada se você tem tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 besplatnih hobija\nako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/bibliotheque.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "the library",
+    "accroche": "a _free_ building full of _new things_",
+    "colonne": [
+     "you can grab five books on five topics, drop the boring ones and keep the one your brain _won't let go_"
+    ],
+    "chute": "a library card costs nothing, ask at the desk"
+   },
+   "bg": {
+    "nom": "библиотеката",
+    "accroche": "_безплатна_ сграда, пълна с _нови неща_",
+    "colonne": [
+     "вземаш пет книги на пет теми, оставяш скучните и задържаш тази, която мозъкът ти _не пуска_"
+    ],
+    "chute": "картата е безплатна, питай на гишето"
+   },
+   "de": {
+    "nom": "die bibliothek",
+    "accroche": "ein _kostenloses_ haus voller _neuer dinge_",
+    "colonne": [
+     "du nimmst fünf bücher zu fünf themen, lässt die langweiligen liegen und behältst das, das dein gehirn _nicht loslässt_"
+    ],
+    "chute": "der ausweis kostet nichts, frag am tresen"
+   },
+   "el": {
+    "nom": "η βιβλιοθήκη",
+    "accroche": "ένα _δωρεάν_ κτίριο γεμάτο _καινούργια πράγματα_",
+    "colonne": [
+     "παίρνεις πέντε βιβλία, αφήνεις τα βαρετά και κρατάς αυτό που ο εγκέφαλός σου _δεν αφήνει_"
+    ],
+    "chute": "η κάρτα είναι δωρεάν, ρώτα στο γκισέ"
+   },
+   "es-419": {
+    "nom": "la biblioteca",
+    "accroche": "un edificio _gratis_ lleno de _cosas nuevas_",
+    "colonne": [
+     "agarras cinco libros de cinco temas, dejas los aburridos y te quedas con el que tu cerebro _no suelta_"
+    ],
+    "chute": "la credencial es gratis, pregunta en el mostrador"
+   },
+   "fr": {
+    "nom": "la bibliothèque",
+    "accroche": "un bâtiment _gratuit_ rempli de _nouveautés_",
+    "colonne": [
+     "tu prends cinq livres sur cinq sujets, tu lâches les ennuyeux et tu gardes celui que ton cerveau _ne lâche plus_"
+    ],
+    "chute": "la carte est gratuite, demande à l'accueil"
+   },
+   "hu": {
+    "nom": "a könyvtár",
+    "accroche": "egy _ingyenes_ épület tele _újdonsággal_",
+    "colonne": [
+     "kivehetsz öt könyvet öt témában, a unalmasakat visszaviszed, és megtartod azt, amit az agyad _nem enged el_"
+    ],
+    "chute": "a könyvtári tagság ingyenes, kérdezz rá a pultnál"
+   },
+   "it": {
+    "nom": "la biblioteca",
+    "accroche": "un edificio _gratis_ pieno di _cose nuove_",
+    "colonne": [
+     "prendi cinque libri su cinque temi, lasci quelli noiosi e tieni quello che il tuo cervello _non molla_"
+    ],
+    "chute": "la tessera è gratis, chiedi al banco"
+   },
+   "pt-BR": {
+    "nom": "a biblioteca",
+    "accroche": "um prédio _grátis_ cheio de _coisas novas_",
+    "colonne": [
+     "você pega cinco livros de cinco assuntos, larga os chatos e fica com o que seu cérebro _não larga_"
+    ],
+    "chute": "a carteirinha é grátis, é só pedir no balcão"
+   },
+   "sr": {
+    "nom": "biblioteka",
+    "accroche": "_besplatna_ zgrada puna _novih stvari_",
+    "colonne": [
+     "uzmeš pet knjiga o pet tema, vratiš dosadne i zadržiš onu koju tvoj mozak _ne pušta_"
+    ],
+    "chute": "članska karta je besplatna, pitaj na šalteru"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-route.jpg",
+   "cadrage": {
+    "y": 0.6
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "the only gear you need is _a pair of shoes_",
+    "colonne": [
+     "steady cardio gives a restless body somewhere to put its energy, and a first 5k gives a wandering mind a _finish line_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "start with 1 minute running, 1 minute walking"
+   },
+   "bg": {
+    "nom": "бягане",
+    "accroche": "трябва ти само _чифт маратонки_",
+    "colonne": [
+     "кардиото дава на неспокойното тяло къде да изхаби енергия, а първите 5 км дават _финална линия_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "започни с 1 минута бягане, 1 минута ходене"
+   },
+   "de": {
+    "nom": "laufen",
+    "accroche": "du brauchst nur _ein paar schuhe_",
+    "colonne": [
+     "cardio gibt einem unruhigen körper ein ventil, und die ersten 5 km geben dem kopf eine _ziellinie_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "1 minute laufen, 1 minute gehen"
+   },
+   "el": {
+    "nom": "τρέξιμο",
+    "accroche": "χρειάζεσαι μόνο _ένα ζευγάρι παπούτσια_",
+    "colonne": [
+     "το καρδιο δίνει στο ανήσυχο σώμα διέξοδο, και τα πρώτα 5 χλμ δίνουν _τερματισμό_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "ξεκίνα με 1 λεπτό τρέξιμο, 1 λεπτό περπάτημα"
+   },
+   "es-419": {
+    "nom": "correr",
+    "accroche": "solo necesitas _un par de tenis_",
+    "colonne": [
+     "el cardio le da a un cuerpo inquieto dónde poner la energía, y tus primeros 5 km le dan una _meta final_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "empieza con 1 minuto corriendo y 1 caminando"
+   },
+   "fr": {
+    "nom": "courir",
+    "accroche": "il te faut juste _une paire de baskets_",
+    "colonne": [
+     "le cardio donne à un corps agité un endroit où mettre son énergie, et un premier 5 km donne une _ligne d'arrivée_",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "commence par 1 minute de course, 1 minute de marche"
+   },
+   "hu": {
+    "nom": "futás",
+    "accroche": "csak egy _pár cipő_ kell hozzá",
+    "colonne": [
+     "a kitartó kardió levezeti a nyugtalan energiát, egy első 5 km pedig _célvonalat_ ad a kalandozó agynak",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "kezdd 1 perc futással, 1 perc sétával"
+   },
+   "it": {
+    "nom": "correre",
+    "accroche": "ti serve solo _un paio di scarpe_",
+    "colonne": [
+     "il cardio dà a un corpo irrequieto un posto dove mettere l'energia, e i primi 5 km danno un _traguardo_",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "inizia con 1 minuto di corsa e 1 di camminata"
+   },
+   "pt-BR": {
+    "nom": "correr",
+    "accroche": "você só precisa de _um par de tênis_",
+    "colonne": [
+     "o cardio dá ao corpo inquieto onde gastar energia, e os primeiros 5 km dão uma _linha de chegada_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "comece com 1 minuto correndo, 1 andando"
+   },
+   "sr": {
+    "nom": "trčanje",
+    "accroche": "treba ti samo _par patika_",
+    "colonne": [
+     "stalni kardio daje nemirnom telu gde da potroši energiju, a prvih 5 km daje lutajućem umu _ciljnu liniju_",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "počni sa 1 minutom trčanja, 1 minutom hoda"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/promenade.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "walking a new street",
+    "accroche": "your brain loves a _route_ it's _never seen_",
+    "colonne": [
+     "new corners, new shops, new sounds: novelty keeps your attention switched on without a _screen_"
+    ],
+    "chute": "pick a street you've never walked and turn left twice"
+   },
+   "bg": {
+    "nom": "нова улица",
+    "accroche": "мозъкът ти обича _път_, който _не е виждал_",
+    "colonne": [
+     "нови ъгли, нови магазини, нови звуци: новото държи вниманието ти будно без никакъв _екран_"
+    ],
+    "chute": "избери нова улица и завий два пъти наляво"
+   },
+   "de": {
+    "nom": "eine neue straße entdecken",
+    "accroche": "dein gehirn liebt _wege_, die es _nie gesehen_ hat",
+    "colonne": [
+     "neue ecken, neue läden, neue geräusche: neues hält deine aufmerksamkeit wach, ganz ohne _bildschirm_"
+    ],
+    "chute": "nimm eine neue straße und bieg zweimal links ab"
+   },
+   "el": {
+    "nom": "περπάτημα σε νέο δρόμο",
+    "accroche": "ο εγκέφαλος λατρεύει έναν δρόμο _που δεν έχει δει_",
+    "colonne": [
+     "νέες γωνιές, νέα μαγαζιά, νέοι ήχοι: η καινοτομία κρατά την προσοχή ανοιχτή χωρίς _οθόνη_"
+    ],
+    "chute": "διάλεξε έναν άγνωστο δρόμο και στρίψε δύο φορές αριστερά"
+   },
+   "es-419": {
+    "nom": "caminar por una calle nueva",
+    "accroche": "a tu cerebro le encanta un _camino_ que _nunca vio_",
+    "colonne": [
+     "esquinas nuevas, tiendas nuevas, sonidos nuevos: la novedad mantiene tu atención prendida sin _pantalla_"
+    ],
+    "chute": "elige una calle que no conoces y gira dos veces a la izquierda"
+   },
+   "fr": {
+    "nom": "marcher dans une nouvelle rue",
+    "accroche": "ton cerveau adore un _chemin_ jamais _vu_",
+    "colonne": [
+     "nouveaux coins, nouvelles boutiques, nouveaux bruits : la nouveauté garde ton attention allumée sans _écran_"
+    ],
+    "chute": "prends une rue inconnue et tourne deux fois à gauche"
+   },
+   "hu": {
+    "nom": "séta egy új utcán",
+    "accroche": "az agyad imádja az _ismeretlen_ utat",
+    "colonne": [
+     "új sarkok, új boltok, új hangok: az újdonság képernyő nélkül is _ébren tartja_ a figyelmed"
+    ],
+    "chute": "válassz egy utcát, ahol még nem jártál"
+   },
+   "it": {
+    "nom": "camminare in una via nuova",
+    "accroche": "il cervello ama una _strada_ mai _vista_",
+    "colonne": [
+     "angoli nuovi, negozi nuovi, suoni nuovi: la novità tiene accesa l'attenzione senza _schermo_"
+    ],
+    "chute": "scegli una via mai fatta e gira a sinistra due volte"
+   },
+   "pt-BR": {
+    "nom": "andar por uma rua nova",
+    "accroche": "seu cérebro ama um _caminho_ que _nunca viu_",
+    "colonne": [
+     "esquinas novas, lojas novas, sons novos: a novidade mantém sua atenção ligada sem _tela_ nenhuma"
+    ],
+    "chute": "escolha uma rua nova e vire à esquerda duas vezes"
+   },
+   "sr": {
+    "nom": "šetnja novom ulicom",
+    "accroche": "mozak voli put koji _nikad nije video_",
+    "colonne": [
+     "novi uglovi, nove radnje, novi zvuci: novost drži pažnju budnom i bez _ekrana_"
+    ],
+    "chute": "izaberi ulicu kojom nikad nisi prošao"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-lune.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "learning to look at art",
+    "accroche": "one painting is _free_ and _endless_",
+    "colonne": [
+     "the longer you look the more you find: the light, the hands, the tiny thing in the corner nobody _notices_",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "most museums have a free day every month"
+   },
+   "bg": {
+    "nom": "да се научиш да гледаш изкуство",
+    "accroche": "една картина е _безплатна_ и _безкрайна_",
+    "colonne": [
+     "колкото повече гледаш, толкова повече откриваш: светлината, ръцете, детайла, който никой _не забелязва_",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "много музеи имат безплатен ден всеки месец"
+   },
+   "de": {
+    "nom": "kunst sehen lernen",
+    "accroche": "ein gemälde ist _kostenlos_ und _endlos_",
+    "colonne": [
+     "je länger du schaust, desto mehr findest du: das licht, die hände, das detail, das _keiner sieht_",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "viele museen haben einen gratis-tag im monat"
+   },
+   "el": {
+    "nom": "μαθαίνω να κοιτάζω τέχνη",
+    "accroche": "ένας πίνακας είναι _δωρεάν_ και _ατελείωτος_",
+    "colonne": [
+     "όσο κοιτάς τόσο βρίσκεις: το φως, τα χέρια, τη λεπτομέρεια που κανείς _δεν προσέχει_",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "πολλά μουσεία είναι δωρεάν μία μέρα τον μήνα"
+   },
+   "es-419": {
+    "nom": "aprender a mirar arte",
+    "accroche": "una pintura es _gratis_ e _infinita_",
+    "colonne": [
+     "mientras más miras, más encuentras: la luz, las manos, el detalle que nadie _nota_",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "muchos museos son gratis un día al mes"
+   },
+   "fr": {
+    "nom": "apprendre à regarder l'art",
+    "accroche": "un tableau, c'est _gratuit_ et _sans fin_",
+    "colonne": [
+     "plus tu regardes, plus tu trouves : la lumière, les mains, le détail que personne _ne remarque_",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "beaucoup de musées sont gratuits un jour par mois"
+   },
+   "hu": {
+    "nom": "megtanulni nézni a művészetet",
+    "accroche": "egy festmény _ingyenes_ és _végtelen_",
+    "colonne": [
+     "minél tovább nézed, annál többet találsz: a fény, a kezek, az apróság a sarokban, amit _senki sem lát_",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "a legtöbb múzeumban van havi ingyenes nap"
+   },
+   "it": {
+    "nom": "imparare a guardare l'arte",
+    "accroche": "un dipinto è _gratis_ e _infinito_",
+    "colonne": [
+     "più guardi, più trovi: la luce, le mani, il dettaglio nell'angolo che nessuno _nota_",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "molti musei sono gratis un giorno al mese"
+   },
+   "pt-BR": {
+    "nom": "aprender a olhar arte",
+    "accroche": "uma pintura é _grátis_ e _infinita_",
+    "colonne": [
+     "quanto mais você olha, mais encontra: a luz, as mãos, o detalhe no canto que ninguém _nota_",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "muitos museus têm um dia grátis por mês"
+   },
+   "sr": {
+    "nom": "učiti da gledaš umetnost",
+    "accroche": "jedna slika je _besplatna_ i _beskrajna_",
+    "colonne": [
+     "što duže gledaš, više nalaziš: svetlo, ruke, sitnicu u uglu koju _niko ne primeti_",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "većina muzeja ima besplatan dan svakog meseca"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/echecs.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "chess in the park",
+    "accroche": "every move is a _tiny puzzle_ you _can't skip_",
+    "colonne": [
+     "the board changes every turn, so a brain that bores fast always has a _new problem_ to solve"
+    ],
+    "chute": "bring a board, someone always wants to play"
+   },
+   "bg": {
+    "nom": "шах в парка",
+    "accroche": "всеки ход е _малък пъзел_",
+    "colonne": [
+     "дъската се променя всеки ход, така че мозък, който бързо скучае, винаги има _нов проблем_"
+    ],
+    "chute": "вземи дъска, винаги има кой да играе"
+   },
+   "de": {
+    "nom": "schach im park",
+    "accroche": "jeder zug ist ein _kleines rätsel_",
+    "colonne": [
+     "das brett ändert sich jede runde, also hat ein schnell gelangweiltes gehirn immer ein _neues problem_"
+    ],
+    "chute": "bring ein brett mit, irgendwer spielt immer"
+   },
+   "el": {
+    "nom": "σκάκι στο πάρκο",
+    "accroche": "κάθε κίνηση είναι ένας _μικρός γρίφος_",
+    "colonne": [
+     "η σκακιέρα αλλάζει κάθε γύρο, έτσι ένα μυαλό που βαριέται γρήγορα έχει πάντα _νέο πρόβλημα_"
+    ],
+    "chute": "φέρε μια σκακιέρα, κάποιος θα θέλει να παίξει"
+   },
+   "es-419": {
+    "nom": "ajedrez en el parque",
+    "accroche": "cada jugada es un _pequeño acertijo_",
+    "colonne": [
+     "el tablero cambia en cada turno, así que un cerebro que se aburre rápido siempre tiene un _problema nuevo_"
+    ],
+    "chute": "lleva un tablero, siempre hay alguien que quiere jugar"
+   },
+   "fr": {
+    "nom": "les échecs au parc",
+    "accroche": "chaque coup est un _petit casse-tête_",
+    "colonne": [
+     "le plateau change à chaque tour, donc un cerveau qui s'ennuie vite a toujours un _nouveau problème_"
+    ],
+    "chute": "apporte un plateau, quelqu'un voudra toujours jouer"
+   },
+   "hu": {
+    "nom": "sakk a parkban",
+    "accroche": "minden lépés egy _kis rejtvény_",
+    "colonne": [
+     "a tábla minden körben változik, így a gyorsan unatkozó agynak mindig van _új feladata_"
+    ],
+    "chute": "vigyél egy táblát, mindig akad partner"
+   },
+   "it": {
+    "nom": "gli scacchi al parco",
+    "accroche": "ogni mossa è un _piccolo enigma_",
+    "colonne": [
+     "la scacchiera cambia a ogni turno, così un cervello che si annoia in fretta ha sempre un _problema nuovo_"
+    ],
+    "chute": "porta una scacchiera, qualcuno vuole sempre giocare"
+   },
+   "pt-BR": {
+    "nom": "xadrez no parque",
+    "accroche": "cada jogada é um _mini quebra-cabeça_",
+    "colonne": [
+     "o tabuleiro muda a cada vez, então um cérebro que enjoa rápido sempre tem um _problema novo_"
+    ],
+    "chute": "leve um tabuleiro, sempre aparece alguém pra jogar"
+   },
+   "sr": {
+    "nom": "šah u parku",
+    "accroche": "svaki potez je _mala zagonetka_",
+    "colonne": [
+     "tabla se menja svakim potezom, pa mozak kom brzo dosadi uvek ima _novi problem_"
+    ],
+    "chute": "ponesi tablu, uvek se nađe neko za partiju"
+   }
+  }
+ ]
+}

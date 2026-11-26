@@ -1,0 +1,538 @@
+{
+ "id": "tg-011",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 weekend hobbies that actually work if you have adhd",
+  "bg": "10/10 хобита за уикенда, които наистина работят, ако имаш адхд",
+  "de": "10/10 wochenend-hobbys, die bei adhs wirklich funktionieren",
+  "el": "10/10 χόμπι σαββατοκύριακου που δουλεύουν αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies de fin de semana que sí funcionan si tienes tdah",
+  "fr": "10/10 loisirs du week-end qui marchent quand on a un tdah",
+  "hu": "10/10 hétvégi hobbi, ami tényleg működik, ha adhd-s vagy",
+  "it": "10/10 hobby da weekend che funzionano se hai l'adhd",
+  "pt-BR": "10/10 hobbies de fim de semana que funcionam de verdade se você tem tdah",
+  "sr": "10/10 vikend hobija koji stvarno pomažu ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #weekend #focus #brain",
+  "bg": "#адхд #хобита #уикенд #фокус #мозък",
+  "de": "#adhs #hobbys #wochenende #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #σαββατοκύριακο #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #findesemana #enfoque #cerebro",
+  "fr": "#tdah #loisirs #weekend #concentration #cerveau",
+  "hu": "#adhd #hobbi #hétvége #fókusz #agy",
+  "it": "#adhd #hobby #weekend #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #fimdesemana #foco #cerebro",
+  "sr": "#adhd #hobi #vikend #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 weekend hobbies that actually work if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (3955cda1), slide Artura sur un tableau ou un musée de la banque (065c5865), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-club.jpg": "3955cda1-90eb-458e-baae-1fc4ff4a1dfa",
+  "images/banque/a-couloir.jpg": "065c5865-a1f1-46bb-b75b-d49000c4c8c3"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 weekend hobbies that\nactually work if you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита за уикенда, които\nнаистина работят при адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 wochenend-hobbys, die\nbei adhs wirklich funktionieren",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι σαββατοκύριακου\nπου δουλεύουν αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies de fin de semana\nque sí funcionan si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs du week-end qui\nmarchent quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hétvégi hobbi, ami\ntényleg működik, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby da weekend che\nfunzionano se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies de fim de semana\nque funcionam com tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 vikend hobija koji\nstvarno pomažu ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/randonnee.jpg",
+   "cadrage": {
+    "y": 0.45
+   },
+   "en": {
+    "nom": "hiking",
+    "accroche": "a _summit_ is the _clearest goal_ there is",
+    "colonne": [
+     "the trail changes every step, and reaching the top gives a scattered brain a _real finish line_"
+    ],
+    "chute": "start with a 2 hour loop near you"
+   },
+   "bg": {
+    "nom": "походи",
+    "accroche": "_върхът_ е _най-ясната цел_",
+    "colonne": [
+     "пътеката се мени с всяка стъпка, а горе разсеяният мозък получава _финална линия_"
+    ],
+    "chute": "започни с 2-часов маршрут близо до теб"
+   },
+   "de": {
+    "nom": "wandern",
+    "accroche": "ein _gipfel_ ist das _klarste ziel_ überhaupt",
+    "colonne": [
+     "der weg ändert sich mit jedem schritt, und oben anzukommen gibt einem zerstreuten kopf eine _ziellinie_"
+    ],
+    "chute": "fang mit einer 2-stunden-runde in deiner nähe an"
+   },
+   "el": {
+    "nom": "πεζοπορία",
+    "accroche": "μια _κορυφή_ είναι ο _πιο σαφής στόχος_",
+    "colonne": [
+     "το μονοπάτι αλλάζει σε κάθε βήμα, και η κορυφή δίνει στο σκόρπιο μυαλό _πραγματικό τερματισμό_"
+    ],
+    "chute": "ξεκίνα με μια διαδρομή 2 ωρών κοντά σου"
+   },
+   "es-419": {
+    "nom": "senderismo",
+    "accroche": "una _cima_ es la _meta más clara_",
+    "colonne": [
+     "el sendero cambia a cada paso, y llegar arriba le da a un cerebro disperso una _meta real_"
+    ],
+    "chute": "empieza con una ruta de 2 horas cerca de ti"
+   },
+   "fr": {
+    "nom": "la randonnée",
+    "accroche": "un _sommet_, c'est l'_objectif le plus clair_",
+    "colonne": [
+     "le sentier change à chaque pas, et atteindre le sommet donne à un cerveau dispersé une _vraie ligne d'arrivée_"
+    ],
+    "chute": "commence par une boucle de 2 heures près de chez toi"
+   },
+   "hu": {
+    "nom": "túrázás",
+    "accroche": "a _csúcs_ a _legtisztább cél_",
+    "colonne": [
+     "az ösvény minden lépésnél változik, a csúcs pedig _igazi célvonalat_ ad a szétszórt agynak"
+    ],
+    "chute": "kezdd egy 2 órás körrel a közeledben"
+   },
+   "it": {
+    "nom": "il trekking",
+    "accroche": "una _vetta_ è l'_obiettivo più chiaro_",
+    "colonne": [
+     "il sentiero cambia a ogni passo, e arrivare in cima dà a un cervello disperso un _vero traguardo_"
+    ],
+    "chute": "inizia con un giro di 2 ore vicino a casa"
+   },
+   "pt-BR": {
+    "nom": "trilha",
+    "accroche": "um _topo_ é a _meta mais clara_ que existe",
+    "colonne": [
+     "o caminho muda a cada passo, e chegar lá em cima dá a um cérebro disperso uma _linha de chegada_"
+    ],
+    "chute": "comece com uma trilha de 2 horas perto de você"
+   },
+   "sr": {
+    "nom": "planinarenje",
+    "accroche": "_vrh_ je _najjasniji cilj_ koji postoji",
+    "colonne": [
+     "staza se menja na svakom koraku, a vrh daje rasutom mozgu _pravu ciljnu liniju_"
+    ],
+    "chute": "počni sa krugom od 2 sata u blizini"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-club.jpg",
+   "cadrage": {
+    "y": 0.55
+   },
+   "en": {
+    "nom": "a running club",
+    "accroche": "people _waiting for you_ makes you _show up_",
+    "colonne": [
+     "running with a group gives your week structure, and a shared goal keeps a busy brain _accountable_",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "most clubs have a free saturday run"
+   },
+   "bg": {
+    "nom": "клуб по бягане",
+    "accroche": "хора, които _те чакат_, те карат _да дойдеш_",
+    "colonne": [
+     "бягането в група дава структура на седмицата, а общата цел те държи _ангажирана_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "много клубове имат безплатно бягане в събота"
+   },
+   "de": {
+    "nom": "ein lauftreff",
+    "accroche": "leute, die _auf dich warten_, bringen dich _hin_",
+    "colonne": [
+     "in der gruppe laufen gibt der woche struktur, und ein gemeinsames ziel hält dich _dran_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "viele lauftreffs laufen samstags gratis"
+   },
+   "el": {
+    "nom": "ομάδα τρεξίματος",
+    "accroche": "όταν κάποιοι _σε περιμένουν_, _έρχεσαι_",
+    "colonne": [
+     "το τρέξιμο σε ομάδα δίνει δομή, και ο κοινός στόχος κρατά το μυαλό _συγκεντρωμένο_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "πολλές ομάδες έχουν δωρεάν τρέξιμο το σάββατο"
+   },
+   "es-419": {
+    "nom": "un club de running",
+    "accroche": "si alguien _te espera_, _llegas_",
+    "colonne": [
+     "correr en grupo le da estructura a tu semana, y una meta compartida mantiene a un cerebro lleno _enfocado_",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "muchos clubes tienen una carrera gratis el sábado"
+   },
+   "fr": {
+    "nom": "un club de course",
+    "accroche": "des gens _t'attendent_, alors tu _viens_",
+    "colonne": [
+     "courir en groupe structure ta semaine, et un objectif commun garde un cerveau chargé _sur les rails_",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "beaucoup de clubs font une sortie gratuite le samedi"
+   },
+   "hu": {
+    "nom": "futóklub",
+    "accroche": "ha _várnak rád_, _elmész_",
+    "colonne": [
+     "a csoportos futás keretet ad a hetednek, a közös cél pedig _számon tartja_ a zsúfolt agyat",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "a legtöbb klubnak van ingyenes szombati futása"
+   },
+   "it": {
+    "nom": "un gruppo di corsa",
+    "accroche": "se qualcuno _ti aspetta_, ti _presenti_",
+    "colonne": [
+     "correre in gruppo dà struttura alla settimana, e un obiettivo comune tiene un cervello pieno _sul pezzo_",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "molti gruppi hanno un'uscita gratis il sabato"
+   },
+   "pt-BR": {
+    "nom": "um grupo de corrida",
+    "accroche": "gente _te esperando_ faz você _aparecer_",
+    "colonne": [
+     "correr em grupo dá estrutura à semana, e uma meta em comum mantém o cérebro _no compromisso_",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "muitos grupos têm corrida grátis no sábado"
+   },
+   "sr": {
+    "nom": "klub trčanja",
+    "accroche": "kad te _neko čeka_, _dođeš_",
+    "colonne": [
+     "trčanje u grupi daje nedelji strukturu, a zajednički cilj drži prenatrpan mozak _odgovornim_",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "većina klubova ima besplatno subotnje trčanje"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/brocante.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "flea markets",
+    "accroche": "a _treasure hunt_ every _single stall_",
+    "colonne": [
+     "your eyes keep scanning for the one thing worth finding, the same thrill as a feed, but _offline_"
+    ],
+    "chute": "go early with a little cash"
+   },
+   "bg": {
+    "nom": "битпазари",
+    "accroche": "_лов на съкровища_ на _всяка сергия_",
+    "colonne": [
+     "очите ти търсят единственото нещо, което си струва, същата тръпка като фийда, но _офлайн_"
+    ],
+    "chute": "иди рано с малко пари в брой"
+   },
+   "de": {
+    "nom": "flohmärkte",
+    "accroche": "eine _schatzsuche_ an _jedem stand_",
+    "colonne": [
+     "deine augen suchen das eine teil, das sich lohnt, derselbe kick wie im feed, nur _offline_"
+    ],
+    "chute": "geh früh und nimm etwas bargeld mit"
+   },
+   "el": {
+    "nom": "παζάρια",
+    "accroche": "ένα _κυνήγι θησαυρού_ σε _κάθε πάγκο_",
+    "colonne": [
+     "τα μάτια ψάχνουν συνέχεια το ένα πράγμα που αξίζει, η ίδια συγκίνηση με το feed, αλλά _offline_"
+    ],
+    "chute": "πήγαινε νωρίς με λίγα μετρητά"
+   },
+   "es-419": {
+    "nom": "los tianguis",
+    "accroche": "una _búsqueda del tesoro_ en _cada puesto_",
+    "colonne": [
+     "tus ojos buscan todo el tiempo la cosa que vale la pena, la misma emoción del feed, pero _offline_"
+    ],
+    "chute": "ve temprano y lleva algo de efectivo"
+   },
+   "fr": {
+    "nom": "les brocantes",
+    "accroche": "une _chasse au trésor_ à _chaque stand_",
+    "colonne": [
+     "tes yeux cherchent sans arrêt la pièce qui vaut le coup, le même frisson qu'un feed, mais _hors ligne_"
+    ],
+    "chute": "vas-y tôt avec un peu de liquide"
+   },
+   "hu": {
+    "nom": "bolhapiacok",
+    "accroche": "_kincsvadászat_ minden _egyes standnál_",
+    "colonne": [
+     "a szemed folyamatosan azt az egy dolgot keresi, ugyanaz az izgalom, mint a feedben, csak _offline_"
+    ],
+    "chute": "menj korán, kevés készpénzzel"
+   },
+   "it": {
+    "nom": "i mercatini dell'usato",
+    "accroche": "una _caccia al tesoro_ a _ogni banco_",
+    "colonne": [
+     "gli occhi cercano di continuo il pezzo giusto, lo stesso brivido del feed, ma _offline_"
+    ],
+    "chute": "vai presto con un po' di contanti"
+   },
+   "pt-BR": {
+    "nom": "feiras de antiguidades",
+    "accroche": "uma _caça ao tesouro_ em _cada barraca_",
+    "colonne": [
+     "seus olhos procuram aquela peça que vale a pena, a mesma emoção do feed, mas _offline_"
+    ],
+    "chute": "vá cedo e leve um pouco de dinheiro"
+   },
+   "sr": {
+    "nom": "buvljaci",
+    "accroche": "_lov na blago_ na _svakoj tezgi_",
+    "colonne": [
+     "oči stalno traže tu jednu stvar vrednu nalaska, isto uzbuđenje kao feed, ali _oflajn_"
+    ],
+    "chute": "idi rano, sa malo keša"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-couloir.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a gallery morning",
+    "accroche": "coffee, _one exhibition_, _no phone_",
+    "colonne": [
+     "a quiet gallery on a weekend morning gives your brain something new to look at without the noise",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "check what's free this weekend"
+   },
+   "bg": {
+    "nom": "сутрин в галерията",
+    "accroche": "кафе, _една изложба_, _без телефон_",
+    "colonne": [
+     "тиха галерия в уикенда дава на мозъка ново нещо за гледане, без шум",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "виж какво е безплатно този уикенд"
+   },
+   "de": {
+    "nom": "ein morgen in der galerie",
+    "accroche": "kaffee, _eine ausstellung_, _kein handy_",
+    "colonne": [
+     "eine ruhige galerie am wochenende gibt deinem kopf neues zum schauen, ohne lärm",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "schau, was dieses wochenende gratis ist"
+   },
+   "el": {
+    "nom": "πρωινό σε γκαλερί",
+    "accroche": "καφές, _μία έκθεση_, _χωρίς κινητό_",
+    "colonne": [
+     "μια ήσυχη γκαλερί το σαββατοκύριακο δίνει στο μυαλό κάτι νέο χωρίς φασαρία",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "δες τι είναι δωρεάν αυτό το σαββατοκύριακο"
+   },
+   "es-419": {
+    "nom": "una mañana de galería",
+    "accroche": "café, _una expo_, _sin celular_",
+    "colonne": [
+     "una galería tranquila el fin de semana le da a tu cerebro algo nuevo que mirar, sin ruido",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "revisa qué está gratis este fin de semana"
+   },
+   "fr": {
+    "nom": "une matinée au musée",
+    "accroche": "un café, _une expo_, _pas de téléphone_",
+    "colonne": [
+     "une galerie calme le week-end donne à ton cerveau du neuf à regarder, sans le bruit",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "regarde ce qui est gratuit ce week-end"
+   },
+   "hu": {
+    "nom": "galériás délelőtt",
+    "accroche": "kávé, _egy kiállítás_, _semmi telefon_",
+    "colonne": [
+     "egy csendes galéria hétvége reggel újat ad az agyadnak zaj nélkül",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "nézd meg, mi ingyenes ezen a hétvégén"
+   },
+   "it": {
+    "nom": "una mattina in galleria",
+    "accroche": "caffè, _una mostra_, _niente telefono_",
+    "colonne": [
+     "una galleria tranquilla nel weekend dà al cervello qualcosa di nuovo da guardare, senza rumore",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "guarda cosa è gratis questo weekend"
+   },
+   "pt-BR": {
+    "nom": "uma manhã na galeria",
+    "accroche": "café, _uma exposição_, _sem celular_",
+    "colonne": [
+     "uma galeria calma no fim de semana dá ao cérebro algo novo pra olhar, sem barulho",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "veja o que tem de grátis nesse fim de semana"
+   },
+   "sr": {
+    "nom": "jutro u galeriji",
+    "accroche": "kafa, _jedna izložba_, _bez telefona_",
+    "colonne": [
+     "tiha galerija vikend jutrom daje mozgu nešto novo bez buke",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "proveri šta je besplatno ovog vikenda"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/velo.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "cycling",
+    "accroche": "the road _keeps changing_, so you _stay with it_",
+    "colonne": [
+     "you steer, brake and look around all the time, and a new route every weekend keeps it _new_"
+    ],
+    "chute": "pick a river path and ride until you're halfway tired"
+   },
+   "bg": {
+    "nom": "колоездене",
+    "accroche": "пътят _постоянно се мени_, затова _оставаш в него_",
+    "colonne": [
+     "управляваш, спираш и гледаш наоколо през цялото време, а нов маршрут всеки уикенд го държи _ново_"
+    ],
+    "chute": "избери пътека край реката и карай"
+   },
+   "de": {
+    "nom": "radfahren",
+    "accroche": "die straße _ändert sich ständig_, also _bleibst du dran_",
+    "colonne": [
+     "du lenkst, bremst und schaust dich um, und eine neue route jedes wochenende hält es _neu_"
+    ],
+    "chute": "nimm einen weg am fluss und fahr los"
+   },
+   "el": {
+    "nom": "ποδήλατο",
+    "accroche": "ο δρόμος _αλλάζει συνέχεια_, άρα _μένεις εκεί_",
+    "colonne": [
+     "στρίβεις, φρενάρεις, κοιτάς γύρω, και μια νέα διαδρομή κάθε φορά το κρατά _καινούργιο_"
+    ],
+    "chute": "ακολούθα έναν δρόμο δίπλα στο ποτάμι"
+   },
+   "es-419": {
+    "nom": "andar en bici",
+    "accroche": "el camino _siempre cambia_, así que _sigues ahí_",
+    "colonne": [
+     "giras, frenas y miras alrededor todo el tiempo, y una ruta nueva cada fin lo mantiene _nuevo_"
+    ],
+    "chute": "sigue un camino junto al río hasta media cansada"
+   },
+   "fr": {
+    "nom": "le vélo",
+    "accroche": "la route _change sans cesse_, donc tu _restes dedans_",
+    "colonne": [
+     "tu diriges, tu freines, tu regardes partout, et un nouveau trajet chaque week-end garde tout _nouveau_"
+    ],
+    "chute": "suis une piste au bord de l'eau jusqu'à mi-fatigue"
+   },
+   "hu": {
+    "nom": "biciklizés",
+    "accroche": "az út _folyton változik_, így _veled marad_",
+    "colonne": [
+     "kormányzol, fékezel, nézelődsz, és minden hétvégén egy új útvonal _újdonság_ marad"
+    ],
+    "chute": "válassz egy folyóparti utat"
+   },
+   "it": {
+    "nom": "andare in bici",
+    "accroche": "la strada _cambia sempre_, quindi _resti presente_",
+    "colonne": [
+     "sterzi, freni e ti guardi intorno, e un percorso nuovo ogni weekend lo rende sempre _nuovo_"
+    ],
+    "chute": "segui una pista lungo il fiume fino a metà fatica"
+   },
+   "pt-BR": {
+    "nom": "pedalar",
+    "accroche": "a estrada _muda o tempo todo_, então você _fica nela_",
+    "colonne": [
+     "você dirige, freia e olha em volta o tempo todo, e uma rota nova por semana mantém tudo _novo_"
+    ],
+    "chute": "escolha uma ciclovia na beira do rio e vá"
+   },
+   "sr": {
+    "nom": "vožnja bicikla",
+    "accroche": "put se _stalno menja_, pa _ostaješ prisutan_",
+    "colonne": [
+     "upravljaš, kočiš, gledaš oko sebe, a nova ruta svakog vikenda ostaje _nova_"
+    ],
+    "chute": "izaberi stazu pored reke"
+   }
+  }
+ ]
+}

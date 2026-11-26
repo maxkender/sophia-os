@@ -1,0 +1,538 @@
+{
+ "id": "tg-009",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "10/10 hobbies to replace scrolling if you have adhd",
+  "bg": "10/10 хобита вместо скролване, ако имаш адхд",
+  "de": "10/10 hobbys statt scrollen, wenn du adhs hast",
+  "el": "10/10 χόμπι για να κόψεις το σκρολάρισμα αν έχεις ΔΕΠΥ",
+  "es-419": "10/10 hobbies para dejar de scrollear si tienes tdah",
+  "fr": "10/10 loisirs pour arrêter de scroller quand on a un tdah",
+  "hu": "10/10 hobbi a görgetés helyett, ha adhd-s vagy",
+  "it": "10/10 hobby per smettere di scrollare se hai l'adhd",
+  "pt-BR": "10/10 hobbies pra trocar o scroll se você tem tdah",
+  "sr": "10/10 hobija umesto skrolovanja ako imaš adhd"
+ },
+ "legendes": {
+  "en": "#adhd #hobbies #screentime #focus #brain",
+  "bg": "#адхд #хобита #екранновреме #фокус #мозък",
+  "de": "#adhs #hobbys #bildschirmzeit #fokus #gehirn",
+  "el": "#δεπυ #χόμπι #οθόνη #συγκέντρωση #εγκέφαλος",
+  "es-419": "#tdah #hobbies #tiempodepantalla #enfoque #cerebro",
+  "fr": "#tdah #loisirs #tempsdecran #concentration #cerveau",
+  "hu": "#adhd #hobbi #képernyőidő #fókusz #agy",
+  "it": "#adhd #hobby #tempodischermo #concentrazione #cervello",
+  "pt-BR": "#tdah #hobbies #tempodetela #foco #cerebro",
+  "sr": "#adhd #hobi #ekran #fokus #mozak"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7695559841083427592"
+ },
+ "notes": "Full test (pas de post source) : « 10/10 hobbies to replace scrolling if you have adhd », une accroche jamais faite chez nous, au format « 10/10 … if you have adhd » de @traceygreen589 (sa famille à 705 k, 532 k, 169 k). Slide Atala sur une photo de course de la banque (1566b9ba), slide Artura sur un tableau ou un musée de la banque (603c3a70), cta A pour les deux. Les autres loisirs en Seedream.",
+ "banque": {
+  "images/banque/c-tresse.jpg": "1566b9ba-05dc-4268-8c14-793efac97a33",
+  "images/banque/a-bal.jpg": "603c3a70-3146-449e-83a1-56f728f5cffb"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": "images/photos/cerveau.jpg",
+   "en": {
+    "titre": "10/10 hobbies to replace\nscrolling if you have adhd",
+    "note": "(neuroscience backed)"
+   },
+   "bg": {
+    "titre": "10/10 хобита вместо\nскролване, ако имаш адхд",
+    "note": "(подкрепено от невронауката)"
+   },
+   "de": {
+    "titre": "10/10 hobbys statt scrollen,\nwenn du adhs hast",
+    "note": "(neurowissenschaftlich belegt)"
+   },
+   "el": {
+    "titre": "10/10 χόμπι για να κόψεις\nτο σκρολάρισμα αν έχεις ΔΕΠΥ",
+    "note": "(με βάση τη νευροεπιστήμη)"
+   },
+   "es-419": {
+    "titre": "10/10 hobbies para dejar de\nscrollear si tienes tdah",
+    "note": "(respaldado por la neurociencia)"
+   },
+   "fr": {
+    "titre": "10/10 loisirs pour arrêter de\nscroller quand on a un tdah",
+    "note": "(selon les neurosciences)"
+   },
+   "hu": {
+    "titre": "10/10 hobbi a görgetés\nhelyett, ha adhd-s vagy",
+    "note": "(idegtudományi alapon)"
+   },
+   "it": {
+    "titre": "10/10 hobby per smettere di\nscrollare se hai l'adhd",
+    "note": "(basato sulle neuroscienze)"
+   },
+   "pt-BR": {
+    "titre": "10/10 hobbies pra trocar o\nscroll se você tem tdah",
+    "note": "(baseado em neurociência)"
+   },
+   "sr": {
+    "titre": "10/10 hobija umesto\nskrolovanja ako imaš adhd",
+    "note": "(potvrđeno neuronaukom)"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/motsfleches.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "crosswords",
+    "accroche": "the _same_ quick reward as a feed, but _on paper_",
+    "colonne": [
+     "every word you find is a small hit of satisfaction, and the grid tells you exactly _what's left_"
+    ],
+    "chute": "start with the easy one in the weekend paper"
+   },
+   "bg": {
+    "nom": "кръстословици",
+    "accroche": "същата награда като фийда, но _на хартия_",
+    "colonne": [
+     "всяка намерена дума е малко удовлетворение, а мрежата ти казва точно _какво остава_"
+    ],
+    "chute": "започни с лесната в уикенд вестника"
+   },
+   "de": {
+    "nom": "kreuzworträtsel",
+    "accroche": "derselbe kick wie im feed, nur _auf papier_",
+    "colonne": [
+     "jedes gefundene wort ist ein kleines erfolgserlebnis, und das raster zeigt dir genau, _was fehlt_"
+    ],
+    "chute": "fang mit dem leichten in der wochenendzeitung an"
+   },
+   "el": {
+    "nom": "σταυρόλεξα",
+    "accroche": "η ίδια γρήγορη ανταμοιβή, αλλά _σε χαρτί_",
+    "colonne": [
+     "κάθε λέξη που βρίσκεις είναι μια μικρή ικανοποίηση, και το πλέγμα σου λέει _τι μένει_"
+    ],
+    "chute": "ξεκίνα με το εύκολο της κυριακάτικης εφημερίδας"
+   },
+   "es-419": {
+    "nom": "crucigramas",
+    "accroche": "la misma recompensa rápida del feed, pero _en papel_",
+    "colonne": [
+     "cada palabra que encuentras es una pequeña satisfacción, y la cuadrícula te dice _qué falta_"
+    ],
+    "chute": "empieza con el fácil del periódico del fin de semana"
+   },
+   "fr": {
+    "nom": "les mots croisés",
+    "accroche": "la même petite récompense qu'un feed, mais _sur papier_",
+    "colonne": [
+     "chaque mot trouvé est une petite satisfaction, et la grille te dit exactement _ce qu'il reste_"
+    ],
+    "chute": "commence par la grille facile du journal du week-end"
+   },
+   "hu": {
+    "nom": "keresztrejtvény",
+    "accroche": "ugyanaz a gyors jutalom, csak _papíron_",
+    "colonne": [
+     "minden megtalált szó egy kis elégedettség, és a rács pontosan mutatja, _mi van még hátra_"
+    ],
+    "chute": "kezdd a hétvégi újság könnyű rejtvényével"
+   },
+   "it": {
+    "nom": "le parole crociate",
+    "accroche": "la stessa piccola ricompensa del feed, ma _su carta_",
+    "colonne": [
+     "ogni parola trovata è una piccola soddisfazione, e lo schema ti dice esattamente _cosa manca_"
+    ],
+    "chute": "inizia con quello facile del giornale del weekend"
+   },
+   "pt-BR": {
+    "nom": "palavras cruzadas",
+    "accroche": "a mesma recompensa do feed, mas _no papel_",
+    "colonne": [
+     "cada palavra encontrada é uma pequena satisfação, e a grade mostra exatamente _o que falta_"
+    ],
+    "chute": "comece pela fácil do jornal de domingo"
+   },
+   "sr": {
+    "nom": "ukrštene reči",
+    "accroche": "ista brza nagrada kao feed, ali _na papiru_",
+    "colonne": [
+     "svaka pronađena reč je malo zadovoljstvo, a mreža ti tačno kaže _šta je ostalo_"
+    ],
+    "chute": "počni sa lakom iz vikend novina"
+   }
+  },
+  {
+   "type": "artura",
+   "photo": "images/banque/a-bal.jpg",
+   "cadrage": {
+    "y": 0.4
+   },
+   "en": {
+    "nom": "one painting instead of one reel",
+    "accroche": "swap _thirty seconds_ for _one story_",
+    "colonne": [
+     "a painting has drama, hidden details and a backstory, the same novelty a feed gives you, in _one picture_",
+     "_pro tip_: i use artura, one artwork a day with its story, zooming into the details you'd miss"
+    ],
+    "chute": "look at it for one minute before you scroll"
+   },
+   "bg": {
+    "nom": "картина вместо рийл",
+    "accroche": "смени _трийсет секунди_ с _една история_",
+    "colonne": [
+     "картината има драма, скрити детайли и история, същото ново като във фийда, в _една картина_",
+     "_съвет_: ползвам artura, по едно произведение на ден с историята му и зуум върху детайлите, които иначе пропускаш"
+    ],
+    "chute": "гледай я една минута, преди да скролнеш"
+   },
+   "de": {
+    "nom": "ein gemälde statt eines reels",
+    "accroche": "tausch _dreißig sekunden_ gegen _eine geschichte_",
+    "colonne": [
+     "drama, versteckte details, eine geschichte: dieselbe neuheit wie im feed, in _einem bild_",
+     "_pro tipp_: ich nutze artura, jeden tag ein kunstwerk mit seiner geschichte, mit zoom auf details, die man sonst übersieht"
+    ],
+    "chute": "schau es eine minute an, bevor du scrollst"
+   },
+   "el": {
+    "nom": "ένας πίνακας αντί για ένα reel",
+    "accroche": "άλλαξε _τριάντα δευτερόλεπτα_ με _μια ιστορία_",
+    "colonne": [
+     "ένας πίνακας έχει δράμα, κρυμμένες λεπτομέρειες και ιστορία, σε _μία εικόνα_",
+     "_μικρό tip_: χρησιμοποιώ το artura, ένα έργο τέχνης τη μέρα με την ιστορία του, με ζουμ στις λεπτομέρειες που θα έχανες"
+    ],
+    "chute": "κοίτα τον ένα λεπτό πριν σκρολάρεις"
+   },
+   "es-419": {
+    "nom": "una pintura en vez de un reel",
+    "accroche": "cambia _treinta segundos_ por _una historia_",
+    "colonne": [
+     "una pintura tiene drama, detalles escondidos y una historia: la novedad del feed, en _una imagen_",
+     "_tip extra_: uso artura, una obra al día con su historia, con zoom a los detalles que se te pasarían"
+    ],
+    "chute": "mírala un minuto antes de scrollear"
+   },
+   "fr": {
+    "nom": "un tableau au lieu d'un reel",
+    "accroche": "échange _trente secondes_ contre _une histoire_",
+    "colonne": [
+     "un tableau a du drame, des détails cachés et une histoire : la nouveauté d'un feed, en _une image_",
+     "_petite astuce_: j'utilise artura, une œuvre par jour avec son histoire, en zoomant sur les détails qu'on raterait"
+    ],
+    "chute": "regarde-le une minute avant de scroller"
+   },
+   "hu": {
+    "nom": "egy festmény egy reel helyett",
+    "accroche": "harminc másodperc helyett _egy történet_",
+    "colonne": [
+     "egy festményben van dráma, rejtett részlet és háttérsztori, ugyanaz az újdonság, mint a feedben, _egy képben_",
+     "_pro tip_: az artura appot használom: napi egy műalkotás a történetével, ráközelítve a részletekre, amiket elsiklanál"
+    ],
+    "chute": "nézd egy percig, mielőtt görgetni kezdesz"
+   },
+   "it": {
+    "nom": "un dipinto invece di un reel",
+    "accroche": "scambia _trenta secondi_ con _una storia_",
+    "colonne": [
+     "un dipinto ha dramma, dettagli nascosti e una storia: la novità del feed, in _un'immagine_",
+     "_piccolo consiglio_: uso artura, un'opera al giorno con la sua storia, zoomando sui dettagli che ti sfuggirebbero"
+    ],
+    "chute": "guardalo per un minuto prima di scrollare"
+   },
+   "pt-BR": {
+    "nom": "uma pintura no lugar de um reel",
+    "accroche": "troque _trinta segundos_ por _uma história_",
+    "colonne": [
+     "uma pintura tem drama, detalhes escondidos e uma história, a novidade do feed em _uma imagem_",
+     "_dica_: eu uso o artura, uma obra por dia com a sua história, com zoom nos detalhes que você perderia"
+    ],
+    "chute": "olhe por um minuto antes de rolar a tela"
+   },
+   "sr": {
+    "nom": "jedna slika umesto reela",
+    "accroche": "umesto trideset sekundi, _jedna priča_",
+    "colonne": [
+     "slika ima dramu, skrivene detalje i pozadinu, istu novost koju daje feed, u _jednoj slici_",
+     "_pro tip_: koristim aplikaciju artura, jedno umetničko delo dnevno sa pričom, uz zumiranje detalja koje bi propustio"
+    ],
+    "chute": "gledaj je minut pre nego što počneš da skroluješ"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/croquis.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "sketching what you see",
+    "accroche": "you look at things _properly_ for once",
+    "colonne": [
+     "drawing a street forces your eyes to slow down, and a bad sketch is still a _finished_ thing"
+    ],
+    "chute": "a pencil and a small notebook in your bag"
+   },
+   "bg": {
+    "nom": "рисуване на това, което виждаш",
+    "accroche": "най-накрая гледаш нещата _истински_",
+    "colonne": [
+     "да рисуваш улица забавя очите ти, а лошата скица пак е нещо _завършено_"
+    ],
+    "chute": "молив и малко тетрадче в чантата"
+   },
+   "de": {
+    "nom": "zeichnen, was du siehst",
+    "accroche": "du schaust endlich _richtig_ hin",
+    "colonne": [
+     "eine straße zu zeichnen bremst deine augen, und auch eine schlechte skizze ist etwas _fertiges_"
+    ],
+    "chute": "ein bleistift und ein kleines heft in der tasche"
+   },
+   "el": {
+    "nom": "σκίτσο ό,τι βλέπεις",
+    "accroche": "επιτέλους κοιτάς τα πράγματα _στ' αλήθεια_",
+    "colonne": [
+     "το σκίτσο ενός δρόμου κάνει τα μάτια να επιβραδύνουν, και ένα κακό σκίτσο είναι κάτι _τελειωμένο_"
+    ],
+    "chute": "ένα μολύβι και ένα μικρό μπλοκ στην τσάντα"
+   },
+   "es-419": {
+    "nom": "dibujar lo que ves",
+    "accroche": "por fin miras las cosas _de verdad_",
+    "colonne": [
+     "dibujar una calle obliga a tus ojos a ir más lento, y un boceto feo igual es algo _terminado_"
+    ],
+    "chute": "un lápiz y una libreta chiquita en tu bolsa"
+   },
+   "fr": {
+    "nom": "dessiner ce que tu vois",
+    "accroche": "tu regardes enfin les choses _vraiment_",
+    "colonne": [
+     "dessiner une rue force tes yeux à ralentir, et un croquis raté reste un truc _fini_"
+    ],
+    "chute": "un crayon et un petit carnet dans ton sac"
+   },
+   "hu": {
+    "nom": "vázlatolás",
+    "accroche": "végre _tényleg megnézed_ a dolgokat",
+    "colonne": [
+     "egy utca lerajzolása lelassítja a szemed, és egy rossz vázlat is _kész_ munka"
+    ],
+    "chute": "egy ceruza és egy kis füzet a táskádban"
+   },
+   "it": {
+    "nom": "disegnare quello che vedi",
+    "accroche": "finalmente guardi le cose _davvero_",
+    "colonne": [
+     "disegnare una via costringe gli occhi a rallentare, e uno schizzo brutto è comunque una cosa _finita_"
+    ],
+    "chute": "una matita e un taccuino piccolo in borsa"
+   },
+   "pt-BR": {
+    "nom": "desenhar o que você vê",
+    "accroche": "você finalmente olha as coisas _de verdade_",
+    "colonne": [
+     "desenhar uma rua obriga seus olhos a desacelerar, e um rascunho ruim ainda é uma coisa _terminada_"
+    ],
+    "chute": "um lápis e um caderninho na bolsa"
+   },
+   "sr": {
+    "nom": "crtanje onoga što vidiš",
+    "accroche": "konačno stvari gledaš _kako treba_",
+    "colonne": [
+     "crtanje ulice usporava oči, a i loša skica je _završena_ stvar"
+    ],
+    "chute": "olovka i mala sveska u torbi"
+   }
+  },
+  {
+   "type": "atala",
+   "photo": "images/banque/c-tresse.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "running",
+    "accroche": "your hands _can't scroll_ when you're _moving_",
+    "colonne": [
+     "a run gives a restless brain the movement it was looking for in the feed, and a goal gives it a _reason_ to come back",
+     "_pro tip_: i use atala, an ai running coach that plans my week around my goal"
+    ],
+    "chute": "put the phone in airplane mode and go"
+   },
+   "bg": {
+    "nom": "бягане",
+    "accroche": "ръцете _не скролват_, когато _се движиш_",
+    "colonne": [
+     "бягането дава на неспокойния мозък движението, което е търсил във фийда, а целта дава _причина_",
+     "_съвет_: ползвам atala, ai треньор по бягане, който планира седмицата ми около целта ми"
+    ],
+    "chute": "телефона на самолетен режим и тръгвай"
+   },
+   "de": {
+    "nom": "laufen",
+    "accroche": "beim laufen kannst du _nicht scrollen_",
+    "colonne": [
+     "laufen gibt dem unruhigen gehirn die bewegung, die es im feed gesucht hat, und ein ziel einen _grund_",
+     "_pro tipp_: ich nutze atala, einen ki-laufcoach, der meine woche um mein ziel herum plant"
+    ],
+    "chute": "handy in den flugmodus und los"
+   },
+   "el": {
+    "nom": "τρέξιμο",
+    "accroche": "τα χέρια _δεν σκρολάρουν_ όταν _κινείσαι_",
+    "colonne": [
+     "το τρέξιμο δίνει στο ανήσυχο μυαλό την κίνηση που έψαχνε, και ο στόχος έναν _λόγο_",
+     "_μικρό tip_: χρησιμοποιώ το atala, έναν ai προπονητή τρεξίματος που οργανώνει την εβδομάδα μου γύρω από τον στόχο μου"
+    ],
+    "chute": "βάλε το κινητό σε πτήση και φύγε"
+   },
+   "es-419": {
+    "nom": "correr",
+    "accroche": "tus manos _no scrollean_ mientras te _mueves_",
+    "colonne": [
+     "correr le da a un cerebro inquieto el movimiento que buscaba en el feed, y una meta le da un _motivo_ para volver",
+     "_tip extra_: uso atala, un coach de running con ia que planea mi semana según mi meta"
+    ],
+    "chute": "pon el celular en modo avión y sal"
+   },
+   "fr": {
+    "nom": "courir",
+    "accroche": "tes mains _ne peuvent pas scroller_ quand tu _bouges_",
+    "colonne": [
+     "courir donne à un cerveau agité le mouvement qu'il cherchait dans le feed, et un but lui donne une _raison_ de revenir",
+     "_petite astuce_: j'utilise atala, un coach de course par ia qui planifie ma semaine selon mon objectif"
+    ],
+    "chute": "mets le téléphone en mode avion et pars"
+   },
+   "hu": {
+    "nom": "futás",
+    "accroche": "_mozgás_ közben nem tudsz _görgetni_",
+    "colonne": [
+     "a futás megadja a nyugtalan agynak a mozgást, amit a feedben keresett, egy cél pedig _okot_ ad a visszatérésre",
+     "_pro tip_: az atala appot használom, egy ai futóedzőt, ami a célomhoz igazítja a hetemet"
+    ],
+    "chute": "tedd repülő módba a telefont, és indulj"
+   },
+   "it": {
+    "nom": "correre",
+    "accroche": "le mani _non scrollano_ mentre ti _muovi_",
+    "colonne": [
+     "la corsa dà a un cervello irrequieto il movimento che cercava nel feed, e un obiettivo gli dà un _motivo_ per tornare",
+     "_piccolo consiglio_: uso atala, un coach di corsa con l'ia che organizza la mia settimana intorno al mio obiettivo"
+    ],
+    "chute": "metti il telefono in modalità aereo ed esci"
+   },
+   "pt-BR": {
+    "nom": "correr",
+    "accroche": "as mãos _não rolam a tela_ quando você _se move_",
+    "colonne": [
+     "correr dá ao cérebro inquieto o movimento que ele buscava no feed, e uma meta dá um _motivo_ pra voltar",
+     "_dica_: eu uso o atala, um coach de corrida com ia que planeja minha semana em torno do meu objetivo"
+    ],
+    "chute": "coloque o celular no modo avião e vá"
+   },
+   "sr": {
+    "nom": "trčanje",
+    "accroche": "ne možeš da _skroluješ_ dok se _krećeš_",
+    "colonne": [
+     "trčanje daje nemirnom mozgu pokret koji je tražio u feedu, a cilj mu daje _razlog_ da se vrati",
+     "_pro tip_: koristim aplikaciju atala, ai trenera za trčanje koji mi planira nedelju prema cilju"
+    ],
+    "chute": "stavi telefon na avionski režim i kreni"
+   }
+  },
+  {
+   "type": "loisir",
+   "photo": "images/photos/rubik.jpg",
+   "cadrage": {
+    "y": 0.5
+   },
+   "en": {
+    "nom": "a puzzle cube",
+    "accroche": "something to _fidget_ with that _isn't a phone_",
+    "colonne": [
+     "learning the steps is a small daily challenge, and getting faster gives your brain a _clear score_"
+    ],
+    "chute": "learn the beginner method in one evening"
+   },
+   "bg": {
+    "nom": "кубче за редене",
+    "accroche": "нещо за въртене, което _не е телефон_",
+    "colonne": [
+     "да учиш стъпките е малко ежедневно предизвикателство, а по-бързото време дава _ясен резултат_"
+    ],
+    "chute": "научи метода за начинаещи за една вечер"
+   },
+   "de": {
+    "nom": "ein zauberwürfel",
+    "accroche": "was zum _rumspielen_, das _kein handy_ ist",
+    "colonne": [
+     "die schritte zu lernen ist eine kleine tägliche challenge, und schneller werden gibt eine _klare punktzahl_"
+    ],
+    "chute": "lern die anfängermethode an einem abend"
+   },
+   "el": {
+    "nom": "ένας κύβος-γρίφος",
+    "accroche": "κάτι να _πασπατεύεις_ που _δεν είναι κινητό_",
+    "colonne": [
+     "οι κινήσεις είναι μια μικρή καθημερινή πρόκληση, και η ταχύτητα δίνει ένα _καθαρό σκορ_"
+    ],
+    "chute": "μάθε τη μέθοδο για αρχάριους σε ένα βράδυ"
+   },
+   "es-419": {
+    "nom": "un cubo de rompecabezas",
+    "accroche": "algo para _juguetear_ que _no es el celular_",
+    "colonne": [
+     "aprender los pasos es un pequeño reto diario, y ser más rápido le da a tu cerebro un _marcador claro_"
+    ],
+    "chute": "aprende el método para principiantes en una noche"
+   },
+   "fr": {
+    "nom": "un cube casse-tête",
+    "accroche": "un truc à _tripoter_ qui n'est _pas un téléphone_",
+    "colonne": [
+     "apprendre les étapes est un petit défi quotidien, et aller plus vite donne à ton cerveau un _score clair_"
+    ],
+    "chute": "apprends la méthode débutant en une soirée"
+   },
+   "hu": {
+    "nom": "egy logikai kocka",
+    "accroche": "valami a kezedbe, ami _nem telefon_",
+    "colonne": [
+     "a lépések megtanulása napi kis kihívás, és a gyorsulás _tiszta pontszámot_ ad az agyadnak"
+    ],
+    "chute": "a kezdő módszert egy este alatt megtanulod"
+   },
+   "it": {
+    "nom": "un cubo rompicapo",
+    "accroche": "qualcosa da _rigirare_ che _non è un telefono_",
+    "colonne": [
+     "imparare i passaggi è una piccola sfida quotidiana, e diventare più veloce dà al cervello un _punteggio chiaro_"
+    ],
+    "chute": "impara il metodo base in una sera"
+   },
+   "pt-BR": {
+    "nom": "um cubo mágico",
+    "accroche": "algo pra mexer que _não é_ o _celular_",
+    "colonne": [
+     "aprender os passos é um pequeno desafio diário, e ficar mais rápido dá ao cérebro uma _nota clara_"
+    ],
+    "chute": "aprenda o método iniciante numa noite"
+   },
+   "sr": {
+    "nom": "logička kocka",
+    "accroche": "nešto za ruke što _nije telefon_",
+    "colonne": [
+     "učenje koraka je mali dnevni izazov, a brže slaganje daje mozgu _jasan rezultat_"
+    ],
+    "chute": "početnu metodu naučiš za jedno veče"
+   }
+  }
+ ]
+}

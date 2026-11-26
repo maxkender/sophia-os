@@ -571,7 +571,7 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
           // plus avec la lecture de l'API) ; Ruul peut attendre la première paie. Textes seulement.
           type: "p",
           texte:
-            "You are paid **every Monday** through **Ruul**, our payment partner, for the week of posts that just ended (Monday → Sunday). **Nothing to submit.** Because of bank validation, the money usually reaches your account **1 to 2 business days later** (Tuesday or Wednesday). **Ruul fees are paid by Vik Studios**: you receive the full amount (10 $ sent = 10 $ received).",
+            "You are paid **every Monday** through **Ruul**, our payment partner, for the week of posts that just ended (Monday → Sunday). **Nothing to submit.** Because of bank validation, the money usually reaches your account **1 to 2 business days later** (Tuesday or Wednesday). **Ruul fees are paid by Vik Studios**: you receive the full amount, nothing is deducted.",
         },
         { type: "titre", texte: "Set up Ruul (you can do it later, before your first pay)" },
         {

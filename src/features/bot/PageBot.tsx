@@ -142,7 +142,7 @@ export function Tester() {
                 <option value="ruul">Ruul</option>
               </select>
               <select aria-label="Zone" className={SEL} value={profil.zone} onChange={(e) => setProfil({ ...profil, zone: e.target.value })}>
-                {["A", "B", "C"].map((z) => <option key={z} value={z}>Zone {z}</option>)}
+                {["A", "B", "C", "US"].map((z) => <option key={z} value={z}>Zone {z}</option>)}
               </select>
               <select aria-label="Étape" className={SEL} value={profil.etape} onChange={(e) => setProfil({ ...profil, etape: e.target.value })}>
                 {["inscription", "warmup", "posting"].map((x) => <option key={x} value={x}>{x}</option>)}

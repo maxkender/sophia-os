@@ -29,7 +29,8 @@ export function texteInviteRuul(email: string | null): string {
  * et l'étape 6 du dashboard. Tout est fait avant le premier post (dimanche minuit, heure de Paris).
  */
 /** 21/11 (Max) : les frais Ruul sont payés par Vik Studios ; le délai de la banque reste dit. */
-export const FRAIS_RUUL = "Ruul fees are paid by Vik Studios: you receive the full amount (10 $ sent = 10 $ received). It usually reaches your bank 1 to 2 business days after Monday (Tuesday or Wednesday).";
+// 0867 (26/11) : plus d'exemple chiffré (« 10 $ sent = 10 $ received ») : le montant dépend du pays (14 $, 30 $ aux États-Unis…).
+export const FRAIS_RUUL = "Ruul fees are paid by Vik Studios: you receive the full amount, nothing is deducted. It usually reaches your bank 1 to 2 business days after Monday (Tuesday or Wednesday).";
 
 export function guideRuul(email: string | null, avant: string | null = "Sunday midnight (Paris time)"): string {
   return [

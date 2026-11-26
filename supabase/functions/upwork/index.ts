@@ -6151,9 +6151,13 @@ async function offresCompleter(supabase: Supabase, par: string | null, contrats:
     const contrat = String(a.contrat_id ?? "");
     if (!contrat || ["autre_activite", "hm"].includes(String(a.classement ?? "")) || a.statut === "doublon") continue;
     if (!contrats?.length && (faits.has(contrat) || recents.has(contrat))) continue;
+    // 0867 (26/11) : un contrat au tarif figé (posteurs US d'avant les 30 $, Israël…) se complète à SON tarif ;
+    // sinon le tarif de la zone du pays (États-Unis : zone US, 30 $ pour les nouvelles recrues).
+    const { data: fige } = await supabase.from("contrats_tarifs").select("force_tarif").eq("contrat_id", contrat).maybeSingle();
     const { data: zp } = await supabase.from("zones_paie_pays").select("zone").eq("pays", String(a.pays ?? "").toUpperCase()).is("retire_at", null).maybeSingle();
     const { data: z } = zp ? await supabase.from("zones_paie").select("tarif").eq("zone", zp.zone).maybeSingle() : { data: null };
-    const tarif = z?.tarif !== undefined && z?.tarif !== null ? Number(z.tarif) : null;
+    const tarif = fige?.force_tarif != null ? Number(fige.force_tarif)
+      : z?.tarif !== undefined && z?.tarif !== null ? Number(z.tarif) : null;
     const relu = await relireJalons(supabase, par, contrat, ORG_VIK_OFFRES, "offre_completer_lecture");
     await noterLecture(supabase, "offre", contrat);
     if (!relu.jalons) {

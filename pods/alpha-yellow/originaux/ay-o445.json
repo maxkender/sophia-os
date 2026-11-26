@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o445",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "468afdcb-8edc-4b54-8b30-9afe706ea920",
+ "titre": "Les règles silencieuses pour qu'on te respecte vraiment #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "468afdcb-8edc-4b54-8b30-9afe706ea920"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (468afdcb, notre ay-o270), 2e déclinaison après ay-o429, écrite en français, la langue source du parent (§4.3). Même promesse, autres mots. Règles neuves, aucune reprise d'ay-o270, o429 ni de 3cb235a5. Ton calme, sans mépris.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8671637f-678c-4810-9003-69b0cf81bfac",
+   "texte_overlay": "Les règles silencieuses pour\nqu'on te respecte vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Ne cours pas après les gens qui t'ignorent. Si quelqu'un ne répond jamais, arrête de relancer. Ton temps a de la valeur.",
+   "media_id": "d32e8806-cd04-44c5-be2a-074004c5ab45"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ne raconte pas tes projets à tout le monde. Agis d'abord, parle ensuite. Les résultats impressionnent plus que les promesses.",
+   "media_id": "d36cc995-93a7-4cd2-9904-4d8e1ee530f2"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Ne laisse pas ton humeur dépendre des autres. Une remarque désagréable ne doit pas gâcher ta journée. Reste maître de ton calme.",
+   "media_id": "d36fbf2a-d73e-4fbd-8825-15d0c4028de9"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Tiens tes engagements, même les petits. Arriver à l'heure, rappeler quand tu l'as promis. La fiabilité inspire le respect.",
+   "media_id": "d3b3b418-ad17-4357-a02e-78739c299d56"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Avant : je cherchais l'approbation de tout le monde. Après : cinq minutes d'histoire, d'art ou de science par jour, et je me sens plus solide.",
+   "texte_sophia": "Avant : je cherchais l'approbation de tout le monde. Après : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Je me sens plus solide.",
+   "media_id": "f1c885d5-0211-4797-9b16-4f1e92e1c298"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Dis non quand c'est non. Sans colère, sans longue explication. Un non calme est respecté bien plus qu'un oui forcé.",
+   "media_id": "d4093417-ef21-4eaf-99a4-d53a0cf47e93"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Respecte-toi d'abord. Ton corps, ton sommeil, ton temps. Les autres apprennent comment te traiter en regardant comment tu te traites.",
+   "media_id": "d4621232-4a22-42da-9de1-63b778150b41"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o442",
+ "type_bleo": "full_test",
+ "titre": "Why every man should write handwritten letters #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Accroches écrites : « Why every man should write handwritten letters » (retenue), « The lost art of the letter » (écartée : nostalgique), « Write a letter this week » (écartée : injonction sèche).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4bbb6ac9-230a-449c-a099-d43f4767570b",
+   "texte_overlay": "Why every man should\nwrite handwritten letters",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A letter shows real effort. In a world of quick messages, taking the time to write by hand makes people feel truly valued.",
+   "media_id": "cca311a9-df77-480b-b6c4-6b530e3948c6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "People keep letters for years. A text disappears in the chat. A letter ends up in a drawer and gets read again and again.",
+   "media_id": "cdd1020e-6be0-493d-8a18-ff326949fa55"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Writing by hand slows your thinking. You choose words more carefully and often say things you'd never say in a message.",
+   "media_id": "ce83a9be-2dc6-414a-b738-fdc204c22afd"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "It's perfect for thank-yous. After a dinner, an interview, a favour. A short handwritten note is remembered for a long time.",
+   "media_id": "cedf3236-474b-44bf-8d8f-829c3b62b377"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I struggled to find the right words. After: five minutes a day of history, art or science, and my writing feels richer.",
+   "texte_sophia": "Before: I struggled to find the right words. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. My writing feels richer.",
+   "media_id": "98e24f86-a672-453a-89b3-a6a8c5a5cbd6"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Write to your grandparents or parents. They'll treasure it more than any gift. It's a simple way to say what usually goes unsaid.",
+   "media_id": "cee5c206-c8c3-4399-97d0-0c2c6c807c3d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keep it short and honest. Three sentences that come from the heart are better than a perfect page. Start this week with one card.",
+   "media_id": "cf1b6bad-b3d1-4e77-b0b4-0205e853a3d8"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o451",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2082b86f-78e5-4a2a-ac08-3f517a32f1d0",
+ "titre": "Things I consider extremely Chic #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "2082b86f-78e5-4a2a-ac08-3f517a32f1d0"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 8 de la boîte (2082b86f, @celonstudio) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (tongs avec jean, marques, bracelets, art, daim, photo). Format adapté : un élément de style par slide avec une phrase, aucune marque citée. Les lignes 9 et 10 (« things i find… ») sont sautées, accroches voisines de la ligne 8 le même jour. La ligne 13 est sautée, voisine de la ligne 12..",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b116c6cd-d063-4037-ab23-54c67b416b5c",
+   "texte_overlay": "Things I\nconsider\nextremely\nChic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A man who knows how to dress for the weather. Wool when it's cold, linen when it's hot. Looking comfortable is the first step to looking elegant.",
+   "media_id": "dd756769-869a-4b19-b27b-265f58708c13"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "A good watch on a leather strap. Simple, classic, no logo screaming for attention. Quiet details say more than big brands.",
+   "media_id": "dda0d2e9-6bd3-4f62-9c11-addba78e76fe"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Clean, polished shoes. People notice them more than you think. Well-kept shoes make any outfit look intentional.",
+   "media_id": "dda2fdec-43c2-45d5-ab61-f6b792c370db"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Reading a real book in a café. No phone on the table, just a coffee and a story. Few things look more relaxed and confident.",
+   "media_id": "dda79faf-9e18-413d-8c85-a7a59e5ed481"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Knowing a little about art and history. I do five minutes a day of history, art or science, and it makes museum visits so much richer.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It makes museum visits so much richer.",
+   "media_id": "fe0ffc8c-5e98-4b92-abf0-4144aed3e784"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A well-fitted navy suit. Not for every day, but for the moments that matter. A great suit never goes out of style.",
+   "media_id": "ddafa2ba-1777-4431-8370-affdedadfec7"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Good manners everywhere. Thanking the waiter, holding a door, listening fully. True style is how you treat people.",
+   "media_id": "ddb183f4-e815-4a86-97a4-0f8ef51b18fb"
+  }
+ ]
+}

@@ -52,8 +52,16 @@ export function genreDuLabel(nomOuSlug: string | null | undefined): Genre | null
   if (!s) return null;
   if (s.includes("girl") || s.includes("femme") || s.includes("female") || s.includes("woman")) return "femme";
   if (s.includes("male") || s.includes("homme") || s.includes("alpha")) return "homme";
+  // 26/11 : `looksmaxxing_man` n'était reconnu par rien (« man » n'est pas « male ») : ses comptes recevaient le
+  // genre par défaut, femme (prénom, bio, photo). Mots ENTIERS, jamais un morceau de mot (« human », « manga »).
+  const mots = s.split("_");
+  if (mots.some((m) => MOTS_FEMME.has(m))) return "femme";
+  if (mots.some((m) => MOTS_HOMME.has(m))) return "homme";
   return null;
 }
+
+const MOTS_HOMME: ReadonlySet<string> = new Set(["man", "men", "guy", "guys", "boy", "boys", "gentleman", "gentlemen", "bro", "bros"]);
+const MOTS_FEMME: ReadonlySet<string> = new Set(["women", "lady", "ladies", "her", "she"]);
 
 /**
  * Thème des MOTS du @ et de la bio : plus fin que `ThemeLabel`, qui règle aussi

@@ -1,0 +1,54 @@
+{
+  "source_id": "cs-o197",
+  "type_bleo": "full_test",
+  "titre": "how i study for science tests using diagrams #studytok #studytips #science",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous ; trois accroches écrites, celle-ci retenue pour son moment précis et sa promesse modeste et vraie. Gestes vrais : dessiner chaque processus, légender de mémoire, une couleur par élément, transformer le texte en flèches, un détour par l'histoire des découvertes (slide Sophia, 5), refaire le schéma le lendemain sans regarder. Le label sert Sophia (20/11) : texte de base sans appli, une seule slide avec texte_sophia (« a micro-learning app like the Sophia app », culture générale, jamais de révision), sur un item de pause ou d'habitude, sur une photo sans personne. Images de toute la banque, son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "774298f0",
+      "texte_overlay": "how i study for science tests\nusing diagrams",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e7b0e0db",
+      "texte_overlay": "every process becomes a drawing.\nthe water cycle, cell division, a circuit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e56a8069",
+      "texte_overlay": "then i label it from memory.\nwhat i can't name is what i don't know.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c69e49f0",
+      "texte_overlay": "one colour per element.\nmy brain remembers colours faster than words.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a01a6210",
+      "texte_overlay": "long paragraphs become arrows.\ncause → effect, step → step.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3dd0cc95",
+      "texte_overlay": "i learn who discovered it and how.\nthe story makes the diagram make sense.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg",
+      "texte_sophia": "i learn who discovered it and how\non a micro-learning app like the Sophia app.\nthe story makes the diagram make sense."
+    },
+    {
+      "position": 7,
+      "media_id": "54e81404",
+      "texte_overlay": "next day, i redraw it without looking.\nthat's my real test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

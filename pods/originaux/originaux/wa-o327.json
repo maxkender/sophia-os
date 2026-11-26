@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o327",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1efc9abc-f175-4774-ba7f-b0cd5e28deba",
+ "titre": "hidden signs your mind is sharper than most #intelligence #psychology #signs #brain #selfimprovement",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "f2859d4a-2767-473f-be8d-7dbbd477b759"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f2859d4a). déclinaison G2 de « quiet signs you re smarter than you think » (parent 1efc9abc). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "78bf6bd2-18e3-448a-8c7c-fdf103fbbf67",
+   "texte_overlay": "hidden signs your mind is\nsharper than most",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fae02000-124f-4ac5-b20a-e23ccf0603e3",
+   "texte_overlay": "you question your own answers\n\nyou check your first thought before trusting it. people who know a lot are usually aware of how much they still don't know, so a little doubt is a good sign.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a347c4a9-9d5f-436c-a4bb-271071477f57",
+   "texte_overlay": "repetition bores you\n\nsmall talk and routine drain you quickly because your mind wants fresh ideas. a brain that gets bored easily is usually one that is always hungry to learn something.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2de7892a-57bb-445d-b25e-d147e2bd3205",
+   "texte_overlay": "you think out loud\n\nyou talk yourself through problems, quietly or out loud. putting thoughts into words slows them down and organises them, which helps you find better answers faster.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4b4e15c2-6d42-49ab-8438-bb7d8faabb36",
+   "texte_overlay": "you chase odd questions\n\nyou wonder why cats purr or how old the moon is, and you love finding out the answers. that constant wondering is the habit behind almost every brilliant mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/5.jpg",
+   "texte_sophia": "you chase odd questions\n\nyou chase odd questions, like why cats purr. the Sophia app turns them into one short lesson a day, and 5 minutes of curiosity keeps a sharp mind happy and growing."
+  },
+  {
+   "position": 6,
+   "media_id": "81788230-81ea-4c23-af20-e4310bcc9a17",
+   "texte_overlay": "you catch tiny details\n\nyou spot what others miss: a shift in tone, a crooked frame, a pattern in numbers. paying close attention to small things is one of the quietest signs of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/6.jpg"
+  }
+ ]
+}

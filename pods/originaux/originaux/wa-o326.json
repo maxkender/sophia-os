@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o326",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b78b1b68-88d7-4bc3-b9f3-5c11809fd7c1",
+ "titre": "the quiet details people notice when they meet you #firstimpressions #bodylanguage #psychology #confidence #socialskills",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "f490daf5-f20d-4891-a1ce-4219bcb84d2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f490daf5). déclinaison G2 de « what people notice about you in the first 7 seconds » (parent b78b1b68). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "73125b2c-fdd2-4215-af0c-6bdf859ef23d",
+   "texte_overlay": "the quiet details people\nnotice when they meet you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4ae1c31a-4592-4bee-83d8-f810ece89b84",
+   "texte_overlay": "the way you enter\n\npeople read your energy the moment you walk in. a calm, unhurried entrance with relaxed shoulders tells everyone you're comfortable before you say a single word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4d385a07-f718-46d4-b7f0-92da99a4139c",
+   "texte_overlay": "how warm your eyes are\n\nmeeting someone's eyes with a soft, warm look feels like real interest. holding it one second longer than usual quietly tells them you're glad they're there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c5f32943-d3de-40e7-bbc0-1f1b63aa2538",
+   "texte_overlay": "how curious you seem\n\npeople sense genuine curiosity within seconds, and it grows when you feed your mind a little every day. a curious mind shows up in your face before you say anything at all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/4.jpg",
+   "texte_sophia": "how curious you seem\n\npeople notice curiosity before i speak. i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and it shows in my face and in how i listen."
+  },
+  {
+   "position": 5,
+   "media_id": "69a68a5b-7a88-4791-94f0-1ab9aa2a108d",
+   "texte_overlay": "the pace of your voice\n\na calm, slightly slower voice makes people lean in and trust you. rushing your words, on the other hand, quietly signals nerves even when you feel completely fine.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a968422a-2b0a-47a9-8699-f9348dd95da2",
+   "texte_overlay": "what your hands are doing\n\nopen, relaxed hands look honest and friendly. hands hidden in pockets or fidgeting with a phone can make people feel a little more guarded around you without knowing why.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/6.jpg"
+  }
+ ]
+}

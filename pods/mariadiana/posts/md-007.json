@@ -1,0 +1,100 @@
+{
+  "id": "md-007",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings With Secrets Hidden In Plain Sight"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #vermeer #caravaggio #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/orfevre.jpg": {
+      "musee": "The Met",
+      "id": "459052",
+      "titre": "A Goldsmith in his Shop",
+      "artiste": "Petrus Christus",
+      "date": "1449",
+      "url": "https://www.metmuseum.org/art/collection/search/459052"
+    },
+    "images/oeuvres/bronzino-jeune-homme.jpg": {
+      "musee": "The Met",
+      "id": "435802",
+      "titre": "Portrait of a Young Man",
+      "artiste": "Bronzino (Agnolo di Cosimo di Mariano)",
+      "date": "1530s",
+      "url": "https://www.metmuseum.org/art/collection/search/435802"
+    },
+    "images/oeuvres/allegorie-foi.jpg": {
+      "musee": "The Met",
+      "id": "437877",
+      "titre": "Allegory of the Catholic Faith",
+      "artiste": "Johannes Vermeer",
+      "date": "ca. 1670–72",
+      "url": "https://www.metmuseum.org/art/collection/search/437877"
+    },
+    "images/oeuvres/musiciens.jpg": {
+      "musee": "The Met",
+      "id": "435844",
+      "titre": "The Musicians",
+      "artiste": "Caravaggio (Michelangelo Merisi)",
+      "date": "1597",
+      "url": "https://www.metmuseum.org/art/collection/search/435844"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Un orfèvre dans sa boutique (Petrus Christus) : signé et daté 1449 ; le miroir convexe du comptoir montre la rue et deux hommes, l'un avec un faucon (notice du Met, coll. Lehman). Bronzino, Portrait d'un jeune homme, années 1530, Florence : masques grotesques sculptés sur le pied de table et l'accoudoir ; modèle non identifié. Vermeer, Allégorie de la foi catholique (vers 1670-72) : iconographie tirée de l'Iconologia de Cesare Ripa (trad. néerlandaise 1644) : pomme croquée, serpent écrasé par la pierre angulaire, globe sous le pied ; la sphère de verre suspendue reflète la pièce ; Vermeer catholique converti à son mariage. Caravage, Les Musiciens (vers 1597), pour le cardinal Francesco Maria del Monte ; l'enfant ailé aux raisins = Cupidon ; le jeune homme au cornet souvent vu comme un autoportrait. Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-loupe.jpg",
+      "en": {
+        "titre": "Paintings With Secrets Hidden In Plain Sight"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/orfevre.jpg",
+      "en": {
+        "titre": "A Goldsmith in His Shop",
+        "texte": "looks like a couple choosing a wedding ring. But the round mirror on the counter shows the street outside, where two men are standing, one with a falcon on his wrist. Petrus Christus signed and dated it in 1449.",
+        "artiste": "Petrus Christus"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/bronzino-jeune-homme.jpg",
+      "en": {
+        "titre": "Portrait of a Young Man",
+        "texte": "hides faces where you least expect them: the table leg and the arm of the chair are carved into grotesque masks. Nobody knows who the young man was. Bronzino painted him in Florence in the 1530s.",
+        "artiste": "Bronzino"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/allegorie-foi.jpg",
+      "en": {
+        "titre": "Allegory of the Catholic Faith",
+        "texte": "is packed with symbols Vermeer took from Cesare Ripa's book of emblems: a bitten apple, a snake crushed by a stone, the globe under her foot. I learned to see the whole room reflected in the glass ball above her on Artura, one artwork a day with its story.",
+        "artiste": "Johannes Vermeer"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/musiciens.jpg",
+      "en": {
+        "titre": "The Musicians",
+        "texte": "has a stranger in the band: the boy with the grapes on the left has wings, so he is Cupid. The young man behind, looking straight at us, is often thought to be Caravaggio himself. He painted it around 1597 for Cardinal del Monte.",
+        "artiste": "Caravaggio"
+      }
+    }
+  ]
+}

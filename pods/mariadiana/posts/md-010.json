@@ -1,0 +1,100 @@
+{
+  "id": "md-010",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings By Women History Tried To Forget"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #womenartists #berthemorisot #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/esther-artemisia.jpg": {
+      "musee": "The Met",
+      "id": "436453",
+      "titre": "Esther before Ahasuerus",
+      "artiste": "Artemisia Gentileschi",
+      "date": "1620s",
+      "url": "https://www.metmuseum.org/art/collection/search/436453"
+    },
+    "images/oeuvres/villers-charlotte.jpg": {
+      "musee": "The Met",
+      "id": "437903",
+      "titre": "Marie Joséphine Charlotte du Val d'Ognes (1786–1868)",
+      "artiste": "Marie Denise Villers",
+      "date": "1801",
+      "url": "https://www.metmuseum.org/art/collection/search/437903"
+    },
+    "images/oeuvres/vallayer-coster.jpg": {
+      "musee": "The Met",
+      "id": "437864",
+      "titre": "Vase of Flowers and Conch Shell",
+      "artiste": "Anne Vallayer-Coster",
+      "date": "1780",
+      "url": "https://www.metmuseum.org/art/collection/search/437864"
+    },
+    "images/oeuvres/morisot-tricot.jpg": {
+      "musee": "The Met",
+      "id": "437159",
+      "titre": "Young Woman Knitting",
+      "artiste": "Berthe Morisot",
+      "date": "ca. 1883",
+      "url": "https://www.metmuseum.org/art/collection/search/437159"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Artemisia Gentileschi, Esther devant Assuérus (années 1620) ; admise à l'Accademia delle Arti del Disegno de Florence en 1616, première femme. Villers, Marie Joséphine Charlotte du Val d'Ognes (1801) : legs Isaac D. Fletcher 1917, attribué à David ; doute de Charles Sterling (1951) ; attribution à Marie-Denise Villers par Margaret Oppenheimer (1996) ; la vitre fêlée en haut à gauche. Vallayer-Coster : reçue à l'Académie royale en 1770 (née en 1744), protégée de Marie-Antoinette ; tableau daté 1780. Morisot : sept des huit expositions impressionnistes (absente en 1879) ; acte de décès « sans profession » (1895). Slide Artura : version `cta A`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-portraits.jpg",
+      "en": {
+        "titre": "Paintings By Women History Tried To Forget"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/esther-artemisia.jpg",
+      "en": {
+        "titre": "Esther before Ahasuerus",
+        "texte": "shows the queen fainting before the king she has come to beg for her people's lives. Artemisia Gentileschi painted it in the 1620s. In 1616 she had become the first woman admitted to Florence's Academy of Drawing.",
+        "artiste": "Artemisia Gentileschi"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/villers-charlotte.jpg",
+      "en": {
+        "titre": "Charlotte du Val d'Ognes",
+        "texte": "was believed to be by Jacques-Louis David when it entered the Met in 1917. Only in 1996 did a historian name the real artist: Marie-Denise Villers. I learned to see the cracked windowpane behind her on Artura, one artwork a day with its story.",
+        "artiste": "Marie-Denise Villers"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/vallayer-coster.jpg",
+      "en": {
+        "titre": "Vase of Flowers and Conch Shell",
+        "texte": "was painted by Anne Vallayer-Coster, who joined the Royal Academy in 1770, at 26, as a painter of still lifes. Her flowers were so admired that Marie Antoinette became her patron. She painted this one in 1780.",
+        "artiste": "Anne Vallayer-Coster"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/morisot-tricot.jpg",
+      "en": {
+        "titre": "Young Woman Knitting",
+        "texte": "was painted by Berthe Morisot, who showed in seven of the eight Impressionist exhibitions. Her brushstrokes are so loose the woman almost melts into the garden. On her death certificate, her profession was listed as none.",
+        "artiste": "Berthe Morisot"
+      }
+    }
+  ]
+}

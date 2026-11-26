@@ -1,0 +1,100 @@
+{
+  "id": "md-011",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Feel Like A Fever Dream"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #odilonredon #surreal #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/tentation-antoine.jpg": {
+      "musee": "The Met",
+      "id": "435678",
+      "titre": "The Temptation of Saint Anthony",
+      "artiste": "Herri met de Bles",
+      "date": "ca. 1550–60",
+      "url": "https://www.metmuseum.org/art/collection/search/435678"
+    },
+    "images/oeuvres/carpaccio-meditation.jpg": {
+      "musee": "The Met",
+      "id": "435851",
+      "titre": "The Meditation on the Passion",
+      "artiste": "Vittore Carpaccio",
+      "date": "ca. 1490",
+      "url": "https://www.metmuseum.org/art/collection/search/435851"
+    },
+    "images/oeuvres/patinir-jerome.jpg": {
+      "musee": "The Met",
+      "id": "437261",
+      "titre": "The Penitence of Saint Jerome",
+      "artiste": "Joachim Patinir",
+      "date": "ca. 1515",
+      "url": "https://www.metmuseum.org/art/collection/search/437261"
+    },
+    "images/oeuvres/char-apollon.jpg": {
+      "musee": "The Met",
+      "id": "437380",
+      "titre": "The Chariot of Apollo",
+      "artiste": "Odilon Redon",
+      "date": "1905–16",
+      "url": "https://www.metmuseum.org/art/collection/search/437380"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Herri met de Bles, La Tentation de saint Antoine (vers 1550-60) : héritier de Bosch, surnommé « Civetta » pour la chouette glissée dans ses tableaux. Carpaccio, La Méditation sur la Passion (vers 1490) : le Christ mort sur un trône brisé entre Job et saint Jérôme (notice du Met). Patinir, La Pénitence de saint Jérôme (vers 1515) : panneau central du triptyque, recadré sans les volets ni le cadre ; Dürer l'appelle « der gute Landschaftsmaler » dans son journal (1521) ; chameaux bâtés à droite derrière les rochers. Redon, Le Char d'Apollon (1905-16) : les « noirs » (fusains et lithographies) jusqu'aux années 1890, Redon né en 1840. Slide Artura : version `cta B`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-reve.jpg",
+      "en": {
+        "titre": "Paintings That Feel Like A Fever Dream"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/tentation-antoine.jpg",
+      "en": {
+        "titre": "The Temptation of Saint Anthony",
+        "texte": "is a saint trying to pray while the world burns around him: towns on fire, strange towers, creatures crawling out of the ground. Herri met de Bles worked in the wake of Bosch, and hid a little owl in many of his paintings, like a signature.",
+        "artiste": "Herri met de Bles"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/carpaccio-meditation.jpg",
+      "en": {
+        "titre": "The Meditation on the Passion",
+        "texte": "sets the dead Christ on a broken throne between two old hermits, Job and Saint Jerome, in a rocky landscape full of animals. Carpaccio painted it in Venice around 1490. It still feels like a dream no one has fully explained.",
+        "artiste": "Vittore Carpaccio"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/patinir-jerome.jpg",
+      "en": {
+        "titre": "The Penitence of Saint Jerome",
+        "texte": "shows the saint kneeling among rocks that look like they grew in a dream. Dürer called Patinir the good landscape painter. I only noticed the tiny camels behind the rocks because of Artura, which zooms into the details you'd miss.",
+        "artiste": "Joachim Patinir"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/char-apollon.jpg",
+      "en": {
+        "titre": "The Chariot of Apollo",
+        "texte": "is the sun god's chariot drifting through a sky of pink and blue. Redon spent the first half of his career drawing almost only in black, his noirs. Then, past fifty, color exploded.",
+        "artiste": "Odilon Redon"
+      }
+    }
+  ]
+}

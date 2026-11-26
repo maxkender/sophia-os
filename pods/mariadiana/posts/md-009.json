@@ -1,0 +1,100 @@
+{
+  "id": "md-009",
+  "source": {
+    "url": "https://www.tiktok.com/@mariadianatudor/photo/7702212317781560598",
+    "vues": 36900,
+    "publie_le": "2026-10-29",
+    "accroche": "Paintings That Devour My Soul"
+  },
+  "type_bleo": "full_test",
+  "titre": {
+    "en": "Paintings That Make Me Feel So Small"
+  },
+  "legendes": {
+    "en": "#arthistory #painting #turner #courbet #museum"
+  },
+  "musique": {
+    "titre": "la petite fille de la mer",
+    "url": "https://www.tiktok.com/music/la-petite-fille-de-la-mer-7315897876817824558"
+  },
+  "oeuvres": {
+    "images/oeuvres/baleiniers.jpg": {
+      "musee": "The Met",
+      "id": "437854",
+      "titre": "Whalers",
+      "artiste": "Joseph Mallord William Turner",
+      "date": "ca. 1845",
+      "url": "https://www.metmuseum.org/art/collection/search/437854"
+    },
+    "images/oeuvres/dahl-cascade.jpg": {
+      "musee": "The Met",
+      "id": "439344",
+      "titre": "Two Men before a Waterfall at Sunset",
+      "artiste": "Johan Christian Dahl",
+      "date": "1823",
+      "url": "https://www.metmuseum.org/art/collection/search/439344"
+    },
+    "images/oeuvres/source-loue.jpg": {
+      "musee": "The Met",
+      "id": "436023",
+      "titre": "The Source of the Loue",
+      "artiste": "Gustave Courbet",
+      "date": "1864",
+      "url": "https://www.metmuseum.org/art/collection/search/436023"
+    },
+    "images/oeuvres/ruisdael-bles.jpg": {
+      "musee": "The Met",
+      "id": "437549",
+      "titre": "Wheat Fields",
+      "artiste": "Jacob van Ruisdael",
+      "date": "ca. 1670",
+      "url": "https://www.metmuseum.org/art/collection/search/437549"
+    }
+  },
+  "notes": "Full test (pods/ROUTINE.md §5.4) : accroche neuve de la famille « Paintings That… » de @mariadianatudor (« Paintings That Devour My Soul », 36,9 k vues, 29/10), même gabarit, même musique. Œuvres du domaine public au Met (Open Access, CC0), aucune déjà postée ce mois-ci. Faits vérifiés : Turner, Baleiniers (vers 1845) : exposé à la Royal Academy en 1845, Turner né en 1775 ; scène tirée de The Natural History of the Sperm Whale de Thomas Beale ; peint pour Elhanan Bicknell, enrichi dans l'huile de baleine. Dahl, Deux hommes devant une cascade au coucher du soleil (1823) : Dahl s'installe en 1823 dans la maison de Friedrich à Dresde (An der Elbe 33). Courbet, La Source de la Loue (1864) : Courbet né à Ornans ; série de vues de la source peintes en 1864. Ruisdael, Champs de blé (vers 1670) : Ruisdael à Amsterdam depuis 1657 ; legs Benjamin Altman 1913. Slide Artura : version `cta C`, son logo sous le paragraphe, jamais une capture. Couverture : Seedream (visiteurs de dos, le tableau flou, une tache de lumière).",
+  "slides": [
+    {
+      "type": "couverture",
+      "image": "images/photos/musee-immense.jpg",
+      "en": {
+        "titre": "Paintings That Make Me Feel So Small"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/baleiniers.jpg",
+      "en": {
+        "titre": "Whalers",
+        "texte": "was painted when Turner was seventy, and he had never been whaling. He took the scene from a book on sperm whales, for a patron whose fortune came from whale oil. The ship almost dissolves into the storm.",
+        "artiste": "J. M. W. Turner"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/dahl-cascade.jpg",
+      "en": {
+        "titre": "Two Men before a Waterfall at Sunset",
+        "texte": "shows two tiny figures facing a waterfall as the light goes. Dahl, a Norwegian living in Dresden, painted it in 1823, the year he moved into the same house as Caspar David Friedrich. You can feel his friend in every tree.",
+        "artiste": "Johan Christian Dahl"
+      }
+    },
+    {
+      "type": "artura",
+      "image": "images/oeuvres/source-loue.jpg",
+      "en": {
+        "titre": "The Source of the Loue",
+        "texte": "is a river bursting out of a black cave in the hills near Ornans, where Courbet was born. He came back to paint this cave again and again in 1864. Artura gives me one painting a day and the story behind it; this one stayed with me.",
+        "artiste": "Gustave Courbet"
+      }
+    },
+    {
+      "type": "oeuvre",
+      "image": "images/oeuvres/ruisdael-bles.jpg",
+      "en": {
+        "titre": "Wheat Fields",
+        "texte": "gives most of the canvas to the sky. A few small figures walk the road between the grain while clouds as big as mountains pass over them. Ruisdael painted it in Amsterdam around 1670.",
+        "artiste": "Jacob van Ruisdael"
+      }
+    }
+  ]
+}

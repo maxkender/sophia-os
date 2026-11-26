@@ -1,0 +1,744 @@
+{
+ "id": "mi-028",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7683191907333180702",
+  "vues": 142100,
+  "publie_le": "2026-09-08",
+  "accroche": "Habits / that increase / Intelligence"
+ },
+ "fond": "rouge",
+ "type_bleo": "full_test",
+ "musique": {
+  "titre": "original sound - glow 💯",
+  "url": "https://www.tiktok.com/music/original-sound-7605402756827941640"
+ },
+ "notes": "Full test (jauge du 26/11 : 2 full tests, avec mi-026). Format de « Habits that increase Intelligence » de @bdnf.milly (142,1 k vues, 08/09), famille « Habits that increase … », fond rouge. Slide Sophia (3) : une leçon chaque soir comme un entraînement, logo seul ; cta A. Faits vérifiés : marcher, même sur un tapis face à un mur, augmente d'environ 60 % les idées créatives au test des usages alternatifs, et l'effet reste un moment une fois assis (Oppezzo et Schwartz, Journal of Experimental Psychology: Learning, Memory, and Cognition 2014) ; les prix Nobel de sciences ont bien plus souvent que les autres scientifiques un loisir artistique ou d'artisanat sérieux (Root-Bernstein et al., Journal of Psychology of Science and Technology 2008) ; une sieste avec du sommeil paradoxal améliore d'environ 40 % la résolution de problèmes d'associations créatives (RAT), pas le repos calme ni la sieste sans sommeil paradoxal (Cai, Mednick, Harrison, Kanady et Mednick, PNAS 2009). 11 langues. Images : banque (tep, neurones-reseau, synapse), sans texte.",
+ "titre": {
+  "en": "Habits that increase Creativity",
+  "fr": "Habitudes qui augmentent la Créativité",
+  "es": "Hábitos que aumentan la Creatividad",
+  "es-419": "Hábitos que aumentan la Creatividad",
+  "it": "Abitudini che aumentano la Creatività",
+  "tr": "Yaratıcılığı artıran Alışkanlıklar",
+  "pt-BR": "Hábitos que aumentam a Criatividade",
+  "sl": "Navade, ki povečajo Ustvarjalnost",
+  "hr": "Navike koje povećavaju Kreativnost",
+  "de": "Gewohnheiten, die deine Kreativität steigern",
+  "hu": "Szokások, amelyek növelik a Kreativitást"
+ },
+ "legendes": {
+  "en": "ideas come from what you know #creativity #brain #learning #ideas #psychology",
+  "fr": "les idées viennent de ce que tu sais #créativité #cerveau #apprendre #idées #psychologie",
+  "es": "las ideas salen de lo que sabes #creatividad #cerebro #aprender #ideas #psicología",
+  "es-419": "las ideas salen de lo que sabes #creatividad #cerebro #aprender #ideas #psicología",
+  "it": "le idee nascono da ciò che sai #creatività #cervello #imparare #idee #psicologia",
+  "tr": "fikirler bildiklerinden doğar #yaratıcılık #beyin #öğrenme #fikirler #psikoloji",
+  "pt-BR": "ideias vêm do que você sabe #criatividade #cerebro #aprender #ideias #psicologia",
+  "sl": "ideje pridejo iz tega, kar veš #ustvarjalnost #možgani #učenje #ideje #psihologija",
+  "hr": "ideje dolaze iz onoga što znaš #kreativnost #mozak #učenje #ideje #psihologija",
+  "de": "ideen kommen aus dem, was du weißt #kreativität #gehirn #lernen #ideen #psychologie",
+  "hu": "az ötletek abból jönnek, amit tudsz #kreativitás #agy #tanulás #ötletek #pszichológia"
+ },
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/tep.jpg",
+   "en": {
+    "lignes": [
+     {
+      "t": "Habits",
+      "taille": "grand"
+     },
+     {
+      "t": "that increase",
+      "taille": "petit"
+     },
+     {
+      "t": "Creativity",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "fr": {
+    "lignes": [
+     {
+      "t": "Habitudes",
+      "taille": "grand"
+     },
+     {
+      "t": "qui augmentent la",
+      "taille": "petit"
+     },
+     {
+      "t": "Créativité",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que aumentan la",
+      "taille": "petit"
+     },
+     {
+      "t": "Creatividad",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "es-419": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que aumentan la",
+      "taille": "petit"
+     },
+     {
+      "t": "Creatividad",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "Abitudini",
+      "taille": "grand"
+     },
+     {
+      "t": "che aumentano la",
+      "taille": "petit"
+     },
+     {
+      "t": "Creatività",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "Yaratıcılığı",
+      "taille": "grand"
+     },
+     {
+      "t": "artıran",
+      "taille": "petit"
+     },
+     {
+      "t": "Alışkanlıklar",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "Hábitos",
+      "taille": "grand"
+     },
+     {
+      "t": "que aumentam a",
+      "taille": "petit"
+     },
+     {
+      "t": "Criatividade",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "sl": {
+    "lignes": [
+     {
+      "t": "Navade,",
+      "taille": "grand"
+     },
+     {
+      "t": "ki povečajo",
+      "taille": "petit"
+     },
+     {
+      "t": "Ustvarjalnost",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hr": {
+    "lignes": [
+     {
+      "t": "Navike",
+      "taille": "grand"
+     },
+     {
+      "t": "koje povećavaju",
+      "taille": "petit"
+     },
+     {
+      "t": "Kreativnost",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "Gewohnheiten,",
+      "taille": "grand"
+     },
+     {
+      "t": "die deine",
+      "taille": "petit"
+     },
+     {
+      "t": "Kreativität",
+      "taille": "grand"
+     },
+     {
+      "t": "steigern",
+      "taille": "petit"
+     }
+    ],
+    "image_apres": 2
+   },
+   "hu": {
+    "lignes": [
+     {
+      "t": "Szokások,",
+      "taille": "grand"
+     },
+     {
+      "t": "amelyek növelik a",
+      "taille": "petit"
+     },
+     {
+      "t": "Kreativitást",
+      "taille": "grand"
+     }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Walk When You Need Ideas",
+    "blocs": [
+     {
+      "p": "In a Stanford study, people came up with about 60% more creative ideas while walking than while sitting, even when they walked on a treadmill facing a blank wall."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "The boost lasted for a while after they sat back down. Stuck on something? Take the problem for a walk, then write your ideas down as soon as you get back."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Marche quand il te faut des idées",
+    "blocs": [
+     {
+      "p": "Dans une étude de Stanford, les participants trouvaient environ 60 % d'idées créatives en plus en marchant qu'assis, même en marchant sur un tapis face à un mur blanc."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "L'effet durait encore un moment après s'être rassis. Bloqué sur quelque chose ? Emmène le problème en promenade, puis note tes idées dès ton retour."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Camina cuando necesites ideas",
+    "blocs": [
+     {
+      "p": "En un estudio de Stanford, la gente tuvo cerca de un 60 % más de ideas creativas caminando que sentada, incluso caminando en una cinta frente a una pared blanca."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "El efecto duraba un rato después de volver a sentarse. ¿Atascado con algo? Saca el problema a pasear y apunta tus ideas en cuanto vuelvas."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Camina cuando necesites ideas",
+    "blocs": [
+     {
+      "p": "En un estudio de Stanford, las personas tuvieron cerca de un 60 % más de ideas creativas caminando que sentadas, incluso caminando en una caminadora frente a una pared blanca."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "El efecto duraba un rato después de volver a sentarse. ¿Te atoraste con algo? Lleva el problema a caminar y anota tus ideas en cuanto regreses."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Cammina quando ti servono idee",
+    "blocs": [
+     {
+      "p": "In uno studio di Stanford, le persone avevano circa il 60 % di idee creative in più camminando che stando sedute, anche camminando su un tapis roulant davanti a un muro bianco."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "L'effetto durava ancora un po' dopo essersi rimessi seduti. Bloccato su qualcosa? Porta il problema a fare una passeggiata, poi scrivi le idee appena torni."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Fikre ihtiyacın olunca yürü",
+    "blocs": [
+     {
+      "p": "Stanford'daki bir çalışmada insanlar yürürken, otururken olduğundan yaklaşık %60 daha fazla yaratıcı fikir buldu; boş bir duvara bakan bir koşu bandında yürürken bile."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Etki, tekrar oturduktan sonra da bir süre devam etti. Bir şeye mi takıldın? Sorunu yürüyüşe çıkar, döner dönmez fikirlerini yaz."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Caminhe quando precisar de ideias",
+    "blocs": [
+     {
+      "p": "Num estudo de Stanford, as pessoas tiveram cerca de 60 % mais ideias criativas andando do que sentadas, mesmo andando numa esteira de frente para uma parede branca."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "O efeito durava um tempo depois de sentarem de novo. Travou em alguma coisa? Leve o problema para passear e anote suas ideias assim que voltar."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Hodi, ko potrebuješ ideje",
+    "blocs": [
+     {
+      "p": "V raziskavi na Stanfordu so ljudje med hojo dobili približno 60 % več ustvarjalnih idej kot med sedenjem, tudi ko so hodili po tekoči preprogi pred praznim zidom."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Učinek je trajal še nekaj časa, ko so spet sedli. Si obtičal? Vzemi problem na sprehod in si ideje zapiši takoj, ko se vrneš."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Hodaj kad trebaš ideje",
+    "blocs": [
+     {
+      "p": "U istraživanju sa Stanforda ljudi su u hodu smislili otprilike 60 % više kreativnih ideja nego dok su sjedili, čak i kad su hodali po traci okrenuti praznom zidu."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Učinak je trajao još neko vrijeme nakon što bi ponovno sjeli. Zapeo si? Povedi problem u šetnju i zapiši ideje čim se vratiš."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Geh spazieren, wenn du Ideen brauchst",
+    "blocs": [
+     {
+      "p": "In einer Stanford-Studie hatten Menschen beim Gehen etwa 60 % mehr kreative Ideen als im Sitzen, selbst auf einem Laufband vor einer leeren Wand."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "Der Effekt hielt noch eine Weile an, nachdem sie sich wieder gesetzt hatten. Du hängst fest? Nimm das Problem mit auf einen Spaziergang und schreib deine Ideen gleich danach auf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Sétálj, ha ötletek kellenek",
+    "blocs": [
+     {
+      "p": "Egy stanfordi vizsgálatban az emberek séta közben nagyjából 60 %-kal több kreatív ötletet találtak ki, mint ülve, még akkor is, ha futópadon sétáltak egy üres fal előtt."
+     },
+     {
+      "image": "images/neurones-reseau.jpg"
+     },
+     {
+      "p": "A hatás még egy ideig megmaradt, miután visszaültek. Elakadtál valamiben? Vidd el a problémát sétálni, és írd le az ötleteidet, amint visszaértél."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Learn Outside Your Field",
+    "blocs": [
+     {
+      "p": "New ideas are often old ideas combined in a new way, so the more different things you know, the more you have to combine. Nobel Prize-winning scientists are far more likely than other scientists to have serious hobbies in the arts."
+     },
+     {
+      "p": "Feed your mind something new every night, like a training session: one short lesson before bed, on a subject far from your usual one."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Apprends hors de ton domaine",
+    "blocs": [
+     {
+      "p": "Une idée nouvelle, c'est souvent des idées anciennes combinées autrement : plus tu connais de choses différentes, plus tu as de quoi combiner. Les scientifiques prix Nobel ont bien plus souvent que les autres un loisir artistique sérieux."
+     },
+     {
+      "p": "Nourris ton esprit de quelque chose de neuf chaque soir, comme une séance d'entraînement : une courte leçon avant de dormir, sur un sujet loin de ton domaine habituel."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "J'utilise Sophia pour ça : une courte leçon avant de dormir, chaque soir, comme une séance d'entraînement pour l'esprit."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Aprende fuera de tu campo",
+    "blocs": [
+     {
+      "p": "Una idea nueva suele ser ideas viejas combinadas de otra forma: cuantas más cosas distintas sabes, más tienes para combinar. Los científicos con Premio Nobel tienen con mucha más frecuencia que el resto aficiones artísticas serias."
+     },
+     {
+      "p": "Dale a tu mente algo nuevo cada noche, como una sesión de entrenamiento: una lección corta antes de dormir, sobre un tema lejos del tuyo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Uso Sophia para esto: una lección corta antes de dormir, cada noche, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Aprende fuera de tu área",
+    "blocs": [
+     {
+      "p": "Una idea nueva muchas veces son ideas viejas combinadas de otra manera: entre más cosas distintas sabes, más tienes para combinar. Los científicos con Premio Nobel tienen con mucha más frecuencia que los demás pasatiempos artísticos serios."
+     },
+     {
+      "p": "Dale a tu mente algo nuevo cada noche, como una sesión de entrenamiento: una lección corta antes de dormir, sobre un tema lejos del tuyo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Yo uso Sophia para esto: una lección corta antes de dormir, todas las noches, como una sesión de entrenamiento para la mente."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Impara fuori dal tuo campo",
+    "blocs": [
+     {
+      "p": "Un'idea nuova spesso è fatta di idee vecchie combinate in modo diverso: più cose diverse conosci, più hai da combinare. Gli scienziati premi Nobel hanno molto più spesso degli altri un hobby artistico serio."
+     },
+     {
+      "p": "Dai alla mente qualcosa di nuovo ogni sera, come un allenamento: una breve lezione prima di dormire, su un argomento lontano dal tuo."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Io uso Sophia per questo: una breve lezione prima di dormire, ogni sera, come un allenamento per la mente."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Alanının dışında öğren",
+    "blocs": [
+     {
+      "p": "Yeni bir fikir çoğu zaman eski fikirlerin yeni bir şekilde birleşmesidir: ne kadar farklı şey bilirsen, birleştirecek o kadar çok malzemen olur. Nobel ödüllü bilim insanlarının ciddi bir sanat hobisi olması, diğer bilim insanlarına göre çok daha olasıdır."
+     },
+     {
+      "p": "Zihnini her akşam yeni bir şeyle besle, bir antrenman gibi: yatmadan önce, alışık olduğun konudan uzak bir konuda kısa bir ders."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Bunun için Sophia kullanıyorum: her gece yatmadan önce kısa bir ders, zihin için bir antrenman gibi."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Aprenda fora da sua área",
+    "blocs": [
+     {
+      "p": "Uma ideia nova muitas vezes é feita de ideias antigas combinadas de outro jeito: quanto mais coisas diferentes você sabe, mais tem para combinar. Cientistas ganhadores do Nobel têm hobbies artísticos sérios com muito mais frequência que os outros."
+     },
+     {
+      "p": "Dê à sua mente algo novo toda noite, como um treino: uma lição curta antes de dormir, num assunto longe do seu."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Eu uso a Sophia para isso: uma lição curta antes de dormir, toda noite, como um treino para a mente."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Uči se zunaj svojega področja",
+    "blocs": [
+     {
+      "p": "Nova ideja je pogosto stara ideja, sestavljena na nov način: več različnih stvari znaš, več imaš za sestavljanje. Znanstveniki z Nobelovo nagrado imajo veliko pogosteje kot drugi resen umetniški konjiček."
+     },
+     {
+      "p": "Vsak večer daj umu nekaj novega, kot trening: kratka lekcija pred spanjem, o temi daleč od tvoje običajne."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to uporabljam Sophio: kratka lekcija pred spanjem, vsak večer, kot trening za um."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Uči izvan svog područja",
+    "blocs": [
+     {
+      "p": "Nova ideja često je spoj starih ideja na nov način: što više različitih stvari znaš, to imaš više za spajanje. Znanstvenici dobitnici Nobelove nagrade mnogo češće od ostalih imaju ozbiljan umjetnički hobi."
+     },
+     {
+      "p": "Svake večeri daj umu nešto novo, kao trening: kratka lekcija prije spavanja, o temi daleko od tvoje uobičajene."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Za to koristim Sophiju: kratka lekcija prije spavanja, svake večeri, kao trening za um."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Lerne außerhalb deines Fachs",
+    "blocs": [
+     {
+      "p": "Neue Ideen sind oft alte Ideen, neu kombiniert: Je mehr verschiedene Dinge du weißt, desto mehr kannst du kombinieren. Nobelpreisträger in den Naturwissenschaften haben viel häufiger als andere Forschende ein ernsthaftes künstlerisches Hobby."
+     },
+     {
+      "p": "Gib deinem Kopf jeden Abend etwas Neues, wie eine Trainingseinheit: eine kurze Lektion vor dem Schlafen, zu einem Thema weit weg von deinem."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Ich nutze Sophia dafür: eine kurze Lektion vor dem Schlafen, jeden Abend, wie ein Training für den Kopf."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Tanulj a saját területeden kívül",
+    "blocs": [
+     {
+      "p": "Egy új ötlet sokszor régi ötletek új összekapcsolása: minél többféle dolgot tudsz, annál több mindent kapcsolhatsz össze. A Nobel-díjas tudósoknak sokkal gyakrabban van komoly művészeti hobbijuk, mint más tudósoknak."
+     },
+     {
+      "p": "Adj az elmédnek valami újat minden este, mint egy edzés: egy rövid lecke lefekvés előtt, a megszokottól távoli témáról."
+     },
+     {
+      "image": "sophia"
+     },
+     {
+      "p": "Én erre a Sophiát használom: egy rövid lecke lefekvés előtt, minden este, mint egy edzés az elmének."
+     }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Sleep On Your Problems",
+    "blocs": [
+     {
+      "p": "In one experiment, people who reached REM sleep during an afternoon nap solved almost 40% more creative word puzzles than before. Those who rested quietly, or napped without REM sleep, did not improve."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Before bed, read through a problem you are stuck on, then let it go. Your sleeping brain keeps connecting what you learned, and the answer often feels easier in the morning."
+     }
+    ]
+   },
+   "fr": {
+    "titre": "Dors sur tes problèmes",
+    "blocs": [
+     {
+      "p": "Dans une expérience, les personnes qui atteignaient le sommeil paradoxal pendant une sieste résolvaient près de 40 % d'énigmes créatives de mots en plus qu'avant. Celles qui s'étaient juste reposées, ou avaient dormi sans sommeil paradoxal, ne progressaient pas."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Avant de dormir, relis un problème sur lequel tu bloques, puis lâche-le. Ton cerveau endormi continue de relier ce que tu as appris, et la réponse paraît souvent plus simple au réveil."
+     }
+    ]
+   },
+   "es": {
+    "titre": "Consulta tus problemas con la almohada",
+    "blocs": [
+     {
+      "p": "En un experimento, quienes llegaron al sueño REM durante una siesta resolvieron casi un 40 % más de acertijos creativos de palabras que antes. Quienes solo descansaron, o durmieron sin sueño REM, no mejoraron."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Antes de dormir, repasa un problema en el que estés atascado y suéltalo. Tu cerebro dormido sigue conectando lo que aprendiste, y la respuesta suele parecer más fácil por la mañana."
+     }
+    ]
+   },
+   "es-419": {
+    "titre": "Duerme sobre tus problemas",
+    "blocs": [
+     {
+      "p": "En un experimento, quienes llegaron al sueño REM durante una siesta resolvieron casi un 40 % más de acertijos creativos de palabras que antes. Quienes solo descansaron, o durmieron sin sueño REM, no mejoraron."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Antes de dormir, repasa un problema en el que estés atorado y suéltalo. Tu cerebro dormido sigue conectando lo que aprendiste, y la respuesta muchas veces se ve más fácil en la mañana."
+     }
+    ]
+   },
+   "it": {
+    "titre": "Dormici sopra",
+    "blocs": [
+     {
+      "p": "In un esperimento, chi arrivava al sonno REM durante un pisolino risolveva quasi il 40 % in più di enigmi creativi di parole rispetto a prima. Chi si era solo riposato, o aveva dormito senza sonno REM, non migliorava."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Prima di dormire rileggi un problema su cui sei bloccato, poi lascialo andare. Il cervello addormentato continua a collegare ciò che hai imparato, e al mattino la risposta sembra spesso più facile."
+     }
+    ]
+   },
+   "tr": {
+    "titre": "Sorunlarını uykuya bırak",
+    "blocs": [
+     {
+      "p": "Bir deneyde öğle uykusunda REM uykusuna geçenler, yaratıcı kelime bulmacalarını öncekine göre yaklaşık %40 daha fazla çözdü. Sadece dinlenenler ya da REM uykusu olmadan uyuyanlar gelişme göstermedi."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Yatmadan önce takıldığın bir sorunu baştan oku, sonra bırak. Uyuyan beynin öğrendiklerini birbirine bağlamaya devam eder ve cevap sabah çoğu zaman daha kolay görünür."
+     }
+    ]
+   },
+   "pt-BR": {
+    "titre": "Durma sobre seus problemas",
+    "blocs": [
+     {
+      "p": "Num experimento, quem chegou ao sono REM durante um cochilo resolveu quase 40 % mais charadas criativas de palavras do que antes. Quem só descansou, ou dormiu sem sono REM, não melhorou."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Antes de dormir, releia um problema em que você está travado e solte. Seu cérebro dormindo continua ligando o que você aprendeu, e a resposta muitas vezes parece mais fácil de manhã."
+     }
+    ]
+   },
+   "sl": {
+    "titre": "Prespi svoje probleme",
+    "blocs": [
+     {
+      "p": "V enem poskusu so ljudje, ki so med popoldanskim dremežem prišli do faze REM, rešili skoraj 40 % več ustvarjalnih besednih ugank kot prej. Tisti, ki so samo počivali ali spali brez faze REM, niso napredovali."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Pred spanjem preberi problem, pri katerem si obtičal, in ga spusti. Tvoji speči možgani še naprej povezujejo, kar si se naučil, in odgovor se zjutraj pogosto zdi lažji."
+     }
+    ]
+   },
+   "hr": {
+    "titre": "Prespavaj svoje probleme",
+    "blocs": [
+     {
+      "p": "U jednom pokusu ljudi koji su tijekom popodnevnog drijemanja ušli u REM fazu riješili su gotovo 40 % više kreativnih zagonetki s riječima nego prije. Oni koji su se samo odmarali, ili spavali bez REM faze, nisu napredovali."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Prije spavanja pročitaj problem na kojem si zapeo, pa ga pusti. Tvoj usnuli mozak nastavlja povezivati ono što si naučio, a odgovor se ujutro često čini lakšim."
+     }
+    ]
+   },
+   "de": {
+    "titre": "Schlaf über deine Probleme",
+    "blocs": [
+     {
+      "p": "In einem Experiment lösten Menschen, die bei einem Mittagsschlaf in den REM-Schlaf kamen, fast 40 % mehr kreative Worträtsel als vorher. Wer sich nur ausruhte oder ohne REM-Schlaf schlief, verbesserte sich nicht."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Lies vor dem Schlafen ein Problem durch, an dem du festhängst, und lass es dann los. Dein schlafendes Gehirn verknüpft weiter, was du gelernt hast, und die Antwort wirkt am Morgen oft leichter."
+     }
+    ]
+   },
+   "hu": {
+    "titre": "Aludj rá a problémáidra",
+    "blocs": [
+     {
+      "p": "Egy kísérletben azok, akik egy délutáni szundításban eljutottak a REM-alvásig, csaknem 40 %-kal több kreatív szórejtvényt oldottak meg, mint előtte. Akik csak pihentek, vagy REM-alvás nélkül aludtak, nem javultak."
+     },
+     {
+      "image": "images/synapse.jpg"
+     },
+     {
+      "p": "Lefekvés előtt olvasd át a problémát, amelyben elakadtál, aztán engedd el. Az alvó agyad tovább kapcsolja össze, amit tanultál, és reggel a válasz gyakran könnyebbnek tűnik."
+     }
+    ]
+   }
+  }
+ ]
+}

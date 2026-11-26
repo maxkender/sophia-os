@@ -29,6 +29,7 @@ export const EXCEPTIONS = {
   "step.profil.photo": ["fr"], // Photo
   "pay.short": ["nl"], // ${tarif}/week
   "pay.perWeekUnit": ["nl"], // USD per week
+  "chk.connexion.password": ["it"], // Password
 };
 
 const lireDico = (dossier, f) => JSON.parse(readFileSync(join(dossier, f), "utf8"));

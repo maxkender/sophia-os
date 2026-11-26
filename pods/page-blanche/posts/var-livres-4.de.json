@@ -1,0 +1,276 @@
+{
+ "post_id": "var-livres-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "5 Bücher, die du an [[einem Wochenende]] durchliest"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(auch wenn du nie liest)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_4b96c303.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "texte": "1. [[Weiße Nächte]], Dostojewski"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "texte": "vier Nächte, zwei Fremde auf einer Brücke"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "texte": "sie wartet auf einen anderen, und du [[hoffst trotzdem auf jeder Seite für ihn]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "texte": "nur 70 Seiten, [[der kürzeste Herzschmerz, den du je liest]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00da4c5f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "2. [[Der Alchimist]], Coelho"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "ein junger Hirte träumt von einem Schatz bei den Pyramiden, verkauft seine Schafe, zieht los, und [[der Weg lehrt ihn mehr als Gold]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "unter 200 Seiten, [[ein Wochenende]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "was mein Scrollen ersetzt hat: ein Buch in der Tasche, Musik beim Laufen und [[die Sophia-App]], wenn ich doch zum Handy greife"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "meine 5-Minuten-Lektion heute dort: was der Urknall eigentlich ist"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "texte": "3. [[Die Perle]] (1947)"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "texte": "Steinbeck. ein armer Taucher findet die größte Perle aller Zeiten"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "texte": "der Arzt, die Händler, die ganze Stadt wollen sie, und sein Traum [[wird langsam zum Albtraum]]"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "texte": "unter 100 Seiten, geschrieben wie eine alte Fabel, an einem Abend durch"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "texte": "[[und dieses Ende erst]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0014a691.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "4. [[Eine Weihnachtsgeschichte]]"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "Dickens. ein geiziger alter Mann bekommt in einer einzigen Nacht Besuch von drei Geistern"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "Vergangenheit, Gegenwart und Zukunft, und am Morgen [[ist er nicht mehr derselbe]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "um die 100 Seiten, [[perfekt für Dezember]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1df07ae0.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "5. [[Siddhartha]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "von Hermann Hesse, etwa 150 Seiten"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "ein junger Mann sucht den Sinn des Lebens, probiert Reichtum und Liebe und [[findet ihn an einem Fluss]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "einfache Sätze, kurze Kapitel und eine Ruhe, die tagelang bleibt. [[der perfekte Abschluss fürs Wochenende]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0a7a707d.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  }
+ }
+}

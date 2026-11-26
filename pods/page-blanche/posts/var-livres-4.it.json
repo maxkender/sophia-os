@@ -1,0 +1,276 @@
+{
+ "post_id": "var-livres-4",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "texte": "5 libri che puoi finire in [[un solo weekend]]"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "texte": "(anche se non leggi mai)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_02c4cbbc.jpg",
+      "boite": [
+       0,
+       450,
+       1760,
+       1300
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "texte": "1. [[Le notti bianche]], Dostoevskij"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "texte": "quattro notti, due sconosciuti su un ponte"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "texte": "lei aspetta qualcun altro, e tu comunque [[fai il tifo per lui a ogni pagina]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "texte": "circa 70 pagine, [[il cuore spezzato più breve che leggerai mai]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_00da4c5f.jpg",
+      "boite": [
+       0,
+       0,
+       1760,
+       2368
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "texte": "2. [[L'alchimista]], Coelho"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "texte": "un giovane pastore sogna un tesoro vicino alle piramidi, vende le pecore e parte, e [[la strada gli insegna più dell'oro]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "texte": "meno di 200 pagine, [[un weekend]]"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "texte": "cosa ha sostituito il mio scroll: un libro in borsa, musica quando cammino e [[l'app Sophia]] quando prendo comunque il telefono"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "texte": "la lezione di 5 minuti di oggi lì: perché la porpora è il colore dei re"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "texte": "3. [[La perla]] (1947)"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "texte": "Steinbeck. un pescatore povero trova la perla più grande mai vista"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "texte": "il dottore, i mercanti, tutta la città la vogliono, e il suo sogno [[diventa piano piano un incubo]]"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "texte": "meno di 100 pagine, scritto come una vecchia favola, finito in una sera"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "texte": "[[e quel finale, poi]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0014a691.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stop trying to multitask"
+     ],
+     "texte": "4. [[Canto di Natale]] (1843)"
+    },
+    "T2": {
+     "en": [
+      "every task switch forces",
+      "your working memory to",
+      "drop one context and",
+      "load another"
+     ],
+     "texte": "Dickens. un vecchio avaro riceve la visita di tre fantasmi in una sola notte"
+    },
+    "T3": {
+     "en": [
+      "doing 2 things at once",
+      "feels productive, but",
+      "your brain is just",
+      "constantly re-orienting"
+     ],
+     "texte": "passato, presente e futuro, e la mattina dopo [[non è più lo stesso uomo]]"
+    },
+    "T4": {
+     "en": [
+      "one task, one tab, until it's finished"
+     ],
+     "texte": "circa 100 pagine, [[perfetto per dicembre]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_1df07ae0.jpg",
+      "boite": [
+       0,
+       0,
+       2368,
+       1760
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "texte": "5. [[Siddharta]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "texte": "di Hermann Hesse, circa 150 pagine"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "texte": "un giovane lascia casa per cercare il senso della vita, prova la ricchezza e l'amore, e [[lo trova vicino a un fiume]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "texte": "frasi semplici, capitoli brevi e una calma che dura giorni. [[il libro perfetto per chiudere il weekend]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/os_0a7a707d.jpg",
+      "boite": [
+       0,
+       0,
+       1664,
+       2496
+      ]
+     }
+    }
+   }
+  }
+ }
+}

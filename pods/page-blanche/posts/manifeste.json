@@ -6603,6 +6603,142 @@
    },
    "notes": "full test BLEO, cta A",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-concentration-2",
+   "url": "https://www.tiktok.com/@amayareading/video/7695416366886604064?variante=var-concentration-1?variante=var-concentration-2",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #concentration #etudes",
+   "musique": {
+    "titre": "deftones",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7373989994559556385",
+    "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7690642292855672096_1",
+    "2": "7690642292855672096_2",
+    "3": "7690642292855672096_3",
+    "4": "7690642292855672096_4",
+    "5": "7690642292855672096_5",
+    "6": "7690642292855672096_6"
+   },
+   "notes": "declinaison G2 de var-concentration-1, cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "e33727f2-8bdc-4610-9630-785e61c1e892"
+  },
+  {
+   "post_id": "var-grandv-3",
+   "url": "https://www.tiktok.com/@amayareading/video/7685071416466607382?variante=var-grandv-1?variante=var-grandv-3",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #concentration #neuroscience",
+   "musique": {
+    "titre": "som original - strange",
+    "auteur": "strange",
+    "original": true,
+    "id": "7650637490231708437",
+    "url_tiktok": "https://www.tiktok.com/music/x-7650637490231708437"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685071416466607382_1",
+    "2": "7685071416466607382_4",
+    "3": "7685071416466607382_2",
+    "4": "7685071416466607382_5",
+    "5": "7685071416466607382_3",
+    "6": "7685071416466607382_6"
+   },
+   "notes": "declinaison G2 de var-grandv-1, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "1e5c88ed-02be-4362-91ff-a5f47d042204"
+  },
+  {
+   "post_id": "var-ruin20s-8",
+   "url": "https://www.tiktok.com/@amayareading/video/7688807102764092705?variante=var-ruin20s-4?variante=var-ruin20s-8",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#vingtaine #20s #ironie",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7688807102764092705_1",
+    "2": "7688807102764092705_4",
+    "3": "7691336990419209505_2",
+    "4": "7688807102764092705_6",
+    "5": "7688807102764092705_3",
+    "6": "7688807102764092705_5"
+   },
+   "notes": "declinaison G2 de var-ruin20s-4, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "4b5567c0-1141-4fff-abff-f24c312dedc1"
+  },
+  {
+   "post_id": "var-signes-3",
+   "url": "https://www.tiktok.com/@amayareading/video/7685736268617059616?variante=var-signes-1?variante=var-signes-3",
+   "publie_le": null,
+   "vues": null,
+   "slides": 7,
+   "legende": "#scroll #cerveau #neuroscience",
+   "musique": {
+    "titre": "retire (final)",
+    "auteur": "Alvedon",
+    "original": false,
+    "id": "6991133033583609857",
+    "url_tiktok": "https://www.tiktok.com/music/x-6991133033583609857"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685736268617059616_1",
+    "2": "7685736268617059616_2",
+    "3": "7685736268617059616_3",
+    "4": "7685736268617059616_5",
+    "5": "7685736268617059616_4",
+    "6": "7685736268617059616_6",
+    "7": "7685736268617059616_7"
+   },
+   "notes": "declinaison G2 de var-signes-1, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "829b8bbd-c245-49e4-9bce-d60c745ad890"
+  },
+  {
+   "post_id": "var-matins-2",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#matin #routine #ironie",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "Jacob . P",
+    "original": true,
+    "id": "7578950962941840150",
+    "url_tiktok": "https://www.tiktok.com/music/x-7578950962941840150"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7680975889932225814_1",
+    "2": "7684726544442346774_6",
+    "3": "7695416366886604064_4",
+    "4": "7692093201968090401_2",
+    "5": "7684726544442346774_3",
+    "6": "7692093201968090401_5"
+   },
+   "notes": "declinaison G2 de var-weekend-4, cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "5e74117a-ae6f-49a2-a593-a5e8a912bae4"
   }
  ]
 }

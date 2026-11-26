@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o345",
+ "type_bleo": "full_test",
+ "titre": "les questions que je pose à une ancienne salariée avant d'accepter un job #offredemploi #rechercheemploi #reseau #emploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (parler à une ancienne salariée). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fb2ee127",
+   "texte_overlay": "les questions que je pose\nà une ancienne salariée\navant d'accepter un job",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a20e56e6",
+   "texte_overlay": "« pourquoi t'es partie ? »\nla réponse dit tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "98d6c670",
+   "texte_overlay": "« le manager, il est comment au quotidien ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "96f2b3f7",
+   "texte_overlay": "« on part à quelle heure, vraiment ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9b16ca69",
+   "texte_overlay": "« on t'a formée, ou on t'a lâchée ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3ffe4ab3",
+   "texte_overlay": "« qu'est-ce que j'aurais intérêt à apprendre avant ? »\nmoi, je l'ajoute à mes 5 minutes par jour",
+   "texte_sophia": "« qu'est-ce que j'aurais intérêt à apprendre avant ? »\nmoi, je l'ajoute à mes 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b117c19d",
+   "texte_overlay": "tu l'as déjà fait ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

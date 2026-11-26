@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o346",
+ "type_bleo": "full_test",
+ "titre": "comment j'ai obtenu une formation payée par ma boîte #formation #travail #carriere #manager #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (obtenir une formation). Sujet juridique traité en général. Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ee757184",
+   "texte_overlay": "comment j'ai obtenu\nune formation\npayée par ma boîte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ce1df51",
+   "texte_overlay": "j'ai choisi une formation liée à mon poste\npas juste une envie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a80de8a5",
+   "texte_overlay": "j'ai écrit ce que la boîte y gagnait\nen 3 lignes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a165ff0b",
+   "texte_overlay": "j'ai demandé au bon moment\npendant l'entretien annuel, budget en préparation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9951a58b",
+   "texte_overlay": "j'ai proposé de partager ce que j'apprendrais\nune présentation à l'équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8c725d70",
+   "texte_overlay": "et j'ai montré que j'apprenais déjà seule\n5 minutes par jour, depuis 3 mois",
+   "texte_sophia": "et j'ai montré que j'apprenais déjà seule\n5 minutes par jour sur l'appli Sophia, depuis 3 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a67e34bf",
+   "texte_overlay": "t'as déjà demandé une formation ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

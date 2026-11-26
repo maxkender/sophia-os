@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o348",
+ "type_bleo": "full_test",
+ "titre": "comment je prépare mon retour après 3 semaines de vacances #vacances #travail #organisation #reprise #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le retour de vacances). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e7144ada",
+   "texte_overlay": "comment je prépare\nmon retour\naprès 3 semaines de vacances",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aaf8adcb",
+   "texte_overlay": "avant de partir, une note\n« où j'en suis, ce qui attend »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "952260cf",
+   "texte_overlay": "un message d'absence clair\navec la date de retour et un contact",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9dec9a18",
+   "texte_overlay": "le premier jour, pas de réunion\nje lis, je trie, je respire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9ba979a1",
+   "texte_overlay": "je demande un point de 15 minutes\n« qu'est-ce qui a bougé ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "79f7bbcd",
+   "texte_overlay": "je reprends mes habitudes\nmes 3 : la liste du matin, la marche du midi, 5 minutes par jour à apprendre",
+   "texte_sophia": "je reprends mes habitudes\nmes 3 : la liste du matin, la marche du midi, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b05fd857",
+   "texte_overlay": "tu reprends quand ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

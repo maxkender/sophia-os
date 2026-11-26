@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o354",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "37449e51-0125-469e-a2a0-0415d32c1b4f",
+ "titre": "les secrets pas très glorieux du tri des candidatures (je l'ai fait) #recrutement #candidature #rechercheemploi #emploi #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 26/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G2 de la ligne #7 (parent 37449e51), 2e : même promesse, autres mots, aveux différents de rh-o157 et rh-o342. Inspirations reprises de rh-o157. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dafacc9d",
+   "texte_overlay": "les secrets pas très glorieux\ndu tri des candidatures\n(je l'ai fait)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1cc3bac4",
+   "texte_overlay": "on triait le lundi matin\nles candidatures du week-end passaient en premier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e40f5f41",
+   "texte_overlay": "le nom du fichier comptait\n« cv_final_v3.pdf », ça nous faisait sourire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "91eecf2f",
+   "texte_overlay": "on regardait le dernier poste d'abord\npas le premier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "965b610b",
+   "texte_overlay": "une faute dans le nom de la boîte\nc'était souvent la fin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "02ba88dd",
+   "texte_overlay": "une ligne nous faisait rappeler\nce que tu apprenais en ce moment. mes 3 préférées : une langue, un logiciel, 5 minutes par jour sur un sujet",
+   "texte_sophia": "une ligne nous faisait rappeler\nce que tu apprenais en ce moment. mes 3 préférées : une langue, un logiciel, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b10e5303",
+   "texte_overlay": "maintenant tu sais.\nrenomme ton CV ce soir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f9263626",
+   "texte_overlay": "laquelle t'as déjà faite ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}
